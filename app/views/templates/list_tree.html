@@ -1,0 +1,18 @@
+<ul>
+  <li data-ng-repeat="node in nodes">
+    <div data-ng-init="toggleSubNodes=false"></div> <span id="{{node.key}}" data-ng-click="toggleSubNodes=!toggleSubNodes;">
+      <input type="checkbox" value="{{node.value}}" data-ng-model="isChecked" data-ng-click="toggleSubNodes=!toggleSubNodes"></input>
+      {{node.key}}
+      <i data-ng-class="{'icon-chevron-up':!toggleSubNodes, 'icon-chevron-down':toggleSubNodes}" class="icon-black"></i>
+    </span>
+
+    <ul data-ng-show="toggleSubNodes" data-ng-animate="'slide'">
+      <li data-ng-repeat="subnode in node.values"> <span id="{{subnode.key}}">
+          <input type="checkbox" value="{{subnode.value}}" data-ng-checked="isChecked"></input>
+          {{subnode.key}}
+        </span>
+
+      </li>
+    </ul>
+  </li>
+</ul>

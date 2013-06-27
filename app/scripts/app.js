@@ -1,13 +1,31 @@
 'use strict';
+/*jshint undef:false*/
 
-angular.module('linshareFrontendAdminApp', [])
-  .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  }]);
+// Holds the list of modules which the injector will load before the current module is loaded
+var app = angular.module('myApp', ['myApp.directives',
+    'myApp.filters',
+    'myApp.services',
+    'ui.bootstrap',
+    'ngResource',
+    'ngCookies',
+    'ngGrid',
+    'http-auth-interceptor',
+    'localization',
+    'restangular'
+])
+
+// Register work which needs to be performed on module loading
+.config(function(RestangularProvider) {
+  RestangularProvider.setBaseUrl("/linshare/webservice/rest");
+  RestangularProvider.setRequestSuffix('.json');
+})
+
+// Register work which should be performed when the injector is done loading all modules 
+.run(['localize', 'preferencesService', 'loggerService',
+  function(Localize, Preferences, Logger) {
+    Preferences.load();
+    Localize.initLocalizedResources();
+  }
+]);
+
+/*jshint undef:true*/

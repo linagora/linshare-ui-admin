@@ -1,0 +1,32 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"> <a class="brand" href="./index.html">{{appName}}</a>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li data-ng-repeat="tab in tabs" data-ng-class="{active: isCurrent($index)}"> <a href="{{tab.href}}">{{tab.name}}</a>
+
+          </li>
+          <li class="divider-vertical"></li>
+          <li class="dropdown"> <a class "dropdown-toggle" data-dropdown-toggle>
+                    {{ 'G_App_Language' | i18n }}
+                    <b class="caret"></b>
+                </a>
+
+            <ul class="dropdown-menu">
+              <li> <a data-ng-click="setLanguage('en-US')">{{'G_App_LangEn' | i18n}}</a>
+
+              </li>
+              <li> <a data-ng-click="setLanguage('fr-FR')">{{'G_App_LangFr' | i18n}}</a>
+
+              </li>
+            </ul>
+          </li>
+          <li> <a data-ng-click="logout()">{{'G_App_Logout' | i18n}}</a>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

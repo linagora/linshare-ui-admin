@@ -1,0 +1,60 @@
+<div id="#/uploaded_filesTab">
+  <div class="row">
+    <div class="row">
+       <h1>{{ 'P_UploadedFiles_Header' | i18n }}</h1>
+
+      <div data-grid-uploaded-files data-ng-controller="GridCtrl">
+        <hr>
+        <div class="well">
+          <ng-pluralize count="mySelections.length" when="{ 0: '{{ dictionary.P_UploadedFiles_SelectionAny | i18nPluralize }}',
+        one: '{{ dictionary.P_UploadedFiles_SelectionOne | i18nPluralize }}',
+        other: '{{ dictionary.P_UploadedFiles_SelectionMult | i18nPluralize }}'}"></ng-pluralize>
+        </div>
+        <button class="btn" ng-click="isCollapsed = !isCollapsed">Share the selection</button>
+        <hr>
+        <div data-ng-init="isCollapsed=true"></div>
+        <div collapse="isCollapsed" data-ng-controller="ShareCtrl">
+          <div data-ng-show="loadingAnimation" data-linshare-loading-animation></div>
+          <div data-ng-show="!loadingAnimation">
+            <alert data-ng-repeat="alert in alerts" type="alert.type">{{alert.msg}}</alert>
+            <form class="form-horizontal" data-ng-submit="shareDocument()">
+              <div class="control-group">
+                <label class="control-label" for="inputEmail">Email</label>
+                <div class="controls">
+                  <div class="input-prepend"> <span class="add-on"><i class="icon-envelope"></i></span>
+
+                    <input class="input-large"
+                    id="inputEmail" type="email" placeholder="Email" data-ng-model="recipient" required>
+                  </div>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="textareaComment">Comment</label>
+                <div class="controls">
+                  <textarea id="textareaComment" placeholder="Comment ..." data-ng-model="message"
+                  rows="3"></textarea>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <ul>
+                    <li data-ng-repeat="myElement in mySelections"> <span>{{myElement.name}}</span>
+
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <label class="checkbox">
+                    <input type="checkbox" data-ng-model="secured">Secured</label>
+                  <button class="btn btn-large btn-primary" type="submit">Share</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
