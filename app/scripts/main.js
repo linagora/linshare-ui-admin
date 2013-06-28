@@ -84,16 +84,6 @@ require.config({
         {deps: ['controllers/controllers']},
 
     // Services
-    'services/threadMember':
-        {deps: ['services/services']},
-    'services/thread':
-        {deps: ['services/services']},
-    'services/user':
-        {deps: ['services/services']},
-    'services/document':
-        {deps: ['services/services']},
-    'services/share':
-        {deps: ['services/services']},
     'services/preferences':
         {deps: ['services/services']},
     'services/logger':
@@ -178,11 +168,6 @@ require([
   'controllers/share',
 
   // Services
-  'services/threadMember',
-  'services/thread',
-  'services/user',
-  'services/document',
-  'services/share',
   'services/preferences',
   'services/logger',
 

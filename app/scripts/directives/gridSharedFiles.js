@@ -8,10 +8,10 @@ app.directive('gridSharedFiles', [
       transclude: true,
       // Create new scope for the current directive
       scope: false,
-      controller: ['$scope', '$rootScope', 'localize', 'shareService',
-        function($scope, $rootScope, Localize, Share) {
+      controller: ['$scope', '$rootScope', 'localize', 'Restangular',
+        function($scope, $rootScope, Localize, Restangular) {
           $scope.getData = function(successCallback, errorCallback) {
-            return Share.query(successCallback, errorCallback);
+            return Restangular.all('shares').getList().then(successCallback, errorCallback);
           };
 
           $rootScope.mySelections = [];

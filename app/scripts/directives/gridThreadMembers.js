@@ -6,12 +6,10 @@ app.directive('gridThreadMembers', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$routeParams', 'localize', 'threadMemberService',
-        function($scope, $routeParams, Localize, ThreadMember) {
+      controller: ['$scope', '$routeParams', 'localize', 'Restangular',
+        function($scope, $routeParams, Localize, Restangular) {
           $scope.getData = function(successCallback, errorCallback) {
-            return ThreadMember.query({
-              threadId: $routeParams.threadId
-            }, successCallback, errorCallback);
+            return Restangular.one('threads', $routeParams.threadId).getList('members').then(successCallback, errorCallback);
           };
 
           $scope.gridOptions = {

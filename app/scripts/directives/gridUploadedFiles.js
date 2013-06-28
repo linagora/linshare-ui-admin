@@ -11,8 +11,8 @@ app.directive('gridUploadedFiles', [
       // Create new scope for the current directive
       scope: false,
 
-      controller: ['$scope', '$rootScope', 'localize', 'documentService', 'Restangular',
-        function($scope, $rootScope, Localize, Document, Restangular) {
+      controller: ['$scope', '$rootScope', 'localize', 'Restangular',
+        function($scope, $rootScope, Localize, Restangular) {
           $scope.getData = function(successCallback, errorCallback) {
             return Restangular.all('documents').getList().then(successCallback, errorCallback);
           };

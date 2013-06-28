@@ -14,7 +14,7 @@ Quelques articles :
 GET     shares                  - liste des partages
 GET     shares/{uuid}           - les informations sur un partage
 POST    shares                  - créer un/des partage(s)
-POST    shares/{uuid}/import    - importer un document d’un partage
+POST    shares/{uuid}/import    - importer un document d’un partage (recopie dans l’espace personnel)
 DELETE  shares/{uuid}           - supprimer un partage 
 
 ## Documents
@@ -33,6 +33,7 @@ DELETE  documents/{uuid}                  - supprimer un document
 ## Utilisateurs
 
 GET     users                             - liste des utilisateurs
+GET     users/authorized                  - connexion des utilisateurs
 GET     users/{uuid}                      - les informations sur un compte
 GET     users/{pattern}                   - cherche un utilisateur grâce à un pattern
 PUT     users/{uuid}                      - créer ou modifier un compte invité
@@ -43,12 +44,19 @@ DELETE  users/{uuid}                      - supprimer un compte
 
 GET     threads                           - liste des threads 
 GET     threads/{uuid}                    - les informations sur un thread
+GET     threads/{uuid}/entries            - liste les thread entries un thread
 GET     threads/{uuid}/members            - liste des membres d’un thread
 POST    threads                           - créer un thread
+POST    threads/{uuid}/entries            - créer une thread entry
 POST    threads/{uuid}/members            - créer un thread member
 PUT     threads/{uuid}                    - modifier un thread 
 DELETE  threads/{uuid}                    - supprimer un thread
 
+## Thread entries 
+
+GET     thread_entries/{uuid}             - les informations sur une thread entry
+PUT     thread_entries/{uuid}             - modifier une thread entry (nom & commentaire)
+DELETE  thread_entries/{uuid}             - supprimer une thread entry 
 
 ## Thread members
 
@@ -58,6 +66,8 @@ DELETE  thread_members/{uuid}             - supprimer un thread member
 
 
 ## Administration
+
+GET     admin/authorized                                      - connexion des admins
 
 ### Domains
 
@@ -100,3 +110,20 @@ GET     admin/functionnalities/{uuid}                   - les informations sur u
 PUT     admin/functionnalities/{uuid}                   - modifier les paramètres d’une fonctionnalité
 PUT     admin/functionnalities/{uuid}/configuration     - modifier une politique de configuration d’une fonctionnalité
 PUT     admin/functionnalities/{uuid}/activation        - modifier une politique d’activation d’une fonctionnalité
+
+### Threads
+
+GET     admin/threads                           - liste des threads 
+GET     admin/threads/{uuid}                    - les informations sur un thread
+GET     admin/threads/{uuid}/members            - liste des membres d’un thread
+POST    admin/threads/{uuid}/members            - créer un thread member
+PUT     admin/threads/{uuid}                    - modifier un thread 
+DELETE  admin/threads/{uuid}                    - supprimer un thread
+
+
+### Thread members
+
+GET     admin/thread_members/{uuid}             - les informations sur un thread member
+PUT     admin/thread_members/{uuid}             - modifier un thread member
+DELETE  admin/thread_members/{uuid}             - supprimer un thread member
+

@@ -6,10 +6,10 @@ app.directive('gridThreads', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', 'localize', 'threadService',
-        function($scope, Localize, Thread) {
+      controller: ['$scope', 'localize', 'Restangular',
+        function($scope, Localize, Restangular) {
           $scope.getData = function(successCallback, errorCallback) {
-            return Thread.query(successCallback, errorCallback);
+            return Restangular.all('threads').getList().then(successCallback, errorCallback);
           };
 
           $scope.gridOptions = {

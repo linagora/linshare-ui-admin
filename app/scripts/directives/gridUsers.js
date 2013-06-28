@@ -6,10 +6,10 @@ app.directive('gridUsers', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', 'localize', 'userService',
-        function($scope, Localize, User) {
+      controller: ['$scope', 'localize', 'Restangular',
+        function($scope, Localize, Restangular) {
           $scope.getData = function(successCallback, errorCallback) {
-            return User.query(successCallback, errorCallback);
+            return Restangular.all('users').getList().then(successCallback, errorCallback);
           };
 
           $scope.gridOptions = {

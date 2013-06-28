@@ -6,11 +6,11 @@ app.directive('linshareFileUpload', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', 'localize', 'preferencesService',
-        function($scope, Localize, Preferences) {
+      controller: ['$scope', 'localize', 'Restangular', 'preferencesService',
+        function($scope, Localize, Restangular, Preferences) {
           jQuery('#uploader').pluploadQueue({
             runtimes: 'html5,flash,html4',
-            url: Preferences.system.linshareURL + '/webservice/rest/document/upload',
+            url: Restangular.all('documents').getRestangularUrl(),
             max_file_size: '10mb',
             init: {
               StateChanged: function(up) {
