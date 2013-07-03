@@ -12,7 +12,7 @@ require.config({
     ngresource: '/components/angular-resource/angular-resource',
     bootstrap: '/components/angular-bootstrap/ui-bootstrap.min',
     bootstrap_tpls: '/components/angular-bootstrap/ui-bootstrap-tpls.min',
-    nggrid: '../components/ng-grid/build/ng-grid.min',
+    nggrid: '/components/ng-grid/build/ng-grid.min',
     restangular: '/components/restangular/src/restangular',
 
     // Unpackaged lib
@@ -77,8 +77,6 @@ require.config({
     'controllers/threadDetail':
         {deps: ['controllers/controllers']},
     'controllers/userDetail':
-        {deps: ['controllers/controllers']},
-    'controllers/login':
         {deps: ['controllers/controllers']},
     'controllers/share':
         {deps: ['controllers/controllers']},
@@ -164,7 +162,6 @@ require([
   'controllers/grid',
   'controllers/threadDetail',
   'controllers/userDetail',
-  'controllers/login',
   'controllers/share',
 
   // Services
