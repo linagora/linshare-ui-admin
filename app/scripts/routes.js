@@ -4,15 +4,12 @@ angular.module('myApp').config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.when('/uploaded_files', {
       templateUrl: 'views/uploaded_files.html',
-      controller: MyCtrl1
     });
     $routeProvider.when('/shared_files', {
       templateUrl: 'views/shared_files.html',
-      controller: MyCtrl2
     });
     $routeProvider.when('/users', {
       templateUrl: 'views/users.html',
-      controller: MyCtrl2
     });
     $routeProvider.when('/users/:userId', {
       templateUrl: 'views/user_detail.html'
