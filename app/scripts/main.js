@@ -104,6 +104,8 @@ require.config({
         {deps: ['directives/directives', 'bootstrap']},
     'directives/navbar':
         {deps: ['directives/directives', 'bootstrap']},
+    'directives/footer':
+        {deps: ['directives/directives']},
     'directives/listTree':
         {deps: ['directives/directives', 'bootstrap']},
     'directives/loadingAnimation':
@@ -177,6 +179,7 @@ require([
   'directives/fileUpload',
   'directives/loginForm',
   'directives/navbar',
+  'directives/footer',
   'directives/listTree',
   'directives/loadingAnimation',
 

@@ -1,29 +1,49 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container"> <a class="brand" href="./index.html">{{appName}}</a>
-
+    <div class="container">
       <div class="nav-collapse">
         <ul class="nav">
-          <li data-ng-repeat="tab in tabs" data-ng-class="{active: isCurrent($index)}"> <a href="{{tab.href}}">{{tab.name}}</a>
-
-          </li>
-          <li class="divider-vertical"></li>
-          <li class="dropdown"> <a class "dropdown-toggle" data-dropdown-toggle>
-                    {{ 'G_App_Language' | i18n }}
-                    <b class="caret"></b>
-                </a>
-
+          <li class="dropdown" data-ng-repeat="tab in tabs"> 
+            <a class="dropdown-toggle">
+              {{tab.name}}
+              <b class="caret"></b>
+            </a>
             <ul class="dropdown-menu">
-              <li> <a data-ng-click="setLanguage('en-US')">{{'G_App_LangEn' | i18n}}</a>
-
-              </li>
-              <li> <a data-ng-click="setLanguage('fr-FR')">{{'G_App_LangFr' | i18n}}</a>
-
+              <li data-ng-repeat="link in tab.links">
+                <a href="{{link.href}}">{{link.name}}</a>
               </li>
             </ul>
           </li>
-          <li> <a data-ng-click="logout()">{{'G_App_Logout' | i18n}}</a>
-
+          <li class="divider-vertical"></li>
+          <li class="dropdown"> 
+            <a class="dropdown-toggle">
+              {{'G_App_Language' | i18n}}
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a data-ng-click="setLanguage('en-US')">
+                  {{'G_App_LangEn' | i18n}}
+                </a>
+              </li>
+              <li>
+                <a data-ng-click="setLanguage('fr-FR')">
+                  {{'G_App_LangFr' | i18n}}
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown"> 
+            <a class="dropdown-toggle brand">
+              {{'G_App_AppName' | i18n}}
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a data-ng-click="logout()">
+                  {{'G_App_Logout' | i18n}}
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>

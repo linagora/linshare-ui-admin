@@ -11,30 +11,48 @@ app.directive('linshareNavbar', [
           $scope.appName = Preferences.system.appName;
 
           $scope.tabs = [{
-              name: Localize.getLocalizedString('G_Tab_SharedFiles'),
-              href: '#shared_files'
+              name: Localize.getLocalizedString('G_Tab_Domains'),
+              links: [{
+                name: Localize.getLocalizedString('P_Domains_LDAPConnections'),
+                href: '#domains/ldap_connections'
+              }, {
+                name: Localize.getLocalizedString('P_Domains_DomainPatterns'),
+                href: '#domains/domain_patterns'
+              }, {
+                name: Localize.getLocalizedString('P_Domains_Management'),
+                href: '#domains/management'
+              }]
             }, {
-              name: Localize.getLocalizedString('G_Tab_UploadedFiles'),
-              href: '#uploaded_files'
+              name: Localize.getLocalizedString('G_Tab_Administration'),
+              links: [{
+                name: Localize.getLocalizedString('P_Administration_ActivationPolicies'),
+                href: '#administration/activation_policies'
+              }, {
+                name: Localize.getLocalizedString('P_Administration_ConfigurationPolicies'),
+                href: '#administration/configuration_policies'
+              }, {
+                name: Localize.getLocalizedString('P_Administration_MailsPersonalization'),
+                href: '#administration/mails_personalization'
+              }]
             }, {
               name: Localize.getLocalizedString('G_Tab_Users'),
-              href: '#users'
-            }, {
-              name: Localize.getLocalizedString('G_Tab_Upload'),
-              href: '#upload'
+              links: '#users'
             }, {
               name: Localize.getLocalizedString('G_Tab_Threads'),
-              href: '#threads'
+              links: '#threads'
             }, {
-              name: 'Tree',
-              href: '#tree'
+              name: Localize.getLocalizedString('G_Tab_MailingLists'),
+              links: '#mailing_lists'
+            }, {
+              name: Localize.getLocalizedString('G_Tab_Audit'),
+              links: '#audit'
+            }, {
+              name: Localize.getLocalizedString('G_Tab_Charts'),
+              links: '#charts'
             }
           ];
-          $scope.isCurrent = function(index) {
-            var path = $scope.tabs[index].href;
-            var currentPath = '#' + $location.path();
-            return (currentPath == path);
-          };
+
+          $scope.isCurrent = false;
 
           $scope.setLanguage = function(value) {
             Localize.setLanguage(value);

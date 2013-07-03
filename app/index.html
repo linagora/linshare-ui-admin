@@ -11,25 +11,12 @@
   <!-- Navbar  =====================================-->
   <div data-linshare-navbar></div>
 
-  <!-- Subhead  =====================================-->
-  <header class="jumbotron subhead">
-    <div class="container">
-      <h1>LinshareNG</h1>
-      <p>{{'G_App_HomeTitle' | i18n}}</p>
-      <p>{{'G_App_Greeting' | i18n}}</p>
-    </div>
-  </header>
-
   <!-- Content  =====================================-->
-  <div class="container" data-ng-view></div>
+  <div data-ng-view></div>
 
   <!-- Footer =====================================-->
-  <footer class="footer">
-    <div class="container">
-      <p>Linshare poc version: v<span app-version></span></p>
-    </div>
-  </footer>
-  
+  <div data-linshare-footer></div>
+ 
   <!-- build:js javascripts/scripts.js -->
   <script data-main="scripts/main" src="components/requirejs/require.js"></script>
   <!-- endbuild -->
