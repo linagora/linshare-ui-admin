@@ -98,6 +98,8 @@ require.config({
         {deps: ['directives/directives', 'nggrid']},
     'directives/gridSharedFiles':
         {deps: ['directives/directives', 'nggrid']},
+    'directives/gridDomainPatterns':
+        {deps: ['directives/directives', 'nggrid']},
     'directives/fileUpload':
         {deps: ['directives/directives', 'plupload']},
     'directives/loginForm':
@@ -176,6 +178,7 @@ require([
   'directives/gridUsers',
   'directives/gridUploadedFiles',
   'directives/gridSharedFiles',
+  'directives/gridDomainPatterns',
   'directives/fileUpload',
   'directives/loginForm',
   'directives/navbar',
