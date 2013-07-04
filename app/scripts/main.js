@@ -13,6 +13,7 @@ require.config({
     bootstrap: '/components/angular-bootstrap/ui-bootstrap.min',
     bootstrap_tpls: '/components/angular-bootstrap/ui-bootstrap-tpls.min',
     nggrid: '/components/ng-grid/build/ng-grid.min',
+    nggrid_flexibleheight: '/components/ng-grid/plugins/ng-grid-flexible-height',
     restangular: '/components/restangular/src/restangular',
 
     // Unpackaged lib
@@ -58,6 +59,8 @@ require.config({
         {deps: ['angular', 'bootstrap']},
     'nggrid':
         {deps: ['jquery', 'angular']},
+    'nggrid_flexibleheight':
+        {deps: ['nggrid']},
     'restangular':
         {deps: ['angular', 'lodash']},
 
@@ -147,6 +150,7 @@ require([
   'bootstrap',
   'bootstrap_tpls',
   'nggrid',
+  'nggrid_flexibleheight',
   'restangular',
   
   // Unpackaged lib

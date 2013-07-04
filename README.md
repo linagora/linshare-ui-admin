@@ -2,7 +2,7 @@
 
 ## AngularJS
 Avant de commencer à développer, veuillez lire les pages suivantes 
-pour connaitre angularjs et les bonnes pratiques:
+pour connaitre AngularJS et les bonnes pratiques:
 
 http://docs.angularjs.org/tutorial/
 http://docs.angularjs.org/guide/
@@ -26,11 +26,11 @@ cf : http://docs.angularjs.org/guide/di
 * Modifier le service Logger pour utiliser la fonction debug() d'AngularJS.
 * Vérifier la directive d'animation dans la tree view ainsi que les regles CSS associées.
 
-
-
 ## Outils de dev
 L'éditeur de texte vim est conseillé avec le plugin https://github.com/maksimr/vim-jsbeautify
-Pour éviter des fichiers avec trop de colonne, la tabulation avec 2 espace est recommandée.
+Pour éviter des fichiers avec trop de colonne, la tabulation avec 2 espaces est recommandée.
+Pour l'API rest, le debugger http://restclient.net/ est conseillé.
+Pour débugger AngularJS https://github.com/angular/angularjs-batarang
 
 ## Utilisation de l'internationalization
 A la première utilisation de Linshare, la langue par défaut est la langue du navigateur,

@@ -34,7 +34,8 @@ app.directive('gridDomainPatterns', [
                 field: 'description',
                 displayName: Localize.getLocalizedString('P_Domains-DomainsPatterns_HeaderDescription')
               }
-            ]
+            ],
+            plugins: [new ngGridFlexibleHeightPlugin()]
           };
         }
       ],
