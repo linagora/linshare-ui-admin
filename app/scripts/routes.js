@@ -15,13 +15,15 @@ angular.module('myApp').config(['$routeProvider',
     $routeProvider.when('/administration/activation_policies', {
       templateUrl: 'views/administration/activation_policies.html',
     });
+
     $routeProvider.when('/administration/configuration_policies', {
       templateUrl: 'views/administration/configuration_policies.html',
     });
+
     $routeProvider.when('/administration/mails_personalization', {
       templateUrl: 'views/administration/mails_personalization.html',
     });
-
+    
     $routeProvider.when('/users', {
       templateUrl: 'views/users.html',
     });

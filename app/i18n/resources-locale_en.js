@@ -63,13 +63,69 @@
     "value": "Manage your domain patterns",
     "description": "Title for the domain patterns page."
   },
-  "P_Domains-DomainsPatterns_HeaderIdentifier": {
+  "P_Domains-DomainPatterns_IdentifierLabel": {
     "value": "Identifier",
-    "description": "Header for the identifier column in the domain patterns page."
+    "description": "Label for the identifier."
   },
-  "P_Domains-DomainsPatterns_HeaderDescription": {
+  "P_Domains-DomainPatterns_IdentifierHelp": {
+    "value": "Unique identifier for the domain pattern",
+    "description": "Help for the identifier field."
+  },
+  "P_Domains-DomainPatterns_DescriptionLabel": {
     "value": "Description",
-    "description": "Header for the description column in the domain patterns page."
+    "description": "Label for the description."
+  },
+  "P_Domains-DomainPatterns_AuthenticationLabel": {
+    "value": "Auth command",
+    "description": "Label for the authenticiation command."
+  },
+  "P_Domains-DomainPatterns_AuthenticationHelp": {
+    "value": "LDAP command for authentication",
+    "description": "Help for the authentication field."
+  },
+  "P_Domains-DomainPatterns_SearchUserLabel": {
+    "value": "Search User command",
+    "description": "Label for the search user command."
+  },
+  "P_Domains-DomainPatterns_SearchUserHelp": {
+    "value": "LDAP command for search an user",
+    "description": "Help for the search user field."
+  },
+  "P_Domains-DomainPatterns_Attributes": {
+    "value": "Attributes",
+    "description": "Label for the attributes section."
+  },
+  "P_Domains-DomainPatterns_EmailLabel": {
+    "value": "Email",
+    "description": "Label for the attribute email."
+  },
+  "P_Domains-DomainPatterns_EmailHelp": {
+    "value": "Value of the attribute <mail>",
+    "description": "Help for the attribute email."
+  },
+  "P_Domains-DomainPatterns_FirstNameLabel": {
+    "value": "First Name",
+    "description": "Label for the attribute first name."
+  },
+  "P_Domains-DomainPatterns_FirstNameHelp": {
+    "value": "Value of the attribute <firstName>",
+    "description": "Help for the attribute first name."
+  },
+  "P_Domains-DomainPatterns_LastNameLabel": {
+    "value": "Last Name",
+    "description": "Label for the attribute last name."
+  },
+  "P_Domains-DomainPatterns_LastNameHelp": {
+    "value": "Value of the attribute <lastName>",
+    "description": "Help for the attribute last name."
+  },
+  "P_Domains-DomainPatterns_Reset": {
+    "value": "Reset",
+    "description": "Label for the reset button."
+  },
+  "P_Domains-DomainPatterns_Update": {
+    "value": "Update",
+    "description": "Label for the update button."
   },
   "P_Administration_ActivationPolicies": {
     "value": "Activation Policies",

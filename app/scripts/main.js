@@ -83,6 +83,8 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/share':
         {deps: ['controllers/controllers']},
+    'controllers/domainPatterns':
+        {deps: ['controllers/controllers']},
 
     // Services
     'services/preferences':
@@ -165,6 +167,7 @@ require([
   'controllers/threadDetail',
   'controllers/userDetail',
   'controllers/share',
+  'controllers/domainPatterns',
 
   // Services
   'services/preferences',
