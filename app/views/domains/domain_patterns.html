@@ -5,77 +5,20 @@
          <h1>{{'P_Domains-DomainPatterns_Title' | i18n}}</h1>
 
       </div>
+      <div>
+        <div class="btn-toolbar" data-ng-init="creationForm=false">
+          <button class="btn btn-primary" type="button"  data-ng-click="creationForm=!creationForm">
+            <i class="icon-plus icon-white"></i> {{'P_Domains-DomainPatterns_Add' | i18n}}
+          </button>
+        </div>
+        <div data-ng-show="creationForm">
+          <div data-linshare-domain-pattern-form></div>
+        </div>
+      </div>
       <div data-ng-controller="GridCtrl">
         <div data-grid-domain-patterns>
           <div data-ng-repeat="myElement in selections">
-            <form novalidate class="form-horizontal" data-ng-controller="DomainPatternsCtrl">
-              <fieldset>
-                <!-- Identifier -->
-                <legend>{{domainPattern.identifier}}</legend>
-                <!-- Description -->
-                <div class="control-group">
-                  <label class="control-label" for="description">{{'P_Domains-DomainPatterns_DescriptionLabel' | i18n}}</label>
-                  <div class="controls">
-                    <textarea id="description" name="authentication" class="input-xxlarge" data-ng-model="domainPattern.description"></textarea>
-                  </div>
-                </div>
-                <!-- Authentication -->
-                <div class="control-group">
-                  <label class="control-label" for="authentication">{{'P_Domains-DomainPatterns_AuthenticationLabel' | i18n}}</label>
-                  <div class="controls">
-                    <textarea id="authentication" name="authentication" class="input-xxlarge" data-ng-model="domainPattern.authCommand"></textarea>
-                    <p class="help-block">{{'P_Domains-DomainPatterns_AuthenticationHelp' | i18n}}</p>
-                  </div>
-                </div>
-                <!-- Search User -->
-                <div class="control-group">
-                  <label class="control-label" for="searchUser">{{'P_Domains-DomainPatterns_SearchUserLabel' | i18n}}</label>
-                  <div class="controls">
-                    <textarea id="searchUser" name="searchUser" class="input-xxlarge" data-ng-model="domainPattern.searchUserCommand"></textarea>
-                    <p class="help-block">{{'P_Domains-DomainPatterns_SearchUserHelp' | i18n}}</p>
-                  </div>
-                </div>
-                <!-- Attributes -->
-                <div class="well" style="max-width: 600px; margin: 0 auto 10px;">
-                  <h4>{{'P_Domains-DomainPatterns_Attributes' | i18n}}</h4>
-                  <div class="control-group">
-                    <label class="control-label" for="email">{{'P_Domains-DomainPatterns_EmailLabel' | i18n}}</label>
-                    <div class="controls">
-                      <input id="email" name="email" type="text" data-ng-model="domainPattern.userMail"
-                      class="input-xlarge">
-                      <p class="help-block">{{'P_Domains-DomainPatterns_EmailHelp' | i18n}}</p>
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label class="control-label" for="firstName">{{'P_Domains-DomainPatterns_FirstNameLabel' | i18n}}</label>
-                    <div class="controls">
-                      <input id="firstName" name="firstName" type="text" data-ng-model="domainPattern.userFirstName"
-                      class="input-xlarge">
-                      <p class="help-block">{{'P_Domains-DomainPatterns_FirstNameHelp' | i18n}}</p>
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label class="control-label" for="lastName">{{'P_Domains-DomainPatterns_LastNameLabel' | i18n}}</label>
-                    <div class="controls">
-                      <input id="lastName" name="lastName" type="text" data-ng-model="domainPattern.userLastName"
-                      class="input-xlarge">
-                      <p class="help-block">{{'P_Domains-DomainPatterns_LastNameHelp' | i18n}}</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Validation -->
-                <div class="control-group">
-                  <div class="controls">
-                    <button id="reset" name="reset" class="btn btn-danger" data-ng-click="reset()">
-                      {{'P_Domains-DomainPatterns_Reset' | i18n}}
-                    </button>
-                    <button id="update" name="update" class="btn btn-success" data-ng-click="update(domainPattern)">
-                      {{'P_Domains-DomainPatterns_Update' | i18n}}
-                    </button>
-                  </div>
-                </div>
-              </fieldset>
-            </form>
+            <div data-linshare-domain-pattern-form data-domain-pattern="myElement"></div>
           </div>
         </div>
       </div>

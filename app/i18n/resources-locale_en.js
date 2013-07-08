@@ -63,6 +63,14 @@
     "value": "Manage your domain patterns",
     "description": "Title for the domain patterns page."
   },
+  "P_Domains-DomainPatterns_Add": {
+    "value": "Add",
+    "description": "Button text for the add domain patterns action."
+  },
+  "P_Domains-DomainPatterns_CreationTitle": {
+    "value": "Creation",
+    "description": "Title for the add form domain pattern."
+  },
   "P_Domains-DomainPatterns_IdentifierLabel": {
     "value": "Identifier",
     "description": "Label for the identifier."
@@ -96,7 +104,7 @@
     "description": "Label for the attribute email."
   },
   "P_Domains-DomainPatterns_EmailHelp": {
-    "value": "Value of the attribute <mail>",
+    "value": "Name of the LDAP attribute which represents the mail",
     "description": "Help for the attribute email."
   },
   "P_Domains-DomainPatterns_FirstNameLabel": {
@@ -104,7 +112,7 @@
     "description": "Label for the attribute first name."
   },
   "P_Domains-DomainPatterns_FirstNameHelp": {
-    "value": "Value of the attribute <firstName>",
+    "value": "Name of the LDAP attribute which represents the first name",
     "description": "Help for the attribute first name."
   },
   "P_Domains-DomainPatterns_LastNameLabel": {
@@ -112,16 +120,24 @@
     "description": "Label for the attribute last name."
   },
   "P_Domains-DomainPatterns_LastNameHelp": {
-    "value": "Value of the attribute <lastName>",
+    "value": "Name of the LDAP attribute which represents the last name",
     "description": "Help for the attribute last name."
+  },
+  "P_Domains-DomainPatterns_LdapUidLabel": {
+    "value": "User unique identifier",
+    "description": "Label for the attribute Ldap Uid."
+  },
+  "P_Domains-DomainPatterns_LdapUidHelp": {
+    "value": "Name of the LDAP attribute which represents the user unique identifier (uuid)",
+    "description": "Help for the attribute Ldap Uid."
   },
   "P_Domains-DomainPatterns_Reset": {
     "value": "Reset",
     "description": "Label for the reset button."
   },
-  "P_Domains-DomainPatterns_Update": {
-    "value": "Update",
-    "description": "Label for the update button."
+  "P_Domains-DomainPatterns_Submit": {
+    "value": "Submit",
+    "description": "Label for the submit button."
   },
   "P_Administration_ActivationPolicies": {
     "value": "Activation Policies",

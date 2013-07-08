@@ -8,6 +8,8 @@ http://docs.angularjs.org/tutorial/
 http://docs.angularjs.org/guide/
 http://www.youtube.com/watch?v=ZhfUv0spHCY
 http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY
+http://www.egghead.io/
+http://www.frangular.com/
 
 La documentation spécifique à un plugin est généralement disponible sur le github associé.
 

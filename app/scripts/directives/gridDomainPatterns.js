@@ -23,6 +23,7 @@ app.directive('gridDomainPatterns', [
             data: 'myData',
             selectedItems: $scope.selections,
             multiSelect: false,
+            keepLastSelected: false,
             pagingOptions: $scope.pagingOptions,
             filterOptions: $scope.filterOptions,
             sortInfo: {

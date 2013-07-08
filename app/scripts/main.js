@@ -83,8 +83,6 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/share':
         {deps: ['controllers/controllers']},
-    'controllers/domainPatterns':
-        {deps: ['controllers/controllers']},
 
     // Services
     'services/preferences':
@@ -110,6 +108,8 @@ require.config({
     'directives/listTree':
         {deps: ['directives/directives', 'bootstrap']},
     'directives/loadingAnimation':
+        {deps: ['directives/directives']},
+    'directives/domainPatternForm':
         {deps: ['directives/directives']},
 
 
@@ -167,7 +167,6 @@ require([
   'controllers/threadDetail',
   'controllers/userDetail',
   'controllers/share',
-  'controllers/domainPatterns',
 
   // Services
   'services/preferences',
@@ -183,6 +182,7 @@ require([
   'directives/footer',
   'directives/listTree',
   'directives/loadingAnimation',
+  'directives/domainPatternForm',
 
   /**
    * Utils
