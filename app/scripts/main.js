@@ -23,9 +23,6 @@ require.config({
     // Utils
     jquery: '/components/jquery/jquery.min',
     lodash: '/components/lodash/lodash',
-    plupload: '/components/plupload/src/javascript/plupload',
-    plupload_queue: '/components/plupload/src/javascript/jquery.plupload.queue/jquery.plupload.queue',
-    plupload_html5: '/components/plupload/src/javascript/plupload.html5',
     base64: '/components/js-base64/base64.min'
   },
   shim: { 
@@ -119,12 +116,6 @@ require.config({
 
     'lodash':
         {exports: '_'},
-    'plupload':
-        {deps: ['angular', 'jquery'], exports: 'plupload'},
-    'plupload_queue':
-        {deps: ['plupload']},
-    'plupload_html5':
-        {deps: ['plupload']},
     'base64':
         {deps: ['angular']}
   },
@@ -188,10 +179,7 @@ require([
    * Utils
    */
   'lodash',
-  'base64',
-  'plupload',
-  'plupload_queue',
-  'plupload_html5'
+  'base64'
 
 ], function(angular, app) {
   angular.bootstrap(document, ['myApp']);
