@@ -6,10 +6,14 @@ app.directive('gridDomainPatterns', [
       restrict: 'A',
       // Notify that the contained elements are not remove but moved in other div (@see data-ng-transclude)
       transclude: true,
-      controller: ['$scope', 'localize', 'Restangular',
-        function($scope, Localize, Restangular) {
-          $scope.getData = function(successCallback, errorCallback) {
-            return Restangular.all('admin').all('domain_patterns').getList().then(successCallback, errorCallback);
+      controller: ['$scope', 'localize', 'Restangular', 'loggerService',
+        function($scope, Localize, Restangular, Logger) {
+          $scope.getData = function(successCallback) {
+            return Restangular.all('admin').all('domain_patterns').getList()
+              .then(successCallback, 
+                function errorCallback(err) {
+                  Logger.error('Fail to retreive domain patterns list' + err);
+                });
           };
 
           $scope.selections = [];

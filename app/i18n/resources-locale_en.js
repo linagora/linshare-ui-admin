@@ -67,10 +67,6 @@
     "value": "Identifier",
     "description": "Label for the identifier."
   },
-  "P_Domains-DomainPatterns_IdentifierHelp": {
-    "value": "Unique identifier for the domain pattern",
-    "description": "Help for the identifier field."
-  },
   "P_Domains-DomainPatterns_DescriptionLabel": {
     "value": "Description",
     "description": "Label for the description."

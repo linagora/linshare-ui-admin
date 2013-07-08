@@ -39,14 +39,10 @@ app.controller('GridCtrl', ['$scope', 'loggerService',
               return JSON.stringify(item).toLowerCase().indexOf(ft) != -1;
             });
             $scope.setPagingData(data, page, pageSize);
-          }, function(err) {
-            Logger.error('request failed' + err);
           });
         } else {
           $scope.getData(function(datas) {
             $scope.setPagingData(datas, page, pageSize);
-          }, function(err) {
-            Logger.error('request failed' + err);
           });
         }
       }, 100);
