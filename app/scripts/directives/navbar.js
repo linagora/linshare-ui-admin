@@ -6,8 +6,8 @@ app.directive('linshareNavbar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$location', '$http', 'localize', 'preferencesService',
-        function($scope, $location, $http, Localize, Preferences) {
+      controller: ['$scope', '$route', '$http', 'localize', 'preferencesService',
+        function($scope, $route, $http, Localize, Preferences) {
           $scope.appName = Preferences.system.appName;
 
           $scope.tabs = [{
@@ -61,7 +61,7 @@ app.directive('linshareNavbar', [
           $scope.logout = function() {
             $http.get('linshare/j_spring_security_logout').success(function() {
               console.debug("logout");
-              location.reload();
+              $route.reload();
             }).error(function() {
               console.error("Unable to reach logout url");
             });
