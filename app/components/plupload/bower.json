@@ -1,0 +1,8 @@
+{
+  "name": "plupload",
+  "version": "1.5.7",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/moxiecode/plupload.git"
+  }
+}
