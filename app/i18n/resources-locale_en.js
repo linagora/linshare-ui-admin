@@ -131,6 +131,10 @@
     "value": "Name of the LDAP attribute which represents the user unique identifier (uuid)",
     "description": "Help for the attribute Ldap Uid."
   },
+  "P_Domains-DomainPatterns_Delete": {
+    "value": "Delete",
+    "description": "Label for the delete button."
+  },
   "P_Domains-DomainPatterns_Reset": {
     "value": "Reset",
     "description": "Label for the reset button."
@@ -138,6 +142,18 @@
   "P_Domains-DomainPatterns_Submit": {
     "value": "Submit",
     "description": "Label for the submit button."
+  },
+  "P_Domains-DomainPatterns_ConfirmDeleteText": {
+    "value": "<p>You are about to delete this domain pattern, this procedure is irreversible.</p><p>Do you want to proceed?</p>",
+    "description": "Confirmation text for domain pattern deletion."
+  },
+  "P_Domains-DomainPatterns_ConfirmDeleteNo": {
+    "value": "No",
+    "description": "Cancel the domain pattern deletion."
+  },
+  "P_Domains-DomainPatterns_ConfirmDeleteYes": {
+    "value": "Yes",
+    "description": "Confirm the domain pattern deletion."
   },
   "P_Administration_ActivationPolicies": {
     "value": "Activation Policies",
