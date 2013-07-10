@@ -96,6 +96,8 @@ require.config({
         {deps: ['directives/directives', 'nggrid']},
     'directives/gridDomainPatterns':
         {deps: ['directives/directives', 'nggrid']},
+    'directives/gridLdapConnections':
+        {deps: ['directives/directives', 'nggrid']},
     'directives/loginForm':
         {deps: ['directives/directives', 'bootstrap']},
     'directives/navbar':
@@ -108,7 +110,8 @@ require.config({
         {deps: ['directives/directives']},
     'directives/domainPatternForm':
         {deps: ['directives/directives']},
-
+    'directives/ldapConnectionForm':
+        {deps: ['directives/directives']},
 
     /**
      * Utils
@@ -168,12 +171,14 @@ require([
   'directives/gridThreads',
   'directives/gridUsers',
   'directives/gridDomainPatterns',
+  'directives/gridLdapConnections',
   'directives/loginForm',
   'directives/navbar',
   'directives/footer',
   'directives/listTree',
   'directives/loadingAnimation',
   'directives/domainPatternForm',
+  'directives/ldapConnectionForm',
 
   /**
    * Utils

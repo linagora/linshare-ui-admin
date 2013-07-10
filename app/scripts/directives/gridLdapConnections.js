@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('gridDomainPatterns', [
+app.directive('gridLdapConnections', [
   function() {
     return {
       restrict: 'A',
@@ -9,10 +9,10 @@ app.directive('gridDomainPatterns', [
       controller: ['$scope', 'localize', 'Restangular', 'loggerService',
         function($scope, Localize, Restangular, Logger) {
           $scope.getData = function(successCallback) {
-            return Restangular.all('domain_patterns').getList()
+            return Restangular.all('ldap_connections').getList()
               .then(successCallback, 
                 function errorCallback(err) {
-                  Logger.error('Fail to retreive domain patterns list' + err);
+                  Logger.error('Fail to retreive LDAP connections list' + err);
                 });
           };
 
@@ -32,10 +32,10 @@ app.directive('gridDomainPatterns', [
             },
             columnDefs: [{
                 field: 'identifier',
-                displayName: Localize.getLocalizedString('P_Domains-DomainPatterns_IdentifierLabel')
+                displayName: Localize.getLocalizedString('P_Domains-LDAPConnections_IdentifierLabel')
               }, {
-                field: 'description',
-                displayName: Localize.getLocalizedString('P_Domains-DomainPatterns_DescriptionLabel'),
+                field: 'providerUrl',
+                displayName: Localize.getLocalizedString('P_Domains-LDAPConnections_ProviderURLLabel'),
                 sortable: false
               }
             ],

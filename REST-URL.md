@@ -8,6 +8,9 @@ Quelques articles :
 - http://restcookbook.com/HTTP%20Methods/put-vs-post/
 - http://www.artima.com/lejava/articles/why_put_and_delete.html 
 
+## Authentification
+
+GET     authentication/authorized         - connexion des utilisateurs
 
 ## Partages
 
@@ -33,7 +36,6 @@ DELETE  documents                         - supprimer un document
 ## Utilisateurs
 
 GET     users                             - liste des utilisateurs
-GET     users/authorized                  - connexion des utilisateurs
 GET     users/{uuid}                      - les informations sur un compte
 GET     users/{pattern}                   - cherche un utilisateur grâce à un pattern
 PUT     users                             - créer ou modifier un compte invité
@@ -67,7 +69,7 @@ DELETE  thread_members                    - supprimer un thread member
 
 ## Administration
 
-GET     admin/authorized                                      - connexion des admins
+GET     admin/authentication/authorized                       - connexion des admins
 
 ### Domains
 

@@ -19,7 +19,7 @@ app.directive('linshareLoginForm', [
               Logger.debug("Authentication failed");
             };
 
-            Restangular.all('admin').customGET('authorized', {
+            Restangular.all('authentication').customGET('authorized', {
               // QueryParams - Bypass the module authService
               ignoreAuthModule: true
             }, {

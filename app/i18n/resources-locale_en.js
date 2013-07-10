@@ -81,7 +81,7 @@
   },
   "P_Domains-DomainPatterns_AuthenticationLabel": {
     "value": "Auth command",
-    "description": "Label for the authenticiation command."
+    "description": "Label for the authentication command."
   },
   "P_Domains-DomainPatterns_AuthenticationHelp": {
     "value": "LDAP command for authentication",
@@ -154,6 +154,78 @@
   "P_Domains-DomainPatterns_ConfirmDeleteYes": {
     "value": "Yes",
     "description": "Confirm the domain pattern deletion."
+  },
+  "P_Domains-LDAPConnections_Title": {
+    "value": "Manage your LDAP Connections",
+    "description": "Title for the domain patterns page."
+  },
+  "P_Domains-LDAPConnections_Add": {
+    "value": "Add",
+    "description": "Button text for the add LDAP connections action."
+  },
+  "P_Domains-LDAPConnections_CreationTitle": {
+    "value": "Creation",
+    "description": "Title for the add form LDAP connection."
+  },
+  "P_Domains-LDAPConnections_IdentifierLabel": {
+    "value": "Identifier",
+    "description": "Label for the identifier."
+  },
+  "P_Domains-LDAPConnections_ProviderURLLabel": {
+    "value": "LDAP Provider URL",
+    "description": "Label for the ProviderURL."
+  },
+  "P_Domains-LDAPConnections_ProviderURLHelp": {
+    "value": "Help provider URL",
+    "description": "Help for the ProviderURL field."
+  },
+  "P_Domains-LDAPConnections_SecurityAuthLabel": {
+    "value": "Security authentication",
+    "description": "Label for the security authentication."
+  },
+  "P_Domains-LDAPConnections_SecurityAuthHelp": {
+    "value": "Help SecurityAuth",
+    "description": "Help for the SecurityAuth field."
+  },
+  "P_Domains-LDAPConnections_SecurityPrincipalLabel": {
+    "value": "Security principal",
+    "description": "Label for the security principal."
+  },
+  "P_Domains-LDAPConnections_SecurityPrincipalHelp": {
+    "value": "Help SecurityPrincipal",
+    "description": "Help for the SecurityPrincipal field."
+  },
+  "P_Domains-LDAPConnections_SecurityCredentialsLabel": {
+    "value": "Security credentials",
+    "description": "Label for the security credentials."
+  },
+  "P_Domains-LDAPConnections_SecurityCredentialsHelp": {
+    "value": "Help SecurityCredentials",
+    "description": "Help for the SecurityCredentials field."
+  },
+  "P_Domains-LDAPConnections_Delete": {
+    "value": "Delete",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-LDAPConnections_Reset": {
+    "value": "Reset",
+    "description": "Label for the reset button."
+  },
+  "P_Domains-LDAPConnections_Submit": {
+    "value": "Submit",
+    "description": "Label for the submit button."
+  },
+  "P_Domains-LDAPConnections_ConfirmDeleteText": {
+    "value": "<p>You are about to delete this LDAP connection, this procedure is irreversible.</p><p>Do you want to proceed?</p>",
+    "description": "Confirmation text for LDAP connection deletion."
+  },
+  "P_Domains-LDAPConnections_ConfirmDeleteNo": {
+    "value": "No",
+    "description": "Cancel the LDAP connection deletion."
+  },
+  "P_Domains-LDAPConnections_ConfirmDeleteYes": {
+    "value": "Yes",
+    "description": "Confirm the LDAP connection deletion."
   },
   "P_Administration_ActivationPolicies": {
     "value": "Activation Policies",

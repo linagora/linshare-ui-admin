@@ -1,0 +1,71 @@
+<form novalidate class="form-horizontal">
+  <fieldset>
+    <!-- Legend -->
+    <div data-ng-switch on="creation">
+      <div data-ng-switch-when="true">
+        <legend>{{'P_Domains-LDAPConnections_CreationTitle' | i18n}}</legend>
+        <!-- Identifier -->
+        <div class="control-group">
+          <label class="control-label" for="identifier">{{'P_Domains-LDAPConnections_IdentifierLabel' | i18n}}</label>
+          <div class="controls">
+            <input id="identifier" name="identifier" type="text" data-ng-model="ldapConnection.identifier"
+            class="input-xlarge">
+          </div>
+        </div>
+      </div>
+      <legend data-ng-switch-default>{{ldapConnection.identifier}}</legend>
+    </div>
+    <!-- Provider URL -->
+    <div class="control-group">
+      <label class="control-label" for="providerURL">{{'P_Domains-LDAPConnections_ProviderURLLabel' | i18n}}</label>
+      <div class="controls">
+        <input id="providerURL" name="providerURL" type="text" data-ng-model="ldapConnection.providerUrl"
+        class="input-xlarge">
+        <p class="help-block">{{'P_Domains-LDAPConnections_ProviderURLHelp' | i18n}}</p>
+      </div>
+    </div>
+    <!-- Security Auth -->
+    <div class="control-group">
+      <label class="control-label" for="securityAuth">{{'P_Domains-LDAPConnections_SecurityAuthLabel' | i18n}}</label>
+      <div class="controls">
+        <input id="securityAuth" name="securityAuth" type="text" data-ng-model="ldapConnection.securityAuth"
+        class="input-xlarge">
+        <p class="help-block">{{'P_Domains-LDAPConnections_SecurityAuthHelp' | i18n}}</p>
+      </div>
+    </div>
+    <!-- Security Principal -->
+    <div class="control-group">
+      <label class="control-label" for="securityPrincipal">{{'P_Domains-LDAPConnections_SecurityPrincipalLabel' | i18n}}</label>
+      <div class="controls">
+        <input id="securityPrincipal" name="securityPrincipal" type="text" data-ng-model="ldapConnection.securityPrincipal"
+        class="input-xlarge">
+        <p class="help-block">{{'P_Domains-LDAPConnections_SecurityPrincipalHelp' | i18n}}</p>
+      </div>
+    </div>
+    <!-- Security Credentials -->
+    <div class="control-group">
+      <label class="control-label" for="securityCredentials">{{'P_Domains-LDAPConnections_SecurityCredentialsLabel' | i18n}}</label>
+      <div class="controls">
+        <input id="securityCredentials" name="securityCredentials" type="text" data-ng-model="ldapConnection.securityCredentials"
+        class="input-xlarge">
+        <p class="help-block">{{'P_Domains-LDAPConnections_SecurityCredentialsHelp' | i18n}}</p>
+      </div>
+    </div>
+    <!-- Validation -->
+    <div class="control-group">
+      <div class="controls">
+        <button id="delete" name="delete" class="btn btn-danger" data-ng-show="!creation" data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-LDAPConnections_Delete' | i18n}}</button>
+        <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-LDAPConnections_Reset' | i18n}}</button>
+        <button id="submit" name="submit"
+        class="btn btn-success" data-ng-click="submit(ldapConnection)">{{'P_Domains-LDAPConnections_Submit' | i18n}}</button>
+      </div>
+    </div>
+    <div class="control-group" data-collapse="confirmCollapsed">
+      <div class="controls well">
+        <div data-ng-bind-html-unsafe="'P_Domains-LDAPConnections_ConfirmDeleteText' | i18n"></div>
+        <button class="btn"  data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-LDAPConnections_ConfirmDeleteNo' | i18n}}</button>
+        <button class="btn btn-danger" data-ng-click="delete(ldapConnection)">{{'P_Domains-LDAPConnections_ConfirmDeleteYes' | i18n}}</button>
+      </div> 
+    </div>
+  </fieldset>
+</form>

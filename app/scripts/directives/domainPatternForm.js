@@ -10,11 +10,12 @@ app.directive('linshareDomainPatternForm', [
       },
       controller: ['$scope', '$route', 'Restangular', 'loggerService',
         function($scope, $route, Restangular, Logger) {
+          $scope.confirmCollapsed = true;
           // isCreation ?
           if (_.isUndefined($scope.domainPatternToEdit) || _.isNull($scope.domainPatternToEdit)) {
             $scope.submit = function(domainPattern) {
               Logger.debug('domainPattern creation :' + domainPattern.identifier);
-              Restangular.all('admin').all('domain_patterns').post(domainPattern).then(function successCallback(domainPatterns) {
+              Restangular.all('domain_patterns').post(domainPattern).then(function successCallback(domainPatterns) {
                 // refresh the page
                 $route.reload();
               }, function errorCallback() {
@@ -48,7 +49,6 @@ app.directive('linshareDomainPatternForm', [
               });
             }
             $scope.creation = false;
-            $scope.confirmCollapsed = true;
           }
           // Save the previous state
           $scope.reset();

@@ -16,8 +16,9 @@ var app = angular.module('myApp', ['myApp.directives',
 
 // Register work which needs to be performed on module loading
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl("/linshare/webservice/rest");
-  RestangularProvider.setRequestSuffix('.json');
+  RestangularProvider.setBaseUrl("/linshare/webservice/rest/admin");
+  //RestangularProvider.setRequestSuffix('.json');
+  RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
 })
 
 // Register work which should be performed when the injector is done loading all modules 
