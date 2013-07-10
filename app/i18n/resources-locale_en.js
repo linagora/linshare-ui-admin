@@ -176,31 +176,23 @@
     "description": "Label for the ProviderURL."
   },
   "P_Domains-LDAPConnections_ProviderURLHelp": {
-    "value": "Help provider URL",
+    "value": "Example [ldap|ldaps]://my.ldap.lng:[389|636]",
     "description": "Help for the ProviderURL field."
   },
-  "P_Domains-LDAPConnections_SecurityAuthLabel": {
-    "value": "Security authentication",
-    "description": "Label for the security authentication."
-  },
-  "P_Domains-LDAPConnections_SecurityAuthHelp": {
-    "value": "Help SecurityAuth",
-    "description": "Help for the SecurityAuth field."
-  },
   "P_Domains-LDAPConnections_SecurityPrincipalLabel": {
-    "value": "Security principal",
+    "value": "Account DN",
     "description": "Label for the security principal."
   },
   "P_Domains-LDAPConnections_SecurityPrincipalHelp": {
-    "value": "Help SecurityPrincipal",
+    "value": "LDAP bind DN",
     "description": "Help for the SecurityPrincipal field."
   },
   "P_Domains-LDAPConnections_SecurityCredentialsLabel": {
-    "value": "Security credentials",
+    "value": "Password",
     "description": "Label for the security credentials."
   },
   "P_Domains-LDAPConnections_SecurityCredentialsHelp": {
-    "value": "Help SecurityCredentials",
+    "value": "LDAP credential",
     "description": "Help for the SecurityCredentials field."
   },
   "P_Domains-LDAPConnections_Delete": {
