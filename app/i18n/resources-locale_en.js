@@ -295,6 +295,30 @@
     "value": "Yes",
     "description": "Confirm the domain deletion."
   },
+  "P_Domains-Management_Delete": {
+    "value": "Delete",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Management_Reset": {
+    "value": "Reset",
+    "description": "Label for the reset button."
+  },
+  "P_Domains-Management_Submit": {
+    "value": "Submit",
+    "description": "Label for the submit button."
+  },
+  "P_Domains-Management_ConfirmDeleteText": {
+    "value": "<p>You are about to delete this domain, this procedure is irreversible.</p><p>Do you want to proceed?</p>",
+    "description": "Confirmation text for domain deletion."
+  },
+  "P_Domains-Management_ConfirmDeleteNo": {
+    "value": "No",
+    "description": "Cancel the domain deletion."
+  },
+  "P_Domains-Management_ConfirmDeleteYes": {
+    "value": "Yes",
+    "description": "Confirm the domain deletion."
+  },
   "P_Administration-ActivationPolicies_Title": {
     "value": "Activation Policies",
     "description": "Title for the management section of activation policies."

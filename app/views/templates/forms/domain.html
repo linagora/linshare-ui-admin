@@ -72,5 +72,22 @@
         </div>
       </div>
     </div>
+
+    <!-- Validation -->
+    <div class="control-group">
+      <div class="controls">
+        <button id="delete" name="delete" class="btn btn-danger" data-ng-show="!creation" data-ng-click="confirmDelete = !confirmDelete">{{'P_Domains-Management_Delete' | i18n}}</button>
+        <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-Management_Reset' | i18n}}</button>
+        <button id="submit" name="submit"
+        class="btn btn-success" data-ng-click="submit(domain)">{{'P_Domains-Management_Submit' | i18n}}</button>
+      </div>
+    </div>
+    <div class="control-group" data-collapse="confirmDelete">
+      <div class="controls well">
+        <div data-ng-bind-html-unsafe="'P_Domains-Management_ConfirmDeleteText' | i18n"></div>
+        <button class="btn"  data-ng-click="confirmDelete = !confirmDelete">{{'P_Domains-Management_ConfirmDeleteNo' | i18n}}</button>
+        <button class="btn btn-danger" data-ng-click="delete(domain)">{{'P_Domains-Management_ConfirmDeleteYes' | i18n}}</button>
+      </div> 
+    </div>
   </fieldset>
 </form>

@@ -7,16 +7,21 @@ app.directive('linshareDomainForm', [
       transclude: false,
       controller: ['$scope', '$route', 'Restangular', 'loggerService',
         function($scope, $route, Restangular, Logger) {
-          $scope.confirmDeletion = false;
+          $scope.confirmDelete = true;
           $scope.disableProvider = false;
           $scope.addProvider = function() {
             $scope.domain.providers.push({ldapConnection: '', domainPattern: '', baseDn: ''});
-            $scope.disableProvider = true;
           };
           $scope.deleteProvider = function() {
             $scope.domain.providers.splice(0,1);
-            $scope.disableProvider = false;
           }
+          $scope.$watch('domain.providers', function(value) {
+            if (!angular.isUndefined(value) && value.length >= 1) {
+              $scope.disableProvider = true;
+            } else {
+              $scope.disableProvider = false;
+            }
+          }, true);
           $scope.$watch('currentDomain', function(value){
             // isCreation ?
             if (_.isUndefined(value) || _.isNull(value)) {
