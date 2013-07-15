@@ -4,17 +4,17 @@
       <li>
         <label class="nav-header" data-ng-click="configDomain(rootDomain)">{{rootDomain.label}}</label>
         <ul class="nav nav-list">
-          <div data-ng-switch on="topDomain.children" data-ng-repeat="topDomain in rootDomain.children">
+          <div data-ng-switch on="topDomain.children" data-ng-repeat="topDomain in rootDomain.children | orderBy:'label'">
             <div data-ng-switch-when="[]">
               <li>
-                <a data-ng-click="configDomain(topDomain)">{{topDomain.identifier}}</a>
+                <a data-ng-click="configDomain(topDomain)">{{topDomain.label}}</a>
               </li>
             </div>
             <div data-ng-switch-default>
               <li>
                 <label class="nav-header" data-ng-click="configDomain(topDomain)">{{topDomain.label}}</label>
                 <ul class="nav nav-list">
-                  <li data-ng-repeat="subDomain in topDomain.children">
+                  <li data-ng-repeat="subDomain in topDomain.children | orderBy:'label'">
                     <a data-ng-click="configDomain(subDomain)">{{subDomain.label}}</a>
                   </li>
                 </ul>
