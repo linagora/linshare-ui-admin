@@ -80,6 +80,8 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/share':
         {deps: ['controllers/controllers']},
+    'controllers/editDomain':
+        {deps: ['controllers/controllers']},
 
     // Services
     'services/preferences':
@@ -108,9 +110,13 @@ require.config({
         {deps: ['directives/directives', 'bootstrap']},
     'directives/loadingAnimation':
         {deps: ['directives/directives']},
+    'directives/domainForm':
+        {deps: ['directives/directives']},
     'directives/domainPatternForm':
         {deps: ['directives/directives']},
     'directives/ldapConnectionForm':
+        {deps: ['directives/directives']},
+    'directives/domainTree':
         {deps: ['directives/directives']},
 
     /**
@@ -161,6 +167,7 @@ require([
   'controllers/threadDetail',
   'controllers/userDetail',
   'controllers/share',
+  'controllers/editDomain',
 
   // Services
   'services/preferences',
@@ -177,8 +184,10 @@ require([
   'directives/footer',
   'directives/listTree',
   'directives/loadingAnimation',
+  'directives/domainForm',
   'directives/domainPatternForm',
   'directives/ldapConnectionForm',
+  'directives/domainTree',
 
   /**
    * Utils

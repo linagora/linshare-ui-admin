@@ -15,6 +15,8 @@ http://www.youtube.com/watch?v=ZhfUv0spHCY
 http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY
 http://www.egghead.io/
 http://www.frangular.com/
+http://stackoverflow.com/questions/11873627/angularjs-ng-model-binding-not-updating-with-dynamic-values
+http://henriquat.re/directives/advanced-directives-combining-angular-with-existing-components-and-jquery/angularAndJquery.html
 
 La documentation spécifique à un plugin est généralement disponible sur le github associé.
 

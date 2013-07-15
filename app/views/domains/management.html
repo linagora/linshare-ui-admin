@@ -1,7 +1,14 @@
-<!-- Subhead=====================================-->
-<header class="jumbotron subhead">
-  <div class="container">
-    <h1>{{'P_Domains_Management' | i18n}}</h1>
+<div class="content">
+  <div class="row">
+    <div class="container" data-ng-controller="EditDomainCtrl">
+      <div class="page-header">
+        <h1>{{'P_Domains-Management_Title' | i18n}}</h1>
 
+      </div>
+      <div class="span3" data-linshare-domain-tree></div>
+      <div class="span7" data-ng-show="displayConfig">
+        <div data-linshare-domain-form></div>
+      </div>
+    </div>
   </div>
-</header>
+</div>

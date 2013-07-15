@@ -13,25 +13,25 @@ app.directive('linshareNavbar', [
           $scope.tabs = [{
               name: Localize.getLocalizedString('G_Tab_Domains'),
               links: [{
-                name: Localize.getLocalizedString('P_Domains_LDAPConnections'),
+                name: Localize.getLocalizedString('G_Tab_Domains-LDAPConnections'),
                 href: '#domains/ldap_connections'
               }, {
-                name: Localize.getLocalizedString('P_Domains_DomainPatterns'),
+                name: Localize.getLocalizedString('G_Tab_Domains-DomainPatterns'),
                 href: '#domains/domain_patterns'
               }, {
-                name: Localize.getLocalizedString('P_Domains_Management'),
+                name: Localize.getLocalizedString('G_Tab_Domains-Management'),
                 href: '#domains/management'
               }]
             }, {
               name: Localize.getLocalizedString('G_Tab_Administration'),
               links: [{
-                name: Localize.getLocalizedString('P_Administration_ActivationPolicies'),
+                name: Localize.getLocalizedString('G_Tab_Administration-ActivationPolicies'),
                 href: '#administration/activation_policies'
               }, {
-                name: Localize.getLocalizedString('P_Administration_ConfigurationPolicies'),
+                name: Localize.getLocalizedString('G_Tab_Administration-ConfigurationPolicies'),
                 href: '#administration/configuration_policies'
               }, {
-                name: Localize.getLocalizedString('P_Administration_MailsPersonalization'),
+                name: Localize.getLocalizedString('G_Tab_Administration-MailsPersonalization'),
                 href: '#administration/mails_personalization'
               }]
             }, {

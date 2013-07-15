@@ -21,43 +21,55 @@
   },
   "G_Tab_Domains": {
     "value": "Domains",
-    "description": "Tab title text for domains section."
+    "description": "Link for domains section."
+  },
+  "G_Tab_Domains-LDAPConnections": {
+    "value": "LDAP Connections",
+    "description": "Link for the management section of LDAP connections."
+  },
+  "G_Tab_Domains-DomainPatterns": {
+    "value": "Domain Patterns",
+    "description": "Link for the management section of domain patterns."
+  },
+  "G_Tab_Domains-Management": {
+    "value": "Management",
+    "description": "Link for the management section of domains."
   },
   "G_Tab_Administration": {
     "value": "Administration",
-    "description": "Tab title text for administration section."
+    "description": "Link for administration section."
+  },
+  "G_Tab_Administration-ActivationPolicies": {
+    "value": "Activation Policies",
+    "description": "Link for the management section of activation policies."
+  },
+  "G_Tab_Administration-ConfigurationPolicies": {
+    "value": "Configuration Policies",
+    "description": "Link for the management section of configuration policies."
+  },
+  "G_Tab_Administration-MailsPersonalization": {
+    "value": "Mails Personalization",
+    "description": "Link for the personalization of mails."
   },
   "G_Tab_Users": {
     "value": "Users",
-    "description": "Tab title text for users section."
+    "description": "Link for users section."
   },
   "G_Tab_Threads": {
     "value": "Threads",
-    "description": "Tab title text for threads section."
+    "description": "Link for threads section."
   },
   "G_Tab_MailingLists": {
     "value": "Mailing Lists",
-    "description": "Tab title text for mailing lists section."
+    "description": "Link for mailing lists section."
   },
   "G_Tab_Audit": {
     "value": "Audit",
-    "description": "Tab title text for audit section."
+    "description": "Link for audit section."
   },
   "G_Tab_Charts": {
     "value": "Charts",
-    "description": "Tab title text for charts section."
-  },
-  "P_Domains_LDAPConnections": {
-    "value": "LDAP Connections",
-    "description": "Title for the management section of LDAP connections."
-  },
-  "P_Domains_DomainPatterns": {
-    "value": "Domain Patterns",
-    "description": "Title for the management section of domain patterns."
-  },
-  "P_Domains_Management": {
-    "value": "Management",
-    "description": "Title for the management section of domains."
+    "description": "Link for charts section."
   },
   "P_Domains-DomainPatterns_Title": {
     "value": "Manage your domain patterns",
@@ -176,7 +188,7 @@
     "description": "Label for the ProviderURL."
   },
   "P_Domains-LDAPConnections_ProviderURLHelp": {
-    "value": "Example [ldap|ldaps]://my.ldap.lng:[389|636]",
+    "value": "eg: [ldap|ldaps]://my.ldap.lng:[389|636]",
     "description": "Help for the ProviderURL field."
   },
   "P_Domains-LDAPConnections_SecurityPrincipalLabel": {
@@ -219,16 +231,76 @@
     "value": "Yes",
     "description": "Confirm the LDAP connection deletion."
   },
-  "P_Administration_ActivationPolicies": {
+  "P_Domains-Management_Title": {
+    "value": "Manage your domains",
+    "description": "Title for the management section of domains."
+  },
+  "P_Domains-Management_DescriptionLabel": {
+    "value": "Description",
+    "description": "Label for the description."
+  },
+  "P_Domains-Management_LocaleLabel": {
+    "value": "Default locale",
+    "description": "Label for the default locale."
+  },
+  "P_Domains-Management_UserRoleLabel": {
+    "value": "User role",
+    "description": "Label for the user role."
+  },
+  "P_Domains-Management_PolicyLabel": {
+    "value": "Policy",
+    "description": "Label for the policy."
+  },
+  "P_Domains-Management_AddProvider": {
+    "value": "Add provider",
+    "description": "Label for the add provider button."
+  },
+  "P_Domains-Management_UserProvider": {
+    "value": "User provider",
+    "description": "Title for the user provider."
+  },
+  "P_Domains-Management_LDAPConnectionLabel": {
+    "value": "LDAP connection",
+    "description": "Label for the ldapConnectionId."
+  },
+  "P_Domains-Management_LDAPConnectionHelp": {
+    "value": "Help for the ldap connection",
+    "description": "Help for the LDAPConnection field."
+  },
+  "P_Domains-Management_DomainPatternLabel": {
+    "value": "Domain pattern",
+    "description": "Label for the domain pattern."
+  },
+  "P_Domains-Management_DomainPatternHelp": {
+    "value": "Help for the domain pattern",
+    "description": "Help for the domain pattern field."
+  },
+  "P_Domains-Management_BaseDnLabel": {
+    "value": "Base Dn",
+    "description": "Label for the base dn."
+  },
+  "P_Domains-Management_BaseDnHelp": {
+    "value": "Help for the base dn",
+    "description": "Help for the Base dn field."
+  },
+  "P_Domains-Management_ConfirmDeleteText": {
+    "value": "<p>You are about to delete this domain, this procedure is irreversible and destroy all associated users.</p><p>Do you want to proceed?</p>",
+    "description": "Confirmation text for domain deletion."
+  },
+  "P_Domains-Management_ConfirmDeleteNo": {
+    "value": "No",
+    "description": "Cancel the domain deletion."
+  },
+  "P_Domains-Management_ConfirmDeleteYes": {
+    "value": "Yes",
+    "description": "Confirm the domain deletion."
+  },
+  "P_Administration-ActivationPolicies_Title": {
     "value": "Activation Policies",
     "description": "Title for the management section of activation policies."
   },
-  "P_Administration_ConfigurationPolicies": {
+  "P_Administration-ConfigurationPolicies_Title": {
     "value": "Configuration Policies",
-    "description": "Title for the management section of configuration policies."
-  },
-  "P_Administration_MailsPersonalization": {
-    "value": "Mails Personalization",
-    "description": "Title for the personalization of mails."
+    "description": "Title for the management section of activation policies."
   }
 }

@@ -104,6 +104,17 @@ POST    admin/domain_patterns            - créer un domain pattern
 PUT     admin/domain_patterns            - modifier un domain pattern
 DELETE  admin/domain_patterns            - supprimer un domain pattern
 
+### Domain policies
+
+GET     admin/domain_policies            - liste les domain policies
+
+### User roles
+
+GET     admin/user_roles                 - liste les roles utilisateur
+
+### Locales
+
+GET     admin/locales                    - liste les locales
 
 ### Fonctionnalités
 
