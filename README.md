@@ -2,8 +2,15 @@
 
 ## Installation
 Pour installer le projet:
-"npm install"
-"bower install"
+* "npm install"
+* "bower install"
+
+## Procedure de mise à jour
+Pour vérifier si des mise à jour sont présentes:
+"bower list"
+Pour mettre à jour un module via bower:
+* Modifier le fichier component.json avec la version souhaitée
+* "bower install" va ensuite retelecharger l'ensemble des plugins et vérifier les dépendances
 
 ## AngularJS
 Avant de commencer à développer, veuillez lire les pages suivantes 
