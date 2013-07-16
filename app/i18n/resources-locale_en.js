@@ -235,6 +235,10 @@
     "value": "Manage your domains",
     "description": "Title for the management section of domains."
   },
+  "P_Domains-Management_NameLabel": {
+    "value": "Label",
+    "description": "Label for the name."
+  },
   "P_Domains-Management_DescriptionLabel": {
     "value": "Description",
     "description": "Label for the description."

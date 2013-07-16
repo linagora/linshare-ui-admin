@@ -41,6 +41,9 @@ app.directive('linshareDomainForm', [
             } else {
               $scope.submit = function(domain) {
                 Logger.debug('domain edition :' + domain.identifier);
+                if (_.isUndefined(domain.route)) {
+                  domain.route = 'domains';
+                }
                 domain.put().then(function successCallback(domains) {
                   // refresh the page
                   $route.reload();

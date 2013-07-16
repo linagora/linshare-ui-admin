@@ -2,7 +2,7 @@
   <div>
     <ul class="nav nav-list">
       <li>
-        <label class="nav-header" data-ng-click="configDomain(rootDomain)">{{rootDomain.label}}</label>
+        <label class="nav-header">{{rootDomain.label}}</label>
         <ul class="nav nav-list">
           <div data-ng-switch on="topDomain.children" data-ng-repeat="topDomain in rootDomain.children | orderBy:'label'">
             <div data-ng-switch-when="[]">

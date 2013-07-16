@@ -1,4 +1,3 @@
-
 'use strict';
 
 app.controller('EditDomainCtrl', ['$scope', 'Restangular', 'loggerService',
@@ -30,7 +29,9 @@ app.controller('EditDomainCtrl', ['$scope', 'Restangular', 'loggerService',
     $scope.userRoles = [];
     Restangular.all('user_roles').getList().then(function successCallback(userRoles) {
       angular.forEach(userRoles, function(userRole, key) {
-        $scope.userRoles.push(userRole);
+        if (userRole != 'SYSTEM' && userRole != 'SUPERADMIN') {
+          $scope.userRoles.push(userRole);
+        }
       });
     }, function errorCallback() {
       Logger.error('Unable to get user roles list');
@@ -39,7 +40,7 @@ app.controller('EditDomainCtrl', ['$scope', 'Restangular', 'loggerService',
     Restangular.all('domains').getList().then(function successCallback(domains) {
       $scope.rootDomain = domains;
     }, function errorCallback() {
-      Logger.error('Unable to get domains list'); 
+      Logger.error('Unable to get domains list');
     })
   }
 ]);

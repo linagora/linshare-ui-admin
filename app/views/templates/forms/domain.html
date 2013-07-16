@@ -2,6 +2,14 @@
   <fieldset>
     <legend><h4>{{domain.label}}</h4></legend>
     
+    <!-- Name -->
+    <div class="control-group">
+      <label class="control-label" for="name">{{'P_Domains-Management_NameLabel' | i18n}}</label>
+      <div class="controls">
+        <textarea id="name" name="name" class="input-xlarge" data-ng-model="domain.label"></textarea>
+      </div>
+    </div>
+    
     <!-- Description -->
     <div class="control-group">
       <label class="control-label" for="description">{{'P_Domains-Management_DescriptionLabel' | i18n}}</label>
@@ -20,7 +28,7 @@
     </div>
 
     <!-- User role -->
-    <div class="control-group">
+    <div class="control-group" data-ng-show="domain.type!='GUESTDOMAIN'">
       <label class="control-label" for="userRole">{{'P_Domains-Management_UserRoleLabel' | i18n}}</label>
       <div class="controls">
         <select id="userRole" name="userRole" class="input-xlarge" data-ng-model="domain.userRole" data-ng-options="u for u in userRoles">
@@ -37,7 +45,7 @@
       </div>
     </div>
 
-    <div class="btn-toolbar">
+    <div class="btn-toolbar" data-ng-show="domain.type!='GUESTDOMAIN'">
       <button class="btn" data-ng-disabled="disableProvider" data-ng-click="addProvider()"><i class="icon-plus"></i> {{'P_Domains-Management_AddProvider' | i18n}}</button>
     </div>
     <!-- Provider Form -->
