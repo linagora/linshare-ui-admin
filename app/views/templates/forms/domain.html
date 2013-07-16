@@ -1,6 +1,20 @@
 <form novalidate class="form-horizontal">
   <fieldset>
-    <legend><h4>{{domain.label}}</h4></legend>
+    <!-- Legend -->
+    <div data-ng-switch on="creation">
+      <div data-ng-switch-when="true">
+        <h4><legend>{{'P_Domains-Management_CreationTitle' | i18n}}</legend></h4>
+        <!-- Identifier -->
+        <div class="control-group">
+          <label class="control-label" for="identifier">{{'P_Domains-Management_IdentifierLabel' | i18n}}</label>
+          <div class="controls">
+            <input id="identifier" name="identifier" type="text" data-ng-model="domain.identifier"
+            class="input-xlarge">
+          </div>
+        </div>
+      </div>
+      <h4><legend data-ng-switch-default>{{domain.label}}</legend></h4>
+    </div>
     
     <!-- Name -->
     <div class="control-group">

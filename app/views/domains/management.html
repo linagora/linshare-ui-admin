@@ -5,9 +5,16 @@
         <h1>{{'P_Domains-Management_Title' | i18n}}</h1>
 
       </div>
-      <div class="span3" data-linshare-domain-tree></div>
-      <div class="span7" data-ng-show="displayConfig">
-        <div data-linshare-domain-form></div>
+      <div class="btn-toolbar" data-ng-init="editForm=false">
+        <button class="btn btn-primary" type="button"  data-ng-click="currentDomain={};editForm=!editForm">
+          <i class="icon-plus icon-white"></i> {{'P_Domains-DomainPatterns_Add' | i18n}}
+        </button>
+      </div>
+      <div>
+        <div class="span3" data-linshare-domain-tree></div>
+        <div class="span7" data-ng-show="editForm">
+          <div data-linshare-domain-form></div>
+        </div>
       </div>
     </div>
   </div>

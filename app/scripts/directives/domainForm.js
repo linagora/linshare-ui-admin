@@ -5,26 +5,32 @@ app.directive('linshareDomainForm', [
     return {
       restrict: 'A',
       transclude: false,
-      controller: ['$scope', '$route', 'Restangular', 'loggerService',
-        function($scope, $route, Restangular, Logger) {
-          $scope.confirmDelete = true;
-          $scope.disableProvider = false;
-          $scope.addProvider = function() {
-            $scope.domain.providers.push({ldapConnection: '', domainPattern: '', baseDn: ''});
+      link: function(scope, element, attrs) {
+          scope.confirmDelete = true;
+          scope.disableProvider = false;
+          scope.addProvider = function() {
+            scope.domain.providers.push({
+              ldapConnection: '',
+              domainPattern: '',
+              baseDn: ''
+            });
           };
-          $scope.deleteProvider = function() {
-            $scope.domain.providers.splice(0,1);
+          scope.deleteProvider = function() {
+            scope.domain.providers.splice(0, 1);
           }
-          $scope.$watch('domain.providers', function(value) {
+          scope.$watch('domain.providers', function(value) {
             if (!angular.isUndefined(value) && value.length >= 1) {
-              $scope.disableProvider = true;
+              scope.disableProvider = true;
             } else {
-              $scope.disableProvider = false;
+              scope.disableProvider = false;
             }
           }, true);
-          $scope.$watch('currentDomain', function(value){
+      },
+      controller: ['$scope', '$route', 'Restangular', 'loggerService',
+        function($scope, $route, Restangular, Logger) {
+          $scope.$watch('currentDomain', function(value) {
             // isCreation ?
-            if (_.isUndefined(value) || _.isNull(value)) {
+            if (_.isEmpty(value)) {
               $scope.submit = function(domain) {
                 Logger.debug('domain creation :' + domain.identifier);
                 Restangular.all('domains').post(domain).then(function successCallback() {
@@ -37,6 +43,7 @@ app.directive('linshareDomainForm', [
               $scope.reset = function() {
                 $scope.domain = {};
               };
+              $scope.reset();
               $scope.creation = true;
             } else {
               $scope.submit = function(domain) {
@@ -66,12 +73,7 @@ app.directive('linshareDomainForm', [
               // Save the previous state
               $scope.reset();
               $scope.creation = false;
-              if (!_.isEmpty($scope.domain.providers)) {
-                $scope.disableProvider = true;
-              } else {
-                $scope.disableProvider = false;
-              }
-            } 
+            }
           });
         }
       ],

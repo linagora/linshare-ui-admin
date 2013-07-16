@@ -235,6 +235,14 @@
     "value": "Manage your domains",
     "description": "Title for the management section of domains."
   },
+  "P_Domains-Management_CreationTitle": {
+    "value": "Create a new domain",
+    "description": "Title for the creation domain section."
+  },
+  "P_Domains-Management_IdentifierLabel": {
+    "value": "Identifier",
+    "description": "Label for the identifier."
+  },
   "P_Domains-Management_NameLabel": {
     "value": "Label",
     "description": "Label for the name."

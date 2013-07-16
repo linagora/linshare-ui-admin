@@ -41,6 +41,6 @@ app.controller('EditDomainCtrl', ['$scope', 'Restangular', 'loggerService',
       $scope.rootDomain = domains;
     }, function errorCallback() {
       Logger.error('Unable to get domains list');
-    })
+    });
   }
 ]);

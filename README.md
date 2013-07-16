@@ -24,8 +24,14 @@ http://www.egghead.io/
 http://www.frangular.com/
 http://stackoverflow.com/questions/11873627/angularjs-ng-model-binding-not-updating-with-dynamic-values
 http://henriquat.re/directives/advanced-directives-combining-angular-with-existing-components-and-jquery/angularAndJquery.html
+http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula
+http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699
 
 La documentation spécifique à un plugin est généralement disponible sur le github associé.
+
+### Difference entre link et controller, dans une directive
+La fonction link ne s'occupe que de la manipulation de la vue (gestion des cliques, des class css etc ...)
+La fonction controller s'occupe de la partie métier (récupération des données depuis un service etc ...)
 
 ## Outils de dev
 L'éditeur de texte vim est conseillé avec le plugin https://github.com/maksimr/vim-jsbeautify
