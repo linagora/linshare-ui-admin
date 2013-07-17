@@ -77,7 +77,6 @@ GET     admin/domains                                         - arbre des domain
 GET     admin/domains/{uuid}/subdomains                       - liste des sous domaines
 GET     admin/domains/{uuid}/guestdomain                      - les informations du sous domaine invité
 GET     admin/domains/{uuid}/functionnalities                 - liste les fonctionnalités du domaines
-GET     admin/domains/{uuid}/functionnalities/{uuid}          - les informations d’une fonctionnalité particulière
 POST    admin/domains                                         - créer un domaine
 POST    admin/domains/{uuid}/subdomains                       - créer sous domaine
 POST    admin/domains/{uuid}/guestdomain                      - créer sous domaine invité
@@ -118,7 +117,6 @@ GET     admin/locales                    - liste les locales
 
 ### Fonctionnalités
 
-GET     admin/functionnalities                          - liste les fonctionnalités
 GET     admin/functionnalities/{uuid}                   - les informations sur une fonctionnalité
 PUT     admin/functionnalities                          - modifier les paramètres d’une fonctionnalité
 PUT     admin/functionnalities/{uuid}/configuration     - modifier une politique de configuration d’une fonctionnalité
