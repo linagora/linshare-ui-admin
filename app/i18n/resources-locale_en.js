@@ -235,6 +235,18 @@
     "value": "Manage your domains",
     "description": "Title for the management section of domains."
   },
+  "P_Domains-Management_AddTopDomain": {
+    "value": "Add top domain",
+    "description": "Button for add a top domain."
+  },
+  "P_Domains-Management_AddSubDomain": {
+    "value": "Add sub domain",
+    "description": "Button for add a sub domain."
+  },
+  "P_Domains-Management_AddGuestDomain": {
+    "value": "Add guest domain",
+    "description": "Button for add a guest domain."
+  },
   "P_Domains-Management_CreationTitle": {
     "value": "Create a new domain",
     "description": "Title for the creation domain section."

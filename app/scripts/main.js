@@ -110,7 +110,9 @@ require.config({
         {deps: ['directives/directives', 'bootstrap']},
     'directives/loadingAnimation':
         {deps: ['directives/directives']},
-    'directives/domainForm':
+    'directives/editDomainForm':
+        {deps: ['directives/directives']},
+    'directives/createDomainForm':
         {deps: ['directives/directives']},
     'directives/domainPatternForm':
         {deps: ['directives/directives']},
@@ -184,7 +186,8 @@ require([
   'directives/footer',
   'directives/listTree',
   'directives/loadingAnimation',
-  'directives/domainForm',
+  'directives/createDomainForm',
+  'directives/editDomainForm',
   'directives/domainPatternForm',
   'directives/ldapConnectionForm',
   'directives/domainTree',

@@ -18,8 +18,10 @@ pour connaitre AngularJS et les bonnes pratiques:
 
 http://docs.angularjs.org/tutorial/
 http://docs.angularjs.org/guide/
+http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx
 http://www.youtube.com/watch?v=ZhfUv0spHCY
 http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY
+http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx
 http://www.egghead.io/
 http://www.frangular.com/
 http://stackoverflow.com/questions/11873627/angularjs-ng-model-binding-not-updating-with-dynamic-values

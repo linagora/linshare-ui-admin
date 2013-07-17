@@ -2,28 +2,49 @@
   <div>
     <ul class="nav nav-list">
       <li>
-        <label class="nav-header">{{rootDomain.label}}</label>
-        <ul class="nav nav-list">
-          <div data-ng-switch on="topDomain.children" data-ng-repeat="topDomain in rootDomain.children | orderBy:'label'">
-            <div data-ng-switch-when="[]">
+        <div class="btn-toolbar">
+          <div class="btn-group dropdown">
+            <button class="btn btn-primary disabled">{{rootDomain.label}}</button>
+            <button class="btn btn-success dropdown-toggle">
+              <span>&nbsp;<i class="icon-plus icon-white"></i><span>
+            </button>
+            <ul class="dropdown-menu">
               <li>
-                <a data-ng-click="configDomain(topDomain)">{{topDomain.label}}</a>
+                <a>{{'P_Domains-Management_AddTopDomain' | i18n}}</a>
               </li>
-            </div>
-            <div data-ng-switch-default>
-              <li>
-                <label class="nav-header" data-ng-click="configDomain(topDomain)">{{topDomain.label}}</label>
+            </ul>
+          </div>
+        </div>
+        <ul class="nav nav-list">
+          <div data-ng-repeat="topDomain in rootDomain.children | orderBy:'label'">
+            <li>
+              <div class="btn-toolbar">
+                <div class="btn-group dropdown">
+                  <button class="btn" data-ng-click="configDomain(topDomain)">{{topDomain.label}}</button>
+                  <button class="btn btn-success dropdown-toggle">
+                    <span>&nbsp;<i class="icon-plus icon-white"></i><span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a>{{'P_Domains-Management_AddSubDomain' | i18n}}</a>
+                    </li>
+                    <li data-ng-show="!hasGuestDomain(topDomain)">
+                      <a>{{'P_Domains-Management_AddGuestDomain' | i18n}}</a>
+                    </li>
+                  </ul>
+                </div>
                 <ul class="nav nav-list">
                   <li data-ng-repeat="subDomain in topDomain.children | orderBy:'label'">
-                    <a data-ng-click="configDomain(subDomain)">{{subDomain.label}}</a>
+                    <div class="btn-toolbar">
+                      <button class="btn" data-ng-click="configDomain(subDomain)">{{subDomain.label}}</button>
+                    </div>
                   </li>
                 </ul>
-              </li>
-            </div>
+              </div>
+            </li>
           </div>
         </ul>
       </li>
     </ul>
   </div>
 </div>
-<div data-ng-transclude></div>

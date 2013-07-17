@@ -7,16 +7,25 @@ app.directive('linshareDomainTree', [
       transclude: true,
       link: function(scope, element, attrs) {
         scope.editForm = false;
-        scope.configDomain = function(domain) {
-          if (scope.currentDomain === domain) {
-            scope.editForm = false;
-            scope.currentDomain = null;
-          } else {
-            scope.editForm = true;
-            scope.currentDomain = domain;
-          }
-        }
+        scope.$watch('currentDomain', function() {
+          scope.editForm = true;
+        });
       },
+      controller: ['$scope', '$rootScope',
+        function($scope, $rootScope) {
+          $scope.hasGuestDomain = function(topDomain) {
+            return !_.isEmpty(
+              _.find(topDomain.children, {
+                'type': 'GUESTDOMAIN'
+              })
+            );
+          };
+          $scope.configDomain = function(domain) {
+            $scope.currentDomain = domain;
+            $rootScope.$broadcast('currentDomainChanged');
+          };
+        }
+      ],
       templateUrl: '/views/templates/domain_tree.html',
       replace: false
     };
