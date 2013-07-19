@@ -54,6 +54,7 @@ app.directive('linshareEditDomainForm', [
               };
               $scope.delete = function(domain) {
                 Logger.debug('domain deletion : ' + domain.identifier);
+                $scope.confirmDelete = true;
                 domain.remove().then(function successCallback() {
                   $scope.$broadcast('domainTreeNeedRefresh');
                 }, function errorCallback() {
