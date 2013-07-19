@@ -247,9 +247,17 @@
     "value": "Add guest domain",
     "description": "Button for add a guest domain."
   },
-  "P_Domains-Management_CreationTitle": {
-    "value": "Create a new domain",
-    "description": "Title for the creation domain section."
+  "P_Domains-Management_CreateTopDomainTitle": {
+    "value": "Create a new top domain in {0}",
+    "description": "Title for the create top domain modal."
+  },
+  "P_Domains-Management_CreateSubDomainTitle": {
+    "value": "Create a new sub domain in {0}",
+    "description": "Title for the create sub domain modal."
+  },
+  "P_Domains-Management_CreateGuestDomainTitle": {
+    "value": "Create a new guest domain in {0}",
+    "description": "Title for the create guest domain modal."
   },
   "P_Domains-Management_IdentifierLabel": {
     "value": "Identifier",

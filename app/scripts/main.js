@@ -80,13 +80,15 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/share':
         {deps: ['controllers/controllers']},
-    'controllers/editDomain':
+    'controllers/domainManagement':
         {deps: ['controllers/controllers']},
 
     // Services
     'services/preferences':
         {deps: ['services/services']},
     'services/logger':
+        {deps: ['services/services']},
+    'services/manageDomain':
         {deps: ['services/services']},
 
     // Directives
@@ -169,11 +171,12 @@ require([
   'controllers/threadDetail',
   'controllers/userDetail',
   'controllers/share',
-  'controllers/editDomain',
+  'controllers/domainManagement',
 
   // Services
   'services/preferences',
   'services/logger',
+  'services/manageDomain',
 
   // Directives
   'directives/gridThreadMembers',

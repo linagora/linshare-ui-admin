@@ -9,9 +9,11 @@ app.directive('linshareEditDomainForm', [
           scope.disableProvider = false;
           scope.showForm = false;
           scope.confirmDelete = true;
-          scope.$watch('domain', function(value) {
-            if (!angular.isUndefined(value)) {
+          scope.$on('currentDomainChanged', function() {
+            if (!_.isNull(scope.currentDomain)) {
               scope.showForm = true;
+            } else {
+              scope.showForm = false;
             }
           });
           scope.$watch('domain.providers', function(value) {
@@ -35,32 +37,32 @@ app.directive('linshareEditDomainForm', [
             $scope.domain.providers.splice(0, 1);
           }
           $scope.$on('currentDomainChanged', function() {
-            $scope.submit = function(domain) {
-              Logger.debug('domain edition :' + domain.identifier);
-              if (_.isUndefined(domain.route)) {
-                domain.route = 'domains';
+            if (!_.isNull($scope.currentDomain)) {
+              $scope.submit = function(domain) {
+                Logger.debug('domain edition :' + domain.identifier);
+                if (_.isUndefined(domain.route)) {
+                  domain.route = 'domains';
+                }
+                domain.put().then(function successCallback(domains) {
+                  $scope.$broadcast('domainTreeNeedRefresh');
+                }, function errorCallback() {
+                  Logger.error('Unable to update the domain : ' + domain.identifier);
+                });
+              };
+              $scope.reset = function() {
+                $scope.domain = Restangular.copy($scope.currentDomain);
+              };
+              $scope.delete = function(domain) {
+                Logger.debug('domain deletion : ' + domain.identifier);
+                domain.remove().then(function successCallback() {
+                  $scope.$broadcast('domainTreeNeedRefresh');
+                }, function errorCallback() {
+                  Logger.error('Unable to delete the domain : ' + domain.identifier);
+                });
               }
-              domain.put().then(function successCallback(domains) {
-                // refresh the page
-                $route.reload();
-              }, function errorCallback() {
-                Logger.error('Unable to update the domain : ' + domain.identifier);
-              });
-            };
-            $scope.reset = function() {
-              $scope.domain = Restangular.copy($scope.currentDomain);
-            };
-            $scope.delete = function(domain) {
-              Logger.debug('domain deletion : ' + domain.identifier);
-              domain.remove().then(function successCallback() {
-                // refresh the page
-                $route.reload();
-              }, function errorCallback() {
-                Logger.error('Unable to delete the domain : ' + domain.identifier);
-              });
+              // Save the previous state
+              $scope.reset();
             }
-            // Save the previous state
-            $scope.reset();
           });
         }
       ],
