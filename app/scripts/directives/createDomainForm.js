@@ -44,7 +44,8 @@ app.directive('linshareCreateDomainForm', [
             $scope.reset = function() {
               $scope.domain = {
                 parent: manageDomainService.parentDomain.identifier,
-                type: manageDomainService.domainTypeToCreate
+                type: manageDomainService.domainTypeToCreate,
+                providers: []
               };
               if ($scope.domain.type === 'GUESTDOMAIN') {
                 $scope.domain.userRole = 'SIMPLE';

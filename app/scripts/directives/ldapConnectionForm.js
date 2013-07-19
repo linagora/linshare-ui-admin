@@ -6,18 +6,20 @@ app.directive('linshareLdapConnectionForm', [
       restrict: 'A',
       transclude: false,
       scope: {
-        ldapConnectionToEdit: '=ldapConnection'
+        ldapConnectionToEdit: '=ldapConnection',
+        showCreationForm: '='
       },
-      controller: ['$scope', '$route', 'Restangular', 'loggerService',
-        function($scope, $route, Restangular, Logger) {
+      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
+        function($scope, $rootScope, Restangular, Logger) {
           $scope.confirmCollapsed = true;
           // isCreation ?
           if (_.isUndefined($scope.ldapConnectionToEdit) || _.isNull($scope.ldapConnectionToEdit)) {
             $scope.submit = function(ldapConnection) {
               Logger.debug('ldapConnection creation :' + ldapConnection.identifier);
               Restangular.all('ldap_connections').post(ldapConnection).then(function successCallback(ldapConnections) {
-                // refresh the page
-                $route.reload();
+                $rootScope.$broadcast('reloadList');
+                $rootScope.$broadcast('showList');
+                $scope.showCreationForm = false;
               }, function errorCallback() {
                 Logger.error('Unable to create the ldapConnection : ' + ldapConnection.identifier);
               });
@@ -30,8 +32,7 @@ app.directive('linshareLdapConnectionForm', [
             $scope.submit = function(ldapConnection) {
               Logger.debug('ldapConnection edition :' + ldapConnection.identifier);
               ldapConnection.put().then(function successCallback(ldapConnections) {
-                // refresh the page
-                $route.reload();
+                $rootScope.$broadcast('reloadList');
               }, function errorCallback() {
                 Logger.error('Unable to update the ldapConnection : ' + ldapConnection.identifier);
               });
@@ -42,8 +43,7 @@ app.directive('linshareLdapConnectionForm', [
             $scope.delete = function(ldapConnection) {
               Logger.debug('ldapConnection deletion : ' + ldapConnection.identifier);
               ldapConnection.remove().then(function successCallback(ldapConnections) {
-                // refresh the page
-                $route.reload();
+                $rootScope.$broadcast('reloadList');
               }, function errorCallback() {
                 Logger.error('Unable to delete the ldapConnection : ' + ldapConnection.identifier);
               });

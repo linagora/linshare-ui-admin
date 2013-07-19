@@ -79,6 +79,10 @@
     "value": "Add",
     "description": "Button text for the add domain patterns action."
   },
+  "P_Domains-DomainPatterns_List": {
+    "value": "List",
+    "description": "Button text to return to the domain patterns list."
+  },
   "P_Domains-DomainPatterns_CreationTitle": {
     "value": "Creation",
     "description": "Title for the add form domain pattern."
@@ -174,6 +178,10 @@
   "P_Domains-LDAPConnections_Add": {
     "value": "Add",
     "description": "Button text for the add LDAP connections action."
+  },
+  "P_Domains-LDAPConnections_List": {
+    "value": "List",
+    "description": "Button text to return to the LDAP connections list."
   },
   "P_Domains-LDAPConnections_CreationTitle": {
     "value": "Creation",
