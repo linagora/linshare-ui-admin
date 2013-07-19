@@ -3,11 +3,21 @@
     <!-- Legend -->
     <h4><legend>{{domain.label}}</legend></h4>
     
+    <!-- Identifier -->
+    <div class="control-group">
+      <label class="control-label" for="identifier">{{'P_Domains-Management_IdentifierLabel' | i18n}}</label>
+      <div class="controls">
+        <input id="identifier" name="identifier" type="text" data-ng-model="domain.identifier"
+        class="input-xlarge" disabled>
+      </div>
+    </div>
+
     <!-- Name -->
     <div class="control-group">
       <label class="control-label" for="name">{{'P_Domains-Management_NameLabel' | i18n}}</label>
       <div class="controls">
-        <textarea id="name" name="name" class="input-xlarge" data-ng-model="domain.label"></textarea>
+        <input id="name" name="name" type="text" data-ng-model="domain.label"
+        class="input-xlarge">
       </div>
     </div>
     
