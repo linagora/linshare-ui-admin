@@ -10,23 +10,6 @@ app.directive('linshareCreateDomainForm', [
       link: function(scope, element, attrs) {
         scope.disableProvider = false;
         scope.showCreationModal = false;
-        scope.addProvider = function() {
-          scope.domain.providers.push({
-            ldapConnection: '',
-            domainPattern: '',
-            baseDn: ''
-          });
-        };
-        scope.deleteProvider = function() {
-          scope.domain.providers.splice(0, 1);
-        }
-        scope.$watch('domain.providers', function(value) {
-          if (!angular.isUndefined(value) && value.length >= 1) {
-            scope.disableProvider = true;
-          } else {
-            scope.disableProvider = false;
-          }
-        }, true);
         scope.close = function() {
           scope.showCreationModal = false;
         };
