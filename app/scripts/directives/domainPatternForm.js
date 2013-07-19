@@ -6,18 +6,24 @@ app.directive('linshareDomainPatternForm', [
       restrict: 'A',
       transclude: false,
       scope: {
-        domainPatternToEdit: '=domainPattern'
+        domainPatternToEdit: '=domainPattern',
+        showCreationForm: '='
       },
-      controller: ['$scope', '$route', 'Restangular', 'loggerService',
-        function($scope, $route, Restangular, Logger) {
-          $scope.confirmCollapsed = true;
+      link: function(scope, element, attrs) {
+        scope.confirmCollapsed = true;
+        scope.hideForm = false;
+      },
+      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
+        function($scope, $rootScope, Restangular, Logger) {
           // isCreation ?
           if (_.isUndefined($scope.domainPatternToEdit) || _.isNull($scope.domainPatternToEdit)) {
             $scope.submit = function(domainPattern) {
               Logger.debug('domainPattern creation :' + domainPattern.identifier);
               Restangular.all('domain_patterns').post(domainPattern).then(function successCallback(domainPatterns) {
-                // refresh the page
-                $route.reload();
+                $rootScope.$broadcast('reloadList');
+                $rootScope.$broadcast('showList');
+                $scope.showCreationForm = false;
+                $scope.hideForm = true;
               }, function errorCallback() {
                 Logger.error('Unable to create the domainPattern : ' + domainPattern.identifier);
               });
@@ -30,8 +36,8 @@ app.directive('linshareDomainPatternForm', [
             $scope.submit = function(domainPattern) {
               Logger.debug('domainPattern edition :' + domainPattern.identifier);
               domainPattern.put().then(function successCallback(domainPatterns) {
-                // refresh the page
-                $route.reload();
+                $rootScope.$broadcast('reloadList');
+                $scope.hideForm = true;
               }, function errorCallback() {
                 Logger.error('Unable to update the domainPattern : ' + domainPattern.identifier);
               });
@@ -42,8 +48,8 @@ app.directive('linshareDomainPatternForm', [
             $scope.delete = function(domainPattern) {
               Logger.debug('domainPattern deletion : ' + domainPattern.identifier);
               domainPattern.remove().then(function successCallback(domainPatterns) {
-                // refresh the page
-                $route.reload();
+                $rootScope.$broadcast('reloadList');
+                $scope.hideForm = true;
               }, function errorCallback() {
                 Logger.error('Unable to delete the domainPattern : ' + domainPattern.identifier);
               });

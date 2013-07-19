@@ -6,16 +6,17 @@
 
       </div>
       <div>
-        <div class="btn-toolbar" data-ng-init="creationForm=false">
-          <button class="btn btn-primary" type="button"  data-ng-click="creationForm=!creationForm">
-            <i class="icon-plus icon-white"></i> {{'P_Domains-DomainPatterns_Add' | i18n}}
+        <div class="btn-toolbar" data-ng-init="showCreationForm=false">
+          <button class="btn btn-primary" type="button"  data-ng-click="showCreationForm=!showCreationForm" data-ng-switch="showCreationForm">
+            <span data-ng-switch-when="false"><i class="icon-plus icon-white"></i> {{'P_Domains-DomainPatterns_Add' | i18n}}</span>
+            <span data-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Domains-DomainPatterns_List' | i18n}}</span>
           </button>
         </div>
-        <div data-ng-show="creationForm">
-          <div data-linshare-domain-pattern-form></div>
+        <div data-ng-show="showCreationForm">
+          <div data-linshare-domain-pattern-form data-show-creation-form="showCreationForm"></div>
         </div>
       </div>
-      <div data-ng-controller="GridCtrl">
+      <div data-ng-controller="GridCtrl" data-ng-show="!showCreationForm">
         <div data-grid-domain-patterns>
           <div data-ng-repeat="myElement in selections">
             <div data-linshare-domain-pattern-form data-domain-pattern="myElement"></div>

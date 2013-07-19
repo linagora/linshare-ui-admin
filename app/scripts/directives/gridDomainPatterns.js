@@ -42,7 +42,9 @@ app.directive('gridDomainPatterns', [
             plugins: [new ngGridFlexibleHeightPlugin()]
           };
 
-          $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
+          $scope.$on('reloadList', function() {
+            $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
+          });
         }
       ],
       template: '<div class="gridStyle" data-ng-grid="gridOptions"></div>'+

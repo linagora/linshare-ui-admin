@@ -9,9 +9,12 @@ app.directive('linshareLdapConnectionForm', [
         ldapConnectionToEdit: '=ldapConnection',
         showCreationForm: '='
       },
+      link: function(scope, element, attrs) {
+        scope.confirmCollapsed = true;
+        scope.hideForm = false;
+      },
       controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
         function($scope, $rootScope, Restangular, Logger) {
-          $scope.confirmCollapsed = true;
           // isCreation ?
           if (_.isUndefined($scope.ldapConnectionToEdit) || _.isNull($scope.ldapConnectionToEdit)) {
             $scope.submit = function(ldapConnection) {
@@ -20,6 +23,7 @@ app.directive('linshareLdapConnectionForm', [
                 $rootScope.$broadcast('reloadList');
                 $rootScope.$broadcast('showList');
                 $scope.showCreationForm = false;
+                $scope.hideForm = true;
               }, function errorCallback() {
                 Logger.error('Unable to create the ldapConnection : ' + ldapConnection.identifier);
               });
@@ -33,6 +37,7 @@ app.directive('linshareLdapConnectionForm', [
               Logger.debug('ldapConnection edition :' + ldapConnection.identifier);
               ldapConnection.put().then(function successCallback(ldapConnections) {
                 $rootScope.$broadcast('reloadList');
+                $scope.hideForm = true;
               }, function errorCallback() {
                 Logger.error('Unable to update the ldapConnection : ' + ldapConnection.identifier);
               });
@@ -44,6 +49,7 @@ app.directive('linshareLdapConnectionForm', [
               Logger.debug('ldapConnection deletion : ' + ldapConnection.identifier);
               ldapConnection.remove().then(function successCallback(ldapConnections) {
                 $rootScope.$broadcast('reloadList');
+                $scope.hideForm = true;
               }, function errorCallback() {
                 Logger.error('Unable to delete the ldapConnection : ' + ldapConnection.identifier);
               });
