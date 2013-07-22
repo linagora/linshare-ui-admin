@@ -36,14 +36,21 @@ app.directive('linshareCreateDomainForm', [
             };
             $scope.reset();
           });
-          $scope.submit = function(domain) {
-            Logger.debug('domain creation :' + domain.identifier);
-            Restangular.all('domains').post(domain).then(function successCallback() {
-              $scope.close();
-              $rootScope.$broadcast('domainTreeNeedRefresh');
-            }, function errorCallback() {
-              Logger.error('Unable to create the domain : ' + domain.identifier);
-            });
+          $scope.submit = function(createDomainForm, domain) {
+            console.log(createDomainForm);
+            if (createDomainForm.$valid) {
+              Logger.debug('domain creation :' + domain.identifier);
+              Restangular.all('domains').post(domain).then(function successCallback() {
+                $scope.close();
+                $rootScope.$broadcast('domainTreeNeedRefresh');
+              }, function errorCallback() {
+                Logger.error('Unable to create the domain : ' + domain.identifier);
+              });
+            }
+            console.log(createDomainForm); 
+            if (createDomainForm.$dirty) {
+              createDomainForm.$pristine = true;
+            }
           };
 
           // Has it's a new scope you need to reload all possible choices

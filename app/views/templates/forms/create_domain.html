@@ -1,5 +1,5 @@
 <div data-modal="showCreationModal" close="close()" data-options="opts">
-  <div class="form-horizontal">
+  <form name="createDomainForm" class="form-horizontal">
     <div class="modal-header">
       <button type="button" class="close" data-ng-click="close()" aria-hidden="true">&times;</button>
       <!-- Legend -->
@@ -41,7 +41,7 @@
       <div class="control-group">
         <label class="control-label" for="locale">{{'P_Domains-Management_LocaleLabel' | i18n}}</label>
         <div class="controls">
-        <select id="locale" name="locale" class="input-xlarge" data-ng-model="domain.locale" data-ng-options="l for l in locales" required>
+          <select id="locale" name="locale" class="input-xlarge" data-ng-model="domain.locale" data-ng-options="l for l in locales" required>
           </select>
         </div>
       </div>
@@ -66,9 +66,9 @@
     
     <div class="modal-footer">
       <!-- Validation -->
-      <a id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-Management_Reset' | i18n}}</a>
-      <a id="submit" name="submit"
-      class="btn btn-success" data-ng-click="submit(domain)">{{'P_Domains-Management_Submit' | i18n}}</a>
+      <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-Management_Reset' | i18n}}</button>
+      <button id="submit" name="submit"
+      class="btn btn-success" data-ng-click="submit(createDomainForm, domain)">{{'P_Domains-Management_Submit' | i18n}}</button>
     </div>
-  </div>
+  </form>
 </div>

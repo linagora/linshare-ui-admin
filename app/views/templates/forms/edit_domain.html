@@ -1,4 +1,4 @@
-<form novalidate class="span7 form-horizontal" data-ng-show="showForm">
+<form class="span7 form-horizontal" name="editDomainForm" data-ng-show="showForm">
   <fieldset>
     <!-- Legend -->
     <h4><legend>{{domain.label}}</legend></h4>
@@ -8,7 +8,7 @@
       <label class="control-label" for="identifier">{{'P_Domains-Management_IdentifierLabel' | i18n}}</label>
       <div class="controls">
         <input id="identifier" name="identifier" type="text" data-ng-model="domain.identifier"
-        class="input-xlarge" disabled>
+        class="input-xlarge" disabled required>
       </div>
     </div>
 
@@ -17,7 +17,7 @@
       <label class="control-label" for="name">{{'P_Domains-Management_NameLabel' | i18n}}</label>
       <div class="controls">
         <input id="name" name="name" type="text" data-ng-model="domain.label"
-        class="input-xlarge">
+        class="input-xlarge" required>
       </div>
     </div>
     
@@ -33,7 +33,7 @@
     <div class="control-group">
       <label class="control-label" for="locale">{{'P_Domains-Management_LocaleLabel' | i18n}}</label>
       <div class="controls">
-      <select id="locale" name="locale" class="input-xlarge" data-ng-model="domain.locale" data-ng-options="l for l in locales">
+        <select id="locale" name="locale" class="input-xlarge" data-ng-model="domain.locale" data-ng-options="l for l in locales" required>
         </select>
       </div>
     </div>
@@ -42,7 +42,7 @@
     <div class="control-group" data-ng-show="domain.type!='GUESTDOMAIN'">
       <label class="control-label" for="userRole">{{'P_Domains-Management_UserRoleLabel' | i18n}}</label>
       <div class="controls">
-        <select id="userRole" name="userRole" class="input-xlarge" data-ng-model="domain.userRole" data-ng-options="u for u in userRoles">
+        <select id="userRole" name="userRole" class="input-xlarge" data-ng-model="domain.userRole" data-ng-options="u for u in userRoles" required>
         </select>
       </div>
     </div>
@@ -51,7 +51,7 @@
     <div class="control-group">
       <label class="control-label" for="policy">{{'P_Domains-Management_PolicyLabel' | i18n}}</label>
       <div class="controls">
-        <select id="policy" name="policy" class="input-xlarge" data-ng-model="domain.policy.identifier" data-ng-options="p for p in domainPolicies">
+        <select id="policy" name="policy" class="input-xlarge" data-ng-model="domain.policy.identifier" data-ng-options="p for p in domainPolicies" required>
         </select>
       </div>
     </div>
@@ -95,17 +95,26 @@
     <!-- Validation -->
     <div class="control-group">
       <div class="controls">
-        <button id="delete" name="delete" class="btn btn-danger" data-ng-click="confirmDelete = !confirmDelete">{{'P_Domains-Management_Delete' | i18n}}</button>
-        <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-Management_Reset' | i18n}}</button>
-        <button id="submit" name="submit"
-        class="btn btn-success" data-ng-click="submit(domain)">{{'P_Domains-Management_Submit' | i18n}}</button>
+        <button id="delete" name="delete" class="btn btn-danger" data-ng-click="confirmDelete = !confirmDelete">
+          {{'P_Domains-Management_Delete' | i18n}}
+        </button>
+        <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">
+          {{'P_Domains-Management_Reset' | i18n}}
+        </button>
+        <button id="submit" name="submit" class="btn btn-success" data-ng-click="submit(editDomainForm, domain)">
+          {{'P_Domains-Management_Submit' | i18n}}
+        </button>
       </div>
     </div>
     <div class="control-group" data-collapse="confirmDelete">
       <div class="controls well">
         <div data-ng-bind-html-unsafe="'P_Domains-Management_ConfirmDeleteText' | i18n"></div>
-        <button class="btn"  data-ng-click="confirmDelete = !confirmDelete">{{'P_Domains-Management_ConfirmDeleteNo' | i18n}}</button>
-        <button class="btn btn-danger" data-ng-click="delete(domain)">{{'P_Domains-Management_ConfirmDeleteYes' | i18n}}</button>
+        <button class="btn" data-ng-click="confirmDelete = !confirmDelete">
+          {{'P_Domains-Management_ConfirmDeleteNo' | i18n}}
+        </button>
+        <button class="btn btn-danger" data-ng-click="delete(domain)">
+          {{'P_Domains-Management_ConfirmDeleteYes' | i18n}}
+        </button>
       </div> 
     </div>
   </fieldset>
