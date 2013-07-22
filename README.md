@@ -29,6 +29,9 @@ http://henriquat.re/directives/advanced-directives-combining-angular-with-existi
 http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula
 http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699
 
+Les exemples fournis par angular
+https://github.com/angular/angular.js/wiki/JsFiddle-Examples
+
 La documentation spécifique à un plugin est généralement disponible sur le github associé.
 
 ### Difference entre link et controller, dans une directive
