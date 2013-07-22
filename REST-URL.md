@@ -71,7 +71,7 @@ DELETE  thread_members                    - supprimer un thread member
 
 GET     admin/authentication/authorized                       - connexion des admins
 
-### Domains
+### Domains :has_role(ROOT) sauf pour les operations de "list"
 
 GET     admin/domains                                         - arbre des domaines
 GET     admin/domains/{uuid}/subdomains                       - liste des sous domaines
@@ -88,7 +88,7 @@ DELETE  admin/domains/{uuid}/subdomains                       - supprimer un sou
 DELETE  admin/domains/{uuid}/guestdomain                      - supprimer un sous domaine invité
 
 
-### LDAP connections
+### LDAP connections :has_role(ROOT)
 
 GET     admin/ldap_connections            - liste les connexions LDAP
 POST    admin/ldap_connections            - créer une connexion LDAP
@@ -96,14 +96,14 @@ PUT     admin/ldap_connections            - modifier une connexion LDAP
 DELETE  admin/ldap_connections            - supprimer une connexion LDAP
 
 
-### Domain patterns
+### Domain patterns :has_role(ROOT)
 
 GET     admin/domain_patterns            - liste les domain patterns
 POST    admin/domain_patterns            - créer un domain pattern
 PUT     admin/domain_patterns            - modifier un domain pattern
 DELETE  admin/domain_patterns            - supprimer un domain pattern
 
-### Domain policies
+### Domain policies :has_role(ROOT)
 
 GET     admin/domain_policies            - liste les domain policies
 
@@ -115,7 +115,7 @@ GET     admin/user_roles                 - liste les roles utilisateur
 
 GET     admin/locales                    - liste les locales
 
-### Fonctionnalités
+### Fonctionnalités : NB droits de modification par l’admin uniquement sur les domaines qu’il administre
 
 GET     admin/functionnalities/{uuid}                   - les informations sur une fonctionnalité
 PUT     admin/functionnalities                          - modifier les paramètres d’une fonctionnalité
