@@ -24,6 +24,11 @@ http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY
 http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx
 http://www.egghead.io/
 http://www.frangular.com/
+http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/
+
+
+Vos questions existentielles:
+
 http://stackoverflow.com/questions/11873627/angularjs-ng-model-binding-not-updating-with-dynamic-values
 http://henriquat.re/directives/advanced-directives-combining-angular-with-existing-components-and-jquery/angularAndJquery.html
 http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula
