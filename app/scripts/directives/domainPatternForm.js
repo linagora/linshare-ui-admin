@@ -19,12 +19,12 @@ app.directive('linshareDomainPatternForm', [
           if (_.isUndefined($scope.domainPatternToEdit) || _.isNull($scope.domainPatternToEdit)) {
             $scope.submit = function(domainPattern) {
               Logger.debug('domainPattern creation :' + domainPattern.identifier);
-              Restangular.all('domain_patterns').post(domainPattern).then(function successCallback(domainPatterns) {
+              Restangular.all('domain_patterns').post(domainPattern).then(function success(domainPatterns) {
                 $rootScope.$broadcast('reloadList');
                 $rootScope.$broadcast('showList');
                 $scope.showCreationForm = false;
                 $scope.hideForm = true;
-              }, function errorCallback() {
+              }, function error() {
                 Logger.error('Unable to create the domainPattern : ' + domainPattern.identifier);
               });
             };
@@ -35,10 +35,10 @@ app.directive('linshareDomainPatternForm', [
           } else {
             $scope.submit = function(domainPattern) {
               Logger.debug('domainPattern edition :' + domainPattern.identifier);
-              domainPattern.put().then(function successCallback(domainPatterns) {
+              domainPattern.put().then(function success(domainPatterns) {
                 $rootScope.$broadcast('reloadList');
                 $scope.hideForm = true;
-              }, function errorCallback() {
+              }, function error() {
                 Logger.error('Unable to update the domainPattern : ' + domainPattern.identifier);
               });
             };
@@ -47,10 +47,10 @@ app.directive('linshareDomainPatternForm', [
             };
             $scope.delete = function(domainPattern) {
               Logger.debug('domainPattern deletion : ' + domainPattern.identifier);
-              domainPattern.remove().then(function successCallback(domainPatterns) {
+              domainPattern.remove().then(function success(domainPatterns) {
                 $rootScope.$broadcast('reloadList');
                 $scope.hideForm = true;
-              }, function errorCallback() {
+              }, function error() {
                 Logger.error('Unable to delete the domainPattern : ' + domainPattern.identifier);
               });
             }

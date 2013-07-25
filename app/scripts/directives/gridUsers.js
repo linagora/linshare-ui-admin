@@ -8,8 +8,11 @@ app.directive('gridUsers', [
       scope: false,
       controller: ['$scope', 'localize', 'Restangular',
         function($scope, Localize, Restangular) {
-          $scope.getData = function(successCallback, errorCallback) {
-            return Restangular.all('users').getList().then(successCallback, errorCallback);
+          $scope.getData = function(successCallback) {
+            return Restangular.all('users').getList()
+              .then(successCallback, function error() {
+                Logger.error('Fail to retreive users list' + err);
+            });
           };
 
           $scope.gridOptions = {

@@ -35,10 +35,10 @@ app.directive('linshareDomainTree', [
             manageDomainService.addChildDomain(topDomain, 'GUESTDOMAIN');
           };
           $scope.$on('domainTreeNeedRefresh', function() {
-            manageDomainService.getAllDomains(function successCallback(domains) {
+            manageDomainService.getAllDomains(function success(domains) {
               $scope.rootDomain = domains;
               hideEditForm();
-            }, function errorCallback() {
+            }, function error() {
               Logger.error('Unable to get domains list');
             });
           });

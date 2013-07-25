@@ -10,11 +10,11 @@ app.directive('linshareLoginForm', [
         function($scope, Restangular, authService, Logger) {
 
           $scope.submit = function() {
-            var successCallback = function(data, status, headers, config) {
+            var success = function(data, status, headers, config) {
               Logger.debug("Authentication succeed");
               authService.loginConfirmed();
             };
-            var errorCallback = function(data, status, headers, config) {
+            var error = function(data, status, headers, config) {
               $scope.errorLogin = "Bad credentials";
               Logger.debug("Authentication failed");
             };
@@ -25,7 +25,7 @@ app.directive('linshareLoginForm', [
             }, {
               // Headers - Add login password
               Authorization: 'Basic ' + Base64.encode($scope.login + ':' + $scope.password)
-            }).then(successCallback, errorCallback);
+            }).then(success, error);
           }
 
           $scope.$on('event:auth-loginRequired', function() {

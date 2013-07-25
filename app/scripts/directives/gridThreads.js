@@ -8,8 +8,11 @@ app.directive('gridThreads', [
       scope: false,
       controller: ['$scope', 'localize', 'Restangular',
         function($scope, Localize, Restangular) {
-          $scope.getData = function(successCallback, errorCallback) {
-            return Restangular.all('threads').getList().then(successCallback, errorCallback);
+          $scope.getData = function(successCallback) {
+            return Restangular.all('threads').getList()
+              .then(successCallback, function error(err) {
+                Logger.error('Fail to retreive threads list' + err);
+            });
           };
 
           $scope.gridOptions = {

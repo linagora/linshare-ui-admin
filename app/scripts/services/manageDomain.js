@@ -25,24 +25,24 @@ angular.module('myApp.services')
         this.domainTypeToCreate = domainTypeToCreate;
         $rootScope.$broadcast('addChildDomain');
       },
-      getAllLdapConnections: function(successCallback, errorCallback) {
-        Restangular.all('ldap_connections').getList().then(successCallback, errorCallback);
+      getAllLdapConnections: function(success, error) {
+        Restangular.all('ldap_connections').getList().then(success, error);
       },
-      getAllDomainPatterns: function(successCallback, errorCallback) {
-        Restangular.all('domain_patterns').getList().then(successCallback, errorCallback);
+      getAllDomainPatterns: function(success, error) {
+        Restangular.all('domain_patterns').getList().then(success, error);
       },
-      getAllDomainPolicies: function(successCallback, errorCallback) {
-        Restangular.all('domain_policies').getList().then(successCallback, errorCallback);
+      getAllDomainPolicies: function(success, error) {
+        Restangular.all('domain_policies').getList().then(success, error);
       },
-      getAllUserRoles: function(successCallback, errorCallback) {
-        Restangular.all('user_roles').getList().then(successCallback, errorCallback);
+      getAllUserRoles: function(success, error) {
+        Restangular.all('user_roles').getList().then(success, error);
       },
       getAllLocales: ["en", "fr"],
-      getAllDomains: function(successCallback, errorCallback) {
+      getAllDomains: function(success, error) {
         Restangular.all('domains').getList().then(function(domains) {
           traverse(domains,domains); 
-          successCallback(domains);
-        }, errorCallback);
+          success(domains);
+        }, error);
       }
     };
     return manageDomainService;

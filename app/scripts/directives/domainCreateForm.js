@@ -40,10 +40,10 @@ app.directive('linshareDomainCreateForm', [
             console.log(createDomainForm);
             if (createDomainForm.$valid) {
               Logger.debug('domain creation :' + domain.identifier);
-              Restangular.all('domains').post(domain).then(function successCallback() {
+              Restangular.all('domains').post(domain).then(function success() {
                 $scope.close();
                 $rootScope.$broadcast('domainTreeNeedRefresh');
-              }, function errorCallback() {
+              }, function error() {
                 Logger.error('Unable to create the domain : ' + domain.identifier);
               });
             }
@@ -56,37 +56,37 @@ app.directive('linshareDomainCreateForm', [
           // Has it's a new scope you need to reload all possible choices
 
           $scope.ldapConnections = [];
-          manageDomainService.getAllLdapConnections(function successCallback(ldapConnections) {
+          manageDomainService.getAllLdapConnections(function success(ldapConnections) {
             angular.forEach(ldapConnections, function(ldapConnection, key) {
               $scope.ldapConnections.push(ldapConnection.identifier);
             });
-          }, function errorCallback() {
+          }, function error() {
             Logger.error('Unable to get ldap connections list');
           });
           $scope.domainPatterns = [];
-          manageDomainService.getAllDomainPatterns(function successCallback(domainPatterns) {
+          manageDomainService.getAllDomainPatterns(function success(domainPatterns) {
             angular.forEach(domainPatterns, function(domainPattern, key) {
               $scope.domainPatterns.push(domainPattern.identifier);
             });
-          }, function errorCallback() {
+          }, function error() {
             Logger.error('Unable to get domain patterns list');
           });
           $scope.domainPolicies = [];
-          manageDomainService.getAllDomainPolicies(function successCallback(domainPolicies) {
+          manageDomainService.getAllDomainPolicies(function success(domainPolicies) {
             angular.forEach(domainPolicies, function(domainPolicy, key) {
               $scope.domainPolicies.push(domainPolicy.identifier);
             });
-          }, function errorCallback() {
+          }, function error() {
             Logger.error('Unable to get domain policies list');
           });
           $scope.userRoles = [];
-          manageDomainService.getAllUserRoles(function successCallback(userRoles) {
+          manageDomainService.getAllUserRoles(function success(userRoles) {
             angular.forEach(userRoles, function(userRole, key) {
               if (userRole != 'SYSTEM' && userRole != 'SUPERADMIN') {
                 $scope.userRoles.push(userRole);
               }
             });
-          }, function errorCallback() {
+          }, function error() {
             Logger.error('Unable to get user roles list');
           });
           $scope.locales = manageDomainService.getAllLocales;

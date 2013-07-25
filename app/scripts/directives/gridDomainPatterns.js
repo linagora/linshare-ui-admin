@@ -10,10 +10,9 @@ app.directive('gridDomainPatterns', [
         function($scope, Localize, Restangular, Logger) {
           $scope.getData = function(successCallback) {
             return Restangular.all('domain_patterns').getList()
-              .then(successCallback, 
-                function errorCallback(err) {
-                  Logger.error('Fail to retreive domain patterns list' + err);
-                });
+              .then(successCallback, function error(err) {
+                Logger.error('Fail to retreive domain patterns list' + err);
+            });
           };
 
           $scope.selections = [];
@@ -47,8 +46,7 @@ app.directive('gridDomainPatterns', [
           });
         }
       ],
-      template: '<div class="gridStyle" data-ng-grid="gridOptions"></div>'+
-                '<div data-ng-transclude></div>',
+      template: '<div class="gridStyle" data-ng-grid="gridOptions"></div>' + '<div data-ng-transclude></div>',
       // Replace the current directive's div by the template
       replace: false
     };

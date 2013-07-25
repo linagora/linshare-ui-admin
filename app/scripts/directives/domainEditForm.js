@@ -39,9 +39,9 @@ app.directive('linshareDomainEditForm', [
           $scope.submit = function(editDomainForm, domain) {
             if (editDomainForm.$valid) {
               Logger.debug('domain edition :' + domain.identifier);
-              domain.put().then(function successCallback(domains) {
+              domain.put().then(function success(domains) {
                 $scope.$broadcast('domainTreeNeedRefresh');
-              }, function errorCallback() {
+              }, function error() {
                 Logger.error('Unable to update the domain : ' + domain.identifier);
               });
             }
@@ -52,9 +52,9 @@ app.directive('linshareDomainEditForm', [
           $scope.delete = function(domain) {
             Logger.debug('domain deletion : ' + domain.identifier);
             $scope.confirmDelete = true;
-            domain.remove().then(function successCallback() {
+            domain.remove().then(function success() {
               $scope.$broadcast('domainTreeNeedRefresh');
-            }, function errorCallback() {
+            }, function error() {
               Logger.error('Unable to delete the domain : ' + domain.identifier);
             });
           }

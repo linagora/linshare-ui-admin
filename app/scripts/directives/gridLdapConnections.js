@@ -11,7 +11,7 @@ app.directive('gridLdapConnections', [
           $scope.getData = function(successCallback) {
             return Restangular.all('ldap_connections').getList()
               .then(successCallback, 
-                function errorCallback(err) {
+                function error(err) {
                   Logger.error('Fail to retreive LDAP connections list' + err);
                 });
           };

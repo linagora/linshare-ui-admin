@@ -19,12 +19,12 @@ app.directive('linshareLdapConnectionForm', [
           if (_.isUndefined($scope.ldapConnectionToEdit) || _.isNull($scope.ldapConnectionToEdit)) {
             $scope.submit = function(ldapConnection) {
               Logger.debug('ldapConnection creation :' + ldapConnection.identifier);
-              Restangular.all('ldap_connections').post(ldapConnection).then(function successCallback(ldapConnections) {
+              Restangular.all('ldap_connections').post(ldapConnection).then(function success(ldapConnections) {
                 $rootScope.$broadcast('reloadList');
                 $rootScope.$broadcast('showList');
                 $scope.showCreationForm = false;
                 $scope.hideForm = true;
-              }, function errorCallback() {
+              }, function error() {
                 Logger.error('Unable to create the ldapConnection : ' + ldapConnection.identifier);
               });
             };
@@ -35,10 +35,10 @@ app.directive('linshareLdapConnectionForm', [
           } else {
             $scope.submit = function(ldapConnection) {
               Logger.debug('ldapConnection edition :' + ldapConnection.identifier);
-              ldapConnection.put().then(function successCallback(ldapConnections) {
+              ldapConnection.put().then(function success(ldapConnections) {
                 $rootScope.$broadcast('reloadList');
                 $scope.hideForm = true;
-              }, function errorCallback() {
+              }, function error() {
                 Logger.error('Unable to update the ldapConnection : ' + ldapConnection.identifier);
               });
             };
@@ -47,10 +47,10 @@ app.directive('linshareLdapConnectionForm', [
             };
             $scope.delete = function(ldapConnection) {
               Logger.debug('ldapConnection deletion : ' + ldapConnection.identifier);
-              ldapConnection.remove().then(function successCallback(ldapConnections) {
+              ldapConnection.remove().then(function success(ldapConnections) {
                 $rootScope.$broadcast('reloadList');
                 $scope.hideForm = true;
-              }, function errorCallback() {
+              }, function error() {
                 Logger.error('Unable to delete the ldapConnection : ' + ldapConnection.identifier);
               });
             }
