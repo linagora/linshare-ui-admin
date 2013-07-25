@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareEditDomainForm', [
+app.directive('linshareDomainEditForm', [
   function() {
     return {
       restrict: 'A',

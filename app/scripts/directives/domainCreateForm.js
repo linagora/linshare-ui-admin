@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareCreateDomainForm', [
+app.directive('linshareDomainCreateForm', [
   function() {
     return {
       restrict: 'A',
