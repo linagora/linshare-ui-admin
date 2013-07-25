@@ -74,12 +74,6 @@ require.config({
     // Controllers
     'controllers/grid':
         {deps: ['controllers/controllers']},
-    'controllers/threadDetail':
-        {deps: ['controllers/controllers']},
-    'controllers/userDetail':
-        {deps: ['controllers/controllers']},
-    'controllers/share':
-        {deps: ['controllers/controllers']},
     'controllers/domainManagement':
         {deps: ['controllers/controllers']},
 
@@ -108,8 +102,6 @@ require.config({
         {deps: ['directives/directives', 'bootstrap']},
     'directives/footer':
         {deps: ['directives/directives']},
-    'directives/listTree':
-        {deps: ['directives/directives', 'bootstrap']},
     'directives/loadingAnimation':
         {deps: ['directives/directives']},
     'directives/domainEditForm':
@@ -170,9 +162,6 @@ require([
 
   // Controllers
   'controllers/grid',
-  'controllers/threadDetail',
-  'controllers/userDetail',
-  'controllers/share',
   'controllers/domainManagement',
 
   // Services

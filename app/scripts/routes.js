@@ -9,7 +9,7 @@ angular.module('myApp').config(['$routeProvider',
       templateUrl: 'views/domains/domain_patterns.html',
     });
     $routeProvider.when('/domains/management', {
-      templateUrl: 'views/domains/management.html',
+      templateUrl: 'views/domains/domain_management.html',
     });
 
     $routeProvider.when('/administration/activation_policies', {
