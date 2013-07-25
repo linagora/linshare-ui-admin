@@ -55,6 +55,10 @@
     "value": "Users",
     "description": "Link for users section."
   },
+  "G_Tab_Users-Search": {
+    "value": "Search",
+    "description": "Link for search an user."
+  },
   "G_Tab_Threads": {
     "value": "Threads",
     "description": "Link for threads section."
@@ -359,12 +363,40 @@
     "value": "Yes",
     "description": "Confirm the domain deletion."
   },
+  "P_Users-Search_Title": {
+    "value": "Search user",
+    "description": "Title for the search user section."
+  },
+  "P_Users-Search_CreationDateLabel": {
+    "value": "Creation date",
+    "description": "Label for the creation date."
+  },
+  "P_Users-Search_ModificationDateLabel": {
+    "value": "Modification date",
+    "description": "Label for the modification date."
+  },
+  "P_Users-Search_DomainLabel": {
+    "value": "Domain",
+    "description": "Label for the domain."
+  },
+  "P_Users-Search_OwnerLabel": {
+    "value": "Owner",
+    "description": "Label for the owner."
+  },
+  "P_Users-Search_Reset": {
+    "value": "Reset",
+    "description": "Label for the reset button."
+  },
+  "P_Users-Search_Submit": {
+    "value": "Submit",
+    "description": "Label for the submit button."
+  },
   "P_Administration-ActivationPolicies_Title": {
     "value": "Activation Policies",
     "description": "Title for the management section of activation policies."
   },
   "P_Administration-ConfigurationPolicies_Title": {
     "value": "Configuration Policies",
-    "description": "Title for the management section of activation policies."
+    "description": "Title for the management section of configuration policies."
   }
 }

@@ -8,9 +8,11 @@ Quelques articles :
 - http://restcookbook.com/HTTP%20Methods/put-vs-post/
 - http://www.artima.com/lejava/articles/why_put_and_delete.html 
 
+
 ## Authentification
 
 GET     authentication/authorized         - connexion des utilisateurs
+
 
 ## Partages
 
@@ -19,6 +21,7 @@ GET     shares/{uuid}           - les informations sur un partage
 POST    shares                  - créer un/des partage(s)
 POST    shares/{uuid}/import    - importer un document d’un partage (recopie dans l’espace personnel)
 DELETE  shares                  - supprimer un partage 
+
 
 ## Documents
 
@@ -54,11 +57,13 @@ POST    threads/{uuid}/members            - créer un thread member
 PUT     threads                           - modifier un thread 
 DELETE  threads                           - supprimer un thread
 
+
 ## Thread entries 
 
 GET     thread_entries/{uuid}             - les informations sur une thread entry
 PUT     thread_entries                    - modifier une thread entry (nom & commentaire)
 DELETE  thread_entries                    - supprimer une thread entry 
+
 
 ## Thread members
 
@@ -70,6 +75,7 @@ DELETE  thread_members                    - supprimer un thread member
 ## Administration
 
 GET     admin/authentication/authorized                       - connexion des admins
+
 
 ### Domains :has_role(ROOT) sauf pour les operations de "list"
 
@@ -103,17 +109,21 @@ POST    admin/domain_patterns            - créer un domain pattern
 PUT     admin/domain_patterns            - modifier un domain pattern
 DELETE  admin/domain_patterns            - supprimer un domain pattern
 
+
 ### Domain policies :has_role(ROOT)
 
 GET     admin/domain_policies            - liste les domain policies
+
 
 ### User roles
 
 GET     admin/user_roles                 - liste les roles utilisateur
 
+
 ### Locales
 
 GET     admin/locales                    - liste les locales
+
 
 ### Fonctionnalités : NB droits de modification par l’admin uniquement sur les domaines qu’il administre
 
@@ -121,6 +131,7 @@ GET     admin/functionnalities/{uuid}                   - les informations sur u
 PUT     admin/functionnalities                          - modifier les paramètres d’une fonctionnalité
 PUT     admin/functionnalities/{uuid}/configuration     - modifier une politique de configuration d’une fonctionnalité
 PUT     admin/functionnalities/{uuid}/activation        - modifier une politique d’activation d’une fonctionnalité
+
 
 ### Threads
 

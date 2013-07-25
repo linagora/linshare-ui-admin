@@ -36,7 +36,10 @@ app.directive('linshareNavbar', [
               }]
             }, {
               name: Localize.getLocalizedString('G_Tab_Users'),
-              links: '#users'
+              links: [{
+                name: Localize.getLocalizedString('G_Tab_Users-Search'),
+                href: '#users/search'
+              }]
             }, {
               name: Localize.getLocalizedString('G_Tab_Threads'),
               links: '#threads'

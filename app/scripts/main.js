@@ -122,6 +122,8 @@ require.config({
         {deps: ['directives/directives']},
     'directives/domainTree':
         {deps: ['directives/directives']},
+    'directives/autocompleteUser':
+        {deps: ['directives/directives']},
 
     /**
      * Utils
@@ -194,6 +196,7 @@ require([
   'directives/domainPatternForm',
   'directives/ldapConnectionForm',
   'directives/domainTree',
+  'directives/autocompleteUser',
 
   /**
    * Utils
