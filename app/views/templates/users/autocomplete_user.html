@@ -8,7 +8,7 @@
 
         <!-- Creation date -->
         <div class="control-group">
-          <label class="control-label" for="creationDate">{{'P_Users-Search_CreationDateLabel' | i18n}}</label>
+          <label class="control-label" for="creationDate">{{'P_Users-Management_CreationDateLabel' | i18n}}</label>
           <div class="controls">
             <span class="input-xlarge uneditable-input">{{selectedUser.creationDate | date:'medium'}}</span>
           </div>
@@ -16,7 +16,7 @@
 
         <!-- Modification date -->
         <div class="control-group">
-          <label class="control-label" for="modificationDate">{{'P_Users-Search_ModificationDateLabel' | i18n}}</label>
+          <label class="control-label" for="modificationDate">{{'P_Users-Management_ModificationDateLabel' | i18n}}</label>
           <div class="controls">
             <span class="input-xlarge uneditable-input">{{selectedUser.modificationDate | date:'medium'}}</span>
           </div>
@@ -24,7 +24,7 @@
 
         <!-- Domain -->
         <div class="control-group">
-          <label class="control-label" for="domain">{{'P_Users-Search_DomainLabel' | i18n}}</label>
+          <label class="control-label" for="domain">{{'P_Users-Management_DomainLabel' | i18n}}</label>
           <div class="controls">
             <span class="input-xlarge uneditable-input">{{selectedUser.domain}}</span>
           </div>
@@ -32,7 +32,7 @@
         
         <!-- Owner -->
         <div class="control-group" data-ng-show="isStringEmpty(selectedUser.owner)">
-          <label class="control-label" for="owner">{{'P_Users-Search_OwnerLabel' | i18n}}</label>
+          <label class="control-label" for="owner">{{'P_Users-Management_OwnerLabel' | i18n}}</label>
           <div class="controls">
             <span class="input-xlarge uneditable-input">{{selectedUser.owner}}</span>
           </div>
@@ -51,10 +51,10 @@
         <div class="control-group">
           <div class="controls">
             <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">
-              {{'P_Users-Search_Reset' | i18n}}
+              {{'P_Users-Management_Reset' | i18n}}
             </button>
             <button id="submit" name="submit" class="btn btn-success" data-ng-click="submit(userEditForm, selectedUser)">
-              {{'P_Users-Search_Submit' | i18n}}
+              {{'P_Users-Management_Submit' | i18n}}
             </button>
           </div>
         </div>

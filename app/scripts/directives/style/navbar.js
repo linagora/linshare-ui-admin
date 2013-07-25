@@ -37,8 +37,8 @@ app.directive('linshareNavbar', [
             }, {
               name: Localize.getLocalizedString('G_Tab_Users'),
               links: [{
-                name: Localize.getLocalizedString('G_Tab_Users-Search'),
-                href: '#users/search'
+                name: Localize.getLocalizedString('G_Tab_Users-Management'),
+                href: '#users/management'
               }]
             }, {
               name: Localize.getLocalizedString('G_Tab_Threads'),
@@ -71,7 +71,7 @@ app.directive('linshareNavbar', [
           }
         }
       ],
-      templateUrl: '/views/templates/navbar.html',
+      templateUrl: '/views/templates/style/navbar.html',
       replace: false
     };
   }

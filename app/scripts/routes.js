@@ -27,8 +27,8 @@ angular.module('myApp').config(['$routeProvider',
     $routeProvider.when('/users', {
       templateUrl: 'views/users.html',
     });
-    $routeProvider.when('/users/search', {
-      templateUrl: 'views/users/search.html'
+    $routeProvider.when('/users/management', {
+      templateUrl: 'views/users/user_management.html'
     });
     $routeProvider.when('/users/:userId', {
       templateUrl: 'views/user_detail.html'

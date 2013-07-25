@@ -55,8 +55,8 @@
     "value": "Users",
     "description": "Link for users section."
   },
-  "G_Tab_Users-Search": {
-    "value": "Search",
+  "G_Tab_Users-Management": {
+    "value": "Manage users",
     "description": "Link for search an user."
   },
   "G_Tab_Threads": {
@@ -363,31 +363,31 @@
     "value": "Yes",
     "description": "Confirm the domain deletion."
   },
-  "P_Users-Search_Title": {
-    "value": "Search user",
+  "P_Users-Management_Title": {
+    "value": "Manage user",
     "description": "Title for the search user section."
   },
-  "P_Users-Search_CreationDateLabel": {
+  "P_Users-Management_CreationDateLabel": {
     "value": "Creation date",
     "description": "Label for the creation date."
   },
-  "P_Users-Search_ModificationDateLabel": {
+  "P_Users-Management_ModificationDateLabel": {
     "value": "Modification date",
     "description": "Label for the modification date."
   },
-  "P_Users-Search_DomainLabel": {
+  "P_Users-Management_DomainLabel": {
     "value": "Domain",
     "description": "Label for the domain."
   },
-  "P_Users-Search_OwnerLabel": {
+  "P_Users-Management_OwnerLabel": {
     "value": "Owner",
     "description": "Label for the owner."
   },
-  "P_Users-Search_Reset": {
+  "P_Users-Management_Reset": {
     "value": "Reset",
     "description": "Label for the reset button."
   },
-  "P_Users-Search_Submit": {
+  "P_Users-Management_Submit": {
     "value": "Submit",
     "description": "Label for the submit button."
   },

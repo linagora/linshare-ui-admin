@@ -66,7 +66,7 @@ app.directive('linshareDomainEditForm', [
           });
         }
       ],
-      templateUrl: '/views/templates/forms/edit_domain.html',
+      templateUrl: '/views/templates/domains/edit_domain.html',
       replace: false
     };
   }

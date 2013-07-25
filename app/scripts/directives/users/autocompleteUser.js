@@ -49,7 +49,7 @@ app.directive('linshareAutocompleteUser', [
           };
         }
       ],
-      templateUrl: '/views/templates/autocomplete_user.html',
+      templateUrl: '/views/templates/users/autocomplete_user.html',
       replace: false
     };
   }

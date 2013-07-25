@@ -47,7 +47,7 @@ app.directive('linshareListTree', [
           ];
         }
       ],
-      templateUrl: '/views/templates/list_tree.html',
+      templateUrl: '/views/templates/style/list_tree.html',
       replace: false
     };
   }

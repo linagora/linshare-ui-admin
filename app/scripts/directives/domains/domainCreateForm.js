@@ -37,7 +37,6 @@ app.directive('linshareDomainCreateForm', [
             $scope.reset();
           });
           $scope.submit = function(createDomainForm, domain) {
-            console.log(createDomainForm);
             if (createDomainForm.$valid) {
               Logger.debug('domain creation :' + domain.identifier);
               Restangular.all('domains').post(domain).then(function success() {
@@ -46,10 +45,6 @@ app.directive('linshareDomainCreateForm', [
               }, function error() {
                 Logger.error('Unable to create the domain : ' + domain.identifier);
               });
-            }
-            console.log(createDomainForm); 
-            if (createDomainForm.$dirty) {
-              createDomainForm.$pristine = true;
             }
           };
 
@@ -92,7 +87,7 @@ app.directive('linshareDomainCreateForm', [
           $scope.locales = manageDomainService.getAllLocales;
         }
       ],
-      templateUrl: '/views/templates/forms/create_domain.html',
+      templateUrl: '/views/templates/domains/create_domain.html',
       replace: false
     };
   }

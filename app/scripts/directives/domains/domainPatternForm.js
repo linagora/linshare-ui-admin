@@ -60,7 +60,7 @@ app.directive('linshareDomainPatternForm', [
           $scope.reset();
         }
       ],
-      templateUrl: '/views/templates/forms/domain_pattern.html',
+      templateUrl: '/views/templates/domains/domain_pattern.html',
       replace: false
     };
   }

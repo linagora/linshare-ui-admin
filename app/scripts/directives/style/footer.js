@@ -6,7 +6,7 @@ app.directive('linshareFooter', [
       restrict: 'A',
       transclude: true,
       scope: false,
-      templateUrl: '/views/templates/footer.html',
+      templateUrl: '/views/templates/style/footer.html',
       replace: false
     };
   }

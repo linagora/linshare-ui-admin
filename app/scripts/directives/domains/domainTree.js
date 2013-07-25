@@ -44,7 +44,7 @@ app.directive('linshareDomainTree', [
           });
         }
       ],
-      templateUrl: '/views/templates/domain_tree.html',
+      templateUrl: '/views/templates/domains/domain_tree.html',
       replace: false
     };
   }

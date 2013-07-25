@@ -60,7 +60,7 @@ app.directive('linshareLdapConnectionForm', [
           $scope.reset();
         }
       ],
-      templateUrl: '/views/templates/forms/ldap_connection.html',
+      templateUrl: '/views/templates/domains/ldap_connection.html',
       replace: false
     };
   }

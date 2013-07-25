@@ -86,36 +86,40 @@ require.config({
         {deps: ['services/services']},
 
     // Directives
-    'directives/gridThreads':
-        {deps: ['directives/directives', 'nggrid']},
-    'directives/gridThreadMembers':
-        {deps: ['directives/directives', 'nggrid']},
-    'directives/gridUsers':
-        {deps: ['directives/directives', 'nggrid']},
-    'directives/gridDomainPatterns':
-        {deps: ['directives/directives', 'nggrid']},
-    'directives/gridLdapConnections':
-        {deps: ['directives/directives', 'nggrid']},
     'directives/loginForm':
         {deps: ['directives/directives', 'bootstrap']},
-    'directives/navbar':
+
+    'directives/threads/gridThreads':
+        {deps: ['directives/directives', 'nggrid']},
+    'directives/threads/gridThreadMembers':
+        {deps: ['directives/directives', 'nggrid']},
+
+    'directives/domains/gridDomainPatterns':
+        {deps: ['directives/directives', 'nggrid']},
+    'directives/domains/gridLdapConnections':
+        {deps: ['directives/directives', 'nggrid']},
+    'directives/domains/domainEditForm':
+        {deps: ['directives/directives']},
+    'directives/domains/domainCreateForm':
+        {deps: ['directives/directives']},
+    'directives/domains/domainPatternForm':
+        {deps: ['directives/directives']},
+    'directives/domains/ldapConnectionForm':
+        {deps: ['directives/directives']},
+    'directives/domains/domainTree':
+        {deps: ['directives/directives']},
+    
+    'directives/users/autocompleteUser':
+        {deps: ['directives/directives']},
+    'directives/users/gridUsers':
+        {deps: ['directives/directives', 'nggrid']},
+
+    'directives/style/footer':
+        {deps: ['directives/directives']},
+    'directives/style/loadingAnimation':
+        {deps: ['directives/directives']},
+    'directives/style/navbar':
         {deps: ['directives/directives', 'bootstrap']},
-    'directives/footer':
-        {deps: ['directives/directives']},
-    'directives/loadingAnimation':
-        {deps: ['directives/directives']},
-    'directives/domainEditForm':
-        {deps: ['directives/directives']},
-    'directives/domainCreateForm':
-        {deps: ['directives/directives']},
-    'directives/domainPatternForm':
-        {deps: ['directives/directives']},
-    'directives/ldapConnectionForm':
-        {deps: ['directives/directives']},
-    'directives/domainTree':
-        {deps: ['directives/directives']},
-    'directives/autocompleteUser':
-        {deps: ['directives/directives']},
 
     /**
      * Utils
@@ -170,22 +174,25 @@ require([
   'services/manageDomain',
 
   // Directives
-  'directives/gridThreadMembers',
-  'directives/gridThreads',
-  'directives/gridUsers',
-  'directives/gridDomainPatterns',
-  'directives/gridLdapConnections',
   'directives/loginForm',
-  'directives/navbar',
-  'directives/footer',
-  'directives/listTree',
-  'directives/loadingAnimation',
-  'directives/domainCreateForm',
-  'directives/domainEditForm',
-  'directives/domainPatternForm',
-  'directives/ldapConnectionForm',
-  'directives/domainTree',
-  'directives/autocompleteUser',
+
+  'directives/threads/gridThreadMembers',
+  'directives/threads/gridThreads',
+  
+  'directives/domains/gridDomainPatterns',
+  'directives/domains/gridLdapConnections',
+  'directives/domains/domainCreateForm',
+  'directives/domains/domainEditForm',
+  'directives/domains/domainPatternForm',
+  'directives/domains/ldapConnectionForm',
+  'directives/domains/domainTree',
+
+  'directives/users/autocompleteUser',
+  'directives/users/gridUsers',
+
+  'directives/style/navbar',
+  'directives/style/footer',
+  'directives/style/loadingAnimation',
 
   /**
    * Utils
