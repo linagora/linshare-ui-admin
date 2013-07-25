@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareDomainTree', [
+app.directive('lsDomainTree', [
   function() {
     return {
       restrict: 'A',

@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('gridThreads', [
+app.directive('lsUserGrid', [
   function() {
     return {
       restrict: 'A',
@@ -9,34 +9,34 @@ app.directive('gridThreads', [
       controller: ['$scope', 'localize', 'Restangular',
         function($scope, Localize, Restangular) {
           $scope.getData = function(successCallback) {
-            return Restangular.all('threads').getList()
-              .then(successCallback, function error(err) {
-                Logger.error('Fail to retreive threads list' + err);
+            return Restangular.all('users').getList()
+              .then(successCallback, function error() {
+                Logger.error('Fail to retreive users list' + err);
             });
           };
 
           $scope.gridOptions = {
             i18n: Localize.getSimpleLanguage(),
             data: 'myData',
-            selectedItems: $scope.threadserSelections,
+            selectedItems: $scope.userSelections,
             showGroupPanel: true,
             enablePaging: true,
             showFooter: true,
             pagingOptions: $scope.pagingOptions,
             filterOptions: $scope.filterOptions,
-            sortInfo: {
-              fields: ['modificationDate'],
-              directions: ['desc']
-            },
             columnDefs: [{
-                field: 'name',
-                displayName: 'Name',
-                cellTemplate: '<a href="#/threads/{{row.entity[\'uuid\']}}">{{row.entity[col.field]}}</a>'
+                field: 'firstName',
+                displayName: 'First Name',
+                width: 90,
+                cellTemplate: '<a href="#/users/{{row.entity[\'uuid\']}}">{{row.entity[col.field]}}</a>'
               }, {
-                field: 'modificationDate',
-                displayName: 'Modification Date',
-                width: 200,
-                cellFilter: "date:'dd/MM/yyyy HH:mm'"
+                field: 'lastName',
+                displayName: 'Last Name',
+                width: 90
+              }, {
+                field: 'mail',
+                cellClass: 'mailCell',
+                headerClass: 'mailHeader'
               }
             ]
           };

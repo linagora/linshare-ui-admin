@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareNavbar', [
+app.directive('lsNavbar', [
   function() {
     return {
       restrict: 'A',

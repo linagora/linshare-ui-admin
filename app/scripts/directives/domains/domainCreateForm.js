@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareDomainCreateForm', [
+app.directive('lsDomainCreateForm', [
   function() {
     return {
       restrict: 'A',
@@ -87,7 +87,7 @@ app.directive('linshareDomainCreateForm', [
           $scope.locales = manageDomainService.getAllLocales;
         }
       ],
-      templateUrl: '/views/templates/domains/create_domain.html',
+      templateUrl: '/views/templates/domains/domain_create_form.html',
       replace: false
     };
   }

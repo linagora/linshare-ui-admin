@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareFooter', [
+app.directive('lsFooter', [
   function() {
     return {
       restrict: 'A',

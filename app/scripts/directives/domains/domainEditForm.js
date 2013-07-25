@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareDomainEditForm', [
+app.directive('lsDomainEditForm', [
   function() {
     return {
       restrict: 'A',
@@ -66,7 +66,7 @@ app.directive('linshareDomainEditForm', [
           });
         }
       ],
-      templateUrl: '/views/templates/domains/edit_domain.html',
+      templateUrl: '/views/templates/domains/domain_edit_form.html',
       replace: false
     };
   }

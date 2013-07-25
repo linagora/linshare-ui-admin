@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('gridThreadMembers', [
+app.directive('lsThreadMemberGrid', [
   function() {
     return {
       restrict: 'A',

@@ -76,6 +76,8 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/domainManagement':
         {deps: ['controllers/controllers']},
+    'controllers/userManagement':
+        {deps: ['controllers/controllers']},
 
     // Services
     'services/preferences':
@@ -89,29 +91,31 @@ require.config({
     'directives/loginForm':
         {deps: ['directives/directives', 'bootstrap']},
 
-    'directives/threads/gridThreads':
+    'directives/threads/threadGrid':
         {deps: ['directives/directives', 'nggrid']},
-    'directives/threads/gridThreadMembers':
+    'directives/threads/threadMemberGrid':
         {deps: ['directives/directives', 'nggrid']},
 
-    'directives/domains/gridDomainPatterns':
+    'directives/domains/ldapConnectionForm':
+        {deps: ['directives/directives']},
+    'directives/domains/ldapConnectionGrid':
         {deps: ['directives/directives', 'nggrid']},
-    'directives/domains/gridLdapConnections':
+    'directives/domains/domainPatternForm':
+        {deps: ['directives/directives']},
+    'directives/domains/domainPatternGrid':
         {deps: ['directives/directives', 'nggrid']},
     'directives/domains/domainEditForm':
         {deps: ['directives/directives']},
     'directives/domains/domainCreateForm':
         {deps: ['directives/directives']},
-    'directives/domains/domainPatternForm':
-        {deps: ['directives/directives']},
-    'directives/domains/ldapConnectionForm':
-        {deps: ['directives/directives']},
     'directives/domains/domainTree':
         {deps: ['directives/directives']},
     
-    'directives/users/autocompleteUser':
+    'directives/users/userCompletion':
         {deps: ['directives/directives']},
-    'directives/users/gridUsers':
+    'directives/users/userEditForm':
+        {deps: ['directives/directives']},
+    'directives/users/userGrid':
         {deps: ['directives/directives', 'nggrid']},
 
     'directives/style/footer':
@@ -167,6 +171,7 @@ require([
   // Controllers
   'controllers/grid',
   'controllers/domainManagement',
+  'controllers/userManagement',
 
   // Services
   'services/preferences',
@@ -176,19 +181,20 @@ require([
   // Directives
   'directives/loginForm',
 
-  'directives/threads/gridThreadMembers',
-  'directives/threads/gridThreads',
+  'directives/threads/threadMemberGrid',
+  'directives/threads/threadGrid',
   
-  'directives/domains/gridDomainPatterns',
-  'directives/domains/gridLdapConnections',
+  'directives/domains/ldapConnectionForm',
+  'directives/domains/ldapConnectionGrid',
+  'directives/domains/domainPatternForm',
+  'directives/domains/domainPatternGrid',
   'directives/domains/domainCreateForm',
   'directives/domains/domainEditForm',
-  'directives/domains/domainPatternForm',
-  'directives/domains/ldapConnectionForm',
   'directives/domains/domainTree',
 
-  'directives/users/autocompleteUser',
-  'directives/users/gridUsers',
+  'directives/users/userEditForm',
+  'directives/users/userCompletion',
+  'directives/users/userGrid',
 
   'directives/style/navbar',
   'directives/style/footer',

@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareLoginForm', [
+app.directive('lsLoginForm', [
   function() {
     return {
       restrict: 'A',
@@ -44,7 +44,7 @@ app.directive('linshareLoginForm', [
           };
         }
       ],
-      templateUrl: '/views/templates/login_modal.html',
+      templateUrl: '/views/templates/login_form.html',
       replace: false
     };
   }

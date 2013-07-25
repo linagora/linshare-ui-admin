@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareLdapConnectionForm', [
+app.directive('lsLdapConnectionForm', [
   function() {
     return {
       restrict: 'A',
@@ -60,7 +60,7 @@ app.directive('linshareLdapConnectionForm', [
           $scope.reset();
         }
       ],
-      templateUrl: '/views/templates/domains/ldap_connection.html',
+      templateUrl: '/views/templates/domains/ldap_connection_form.html',
       replace: false
     };
   }

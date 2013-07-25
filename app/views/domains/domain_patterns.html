@@ -13,13 +13,13 @@
           </button>
         </div>
         <div data-ng-show="showCreationForm">
-          <div data-linshare-domain-pattern-form data-show-creation-form="showCreationForm"></div>
+          <div data-ls-domain-pattern-form data-show-creation-form="showCreationForm"></div>
         </div>
       </div>
       <div data-ng-controller="GridCtrl" data-ng-show="!showCreationForm">
-        <div data-grid-domain-patterns>
+        <div data-ls-domain-pattern-grid>
           <div data-ng-repeat="myElement in selections">
-            <div data-linshare-domain-pattern-form data-domain-pattern="myElement"></div>
+            <div data-ls-domain-pattern-form data-domain-pattern="myElement"></div>
           </div>
         </div>
       </div>

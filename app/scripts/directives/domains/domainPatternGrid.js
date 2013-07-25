@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('gridDomainPatterns', [
+app.directive('lsDomainPatternGrid', [
   function() {
     return {
       restrict: 'A',

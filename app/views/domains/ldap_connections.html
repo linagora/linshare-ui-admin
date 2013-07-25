@@ -13,13 +13,13 @@
           </button>
         </div>
         <div data-ng-show="showCreationForm">
-          <div data-linshare-ldap-connection-form data-show-creation-form="showCreationForm"></div>
+          <div data-ls-ldap-connection-form data-show-creation-form="showCreationForm"></div>
         </div>
       </div>
       <div data-ng-controller="GridCtrl" data-ng-show="!showCreationForm">
-        <div data-grid-ldap-connections>
+        <div data-ls-ldap-connection-grid>
           <div data-ng-repeat="myElement in selections">
-            <div data-linshare-ldap-connection-form data-ldap-connection="myElement"></div>
+            <div data-ls-ldap-connection-form data-ldap-connection="myElement"></div>
           </div>
         </div>
       </div>

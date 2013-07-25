@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('gridLdapConnections', [
+app.directive('lsLdapConnectionGrid', [
   function() {
     return {
       restrict: 'A',

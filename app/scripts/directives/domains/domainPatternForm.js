@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('linshareDomainPatternForm', [
+app.directive('lsDomainPatternForm', [
   function() {
     return {
       restrict: 'A',
@@ -60,7 +60,7 @@ app.directive('linshareDomainPatternForm', [
           $scope.reset();
         }
       ],
-      templateUrl: '/views/templates/domains/domain_pattern.html',
+      templateUrl: '/views/templates/domains/domain_pattern_form.html',
       replace: false
     };
   }
