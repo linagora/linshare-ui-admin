@@ -6,13 +6,14 @@ app.directive('lsLoginForm', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', 'Restangular', 'authService', 'loggerService',
-        function($scope, Restangular, authService, Logger) {
+      controller: ['$scope', '$rootScope', 'Restangular', 'authService', 'loggerService',
+        function($scope, $rootScope, Restangular, authService, Logger) {
 
           $scope.submit = function() {
             var success = function(data, status, headers, config) {
               Logger.debug("Authentication succeed");
-              authService.loginConfirmed();
+              authService.loginConfirmed(data);
+              Logger.debug("Connected as " + data.mail);
             };
             var error = function(data, status, headers, config) {
               $scope.errorLogin = "Bad credentials";

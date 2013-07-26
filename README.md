@@ -110,6 +110,13 @@ Le niveau de logs est précisé dans les préférences de l'application
 puis est stocké dans un cookie pour pourvoir à terme modifier le niveau de log 
 à la volée.
 
+
+### Remarques
+* Le rootScope: Il ne doit pas être pollué et est reservé à une utilisation
+très spécifique (internationalization, userLogged). Son utilisation
+revient à instancier des variables globales à l'application 
+(comme chacun le sait c'est une mauvaise pratique de programmation)
+
 ### Notes pour la version AngularJS 1.1.X
 * Modifier le module http-auth-interceptor pour modifier les headers sortants.
 * Modifier le service Logger pour utiliser la fonction debug() d'AngularJS.

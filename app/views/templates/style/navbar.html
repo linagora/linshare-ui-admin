@@ -1,12 +1,14 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container">
-      <div class="nav-collapse">
+    <div class="container-fluid">
+      <a class="brand">
+        {{'G_App_AppName' | i18n}}
+      </a>
+      <div class="nav-collapse container">
         <ul class="nav">
           <li class="dropdown" data-ng-repeat="tab in tabs"> 
             <a class="dropdown-toggle">
               {{tab.name}}
-              <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <li data-ng-repeat="link in tab.links">
@@ -14,19 +16,21 @@
               </li>
             </ul>
           </li>
-          <li class="divider-vertical"></li>
+        </ul>
+        <ul class="nav" style="float:right">
           <li class="dropdown"> 
             <a class="dropdown-toggle">
+              <i class="icon-white icon-flag"></i>
               {{'G_App_Language' | i18n}}
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li>
+              <li data-ng-class="{disabled: isCurrentLang('en')}">
                 <a data-ng-click="setLanguage('en-US')">
                   {{'G_App_LangEn' | i18n}}
                 </a>
               </li>
-              <li>
+              <li data-ng-class="{disabled: isCurrentLang('fr')}">
                 <a data-ng-click="setLanguage('fr-FR')">
                   {{'G_App_LangFr' | i18n}}
                 </a>
@@ -34,8 +38,10 @@
             </ul>
           </li>
           <li class="dropdown"> 
-            <a class="dropdown-toggle brand">
-              {{'G_App_AppName' | i18n}}
+            <a class="dropdown-toggle">
+              <i class="icon-white icon-user"></i>
+              {{userLogged().mail}}
+              <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <li>

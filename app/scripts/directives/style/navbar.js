@@ -6,10 +6,12 @@ app.directive('lsNavbar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$route', '$http', 'localize', 'preferencesService',
-        function($scope, $route, $http, Localize, Preferences) {
+      controller: ['$scope', '$route', '$http', 'localize', 'preferencesService', 'userLoggedService',
+        function($scope, $route, $http, Localize, Preferences, UserLogged) {
           $scope.appName = Preferences.system.appName;
-
+          $scope.userLogged = function() {
+            return UserLogged.get();
+          }
           $scope.tabs = [{
               name: Localize.getLocalizedString('G_Tab_Domains'),
               links: [{
@@ -55,10 +57,12 @@ app.directive('lsNavbar', [
             }
           ];
 
-          $scope.isCurrent = false;
-
           $scope.setLanguage = function(value) {
             Localize.setLanguage(value);
+          }
+
+          $scope.isCurrentLang = function(value) {
+            return Localize.getSimpleLanguage() === value;
           }
 
           $scope.logout = function() {

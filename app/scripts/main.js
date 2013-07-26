@@ -84,6 +84,8 @@ require.config({
         {deps: ['services/services']},
     'services/logger':
         {deps: ['services/services']},
+    'services/userLogged':
+        {deps: ['services/services']},
     'services/manageDomain':
         {deps: ['services/services']},
 
@@ -180,6 +182,7 @@ require([
   // Services
   'services/preferences',
   'services/logger',
+  'services/userLogged',
   'services/manageDomain',
 
   // Directives
