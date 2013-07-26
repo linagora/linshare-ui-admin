@@ -3,13 +3,14 @@
 ## Installation
 
 ### Installer les outils
-4 outils sont nécessaire pour installer le projet:
+5 outils sont nécessaire pour installer le projet:
+- nodejs
 - npm
 - grunt
 - bower
 - yeoman (yo)
 
-#### Installer npm
+#### Installer nodejs & npm
     curl http://nodejs.org/dist/node-latest.tar.gz -o node-latest.tar.gz
     tar xvf node-latest.tar.gz
     cd node-latest.tar.gz
@@ -25,10 +26,15 @@
 #### Checker les modules npm a mettre à jour
     sudo npm outdated -g
 
-#### Mettre a jour les modules npm
+#### Mettre a jour nodejs
+    sudo npm cache clean -f
+    sudo npm install -g n
+    sudo n stable
+
+#### Mettre a jour npm & ses modules
     sudo npm update -g
 
-#### Effacer le cache et mettre a jour yeoman
+#### Mettre a jour yeoman
     sudo npm cache clean && npm update -g yo
 
 ### Installer le projet
