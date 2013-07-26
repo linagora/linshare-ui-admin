@@ -1,9 +1,39 @@
 # Linshare NG proof of concept
 
 ## Installation
-Pour installer le projet:
+
+### Installer les outils
+4 outils sont nécessaire pour installer le projet:
+- npm
+- grunt
+- bower
+- yeoman (yo)
+
+#### Installer npm
+    curl http://nodejs.org/dist/node-latest.tar.gz -o node-latest.tar.gz
+    tar xvf node-latest.tar.gz
+    cd node-latest.tar.gz
+    ./configure
+    make
+    make install
+
+#### Installer les modules grunt, bower, yo 
+    sudo npm install -g yo grunt-cli bower
+    sudo npm install -g generator-webapp
+
+#### Checker les modules npm a mettre à jour
+    sudo npm outdated -g
+
+#### Mettre a jour les modules npm
+    sudo npm update -g
+
+#### Effacer le cache et mettre a jour yeoman
+    sudo npm cache clean && npm update -g yo
+
+### Installer le projet
 * "npm install"
 * "bower install"
+
 
 ## Procedure de mise à jour
 Pour vérifier si des mise à jour sont présentes:
