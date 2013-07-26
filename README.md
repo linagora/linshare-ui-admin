@@ -13,6 +13,7 @@
     curl http://nodejs.org/dist/node-latest.tar.gz -o node-latest.tar.gz
     tar xvf node-latest.tar.gz
     cd node-latest.tar.gz
+    cd node-v0.XX.XX
     ./configure
     make
     make install
