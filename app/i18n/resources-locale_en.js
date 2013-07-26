@@ -15,9 +15,29 @@
     "value": "French",
     "description": "Text value for the french language."
   },
+  "G_App_Login_Title": {
+    "value": "Login",
+    "description": "Title of login form"
+  },
+  "G_App_Login_Email": {
+    "value": "Email",
+    "description": "Label for the email field in login form"
+  },
+  "G_App_Login_Password": {
+    "value": "Password",
+    "description": "Label for the password field in login form"
+  },
+  "G_App_Login_Submit": {
+    "value": "Submit",
+    "description": "Label for the password field in login form"
+  },
   "G_App_Logout": {
     "value": "Logout",
     "description": "Text of the logout button"
+  },
+  "G_App_Logout": {
+    "value": "Logout",
+    "description": "Label for the submit button."
   },
   "G_Tab_Domains": {
     "value": "Domains",

@@ -36,16 +36,14 @@ app.directive('lsDomainCreateForm', [
             };
             $scope.reset();
           });
-          $scope.submit = function(createDomainForm, domain) {
-            if (createDomainForm.$valid) {
-              Logger.debug('domain creation :' + domain.identifier);
-              Restangular.all('domains').post(domain).then(function success() {
-                $scope.close();
-                $rootScope.$broadcast('domainTreeNeedRefresh');
-              }, function error() {
-                Logger.error('Unable to create the domain : ' + domain.identifier);
-              });
-            }
+          $scope.submit = function(domain) {
+            Logger.debug('domain creation :' + domain.identifier);
+            Restangular.all('domains').post(domain).then(function success() {
+              $scope.close();
+              $rootScope.$broadcast('domainTreeNeedRefresh');
+            }, function error() {
+              Logger.error('Unable to create the domain : ' + domain.identifier);
+            });
           };
 
           // Has it's a new scope you need to reload all possible choices

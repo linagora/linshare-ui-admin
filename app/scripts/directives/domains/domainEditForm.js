@@ -36,15 +36,13 @@ app.directive('lsDomainEditForm', [
           $scope.deleteProvider = function() {
             $scope.domain.providers.splice(0, 1);
           }
-          $scope.submit = function(editDomainForm, domain) {
-            if (editDomainForm.$valid) {
-              Logger.debug('domain edition :' + domain.identifier);
-              domain.put().then(function success(domains) {
-                $scope.$broadcast('domainTreeNeedRefresh');
-              }, function error() {
-                Logger.error('Unable to update the domain : ' + domain.identifier);
-              });
-            }
+          $scope.submit = function(domain) {
+            Logger.debug('domain edition :' + domain.identifier);
+            domain.put().then(function success(domains) {
+              $scope.$broadcast('domainTreeNeedRefresh');
+            }, function error() {
+              Logger.error('Unable to update the domain : ' + domain.identifier);
+            });
           };
           $scope.reset = function() {
             $scope.domain = Restangular.copy($scope.currentDomain);

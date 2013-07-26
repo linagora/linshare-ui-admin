@@ -1,5 +1,5 @@
 <div class="well" data-ng-show="isObject(user)">
-  <form class="form-horizontal" name="userEditForm">
+  <form class="form-horizontal" name="userEditForm" data-ls-form-submit="submit(user)" data-ls-form-attempt>
     <fieldset>
       <!-- Legend -->
       <h4><legend>{{userRepresentation(user)}}</legend></h4>
@@ -48,10 +48,10 @@
       <!-- Validation -->
       <div class="control-group">
         <div class="controls">
-          <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">
+          <button id="reset" name="reset" type="button" class="btn btn-warning" data-ng-click="reset()">
             {{'P_Users-Management_Reset' | i18n}}
           </button>
-          <button id="submit" name="submit" class="btn btn-success" data-ng-click="submit(userEditForm, user)">
+          <button id="submit" name="submit" type="submit" class="btn btn-success">
             {{'P_Users-Management_Submit' | i18n}}
           </button>
         </div>

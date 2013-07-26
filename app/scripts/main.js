@@ -118,6 +118,10 @@ require.config({
     'directives/users/userGrid':
         {deps: ['directives/directives', 'nggrid']},
 
+    'directives/style/formAttempt':
+        {deps: ['directives/directives']},
+    'directives/style/formSubmit':
+        {deps: ['directives/directives']},
     'directives/style/footer':
         {deps: ['directives/directives']},
     'directives/style/loadingAnimation':
@@ -196,6 +200,8 @@ require([
   'directives/users/userCompletion',
   'directives/users/userGrid',
 
+  'directives/style/formAttempt',
+  'directives/style/formSubmit',
   'directives/style/navbar',
   'directives/style/footer',
   'directives/style/loadingAnimation',

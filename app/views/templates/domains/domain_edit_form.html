@@ -1,4 +1,4 @@
-<form class="span7 form-horizontal" name="editDomainForm" data-ng-show="showForm">
+<form class="form-horizontal" name="editDomainForm" data-ng-show="showForm" data-ls-form-submit="submit(domain)" data-ls-form-attempt>
   <fieldset>
     <!-- Legend -->
     <h4><legend>{{domain.label}}</legend></h4>
@@ -12,7 +12,8 @@
     </div>
 
     <!-- Name -->
-    <div class="control-group">
+    <div class="control-group"
+         ng-class="{error: editDomainForm.name.$invalid && (editDomainForm.name.$dirty || ls.editDomainForm.attempted)}">
       <label class="control-label" for="name">{{'P_Domains-Management_NameLabel' | i18n}}</label>
       <div class="controls">
         <input id="name" name="name" type="text" data-ng-model="domain.label"
@@ -29,7 +30,8 @@
     </div>
 
     <!-- Locale -->
-    <div class="control-group">
+    <div class="control-group"
+         ng-class="{error: editDomainForm.locale.$invalid && (editDomainForm.locale.$dirty || ls.editDomainForm.attempted)}">
       <label class="control-label" for="locale">{{'P_Domains-Management_LocaleLabel' | i18n}}</label>
       <div class="controls">
         <select id="locale" name="locale" class="input-xlarge" data-ng-model="domain.locale" data-ng-options="l for l in locales" required>
@@ -38,7 +40,8 @@
     </div>
 
     <!-- User role -->
-    <div class="control-group" data-ng-show="domain.type!='GUESTDOMAIN'">
+    <div class="control-group" data-ng-show="domain.type!='GUESTDOMAIN'"
+         ng-class="{error: editDomainForm.userRole.$invalid && (editDomainForm.userRole.$dirty || ls.editDomainForm.attempted)}">
       <label class="control-label" for="userRole">{{'P_Domains-Management_UserRoleLabel' | i18n}}</label>
       <div class="controls">
         <select id="userRole" name="userRole" class="input-xlarge" data-ng-model="domain.userRole" data-ng-options="u for u in userRoles" required>
@@ -47,7 +50,8 @@
     </div>
 
     <!-- Policy -->
-    <div class="control-group">
+    <div class="control-group"
+         ng-class="{error: editDomainForm.policy.$invalid && (editDomainForm.policy.$dirty || ls.editDomainForm.attempted)}">
       <label class="control-label" for="policy">{{'P_Domains-Management_PolicyLabel' | i18n}}</label>
       <div class="controls">
         <select id="policy" name="policy" class="input-xlarge" data-ng-model="domain.policy.identifier" data-ng-options="p for p in domainPolicies" required>
@@ -56,36 +60,39 @@
     </div>
 
     <div class="btn-toolbar" data-ng-show="domain.type!='GUESTDOMAIN'">
-      <button class="btn" data-ng-disabled="disableProvider" data-ng-click="addProvider()"><i class="icon-plus"></i> {{'P_Domains-Management_AddProvider' | i18n}}</button>
+      <button type="button" class="btn" data-ng-disabled="disableProvider" data-ng-click="addProvider()"><i class="icon-plus"></i> {{'P_Domains-Management_AddProvider' | i18n}}</button>
     </div>
     <!-- Provider Form -->
     <div class="well" style="max-width: 600px; margin: 0 auto 10px;" data-ng-repeat="provider in domain.providers">
       <button type="button" class="close" data-ng-click="deleteProvider()" aria-hidden="true">&times;</button>
       <h4>{{'P_Domains-Management_UserProvider' | i18n}}</h4>
       <!-- LDAP Connection -->
-      <div class="control-group">
+      <div class="control-group"
+           ng-class="{error: editDomainForm.ldapConnection.$invalid && (editDomainForm.ldapConnection.$dirty || ls.editDomainForm.attempted)}">
         <label class="control-label" for="ldapConnection">{{'P_Domains-Management_LDAPConnectionLabel' | i18n}}</label>
         <div class="controls">
-          <select id="ldapConnection" name="ldapConnection" class="input-xlarge" data-ng-model="provider.ldapConnectionId" data-ng-options="l for l in ldapConnections">
+          <select id="ldapConnection" name="ldapConnection" class="input-xlarge" data-ng-model="provider.ldapConnectionId" data-ng-options="l for l in ldapConnections" required>
           </select>
           <p class="help-block">{{'P_Domains-Management_LDAPConnectionHelp' | i18n}}</p>
         </div>
       </div>
       <!-- Domain Pattern -->
-      <div class="control-group">
+      <div class="control-group"
+           ng-class="{error: editDomainForm.domainPattern.$invalid && (editDomainForm.domainPattern.$dirty || ls.editDomainForm.attempted)}">
         <label class="control-label" for="domainPattern">{{'P_Domains-Management_DomainPatternLabel' | i18n}}</label>
         <div class="controls">
-          <select id="domainPattern" name="domainPattern" class="input-xlarge" data-ng-model="provider.domainPatternId" data-ng-options="d for d in domainPatterns">
+          <select id="domainPattern" name="domainPattern" class="input-xlarge" data-ng-model="provider.domainPatternId" data-ng-options="d for d in domainPatterns" required>
           </select>
           <p class="help-block">{{'P_Domains-Management_DomainPatternHelp' | i18n}}</p>
         </div>
       </div>
       <!-- Base Dn -->
-      <div class="control-group">
+      <div class="control-group"
+           ng-class="{error: editDomainForm.baseDn.$invalid && (editDomainForm.baseDn.$dirty || ls.editDomainForm.attempted)}">
         <label class="control-label" for="baseDn">{{'P_Domains-Management_BaseDnLabel' | i18n}}</label>
         <div class="controls">
           <input id="baseDn" name="baseDn" type="text" data-ng-model="provider.baseDn"
-          class="input-xlarge">
+          class="input-xlarge" required>
           <p class="help-block">{{'P_Domains-Management_BaseDnHelp' | i18n}}</p>
         </div>
       </div>
@@ -94,13 +101,13 @@
     <!-- Validation -->
     <div class="control-group">
       <div class="controls">
-        <button id="delete" name="delete" class="btn btn-danger" data-ng-click="confirmDelete = !confirmDelete">
+        <button id="delete" name="delete" type="button" class="btn btn-danger" data-ng-click="confirmDelete = !confirmDelete">
           {{'P_Domains-Management_Delete' | i18n}}
         </button>
-        <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">
+        <button id="reset" name="reset" type="button" class="btn btn-warning" data-ng-click="reset()">
           {{'P_Domains-Management_Reset' | i18n}}
         </button>
-        <button id="submit" name="submit" class="btn btn-success" data-ng-click="submit(editDomainForm, domain)">
+        <button id="submit" name="submit" type="submit" class="btn btn-success">
           {{'P_Domains-Management_Submit' | i18n}}
         </button>
       </div>
@@ -108,10 +115,10 @@
     <div class="control-group" data-collapse="confirmDelete">
       <div class="controls well">
         <div data-ng-bind-html-unsafe="'P_Domains-Management_ConfirmDeleteText' | i18n"></div>
-        <button class="btn" data-ng-click="confirmDelete = !confirmDelete">
+        <button type="button" class="btn" data-ng-click="confirmDelete = !confirmDelete">
           {{'P_Domains-Management_ConfirmDeleteNo' | i18n}}
         </button>
-        <button class="btn btn-danger" data-ng-click="delete(domain)">
+        <button type="button" class="btn btn-danger" data-ng-click="delete(domain)">
           {{'P_Domains-Management_ConfirmDeleteYes' | i18n}}
         </button>
       </div> 

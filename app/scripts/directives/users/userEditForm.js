@@ -27,10 +27,8 @@ app.directive('lsUserEditForm', [
             Logger.error('Unable to get user roles list');
           });
           $scope.submit = function(userEditForm, user) {
-            if (userEditForm.$valid) {
-              Logger.debug('user edition :' + user.mail);
-              user.put();
-            }
+            Logger.debug('user edition :' + user.mail);
+            user.put();
           };
         }
       ],

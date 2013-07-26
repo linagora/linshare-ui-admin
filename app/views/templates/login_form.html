@@ -1,28 +1,30 @@
 <div id="loginModal" data-modal="loginModal" data-options="opts" tabindex="-1"
 role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-header">
-     <h3 id="loginModalLabel">Login</h3>
+     <h3 id="loginModalLabel">{{'G_App_Login_Title' | i18n}}</h3>
 
   </div>
-  <form data-ng-submit="submit()" class="form-horizontal">
+  <form name="loginForm" data-ls-form-submit="submit()" data-ls-form-attempt class="form-horizontal">
     <div class="modal-body">
-      <div class="control-group">
-        <label class="control-label" for="login">Email</label>
+      <div class="control-group"
+           ng-class="{error: loginForm.login.$invalid && (loginForm.login.$dirty || ls.loginForm.attempted)}">
+           <label class="control-label" for="login">{{'G_App_Login_Email' | i18n}}</label>
         <div class="controls">
-          <input type="text" id="login" name="login" data-ng-model="login" placeholder="Email">
+          <input type="text" id="login" name="login" data-ng-model="login" placeholder="{{'G_App_Login_Email' | i18n}}" required>
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="password">Password</label>
+      <div class="control-group"
+           ng-class="{error: loginForm.password.$invalid && (loginForm.password.$dirty || ls.loginForm.attempted)}">
+        <label class="control-label" for="password">{{'G_App_Login_Password' | i18n}}</label>
         <div class="controls">
           <input type="password" id="password" name="password" data-ng-model="password"
-          placeholder="Password">
+          placeholder="{{'G_App_Login_Password' | i18n}}" required>
         </div>
       </div>
       <p class="text-error">{{errorLogin}}</p>
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">{{'G_App_Login_Submit' | i18n}}</button>
     </div>
   </form>
 </div>
