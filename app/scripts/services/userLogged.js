@@ -11,7 +11,6 @@ angular.module('myApp.services')
     }, function error() {
       Logger.error('Unable to reach authentication url');
     });
-    console.log(UserLogged);
     return {
       get: function() {
         return UserLogged;

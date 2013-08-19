@@ -1,4 +1,4 @@
-<form novalidate class="form-horizontal" data-ng-hide="hideForm">
+<form class="form-horizontal" data-ng-hide="hideForm" data-ls-form-submit="submit(ldapConnection)" data-ls-form-attempt>
   <fieldset>
     <!-- Legend -->
     <div data-ng-switch on="creation">
@@ -9,7 +9,7 @@
           <label class="control-label" for="identifier">{{'P_Domains-LDAPConnections_IdentifierLabel' | i18n}}</label>
           <div class="controls">
             <input id="identifier" name="identifier" type="text" data-ng-model="ldapConnection.identifier"
-            class="input-xlarge">
+            class="input-xlarge" required>
           </div>
         </div>
       </div>
@@ -20,7 +20,7 @@
       <label class="control-label" for="providerURL">{{'P_Domains-LDAPConnections_ProviderURLLabel' | i18n}}</label>
       <div class="controls">
         <input id="providerURL" name="providerURL" type="text" data-ng-model="ldapConnection.providerUrl"
-        class="input-xlarge">
+        class="input-xlarge" required>
         <p class="help-block">{{'P_Domains-LDAPConnections_ProviderURLHelp' | i18n}}</p>
       </div>
     </div>
@@ -48,7 +48,7 @@
         <button id="delete" name="delete" class="btn btn-danger" data-ng-show="!creation" data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-LDAPConnections_Delete' | i18n}}</button>
         <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-LDAPConnections_Reset' | i18n}}</button>
         <button id="submit" name="submit"
-        class="btn btn-success" data-ng-click="submit(ldapConnection)">{{'P_Domains-LDAPConnections_Submit' | i18n}}</button>
+        class="btn btn-success">{{'P_Domains-LDAPConnections_Submit' | i18n}}</button>
       </div>
     </div>
     <div class="control-group" data-collapse="confirmCollapsed">
