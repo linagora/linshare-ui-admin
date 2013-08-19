@@ -12,6 +12,7 @@ app.directive('lsDomainPatternEditForm', [
         function($scope, $rootScope, Restangular, Logger) {
           $scope.submit = function(domainPattern) {
             Logger.debug('domainPattern edition :' + domainPattern.identifier);
+            Logger.debug(domainPattern);
             domainPattern.put().then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
@@ -24,6 +25,7 @@ app.directive('lsDomainPatternEditForm', [
           };
           $scope.delete = function(domainPattern) {
             Logger.debug('domainPattern deletion : ' + domainPattern.identifier);
+            Logger.debug(domainPattern);
             domainPattern.remove().then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;

@@ -38,6 +38,7 @@ app.directive('lsDomainEditForm', [
           }
           $scope.submit = function(domain) {
             Logger.debug('domain edition :' + domain.identifier);
+            Logger.debug(domain);
             domain.put().then(function success(domains) {
               $scope.$broadcast('domainTreeNeedRefresh');
             }, function error() {
@@ -49,6 +50,7 @@ app.directive('lsDomainEditForm', [
           };
           $scope.delete = function(domain) {
             Logger.debug('domain deletion : ' + domain.identifier);
+            Logger.debug(domain);
             $scope.confirmDelete = true;
             domain.remove().then(function success() {
               $scope.$broadcast('domainTreeNeedRefresh');

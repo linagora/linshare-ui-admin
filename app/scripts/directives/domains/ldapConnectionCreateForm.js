@@ -10,6 +10,7 @@ app.directive('lsLdapConnectionCreateForm', [
         function($scope, $rootScope, Restangular, Logger) {
           $scope.submit = function(ldapConnection) {
             Logger.debug('ldapConnection creation :' + ldapConnection.identifier);
+            Logger.debug(ldapConnection);
             Restangular.all('ldap_connections').post(ldapConnection).then(function success(ldapConnections) {
               $rootScope.$broadcast('reloadList');
               $rootScope.$broadcast('showList');

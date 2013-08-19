@@ -22,6 +22,7 @@ app.directive('lsUserCompletion', [
               });
               return restangularCollection;
             }, function error() {
+              Logger.error('Unable to reach completion service');
             });
           }
         }

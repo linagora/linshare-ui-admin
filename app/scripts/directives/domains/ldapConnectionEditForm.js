@@ -13,6 +13,7 @@ app.directive('lsLdapConnectionEditForm', [
         function($scope, $rootScope, Restangular, Logger) {
           $scope.submit = function(ldapConnection) {
             Logger.debug('ldapConnection edition :' + ldapConnection.identifier);
+            Logger.debug(ldapConnection);
             ldapConnection.put().then(function success(ldapConnections) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
@@ -25,6 +26,7 @@ app.directive('lsLdapConnectionEditForm', [
           };
           $scope.delete = function(ldapConnection) {
             Logger.debug('ldapConnection deletion : ' + ldapConnection.identifier);
+            Logger.debug(ldapConnection);
             ldapConnection.remove().then(function success(ldapConnections) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;

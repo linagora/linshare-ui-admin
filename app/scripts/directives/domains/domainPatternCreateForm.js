@@ -10,6 +10,7 @@ app.directive('lsDomainPatternCreateForm', [
         function($scope, $rootScope, Restangular, Logger) {
           $scope.submit = function(domainPattern) {
             Logger.debug('domainPattern creation :' + domainPattern.identifier);
+            Logger.debug(domainPattern);
             Restangular.all('domain_patterns').post(domainPattern).then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $rootScope.$broadcast('showList');

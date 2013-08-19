@@ -38,6 +38,7 @@ app.directive('lsDomainCreateForm', [
           });
           $scope.submit = function(domain) {
             Logger.debug('domain creation :' + domain.identifier);
+            Logger.debug(domain);
             Restangular.all('domains').post(domain).then(function success() {
               $scope.close();
               $rootScope.$broadcast('domainTreeNeedRefresh');
