@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsDomainPatternCreateForm', [
+app.directive('lsLdapConnectionCreateForm', [
   function() {
     return {
       restrict: 'A',
@@ -8,24 +8,24 @@ app.directive('lsDomainPatternCreateForm', [
       scope: {},
       controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
         function($scope, $rootScope, Restangular, Logger) {
-          $scope.submit = function(domainPattern) {
-            Logger.debug('domainPattern creation :' + domainPattern.identifier);
-            Restangular.all('domain_patterns').post(domainPattern).then(function success(domainPatterns) {
+          $scope.submit = function(ldapConnection) {
+            Logger.debug('ldapConnection creation :' + ldapConnection.identifier);
+            Restangular.all('ldap_connections').post(ldapConnection).then(function success(ldapConnections) {
               $rootScope.$broadcast('reloadList');
               $rootScope.$broadcast('showList');
               $scope.reset();
             }, function error() {
-              Logger.error('Unable to create the domainPattern : ' + domainPattern.identifier);
+              Logger.error('Unable to create the ldapConnection : ' + ldapConnection.identifier);
             });
           };
           $scope.reset = function() {
-            $scope.domainPattern = {};
+            $scope.ldapConnection = {};
           };
           // Save the previous state
           $scope.reset();
         }
       ],
-      templateUrl: '/views/templates/domains/domain_pattern_create_form.html',
+      templateUrl: '/views/templates/domains/ldap_connection_create_form.html',
       replace: false
     };
   }

@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="domainPatternForm" data-ls-form-submit="submit(domainPattern)" data-ls-form-attempt data-ng-hide="hideForm">
+<form class="form-horizontal" name="domainPatternForm" data-ls-form-submit="submit(domainPattern)" data-ls-form-attempt>
   <fieldset>
     <!-- Legend -->
     <div data-ng-switch on="creation">
@@ -78,18 +78,11 @@
     <!-- Validation -->
     <div class="control-group">
       <div class="controls">
-        <button id="delete" name="delete" type="button" class="btn btn-danger" data-ng-show="!creation" data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-DomainPatterns_Delete' | i18n}}</button>
-        <button id="reset" name="reset" type="button" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-DomainPatterns_Reset' | i18n}}</button>
-        <button id="submit" name="submit"
-        class="btn btn-success" type="submit">{{'P_Domains-DomainPatterns_Submit' | i18n}}</button>
+        <button type="button" id="delete" name="delete" class="btn btn-danger" data-ng-show="!creation" data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-DomainPatterns_Delete' | i18n}}</button>
+        <button type="button" id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-DomainPatterns_Reset' | i18n}}</button>
+        <button type="submit" id="submit" name="submit"
+        class="btn btn-success">{{'P_Domains-DomainPatterns_Submit' | i18n}}</button>
       </div>
-    </div>
-    <div class="control-group" data-collapse="confirmCollapsed">
-      <div class="controls well">
-        <div data-ng-bind-html-unsafe="'P_Domains-DomainPatterns_ConfirmDeleteText' | i18n"></div>
-        <button type="button" class="btn" data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-DomainPatterns_ConfirmDeleteNo' | i18n}}</button>
-        <button type="button" class="btn btn-danger" data-ng-click="delete(domainPattern)">{{'P_Domains-DomainPatterns_ConfirmDeleteYes' | i18n}}</button>
-      </div> 
     </div>
   </fieldset>
 </form>

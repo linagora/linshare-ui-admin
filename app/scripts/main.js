@@ -78,6 +78,8 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/userManagement':
         {deps: ['controllers/controllers']},
+    'controllers/createAndEditForm':
+        {deps: ['controllers/controllers']},
 
     // Services
     'services/preferences':
@@ -98,12 +100,10 @@ require.config({
     'directives/threads/threadMemberGrid':
         {deps: ['directives/directives', 'nggrid']},
 
-    'directives/domains/ldapConnectionForm':
+    'directives/domains/ldapConnectionCreateForm':
         {deps: ['directives/directives']},
-    //'directives/domains/ldapConnectionCreateForm':
-    //    {deps: ['directives/directives']},
-    //'directives/domains/ldapConnectionEditForm':
-    //    {deps: ['directives/directives']},
+    'directives/domains/ldapConnectionEditForm':
+        {deps: ['directives/directives']},
     'directives/domains/ldapConnectionGrid':
         {deps: ['directives/directives', 'nggrid']},
     'directives/domains/domainPatternCreateForm':
@@ -184,6 +184,7 @@ require([
   'controllers/grid',
   'controllers/domainManagement',
   'controllers/userManagement',
+  'controllers/createAndEditForm',
 
   // Services
   'services/preferences',
@@ -197,9 +198,8 @@ require([
   'directives/threads/threadMemberGrid',
   'directives/threads/threadGrid',
   
-  'directives/domains/ldapConnectionForm',
-  //'directives/domains/ldapConnectionCreateForm',
-  //'directives/domains/ldapConnectionEditForm',
+  'directives/domains/ldapConnectionCreateForm',
+  'directives/domains/ldapConnectionEditForm',
   'directives/domains/ldapConnectionGrid',
   'directives/domains/domainPatternCreateForm',
   'directives/domains/domainPatternEditForm',

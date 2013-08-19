@@ -45,17 +45,17 @@
     <!-- Validation -->
     <div class="control-group">
       <div class="controls">
-        <button id="delete" name="delete" class="btn btn-danger" data-ng-show="!creation" data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-LDAPConnections_Delete' | i18n}}</button>
-        <button id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-LDAPConnections_Reset' | i18n}}</button>
-        <button id="submit" name="submit"
+        <button type="button" id="delete" name="delete" class="btn btn-danger" data-ng-show="!creation" data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-LDAPConnections_Delete' | i18n}}</button>
+        <button type="button" id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-LDAPConnections_Reset' | i18n}}</button>
+        <button type="submit" id="submit" name="submit"
         class="btn btn-success">{{'P_Domains-LDAPConnections_Submit' | i18n}}</button>
       </div>
     </div>
     <div class="control-group" data-collapse="confirmCollapsed">
       <div class="controls well">
         <div data-ng-bind-html-unsafe="'P_Domains-LDAPConnections_ConfirmDeleteText' | i18n"></div>
-        <button class="btn"  data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-LDAPConnections_ConfirmDeleteNo' | i18n}}</button>
-        <button class="btn btn-danger" data-ng-click="delete(ldapConnection)">{{'P_Domains-LDAPConnections_ConfirmDeleteYes' | i18n}}</button>
+        <button type="button" class="btn" data-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-LDAPConnections_ConfirmDeleteNo' | i18n}}</button>
+        <button type="button" class="btn btn-danger" data-ng-click="delete(ldapConnection)">{{'P_Domains-LDAPConnections_ConfirmDeleteYes' | i18n}}</button>
       </div> 
     </div>
   </fieldset>
