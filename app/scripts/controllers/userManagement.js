@@ -2,8 +2,8 @@
 
 app.controller('UserManagementCtrl', ['$scope',
   function($scope) {
-    $scope.$watch('selectedUser', function(newValue, oldValue) {
-      $scope.user = newValue;
+    $scope.$watch('selected', function(newValue, oldValue) {
+      $scope.selectedUser = newValue;
     });
   }
 ]);

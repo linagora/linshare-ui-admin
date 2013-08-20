@@ -40,7 +40,7 @@ app.directive('lsDomainPatternEditForm', [
           });
         }
       ],
-      templateUrl: '/views/templates/domains/domain_pattern_form.html',
+      templateUrl: '/views/templates/domains/domain_pattern_edit_form.html',
       replace: false
     };
   }

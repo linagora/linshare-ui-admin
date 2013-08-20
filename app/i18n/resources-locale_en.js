@@ -403,9 +403,9 @@
     "value": "Owner",
     "description": "Label for the owner."
   },
-  "P_Users-Management_Reset": {
-    "value": "Reset",
-    "description": "Label for the reset button."
+  "P_Users-Management_Cancel": {
+    "value": "Cancel",
+    "description": "Label for the cancel button."
   },
   "P_Users-Management_Submit": {
     "value": "Submit",
