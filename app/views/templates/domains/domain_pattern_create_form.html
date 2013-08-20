@@ -1,19 +1,14 @@
 <form class="form-horizontal" name="domainPatternForm" data-ls-form-submit="submit(domainPattern)" data-ls-form-attempt>
   <fieldset>
     <!-- Legend -->
-    <div data-ng-switch on="creation">
-      <div data-ng-switch-when="true">
-        <legend>{{'P_Domains-DomainPatterns_CreationTitle' | i18n}}</legend>
-        <!-- Identifier -->
-        <div class="control-group">
-          <label class="control-label" for="identifier">{{'P_Domains-DomainPatterns_IdentifierLabel' | i18n}}</label>
-          <div class="controls">
-            <input id="identifier" name="identifier" type="text" data-ng-model="domainPattern.identifier"
-            class="input-xlarge" required>
-          </div>
-        </div>
+    <legend>{{'P_Domains-DomainPatterns_CreationTitle' | i18n}}</legend>
+    <!-- Identifier -->
+    <div class="control-group">
+      <label class="control-label" for="identifier">{{'P_Domains-DomainPatterns_IdentifierLabel' | i18n}}</label>
+      <div class="controls">
+        <input id="identifier" name="identifier" type="text" data-ng-model="domainPattern.identifier"
+        class="input-xlarge" required>
       </div>
-      <legend data-ng-switch-default>{{domainPattern.identifier}}</legend>
     </div>
     <!-- Description -->
     <div class="control-group">

@@ -7,6 +7,7 @@ app.directive('lsDomainPatternEditForm', [
       transclude: false,
       link: function(scope, element, attrs) {
         scope.confirmCollapsed = true;
+        scope.hideForm = false;
       },
       controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
         function($scope, $rootScope, Restangular, Logger) {
@@ -33,11 +34,8 @@ app.directive('lsDomainPatternEditForm', [
               Logger.error('Unable to delete the domainPattern : ' + domainPattern.identifier);
             });
           }
-          $scope.$watch('domainPatternToEdit', function(domainPatternToEdit, key) {
-            if (!_.isNull(domainPatternToEdit) && !_.isUndefined(domainPatternToEdit)) {
-              $scope.reset();
-            }
-          });
+          // Save the previous state
+          $scope.reset();
         }
       ],
       templateUrl: '/views/templates/domains/domain_pattern_edit_form.html',
