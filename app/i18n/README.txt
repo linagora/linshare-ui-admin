@@ -21,7 +21,7 @@ Rules for translation:
 
 - Variables is the name of the text translated, for example 'HomeTitle'.
   For pages and component, precise the type of the text translated, 
-    example: 'P_Plupload_BtnClearList'
+    example: 'C_Plupload_BtnClearList'
 
 - Do not re-use translation in another context even if it's the same translation. Create a new one.
 

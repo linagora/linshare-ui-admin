@@ -418,5 +418,81 @@
   "P_Administration-ConfigurationPolicies_Title": {
     "value": "Configuration Policies",
     "description": "Title for the management section of configuration policies."
+  },
+
+
+
+
+  "G_Err_4000": {
+    "value": "",
+    "description": "Invalid Uuid"
+  },
+  "G_Err_13000": {
+    "value": "Domain id already exist",
+    "description": "Domain id already exist"
+  },
+  "G_Err_13001": {
+    "value": "Domain id not found",
+    "description": "Domain id not found"
+  },
+  "G_Err_13002": {
+    "value": "Domain invalid type",
+    "description": "Domain invalid type"
+  },
+  "G_Err_13003": {
+    "value": "Domain policy not found",
+    "description": "Domain policy not found"
+  },
+  "G_Err_13004": {
+    "value": "LDAP connection not found",
+    "description": "LDAP connection not found"
+  },
+  "G_Err_13005": {
+    "value": "Domain pattern not found",
+    "description": "Domain pattern not found"
+  },
+  "G_Err_13006": {
+    "value": "Domain base DN not found",
+    "description": "Domain base DN not found"
+  },
+  "G_Err_13007": {
+    "value": "Domain do not already exists",
+    "description": "Domain do not already exists"
+  },
+  "G_Err_13008": {
+    "value": "Domain do not exists",
+    "description": "Domain do not exists"
+  },
+  "G_Err_14000": {
+    "value": "Functionality entity out of date",
+    "description": "Functionality entity out of date"
+  },
+  "G_Err_15000": {
+    "value": "Relay host not enable",
+    "description": "Relay host not enable"
+  },
+  "G_Err_15666": {
+    "value": "XSS filter scan failed",
+    "description": "XSS filter scan failed"
+  },
+  "G_Err_16000": {
+    "value": "Directory unavailable",
+    "description": "Directory unavailable"
+  },
+  "G_Err_17000": {
+    "value": "Unauthorized action",
+    "description": "Unauthorized action"
+  },
+  "G_Err_20000": {
+    "value": "A error has occured, please contact your LinShare administrator",
+    "description": "Generic error"
+  },
+  "G_Err_20001": {
+    "value": "Webservice unauthorized",
+    "description": "Webservice unauthorized"
+  },
+  "G_Err_20003": {
+    "value": "Webservice not found",
+    "description": "Webservice not found"
   }
 }

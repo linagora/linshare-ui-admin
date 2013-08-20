@@ -90,6 +90,8 @@ require.config({
         {deps: ['services/services']},
     'services/manageDomain':
         {deps: ['services/services']},
+    'services/alert':
+        {deps: ['services/services']},
 
     // Directives
     'directives/loginForm':
@@ -130,12 +132,14 @@ require.config({
         {deps: ['directives/directives']},
     'directives/style/formSubmit':
         {deps: ['directives/directives']},
+    'directives/style/navbar':
+        {deps: ['directives/directives', 'bootstrap']},
+    'directives/style/alertBox':
+        {deps: ['directives/directives']},
     'directives/style/footer':
         {deps: ['directives/directives']},
     'directives/style/loadingAnimation':
         {deps: ['directives/directives']},
-    'directives/style/navbar':
-        {deps: ['directives/directives', 'bootstrap']},
 
     /**
      * Utils
@@ -191,6 +195,7 @@ require([
   'services/logger',
   'services/userLogged',
   'services/manageDomain',
+  'services/alert',
 
   // Directives
   'directives/loginForm',
@@ -215,6 +220,7 @@ require([
   'directives/style/formAttempt',
   'directives/style/formSubmit',
   'directives/style/navbar',
+  'directives/style/alertBox',
   'directives/style/footer',
   'directives/style/loadingAnimation',
 

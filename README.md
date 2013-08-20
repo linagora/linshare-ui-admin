@@ -109,7 +109,13 @@ gérer des niveaux de logs.
 Le niveau de logs est précisé dans les préférences de l'application
 puis est stocké dans un cookie pour pourvoir à terme modifier le niveau de log 
 à la volée.
-
+Niveaux de log: 
+- TRACE (defaut)
+- DEBUG
+- INFO
+- WARN
+- ERROR
+- SILENT
 
 ### Remarques
 * Le rootScope: Il ne doit pas être pollué et est reservé à une utilisation
