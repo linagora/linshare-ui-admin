@@ -9,13 +9,14 @@ app.directive('lsDomainPatternEditForm', [
         scope.confirmCollapsed = true;
         scope.hideForm = false;
       },
-      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
-        function($scope, $rootScope, Restangular, Logger) {
+      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'notificationService',
+        function($scope, $rootScope, Restangular, Logger, notificationService) {
           $scope.submit = function(domainPattern) {
             Logger.debug('domainPattern edition: ' + domainPattern.identifier);
             domainPattern.put().then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
+              notificationService.addSuccess('P_Domains-DomainPatterns_UpdateSuccess');
             });
           };
           $scope.reset = function() {
@@ -26,6 +27,7 @@ app.directive('lsDomainPatternEditForm', [
             domainPattern.remove().then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
+              notificationService.addSuccess('P_Domains-DomainPatterns_DeleteSuccess');
             });
           }
           // Save the previous state

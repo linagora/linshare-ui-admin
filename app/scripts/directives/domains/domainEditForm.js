@@ -24,8 +24,8 @@ app.directive('lsDomainEditForm', [
             }
           }, true);
       },
-      controller: ['$scope', '$route', 'Restangular', 'loggerService',
-        function($scope, $route, Restangular, Logger) {
+      controller: ['$scope', '$route', 'Restangular', 'loggerService', 'notificationService',
+        function($scope, $route, Restangular, Logger, notificationService) {
           $scope.addProvider = function() {
             $scope.domain.providers.push({
               ldapConnectionId: '',
@@ -40,6 +40,7 @@ app.directive('lsDomainEditForm', [
             Logger.debug('domain edition: ' + domain.identifier);
             domain.put().then(function success(domains) {
               $scope.$broadcast('domainTreeNeedRefresh');
+              notificationService.addSuccess('P_Domains-Management_UpdateSuccess');
             });
           };
           $scope.reset = function() {
@@ -50,6 +51,7 @@ app.directive('lsDomainEditForm', [
             $scope.confirmDelete = true;
             domain.remove().then(function success() {
               $scope.$broadcast('domainTreeNeedRefresh');
+              notificationService.addSuccess('P_Domains-Management_DeleteSuccess');
             });
           }
           $scope.$on('currentDomainChanged', function() {

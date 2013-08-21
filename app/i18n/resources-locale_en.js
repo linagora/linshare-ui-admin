@@ -195,6 +195,18 @@
     "value": "Yes",
     "description": "Confirm the domain pattern deletion."
   },
+  "P_Domains-DomainPatterns_CreateSuccess": {
+    "value": "Domain pattern creation succeed",
+    "description": "Alert message when the creation succeed."
+  },
+  "P_Domains-DomainPatterns_UpdateSuccess": {
+    "value": "Domain pattern update succeed",
+    "description": "Alert message when the update succeed."
+  },
+  "P_Domains-DomainPatterns_DeleteSuccess": {
+    "value": "Domain pattern deletion succeed",
+    "description": "Alert message when the deletion succeed."
+  },
   "P_Domains-LDAPConnections_Title": {
     "value": "Manage your LDAP Connections",
     "description": "Title for the domain patterns page."
@@ -262,6 +274,18 @@
   "P_Domains-LDAPConnections_ConfirmDeleteYes": {
     "value": "Yes",
     "description": "Confirm the LDAP connection deletion."
+  },
+  "P_Domains-LDAPConnections_CreateSuccess": {
+    "value": "LDAPConnection creation succeed",
+    "description": "Alert message when the creation succeed."
+  },
+  "P_Domains-LDAPConnections_UpdateSuccess": {
+    "value": "LDAPConnection update succeed",
+    "description": "Alert message when the update succeed."
+  },
+  "P_Domains-LDAPConnections_DeleteSuccess": {
+    "value": "LDAPConnection deletion succeed",
+    "description": "Alert message when the deletion succeed."
   },
   "P_Domains-Management_Title": {
     "value": "Manage your domains",
@@ -371,17 +395,17 @@
     "value": "Submit",
     "description": "Label for the submit button."
   },
-  "P_Domains-Management_ConfirmDeleteText": {
-    "value": "<p>You are about to delete this domain, this procedure is irreversible.</p><p>Do you want to proceed?</p>",
-    "description": "Confirmation text for domain deletion."
+  "P_Domains-Management_CreateSuccess": {
+    "value": "Domain creation succeed",
+    "description": "Alert message when the creation succeed."
   },
-  "P_Domains-Management_ConfirmDeleteNo": {
-    "value": "No",
-    "description": "Cancel the domain deletion."
+  "P_Domains-Management_UpdateSuccess": {
+    "value": "Domain update succeed",
+    "description": "Alert message when the update succeed."
   },
-  "P_Domains-Management_ConfirmDeleteYes": {
-    "value": "Yes",
-    "description": "Confirm the domain deletion."
+  "P_Domains-Management_DeleteSuccess": {
+    "value": "Domain deletion succeed",
+    "description": "Alert message when the deletion succeed."
   },
   "P_Users-Management_Title": {
     "value": "Manage user",
@@ -427,8 +451,12 @@
 
 
 
+  "G_Err_1000": {
+    "value": "A error has occured, please contact your LinShare administrator",
+    "description": "Generic error"
+  },
   "G_Err_4000": {
-    "value": "",
+    "value": "Invalid identifier",
     "description": "Invalid Uuid"
   },
   "G_Err_13000": {

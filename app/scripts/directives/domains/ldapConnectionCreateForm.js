@@ -6,14 +6,15 @@ app.directive('lsLdapConnectionCreateForm', [
       restrict: 'A',
       transclude: false,
       scope: {},
-      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
-        function($scope, $rootScope, Restangular, Logger) {
+      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'notificationService',
+        function($scope, $rootScope, Restangular, Logger, notificationService) {
           $scope.submit = function(ldapConnection) {
             Logger.debug('ldapConnection creation: ' + ldapConnection.identifier);
             Restangular.all('ldap_connections').post(ldapConnection).then(function success(ldapConnections) {
               $rootScope.$broadcast('reloadList');
               $rootScope.$broadcast('showList');
               $scope.reset();
+              notificationService.addSuccess('P_Domains-LDAPConnections_CreateSuccess');
             });
           };
           $scope.reset = function() {

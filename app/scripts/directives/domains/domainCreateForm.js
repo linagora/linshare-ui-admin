@@ -21,8 +21,8 @@ app.directive('lsDomainCreateForm', [
           dialogFade: true
         };
       },
-      controller: ['$scope', '$rootScope', 'manageDomainService', 'Restangular', 'loggerService',
-        function($scope, $rootScope, manageDomainService, Restangular, Logger) {
+      controller: ['$scope', '$rootScope', 'manageDomainService', 'Restangular', 'loggerService', 'notificationService',
+        function($scope, $rootScope, manageDomainService, Restangular, Logger, notificationService) {
           $scope.$on('addChildDomain', function() {
             $scope.reset = function() {
               $scope.domain = {
@@ -41,6 +41,7 @@ app.directive('lsDomainCreateForm', [
             Restangular.all('domains').post(domain).then(function success() {
               $scope.close();
               $rootScope.$broadcast('domainTreeNeedRefresh');
+              notificationService.addSuccess('P_Domains-DomainPatterns_CreateSuccess');
             });
           };
 
@@ -64,7 +65,10 @@ app.directive('lsDomainCreateForm', [
               $scope.domainPolicies.push(domainPolicy.identifier);
             });
           });
-          $scope.userRoles = manageDomainService.getAllUserRoles();
+          $scope.userRoles = [];
+          manageDomainService.getAllUserRoles(function success(userRoles) {
+            $scope.userRoles = userRoles;
+          });
           $scope.locales = manageDomainService.getAllLocales;
         }
       ],
