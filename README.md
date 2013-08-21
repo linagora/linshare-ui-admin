@@ -127,3 +127,8 @@ revient à instancier des variables globales à l'application
 * Modifier le module http-auth-interceptor pour modifier les headers sortants.
 * Modifier le service Logger pour utiliser la fonction debug() d'AngularJS.
 * Vérifier la directive d'animation dans la tree view ainsi que les regles CSS associées.
+
+
+### Notes controles à faire sur le serveur
+* Vérifier les champs obligatoires Missing argument exception
+* Vérifier l'unicité avant création

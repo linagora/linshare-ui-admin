@@ -1,3 +1,11 @@
+<!-- Model selector -->
+<div class="control-group pull-right">
+  <label class="control-label" for="modelSelector">{{'P_Domains-DomainPatterns_ModelSelectorLabel' | i18n}}</label>
+  <div class="controls">
+    <select id="modelSelector" name="modelSelector" class="input-xlarge" data-ng-model="modelSelector" data-ng-options="model as model.identifier for model in models | orderBy:'identifier'" required>
+    </select>
+  </div>
+</div>
 <form class="form-horizontal" name="domainPatternForm" data-ls-form-submit="submit(domainPattern)" data-ls-form-attempt>
   <fieldset>
     <!-- Legend -->

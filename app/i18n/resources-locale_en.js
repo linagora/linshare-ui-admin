@@ -111,6 +111,10 @@
     "value": "Creation",
     "description": "Title for the add form domain pattern."
   },
+  "P_Domains-DomainPatterns_ModelSelectorLabel": {
+    "value": "Model selector",
+    "description": "Label for the model selector."
+  },
   "P_Domains-DomainPatterns_IdentifierLabel": {
     "value": "Identifier",
     "description": "Label for the identifier."

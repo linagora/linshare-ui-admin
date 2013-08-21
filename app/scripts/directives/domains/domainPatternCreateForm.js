@@ -8,6 +8,14 @@ app.directive('lsDomainPatternCreateForm', [
       scope: {},
       controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'notificationService',
         function($scope, $rootScope, Restangular, Logger, notificationService) {
+          $scope.models = Restangular.all('domain_patterns').one('models').getList();
+          var emptyModel = {identifier: ''};
+          $scope.models.push(emptyModel);
+          $scope.modelSelector = emptyModel;
+          $scope.$watch('modelSelector', function() {
+            $scope.reset();
+          });
+          $scope.domainPattern = {};
           $scope.submit = function(domainPattern) {
             Logger.debug('domainPattern creation: ' + domainPattern.identifier);
             Restangular.all('domain_patterns').post(domainPattern).then(function success(domainPatterns) {
@@ -18,7 +26,8 @@ app.directive('lsDomainPatternCreateForm', [
             });
           };
           $scope.reset = function() {
-            $scope.domainPattern = {};
+            angular.copy($scope.modelSelector, $scope.domainPattern);
+            $scope.domainPattern.identifier = "";
           };
           // Save the previous state
           $scope.reset();
