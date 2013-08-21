@@ -21,8 +21,6 @@ app.directive('lsUserCompletion', [
                 restangularCollection.push(Restangular.restangularizeElement(null, user, 'users'));
               });
               return restangularCollection;
-            }, function error() {
-              Logger.error('Unable to reach completion service');
             });
           }
         }

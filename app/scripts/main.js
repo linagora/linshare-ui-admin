@@ -90,7 +90,7 @@ require.config({
         {deps: ['services/services']},
     'services/manageDomain':
         {deps: ['services/services']},
-    'services/alert':
+    'services/notification':
         {deps: ['services/services']},
 
     // Directives
@@ -135,6 +135,8 @@ require.config({
     'directives/style/navbar':
         {deps: ['directives/directives', 'bootstrap']},
     'directives/style/alertBox':
+        {deps: ['directives/directives']},
+    'directives/style/alertTimeout':
         {deps: ['directives/directives']},
     'directives/style/footer':
         {deps: ['directives/directives']},
@@ -195,7 +197,7 @@ require([
   'services/logger',
   'services/userLogged',
   'services/manageDomain',
-  'services/alert',
+  'services/notification',
 
   // Directives
   'directives/loginForm',
@@ -221,6 +223,7 @@ require([
   'directives/style/formSubmit',
   'directives/style/navbar',
   'directives/style/alertBox',
+  'directives/style/alertTimeout',
   'directives/style/footer',
   'directives/style/loadingAnimation',
 

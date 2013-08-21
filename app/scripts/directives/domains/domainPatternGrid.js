@@ -10,9 +10,7 @@ app.directive('lsDomainPatternGrid', [
         function($scope, Localize, Restangular, Logger) {
           $scope.getData = function(successCallback) {
             return Restangular.all('domain_patterns').getList()
-              .then(successCallback, function error(err) {
-                Logger.error('Fail to retreive domain patterns list' + err);
-            });
+              .then(successCallback);
           };
 
           $scope.selections = [];

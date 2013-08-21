@@ -5,14 +5,12 @@ app.directive('lsAlertBox', [
     return {
       restrict: 'A',
       scope: false,
-      controller: ['$scope', 'localize', 'alertService',
-        function($scope, Localize, Alert) {
+      controller: ['$scope', 'localize',
+        function($scope, Localize) {
           $scope.alerts = [];
-          $scope.$on('pushAlertSuccess', function(event, newAlert, message) {
-            $scope.alerts.push({type: newAlert.severity, msg: message});
-          });
-          $scope.$on('pushAlertError', function(event, newAlert) {
-            $scope.alerts.push({type: newAlert.severity, msg: Localize.getLocalizedString('G_Err_' + newAlert.errCode)});
+          $scope.$on('pushAlert', function(event, newAlert, message) {
+            $scope.alerts.push(newAlert);
+            window.scrollTo(0,0);
           });
           $scope.closeAlert = function(index) {
             $scope.alerts.splice(index, 1);

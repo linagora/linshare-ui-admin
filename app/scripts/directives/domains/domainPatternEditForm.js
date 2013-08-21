@@ -12,26 +12,20 @@ app.directive('lsDomainPatternEditForm', [
       controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
         function($scope, $rootScope, Restangular, Logger) {
           $scope.submit = function(domainPattern) {
-            Logger.debug('domainPattern edition :' + domainPattern.identifier);
-            Logger.debug(domainPattern);
+            Logger.debug('domainPattern edition: ' + domainPattern.identifier);
             domainPattern.put().then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
-            }, function error() {
-              Logger.error('Unable to update the domainPattern : ' + domainPattern.identifier);
             });
           };
           $scope.reset = function() {
             $scope.domainPattern = Restangular.copy($scope.domainPatternToEdit);
           };
           $scope.delete = function(domainPattern) {
-            Logger.debug('domainPattern deletion : ' + domainPattern.identifier);
-            Logger.debug(domainPattern);
+            Logger.debug('domainPattern deletion: ' + domainPattern.identifier);
             domainPattern.remove().then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
-            }, function error() {
-              Logger.error('Unable to delete the domainPattern : ' + domainPattern.identifier);
             });
           }
           // Save the previous state

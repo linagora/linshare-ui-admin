@@ -10,10 +10,7 @@ app.directive('lsLdapConnectionGrid', [
         function($scope, Localize, Restangular, Logger) {
           $scope.getData = function(successCallback) {
             return Restangular.all('ldap_connections').getList()
-              .then(successCallback, 
-                function error(err) {
-                  Logger.error('Fail to retreive LDAP connections list' + err);
-                });
+              .then(successCallback);
           };
 
           $scope.selections = [];

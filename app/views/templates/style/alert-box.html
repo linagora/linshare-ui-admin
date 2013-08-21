@@ -1,3 +1,5 @@
 <div class="container" style="margin-top:70px">
-  <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+  {{alerts}}
+  <alert data-ng-repeat="alert in alerts" type="alert.type" 
+         data-close="closeAlert($index)" data-index="$index" data-ls-alert-timeout>{{alert.msg}}</alert>
 </div>

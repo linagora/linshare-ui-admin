@@ -9,14 +9,11 @@ app.directive('lsDomainPatternCreateForm', [
       controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
         function($scope, $rootScope, Restangular, Logger) {
           $scope.submit = function(domainPattern) {
-            Logger.debug('domainPattern creation :' + domainPattern.identifier);
-            Logger.debug(domainPattern);
+            Logger.debug('domainPattern creation: ' + domainPattern.identifier);
             Restangular.all('domain_patterns').post(domainPattern).then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $rootScope.$broadcast('showList');
               $scope.reset();
-            }, function error() {
-              Logger.error('Unable to create the domainPattern : ' + domainPattern.identifier);
             });
           };
           $scope.reset = function() {

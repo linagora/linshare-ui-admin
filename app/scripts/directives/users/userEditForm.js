@@ -13,26 +13,16 @@ app.directive('lsUserEditForm', [
           return _.isString(myObject) && _.isEmpty(myObject);
         }
       },
-      controller: ['$scope', 'Restangular', 'loggerService',
-        function($scope, Restangular, Logger) {
-          $scope.userRoles = Restangular.all('user_roles').getList().then(function success(userRoles) {
-            var myArray = [];
-            angular.forEach(userRoles, function(userRole, key) {
-              if (userRole != 'SYSTEM' && userRole != 'SUPERADMIN') {
-                myArray.push(userRole);
-              }
-            });
-            return myArray;
-          }, function error() {
-            Logger.error('Unable to get user roles list');
-          });
+      controller: ['$scope', 'Restangular', 'loggerService', 'notificationService',
+        function($scope, Restangular, Logger, notificationService) {
+          $scope.userRoles = Restangular.all('user_roles').getList();
           $scope.cancel = function() {
             $scope.selectedUser = undefined;
           }
           $scope.submit = function(user) {
-            Logger.debug('user edition :' + user.mail);
-            Logger.debug(user);
+            Logger.debug('user edition: ' + user.mail);
             user.put();
+            notificationService.addSuccess('P_Users-Management_UpdateSuccess');
           };
         }
       ],

@@ -21,12 +21,12 @@ var app = angular.module('myApp', ['myApp.directives',
 })
 
 // Register work which should be performed when the injector is done loading all modules 
-.run(['localize', 'preferencesService', 'loggerService', 'userLoggedService', 'Restangular', 'alertService',
-  function(Localize, Preferences, Logger, userLogged, Restangular, Alert) {
+.run(['localize', 'preferencesService', 'loggerService', 'userLoggedService', 'Restangular', 'notificationService',
+  function(Localize, Preferences, Logger, userLogged, Restangular, notificationService) {
     Restangular.setErrorInterceptor(function(response) {
       Logger.error(response)
       if (response.status === 400) {
-        Alert.addError(response.data);
+        notificationService.addError(response.data);
       }
       return response;
     });

@@ -411,6 +411,10 @@
     "value": "Submit",
     "description": "Label for the submit button."
   },
+  "P_Users-Management_UpdateSuccess": {
+    "value": "User update succeed",
+    "description": "Alert message when the update succeed."
+  },
   "P_Administration-ActivationPolicies_Title": {
     "value": "Activation Policies",
     "description": "Title for the management section of activation policies."

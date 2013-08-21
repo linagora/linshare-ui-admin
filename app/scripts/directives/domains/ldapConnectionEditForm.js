@@ -12,26 +12,20 @@ app.directive('lsLdapConnectionEditForm', [
       controller: ['$scope', '$rootScope', 'Restangular', 'loggerService',
         function($scope, $rootScope, Restangular, Logger) {
           $scope.submit = function(ldapConnection) {
-            Logger.debug('ldapConnection edition :' + ldapConnection.identifier);
-            Logger.debug(ldapConnection);
+            Logger.debug('ldapConnection edition: ' + ldapConnection.identifier);
             ldapConnection.put().then(function success(ldapConnections) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
-            }, function error() {
-              Logger.error('Unable to update the ldapConnection : ' + ldapConnection.identifier);
             });
           };
           $scope.reset = function() {
             $scope.ldapConnection = Restangular.copy($scope.ldapConnectionToEdit);
           };
           $scope.delete = function(ldapConnection) {
-            Logger.debug('ldapConnection deletion : ' + ldapConnection.identifier);
-            Logger.debug(ldapConnection);
+            Logger.debug('ldapConnection deletion: ' + ldapConnection.identifier);
             ldapConnection.remove().then(function success(ldapConnections) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
-            }, function error() {
-              Logger.error('Unable to delete the ldapConnection : ' + ldapConnection.identifier);
             });
           }
           // Save the previous state

@@ -19,7 +19,7 @@ Rules for translation:
     - For 'P', the page path in camel case
     - For 'C', the component name
 
-- Variables is the name of the text translated, for example 'HomeTitle'.
+- Variables are the name of the translated text, for example 'HomeTitle'.
   For pages and component, precise the type of the text translated, 
     example: 'C_Plupload_BtnClearList'
 

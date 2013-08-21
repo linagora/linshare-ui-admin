@@ -10,9 +10,7 @@ app.directive('lsUserGrid', [
         function($scope, Localize, Restangular) {
           $scope.getData = function(successCallback) {
             return Restangular.all('users').getList()
-              .then(successCallback, function error() {
-                Logger.error('Fail to retreive users list' + err);
-            });
+              .then(successCallback);
           };
 
           $scope.gridOptions = {

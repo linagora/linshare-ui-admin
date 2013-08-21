@@ -1,26 +1,24 @@
-<div class="content">
-  <div class="row">
-    <div class="container" data-ng-controller="CreateAndEditFormCtrl">
-      <div class="page-header">
-         <h1>{{'P_Domains-DomainPatterns_Title' | i18n}}</h1>
+<div class="row">
+  <div class="container" data-ng-controller="CreateAndEditFormCtrl">
+    <div class="page-header">
+       <h1>{{'P_Domains-DomainPatterns_Title' | i18n}}</h1>
 
+    </div>
+    <div>
+      <div class="btn-toolbar" data-ng-init="switchView=false">
+        <button class="btn btn-primary" type="button"  data-ng-click="switchView=!switchView" data-ng-switch="switchView">
+          <span data-ng-switch-when="false"><i class="icon-plus icon-white"></i> {{'P_Domains-DomainPatterns_Add' | i18n}}</span>
+          <span data-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Domains-DomainPatterns_List' | i18n}}</span>
+        </button>
       </div>
-      <div>
-        <div class="btn-toolbar" data-ng-init="switchView=false">
-          <button class="btn btn-primary" type="button"  data-ng-click="switchView=!switchView" data-ng-switch="switchView">
-            <span data-ng-switch-when="false"><i class="icon-plus icon-white"></i> {{'P_Domains-DomainPatterns_Add' | i18n}}</span>
-            <span data-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Domains-DomainPatterns_List' | i18n}}</span>
-          </button>
-        </div>
-        <div data-ng-show="switchView">
-          <div data-ls-domain-pattern-create-form></div>
-        </div>
+      <div data-ng-show="switchView">
+        <div data-ls-domain-pattern-create-form></div>
       </div>
-      <div data-ng-controller="GridCtrl" data-ng-show="!switchView">
-        <div data-ls-domain-pattern-grid>
-          <div data-ng-repeat="domainPatternToEdit in selections">
-            <div data-ls-domain-pattern-edit-form></div>
-          </div>
+    </div>
+    <div data-ng-controller="GridCtrl" data-ng-show="!switchView">
+      <div data-ls-domain-pattern-grid>
+        <div data-ng-repeat="domainPatternToEdit in selections">
+          <div data-ls-domain-pattern-edit-form></div>
         </div>
       </div>
     </div>
