@@ -38,8 +38,6 @@ app.directive('lsDomainTree', [
             manageDomainService.getAllDomains(function success(domains) {
               $scope.rootDomain = domains;
               hideEditForm();
-            }, function error() {
-              Logger.error('Unable to get domains list');
             });
           });
         }

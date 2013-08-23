@@ -415,19 +415,59 @@
     "value": "Manage user",
     "description": "Title for the search user section."
   },
-  "P_Users-Management_CreationDateLabel": {
+  "P_Users-Management_Search": {
+    "value": "User completion",
+    "description": "Button text for the switch view action."
+  },
+  "P_Users-Management_List": {
+    "value": "User list",
+    "description": "Button text for the switch view action."
+  },
+  "P_Users-Management_AccountTypeAll": {
+    "value": "All",
+    "description": "Label for all account type select entry"
+  },
+  "P_Users-Management_AccountTypeInternal": {
+    "value": "Internals",
+    "description": "Label for internal account type select entry"
+  },
+  "P_Users-Management_AccountTypeGuest": {
+    "value": "Guests",
+    "description": "Label for guest account type select entry"
+  },
+  "P_Users-Management_SearchButton": {
+    "value": "Search",
+    "description": "Label of the search button in list view"
+  },
+  "P_Users-Management_FirstName": {
+    "value": "First name",
+    "description": "Label for the first name."
+  },
+  "P_Users-Management_LastName": {
+    "value": "Last name",
+    "description": "Label for the last name."
+  },
+  "P_Users-Management_Mail": {
+    "value": "Mail",
+    "description": "Label for the mail."
+  },
+  "P_Users-Management_Role": {
+    "value": "Role",
+    "description": "Label for the role."
+  },
+  "P_Users-Management_CreationDate": {
     "value": "Creation date",
     "description": "Label for the creation date."
   },
-  "P_Users-Management_ModificationDateLabel": {
+  "P_Users-Management_ModificationDate": {
     "value": "Modification date",
     "description": "Label for the modification date."
   },
-  "P_Users-Management_DomainLabel": {
+  "P_Users-Management_Domain": {
     "value": "Domain",
     "description": "Label for the domain."
   },
-  "P_Users-Management_OwnerLabel": {
+  "P_Users-Management_Owner": {
     "value": "Owner",
     "description": "Label for the owner."
   },

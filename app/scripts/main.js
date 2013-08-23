@@ -125,7 +125,7 @@ require.config({
         {deps: ['directives/directives']},
     'directives/users/userEditForm':
         {deps: ['directives/directives']},
-    'directives/users/userGrid':
+    'directives/users/userList':
         {deps: ['directives/directives', 'nggrid']},
 
     'directives/style/formAttempt':
@@ -217,7 +217,7 @@ require([
 
   'directives/users/userEditForm',
   'directives/users/userCompletion',
-  'directives/users/userGrid',
+  'directives/users/userList',
 
   'directives/style/formAttempt',
   'directives/style/formSubmit',

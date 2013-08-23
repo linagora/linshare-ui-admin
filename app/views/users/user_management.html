@@ -4,7 +4,24 @@
       <h1>{{'P_Users-Management_Title' | i18n}}</h1>
 
     </div>
-    <div data-ls-user-completion></div>
-    <div data-ls-user-edit-form></div>
+    <div>
+      <div class="btn-toolbar" data-ng-init="switchView=false">
+        <button class="btn btn-primary" type="button"  data-ng-click="switchView=!switchView" data-ng-switch="switchView">
+          <span data-ng-switch-when="false"><i class="icon-search icon-white"></i> {{'P_Users-Management_Search' | i18n}}</span>
+          <span data-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Users-Management_List' | i18n}}</span>
+        </button>
+      </div>
+      <div data-ng-show="switchView">
+        <div data-ls-user-completion></div>
+        <div data-ls-user-edit-form></div>
+      </div>
+    </div>
+    <div data-ng-controller="GridCtrl" data-ng-show="!switchView">
+      <div data-ls-user-list>
+        <div data-ng-repeat="selectedUser in selections">
+          <div data-ls-user-edit-form></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
