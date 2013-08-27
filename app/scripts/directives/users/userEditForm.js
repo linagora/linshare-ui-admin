@@ -30,7 +30,8 @@ app.directive('lsUserEditForm', [
           }
           $scope.submit = function(user) {
             Logger.debug('user edition: ' + user.mail);
-            user.put();
+            angular.copy($scope.user, $scope.selectedUser);
+            $scope.selectedUser.put();
             notificationService.addSuccess('P_Users-Management_UpdateSuccess');
           };
         }

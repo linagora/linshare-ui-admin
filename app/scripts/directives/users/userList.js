@@ -25,14 +25,26 @@ app.directive('lsUserList', [
             $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
           };
 
+          var restangularizeFromOtherURL = function(users) {
+            var restangularCollection = [];
+            angular.forEach(users, function(user, key) {
+              restangularCollection.push(Restangular.restangularizeElement(null, user, 'users'));
+            });
+            return restangularCollection;
+          }
+
           $scope.getData = function(successCallback) {
             if (!_.isUndefined($scope.pattern)) {
               if ($scope.accountType.value === null) {
-                return Restangular.all('users').all('search').all($scope.pattern).getList()
-                  .then(successCallback);
+                return Restangular.all('users').one('search', $scope.pattern).get().then(function success(users) {
+                  var collection = restangularizeFromOtherURL(users);
+                  successCallback(collection);
+                });
               } else {
-                return Restangular.all('users').all('search').all($scope.accountType.value).all($scope.pattern).getList()
-                  .then(successCallback);
+                return Restangular.all('users').all('search').one($scope.accountType.value, $scope.pattern).get().then(function success(users) {
+                  var collection = restangularizeFromOtherURL(users);
+                  successCallback(collection);
+                });
               }
             }
           };
