@@ -6,16 +6,25 @@ app.directive('lsUserEditForm', [
       restrict: 'A',
       transclude: false,
       link: function(scope, element, attrs) {
-        scope.isObject = function(myObject) {
-          return _.isObject(myObject);
-        }
-        scope.isStringEmpty = function(myObject) {
-          return _.isString(myObject) && _.isEmpty(myObject);
+        scope.showUserEditForm = false;
+        scope.isGuest = function() {
+          if (!_.isUndefined(scope.selectedUser)) {
+            return scope.selectedUser.guest === true;
+          }
         }
       },
       controller: ['$scope', 'Restangular', 'loggerService', 'notificationService',
         function($scope, Restangular, Logger, notificationService) {
           $scope.userRoles = Restangular.all('user_roles').getList();
+          $scope.user = {};
+          $scope.$watch('selectedUser', function(newValue, oldValue) {
+            if (_.isUndefined(newValue) || !_.isObject(newValue)) {
+              $scope.showUserEditForm = false;
+            } else {
+              $scope.showUserEditForm = true;
+              angular.copy(newValue, $scope.user);
+            }
+          }, true);
           $scope.cancel = function() {
             $scope.selectedUser = undefined;
           }

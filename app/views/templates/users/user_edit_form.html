@@ -1,14 +1,14 @@
-<div class="well" data-ng-show="isObject(selectedUser)">
-  <form class="form-horizontal" name="userEditForm" data-ls-form-submit="submit(selectedUser)" data-ls-form-attempt>
+<div class="well" data-ng-show="showUserEditForm">
+  <form class="form-horizontal" name="userEditForm" data-ls-form-submit="submit(user)" data-ls-form-attempt>
     <fieldset>
       <!-- Legend -->
-      <h4><legend>{{userRepresentation(selectedUser)}}</legend></h4>
+      <h4><legend>{{userRepresentation(user)}}</legend></h4>
 
       <!-- Creation date -->
       <div class="control-group">
         <label class="control-label" for="creationDate">{{'P_Users-Management_CreationDate' | i18n}}</label>
         <div class="controls">
-          <span class="input-xlarge uneditable-input">{{selectedUser.creationDate | date:'medium'}}</span>
+          <span class="input-xlarge uneditable-input">{{user.creationDate | date:'medium'}}</span>
         </div>
       </div>
 
@@ -16,31 +16,88 @@
       <div class="control-group">
         <label class="control-label" for="modificationDate">{{'P_Users-Management_ModificationDate' | i18n}}</label>
         <div class="controls">
-          <span class="input-xlarge uneditable-input">{{selectedUser.modificationDate | date:'medium'}}</span>
+          <span class="input-xlarge uneditable-input">{{user.modificationDate | date:'medium'}}</span>
         </div>
       </div>
 
-      <!-- Domain -->
-      <div class="control-group">
-        <label class="control-label" for="domain">{{'P_Users-Management_Domain' | i18n}}</label>
-        <div class="controls">
-          <span class="input-xlarge uneditable-input">{{selectedUser.domain}}</span>
-        </div>
-      </div>
       
-      <!-- Owner -->
-      <div class="control-group" data-ng-show="isStringEmpty(selectedUser.owner)">
-        <label class="control-label" for="owner">{{'P_Users-Management_Owner' | i18n}}</label>
-        <div class="controls">
-          <span class="input-xlarge uneditable-input">{{selectedUser.owner}}</span>
+      <div data-ng-switch="isGuest(user)">
+        <div data-ng-switch-when="true">
+          <!-- First name -->
+          <div class="control-group"
+             ng-class="{error: userEditForm.firstName.$invalid && (userEditForm.firstName.$dirty || ls.userEditForm.attempted)}">
+            <label class="control-label" for="firstName">{{'P_Users-Management_FirstName' | i18n}}</label>
+            <div class="controls">
+              <input id="firstName" name="firstName" type="text" data-ng-model="user.firstName"
+              class="input-xlarge" required>
+            </div>
+          </div>
+
+          <!-- Last name -->
+          <div class="control-group"
+             ng-class="{error: userEditForm.lastName.$invalid && (userEditForm.lastName.$dirty || ls.userEditForm.attempted)}">
+            <label class="control-label" for="lastName">{{'P_Users-Management_LastName' | i18n}}</label>
+            <div class="controls">
+              <input id="lastName" name="lastName" type="text" data-ng-model="user.lastName"
+              class="input-xlarge" required>
+            </div>
+          </div>
+          <!-- Owner  -->
+          <div class="control-group">
+            <label class="control-label" for="owner">{{'P_Users-Management_Owner' | i18n}}</label>
+            <div class="controls">
+              <span class="input-xlarge uneditable-input">{{user.owner}}</span>
+            </div>
+          </div>
+          <!-- Comment -->
+          <div class="control-group">
+            <label class="control-label" for="comment">{{'P_Users-Management_Comment' | i18n}}</label>
+            <div class="controls">
+              <textarea id="comment" name="comment" class="input-xlarge" data-ng-model="user.comment"></textarea>
+            </div>
+          </div>
+          <!-- Domain -->
+          <div class="control-group">
+            <label class="control-label" for="domain">{{'P_Users-Management_Domain' | i18n}}</label>
+            <div class="controls">
+              <span class="input-xlarge uneditable-input">{{user.domain}}</span>
+            </div>
+          </div>
+        </div>
+        <div data-ng-switch-default>
+          <!-- First name -->
+          <div class="control-group"
+             ng-class="{error: userEditForm.firstName.$invalid && (userEditForm.firstName.$dirty || ls.userEditForm.attempted)}">
+            <label class="control-label" for="firstName">{{'P_Users-Management_FirstName' | i18n}}</label>
+            <div class="controls">
+              <span class="input-xlarge uneditable-input">{{user.firstName}}</span>
+            </div>
+          </div>
+
+          <!-- Last name -->
+          <div class="control-group"
+             ng-class="{error: userEditForm.lastName.$invalid && (userEditForm.lastName.$dirty || ls.userEditForm.attempted)}">
+            <label class="control-label" for="lastName">{{'P_Users-Management_LastName' | i18n}}</label>
+            <div class="controls">
+              <span class="input-xlarge uneditable-input">{{user.lastName}}</span>
+            </div>
+          </div>
+          <!-- Domain -->
+          <div class="control-group">
+            <label class="control-label" for="domain">{{'P_Users-Management_Domain' | i18n}}</label>
+            <div class="controls">
+              <span class="input-xlarge uneditable-input">{{user.domain}}</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- User role -->
-      <div class="control-group">
+      <div class="control-group"
+         ng-class="{error: userEditForm.role.$invalid && (userEditForm.role.$dirty || ls.userEditForm.attempted)}">
         <label class="control-label" for="role">{{'P_Users-Management_Role' | i18n}}</label>
         <div class="controls">
-          <select id="role" name="role" class="input-xlarge" data-ng-model="selectedUser.role" data-ng-options="r for r in userRoles" required>
+          <select id="role" name="role" class="input-xlarge" data-ng-model="user.role" data-ng-options="r for r in userRoles" required>
           </select>
         </div>
       </div>
