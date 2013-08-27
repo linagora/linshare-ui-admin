@@ -27,11 +27,13 @@ app.directive('lsUserEditForm', [
           }, true);
           $scope.cancel = function() {
             $scope.selectedUser = undefined;
+            $scope.selected = undefined;
           }
           $scope.submit = function(user) {
             Logger.debug('user edition: ' + user.mail);
             angular.copy($scope.user, $scope.selectedUser);
             $scope.selectedUser.put();
+            $scope.cancel();
             notificationService.addSuccess('P_Users-Management_UpdateSuccess');
           };
         }
