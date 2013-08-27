@@ -74,6 +74,8 @@ require.config({
     // Controllers
     'controllers/grid':
         {deps: ['controllers/controllers']},
+    'controllers/functionalityManagement':
+        {deps: ['controllers/controllers']},
     'controllers/domainManagement':
         {deps: ['controllers/controllers']},
     'controllers/userManagement':
@@ -97,10 +99,12 @@ require.config({
     'directives/loginForm':
         {deps: ['directives/directives', 'bootstrap']},
 
-    'directives/threads/threadGrid':
-        {deps: ['directives/directives', 'nggrid']},
-    'directives/threads/threadMemberGrid':
-        {deps: ['directives/directives', 'nggrid']},
+    'directives/administration/functionalityTree':
+        {deps: ['directives/directives']},
+    'directives/administration/functionalityList':
+        {deps: ['directives/directives']},
+    'directives/administration/functionalityEditForm':
+        {deps: ['directives/directives']},
 
     'directives/domains/ldapConnectionCreateForm':
         {deps: ['directives/directives']},
@@ -121,6 +125,11 @@ require.config({
     'directives/domains/domainTree':
         {deps: ['directives/directives']},
     
+    'directives/threads/threadGrid':
+        {deps: ['directives/directives', 'nggrid']},
+    'directives/threads/threadMemberGrid':
+        {deps: ['directives/directives', 'nggrid']},
+
     'directives/users/userCompletion':
         {deps: ['directives/directives']},
     'directives/users/userEditForm':
@@ -188,6 +197,7 @@ require([
 
   // Controllers
   'controllers/grid',
+  'controllers/functionalityManagement',
   'controllers/domainManagement',
   'controllers/userManagement',
   'controllers/createAndEditForm',
@@ -202,9 +212,10 @@ require([
   // Directives
   'directives/loginForm',
 
-  'directives/threads/threadMemberGrid',
-  'directives/threads/threadGrid',
-  
+  'directives/administration/functionalityTree',
+  'directives/administration/functionalityList',
+  'directives/administration/functionalityEditForm',
+
   'directives/domains/ldapConnectionCreateForm',
   'directives/domains/ldapConnectionEditForm',
   'directives/domains/ldapConnectionGrid',
@@ -215,6 +226,9 @@ require([
   'directives/domains/domainEditForm',
   'directives/domains/domainTree',
 
+  'directives/threads/threadMemberGrid',
+  'directives/threads/threadGrid',
+  
   'directives/users/userEditForm',
   'directives/users/userCompletion',
   'directives/users/userList',

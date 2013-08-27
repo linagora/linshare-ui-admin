@@ -27,11 +27,8 @@ app.directive('lsNavbar', [
             }, {
               name: Localize.getLocalizedString('G_Tab_Administration'),
               links: [{
-                name: Localize.getLocalizedString('G_Tab_Administration-ActivationPolicies'),
-                href: '#administration/activation_policies'
-              }, {
-                name: Localize.getLocalizedString('G_Tab_Administration-ConfigurationPolicies'),
-                href: '#administration/configuration_policies'
+                name: Localize.getLocalizedString('G_Tab_Administration-Functionalities'),
+                href: '#administration/functionalities'
               }, {
                 name: Localize.getLocalizedString('G_Tab_Administration-MailsPersonalization'),
                 href: '#administration/mails_personalization'

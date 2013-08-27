@@ -1,0 +1,42 @@
+{{currentDomain}}
+<form class="well" data-ng-show="parentActivationIsAllowed(functionality)">
+  <h5>{{'P_Administration-Functionalities_ActivationPolicy' | i18n}}</h5>
+  <label class="radio inline">
+      <input type="radio" name="activationRadios" id="activationRadios0" value="2"
+             data-ng-model="functionality.activation.value" data-ng-change="update(functionality)">
+      {{'P_Administration-Functionalities_Forbidden' | i18n}}
+  </label>
+  <label class="radio inline">
+      <input type="radio" name="activationRadios" id="activationRadios1" value="1"
+             data-ng-model="functionality.activation.value" data-ng-change="update(functionality)">
+      {{'P_Administration-Functionalities_Allow' | i18n}}
+  </label>
+  <label class="radio inline">
+      <input type="radio" name="activationRadios" id="activationRadios2" value="0"
+             data-ng-model="functionality.activation.value" data-ng-change="update(functionality)">
+      {{'P_Administration-Functionalities_Mandatory' | i18n}}
+  </label>
+  <label class="checkbox">
+      <input type="checkbox"
+             data-ng-model="functionality.activation.key" data-ng-change="update(functionality)">
+      {{'P_Administration-Functionalities_DefaultStatus' | i18n}}
+  </label>
+</form>
+<form class="well" data-ng-show="functionality.activation.key && parentConfigurationIsAllowed(functionality)">
+  <h5>{{'P_Administration-Functionalities_ConfigurationPolicy' | i18n}}</h5>
+  <label class="radio inline">
+      <input type="radio" name="configurationRadios" id="configurationRadios0" value="2"
+             data-ng-model="functionality.configuration.value" data-ng-change="update(functionality)">
+      {{'P_Administration-Functionalities_Forbidden' | i18n}}
+  </label>
+  <label class="radio inline">
+      <input type="radio" name="configurationRadios" id="configurationRadios1" value="1"
+             data-ng-model="functionality.configuration.value" data-ng-change="update(functionality)">
+      {{'P_Administration-Functionalities_Allow' | i18n}}
+  </label>
+  <label class="radio inline">
+      <input type="radio" name="configurationRadios" id="configurationRadios2" value="0"
+             data-ng-model="functionality.configuration.value" data-ng-change="update(functionality)">
+      {{'P_Administration-Functionalities_Mandatory' | i18n}}
+  </label>
+</form>

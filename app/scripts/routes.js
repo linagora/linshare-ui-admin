@@ -12,12 +12,8 @@ angular.module('myApp').config(['$routeProvider',
       templateUrl: 'views/domains/domain_management.html',
     });
 
-    $routeProvider.when('/administration/activation_policies', {
-      templateUrl: 'views/administration/activation_policies.html',
-    });
-
-    $routeProvider.when('/administration/configuration_policies', {
-      templateUrl: 'views/administration/configuration_policies.html',
+    $routeProvider.when('/administration/functionalities', {
+      templateUrl: 'views/administration/functionalities.html',
     });
 
     $routeProvider.when('/administration/mails_personalization', {
