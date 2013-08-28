@@ -48,30 +48,34 @@ Pour mettre à jour un module via bower:
 * Modifier le fichier component.json avec la version souhaitée
 * "bower install" va ensuite retelecharger l'ensemble des plugins et vérifier les dépendances
 
+## Lancer l'application
+Pour lancer l'application, la commande est:
+* grunt server
+
 ## AngularJS
 Avant de commencer à développer, veuillez lire les pages suivantes 
 pour connaitre AngularJS et les bonnes pratiques:
 
-http://docs.angularjs.org/tutorial/
-http://docs.angularjs.org/guide/
-http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx
-http://www.youtube.com/watch?v=ZhfUv0spHCY
-http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY
-http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx
-http://www.egghead.io/
-http://www.frangular.com/
-http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/
+[http://docs.angularjs.org/tutorial/](http://docs.angularjs.org/tutorial/)
+[http://docs.angularjs.org/guide/](http://docs.angularjs.org/guide/)
+[http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx](http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx)
+[http://www.youtube.com/watch?v=ZhfUv0spHCY](http://www.youtube.com/watch?v=ZhfUv0spHCY)
+[http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY](http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY)
+[http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx](http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx)
+[http://www.egghead.io/](http://www.egghead.io/)
+[http://www.frangular.com/](http://www.frangular.com/)
+[http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/](http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/)
 
 
 Vos questions existentielles:
 
-http://stackoverflow.com/questions/11873627/angularjs-ng-model-binding-not-updating-with-dynamic-values
-http://henriquat.re/directives/advanced-directives-combining-angular-with-existing-components-and-jquery/angularAndJquery.html
-http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula
-http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699
+[http://stackoverflow.com/questions/11873627/angularjs-ng-model-binding-not-updating-with-dynamic-values](http://stackoverflow.com/questions/11873627/angularjs-ng-model-binding-not-updating-with-dynamic-values)
+[http://henriquat.re/directives/advanced-directives-combining-angular-with-existing-components-and-jquery/angularAndJquery.html](http://henriquat.re/directives/advanced-directives-combining-angular-with-existing-components-and-jquery/angularAndJquery.html)
+[http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula](http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula)
+[http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699](http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699)
 
 Les exemples fournis par angular
-https://github.com/angular/angular.js/wiki/JsFiddle-Examples
+[https://github.com/angular/angular.js/wiki/JsFiddle-Examples](https://github.com/angular/angular.js/wiki/JsFiddle-Examples)
 
 La documentation spécifique à un plugin est généralement disponible sur le github associé.
 
@@ -93,7 +97,7 @@ Les modules AngularJS sont toujours précédés d'un $.
 Les modules possèdent une majuscule (en argument de la fonction)
 lorsqu'il s'agit d'objet et non d'un ensemble de function.
 
-cf : http://docs.angularjs.org/guide/di
+cf : [http://docs.angularjs.org/guide/di](http://docs.angularjs.org/guide/di)
 
 ### Utilisation de l'internationalization
 A la première utilisation de Linshare, la langue par défaut est la langue du navigateur,
