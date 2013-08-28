@@ -75,6 +75,7 @@ Vos questions existentielles:
 * [http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699](http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699)
 
 Les exemples fournis par angular
+
 * [https://github.com/angular/angular.js/wiki/JsFiddle-Examples](https://github.com/angular/angular.js/wiki/JsFiddle-Examples)
 
 La documentation spécifique à un plugin est généralement disponible sur le github associé.
@@ -84,10 +85,10 @@ La fonction link ne s'occupe que de la manipulation de la vue (gestion des cliqu
 La fonction controller s'occupe de la partie métier (récupération des données depuis un service etc ...)
 
 ## Outils de dev
-L'éditeur de texte vim est conseillé avec le plugin https://github.com/maksimr/vim-jsbeautify
+L'éditeur de texte Vim est conseillé avec le plugin [https://github.com/maksimr/vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify)
 Pour éviter des fichiers avec trop de colonne, la tabulation avec 2 espaces est recommandée.
-Pour l'API rest, le debugger http://restclient.net/ est conseillé.
-Pour débugger AngularJS https://github.com/angular/angularjs-batarang
+Pour l'API rest, le debugger [http://restclient.net/](http://restclient.net/) est conseillé.
+Pour débugger AngularJS [https://github.com/angular/angularjs-batarang](https://github.com/angular/angularjs-batarang)
 
 ## Détails techniques AngularJS
 
