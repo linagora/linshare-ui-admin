@@ -463,6 +463,10 @@
     "value": "Modification date",
     "description": "Label for the modification date."
   },
+  "P_Users-Management_ExpirationDate": {
+    "value": "Expiration date",
+    "description": "Label for the expiration date."
+  },
   "P_Users-Management_Domain": {
     "value": "Domain",
     "description": "Label for the domain."
@@ -511,9 +515,9 @@
     "value": "Mandatory",
     "description": "Radio button to make activation/configuration mandatory for children domain."
   },
-  "P_Administration-Functionalities_DefaultStatus": {
-    "value": "Default status for child domain",
-    "description": "Checkbox label for change the default status for children domain."
+  "P_Administration-Functionalities_Status": {
+    "value": "Status",
+    "description": "Checkbox label for functionality status."
   },
   "P_Administration-Functionalities_Func-QUOTA_USER": {
     "value": "Quota user",

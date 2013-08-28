@@ -122,7 +122,7 @@ très spécifique (internationalization, userLogged). Son utilisation
 revient à instancier des variables globales à l'application 
 (comme chacun le sait c'est une mauvaise pratique de programmation)
 
-### Notes pour la version AngularJS 1.1.X
+### Notes pour la version AngularJS 1.2.X
 * Modifier le module http-auth-interceptor pour modifier les headers sortants.
 * Modifier le service Logger pour utiliser la fonction debug() d'AngularJS.
 * Vérifier la directive d'animation dans la tree view ainsi que les regles CSS associées.
