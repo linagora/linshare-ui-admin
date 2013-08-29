@@ -1,5 +1,7 @@
 'use strict';
 
+// https://github.com/realcrowd/angularjs-utilities
+
 app.directive('lsFormSubmit', ['$parse',
   function($parse) {
     return {
