@@ -136,3 +136,9 @@ revient à instancier des variables globales à l'application
 ### Notes controles à faire sur le serveur
 * Vérifier les champs obligatoires Missing argument exception
 * Vérifier l'unicité avant création
+
+### Outils pouvant servir
+* [http://kushagragour.in/lab/hint/](http://kushagragour.in/lab/hint/)
+* [http://coffeescript.org/](http://coffeescript.org/)
+* [http://code.realcrowd.com/using-mailguns-email-address-validation-service-with-angularjs/](http://code.realcrowd.com/using-mailguns-email-address-validation-service-with-angularjs/)
+* [http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner/](http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner/)
