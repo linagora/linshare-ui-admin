@@ -17,6 +17,19 @@ app.directive('lsFunctionalityList', [
               scope.showForm = false;
             }
           });
+          scope.style = function(functionality) {
+            if (functionality.activationPolicy.status) {
+              return {
+                "background-color": "rgb(70, 136, 71)",
+                "color": "rgb(255, 255, 255)"
+              }
+            } else {
+              return {
+                "background-color": "rgb(100, 100, 100)",
+                "color": "rgb(255, 255, 255)"
+              }
+            }
+          }
       },
       controller: ['$scope', '$route', 'Restangular', 'localize', 'loggerService',
         function($scope, $route, Restangular, Localize, Logger) {

@@ -2,9 +2,11 @@
   <div data-ng-repeat="functionality in functionalities | orderBy: 'name'" data-ng-show="showFunctionality(functionality)">
     <accordion-group>
       <accordion-heading>
-        <i data-ng-show="!functionality.activationPolicy.status" class="icon-remove"></i>
-        <i data-ng-show="functionality.activationPolicy.status" class="icon-ok"></i>  
-        {{functionality.name}}
+        <span class="label" ng-style="style(functionality)">
+        <i data-ng-show="!functionality.activationPolicy.status" class="icon-remove icon-white"></i>
+        <i data-ng-show="functionality.activationPolicy.status" class="icon-ok icon-white"></i>
+          &nbsp{{functionality.name}}
+        </span>
       </accordion-heading>
       {{functionality}}
       <div data-ls-functionality-edit-form></div>
