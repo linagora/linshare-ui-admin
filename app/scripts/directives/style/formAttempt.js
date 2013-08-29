@@ -9,7 +9,7 @@ app.directive('lsFormAttempt', [
           this.attempted = false;
           var attemptHandlers = [];
           this.onAttempt = function(handler) {
-            attemptHandlers(handler);
+            attemptHandlers.push(handler);
           };
           this.setAttempted = function() {
             this.attempted = true;
