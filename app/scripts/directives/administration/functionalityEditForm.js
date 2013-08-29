@@ -6,34 +6,30 @@ app.directive('lsFunctionalityEditForm', [
       restrict: 'A',
       transclude: false,
       link: function(scope, element, attrs) {
+        scope.showConfiguration = function(functionality) {
+          return functionality.activationPolicy.policy != 'FORBIDDEN' && functionality.configurationPolicy.parentAllowUpdate;
+        };
+        scope.disableStatus = function(policyType) {
+          if (policyType.policy === 'FORBIDDEN' || policyType.policy === 'MANDATORY') {
+            return true;
+          } else {
+            return false;
+          }
+        };
+        scope.updateStatus = function(policyType) {
+          if (policyType.policy === 'FORBIDDEN') {
+            return false;
+          } else if (policyType.policy === 'MANDATORY') {
+            return true;
+          } else { // ALLOWED
+            return policyType.defaultStatus;
+          }
+        };
       },
       controller: ['$scope', '$route', 'Restangular', 'localize', 'loggerService',
         function($scope, $route, Restangular, Localize, Logger) {
-          $scope.parentActivationIsAllowed = function(functionality) {
-            /*var isAllowed = false;
-            Restangular.all('domains').all($scope.currentDomain.parent).all('functionality')
-              .one($scope.functionality.identifier).get().then(
-              function success(functionality) {
-                if (functionality.activation.value === 1) {
-                  isAllowed = true;
-                }
-              }
-            );
-            return isAllowed;*/
-            return true;
-          };
-          $scope.parentConfigurationIsAllowed = function(functionality) {
-            /*var isAllowed = false;
-            Restangular.all('domains').all($scope.currentDomain.parent).all('functionality')
-              .one($scope.functionality.identifier).get().then(
-              function success(functionality) {
-                if (functionality.configuration.value === 1) {
-                  isAllowed = true;
-                }
-              }
-            );
-            return isAllowed;*/
-            return true;
+          $scope.update = function(functionality) {
+            functionality.put();
           };
         }
       ],

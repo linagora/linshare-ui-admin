@@ -1,6 +1,13 @@
 <accordion data-close-others="true">
-  <accordion-group data-heading="{{functionality.name}}" data-ng-repeat="functionality in functionalities | orderBy: 'name'">
-  {{functionality}}
-    <div data-ls-functionality-edit-form></div>
-  </accordion-group>
+  <div data-ng-repeat="functionality in functionalities | orderBy: 'name'" data-ng-show="showFunctionality(functionality)">
+    <accordion-group>
+      <accordion-heading>
+        <i data-ng-show="!functionality.activationPolicy.status" class="icon-remove"></i>
+        <i data-ng-show="functionality.activationPolicy.status" class="icon-ok"></i>  
+        {{functionality.name}}
+      </accordion-heading>
+      {{functionality}}
+      <div data-ls-functionality-edit-form></div>
+    </accordion-group>
+  </div>
 </accordion>

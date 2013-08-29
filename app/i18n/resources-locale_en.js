@@ -503,6 +503,10 @@
     "value": "Configuration policy",
     "description": "Title for configuration policy."
   },
+  "P_Administration-Functionalities_Parameters": {
+    "value": "Parameters",
+    "description": "Title for parameters."
+  },
   "P_Administration-Functionalities_Forbidden": {
     "value": "Forbidden",
     "description": "Radio button to forbidden activation/configuration for children domain."

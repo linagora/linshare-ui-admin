@@ -7,6 +7,9 @@ app.directive('lsFunctionalityList', [
       transclude: false,
       link: function(scope, element, attrs) {
           scope.showForm = false;
+          scope.showFunctionality = function(functionality) {
+            return functionality.activationPolicy.parentAllowUpdate;
+          };
           scope.$on('currentDomainChanged', function() {
             if (!_.isNull(scope.currentDomain)) {
               scope.showForm = true;
