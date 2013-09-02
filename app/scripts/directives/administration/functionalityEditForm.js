@@ -18,18 +18,31 @@ app.directive('lsFunctionalityEditForm', [
         };
         scope.updateStatus = function(policyType) {
           if (policyType.policy === 'FORBIDDEN') {
+            policyType.status = false;
             return false;
           } else if (policyType.policy === 'MANDATORY') {
+            policyType.status = true;
             return true;
           } else { // ALLOWED
-            return policyType.defaultStatus;
+            return policyType.status;
           }
         };
       },
       controller: ['$scope', '$route', 'Restangular', 'localize', 'loggerService',
         function($scope, $route, Restangular, Localize, Logger) {
+          $scope.reset = function(functionality) {
+            var domain = functionality.domain;
+            var identifier = functionality.identifier;
+            console.log(functionality);
+            functionality.remove();
+            Restangular.all('domains').all(domain).all('functionalities').one(identifier).get().then(function success(f) {
+              functionality = f;
+            });
+          };
           $scope.update = function(functionality) {
-            functionality.put();
+            functionality.put().then(function success(){
+              Logger.debug(functionality.identifier + ' updated');
+            });
           };
         }
       ],
