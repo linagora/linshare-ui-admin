@@ -7,7 +7,9 @@ app.directive('lsFunctionalityEditForm', [
       transclude: false,
       link: function(scope, element, attrs) {
         scope.showConfiguration = function(functionality) {
-          return functionality.activationPolicy.policy != 'FORBIDDEN' && functionality.configurationPolicy.parentAllowUpdate;
+          return functionality.activationPolicy.policy != 'FORBIDDEN' 
+                  && functionality.configurationPolicy.parentAllowUpdate
+                  && functionality.activationPolicy.status;
         };
         scope.disableStatus = function(policyType) {
           if (policyType.policy === 'FORBIDDEN' || policyType.policy === 'MANDATORY') {
@@ -34,9 +36,10 @@ app.directive('lsFunctionalityEditForm', [
             var domain = functionality.domain;
             var identifier = functionality.identifier;
             console.log(functionality);
-            functionality.remove();
-            Restangular.all('domains').all(domain).all('functionalities').one(identifier).get().then(function success(f) {
-              functionality = f;
+            functionality.remove().then(function success() {
+              Restangular.all('domains').all(domain).all('functionalities').one(identifier).get().then(function success(f) {
+                functionality = f;
+              });
             });
           };
           $scope.update = function(functionality) {
