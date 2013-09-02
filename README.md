@@ -133,9 +133,12 @@ revient à instancier des variables globales à l'application
 * Vérifier la directive d'animation dans la tree view ainsi que les regles CSS associées.
 
 
-### Notes controles à faire sur le serveur
+### Notes de controles
+#### Sur le serveur
 * Vérifier les champs obligatoires Missing argument exception
 * Vérifier l'unicité avant création
+#### Sur le client
+* Mettre le champs datepicker required dans le userEditForm 
 
 ### Pour la suite
 * [http://kushagragour.in/lab/hint/](http://kushagragour.in/lab/hint/)

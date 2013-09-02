@@ -46,10 +46,23 @@ app.directive('lsUserList', [
                   successCallback(collection);
                 });
               }
-            }
+            }    
           };
 
           $scope.selections = [];
+          $scope.selectedUser = {};
+
+          $scope.$watch('selections', function(newValue, oldValue) {
+            if (!_.isEmpty(newValue)) {
+              angular.copy(newValue[0], $scope.selectedUser);
+            } else {
+              $scope.selectedUser = {};
+            }
+          }, true);
+
+          $scope.$on('reloadList', function() {
+            $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
+          });
 
           $scope.gridOptions = {
             i18n: Localize.getSimpleLanguage(),

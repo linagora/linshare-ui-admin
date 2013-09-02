@@ -13,14 +13,12 @@
       </div>
       <div data-ng-show="switchView">
         <div data-ls-user-completion></div>
-        <div data-ls-user-edit-form></div>
+        <div data-ls-user-edit-form data-user-to-edit="selectedUser"></div>
       </div>
     </div>
     <div data-ng-controller="GridCtrl" data-ng-show="!switchView">
       <div data-ls-user-list>
-        <div data-ng-repeat="selectedUser in selections">
-          <div data-ls-user-edit-form></div>
-        </div>
+        <div data-ls-user-edit-form data-user-to-edit="selectedUser"></div>
       </div>
     </div>
   </div>

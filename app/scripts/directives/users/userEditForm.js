@@ -5,17 +5,18 @@ app.directive('lsUserEditForm', ['$timeout',
     return {
       restrict: 'A',
       transclude: false,
+      scope: { userToEdit: '=' },
       link: function(scope, element, attrs) {
-        scope.showUserEditForm = false;
-        scope.isGuest = function() {
-          if (!_.isUndefined(scope.selectedUser)) {
-            return scope.selectedUser.guest === true;
+        scope.userRepresentation = function(user) {
+          if (!_.isUndefined(user)) {
+            return user.firstName + ' ' + user.lastName + ' <' + user.mail + '>';
           }
         };
+        scope.showUserEditForm = false;
         scope.today = new Date();
       },
-      controller: ['$scope', 'Restangular', 'loggerService', 'notificationService',
-        function($scope, Restangular, Logger, notificationService) {
+      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'notificationService',
+        function($scope, $rootScope, Restangular, Logger, notificationService) {
           $scope.userRoles = Restangular.all('user_roles').getList();
           $scope.user = {};
           $scope.open = function() {
@@ -23,27 +24,30 @@ app.directive('lsUserEditForm', ['$timeout',
               $scope.opened = true;
             });
           };
-          $scope.$watch('selectedUser', function(newValue, oldValue) {
-            if (_.isUndefined(newValue) || !_.isObject(newValue)) {
-              $scope.showUserEditForm = false;
-            } else {
-              $scope.showUserEditForm = true;
+          $scope.$watch('userToEdit', function(newValue, oldValue) {
+            if (_.isObject(newValue)) {
               angular.copy(newValue, $scope.user);
             }
           }, true);
+          $scope.$watch('user', function(newValue, oldValue) {
+            if (_.isEmpty(newValue)) {
+              $scope.showUserEditForm = false;
+            } else {
+              $scope.showUserEditForm = true;
+            }
+          }, true);
           $scope.cancel = function() {
-            Logger.debug('VOUS ETES ICI');
-            $scope.selectedUser = undefined;
-            $scope.selected = undefined;
+            $scope.user = {};
+            $rootScope.$broadcast('reloadList');
           }
           $scope.submit = function(user) {
             Logger.debug('user edition: ' + user.mail);
-            if (!_.isEqual($scope.user.expirationDate,$scope.selectedUser.expirationDate)) {
+            if (!_.isEqual($scope.user.expirationDate, $scope.userToEdit.expirationDate)) {
               // Convert datepicker date in timestamp
               $scope.user.expirationDate = $scope.user.expirationDate.getTime();
             }
-            angular.copy($scope.user, $scope.selectedUser);
-            $scope.selectedUser.put();
+            angular.copy($scope.user, $scope.userToEdit);
+            $scope.userToEdit.put();
             $scope.cancel();
             notificationService.addSuccess('P_Users-Management_UpdateSuccess');
           };
