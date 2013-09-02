@@ -1,11 +1,13 @@
-<form class="form-horizontal" data-ng-hide="hideForm" data-ls-form-submit="submit(ldapConnection)" data-ls-form-attempt>
+<form name="ldapConnectionEditForm" class="form-horizontal" data-ng-hide="hideForm" data-ls-form-submit="submit(ldapConnection)" data-ls-form-attempt novalidate>
   <fieldset>
     <!-- Legend -->
     <div data-ng-switch on="creation">
       <div data-ng-switch-when="true">
         <legend>{{'P_Domains-LDAPConnections_CreationTitle' | i18n}}</legend>
         <!-- Identifier -->
-        <div class="control-group">
+        <div class="control-group"
+             ng-class="{error: ldapConnectionEditForm.identifier.$invalid &&
+             (ldapConnectionEditForm.identifier.$dirty || ls.ldapConnectionEditForm.attempted)}">
           <label class="control-label" for="identifier">{{'P_Domains-LDAPConnections_IdentifierLabel' | i18n}}</label>
           <div class="controls">
             <input id="identifier" name="identifier" type="text" data-ng-model="ldapConnection.identifier"

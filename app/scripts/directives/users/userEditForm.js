@@ -32,6 +32,7 @@ app.directive('lsUserEditForm', ['$timeout',
             }
           }, true);
           $scope.cancel = function() {
+            Logger.debug('VOUS ETES ICI');
             $scope.selectedUser = undefined;
             $scope.selected = undefined;
           }

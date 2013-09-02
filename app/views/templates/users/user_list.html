@@ -1,5 +1,7 @@
-<form class="form-search" data-ls-form-submit="searchUser()" data-ls-form-attempt>
-  <div class="input-append">
+<form name="userListForm" class="form-search" data-ls-form-submit="searchUser()" data-ls-form-attempt novalidate>
+  <div class="input-append"
+       ng-class="{error: userListForm.identifier.$invalid &&
+       (userListForm.identifier.$dirty || ls.userListForm.attempted)}">
     <input type="text" class="span4 search-query" data-ng-model="pattern" required>
     <select id="accountType" name="accountType" class="input-medium" data-ng-model="accountType" data-ng-options="a as a.display for a in accountTypes" required>
     </select>

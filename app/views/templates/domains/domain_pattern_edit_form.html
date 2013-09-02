@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="domainPatternForm" data-ls-form-submit="submit(domainPattern)" data-ls-form-attempt data-ng-hide="hideForm">
+<form class="form-horizontal" name="domainPatternForm" data-ls-form-submit="submit(domainPattern)" data-ls-form-attempt data-ng-hide="hideForm" novalidate>
   <fieldset>
     <!-- Legend -->
     <legend>{{domainPattern.identifier}}</legend>
@@ -10,7 +10,9 @@
       </div>
     </div>
     <!-- Authentication -->
-    <div class="control-group">
+    <div class="control-group"
+         ng-class="{error: domainPatternForm.authentication.$invalid &&
+         (domainPatternForm.authentication.$dirty || ls.domainPatternForm.attempted)}">
       <label class="control-label" for="authentication">{{'P_Domains-DomainPatterns_AuthenticationLabel' | i18n}}</label>
       <div class="controls">
         <textarea id="authentication" name="authentication" class="input-xxlarge" data-ng-model="domainPattern.authCommand" required></textarea>
@@ -18,7 +20,9 @@
       </div>
     </div>
     <!-- Search User -->
-    <div class="control-group">
+    <div class="control-group"
+         ng-class="{error: domainPatternForm.searchUser.$invalid &&
+         (domainPatternForm.searchUser.$dirty || ls.domainPatternForm.attempted)}">
       <label class="control-label" for="searchUser">{{'P_Domains-DomainPatterns_SearchUserLabel' | i18n}}</label>
       <div class="controls">
         <textarea id="searchUser" name="searchUser" class="input-xxlarge" data-ng-model="domainPattern.searchUserCommand" required></textarea>
@@ -29,7 +33,9 @@
     <div class="well" style="max-width: 600px; margin: 0 auto 10px;">
        <h4>{{'P_Domains-DomainPatterns_Attributes' | i18n}}</h4>
 
-      <div class="control-group">
+      <div class="control-group"
+           ng-class="{error: domainPatternForm.email.$invalid &&
+           (domainPatternForm.email.$dirty || ls.domainPatternForm.attempted)}">
         <label class="control-label" for="email">{{'P_Domains-DomainPatterns_EmailLabel' | i18n}}</label>
         <div class="controls">
           <input id="email" name="email" type="text" data-ng-model="domainPattern.userMail"
@@ -37,7 +43,9 @@
           <p class="help-block">{{'P_Domains-DomainPatterns_EmailHelp' | i18n}}</p>
         </div>
       </div>
-      <div class="control-group">
+      <div class="control-group"
+           ng-class="{error: domainPatternForm.firstName.$invalid &&
+           (domainPatternForm.firstName.$dirty || ls.domainPatternForm.attempted)}">
         <label class="control-label" for="firstName">{{'P_Domains-DomainPatterns_FirstNameLabel' | i18n}}</label>
         <div class="controls">
           <input id="firstName" name="firstName" type="text" data-ng-model="domainPattern.userFirstName"
@@ -45,7 +53,9 @@
           <p class="help-block">{{'P_Domains-DomainPatterns_FirstNameHelp' | i18n}}</p>
         </div>
       </div>
-      <div class="control-group">
+      <div class="control-group"
+           ng-class="{error: domainPatternForm.lastName.$invalid &&
+           (domainPatternForm.lastName.$dirty || ls.domainPatternForm.attempted)}">
         <label class="control-label" for="lastName">{{'P_Domains-DomainPatterns_LastNameLabel' | i18n}}</label>
         <div class="controls">
           <input id="lastName" name="lastName" type="text" data-ng-model="domainPattern.userLastName"
@@ -53,7 +63,9 @@
           <p class="help-block">{{'P_Domains-DomainPatterns_LastNameHelp' | i18n}}</p>
         </div>
       </div>
-      <div class="control-group">
+      <div class="control-group"
+           ng-class="{error: domainPatternForm.ldapUid.$invalid &&
+           (domainPatternForm.ldapUid.$dirty || ls.domainPatternForm.attempted)}">
       <label class="control-label" for="ldapUid">{{'P_Domains-DomainPatterns_LdapUidLabel' | i18n}}</label>
         <div class="controls">
           <input id="ldapUid" name="ldapUid" type="text" data-ng-model="domainPattern.ldapUid"

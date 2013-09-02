@@ -1,6 +1,6 @@
 
 <div class="well" data-ng-show="showUserEditForm">
-  <form class="form-horizontal" name="userEditForm" data-ls-form-submit="submit(user)" data-ls-form-attempt>
+  <form class="form-horizontal" name="userEditForm" data-ls-form-submit="submit(user)" data-ls-form-attempt novalidate>
     <fieldset>
       <!-- Legend -->
       <h4><legend>{{userRepresentation(selectedUser)}}</legend></h4>
@@ -22,10 +22,10 @@
       </div>
 
       <!-- GUEST -->
-      <div data-ng-show="isGuest(user)">
-        <!-- First name -->
-        <div class="control-group"
+      <div data-ng-show="isGuest(user)"
            ng-class="{error: userEditForm.firstName.$invalid && (userEditForm.firstName.$dirty || ls.userEditForm.attempted)}">
+        <!-- First name -->
+	<div class="control-group">
           <label class="control-label" for="firstName">{{'P_Users-Management_FirstName' | i18n}}</label>
           <div class="controls">
             <input id="firstName" name="firstName" type="text" data-ng-model="user.firstName"
@@ -52,11 +52,12 @@
         </div>
         
         <!-- Expiration date -->
-        <div class="control-group">
+        <div class="control-group"
+           ng-class="{error: userEditForm.expirationDate.$invalid && (userEditForm.expirationDate.$dirty || ls.userEditForm.attempted)}">
           <label class="control-label" for="owner">{{'P_Users-Management_ExpirationDate' | i18n}}</label>
           <div class="controls form-horizontal">
 
-            <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="user.expirationDate" open="opened" min="today" show-weeks="false" required/>
+            <input type="text" name="expirationDate" datepicker-popup="dd-MMMM-yyyy" ng-model="user.expirationDate" open="opened" min="today" show-weeks="false" required/>
             <button type="button" class="btn" ng-click="open()"><i class="icon-calendar"></i></button>
           </div>
         </div>
@@ -81,8 +82,7 @@
       <!-- INTERNAL -->
       <div data-ng-show="!isGuest(user)">
         <!-- First name -->
-        <div class="control-group"
-           ng-class="{error: userEditForm.firstName.$invalid && (userEditForm.firstName.$dirty || ls.userEditForm.attempted)}">
+	<div class="control-group">
           <label class="control-label" for="firstName">{{'P_Users-Management_FirstName' | i18n}}</label>
           <div class="controls">
             <span class="input-xlarge uneditable-input">{{user.firstName}}</span>
@@ -90,8 +90,7 @@
         </div>
 
         <!-- Last name -->
-        <div class="control-group"
-           ng-class="{error: userEditForm.lastName.$invalid && (userEditForm.lastName.$dirty || ls.userEditForm.attempted)}">
+	<div class="control-group">
           <label class="control-label" for="lastName">{{'P_Users-Management_LastName' | i18n}}</label>
           <div class="controls">
             <span class="input-xlarge uneditable-input">{{user.lastName}}</span>

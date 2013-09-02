@@ -1,9 +1,11 @@
-<form class="form-horizontal" data-ls-form-submit="submit(ldapConnection)" data-ls-form-attempt>
+<form name="ldapConnectionCreateForm" class="form-horizontal" data-ls-form-submit="submit(ldapConnection)" data-ls-form-attempt novalidate>
   <fieldset>
     <!-- Legend -->
     <legend>{{'P_Domains-LDAPConnections_CreationTitle' | i18n}}</legend>
     <!-- Identifier -->
-    <div class="control-group">
+    <div class="control-group"
+          ng-class="{error: ldapConnectionCreateForm.identifier.$invalid &&
+          (ldapConnectionCreateForm.identifier.$dirty || ls.ldapConnectionCreateForm.attempted)}">
       <label class="control-label" for="identifier">{{'P_Domains-LDAPConnections_IdentifierLabel' | i18n}}</label>
       <div class="controls">
         <input id="identifier" name="identifier" type="text" data-ng-model="ldapConnection.identifier"
@@ -11,7 +13,9 @@
       </div>
     </div>
     <!-- Provider URL -->
-    <div class="control-group">
+    <div class="control-group"
+	  ng-class="{error: providerURLForm.providerURL.$invalid &&
+	  (providerURLForm.providerURL.$dirty || ls.providerURLForm.attempted)}">
       <label class="control-label" for="providerURL">{{'P_Domains-LDAPConnections_ProviderURLLabel' | i18n}}</label>
       <div class="controls">
         <input id="providerURL" name="providerURL" type="text" data-ng-model="ldapConnection.providerUrl"
