@@ -145,8 +145,10 @@ revient à instancier des variables globales à l'application
 * Mettre le champs datepicker required dans le userEditForm 
 
 ### Pour la suite
-* [http://kushagragour.in/lab/hint/](http://kushagragour.in/lab/hint/)
-* [http://coffeescript.org/](http://coffeescript.org/)
-* [http://code.realcrowd.com/using-mailguns-email-address-validation-service-with-angularjs/](http://code.realcrowd.com/using-mailguns-email-address-validation-service-with-angularjs/)
-* [http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner/](http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner/)
-* Vérifier l'evolution de la lib [https://github.com/witoldsz/angular-http-auth](https://github.com/witoldsz/angular-http-auth) et l'eventuel passage a bower
+* [http://getbootstrap.com](bootstrap 3.0)
+* [http://kushagragour.in/lab/hint/](hint helper)
+* [http://coffeescript.org/](coffeescript)
+* [http://code.realcrowd.com/using-mailguns-email-address-validation-service-with-angularjs/](email validation online opensource)
+* [http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner/](simple spinner)
+* Vérifier l'evolution de la lib [https://github.com/witoldsz/angular-http-auth](angular-http-auth) et l'eventuel passage a bower
+* Acheter le bouquin de [https://github.com/pkozlowski-opensource](Pawel Kozlowski) et [https://github.com/petebacondarwin](Pete Bacon Darwin) sur les bonnes pratiques d'angular, quand il sera sorti
