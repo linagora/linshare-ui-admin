@@ -56,6 +56,7 @@ Pour lancer l'application, la commande est:
 Avant de commencer à développer, veuillez lire les pages suivantes 
 pour connaitre AngularJS et les bonnes pratiques:
 
+* [http://docs.angularjs.org/misc/faq](http://docs.angularjs.org/misc/faq)
 * [http://docs.angularjs.org/tutorial/](http://docs.angularjs.org/tutorial/)
 * [http://docs.angularjs.org/guide/](http://docs.angularjs.org/guide/)
 * [http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx](http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx)
