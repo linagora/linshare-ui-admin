@@ -64,6 +64,7 @@ pour connaitre AngularJS et les bonnes pratiques:
 * [http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY](http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY)
 
 Autre:
+
 * [http://www.frangular.com/](http://www.frangular.com/)
 * [http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/](http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/)
 * [http://www.egghead.io/](http://www.egghead.io/)
