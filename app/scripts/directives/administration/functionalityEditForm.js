@@ -28,12 +28,18 @@ app.directive('lsFunctionalityEditForm', [
             return policyType.status;
           }
         };
+        scope.paramChanges = function(paramaters) {
+
+        };
       },
-      controller: ['$scope', '$route', 'Restangular', 'localize', 'loggerService',
-        function($scope, $route, Restangular, Localize, Logger) {
+      controller: ['$scope', '$timeout', 'Restangular', 'localize', 'loggerService',
+        function($scope, $timeout, Restangular, Localize, Logger) {
           var getLocalizeFunctionalityName = function(functionality) {
             return Localize.getLocalizedString('P_Administration-Functionalities_Func-' + functionality.identifier);
           };
+          var saved = false;
+          var submitting = false;
+          var timeoutId = null;
           $scope.reset = function(functionality) {
             var domain = functionality.domain;
             var identifier = functionality.identifier;
@@ -45,9 +51,31 @@ app.directive('lsFunctionalityEditForm', [
               });
             });
           };
+          $scope.getSaved = function() {
+            var string = ''
+            if (saved) {
+              string = Localize.getLocalizedString('P_Administration-Functionalities_Saved');
+              $timeout(function() {
+                saved = false;
+              }, 2000);
+            }
+            return string;
+          };
+          $scope.updateWithTimeout = function(functionality) {
+            if (submitting) {
+              $timeout.cancel(timeoutId);
+            } else {
+              submitting = true;
+            }
+            timeoutId = $timeout(function() {
+              $scope.update(functionality);
+              submitting = false;
+            }, 1500);
+          }
           $scope.update = function(functionality) {
-            functionality.put().then(function success(){
+            functionality.put().then(function success() {
               Logger.debug(functionality.identifier + ' updated');
+              saved = true;
             });
           };
         }

@@ -519,6 +519,10 @@
     "value": "Mandatory",
     "description": "Radio button to make activation/configuration mandatory for children domain."
   },
+  "P_Administration-Functionalities_Saved": {
+    "value": "Saved",
+    "description": "Label when functionality is saved."
+  },
   "P_Administration-Functionalities_Status": {
     "value": "Status",
     "description": "Checkbox label for functionality status."

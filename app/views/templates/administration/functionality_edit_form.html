@@ -49,7 +49,7 @@
   </label>
 </form>
 
-<form class="well" data-ng-show="showConfiguration(functionality)">
+<form name="paramForm" class="well" data-ng-show="showConfiguration(functionality)">
   <h5>{{'P_Administration-Functionalities_Parameters' | i18n}}</h5>
   <div data-ng-repeat="parameter in functionality.parameters">
     <div data-ng-switch="parameter.type">
@@ -57,7 +57,9 @@
         <div class="control-group">
           <label class="control-label" for="$index"></label>
           <div class="controls">
-            <input name="$index" type="number" data-ng-model="parameter.integer" class="input-large">
+            <input name="$index" type="number" class="input-large" 
+              data-ng-model="parameter.integer" data-ng-change="updateWithTimeout(functionality)" 
+              min="0" max="2147483647" required>
           </div>
         </div>
       </div>
@@ -65,7 +67,9 @@
         <div class="control-group">
           <label class="control-label" for="$index"></label>
           <div class="controls">
-            <input name="$index" type="number" data-ng-model="parameter.integer" class="input-large">
+            <input name="$index" type="number" class="input-large" 
+              data-ng-model="parameter.integer" data-ng-change="updateWithTimeout(functionality)" 
+              min="0" max="2147483647" required>
             <select data-ng-model="parameter.string">
               <option data-ng-repeat="option in parameter.select">{{option}}</option>
             </select>
@@ -76,8 +80,10 @@
         <div class="control-group">
           <label class="control-label" for="$index"></label>
           <div class="controls controls-row">
-            <input name="$index" type="number" data-ng-model="parameter.integer" class="input-large">
-            <select data-ng-model="parameter.string">
+            <input name="$index" type="number" class="input-large" 
+              data-ng-model="parameter.integer" data-ng-change="updateWithTimeout(functionality)" 
+              min="0" max="2147483647" required>
+            <select data-ng-model="parameter.string" data-ng-change="update(functionality)">
               <option data-ng-repeat="option in parameter.select">{{option}}</option>
             </select>
           </div>
@@ -87,7 +93,10 @@
         <div class="control-group">
           <label class="control-label" for="$index"></label>
           <div class="controls">
-            <input name="$index" type="text" data-ng-model="parameter.string" class="input-xlarge">
+            <input name="$index" type="text" class="input-large" 
+              data-ng-model="parameter.string" data-ng-change="updateWithTimeout(functionality)" 
+              data-ng-minLength="1" required>
+            <input name="$index" type="text" class="input-xlarge" data-ng-model="parameter.string">
           </div>
         </div>
       </div>
