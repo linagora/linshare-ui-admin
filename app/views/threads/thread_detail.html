@@ -1,12 +1,12 @@
 <div class="row">
    <h1>Thread detail</h1>
 
-  <div data-ng-controller="ThreadDetailCtrl">
+  <div x-ng-controller="ThreadDetailCtrl">
     <p>Detail view for {{thread.name}}</p>
     <p>Name : {{thread.name}}</p>
     <p>uuid : {{thread.uid}}</p>
     <p>Modification Date : {{thread.modificationDate}}</p>
   </div>
   <hr/>
-  <div data-grid-thread-members data-ng-controller="gridCtrl"></div>
+  <div x-grid-thread-members x-ng-controller="gridCtrl"></div>
 </div>

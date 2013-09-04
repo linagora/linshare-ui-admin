@@ -5,20 +5,20 @@
         <div>
           <div class="btn-toolbar">
             <div class="btn-group dropdown">
-              <button class="btn btn-primary" data-ng-click="configDomain(rootDomain)">{{rootDomain.label}}</button>
+              <button class="btn btn-primary" x-ng-click="configDomain(rootDomain)">{{rootDomain.label}}</button>
             </div>
           </div>
           <ul class="nav nav-list" style="margin-left:20px">
-            <div data-ng-repeat="topDomain in rootDomain.children | orderBy:'label'">
+            <div x-ng-repeat="topDomain in rootDomain.children | orderBy:'label'">
               <li>
                 <div class="btn-toolbar">
                   <div class="btn-group dropdown">
-                    <button class="btn" style="min-width:150px" data-ng-click="configDomain(topDomain)">{{topDomain.label}}</button>
+                    <button class="btn" style="min-width:150px" x-ng-click="configDomain(topDomain)">{{topDomain.label}}</button>
                   </div>
                   <ul class="nav nav-list" style="margin-left:20px">
-                    <li data-ng-repeat="subDomain in topDomain.children | orderBy:'label'">
+                    <li x-ng-repeat="subDomain in topDomain.children | orderBy:'label'">
                       <div class="btn-toolbar">
-                        <button class="btn" style="min-width:150px" data-ng-click="configDomain(subDomain)">{{subDomain.label}}</button>
+                        <button class="btn" style="min-width:150px" x-ng-click="configDomain(subDomain)">{{subDomain.label}}</button>
                       </div>
                     </li>
                   </ul>

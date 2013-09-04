@@ -1,13 +1,13 @@
-<form name="userListForm" class="form-search" data-ls-form-submit="searchUser()" data-ls-form-attempt novalidate>
+<form name="userListForm" class="form-search" x-ls-form-submit="searchUser()" x-ls-form-attempt novalidate>
   <div class="input-append"
        ng-class="{error: userListForm.identifier.$invalid &&
        (userListForm.identifier.$dirty || ls.userListForm.attempted)}">
-    <input type="text" class="span4 search-query" data-ng-model="pattern" required>
-    <select id="accountType" name="accountType" class="input-medium" data-ng-model="accountType" data-ng-options="a as a.display for a in accountTypes" required>
+    <input type="text" class="span4 search-query" x-ng-model="pattern" required>
+    <select id="accountType" name="accountType" class="input-medium" x-ng-model="accountType" x-ng-options="a as a.display for a in accountTypes" required>
     </select>
     <button type="submit" class="btn">{{'P_Users-Management_SearchButton' | i18n}}</button>
   </div>
 </form>
 
-<div data-ng-grid="gridOptions" style="gridStyle"></div>
-<div data-ng-transclude></div>
+<div x-ng-grid="gridOptions" style="gridStyle"></div>
+<div x-ng-transclude></div>

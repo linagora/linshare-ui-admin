@@ -1,12 +1,12 @@
-<div data-modal="showCreationModal" close="close()" data-options="opts">
-  <form name="createDomainForm" class="form-horizontal" data-ls-form-submit="submit(domain)" data-ls-form-attempt>
+<div x-modal="showCreationModal" close="close()" x-options="opts">
+  <form name="createDomainForm" class="form-horizontal" x-ls-form-submit="submit(domain)" x-ls-form-attempt>
     <div class="modal-header">
-      <button type="button" class="close" data-ng-click="close()" aria-hidden="true">&times;</button>
+      <button type="button" class="close" x-ng-click="close()" aria-hidden="true">&times;</button>
       <!-- Legend -->
-      <div data-ng-switch="domain.type">
-        <h4 data-ng-switch-when="TOPDOMAIN" data-i18n="P_Domains-Management_CreateTopDomainTitle|{{domain.parent}}"></h4>
-        <h4 data-ng-switch-when="SUBDOMAIN" data-i18n="P_Domains-Management_CreateSubDomainTitle|{{domain.parent}}"></h4>
-        <h4 data-ng-switch-when="GUESTDOMAIN" data-i18n="P_Domains-Management_CreateGuestDomainTitle|{{domain.parent}}"></h4>
+      <div x-ng-switch="domain.type">
+        <h4 x-ng-switch-when="TOPDOMAIN" x-i18n="P_Domains-Management_CreateTopDomainTitle|{{domain.parent}}"></h4>
+        <h4 x-ng-switch-when="SUBDOMAIN" x-i18n="P_Domains-Management_CreateSubDomainTitle|{{domain.parent}}"></h4>
+        <h4 x-ng-switch-when="GUESTDOMAIN" x-i18n="P_Domains-Management_CreateGuestDomainTitle|{{domain.parent}}"></h4>
       </div>
     </div>
 
@@ -16,7 +16,7 @@
            ng-class="{error: createDomainForm.identifier.$invalid && (createDomainForm.identifier.$dirty || ls.createDomainForm.attempted)}">
         <label class="control-label" for="identifier">{{'P_Domains-Management_IdentifierLabel' | i18n}}</label>
         <div class="controls">
-          <input id="identifier" name="identifier" type="text" data-ng-model="domain.identifier"
+          <input id="identifier" name="identifier" type="text" x-ng-model="domain.identifier"
           class="input-xlarge" required>
         </div>
       </div>
@@ -26,7 +26,7 @@
            ng-class="{error: createDomainForm.name.$invalid && (createDomainForm.name.$dirty || ls.createDomainForm.attempted)}">
         <label class="control-label" for="name">{{'P_Domains-Management_NameLabel' | i18n}}</label>
         <div class="controls">
-          <input id="name" name="name" type="text" data-ng-model="domain.label"
+          <input id="name" name="name" type="text" x-ng-model="domain.label"
           class="input-xlarge" required>
         </div>
       </div>
@@ -35,7 +35,7 @@
       <div class="control-group">
         <label class="control-label" for="description">{{'P_Domains-Management_DescriptionLabel' | i18n}}</label>
         <div class="controls">
-          <textarea id="description" name="description" class="input-xlarge" data-ng-model="domain.description"></textarea>
+          <textarea id="description" name="description" class="input-xlarge" x-ng-model="domain.description"></textarea>
         </div>
       </div>
 
@@ -44,17 +44,17 @@
            ng-class="{error: createDomainForm.locale.$invalid && (createDomainForm.locale.$dirty || ls.createDomainForm.attempted)}">
         <label class="control-label" for="locale">{{'P_Domains-Management_LocaleLabel' | i18n}}</label>
         <div class="controls">
-          <select id="locale" name="locale" class="input-xlarge" data-ng-model="domain.locale" data-ng-options="l for l in locales" required>
+          <select id="locale" name="locale" class="input-xlarge" x-ng-model="domain.locale" x-ng-options="l for l in locales" required>
           </select>
         </div>
       </div>
 
       <!-- User role -->
-      <div class="control-group" data-ng-show="domain.type!='GUESTDOMAIN'"
+      <div class="control-group" x-ng-show="domain.type!='GUESTDOMAIN'"
            ng-class="{error: createDomainForm.userRole.$invalid && (createDomainForm.userRole.$dirty || ls.createDomainForm.attempted)}">
         <label class="control-label" for="userRole">{{'P_Domains-Management_UserRoleLabel' | i18n}}</label>
         <div class="controls">
-          <select id="userRole" name="userRole" class="input-xlarge" data-ng-model="domain.userRole" data-ng-options="u for u in userRoles" required>
+          <select id="userRole" name="userRole" class="input-xlarge" x-ng-model="domain.userRole" x-ng-options="u for u in userRoles" required>
           </select>
         </div>
       </div>
@@ -64,14 +64,14 @@
            ng-class="{error: createDomainForm.policy.$invalid && (createDomainForm.policy.$dirty || ls.createDomainForm.attempted)}">
         <label class="control-label" for="policy">{{'P_Domains-Management_PolicyLabel' | i18n}}</label>
         <div class="controls">
-          <select id="policy" name="policy" class="input-xlarge" data-ng-model="domain.policy.identifier" data-ng-options="p for p in domainPolicies" required>
+          <select id="policy" name="policy" class="input-xlarge" x-ng-model="domain.policy.identifier" x-ng-options="p for p in domainPolicies" required>
           </select>
         </div>
       </div>
     
     <div class="modal-footer">
       <!-- Validation -->
-      <button type="button" id="reset" name="reset" class="btn btn-warning" data-ng-click="reset()">{{'P_Domains-Management_Reset' | i18n}}</button>
+      <button type="button" id="reset" name="reset" class="btn btn-warning" x-ng-click="reset()">{{'P_Domains-Management_Reset' | i18n}}</button>
       <button type="submit" id="submit" name="submit"
       class="btn btn-success" >{{'P_Domains-Management_Submit' | i18n}}</button>
     </div>

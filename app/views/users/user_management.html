@@ -1,24 +1,24 @@
 <div class="row">
-  <div class="container" data-ng-controller="UserManagementCtrl">
+  <div class="container" x-ng-controller="UserManagementCtrl">
     <div class="page-header">
       <h1>{{'P_Users-Management_Title' | i18n}}</h1>
 
     </div>
     <div>
-      <div class="btn-toolbar" data-ng-init="switchView=false">
-        <button class="btn btn-primary" type="button"  data-ng-click="switchView=!switchView" data-ng-switch="switchView">
-          <span data-ng-switch-when="false"><i class="icon-search icon-white"></i> {{'P_Users-Management_Search' | i18n}}</span>
-          <span data-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Users-Management_List' | i18n}}</span>
+      <div class="btn-toolbar" x-ng-init="switchView=false">
+        <button class="btn btn-primary" type="button"  x-ng-click="switchView=!switchView" x-ng-switch="switchView">
+          <span x-ng-switch-when="false"><i class="icon-search icon-white"></i> {{'P_Users-Management_Search' | i18n}}</span>
+          <span x-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Users-Management_List' | i18n}}</span>
         </button>
       </div>
-      <div data-ng-show="switchView">
-        <div data-ls-user-completion></div>
-        <div data-ls-user-edit-form data-user-to-edit="selectedUser"></div>
+      <div x-ng-show="switchView">
+        <div x-ls-user-completion></div>
+        <div x-ls-user-edit-form x-user-to-edit="selectedUser"></div>
       </div>
     </div>
-    <div data-ng-controller="GridCtrl" data-ng-show="!switchView">
-      <div data-ls-user-list>
-        <div data-ls-user-edit-form data-user-to-edit="selectedUser"></div>
+    <div x-ng-controller="GridCtrl" x-ng-show="!switchView">
+      <div x-ls-user-list>
+        <div x-ls-user-edit-form x-user-to-edit="selectedUser"></div>
       </div>
     </div>
   </div>

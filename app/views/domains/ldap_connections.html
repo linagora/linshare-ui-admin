@@ -1,24 +1,24 @@
 <div class="row">
-  <div class="container" data-ng-controller="CreateAndEditFormCtrl">
+  <div class="container" x-ng-controller="CreateAndEditFormCtrl">
     <div class="page-header">
        <h1>{{'P_Domains-LDAPConnections_Title' | i18n}}</h1>
 
     </div>
     <div>
-      <div class="btn-toolbar" data-ng-init="switchView=false">
-        <button class="btn btn-primary" type="button"  data-ng-click="switchView=!switchView" data-ng-switch="switchView">
-          <span data-ng-switch-when="false"><i class="icon-plus icon-white"></i> {{'P_Domains-LDAPConnections_Add' | i18n}}</span>
-          <span data-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Domains-LDAPConnections_List' | i18n}}</span>
+      <div class="btn-toolbar" x-ng-init="switchView=false">
+        <button class="btn btn-primary" type="button"  x-ng-click="switchView=!switchView" x-ng-switch="switchView">
+          <span x-ng-switch-when="false"><i class="icon-plus icon-white"></i> {{'P_Domains-LDAPConnections_Add' | i18n}}</span>
+          <span x-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Domains-LDAPConnections_List' | i18n}}</span>
         </button>
       </div>
-      <div data-ng-show="switchView">
-        <div data-ls-ldap-connection-create-form></div>
+      <div x-ng-show="switchView">
+        <div x-ls-ldap-connection-create-form></div>
       </div>
     </div>
-    <div data-ng-controller="GridCtrl" data-ng-show="!switchView">
-      <div data-ls-ldap-connection-grid>
-        <div data-ng-repeat="ldapConnectionToEdit in selections">
-          <div data-ls-ldap-connection-edit-form></div>
+    <div x-ng-controller="GridCtrl" x-ng-show="!switchView">
+      <div x-ls-ldap-connection-grid>
+        <div x-ng-repeat="ldapConnectionToEdit in selections">
+          <div x-ls-ldap-connection-edit-form></div>
         </div>
       </div>
     </div>

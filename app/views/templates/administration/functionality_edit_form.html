@@ -2,101 +2,101 @@
   <h5>{{'P_Administration-Functionalities_ActivationPolicy' | i18n}}</h5>
   <label class="radio inline">
       <input type="radio" name="activationRadios" id="activationRadios0" value="FORBIDDEN"
-             data-ng-model="functionality.activationPolicy.policy" data-ng-change="update(functionality)">
+             x-ng-model="functionality.activationPolicy.policy" x-ng-change="update(functionality)">
       {{'P_Administration-Functionalities_Forbidden' | i18n}}
   </label>
   <label class="radio inline">
       <input type="radio" name="activationRadios" id="activationRadios1" value="ALLOWED"
-             data-ng-model="functionality.activationPolicy.policy" data-ng-change="update(functionality)">
+             x-ng-model="functionality.activationPolicy.policy" x-ng-change="update(functionality)">
       {{'P_Administration-Functionalities_Allow' | i18n}}
   </label>
   <label class="radio inline">
       <input type="radio" name="activationRadios" id="activationRadios2" value="MANDATORY"
-             data-ng-model="functionality.activationPolicy.policy" data-ng-change="update(functionality)">
+             x-ng-model="functionality.activationPolicy.policy" x-ng-change="update(functionality)">
       {{'P_Administration-Functionalities_Mandatory' | i18n}}
   </label>
   <label class="checkbox">
       <input type="checkbox"
-             data-ng-disabled="disableStatus(functionality.activationPolicy)"
-             data-ng-checked="updateStatus(functionality.activationPolicy)"
-             data-ng-model="functionality.activationPolicy.status" data-ng-change="update(functionality)">
+             x-ng-disabled="disableStatus(functionality.activationPolicy)"
+             x-ng-checked="updateStatus(functionality.activationPolicy)"
+             x-ng-model="functionality.activationPolicy.status" x-ng-change="update(functionality)">
       {{'P_Administration-Functionalities_Status' | i18n}}
   </label>
 </form>
-<form class="well" data-ng-show="showConfiguration(functionality)">
+<form class="well" x-ng-show="showConfiguration(functionality)">
   <h5>{{'P_Administration-Functionalities_ConfigurationPolicy' | i18n}}</h5>
   <label class="radio inline">
       <input type="radio" name="configurationRadios" id="configurationRadios0" value="FORBIDDEN"
-             data-ng-model="functionality.configurationPolicy.policy" data-ng-change="update(functionality)">
+             x-ng-model="functionality.configurationPolicy.policy" x-ng-change="update(functionality)">
       {{'P_Administration-Functionalities_Forbidden' | i18n}}
   </label>
   <label class="radio inline">
       <input type="radio" name="configurationRadios" id="configurationRadios1" value="ALLOWED"
-             data-ng-model="functionality.configurationPolicy.policy" data-ng-change="update(functionality)">
+             x-ng-model="functionality.configurationPolicy.policy" x-ng-change="update(functionality)">
       {{'P_Administration-Functionalities_Allow' | i18n}}
   </label>
   <label class="radio inline">
       <input type="radio" name="configurationRadios" id="configurationRadios2" value="MANDATORY"
-             data-ng-model="functionality.configurationPolicy.policy" data-ng-change="update(functionality)">
+             x-ng-model="functionality.configurationPolicy.policy" x-ng-change="update(functionality)">
       {{'P_Administration-Functionalities_Mandatory' | i18n}}
   </label>
   <label class="checkbox">
       <input type="checkbox"
-             data-ng-disabled="disableStatus(functionality.configurationPolicy)"
-             data-ng-checked="updateStatus(functionality.configurationPolicy)"
-             data-ng-model="functionality.configurationPolicy.status" data-ng-change="update(functionality)">
+             x-ng-disabled="disableStatus(functionality.configurationPolicy)"
+             x-ng-checked="updateStatus(functionality.configurationPolicy)"
+             x-ng-model="functionality.configurationPolicy.status" x-ng-change="update(functionality)">
       {{'P_Administration-Functionalities_Status' | i18n}}
   </label>
 </form>
 
-<form name="paramForm" class="well" data-ng-show="showConfiguration(functionality)">
+<form name="paramForm" class="well" x-ng-show="showConfiguration(functionality)">
   <h5>{{'P_Administration-Functionalities_Parameters' | i18n}}</h5>
-  <div data-ng-repeat="parameter in functionality.parameters">
-    <div data-ng-switch="parameter.type">
-      <div data-ng-switch-when="INTEGER">
+  <div x-ng-repeat="parameter in functionality.parameters">
+    <div x-ng-switch="parameter.type">
+      <div x-ng-switch-when="INTEGER">
         <div class="control-group">
           <label class="control-label" for="$index"></label>
           <div class="controls">
             <input name="$index" type="number" class="input-large" 
-              data-ng-model="parameter.integer" data-ng-change="updateWithTimeout(functionality)" 
+              x-ng-model="parameter.integer" x-ng-change="updateWithTimeout(functionality)" 
               min="0" max="2147483647" required>
           </div>
         </div>
       </div>
-      <div data-ng-switch-when="UNIT_TIME">
+      <div x-ng-switch-when="UNIT_TIME">
         <div class="control-group">
           <label class="control-label" for="$index"></label>
           <div class="controls">
             <input name="$index" type="number" class="input-large" 
-              data-ng-model="parameter.integer" data-ng-change="updateWithTimeout(functionality)" 
+              x-ng-model="parameter.integer" x-ng-change="updateWithTimeout(functionality)" 
               min="0" max="2147483647" required>
-            <select data-ng-model="parameter.string">
-              <option data-ng-repeat="option in parameter.select">{{option}}</option>
+            <select x-ng-model="parameter.string">
+              <option x-ng-repeat="option in parameter.select">{{option}}</option>
             </select>
           </div>
         </div>
       </div>
-      <div data-ng-switch-when="UNIT_SIZE">
+      <div x-ng-switch-when="UNIT_SIZE">
         <div class="control-group">
           <label class="control-label" for="$index"></label>
           <div class="controls controls-row">
             <input name="$index" type="number" class="input-large" 
-              data-ng-model="parameter.integer" data-ng-change="updateWithTimeout(functionality)" 
+              x-ng-model="parameter.integer" x-ng-change="updateWithTimeout(functionality)" 
               min="0" max="2147483647" required>
-            <select data-ng-model="parameter.string" data-ng-change="update(functionality)">
-              <option data-ng-repeat="option in parameter.select">{{option}}</option>
+            <select x-ng-model="parameter.string" x-ng-change="update(functionality)">
+              <option x-ng-repeat="option in parameter.select">{{option}}</option>
             </select>
           </div>
         </div>
       </div>
-      <div data-ng-switch-when="STRING">
+      <div x-ng-switch-when="STRING">
         <div class="control-group">
           <label class="control-label" for="$index"></label>
           <div class="controls">
             <input name="$index" type="text" class="input-large" 
-              data-ng-model="parameter.string" data-ng-change="updateWithTimeout(functionality)" 
-              data-ng-minLength="1" required>
-            <input name="$index" type="text" class="input-xlarge" data-ng-model="parameter.string">
+              x-ng-model="parameter.string" x-ng-change="updateWithTimeout(functionality)" 
+              x-ng-minLength="1" required>
+            <input name="$index" type="text" class="input-xlarge" x-ng-model="parameter.string">
           </div>
         </div>
       </div>
@@ -105,7 +105,7 @@
 </form>
 <div class="control-group pull-right">
   <div class="controls">
-    <button class="btn btn-danger" type="button" data-ng-click="reset(functionality)">
+    <button class="btn btn-danger" type="button" x-ng-click="reset(functionality)">
       {{'P_Administration-Functionalities_Reset' | i18n}}
     </button>
   </div>

@@ -1,18 +1,18 @@
 <h4>{{currentDomain.label}}<h4>
-<div data-ng-show="spinner" class="spinner"></div>
+<div x-ng-show="spinner" class="spinner"></div>
 
-<accordion data-close-others="true" data-ng-show="!spinner">
-  <div data-ng-repeat="functionality in functionalities | orderBy: 'name'" data-ng-show="showFunctionality(functionality)">
+<accordion x-close-others="true" x-ng-show="!spinner">
+  <div x-ng-repeat="functionality in functionalities | orderBy: 'name'" x-ng-show="showFunctionality(functionality)">
     <accordion-group>
       <accordion-heading>
         <span class="label" ng-style="style(functionality)">
-        <i data-ng-show="!functionality.activationPolicy.status" class="icon-remove icon-white"></i>
-        <i data-ng-show="functionality.activationPolicy.status" class="icon-ok icon-white"></i>
+        <i x-ng-show="!functionality.activationPolicy.status" class="icon-remove icon-white"></i>
+        <i x-ng-show="functionality.activationPolicy.status" class="icon-ok icon-white"></i>
           &nbsp;{{functionality.name}}
         </span>
         <span class="pull-right">{{getSaved()}}</span>
       </accordion-heading>
-      <div data-ls-functionality-edit-form></div>
+      <div x-ls-functionality-edit-form></div>
     </accordion-group>
   </div>
 </accordion>

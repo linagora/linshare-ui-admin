@@ -6,12 +6,12 @@
       </a>
       <div class="nav-collapse container">
         <ul class="nav">
-          <li class="dropdown" data-ng-repeat="tab in tabs"> 
+          <li class="dropdown" x-ng-repeat="tab in tabs"> 
             <a class="dropdown-toggle">
               {{tab.name}}
             </a>
             <ul class="dropdown-menu">
-              <li data-ng-repeat="link in tab.links">
+              <li x-ng-repeat="link in tab.links">
                 <a href="{{link.href}}">{{link.name}}</a>
               </li>
             </ul>
@@ -25,13 +25,13 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li data-ng-class="{disabled: isCurrentLang('en')}">
-                <a data-ng-click="setLanguage('en-US')">
+              <li x-ng-class="{disabled: isCurrentLang('en')}">
+                <a x-ng-click="setLanguage('en-US')">
                   {{'G_App_LangEn' | i18n}}
                 </a>
               </li>
-              <li data-ng-class="{disabled: isCurrentLang('fr')}">
-                <a data-ng-click="setLanguage('fr-FR')">
+              <li x-ng-class="{disabled: isCurrentLang('fr')}">
+                <a x-ng-click="setLanguage('fr-FR')">
                   {{'G_App_LangFr' | i18n}}
                 </a>
               </li>
@@ -45,7 +45,7 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a data-ng-click="logout()">
+                <a x-ng-click="logout()">
                   {{'G_App_Logout' | i18n}}
                 </a>
               </li>

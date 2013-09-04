@@ -1,5 +1,5 @@
-<div class="well" data-ng-show="showUserEditForm">
-  <form class="form-horizontal" name="userEditForm" data-ls-form-submit="submit(user)" data-ls-form-attempt>
+<div class="well" x-ng-show="showUserEditForm">
+  <form class="form-horizontal" name="userEditForm" x-ls-form-submit="submit(user)" x-ls-form-attempt>
     <fieldset>
       <!-- Legend -->
       <h4><legend>{{userRepresentation(userToEdit)}}</legend></h4>
@@ -21,13 +21,13 @@
       </div>
 
       <!-- GUEST -->
-      <div data-ng-show="user.guest">
+      <div x-ng-show="user.guest">
         <!-- First name -->
         <div class="control-group"
            ng-class="{error: userEditForm.firstName.$invalid && (userEditForm.firstName.$dirty || ls.userEditForm.attempted)}">
           <label class="control-label" for="firstName">{{'P_Users-Management_FirstName' | i18n}}</label>
           <div class="controls">
-            <input id="firstName" name="firstName" type="text" data-ng-model="user.firstName"
+            <input id="firstName" name="firstName" type="text" x-ng-model="user.firstName"
             class="input-xlarge" required>
           </div>
         </div>
@@ -37,7 +37,7 @@
            ng-class="{error: userEditForm.lastName.$invalid && (userEditForm.lastName.$dirty || ls.userEditForm.attempted)}">
           <label class="control-label" for="lastName">{{'P_Users-Management_LastName' | i18n}}</label>
           <div class="controls">
-            <input id="lastName" name="lastName" type="text" data-ng-model="user.lastName"
+            <input id="lastName" name="lastName" type="text" x-ng-model="user.lastName"
             class="input-xlarge" required>
           </div>
         </div>
@@ -64,7 +64,7 @@
         <div class="control-group">
           <label class="control-label" for="comment">{{'P_Users-Management_Comment' | i18n}}</label>
           <div class="controls">
-            <textarea id="comment" name="comment" class="input-xlarge" data-ng-model="user.comment"></textarea>
+            <textarea id="comment" name="comment" class="input-xlarge" x-ng-model="user.comment"></textarea>
           </div>
         </div>
 
@@ -78,7 +78,7 @@
       </div>
 
       <!-- INTERNAL -->
-      <div data-ng-show="!user.guest">
+      <div x-ng-show="!user.guest">
         <!-- First name -->
 	<div class="control-group">
           <label class="control-label" for="firstName">{{'P_Users-Management_FirstName' | i18n}}</label>
@@ -108,7 +108,7 @@
          ng-class="{error: userEditForm.role.$invalid && (userEditForm.role.$dirty || ls.userEditForm.attempted)}">
         <label class="control-label" for="role">{{'P_Users-Management_Role' | i18n}}</label>
         <div class="controls">
-          <select id="role" name="role" class="input-xlarge" data-ng-model="user.role" data-ng-options="r for r in userRoles" required>
+          <select id="role" name="role" class="input-xlarge" x-ng-model="user.role" x-ng-options="r for r in userRoles" required>
           </select>
         </div>
       </div>
@@ -116,7 +116,7 @@
       <!-- Validation -->
       <div class="control-group">
         <div class="controls">
-          <button type="button" id="cancel" name="cancel" class="btn btn-danger" data-ng-click="cancel()">
+          <button type="button" id="cancel" name="cancel" class="btn btn-danger" x-ng-click="cancel()">
             {{'P_Users-Management_Cancel' | i18n}}
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">
