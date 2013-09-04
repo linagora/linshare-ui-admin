@@ -43,9 +43,8 @@ app.directive('lsFunctionalityEditForm', [
           $scope.reset = function(functionality) {
             var domain = functionality.domain;
             var identifier = functionality.identifier;
-            console.log(functionality);
             functionality.remove().then(function success() {
-              Restangular.all('domains').all(domain).all('functionalities').one(identifier).get().then(function success(f) {
+              Restangular.all('domains').all(domain).one('functionalities', identifier).get().then(function success(f) {
                 $scope.functionality = f;
                 $scope.functionality.name = getLocalizeFunctionalityName(functionality);
               });
