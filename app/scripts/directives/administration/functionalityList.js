@@ -7,6 +7,7 @@ app.directive('lsFunctionalityList', [
       transclude: false,
       link: function(scope, element, attrs) {
           scope.showForm = false;
+          scope.spinner = false;
           scope.showFunctionality = function(functionality) {
             return functionality.activationPolicy.parentAllowUpdate;
           };
@@ -40,12 +41,14 @@ app.directive('lsFunctionalityList', [
           $scope.$on('currentDomainChanged', function() {
             if (!_.isNull($scope.currentDomain)) {
               // Save the previous state
+              $scope.spinner = true;
               Restangular.all('domains').all($scope.currentDomain.identifier).all('functionalities').getList().then(
                 function success(functionalities) {
                   angular.forEach(functionalities, function(functionality) {
                     functionality.name = getLocalizeFunctionalityName(functionality);
                   });
                   $scope.functionalities = functionalities;
+                  $scope.spinner = false;
                 }  
               );
             }

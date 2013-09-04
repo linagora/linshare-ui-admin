@@ -1,5 +1,7 @@
 <h4>{{currentDomain.label}}<h4>
-<accordion data-close-others="true">
+<div data-ng-show="spinner" class="spinner"></div>
+
+<accordion data-close-others="true" data-ng-show="!spinner">
   <div data-ng-repeat="functionality in functionalities | orderBy: 'name'" data-ng-show="showFunctionality(functionality)">
     <accordion-group>
       <accordion-heading>
