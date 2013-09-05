@@ -4,16 +4,20 @@ angular.module('myApp').config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.when('/domains/ldap_connections', {
       templateUrl: 'views/domains/ldap_connections.html',
+      controller: 'CreateAndEditFormCtrl'
     });
     $routeProvider.when('/domains/domain_patterns', {
       templateUrl: 'views/domains/domain_patterns.html',
+      controller: 'CreateAndEditFormCtrl'
     });
     $routeProvider.when('/domains/management', {
       templateUrl: 'views/domains/domain_management.html',
+      controller: 'DomainManagementCtrl'
     });
 
     $routeProvider.when('/administration/functionalities', {
       templateUrl: 'views/administration/functionalities.html',
+      controller: 'FunctionalityManagementCtrl'
     });
 
     $routeProvider.when('/administration/mails_personalization', {
@@ -24,7 +28,8 @@ angular.module('myApp').config(['$routeProvider',
       templateUrl: 'views/users.html',
     });
     $routeProvider.when('/users/management', {
-      templateUrl: 'views/users/user_management.html'
+      templateUrl: 'views/users/user_management.html',
+      controller: 'UserManagementCtrl'
     });
     $routeProvider.when('/users/:userId', {
       templateUrl: 'views/user_detail.html'
@@ -50,7 +55,7 @@ angular.module('myApp').config(['$routeProvider',
     });
 
     $routeProvider.otherwise({
-      redirectTo: '/domains/management'
+      redirectTo: '/users/management'
     });
   }
 ]);
