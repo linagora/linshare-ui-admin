@@ -644,7 +644,7 @@
     "description": "Functionality name"
   },
   "P_Administration-Functionalities_Func-CREATE_THREAD_PERMISSION": {
-    "value": "Link logo",
+    "value": "Create thread permission",
     "description": "Functionality name"
   },
 
