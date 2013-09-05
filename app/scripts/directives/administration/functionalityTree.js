@@ -22,12 +22,25 @@ app.directive('lsFunctionalityTree', [
             $scope.currentDomain = domain;
             $scope.$broadcast('currentDomainChanged');
           };
+          
+          function findUserRootDomain(domain, userDomain) {
+            if (domain.identifier === userDomain) {
+              return domain;
+            }
+            domain.route = rootDomain.route;
+            if (!_.isEmpty(domain.children)) {
+              angular.forEach(domain.children, function(child, key) {
+                traverse(child, rootDomain);
+              });
+            }
+          }
           $scope.$on('functionalityTreeNeedRefresh', function() {
             manageDomainService.getAllDomains(function success(domains) {
-              $scope.rootDomain = domains;
+              $scope.userRootDomain = findUserRootDomain(domains, $scope.userLogged.domain);
               hideEditForm();
             });
           });
+          $scope.$broadcast('functionalityTreeNeedRefresh');
         }
       ],
       templateUrl: '/views/templates/administration/functionality_tree.html',
