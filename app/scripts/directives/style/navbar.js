@@ -9,16 +9,6 @@ app.directive('lsNavbar', [
       controller: ['$scope', '$route', '$http', 'localize', 'preferencesService',
         function($scope, $route, $http, Localize, Preferences) {
           $scope.tabs = [{
-              name: Localize.getLocalizedString('G_Tab_Domains'),
-              links: [{
-                  name: Localize.getLocalizedString('G_Tab_Domains-LDAPConnections'),
-                  href: '#domains/ldap_connections'
-                }, {
-                  name: Localize.getLocalizedString('G_Tab_Domains-DomainPatterns'),
-                  href: '#domains/domain_patterns'
-                }
-              ]
-            }, {
               name: Localize.getLocalizedString('G_Tab_Administration'),
               links: [{
                   name: Localize.getLocalizedString('G_Tab_Administration-Functionalities'),
@@ -55,9 +45,19 @@ app.directive('lsNavbar', [
           var tabAdded = false;
           $scope.$watch('userLogged', function(newValue, oldValue) {
             if (!_.isEmpty(newValue) && newValue.role === 'SUPERADMIN' && !tabAdded) {
-              $scope.tabs[0].links.push({
-                name: Localize.getLocalizedString('G_Tab_Domains-Management'),
-                href: '#domains/management'
+              $scope.tabs.unshift({
+                name: Localize.getLocalizedString('G_Tab_Domains'),
+                links: [{
+                    name: Localize.getLocalizedString('G_Tab_Domains-LDAPConnections'),
+                    href: '#domains/ldap_connections'
+                  }, {
+                    name: Localize.getLocalizedString('G_Tab_Domains-DomainPatterns'),
+                    href: '#domains/domain_patterns'
+                  }, {
+                    name: Localize.getLocalizedString('G_Tab_Domains-Management'),
+                    href: '#domains/management'
+                  }
+                ]
               });
               tabAdded = true;
             }
