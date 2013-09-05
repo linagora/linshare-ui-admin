@@ -7,9 +7,7 @@ angular.module('myApp.services')
   function($rootScope, Restangular ,Logger) {
     var UserLogged = {};
     Restangular.all('authentication').customGET('authorized').then(function success(user) {
-      UserLogged = user;
-    }, function error() {
-      Logger.error('Unable to reach authentication url');
+      $rootScope.userLogged = user;
     });
     return {
       get: function() {
