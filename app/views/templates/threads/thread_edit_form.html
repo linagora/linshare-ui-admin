@@ -2,11 +2,11 @@
   <form class="form-horizontal" name="threadEditForm" x-ls-form-submit="submit(thread)" x-ls-form-attempt>
     <fieldset>
       <!-- Legend -->
-      <h4><legend>THREAD(TODO)</legend></h4>
+      <h4><legend>{{'P_Threads-Grid_EditTitle' | i18n}}</legend></h4>
 
       <!-- Name -->
       <div class="control-group">
-        <label class="control-label" for="name">NAME(TODO)</label>
+	      <label class="control-label" for="name">{{'P_Threads-Grid_Name' | i18n}}</label>
         <div class="controls">
 		<span name="name" class="input-xlarge">{{thread.name}}</span>
         </div>
@@ -16,13 +16,13 @@
       <div class="control-group">
         <div class="controls">
           <button type="button" id="cancel" name="cancel" class="btn btn-danger" x-ng-click="cancel()">
-            {{'P_Users-Management_Cancel' | i18n}}
+            {{'P_Threads-Grid_Cancel' | i18n}}
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">
-            {{'P_Users-Management_Submit' | i18n}}
+            {{'P_Threads-Grid_Submit' | i18n}}
           </button>
           <button type="button" id="editMembers" name="editMembers" class="btn btn-info" x-ng-click="editMembers()">
-            EDIT MEMBERS(TODO)
+            {{'P_Threads-Grid_Edit' | i18n}}
           </button>
         </div>
       </div>

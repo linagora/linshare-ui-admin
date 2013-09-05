@@ -38,7 +38,7 @@ app.directive('lsThreadEditForm', function() {
             angular.copy($scope.thread, $scope.threadToEdit);
             $scope.threadToEdit.put();
             $scope.cancel();
-            notificationService.addSuccess('THREAD NAME EDITED FOOBAR');
+            notificationService.addSuccess('P_Threads-Grid_UpdateSuccess');
           };
         }
       ],

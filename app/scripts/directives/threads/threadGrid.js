@@ -41,10 +41,10 @@ app.directive('lsThreadGrid', [
             },
             columnDefs: [{
                 field: 'name',
-                displayName: 'Name(TODO)',
+                displayName: Localize.getLocalizedString('P_Threads-Grid_Name'),
               }, {
                 field: 'modificationDate',
-                displayName: 'Modification Date(TODO)',
+                displayName: Localize.getLocalizedString('P_Threads-Grid_ModificationDate'),
                 width: 200,
                 cellFilter: "date:'dd/MM/yyyy HH:mm'"
               }

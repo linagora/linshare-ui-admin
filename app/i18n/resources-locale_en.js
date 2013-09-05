@@ -411,6 +411,38 @@
     "value": "Domain deletion succeed",
     "description": "Alert message when the deletion succeed."
   },
+  "P_Threads-Grid_Title": {
+    "value": "Threads",
+    "description": "Title for the threads section."
+  },
+  "P_Threads-Grid_EditTitle": {
+    "value": "Thread",
+    "description": "Title for the thread edit form."
+  },
+  "P_Threads-Grid_Name": {
+    "value": "Name",
+    "description": "Label for the name"
+  },
+  "P_Threads-Grid_ModificationDate": {
+    "value": "Modification date",
+    "description": "Label for the modification date"
+  },
+  "P_Threads-Grid_Cancel": {
+    "value": "Cancel",
+    "description": "Label for the cancel button."
+  },
+  "P_Threads-Grid_Submit": {
+    "value": "Submit",
+    "description": "Label for the submit button."
+  },
+  "P_Threads-Grid_Edit": {
+    "value": "Edit",
+    "description": "Label for the edit button."
+  },
+  "P_Threads-Grid_UpdateSuccess": {
+    "value": "Thread update succeed",
+    "description": "Alert message when the update succeed."
+  },
   "P_Users-Management_Title": {
     "value": "Manage user",
     "description": "Title for the search user section."
