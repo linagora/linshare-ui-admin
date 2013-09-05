@@ -17,7 +17,6 @@ angular.module('myApp').config(['$routeProvider',
 
     $routeProvider.when('/administration/functionalities', {
       templateUrl: 'views/administration/functionalities.html',
-      controller: 'FunctionalityManagementCtrl'
     });
 
     $routeProvider.when('/administration/mails_personalization', {

@@ -74,8 +74,6 @@ require.config({
     // Controllers
     'controllers/grid':
         {deps: ['controllers/controllers']},
-    'controllers/functionalityManagement':
-        {deps: ['controllers/controllers']},
     'controllers/domainManagement':
         {deps: ['controllers/controllers']},
     'controllers/userManagement':
@@ -197,7 +195,6 @@ require([
 
   // Controllers
   'controllers/grid',
-  'controllers/functionalityManagement',
   'controllers/domainManagement',
   'controllers/userManagement',
   'controllers/createAndEditForm',
