@@ -127,6 +127,8 @@ require.config({
         {deps: ['directives/directives', 'nggrid']},
     'directives/threads/threadMemberGrid':
         {deps: ['directives/directives', 'nggrid']},
+    'directives/threads/threadEditForm':
+        {deps: ['directives/directives']},
 
     'directives/users/userCompletion':
         {deps: ['directives/directives']},
@@ -225,6 +227,7 @@ require([
 
   'directives/threads/threadMemberGrid',
   'directives/threads/threadGrid',
+  'directives/threads/threadEditForm',
   
   'directives/users/userEditForm',
   'directives/users/userCompletion',

@@ -35,10 +35,10 @@ angular.module('myApp').config(['$routeProvider',
     });
 
     $routeProvider.when('/threads', {
-      templateUrl: 'views/threads.html'
+      templateUrl: 'views/threads/threads.html'
     });
     $routeProvider.when('/threads/:threadId', {
-      templateUrl: 'views/thread_detail.html'
+      templateUrl: 'views/threads/thread_detail.html'
     });
 
     $routeProvider.when('/mailing_lists', {

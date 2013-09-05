@@ -10,9 +10,7 @@ app.directive('lsThreadMemberGrid', [
         function($scope, $routeParams, Localize, Restangular, Logger) {
           $scope.getData = function(successCallback) {
             return Restangular.one('threads', $routeParams.threadId).getList('members')
-              .then(successCallback, function error(err) {
-                Logger.error('Fail to retreive thread members list' + err);
-            });
+              .then(successCallback);
           };
 
           $scope.gridOptions = {

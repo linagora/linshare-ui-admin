@@ -39,7 +39,7 @@ app.directive('lsUserEditForm', ['$timeout',
           $scope.cancel = function() {
             $scope.user = {};
             $rootScope.$broadcast('reloadList');
-          }
+          };
           $scope.submit = function(user) {
             Logger.debug('user edition: ' + user.mail);
             if (!_.isEqual($scope.user.expirationDate, $scope.userToEdit.expirationDate)) {

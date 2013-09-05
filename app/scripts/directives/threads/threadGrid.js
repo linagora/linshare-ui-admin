@@ -4,21 +4,32 @@ app.directive('lsThreadGrid', [
   function() {
     return {
       restrict: 'A',
-      transclude: false,
+      transclude: true,
       scope: false,
       controller: ['$scope', 'localize', 'Restangular',
         function($scope, Localize, Restangular) {
           $scope.getData = function(successCallback) {
             return Restangular.all('threads').getList()
-              .then(successCallback, function error(err) {
-                Logger.error('Fail to retreive threads list' + err);
-            });
+              .then(successCallback);
           };
+
+          $scope.selections = [];
+          $scope.selectedThread = {};
+
+          $scope.$watch('selections', function(newValue, oldValue) {
+            if (!_.isEmpty(newValue)) {
+              angular.copy(newValue[0], $scope.selectedThread);
+            } else {
+              $scope.selectedUser = {};
+            }
+          }, true);
 
           $scope.gridOptions = {
             i18n: Localize.getSimpleLanguage(),
             data: 'myData',
-            selectedItems: $scope.threadserSelections,
+            selectedItems: $scope.selections,
+            multiSelect: false,
+            keepLastSelected: false,
             showGroupPanel: true,
             enablePaging: true,
             showFooter: true,
@@ -30,19 +41,25 @@ app.directive('lsThreadGrid', [
             },
             columnDefs: [{
                 field: 'name',
-                displayName: 'Name',
-                cellTemplate: '<a href="#/threads/{{row.entity[\'uuid\']}}">{{row.entity[col.field]}}</a>'
+                displayName: 'Name(TODO)',
               }, {
                 field: 'modificationDate',
-                displayName: 'Modification Date',
+                displayName: 'Modification Date(TODO)',
                 width: 200,
                 cellFilter: "date:'dd/MM/yyyy HH:mm'"
               }
-            ]
+            ],
+            plugins: [new ngGridFlexibleHeightPlugin()]
           };
+
+          $scope.$on('reloadList', function() {
+            $scope.getPagedDataAsync($scope.pagingOptions.pageSize,
+                                     $scope.pagingOptions.currentPage);
+          });
         }
       ],
-      template: '<div data-ng-grid="gridOptions" style="width: 1000px; height: 600px"></div>',
+      template: '<div x-ng-grid="gridOptions" style="gridStyle"></div>' +
+                '<div x-ng-transclude></div>',
       replace: false
     };
   }

@@ -27,7 +27,10 @@ app.directive('lsNavbar', [
               ]
             }, {
               name: Localize.getLocalizedString('G_Tab_Threads'),
-              links: '#threads'
+              links: [{
+                  name: "THREADS (TODO)",
+                  href: '#threads'
+              }]
             }, {
               name: Localize.getLocalizedString('G_Tab_MailingLists'),
               links: '#mailing_lists'
