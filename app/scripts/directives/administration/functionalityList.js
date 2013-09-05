@@ -9,7 +9,8 @@ app.directive('lsFunctionalityList', [
           scope.showForm = false;
           scope.spinner = false;
           scope.showFunctionality = function(functionality) {
-            return functionality.activationPolicy.parentAllowUpdate;
+            return functionality.activationPolicy.parentAllowUpdate 
+                  || functionality.configurationPolicy.parentAllowUpdate;
           };
           scope.$on('currentDomainChanged', function() {
             if (!_.isNull(scope.currentDomain)) {

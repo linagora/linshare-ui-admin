@@ -6,6 +6,12 @@ app.directive('lsFunctionalityEditForm', [
       restrict: 'A',
       transclude: false,
       link: function(scope, element, attrs) {
+        scope.functionality.activationPolicy.previousPolicy =  scope.functionality.activationPolicy.policy;
+        scope.functionality.configurationPolicy.previousPolicy =  scope.functionality.configurationPolicy.policy;
+        
+        scope.showActivation = function(functionality) {
+          return functionality.activationPolicy.parentAllowUpdate;
+        };
         scope.showConfiguration = function(functionality) {
           return functionality.activationPolicy.policy != 'FORBIDDEN' 
                   && functionality.configurationPolicy.parentAllowUpdate;
@@ -18,15 +24,21 @@ app.directive('lsFunctionalityEditForm', [
           }
         };
         scope.updateStatus = function(policyType) {
+          var res = policyType.status;
+          
           if (policyType.policy === 'FORBIDDEN') {
             policyType.status = false;
-            return false;
+            res = false;
           } else if (policyType.policy === 'MANDATORY') {
             policyType.status = true;
-            return true;
+            res = true;
           } else { // ALLOWED
-            return policyType.status;
+            if (!(policyType.previousPolicy === 'ALLOWED')) {
+              policyType.status = policyType.defaultStatus;
+            }
           }
+          policyType.previousPolicy = policyType.policy;
+          return res;
         };
         scope.isRootDomain = function() {
           if (scope.currentDomain.identifier === 'LinShareRootDomain') {
