@@ -131,6 +131,8 @@ Niveaux de log:
 très spécifique (internationalization, userLogged). Son utilisation
 revient à instancier des variables globales à l'application 
 (comme chacun le sait c'est une mauvaise pratique de programmation)
+* Attention aux appels Restangular dans les directives. 
+Les appels de resource seront dupliqués a chaque duplication de la directive
 
 ### Notes pour la version AngularJS 1.2.X
 * Modifier le module http-auth-interceptor pour modifier les headers sortants.
