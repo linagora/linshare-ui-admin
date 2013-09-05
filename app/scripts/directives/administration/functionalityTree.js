@@ -25,18 +25,17 @@ app.directive('lsFunctionalityTree', [
           
           function findUserRootDomain(domain, userDomain) {
             if (domain.identifier === userDomain) {
-              return domain;
+              $scope.userRootDomain = domain;
             }
-            domain.route = rootDomain.route;
             if (!_.isEmpty(domain.children)) {
               angular.forEach(domain.children, function(child, key) {
-                traverse(child, rootDomain);
+                findUserRootDomain(child, userDomain);
               });
             }
           }
           $scope.$on('functionalityTreeNeedRefresh', function() {
             manageDomainService.getAllDomains(function success(domains) {
-              $scope.userRootDomain = findUserRootDomain(domains, $scope.userLogged.domain);
+              findUserRootDomain(domains, $scope.userLogged.domain);
               hideEditForm();
             });
           });
