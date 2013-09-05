@@ -59,7 +59,7 @@ pour connaitre AngularJS et les bonnes pratiques:
 * [http://docs.angularjs.org/misc/faq](http://docs.angularjs.org/misc/faq)
 * [http://docs.angularjs.org/tutorial/](http://docs.angularjs.org/tutorial/)
 * [http://docs.angularjs.org/guide/](http://docs.angularjs.org/guide/)
-* [https://github.com/angular/angular.js/wiki/FAQ#antipatterns](https://github.com/angular/angular.js/wiki/FAQ#antipatterns)
+* [https://github.com/angular/angular.js/wiki](https://github.com/angular/angular.js/wiki)
 * [http://www.youtube.com/watch?v=ZhfUv0spHCY](http://www.youtube.com/watch?v=ZhfUv0spHCY)
 * [http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY](http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY)
 
