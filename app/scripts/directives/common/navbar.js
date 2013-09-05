@@ -102,7 +102,7 @@ app.directive('lsNavbar', [
           }
         }
       ],
-      templateUrl: '/views/templates/style/navbar.html',
+      templateUrl: '/views/templates/common/navbar.html',
       replace: false
     };
   }

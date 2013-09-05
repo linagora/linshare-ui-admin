@@ -17,7 +17,7 @@ app.directive('lsAlertBox', [
           }
         }
       ],
-      templateUrl: '/views/templates/style/alert-box.html',
+      templateUrl: '/views/templates/common/alert-box.html',
       replace: false
     };
   }

@@ -6,7 +6,7 @@ app.directive('lsFooter', [
       restrict: 'A',
       transclude: true,
       scope: false,
-      templateUrl: '/views/templates/style/footer.html',
+      templateUrl: '/views/templates/common/footer.html',
       replace: false
     };
   }

@@ -6,7 +6,7 @@ app.directive('linshareLoadingAnimation', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      templateUrl: '/views/templates/style/loading_animation.html',
+      templateUrl: '/views/templates/common/loading_animation.html',
       replace: false
     };
   }

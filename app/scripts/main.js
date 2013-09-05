@@ -137,19 +137,19 @@ require.config({
     'directives/users/userList':
         {deps: ['directives/directives', 'nggrid']},
 
-    'directives/style/formAttempt':
+    'directives/common/formAttempt':
         {deps: ['directives/directives']},
-    'directives/style/formSubmit':
+    'directives/common/formSubmit':
         {deps: ['directives/directives']},
-    'directives/style/navbar':
+    'directives/common/navbar':
         {deps: ['directives/directives', 'bootstrap']},
-    'directives/style/alertBox':
+    'directives/common/alertBox':
         {deps: ['directives/directives']},
-    'directives/style/alertTimeout':
+    'directives/common/alertTimeout':
         {deps: ['directives/directives']},
-    'directives/style/footer':
+    'directives/common/footer':
         {deps: ['directives/directives']},
-    'directives/style/loadingAnimation':
+    'directives/common/loadingAnimation':
         {deps: ['directives/directives']},
 
     /**
@@ -233,13 +233,13 @@ require([
   'directives/users/userCompletion',
   'directives/users/userList',
 
-  'directives/style/formAttempt',
-  'directives/style/formSubmit',
-  'directives/style/navbar',
-  'directives/style/alertBox',
-  'directives/style/alertTimeout',
-  'directives/style/footer',
-  'directives/style/loadingAnimation',
+  'directives/common/formAttempt',
+  'directives/common/formSubmit',
+  'directives/common/navbar',
+  'directives/common/alertBox',
+  'directives/common/alertTimeout',
+  'directives/common/footer',
+  'directives/common/loadingAnimation',
 
   /**
    * Utils
