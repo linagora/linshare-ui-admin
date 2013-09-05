@@ -28,8 +28,10 @@ app.directive('lsFunctionalityEditForm', [
             return policyType.status;
           }
         };
-        scope.paramChanges = function(paramaters) {
-
+        scope.isRootDomain = function() {
+          if (scope.currentDomain.identifier === 'LinShareRootDomain') {
+            return true;
+          }
         };
       },
       controller: ['$scope', '$timeout', 'Restangular', 'localize', 'loggerService',
