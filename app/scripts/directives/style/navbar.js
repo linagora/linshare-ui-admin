@@ -8,47 +8,7 @@ app.directive('lsNavbar', [
       scope: false,
       controller: ['$scope', '$route', '$http', 'localize', 'preferencesService',
         function($scope, $route, $http, Localize, Preferences) {
-          $scope.tabs = [{
-              name: Localize.getLocalizedString('G_Tab_Administration'),
-              links: [{
-                  name: Localize.getLocalizedString('G_Tab_Administration-Functionalities'),
-                  href: '#administration/functionalities'
-                }, {
-                  name: Localize.getLocalizedString('G_Tab_Administration-MailsPersonalization'),
-                  href: '#administration/mails_personalization'
-                }
-              ]
-            }, {
-              name: Localize.getLocalizedString('G_Tab_Users'),
-              links: [{
-                  name: Localize.getLocalizedString('G_Tab_Users-Management'),
-                  href: '#users/management'
-                }
-              ]
-            }, {
-              name: Localize.getLocalizedString('G_Tab_Threads'),
-              links: [{
-                  name: "THREADS (TODO)",
-                  href: '#threads'
-              }]
-            }, {
-              name: Localize.getLocalizedString('G_Tab_MailingLists'),
-              links: '#mailing_lists'
-            }, {
-              name: Localize.getLocalizedString('G_Tab_Audit'),
-              links: '#audit'
-            }, {
-              name: Localize.getLocalizedString('G_Tab_Charts'),
-              links: '#charts'
-            }
-          ];
-
-          $scope.appName = Preferences.system.appName;
-
-          var tabAdded = false;
-          $scope.$watch('userLogged', function(newValue, oldValue) {
-            if (!_.isEmpty(newValue) && newValue.role === 'SUPERADMIN' && !tabAdded) {
-              $scope.tabs.unshift({
+          $scope.menuDomain = {
                 name: Localize.getLocalizedString('G_Tab_Domains'),
                 links: [{
                     name: Localize.getLocalizedString('G_Tab_Domains-LDAPConnections'),
@@ -61,7 +21,65 @@ app.directive('lsNavbar', [
                     href: '#domains/management'
                   }
                 ]
-              });
+              };
+          $scope.menuThread = {
+              name: Localize.getLocalizedString('G_Tab_Threads'),
+              links: [{
+                  name: "THREADS (TODO)",
+                  href: '#threads'
+                  }
+                ]
+              };
+          $scope.menuAdministration = {
+              name: Localize.getLocalizedString('G_Tab_Administration'),
+              links: [{
+                  name: Localize.getLocalizedString('G_Tab_Administration-Functionalities'),
+                  href: '#administration/functionalities'
+                }, {
+                  name: Localize.getLocalizedString('G_Tab_Administration-MailsPersonalization'),
+                  href: '#administration/mails_personalization'
+                }
+              ]
+            };
+          $scope.menuUsers = {
+              name: Localize.getLocalizedString('G_Tab_Users'),
+              links: [{
+                  name: Localize.getLocalizedString('G_Tab_Users-Management'),
+                  href: '#users/management'
+                }
+              ]
+            };
+          $scope.menuMailingLists = {
+              name: Localize.getLocalizedString('G_Tab_MailingLists'),
+              links: '#mailing_lists'
+            };
+          $scope.menuAudit = {
+              name: Localize.getLocalizedString('G_Tab_Audit'),
+              links: '#audit'
+            };
+          $scope.menuCharts= {
+              name: Localize.getLocalizedString('G_Tab_Charts'),
+              links: '#charts'
+            };
+
+          $scope.tabs = [];
+          $scope.appName = Preferences.system.appName;
+
+          var tabAdded = false;
+          $scope.$watch('userLogged', function(newValue, oldValue) {
+            if (!_.isEmpty(newValue) && !tabAdded) {
+              $scope.tabs = [];
+              if(newValue.role === 'SUPERADMIN') {
+                $scope.tabs.push($scope.menuDomain);
+              }
+              $scope.tabs.push($scope.menuAdministration);
+              $scope.tabs.push($scope.menuUsers);
+              if(newValue.role === 'SUPERADMIN') {
+                $scope.tabs.push($scope.menuThread);
+              }
+              $scope.tabs.push($scope.menuMailingLists);
+              $scope.tabs.push($scope.menuAudit);
+              $scope.tabs.push($scope.menuCharts);
               tabAdded = true;
             }
           }, true);
