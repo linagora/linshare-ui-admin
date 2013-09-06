@@ -20,8 +20,7 @@
         </div>
       </div>
         <!-- upload -->
-        <div class="control-group"
-           ng-class="{error: userEditForm.canUpload.$invalid && (userEditForm.canUpload.$dirty || ls.userEditForm.attempted)}">
+        <div class="control-group">
           <label class="control-label" for="canUpload">{{'P_Users-Management_CanUpload' | i18n}}</label>
           <div class="controls">
             <input id="canUpload" name="canUpload" type="checkbox" x-ng-model="user.canUpload"
