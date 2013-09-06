@@ -487,6 +487,10 @@
     "value": "Role",
     "description": "Label for the role."
   },
+  "P_Users-Management_CanUpload": {
+    "value": "Upload permission",
+    "description": "Label for the first name."
+  },
   "P_Users-Management_CreationDate": {
     "value": "Creation date",
     "description": "Label for the creation date."
