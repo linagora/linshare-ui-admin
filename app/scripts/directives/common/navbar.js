@@ -77,9 +77,9 @@ app.directive('lsNavbar', [
               if(newValue.role === 'SUPERADMIN') {
                 $scope.tabs.push($scope.menuThreads);
               }
-              $scope.tabs.push($scope.menuMailingLists);
+              // $scope.tabs.push($scope.menuMailingLists);
               $scope.tabs.push($scope.menuAudit);
-              $scope.tabs.push($scope.menuCharts);
+              // $scope.tabs.push($scope.menuCharts);
               tabAdded = true;
             }
           }, true);
