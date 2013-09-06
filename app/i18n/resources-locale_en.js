@@ -471,6 +471,22 @@
     "value": "Search",
     "description": "Label of the search button in list view"
   },
+  "P_Users-Management_Status": {
+    "value": "Status",
+    "description": "Label for the account type."
+  },
+  "P_Users-Management_StatusAdmin": {
+    "value": "Administrator",
+    "description": "Label for the account type."
+  },
+  "P_Users-Management_StatusSimple": {
+    "value": "Simple user",
+    "description": "Label for the account type."
+  },
+  "P_Users-Management_StatusGuest": {
+    "value": "Guest",
+    "description": "Label for the account type."
+  },
   "P_Users-Management_FirstName": {
     "value": "First name",
     "description": "Label for the first name."

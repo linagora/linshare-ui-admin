@@ -4,6 +4,14 @@
       <!-- Legend -->
       <h4><legend>{{userRepresentation(userToEdit)}}</legend></h4>
 
+      <!-- Account type -->
+      <div class="control-group">
+        <label class="control-label" for="status">{{'P_Users-Management_Status' | i18n}}</label>
+        <div class="controls" style="padding-top: 5px;">
+          <span name="status"><strong>{{getStatus(userToEdit)}}</strong></span>
+        </div>
+      </div>
+
       <!-- Creation date -->
       <div class="control-group">
         <label class="control-label" for="creationDate">{{'P_Users-Management_CreationDate' | i18n}}</label>
@@ -19,22 +27,21 @@
           <span name="modificationDate" class="input-xlarge uneditable-input">{{user.modificationDate | date:'medium'}}</span>
         </div>
       </div>
-        <!-- upload -->
-        <div class="control-group">
-          <label class="control-label" for="canUpload">{{'P_Users-Management_CanUpload' | i18n}}</label>
-          <div class="controls">
-            <input id="canUpload" name="canUpload" type="checkbox" x-ng-model="user.canUpload"
-            class="checkbox" >
-          </div>
+
+      <!-- Upload -->
+      <div class="control-group">
+        <label class="control-label" for="canUpload">{{'P_Users-Management_CanUpload' | i18n}}</label>
+        <div class="controls">
+          <input id="canUpload" name="canUpload" type="checkbox" x-ng-model="user.canUpload"
+          class="checkbox" >
         </div>
-
-
+      </div>
 
       <!-- GUEST -->
       <div x-ng-show="user.guest">
         <!-- First name -->
         <div class="control-group"
-           ng-class="{error: userEditForm.firstName.$invalid && (userEditForm.firstName.$dirty || ls.userEditForm.attempted)}">
+           x-ng-class="{error: userEditForm.firstName.$invalid && (userEditForm.firstName.$dirty || ls.userEditForm.attempted)}">
           <label class="control-label" for="firstName">{{'P_Users-Management_FirstName' | i18n}}</label>
           <div class="controls">
             <input id="firstName" name="firstName" type="text" x-ng-model="user.firstName"
@@ -44,7 +51,7 @@
 
         <!-- Last name -->
         <div class="control-group"
-           ng-class="{error: userEditForm.lastName.$invalid && (userEditForm.lastName.$dirty || ls.userEditForm.attempted)}">
+           x-ng-class="{error: userEditForm.lastName.$invalid && (userEditForm.lastName.$dirty || ls.userEditForm.attempted)}">
           <label class="control-label" for="lastName">{{'P_Users-Management_LastName' | i18n}}</label>
           <div class="controls">
             <input id="lastName" name="lastName" type="text" x-ng-model="user.lastName"
@@ -65,8 +72,9 @@
           <label class="control-label" for="expirationDate">{{'P_Users-Management_ExpirationDate' | i18n}}</label>
           <div class="controls form-horizontal">
 
-            <input type="text" name="expirationDate" datepicker-popup="dd-MMMM-yyyy" ng-model="user.expirationDate" open="opened" min="today" show-weeks="false"/>
-            <button type="button" class="btn" ng-click="open()"><i class="icon-calendar"></i></button>
+            <input type="text" name="expirationDate" datepicker-popup="dd-MMMM-yyyy" 
+              x-ng-model="user.expirationDate" open="opened" min="today" show-weeks="false"/>
+            <button type="button" class="btn" x-ng-click="open()"><i class="icon-calendar"></i></button>
           </div>
         </div>
 
@@ -90,7 +98,7 @@
       <!-- INTERNAL -->
       <div x-ng-show="!user.guest">
         <!-- First name -->
-	<div class="control-group">
+        <div class="control-group">
           <label class="control-label" for="firstName">{{'P_Users-Management_FirstName' | i18n}}</label>
           <div class="controls">
             <span name="firstName" class="input-xlarge uneditable-input">{{user.firstName}}</span>
@@ -98,7 +106,7 @@
         </div>
 
         <!-- Last name -->
-	<div class="control-group">
+        <div class="control-group">
           <label class="control-label" for="lastName">{{'P_Users-Management_LastName' | i18n}}</label>
           <div class="controls">
             <span name="lastName" class="input-xlarge uneditable-input">{{user.lastName}}</span>
@@ -111,15 +119,15 @@
             <span name="domain" class="input-xlarge uneditable-input">{{user.domain}}</span>
           </div>
         </div>
-      </div>
 
-      <!-- User role -->
-      <div class="control-group"
-         ng-class="{error: userEditForm.role.$invalid && (userEditForm.role.$dirty || ls.userEditForm.attempted)}">
-        <label class="control-label" for="role">{{'P_Users-Management_Role' | i18n}}</label>
-        <div class="controls">
-          <select id="role" name="role" class="input-xlarge" x-ng-model="user.role" x-ng-options="r for r in userRoles" required>
-          </select>
+        <!-- User role -->
+        <div class="control-group"
+           x-ng-class="{error: userEditForm.role.$invalid && (userEditForm.role.$dirty || ls.userEditForm.attempted)}">
+          <label class="control-label" for="role">{{'P_Users-Management_Role' | i18n}}</label>
+          <div class="controls">
+            <select id="role" name="role" class="input-xlarge" x-ng-model="user.role" x-ng-options="r for r in userRoles" required>
+            </select>
+          </div>
         </div>
       </div>
 

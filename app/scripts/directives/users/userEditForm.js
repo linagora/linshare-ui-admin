@@ -15,14 +15,23 @@ app.directive('lsUserEditForm', ['$timeout',
         scope.showUserEditForm = false;
         scope.today = new Date();
       },
-      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'notificationService',
-        function($scope, $rootScope, Restangular, Logger, notificationService) {
+      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'localize', 'notificationService',
+        function($scope, $rootScope, Restangular, Logger, Localize, notificationService) {
           $scope.userRoles = Restangular.all('user_roles').getList();
           $scope.user = {};
           $scope.open = function() {
             $timeout(function() {
               $scope.opened = true;
             });
+          };
+          $scope.getStatus = function(user) {
+            if (user.guest === true) {
+              return Localize.getLocalizedString('P_Users-Management_StatusGuest');
+            } else if (user.role === 'ADMIN') {
+              return Localize.getLocalizedString('P_Users-Management_StatusAdmin');
+            } else if (user.role === 'SIMPLE') {
+              return Localize.getLocalizedString('P_Users-Management_StatusSimple');
+            }
           };
           $scope.$watch('userToEdit', function(newValue, oldValue) {
             if (_.isObject(newValue)) {
