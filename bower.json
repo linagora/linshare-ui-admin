@@ -1,6 +1,6 @@
 {
   "name": "linshareFrontendAdmin",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "angular": "~1.0.7",
     "angular-bootstrap": "~0.5.0",
