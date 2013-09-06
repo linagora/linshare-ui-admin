@@ -6,6 +6,9 @@ app.directive('lsUserList', [
       restrict: 'A',
       transclude: true,
       scope: false,
+      link: function(scope, element, attrs) {
+        scope.searching = false;
+      },
       controller: ['$scope', 'localize', 'Restangular',
         function($scope, Localize, Restangular) {
           var allAccountType = { 
@@ -22,6 +25,7 @@ app.directive('lsUserList', [
           }];
           $scope.accountType = allAccountType;
           $scope.searchUser = function() {
+            $scope.searching = true;
             $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
           };
 
@@ -39,11 +43,13 @@ app.directive('lsUserList', [
                 return Restangular.all('users').one('search', $scope.pattern).get().then(function success(users) {
                   var collection = restangularizeFromOtherURL(users);
                   successCallback(collection);
+                  $scope.searching = false;
                 });
               } else {
                 return Restangular.all('users').all('search').one($scope.accountType.value, $scope.pattern).get().then(function success(users) {
                   var collection = restangularizeFromOtherURL(users);
                   successCallback(collection);
+                  $scope.searching = false;
                 });
               }
             }    

@@ -5,6 +5,9 @@ app.directive('lsUserCompletion', [
     return {
       restrict: 'A',
       transclude: false,
+      link: function(scope, element, attrs) {
+        scope.searching = false;
+      },
       controller: ['$scope', 'Restangular', 'loggerService',
         function($scope, Restangular, Logger) {
           $scope.selectedUser = {};
@@ -16,11 +19,13 @@ app.directive('lsUserCompletion', [
             }
           }, true);
           $scope.users = function(pattern) {
+            $scope.searching = true;
             return Restangular.all('users').one('search', pattern).get().then(function success(users) {
               var restangularCollection = [];
               angular.forEach(users, function(user, key) {
                 restangularCollection.push(Restangular.restangularizeElement(null, user, 'users'));
               });
+              $scope.searching = false;
               return restangularCollection;
             });
 

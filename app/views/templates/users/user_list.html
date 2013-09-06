@@ -3,9 +3,11 @@
        ng-class="{error: userListForm.identifier.$invalid &&
        (userListForm.identifier.$dirty || ls.userListForm.attempted)}">
     <input type="text" class="span4 search-query" x-ng-model="pattern" required>
-    <select id="accountType" name="accountType" class="input-medium" x-ng-model="accountType" x-ng-options="a as a.display for a in accountTypes" required>
+    <select id="accountType" name="accountType" class="input-medium" 
+      x-ng-model="accountType" x-ng-options="a as a.display for a in accountTypes" required>
     </select>
     <button type="submit" class="btn">{{'P_Users-Management_SearchButton' | i18n}}</button>
+    <div class="spinner pull-right" style="margin-left:20px" x-ng-show="searching"></div>
   </div>
 </form>
 

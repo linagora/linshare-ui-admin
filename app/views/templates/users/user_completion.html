@@ -1,4 +1,7 @@
 <div class='container-fluid'>
-  <input type="text" class="input-xxlarge" x-ng-model="selected" x-typeahead-min-length="3"
-  x-typeahead="u as userRepresentation(u) for u in users($viewValue) | filter:$viewValue | limitTo:3">
+  <form class="form-inline" novalidate>
+    <input type="text" class="input-xxlarge" x-ng-model="selected" x-typeahead-min-length="3"
+    x-typeahead="u as userRepresentation(u) for u in users($viewValue) | filter:$viewValue | limitTo:3" />
+    <div class="spinner" style="margin-top:20px" x-ng-show="searching"></div>
+  </form>
 </div>
