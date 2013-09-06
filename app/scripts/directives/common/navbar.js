@@ -8,7 +8,7 @@ app.directive('lsNavbar', [
       scope: false,
       controller: ['$scope', '$route', '$http', 'localize', 'preferencesService',
         function($scope, $route, $http, Localize, Preferences) {
-          $scope.menuDomain = {
+          $scope.menuDomains = {
                 name: Localize.getLocalizedString('G_Tab_Domains'),
                 links: [{
                     name: Localize.getLocalizedString('G_Tab_Domains-LDAPConnections'),
@@ -22,7 +22,7 @@ app.directive('lsNavbar', [
                   }
                 ]
               };
-          $scope.menuThread = {
+          $scope.menuThreads = {
               name: Localize.getLocalizedString('G_Tab_Threads'),
               links: [{
                   name: "THREADS (TODO)",
@@ -70,12 +70,12 @@ app.directive('lsNavbar', [
             if (!_.isEmpty(newValue) && !tabAdded) {
               $scope.tabs = [];
               if(newValue.role === 'SUPERADMIN') {
-                $scope.tabs.push($scope.menuDomain);
+                $scope.tabs.push($scope.menuDomains);
               }
               $scope.tabs.push($scope.menuAdministration);
               $scope.tabs.push($scope.menuUsers);
               if(newValue.role === 'SUPERADMIN') {
-                $scope.tabs.push($scope.menuThread);
+                $scope.tabs.push($scope.menuThreads);
               }
               $scope.tabs.push($scope.menuMailingLists);
               $scope.tabs.push($scope.menuAudit);
