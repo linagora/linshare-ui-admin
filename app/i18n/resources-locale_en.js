@@ -515,6 +515,10 @@
     "value": "Cancel",
     "description": "Label for the cancel button."
   },
+  "P_Users-Management_Reset": {
+    "value": "Reset",
+    "description": "Label for the reset button."
+  },
   "P_Users-Management_Submit": {
     "value": "Submit",
     "description": "Label for the submit button."
