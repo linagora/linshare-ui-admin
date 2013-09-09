@@ -83,6 +83,10 @@
     "value": "Threads",
     "description": "Link for threads section."
   },
+  "G_Tab_Threads-Management": {
+    "value": "Manage threads",
+    "description": "Link for threads section."
+  },
   "G_Tab_MailingLists": {
     "value": "Mailing Lists",
     "description": "Link for mailing lists section."
@@ -427,21 +431,21 @@
     "value": "Modification date",
     "description": "Label for the modification date"
   },
-  "P_Threads-Grid_Cancel": {
-    "value": "Cancel",
-    "description": "Label for the cancel button."
+  "P_Threads-Grid_DeleteSuccess": {
+    "value": "Thread deletion succeed",
+    "description": "Alert message when the deletion succeed."
   },
-  "P_Threads-Grid_Submit": {
-    "value": "Submit",
-    "description": "Label for the submit button."
+  "P_Threads-Grid_Actions": {
+    "value": "Actions",
+    "description": "Label for the actions"
   },
   "P_Threads-Grid_Edit": {
     "value": "Edit",
     "description": "Label for the edit button."
   },
-  "P_Threads-Grid_UpdateSuccess": {
-    "value": "Thread update succeed",
-    "description": "Alert message when the update succeed."
+  "P_Threads-Grid_Delete": {
+    "value": "Delete",
+    "description": "Label for the delete button."
   },
   "P_Users-Management_Title": {
     "value": "Manage user",

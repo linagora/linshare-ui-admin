@@ -6,8 +6,8 @@ app.directive('lsThreadGrid', [
       restrict: 'A',
       transclude: true,
       scope: false,
-      controller: ['$scope', 'localize', 'Restangular',
-        function($scope, Localize, Restangular) {
+      controller: ['$scope', 'localize', 'Restangular', 'loggerService', 'notificationService',
+        function($scope, Localize, Restangular, Logger, notificationService) {
           $scope.getData = function(successCallback) {
             return Restangular.all('threads').getList()
               .then(successCallback);
@@ -32,6 +32,7 @@ app.directive('lsThreadGrid', [
             keepLastSelected: false,
             showGroupPanel: true,
             enablePaging: true,
+	    showFilter: true,
             showFooter: true,
             pagingOptions: $scope.pagingOptions,
             filterOptions: $scope.filterOptions,
@@ -47,10 +48,37 @@ app.directive('lsThreadGrid', [
                 displayName: Localize.getLocalizedString('P_Threads-Grid_ModificationDate'),
                 width: 200,
                 cellFilter: "date:'dd/MM/yyyy HH:mm'"
+              }, {
+                field: '',
+                displayName: Localize.getLocalizedString('P_Threads-Grid_Actions'),
+                width: 120,
+                cellClass: 'ngCellText ',
+                headerClass: 'ngHeaderCell ',
+                cellTemplate: '<div class="btn-toobar">' +
+                              '<div class="btn-group">' +
+                              '<button ng-click="edit(row)" class="btn btn-mini"><i class="icon-black icon-pencil"></i> ' + Localize.getLocalizedString('P_Threads-Grid_Edit') +  '</button>' +
+                              '<button ng-click="delete(row)" class="btn btn-mini"><i class="icon-black icon-trash"></i>' + Localize.getLocalizedString('P_Threads-Grid_Delete') +  '</button>' +
+                              '</div>' +
+                              '</div>'
               }
             ],
             plugins: [new ngGridFlexibleHeightPlugin()]
           };
+
+          $scope.edit = function(row) {
+            var selectedThread = row.entity;
+            Logger.debug('selectedThread edition: ' + selectedThread.identifier);
+	    // TODO
+          }
+
+          $scope.delete = function(row) {
+            var selectedThread = row.entity;
+            Logger.debug('selectedThread deletion: ' + selectedThread.identifier);
+            selectedThread.remove().then(function success(selectedThread) {
+              $scope.$broadcast('reloadList');
+              notificationService.addSuccess('P_Threads-Grid_DeleteSuccess');
+            });
+          }
 
           $scope.$on('reloadList', function() {
             $scope.getPagedDataAsync($scope.pagingOptions.pageSize,

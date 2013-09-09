@@ -25,7 +25,7 @@ app.directive('lsNavbar', [
           $scope.menuThreads = {
               name: Localize.getLocalizedString('G_Tab_Threads'),
               links: [{
-                  name: "THREADS (TODO)",
+                  name: Localize.getLocalizedString('G_Tab_Threads-Management'),
                   href: '#threads'
                   }
                 ]
