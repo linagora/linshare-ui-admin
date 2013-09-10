@@ -42,7 +42,7 @@
 
 
 ## Procedure de mise à jour
-Pour vérifier si des mise à jour sont présentes:
+Pour vérifier si des mises à jour sont présentes:
 "bower list"
 Pour mettre à jour un module via bower:
 * Modifier le fichier component.json avec la version souhaitée
@@ -51,6 +51,13 @@ Pour mettre à jour un module via bower:
 ## Lancer l'application
 Pour lancer l'application, la commande est:
 * grunt server
+
+## JavaScript
+Un cours sur JavaScript fait par un des créateurs d'AngularJS
+* [http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/](http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/)
+* [http://youtu.be/ljNi8nS5TtQ](http://youtu.be/ljNi8nS5TtQ)
+* [http://misko.hevery.com/](http://misko.hevery.com/)
+
 
 ## AngularJS
 Avant de commencer à développer, veuillez lire les pages suivantes 
