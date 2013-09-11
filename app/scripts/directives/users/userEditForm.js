@@ -50,13 +50,9 @@ app.directive('lsUserEditForm', ['$timeout',
                 }
                 $scope.limit = date;
               });
-            }
-          }, true);
-          $scope.$watch('user', function(newValue, oldValue) {
-            if (_.isEmpty(newValue)) {
-              $scope.showUserEditForm = false;
-            } else {
               $scope.showUserEditForm = true;
+            } else {
+              $scope.showUserEditForm = false;
             }
           }, true);
           $scope.cancel = function() {
