@@ -71,9 +71,8 @@
         <div class="control-group">
           <label class="control-label" for="expirationDate">{{'P_Users-Management_ExpirationDate' | i18n}}</label>
           <div class="controls form-horizontal">
-
             <input type="text" name="expirationDate" datepicker-popup="dd-MMMM-yyyy" 
-              x-ng-model="user.expirationDate" open="opened" min="today" show-weeks="false"/>
+              x-ng-model="user.expirationDate" open="opened" min="today" max="limit" show-weeks="false"/>
             <button type="button" class="btn" x-ng-click="open()"><i class="icon-calendar"></i></button>
           </div>
         </div>

@@ -24,8 +24,10 @@ app.directive('lsUserEditForm', ['$timeout',
               $scope.opened = true;
             });
           };
+          $scope.limit = new Date();
+
           $scope.getStatus = function(user) {
-            if (user.guest === true) {
+            if (!_.isUndefined(user) && user.guest === true) {
               return Localize.getLocalizedString('P_Users-Management_StatusGuest');
             } else if (user.role === 'ADMIN') {
               return Localize.getLocalizedString('P_Users-Management_StatusAdmin');
@@ -34,8 +36,20 @@ app.directive('lsUserEditForm', ['$timeout',
             }
           };
           $scope.$watch('userToEdit', function(newValue, oldValue) {
-            if (_.isObject(newValue)) {
+            if (!_.isEmpty(newValue)) {
               angular.copy(newValue, $scope.user);
+              Restangular.all('domains').all(newValue.domain).one('functionalities', 'ACCOUNT_EXPIRATION').get().then(function(functionality) {
+                var date = new Date();
+                var delta = functionality.parameters[0].integer;
+                if (functionality.parameters.string === 'DAY') {
+                  date.setDay(date.getDay() + delta);
+                } else if (functionality.parameters.string === 'WEEK') {
+                  date.setWeek(date.getWeek() + delta);
+                } else {
+                  date.setMonth(date.getMonth() + delta);
+                }
+                $scope.limit = date;
+              });
             }
           }, true);
           $scope.$watch('user', function(newValue, oldValue) {
