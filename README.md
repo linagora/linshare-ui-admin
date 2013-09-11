@@ -56,7 +56,6 @@ Pour lancer l'application, la commande est:
 Un cours sur JavaScript fait par un des créateurs d'AngularJS
 * [http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/](http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/)
 * [http://youtu.be/ljNi8nS5TtQ](http://youtu.be/ljNi8nS5TtQ)
-* [http://misko.hevery.com/](http://misko.hevery.com/)
 
 
 ## AngularJS
@@ -95,6 +94,7 @@ La documentation spécifique à un plugin est généralement disponible sur le g
 Les pros :
 
 * [Miško Hevery](https://github.com/mhevery) [blog](http://misko.hevery.com/)
+* [Pete Bacon Darwin](https://github.com/petebacondarwin) [blog](http://www.bacondarwin.com/)
 * [Dean Sofer](https://github.com/ProLoser) [blog](http://deansofer.com/)
 * [Pawel Kozlowski](https://github.com/pkozlowski-opensource) [blog](http://pkozlowskios.wordpress.com/)
 * [Igor Minar](https://github.com/IgorMinar) [blog](http://blog.igorminar.com/)
