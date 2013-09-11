@@ -92,6 +92,15 @@ Les exemples fournis par angular
 
 La documentation spécifique à un plugin est généralement disponible sur le github associé.
 
+Les pros :
+
+* [Miško Hevery](https://github.com/mhevery) [blog](http://misko.hevery.com/)
+* [Dean Sofer](https://github.com/ProLoser) [blog](http://deansofer.com/)
+* [Pawel Kozlowski](https://github.com/pkozlowski-opensource) [blog](http://pkozlowskios.wordpress.com/)
+* [Igor Minar](https://github.com/IgorMinar) [blog](http://blog.igorminar.com/)
+* [Matias Niemelä](https://github.com/matsko) [blog](http://www.yearofmoo.com/)
+* [Vojta Jina](https://github.com/vojtajina)
+
 ### Difference entre link et controller, dans une directive
 La fonction link ne s'occupe que de la manipulation de la vue (gestion des cliques, des class css etc ...)
 La fonction controller s'occupe de la partie métier (récupération des données depuis un service etc ...)
