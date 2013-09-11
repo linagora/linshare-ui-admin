@@ -55,6 +55,7 @@ Pour lancer l'application, la commande est:
 ## JavaScript
 Un cours sur JavaScript fait par un des créateurs d'AngularJS
 * [http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/](http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/)
+* [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
 * [http://youtu.be/ljNi8nS5TtQ](http://youtu.be/ljNi8nS5TtQ)
 
 
