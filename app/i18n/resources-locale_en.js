@@ -547,9 +547,17 @@
     "value": "Submit",
     "description": "Label for the submit button."
   },
+  "P_Users-Management_Delete": {
+    "value": "Delete",
+    "description": "Label for the delete button."
+  },
   "P_Users-Management_UpdateSuccess": {
     "value": "User update succeed",
     "description": "Alert message when the update succeed."
+  },
+  "P_Users-Management_DeleteSuccess": {
+    "value": "User deletion succeed",
+    "description": "Alert message when the deletion succeed."
   },
   "P_Administration-Functionalities_Title": {
     "value": "Functionality management",

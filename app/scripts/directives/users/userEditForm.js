@@ -69,9 +69,17 @@ app.directive('lsUserEditForm', ['$timeout',
               $scope.user.expirationDate = $scope.user.expirationDate.getTime();
             }
             angular.copy($scope.user, $scope.userToEdit);
-            $scope.userToEdit.put();
+            user.put().then(function success() {
+              notificationService.addSuccess('P_Users-Management_UpdateSuccess');
+            });
             $scope.cancel();
-            notificationService.addSuccess('P_Users-Management_UpdateSuccess');
+          };
+          $scope.delete = function(user) {
+            Logger.debug('user deletion: ' + user.mail);
+            user.remove().then(function success() {
+              notificationService.addSuccess('P_Users-Management_DeleteSuccess');
+            });
+            $scope.cancel();
           };
         }
       ],
