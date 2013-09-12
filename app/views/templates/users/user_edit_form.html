@@ -67,6 +67,32 @@
           </div>
         </div>
         
+        <!-- Restricted -->
+        <div class="control-group">
+          <label class="control-label" for="restricted">{{'P_Users-Management_Restricted' | i18n}}</label>
+          <div class="controls">
+            <input id="restricted" name="restricted" type="checkbox" class="checkbox"
+            x-ng-model="user.restricted" x-ng-disabled="restrictedDisable()">
+          </div>
+        </div>
+
+        <!-- Restricted - Contact list -->
+        <div class="control-group" x-ng-show="user.restricted">
+          <label class="control-label" for="contacts">{{'P_Users-Management_RestrictedContacts' | i18n}}</label>
+          <div class="controls">
+            <ul name="contacts">
+              <li x-ng-repeat="contact in user.restrictedContacts">
+                <div class="input-append">
+                  <input type="text" class="input-xlarge" x-ng-model="contact" />
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-danger" x-ng-click="removeContact(user, $index)"><i class="icon-white icon-trash"></i></button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <!-- Expiration date -->
         <div class="control-group">
           <label class="control-label" for="expirationDate">{{'P_Users-Management_ExpirationDate' | i18n}}</label>

@@ -507,9 +507,17 @@
     "value": "Role",
     "description": "Label for the role."
   },
+  "P_Users-Management_Restricted": {
+    "value": "Restricted guest",
+    "description": "Label for the restricted guest functionality."
+  },
+  "P_Users-Management_RestrictedContacts": {
+    "value": "Restricted contacts",
+    "description": "Label for the restricted contacts list."
+  },
   "P_Users-Management_CanUpload": {
     "value": "Upload permission",
-    "description": "Label for the first name."
+    "description": "Label for the upload functionality."
   },
   "P_Users-Management_CreationDate": {
     "value": "Creation date",

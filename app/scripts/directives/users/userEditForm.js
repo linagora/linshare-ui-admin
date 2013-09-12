@@ -25,7 +25,7 @@ app.directive('lsUserEditForm', ['$timeout',
             });
           };
           $scope.limit = new Date();
-
+          $scope.restrictedDisabled = false;
           $scope.getStatus = function(user) {
             if (!_.isUndefined(user) && user.guest === true) {
               return Localize.getLocalizedString('P_Users-Management_StatusGuest');
@@ -34,6 +34,9 @@ app.directive('lsUserEditForm', ['$timeout',
             } else if (user.role === 'SIMPLE') {
               return Localize.getLocalizedString('P_Users-Management_StatusSimple');
             }
+          };
+          $scope.removeContact = function(user, index) {
+            user.restrictedContacts.splice(index, 1);
           };
           $scope.$watch('userToEdit', function(newValue, oldValue) {
             if (!_.isEmpty(newValue)) {
@@ -49,6 +52,13 @@ app.directive('lsUserEditForm', ['$timeout',
                   date.setMonth(date.getMonth() + delta);
                 }
                 $scope.limit = date;
+              });
+              Restangular.all('domains').all(newValue.domain).one('functionalities', 'RESTRICTED_GUEST').get().then(function(functionality) {
+                if (functionality.activationPolicy.policy === 'ALLOWED') {
+                  $scope.restrictedDisabled = false;
+                } else {
+                  $scope.restrictedDisabled = true;
+                }
               });
               $scope.showUserEditForm = true;
             } else {
