@@ -107,7 +107,10 @@ La fonction link ne s'occupe que de la manipulation de la vue (gestion des cliqu
 La fonction controller s'occupe de la partie métier (récupération des données depuis un service etc ...)
 
 ## Outils de dev
-L'éditeur de texte Vim est conseillé avec le plugin [https://github.com/maksimr/vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify)
+L'éditeur de texte Vim est conseillé avec un plugin tel que :
+* [https://github.com/maksimr/vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify)
+* [https://github.com/joestelmach/lint.vim](https://github.com/joestelmach/lint.vim)
+
 Pour éviter des fichiers avec trop de colonne, la tabulation avec 2 espaces est recommandée.
 Pour l'API rest, le debugger [http://restclient.net/](http://restclient.net/) est conseillé.
 Pour débugger AngularJS [https://github.com/angular/angularjs-batarang](https://github.com/angular/angularjs-batarang)
