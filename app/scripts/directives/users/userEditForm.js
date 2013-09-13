@@ -27,16 +27,23 @@ app.directive('lsUserEditForm', ['$timeout',
           $scope.limit = new Date();
           $scope.restrictedDisabled = false;
           $scope.getStatus = function(user) {
-            if (!_.isUndefined(user) && user.guest === true) {
-              return Localize.getLocalizedString('P_Users-Management_StatusGuest');
-            } else if (user.role === 'ADMIN') {
-              return Localize.getLocalizedString('P_Users-Management_StatusAdmin');
-            } else if (user.role === 'SIMPLE') {
-              return Localize.getLocalizedString('P_Users-Management_StatusSimple');
+            if (!_.isUndefined(user)) {
+              if (user.guest === true) {
+                return Localize.getLocalizedString('P_Users-Management_StatusGuest');
+              } else if (user.role === 'ADMIN') {
+                return Localize.getLocalizedString('P_Users-Management_StatusAdmin');
+              } else if (user.role === 'SIMPLE') {
+                return Localize.getLocalizedString('P_Users-Management_StatusSimple');
+              }
             }
           };
           $scope.removeContact = function(user, index) {
             user.restrictedContacts.splice(index, 1);
+          };
+          $scope.addContact = function(user, contact) {
+            if (!_.contains(user.restrictedContacts, contact.mail)) {
+              user.restrictedContacts.push(contact.mail);
+            }
           };
           $scope.$watch('userToEdit', function(newValue, oldValue) {
             if (!_.isEmpty(newValue)) {
@@ -71,6 +78,9 @@ app.directive('lsUserEditForm', ['$timeout',
           };
           $scope.reset = function() {
             angular.copy($scope.userToEdit, $scope.user);
+          };
+          $scope.users = function(pattern) {
+            return Restangular.all('users').one('search', pattern).get();
           };
           $scope.submit = function(user) {
             Logger.debug('user edition: ' + user.mail);

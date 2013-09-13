@@ -515,6 +515,10 @@
     "value": "Restricted contacts",
     "description": "Label for the restricted contacts list."
   },
+  "P_Users-Management_AddContact": {
+    "value": "Add new contact",
+    "description": "Label for the add contact field."
+  },
   "P_Users-Management_CanUpload": {
     "value": "Upload permission",
     "description": "Label for the upload functionality."
