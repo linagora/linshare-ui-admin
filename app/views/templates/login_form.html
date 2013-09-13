@@ -1,10 +1,10 @@
 <div id="loginModal" x-modal="loginModal" x-options="opts" tabindex="-1"
-role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" novalidate>
+role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-header">
      <h3 id="loginModalLabel">{{'G_App_Login_Title' | i18n}}</h3>
 
   </div>
-  <form name="loginForm" x-ls-form-submit="submit()" x-ls-form-attempt class="form-horizontal">
+  <form name="loginForm" x-ls-form-submit="submit()" x-ls-form-attempt class="form-horizontal" novalidate>
     <div class="modal-body">
       <div class="control-group"
            ng-class="{error: loginForm.login.$invalid && (loginForm.login.$dirty || ls.loginForm.attempted)}">

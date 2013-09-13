@@ -112,7 +112,7 @@ L'éditeur de texte Vim est conseillé avec un plugin tel que :
 * [https://github.com/joestelmach/lint.vim](https://github.com/joestelmach/lint.vim)
 
 Sinon vous pouvez utiliser sublime text avec le plugin suivant
-[https://github.com/angular-ui/AngularJS-sublime-package](https://github.com/angular-ui/AngularJS-sublime-package)
+* [https://github.com/angular-ui/AngularJS-sublime-package](https://github.com/angular-ui/AngularJS-sublime-package)
 
 Pour éviter des fichiers avec trop de colonne, la tabulation avec 2 espaces est recommandée.
 Pour l'API rest, le debugger [http://restclient.net/](http://restclient.net/) est conseillé.
@@ -160,7 +160,7 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 ### Notes pour la version AngularJS 1.2.X
 * Modifier le module http-auth-interceptor pour modifier les headers sortants.
 * Modifier le service Logger pour utiliser la fonction debug() d'AngularJS.
-* Vérifier la directive d'animation dans la tree view ainsi que les regles CSS associées.
+* Vérifier la directive d'animation ainsi que les regles CSS associées.
 
 
 ### Notes de controles
@@ -177,9 +177,33 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 * [email validation online opensource](http://code.realcrowd.com/using-mailguns-email-address-validation-service-with-angularjs/)
 * [simple spinner](http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner/)
 * Vérifier l'evolution de la lib [angular-http-auth](https://github.com/witoldsz/angular-http-auth) et l'eventuel passage a bower
+* Vérifier l'evolution de la lib [https://github.com/realcrowd/angularjs-utilities/issues/1](https://github.com/realcrowd/angularjs-utilities/issues/1) et l'eventuel passage a bower
 * Acheter le bouquin de [Pawel Kozlowski](https://github.com/pkozlowski-opensource) et [Pete Bacon Darwin](https://github.com/petebacondarwin) sur les bonnes pratiques d'angular, quand il sera sorti
 
 ### Ce qui peut etre interessant d' integrer
 
 * [https://github.com/angular-ui/alias](https://github.com/angular-ui/alias)
 * [https://github.com/angular-ui/ui-router](https://github.com/angular-ui/ui-router)
+
+
+### TODO
+
+* Fix le login et logout
+* Faire une batterie de test
+* Upgrade AngularJS / Restangular / bootstrap / ng grid
+* Voir si la structure d'angular seed n'evolue pas
+* Avoir un graphiste / acheter un theme ?
+* Gestion des tests et des builds
+* Finir les threads
+* Interface de purge des users
+* Hackaton ? Verifier toutes les secu webservices 
+* Faire un audit de code ?
+* Random fail sur getData dans la page users / solution : mettre le gridCtrl sous forme de directive et faire un require parent sur les fils
+* Internationalization complete
+* Mettre a jour / Corriger les REST-URL.md
+* Verifier la mise a jour de modules / node/ bower etc ...
+* Ajouter les parametres du compte (locale, mdp)
+* Vérifier les messages d'alertes / succes
+* trouver un moyen de savoir dans quelle section on est (breadcrumb ?)
+* Responsive design 
+
