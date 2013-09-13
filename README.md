@@ -111,6 +111,9 @@ L'éditeur de texte Vim est conseillé avec un plugin tel que :
 * [https://github.com/maksimr/vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify)
 * [https://github.com/joestelmach/lint.vim](https://github.com/joestelmach/lint.vim)
 
+Sinon vous pouvez utiliser sublime text avec le plugin suivant
+[https://github.com/angular-ui/AngularJS-sublime-package](https://github.com/angular-ui/AngularJS-sublime-package)
+
 Pour éviter des fichiers avec trop de colonne, la tabulation avec 2 espaces est recommandée.
 Pour l'API rest, le debugger [http://restclient.net/](http://restclient.net/) est conseillé.
 Pour débugger AngularJS [https://github.com/angular/angularjs-batarang](https://github.com/angular/angularjs-batarang)
@@ -175,3 +178,8 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 * [simple spinner](http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner/)
 * Vérifier l'evolution de la lib [angular-http-auth](https://github.com/witoldsz/angular-http-auth) et l'eventuel passage a bower
 * Acheter le bouquin de [Pawel Kozlowski](https://github.com/pkozlowski-opensource) et [Pete Bacon Darwin](https://github.com/petebacondarwin) sur les bonnes pratiques d'angular, quand il sera sorti
+
+### Ce qui peut etre interessant d' integrer
+
+* [https://github.com/angular-ui/alias](https://github.com/angular-ui/alias)
+* [https://github.com/angular-ui/ui-router](https://github.com/angular-ui/ui-router)
