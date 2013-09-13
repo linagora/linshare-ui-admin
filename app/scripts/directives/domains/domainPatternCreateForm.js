@@ -8,7 +8,7 @@ app.directive('lsDomainPatternCreateForm', [
       scope: {},
       controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'notificationService',
         function($scope, $rootScope, Restangular, Logger, notificationService) {
-          $scope.models = Restangular.all('domain_patterns').one('models').getList();
+          $scope.models = Restangular.all('domain_patterns').all('models').getList();
           var emptyModel = {identifier: ''};
           $scope.models.push(emptyModel);
           $scope.modelSelector = emptyModel;
@@ -25,7 +25,13 @@ app.directive('lsDomainPatternCreateForm', [
               notificationService.addSuccess('P_Domains-DomainPatterns_CreateSuccess');
             });
           };
+          function unRestangularizeElement(obj) {
+            delete obj.route;
+            delete obj.parentResource;
+            delete obj.restangularCollection;
+          }
           $scope.reset = function() {
+            unRestangularizeElement($scope.modelSelector);
             angular.copy($scope.modelSelector, $scope.domainPattern);
             $scope.domainPattern.identifier = "";
           };
