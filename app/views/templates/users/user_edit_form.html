@@ -27,6 +27,17 @@
           <span name="modificationDate" class="input-xlarge uneditable-input">{{user.modificationDate | date:'medium'}}</span>
         </div>
       </div>
+        <!-- upload -->
+        <div class="control-group"
+           ng-class="{error: userEditForm.canUpload.$invalid && (userEditForm.canUpload.$dirty || ls.userEditForm.attempted)}">
+          <label class="control-label" for="canUpload">{{'P_Users-Management_CanUpload' | i18n}}</label>
+          <div class="controls">
+            <input id="canUpload" name="canUpload" type="checkbox" x-ng-model="user.canUpload"
+            class="checkbox" >
+          </div>
+        </div>
+
+
 
       <!-- Upload -->
       <div class="control-group">

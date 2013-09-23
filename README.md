@@ -77,6 +77,7 @@ Autre:
 * [http://www.egghead.io/](http://www.egghead.io/)
 * [http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx](http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx)
 * [http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx](http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx)
+* [http://www.thinkster.io/pick/GtaQ0oMGIl/](http://www.thinkster.io/pick/GtaQ0oMGIl/)
 
 
 Vos questions existentielles:
