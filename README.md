@@ -70,6 +70,10 @@ pour connaitre AngularJS et les bonnes pratiques:
 * [http://www.youtube.com/watch?v=ZhfUv0spHCY](http://www.youtube.com/watch?v=ZhfUv0spHCY)
 * [http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY](http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY)
 
+Guide de style:
+
+* [https://github.com/mgechev/angularjs-style-guide](https://github.com/mgechev/angularjs-style-guide)
+
 Autre:
 
 * [http://www.frangular.com/](http://www.frangular.com/)
