@@ -44,7 +44,7 @@
 ## Procedure de mise à jour
 Pour vérifier si des mises à jour sont présentes:
 
-    bower list"
+    bower list
 
 Pour mettre à jour un module via bower:
 
