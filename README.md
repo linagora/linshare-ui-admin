@@ -37,23 +37,28 @@
     sudo npm cache clean && npm update -g yo
 
 ### Installer le projet
-* "npm install"
-* "bower install"
+    npm install
+    bower install
 
 
 ## Procedure de mise à jour
 Pour vérifier si des mises à jour sont présentes:
-"bower list"
+
+    bower list"
+
 Pour mettre à jour un module via bower:
+
 * Modifier le fichier component.json avec la version souhaitée
 * "bower install" va ensuite retelecharger l'ensemble des plugins et vérifier les dépendances
 
 ## Lancer l'application
 Pour lancer l'application, la commande est:
-* grunt server
+
+   grunt server
 
 ## JavaScript
 Un cours sur JavaScript fait par un des créateurs d'AngularJS
+
 * [http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/](http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/)
 * [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
 * [http://youtu.be/ljNi8nS5TtQ](http://youtu.be/ljNi8nS5TtQ)
