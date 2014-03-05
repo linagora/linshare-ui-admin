@@ -47,6 +47,26 @@
         <p class="help-block">{{'P_Domains-DomainPatterns_SearchUserHelp' | i18n}}</p>
       </div>
     </div>
+    <!-- Auto complete User using firstname, lastname and mail -->
+    <div class="control-group"
+         ng-class="{error: domainPatternForm.autocomplete1.$invalid &&
+         (domainPatternForm.autocomplete1.$dirty || ls.domainPatternForm.attempted)}">
+      <label class="control-label" for="autocomplete1">{{'P_Domains-DomainPatterns_AutoCompleteOnAllAttributesLabel' | i18n}}</label>
+      <div class="controls">
+        <textarea id="autocomplete1" name="autocomplete1" class="input-xxlarge" x-ng-model="domainPattern.autoCompleteCommandOnAllAttributes" required></textarea>
+        <p class="help-block">{{'P_Domains-DomainPatterns_AutoCompleteOnAllAttributesHelp' | i18n}}</p>
+      </div>
+    </div>
+    <!-- Auto complete User using firstname and lastname -->
+    <div class="control-group"
+         ng-class="{error: domainPatternForm.autocomplete2.$invalid &&
+         (domainPatternForm.autocomplete2.$dirty || ls.domainPatternForm.attempted)}">
+      <label class="control-label" for="autocomplete2">{{'P_Domains-DomainPatterns_AutoCompleteOnFirstNameAndLastNameLabel' | i18n}}</label>
+      <div class="controls">
+        <textarea id="autocomplete2" name="autocomplete2" class="input-xxlarge" x-ng-model="domainPattern.autoCompleteCommandOnFirstAndLastName" required></textarea>
+        <p class="help-block">{{'P_Domains-DomainPatterns_AutoCompleteOnFirstNameAndLastNameLabel' | i18n}}</p>
+      </div>
+    </div>
     <!-- Attributes -->
     <div class="well" style="max-width: 600px; margin: 0 auto 10px;">
        <h4>{{'P_Domains-DomainPatterns_Attributes' | i18n}}</h4>

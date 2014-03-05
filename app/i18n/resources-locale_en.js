@@ -143,6 +143,22 @@
     "value": "LDAP command for search an user",
     "description": "Help for the search user field."
   },
+  "P_Domains-DomainPatterns_AutoCompleteOnAllAttributesLabel": {
+    "value": "Auto Complete Command On All Attributes",
+    "description": "Auto Complete Command On All Attributes like mail, firstname or lastname"
+  },
+  "P_Domains-DomainPatterns_AutoCompleteOnAllAttributesHelp": {
+    "value": "LDAP command for autocomplete an user using all attributes like mail, firstname and lastname.",
+    "description": "Help for the search user field."
+  },
+  "P_Domains-DomainPatterns_AutoCompleteOnFirstNameAndLastNameLabel": {
+    "value": "Auto Complete Command On First And Last Name",
+    "description": "Auto Complete Command On 'firstname lastname' or 'lastname firstname'. "
+  },
+  "P_Domains-DomainPatterns_AutoCompleteOnFirstNameAndLastNameHelp": {
+    "value": "LDAP command for autocomplete an user using attributes firstname and lastname.",
+    "description": "Help for the search user field."
+  },
   "P_Domains-DomainPatterns_Attributes": {
     "value": "Attributes",
     "description": "Label for the attributes section."
