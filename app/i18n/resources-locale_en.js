@@ -627,6 +627,10 @@
     "value": "Reset to parent value",
     "description": "Button label to reset the funcitonality to parent value."
   },
+  "P_Administration-Functionalities_Func-UNDEFINED": {
+    "value": "Undefined functionality name",
+    "description": "Functionality name"
+  },
   "P_Administration-Functionalities_Func-QUOTA_USER": {
     "value": "Quota user",
     "description": "Functionality name"

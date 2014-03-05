@@ -36,7 +36,11 @@ app.directive('lsFunctionalityList', [
       controller: ['$scope', '$route', 'Restangular', 'localize', 'loggerService',
         function($scope, $route, Restangular, Localize, Logger) {
           var getLocalizeFunctionalityName = function(functionality) {
-            return Localize.getLocalizedString('P_Administration-Functionalities_Func-' + functionality.identifier);
+            var a = Localize.getLocalizedString('P_Administration-Functionalities_Func-' + functionality.identifier);
+            if (a == "") {
+                a = Localize.getLocalizedString('P_Administration-Functionalities_Func-UNDEFINED');
+            }
+            return a;
           };
           $scope.functionalities = [];
           $scope.$on('currentDomainChanged', function() {
