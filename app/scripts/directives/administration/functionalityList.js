@@ -39,6 +39,7 @@ app.directive('lsFunctionalityList', [
             var a = Localize.getLocalizedString('P_Administration-Functionalities_Func-' + functionality.identifier);
             if (a == "") {
                 a = Localize.getLocalizedString('P_Administration-Functionalities_Func-UNDEFINED');
+                a += " (" + functionality.identifier + ")"
             }
             return a;
           };
