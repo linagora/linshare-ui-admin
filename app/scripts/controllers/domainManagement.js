@@ -4,7 +4,7 @@ app.controller('DomainManagementCtrl', ['$scope', 'manageDomainService', 'Restan
   function($scope, manageDomainService, Restangular, Logger) {
     $scope.ldapConnections = [];
     manageDomainService.getAllLdapConnections(function success(ldapConnections) {
-      angular.forEach(ldapConnections, function(ldapConnection, key) {
+      angular.forEach(ldapConnections, function(ldapConnection) {
         $scope.ldapConnections.push(ldapConnection.identifier);
       });
     }, function error() {
@@ -12,7 +12,7 @@ app.controller('DomainManagementCtrl', ['$scope', 'manageDomainService', 'Restan
     });
     $scope.domainPatterns = [];
     manageDomainService.getAllDomainPatterns(function success(domainPatterns) {
-      angular.forEach(domainPatterns, function(domainPattern, key) {
+      angular.forEach(domainPatterns, function(domainPattern) {
         $scope.domainPatterns.push(domainPattern.identifier);
       });
     }, function error() {
@@ -20,7 +20,7 @@ app.controller('DomainManagementCtrl', ['$scope', 'manageDomainService', 'Restan
     });
     $scope.domainPolicies = [];
     manageDomainService.getAllDomainPolicies(function success(domainPolicies) {
-      angular.forEach(domainPolicies, function(domainPolicy, key) {
+      angular.forEach(domainPolicies, function(domainPolicy) {
         $scope.domainPolicies.push(domainPolicy.identifier);
       });
     }, function error() {
@@ -28,8 +28,8 @@ app.controller('DomainManagementCtrl', ['$scope', 'manageDomainService', 'Restan
     });
     $scope.userRoles = [];
     manageDomainService.getAllUserRoles(function success(userRoles) {
-      angular.forEach(userRoles, function(userRole, key) {
-        if (userRole != 'SYSTEM' && userRole != 'SUPERADMIN') {
+      angular.forEach(userRoles, function(userRole) {
+        if (userRole !== 'SYSTEM' && userRole !== 'SUPERADMIN') {
           $scope.userRoles.push(userRole);
         }
       });

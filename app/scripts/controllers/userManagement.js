@@ -6,6 +6,6 @@ app.controller('UserManagementCtrl', ['$scope',
       if (!_.isUndefined(user)) {
         return user.firstName + ' ' + user.lastName + ' <' + user.mail + '>';
       }
-    }
+    };
   }
 ]);

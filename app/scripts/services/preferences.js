@@ -19,15 +19,15 @@ angular.module('myApp.services')
         Preferences.system = JSON.parse(request.responseText);
 
         var defaultLoggerLevel = 2;
-        if (!angular.isDefined($cookies.linshare_loggerLevel)) {
+        if (!angular.isDefined($cookies.linshareLoggerLevel)) {
           if (!angular.isDefined(Preferences.system.loggerLevel)) {
             logger.currentLevel = defaultLoggerLevel;
           } else {
             logger.currentLevel = Preferences.system.loggerLevel;
           }
-          $cookies.linshare_loggerLevel = logger.currentLevel;
+          $cookies.linshareLoggerLevel = logger.currentLevel;
         } else {
-          logger.currentLevel = $cookies.linshare_loggerLevel;
+          logger.currentLevel = $cookies.linshareLoggerLevel;
         }
       }
     };

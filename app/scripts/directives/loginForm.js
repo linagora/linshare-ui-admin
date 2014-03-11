@@ -11,13 +11,21 @@ app.directive('lsLoginForm', [
 
           $scope.submit = function() {
             var success = function(data, status, headers, config) {
-              Logger.debug("Authentication succeed");
+              Logger.debug('Authentication succeed');
               authService.loginConfirmed(data);
-              Logger.debug("Connected as " + data.mail);
+              Logger.debug('Connected as ' + data.mail);
+              Logger.debug('data' + data);
+              Logger.debug('status' + status);
+              Logger.debug('headers' + headers);
+              Logger.debug('config' + config);
             };
             var error = function(data, status, headers, config) {
-              $scope.errorLogin = "Bad credentials";
-              Logger.debug("Authentication failed");
+              $scope.errorLogin = 'Bad credentials';
+              Logger.debug('Authentication failed');
+              Logger.debug('data' + data);
+              Logger.debug('status' + status);
+              Logger.debug('headers' + headers);
+              Logger.debug('config' + config);
             };
 
             Restangular.all('authentication').customGET('authorized', {
@@ -27,7 +35,7 @@ app.directive('lsLoginForm', [
               // Headers - Add login password
               Authorization: 'Basic ' + Base64.encode($scope.login + ':' + $scope.password)
             }).then(success, error);
-          }
+          };
 
           $scope.$on('event:auth-loginRequired', function() {
             $scope.loginModal = true;

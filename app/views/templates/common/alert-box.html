@@ -1,9 +1,11 @@
 <div class="container" style="margin-top:70px">
-  <div x-ng-switch on="alert.type" x-ng-repeat="alert in alerts">
+  <div x-ng-repeat="alert in alerts">
 
+    <div >
     <alert type="alert.type" x-close="closeAlert($index)" x-index="$index" 
-          x-ng-switch-when="success" x-ls-alert-timeout>{{alert.msg}}</alert>
+          x-ng-if="alert.type==='success'" x-ls-alert-timeout>{{alert.msg}}</alert>
+    </div>
     <alert type="alert.type" x-close="closeAlert($index)" x-index="$index" 
-          x-ng-switch-default>{{alert.msg}}</alert>
+          x-ng-if="alert.type!=='success'">{{alert.msg}}</alert>
   </div>
 </div>

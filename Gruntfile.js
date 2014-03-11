@@ -71,11 +71,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    open: {
-      server: {
-        url: 'http://localhost:<%= connect.options.port %>'
-      }
-    },
     clean: {
       dist: {
         files: [{
@@ -269,7 +264,6 @@ module.exports = function (grunt) {
     'compass:server',
     'livereload-start',
     'connect:livereload',
-    'open',
     'watch'
   ]);
 

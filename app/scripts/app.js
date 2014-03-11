@@ -7,6 +7,7 @@ var app = angular.module('myApp', ['myApp.directives',
     'myApp.services',
     'ui.bootstrap',
     'ngResource',
+    'ngRoute',
     'ngCookies',
     'ngGrid',
     'http-auth-interceptor',
@@ -16,7 +17,7 @@ var app = angular.module('myApp', ['myApp.directives',
 
 // Register work which needs to be performed on module loading
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl("/linshare/webservice/rest/admin");
+  RestangularProvider.setBaseUrl('/linshare/webservice/rest/admin');
   RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
 })
 
@@ -24,7 +25,7 @@ var app = angular.module('myApp', ['myApp.directives',
 .run(['localize', 'preferencesService', 'loggerService', 'userLoggedService', 'Restangular', 'notificationService',
   function(Localize, Preferences, Logger, userLogged, Restangular, notificationService) {
     Restangular.setErrorInterceptor(function(response) {
-      Logger.error(response)
+      Logger.error(response);
       if (response.status === 400) {
         notificationService.addError(response.data);
       }

@@ -10,19 +10,20 @@ require.config({
     angular: '/components/angular/angular',
     ngcookies: '/components/angular-cookies/angular-cookies.min',
     ngresource: '/components/angular-resource/angular-resource',
+    ngroute: '/components/angular-route/angular-route',
     bootstrap: '/components/angular-bootstrap/ui-bootstrap.min',
-    bootstrap_tpls: '/components/angular-bootstrap/ui-bootstrap-tpls.min',
+    bootstrapTpls: '/components/angular-bootstrap/ui-bootstrap-tpls.min',
     nggrid: '/components/ng-grid/build/ng-grid.min',
-    nggrid_flexibleheight: '/components/ng-grid/plugins/ng-grid-flexible-height',
+    nggridFlexibleHeight: '/components/ng-grid/plugins/ng-grid-flexible-height',
     restangular: '/components/restangular/src/restangular',
+    httpAuthInterceptor: '/components/angular-http-auth/src/http-auth-interceptor',
 
     // Unpackaged lib
     localize: '/unpackaged-lib/internal/localize',
-    http_auth_interceptor: '/unpackaged-lib/internal/http-auth-interceptor',
  
     // Utils
-    jquery: '/components/jquery/jquery.min',
-    lodash: '/components/lodash/lodash',
+    jquery: '/components/jquery/dist/jquery.min',
+    lodash: '/components/lodash/dist/lodash',
     base64: '/components/js-base64/base64.min'
   },
   shim: { 
@@ -50,26 +51,26 @@ require.config({
         {deps: ['angular']},   
     'ngresource':
         {deps: ['angular']},
+    'ngroute':
+        {deps: ['angular']},
     'bootstrap':
         {deps: ['angular']},
-    'bootstrap_tpls':
+    'bootstrapTpls':
         {deps: ['angular', 'bootstrap']},
     'nggrid':
         {deps: ['jquery', 'angular']},
-    'nggrid_flexibleheight':
+    'nggridFlexibleHeight':
         {deps: ['nggrid']},
     'restangular':
         {deps: ['angular', 'lodash']},
+    'httpAuthInterceptor':
+        {deps: ['angular']},
 
     // Unpackaged lib
-    'http_auth_interceptor':
-        {deps: ['angular']},
     'localize':
         {deps: ['angular']},
 
     // Filters
-    'filters/threadMemberRole':
-        {deps: ['filters/filters']},
 
     // Controllers
     'controllers/grid':
@@ -180,18 +181,18 @@ require([
   // Modules
   'ngcookies',
   'ngresource',
+  'ngroute',
   'bootstrap',
-  'bootstrap_tpls',
+  'bootstrapTpls',
   'nggrid',
-  'nggrid_flexibleheight',
+  'nggridFlexibleHeight',
   'restangular',
+  'httpAuthInterceptor',
   
   // Unpackaged lib
-  'http_auth_interceptor',
   'localize',
 
   // Filters
-  'filters/threadMemberRole',
 
   // Controllers
   'controllers/grid',

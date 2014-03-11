@@ -3,7 +3,7 @@
 app.controller('GridCtrl', ['$scope', 'loggerService',
   function($scope, Logger) {
     $scope.filterOptions = {
-      filterText: "",
+      filterText: '',
       useExternalFilter: false
     };
 
@@ -30,13 +30,14 @@ app.controller('GridCtrl', ['$scope', 'loggerService',
 
     // Retreive datas from server
     $scope.getPagedDataAsync = function(pageSize, page, searchText) {
+      Logger.debug('Retreive data');
       setTimeout(function() {
         var data;
         if (searchText) {
           var ft = searchText.toLowerCase();
           $scope.getData(function(datas) {
             data = datas.filter(function(item) {
-              return JSON.stringify(item).toLowerCase().indexOf(ft) != -1;
+              return JSON.stringify(item).toLowerCase().indexOf(ft) !== -1;
             });
             $scope.setPagingData(data, page, pageSize);
           });

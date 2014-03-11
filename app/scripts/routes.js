@@ -22,7 +22,7 @@ angular.module('myApp').config(['$routeProvider',
     $routeProvider.when('/administration/mails_personalization', {
       templateUrl: 'views/administration/mails_personalization.html',
     });
-    
+
     $routeProvider.when('/users', {
       templateUrl: 'views/users.html',
     });
@@ -48,7 +48,7 @@ angular.module('myApp').config(['$routeProvider',
     $routeProvider.when('/audit', {
       templateUrl: 'views/audit.html'
     });
-    
+
     $routeProvider.when('/charts', {
       templateUrl: 'views/charts.html'
     });

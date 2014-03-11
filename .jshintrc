@@ -20,6 +20,9 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    "angular": false
+    "angular": false,
+    "app": false,
+    "_": false,
+    "Base64": false
   }
 }
