@@ -29,12 +29,12 @@ angular.module('myApp.services')
 
       debug: function(msg) {
         if (logger.checkLevels('DEBUG')) {
-          console.debug(msg);
+          $log.debug(msg);
         }
       },
 
       info: function(msg) {
-        if (logger.checkLevels('DEBUG')) {
+        if (logger.checkLevels('INFO')) {
           $log.info(msg);
         }
       },
