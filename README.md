@@ -95,6 +95,7 @@ Vos questions existentielles:
 * [http://henriquat.re/directives/advanced-directives-combining-angular-with-existing-components-and-jquery/angularAndJquery.html](http://henriquat.re/directives/advanced-directives-combining-angular-with-existing-components-and-jquery/angularAndJquery.html)
 * [http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula](http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula)
 * [http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699](http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699)
+* [https://gist.github.com/Mithrandir0x/3639232](https://gist.github.com/Mithrandir0x/3639232)
 
 Les exemples fournis par angular
 
@@ -169,7 +170,6 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 
 ### Notes pour la version AngularJS 1.2.X
 * Modifier le module http-auth-interceptor pour modifier les headers sortants.
-* Modifier le service Logger pour utiliser la fonction debug() d'AngularJS.
 * Vérifier la directive d'animation ainsi que les regles CSS associées.
 
 
@@ -216,4 +216,4 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 * Vérifier les messages d'alertes / succes
 * trouver un moyen de savoir dans quelle section on est (breadcrumb ?)
 * Responsive design 
-
+* Logger les erreurs cote server [http://www.bennadel.com/blog/2542-Logging-Client-Side-Errors-With-AngularJS-And-Stacktrace-js.htm](http://www.bennadel.com/blog/2542-Logging-Client-Side-Errors-With-AngularJS-And-Stacktrace-js.htm)

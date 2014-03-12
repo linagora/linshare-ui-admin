@@ -1,9 +1,9 @@
 'use strict';
 
-app.controller('DomainPatternCtrl', ['$scope', 'loggerService',
-  function($scope, Logger) {
+app.controller('DomainPatternCtrl', ['$scope', '$log',
+  function($scope, $log) {
     $scope.$watch('selectedDomainPattern', function(newValue) {
-      Logger.debug('Change domain pattern');
+      $log.debug('Change domain pattern');
       $scope.domainPatternToEdit = newValue;
     });
   }

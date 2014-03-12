@@ -6,8 +6,8 @@ app.directive('lsThreadGrid', [
       restrict: 'A',
       transclude: true,
       scope: false,
-      controller: ['$scope', 'localize', 'Restangular', 'loggerService', 'notificationService',
-        function($scope, Localize, Restangular, Logger, notificationService) {
+      controller: ['$scope', '$log', 'localize', 'Restangular', 'notificationService',
+        function($scope, $log, Localize, Restangular, notificationService) {
           $scope.getData = function(successCallback) {
             return Restangular.all('threads').getList()
               .then(successCallback);
@@ -67,13 +67,13 @@ app.directive('lsThreadGrid', [
 
           $scope.edit = function(row) {
             var selectedThread = row.entity;
-            Logger.debug('selectedThread edition: ' + selectedThread.identifier);
+            $log.debug('selectedThread edition: ' + selectedThread.identifier);
 	    // TODO
           }
 
           $scope.delete = function(row) {
             var selectedThread = row.entity;
-            Logger.debug('selectedThread deletion: ' + selectedThread.identifier);
+            $log.debug('selectedThread deletion: ' + selectedThread.identifier);
             selectedThread.remove().then(function success(selectedThread) {
               $scope.$broadcast('reloadList');
               notificationService.addSuccess('P_Threads-Grid_DeleteSuccess');

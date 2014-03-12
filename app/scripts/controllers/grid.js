@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('GridCtrl', ['$scope', 'loggerService',
-  function($scope, Logger) {
+app.controller('GridCtrl', ['$scope', '$log',
+  function($scope, $log) {
     $scope.filterOptions = {
       filterText: '',
       useExternalFilter: false
@@ -30,7 +30,7 @@ app.controller('GridCtrl', ['$scope', 'loggerService',
 
     // Retreive datas from server
     $scope.getPagedDataAsync = function(pageSize, page, searchText) {
-      Logger.debug('Retreive data');
+      $log.debug('Retreive data');
       setTimeout(function() {
         var data;
         if (searchText) {

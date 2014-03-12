@@ -33,8 +33,8 @@ app.directive('lsFunctionalityList', [
             }
           }
       },
-      controller: ['$scope', '$route', 'Restangular', 'localize', 'loggerService',
-        function($scope, $route, Restangular, Localize, Logger) {
+      controller: ['$scope', '$route', '$log', 'Restangular', 'localize',
+        function($scope, $route, $log, Restangular, Localize) {
           var getLocalizeFunctionalityName = function(functionality) {
             var a = Localize.getLocalizedString('P_Administration-Functionalities_Func-' + functionality.identifier);
             if (a == "") {

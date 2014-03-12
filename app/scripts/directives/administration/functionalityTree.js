@@ -5,8 +5,8 @@ app.directive('lsFunctionalityTree', [
     return {
       restrict: 'A',
       transclude: true,
-      controller: ['$scope', 'manageDomainService','loggerService',
-        function($scope, manageDomainService, Logger) {
+      controller: ['$scope', '$log', 'manageDomainService',
+        function($scope, $log, manageDomainService) {
           $scope.hasGuestDomain = function(topDomain) {
             return !_.isEmpty(
               _.find(topDomain.children, {

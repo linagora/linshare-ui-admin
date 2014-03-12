@@ -9,10 +9,10 @@ app.directive('lsDomainPatternEditForm', [
         scope.confirmCollapsed = true;
         scope.hideForm = false;
       },
-      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'notificationService',
-        function($scope, $rootScope, Restangular, Logger, notificationService) {
+      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'notificationService',
+        function($scope, $rootScope, $log, Restangular, notificationService) {
           $scope.submit = function(domainPattern) {
-            Logger.debug('domainPattern edition: ' + domainPattern.identifier);
+            $log.debug('domainPattern edition: ' + domainPattern.identifier);
             domainPattern.put().then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
@@ -23,7 +23,7 @@ app.directive('lsDomainPatternEditForm', [
             $scope.domainPattern = Restangular.copy($scope.domainPatternToEdit);
           };
           $scope.delete = function(domainPattern) {
-            Logger.debug('domainPattern deletion: ' + domainPattern.identifier);
+            $log.debug('domainPattern deletion: ' + domainPattern.identifier);
             domainPattern.remove().then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;

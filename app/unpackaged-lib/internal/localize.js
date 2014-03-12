@@ -11,7 +11,7 @@
 angular.module('localization', [])
   // localization service responsible for retrieving resource files from the server and
   // managing the translation dictionary
-  .factory('localize', ['$http', '$rootScope', '$window', '$filter', '$cookies', 'loggerService', function ($http, $rootScope, $window, $filter, $cookies, Logger) {
+  .factory('localize', ['$http', '$rootScope', '$window', '$filter', '$cookies', '$log', function ($http, $rootScope, $window, $filter, $cookies, $log) {
     var localize = {
       // use the $window service to get the language of the user's browser
       language: $cookies.linshare_lang || $window.navigator.userLanguage || $window.navigator.language,
@@ -24,7 +24,7 @@ angular.module('localization', [])
         // set the flag that the resource are loaded
         localize.resourceFileLoaded = true;
         $rootScope.$broadcast('localizeResourcesUpdates');
-        Logger.debug('i18n data loaded');
+        $log.debug('i18n data loaded');
       },
 
       // allows setting of language on the fly
@@ -36,7 +36,7 @@ angular.module('localization', [])
 
       // loads the language resource file from the server
       initLocalizedResources:function () {
-        Logger.debug('current lang: ' +  localize.language);
+        $log.debug('current lang: ' +  localize.language);
         // Initialize the dictionary (hold the localized resource string entries)
         $rootScope.dictionary = {};
         // build the url to retrieve the localized resource file
@@ -50,7 +50,7 @@ angular.module('localization', [])
           request.open('GET', url, false);
           request.send(null);
           if (request.status !== 200) {
-            Logger.error('No default i18n resources found');
+            $log.error('No default i18n resources found');
           }
         }
         localize.successCallback(JSON.parse(request.responseText));
@@ -59,7 +59,7 @@ angular.module('localization', [])
         if (localize.getSimpleLanguage() != "en") {
           $.getScript("/i18n/plupload/" + localize.getSimpleLanguage() + ".js")
             .fail(function(jqxhr, settings, exception) {
-              Logger.debug('No plupload tanslation file, use default instead.');
+              $log.debug('No plupload tanslation file, use default instead.');
             });
         }
       },
@@ -78,7 +78,7 @@ angular.module('localization', [])
             // set the result
             result = entry.value;
           } else {
-            Logger.warn('looking for invalid key :' + key + ' in translation');
+            $log.warn('looking for invalid key :' + key + ' in translation');
           }
         }
         // return the value to the call

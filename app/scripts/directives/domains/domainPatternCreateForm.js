@@ -6,8 +6,8 @@ app.directive('lsDomainPatternCreateForm', [
       restrict: 'A',
       transclude: false,
       scope: {},
-      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'notificationService',
-        function($scope, $rootScope, Restangular, Logger, notificationService) {
+      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'notificationService',
+        function($scope, $rootScope, $log, Restangular, notificationService) {
           $scope.models = Restangular.all('domain_patterns').all('models').getList();
           var emptyModel = {identifier: ''};
           $scope.models.push(emptyModel);
@@ -17,7 +17,7 @@ app.directive('lsDomainPatternCreateForm', [
           });
           $scope.domainPattern = {};
           $scope.submit = function(domainPattern) {
-            Logger.debug('domainPattern creation: ' + domainPattern.identifier);
+            $log.debug('domainPattern creation: ' + domainPattern.identifier);
             Restangular.all('domain_patterns').post(domainPattern).then(function success(domainPatterns) {
               $rootScope.$broadcast('reloadList');
               $rootScope.$broadcast('showList');

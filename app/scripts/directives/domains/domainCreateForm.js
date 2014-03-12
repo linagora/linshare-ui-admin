@@ -25,8 +25,8 @@ app.directive('lsDomainCreateForm', [
           dialogFade: true
         };
       },
-      controller: ['$scope', '$rootScope', 'manageDomainService', 'Restangular', 'loggerService', 'notificationService',
-        function($scope, $rootScope, manageDomainService, Restangular, Logger, notificationService) {
+      controller: ['$scope', '$rootScope', '$log', 'manageDomainService', 'Restangular', 'notificationService',
+        function($scope, $rootScope, $log, manageDomainService, Restangular, notificationService) {
           $scope.$on('addChildDomain', function() {
             $scope.reset = function() {
               $scope.domain = {
@@ -41,7 +41,7 @@ app.directive('lsDomainCreateForm', [
             $scope.reset();
           });
           $scope.submit = function(domain) {
-            Logger.debug('domain creation: ' + domain.identifier);
+            $log.debug('domain creation: ' + domain.identifier);
             Restangular.all('domains').post(domain).then(function success() {
               $scope.close();
               $rootScope.$broadcast('domainTreeNeedRefresh');

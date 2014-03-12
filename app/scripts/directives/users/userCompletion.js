@@ -4,8 +4,8 @@ app.directive('lsUserCompletion', [
   function() {
     return {
       restrict: 'A',
-      controller: ['$scope', 'Restangular', 'loggerService',
-        function($scope, Restangular, Logger) {
+      controller: ['$scope', '$log', 'Restangular',
+        function($scope, $log, Restangular) {
           $scope.editUser = function() {
             $scope.selectedUser = Restangular.restangularizeElement(null, $scope.selected, 'users');
           };

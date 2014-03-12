@@ -1,14 +1,14 @@
 'use strict';
 
-app.controller('DomainManagementCtrl', ['$scope', 'manageDomainService', 'Restangular', 'loggerService',
-  function($scope, manageDomainService, Restangular, Logger) {
+app.controller('DomainManagementCtrl', ['$scope', '$log', 'manageDomainService', 'Restangular',
+  function($scope, $log, manageDomainService, Restangular) {
     $scope.ldapConnections = [];
     manageDomainService.getAllLdapConnections(function success(ldapConnections) {
       angular.forEach(ldapConnections, function(ldapConnection) {
         $scope.ldapConnections.push(ldapConnection.identifier);
       });
     }, function error() {
-      Logger.error('Unable to get ldap connections list');
+      $log.error('Unable to get ldap connections list');
     });
     $scope.domainPatterns = [];
     manageDomainService.getAllDomainPatterns(function success(domainPatterns) {
@@ -16,7 +16,7 @@ app.controller('DomainManagementCtrl', ['$scope', 'manageDomainService', 'Restan
         $scope.domainPatterns.push(domainPattern.identifier);
       });
     }, function error() {
-      Logger.error('Unable to get domain patterns list');
+      $log.error('Unable to get domain patterns list');
     });
     $scope.domainPolicies = [];
     manageDomainService.getAllDomainPolicies(function success(domainPolicies) {
@@ -24,7 +24,7 @@ app.controller('DomainManagementCtrl', ['$scope', 'manageDomainService', 'Restan
         $scope.domainPolicies.push(domainPolicy.identifier);
       });
     }, function error() {
-      Logger.error('Unable to get domain policies list');
+      $log.error('Unable to get domain policies list');
     });
     $scope.userRoles = [];
     manageDomainService.getAllUserRoles(function success(userRoles) {
@@ -34,14 +34,14 @@ app.controller('DomainManagementCtrl', ['$scope', 'manageDomainService', 'Restan
         }
       });
     }, function error() {
-      Logger.error('Unable to get user roles list');
+      $log.error('Unable to get user roles list');
     });
     $scope.locales = manageDomainService.getAllLocales;
     $scope.$broadcast('domainTreeNeedRefresh');
     manageDomainService.getAllDomains(function success(domains) {
       $scope.rootDomain = domains;
     }, function error() {
-      Logger.error('Unable to get domain policies list');
+      $log.error('Unable to get domain policies list');
     });
   }
 ]);

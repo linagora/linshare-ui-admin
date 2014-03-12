@@ -15,8 +15,8 @@ app.directive('lsUserEditForm', ['$timeout',
         scope.showUserEditForm = false;
         scope.today = new Date();
       },
-      controller: ['$scope', '$rootScope', 'Restangular', 'loggerService', 'localize', 'notificationService',
-        function($scope, $rootScope, Restangular, Logger, Localize, notificationService) {
+      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'localize', 'notificationService',
+        function($scope, $rootScope, $log, Restangular, Localize, notificationService) {
           $scope.userRoles = Restangular.all('user_roles').getList();
           $scope.user = {};
           $scope.open = function() {
@@ -83,7 +83,7 @@ app.directive('lsUserEditForm', ['$timeout',
             return Restangular.all('users').one('search', pattern).get();
           };
           $scope.submit = function(user) {
-            Logger.debug('user edition: ' + user.mail);
+            $log.debug('user edition: ' + user.mail);
             if (!_.isEqual($scope.user.expirationDate, $scope.userToEdit.expirationDate)) {
               // Convert datepicker date in timestamp
               $scope.user.expirationDate = $scope.user.expirationDate.getTime();
@@ -95,7 +95,7 @@ app.directive('lsUserEditForm', ['$timeout',
             $scope.cancel();
           };
           $scope.delete = function(user) {
-            Logger.debug('user deletion: ' + user.mail);
+            $log.debug('user deletion: ' + user.mail);
             user.remove().then(function success() {
               notificationService.addSuccess('P_Users-Management_DeleteSuccess');
             });

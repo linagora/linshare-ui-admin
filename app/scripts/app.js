@@ -16,16 +16,17 @@ var app = angular.module('myApp', ['myApp.directives',
 ])
 
 // Register work which needs to be performed on module loading
-.config(function(RestangularProvider) {
+.config(function($logProvider, loggerProvider, RestangularProvider) {
   RestangularProvider.setBaseUrl('/linshare/webservice/rest/admin');
   RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
+  $logProvider.debugEnabled(loggerProvider.isDebug);
 })
 
 // Register work which should be performed when the injector is done loading all modules 
-.run(['localize', 'preferencesService', 'loggerService', 'userLoggedService', 'Restangular', 'notificationService',
-  function(Localize, Preferences, Logger, userLogged, Restangular, notificationService) {
+.run(['$log', 'localize', 'preferencesService', 'userLoggedService', 'Restangular', 'notificationService',
+  function($log, Localize, Preferences, userLogged, Restangular, notificationService) {
     Restangular.setErrorInterceptor(function(response) {
-      Logger.error(response);
+      $log.error(response);
       if (response.status === 400) {
         notificationService.addError(response.data);
       }

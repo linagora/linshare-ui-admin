@@ -6,26 +6,20 @@ app.directive('lsLoginForm', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$rootScope', 'Restangular', 'authService', 'loggerService',
-        function($scope, $rootScope, Restangular, authService, Logger) {
+      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'authService',
+        function($scope, $rootScope, $log, Restangular, authService) {
 
           $scope.submit = function() {
-            var success = function(data, status, headers, config) {
-              Logger.debug('Authentication succeed');
+            var success = function(data) {
+              $log.debug('Authentication succeed');
               authService.loginConfirmed(data);
-              Logger.debug('Connected as ' + data.mail);
-              Logger.debug('data' + data);
-              Logger.debug('status' + status);
-              Logger.debug('headers' + headers);
-              Logger.debug('config' + config);
+              $log.debug('Connected as ' + data.mail);
+              $log.debug('data' + data);
             };
-            var error = function(data, status, headers, config) {
+            var error = function(data) {
               $scope.errorLogin = 'Bad credentials';
-              Logger.debug('Authentication failed');
-              Logger.debug('data' + data);
-              Logger.debug('status' + status);
-              Logger.debug('headers' + headers);
-              Logger.debug('config' + config);
+              $log.debug('Authentication failed');
+              $log.debug('data' + data);
             };
 
             Restangular.all('authentication').customGET('authorized', {

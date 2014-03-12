@@ -46,8 +46,8 @@ app.directive('lsFunctionalityEditForm', [
           }
         };
       },
-      controller: ['$scope', '$timeout', 'Restangular', 'localize', 'loggerService',
-        function($scope, $timeout, Restangular, Localize, Logger) {
+      controller: ['$scope', '$timeout', '$log', 'Restangular', 'localize',
+        function($scope, $timeout, $log, Restangular, Localize) {
           var getLocalizeFunctionalityName = function(functionality) {
             return Localize.getLocalizedString('P_Administration-Functionalities_Func-' + functionality.identifier);
           };
@@ -87,7 +87,7 @@ app.directive('lsFunctionalityEditForm', [
           }
           $scope.update = function(functionality) {
             functionality.put().then(function success() {
-              Logger.debug(functionality.identifier + ' updated');
+              $log.debug(functionality.identifier + ' updated');
               saved = true;
             });
           };

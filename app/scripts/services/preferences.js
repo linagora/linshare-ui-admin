@@ -3,8 +3,8 @@
 /* Services */
 
 angular.module('myApp.services')
-  .factory('preferencesService', ['$cookies', 'loggerService',
-  function($cookies, logger) {
+  .factory('preferencesService', ['$cookies',
+  function($cookies) {
     var Preferences = {
       system: {},
 
@@ -17,18 +17,6 @@ angular.module('myApp.services')
           console.error('No system preferences file');
         }
         Preferences.system = JSON.parse(request.responseText);
-
-        var defaultLoggerLevel = 2;
-        if (!angular.isDefined($cookies.linshareLoggerLevel)) {
-          if (!angular.isDefined(Preferences.system.loggerLevel)) {
-            logger.currentLevel = defaultLoggerLevel;
-          } else {
-            logger.currentLevel = Preferences.system.loggerLevel;
-          }
-          $cookies.linshareLoggerLevel = logger.currentLevel;
-        } else {
-          logger.currentLevel = $cookies.linshareLoggerLevel;
-        }
       }
     };
     return Preferences;

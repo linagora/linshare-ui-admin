@@ -3,10 +3,10 @@
 /* Services */
 
 angular.module('myApp.services')
-  .factory('userLoggedService', ['$rootScope', 'Restangular', 'loggerService',
-  function($rootScope, Restangular ,Logger) {
+  .factory('userLoggedService', ['$rootScope', '$log', 'Restangular',
+  function($rootScope, $log, Restangular) {
     Restangular.all('authentication').customGET('authorized').then(function success(user) {
-      Logger.debug('Authentication succeed');
+      $log.debug('Authentication succeed');
       $rootScope.userLogged = user;
     });
   }

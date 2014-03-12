@@ -3,8 +3,8 @@
 /* Services */
 
 angular.module('myApp.services')
-  .factory('manageDomainService', ['$rootScope', 'Restangular', 'loggerService',
-  function($rootScope, Restangular, Logger) {
+  .factory('manageDomainService', ['$rootScope', '$log', 'Restangular',
+  function($rootScope, $log, Restangular) {
     /**
      * As domains are returned as tree, 
      * we need to put restangular route manually in all domains
@@ -26,25 +26,25 @@ angular.module('myApp.services')
         $rootScope.$broadcast('addChildDomain');
       },
       getAllLdapConnections: function(success, error) {
-        Logger.debug('getAllLdapConnections');
+        $log.debug('getAllLdapConnections');
         Restangular.all('ldap_connections').getList().then(success, error);
       },
       getAllDomainPatterns: function(success, error) {
-        Logger.debug('getAllDomainPatterns');
+        $log.debug('getAllDomainPatterns');
         Restangular.all('domain_patterns').getList().then(success, error);
       },
       getAllDomainPolicies: function(success, error) {
-        Logger.debug('getAllDomainPolicies');
+        $log.debug('getAllDomainPolicies');
         Restangular.all('domain_policies').getList().then(success, error);
       },
       getAllUserRoles: function(success, error) {
-        Logger.debug('getAllUserRoles');
+        $log.debug('getAllUserRoles');
         Restangular.all('user_roles').getList().then(success, error);
       },
       getAllLocales: ['en', 'fr'],
       getAllDomains: function(success, error) {
-        Logger.debug('getAllDomains');
-        Restangular.all('domains').getList().then(function(domains) {
+        $log.debug('getAllDomains');
+        Restangular.all('domains').get('LinShareRootDomain').then(function(domains) {
           traverse(domains,domains);
           success(domains);
         }, error);

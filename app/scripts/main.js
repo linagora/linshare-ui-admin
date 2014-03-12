@@ -86,13 +86,13 @@ require.config({
     // Services
     'services/preferences':
         {deps: ['services/services']},
-    'services/logger':
-        {deps: ['services/services']},
     'services/userLogged':
         {deps: ['services/services']},
     'services/manageDomain':
         {deps: ['services/services']},
     'services/notification':
+        {deps: ['services/services']},
+    'services/logger':
         {deps: ['services/services']},
 
     // Directives
@@ -203,10 +203,10 @@ var dependencies = [
 
   // Services
   'services/preferences',
-  'services/logger',
   'services/userLogged',
   'services/manageDomain',
   'services/notification',
+  'services/logger',
 
   // Directives
   'directives/loginForm',
@@ -250,7 +250,7 @@ var dependencies = [
 /**
  *  Check if the browser is IE9, if true add html5 compatibility
  */
-if(document.getElementById('isIe9')) {
+if(document.getElementById('ie9')) {
   dependencies.push('html5shiv');
 }
 

@@ -6,8 +6,8 @@ app.directive('lsThreadMemberGrid', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$routeParams', 'localize', 'Restangular', 'loggerService',
-        function($scope, $routeParams, Localize, Restangular, Logger) {
+      controller: ['$scope', '$routeParams', '$log', 'localize', 'Restangular',
+        function($scope, $routeParams, $log, Localize, Restangular) {
           $scope.getData = function(successCallback) {
             return Restangular.one('threads', $routeParams.threadId).getList('members')
               .then(successCallback);

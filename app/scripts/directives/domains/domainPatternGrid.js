@@ -6,8 +6,8 @@ app.directive('lsDomainPatternGrid', [
       restrict: 'A',
       // Notify that the contained elements are not remove but moved in other div (@see data-ng-transclude)
       transclude: true,
-      controller: ['$scope', 'localize', 'Restangular', 'loggerService',
-        function($scope, Localize, Restangular, Logger) {
+      controller: ['$scope', '$log', 'localize', 'Restangular',
+        function($scope, $log, Localize, Restangular) {
           $scope.getData = function(successCallback) {
             return Restangular.all('domain_patterns').getList()
               .then(successCallback);
