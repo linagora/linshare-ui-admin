@@ -22,6 +22,7 @@ require.config({
     localize: '/unpackaged-lib/internal/localize',
  
     // Utils
+    html5shiv: '/components/html5shiv/html5shiv',
     jquery: '/components/jquery/dist/jquery.min',
     lodash: '/components/lodash/dist/lodash',
     base64: '/components/js-base64/base64.min'
@@ -48,7 +49,7 @@ require.config({
     
     // Modules
     'ngcookies':
-        {deps: ['angular']},   
+        {deps: ['angular']},
     'ngresource':
         {deps: ['angular']},
     'ngroute':
@@ -166,7 +167,7 @@ require.config({
   urlArgs: 'v=1.1'
 });
 
-require([
+var dependencies = [
   /**
    * Angular & modules
    */
@@ -244,7 +245,15 @@ require([
    */
   'lodash',
   'base64'
+];
 
-], function(angular, app) {
+/**
+ *  Check if the browser is IE9, if true add html5 compatibility
+ */
+if(document.getElementById('isIe9')) {
+  dependencies.push('html5shiv');
+}
+
+require(dependencies, function(angular) {
   angular.bootstrap(document, ['myApp']);
 });

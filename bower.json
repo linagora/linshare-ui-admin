@@ -10,15 +10,18 @@
     "angular-route": "*",
     "angular-http-auth": "*",
     "ng-grid": "*",
+    "ng-table": "*",
     "requirejs": "*",
     "restangular": "*",
 
     "json3": "*",
     "lodash": "*",
     "es5-shim": "*",
+    "html5shiv": "*",
     "js-base64": "*",
 
     "bootstrap": "~3",
+    "flatstrap": "~3",
     "jquery": "~2"
   },
   "devDependencies": {
