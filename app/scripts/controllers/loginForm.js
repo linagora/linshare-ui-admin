@@ -2,18 +2,21 @@
 
 app.controller('LoginFormCtrl', ['$scope', '$log', '$modal',
   function($scope, $log, $modal) {
-    var modalInstance;
+    var modalInstance = undefined;
     $scope.$on('event:auth-loginRequired', function() {
       $log.debug('event:auth-loginRequired received');
-      modalInstance = $modal.open({
-        backdrop: 'static',
-        controller: ModalInstanceCtrl,
-        templateUrl: '/views/templates/login_form.html',
-      });
+      if (_.isUndefined(modalInstance)) {
+        modalInstance = $modal.open({
+          backdrop: 'static',
+          controller: ModalInstanceCtrl,
+          templateUrl: '/views/templates/login_form.html',
+        });
+      }
     });
     $scope.$on('event:auth-loginConfirmed', function() {
       $log.debug('event:auth-loginConfirmed received');
       modalInstance.close();
+      modalInstance = undefined;
     });
   }
 ]);
