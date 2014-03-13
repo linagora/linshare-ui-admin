@@ -1,5 +1,4 @@
-<div id="loginModal" x-modal="loginModal" x-options="opts" tabindex="-1"
-role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-header">
      <h3 id="loginModalLabel">{{'G_App_Login_Title' | i18n}}</h3>
 
@@ -7,17 +6,17 @@ role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <form name="loginForm" x-ls-form-submit="submit()" x-ls-form-attempt class="form-horizontal" novalidate>
     <div class="modal-body">
       <div class="control-group"
-           ng-class="{error: loginForm.login.$invalid && (loginForm.login.$dirty || ls.loginForm.attempted)}">
+           x-ng-class="{error: loginForm.login.$invalid && (loginForm.login.$dirty || ls.loginForm.attempted)}">
            <label class="control-label" for="login">{{'G_App_Login_Email' | i18n}}</label>
         <div class="controls">
-          <input type="text" id="login" name="login" x-ng-model="login" placeholder="{{'G_App_Login_Email' | i18n}}" required>
+          <input type="text" id="login" name="login" x-ng-model="input.login" placeholder="{{'G_App_Login_Email' | i18n}}" required>
         </div>
       </div>
       <div class="control-group"
-           ng-class="{error: loginForm.password.$invalid && (loginForm.password.$dirty || ls.loginForm.attempted)}">
+           x-ng-class="{error: loginForm.password.$invalid && (loginForm.password.$dirty || ls.loginForm.attempted)}">
         <label class="control-label" for="password">{{'G_App_Login_Password' | i18n}}</label>
         <div class="controls">
-          <input type="password" id="password" name="password" x-ng-model="password"
+          <input type="password" id="password" name="password" x-ng-model="input.password"
           placeholder="{{'G_App_Login_Password' | i18n}}" required>
         </div>
       </div>

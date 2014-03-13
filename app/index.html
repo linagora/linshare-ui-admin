@@ -5,22 +5,20 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles/main.css"/>
 </head>
-<body>
-  <div data-ls-login-form></div>
-
+<body x-ng-controller="LoginFormCtrl">
   <!-- Navbar  =====================================-->
-  <div data-ls-navbar></div>
+  <div x-ls-navbar></div>
 
   <div class="content">
     <!-- Notifications  =====================================-->
-    <div data-ls-alert-box></div>
+    <div x-ls-alert-box></div>
 
     <!-- Content  =====================================-->
-    <div data-ng-view data-ng-cloak></div>
+    <div x-ng-view x-ng-cloak></div>
   </div>
 
   <!-- Footer =====================================-->
-  <div data-ls-footer></div>
+  <div x-ls-footer></div>
  
   <!-- build:js javascripts/scripts.js -->
   <script data-main="scripts/main" src="components/requirejs/require.js"></script>

@@ -16,11 +16,14 @@ var app = angular.module('myApp', ['myApp.directives',
 ])
 
 // Register work which needs to be performed on module loading
-.config(function($logProvider, loggerProvider, RestangularProvider) {
-  RestangularProvider.setBaseUrl('/linshare/webservice/rest/admin');
-  RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
-  $logProvider.debugEnabled(loggerProvider.isDebug);
-})
+.config(['$logProvider', 'preferencesServiceProvider', 'RestangularProvider',
+  function($logProvider, preferencesProvider, RestangularProvider) {
+    RestangularProvider.setBaseUrl('/linshare/webservice/rest/admin');
+    RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
+    var settings = preferencesProvider.loadSettings();
+    var debug = document.cookie.linshareDebug || settings.debug;
+    $logProvider.debugEnabled(debug);
+}])
 
 // Register work which should be performed when the injector is done loading all modules 
 .run(['$log', 'localize', 'preferencesService', 'userLoggedService', 'Restangular', 'notificationService',
@@ -32,7 +35,6 @@ var app = angular.module('myApp', ['myApp.directives',
       }
       return response;
     });
-    Preferences.load();
     Localize.initLocalizedResources();
   }
 ]);

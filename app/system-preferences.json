@@ -1,5 +1,5 @@
 {
   "appName":"Linshare",
   "linshareURL":"linshare",
-  "loggerLevel":0
+  "debug":true
 }

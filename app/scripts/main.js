@@ -82,6 +82,8 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/createAndEditForm':
         {deps: ['controllers/controllers']},
+    'controllers/loginForm':
+        {deps: ['controllers/controllers', 'bootstrap']},
 
     // Services
     'services/preferences':
@@ -92,13 +94,8 @@ require.config({
         {deps: ['services/services']},
     'services/notification':
         {deps: ['services/services']},
-    'services/logger':
-        {deps: ['services/services']},
 
     // Directives
-    'directives/loginForm':
-        {deps: ['directives/directives', 'bootstrap']},
-
     'directives/administration/functionalityTree':
         {deps: ['directives/directives']},
     'directives/administration/functionalityList':
@@ -200,17 +197,15 @@ var dependencies = [
   'controllers/domainManagement',
   'controllers/userManagement',
   'controllers/createAndEditForm',
+  'controllers/loginForm',
 
   // Services
   'services/preferences',
   'services/userLogged',
   'services/manageDomain',
   'services/notification',
-  'services/logger',
 
   // Directives
-  'directives/loginForm',
-
   'directives/administration/functionalityTree',
   'directives/administration/functionalityList',
   'directives/administration/functionalityEditForm',
