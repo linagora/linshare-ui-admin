@@ -30,7 +30,6 @@ app.controller('GridCtrl', ['$scope', '$log',
 
     // Retreive datas from server
     $scope.getPagedDataAsync = function(pageSize, page, searchText) {
-      $log.debug('Retreive data');
       setTimeout(function() {
         var data;
         if (searchText) {
