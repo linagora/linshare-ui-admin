@@ -8,10 +8,12 @@ app.directive('lsDomainPatternCreateForm', [
       scope: {},
       controller: ['$scope', '$rootScope', '$log', 'Restangular', 'notificationService',
         function($scope, $rootScope, $log, Restangular, notificationService) {
-          $scope.models = Restangular.all('domain_patterns').all('models').getList();
-          var emptyModel = {identifier: ''};
-          $scope.models.push(emptyModel);
-          $scope.modelSelector = emptyModel;
+          Restangular.all('domain_patterns').all('models').getList().then(function(models) {
+            var emptyModel = {identifier: ''};
+            $scope.models = models;
+            $scope.models.push(emptyModel);
+            $scope.modelSelector = emptyModel;
+          });
           $scope.$watch('modelSelector', function() {
             $scope.reset();
           });
@@ -26,9 +28,11 @@ app.directive('lsDomainPatternCreateForm', [
             });
           };
           function unRestangularizeElement(obj) {
-            delete obj.route;
-            delete obj.parentResource;
-            delete obj.restangularCollection;
+            if (obj) {
+              delete obj.route;
+              delete obj.parentResource;
+              delete obj.restangularCollection;
+            }
           }
           $scope.reset = function() {
             unRestangularizeElement($scope.modelSelector);
