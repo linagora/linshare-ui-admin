@@ -195,6 +195,38 @@
     "value": "Name of the LDAP attribute which represents the user unique identifier (uuid)",
     "description": "Help for the attribute Ldap Uid."
   },
+  "P_Domains-DomainPatterns_SearchPageSizeLabel": {
+    "value": "Search page size",
+    "description": "Label for the attribute Search page size."
+  },
+  "P_Domains-DomainPatterns_SearchPageSizeHelp": {
+    "value": "Numer of maximum result per page in search",
+    "description": "Help for the attribute Search page size."
+  },
+  "P_Domains-DomainPatterns_SearchSizeLimitLabel": {
+    "value": "Search size limit",
+    "description": "Label for the attribute Search size limit."
+  },
+  "P_Domains-DomainPatterns_SearchSizeLimitHelp": {
+    "value": "Numer of maximum result per page in search",
+    "description": "Help for the attribute Search size limit."
+  },
+  "P_Domains-DomainPatterns_CompletionPageSizeLabel": {
+    "value": "Completion page size",
+    "description": "Label for the attribute Completion page size."
+  },
+  "P_Domains-DomainPatterns_CompletionPageSizeHelp": {
+    "value": "Numer of maximum result per page in completion",
+    "description": "Help for the attribute Completion page size."
+  },
+  "P_Domains-DomainPatterns_CompletionSizeLimitLabel": {
+    "value": "Completion size limit",
+    "description": "Label for the attribute Completion size limit."
+  },
+  "P_Domains-DomainPatterns_CompletionSizeLimitHelp": {
+    "value": "Numer of maximum result per page in completion",
+    "description": "Help for the attribute Completion size limit."
+  },
   "P_Domains-DomainPatterns_Delete": {
     "value": "Delete",
     "description": "Label for the delete button."

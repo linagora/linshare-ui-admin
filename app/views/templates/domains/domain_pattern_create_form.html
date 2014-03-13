@@ -111,6 +111,46 @@
           <p class="help-block">{{'P_Domains-DomainPatterns_LdapUidHelp' | i18n}}</p>
         </div>
       </div>
+      <div class="control-group"
+           ng-class="{error: domainPatternForm.searchPageSize.$invalid &&
+           (domainPatternForm.searchPageSize.$dirty || ls.domainPatternForm.attempted)}">
+      <label class="control-label" for="searchPageSize">{{'P_Domains-DomainPatterns_SearchPageSizeLabel' | i18n}}</label>
+        <div class="controls">
+          <input id="searchPageSize" name="searchPageSize" type="text" x-ng-model="domainPattern.searchPageSize"
+          class="input-xlarge" required>
+          <p class="help-block">{{'P_Domains-DomainPatterns_SearchPageSizeHelp' | i18n}}</p>
+        </div>
+      </div>
+      <div class="control-group"
+           ng-class="{error: domainPatternForm.searchSizeLimit.$invalid &&
+           (domainPatternForm.searchSizeLimit.$dirty || ls.domainPatternForm.attempted)}">
+      <label class="control-label" for="searchSizeLimit">{{'P_Domains-DomainPatterns_SearchSizeLimitLabel' | i18n}}</label>
+        <div class="controls">
+          <input id="searchSizeLimit" name="searchSizeLimit" type="text" x-ng-model="domainPattern.searchSizeLimit"
+          class="input-xlarge" required>
+          <p class="help-block">{{'P_Domains-DomainPatterns_SearchSizeLimitHelp' | i18n}}</p>
+        </div>
+      </div>
+      <div class="control-group"
+           ng-class="{error: domainPatternForm.completionPageSize.$invalid &&
+           (domainPatternForm.completionPageSize.$dirty || ls.domainPatternForm.attempted)}">
+      <label class="control-label" for="completionPageSize">{{'P_Domains-DomainPatterns_CompletionPageSizeLabel' | i18n}}</label>
+        <div class="controls">
+          <input id="completionPageSize" name="completionPageSize" type="text" x-ng-model="domainPattern.completionPageSize"
+          class="input-xlarge" required>
+          <p class="help-block">{{'P_Domains-DomainPatterns_CompletionPageSizeHelp' | i18n}}</p>
+        </div>
+      </div>
+      <div class="control-group"
+           ng-class="{error: domainPatternForm.completionSizeLimit.$invalid &&
+           (domainPatternForm.completionSizeLimit.$dirty || ls.domainPatternForm.attempted)}">
+      <label class="control-label" for="completionSizeLimit">{{'P_Domains-DomainPatterns_CompletionSizeLimitLabel' | i18n}}</label>
+        <div class="controls">
+          <input id="completionSizeLimit" name="completionSizeLimit" type="text" x-ng-model="domainPattern.completionSizeLimit"
+          class="input-xlarge" required>
+          <p class="help-block">{{'P_Domains-DomainPatterns_CompletionSizeLimitHelp' | i18n}}</p>
+        </div>
+      </div>
     </div>
     <!-- Validation -->
     <div class="control-group">
