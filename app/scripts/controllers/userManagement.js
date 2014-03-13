@@ -3,7 +3,7 @@
 app.controller('UserManagementCtrl', ['$scope',
   function($scope) {
     $scope.userRepresentation = function(user) {
-      if (!_.isUndefined(user)) {
+      if (angular.isDefined(user)) {
         return user.firstName + ' ' + user.lastName + ' <' + user.mail + '>';
       }
     };
