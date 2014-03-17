@@ -1,52 +1,102 @@
 'use strict';
 
 angular.module('myApp.services')
-  .factory('DomainPattern', ['$log', 'Restangular',
-    function ($log, Restangular) {
+  .factory('DomainPattern', ['$log', 'Restangular', 'Notification',
+    function ($log, Restangular, Notification) {
       this.currentDomainPattern = undefined;
 
       // Public API here
       return {
-        getAllDomainPatterns: function(successCallback) {
-          $log.debug('DomainPattern:getAllDomainPatterns');
+        getAll: function(successCallback) {
+          $log.debug('DomainPattern:getAll');
           Restangular.all('domain_patterns').getList().then(
             function success(domainPatterns) {
-              successCallback(domainPatterns);
-            }
-          ,
-            function error() {
+              successCallback(domainPatterns)
+            },
+            function error(response) {
               $log.error(
                 [
-                 'DomainPattern:getAllDomainPatterns',
-                 'Unable to get all domain patterns'
+                 'DomainPattern:getAll',
+                 'Unable to get all ldap connections',
+                 response
                 ].join('\n')
               );
             }
           );
         },
-        setCurrentDomainPattern: function(domainPattern) {
-          if(angular.isDefined(domainPattern)) {
-            this.currentDomainPattern = domainPattern;
-          } else {
-            $log.error(
-              [
-               'DomainPattern:setCurrentDomainPattern',
-               'Try to set invalid domain pattern'
-              ].join('\n')
-            );
-          }
+        add: function(domainPattern, successCallback) {
+          $log.debug('DomainPattern:add');
+          Restangular.all('ldap_connections').post(domainPattern).then(
+            function success(domainPattern) {
+              Notification.addSuccess('P_Domains-DomainPatterns_CreateSuccess');
+              if (successCallback) {
+                successCallback(domainPattern);
+              }
+            },
+            function error(response) {
+              $log.error(
+                [
+                 'DomainPattern:add',
+                 'Unable to create a ldap connection',
+                 domainPattern,
+                 response
+                ].join('\n')
+              );
+            }
+          );
         },
-        getCurrentDomainPattern: function() {
-          if(angular.isDefined(this.currentDomainPattern)) {
-            this.currentDomainPattern = domainPattern;
-          } else {
-            $log.error(
-              [
-               'DomainPattern:getCurrentDomainPattern',
-               'Try to get undefined domain pattern'
-              ].join('\n')
-            );
-          }
+        update: function(domainPattern, successCallback) {
+          $log.debug('DomainPattern:update');
+          domainPattern.put().then(
+            function success(domainPattern) {
+              Notification.addSuccess('P_Domains-DomainPatterns_UpdateSuccess');
+              if (successCallback) {
+                successCallback(domainPattern);
+              }
+            },
+            function error(response) {
+              $log.error(
+                [
+                 'DomainPattern:update',
+                 'Unable to update ldap connection',
+                 domainPattern,
+                 response
+                ].join('\n')
+              );
+            }
+          );
+        },
+        remove: function(domainPattern, successCallback) {
+          $log.debug('DomainPattern:remove');
+          domainPattern.remove().then(
+            function success(domainPattern) {
+              Notification.addSuccess('P_Domains-DomainPatterns_DeleteSuccess');
+              if (successCallback) {
+                successCallback(domainPattern);
+              }
+            },
+            function error(response) {
+              $log.error(
+                [
+                 'DomainPattern:remove',
+                 'Unable to remove ldap connection',
+                 domainPattern,
+                 response
+                ].join('\n')
+              );
+            }
+          );
+        },
+        setCurrent: function(domainPattern) {
+          $log.debug('DomainPattern:setCurrent');
+          this.currentDomainPattern = domainPattern;
+        },
+        getCurrent: function() {
+          $log.debug('DomainPattern:getCurrent');
+          return this.currentDomainPattern;
+        },
+        currentIsDefined: function() {
+          return angular.isDefined(this.currentDomainPattern);
         }
       };
     }

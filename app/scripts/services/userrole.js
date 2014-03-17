@@ -11,8 +11,7 @@ angular.module('myApp.services')
           Restangular.all('user_roles').getList().then(
             function success(userRoles) {
               successCallback(userRoles);
-            }
-          ,
+            },
             function error() {
               $log.error(
                 [

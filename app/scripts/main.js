@@ -83,8 +83,6 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/userManagement':
         {deps: ['controllers/controllers']},
-    'controllers/createAndEditForm':
-        {deps: ['controllers/controllers']},
     'controllers/loginForm':
         {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/confirmDialog':
@@ -92,6 +90,8 @@ require.config({
     'controllers/domainCreateForm':
         {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/ldapconnection':
+        {deps: ['controllers/controllers', 'ngtable']},
+    'controllers/domainpattern':
         {deps: ['controllers/controllers', 'ngtable']},
 
     // Services
@@ -216,10 +216,10 @@ var dependencies = [
   'controllers/grid',
   'controllers/domainManagement',
   'controllers/userManagement',
-  'controllers/createAndEditForm',
   'controllers/loginForm',
   'controllers/domainCreateForm',
   'controllers/ldapconnection',
+  'controllers/domainpattern',
   'controllers/confirmDialog',
 
   // Services

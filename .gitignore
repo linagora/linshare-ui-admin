@@ -3,3 +3,4 @@ node_modules
 dist
 .tmp
 .sass-cache
+.vimrc

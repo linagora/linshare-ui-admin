@@ -4,11 +4,9 @@ angular.module('myApp').config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.when('/domains/ldap_connections', {
       templateUrl: 'views/domains/ldap_connections.html',
-      controller: 'CreateAndEditFormCtrl'
     });
     $routeProvider.when('/domains/domain_patterns', {
       templateUrl: 'views/domains/domain_patterns.html',
-      controller: 'CreateAndEditFormCtrl'
     });
     $routeProvider.when('/domains/management', {
       templateUrl: 'views/domains/domain_management.html',
