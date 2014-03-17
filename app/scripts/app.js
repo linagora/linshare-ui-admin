@@ -2,7 +2,9 @@
 /*jshint undef:false*/
 
 // Holds the list of modules which the injector will load before the current module is loaded
-var app = angular.module('myApp', ['myApp.directives',
+var app = angular.module('myApp', [
+    'myApp.controllers',
+    'myApp.directives',
     'myApp.filters',
     'myApp.services',
     'ui.bootstrap',
@@ -10,6 +12,7 @@ var app = angular.module('myApp', ['myApp.directives',
     'ngRoute',
     'ngCookies',
     'ngGrid',
+    'ngTable',
     'http-auth-interceptor',
     'localization',
     'restangular'
@@ -26,12 +29,12 @@ var app = angular.module('myApp', ['myApp.directives',
 }])
 
 // Register work which should be performed when the injector is done loading all modules 
-.run(['$log', 'localize', 'preferencesService', 'userLoggedService', 'Restangular', 'notificationService',
-  function($log, Localize, Preferences, userLogged, Restangular, notificationService) {
+.run(['$log', 'localize', 'preferencesService', 'userLoggedService', 'Restangular', 'Notification',
+  function($log, Localize, Preferences, userLogged, Restangular, Notification) {
     Restangular.setErrorInterceptor(function(response) {
       $log.error(response);
       if (response.status === 400) {
-        notificationService.addError(response.data);
+        Notification.addError(response.data);
       }
       return response;
     });

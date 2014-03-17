@@ -1,0 +1,17 @@
+<div id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-header">
+     <h3 id="confirmModalLabel">{{'G_App_Confirm' | i18n}}</h3>
+
+  </div>
+  <div class="modal-body">
+    <div x-ng-bind-html="content"></div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn" x-ng-click="cancel()">
+      {{'G_App_ConfirmNo' | i18n}}
+    </button>
+    <button type="submit" class="btn btn-danger" x-ng-click="validate()">
+      {{'G_App_ConfirmYes' | i18n}}
+    </button>
+  </div>
+</div>

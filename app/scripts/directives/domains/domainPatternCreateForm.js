@@ -6,8 +6,8 @@ app.directive('lsDomainPatternCreateForm', [
       restrict: 'A',
       transclude: false,
       scope: {},
-      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'notificationService',
-        function($scope, $rootScope, $log, Restangular, notificationService) {
+      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'Notification',
+        function($scope, $rootScope, $log, Restangular, Notification) {
           Restangular.all('domain_patterns').all('models').getList().then(function(models) {
             var emptyModel = {identifier: ''};
             $scope.models = models;
@@ -24,7 +24,7 @@ app.directive('lsDomainPatternCreateForm', [
               $rootScope.$broadcast('reloadList');
               $rootScope.$broadcast('showList');
               $scope.reset();
-              notificationService.addSuccess('P_Domains-DomainPatterns_CreateSuccess');
+              Notification.addSuccess('P_Domains-DomainPatterns_CreateSuccess');
             });
           };
           function unRestangularizeElement(obj) {

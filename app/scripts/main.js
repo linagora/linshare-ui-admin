@@ -15,6 +15,7 @@ require.config({
     bootstrapTpls: '/components/angular-bootstrap/ui-bootstrap-tpls.min',
     nggrid: '/components/ng-grid/build/ng-grid.min',
     nggridFlexibleHeight: '/components/ng-grid/plugins/ng-grid-flexible-height',
+    ngtable: '/components/ng-table/ng-table',
     restangular: '/components/restangular/src/restangular',
     httpAuthInterceptor: '/components/angular-http-auth/src/http-auth-interceptor',
 
@@ -62,6 +63,8 @@ require.config({
         {deps: ['jquery', 'angular']},
     'nggridFlexibleHeight':
         {deps: ['nggrid']},
+    'ngtable':
+        {deps: ['angular']},
     'restangular':
         {deps: ['angular', 'lodash']},
     'httpAuthInterceptor':
@@ -84,6 +87,12 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/loginForm':
         {deps: ['controllers/controllers', 'bootstrap']},
+    'controllers/confirmDialog':
+        {deps: ['controllers/controllers', 'bootstrap']},
+    'controllers/domainCreateForm':
+        {deps: ['controllers/controllers', 'bootstrap']},
+    'controllers/ldapconnection':
+        {deps: ['controllers/controllers', 'ngtable']},
 
     // Services
     'services/preferences':
@@ -93,6 +102,16 @@ require.config({
     'services/manageDomain':
         {deps: ['services/services']},
     'services/notification':
+        {deps: ['services/services']},
+    'services/domain':
+        {deps: ['services/services']},
+    'services/domainpattern':
+        {deps: ['services/services']},
+    'services/ldapconnection':
+        {deps: ['services/services']},
+    'services/domainpolicy':
+        {deps: ['services/services']},
+    'services/userrole':
         {deps: ['services/services']},
 
     // Directives
@@ -117,9 +136,9 @@ require.config({
         {deps: ['directives/directives', 'nggrid']},
     'directives/domains/domainEditForm':
         {deps: ['directives/directives']},
-    'directives/domains/domainCreateForm':
-        {deps: ['directives/directives']},
     'directives/domains/domainTree':
+        {deps: ['directives/directives']},
+    'directives/domains/ldapConnectionForm':
         {deps: ['directives/directives']},
     
     'directives/threads/threadGrid':
@@ -184,6 +203,7 @@ var dependencies = [
   'bootstrapTpls',
   'nggrid',
   'nggridFlexibleHeight',
+  'ngtable',
   'restangular',
   'httpAuthInterceptor',
   
@@ -198,12 +218,20 @@ var dependencies = [
   'controllers/userManagement',
   'controllers/createAndEditForm',
   'controllers/loginForm',
+  'controllers/domainCreateForm',
+  'controllers/ldapconnection',
+  'controllers/confirmDialog',
 
   // Services
   'services/preferences',
   'services/userLogged',
   'services/manageDomain',
   'services/notification',
+  'services/domain',
+  'services/domainpattern',
+  'services/ldapconnection',
+  'services/domainpolicy',
+  'services/userrole',
 
   // Directives
   'directives/administration/functionalityTree',
@@ -216,9 +244,9 @@ var dependencies = [
   'directives/domains/domainPatternCreateForm',
   'directives/domains/domainPatternEditForm',
   'directives/domains/domainPatternGrid',
-  'directives/domains/domainCreateForm',
   'directives/domains/domainEditForm',
   'directives/domains/domainTree',
+  'directives/domains/ldapConnectionForm',
 
   'directives/threads/threadMemberGrid',
   'directives/threads/threadGrid',

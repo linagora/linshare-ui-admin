@@ -15,8 +15,8 @@ app.directive('lsUserEditForm', ['$timeout',
         scope.showUserEditForm = false;
         scope.today = new Date();
       },
-      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'localize', 'notificationService',
-        function($scope, $rootScope, $log, Restangular, Localize, notificationService) {
+      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'localize', 'Notification',
+        function($scope, $rootScope, $log, Restangular, Localize, Notification) {
           $scope.userRoles = Restangular.all('user_roles').getList();
           $scope.user = {};
           $scope.open = function() {
@@ -90,14 +90,14 @@ app.directive('lsUserEditForm', ['$timeout',
             }
             angular.copy($scope.user, $scope.userToEdit);
             user.put().then(function success() {
-              notificationService.addSuccess('P_Users-Management_UpdateSuccess');
+              Notification.addSuccess('P_Users-Management_UpdateSuccess');
             });
             $scope.cancel();
           };
           $scope.delete = function(user) {
             $log.debug('user deletion: ' + user.mail);
             user.remove().then(function success() {
-              notificationService.addSuccess('P_Users-Management_DeleteSuccess');
+              Notification.addSuccess('P_Users-Management_DeleteSuccess');
             });
             $scope.cancel();
           };

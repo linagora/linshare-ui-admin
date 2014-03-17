@@ -4,13 +4,9 @@
       <h1>{{'P_Domains-Management_Title' | i18n}}</h1>
 
     </div>
-    <div>
+    <div x-ng-controller="DomainCreateFormCtrl">
       <div class="span" x-ls-domain-tree></div>
       <div class="span7" x-ls-domain-edit-form></div>
-      <div x-ls-domain-create-form 
-        x-domain-policies="domainPolicies"
-        x-user-roles="userRoles"
-        x-locales="locales"></div>
     </div>
   </div>
 </div>

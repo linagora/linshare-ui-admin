@@ -1,47 +1,79 @@
 'use strict';
 
-app.controller('DomainManagementCtrl', ['$scope', '$log', 'manageDomainService', 'Restangular',
-  function($scope, $log, manageDomainService, Restangular) {
+app.controller('DomainManagementCtrl', ['$scope', '$log', 'manageDomainService',
+  function($scope, $log, manageDomainService) {
     $scope.ldapConnections = [];
-    manageDomainService.getAllLdapConnections(function success(ldapConnections) {
-      angular.forEach(ldapConnections, function(ldapConnection) {
-        $scope.ldapConnections.push(ldapConnection.identifier);
-      });
-    }, function error() {
-      $log.error('Unable to get ldap connections list');
-    });
     $scope.domainPatterns = [];
-    manageDomainService.getAllDomainPatterns(function success(domainPatterns) {
-      angular.forEach(domainPatterns, function(domainPattern) {
-        $scope.domainPatterns.push(domainPattern.identifier);
-      });
-    }, function error() {
-      $log.error('Unable to get domain patterns list');
-    });
     $scope.domainPolicies = [];
-    manageDomainService.getAllDomainPolicies(function success(domainPolicies) {
-      angular.forEach(domainPolicies, function(domainPolicy) {
-        $scope.domainPolicies.push(domainPolicy.identifier);
-      });
-    }, function error() {
-      $log.error('Unable to get domain policies list');
-    });
     $scope.userRoles = [];
-    manageDomainService.getAllUserRoles(function success(userRoles) {
-      angular.forEach(userRoles, function(userRole) {
-        if (userRole !== 'SYSTEM' && userRole !== 'SUPERADMIN') {
-          $scope.userRoles.push(userRole);
-        }
-      });
-    }, function error() {
-      $log.error('Unable to get user roles list');
-    });
     $scope.locales = manageDomainService.getAllLocales;
-    $scope.$broadcast('domainTreeNeedRefresh');
-    manageDomainService.getAllDomains(function success(domains) {
-      $scope.rootDomain = domains;
-    }, function error() {
-      $log.error('Unable to get domain policies list');
-    });
+    $scope.domainTree = {};
+
+    var getIds = function(dataArray, scopeContainer) {
+      var array = [];
+      angular.forEach(dataArray, function(data) {
+        array.push(data.identifier);
+      });
+      scopeContainer = array;
+    }
+    var logError = function(string) {
+      $log.error(string);
+    }
+
+    $scope.fetchAllLdapConnections = function() {
+      manageDomainService.getAllLdapConnections(
+        function success(ldapConnections) {
+          getIds(ldapConnections, $scope.ldapConnections);
+        }
+      ,
+        function error() {
+          logError('Unable to get ldap connections list');
+        }
+      );
+    };
+    $scope.fetchAllDomainPatterns = function() {
+      manageDomainService.getAllDomainPatterns(
+        function success(domainPatterns) {
+          getIds(domainPatterns, $scope.domainPatterns);
+        }
+      ,
+        function error() {
+          logError('Unable to get ldap connections list');
+        }
+      );
+    };
+    $scope.fetchAllDomainPolicies = function() {
+      manageDomainService.getAllDomainPolicies(
+        function success(domainPolicies) {
+          getIds(domainPolicies, $scope.domainPolicies);
+        }
+      ,
+        function error() {
+          logError('Unable to get domain policies list');
+        }
+      );
+    };
+    $scope.fetchAllUserRoles = function() {
+      manageDomainService.getAllUserRoles(
+        function success(userRoles) {
+          getIds(userRoles, $scope.userRoles);
+        }
+      ,
+        function error() {
+          logError('Unable to get domain policies list');
+        }
+      );
+    };
+    $scope.fetchDomainTree = function() {
+      manageDomainService.getDomainTree(
+        function success(domainTree) {
+          $scope.domainTree = domainTree;
+        }
+      ,
+        function error() {
+          logError('Unable to get domain tree');
+        }
+      );
+    };
   }
 ]);

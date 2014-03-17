@@ -1,13 +1,13 @@
-<form name="ldapConnectionEditForm" class="form-horizontal" x-ng-hide="hideForm" x-ls-form-submit="submit(ldapConnection)" x-ls-form-attempt novalidate>
+<form name="ldapConnectionForm" class="form-horizontal" x-ls-form-submit="submit(ldapConnection)" x-ls-form-attempt novalidate>
   <fieldset>
     <!-- Legend -->
-    <div x-ng-switch on="creation">
-      <div x-ng-switch-when="true">
+    <div x-ng-switch="state">
+      <div x-ng-switch-when="create">
         <legend>{{'P_Domains-LDAPConnections_CreationTitle' | i18n}}</legend>
         <!-- Identifier -->
         <div class="control-group"
-             ng-class="{error: ldapConnectionEditForm.identifier.$invalid &&
-             (ldapConnectionEditForm.identifier.$dirty || ls.ldapConnectionEditForm.attempted)}">
+              ng-class="{error: ldapConnectionForm.identifier.$invalid &&
+              (ldapConnectionForm.identifier.$dirty || ls.ldapConnectionForm.attempted)}">
           <label class="control-label" for="identifier">{{'P_Domains-LDAPConnections_IdentifierLabel' | i18n}}</label>
           <div class="controls">
             <input id="identifier" name="identifier" type="text" x-ng-model="ldapConnection.identifier"
@@ -15,10 +15,14 @@
           </div>
         </div>
       </div>
-      <legend x-ng-switch-default>{{ldapConnection.identifier}}</legend>
+      <div x-ng-switch-when="edit">
+        <legend>{{ldapConnection.identifier}}</legend>
+      </div>
     </div>
     <!-- Provider URL -->
-    <div class="control-group">
+    <div class="control-group"
+	  ng-class="{error: providerURLForm.providerURL.$invalid &&
+	  (providerURLForm.providerURL.$dirty || ls.providerURLForm.attempted)}">
       <label class="control-label" for="providerURL">{{'P_Domains-LDAPConnections_ProviderURLLabel' | i18n}}</label>
       <div class="controls">
         <input id="providerURL" name="providerURL" type="text" x-ng-model="ldapConnection.providerUrl"
@@ -47,18 +51,17 @@
     <!-- Validation -->
     <div class="control-group">
       <div class="controls">
-        <button type="button" id="delete" name="delete" class="btn btn-danger" x-ng-show="!creation" x-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-LDAPConnections_Delete' | i18n}}</button>
-        <button type="button" id="reset" name="reset" class="btn btn-warning" x-ng-click="reset()">{{'P_Domains-LDAPConnections_Reset' | i18n}}</button>
+        <button type="button" id="delete" name="delete" class="btn btn-danger" x-ng-show="state==='edit'" x-ng-click="remove()">
+          {{'P_Domains-LDAPConnections_Delete' | i18n}}
+        </button>
+        <button type="button" id="reset" name="reset" class="btn btn-warning" x-ng-click="reset()">
+          {{'P_Domains-LDAPConnections_Reset' | i18n}}
+        </button>
         <button type="submit" id="submit" name="submit"
-        class="btn btn-success">{{'P_Domains-LDAPConnections_Submit' | i18n}}</button>
+        class="btn btn-success">
+          {{'P_Domains-LDAPConnections_Submit' | i18n}}
+        </button>
       </div>
-    </div>
-    <div class="control-group" x-collapse="confirmCollapsed">
-      <div class="controls well">
-        <div x-ng-bind-html-unsafe="'P_Domains-LDAPConnections_ConfirmDeleteText' | i18n"></div>
-        <button type="button" class="btn" x-ng-click="confirmCollapsed = !confirmCollapsed">{{'P_Domains-LDAPConnections_ConfirmDeleteNo' | i18n}}</button>
-        <button type="button" class="btn btn-danger" x-ng-click="delete(ldapConnection)">{{'P_Domains-LDAPConnections_ConfirmDeleteYes' | i18n}}</button>
-      </div> 
     </div>
   </fieldset>
 </form>

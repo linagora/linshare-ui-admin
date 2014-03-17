@@ -33,11 +33,19 @@
   },
   "G_App_Logout": {
     "value": "Logout",
-    "description": "Text of the logout button"
-  },
-  "G_App_Logout": {
-    "value": "Logout",
     "description": "Label for the submit button."
+  },
+  "G_App_Confirm": {
+    "value": "Confirmation",
+    "description": "Title of the confirmation modal"
+  },
+  "G_App_ConfirmYes": {
+    "value": "Yes",
+    "description": "Label for the confirm button"
+  },
+  "G_App_ConfirmNo": {
+    "value": "Cancel",
+    "description": "Label for the cancel button"
   },
   "G_Tab_Domains": {
     "value": "Domains",
@@ -243,14 +251,6 @@
     "value": "<p>You are about to delete this domain pattern, this procedure is irreversible.</p><p>Do you want to proceed?</p>",
     "description": "Confirmation text for domain pattern deletion."
   },
-  "P_Domains-DomainPatterns_ConfirmDeleteNo": {
-    "value": "No",
-    "description": "Cancel the domain pattern deletion."
-  },
-  "P_Domains-DomainPatterns_ConfirmDeleteYes": {
-    "value": "Yes",
-    "description": "Confirm the domain pattern deletion."
-  },
   "P_Domains-DomainPatterns_CreateSuccess": {
     "value": "Domain pattern creation succeed",
     "description": "Alert message when the creation succeed."
@@ -322,14 +322,6 @@
   "P_Domains-LDAPConnections_ConfirmDeleteText": {
     "value": "<p>You are about to delete this LDAP connection, this procedure is irreversible.</p><p>Do you want to proceed?</p>",
     "description": "Confirmation text for LDAP connection deletion."
-  },
-  "P_Domains-LDAPConnections_ConfirmDeleteNo": {
-    "value": "No",
-    "description": "Cancel the LDAP connection deletion."
-  },
-  "P_Domains-LDAPConnections_ConfirmDeleteYes": {
-    "value": "Yes",
-    "description": "Confirm the LDAP connection deletion."
   },
   "P_Domains-LDAPConnections_CreateSuccess": {
     "value": "LDAPConnection creation succeed",
@@ -430,14 +422,6 @@
   "P_Domains-Management_ConfirmDeleteText": {
     "value": "<p>You are about to delete this domain, this procedure is irreversible and destroy all associated users.</p><p>Do you want to proceed?</p>",
     "description": "Confirmation text for domain deletion."
-  },
-  "P_Domains-Management_ConfirmDeleteNo": {
-    "value": "No",
-    "description": "Cancel the domain deletion."
-  },
-  "P_Domains-Management_ConfirmDeleteYes": {
-    "value": "Yes",
-    "description": "Confirm the domain deletion."
   },
   "P_Domains-Management_Delete": {
     "value": "Delete",

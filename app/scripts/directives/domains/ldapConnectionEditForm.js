@@ -9,14 +9,14 @@ app.directive('lsLdapConnectionEditForm', [
         scope.confirmCollapsed = true;
         scope.hideForm = false;
       },
-      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'notificationService',
-        function($scope, $rootScope, $log, Restangular, notificationService) {
+      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'Notification',
+        function($scope, $rootScope, $log, Restangular, Notification) {
           $scope.submit = function(ldapConnection) {
             $log.debug('ldapConnection edition: ' + ldapConnection.identifier);
             ldapConnection.put().then(function success(ldapConnections) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
-              notificationService.addSuccess('P_Domains-LDAPConnections_UpdateSuccess');
+              Notification.addSuccess('P_Domains-LDAPConnections_UpdateSuccess');
             });
           };
           $scope.reset = function() {
@@ -27,7 +27,7 @@ app.directive('lsLdapConnectionEditForm', [
             ldapConnection.remove().then(function success(ldapConnections) {
               $rootScope.$broadcast('reloadList');
               $scope.hideForm = true;
-              notificationService.addSuccess('P_Domains-LDAPConnections_DeleteSuccess');
+              Notification.addSuccess('P_Domains-LDAPConnections_DeleteSuccess');
             });
           }
           // Save the previous state
