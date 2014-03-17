@@ -122,23 +122,13 @@ require.config({
     'directives/administration/functionalityEditForm':
         {deps: ['directives/directives']},
 
-    'directives/domains/ldapConnectionCreateForm':
-        {deps: ['directives/directives']},
-    'directives/domains/ldapConnectionEditForm':
-        {deps: ['directives/directives']},
-    'directives/domains/ldapConnectionGrid':
-        {deps: ['directives/directives', 'nggrid']},
-    'directives/domains/domainPatternCreateForm':
-        {deps: ['directives/directives']},
-    'directives/domains/domainPatternEditForm':
-        {deps: ['directives/directives']},
-    'directives/domains/domainPatternGrid':
-        {deps: ['directives/directives', 'nggrid']},
     'directives/domains/domainEditForm':
         {deps: ['directives/directives']},
     'directives/domains/domainTree':
         {deps: ['directives/directives']},
     'directives/domains/ldapConnectionForm':
+        {deps: ['directives/directives']},
+    'directives/domains/domainPatternForm':
         {deps: ['directives/directives']},
     
     'directives/threads/threadGrid':
@@ -238,15 +228,10 @@ var dependencies = [
   'directives/administration/functionalityList',
   'directives/administration/functionalityEditForm',
 
-  'directives/domains/ldapConnectionCreateForm',
-  'directives/domains/ldapConnectionEditForm',
-  'directives/domains/ldapConnectionGrid',
-  'directives/domains/domainPatternCreateForm',
-  'directives/domains/domainPatternEditForm',
-  'directives/domains/domainPatternGrid',
   'directives/domains/domainEditForm',
   'directives/domains/domainTree',
   'directives/domains/ldapConnectionForm',
+  'directives/domains/domainPatternForm',
 
   'directives/threads/threadMemberGrid',
   'directives/threads/threadGrid',

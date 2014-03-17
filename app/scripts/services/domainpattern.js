@@ -5,6 +5,14 @@ angular.module('myApp.services')
     function ($log, Restangular, Notification) {
       this.currentDomainPattern = undefined;
 
+      function unRestangularizeElement(obj) {
+        if(obj) {
+          delete obj.route;
+          delete obj.parentResource;
+          delete obj.restangularCollection;
+        }
+      };
+
       // Public API here
       return {
         getAll: function(successCallback) {
@@ -86,6 +94,24 @@ angular.module('myApp.services')
               );
             }
           );
+        },
+        getAllModels: function(successCallback) {
+          $log.debug('DomainPattern:getAllModels');
+          Restangular.all('domain_patterns').all('models').getList().then(
+            function success(models) {
+              if (successCallback) {
+                successCallback(models);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'DomainPattern:remove',
+                 'Unable to remove ldap connection',
+                 response
+                ].join('\n')
+              );
+            });
         },
         setCurrent: function(domainPattern) {
           $log.debug('DomainPattern:setCurrent');

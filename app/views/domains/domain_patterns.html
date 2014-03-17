@@ -4,22 +4,37 @@
        <h1>{{'P_Domains-DomainPatterns_Title' | i18n}}</h1>
 
     </div>
-    <div>
-      <div class="btn-toolbar" x-ng-init="switchView=false">
-        <button class="btn btn-primary" type="button"  x-ng-click="switchView=!switchView" x-ng-switch="switchView">
-          <span x-ng-switch-when="false"><i class="icon-plus icon-white"></i> {{'P_Domains-DomainPatterns_Add' | i18n}}</span>
-          <span x-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Domains-DomainPatterns_List' | i18n}}</span>
-        </button>
-      </div>
-      <div x-ng-show="switchView">
-        <div x-ls-domain-pattern-create-form></div>
-      </div>
-    </div>
-    <div x-ng-controller="GridCtrl" x-ng-show="!switchView">
-      <div x-ls-domain-pattern-grid>
-        <div x-ng-repeat="domainPatternToEdit in selections">
-          <div x-ls-domain-pattern-edit-form></div>
+    <div x-ng-controller="DomainPatternCtrl">
+      <div x-ng-if="viewForm">
+        <div class="btn-toolbar">
+          <button class="btn btn-primary" type="button" x-ng-click="switchView()">
+            <span>
+              <i class="icon-list icon-white"></i> 
+              {{'P_Domains-DomainPatterns_List' | i18n}}
+            </span>
+          </button>
         </div>
+        <div x-ls-domain-pattern-form></div>
+      </div>
+      <div x-ng-if="!viewForm">
+        <div class="btn-toolbar">
+          <button class="btn btn-primary" type="button" x-ng-click="resetForm();switchView()">
+          <span>
+            <i class="icon-plus icon-white"></i> 
+            {{'P_Domains-DomainPatterns_Add' | i18n}}
+          </span>
+          </button>
+        </div>
+        <table x-ng-table="tableParams" class="table">
+          <tr x-ng-repeat="domainPattern in $data" x-ng-click="edit(domainPattern)">
+            <td data-title="'P_Domains-DomainPatterns_IdentifierLabel' | i18n" sortable="identifier">
+              <span>{{domainPattern.identifier}}</span>
+            </td>
+            <td data-title="'P_Domains-DomainPatterns_DescriptionLabel' | i18n" sortable="providerUrl">
+              <span>{{domainPattern.description}}</span>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>

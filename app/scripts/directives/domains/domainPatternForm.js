@@ -1,26 +1,27 @@
 'use strict';
 
-app.directive('lsLdapConnectionForm', [
+app.directive('lsDomainPatternForm', [
   function() {
     return {
       restrict: 'A',
       scope: true,
       transclude: false,
       controller: 
-        ['$scope', '$modal', '$log', 'LdapConnection', 'localize',
-        function($scope, $modal, $log, LdapConnection, localize) {
+        ['$scope', '$modal', '$log', 'DomainPattern', 'localize',
+        function($scope, $modal, $log, DomainPattern, localize) {
+          var emptyModel = {identifier: ''};
           $scope.submit = function() {
             if ($scope.state === 'edit') {
-              LdapConnection.update(
-                $scope.ldapConnection,
+              DomainPattern.update(
+                $scope.domainPattern,
                 function successCallback() {
                   $scope.reloadList();
                   $scope.switchView();
                 }
               );
             } else {
-              LdapConnection.add(
-                $scope.ldapConnection,
+              DomainPattern.add(
+                $scope.domainPattern,
                 function successCallback() {
                   $scope.reloadList();
                   $scope.switchView();
@@ -36,15 +37,15 @@ app.directive('lsLdapConnectionForm', [
                 resolve: {
                   content: function() {
                     return localize.getLocalizedString(
-                      'P_Domains-LDAPConnections_ConfirmDeleteText'
+                      'P_Domains-DomainPatterns_ConfirmDeleteText'
                     );
                   }
                 }
               });
               modalInstance.result.then(
                 function validate() {
-                  LdapConnection.remove(
-                    $scope.ldapConnection,
+                  DomainPattern.remove(
+                    $scope.domainPattern,
                     function successCallback() {
                       $scope.reloadList();
                       $scope.switchView();
@@ -59,18 +60,30 @@ app.directive('lsLdapConnectionForm', [
             }
           };
           $scope.reset = function() {
-            $scope.ldapConnection = {};
-            if (LdapConnection.currentIsDefined()) {
+            $scope.domainPattern = {};
+            if (DomainPattern.currentIsDefined()) {
               $scope.state = 'edit';
-              angular.copy(LdapConnection.getCurrent(), $scope.ldapConnection);
+              angular.copy(DomainPattern.getCurrent(), $scope.domainPattern);
             } else {
               $scope.state = 'create';
+              DomainPattern.getAllModels(function success(models) {
+                $scope.models = models;
+                $scope.models.push(emptyModel);
+                $scope.modelSelector = emptyModel;
+              });
             }
           };
+          function loadModel() {
+            angular.copy($scope.modelSelector, $scope.domainPattern);
+            $scope.domainPattern.identifier = "";
+          };
+          $scope.$watch('modelSelector', function() {
+            loadModel();
+          });
           $scope.reset();
         }
       ],
-      templateUrl: '/views/templates/domains/ldap_connection_form.html',
+      templateUrl: '/views/templates/domains/domain_pattern_form.html',
       replace: false
     };
   }
