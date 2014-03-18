@@ -34,7 +34,7 @@ angular.module('myApp.services')
         },
         add: function(domainPattern, successCallback) {
           $log.debug('DomainPattern:add');
-          Restangular.all('ldap_connections').post(domainPattern).then(
+          Restangular.all('domain_patterns').post(domainPattern).then(
             function success(domainPattern) {
               Notification.addSuccess('P_Domains-DomainPatterns_CreateSuccess');
               if (successCallback) {
