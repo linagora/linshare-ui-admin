@@ -6,17 +6,18 @@ angular.module('myApp.services')
 
       // Public API here
       return {
-        getAllUserRoles: function(successCallback) {
-          $log.debug('UserRole:getAllUserRoles');
+        getAll: function(successCallback) {
+          $log.debug('UserRole:getAll');
           Restangular.all('user_roles').getList().then(
             function success(userRoles) {
               successCallback(userRoles);
             },
-            function error() {
+            function error(response) {
               $log.error(
                 [
-                 'UserRole:getAllUserRoles',
-                 'Unable to get all user roles'
+                 'UserRole:getAll',
+                 'Unable to get all user roles',
+                 response
                 ].join('\n')
               );
             }

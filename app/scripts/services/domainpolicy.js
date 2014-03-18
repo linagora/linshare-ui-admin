@@ -6,18 +6,18 @@ angular.module('myApp.services')
 
       // Public API here
       return {
-        getAllDomainPolicies: function(successCallback) {
-          $log.debug('DomainPolicy:getAllDomainPolicies');
+        getAll: function(successCallback) {
+          $log.debug('DomainPolicy:getAll');
           Restangular.all('domain_policies').getList().then(
             function success(domainPolicies) {
               successCallback(domainPolicies);
-            }
-          ,
-            function error() {
+            },
+            function error(response) {
               $log.error(
                 [
-                 'DomainPolicy:getAllDomainPolicies',
-                 'Unable to get all domain policies'
+                 'DomainPolicy:getAll',
+                 'Unable to get all domain policies',
+                 response
                 ].join('\n')
               );
             }

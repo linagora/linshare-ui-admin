@@ -26,41 +26,25 @@ angular.module('myApp.services')
             function success(rootDomain) {
               traverse(rootDomain, rootDomain);
               successCallback(rootDomain);
-            }
-          ,
-            function error() {
+            },
+            function error(response) {
               $log.error(
                 [
                  'Domain:getDomainTree',
-                 'Unable to get domain tree'
+                 'Unable to get domain tree',
+                 response
                 ].join('\n')
               );
             }
           );
         },
-        setCurrentDomain: function(domain) {
-          if(angular.isDefined(domain)) {
-            this.currentDomain = domain;
-          } else {
-            $log.error(
-              [
-               'Domain:setCurrentDomain',
-               'Try to set invalid domain'
-              ].join('\n')
-            );
-          }
+        setCurrent: function(domain) {
+          $log.debug('Domain:setCurrent');
+          this.currentDomain = domain;
         },
-        getCurrentDomain: function() {
-          if(angular.isDefined(this.currentDomain)) {
-            this.currentDomain = domain;
-          } else {
-            $log.error(
-              [
-               'Domain:setCurrentDomain',
-               'Try to get undefined domain'
-              ].join('\n')
-            );
-          }
+        getCurrent: function() {
+          $log.debug('Domain:getCurrent');
+          return this.currentDomain;
         }
       };
     }
