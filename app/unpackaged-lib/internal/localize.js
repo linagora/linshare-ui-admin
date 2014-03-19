@@ -34,6 +34,10 @@ angular.module('localization', [])
         location.reload();
       },
 
+      getAllLocales: function() {
+        return ['en', 'fr']
+      },
+
       // loads the language resource file from the server
       initLocalizedResources:function () {
         $log.debug('current lang: ' +  localize.language);

@@ -5,9 +5,35 @@ app.directive('lsDomainForm', [
     return {
       restrict: 'A',
       transclude: false,
-      scope: true,
-      controller: ['$scope', '$modal', '$log', 'Domain',
-        function($scope, $modal, $log, Domain) {
+      scope: {
+        reload: '&'
+      },
+      controller:
+        ['$scope', '$modal', '$log', 'Domain', 'LdapConnection', 'DomainPattern', 'UserRole', 'DomainPolicy', 'localize',
+        function($scope, $modal, $log, Domain, LdapConnection, DomainPattern, UserRole, DomainPolicy, localize) {
+          $scope.ldapConnections = []
+          $scope.domainPatterns = []
+          $scope.userRoles = []
+          $scope.domainPolicies = []
+          $scope.locales = localize.getAllLocales();
+          LdapConnection.getAll(function successCallback(ldapConnections) {
+            angular.forEach(ldapConnections, function(ldapConnection) {
+              $scope.ldapConnections.push(ldapConnection.identifier);
+            });
+          });
+          DomainPattern.getAll(function successCallback(domainPatterns) {
+            angular.forEach(domainPatterns, function(domainPattern) {
+              $scope.domainPatterns.push(domainPattern.identifier);
+            });
+          });
+          UserRole.getAll(function successCallback(userRoles) {
+            $scope.userRoles = userRoles;
+          });
+          DomainPolicy.getAll(function successCallback(domainPolicies) {
+            angular.forEach(domainPolicies, function(domainPolicy) {
+              $scope.domainPolicies.push(domainPolicy.identifier);
+            });
+          });
           $scope.addProvider = function() {
             $scope.domain.providers.push({
               ldapConnectionId: '',
@@ -51,7 +77,7 @@ app.directive('lsDomainForm', [
               modalInstance.result.then(
                 function validate() {
                   Domain.remove(
-                    domain,
+                    $scope.domain,
                     function successCallback() {
                       $scope.reload();
                     }
@@ -65,9 +91,10 @@ app.directive('lsDomainForm', [
             }
           };
           $scope.cancel = function() {
-            $scope.reload();
+            Domain.setCurrent(undefined);
           };
           $scope.reset = function() {
+            $scope.state = Domain.getState();
             $scope.domain = angular.copy(Domain.getCurrent());
           };
           $scope.$watch(Domain.getCurrent,

@@ -7,10 +7,11 @@ angular.module('myApp.controllers')
         $scope.getCurrentDomain = function() {
           return Domain.getCurrent();
         };
+        $scope.needReload = false;
         $scope.reload = function() {
+          $scope.needReload = true;
           Domain.setCurrent(undefined);
         };
-        $scope.reload();
       }
     ]
   );

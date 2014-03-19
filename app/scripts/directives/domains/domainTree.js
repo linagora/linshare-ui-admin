@@ -4,13 +4,26 @@ app.directive('lsDomainTree', [
   function() {
     return {
       restrict: 'A',
-      transclude: true,
-      scope: {},
+      transclude: false,
+      scope: {
+        needReload: '=reload'
+      },
       controller: ['$scope', '$modal', '$log', 'Domain', 'localize',
         function($scope, $modal, $log, Domain, localize) {
-          Domain.getDomainTree(function (domainTree){
-            $scope.rootDomain = domainTree;
-          });
+          function reload() {
+            Domain.getDomainTree(function (domainTree){
+              $scope.rootDomain = domainTree;
+            });
+          };
+          reload();
+          $scope.$watch('needReload',
+            function(newValue, oldValue) {
+              if (newValue && newValue !== oldValue) {
+                reload();
+                $scope.needReload = false;
+              }
+            }
+          );
           $scope.editDomain = function(domain) {
             Domain.setCurrent(domain);
           }
@@ -22,19 +35,13 @@ app.directive('lsDomainTree', [
             );
           };
           $scope.addTopDomain = function(rootDomain) {
-            Domain.setCurrent(
-              Domain.createTopDomainSample(rootDomain)
-            );
+            Domain.setCurrentTopDomainSample(rootDomain);
           };
           $scope.addSubDomain = function(topDomain) {
-            Domain.setCurrent(
-              Domain.createSubDomainSample(topDomain)
-            );
+            Domain.setCurrentSubDomainSample(topDomain);
           };
           $scope.addGuestDomain = function(topDomain) {
-            Domain.setCurrent(
-              Domain.createGuestDomainSample(topDomain)
-            );
+            Domain.setCurrentGuestDomainSample(topDomain);
           };
         }
       ],

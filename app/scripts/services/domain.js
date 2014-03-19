@@ -3,12 +3,13 @@
 angular.module('myApp.services')
   .factory('Domain',
     ['$log', 'Notification', 'Restangular',
-    function ($log, Motification, Restangular) {
+    function ($log, Notification, Restangular) {
       this.currentDomain = undefined;
+      this.state = undefined;
       
       function createSample(_parent, _type) {
         var sample = {};
-        sample.parent = _parent;
+        sample.parent = _parent.identifier;
         sample.type = _type;
         sample.providers = [];
         if(_type === 'GUESTDOMAIN') {
@@ -24,7 +25,7 @@ angular.module('myApp.services')
        * we need to put restangular route manually in all domains
        */
       function traverse(domain, rootDomain) {
-        domain.route = rootDomain.route;
+        Restangular.restangularizeElement(null, domain, rootDomain.route);
         if (!_.isEmpty(domain.children)) {
           angular.forEach(domain.children, function(child) {
             traverse(child, rootDomain);
@@ -115,24 +116,31 @@ angular.module('myApp.services')
             }
           );
         },
-        createTopDomainSample: function(rootDomain) {
-          $log.debug('Domain:createTopDomainSample');
-          return createSample(rootDomain, 'TOPDOMAIN');
+        setCurrentTopDomainSample: function(rootDomain) {
+          $log.debug('Domain:setCurrentTopDomainSample');
+          self.state = 'create';
+          self.currentDomain = createSample(rootDomain, 'TOPDOMAIN');
         },
-        createSubDomainSample: function(topDomain) {
-          $log.debug('Domain:createSubDomainSample');
-          return createSample(topDomain, 'SUBDOMAIN');
+        setCurrentSubDomainSample: function(topDomain) {
+          $log.debug('Domain:setCurrentSubDomainSample');
+          self.state = 'create';
+          self.currentDomain = createSample(topDomain, 'SUBDOMAIN');
         },
-        createGuestDomainSample: function(topDomain) {
-          $log.debug('Domain:createGuestDomainSample');
-          return createSample(topDomain, 'GUESTDOMAIN');
+        setCurrentGuestDomainSample: function(topDomain) {
+          $log.debug('Domain:setCurrentGuestDomainSample');
+          self.state = 'create';
+          self.currentDomain = createSample(topDomain, 'GUESTDOMAIN');
         },
         setCurrent: function(domain) {
           $log.debug('Domain:setCurrent');
+          self.state = 'edit';
           self.currentDomain = domain;
         },
         getCurrent: function() {
           return self.currentDomain;
+        },
+        getState: function() {
+          return self.state;
         },
         currentIsDefined: function() {
           return angular.isDefined(self.currentDomain);
