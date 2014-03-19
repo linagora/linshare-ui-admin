@@ -1,12 +1,16 @@
 <div class="row">
   <div class="container">
     <div class="page-header">
-      <h1>{{'P_Domains-Management_Title' | i18n}}</h1>
-
+      <h1>
+        {{'P_Domains-Management_Title' | i18n}}
+      </h1>
     </div>
-    <div x-ng-controller="DomainCreateFormCtrl">
-      <div class="span" x-ls-domain-tree></div>
-      <div class="span7" x-ls-domain-edit-form></div>
+    <div x-ng-controller="DomainManagementCtrl">
+      <div class="span" x-ls-domain-tree>
+      </div>
+      <div class="span7" x-ng-if="getCurrentDomain()">
+        <div x-ls-domain-form></div>
+      </div>
     </div>
   </div>
 </div>

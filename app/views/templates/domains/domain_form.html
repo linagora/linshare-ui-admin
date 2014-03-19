@@ -1,0 +1,78 @@
+<form name="domainForm" class="form-horizontal" x-ls-form-submit="submit()" x-ls-form-attempt>
+  <div class="modal-header">
+    <button type="button" class="close" x-ng-click="close()" aria-hidden="true">&times;</button>
+    <!-- Legend -->
+    <div x-ng-switch="domain.type">
+      <h4 x-ng-switch-when="TOPDOMAIN" x-i18n="P_Domains-Management_CreateTopDomainTitle|{{domain.parent.identifier}}"></h4>
+      <h4 x-ng-switch-when="SUBDOMAIN" x-i18n="P_Domains-Management_CreateSubDomainTitle|{{domain.parent.identifier}}"></h4>
+      <h4 x-ng-switch-when="GUESTDOMAIN" x-i18n="P_Domains-Management_CreateGuestDomainTitle|{{domain.parent.identifier}}"></h4>
+    </div>
+  </div>
+
+  <div class="modal-body">
+    <!-- Identifier -->
+    <div class="control-group"
+         x-ng-class="{error: domainForm.identifier.$invalid && (domainForm.identifier.$dirty || ls.domainForm.attempted)}">
+      <label class="control-label" for="identifier">{{'P_Domains-Management_IdentifierLabel' | i18n}}</label>
+      <div class="controls">
+        <input id="identifier" name="identifier" type="text" x-ng-model="domain.identifier"
+        class="input-xlarge" required>
+      </div>
+    </div>
+    
+    <!-- Name -->
+    <div class="control-group"
+         x-ng-class="{error: domainForm.name.$invalid && (domainForm.name.$dirty || ls.domainForm.attempted)}">
+      <label class="control-label" for="name">{{'P_Domains-Management_NameLabel' | i18n}}</label>
+      <div class="controls">
+        <input id="name" name="name" type="text" x-ng-model="domain.label"
+        class="input-xlarge" required>
+      </div>
+    </div>
+    
+    <!-- Description -->
+    <div class="control-group">
+      <label class="control-label" for="description">{{'P_Domains-Management_DescriptionLabel' | i18n}}</label>
+      <div class="controls">
+        <textarea id="description" name="description" class="input-xlarge" x-ng-model="domain.description"></textarea>
+      </div>
+    </div>
+
+    <!-- Locale -->
+    <div class="control-group"
+         x-ng-class="{error: domainForm.locale.$invalid && (domainForm.locale.$dirty || ls.domainForm.attempted)}">
+      <label class="control-label" for="locale">{{'P_Domains-Management_LocaleLabel' | i18n}}</label>
+      <div class="controls">
+        <select id="locale" name="locale" class="input-xlarge" x-ng-model="domain.locale" x-ng-options="l for l in locales" required>
+        </select>
+      </div>
+    </div>
+
+    <!-- User role -->
+    <div class="control-group" x-ng-show="domain.type!='GUESTDOMAIN'"
+         x-ng-class="{error: domainForm.userRole.$invalid && (domainForm.userRole.$dirty || ls.domainForm.attempted)}">
+      <label class="control-label" for="userRole">{{'P_Domains-Management_UserRoleLabel' | i18n}}</label>
+      <div class="controls">
+        <select id="userRole" name="userRole" class="input-xlarge" x-ng-model="domain.userRole" x-ng-options="u for u in userRoles" required>
+        </select>
+      </div>
+    </div>
+
+    <!-- Policy -->
+    <div class="control-group"
+         x-ng-class="{error: domainForm.policy.$invalid && (domainForm.policy.$dirty || ls.domainForm.attempted)}">
+      <label class="control-label" for="policy">{{'P_Domains-Management_PolicyLabel' | i18n}}</label>
+      <div class="controls">
+        <select id="policy" name="policy" class="input-xlarge" x-ng-model="domain.policy.identifier" x-ng-options="p for p in domainPolicies" required>
+        </select>
+      </div>
+    </div>
+  
+  <div class="modal-footer">
+    <!-- Validation -->
+    <button type="button" id="cancel" name="cancel" class="btn" x-ng-click="cancel()">{{'P_Domains-Management_Cancel' | i18n}}</button>
+    <button type="button" id="reset" name="reset" class="btn btn-warning" x-ng-click="reset()">{{'P_Domains-Management_Reset' | i18n}}</button>
+    <button type="submit" id="submit" name="submit"
+    class="btn btn-success" >{{'P_Domains-Management_Submit' | i18n}}</button>
+  </div>
+</form>

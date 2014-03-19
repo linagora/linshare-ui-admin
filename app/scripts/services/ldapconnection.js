@@ -5,6 +5,8 @@ angular.module('myApp.services')
     function ($log, Restangular, Notification) {
       this.currentLdapConnection = undefined;
 
+      var self = this;
+
       // Public API here
       return {
         getAll: function(successCallback) {
@@ -89,14 +91,13 @@ angular.module('myApp.services')
         },
         setCurrent: function(ldapConnection) {
           $log.debug('LdapConnection:setCurrent');
-          this.currentLdapConnection = ldapConnection;
+          self.currentLdapConnection = ldapConnection;
         },
         getCurrent: function() {
-          $log.debug('LdapConnection:getCurrent');
-          return this.currentLdapConnection;
+          return self.currentLdapConnection;
         },
         currentIsDefined: function() {
-          return angular.isDefined(this.currentLdapConnection);
+          return angular.isDefined(self.currentLdapConnection);
         }
       };
     }

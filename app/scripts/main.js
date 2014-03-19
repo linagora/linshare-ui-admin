@@ -77,29 +77,25 @@ require.config({
     // Filters
 
     // Controllers
+    'controllers/confirmDialog':
+        {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/grid':
-        {deps: ['controllers/controllers']},
-    'controllers/domainManagement':
         {deps: ['controllers/controllers']},
     'controllers/userManagement':
         {deps: ['controllers/controllers']},
     'controllers/loginForm':
         {deps: ['controllers/controllers', 'bootstrap']},
-    'controllers/confirmDialog':
-        {deps: ['controllers/controllers', 'bootstrap']},
-    'controllers/domainCreateForm':
-        {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/ldapconnection':
         {deps: ['controllers/controllers', 'ngtable']},
     'controllers/domainpattern':
         {deps: ['controllers/controllers', 'ngtable']},
+    'controllers/domainmanagement':
+        {deps: ['controllers/controllers', 'bootstrap']},
 
     // Services
     'services/preferences':
         {deps: ['services/services']},
     'services/userLogged':
-        {deps: ['services/services']},
-    'services/manageDomain':
         {deps: ['services/services']},
     'services/notification':
         {deps: ['services/services']},
@@ -122,13 +118,13 @@ require.config({
     'directives/administration/functionalityEditForm':
         {deps: ['directives/directives']},
 
-    'directives/domains/domainEditForm':
-        {deps: ['directives/directives']},
-    'directives/domains/domainTree':
-        {deps: ['directives/directives']},
     'directives/domains/ldapConnectionForm':
         {deps: ['directives/directives']},
     'directives/domains/domainPatternForm':
+        {deps: ['directives/directives']},
+    'directives/domains/domainTree':
+        {deps: ['directives/directives']},
+    'directives/domains/domainForm':
         {deps: ['directives/directives']},
     
     'directives/threads/threadGrid':
@@ -203,19 +199,17 @@ var dependencies = [
   // Filters
 
   // Controllers
+  'controllers/confirmDialog',
   'controllers/grid',
-  'controllers/domainManagement',
   'controllers/userManagement',
   'controllers/loginForm',
-  'controllers/domainCreateForm',
   'controllers/ldapconnection',
   'controllers/domainpattern',
-  'controllers/confirmDialog',
+  'controllers/domainmanagement',
 
   // Services
   'services/preferences',
   'services/userLogged',
-  'services/manageDomain',
   'services/notification',
   'services/domain',
   'services/domainpattern',
@@ -228,10 +222,10 @@ var dependencies = [
   'directives/administration/functionalityList',
   'directives/administration/functionalityEditForm',
 
-  'directives/domains/domainEditForm',
-  'directives/domains/domainTree',
   'directives/domains/ldapConnectionForm',
   'directives/domains/domainPatternForm',
+  'directives/domains/domainTree',
+  'directives/domains/domainForm',
 
   'directives/threads/threadMemberGrid',
   'directives/threads/threadGrid',

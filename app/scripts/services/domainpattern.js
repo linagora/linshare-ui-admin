@@ -13,6 +13,8 @@ angular.module('myApp.services')
         }
       };
 
+      var self = this;
+
       // Public API here
       return {
         getAll: function(successCallback) {
@@ -115,14 +117,13 @@ angular.module('myApp.services')
         },
         setCurrent: function(domainPattern) {
           $log.debug('DomainPattern:setCurrent');
-          this.currentDomainPattern = domainPattern;
+          self.currentDomainPattern = domainPattern;
         },
         getCurrent: function() {
-          $log.debug('DomainPattern:getCurrent');
-          return this.currentDomainPattern;
+          return self.currentDomainPattern;
         },
         currentIsDefined: function() {
-          return angular.isDefined(this.currentDomainPattern);
+          return angular.isDefined(self.currentDomainPattern);
         }
       };
     }

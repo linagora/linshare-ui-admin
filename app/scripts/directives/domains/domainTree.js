@@ -5,8 +5,15 @@ app.directive('lsDomainTree', [
     return {
       restrict: 'A',
       transclude: true,
-      controller: ['$scope', 'manageDomainService',
-        function($scope, $log, manageDomainService) {
+      scope: {},
+      controller: ['$scope', '$modal', '$log', 'Domain', 'localize',
+        function($scope, $modal, $log, Domain, localize) {
+          Domain.getDomainTree(function (domainTree){
+            $scope.rootDomain = domainTree;
+          });
+          $scope.editDomain = function(domain) {
+            Domain.setCurrent(domain);
+          }
           $scope.hasGuestDomain = function(topDomain) {
             return !_.isEmpty(
               _.find(topDomain.children, {
@@ -14,32 +21,21 @@ app.directive('lsDomainTree', [
               })
             );
           };
-          function hideEditForm() {
-            $scope.currentDomain = null;
-            $scope.$broadcast('currentDomainChanged');
-          }
-          $scope.configDomain = function(domain) {
-            $scope.currentDomain = domain;
-            $scope.$broadcast('currentDomainChanged');
-          };
           $scope.addTopDomain = function(rootDomain) {
-            hideEditForm();
-            manageDomainService.addChildDomain(rootDomain, 'TOPDOMAIN');
+            Domain.setCurrent(
+              Domain.createTopDomainSample(rootDomain)
+            );
           };
           $scope.addSubDomain = function(topDomain) {
-            hideEditForm();
-            manageDomainService.addChildDomain(topDomain, 'SUBDOMAIN');
+            Domain.setCurrent(
+              Domain.createSubDomainSample(topDomain)
+            );
           };
           $scope.addGuestDomain = function(topDomain) {
-            hideEditForm();
-            manageDomainService.addChildDomain(topDomain, 'GUESTDOMAIN');
+            Domain.setCurrent(
+              Domain.createGuestDomainSample(topDomain)
+            );
           };
-          $scope.$on('domainTreeNeedRefresh', function() {
-            manageDomainService.getAllDomains(function success(domains) {
-              $scope.rootDomain = domains;
-              hideEditForm();
-            });
-          });
         }
       ],
       templateUrl: '/views/templates/domains/domain_tree.html',

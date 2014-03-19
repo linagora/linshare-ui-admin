@@ -1,9 +1,23 @@
 'use strict';
 
 angular.module('myApp.services')
-  .factory('Domain', ['$log', 'Restangular',
-    function ($log, Restangular) {
+  .factory('Domain',
+    ['$log', 'Notification', 'Restangular',
+    function ($log, Motification, Restangular) {
       this.currentDomain = undefined;
+      
+      function createSample(_parent, _type) {
+        var sample = {};
+        sample.parent = _parent;
+        sample.type = _type;
+        sample.providers = [];
+        if(_type === 'GUESTDOMAIN') {
+          sample.userRole = 'SIMPLE';
+        }
+        return sample;
+      };
+
+      var self = this;
 
       /**
        * As domains are returned as tree, 
@@ -38,13 +52,90 @@ angular.module('myApp.services')
             }
           );
         },
+        add: function(domain, successCallback) {
+          $log.debug('Domain:add');
+          Restangular.all('domains').post(domain).then(
+            function success(domain) {
+              Notification.addSuccess('P_Domains-Management_CreateSuccess');
+              if (successCallback) {
+                successCallback(domain);
+              }
+            },
+            function error(response) {
+              $log.error(
+                [
+                 'Domain:add',
+                 'Unable to create a domain',
+                 domain,
+                 response
+                ].join('\n')
+              );
+            }
+          );
+        },
+        update: function(domain, successCallback) {
+          $log.debug('Domain:update');
+          domain.put().then(
+            function success(domain) {
+              Notification.addSuccess('P_Domains-Management_UpdateSuccess');
+              if (successCallback) {
+                successCallback(domain);
+              }
+            },
+            function error(response) {
+              $log.error(
+                [
+                 'Domain:update',
+                 'Unable to update a domain',
+                 domain,
+                 response
+                ].join('\n')
+              );
+            }
+          );
+        },
+        remove: function(domain, successCallback) {
+          $log.debug('Domain:remove');
+          domain.remove().then(
+            function success(domain) {
+              Notification.addSuccess('P_Domains-Management_DeleteSuccess');
+              if (successCallback) {
+                successCallback(domain);
+              }
+            },
+            function error(response) {
+              $log.error(
+                [
+                 'Domain:remove',
+                 'Unable to remove domain',
+                 domain,
+                 response
+                ].join('\n')
+              );
+            }
+          );
+        },
+        createTopDomainSample: function(rootDomain) {
+          $log.debug('Domain:createTopDomainSample');
+          return createSample(rootDomain, 'TOPDOMAIN');
+        },
+        createSubDomainSample: function(topDomain) {
+          $log.debug('Domain:createSubDomainSample');
+          return createSample(topDomain, 'SUBDOMAIN');
+        },
+        createGuestDomainSample: function(topDomain) {
+          $log.debug('Domain:createGuestDomainSample');
+          return createSample(topDomain, 'GUESTDOMAIN');
+        },
         setCurrent: function(domain) {
           $log.debug('Domain:setCurrent');
-          this.currentDomain = domain;
+          self.currentDomain = domain;
         },
         getCurrent: function() {
-          $log.debug('Domain:getCurrent');
-          return this.currentDomain;
+          return self.currentDomain;
+        },
+        currentIsDefined: function() {
+          return angular.isDefined(self.currentDomain);
         }
       };
     }

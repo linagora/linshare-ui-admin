@@ -62,6 +62,7 @@ app.directive('lsDomainPatternForm', [
           $scope.reset = function() {
             $scope.domainPattern = {};
             if (DomainPattern.currentIsDefined()) {
+              console.log(DomainPattern.getCurrent());
               $scope.state = 'edit';
               angular.copy(DomainPattern.getCurrent(), $scope.domainPattern);
             } else {
@@ -70,6 +71,9 @@ app.directive('lsDomainPatternForm', [
                 $scope.models = models;
                 $scope.models.push(emptyModel);
                 $scope.modelSelector = emptyModel;
+                $scope.$watch('modelSelector', function() {
+                  loadModel();
+                });
               });
             }
           };
@@ -77,9 +81,6 @@ app.directive('lsDomainPatternForm', [
             angular.copy($scope.modelSelector, $scope.domainPattern);
             $scope.domainPattern.identifier = "";
           };
-          $scope.$watch('modelSelector', function() {
-            loadModel();
-          });
           $scope.reset();
         }
       ],

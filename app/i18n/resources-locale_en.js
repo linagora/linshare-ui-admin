@@ -423,6 +423,14 @@
     "value": "<p>You are about to delete this domain, this procedure is irreversible and destroy all associated users.</p><p>Do you want to proceed?</p>",
     "description": "Confirmation text for domain deletion."
   },
+  "P_Domains-Management_ConfirmCancelText": {
+    "value": "<p>Any unsaved changes will be lost.</p><p>Would you like to continue?</p>",
+    "description": "Confirmation text for domain deletion."
+  },
+  "P_Domains-Management_Cancel": {
+    "value": "Cancel",
+    "description": "Label for the cancel button."
+  },
   "P_Domains-Management_Delete": {
     "value": "Delete",
     "description": "Label for the delete button."
