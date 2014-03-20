@@ -17,7 +17,6 @@ angular.module('myApp.services')
                 [
                  'DomainPolicy:getAll',
                  'Unable to get all domain policies',
-                 response
                 ].join('\n')
               );
             }

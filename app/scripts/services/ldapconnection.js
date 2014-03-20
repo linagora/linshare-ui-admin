@@ -20,7 +20,6 @@ angular.module('myApp.services')
                 [
                  'LdapConnection:getAll',
                  'Unable to get all ldap connections',
-                 response
                 ].join('\n')
               );
             }
@@ -40,10 +39,9 @@ angular.module('myApp.services')
                 [
                  'LdapConnection:add',
                  'Unable to create a ldap connection',
-                 ldapConnection,
-                 response
                 ].join('\n')
               );
+              $log.error(ldapConnection);
             }
           );
         },
@@ -61,10 +59,9 @@ angular.module('myApp.services')
                 [
                  'LdapConnection:update',
                  'Unable to update ldap connection',
-                 ldapConnection,
-                 response
                 ].join('\n')
               );
+              $log.error(ldapConnection);
             }
           );
         },
@@ -82,10 +79,9 @@ angular.module('myApp.services')
                 [
                  'LdapConnection:remove',
                  'Unable to remove ldap connection',
-                 ldapConnection,
-                 response
                 ].join('\n')
               );
+              $log.error(ldapConnection);
             }
           );
         },

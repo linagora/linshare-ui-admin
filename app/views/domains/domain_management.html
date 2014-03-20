@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div x-ng-controller="DomainManagementCtrl">
-      <div class="span" x-ls-domain-tree reload="needReload">
+      <div class="span" x-ls-domain-tree state="edit" root="root">
       </div>
       <div class="span7" x-ng-if="getCurrentDomain()">
         <div x-ls-domain-form reload="reload()"></div>

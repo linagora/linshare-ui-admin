@@ -17,7 +17,6 @@ angular.module('myApp.services')
                 [
                  'UserRole:getAll',
                  'Unable to get all user roles',
-                 response
                 ].join('\n')
               );
             }

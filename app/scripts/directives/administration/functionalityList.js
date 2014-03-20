@@ -4,60 +4,64 @@ app.directive('lsFunctionalityList', [
   function() {
     return {
       restrict: 'A',
-      transclude: false,
       link: function(scope, element, attrs) {
-          scope.showForm = false;
-          scope.spinner = false;
-          scope.showFunctionality = function(functionality) {
-            return functionality.activationPolicy.parentAllowUpdate 
-                  || functionality.configurationPolicy.parentAllowUpdate;
-          };
-          scope.$on('currentDomainChanged', function() {
-            if (!_.isNull(scope.currentDomain)) {
-              scope.showForm = true;
-            } else {
-              scope.showForm = false;
+        scope.spinner = false;
+        scope.showFunctionality = function(functionality) {
+          return functionality.activationPolicy.parentAllowUpdate 
+                || functionality.configurationPolicy.parentAllowUpdate;
+        };
+        scope.style = function(functionality) {
+          if (functionality.activationPolicy.status) {
+            return {
+              "background-color": "rgb(70, 136, 71)",
+              "color": "rgb(255, 255, 255)"
             }
-          });
-          scope.style = function(functionality) {
-            if (functionality.activationPolicy.status) {
-              return {
-                "background-color": "rgb(70, 136, 71)",
-                "color": "rgb(255, 255, 255)"
-              }
-            } else {
-              return {
-                "background-color": "rgb(100, 100, 100)",
-                "color": "rgb(255, 255, 255)"
-              }
+          } else {
+            return {
+              "background-color": "rgb(100, 100, 100)",
+              "color": "rgb(255, 255, 255)"
             }
           }
+        };
+        scope.isActivated = function(functionality) {
+          return functionality.activationPolicy.status;
+        };
       },
-      controller: ['$scope', '$route', '$log', 'Restangular', 'localize',
-        function($scope, $route, $log, Restangular, Localize) {
-          var getLocalizeFunctionalityName = function(functionality) {
-            var a = Localize.getLocalizedString('P_Administration-Functionalities_Func-' + functionality.identifier);
-            if (a == "") {
-                a = Localize.getLocalizedString('P_Administration-Functionalities_Func-UNDEFINED');
-                a += " (" + functionality.identifier + ")"
-            }
-            return a;
+      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'Functionality',
+        function($scope, $filter, $log, ngTableParams, Domain, Functionality) {
+          $scope.dataset = [];
+          $scope.reloadList = function() {
+            Functionality.getAll(Domain.getCurrent(), function(functionalities) { 
+              $scope.dataset = functionalities;
+            });
           };
-          $scope.functionalities = [];
-          $scope.$on('currentDomainChanged', function() {
-            if (!_.isNull($scope.currentDomain)) {
-              // Save the previous state
-              $scope.spinner = true;
-              Restangular.all('domains').all($scope.currentDomain.identifier).all('functionalities').getList().then(
-                function success(functionalities) {
-                  angular.forEach(functionalities, function(functionality) {
-                    functionality.name = getLocalizeFunctionalityName(functionality);
-                  });
-                  $scope.functionalities = functionalities;
-                  $scope.spinner = false;
-                }  
-              );
+          $scope.reloadList();
+          var getData = function() {
+            return $scope.dataset;
+          };
+          $scope.$watch("dataset", function () {
+            $scope.tableParams.reload();
+          });         
+          $scope.edit = function (functionality) {
+            Functionality.setCurrent(functionality);
+          };
+          $scope.tableParams = new ngTableParams({
+            page: 1,        // show first page
+            count: 10,      // count per page
+            sorting: {
+              localizedName: 'asc',
             }
+          }, {
+            debugMode: false,
+            total: function () { return getData().length; }, // length of data
+            getData: function($defer, params) {
+              var data = getData();
+              var orderedData = params.sorting() ?
+                        $filter('orderBy')(data, params.orderBy()) :
+                        data;
+              $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+            },
+            $scope: { $data: {} }
           });
         }
       ],

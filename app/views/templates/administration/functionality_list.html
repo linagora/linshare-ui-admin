@@ -1,18 +1,18 @@
-<h4>{{currentDomain.label}}<h4>
+<h4>{{currentDomain.label}}</h4>
 <div x-ng-show="spinner" class="spinner"></div>
 
-<accordion x-close-others="true" x-ng-show="!spinner">
-  <div x-ng-repeat="functionality in functionalities | orderBy: 'name'" x-ng-show="showFunctionality(functionality)">
-    <accordion-group>
-      <accordion-heading>
-        <span class="label" ng-style="style(functionality)">
-        <i x-ng-show="!functionality.activationPolicy.status" class="icon-remove icon-white"></i>
-        <i x-ng-show="functionality.activationPolicy.status" class="icon-ok icon-white"></i>
-          &nbsp;{{functionality.name}}
-        </span>
-        <span class="pull-right">{{getSaved()}}</span>
-      </accordion-heading>
-      <div x-ls-functionality-edit-form></div>
-    </accordion-group>
-  </div>
-</accordion>
+<table x-ng-table="tableParams" class="table">
+  <tr x-ng-repeat="functionality in $data" x-ng-click="edit(functionality)">
+    <td data-title="'P_Administration-Functionalities_Status' | i18n" sortable="'activationPolicy.status'">
+      <span x-ng-style="style(functionality)">
+        <i x-ng-show="isActivated(functionality)" class="icon-ok icon-white"></i>
+        <i x-ng-show="!isActivated(functionality)" class="icon-remove icon-white"></i>
+      </span>
+    </td>
+    <td data-title="'P_Administration-Functionalities_Name' | i18n" sortable="'localizedName'">
+      <span>
+        {{functionality.localizedName}}
+      </span>
+    </td>
+  </tr>
+</table>

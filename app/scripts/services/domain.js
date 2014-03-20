@@ -47,7 +47,6 @@ angular.module('myApp.services')
                 [
                  'Domain:getDomainTree',
                  'Unable to get domain tree',
-                 response
                 ].join('\n')
               );
             }
@@ -67,10 +66,9 @@ angular.module('myApp.services')
                 [
                  'Domain:add',
                  'Unable to create a domain',
-                 domain,
-                 response
                 ].join('\n')
               );
+              $log.error(domain);
             }
           );
         },
@@ -88,10 +86,9 @@ angular.module('myApp.services')
                 [
                  'Domain:update',
                  'Unable to update a domain',
-                 domain,
-                 response
                 ].join('\n')
               );
+              $log.error(domain);
             }
           );
         },
@@ -109,10 +106,9 @@ angular.module('myApp.services')
                 [
                  'Domain:remove',
                  'Unable to remove domain',
-                 domain,
-                 response
                 ].join('\n')
               );
+              $log.error(domain);
             }
           );
         },

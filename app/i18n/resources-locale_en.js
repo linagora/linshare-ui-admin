@@ -647,13 +647,13 @@
     "value": "Status",
     "description": "Checkbox label for functionality status."
   },
+  "P_Administration-Functionalities_Name": {
+    "value": "Functionality name",
+    "description": "Label for functionality name."
+  },
   "P_Administration-Functionalities_Reset": {
     "value": "Reset to parent value",
     "description": "Button label to reset the funcitonality to parent value."
-  },
-  "P_Administration-Functionalities_Func-UNDEFINED": {
-    "value": "Undefined functionality name",
-    "description": "Functionality name"
   },
   "P_Administration-Functionalities_Func-QUOTA_USER": {
     "value": "Quota user",
@@ -733,6 +733,10 @@
   },
   "P_Administration-Functionalities_Func-TAB_THREAD": {
     "value": "Tab Thread",
+    "description": "Functionality name"
+  },
+  "P_Administration-Functionalities_Func-TAB_LIST": {
+    "value": "Tab List",
     "description": "Functionality name"
   },
   "P_Administration-Functionalities_Func-RESTRICTED_GUEST": {

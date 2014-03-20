@@ -28,7 +28,6 @@ angular.module('myApp.services')
                 [
                  'DomainPattern:getAll',
                  'Unable to get all ldap connections',
-                 response
                 ].join('\n')
               );
             }
@@ -48,10 +47,9 @@ angular.module('myApp.services')
                 [
                  'DomainPattern:add',
                  'Unable to create a ldap connection',
-                 domainPattern,
-                 response
                 ].join('\n')
               );
+              $log.error(domainPattern);
             }
           );
         },
@@ -69,10 +67,9 @@ angular.module('myApp.services')
                 [
                  'DomainPattern:update',
                  'Unable to update ldap connection',
-                 domainPattern,
-                 response
                 ].join('\n')
               );
+              $log.error(domainPattern);
             }
           );
         },
@@ -90,10 +87,9 @@ angular.module('myApp.services')
                 [
                  'DomainPattern:remove',
                  'Unable to remove ldap connection',
-                 domainPattern,
-                 response
                 ].join('\n')
               );
+              $log.error(domainPattern);
             }
           );
         },
@@ -110,7 +106,6 @@ angular.module('myApp.services')
                 [
                  'DomainPattern:remove',
                  'Unable to remove ldap connection',
-                 response
                 ].join('\n')
               );
             });

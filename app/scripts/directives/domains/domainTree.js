@@ -4,27 +4,13 @@ app.directive('lsDomainTree', [
   function() {
     return {
       restrict: 'A',
-      transclude: false,
       scope: {
-        needReload: '=reload'
+        state: '@',
+        root: "="
       },
       controller: ['$scope', '$modal', '$log', 'Domain', 'localize',
         function($scope, $modal, $log, Domain, localize) {
-          function reload() {
-            Domain.getDomainTree(function (domainTree){
-              $scope.rootDomain = domainTree;
-            });
-          };
-          reload();
-          $scope.$watch('needReload',
-            function(newValue, oldValue) {
-              if (newValue && newValue !== oldValue) {
-                reload();
-                $scope.needReload = false;
-              }
-            }
-          );
-          $scope.editDomain = function(domain) {
+          $scope.setCurrentDomain = function(domain) {
             Domain.setCurrent(domain);
           }
           $scope.hasGuestDomain = function(topDomain) {
@@ -34,14 +20,33 @@ app.directive('lsDomainTree', [
               })
             );
           };
-          $scope.addTopDomain = function(rootDomain) {
-            Domain.setCurrentTopDomainSample(rootDomain);
+          $scope.canAddChildDomain = function(domain) {
+            return $scope.state === 'edit' && 
+              (domain.type === 'TOPDOMAIN' || domain.type === 'ROOTDOMAIN');
           };
-          $scope.addSubDomain = function(topDomain) {
-            Domain.setCurrentSubDomainSample(topDomain);
+          $scope.canAddTopDomain = function(domain) {
+            return domain.type === 'ROOTDOMAIN';
           };
-          $scope.addGuestDomain = function(topDomain) {
-            Domain.setCurrentGuestDomainSample(topDomain);
+          $scope.addTopDomain = function(domain) {
+            Domain.setCurrentTopDomainSample(domain);
+          };
+          $scope.canAddSubDomain = function(domain) {
+            return domain.type === 'TOPDOMAIN';
+          };
+          $scope.addSubDomain = function(domain) {
+            Domain.setCurrentSubDomainSample(domain);
+          };
+          $scope.canAddGuestDomain = function(domain) {
+            return (domain.type === 'TOPDOMAIN' &&
+              _.isEmpty(
+                _.find(domain.children, {
+                  'type': 'GUESTDOMAIN'
+                })
+              )
+            );
+          };
+          $scope.addGuestDomain = function(domain) {
+            Domain.setCurrentGuestDomainSample(domain);
           };
         }
       ],

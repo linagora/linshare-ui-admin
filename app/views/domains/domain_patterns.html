@@ -27,10 +27,10 @@
         </div>
         <table x-ng-table="tableParams" class="table">
           <tr x-ng-repeat="domainPattern in $data" x-ng-click="edit(domainPattern)">
-            <td data-title="'P_Domains-DomainPatterns_IdentifierLabel' | i18n" sortable="identifier">
+            <td data-title="'P_Domains-DomainPatterns_IdentifierLabel' | i18n" sortable="'identifier'">
               <span>{{domainPattern.identifier}}</span>
             </td>
-            <td data-title="'P_Domains-DomainPatterns_DescriptionLabel' | i18n" sortable="providerUrl">
+            <td data-title="'P_Domains-DomainPatterns_DescriptionLabel' | i18n" sortable="'description'">
               <span>{{domainPattern.description}}</span>
             </td>
           </tr>

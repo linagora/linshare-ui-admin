@@ -91,6 +91,8 @@ require.config({
         {deps: ['controllers/controllers', 'ngtable']},
     'controllers/domainmanagement':
         {deps: ['controllers/controllers', 'bootstrap']},
+    'controllers/functionalitymanagement':
+        {deps: ['controllers/controllers', 'bootstrap']},
 
     // Services
     'services/preferences':
@@ -109,10 +111,10 @@ require.config({
         {deps: ['services/services']},
     'services/userrole':
         {deps: ['services/services']},
+    'services/functionality':
+        {deps: ['services/services']},
 
     // Directives
-    'directives/administration/functionalityTree':
-        {deps: ['directives/directives']},
     'directives/administration/functionalityList':
         {deps: ['directives/directives']},
     'directives/administration/functionalityEditForm':
@@ -206,6 +208,7 @@ var dependencies = [
   'controllers/ldapconnection',
   'controllers/domainpattern',
   'controllers/domainmanagement',
+  'controllers/functionalitymanagement',
 
   // Services
   'services/preferences',
@@ -216,9 +219,9 @@ var dependencies = [
   'services/ldapconnection',
   'services/domainpolicy',
   'services/userrole',
+  'services/functionality',
 
   // Directives
-  'directives/administration/functionalityTree',
   'directives/administration/functionalityList',
   'directives/administration/functionalityEditForm',
 

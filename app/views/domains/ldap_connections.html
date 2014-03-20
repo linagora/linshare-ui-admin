@@ -27,10 +27,10 @@
         </div>
         <table x-ng-table="tableParams" class="table">
           <tr x-ng-repeat="ldapConnection in $data" x-ng-click="edit(ldapConnection)">
-            <td data-title="'P_Domains-LDAPConnections_IdentifierLabel' | i18n" sortable="identifier">
+            <td data-title="'P_Domains-LDAPConnections_IdentifierLabel' | i18n" sortable="'identifier'">
               <span>{{ldapConnection.identifier}}</span>
             </td>
-            <td data-title="'P_Domains-LDAPConnections_ProviderURLLabel' | i18n" sortable="providerUrl">
+            <td data-title="'P_Domains-LDAPConnections_ProviderURLLabel' | i18n" sortable="'providerUrl'">
               <span>{{ldapConnection.providerUrl}}</span>
             </td>
           </tr>

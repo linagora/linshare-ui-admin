@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp.controllers')
-  .controller('DomainManagementCtrl',
+  .controller('FunctionalityManagementCtrl',
     ['$scope', '$log', 'Domain',
       function ($scope, $log, Domain) {
         $scope.getCurrentDomain = function() {
