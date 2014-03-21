@@ -30,12 +30,17 @@ app.directive('lsFunctionalityList', [
       controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'Functionality',
         function($scope, $filter, $log, ngTableParams, Domain, Functionality) {
           $scope.dataset = [];
-          $scope.reloadList = function() {
-            Functionality.getAll(Domain.getCurrent(), function(functionalities) { 
-              $scope.dataset = functionalities;
-            });
-          };
-          $scope.reloadList();
+          $scope.$watch(Domain.getCurrent,
+            function(newValue, oldValue) {
+              if (angular.isDefined(newValue)) {
+                $scope.domain = newValue;
+                Functionality.getAll(newValue, function(functionalities) { 
+                  $scope.dataset = functionalities;
+                });
+              }
+            },
+            true
+          );
           var getData = function() {
             return $scope.dataset;
           };
@@ -47,7 +52,7 @@ app.directive('lsFunctionalityList', [
           };
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
-            count: 10,      // count per page
+            count: 25,      // count per page
             sorting: {
               localizedName: 'asc',
             }

@@ -1,41 +1,44 @@
 <div class="row">
-  <div class="container">
-    <div class="page-header">
-       <h1>{{'P_Domains-LDAPConnections_Title' | i18n}}</h1>
+  <div class="page-header">
+     <h1>{{'P_Domains-LDAPConnections_Title' | i18n}}</h1>
+  </div>
+  <div x-ng-controller="LdapConnectionCtrl">
 
-    </div>
-    <div x-ng-controller="LdapConnectionCtrl">
-      <div x-ng-if="viewForm">
-        <div class="btn-toolbar">
-          <button class="btn btn-primary" type="button" x-ng-click="switchView()">
-            <span>
-              <i class="icon-list icon-white"></i> 
-              {{'P_Domains-LDAPConnections_List' | i18n}}
-            </span>
-          </button>
-        </div>
-        <div x-ls-ldap-connection-form></div>
-      </div>
-      <div x-ng-if="!viewForm">
-        <div class="btn-toolbar">
-          <button class="btn btn-primary" type="button" x-ng-click="resetForm();switchView()">
+    <!-- Form -->
+
+    <div x-ng-if="viewForm">
+      <div class="btn-toolbar">
+        <button class="btn btn-primary" type="button" x-ng-click="switchView()">
           <span>
-            <i class="icon-plus icon-white"></i> 
-            {{'P_Domains-LDAPConnections_Add' | i18n}}
+            <i class="icon-list icon-white"></i> 
+            {{'P_Domains-LDAPConnections_List' | i18n}}
           </span>
-          </button>
-        </div>
-        <table x-ng-table="tableParams" class="table">
-          <tr x-ng-repeat="ldapConnection in $data" x-ng-click="edit(ldapConnection)">
-            <td data-title="'P_Domains-LDAPConnections_IdentifierLabel' | i18n" sortable="'identifier'">
-              <span>{{ldapConnection.identifier}}</span>
-            </td>
-            <td data-title="'P_Domains-LDAPConnections_ProviderURLLabel' | i18n" sortable="'providerUrl'">
-              <span>{{ldapConnection.providerUrl}}</span>
-            </td>
-          </tr>
-        </table>
+        </button>
       </div>
+      <div x-ls-ldap-connection-form></div>
+    </div>
+
+    <!-- List -->
+
+    <div x-ng-if="!viewForm">
+      <div class="btn-toolbar">
+        <button class="btn btn-primary" type="button" x-ng-click="resetForm();switchView()">
+        <span>
+          <i class="icon-plus icon-white"></i> 
+          {{'P_Domains-LDAPConnections_Add' | i18n}}
+        </span>
+        </button>
+      </div>
+      <table x-ng-table="tableParams" class="table">
+        <tr x-ng-repeat="ldapConnection in $data" x-ng-click="edit(ldapConnection)">
+          <td data-title="'P_Domains-LDAPConnections_IdentifierLabel' | i18n" sortable="'identifier'">
+            <span>{{ldapConnection.identifier}}</span>
+          </td>
+          <td data-title="'P_Domains-LDAPConnections_ProviderURLLabel' | i18n" sortable="'providerUrl'">
+            <span>{{ldapConnection.providerUrl}}</span>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

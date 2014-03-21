@@ -1,14 +1,14 @@
-<div class="row">
-  <div class="container">
+<div class="container">
+  <div class="row-fluid">
     <div class="page-header">
       <h1>
         {{'P_Domains-Management_Title' | i18n}}
       </h1>
     </div>
     <div x-ng-controller="DomainManagementCtrl">
-      <div class="span" x-ls-domain-tree state="edit" root="root">
+      <div class="span4" x-ls-domain-tree state="edit" root="root">
       </div>
-      <div class="span7" x-ng-if="getCurrentDomain()">
+      <div class="span8" x-ng-if="getCurrentDomain()">
         <div x-ls-domain-form reload="reload()"></div>
       </div>
     </div>

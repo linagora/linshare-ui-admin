@@ -6,6 +6,7 @@ angular.module('myApp.services')
     function ($log, Notification, Restangular) {
       this.currentDomain = undefined;
       this.state = undefined;
+      this.lastAccess = undefined;
       
       function createSample(_parent, _type) {
         var sample = {};
@@ -130,7 +131,11 @@ angular.module('myApp.services')
         setCurrent: function(domain) {
           $log.debug('Domain:setCurrent');
           self.state = 'edit';
+          self.lastAccess = Date.now();
           self.currentDomain = domain;
+        },
+        getLastAccess: function() {
+          return self.lastAccess;
         },
         getCurrent: function() {
           return self.currentDomain;

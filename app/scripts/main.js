@@ -117,7 +117,7 @@ require.config({
     // Directives
     'directives/administration/functionalityList':
         {deps: ['directives/directives']},
-    'directives/administration/functionalityEditForm':
+    'directives/administration/functionalityForm':
         {deps: ['directives/directives']},
 
     'directives/domains/ldapConnectionForm':
@@ -223,7 +223,7 @@ var dependencies = [
 
   // Directives
   'directives/administration/functionalityList',
-  'directives/administration/functionalityEditForm',
+  'directives/administration/functionalityForm',
 
   'directives/domains/ldapConnectionForm',
   'directives/domains/domainPatternForm',

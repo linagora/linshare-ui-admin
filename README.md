@@ -74,6 +74,8 @@ pour connaitre AngularJS et les bonnes pratiques:
 * [https://github.com/angular/angular.js/wiki](https://github.com/angular/angular.js/wiki)
 * [http://www.youtube.com/watch?v=ZhfUv0spHCY](http://www.youtube.com/watch?v=ZhfUv0spHCY)
 * [http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY](http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY)
+* [http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/](http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/)
+* [http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/](http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/)
 
 Guide de style:
 
@@ -97,6 +99,7 @@ Vos questions existentielles:
 * [http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula](http://stackoverflow.com/questions/12546945/difference-between-the-controller-and-link-functions-when-defining-an-angula)
 * [http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699](http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers/14168699#14168699)
 * [https://gist.github.com/Mithrandir0x/3639232](https://gist.github.com/Mithrandir0x/3639232)
+* [http://www.unknownerror.org/Problem/index/1192601623/why-use-angularisdefined-and-angularisundefined-closed/](http://www.unknownerror.org/Problem/index/1192601623/why-use-angularisdefined-and-angularisundefined-closed/)
 
 Les exemples fournis par angular
 
@@ -113,6 +116,7 @@ Les pros :
 * [Igor Minar](https://github.com/IgorMinar) [blog](http://blog.igorminar.com/)
 * [Matias Niemelä](https://github.com/matsko) [blog](http://www.yearofmoo.com/)
 * [Vojta Jina](https://github.com/vojtajina)
+* [Brian Ford](https://github.com/btford)[blog](http://briantford.com/blog/)
 
 ### Difference entre link et controller, dans une directive
 La fonction link ne s'occupe que de la manipulation de la vue (gestion des cliques, des class css etc ...)

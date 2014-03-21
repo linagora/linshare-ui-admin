@@ -99,7 +99,7 @@ app.directive('lsDomainForm', [
           };
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
-              if (newValue && newValue !== oldValue) {
+              if (angular.isDefined(newValue) && newValue !== oldValue) {
                 $scope.reset();
               }
             },
