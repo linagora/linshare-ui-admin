@@ -6,7 +6,7 @@
 </div>
 <div class="row-fluid">
   <form class="well span6"
-        x-ng-show="showActivation()">
+        x-ng-if="showActivation()">
     <h5>{{'P_Administration-Functionalities_ActivationPolicy' | i18n}}</h5>
     <label class="radio control-label">
         <input type="radio" name="activationRadios" id="activationRadios2" value="MANDATORY"
@@ -71,7 +71,7 @@
 
 <div class="row-fluid">
   <form name="paramForm" class="well span6"
-        x-ng-show="showConfiguration()">
+        x-ng-if="showConfiguration()">
     <h5>{{'P_Administration-Functionalities_Parameters' | i18n}}</h5>
     <div x-ng-repeat="parameter in functionality.parameters">
       <div x-ng-switch="parameter.type">
@@ -132,7 +132,7 @@
   </form>
   <div class="span6">
     <div class="control-group"
-         x-ng-show="!isRootDomain()">
+         x-ng-if="!isRootDomain()">
       <div class="controls">
         <button class="btn btn-danger" type="button"
                 x-ng-click="resetToParent()">

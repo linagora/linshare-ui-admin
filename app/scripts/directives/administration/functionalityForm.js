@@ -70,8 +70,11 @@ app.directive('lsFunctionalityForm', [
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
                 if (angular.isDefined($scope.domain)) {
-                  $scope.update();
-                  Functionality.setCurrent(undefined);
+                  Functionality.update($scope.functionality,
+                    function successCallback(functionality) {
+                      Functionality.setCurrent(undefined);
+                    }
+                  );
                 }
                 $scope.domain = Domain.getCurrent();
               }
