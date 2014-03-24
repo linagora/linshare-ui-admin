@@ -29,8 +29,8 @@ var app = angular.module('myApp', [
 }])
 
 // Register work which should be performed when the injector is done loading all modules 
-.run(['$log', 'localize', 'preferencesService', 'userLoggedService', 'Restangular', 'Notification',
-  function($log, Localize, Preferences, userLogged, Restangular, Notification) {
+.run(['$log', 'localize', 'preferencesService', 'Restangular', 'Notification',
+  function($log, Localize, Preferences, Restangular, Notification) {
     Restangular.setErrorInterceptor(function(response) {
       $log.error(response);
       if (response.status === 400) {

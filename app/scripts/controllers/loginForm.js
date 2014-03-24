@@ -5,7 +5,7 @@ app.controller('LoginFormCtrl', ['$scope', '$log', '$modal',
     var modalInstance = undefined;
     $scope.$on('event:auth-loginRequired', function() {
       $log.debug('event:auth-loginRequired received');
-      if (_.isUndefined(modalInstance)) {
+      if (angular.isUndefined(modalInstance)) {
         modalInstance = $modal.open({
           backdrop: 'static',
           controller: LoginModalInstanceCtrl,
@@ -24,36 +24,18 @@ app.controller('LoginFormCtrl', ['$scope', '$log', '$modal',
 
 var LoginModalInstanceCtrl = 
 [ '$scope',
-  '$log',
   '$modalInstance',
-  'Restangular',
-  'authService',
-  function ($scope, $log, $modalInstance, Restangular, authService) {
+  'Authentication',
+  function ($scope, $modalInstance, Authentication) {
     // Need this variable to store modal inputs
     // because of Javascript's prototypical inheritance
     $scope.input = {};
 
     $scope.submit = function() {
-      $log.debug('submit login form');
-      var success = function(data) {
-        $log.debug('Authentication succeed');
-        authService.loginConfirmed(data);
-        $log.debug('Connected as ' + data.mail);
-        $log.debug('Authentication data' + data);
-      };
-      var error = function(data) {
+      var errorCallback = function() {
         $scope.errorLogin = 'Bad credentials';
-        $log.debug('Authentication failed');
-        $log.debug('Authentication data' + data);
       };
-
-      Restangular.all('authentication').customGET('authorized', {
-        // QueryParams - Bypass the module authService
-        ignoreAuthModule: true
-      }, {
-        // Headers - Add login password
-        Authorization: 'Basic ' + Base64.encode($scope.input.login + ':' + $scope.input.password)
-      }).then(success, error);
+      Authentication.request($scope.input.login, $scope.input.password, errorCallback);
     };
 
     this.close = function() {

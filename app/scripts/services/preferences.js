@@ -24,4 +24,5 @@ angular.module('myApp.services')
     this.$get = [function preferencesServiceFactory() {
       return new Preferences(settings);
     }];
-  });
+  }
+);

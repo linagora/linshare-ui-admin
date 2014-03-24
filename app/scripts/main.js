@@ -97,7 +97,9 @@ require.config({
     // Services
     'services/preferences':
         {deps: ['services/services']},
-    'services/userLogged':
+    'services/authentication':
+        {deps: ['services/services']},
+    'services/tab':
         {deps: ['services/services']},
     'services/notification':
         {deps: ['services/services']},
@@ -212,7 +214,8 @@ var dependencies = [
 
   // Services
   'services/preferences',
-  'services/userLogged',
+  'services/authentication',
+  'services/tab',
   'services/notification',
   'services/domain',
   'services/domainpattern',

@@ -40,10 +40,10 @@
         x-ng-show="showConfiguration()">
     <h5>{{'P_Administration-Functionalities_ConfigurationPolicy' | i18n}}</h5>
     <label class="radio control-label">
-        <input type="radio" name="configurationRadios" id="configurationRadios0" value="FORBIDDEN"
+        <input type="radio" name="configurationRadios" id="configurationRadios2" value="MANDATORY"
                x-ng-model="functionality.configurationPolicy.policy"
                x-ng-change="update()">
-        {{'P_Administration-Functionalities_Forbidden' | i18n}}
+        {{'P_Administration-Functionalities_Mandatory' | i18n}}
     </label>
     <label class="radio control-label">
         <input type="radio" name="configurationRadios" id="configurationRadios1" value="ALLOWED"
@@ -53,10 +53,10 @@
         {{'P_Administration-Functionalities_Allow' | i18n}}
     </label>
     <label class="radio control-label">
-        <input type="radio" name="configurationRadios" id="configurationRadios2" value="MANDATORY"
+        <input type="radio" name="configurationRadios" id="configurationRadios0" value="FORBIDDEN"
                x-ng-model="functionality.configurationPolicy.policy"
                x-ng-change="update()">
-        {{'P_Administration-Functionalities_Mandatory' | i18n}}
+        {{'P_Administration-Functionalities_Forbidden' | i18n}}
     </label>
     <br>
     <label class="checkbox">
