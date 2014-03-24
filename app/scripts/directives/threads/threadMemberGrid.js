@@ -6,15 +6,15 @@ app.directive('lsThreadMemberGrid', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$routeParams', '$log', 'localize', 'Restangular',
-        function($scope, $routeParams, $log, Localize, Restangular) {
+      controller: ['$scope', '$routeParams', '$log', 'Restangular', 'localize',
+        function($scope, $routeParams, $log, Restangular, localize) {
           $scope.getData = function(successCallback) {
             return Restangular.one('threads', $routeParams.threadId).getList('members')
               .then(successCallback);
           };
 
           $scope.gridOptions = {
-            i18n: Localize.getSimpleLanguage(),
+            i18n: localize.getSimpleLanguage(),
             data: 'myData',
             selectedItems: $scope.threadSelections,
             displayFooter: false,

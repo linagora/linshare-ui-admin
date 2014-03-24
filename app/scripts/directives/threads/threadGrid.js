@@ -6,8 +6,8 @@ app.directive('lsThreadGrid', [
       restrict: 'A',
       transclude: true,
       scope: false,
-      controller: ['$scope', '$log', 'localize', 'Restangular', 'Notification',
-        function($scope, $log, Localize, Restangular, Notification) {
+      controller: ['$scope', '$log', 'Restangular', 'Notification', 'localize',
+        function($scope, $log, Restangular, Notification, localize) {
           $scope.getData = function(successCallback) {
             return Restangular.all('threads').getList()
               .then(successCallback);
@@ -25,7 +25,7 @@ app.directive('lsThreadGrid', [
           }, true);
 
           $scope.gridOptions = {
-            i18n: Localize.getSimpleLanguage(),
+            i18n: localize.getSimpleLanguage(),
             data: 'myData',
             selectedItems: $scope.selections,
             multiSelect: false,
@@ -42,22 +42,22 @@ app.directive('lsThreadGrid', [
             },
             columnDefs: [{
                 field: 'name',
-                displayName: Localize.getLocalizedString('P_Threads-Grid_Name'),
+                displayName: localize.getLocalizedString('P_Threads-Grid_Name'),
               }, {
                 field: 'modificationDate',
-                displayName: Localize.getLocalizedString('P_Threads-Grid_ModificationDate'),
+                displayName: localize.getLocalizedString('P_Threads-Grid_ModificationDate'),
                 width: 200,
                 cellFilter: "date:'dd/MM/yyyy HH:mm'"
               }, {
                 field: '',
-                displayName: Localize.getLocalizedString('P_Threads-Grid_Actions'),
+                displayName: localize.getLocalizedString('P_Threads-Grid_Actions'),
                 width: 120,
                 cellClass: 'ngCellText ',
                 headerClass: 'ngHeaderCell ',
                 cellTemplate: '<div class="btn-toobar">' +
                               '<div class="btn-group">' +
-                              '<button ng-click="edit(row)" class="btn btn-mini"><i class="icon-black icon-pencil"></i> ' + Localize.getLocalizedString('P_Threads-Grid_Edit') +  '</button>' +
-                              '<button ng-click="delete(row)" class="btn btn-mini"><i class="icon-black icon-trash"></i>' + Localize.getLocalizedString('P_Threads-Grid_Delete') +  '</button>' +
+                              '<button ng-click="edit(row)" class="btn btn-mini"><i class="icon-black icon-pencil"></i> ' + localize.getLocalizedString('P_Threads-Grid_Edit') +  '</button>' +
+                              '<button ng-click="delete(row)" class="btn btn-mini"><i class="icon-black icon-trash"></i>' + localize.getLocalizedString('P_Threads-Grid_Delete') +  '</button>' +
                               '</div>' +
                               '</div>'
               }

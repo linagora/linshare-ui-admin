@@ -6,9 +6,9 @@ app.directive('lsNavbar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$log', 'Authentication', 'localize', 'preferencesService', 'Tab',
-        function($scope, $log, Authentication, Localize, Preferences, Tab) {
-          $scope.appName = Preferences.system.appName;
+      controller: ['$scope', '$log', 'Authentication', 'localize', 'preferences', 'Tab',
+        function($scope, $log, Authentication, localize, preferences, Tab) {
+          $scope.appName = preferences.system.appName;
 
           $scope.$watch(Authentication.getCurrentUser,
             function(newValue, oldValue) {
@@ -21,11 +21,11 @@ app.directive('lsNavbar', [
           );
 
           $scope.setLanguage = function(value) {
-            Localize.setLanguage(value);
+            localize.setLanguage(value);
           };
 
           $scope.isCurrentLang = function(value) {
-            return Localize.getSimpleLanguage() === value;
+            return localize.getSimpleLanguage() === value;
           };
 
           $scope.logout = function() {

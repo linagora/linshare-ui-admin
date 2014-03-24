@@ -9,18 +9,18 @@ app.directive('lsUserList', [
       link: function(scope, element, attrs) {
         scope.searching = false;
       },
-      controller: ['$scope', 'localize', 'Restangular',
-        function($scope, Localize, Restangular) {
+      controller: ['$scope', 'Restangular', 'localize',
+        function($scope, Restangular, localize) {
           var allAccountType = { 
-            display: Localize.getLocalizedString('P_Users-Management_AccountTypeAll'),
+            display: localize.getLocalizedString('P_Users-Management_AccountTypeAll'),
             value: null
           };
           $scope.accountTypes = [
             allAccountType, {
-              display: Localize.getLocalizedString('P_Users-Management_AccountTypeInternal'), 
+              display: localize.getLocalizedString('P_Users-Management_AccountTypeInternal'), 
               value: 'internals'
             }, {
-              display: Localize.getLocalizedString('P_Users-Management_AccountTypeGuest'),
+              display: localize.getLocalizedString('P_Users-Management_AccountTypeGuest'),
               value: 'guests'
           }];
           $scope.accountType = allAccountType;
@@ -71,7 +71,7 @@ app.directive('lsUserList', [
           });
 
           $scope.gridOptions = {
-            i18n: Localize.getSimpleLanguage(),
+            i18n: localize.getSimpleLanguage(),
             data: 'myData',
             selectedItems: $scope.selections,
             multiSelect: false,
@@ -82,19 +82,19 @@ app.directive('lsUserList', [
             filterOptions: $scope.filterOptions,
             columnDefs: [{
                 field: 'firstName',
-                displayName: Localize.getLocalizedString('P_Users-Management_FirstName'),
+                displayName: localize.getLocalizedString('P_Users-Management_FirstName'),
               }, {
                 field: 'lastName',
-                displayName: Localize.getLocalizedString('P_Users-Management_LastName'),
+                displayName: localize.getLocalizedString('P_Users-Management_LastName'),
               }, {
                 field: 'mail',
-                displayName: Localize.getLocalizedString('P_Users-Management_Mail'),
+                displayName: localize.getLocalizedString('P_Users-Management_Mail'),
               }, {
                 field: 'domain',
-                displayName: Localize.getLocalizedString('P_Users-Management_Domain'),
+                displayName: localize.getLocalizedString('P_Users-Management_Domain'),
               }, {
                 field: 'role',
-                displayName: Localize.getLocalizedString('P_Users-Management_Role'),
+                displayName: localize.getLocalizedString('P_Users-Management_Role'),
               }
             ],
             plugins: [new ngGridFlexibleHeightPlugin()]

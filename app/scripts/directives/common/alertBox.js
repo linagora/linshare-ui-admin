@@ -5,8 +5,8 @@ app.directive('lsAlertBox', [
     return {
       restrict: 'A',
       scope: false,
-      controller: ['$scope', 'localize',
-        function($scope, Localize) {
+      controller: ['$scope',
+        function($scope) {
           $scope.alerts = [];
           $scope.$on('pushAlert', function(event, newAlert, message) {
             $scope.alerts.push(newAlert);

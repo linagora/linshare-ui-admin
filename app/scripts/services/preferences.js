@@ -7,8 +7,8 @@ function Preferences(settings) {
 };
 
 angular.module('myApp.services')
-  .provider('preferencesService',
-  function PreferencesServiceProvider() {
+  .provider('preferences',
+  function PreferencesProvider() {
     var settings = {};
     this.loadSettings = function() {
       var url = '/system-preferences.json';
@@ -21,7 +21,7 @@ angular.module('myApp.services')
       settings = JSON.parse(request.responseText);
       return settings;
     };
-    this.$get = [function preferencesServiceFactory() {
+    this.$get = [function preferencesFactory() {
       return new Preferences(settings);
     }];
   }

@@ -15,8 +15,8 @@ app.directive('lsUserEditForm', ['$timeout',
         scope.showUserEditForm = false;
         scope.today = new Date();
       },
-      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'localize', 'Notification',
-        function($scope, $rootScope, $log, Restangular, Localize, Notification) {
+      controller: ['$scope', '$rootScope', '$log', 'Restangular', 'Notification', 'localize',
+        function($scope, $rootScope, $log, Restangular, Notification, Localize) {
           $scope.userRoles = Restangular.all('user_roles').getList();
           $scope.user = {};
           $scope.open = function() {
