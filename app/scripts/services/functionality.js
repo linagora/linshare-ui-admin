@@ -10,10 +10,18 @@ angular.module('myApp.services')
         functionality.localizedName = localize.getLocalizedString(
           'P_Administration-Functionalities_Func-' + functionality.identifier
         );
+        angular.forEach(functionality.functionalities, function(childFunctionality, key) {
+          childFunctionality.localizedName = localize.getLocalizedString(
+            'P_Administration-Functionalities_Func-' + childFunctionality.identifier
+          );
+        });
       };
 
       var deleteLocalizedName = function(functionality) {
         delete functionality.localizedName;
+        angular.forEach(functionality.functionalities, function(childFunctionality, key) {
+          delete childFunctionality.localizedName;
+        });
       };
 
       var self = this;

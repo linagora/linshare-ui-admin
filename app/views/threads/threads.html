@@ -1,11 +1,45 @@
 <div class="row">
-  <div class="container">
-    <div class="page-header">
-      <h1>{{'P_Threads-Grid_Title' | i18n}}</h1>
-    </div>
-    <div x-ng-controller="GridCtrl">
-      <div x-ls-thread-grid>
+  <div class="page-header">
+    <h1>{{'P_Threads-Grid_Title' | i18n}}</h1>
+  </div>
+  <div x-ng-controller="ThreadCtrl">
+
+    <!-- Form -->
+
+    <div x-ng-if="getCurrentThread()">
+      <div class="btn-toolbar">
+        <button class="btn btn-primary" type="button"
+                x-ng-click="showList()">
+          <span>
+            <i class="icon-list icon-white"></i> 
+            {{'P_Threads-Thread_List' | i18n}}
+          </span>
+        </button>
       </div>
+      <div x-ls-thread-form></div>
+    </div>
+
+    <!-- List -->
+
+    <div x-ng-if="!getCurrentThread()">
+      <table class="table"
+             x-ng-table="tableParams">
+        <tr x-ng-repeat="thread in $data"
+            x-ng-click="edit(thread)">
+          <td data-title="'P_Threads-Grid_Name' | i18n"
+              sortable="'name'">
+            <span>
+              {{thread.name}}
+            </span>
+          </td>
+          <td data-title="'P_Threads-Grid_ModificationDate' | i18n"
+              sortable="'modificationDate'">
+            <span>
+              {{thread.modificationDate}}
+            </span>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

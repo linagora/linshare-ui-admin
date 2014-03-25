@@ -21,13 +21,15 @@ angular.module('myApp.services')
           $log.debug('DomainPattern:getAll');
           Restangular.all('domain_patterns').getList().then(
             function success(domainPatterns) {
-              successCallback(domainPatterns)
+              if (successCallback) {
+                successCallback(domainPatterns);
+              }
             },
             function error(response) {
               $log.error(
                 [
                  'DomainPattern:getAll',
-                 'Unable to get all ldap connections',
+                 'Unable to get all domain patterns',
                 ].join('\n')
               );
             }
@@ -46,7 +48,7 @@ angular.module('myApp.services')
               $log.error(
                 [
                  'DomainPattern:add',
-                 'Unable to create a ldap connection',
+                 'Unable to create a domain pattern',
                 ].join('\n')
               );
               $log.error(domainPattern);
@@ -66,7 +68,7 @@ angular.module('myApp.services')
               $log.error(
                 [
                  'DomainPattern:update',
-                 'Unable to update ldap connection',
+                 'Unable to update domain pattern',
                 ].join('\n')
               );
               $log.error(domainPattern);
@@ -86,7 +88,7 @@ angular.module('myApp.services')
               $log.error(
                 [
                  'DomainPattern:remove',
-                 'Unable to remove ldap connection',
+                 'Unable to remove domain pattern',
                 ].join('\n')
               );
               $log.error(domainPattern);
@@ -105,7 +107,7 @@ angular.module('myApp.services')
               $log.error(
                 [
                  'DomainPattern:remove',
-                 'Unable to remove ldap connection',
+                 'Unable to get all domain pattern model',
                 ].join('\n')
               );
             });

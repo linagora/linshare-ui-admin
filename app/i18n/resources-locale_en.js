@@ -88,11 +88,11 @@
     "description": "Link for search an user."
   },
   "G_Tab_Threads": {
-    "value": "Threads",
+    "value": "Groups",
     "description": "Link for threads section."
   },
   "G_Tab_Threads-Management": {
-    "value": "Manage threads",
+    "value": "Manage groups",
     "description": "Link for threads section."
   },
   "G_Tab_MailingLists": {
@@ -456,11 +456,11 @@
     "description": "Alert message when the deletion succeed."
   },
   "P_Threads-Grid_Title": {
-    "value": "Threads",
+    "value": "Groups",
     "description": "Title for the threads section."
   },
   "P_Threads-Grid_EditTitle": {
-    "value": "Thread",
+    "value": "Group",
     "description": "Title for the thread edit form."
   },
   "P_Threads-Grid_Name": {
@@ -472,7 +472,7 @@
     "description": "Label for the modification date"
   },
   "P_Threads-Grid_DeleteSuccess": {
-    "value": "Thread deletion succeed",
+    "value": "Group deletion succeed",
     "description": "Alert message when the deletion succeed."
   },
   "P_Threads-Grid_Actions": {
@@ -654,6 +654,14 @@
   "P_Administration-Functionalities_Reset": {
     "value": "Reset to parent value",
     "description": "Button label to reset the funcitonality to parent value."
+  },
+  "P_Administration-Functionalities_Func-UPLOAD_REQUEST": {
+    "value": "Upload request",
+    "description": "Functionality name"
+  },
+  "P_Administration-Functionalities_Func-UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+    "value": "Upload request - Notification language",
+    "description": "Functionality name"
   },
   "P_Administration-Functionalities_Func-QUOTA_USER": {
     "value": "Quota user",

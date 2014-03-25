@@ -93,6 +93,8 @@ require.config({
         {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/functionalitymanagement':
         {deps: ['controllers/controllers', 'bootstrap']},
+    'controllers/thread':
+        {deps: ['controllers/controllers']},
 
     // Services
     'services/preferences':
@@ -114,6 +116,10 @@ require.config({
     'services/userrole':
         {deps: ['services/services']},
     'services/functionality':
+        {deps: ['services/services']},
+    'services/thread':
+        {deps: ['services/services']},
+    'services/threadmember':
         {deps: ['services/services']},
 
     // Directives
@@ -211,6 +217,7 @@ var dependencies = [
   'controllers/domainpattern',
   'controllers/domainmanagement',
   'controllers/functionalitymanagement',
+  'controllers/thread',
 
   // Services
   'services/preferences',
@@ -223,6 +230,8 @@ var dependencies = [
   'services/domainpolicy',
   'services/userrole',
   'services/functionality',
+  'services/thread',
+  'services/threadmember',
 
   // Directives
   'directives/administration/functionalityList',
