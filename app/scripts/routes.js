@@ -28,19 +28,11 @@ angular.module('myApp').config(['$routeProvider',
       templateUrl: 'views/users/user_management.html',
       controller: 'UserManagementCtrl'
     });
-    $routeProvider.when('/users/:userId', {
-      templateUrl: 'views/user_detail.html'
+    $routeProvider.when('/users/threads', {
+      templateUrl: 'views/users/threads.html'
     });
-
-    $routeProvider.when('/threads', {
-      templateUrl: 'views/threads/threads.html'
-    });
-    $routeProvider.when('/threads/:threadId', {
-      templateUrl: 'views/threads/thread_detail.html'
-    });
-
-    $routeProvider.when('/mailing_lists', {
-      templateUrl: 'views/mailing_lists.html'
+    $routeProvider.when('/users/mailing_lists', {
+      templateUrl: 'views/users/mailing_lists.html'
     });
 
     $routeProvider.when('/audit', {

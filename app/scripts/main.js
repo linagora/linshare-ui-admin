@@ -137,17 +137,14 @@ require.config({
     'directives/domains/domainForm':
         {deps: ['directives/directives']},
     
-    'directives/threads/threadGrid':
-        {deps: ['directives/directives', 'nggrid']},
-    'directives/threads/threadMemberGrid':
-        {deps: ['directives/directives', 'nggrid']},
-
     'directives/users/userCompletion':
         {deps: ['directives/directives']},
     'directives/users/userEditForm':
         {deps: ['directives/directives']},
     'directives/users/userList':
         {deps: ['directives/directives', 'nggrid']},
+    'directives/users/threadForm':
+        {deps: ['directives/directives']},
 
     'directives/common/formAttempt':
         {deps: ['directives/directives']},
@@ -242,12 +239,10 @@ var dependencies = [
   'directives/domains/domainTree',
   'directives/domains/domainForm',
 
-  'directives/threads/threadMemberGrid',
-  'directives/threads/threadGrid',
-  
   'directives/users/userEditForm',
   'directives/users/userCompletion',
   'directives/users/userList',
+  'directives/users/threadForm',
 
   'directives/common/formAttempt',
   'directives/common/formSubmit',

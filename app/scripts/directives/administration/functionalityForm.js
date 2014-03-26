@@ -12,6 +12,9 @@ app.directive('lsFunctionalityForm', [
           return functionality.activationPolicy.policy != 'FORBIDDEN' 
                   && functionality.configurationPolicy.parentAllowUpdate;
         };
+        scope.showParameters = function(functionality) {
+          return functionality.parentAllowParametersUpdate;
+        };
         scope.disableStatus = function(policyType) {
           return policyType.policy !== 'ALLOWED';
         };

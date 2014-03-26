@@ -1,0 +1,67 @@
+<form class="form-horizontal" name="threadForm" novalidate
+      x-ls-form-submit="submit()"
+      x-ls-form-attempt>
+  <fieldset>
+    <legend>{{'P_Users-Threads_FormTitle' | i18n}}</legend>
+    <!-- Name -->
+    <div class="control-group">
+      <label class="control-label" for="description">
+        {{'P_Users-Threads_FormName' | i18n}}
+      </label>
+      <div class="controls">
+        <input id="name" name="name" type="text" class="input-xlarge" required
+               x-ng-model="thread.name">
+        </textarea>
+      </div>
+    </div>
+    <!-- Validation -->
+    <div class="control-group">
+      <div class="controls">
+        <button id="delete" name="delete" type="button" class="btn btn-danger"
+                x-ng-click="remove()">
+          {{'P_Users-Threads_FormDelete' | i18n}}
+        </button>
+        <button type="button" id="reset" name="reset" class="btn btn-warning"
+                x-ng-click="reset()">
+          {{'P_Users-Threads_FormReset' | i18n}}
+        </button>
+        <button type="submit" id="submit" name="submit" class="btn btn-success">
+          {{'P_Users-Threads_FormSubmit' | i18n}}
+        </button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+<form>
+  <legend>{{'P_Users-Threads_MemberTitle' | i18n}}</legend>
+  <table class="table"
+         x-ng-table="tableParams">
+    <tr x-ng-repeat="threadMember in $data"
+        x-ng-click="edit(threadMember)">
+      <td data-title="'P_Users-Threads_MemberFirstName' | i18n"
+          sortable="'firstName'">
+        <span>
+          {{threadMember.firstName}}
+        </span>
+      </td>
+      <td data-title="'P_Users-Threads_MemberLastName' | i18n"
+          sortable="'lastName'">
+        <span>
+          {{threadMember.lastName}}
+        </span>
+      </td>
+      <td data-title="'P_Users-Threads_MemberReadOnly' | i18n"
+          sortable="'readonly'">
+        <input type="checkbox"
+               x-ng-model="threadMember.readonly"
+               x-ng-change="updateMember(threadMember)">
+      </td>
+      <td data-title="'P_Users-Threads_MemberAdmin' | i18n"
+          sortable="'admin'">
+        <input type="checkbox"
+               x-ng-model="threadMember.admin"
+               x-ng-change="updateMember(threadMember)">
+      </td>
+    </tr>
+  </table>
+</form>

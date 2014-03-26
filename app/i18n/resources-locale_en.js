@@ -87,15 +87,11 @@
     "value": "Manage users",
     "description": "Link for search an user."
   },
-  "G_Tab_Threads": {
-    "value": "Groups",
-    "description": "Link for threads section."
-  },
-  "G_Tab_Threads-Management": {
+  "G_Tab_Users-Threads": {
     "value": "Manage groups",
     "description": "Link for threads section."
   },
-  "G_Tab_MailingLists": {
+  "G_Tab_Users-MailingLists": {
     "value": "Mailing Lists",
     "description": "Link for mailing lists section."
   },
@@ -455,37 +451,69 @@
     "value": "Domain deletion succeed",
     "description": "Alert message when the deletion succeed."
   },
-  "P_Threads-Grid_Title": {
-    "value": "Groups",
+  "P_Users-Threads_Title": {
+    "value": "Groups management",
     "description": "Title for the threads section."
   },
-  "P_Threads-Grid_EditTitle": {
-    "value": "Group",
-    "description": "Title for the thread edit form."
+  "P_Users-Threads_ListTitle": {
+    "value": "Groups list",
+    "description": "Title for the threads section."
   },
-  "P_Threads-Grid_Name": {
+  "P_Users-Threads_ListName": {
     "value": "Name",
     "description": "Label for the name"
   },
-  "P_Threads-Grid_ModificationDate": {
+  "P_Users-Threads_ListModificationDate": {
     "value": "Modification date",
     "description": "Label for the modification date"
   },
-  "P_Threads-Grid_DeleteSuccess": {
+  "P_Users-Threads_FormTitle": {
+    "value": "Edit group",
+    "description": "Title for the thread edit form."
+  },
+  "P_Users-Threads_FormName": {
+    "value": "Thread name",
+    "description": "Label for the input thread name"
+  },
+  "P_Users-Threads_FormDelete": {
+    "value": "Delete",
+    "description": "Label for the delete button"
+  },
+  "P_Users-Threads_FormReset": {
+    "value": "Reset",
+    "description": "Label for the reset button"
+  },
+  "P_Users-Threads_FormSubmit": {
+    "value": "Submit",
+    "description": "Label for the submit button"
+  },
+  "P_Users-Threads_MemberTitle": {
+    "value": "Members list",
+    "description": "Title for the member list"
+  },
+  "P_Users-Threads_MemberFirstName": {
+    "value": "First name",
+    "description": "Label for the column 'firstName' in thread members"
+  },
+  "P_Users-Threads_MemberLastName": {
+    "value": "Last name",
+    "description": "Label for the column 'lastName' in thread members"
+  },
+  "P_Users-Threads_MemberReadOnly": {
+    "value": "Read only",
+    "description": "Label for the column 'readonly' in thread members"
+  },
+  "P_Users-Threads_MemberAdmin": {
+    "value": "Administrator",
+    "description": "Label for the column 'admin' in thread members"
+  },
+  "P_Users-Threads_ListDeleteSuccess": {
     "value": "Group deletion succeed",
     "description": "Alert message when the deletion succeed."
   },
-  "P_Threads-Grid_Actions": {
-    "value": "Actions",
-    "description": "Label for the actions"
-  },
-  "P_Threads-Grid_Edit": {
-    "value": "Edit",
-    "description": "Label for the edit button."
-  },
-  "P_Threads-Grid_Delete": {
-    "value": "Delete",
-    "description": "Label for the delete button."
+  "P_Users-Threads_ListUpdateSuccess": {
+    "value": "Group update succeed",
+    "description": "Alert message when the update succeed."
   },
   "P_Users-Management_Title": {
     "value": "Manage user",

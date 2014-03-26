@@ -17,15 +17,6 @@ angular.module('myApp.services')
           }
         ]
       };
-      this.threads = {
-        name: localize.getLocalizedString('G_Tab_Threads'),
-        links: [
-          {
-            name: localize.getLocalizedString('G_Tab_Threads-Management'),
-            href: '#threads'
-          }
-        ]
-      };
       this.administration = {
         name: localize.getLocalizedString('G_Tab_Administration'),
         links: [
@@ -44,12 +35,16 @@ angular.module('myApp.services')
           {
             name: localize.getLocalizedString('G_Tab_Users-Management'),
             href: '#users/management'
-          }
+          }, 
         ]
       };
+      this.threads = {
+        name: localize.getLocalizedString('G_Tab_Users-Threads'),
+        href: '#users/threads'
+      };
       this.mailingLists = {
-        name: localize.getLocalizedString('G_Tab_MailingLists'),
-        links: '#mailing_lists'
+        name: localize.getLocalizedString('G_Tab_Users-MailingLists'),
+        href: '#users/mailing_lists'
       };
       this.audit = {
         name: localize.getLocalizedString('G_Tab_Audit'),
@@ -66,15 +61,16 @@ angular.module('myApp.services')
       return {
         getAvailableTabs: function(user) {
           var tabs = [];
-          if(user.role === 'SUPERADMIN') {
+
+          if (user.role === 'SUPERADMIN') {
             tabs.push(self.domains);
           }
           tabs.push(self.administration);
-          tabs.push(self.users);
-          if(user.role === 'SUPERADMIN') {
-            tabs.push(self.threads);
+          if (user.role === 'SUPERADMIN') {
+            self.users.links.push(self.threads);
+            self.users.links.push(self.mailingLists);
           }
-          // $scope.tabs.push($scope.menuMailingLists);
+          tabs.push(self.users);
           tabs.push(self.audit);
           // $scope.tabs.push($scope.menuCharts);
           return tabs;

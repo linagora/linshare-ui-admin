@@ -1,6 +1,6 @@
 <div class="row">
   <div class="page-header">
-    <h1>{{'P_Threads-Grid_Title' | i18n}}</h1>
+    <h1>{{'P_Users-Threads_Title' | i18n}}</h1>
   </div>
   <div x-ng-controller="ThreadCtrl">
 
@@ -12,7 +12,7 @@
                 x-ng-click="showList()">
           <span>
             <i class="icon-list icon-white"></i> 
-            {{'P_Threads-Thread_List' | i18n}}
+            {{'P_Users-Threads_ListTitle' | i18n}}
           </span>
         </button>
       </div>
@@ -26,16 +26,16 @@
              x-ng-table="tableParams">
         <tr x-ng-repeat="thread in $data"
             x-ng-click="edit(thread)">
-          <td data-title="'P_Threads-Grid_Name' | i18n"
+          <td data-title="'P_Users-Threads_ListName' | i18n"
               sortable="'name'">
             <span>
               {{thread.name}}
             </span>
           </td>
-          <td data-title="'P_Threads-Grid_ModificationDate' | i18n"
+          <td data-title="'P_Users-Threads_ListModificationDate' | i18n"
               sortable="'modificationDate'">
             <span>
-              {{thread.modificationDate}}
+              {{thread.modificationDate | date:'dd/MM/yyyy HH:mm'}}
             </span>
           </td>
         </tr>

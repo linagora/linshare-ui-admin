@@ -31,7 +31,7 @@ angular.module('myApp.services')
           $log.debug('Thread:update');
           thread.put().then(
             function success(thread) {
-              Notification.addSuccess('P_Domains-Threads_UpdateSuccess');
+              Notification.addSuccess('P_Users-Threads_ListUpdateSuccess');
               if (successCallback) {
                 successCallback(thread);
               }
@@ -51,7 +51,7 @@ angular.module('myApp.services')
           $log.debug('Thread:remove');
           thread.remove().then(
             function success(thread) {
-              Notification.addSuccess('P_Threads-_DeleteSuccess');
+              Notification.addSuccess('P_Users-Threads_ListDeleteSuccess');
               if (successCallback) {
                 successCallback(thread);
               }

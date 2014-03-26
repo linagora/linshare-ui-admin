@@ -4,6 +4,10 @@ angular.module('myApp.controllers')
   .controller('ThreadCtrl',
     ['$scope', '$filter', '$log', 'ngTableParams', 'Thread',
       function ($scope, $filter, $log, ngTableParams, Thread) {
+        var getData = function() {
+          return $scope.dataset;
+        };
+
         $scope.dataset = [];
         $scope.reloadList = function () {
           Thread.getAll(function(threads) {
@@ -11,12 +15,14 @@ angular.module('myApp.controllers')
           });
         };
         $scope.reloadList();
-        var getData = function() {
-          return $scope.dataset;
-        };
-        $scope.$watch("dataset", function () {
+        $scope.$watch('dataset', function () {
           $scope.tableParams.reload();
-        });         
+        });
+        $scope.$watch(Thread.getCurrent, function (newValue, oldValue) {
+          if (angular.isUndefined(newValue)) {
+            $scope.reloadList();
+          }
+        });
         $scope.getCurrentThread = function() {
           return Thread.getCurrent();
         };
