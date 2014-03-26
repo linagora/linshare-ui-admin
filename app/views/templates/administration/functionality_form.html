@@ -69,7 +69,7 @@
 
   <div class="row-fluid">
     <form name="paramForm" class="well span6"
-          x-ng-if="showConfiguration(functionality)">
+          x-ng-if="showParameters(functionality)">
       <h5>{{'P_Administration-Functionalities_Parameters' | i18n}}</h5>
       <div x-ng-repeat="parameter in functionality.parameters">
         <div x-ng-switch="parameter.type">
@@ -90,10 +90,8 @@
                 <input name="$index" type="number" class="input-large" min="0" max="2147483647" required
                        x-ng-model="parameter.integer"
                        x-ng-change="updateWithTimeout()">
-                <select x-ng-model="parameter.string">
-                  <option x-ng-repeat="option in parameter.select">
-                    {{option}}
-                  </option>
+                <select x-ng-model="parameter.string"
+                        x-ng-options="option for option in parameter.select">
                 </select>
               </div>
             </div>
@@ -106,10 +104,8 @@
                        x-ng-model="parameter.integer"
                        x-ng-change="updateWithTimeout()">
                 <select x-ng-model="parameter.string"
-                        x-ng-change="update()">
-                  <option x-ng-repeat="option in parameter.select">
-                    {{option}}
-                  </option>
+                        x-ng-change="update()"
+                        x-ng-options="option for option in parameter.select">
                 </select>
               </div>
             </div>
