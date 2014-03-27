@@ -5,27 +5,19 @@ app.directive('lsThreadForm', [
     return {
       restrict: 'A',
       scope: {},
-      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Thread', 'ThreadMember',
-        function($scope, $filter, $log, ngTableParams, Thread, ThreadMember) {
-          var getData = function() {
-            return $scope.dataset;
-          };
-
-          $scope.thread = Thread.getCurrent();
-          $scope.dataset = [];
+      controller: ['$scope', '$filter', '$log', 'Restangular', 'ngTableParams', 'Thread', 'ThreadMember',
+        function($scope, $filter, $log, Restangular, ngTableParams, Thread, ThreadMember) {
+          $scope.thread = Restangular.copy(Thread.getCurrent());
           $scope.reloadList = function () {
-            ThreadMember.getAll($scope.thread, function(threadMembers) {
-              $scope.dataset = threadMembers;
-            });
+            $scope.tableParams.reload();
           };
-          $scope.reloadList();
           $scope.remove = function() {
             Thread.remove($scope.thread, function successCallback() {
               Thread.setCurrent(undefined);
             });
           };
           $scope.reset = function() {
-            $scope.thread = Thread.getCurrent();
+            $scope.thread = Restangular.copy(Thread.getCurrent());
           };
           $scope.submit = function() {
             Thread.update($scope.thread, function successCallback() {
@@ -34,7 +26,7 @@ app.directive('lsThreadForm', [
           };
           $scope.addMember = function(member) {
             ThreadMember.add(member, function successCallback() {
-              $scope.tableParams.reload();
+              $scope.reloadList();
             });
           };
           $scope.updateMember = function(member) {
@@ -42,29 +34,27 @@ app.directive('lsThreadForm', [
           };
           $scope.deleteMember = function(member) {
             ThreadMember.remove(member, function successCallback() {
-              $scope.tableParams.reload();
+              $scope.reloadList();
             });
           };
-          $scope.$watch("dataset", function () {
-            $scope.tableParams.reload();
-          });
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
             count: 10,      // count per page
             sorting: {
-              name: 'asc',
+              firstName: 'asc',
             }
           }, {
             debugMode: false,
-            total: function () { return getData().length; }, // length of data
+            total: 0, // length of data
             getData: function($defer, params) {
-              var filteredData = getData();
-              var orderedData = params.sorting() ?
-                                  $filter('orderBy')(filteredData, params.orderBy()) :
-                                  filteredData;
-              $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-            },
-            $scope: { $data: {} }
+              ThreadMember.getAll($scope.thread, function(threadMembers) {
+                var orderedData = params.sorting() ?
+                                    $filter('orderBy')(threadMembers, params.orderBy()) :
+                                    threadMembers;
+                params.total(orderedData.length);
+                $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+              });
+            }
           });
         }
       ],

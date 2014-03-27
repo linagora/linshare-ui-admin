@@ -5,19 +5,9 @@ angular.module('myApp.controllers')
     ['$scope', '$filter', '$log', 'ngTableParams', 'DomainPattern',
       function ($scope, $filter, $log, ngTableParams, DomainPattern) {
         $scope.viewForm = false;
-        $scope.dataset = [];
         $scope.reloadList = function () {
-          DomainPattern.getAll(function(domainPatterns) {
-            $scope.dataset = domainPatterns;
-          });
-        };
-        $scope.reloadList();
-        var getData = function() {
-          return $scope.dataset;
-        };
-        $scope.$watch("dataset", function () {
           $scope.tableParams.reload();
-        });         
+        };
         $scope.switchView = function() {
           $scope.viewForm = !$scope.viewForm;
         };
@@ -33,15 +23,16 @@ angular.module('myApp.controllers')
           count: 10,      // count per page
         }, {
           debugMode: false,
-          total: function () { return getData().length; }, // length of data
+          total: 0, // length of data
           getData: function($defer, params) {
-            var filteredData = getData();
-            var orderedData = params.sorting() ?
-                                $filter('orderBy')(filteredData, params.orderBy()) :
-                                filteredData;
-            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-          },
-          $scope: { $data: {} }
+            DomainPattern.getAll(function(domainPatterns) {
+              var orderedData = params.sorting() ?
+                                  $filter('orderBy')(domainPatterns, params.orderBy()) :
+                                  domainPatterns;
+              params.total(orderedData.length);
+              $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+            });
+          }
         });
       }
     ]

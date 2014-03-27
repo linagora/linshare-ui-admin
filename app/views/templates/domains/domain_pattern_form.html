@@ -1,5 +1,5 @@
 <!-- Model selector -->
-<div class="control-group pull-right"
+<div class="control-group"
      x-ng-show="state==='create'">
   <label class="control-label" for="modelSelector">
     {{'P_Domains-DomainPatterns_ModelSelectorLabel' | i18n}}
@@ -24,7 +24,7 @@
              x-ng-class="{error: domainPatternForm.identifier.$invalid &&
               (domainPatternForm.identifier.$dirty || ls.domainPatternForm.attempted)}">
           <label class="control-label" for="identifier">
-            {'P_Domains-DomainPatterns_IdentifierLabel' | i18n}}
+            {{'P_Domains-DomainPatterns_IdentifierLabel' | i18n}}
           </label>
           <div class="controls">
             <input id="identifier" name="identifier" type="text" class="input-xlarge" required

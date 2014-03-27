@@ -4,20 +4,9 @@ angular.module('myApp.controllers')
   .controller('ThreadCtrl',
     ['$scope', '$filter', '$log', 'ngTableParams', 'Thread',
       function ($scope, $filter, $log, ngTableParams, Thread) {
-        var getData = function() {
-          return $scope.dataset;
-        };
-
-        $scope.dataset = [];
         $scope.reloadList = function () {
-          Thread.getAll(function(threads) {
-            $scope.dataset = threads;
-          });
-        };
-        $scope.reloadList();
-        $scope.$watch('dataset', function () {
           $scope.tableParams.reload();
-        });
+        };
         $scope.$watch(Thread.getCurrent, function (newValue, oldValue) {
           if (angular.isUndefined(newValue)) {
             $scope.reloadList();
@@ -35,17 +24,21 @@ angular.module('myApp.controllers')
         $scope.tableParams = new ngTableParams({
           page: 1,        // show first page
           count: 10,      // count per page
+          sorting: {
+            name: 'asc',
+          }
         }, {
           debugMode: false,
-          total: function () { return getData().length; }, // length of data
+          total: 0, // length of data
           getData: function($defer, params) {
-            var filteredData = getData();
-            var orderedData = params.sorting() ?
-                                $filter('orderBy')(filteredData, params.orderBy()) :
-                                filteredData;
-            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-          },
-          $scope: { $data: {} }
+            Thread.getAll(function(threads) {
+              var orderedData = params.sorting() ?
+                                  $filter('orderBy')(threads, params.orderBy()) :
+                                  threads;
+              params.total(orderedData.length);
+              $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+            });
+          }
         });
       }
     ]

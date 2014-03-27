@@ -29,24 +29,15 @@ app.directive('lsFunctionalityList', [
       },
       controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'Functionality',
         function($scope, $filter, $log, ngTableParams, Domain, Functionality) {
-          $scope.dataset = [];
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
                 $scope.domain = newValue;
-                Functionality.getAll(newValue, function(functionalities) { 
-                  $scope.dataset = functionalities;
-                });
+                $scope.tableParams.reload();
               }
             },
             true
           );
-          var getData = function() {
-            return $scope.dataset;
-          };
-          $scope.$watch("dataset", function () {
-            $scope.tableParams.reload();
-          });         
           $scope.edit = function (functionality) {
             Functionality.setCurrent(functionality);
           };
@@ -58,15 +49,16 @@ app.directive('lsFunctionalityList', [
             }
           }, {
             debugMode: false,
-            total: function () { return getData().length; }, // length of data
+            total: 0, // length of data
             getData: function($defer, params) {
-              var data = getData();
-              var orderedData = params.sorting() ?
-                        $filter('orderBy')(data, params.orderBy()) :
-                        data;
-              $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-            },
-            $scope: { $data: {} }
+              Functionality.getAll($scope.domain, function(functionalities) { 
+                var orderedData = params.sorting() ?
+                          $filter('orderBy')(functionalities, params.orderBy()) :
+                          functionalities;
+                params.total(orderedData.length);
+                $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+              });
+            }
           });
         }
       ],

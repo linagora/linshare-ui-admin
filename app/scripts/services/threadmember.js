@@ -48,7 +48,7 @@ angular.module('myApp.services')
         },
         update: function(threadMember, successCallback) {
           $log.debug('ThreadMember:update');
-          threadMember.put().then(
+          Restangular.all('thread_members').customPUT(threadMember).then(
             function success(threadMember) {
               if (successCallback) {
                 successCallback(threadMember);

@@ -54,6 +54,8 @@
           sortable="'readonly'">
         <input type="checkbox"
                x-ng-model="threadMember.readonly"
+               x-ng-disabled="threadMember.admin"
+               x-ng-checked="!threadMember.admin && threadMember.readonly"
                x-ng-change="updateMember(threadMember)">
       </td>
       <td data-title="'P_Users-Threads_MemberAdmin' | i18n"
