@@ -8,9 +8,11 @@ angular.module('myApp.services')
       return {
         getAll: function(successCallback) {
           $log.debug('DomainPolicy:getAll');
-          Restangular.all('domain_policies').getList().then(
+          return Restangular.all('domain_policies').getList().then(
             function success(domainPolicies) {
-              successCallback(domainPolicies);
+              if (successCallback) {
+                return successCallback(domainPolicies);
+              }
             },
             function error(response) {
               $log.error(

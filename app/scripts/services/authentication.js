@@ -22,7 +22,7 @@ angular.module('myApp.services')
       return {
         request: function(login, password, errorCallback) {
           $log.debug('Authentication:request');
-          Restangular.all('authentication').customGET('authorized', {
+          return Restangular.all('authentication').customGET('authorized', {
             // QueryParams - Bypass the module authService
             ignoreAuthModule: true
           }, {
@@ -40,12 +40,12 @@ angular.module('myApp.services')
                  'Authentication failed',
                 ].join('\n')
               );
-              errorCallback();
+              return errorCallback();
             }
           );
         },
         logout: function() {
-          $http.get('linshare/j_spring_security_logout').success(function() {
+          return $http.get('linshare/j_spring_security_logout').success(function() {
             $log.debug("Authentication:logout");
             $route.reload();
           }).error(function() {

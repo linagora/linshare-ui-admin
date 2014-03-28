@@ -81,8 +81,6 @@ require.config({
         {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/grid':
         {deps: ['controllers/controllers']},
-    'controllers/userManagement':
-        {deps: ['controllers/controllers']},
     'controllers/loginForm':
         {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/ldapconnection':
@@ -120,6 +118,8 @@ require.config({
     'services/thread':
         {deps: ['services/services']},
     'services/threadmember':
+        {deps: ['services/services']},
+    'services/user':
         {deps: ['services/services']},
 
     // Directives
@@ -208,7 +208,6 @@ var dependencies = [
   // Controllers
   'controllers/confirmDialog',
   'controllers/grid',
-  'controllers/userManagement',
   'controllers/loginForm',
   'controllers/ldapconnection',
   'controllers/domainpattern',
@@ -229,6 +228,7 @@ var dependencies = [
   'services/functionality',
   'services/thread',
   'services/threadmember',
+  'services/user',
 
   // Directives
   'directives/administration/functionalityList',

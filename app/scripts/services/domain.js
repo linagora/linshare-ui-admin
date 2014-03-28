@@ -7,7 +7,7 @@ angular.module('myApp.services')
       this.currentDomain = undefined;
       this.state = undefined;
       this.lastAccess = undefined;
-      
+
       function createSample(_parent, _type) {
         var sample = {};
         sample.parent = _parent.identifier;
@@ -38,10 +38,10 @@ angular.module('myApp.services')
       return {
         getDomainTree: function(successCallback) {
           $log.debug('Domain:getDomainTree');
-          Restangular.all('domains').get('LinShareRootDomain').then(
+          return Restangular.all('domains').get('LinShareRootDomain').then(
             function success(rootDomain) {
               traverse(rootDomain, rootDomain);
-              successCallback(rootDomain);
+              return successCallback(rootDomain);
             },
             function error(response) {
               $log.error(
@@ -55,11 +55,11 @@ angular.module('myApp.services')
         },
         add: function(domain, successCallback) {
           $log.debug('Domain:add');
-          Restangular.all('domains').post(domain).then(
+          return Restangular.all('domains').post(domain).then(
             function success(domain) {
               Notification.addSuccess('P_Domains-Management_CreateSuccess');
               if (successCallback) {
-                successCallback(domain);
+                return successCallback(domain);
               }
             },
             function error(response) {
@@ -75,11 +75,11 @@ angular.module('myApp.services')
         },
         update: function(domain, successCallback) {
           $log.debug('Domain:update');
-          domain.put().then(
+          return domain.put().then(
             function success(domain) {
               Notification.addSuccess('P_Domains-Management_UpdateSuccess');
               if (successCallback) {
-                successCallback(domain);
+                return successCallback(domain);
               }
             },
             function error(response) {
@@ -95,11 +95,11 @@ angular.module('myApp.services')
         },
         remove: function(domain, successCallback) {
           $log.debug('Domain:remove');
-          domain.remove().then(
+          return domain.remove().then(
             function success(domain) {
               Notification.addSuccess('P_Domains-Management_DeleteSuccess');
               if (successCallback) {
-                successCallback(domain);
+                return successCallback(domain);
               }
             },
             function error(response) {

@@ -11,10 +11,10 @@ angular.module('myApp.services')
       return {
         getAll: function(successCallback) {
           $log.debug('Thread:getAll');
-          Restangular.all('threads').getList().then(
+          return Restangular.all('threads').getList().then(
             function success(threads) {
               if (successCallback) {
-                successCallback(threads);
+                return successCallback(threads);
               }
             },
             function error(response) {
@@ -29,11 +29,11 @@ angular.module('myApp.services')
         },
         update: function(thread, successCallback) {
           $log.debug('Thread:update');
-          thread.put().then(
+          return thread.put().then(
             function success(thread) {
               Notification.addSuccess('P_Users-Threads_ListUpdateSuccess');
               if (successCallback) {
-                successCallback(thread);
+                return successCallback(thread);
               }
             },
             function error(response) {
@@ -49,11 +49,11 @@ angular.module('myApp.services')
         },
         remove: function(thread, successCallback) {
           $log.debug('Thread:remove');
-          thread.remove().then(
+          return thread.remove().then(
             function success(thread) {
               Notification.addSuccess('P_Users-Threads_ListDeleteSuccess');
               if (successCallback) {
-                successCallback(thread);
+                return successCallback(thread);
               }
             },
             function error(response) {

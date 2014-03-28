@@ -138,7 +138,6 @@ PUT     admin/functionnalities/{uuid}/activation        - modifier une politique
 GET     admin/threads                           - liste des threads 
 GET     admin/threads/{uuid}                    - les informations sur un thread
 GET     admin/threads/{uuid}/members            - liste des membres d’un thread
-POST    admin/threads/{uuid}/members            - créer un thread member
 PUT     admin/threads                           - modifier un thread 
 DELETE  admin/threads                           - supprimer un thread
 
@@ -146,6 +145,7 @@ DELETE  admin/threads                           - supprimer un thread
 ### Thread members
 
 GET     admin/thread_members/{uuid}             - les informations sur un thread member
+POST    admin/thread_members                    - créer un thread member
 PUT     admin/thread_members                    - modifier un thread member
 DELETE  admin/thread_members                    - supprimer un thread member
 

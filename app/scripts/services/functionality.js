@@ -30,13 +30,15 @@ angular.module('myApp.services')
       return {
         getAll: function(domain, successCallback) {
           $log.debug('Functionality:getAll');
-          Restangular.all('domains').all(domain.identifier)
+          return Restangular.all('domains').all(domain.identifier)
             .all('functionalities').getList().then(
               function success(functionalities) {
                 angular.forEach(functionalities, function (functionality, key) {
                   addLocalizedName(functionality);
                 });
-                successCallback(functionalities);
+                if (successCallback) {
+                  return successCallback(functionalities);
+                }
               },
               function error(response) {
                 $log.error(
@@ -52,11 +54,13 @@ angular.module('myApp.services')
         },
         get: function(domain, functionalityId,successCallback) {
           $log.debug('Functionality:get');
-          Restangular.all('domains').all(domain.identifier)
+          return Restangular.all('domains').all(domain.identifier)
             .one('functionalities', functionalityId).get().then(
               function success(functionality) {
                 addLocalizedName(functionality);
-                successCallback(functionality);
+                if (successCallback) {
+                  return successCallback(functionality);
+                }
               },
               function error(response) {
                 $log.error(
@@ -77,9 +81,11 @@ angular.module('myApp.services')
           var rawFunctionality = {};
           rawFunctionality = Restangular.copy(functionality);
           deleteLocalizedName(rawFunctionality);
-          rawFunctionality.put().then(
+          return rawFunctionality.put().then(
             function success(rawFunctionality) {
-              successCallback(functionality);
+              if (successCallback) {
+                return successCallback(functionality);
+              }
             },
             function error(response) {
               $log.error(
@@ -98,9 +104,11 @@ angular.module('myApp.services')
           var rawFunctionality = {};
           rawFunctionality = Restangular.copy(functionality);
           deleteLocalizedName(rawFunctionality);
-          rawFunctionality.remove().then(
+          return rawFunctionality.remove().then(
             function success(rawFunctionality) {
-              successCallback(functionality);
+              if (successCallback) {
+                return successCallback(functionality);
+              }
             },
             function error(response) {
               $log.error(

@@ -34,6 +34,27 @@
 </form>
 <form>
   <legend>{{'P_Users-Threads_MemberTitle' | i18n}}</legend>
+  <script type="text/ng-template" id="user_representation">
+  <a>
+    <span bind-html-unsafe="match.model.firstName | typeaheadHighlight:query"></span>&nbsp;
+    <span bind-html-unsafe="match.model.lastName | typeaheadHighlight:query"></span>&nbsp;&lt;
+    <span bind-html-unsafe="match.model.mail | typeaheadHighlight:query"></span>&gt;
+  </a>
+  </script>
+  <div class="input-append">
+    <input type="text" class="input-xlarge" placeholder="{{'P_Users-Threads_MemberAdd' | i18n}}"
+           x-ng-model="userToAdd"
+           x-typeahead-min-length="3"
+           x-typeahead-wait-ms="30"
+           x-typeahead-loading="searching"
+           x-typeahead-on-select="addMember(userToAdd)"
+           x-typeahead="u for u in autocompleteUsers($viewValue) | filter:$viewValue"
+           x-typeahead-template-url="user_representation"/>
+    <span class="add-on">
+      <i class="icon icon-plus"></i>
+    </span>
+  </div>
+  <div class="spinner" style="margin-top:20px" x-ng-show="searching"></div>
   <table class="table"
          x-ng-table="tableParams">
     <tr x-ng-repeat="threadMember in $data"

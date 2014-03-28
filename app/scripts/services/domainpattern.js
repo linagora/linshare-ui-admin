@@ -19,10 +19,10 @@ angular.module('myApp.services')
       return {
         getAll: function(successCallback) {
           $log.debug('DomainPattern:getAll');
-          Restangular.all('domain_patterns').getList().then(
+          return Restangular.all('domain_patterns').getList().then(
             function success(domainPatterns) {
               if (successCallback) {
-                successCallback(domainPatterns);
+                return successCallback(domainPatterns);
               }
             },
             function error(response) {
@@ -37,11 +37,11 @@ angular.module('myApp.services')
         },
         add: function(domainPattern, successCallback) {
           $log.debug('DomainPattern:add');
-          Restangular.all('domain_patterns').post(domainPattern).then(
+          return Restangular.all('domain_patterns').post(domainPattern).then(
             function success(domainPattern) {
               Notification.addSuccess('P_Domains-DomainPatterns_CreateSuccess');
               if (successCallback) {
-                successCallback(domainPattern);
+                return successCallback(domainPattern);
               }
             },
             function error(response) {
@@ -57,11 +57,11 @@ angular.module('myApp.services')
         },
         update: function(domainPattern, successCallback) {
           $log.debug('DomainPattern:update');
-          domainPattern.put().then(
+          return domainPattern.put().then(
             function success(domainPattern) {
               Notification.addSuccess('P_Domains-DomainPatterns_UpdateSuccess');
               if (successCallback) {
-                successCallback(domainPattern);
+                return successCallback(domainPattern);
               }
             },
             function error(response) {
@@ -77,11 +77,11 @@ angular.module('myApp.services')
         },
         remove: function(domainPattern, successCallback) {
           $log.debug('DomainPattern:remove');
-          domainPattern.remove().then(
+          return domainPattern.remove().then(
             function success(domainPattern) {
               Notification.addSuccess('P_Domains-DomainPatterns_DeleteSuccess');
               if (successCallback) {
-                successCallback(domainPattern);
+                return successCallback(domainPattern);
               }
             },
             function error(response) {
@@ -97,10 +97,10 @@ angular.module('myApp.services')
         },
         getAllModels: function(successCallback) {
           $log.debug('DomainPattern:getAllModels');
-          Restangular.all('domain_patterns').all('models').getList().then(
+          return Restangular.all('domain_patterns').all('models').getList().then(
             function success(models) {
               if (successCallback) {
-                successCallback(models);
+                return successCallback(models);
               }
             },
             function error() {

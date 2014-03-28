@@ -21,7 +21,7 @@
     "js-base64": "*",
 
     "bootstrap": "~3",
-    "flatstrap": "~3",
+    "adminlte": "https://github.com/almasaeed2010/AdminLTE.git",
     "jquery": "~2"
   },
   "devDependencies": {

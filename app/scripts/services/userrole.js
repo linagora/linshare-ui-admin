@@ -3,14 +3,17 @@
 angular.module('myApp.services')
   .factory('UserRole', ['$log', 'Restangular',
     function ($log, Restangular) {
+      var self = this;
 
       // Public API here
       return {
         getAll: function(successCallback) {
           $log.debug('UserRole:getAll');
-          Restangular.all('user_roles').getList().then(
+          return Restangular.all('user_roles').getList().then(
             function success(userRoles) {
-              successCallback(userRoles);
+              if (successCallback) {
+                return successCallback(userRoles);
+              }
             },
             function error(response) {
               $log.error(

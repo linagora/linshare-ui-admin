@@ -467,6 +467,14 @@
     "value": "Modification date",
     "description": "Label for the modification date"
   },
+  "P_Users-Threads_ListDeleteSuccess": {
+    "value": "Group deletion succeed",
+    "description": "Alert message when the deletion succeed."
+  },
+  "P_Users-Threads_ListUpdateSuccess": {
+    "value": "Group update succeed",
+    "description": "Alert message when the update succeed."
+  },
   "P_Users-Threads_FormTitle": {
     "value": "Edit group",
     "description": "Title for the thread edit form."
@@ -487,6 +495,10 @@
     "value": "Submit",
     "description": "Label for the submit button"
   },
+  "P_Users-Threads_MemberAdd": {
+    "value": "Add member",
+    "description": "Placeholder for the 'addMember' input"
+  },
   "P_Users-Threads_MemberTitle": {
     "value": "Members list",
     "description": "Title for the member list"
@@ -506,14 +518,6 @@
   "P_Users-Threads_MemberAdmin": {
     "value": "Administrator",
     "description": "Label for the column 'admin' in thread members"
-  },
-  "P_Users-Threads_ListDeleteSuccess": {
-    "value": "Group deletion succeed",
-    "description": "Alert message when the deletion succeed."
-  },
-  "P_Users-Threads_ListUpdateSuccess": {
-    "value": "Group update succeed",
-    "description": "Alert message when the update succeed."
   },
   "P_Users-Management_Title": {
     "value": "Manage user",

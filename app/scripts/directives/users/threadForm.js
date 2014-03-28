@@ -5,8 +5,8 @@ app.directive('lsThreadForm', [
     return {
       restrict: 'A',
       scope: {},
-      controller: ['$scope', '$filter', '$log', 'Restangular', 'ngTableParams', 'Thread', 'ThreadMember',
-        function($scope, $filter, $log, Restangular, ngTableParams, Thread, ThreadMember) {
+      controller: ['$scope', '$filter', '$log', 'Restangular', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
+        function($scope, $filter, $log, Restangular, ngTableParams, Thread, ThreadMember, User) {
           $scope.thread = Restangular.copy(Thread.getCurrent());
           $scope.reloadList = function () {
             $scope.tableParams.reload();
@@ -25,8 +25,23 @@ app.directive('lsThreadForm', [
             });
           };
           $scope.addMember = function(member) {
-            ThreadMember.add(member, function successCallback() {
+            ThreadMember.add($scope.thread, member, function successCallback() {
               $scope.reloadList();
+              $scope.userToAdd = undefined;
+            });
+          };
+          $scope.autocompleteUsers = function(pattern) {
+            return User.autocomplete(pattern, function successCallback(users) {
+              // Remove existing members
+              angular.forEach($scope.tableParams.data, function(threadMember) {
+                angular.forEach(users, function(user, key) {
+                  if (user.domain === threadMember.userDomainId
+                        && user.mail === threadMember.userMail) {
+                    users.splice(key, 1);
+                  }
+                });
+              });
+              return users;
             });
           };
           $scope.updateMember = function(member) {

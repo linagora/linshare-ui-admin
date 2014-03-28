@@ -11,9 +11,11 @@ angular.module('myApp.services')
       return {
         getAll: function(successCallback) {
           $log.debug('LdapConnection:getAll');
-          Restangular.all('ldap_connections').getList().then(
+          return Restangular.all('ldap_connections').getList().then(
             function success(ldapConnections) {
-              successCallback(ldapConnections)
+              if (successCallback) {
+                return successCallback(ldapConnections)
+              }
             },
             function error(response) {
               $log.error(
@@ -27,11 +29,11 @@ angular.module('myApp.services')
         },
         add: function(ldapConnection, successCallback) {
           $log.debug('LdapConnection:add');
-          Restangular.all('ldap_connections').post(ldapConnection).then(
+          return Restangular.all('ldap_connections').post(ldapConnection).then(
             function success(ldapConnection) {
               Notification.addSuccess('P_Domains-LDAPConnections_CreateSuccess');
               if (successCallback) {
-                successCallback(ldapConnection);
+                return successCallback(ldapConnection);
               }
             },
             function error(response) {
@@ -47,11 +49,11 @@ angular.module('myApp.services')
         },
         update: function(ldapConnection, successCallback) {
           $log.debug('LdapConnection:update');
-          ldapConnection.put().then(
+          return ldapConnection.put().then(
             function success(ldapConnection) {
               Notification.addSuccess('P_Domains-LDAPConnections_UpdateSuccess');
               if (successCallback) {
-                successCallback(ldapConnection);
+                return successCallback(ldapConnection);
               }
             },
             function error(response) {
@@ -67,11 +69,11 @@ angular.module('myApp.services')
         },
         remove: function(ldapConnection, successCallback) {
           $log.debug('LdapConnection:remove');
-          ldapConnection.remove().then(
+          return ldapConnection.remove().then(
             function success(ldapConnection) {
               Notification.addSuccess('P_Domains-LDAPConnections_DeleteSuccess');
               if (successCallback) {
-                successCallback(ldapConnection);
+                return successCallback(ldapConnection);
               }
             },
             function error(response) {
