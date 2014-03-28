@@ -33,7 +33,7 @@ var app = angular.module('myApp', [
   function($log, Restangular, Notification, localize) {
     Restangular.setErrorInterceptor(function(response) {
       $log.error(response);
-      if (response.status === 400) {
+      if (response.status != 400) {
         Notification.addError(response.data);
       }
       return response;

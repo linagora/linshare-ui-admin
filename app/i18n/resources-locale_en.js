@@ -480,7 +480,7 @@
     "description": "Title for the thread edit form."
   },
   "P_Users-Threads_FormName": {
-    "value": "Thread name",
+    "value": "Group name",
     "description": "Label for the input thread name"
   },
   "P_Users-Threads_FormDelete": {
@@ -492,7 +492,7 @@
     "description": "Label for the reset button"
   },
   "P_Users-Threads_FormSubmit": {
-    "value": "Submit",
+    "value": "Rename",
     "description": "Label for the submit button"
   },
   "P_Users-Threads_MemberAdd": {
@@ -518,6 +518,14 @@
   "P_Users-Threads_MemberAdmin": {
     "value": "Administrator",
     "description": "Label for the column 'admin' in thread members"
+  },
+  "P_Users-Threads_MemberActions": {
+    "value": "Actions",
+    "description": "Label for the column 'actions' in thread members"
+  },
+  "P_Users-Threads_MemberDelete": {
+    "value": "Delete",
+    "description": "Label for the delete button in thread members"
   },
   "P_Users-Management_Title": {
     "value": "Manage user",

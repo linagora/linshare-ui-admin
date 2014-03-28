@@ -77,7 +77,7 @@ angular.module('myApp.services')
         },
         remove: function(threadMember, successCallback) {
           $log.debug('ThreadMember:remove');
-          return Restangular.all('thread_members').customDELETE(threadMember).then(
+          return Restangular.all('thread_members').customOperation('remove', '', {}, {}, threadMember).then(
             function success(threadMember) {
               if (successCallback) {
                 return successCallback(threadMember);

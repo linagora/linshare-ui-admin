@@ -85,6 +85,23 @@
                x-ng-model="threadMember.admin"
                x-ng-change="updateMember(threadMember)">
       </td>
+      <td data-title="'P_Users-Threads_MemberActions' | i18n">
+        <button class="btn btn-danger"
+                x-ng-show="confirm === undefined"
+                x-ng-click="confirm = threadMember.userUuid">
+          {{'P_Users-Threads_MemberDelete' | i18n}}
+        </button>
+        <button class="btn"
+                x-ng-show="confirm === threadMember.userUuid"
+                x-ng-click="confirm = undefined">
+          {{'G_App_ConfirmNo' | i18n}}
+        </button>
+        <button class="btn btn-danger"
+                x-ng-show="confirm === threadMember.userUuid"
+                x-ng-click="deleteMember(threadMember)">
+          {{'G_App_ConfirmYes' | i18n}}
+        </button>
+      </td>
     </tr>
   </table>
 </form>
