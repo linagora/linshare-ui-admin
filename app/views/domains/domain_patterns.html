@@ -1,45 +1,82 @@
-<div class="row">
-  <div class="page-header">
-    <h1>{{'P_Domains-DomainPatterns_Title' | i18n}}</h1>
-  </div>
-  <div x-ng-controller="DomainPatternCtrl">
+<section class="content-header">
+  <h1>
+    {{'G_Tab_Domains-DomainPatterns' | i18n}}
+    <small>
+      {{'P_Domains-DomainPatterns_Title' | i18n}}
+    </small>
+  </h1>
+</section>
+<section class="content"
+         x-ng-controller="DomainPatternCtrl">
+  <div class="row">
+    <section class="col-lg-12">
+      <div class="box box-primary">
+        <!-- Form -->
+        <div x-ng-if="viewForm">
+          <div class="box-header">
+            <div class="pull-right box-tools">
+              <div class="btn-group">
+                <button class="btn btn-primary pull-right" type="button"
+                        x-ng-if="viewForm"
+                        x-ng-click="switchView()">
+                  <span>
+                    <i class="fa fa-bars"></i> 
+                    {{'P_Domains-DomainPatterns_List' | i18n}}
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="box-body">
+            <div x-ls-domain-pattern-form></div>
+          </div>
+        </div>
 
-    <!-- Form -->
-
-    <div x-ng-if="viewForm">
-      <div class="btn-toolbar">
-        <button class="btn btn-primary pull-right" type="button" x-ng-click="switchView()">
-          <span>
-            <i class="icon-list icon-white"></i> 
-            {{'P_Domains-DomainPatterns_List' | i18n}}
-          </span>
-        </button>
+        <!-- List -->
+        <div x-ng-if="!viewForm">
+          <div class="box-header">
+            <h3 class="box-title">
+              {{'P_Domains-DomainPatterns_BoxListTitle' | i18n}}
+            </h3>
+            <div class="pull-right box-tools">
+              <div class="btn-group">
+                <button class="btn btn-primary" type="button"
+                        x-ng-if="!viewForm"
+                        x-ng-click="resetForm();switchView()">
+                  <span>
+                    <i class="fa fa-plus"></i> 
+                    {{'P_Domains-DomainPatterns_Add' | i18n}}
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="table-responsive">
+              <table class="table table-striped"
+                     x-ng-table="tableParams">
+                <tbody>
+                  <tr x-ng-repeat="domainPattern in $data"
+                      x-ng-click="edit(domainPattern)">
+                    <td data-title="'P_Domains-DomainPatterns_IdentifierLabel' | i18n"
+                        sortable="'identifier'">
+                      <span>
+                        {{domainPattern.identifier}}
+                      </span>
+                    </td>
+                    <td data-title="'P_Domains-DomainPatterns_DescriptionLabel' | i18n"
+                        sortable="'description'">
+                      <span>
+                        {{domainPattern.description}}
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
-      <div x-ls-domain-pattern-form></div>
-    </div>
-
-    <!-- List -->
-
-    <div x-ng-if="!viewForm">
-      <div class="btn-toolbar">
-        <button class="btn btn-primary" type="button" x-ng-click="resetForm();switchView()">
-        <span>
-          <i class="icon-plus icon-white"></i> 
-          {{'P_Domains-DomainPatterns_Add' | i18n}}
-        </span>
-        </button>
-      </div>
-
-      <table class="table" x-ng-table="tableParams">
-        <tr x-ng-repeat="domainPattern in $data" x-ng-click="edit(domainPattern)">
-          <td data-title="'P_Domains-DomainPatterns_IdentifierLabel' | i18n" sortable="'identifier'">
-            <span>{{domainPattern.identifier}}</span>
-          </td>
-          <td data-title="'P_Domains-DomainPatterns_DescriptionLabel' | i18n" sortable="'description'">
-            <span>{{domainPattern.description}}</span>
-          </td>
-        </tr>
-      </table>
-    </div>
+    </section>
   </div>
-</div>
+</section>

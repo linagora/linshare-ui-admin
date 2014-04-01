@@ -1,12 +1,3 @@
-@import "compass_twitter_bootstrap";
+@import "linshare/linshare.scss";
 
-@import "../components/ng-grid/ng-grid.min.css";
-@import "../components/ng-table/ng-table.css";
-
-@import "navbar";
-@import "banner";
-@import "content";
-@import "footer";
-@import "loading";
-@import "spinner";
-@import "tree";
+@import "custom/custom.scss";

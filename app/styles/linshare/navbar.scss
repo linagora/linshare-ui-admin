@@ -1,0 +1,33 @@
+/* Override skin-black by skin-black for navbar */
+.skin-black .navbar {
+  background-color: #3c8dbc;
+}
+.skin-black .navbar .nav a {
+  color: rgba(255, 255, 255, 0.8);
+}
+.skin-black .navbar .nav > li > a:hover,
+.skin-black .navbar .nav > li > a:active,
+.skin-black .navbar .nav > li > a:focus,
+.skin-black .navbar .nav .open > a,
+.skin-black .navbar .nav .open > a:hover,
+.skin-black .navbar .nav .open > a:focus {
+  background: rgba(0, 0, 0, 0.1);
+  color: #f6f6f6;
+}
+.skin-black .navbar .navbar-right > .nav {
+  margin-right: 10px;
+}
+.skin-black .navbar .sidebar-toggle .icon-bar {
+  background: rgba(255, 255, 255, 0.8);
+}
+.skin-black .navbar .sidebar-toggle:hover .icon-bar {
+  background: #f6f6f6 !important;
+}
+
+.skin-black .navbar .dropdown-menu > li > a {
+  color: #333;
+}
+
+.skin-black .dropdown-menu > li.disabled > a {
+  color: #999;
+}

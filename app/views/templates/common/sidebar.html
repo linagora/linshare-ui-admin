@@ -1,0 +1,33 @@
+<form class="sidebar-form">
+  <div class="input-group">
+    <input type="text" name="q" class="form-control" placeholder="Search...">
+    <span class="input-group-btn">
+      <button type="submit" name="seach" id="search-btn" class="btn btn-flat">
+        <i class="fa fa-search"></i>
+      </button>
+    </span>
+  </div>
+</form>
+<accordion class="sidebar-menu"
+           x-ng-close-others="true">
+  <accordion-group class="treeview"
+      x-is-open="isopen"
+      x-ng-repeat="tab in tabs">
+    <accordion-heading>
+      <span>
+        {{tab.name}}
+      </span>
+      <i class="fa pull-right"
+         x-ng-class="{'fa-angle-down': isopen, 'fa-angle-left': !isopen}">
+      </i>
+    </accordion-heading>
+    <ul class="treeview-menu">
+      <li x-ng-repeat="link in tab.links">
+        <a href="{{link.href}}" style="margin-left: 10px;">
+          <i class="fa fa-angle-double-right"></i>
+          {{link.name}}
+        </a>
+      </li>
+    </ul>
+  </accordion-group> 
+</accordion>

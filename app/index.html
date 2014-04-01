@@ -5,16 +5,30 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles/main.css"/>
 </head>
-<body x-ng-controller="LoginFormCtrl">
+<body class="skin-black fixed"
+      x-ng-cloak
+      x-ng-controller="LoginFormCtrl">
   <!-- Navbar  =====================================-->
-  <div x-ls-navbar></div>
-
-  <div class="content">
-    <!-- Notifications  =====================================-->
-    <div x-ls-alert-box></div>
-
-    <!-- Content  =====================================-->
-    <div class="container" x-ng-view x-ng-cloak></div>
+  <header class="header">
+    <a href="index.html" class="logo">
+      {{'G_App_AppName' | i18n}}
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation"
+         x-ls-navbar>
+    </nav>
+  </header>
+  <div class="wrapper row-offcanvas row-offcanvas-left">
+    <aside class="left-side sidebar-offcanvas" style="min-height: 1629px;">
+      <!-- <div x-ls-navbar></div> -->
+      <section class="sidebar"
+               x-ls-sidebar>
+      </section>
+    </aside>
+    <aside class="right-side"
+           x-ng-view>
+      <!-- Notifications  =====================================-->
+      <div x-ls-alert-box></div>
+    </aside>
   </div>
 
   <!-- Footer =====================================-->

@@ -107,6 +107,10 @@
     "value": "Manage your domain patterns",
     "description": "Title for the domain patterns page."
   },
+  "P_Domains-DomainPatterns_BoxListTitle": {
+    "value": "Domain patterns list",
+    "description": "Title for the domain patterns list box."
+  },
   "P_Domains-DomainPatterns_Add": {
     "value": "Add",
     "description": "Button text for the add domain patterns action."
@@ -262,6 +266,10 @@
   "P_Domains-LDAPConnections_Title": {
     "value": "Manage your LDAP Connections",
     "description": "Title for the domain patterns page."
+  },
+  "P_Domains-LDAPConnections_BoxListTitle": {
+    "value": "LDAP connections list",
+    "description": "Title for the LDAP connections list box."
   },
   "P_Domains-LDAPConnections_Add": {
     "value": "Add",

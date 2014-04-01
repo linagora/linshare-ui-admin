@@ -1,67 +1,81 @@
-<form name="ldapConnectionForm" class="form-horizontal" x-ls-form-submit="submit()" x-ls-form-attempt novalidate>
+<div x-ng-if="state === 'create'">
+  <legend>
+    {{'P_Domains-LDAPConnections_CreationTitle' | i18n}}
+  </legend>
+</div>
+<div x-ng-if="state === 'edit'">
+  <legend>
+    {{ldapConnection.identifier}}
+  </legend>
+</div>
+<form class="form" name="ldapConnectionForm" role="form" novalidate
+      x-ls-form-submit="submit()"
+      x-ls-form-attempt>
   <fieldset>
-    <!-- Legend -->
-    <div x-ng-switch="state">
-      <div x-ng-switch-when="create">
-        <legend>{{'P_Domains-LDAPConnections_CreationTitle' | i18n}}</legend>
-        <!-- Identifier -->
-        <div class="control-group"
-              ng-class="{error: ldapConnectionForm.identifier.$invalid &&
-              (ldapConnectionForm.identifier.$dirty || ls.ldapConnectionForm.attempted)}">
-          <label class="control-label" for="identifier">{{'P_Domains-LDAPConnections_IdentifierLabel' | i18n}}</label>
-          <div class="controls">
-            <input id="identifier" name="identifier" type="text" x-ng-model="ldapConnection.identifier"
-            class="input-xlarge" required>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Legend -->
+        <div x-ng-if="state === 'create'">
+          <!-- Identifier -->
+          <div class="form-group"
+                x-ng-class="{'has-error': ldapConnectionForm.identifier.$invalid &&
+                (ldapConnectionForm.identifier.$dirty || ls.ldapConnectionForm.attempted)}">
+            <label class="control-label" for="identifier">
+              {{'P_Domains-LDAPConnections_IdentifierLabel' | i18n}}
+            </label>
+            <input id="identifier" name="identifier" type="text" class="form-control" required
+                   x-ng-model="ldapConnection.identifier">
           </div>
         </div>
-      </div>
-      <div x-ng-switch-when="edit">
-        <legend>{{ldapConnection.identifier}}</legend>
-      </div>
-    </div>
-    <!-- Provider URL -->
-    <div class="control-group"
-	  ng-class="{error: providerURLForm.providerURL.$invalid &&
-	  (providerURLForm.providerURL.$dirty || ls.providerURLForm.attempted)}">
-      <label class="control-label" for="providerURL">{{'P_Domains-LDAPConnections_ProviderURLLabel' | i18n}}</label>
-      <div class="controls">
-        <input id="providerURL" name="providerURL" type="text" x-ng-model="ldapConnection.providerUrl"
-        class="input-xlarge" required>
-        <p class="help-block">{{'P_Domains-LDAPConnections_ProviderURLHelp' | i18n}}</p>
-      </div>
-    </div>
-    <!-- Security Principal -->
-    <div class="control-group">
-      <label class="control-label" for="securityPrincipal">{{'P_Domains-LDAPConnections_SecurityPrincipalLabel' | i18n}}</label>
-      <div class="controls">
-        <input id="securityPrincipal" name="securityPrincipal" type="text" x-ng-model="ldapConnection.securityPrincipal"
-        class="input-xlarge">
-        <p class="help-block">{{'P_Domains-LDAPConnections_SecurityPrincipalHelp' | i18n}}</p>
-      </div>
-    </div>
-    <!-- Security Credentials -->
-    <div class="control-group">
-      <label class="control-label" for="securityCredentials">{{'P_Domains-LDAPConnections_SecurityCredentialsLabel' | i18n}}</label>
-      <div class="controls">
-        <input id="securityCredentials" name="securityCredentials" type="text" x-ng-model="ldapConnection.securityCredentials"
-        class="input-xlarge">
-        <p class="help-block">{{'P_Domains-LDAPConnections_SecurityCredentialsHelp' | i18n}}</p>
+        <!-- Provider URL -->
+        <div class="form-group"
+             x-ng-class="{'has-error': providerURLForm.providerURL.$invalid &&
+               (providerURLForm.providerURL.$dirty || ls.providerURLForm.attempted)}">
+          <label class="control-label" for="providerURL">
+            {{'P_Domains-LDAPConnections_ProviderURLLabel' | i18n}}
+          </label>
+          <input id="providerURL" name="providerURL" type="text" class="form-control" required
+                 x-ng-model="ldapConnection.providerUrl">
+          <p class="help-block">
+            {{'P_Domains-LDAPConnections_ProviderURLHelp' | i18n}}
+          </p>
+        </div>
+        <!-- Security Principal -->
+        <div class="form-group">
+          <label class="control-label" for="securityPrincipal">
+            {{'P_Domains-LDAPConnections_SecurityPrincipalLabel' | i18n}}
+          </label>
+          <input id="securityPrincipal" name="securityPrincipal" type="text" class="form-control"
+                 x-ng-model="ldapConnection.securityPrincipal">
+          <p class="help-block">
+            {{'P_Domains-LDAPConnections_SecurityPrincipalHelp' | i18n}}
+          </p>
+        </div>
+        <!-- Security Credentials -->
+        <div class="form-group">
+          <label class="control-label" for="securityCredentials">
+            {{'P_Domains-LDAPConnections_SecurityCredentialsLabel' | i18n}}
+          </label>
+          <input id="securityCredentials" name="securityCredentials" type="text" class="form-control"
+                 x-ng-model="ldapConnection.securityCredentials">
+          <p class="help-block">
+            {{'P_Domains-LDAPConnections_SecurityCredentialsHelp' | i18n}}
+          </p>
+        </div>
       </div>
     </div>
     <!-- Validation -->
-    <div class="control-group">
-      <div class="controls">
-        <button type="button" id="delete" name="delete" class="btn btn-danger" x-ng-show="state==='edit'" x-ng-click="remove()">
-          {{'P_Domains-LDAPConnections_Delete' | i18n}}
-        </button>
-        <button type="button" id="reset" name="reset" class="btn btn-warning" x-ng-click="reset()">
-          {{'P_Domains-LDAPConnections_Reset' | i18n}}
-        </button>
-        <button type="submit" id="submit" name="submit"
-        class="btn btn-success">
-          {{'P_Domains-LDAPConnections_Submit' | i18n}}
-        </button>
-      </div>
-    </div>
+    <button type="button" id="delete" name="delete" class="btn btn-danger btn-lg"
+            x-ng-show="state === 'edit'"
+            x-ng-click="remove()">
+      {{'P_Domains-LDAPConnections_Delete' | i18n}}
+    </button>
+    <button type="button" id="reset" name="reset" class="btn btn-warning btn-lg"
+            x-ng-click="reset()">
+      {{'P_Domains-LDAPConnections_Reset' | i18n}}
+    </button>
+    <button type="submit" id="submit" name="submit" class="btn btn-success btn-lg">
+      {{'P_Domains-LDAPConnections_Submit' | i18n}}
+    </button>
   </fieldset>
 </form>

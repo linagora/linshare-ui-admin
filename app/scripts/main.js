@@ -152,6 +152,8 @@ require.config({
         {deps: ['directives/directives']},
     'directives/common/navbar':
         {deps: ['directives/directives', 'bootstrap']},
+    'directives/common/sidebar':
+        {deps: ['directives/directives', 'bootstrap']},
     'directives/common/alertBox':
         {deps: ['directives/directives']},
     'directives/common/alertTimeout':
@@ -247,6 +249,7 @@ var dependencies = [
   'directives/common/formAttempt',
   'directives/common/formSubmit',
   'directives/common/navbar',
+  'directives/common/sidebar',
   'directives/common/alertBox',
   'directives/common/alertTimeout',
   'directives/common/footer',

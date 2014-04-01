@@ -1,0 +1,39 @@
+// Fix Adminlte for angularbootstrap
+
+.panel-group div.treeview {
+  border: 0px;
+  border-radius: 0px;
+  background: none;
+}
+
+.treeview > .panel-heading {
+  background-color: #333;
+  border: 0px;
+  box-shadow: 0px;
+  -webkit-box-shadow: 0px;
+}
+
+.treeview > .panel-heading:hover {
+  color: #f6f6f6;
+  background: #444;
+  cursor: pointer;
+}
+
+.treeview > .panel-heading > .panel-title {
+  font-size: 14px;
+}
+
+.panel-group > .treeview > .panel-collapse > div.panel-body {
+  margin: 0px;
+  padding: 0px;
+  margin-left: 10px;
+  border: 0;
+}
+
+.sidebar .sidebar-menu .treeview-menu {
+  display: block;
+}
+
+.sidebar .sidebar-menu .treeview-menu > li > a {
+  padding: 5px 5px 5px 15px;
+}

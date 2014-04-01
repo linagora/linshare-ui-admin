@@ -1,59 +1,37 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <a class="brand">
-        {{'G_App_AppName' | i18n}}
+<div class="navbar-right">
+  <ul class="nav navbar-nav">
+    <li class="dropdown language-menu">
+      <a href="#" class="dropdown-toggle">
+        <i class="fa fa-flag"></i>
+        {{'G_App_Language' | i18n}}
+        <i class="caret"></i>
       </a>
-      <div class="nav-collapse container">
-        <ul class="nav">
-          <li class="dropdown"
-              x-ng-repeat="tab in tabs"> 
-            <a class="dropdown-toggle">
-              {{tab.name}}
-            </a>
-            <ul class="dropdown-menu">
-              <li x-ng-repeat="link in tab.links">
-                <a href="{{link.href}}">{{link.name}}</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav" style="float:right">
-          <li class="dropdown"> 
-            <a class="dropdown-toggle">
-              <i class="icon-white icon-flag"></i>
-              {{'G_App_Language' | i18n}}
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li x-ng-class="{disabled: isCurrentLang('en')}">
-                <a x-ng-click="setLanguage('en-US')">
-                  {{'G_App_LangEn' | i18n}}
-                </a>
-              </li>
-              <li x-ng-class="{disabled: isCurrentLang('fr')}">
-                <a x-ng-click="setLanguage('fr-FR')">
-                  {{'G_App_LangFr' | i18n}}
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown"> 
-            <a class="dropdown-toggle">
-              <i class="icon-white icon-user"></i>
-              {{userLogged.mail}}
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a x-ng-click="logout()">
-                  {{'G_App_Logout' | i18n}}
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+      <ul class="dropdown-menu">
+        <li x-ng-class="{disabled: isCurrentLang('en')}">
+          <a x-ng-click="setLanguage('en-US')">
+            {{'G_App_LangEn' | i18n}}
+          </a>
+        </li>
+        <li x-ng-class="{disabled: isCurrentLang('fr')}">
+          <a x-ng-click="setLanguage('fr-FR')">
+            {{'G_App_LangFr' | i18n}}
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown user user-menu">
+      <a href="#" class="dropdown-toggle">
+        <i class="fa fa-user"></i>
+        {{userLogged.mail}}
+        <i class="caret"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a x-ng-click="logout()">
+            {{'G_App_Logout' | i18n}}
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>

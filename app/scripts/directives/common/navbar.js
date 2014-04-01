@@ -6,15 +6,12 @@ app.directive('lsNavbar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$log', 'Authentication', 'localize', 'preferences', 'Tab',
-        function($scope, $log, Authentication, localize, preferences, Tab) {
-          $scope.appName = preferences.system.appName;
-
+      controller: ['$scope', '$log', 'Authentication', 'localize',
+        function($scope, $log, Authentication, localize) {
           $scope.$watch(Authentication.getCurrentUser,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
                 $scope.userLogged = newValue;
-                $scope.tabs = Tab.getAvailableTabs(newValue);
               }
             },
             true
