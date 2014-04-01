@@ -4,19 +4,22 @@ angular.module('myApp.controllers')
   .controller('LdapConnectionCtrl',
     ['$scope', '$filter', '$log', 'ngTableParams', 'LdapConnection',
       function ($scope, $filter, $log, ngTableParams, LdapConnection) {
-        $scope.viewForm = false;
+        $scope.getCurrentLdapConnection = function() {
+          return LdapConnection.getCurrent();
+        };
         $scope.reloadList = function () {
           $scope.tableParams.reload();
         };
-        $scope.switchView = function() {
-          $scope.viewForm = !$scope.viewForm;
-        };
-        $scope.resetForm = function() {
-          LdapConnection.setCurrent(undefined);
-        };
+        $scope.$watch(LdapConnection.getCurrent, function (newValue, oldValue) {
+          if (angular.isUndefined(newValue)) {
+            $scope.reloadList();
+          }
+        });
         $scope.edit = function(ldapConnection) {
           LdapConnection.setCurrent(ldapConnection);
-          $scope.switchView();
+        };
+        $scope.create = function() {
+          LdapConnection.setCurrent({});
         };
         $scope.tableParams = new ngTableParams({
           page: 1,        // show first page

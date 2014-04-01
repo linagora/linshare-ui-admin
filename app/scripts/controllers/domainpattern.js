@@ -4,19 +4,22 @@ angular.module('myApp.controllers')
   .controller('DomainPatternCtrl',
     ['$scope', '$filter', '$log', 'ngTableParams', 'DomainPattern',
       function ($scope, $filter, $log, ngTableParams, DomainPattern) {
-        $scope.viewForm = false;
+        $scope.getCurrentDomainPattern = function() {
+          return DomainPattern.getCurrent();
+        };
         $scope.reloadList = function () {
           $scope.tableParams.reload();
         };
-        $scope.switchView = function() {
-          $scope.viewForm = !$scope.viewForm;
-        };
-        $scope.resetForm = function() {
-          DomainPattern.setCurrent(undefined);
-        };
+        $scope.$watch(DomainPattern.getCurrent, function (newValue, oldValue) {
+          if (angular.isUndefined(newValue)) {
+            $scope.reloadList();
+          }
+        });
         $scope.edit = function(domainPattern) {
           DomainPattern.setCurrent(domainPattern);
-          $scope.switchView();
+        };
+        $scope.create = function() {
+          DomainPattern.setCurrent({});
         };
         $scope.tableParams = new ngTableParams({
           page: 1,        // show first page

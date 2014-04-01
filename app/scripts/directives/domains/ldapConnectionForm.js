@@ -4,7 +4,7 @@ app.directive('lsLdapConnectionForm', [
   function() {
     return {
       restrict: 'A',
-      scope: true,
+      scope: {},
       transclude: false,
       controller: 
         ['$scope', '$modal', '$log', 'LdapConnection', 'localize',
@@ -14,16 +14,14 @@ app.directive('lsLdapConnectionForm', [
               LdapConnection.update(
                 $scope.ldapConnection,
                 function successCallback() {
-                  $scope.reloadList();
-                  $scope.switchView();
+                  $scope.cancel();
                 }
               );
             } else {
               LdapConnection.add(
                 $scope.ldapConnection,
                 function successCallback() {
-                  $scope.reloadList();
-                  $scope.switchView();
+                  $scope.cancel();
                 }
               );
             }
@@ -46,8 +44,7 @@ app.directive('lsLdapConnectionForm', [
                   LdapConnection.remove(
                     $scope.ldapConnection,
                     function successCallback() {
-                      $scope.reloadList();
-                      $scope.switchView();
+                      $scope.cancel();
                     }
                   );
                 }, function cancel() {
@@ -58,13 +55,17 @@ app.directive('lsLdapConnectionForm', [
               $log.error('Invalid state');
             }
           };
+          $scope.cancel = function() {
+            LdapConnection.setCurrent(undefined);
+          };
           $scope.reset = function() {
-            $scope.ldapConnection = {};
             if (LdapConnection.currentIsDefined()) {
-              $scope.state = 'edit';
-              angular.copy(LdapConnection.getCurrent(), $scope.ldapConnection);
-            } else {
-              $scope.state = 'create';
+              $scope.ldapConnection = angular.copy(LdapConnection.getCurrent());
+              if (_.isEmpty($scope.ldapConnection)) {
+                $scope.state = 'create';
+              } else {
+                $scope.state = 'edit';
+              }
             }
           };
           $scope.reset();

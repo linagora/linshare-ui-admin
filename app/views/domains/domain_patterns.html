@@ -12,28 +12,12 @@
     <section class="col-lg-12">
       <div class="box box-primary">
         <!-- Form -->
-        <div x-ng-if="viewForm">
-          <div class="box-header">
-            <div class="pull-right box-tools">
-              <div class="btn-group">
-                <button class="btn btn-primary pull-right" type="button"
-                        x-ng-if="viewForm"
-                        x-ng-click="switchView()">
-                  <span>
-                    <i class="fa fa-bars"></i> 
-                    {{'P_Domains-DomainPatterns_List' | i18n}}
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="box-body">
-            <div x-ls-domain-pattern-form></div>
-          </div>
+        <div x-ng-if="getCurrentDomainPattern()">
+          <div x-ls-domain-pattern-form></div>
         </div>
 
         <!-- List -->
-        <div x-ng-if="!viewForm">
+        <div x-ng-if="!getCurrentDomainPattern()">
           <div class="box-header">
             <h3 class="box-title">
               {{'P_Domains-DomainPatterns_BoxListTitle' | i18n}}
@@ -41,8 +25,7 @@
             <div class="pull-right box-tools">
               <div class="btn-group">
                 <button class="btn btn-primary" type="button"
-                        x-ng-if="!viewForm"
-                        x-ng-click="resetForm();switchView()">
+                        x-ng-click="create()">
                   <span>
                     <i class="fa fa-plus"></i> 
                     {{'P_Domains-DomainPatterns_Add' | i18n}}

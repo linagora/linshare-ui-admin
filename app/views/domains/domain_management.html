@@ -1,16 +1,29 @@
-<div class="container">
-  <div class="row-fluid">
-    <div class="page-header">
-      <h1>
-        {{'P_Domains-Management_Title' | i18n}}
-      </h1>
-    </div>
-    <div x-ng-controller="DomainManagementCtrl">
-      <div class="span4" x-ls-domain-tree state="edit" root="root">
+<section class="content-header">
+  <h1>
+    {{'G_Tab_Domains-Management' | i18n}}
+    <small>
+      {{'P_Domains-Management_Title' | i18n}}
+    </small>
+  </h1>
+</section>
+<section class="content"
+         x-ng-controller="DomainManagementCtrl">
+  <div class="row">
+    <section class="col-md-4">
+      <div class="box box-primary">
+        <div class="box-header">
+          <h3 class="box-title">
+            {{'P_Domains-Management_BoxTreeTitle' | i18n}}
+          </h3>
+        </div>
+        <div class="box-body">
+          <div x-ls-domain-tree state="edit" root="root">
+        </div>
       </div>
-      <div class="span8" x-ng-if="getCurrentDomain()">
-        <div x-ls-domain-form reload="reload()"></div>
-      </div>
-    </div>
+    </section>
+    <section class="col-md-8"
+             x-ng-if="getCurrentDomain()">
+      <div x-ls-domain-form reload="reload()">
+    </section>
   </div>
-</div>
+</section>

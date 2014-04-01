@@ -1,40 +1,39 @@
-<div>
-  <script type="text/ng-template" id="tree_item_renderer">
-    <div class="btn-group">
-      <button class="btn" x-ng-click="setCurrentDomain(domain)">
-        {{domain.label}}
-      </button>
-      <button class="btn btn-success dropdown-toggle" x-ng-show="canAddChildDomain(domain)">
-        <span>&nbsp;<i class="icon-plus icon-white"></i><span>
-      </button>
-      <ul class="dropdown-menu">
-        <li x-ng-if="canAddTopDomain(domain)">
-          <a x-ng-click="addTopDomain(domain)">
-            {{'P_Domains-Management_AddTopDomain' | i18n}}
-          </a>
-        </li>
-        <li x-ng-if="canAddSubDomain(domain)">
-          <a x-ng-click="addSubDomain(domain)">
-            {{'P_Domains-Management_AddSubDomain' | i18n}}
-          </a>
-        </li>
-        <li x-ng-if="canAddGuestDomain(domain)">
-          <a x-ng-click="addGuestDomain(domain)">
-            {{'P_Domains-Management_AddGuestDomain' | i18n}}
-          </a>
-        </li>
-      </ul>
-    </div>
-    
-    <ul>
-      <li class="parent_li branch" x-ng-repeat="domain in domain.children | orderBy:'label'" x-ng-include="'tree_item_renderer'">
+<script type="text/ng-template" id="tree_item_renderer">
+  <div class="btn-group">
+    <button class="btn" x-ng-click="setCurrentDomain(domain)">
+      {{domain.label}}
+    </button>
+    <button class="btn btn-success dropdown-toggle" x-ng-show="canAddChildDomain(domain)">
+      <span>&nbsp;<i class="fa fa-plus"></i><span>
+    </button>
+    <ul class="dropdown-menu">
+      <li x-ng-if="canAddTopDomain(domain)">
+        <a x-ng-click="addTopDomain(domain)">
+          {{'P_Domains-Management_AddTopDomain' | i18n}}
+        </a>
       </li>
-    </ul>
-  </script>
-  <div class="tree well">
-    <ul>
-      <li class="branch" x-ng-repeat="domain in root" x-ng-include="'tree_item_renderer'">
+      <li x-ng-if="canAddSubDomain(domain)">
+        <a x-ng-click="addSubDomain(domain)">
+          {{'P_Domains-Management_AddSubDomain' | i18n}}
+        </a>
+      </li>
+      <li x-ng-if="canAddGuestDomain(domain)">
+        <a x-ng-click="addGuestDomain(domain)">
+          {{'P_Domains-Management_AddGuestDomain' | i18n}}
+        </a>
       </li>
     </ul>
   </div>
+  
+  <ul>
+    <li class="parent_li branch" x-ng-repeat="domain in domain.children | orderBy:'label'" x-ng-include="'tree_item_renderer'">
+    </li>
+  </ul>
+</script>
+
+<div class="tree">
+  <ul>
+    <li class="branch" x-ng-repeat="domain in root" x-ng-include="'tree_item_renderer'">
+    </li>
+  </ul>
 </div>

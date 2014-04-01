@@ -1,136 +1,205 @@
-<form name="domainForm" class="form-horizontal" x-ls-form-submit="submit()" x-ls-form-attempt>
-  <div x-ng-switch="state">
-    <div x-ng-switch-when="create">
+<div class="box box-primary">
+  <div class="box-header">
+    <div class="box-title">
       <!-- Legend -->
-      <div x-ng-switch="domain.type">
-        <h4 x-ng-switch-when="TOPDOMAIN" x-i18n="P_Domains-Management_CreateTopDomainTitle|{{domain.parent.identifier}}"></h4>
-        <h4 x-ng-switch-when="SUBDOMAIN" x-i18n="P_Domains-Management_CreateSubDomainTitle|{{domain.parent.identifier}}"></h4>
-        <h4 x-ng-switch-when="GUESTDOMAIN" x-i18n="P_Domains-Management_CreateGuestDomainTitle|{{domain.parent.identifier}}"></h4>
-      </div>
-      <!-- Identifier -->
-      <div class="control-group"
-           x-ng-class="{error: domainForm.identifier.$invalid && (domainForm.identifier.$dirty || ls.domainForm.attempted)}">
-        <label class="control-label" for="identifier">{{'P_Domains-Management_IdentifierLabel' | i18n}}</label>
-        <div class="controls">
-          <input id="identifier" name="identifier" type="text" x-ng-model="domain.identifier"
-          class="input-xlarge" required>
+      <div x-ng-if="state === 'create'">
+        <div x-ng-switch="domain.type">
+          <h3 class="box-title"
+              x-ng-switch-when="TOPDOMAIN"
+              x-i18n="P_Domains-Management_CreateTopDomainTitle|{{domain.parent}}">
+          </h3>
+          <h3 class="box-title"
+              x-ng-switch-when="SUBDOMAIN"
+              x-i18n="P_Domains-Management_CreateSubDomainTitle|{{domain.parent}}">
+          </h3>
+          <h3 class="box-title"
+              x-ng-switch-when="GUESTDOMAIN"
+              x-i18n="P_Domains-Management_CreateGuestDomainTitle|{{domain.parent}}">
+          </h3>
         </div>
       </div>
-    </div>
-    <div x-ng-switch-when="edit">
-      <!-- Legend -->
-      <h4><legend>{{domain.label}}</legend></h4>
-      <!-- Identifier -->
-      <div class="control-group">
-        <div class="controls">
-          <span class="input-xlarge uneditable-input">
-            {{domain.identifier}}
-          </span>
-        </div>
+      <div x-ng-if="state === 'edit'">
+        <h3>
+          {{ 'P_Domains-Management_BoxEditTitle' | i18n}}
+        </h3>
       </div>
     </div>
-  </div>
-  
-  <!-- Name -->
-  <div class="control-group"
-       x-ng-class="{error: domainForm.name.$invalid && (domainForm.name.$dirty || ls.domainForm.attempted)}">
-    <label class="control-label" for="name">{{'P_Domains-Management_NameLabel' | i18n}}</label>
-    <div class="controls">
-      <input id="name" name="name" type="text" x-ng-model="domain.label"
-      class="input-xlarge" required>
-    </div>
-  </div>
-  
-  <!-- Description -->
-  <div class="control-group">
-    <label class="control-label" for="description">{{'P_Domains-Management_DescriptionLabel' | i18n}}</label>
-    <div class="controls">
-      <textarea id="description" name="description" class="input-xlarge" x-ng-model="domain.description"></textarea>
-    </div>
-  </div>
-
-  <!-- Locale -->
-  <div class="control-group"
-       x-ng-class="{error: domainForm.locale.$invalid && (domainForm.locale.$dirty || ls.domainForm.attempted)}">
-    <label class="control-label" for="locale">{{'P_Domains-Management_LocaleLabel' | i18n}}</label>
-    <div class="controls">
-      <select id="locale" name="locale" class="input-xlarge" x-ng-model="domain.locale" x-ng-options="l for l in locales" required>
-      </select>
-    </div>
-  </div>
-
-  <!-- User role -->
-  <div class="control-group" x-ng-show="domain.type!='GUESTDOMAIN'"
-       x-ng-class="{error: domainForm.userRole.$invalid && (domainForm.userRole.$dirty || ls.domainForm.attempted)}">
-    <label class="control-label" for="userRole">{{'P_Domains-Management_UserRoleLabel' | i18n}}</label>
-    <div class="controls">
-      <select id="userRole" name="userRole" class="input-xlarge" x-ng-model="domain.userRole" x-ng-options="u for u in userRoles" required>
-      </select>
-    </div>
-  </div>
-
-  <!-- Policy -->
-  <div class="control-group"
-       x-ng-class="{error: domainForm.policy.$invalid && (domainForm.policy.$dirty || ls.domainForm.attempted)}">
-    <label class="control-label" for="policy">{{'P_Domains-Management_PolicyLabel' | i18n}}</label>
-    <div class="controls">
-      <select id="policy" name="policy" class="input-xlarge" x-ng-model="domain.policy.identifier" x-ng-options="p for p in domainPolicies" required>
-      </select>
-    </div>
-  </div>
-
-
-  <div class="btn-toolbar" x-ng-show="domain.type!='GUESTDOMAIN'">
-    <button type="button" class="btn" x-ng-disabled="disableProvider" x-ng-click="addProvider()">
-      <i class="icon-plus"></i> {{'P_Domains-Management_AddProvider' | i18n}}
-    </button>
-  </div>
-  <!-- Provider Form -->
-  <div class="well" style="max-width: 600px; margin: 0 auto 10px;" x-ng-repeat="provider in domain.providers">
-    <button type="button" class="close" x-ng-click="deleteProvider()" aria-hidden="true">&times;</button>
-    <h4>{{'P_Domains-Management_UserProvider' | i18n}}</h4>
-    <!-- LDAP Connection -->
-    <div class="control-group"
-         ng-class="{error: domainEditForm.ldapConnection.$invalid && (domainEditForm.ldapConnection.$dirty || ls.domainEditForm.attempted)}">
-      <label class="control-label" for="ldapConnection">{{'P_Domains-Management_LDAPConnectionLabel' | i18n}}</label>
-      <div class="controls">
-        <select id="ldapConnection" name="ldapConnection" class="input-xlarge" x-ng-model="provider.ldapConnectionId" x-ng-options="l for l in ldapConnections" required>
-        </select>
-        <p class="help-block">{{'P_Domains-Management_LDAPConnectionHelp' | i18n}}</p>
-      </div>
-    </div>
-    <!-- Domain Pattern -->
-    <div class="control-group"
-         ng-class="{error: domainEditForm.domainPattern.$invalid && (domainEditForm.domainPattern.$dirty || ls.domainEditForm.attempted)}">
-      <label class="control-label" for="domainPattern">{{'P_Domains-Management_DomainPatternLabel' | i18n}}</label>
-      <div class="controls">
-        <select id="domainPattern" name="domainPattern" class="input-xlarge" x-ng-model="provider.domainPatternId" x-ng-options="d for d in domainPatterns" required>
-        </select>
-        <p class="help-block">{{'P_Domains-Management_DomainPatternHelp' | i18n}}</p>
-      </div>
-    </div>
-    <!-- Base Dn -->
-    <div class="control-group"
-         ng-class="{error: domainEditForm.baseDn.$invalid && (domainEditForm.baseDn.$dirty || ls.domainEditForm.attempted)}">
-      <label class="control-label" for="baseDn">{{'P_Domains-Management_BaseDnLabel' | i18n}}</label>
-      <div class="controls">
-        <input id="baseDn" name="baseDn" type="text" x-ng-model="provider.baseDn"
-        class="input-xlarge" required>
-        <p class="help-block">{{'P_Domains-Management_BaseDnHelp' | i18n}}</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Validation -->
-  <div class="control-group">
-    <div class="controls">
-      <button id="delete" name="delete" type="button" class="btn btn-danger" x-ng-click="remove()" x-ng-if="state==='edit'">
-        {{'P_Domains-Management_Delete' | i18n}}
+    <div class="pull-right box-tools">
+      <button class="btn btn-primary btn-sm"
+              x-ng-click="cancel()">
+        <i class="fa fa-times"></i>
       </button>
-      <button type="button" id="cancel" name="cancel" class="btn" x-ng-click="cancel()">{{'P_Domains-Management_Cancel' | i18n}}</button>
-      <button type="button" id="reset" name="reset" class="btn btn-warning" x-ng-click="reset()">{{'P_Domains-Management_Reset' | i18n}}</button>
-      <button type="submit" id="submit" name="submit"
-      class="btn btn-success" >{{'P_Domains-Management_Submit' | i18n}}</button>
     </div>
   </div>
-</form>
+  <div class="box-body">
+    <form name="domainForm" class="form" role="form"
+          x-ls-form-submit="submit()"
+          x-ls-form-attempt>
+      <div x-ng-if="state === 'create'">
+        <!-- Identifier -->
+        <div class="form-group"
+             x-ng-class="{'has-error': domainForm.identifier.$invalid &&
+               (domainForm.identifier.$dirty || ls.domainForm.attempted)}">
+          <label class="control-label" for="identifier">
+            {{'P_Domains-Management_IdentifierLabel' | i18n}}
+          </label>
+          <input id="identifier" name="identifier" type="text" class="form-control" required
+                 x-ng-model="domain.identifier">
+        </div>
+      </div>
+      <div x-ng-if="state === 'edit'">
+        <!-- Identifier -->
+        <label class="control-label" for="identifier">
+          {{'P_Domains-Management_IdentifierLabel' | i18n}}
+        </label>
+        <div class="form-group">
+          <p class="form-control-static">
+            {{domain.identifier}}
+          </p>
+        </div>
+      </div>
+      
+      <!-- Name -->
+      <div class="form-group"
+           x-ng-class="{'has-error': domainForm.name.$invalid &&
+             (domainForm.name.$dirty || ls.domainForm.attempted)}">
+        <label class="control-label" for="name">
+          {{'P_Domains-Management_NameLabel' | i18n}}
+        </label>
+        <input id="name" name="name" type="text" class="form-control" required
+               x-ng-model="domain.label">
+      </div>
+      
+      <!-- Description -->
+      <div class="form-group">
+        <label class="control-label" for="description">
+          {{'P_Domains-Management_DescriptionLabel' | i18n}}
+        </label>
+        <textarea id="description" name="description" class="form-control"
+                  x-ng-model="domain.description">
+        </textarea>
+      </div>
+
+      <!-- Locale -->
+      <div class="form-group"
+           x-ng-class="{'has-error': domainForm.locale.$invalid &&
+             (domainForm.locale.$dirty || ls.domainForm.attempted)}">
+        <label class="control-label" for="locale">
+          {{'P_Domains-Management_LocaleLabel' | i18n}}
+        </label>
+        <select id="locale" name="locale" class="form-control" required
+                x-ng-model="domain.locale"
+                x-ng-options="l for l in locales">
+        </select>
+      </div>
+
+      <!-- User role -->
+      <div class="form-group"
+           x-ng-show="domain.type!='GUESTDOMAIN'"
+           x-ng-class="{'has-error': domainForm.userRole.$invalid &&
+             (domainForm.userRole.$dirty || ls.domainForm.attempted)}">
+        <label class="control-label" for="userRole">
+          {{'P_Domains-Management_UserRoleLabel' | i18n}}
+        </label>
+        <select id="userRole" name="userRole" class="form-control" required
+                x-ng-model="domain.userRole"
+                x-ng-options="u for u in userRoles">
+        </select>
+      </div>
+
+      <!-- Policy -->
+      <div class="form-group"
+           x-ng-class="{'has-error': domainForm.policy.$invalid &&
+             (domainForm.policy.$dirty || ls.domainForm.attempted)}">
+        <label class="control-label" for="policy">
+          {{'P_Domains-Management_PolicyLabel' | i18n}}
+        </label>
+        <select id="policy" name="policy" class="form-control" required
+                x-ng-model="domain.policy.identifier"
+                x-ng-options="p for p in domainPolicies">
+        </select>
+      </div>
+
+
+      <div class="form-group"
+           x-ng-show="domain.type!='GUESTDOMAIN'">
+        <button type="button" class="btn"
+                x-ng-disabled="disableProvider"
+                x-ng-click="addProvider()">
+          <i class="fa fa-plus"></i> {{'P_Domains-Management_AddProvider' | i18n}}
+        </button>
+      </div>
+      <!-- Provider Form -->
+      <div class="well" style="max-width: 600px; margin: 0 auto 10px;"
+           x-ng-repeat="provider in domain.providers">
+        <button type="button" class="close"
+                x-ng-click="deleteProvider()">
+          &times;
+        </button>
+        <h4>
+          {{'P_Domains-Management_UserProvider' | i18n}}
+        </h4>
+        <!-- LDAP Connection -->
+        <div class="form-group"
+             x-ng-class="{'has-error': domainEditForm.ldapConnection.$invalid &&
+               (domainEditForm.ldapConnection.$dirty || ls.domainEditForm.attempted)}">
+          <label class="control-label" for="ldapConnection">
+            {{'P_Domains-Management_LDAPConnectionLabel' | i18n}}
+          </label>
+          <select id="ldapConnection" name="ldapConnection" class="form-control" required
+                  x-ng-model="provider.ldapConnectionId"
+                  x-ng-options="l for l in ldapConnections">
+          </select>
+          <p class="help-block">
+            {{'P_Domains-Management_LDAPConnectionHelp' | i18n}}
+          </p>
+        </div>
+        <!-- Domain Pattern -->
+        <div class="form-group"
+             x-ng-class="{'has-error': domainEditForm.domainPattern.$invalid &&
+               (domainEditForm.domainPattern.$dirty || ls.domainEditForm.attempted)}">
+          <label class="control-label" for="domainPattern">
+            {{'P_Domains-Management_DomainPatternLabel' | i18n}}
+          </label>
+          <select id="domainPattern" name="domainPattern" class="form-control" required
+                  x-ng-model="provider.domainPatternId"
+                  x-ng-options="d for d in domainPatterns">
+          </select>
+          <p class="help-block">
+            {{'P_Domains-Management_DomainPatternHelp' | i18n}}
+          </p>
+        </div>
+        <!-- Base Dn -->
+        <div class="form-group"
+             x-ng-class="{'has-error': domainEditForm.baseDn.$invalid &&
+               (domainEditForm.baseDn.$dirty || ls.domainEditForm.attempted)}">
+          <label class="control-label" for="baseDn">
+            {{'P_Domains-Management_BaseDnLabel' | i18n}}
+          </label>
+          <input id="baseDn" name="baseDn" type="text" class="form-control" required
+                 x-ng-model="provider.baseDn">
+          <p class="help-block">
+            {{'P_Domains-Management_BaseDnHelp' | i18n}}
+          </p>
+        </div>
+      </div>
+
+      <!-- Validation -->
+      <div class="form-group">
+        <div class="controls">
+          <button id="delete" name="delete" type="button" class="btn btn-danger"
+                  x-ng-click="remove()"
+                  x-ng-if="state==='edit'">
+            {{'P_Domains-Management_Delete' | i18n}}
+          </button>
+          <button type="button" id="reset" name="reset" class="btn btn-warning"
+                  x-ng-click="reset()">{{'P_Domains-Management_Reset' | i18n}}
+          </button>
+          <button type="submit" id="submit" name="submit" class="btn btn-success">
+            {{'P_Domains-Management_Submit' | i18n}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

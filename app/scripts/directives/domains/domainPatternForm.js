@@ -4,7 +4,7 @@ app.directive('lsDomainPatternForm', [
   function() {
     return {
       restrict: 'A',
-      scope: true,
+      scope: {},
       transclude: false,
       controller: 
         ['$scope', '$modal', '$log', 'DomainPattern', 'localize',
@@ -15,16 +15,14 @@ app.directive('lsDomainPatternForm', [
               DomainPattern.update(
                 $scope.domainPattern,
                 function successCallback() {
-                  $scope.reloadList();
-                  $scope.switchView();
+                  $scope.cancel();
                 }
               );
             } else {
               DomainPattern.add(
                 $scope.domainPattern,
                 function successCallback() {
-                  $scope.reloadList();
-                  $scope.switchView();
+                  $scope.cancel();
                 }
               );
             }
@@ -47,8 +45,7 @@ app.directive('lsDomainPatternForm', [
                   DomainPattern.remove(
                     $scope.domainPattern,
                     function successCallback() {
-                      $scope.reloadList();
-                      $scope.switchView();
+                      $scope.cancel();
                     }
                   );
                 }, function cancel() {
@@ -59,22 +56,25 @@ app.directive('lsDomainPatternForm', [
               $log.error('Invalid state');
             }
           };
+          $scope.cancel = function() {
+            DomainPattern.setCurrent(undefined);
+          };
           $scope.reset = function() {
-            $scope.domainPattern = {};
             if (DomainPattern.currentIsDefined()) {
-              console.log(DomainPattern.getCurrent());
-              $scope.state = 'edit';
-              angular.copy(DomainPattern.getCurrent(), $scope.domainPattern);
-            } else {
-              $scope.state = 'create';
-              DomainPattern.getAllModels(function success(models) {
-                $scope.models = models;
-                $scope.models.push(emptyModel);
-                $scope.modelSelector = emptyModel;
-                $scope.$watch('modelSelector', function() {
-                  loadModel();
+              $scope.domainPattern = angular.copy(DomainPattern.getCurrent());
+              if (_.isEmpty($scope.domainPattern)) {
+                $scope.state = 'create';
+                DomainPattern.getAllModels(function success(models) {
+                  $scope.models = models;
+                  $scope.models.push(emptyModel);
+                  $scope.modelSelector = emptyModel;
+                  $scope.$watch('modelSelector', function() {
+                    loadModel();
+                  });
                 });
-              });
+              } else {
+                $scope.state = 'edit';
+              }
             }
           };
           function loadModel() {

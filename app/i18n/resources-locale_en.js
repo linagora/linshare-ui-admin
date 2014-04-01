@@ -343,6 +343,14 @@
     "value": "Manage your domains",
     "description": "Title for the management section of domains."
   },
+  "P_Domains-Management_BoxTreeTitle": {
+    "value": "Domain tree",
+    "description": "Title for the domain tree box."
+  },
+  "P_Domains-Management_BoxEditTitle": {
+    "value": "Edit domain",
+    "description": "Title for the edit domain box."
+  },
   "P_Domains-Management_AddTopDomain": {
     "value": "Add top domain",
     "description": "Button for add a top domain."
