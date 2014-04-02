@@ -1,0 +1,37 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{domain.label}}
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="spinner"
+         x-ng-show="spinner"></div>
+
+    <div class="table-responsive">
+      <table class="table table-striped"
+             x-ng-table="tableParams">
+        <tr x-ng-repeat="functionality in $data"
+            x-ng-click="edit(functionality)">
+          <td class="col-md-1"
+              data-title="'P_Parameters-Functionalities_Status' | i18n"
+              sortable="'activationPolicy.status'">
+            <span x-ng-style="style(functionality)">
+              <i class="fa fa-check-circle" style="color: green"
+                 x-ng-show="isActivated(functionality)"></i>
+              <i class="fa fa-times-circle" style="color: red"
+                 x-ng-show="!isActivated(functionality)"></i>
+            </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'P_Parameters-Functionalities_Name' | i18n"
+              sortable="'localizedName'">
+            <span>
+              {{functionality.localizedName}}
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

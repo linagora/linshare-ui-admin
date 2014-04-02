@@ -63,19 +63,19 @@
     "value": "Management",
     "description": "Link for the management section of domains."
   },
-  "G_Tab_Administration": {
-    "value": "Administration",
+  "G_Tab_Parameters": {
+    "value": "Parameters",
     "description": "Link for administration section."
   },
-  "G_Tab_Administration-Functionalities": {
+  "G_Tab_Parameters-Functionalities": {
     "value": "Functionalities",
     "description": "Link for the management section of functionality management."
   },
-  "G_Tab_Administration-ConfigurationPolicies": {
+  "G_Tab_Parameters-ConfigurationPolicies": {
     "value": "Configuration Policies",
     "description": "Link for the management section of configuration policies."
   },
-  "G_Tab_Administration-MailsPersonalization": {
+  "G_Tab_Parameters-MailsPersonalization": {
     "value": "Mails Personalization",
     "description": "Link for the personalization of mails."
   },
@@ -667,175 +667,175 @@
     "value": "User deletion succeed",
     "description": "Alert message when the deletion succeed."
   },
-  "P_Administration-Functionalities_Title": {
+  "P_Parameters-Functionalities_Title": {
     "value": "Functionality management",
     "description": "Title for the management section of functionality management."
   },
-  "P_Administration-Functionalities_ActivationPolicy": {
+  "P_Parameters-Functionalities_ActivationPolicy": {
     "value": "Activation policy",
     "description": "Title for activation policy form."
   },
-  "P_Administration-Functionalities_ConfigurationPolicy": {
+  "P_Parameters-Functionalities_ConfigurationPolicy": {
     "value": "Configuration policy",
     "description": "Title for configuration policy."
   },
-  "P_Administration-Functionalities_Parameters": {
+  "P_Parameters-Functionalities_Parameters": {
     "value": "Parameters",
     "description": "Title for parameters."
   },
-  "P_Administration-Functionalities_Forbidden": {
+  "P_Parameters-Functionalities_Forbidden": {
     "value": "Forbidden",
     "description": "Radio button to forbidden activation/configuration for children domain."
   },
-  "P_Administration-Functionalities_Allow": {
+  "P_Parameters-Functionalities_Allow": {
     "value": "Allowed",
     "description": "Radio button to allow activation/configuration for children domain."
   },
-  "P_Administration-Functionalities_Mandatory": {
+  "P_Parameters-Functionalities_Mandatory": {
     "value": "Mandatory",
     "description": "Radio button to make activation/configuration mandatory for children domain."
   },
-  "P_Administration-Functionalities_Saved": {
+  "P_Parameters-Functionalities_Saved": {
     "value": "Saved",
     "description": "Label when functionality is saved."
   },
-  "P_Administration-Functionalities_Status": {
+  "P_Parameters-Functionalities_Status": {
     "value": "Status",
     "description": "Checkbox label for functionality status."
   },
-  "P_Administration-Functionalities_Name": {
+  "P_Parameters-Functionalities_Name": {
     "value": "Functionality name",
     "description": "Label for functionality name."
   },
-  "P_Administration-Functionalities_Reset": {
+  "P_Parameters-Functionalities_Reset": {
     "value": "Reset to parent value",
     "description": "Button label to reset the funcitonality to parent value."
   },
-  "P_Administration-Functionalities_Func-UPLOAD_REQUEST": {
+  "P_Parameters-Functionalities_Func-UPLOAD_REQUEST": {
     "value": "Upload request",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+  "P_Parameters-Functionalities_Func-UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
     "value": "Upload request - Notification language",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-QUOTA_USER": {
+  "P_Parameters-Functionalities_Func-QUOTA_USER": {
     "value": "Quota user",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-MIME_TYPE": {
+  "P_Parameters-Functionalities_Func-MIME_TYPE": {
     "value": "Mime type",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-FILESIZE_MAX": {
+  "P_Parameters-Functionalities_Func-FILESIZE_MAX": {
     "value": "Max file size",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-QUOTA_GLOBAL": {
+  "P_Parameters-Functionalities_Func-QUOTA_GLOBAL": {
     "value": "Quota global",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-TIME_STAMPING": {
+  "P_Parameters-Functionalities_Func-TIME_STAMPING": {
     "value": "Time stamping",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-ANTIVIRUS": {
+  "P_Parameters-Functionalities_Func-ANTIVIRUS": {
     "value": "Antivirus",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-SIGNATURE": {
+  "P_Parameters-Functionalities_Func-SIGNATURE": {
     "value": "Signature",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-ENCIPHERMENT": {
+  "P_Parameters-Functionalities_Func-ENCIPHERMENT": {
     "value": "Encipherment",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-FILE_EXPIRATION": {
+  "P_Parameters-Functionalities_Func-FILE_EXPIRATION": {
     "value": "File expiration",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-SHARE_EXPIRATION": {
+  "P_Parameters-Functionalities_Func-SHARE_EXPIRATION": {
     "value": "Share expiration",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-CUSTOM_LOGO": {
+  "P_Parameters-Functionalities_Func-CUSTOM_LOGO": {
     "value": "Custom logo",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-ACCOUNT_EXPIRATION": {
+  "P_Parameters-Functionalities_Func-ACCOUNT_EXPIRATION": {
     "value": "Account expiration",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-USER_CAN_UPLOAD": {
+  "P_Parameters-Functionalities_Func-USER_CAN_UPLOAD": {
     "value": "User can upload",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-COMPLETION": {
+  "P_Parameters-Functionalities_Func-COMPLETION": {
     "value": "Completion",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-ANONYMOUS_URL": {
+  "P_Parameters-Functionalities_Func-ANONYMOUS_URL": {
     "value": "Anonymous URL",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-GUESTS": {
+  "P_Parameters-Functionalities_Func-GUESTS": {
     "value": "Guest",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-TAB_USER": {
+  "P_Parameters-Functionalities_Func-TAB_USER": {
     "value": "Tab User",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-TAB_AUDIT": {
+  "P_Parameters-Functionalities_Func-TAB_AUDIT": {
     "value": "Tab Audit",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-TAB_HELP": {
+  "P_Parameters-Functionalities_Func-TAB_HELP": {
     "value": "Tab Help",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-TAB_THREAD": {
+  "P_Parameters-Functionalities_Func-TAB_THREAD": {
     "value": "Tab Thread",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-TAB_LIST": {
+  "P_Parameters-Functionalities_Func-TAB_LIST": {
     "value": "Tab List",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-RESTRICTED_GUEST": {
+  "P_Parameters-Functionalities_Func-RESTRICTED_GUEST": {
     "value": "Restricted guest",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-SHARE_NOTIFICATION_BEFORE_EXPIRATION": {
+  "P_Parameters-Functionalities_Func-SHARE_NOTIFICATION_BEFORE_EXPIRATION": {
     "value": "Share notification before expiration",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-SECURED_ANONYMOUS_URL": {
+  "P_Parameters-Functionalities_Func-SECURED_ANONYMOUS_URL": {
     "value": "Secured anonymous URL",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-THREAD_PERMISSION": {
+  "P_Parameters-Functionalities_Func-THREAD_PERMISSION": {
     "value": "Thread permission",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-UPDATE_FILE": {
+  "P_Parameters-Functionalities_Func-UPDATE_FILE": {
     "value": "Update file",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-DOMAIN_MAIL": {
+  "P_Parameters-Functionalities_Func-DOMAIN_MAIL": {
     "value": "Domain mail",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-NOTIFICATION_URL": {
+  "P_Parameters-Functionalities_Func-NOTIFICATION_URL": {
     "value": "Notification URL",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-LINK_LOGO": {
+  "P_Parameters-Functionalities_Func-LINK_LOGO": {
     "value": "Link logo",
     "description": "Functionality name"
   },
-  "P_Administration-Functionalities_Func-CREATE_THREAD_PERMISSION": {
+  "P_Parameters-Functionalities_Func-CREATE_THREAD_PERMISSION": {
     "value": "Create thread permission",
     "description": "Functionality name"
   },

@@ -10,16 +10,7 @@
          x-ng-controller="DomainManagementCtrl">
   <div class="row">
     <section class="col-md-4">
-      <div class="box box-primary">
-        <div class="box-header">
-          <h3 class="box-title">
-            {{'P_Domains-Management_BoxTreeTitle' | i18n}}
-          </h3>
-        </div>
-        <div class="box-body">
-          <div x-ls-domain-tree state="edit" root="root">
-        </div>
-      </div>
+      <div x-ls-domain-tree state="edit" root="root">
     </section>
     <section class="col-md-8"
              x-ng-if="getCurrentDomain()">

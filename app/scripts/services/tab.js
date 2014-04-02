@@ -17,15 +17,15 @@ angular.module('myApp.services')
           }
         ]
       };
-      this.administration = {
-        name: localize.getLocalizedString('G_Tab_Administration'),
+      this.parameters = {
+        name: localize.getLocalizedString('G_Tab_Parameters'),
         links: [
           {
-            name: localize.getLocalizedString('G_Tab_Administration-Functionalities'),
-            href: '#administration/functionalities'
+            name: localize.getLocalizedString('G_Tab_Parameters-Functionalities'),
+            href: '#parameters/functionalities'
           }, {
-            name: localize.getLocalizedString('G_Tab_Administration-MailsPersonalization'),
-            href: '#administration/mails_personalization'
+            name: localize.getLocalizedString('G_Tab_Parameters-MailsPersonalization'),
+            href: '#parameters/mails_personalization'
           }
         ]
       };
@@ -65,7 +65,7 @@ angular.module('myApp.services')
           if (user.role === 'SUPERADMIN') {
             tabs.push(self.domains);
           }
-          tabs.push(self.administration);
+          tabs.push(self.parameters);
           if (user.role === 'SUPERADMIN') {
             self.users.links.push(self.threads);
             self.users.links.push(self.mailingLists);

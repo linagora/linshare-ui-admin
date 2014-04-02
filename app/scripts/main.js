@@ -3,7 +3,7 @@
 require.config({
   paths: {
     /**
-     * Careful to use minify lib for dev/debug
+     * Be careful to use minify lib for dev/debug
      */
    
     // Angular & modules
@@ -123,9 +123,9 @@ require.config({
         {deps: ['services/services']},
 
     // Directives
-    'directives/administration/functionalityList':
+    'directives/parameters/functionalityList':
         {deps: ['directives/directives']},
-    'directives/administration/functionalityForm':
+    'directives/parameters/functionalityForm':
         {deps: ['directives/directives']},
 
     'directives/domains/ldapConnectionForm':
@@ -233,8 +233,8 @@ var dependencies = [
   'services/user',
 
   // Directives
-  'directives/administration/functionalityList',
-  'directives/administration/functionalityForm',
+  'directives/parameters/functionalityList',
+  'directives/parameters/functionalityForm',
 
   'directives/domains/ldapConnectionForm',
   'directives/domains/domainPatternForm',

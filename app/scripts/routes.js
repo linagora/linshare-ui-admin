@@ -13,12 +13,12 @@ angular.module('myApp').config(['$routeProvider',
       controller: 'DomainManagementCtrl'
     });
 
-    $routeProvider.when('/administration/functionalities', {
-      templateUrl: 'views/administration/functionalities.html',
+    $routeProvider.when('/parameters/functionalities', {
+      templateUrl: 'views/parameters/functionalities.html',
     });
 
-    $routeProvider.when('/administration/mails_personalization', {
-      templateUrl: 'views/administration/mails_personalization.html',
+    $routeProvider.when('/parameters/mails_personalization', {
+      templateUrl: 'views/parameters/mails_personalization.html',
     });
 
     $routeProvider.when('/users', {

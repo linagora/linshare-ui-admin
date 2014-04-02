@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="tree_item_renderer">
   <div class="btn-group">
-    <button class="btn" x-ng-click="setCurrentDomain(domain)">
+    <button class="btn btn-default" x-ng-click="setCurrentDomain(domain)">
       {{domain.label}}
     </button>
     <button class="btn btn-success dropdown-toggle" x-ng-show="canAddChildDomain(domain)">
@@ -31,9 +31,18 @@
   </ul>
 </script>
 
-<div class="tree">
-  <ul>
-    <li class="branch" x-ng-repeat="domain in root" x-ng-include="'tree_item_renderer'">
-    </li>
-  </ul>
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{'P_Domains-Management_BoxTreeTitle' | i18n}}
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="tree">
+      <ul>
+        <li class="branch" x-ng-repeat="domain in root" x-ng-include="'tree_item_renderer'">
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

@@ -10,19 +10,6 @@ app.directive('lsFunctionalityList', [
           return functionality.activationPolicy.parentAllowUpdate 
                 || functionality.configurationPolicy.parentAllowUpdate;
         };
-        scope.style = function(functionality) {
-          if (functionality.activationPolicy.status) {
-            return {
-              "background-color": "rgb(70, 136, 71)",
-              "color": "rgb(255, 255, 255)"
-            }
-          } else {
-            return {
-              "background-color": "rgb(100, 100, 100)",
-              "color": "rgb(255, 255, 255)"
-            }
-          }
-        };
         scope.isActivated = function(functionality) {
           return functionality.activationPolicy.status;
         };
@@ -43,7 +30,7 @@ app.directive('lsFunctionalityList', [
           };
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
-            count: 25,      // count per page
+            count: 10,      // count per page
             sorting: {
               localizedName: 'asc',
             }
@@ -62,7 +49,7 @@ app.directive('lsFunctionalityList', [
           });
         }
       ],
-      templateUrl: '/views/templates/administration/functionality_list.html',
+      templateUrl: '/views/templates/parameters/functionality_list.html',
       replace: false
     };
   }

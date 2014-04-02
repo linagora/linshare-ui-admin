@@ -89,7 +89,7 @@ app.directive('lsFunctionalityForm', [
           };
         }
       ],
-      templateUrl: '/views/templates/administration/functionality_form.html',
+      templateUrl: '/views/templates/parameters/functionality_form.html',
       replace: false
     };
   }

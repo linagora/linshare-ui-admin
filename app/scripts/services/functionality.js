@@ -8,11 +8,11 @@ angular.module('myApp.services')
 
       var addLocalizedName = function(functionality) {
         functionality.localizedName = localize.getLocalizedString(
-          'P_Administration-Functionalities_Func-' + functionality.identifier
+          'P_Parameters-Functionalities_Func-' + functionality.identifier
         );
         angular.forEach(functionality.functionalities, function(childFunctionality, key) {
           childFunctionality.localizedName = localize.getLocalizedString(
-            'P_Administration-Functionalities_Func-' + childFunctionality.identifier
+            'P_Parameters-Functionalities_Func-' + childFunctionality.identifier
           );
         });
       };
