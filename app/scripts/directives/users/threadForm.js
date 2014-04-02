@@ -13,15 +13,18 @@ app.directive('lsThreadForm', [
           };
           $scope.remove = function() {
             Thread.remove($scope.thread, function successCallback() {
-              Thread.setCurrent(undefined);
+              $scope.cancel();
             });
           };
           $scope.reset = function() {
             $scope.thread = Restangular.copy(Thread.getCurrent());
           };
+          $scope.cancel = function() {
+            Thread.setCurrent(undefined);
+          };
           $scope.submit = function() {
             Thread.update($scope.thread, function successCallback() {
-              Thread.setCurrent(undefined);
+              $scope.cancel();
             });
           };
           $scope.addMember = function(member) {

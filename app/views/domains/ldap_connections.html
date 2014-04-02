@@ -10,48 +10,14 @@
          x-ng-controller="LdapConnectionCtrl">
   <div class="row">
     <section class="col-lg-12">
-      <div class="box box-primary">
-        <!-- Form -->
-        <div x-ng-if="getCurrentLdapConnection()">
-          <div x-ls-ldap-connection-form></div>
-        </div>
+      <!-- Form -->
+      <div x-ng-if="getCurrentLdapConnection()">
+        <div x-ls-ldap-connection-form></div>
+      </div>
 
-        <!-- List -->
-        <div x-ng-if="!getCurrentLdapConnection()">
-          <div class="box-header">
-            <h3 class="box-title">
-              {{'P_Domains-LDAPConnections_BoxListTitle' | i18n}}
-            </h3>
-            <div class="pull-right box-tools">
-              <div class="btn-group">
-                <button class="btn btn-primary" type="button"
-                        x-ng-click="create()">
-                <span>
-                  <i class="fa fa-plus"></i> 
-                  {{'P_Domains-LDAPConnections_Add' | i18n}}
-                </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="box-body">
-            <div class="table-responsive">
-              <table class="table table-striped"
-                     x-ng-table="tableParams">
-                <tbody>
-                  <tr x-ng-repeat="ldapConnection in $data" x-ng-click="edit(ldapConnection)">
-                    <td data-title="'P_Domains-LDAPConnections_IdentifierLabel' | i18n" sortable="'identifier'">
-                      <span>{{ldapConnection.identifier}}</span>
-                    </td>
-                    <td data-title="'P_Domains-LDAPConnections_ProviderURLLabel' | i18n" sortable="'providerUrl'">
-                      <span>{{ldapConnection.providerUrl}}</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+      <!-- List -->
+      <div x-ng-if="!getCurrentLdapConnection()">
+        <div x-ls-ldap-connection-list></div>
       </div>
     </section>
   </div>

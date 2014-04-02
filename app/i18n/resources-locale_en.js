@@ -471,9 +471,13 @@
     "value": "Groups management",
     "description": "Title for the threads section."
   },
-  "P_Users-Threads_ListTitle": {
+  "P_Users-Threads_BoxListTitle": {
     "value": "Groups list",
     "description": "Title for the threads section."
+  },
+  "P_Users-Threads_List": {
+    "value": "List",
+    "description": "Label of the button to return to the thread list."
   },
   "P_Users-Threads_ListName": {
     "value": "Name",

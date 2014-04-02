@@ -128,7 +128,11 @@ require.config({
     'directives/parameters/functionalityForm':
         {deps: ['directives/directives']},
 
+    'directives/domains/ldapConnectionList':
+        {deps: ['directives/directives']},
     'directives/domains/ldapConnectionForm':
+        {deps: ['directives/directives']},
+    'directives/domains/domainPatternList':
         {deps: ['directives/directives']},
     'directives/domains/domainPatternForm':
         {deps: ['directives/directives']},
@@ -143,6 +147,8 @@ require.config({
         {deps: ['directives/directives']},
     'directives/users/userList':
         {deps: ['directives/directives', 'nggrid']},
+    'directives/users/threadList':
+        {deps: ['directives/directives']},
     'directives/users/threadForm':
         {deps: ['directives/directives']},
 
@@ -236,7 +242,9 @@ var dependencies = [
   'directives/parameters/functionalityList',
   'directives/parameters/functionalityForm',
 
+  'directives/domains/ldapConnectionList',
   'directives/domains/ldapConnectionForm',
+  'directives/domains/domainPatternList',
   'directives/domains/domainPatternForm',
   'directives/domains/domainTree',
   'directives/domains/domainForm',
@@ -244,6 +252,7 @@ var dependencies = [
   'directives/users/userEditForm',
   'directives/users/userCompletion',
   'directives/users/userList',
+  'directives/users/threadList',
   'directives/users/threadForm',
 
   'directives/common/formAttempt',

@@ -1,107 +1,146 @@
-<form class="form-horizontal" name="threadForm" novalidate
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{'P_Users-Threads_FormTitle' | i18n}}
+    </h3>
+    <div class="pull-right box-tools">
+      <div class="btn-group">
+        <button class="btn btn-primary pull-right" type="button"
+                x-ng-click="cancel()">
+          <span>
+            <i class="fa fa-list"></i> 
+            {{'P_Users-Threads_List' | i18n}}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <form class="form" name="threadForm" novalidate
       x-ls-form-submit="submit()"
       x-ls-form-attempt>
-  <fieldset>
-    <legend>{{'P_Users-Threads_FormTitle' | i18n}}</legend>
-    <!-- Name -->
-    <div class="control-group">
-      <label class="control-label" for="description">
-        {{'P_Users-Threads_FormName' | i18n}}
-      </label>
-      <div class="controls">
-        <input id="name" name="name" type="text" class="input-xlarge" required
-               x-ng-model="thread.name">
-        </textarea>
+    <fieldset>
+      <div class="box-body">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">
+            {{'P_Users-Threads_FormName' | i18n}}
+          </label>
+          <input id="name" name="name" type="text" class="form-control" required
+                 x-ng-model="thread.name">
+        </div>
       </div>
-    </div>
-    <!-- Validation -->
-    <div class="control-group">
-      <div class="controls">
-        <button id="delete" name="delete" type="button" class="btn btn-danger"
-                x-ng-click="remove()">
-          {{'P_Users-Threads_FormDelete' | i18n}}
-        </button>
-        <button type="button" id="reset" name="reset" class="btn btn-warning"
-                x-ng-click="reset()">
-          {{'P_Users-Threads_FormReset' | i18n}}
-        </button>
-        <button type="submit" id="submit" name="submit" class="btn btn-success">
-          {{'P_Users-Threads_FormSubmit' | i18n}}
-        </button>
+      <div class="box-footer">
+        <!-- Validation -->
+        <div class="control-group">
+          <div class="controls">
+            <button id="delete" name="delete" type="button" class="btn btn-danger"
+                    x-ng-click="remove()">
+              {{'P_Users-Threads_FormDelete' | i18n}}
+            </button>
+            <button type="button" id="reset" name="reset" class="btn btn-warning"
+                    x-ng-click="reset()">
+              {{'P_Users-Threads_FormReset' | i18n}}
+            </button>
+            <button type="submit" id="submit" name="submit" class="btn btn-success">
+              {{'P_Users-Threads_FormSubmit' | i18n}}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </fieldset>
-</form>
-<form>
-  <legend>{{'P_Users-Threads_MemberTitle' | i18n}}</legend>
-  <script type="text/ng-template" id="user_representation">
+    </fieldset>
+  </form>
+</div>
+
+<!-- USER LIST -->
+
+<script type="text/ng-template" id="user_representation">
   <a>
     <span bind-html-unsafe="match.model.firstName | typeaheadHighlight:query"></span>&nbsp;
     <span bind-html-unsafe="match.model.lastName | typeaheadHighlight:query"></span>&nbsp;&lt;
     <span bind-html-unsafe="match.model.mail | typeaheadHighlight:query"></span>&gt;
   </a>
-  </script>
-  <div class="input-append">
-    <input type="text" class="input-xlarge" placeholder="{{'P_Users-Threads_MemberAdd' | i18n}}"
-           x-ng-model="userToAdd"
-           x-typeahead-min-length="3"
-           x-typeahead-wait-ms="30"
-           x-typeahead-loading="searching"
-           x-typeahead-on-select="addMember(userToAdd)"
-           x-typeahead="u for u in autocompleteUsers($viewValue) | filter:$viewValue"
-           x-typeahead-template-url="user_representation"/>
-    <span class="add-on">
-      <i class="icon icon-plus"></i>
-    </span>
+</script>
+
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{'P_Users-Threads_MemberTitle' | i18n}}
+    </h3>
   </div>
-  <div class="spinner" style="margin-top:20px" x-ng-show="searching"></div>
-  <table class="table"
-         x-ng-table="tableParams">
-    <tr x-ng-repeat="threadMember in $data"
-        x-ng-click="edit(threadMember)">
-      <td data-title="'P_Users-Threads_MemberFirstName' | i18n"
-          sortable="'firstName'">
-        <span>
-          {{threadMember.firstName}}
+  <div class="box-body">
+    <div class="form-group">
+      <div class="input-append">
+        <input type="text" class="form-control" placeholder="{{'P_Users-Threads_MemberAdd' | i18n}}"
+               x-ng-model="userToAdd"
+               x-typeahead-min-length="3"
+               x-typeahead-wait-ms="30"
+               x-typeahead-loading="searching"
+               x-typeahead-on-select="addMember(userToAdd)"
+               x-typeahead="u for u in autocompleteUsers($viewValue) | filter:$viewValue"
+               x-typeahead-template-url="user_representation"/>
+        <span class="add-on">
+          <i class="icon icon-plus"></i>
         </span>
-      </td>
-      <td data-title="'P_Users-Threads_MemberLastName' | i18n"
-          sortable="'lastName'">
-        <span>
-          {{threadMember.lastName}}
-        </span>
-      </td>
-      <td data-title="'P_Users-Threads_MemberReadOnly' | i18n"
-          sortable="'readonly'">
-        <input type="checkbox"
-               x-ng-model="threadMember.readonly"
-               x-ng-disabled="threadMember.admin"
-               x-ng-checked="!threadMember.admin && threadMember.readonly"
-               x-ng-change="updateMember(threadMember)">
-      </td>
-      <td data-title="'P_Users-Threads_MemberAdmin' | i18n"
-          sortable="'admin'">
-        <input type="checkbox"
-               x-ng-model="threadMember.admin"
-               x-ng-change="updateMember(threadMember)">
-      </td>
-      <td data-title="'P_Users-Threads_MemberActions' | i18n">
-        <button class="btn btn-danger"
-                x-ng-show="confirm === undefined"
-                x-ng-click="confirm = threadMember.userUuid">
-          {{'P_Users-Threads_MemberDelete' | i18n}}
-        </button>
-        <button class="btn"
-                x-ng-show="confirm === threadMember.userUuid"
-                x-ng-click="confirm = undefined">
-          {{'G_App_ConfirmNo' | i18n}}
-        </button>
-        <button class="btn btn-danger"
-                x-ng-show="confirm === threadMember.userUuid"
-                x-ng-click="deleteMember(threadMember)">
-          {{'G_App_ConfirmYes' | i18n}}
-        </button>
-      </td>
-    </tr>
-  </table>
-</form>
+      </div>
+      <div class="spinner" style="margin-top:20px"
+           x-ng-show="searching">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="table-responsive">
+        <table class="table"
+               x-ng-table="tableParams">
+          <tr x-ng-repeat="threadMember in $data"
+              x-ng-click="edit(threadMember)">
+            <td data-title="'P_Users-Threads_MemberFirstName' | i18n"
+                sortable="'firstName'">
+              <span>
+                {{threadMember.firstName}}
+              </span>
+            </td>
+            <td data-title="'P_Users-Threads_MemberLastName' | i18n"
+                sortable="'lastName'">
+              <span>
+                {{threadMember.lastName}}
+              </span>
+            </td>
+            <td class="col-sm-1"
+                data-title="'P_Users-Threads_MemberReadOnly' | i18n" 
+                sortable="'readonly'">
+              <input type="checkbox"
+                     x-ng-model="threadMember.readonly"
+                     x-ng-disabled="threadMember.admin"
+                     x-ng-checked="!threadMember.admin && threadMember.readonly"
+                     x-ng-change="updateMember(threadMember)">
+            </td>
+            <td class="col-sm-1"
+                data-title="'P_Users-Threads_MemberAdmin' | i18n" 
+                sortable="'admin'">
+              <input type="checkbox"
+                     x-ng-model="threadMember.admin"
+                     x-ng-change="updateMember(threadMember)">
+            </td>
+            <td class="col-sm-2"
+                data-title="'P_Users-Threads_MemberActions' | i18n">
+              <button class="btn btn-danger"
+                      x-ng-show="confirm === undefined"
+                      x-ng-click="confirm = threadMember.userUuid">
+                {{'P_Users-Threads_MemberDelete' | i18n}}
+              </button>
+              <button class="btn"
+                      x-ng-show="confirm === threadMember.userUuid"
+                      x-ng-click="confirm = undefined">
+                {{'G_App_ConfirmNo' | i18n}}
+              </button>
+              <button class="btn btn-danger"
+                      x-ng-show="confirm === threadMember.userUuid"
+                      x-ng-click="deleteMember(threadMember)">
+                {{'G_App_ConfirmYes' | i18n}}
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

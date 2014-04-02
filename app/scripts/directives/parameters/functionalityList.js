@@ -5,7 +5,6 @@ app.directive('lsFunctionalityList', [
     return {
       restrict: 'A',
       link: function(scope, element, attrs) {
-        scope.spinner = false;
         scope.showFunctionality = function(functionality) {
           return functionality.activationPolicy.parentAllowUpdate 
                 || functionality.configurationPolicy.parentAllowUpdate;
@@ -39,6 +38,11 @@ app.directive('lsFunctionalityList', [
             total: 0, // length of data
             getData: function($defer, params) {
               Functionality.getAll($scope.domain, function(functionalities) { 
+                angular.forEach(functionalities, function(value, key) {
+                  if (!value.displayable) {
+                    functionalities.splice(key, 1);
+                  }
+                });
                 var orderedData = params.sorting() ?
                           $filter('orderBy')(functionalities, params.orderBy()) :
                           functionalities;

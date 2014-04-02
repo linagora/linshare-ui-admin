@@ -10,7 +10,6 @@ angular.module('myApp').config(['$routeProvider',
     });
     $routeProvider.when('/domains/management', {
       templateUrl: 'views/domains/domain_management.html',
-      controller: 'DomainManagementCtrl'
     });
 
     $routeProvider.when('/parameters/functionalities', {
@@ -26,7 +25,6 @@ angular.module('myApp').config(['$routeProvider',
     });
     $routeProvider.when('/users/management', {
       templateUrl: 'views/users/user_management.html',
-      controller: 'UserManagementCtrl'
     });
     $routeProvider.when('/users/threads', {
       templateUrl: 'views/users/threads.html'

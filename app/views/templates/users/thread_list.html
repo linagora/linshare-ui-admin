@@ -1,0 +1,30 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{'P_Users-Threads_BoxListTitle' | i18n}}
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="table-responsive">
+      <table class="table table-striped"
+             x-ng-table="tableParams">
+        <tr x-ng-repeat="thread in $data"
+            x-ng-click="edit(thread)">
+          <td style="cursor: pointer"
+              data-title="'P_Users-Threads_ListName' | i18n"
+              sortable="'name'">
+            <span>
+              {{thread.name}}
+            </span>
+          </td>
+          <td data-title="'P_Users-Threads_ListModificationDate' | i18n"
+              sortable="'modificationDate'">
+            <span>
+              {{thread.modificationDate | date:'dd/MM/yyyy HH:mm'}}
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

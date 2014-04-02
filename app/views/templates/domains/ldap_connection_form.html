@@ -20,11 +20,11 @@
       </div>
     </div>
   </div>
-  <div class="box-body">
-    <form class="form" name="ldapConnectionForm" role="form" novalidate
-          x-ls-form-submit="submit()"
-          x-ls-form-attempt>
-      <fieldset>
+  <form class="form" name="ldapConnectionForm" role="form" novalidate
+        x-ls-form-submit="submit()"
+        x-ls-form-attempt>
+    <fieldset>
+      <div class="box-body">
         <div class="row">
           <div class="col-md-12">
             <!-- Legend -->
@@ -33,7 +33,7 @@
               <div class="form-group"
                     x-ng-class="{'has-error': ldapConnectionForm.identifier.$invalid &&
                     (ldapConnectionForm.identifier.$dirty || ls.ldapConnectionForm.attempted)}">
-                <label class="control-label" for="identifier">
+                <label for="identifier">
                   {{'P_Domains-LDAPConnections_IdentifierLabel' | i18n}}
                 </label>
                 <input id="identifier" name="identifier" type="text" class="form-control" required
@@ -44,7 +44,7 @@
             <div class="form-group"
                  x-ng-class="{'has-error': providerURLForm.providerURL.$invalid &&
                    (providerURLForm.providerURL.$dirty || ls.providerURLForm.attempted)}">
-              <label class="control-label" for="providerURL">
+              <label for="providerURL">
                 {{'P_Domains-LDAPConnections_ProviderURLLabel' | i18n}}
               </label>
               <input id="providerURL" name="providerURL" type="text" class="form-control" required
@@ -55,7 +55,7 @@
             </div>
             <!-- Security Principal -->
             <div class="form-group">
-              <label class="control-label" for="securityPrincipal">
+              <label for="securityPrincipal">
                 {{'P_Domains-LDAPConnections_SecurityPrincipalLabel' | i18n}}
               </label>
               <input id="securityPrincipal" name="securityPrincipal" type="text" class="form-control"
@@ -66,7 +66,7 @@
             </div>
             <!-- Security Credentials -->
             <div class="form-group">
-              <label class="control-label" for="securityCredentials">
+              <label for="securityCredentials">
                 {{'P_Domains-LDAPConnections_SecurityCredentialsLabel' | i18n}}
               </label>
               <input id="securityCredentials" name="securityCredentials" type="text" class="form-control"
@@ -77,6 +77,8 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="box-footer">
         <!-- Validation -->
         <button type="button" id="delete" name="delete" class="btn btn-danger"
                 x-ng-show="state === 'edit'"
@@ -90,7 +92,7 @@
         <button type="submit" id="submit" name="submit" class="btn btn-success">
           {{'P_Domains-LDAPConnections_Submit' | i18n}}
         </button>
-      </fieldset>
-    </form>
-  </div>
+      </div>
+    </fieldset>
+  </form>
 </div>

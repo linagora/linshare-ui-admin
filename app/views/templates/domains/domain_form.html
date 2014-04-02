@@ -31,16 +31,16 @@
       </button>
     </div>
   </div>
-  <div class="box-body">
-    <form name="domainForm" class="form" role="form"
-          x-ls-form-submit="submit()"
-          x-ls-form-attempt>
+  <form name="domainForm" class="form" role="form"
+        x-ls-form-submit="submit()"
+        x-ls-form-attempt>
+    <div class="box-body">
       <div x-ng-if="state === 'create'">
         <!-- Identifier -->
         <div class="form-group"
              x-ng-class="{'has-error': domainForm.identifier.$invalid &&
                (domainForm.identifier.$dirty || ls.domainForm.attempted)}">
-          <label class="control-label" for="identifier">
+          <label for="identifier">
             {{'P_Domains-Management_IdentifierLabel' | i18n}}
           </label>
           <input id="identifier" name="identifier" type="text" class="form-control" required
@@ -49,7 +49,7 @@
       </div>
       <div x-ng-if="state === 'edit'">
         <!-- Identifier -->
-        <label class="control-label" for="identifier">
+        <label for="identifier">
           {{'P_Domains-Management_IdentifierLabel' | i18n}}
         </label>
         <div class="form-group">
@@ -63,7 +63,7 @@
       <div class="form-group"
            x-ng-class="{'has-error': domainForm.name.$invalid &&
              (domainForm.name.$dirty || ls.domainForm.attempted)}">
-        <label class="control-label" for="name">
+        <label for="name">
           {{'P_Domains-Management_NameLabel' | i18n}}
         </label>
         <input id="name" name="name" type="text" class="form-control" required
@@ -72,7 +72,7 @@
       
       <!-- Description -->
       <div class="form-group">
-        <label class="control-label" for="description">
+        <label for="description">
           {{'P_Domains-Management_DescriptionLabel' | i18n}}
         </label>
         <textarea id="description" name="description" class="form-control"
@@ -84,7 +84,7 @@
       <div class="form-group"
            x-ng-class="{'has-error': domainForm.locale.$invalid &&
              (domainForm.locale.$dirty || ls.domainForm.attempted)}">
-        <label class="control-label" for="locale">
+        <label for="locale">
           {{'P_Domains-Management_LocaleLabel' | i18n}}
         </label>
         <select id="locale" name="locale" class="form-control" required
@@ -98,7 +98,7 @@
            x-ng-show="domain.type!='GUESTDOMAIN'"
            x-ng-class="{'has-error': domainForm.userRole.$invalid &&
              (domainForm.userRole.$dirty || ls.domainForm.attempted)}">
-        <label class="control-label" for="userRole">
+        <label for="userRole">
           {{'P_Domains-Management_UserRoleLabel' | i18n}}
         </label>
         <select id="userRole" name="userRole" class="form-control" required
@@ -111,7 +111,7 @@
       <div class="form-group"
            x-ng-class="{'has-error': domainForm.policy.$invalid &&
              (domainForm.policy.$dirty || ls.domainForm.attempted)}">
-        <label class="control-label" for="policy">
+        <label for="policy">
           {{'P_Domains-Management_PolicyLabel' | i18n}}
         </label>
         <select id="policy" name="policy" class="form-control" required
@@ -143,7 +143,7 @@
         <div class="form-group"
              x-ng-class="{'has-error': domainEditForm.ldapConnection.$invalid &&
                (domainEditForm.ldapConnection.$dirty || ls.domainEditForm.attempted)}">
-          <label class="control-label" for="ldapConnection">
+          <label for="ldapConnection">
             {{'P_Domains-Management_LDAPConnectionLabel' | i18n}}
           </label>
           <select id="ldapConnection" name="ldapConnection" class="form-control" required
@@ -158,7 +158,7 @@
         <div class="form-group"
              x-ng-class="{'has-error': domainEditForm.domainPattern.$invalid &&
                (domainEditForm.domainPattern.$dirty || ls.domainEditForm.attempted)}">
-          <label class="control-label" for="domainPattern">
+          <label for="domainPattern">
             {{'P_Domains-Management_DomainPatternLabel' | i18n}}
           </label>
           <select id="domainPattern" name="domainPattern" class="form-control" required
@@ -173,7 +173,7 @@
         <div class="form-group"
              x-ng-class="{'has-error': domainEditForm.baseDn.$invalid &&
                (domainEditForm.baseDn.$dirty || ls.domainEditForm.attempted)}">
-          <label class="control-label" for="baseDn">
+          <label for="baseDn">
             {{'P_Domains-Management_BaseDnLabel' | i18n}}
           </label>
           <input id="baseDn" name="baseDn" type="text" class="form-control" required
@@ -184,6 +184,8 @@
         </div>
       </div>
 
+    </div>
+    <div class="box-footer">
       <!-- Validation -->
       <div class="form-group">
         <div class="controls">
@@ -200,6 +202,6 @@
           </button>
         </div>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>

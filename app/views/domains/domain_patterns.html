@@ -10,55 +10,14 @@
          x-ng-controller="DomainPatternCtrl">
   <div class="row">
     <section class="col-lg-12">
-      <div class="box box-primary">
-        <!-- Form -->
-        <div x-ng-if="getCurrentDomainPattern()">
-          <div x-ls-domain-pattern-form></div>
-        </div>
+      <!-- Form -->
+      <div x-ng-if="getCurrentDomainPattern()">
+        <div x-ls-domain-pattern-form></div>
+      </div>
 
-        <!-- List -->
-        <div x-ng-if="!getCurrentDomainPattern()">
-          <div class="box-header">
-            <h3 class="box-title">
-              {{'P_Domains-DomainPatterns_BoxListTitle' | i18n}}
-            </h3>
-            <div class="pull-right box-tools">
-              <div class="btn-group">
-                <button class="btn btn-primary" type="button"
-                        x-ng-click="create()">
-                  <span>
-                    <i class="fa fa-plus"></i> 
-                    {{'P_Domains-DomainPatterns_Add' | i18n}}
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="box-body">
-            <div class="table-responsive">
-              <table class="table table-striped"
-                     x-ng-table="tableParams">
-                <tbody>
-                  <tr x-ng-repeat="domainPattern in $data"
-                      x-ng-click="edit(domainPattern)">
-                    <td data-title="'P_Domains-DomainPatterns_IdentifierLabel' | i18n"
-                        sortable="'identifier'">
-                      <span>
-                        {{domainPattern.identifier}}
-                      </span>
-                    </td>
-                    <td data-title="'P_Domains-DomainPatterns_DescriptionLabel' | i18n"
-                        sortable="'description'">
-                      <span>
-                        {{domainPattern.description}}
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+      <!-- List -->
+      <div x-ng-if="!getCurrentDomainPattern()">
+        <div x-ls-domain-pattern-list></div>
       </div>
     </section>
   </div>
