@@ -4,6 +4,7 @@ angular.module('myApp.services')
     function($log, localize) {
       this.domains = {
         name: localize.getLocalizedString('G_Tab_Domains'),
+        icon: 'fa-cloud',
         links: [
           {
             name: localize.getLocalizedString('G_Tab_Domains-LDAPConnections'),
@@ -19,6 +20,7 @@ angular.module('myApp.services')
       };
       this.parameters = {
         name: localize.getLocalizedString('G_Tab_Parameters'),
+        icon: 'fa-gears',
         links: [
           {
             name: localize.getLocalizedString('G_Tab_Parameters-Functionalities'),
@@ -31,6 +33,7 @@ angular.module('myApp.services')
       };
       this.users = {
         name: localize.getLocalizedString('G_Tab_Users'),
+        icon: 'fa-users',
         links: [
           {
             name: localize.getLocalizedString('G_Tab_Users-Management'),
@@ -48,10 +51,12 @@ angular.module('myApp.services')
       };
       this.audit = {
         name: localize.getLocalizedString('G_Tab_Audit'),
+        icon: 'fa-archive',
         links: '#audit'
       };
       this.charts = {
         name: localize.getLocalizedString('G_Tab_Charts'),
+        icon: 'fa-bar-chart-o',
         links: '#charts'
       };
 

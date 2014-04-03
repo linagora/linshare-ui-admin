@@ -15,7 +15,7 @@ require.config({
     bootstrapTpls: '/components/angular-bootstrap/ui-bootstrap-tpls.min',
     nggrid: '/components/ng-grid/build/ng-grid.min',
     nggridFlexibleHeight: '/components/ng-grid/plugins/ng-grid-flexible-height',
-    ngtable: '/components/ng-table/ng-table',
+    ngtable: '/components/ng-table-git/ng-table',
     restangular: '/components/restangular/src/restangular',
     httpAuthInterceptor: '/components/angular-http-auth/src/http-auth-interceptor',
 
@@ -77,6 +77,8 @@ require.config({
     // Filters
 
     // Controllers
+    'controllers/reset':
+        {deps: ['controllers/controllers']},
     'controllers/confirmDialog':
         {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/grid':
@@ -91,6 +93,8 @@ require.config({
         {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/functionalitymanagement':
         {deps: ['controllers/controllers', 'bootstrap']},
+    'controllers/usermanagement':
+        {deps: ['controllers/controllers']},
     'controllers/thread':
         {deps: ['controllers/controllers']},
 
@@ -214,6 +218,7 @@ var dependencies = [
   // Filters
 
   // Controllers
+  'controllers/reset',
   'controllers/confirmDialog',
   'controllers/grid',
   'controllers/loginForm',
@@ -221,6 +226,7 @@ var dependencies = [
   'controllers/domainpattern',
   'controllers/domainmanagement',
   'controllers/functionalitymanagement',
+  'controllers/usermanagement',
   'controllers/thread',
 
   // Services

@@ -14,8 +14,11 @@
       x-is-open="isopen"
       x-ng-repeat="tab in tabs">
     <accordion-heading>
+      <i class="fa"
+         x-ng-class="tab.icon">
+      </i>
       <span>
-        {{tab.name}}
+        &nbsp;{{tab.name}}
       </span>
       <i class="fa pull-right"
          x-ng-class="{'fa-angle-down': isopen, 'fa-angle-left': !isopen}">

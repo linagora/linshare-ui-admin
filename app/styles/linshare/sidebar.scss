@@ -4,6 +4,8 @@
   border: 0px;
   border-radius: 0px;
   background: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .treeview > .panel-heading {
@@ -36,4 +38,8 @@
 
 .sidebar .sidebar-menu .treeview-menu > li > a {
   padding: 5px 5px 5px 15px;
+}
+
+.panel-group > div:first-of-type {
+  border-top: 1px solid #444;
 }

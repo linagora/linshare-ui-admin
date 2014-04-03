@@ -551,6 +551,10 @@
     "value": "Manage user",
     "description": "Title for the search user section."
   },
+  "P_Users-Management_BoxListTitle": {
+    "value": "Users list",
+    "description": "Title for the search user section."
+  },
   "P_Users-Management_Search": {
     "value": "User completion",
     "description": "Button text for the switch view action."

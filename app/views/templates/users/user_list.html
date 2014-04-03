@@ -1,15 +1,56 @@
-<form name="userListForm" class="form-search" x-ls-form-submit="searchUser()" x-ls-form-attempt novalidate>
-  <div class="input-append"
-       ng-class="{error: userListForm.identifier.$invalid &&
-       (userListForm.identifier.$dirty || ls.userListForm.attempted)}">
-    <input type="text" class="span4 search-query" x-ng-model="pattern" required>
-    <select id="accountType" name="accountType" class="input-medium" 
-      x-ng-model="accountType" x-ng-options="a as a.display for a in accountTypes" required>
-    </select>
-    <button type="submit" class="btn">{{'P_Users-Management_SearchButton' | i18n}}</button>
-    <div class="spinner pull-right" style="margin-left:20px" x-ng-show="searching"></div>
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{'P_Users-Management_BoxListTitle' | i18n}}
+    </h3>
   </div>
-</form>
-
-<div x-ng-grid="gridOptions" style="gridStyle"></div>
-<div x-ng-transclude></div>
+  <div class="box-body">
+    <div class="table-responsive">
+      <table class="table table-striped"
+             x-ng-table="tableParams"
+             show-filter="true">
+        <tr x-ng-repeat="user in $data"
+            x-ng-click="edit(user)">
+          <td style="cursor: pointer"
+              data-title="'P_Users-Management_FirstName' | i18n"
+              filter="{ 'firstName': 'text' }"
+              sortable="'firstName'">
+            <span>
+              {{user.firstName}}
+            </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'P_Users-Management_LastName' | i18n"
+              filter="{ 'lastName': 'text' }"
+              sortable="'lastName'">
+            <span>
+              {{user.lastName}}
+            </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'P_Users-Management_Mail' | i18n"
+              filter="{ 'mail': 'text' }"
+              sortable="'mail'">
+            <span>
+              {{user.mail}}
+            </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'P_Users-Management_Domain' | i18n"
+              sortable="'domain'">
+            <span>
+              {{user.domain}}
+            </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'P_Users-Management_Role' | i18n"
+              sortable="'role'">
+            <span>
+              {{user.role}}
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

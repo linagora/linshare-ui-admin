@@ -9,40 +9,12 @@
 <section class="content"
          x-ng-controller="UserManagementCtrl">
   <div class="row">
-    <section class="col-lg-6"
-             x-ng-if="!getCurrentUser()">
+    <section class="col-lg-6">
       <div x-ls-user-list></div>
     </section>
     <section class="col-lg-6"
-             x-ng-if="!getCurrentUser()">
-      <div x-ls-user-completion></div>
-    </section>
-    <section class="col-lg-12"
              x-ng-if="getCurrentUser()">
        <div x-ls-user-edit-form></div>
     </section>
   </div>
 </section>
-<div class="row">
-  <div class="container">
-    <div class="page-header">
-      <h1></h1>
-
-    </div>
-    <div>
-      <div class="btn-toolbar" x-ng-init="switchView=true">
-        <button class="btn btn-primary" type="button"  x-ng-click="switchView=!switchView" x-ng-switch="switchView">
-          <span x-ng-switch-when="false"><i class="icon-search icon-white"></i> {{'P_Users-Management_Search' | i18n}}</span>
-          <span x-ng-switch-when="true"><i class="icon-list icon-white"></i> {{'P_Users-Management_List' | i18n}}</span>
-        </button>
-      </div>
-      <div x-ng-show="switchView">
-      </div>
-    </div>
-    <div x-ng-controller="GridCtrl" x-ng-show="!switchView">
-      <div x-ls-user-list>
-        <div x-ls-user-edit-form x-user-to-edit="selectedUser"></div>
-      </div>
-    </div>
-  </div>
-</div>

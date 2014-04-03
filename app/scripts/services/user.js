@@ -3,6 +3,8 @@
 angular.module('myApp.services')
   .factory('User', ['$log', 'Restangular',
     function ($log, Restangular) {
+      this.currentUser = undefined;
+
       var self = this;
 
       // Public API here
@@ -24,9 +26,9 @@ angular.module('myApp.services')
             }
           );
         },
-        search: function(pattern, successCallback) {
+        search: function(userSearchDto, successCallback) {
           $log.debug('User:search');
-          return Restangular.all('users').one('search', pattern).get().then(
+          return Restangular.all('users').customPOST(userSearchDto, 'search').then(
             function success(users) {
               angular.forEach(users, function(user, key) {
                 user = Restangular.restangularizeElement(null, user, 'users');
@@ -40,9 +42,19 @@ angular.module('myApp.services')
                  'Unable to search users',
                 ].join('\n')
               );
-              $log.error(pattern);
+              $log.error(userSearchDto);
             }
           );
+        },
+        setCurrent: function(user) {
+          $log.debug('User:setCurrent');
+          self.currentUser = user;
+        },
+        getCurrent: function() {
+          return self.currentUser;
+        },
+        currentIsDefined: function() {
+          return angular.isDefined(self.currentUser);
         }
       };
     }
