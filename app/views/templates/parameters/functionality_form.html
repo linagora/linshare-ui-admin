@@ -9,6 +9,7 @@
       <div class="row">
         <div class="col-md-6"
              x-ng-if="showActivation(functionality)">
+          <form>
           <legend style="font-size: 14px; font-weight: bold;">
             {{'P_Parameters-Functionalities_ActivationPolicy' | i18n}}
           </legend>
@@ -49,9 +50,11 @@
               </label>
             </div>
           </div>
+          </form>
         </div>
         <div class="col-md-6"
                  x-ng-show="showConfiguration(functionality)">
+          <form>
           <legend style="font-size: 14px; font-weight: bold;">
             {{'P_Parameters-Functionalities_ConfigurationPolicy' | i18n}}
           </legend>
@@ -92,11 +95,13 @@
               </label>
             </div>
           </div>
+          </form>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6"
              x-ng-if="showParameters(functionality)">
+          <form>
           <legend style="font-size: 14px; font-weight: bold;">
             {{'P_Parameters-Functionalities_Parameters' | i18n}}
           </legend>
@@ -158,6 +163,7 @@
               </div>
             </div>
           </div>
+          </form>
         </div>
       </div>
     </div>
