@@ -33,7 +33,6 @@ app.directive('lsUserList', [
             total: 0, // length of data
             getData: function($defer, params) {
               var canRequest = false;
-              console.log(_.keys(params.filter()));
               angular.forEach(_.keys(params.filter()), function(key) {
                 if (params.filter()[key].length >= 3) {
                   canRequest = true;

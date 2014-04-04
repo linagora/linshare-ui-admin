@@ -667,6 +667,10 @@
     "value": "Delete",
     "description": "Label for the delete button."
   },
+  "P_Users-Management_ConfirmDeleteText": {
+    "value": "<p>You are about to delete this user, this procedure is irreversible and destroy all his document.</p><p>Do you want to proceed?</p>",
+    "description": "Text in the confirmation modal."
+  },
   "P_Users-Management_UpdateSuccess": {
     "value": "User update succeed",
     "description": "Alert message when the update succeed."

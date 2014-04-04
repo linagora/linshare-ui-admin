@@ -52,9 +52,9 @@ angular.module('myApp.services')
               }
           );
         },
-        get: function(domain, functionalityId,successCallback) {
+        get: function(domainId, functionalityId, successCallback) {
           $log.debug('Functionality:get');
-          return Restangular.all('domains').all(domain.identifier)
+          return Restangular.all('domains').all(domainId)
             .one('functionalities', functionalityId).get().then(
               function success(functionality) {
                 addLocalizedName(functionality);

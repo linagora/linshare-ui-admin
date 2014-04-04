@@ -7,8 +7,8 @@ app.directive('lsLdapConnectionForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$modal', '$log', 'LdapConnection', 'localize',
-        function($scope, $modal, $log, LdapConnection, localize) {
+        ['$scope', '$modal', '$log', 'Restangular', 'LdapConnection', 'localize',
+        function($scope, $modal, $log, Restangular, LdapConnection, localize) {
           $scope.submit = function() {
             if ($scope.state === 'edit') {
               LdapConnection.update(
@@ -17,13 +17,15 @@ app.directive('lsLdapConnectionForm', [
                   $scope.cancel();
                 }
               );
-            } else {
+            } else if ($scope.state === 'create') {
               LdapConnection.add(
                 $scope.ldapConnection,
                 function successCallback() {
                   $scope.cancel();
                 }
               );
+            } else {
+              $log.error('Invalid state');
             }
           };
           $scope.remove = function() {
@@ -60,8 +62,8 @@ app.directive('lsLdapConnectionForm', [
           };
           $scope.reset = function() {
             if (LdapConnection.currentIsDefined()) {
-              $scope.ldapConnection = angular.copy(LdapConnection.getCurrent());
-              if (_.isEmpty($scope.ldapConnection)) {
+              $scope.ldapConnection = Restangular.copy(LdapConnection.getCurrent());
+              if (_.isEmpty(LdapConnection.getCurrent())) {
                 $scope.state = 'create';
               } else {
                 $scope.state = 'edit';

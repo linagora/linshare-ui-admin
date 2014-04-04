@@ -8,6 +8,7 @@ var app = angular.module('myApp', [
     'myApp.filters',
     'myApp.services',
     'ui.bootstrap',
+    'ngLocale',
     'ngResource',
     'ngRoute',
     'ngCookies',

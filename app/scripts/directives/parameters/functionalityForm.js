@@ -60,7 +60,7 @@ app.directive('lsFunctionalityForm', [
             $scope.spinner = true;
             Functionality.remove($scope.functionality,
               function successCallback(deletedFunc) {
-                Functionality.get($scope.domain , deletedFunc.identifier,
+                Functionality.get($scope.domain.identifier, deletedFunc.identifier,
                   function successCallback(parentFunc) {
                     Functionality.setCurrent(parentFunc);
                     $scope.spinner = false;

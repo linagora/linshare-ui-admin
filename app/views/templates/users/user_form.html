@@ -1,0 +1,274 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{ user.firstName }}&nbsp;{{ user.lastName }}&nbsp;&lt;{{ user.mail }}&gt;
+    </h3>
+    <div class="pull-right box-tools">
+      <button class="btn btn-primary btn-sm"
+              x-ng-click="cancel()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <form class="form" name="userForm"
+        x-ls-form-submit="submit(user)"
+        x-ls-form-attempt>
+    <div class="box-body">
+      <div class="row">
+      <!-- EDITABLE FIELDS -->
+      <div class="col-sm-6">
+        <!-- Upload -->
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input id="canUpload" name="canUpload" type="checkbox"
+                   x-ng-model="user.canUpload">
+          </span>
+          <input type="text" class="form-control" style="background-color: transparent" disabled
+                 value="{{'P_Users-Management_CanUpload' | i18n}}">
+        </div>
+        <!-- GUEST -->
+        <div x-ng-if="user.guest">
+          <!-- First name -->
+          <div class="form-group"
+               x-ng-class="{error: userForm.firstName.$invalid &&
+                 (userForm.firstName.$dirty || ls.userForm.attempted)}">
+            <label for="firstName">
+              {{'P_Users-Management_FirstName' | i18n}}
+            </label>
+            <div class="controls">
+              <input id="firstName" name="firstName" type="text" class="form-control" required
+                     x-ng-model="user.firstName">
+            </div>
+          </div>
+
+          <!-- Last name -->
+          <div class="form-group"
+               x-ng-class="{error: userForm.lastName.$invalid &&
+                 (userForm.lastName.$dirty || ls.userForm.attempted)}">
+            <label for="lastName">
+              {{'P_Users-Management_LastName' | i18n}}
+            </label>
+            <div class="controls">
+              <input id="lastName" name="lastName" type="text" class="form-control" required
+                     x-ng-model="user.lastName">
+            </div>
+          </div>
+          <!-- Restricted -->
+          <div class="form-group">
+            <label for="restricted">
+              {{'P_Users-Management_Restricted' | i18n}}
+            </label>
+            <div class="controls">
+              <input id="restricted" name="restricted" type="checkbox" class="checkbox"
+                     x-ng-model="user.restricted"
+                     x-ng-disabled="restrictedDisable()">
+            </div>
+          </div>
+
+          <!-- Restricted - Contact list -->
+          <div x-ng-if="user.restricted">
+            <div class="form-group"
+                 x-ng-repeat="contact in user.restrictedContacts">
+              <label for="contacts"
+                     x-ng-show="$first">
+                {{'P_Users-Management_RestrictedContacts' | i18n}}
+              </label>
+              <div class="controls">
+                <div class="input-append">
+                  <input type="text" class="form-control" name="contacts"
+                         x-ng-model="contact" />
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-danger"
+                            x-ng-click="removeContact(user, $index)">
+                      <i class="icon-white icon-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact">
+                {{'P_Users-Management_AddContact' | i18n}}
+              </label>
+              <div class="controls">
+                <div class="input-append">
+                  <input type="text" class="form-control" name="contact"
+                         x-ng-model="selectedContact"
+                         x-typeahead-min-length="3"
+                         x-typeahead-on-select="addContact(user, selectedContact)"
+                         x-typeahead-wait-ms="30"
+                         x-typeahead-loading="searchingContact"
+                         x-typeahead-input-formatter="angular.noop"
+                         x-typeahead="u as userRepresentation(u) for u in users($viewValue) | filter:$viewValue | limitTo:3" />
+                  <span class="add-on">
+                    <i class="icon icon-plus"></i>
+                  </span>
+                </div>
+                <div class="spinner"
+                     x-ng-show="searchingContact">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expiration date -->
+          <div class="form-group">
+            <label for="expirationDate">
+              {{'P_Users-Management_ExpirationDate' | i18n}}
+            </label>
+            <div class="controls">
+              <p class="input-group">
+                <input type="text" name="expirationDate"
+                       x-datepicker-popup="dd-MMMM-yyyy" 
+                       x-ng-model="user.expirationDate"
+                       x-is-opened="opened"
+                       x-min="today"
+                       x-max="limit"
+                       x-show-weeks="false"/>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default"
+                          x-ng-click="open($event)">
+                    <i class="fa fa-calendar"></i>
+                  </button>
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Comment -->
+          <div class="form-group">
+            <label for="comment">
+              {{'P_Users-Management_Comment' | i18n}}
+            </label>
+            <div class="controls">
+              <textarea id="comment" name="comment" class="form-control"
+                        x-ng-model="user.comment">
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <!-- User role -->
+        <div class="form-group"
+             x-ng-if="!user.guest"
+             x-ng-class="{error: userForm.role.$invalid &&
+               (userForm.role.$dirty || ls.userForm.attempted)}">
+          <label for="role">
+            {{'P_Users-Management_Role' | i18n}}
+          </label>
+          <div class="controls">
+            <select id="role" name="role" class="form-control" required
+                    x-ng-model="user.role"
+                    x-ng-options="r for r in userRoles">
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- UNEDITABLE FIELDS -->
+      <div class="well col-sm-6">
+        <!-- Account type -->
+        <div class="form-group">
+          <label for="status">
+            {{'P_Users-Management_Status' | i18n}}
+          </label>
+          <div class="controls">
+            <span name="status" class="form-control-static">
+              {{getStatus(user)}}
+            </span>
+          </div>
+        </div>
+        <!-- Creation date -->
+        <div class="form-group">
+          <label for="creationDate">
+            {{'P_Users-Management_CreationDate' | i18n}}
+          </label>
+          <div class="controls">
+            <span name="creationDate" class="form-control-static">
+              {{user.creationDate | date:'medium'}}
+            </span>
+          </div>
+        </div>
+
+        <!-- Modification date -->
+        <div class="form-group">
+          <label for="modificationDate">
+            {{'P_Users-Management_ModificationDate' | i18n}}
+          </label>
+          <div class="controls">
+            <span name="modificationDate" class="form-control-static">
+              {{user.modificationDate | date:'medium'}}
+            </span>
+          </div>
+        </div>
+        <!-- Owner  -->
+        <div class="form-group"
+             x-ng-if="user.guest">
+          <label for="owner">
+            {{'P_Users-Management_Owner' | i18n}}
+          </label>
+          <div class="controls">
+            <span name="owner" class="form-control-static">
+              {{user.owner.mail}}
+            </span>
+          </div>
+        </div>
+        <!-- INTERNAL -->
+        <div x-ng-if="!user.guest">
+          <!-- First name -->
+          <div class="form-group">
+            <label for="firstName">
+              {{'P_Users-Management_FirstName' | i18n}}
+            </label>
+            <div class="controls">
+              <span name="firstName" class="form-control-static">
+                {{user.firstName}}
+              </span>
+            </div>
+          </div>
+
+          <!-- Last name -->
+          <div class="form-group">
+            <label for="lastName">
+              {{'P_Users-Management_LastName' | i18n}}
+            </label>
+            <div class="controls">
+              <span name="lastName" class="form-control-static">
+                {{user.lastName}}
+              </span>
+            </div>
+          </div>
+          <!-- Domain -->
+          <div class="form-group">
+            <label for="domain">
+              {{'P_Users-Management_Domain' | i18n}}
+            </label>
+            <div class="controls">
+              <span name="domain" class="form-control-static">
+                {{user.domain}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="box-footer">
+      <!-- Validation -->
+      <div class="form-group">
+        <div class="controls">
+          <button type="button" id="delete" name="delete" class="btn btn-danger"
+                  x-ng-click="delete(user)">
+            {{'P_Users-Management_Delete' | i18n}}
+          </button>
+          <button type="button" id="reset" name="reset" class="btn btn-warning"
+                  x-ng-click="reset()">
+            {{'P_Users-Management_Reset' | i18n}}
+          </button>
+          <button type="submit" id="submit" name="submit" class="btn btn-success">
+            {{'P_Users-Management_Submit' | i18n}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

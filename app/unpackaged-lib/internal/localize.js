@@ -11,7 +11,8 @@
 angular.module('localization', [])
   // localization service responsible for retrieving resource files from the server and
   // managing the translation dictionary
-  .factory('localize', ['$http', '$rootScope', '$window', '$filter', '$cookies', '$log', function ($http, $rootScope, $window, $filter, $cookies, $log) {
+  .factory('localize', ['$http', '$rootScope', '$window', '$filter', '$locale','$cookies', '$log',
+    function ($http, $rootScope, $window, $filter, $locale, $cookies, $log) {
     var localize = {
       // use the $window service to get the language of the user's browser
       language: $cookies.linshare_lang || $window.navigator.userLanguage || $window.navigator.language,
@@ -62,8 +63,11 @@ angular.module('localization', [])
         // Test if plupload needs extra translation
         if (localize.getSimpleLanguage() != "en") {
           $.getScript("/i18n/plupload/" + localize.getSimpleLanguage() + ".js")
+            .done(function( script, textStatus ) {
+            $log.debug('Plupload translation ' + localize.language.toLowerCase() + ' used.');
+            })
             .fail(function(jqxhr, settings, exception) {
-              $log.debug('No plupload tanslation file, use default instead.');
+              $log.debug('No plupload translation file, use default instead.');
             });
         }
       },

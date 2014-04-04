@@ -26,6 +26,9 @@ app.directive('lsLdapConnectionList', [
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
             count: 10,      // count per page
+            sorting: {
+              identifier: 'asc'
+            }
           }, {
             debugMode: false,
             total: 0, // length of data

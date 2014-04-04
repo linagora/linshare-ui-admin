@@ -7,8 +7,8 @@ app.directive('lsDomainPatternForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$modal', '$log', 'DomainPattern', 'localize',
-        function($scope, $modal, $log, DomainPattern, localize) {
+        ['$scope', '$modal', '$log', 'Restangular', 'DomainPattern', 'localize',
+        function($scope, $modal, $log, Restangular, DomainPattern, localize) {
           var emptyModel = {identifier: ''};
           $scope.submit = function() {
             if ($scope.state === 'edit') {
@@ -18,13 +18,15 @@ app.directive('lsDomainPatternForm', [
                   $scope.cancel();
                 }
               );
-            } else {
+            } else if ($scope.state === 'create') {
               DomainPattern.add(
                 $scope.domainPattern,
                 function successCallback() {
                   $scope.cancel();
                 }
               );
+            } else {
+              $log.error('Invalid state');
             }
           };
           $scope.remove = function() {
@@ -61,8 +63,8 @@ app.directive('lsDomainPatternForm', [
           };
           $scope.reset = function() {
             if (DomainPattern.currentIsDefined()) {
-              $scope.domainPattern = angular.copy(DomainPattern.getCurrent());
-              if (_.isEmpty($scope.domainPattern)) {
+              $scope.domainPattern = Restangular.copy(DomainPattern.getCurrent());
+              if (_.isEmpty(DomainPattern.getCurrent())) {
                 $scope.state = 'create';
                 DomainPattern.getAllModels(function success(models) {
                   $scope.models = models;
@@ -78,7 +80,7 @@ app.directive('lsDomainPatternForm', [
             }
           };
           function loadModel() {
-            angular.copy($scope.modelSelector, $scope.domainPattern);
+            Restangular.copy($scope.modelSelector, $scope.domainPattern);
             $scope.domainPattern.identifier = "";
           };
           $scope.reset();

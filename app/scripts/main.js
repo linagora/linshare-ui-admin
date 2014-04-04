@@ -147,7 +147,7 @@ require.config({
     
     'directives/users/userCompletion':
         {deps: ['directives/directives']},
-    'directives/users/userEditForm':
+    'directives/users/userForm':
         {deps: ['directives/directives']},
     'directives/users/userList':
         {deps: ['directives/directives', 'nggrid']},
@@ -255,7 +255,7 @@ var dependencies = [
   'directives/domains/domainTree',
   'directives/domains/domainForm',
 
-  'directives/users/userEditForm',
+  'directives/users/userForm',
   'directives/users/userCompletion',
   'directives/users/userList',
   'directives/users/threadList',

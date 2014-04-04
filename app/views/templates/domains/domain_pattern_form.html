@@ -19,18 +19,18 @@
     </div>
   </div>
   <form class="form" name="domainPatternForm" role="form" novalidate
-        x-ls-form-submit="submit(domainPattern)"
+        x-ls-form-submit="submit()"
         x-ls-form-attempt>
     <fieldset>
       <div class="box-body">
         <div class="row">
           <!-- Model selector -->
           <div class="form-group col-sm-5"
-               x-ng-show="state==='create'">
+               x-ng-if="state==='create'">
             <label for="modelSelector">
               {{'P_Domains-DomainPatterns_ModelSelectorLabel' | i18n}}
             </label>
-            <select id="modelSelector" class="form-control" required
+            <select id="modelSelector" class="form-control"
                     x-ng-model="modelSelector"
                     x-ng-options="model as model.identifier for model in models | orderBy:'identifier'">
             </select>
