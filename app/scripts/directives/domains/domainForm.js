@@ -9,8 +9,8 @@ app.directive('lsDomainForm', [
         reload: '&'
       },
       controller:
-        ['$scope', '$modal', '$log', 'Domain', 'LdapConnection', 'DomainPattern', 'UserRole', 'DomainPolicy', 'localize',
-        function($scope, $modal, $log, Domain, LdapConnection, DomainPattern, UserRole, DomainPolicy, localize) {
+        ['$scope', '$modal', '$log', 'Restangular', 'Domain', 'LdapConnection', 'DomainPattern', 'UserRole', 'DomainPolicy', 'localize',
+        function($scope, $modal, $log, Restangular, Domain, LdapConnection, DomainPattern, UserRole, DomainPolicy, localize) {
           $scope.ldapConnections = []
           $scope.domainPatterns = []
           $scope.userRoles = []
@@ -35,14 +35,24 @@ app.directive('lsDomainForm', [
             });
           });
           $scope.addProvider = function() {
-            $scope.domain.providers.push({
-              ldapConnectionId: '',
-              domainPatternId: '',
-              baseDn: ''
-            });
+            if (!$scope.disableProvider) {
+              $scope.domain.providers.push({
+                ldapConnectionId: '',
+                domainPatternId: '',
+                baseDn: ''
+              });
+              $scope.disableProvider = true;
+            } else {
+              $log.error('Try to add more than one provider');
+            }
           };
           $scope.deleteProvider = function() {
-            $scope.domain.providers.splice(0, 1);
+            if ($scope.disableProvider) {
+              $scope.domain.providers.splice(0, 1);
+              $scope.disableProvider = false;
+            } else {
+              $log.error('Try to delete an non existing provider');
+            }
           }
           $scope.submit = function() {
             if ($scope.state === 'edit') {
@@ -52,13 +62,15 @@ app.directive('lsDomainForm', [
                   $scope.reload();
                 }
               );
-            } else {
+            } else if ($scope.state === 'create') {
               Domain.add(
                 $scope.domain,
                 function successCallback() {
                   $scope.reload();
                 }
               );
+            } else {
+              $log.error('Invalid state');
             }
           };
           $scope.remove = function() {
@@ -95,7 +107,8 @@ app.directive('lsDomainForm', [
           };
           $scope.reset = function() {
             $scope.state = Domain.getState();
-            $scope.domain = angular.copy(Domain.getCurrent());
+            $scope.domain = Restangular.copy(Domain.getCurrent());
+            $scope.disableProvider = ($scope.domain.type === 'ROOTDOMAIN' || $scope.domain.providers.length != 0);
           };
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
