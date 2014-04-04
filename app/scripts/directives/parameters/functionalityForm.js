@@ -18,7 +18,7 @@ app.directive('lsFunctionalityForm', [
         scope.disableStatus = function(policyType) {
           return policyType.policy !== 'ALLOWED';
         };
-        scope.spinner = false;
+        scope.iconSaved = false;
       },
       controller: ['$scope', '$timeout', '$log', 'Domain', 'Functionality',
         function($scope, $timeout, $log, Domain, Functionality) {
@@ -37,6 +37,12 @@ app.directive('lsFunctionalityForm', [
               }
             }
           );
+          $scope.displayIconSaved = function() {
+            $scope.iconSaved = true;
+            $timeout(function() {
+              $scope.iconSaved = false;
+            }, 800);
+          };
           $scope.updateWithTimeout = function() {
             if (angular.isDefined(timeoutId)) {
               $timeout.cancel(timeoutId);
@@ -47,23 +53,21 @@ app.directive('lsFunctionalityForm', [
             }, 1500);
           };
           $scope.update = function() {
-            $scope.spinner = true;
             updateStatus($scope.functionality.activationPolicy);
             updateStatus($scope.functionality.configurationPolicy);
             Functionality.update($scope.functionality,
               function successCallback(updatedFunc) {
-                $scope.spinner = false;
+                $scope.displayIconSaved();
               }
             );
           };
           $scope.resetToParent = function() {
-            $scope.spinner = true;
             Functionality.remove($scope.functionality,
               function successCallback(deletedFunc) {
                 Functionality.get($scope.domain.identifier, deletedFunc.identifier,
                   function successCallback(parentFunc) {
                     Functionality.setCurrent(parentFunc);
-                    $scope.spinner = false;
+                    $scope.displayIconSaved();
                   }
                 );
               }

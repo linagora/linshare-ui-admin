@@ -7,3 +7,18 @@
 {
     display: block;
 }
+
+#loading-bar .bar {
+  background: #bc3c8c;
+  height: 4px;
+}
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  #bc3c8c;
+  border-left-color: #bc3c8c;
+}
+#loading-bar .peg {
+  -moz-box-shadow: #bc3c8c 1px 0 6px 1px;
+  -ms-box-shadow: #bc3c8c 1px 0 6px 1px;
+  -webkit-box-shadow: #bc3c8c 1px 0 6px 1px;
+  box-shadow: #bc3c8c 1px 0 6px 1px;
+}

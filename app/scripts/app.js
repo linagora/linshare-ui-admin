@@ -15,6 +15,7 @@ var app = angular.module('myApp', [
     'ngGrid',
     'ngTable',
     'http-auth-interceptor',
+    'chieffancypants.loadingBar',
     'localization',
     'restangular'
 ])

@@ -18,6 +18,7 @@ require.config({
     ngtable: '/components/ng-table-git/ng-table',
     restangular: '/components/restangular/src/restangular',
     httpAuthInterceptor: '/components/angular-http-auth/src/http-auth-interceptor',
+    loadingBar: '/components/angular-loading-bar/build/loading-bar.min',
 
     // Unpackaged lib
     localize: '/unpackaged-lib/internal/localize',
@@ -68,6 +69,8 @@ require.config({
     'restangular':
         {deps: ['angular', 'lodash']},
     'httpAuthInterceptor':
+        {deps: ['angular']},
+    'loadingBar':
         {deps: ['angular']},
 
     // Unpackaged lib
@@ -211,6 +214,7 @@ var dependencies = [
   'ngtable',
   'restangular',
   'httpAuthInterceptor',
+  'loadingBar',
   
   // Unpackaged lib
   'localize',

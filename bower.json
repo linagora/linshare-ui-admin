@@ -22,6 +22,7 @@
 
     "bootstrap": "~3",
     "adminlte": "https://github.com/almasaeed2010/AdminLTE.git",
+    "angular-loading-bar": "*",
     "jquery": "~2"
   },
   "devDependencies": {
