@@ -24,8 +24,11 @@ app.directive('lsFunctionalityList', [
             },
             true
           );
-          $scope.edit = function (functionality) {
+          $scope.edit = function(functionality) {
             Functionality.setCurrent(functionality);
+          };
+          $scope.cancel = function() {
+            Domain.setCurrent(undefined);
           };
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page

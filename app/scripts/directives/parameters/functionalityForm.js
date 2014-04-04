@@ -84,6 +84,9 @@ app.directive('lsFunctionalityForm', [
               }
             }
           );
+          $scope.cancel = function() {
+            Functionality.setCurrent(undefined);
+          };
           $scope.isRootDomain = function() {
             return $scope.domain.type === 'ROOTDOMAIN';
           };

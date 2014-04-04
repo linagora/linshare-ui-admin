@@ -683,6 +683,10 @@
     "value": "Functionality management",
     "description": "Title for the management section of functionality management."
   },
+  "P_Parameters-Functionalities_List": {
+    "value": "List",
+    "description": "Label of the button to return to functionalities list."
+  },
   "P_Parameters-Functionalities_ActivationPolicy": {
     "value": "Activation policy",
     "description": "Title for activation policy form."

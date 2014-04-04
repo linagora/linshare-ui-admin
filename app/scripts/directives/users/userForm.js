@@ -12,7 +12,7 @@ app.directive('lsUserForm', [
         scope.today = new Date();
       },
       controller: ['$scope', '$modal', '$log', 'Restangular', 'User', 'Functionality', 'UserRole', 'localize',
-        function($scope, $modal, $log, Restangular, User, Functionality, UserRole, Localize) {
+        function($scope, $modal, $log, Restangular, User, Functionality, UserRole, localize) {
           UserRole.getAll(function successCallback(userRoles) {
             $scope.userRoles = userRoles;
           });
@@ -25,11 +25,11 @@ app.directive('lsUserForm', [
           $scope.getStatus = function(user) {
             if (angular.isDefined(user)) {
               if (user.guest === true) {
-                return Localize.getLocalizedString('P_Users-Management_StatusGuest');
+                return localize.getLocalizedString('P_Users-Management_StatusGuest');
               } else if (user.role === 'ADMIN') {
-                return Localize.getLocalizedString('P_Users-Management_StatusAdmin');
+                return localize.getLocalizedString('P_Users-Management_StatusAdmin');
               } else if (user.role === 'SIMPLE') {
-                return Localize.getLocalizedString('P_Users-Management_StatusSimple');
+                return localize.getLocalizedString('P_Users-Management_StatusSimple');
               }
             }
           };
