@@ -186,39 +186,32 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 * Mettre le champs datepicker required dans le userEditForm 
 
 ### Pour la suite
-* [bootstrap 3.0](http://getbootstrap.com)
 * [hint helper](http://kushagragour.in/lab/hint/)
-* [coffeescript](http://coffeescript.org/)
 * [email validation online opensource](http://code.realcrowd.com/using-mailguns-email-address-validation-service-with-angularjs/)
 * [simple spinner](http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner/)
-* Vérifier l'evolution de la lib [angular-http-auth](https://github.com/witoldsz/angular-http-auth) et l'eventuel passage a bower
-* Vérifier l'evolution de la lib [https://github.com/realcrowd/angularjs-utilities/issues/1](https://github.com/realcrowd/angularjs-utilities/issues/1) et l'eventuel passage a bower
-* Acheter le bouquin de [Pawel Kozlowski](https://github.com/pkozlowski-opensource) et [Pete Bacon Darwin](https://github.com/petebacondarwin) sur les bonnes pratiques d'angular, quand il sera sorti
+* Penser a integrer lib [https://github.com/realcrowd/angularjs-utilities/](https://github.com/realcrowd/angularjs-utilities/)
+* Acheter le bouquin de [Pawel Kozlowski](https://github.com/pkozlowski-opensource) et [Pete Bacon Darwin](https://github.com/petebacondarwin) sur les bonnes pratiques d'angular.
 
 ### Ce qui peut etre interessant d' integrer
 
 * [https://github.com/angular-ui/alias](https://github.com/angular-ui/alias)
 * [https://github.com/angular-ui/ui-router](https://github.com/angular-ui/ui-router)
+* [http://angular-translate.github.io/](http://angular-translate.github.io/)
+* [https://github.com/marcorinck/angular-growl](https://github.com/marcorinck/angular-growl) (Si toujours pas d'evolution) [https://github.com/JanStevens/angular-growl-2/](https://github.com/JanStevens/angular-growl-2/)
 
 
 ### TODO
 
 * Fix le login et logout
 * Faire une batterie de test
-* Upgrade AngularJS / Restangular / bootstrap / ng grid
 * Voir si la structure d'angular seed n'evolue pas
-* Avoir un graphiste / acheter un theme ?
 * Gestion des tests et des builds
-* Finir les threads
-* Interface de purge des users
 * Hackaton ? Verifier toutes les secu webservices 
 * Faire un audit de code ?
-* Random fail sur getData dans la page users / solution : mettre le gridCtrl sous forme de directive et faire un require parent sur les fils
-* Internationalization complete
+* Internationalization complete [http://angular-translate.github.io/](http://angular-translate.github.io/)
 * Mettre a jour / Corriger les REST-URL.md
 * Verifier la mise a jour de modules / node/ bower etc ...
-* Ajouter les parametres du compte (locale, mdp)
 * Vérifier les messages d'alertes / succes
-* trouver un moyen de savoir dans quelle section on est (breadcrumb ?)
+* Trouver un moyen de savoir dans quelle section on est (breadcrumb ?)
 * Responsive design 
 * Logger les erreurs cote server [http://www.bennadel.com/blog/2542-Logging-Client-Side-Errors-With-AngularJS-And-Stacktrace-js.htm](http://www.bennadel.com/blog/2542-Logging-Client-Side-Errors-With-AngularJS-And-Stacktrace-js.htm)
