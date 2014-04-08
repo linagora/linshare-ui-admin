@@ -3,15 +3,19 @@
 /* Services */
 
 angular.module('myApp.services')
-  .factory('Notification', ['$rootScope', '$timeout', 'localize',
-  function($rootScope, $timeout, localize) {
+  .factory('Notification', ['$rootScope', '$timeout', '$log', 'localize',
+  function($rootScope, $timeout, $log, localize) {
     return {
       addSuccess: function(unLocalizeMsg) {
-        var newAlert = {type: 'success', msg: localize.getLocalizedString(unLocalizeMsg)};
+        $log.debug('Notification:addSuccess');
+        var newAlert = {};
+        newAlert.type = 'success';
+        newAlert.msg = localize.getLocalizedString(unLocalizeMsg);
         $rootScope.$broadcast('pushAlert', newAlert);
       },
       addError: function(newAlert) {
-        newAlert.type = 'error';
+        $log.debug('Notification:addError');
+        newAlert.type = 'danger';
         newAlert.msg = localize.getLocalizedString('G_Err_' + newAlert.errCode);
         $rootScope.$broadcast('pushAlert', newAlert);
       }
