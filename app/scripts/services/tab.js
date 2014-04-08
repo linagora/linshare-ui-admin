@@ -46,7 +46,7 @@ angular.module('myApp.services')
         href: '#users/threads'
       };
       this.mailingLists = {
-        name: localize.getLocalizedString('G_Tab_Users-MailingLists'),
+        name: localize.getLocalizedString('G_Tab_Users-Mails'),
         href: '#users/mailing_lists'
       };
       this.audit = {
