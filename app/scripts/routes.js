@@ -38,7 +38,7 @@ angular.module('myApp').config(['$routeProvider',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/users/mailing_lists', {
-      templateUrl: 'views/users/mailing_lists.html',
+      templateUrl: 'views/users/mails.html',
       controller: 'ResetCtrl'
     });
 

@@ -100,6 +100,8 @@ require.config({
         {deps: ['controllers/controllers']},
     'controllers/thread':
         {deps: ['controllers/controllers']},
+    'controllers/mail':
+        {deps: ['controllers/controllers']},
 
     // Services
     'services/preferences':
@@ -125,6 +127,8 @@ require.config({
     'services/thread':
         {deps: ['services/services']},
     'services/threadmember':
+        {deps: ['services/services']},
+    'services/mail':
         {deps: ['services/services']},
     'services/user':
         {deps: ['services/services']},
@@ -157,6 +161,10 @@ require.config({
     'directives/users/threadList':
         {deps: ['directives/directives']},
     'directives/users/threadForm':
+        {deps: ['directives/directives']},
+    'directives/users/mailList':
+        {deps: ['directives/directives']},
+    'directives/users/mailForm':
         {deps: ['directives/directives']},
 
     'directives/common/formAttempt':
@@ -232,6 +240,7 @@ var dependencies = [
   'controllers/functionalitymanagement',
   'controllers/usermanagement',
   'controllers/thread',
+  'controllers/mail',
 
   // Services
   'services/preferences',
@@ -246,6 +255,7 @@ var dependencies = [
   'services/functionality',
   'services/thread',
   'services/threadmember',
+  'services/mail',
   'services/user',
 
   // Directives
@@ -264,6 +274,8 @@ var dependencies = [
   'directives/users/userList',
   'directives/users/threadList',
   'directives/users/threadForm',
+  'directives/users/mailList',
+  'directives/users/mailForm',
 
   'directives/common/formAttempt',
   'directives/common/formSubmit',

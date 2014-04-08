@@ -91,7 +91,7 @@
     "value": "Manage groups",
     "description": "Link for threads section."
   },
-  "G_Tab_Users-MailingLists": {
+  "G_Tab_Users-Mails": {
     "value": "Mailing Lists",
     "description": "Link for mailing lists section."
   },
@@ -546,6 +546,82 @@
   "P_Users-Threads_MemberDelete": {
     "value": "Delete",
     "description": "Label for the delete button in thread members"
+  },
+  "P_Users-Mails_Title": {
+    "value": "Mailing lists management",
+    "description": "Title for the threads section."
+  },
+  "P_Users-Mails_BoxListTitle": {
+    "value": "Mailing lists",
+    "description": "Title for the threads section."
+  },
+  "P_Users-Mails_List": {
+    "value": "List",
+    "description": "Label of the button to return to the thread list."
+  },
+  "P_Users-Mails_ListIdentifier": {
+    "value": "Identifier",
+    "description": "Label of column mailing list identifier."
+  },
+  "P_Users-Mails_ListIsPublic": {
+    "value": "Visibility",
+    "description": "Label of column mailing list visibility."
+  },
+  "P_Users-Mails_ListPublic": {
+    "value": "Public",
+    "description": "Values of the column mailing list visibility."
+  },
+  "P_Users-Mails_ListPrivate": {
+    "value": "Private",
+    "description": "Values of the column mailing list visibility."
+  },
+  "P_Users-Mails_FormOwner": {
+    "value": "Owner",
+    "description": "Label of the owner field in mailing list form."
+  },
+  "P_Users-Mails_FormDescription": {
+    "value": "Description",
+    "description": "Label of the description field in mailing list form."
+  },
+  "P_Users-Mails_FormIsPublic": {
+    "value": "Visibility",
+    "description": "Label of the visibility field in mailing list form."
+  },
+  "P_Users-Mails_FormSubmit": {
+    "value": "Submit",
+    "description": "Label of the submit button of the mailing list form"
+  },
+  "P_Users-Mails_FormReset": {
+    "value": "Reset",
+    "description": "Label of the reset button of the mailing list form"
+  },
+  "P_Users-Mails_FormDelete": {
+    "value": "Delete",
+    "description": "Label of the delete button of the mailing list form"
+  },
+  "P_Users-Mails_ContactMail": {
+    "value": "Mail",
+    "description": "Placeholder of the add contact form"
+  },
+  "P_Users-Mails_ContactFirstName": {
+    "value": "First name",
+    "description": "Placeholder of the add contact form"
+  },
+  "P_Users-Mails_ContactLastName": {
+    "value": "Last name",
+    "description": "Placeholder of the add contact form"
+  },
+  "P_Users-Mails_ContactAdd": {
+    "value": "Add",
+    "description": "Placeholder of the add contact form"
+  },
+  "P_Users-Mails_ContactActions": {
+    "value": "Actions",
+    "description": "Header of the actions column"
+  },
+  "P_Users-Mails_ContactDelete": {
+    "value": "Delete",
+    "description": "Label of the delete button"
   },
   "P_Users-Management_Title": {
     "value": "Manage user",
