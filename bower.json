@@ -2,7 +2,7 @@
   "name": "linshareFrontendAdmin",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "1.2.14",
+    "angular": "1.2.16",
     "angular-bootstrap": "*",
     "angular-cookies": "*",
     "angular-resource": "*",
@@ -11,6 +11,7 @@
     "angular-http-auth": "*",
     "ng-grid": "*",
     "ng-table": "*",
+    "angular-ui-select": "*",
     "requirejs": "*",
     "restangular": "*",
 
@@ -22,14 +23,13 @@
 
     "bootstrap": "~3",
     "adminlte": "https://github.com/almasaeed2010/AdminLTE.git",
-    "angular-loading-bar": "*",
-    "jquery": "~2"
+    "angular-loading-bar": "*"
   },
   "devDependencies": {
     "angular-mocks": "*",
     "angular-scenario": "*"
   },
   "resolutions": {
-    "angular": "1.2.14"
+    "angular": "1.2.16"
   }
 }
