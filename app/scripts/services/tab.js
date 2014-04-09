@@ -50,9 +50,14 @@ angular.module('myApp.services')
         href: '#users/mailing_lists'
       };
       this.audit = {
-        name: localize.getLocalizedString('G_Tab_Audit'),
+        name: localize.getLocalizedString('G_Tab_History'),
         icon: 'fa-archive',
-        links: '#audit'
+        links: [
+          {
+            name: localize.getLocalizedString('G_Tab_Audit'),
+            href: '#history/audit'
+          }
+        ]
       };
       this.charts = {
         name: localize.getLocalizedString('G_Tab_Charts'),

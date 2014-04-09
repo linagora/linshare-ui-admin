@@ -13,8 +13,7 @@ require.config({
     ngroute: '/components/angular-route/angular-route',
     bootstrap: '/components/angular-bootstrap/ui-bootstrap.min',
     bootstrapTpls: '/components/angular-bootstrap/ui-bootstrap-tpls.min',
-    nggrid: '/components/ng-grid/build/ng-grid.min',
-    nggridFlexibleHeight: '/components/ng-grid/plugins/ng-grid-flexible-height',
+    uiSelect: '/components/angular-ui-select/dist/select',
     ngtable: '/components/ng-table-git/ng-table',
     restangular: '/components/restangular/src/restangular',
     httpAuthInterceptor: '/components/angular-http-auth/src/http-auth-interceptor',
@@ -25,7 +24,6 @@ require.config({
  
     // Utils
     html5shiv: '/components/html5shiv/html5shiv',
-    jquery: '/components/jquery/dist/jquery.min',
     lodash: '/components/lodash/dist/lodash',
     base64: '/components/js-base64/base64.min'
   },
@@ -35,7 +33,7 @@ require.config({
      */
 
     'angular':
-        {deps: ['jquery'], exports: 'angular'},
+        {exports: 'angular'},
     'app':
         {deps: ['angular']},
     'filters/filters':
@@ -60,10 +58,8 @@ require.config({
         {deps: ['angular']},
     'bootstrapTpls':
         {deps: ['angular', 'bootstrap']},
-    'nggrid':
-        {deps: ['jquery', 'angular']},
-    'nggridFlexibleHeight':
-        {deps: ['nggrid']},
+    'uiSelect':
+        {deps: ['angular']},
     'ngtable':
         {deps: ['angular']},
     'restangular':
@@ -132,6 +128,8 @@ require.config({
         {deps: ['services/services']},
     'services/user':
         {deps: ['services/services']},
+    'services/audit':
+        {deps: ['services/services']},
 
     // Directives
     'directives/parameters/functionalityList':
@@ -157,7 +155,7 @@ require.config({
     'directives/users/userForm':
         {deps: ['directives/directives']},
     'directives/users/userList':
-        {deps: ['directives/directives', 'nggrid']},
+        {deps: ['directives/directives']},
     'directives/users/threadList':
         {deps: ['directives/directives']},
     'directives/users/threadForm':
@@ -165,6 +163,9 @@ require.config({
     'directives/users/mailList':
         {deps: ['directives/directives']},
     'directives/users/mailForm':
+        {deps: ['directives/directives']},
+
+    'directives/history/auditForm':
         {deps: ['directives/directives']},
 
     'directives/common/formAttempt':
@@ -217,8 +218,7 @@ var dependencies = [
   'ngroute',
   'bootstrap',
   'bootstrapTpls',
-  'nggrid',
-  'nggridFlexibleHeight',
+  'uiSelect',
   'ngtable',
   'restangular',
   'httpAuthInterceptor',
@@ -257,6 +257,7 @@ var dependencies = [
   'services/threadmember',
   'services/mail',
   'services/user',
+  'services/audit',
 
   // Directives
   'directives/parameters/functionalityList',
@@ -276,6 +277,8 @@ var dependencies = [
   'directives/users/threadForm',
   'directives/users/mailList',
   'directives/users/mailForm',
+
+  'directives/history/auditForm',
 
   'directives/common/formAttempt',
   'directives/common/formSubmit',

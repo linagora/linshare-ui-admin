@@ -42,8 +42,8 @@ angular.module('myApp').config(['$routeProvider',
       controller: 'ResetCtrl'
     });
 
-    $routeProvider.when('/audit', {
-      templateUrl: 'views/audit.html',
+    $routeProvider.when('/history/audit', {
+      templateUrl: 'views/history/audit.html',
       controller: 'ResetCtrl'
     });
 

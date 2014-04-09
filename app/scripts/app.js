@@ -12,7 +12,7 @@ var app = angular.module('myApp', [
     'ngResource',
     'ngRoute',
     'ngCookies',
-    'ngGrid',
+    'ui.select',
     'ngTable',
     'http-auth-interceptor',
     'chieffancypants.loadingBar',
@@ -21,8 +21,9 @@ var app = angular.module('myApp', [
 ])
 
 // Register work which needs to be performed on module loading
-.config(['$logProvider', 'preferencesProvider', 'RestangularProvider',
-  function($logProvider, preferencesProvider, RestangularProvider) {
+.config(['$logProvider', 'preferencesProvider', 'RestangularProvider', 'uiSelectConfig',
+  function($logProvider, preferencesProvider, RestangularProvider, uiSelectConfig) {
+    uiSelectConfig.theme = 'bootstrap';
     RestangularProvider.setBaseUrl('/linshare/webservice/rest/admin');
     RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
     var settings = preferencesProvider.loadSettings();

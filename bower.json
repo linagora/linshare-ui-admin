@@ -9,9 +9,6 @@
     "angular-sanitize": "*",
     "angular-route": "*",
     "angular-http-auth": "*",
-    "ng-grid": "*",
-    "ng-table": "*",
-    "angular-ui-select": "*",
     "requirejs": "*",
     "restangular": "*",
 
@@ -21,9 +18,11 @@
     "html5shiv": "*",
     "js-base64": "*",
 
+    "ng-table": "*",
+    "angular-ui-select": "*",
+    "angular-loading-bar": "*",
     "bootstrap": "~3",
-    "adminlte": "https://github.com/almasaeed2010/AdminLTE.git",
-    "angular-loading-bar": "*"
+    "adminlte": "https://github.com/almasaeed2010/AdminLTE.git"
   },
   "devDependencies": {
     "angular-mocks": "*",

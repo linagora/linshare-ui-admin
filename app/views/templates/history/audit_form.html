@@ -1,0 +1,190 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title" x-ng-if="state === 'create'">
+      {{'P_History-Audit_BoxTitle' | i18n}}
+    </h3>
+  </div>
+  <div class="box-body">
+    <form role="form"
+          x-ls-form-submit="reloadList()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="well">
+            <legend>{{'P_History-Audit_ActorTitle' | i18n}}</legend>
+            <div class="form-group">
+              <label for="actorMail">
+                {{'P_History-Audit_ActorMail' | i18n}}
+              </label>
+              <input id="actorMail" name="actorMail" class="form-control" type="text"
+                     x-ng-model="criteria.actorMail">
+            </div>
+            <div class="form-group">
+              <label for="actorFirstName">
+                {{'P_History-Audit_ActorFirstName' | i18n}}
+              </label>
+              <input id="actorFirstName" name="actorFirstName" class="form-control" type="text"
+                     x-ng-model="criteria.actorFirstName">
+            </div>
+            <div class="form-group">
+              <label for="actorLastName">
+                {{'P_History-Audit_ActorLastName' | i18n}}
+              </label>
+              <input id="actorLastName" name="actorLastName" class="form-control" type="text"
+                     x-ng-model="criteria.actorLastName">
+            </div>
+            <div class="form-group">
+              <label for="actorDomain">
+                {{'P_History-Audit_ActorDomain' | i18n}}
+              </label>
+              <select id="actorDomain" class="form-control"
+                      x-ng-model="criteria.actorDomain"
+                      x-ng-options="domain as domain.label for domain in domains | orderBy:'label'">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="well">
+            <legend>{{'P_History-Audit_TargetTitle' | i18n}}</legend>
+            <div class="form-group">
+              <label for="targetMail">
+                {{'P_History-Audit_TargetMail' | i18n}}
+              </label>
+              <input id="targetMail" name="targetMail" class="form-control" type="text"
+                     x-ng-model="criteria.targetMail">
+            </div>
+            <div class="form-group">
+              <label for="targetFirstName">
+                {{'P_History-Audit_TargetFirstName' | i18n}}
+              </label>
+              <input id="targetFirstName" name="targetFirstName" class="form-control" type="text"
+                     x-ng-model="criteria.targetFirstName">
+            </div>
+            <div class="form-group">
+              <label for="targetLastName">
+                {{'P_History-Audit_TargetLastName' | i18n}}
+              </label>
+              <input id="targetLastName" name="targetLastName" class="form-control" type="text"
+                     x-ng-model="criteria.targetLastName">
+            </div>
+            <div class="form-group">
+              <label for="targetDomain">
+                {{'P_History-Audit_TargetDomain' | i18n}}
+              </label>
+              <select id="targetDomain" class="form-control"
+                      x-ng-model="criteria.targetDomain"
+                      x-ng-options="domain as domain.label for domain in domains | orderBy:'label'">
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="well">
+            <legend>{{'P_History-Audit_FileTitle' | i18n}}</legend>
+            <div class="form-inline">
+              <div class="form-group">
+                <label for="fileName">
+                  {{'P_History-Audit_FileName' | i18n}}
+                </label>
+                <input id="fileName" name="fileName" class="form-control" type="text"
+                       x-ng-model="criteria.fileName">
+              </div>
+              <div class="radio-inline">
+                <label class="radio-inline">
+                  <input type="radio" checked> {{'P_History-Audit_FileNameBeginWith' | i18n}}
+                </label>
+              </div>
+              <div class="radio-inline">
+                <label class="radio-inline">
+                  <input type="radio"> {{'P_History-Audit_FileNameContains' | i18n}}
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fileExtension">
+                {{'P_History-Audit_FileExtension' | i18n}}
+              </label>
+              <input id="fileExtension" name="fileExtension" class="form-control" type="text"
+                     x-ng-model="criteria.fileExtension">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="well">
+            <legend>{{'P_History-Audit_ActionsTitle' | i18n}}</legend>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsFrom' | i18n}}">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"
+                            x-ng-click="open($event)">
+                      <i class="fa fa-calendar"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsTo' | i18n}}">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"
+                            x-ng-click="open($event)">
+                      <i class="fa fa-calendar"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label></label> <!-- Bootstrap Hack -->
+              <select id="availableActions" multiple class="form-control"
+                      x-ng-model="criteria.actions"
+                      x-ng-options="domain as domain.label for domain in domains | orderBy:'identifier'">
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" id="submit" name="submit" class="btn btn-success">
+        {{'P_History-Audit_Submit' | i18n}}
+      </button>
+    </form>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped"
+               x-ng-table="tableParams">
+          <tr x-ng-repeat="result in $data">
+            <td data-title="'P_History-Audit_ActionDate' | i18n"
+                sortable="'actionDate'">
+              {{result.actionDate}}
+            </td>
+            <td data-title="'P_History-Audit_ActionName' | i18n"
+                sortable="'action'">
+              {{result.action}}
+            </td>
+            <td data-title="'P_History-Audit_ActorMail' | i18n"
+                sortable="'actorMail'">
+              {{result.actorMail}}
+            </td>
+            <td data-title="'P_History-Audit_TargetMail' | i18n"
+                sortable="'targetMail'">
+              {{result.targetMail}}
+            </td>
+            <td data-title="'P_History-Audit_FileName' | i18n"
+                sortable="'fileName'">
+              {{result.fileName}}
+            </td>
+            <td data-title="'P_History-Audit_FileExpirationDate' | i18n"
+                sortable="'expirationDate'">
+              {{result.expirationDate}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

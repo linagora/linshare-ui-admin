@@ -95,13 +95,117 @@
     "value": "Mailing Lists",
     "description": "Link for mailing lists section."
   },
-  "G_Tab_Audit": {
+  "G_Tab_History": {
+    "value": "History",
+    "description": "Link for audit section."
+  },
+  "G_Tab_History-Audit": {
     "value": "Audit",
     "description": "Link for audit section."
   },
   "G_Tab_Charts": {
     "value": "Charts",
     "description": "Link for charts section."
+  },
+  "P_History-Audit_Title": {
+    "value": "Audit the application",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_BoxTitle": {
+    "value": "Search in log",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActorTitle": {
+    "value": "Actor",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActorMail": {
+    "value": "Actor mail",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActorFirstName": {
+    "value": "Actor first name",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActorLastName": {
+    "value": "Actor last name",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActorDomain": {
+    "value": "Actor domain",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_TargetTitle": {
+    "value": "Target",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_TargetMail": {
+    "value": "Target mail",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_TargetFirstName": {
+    "value": "Target first name",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_TargetLastName": {
+    "value": "Target last name",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_TargetDomain": {
+    "value": "Target domain",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_FileTitle": {
+    "value": "File",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_FileName": {
+    "value": "File name",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_FileNameBeginWith": {
+    "value": "Begin with",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_FileNameContains": {
+    "value": "Contains",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_FileExtension": {
+    "value": "File extension",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_FileExpirationDate": {
+    "value": "Expiration date",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActionsTitle": {
+    "value": "Actions",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActionsFrom": {
+    "value": "From",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActionsTo": {
+    "value": "To",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_AvailableActions": {
+    "value": "Actions",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActionDate": {
+    "value": "Action date",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_ActionName": {
+    "value": "Action",
+    "description": "Title for the domain patterns page."
+  },
+  "P_History-Audit_Submit": {
+    "value": "Submit",
+    "description": "Title for the domain patterns page."
   },
   "P_Domains-DomainPatterns_Title": {
     "value": "Manage your domain patterns",

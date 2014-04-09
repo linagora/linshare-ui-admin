@@ -202,6 +202,8 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 
 ### TODO
 
+* Ecrire la doc avec [https://github.com/angular/dgeni](https://github.com/angular/dgeni)
+* Tester et integrer [https://github.com/btford/grunt-ngmin](https://github.com/btford/grunt-ngmin)
 * Fix le login et logout
 * Faire une batterie de test
 * Voir si la structure d'angular seed n'evolue pas
