@@ -10,7 +10,13 @@ app.directive('lsAuditForm', [
         ['$scope', '$log', 'ngTableParams', 'Domain', 'Audit',
         function($scope, $log, ngTableParams, Domain, Audit) {
           $scope.criteria = {};
-          $scope.allActions = Audit.getAllActions();
+          $scope.allActions = [];
+          $scope.allDomains = [];
+          //Audit.getAllActions(function successCallback(actions) {
+          //});
+          Domain.getAll(function successCallback(domains) {
+            $scope.allDomains = domains;
+          });
           $scope.reloadList = function () {
             $scope.tableParams.reload();
           };

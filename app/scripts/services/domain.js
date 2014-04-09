@@ -38,7 +38,7 @@ angular.module('myApp.services')
       return {
         getDomainTree: function(successCallback) {
           $log.debug('Domain:getDomainTree');
-          return Restangular.all('domains').get('LinShareRootDomain').then(
+          return Restangular.all('domains').one('tree', 'LinShareRootDomain').get().then(
             function success(rootDomain) {
               restangularizeTree(rootDomain, rootDomain);
               return successCallback(rootDomain);
@@ -48,6 +48,22 @@ angular.module('myApp.services')
                 [
                  'Domain:getDomainTree',
                  'Unable to get domain tree',
+                ].join('\n')
+              );
+            }
+          );
+        },
+        getAll: function(successCallback) {
+          $log.debug('Domain:getAll');
+          return Restangular.all('domains').getList().then(
+            function success(domains) {
+              return successCallback(domains);
+            },
+            function error(response) {
+              $log.error(
+                [
+                 'Domain:getAll',
+                 'Unable to get all domains',
                 ].join('\n')
               );
             }

@@ -38,7 +38,7 @@
               </label>
               <select id="actorDomain" class="form-control"
                       x-ng-model="criteria.actorDomain"
-                      x-ng-options="domain as domain.label for domain in domains | orderBy:'label'">
+                      x-ng-options="domain as domain.label for domain in allDomains | orderBy:'label'">
               </select>
             </div>
           </div>
@@ -73,7 +73,7 @@
               </label>
               <select id="targetDomain" class="form-control"
                       x-ng-model="criteria.targetDomain"
-                      x-ng-options="domain as domain.label for domain in domains | orderBy:'label'">
+                      x-ng-options="domain as domain.label for domain in allDomains | orderBy:'label'">
               </select>
             </div>
           </div>

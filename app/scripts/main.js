@@ -8,6 +8,7 @@ require.config({
    
     // Angular & modules
     angular: '/components/angular/angular',
+    ngsanitize: '/components/angular-sanitize/angular-sanitize.min',
     ngcookies: '/components/angular-cookies/angular-cookies.min',
     ngresource: '/components/angular-resource/angular-resource',
     ngroute: '/components/angular-route/angular-route',
@@ -48,6 +49,8 @@ require.config({
         {deps: ['angular', 'app']},
     
     // Modules
+    'ngsanitize':
+        {deps: ['angular']},
     'ngcookies':
         {deps: ['angular']},
     'ngresource':
@@ -182,8 +185,6 @@ require.config({
         {deps: ['directives/directives']},
     'directives/common/footer':
         {deps: ['directives/directives']},
-    'directives/common/loadingAnimation':
-        {deps: ['directives/directives']},
 
     /**
      * Utils
@@ -213,6 +214,7 @@ var dependencies = [
   'routes',
 
   // Modules
+  'ngsanitize',
   'ngcookies',
   'ngresource',
   'ngroute',
@@ -287,7 +289,6 @@ var dependencies = [
   'directives/common/alertBox',
   'directives/common/alertTimeout',
   'directives/common/footer',
-  'directives/common/loadingAnimation',
 
   /**
    * Utils
