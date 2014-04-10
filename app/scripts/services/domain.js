@@ -25,11 +25,11 @@ angular.module('myApp.services')
        * As domains are returned as tree, 
        * we need to put restangular route manually in all domains
        */
-      function restangularizeTree(domain, rootDomain) {
-        Restangular.restangularizeElement(null, domain, rootDomain.route);
+      function restangularizeTree(domain, route) {
+        Restangular.restangularizeElement(null, domain, route);
         if (!_.isEmpty(domain.children)) {
           angular.forEach(domain.children, function(child) {
-            restangularizeTree(child, rootDomain);
+            restangularizeTree(child, route);
           });
         }
       }
@@ -40,7 +40,7 @@ angular.module('myApp.services')
           $log.debug('Domain:getDomainTree');
           return Restangular.all('domains').one('tree', 'LinShareRootDomain').get().then(
             function success(rootDomain) {
-              restangularizeTree(rootDomain, rootDomain);
+              restangularizeTree(rootDomain, 'domains');
               return successCallback(rootDomain);
             },
             function error(response) {
