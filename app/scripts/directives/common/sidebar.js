@@ -8,14 +8,9 @@ app.directive('lsSidebar', [
       scope: false,
       controller: ['$scope', '$log', 'Authentication', 'Tab',
         function($scope, $log, Authentication, Tab) {
-          $scope.$watch(Authentication.getCurrentUser,
-            function(newValue, oldValue) {
-              if (angular.isDefined(newValue)) {
-                $scope.tabs = Tab.getAvailableTabs(newValue);
-              }
-            },
-            true
-          );
+          Authentication.getCurrentUser().then(function successCallback(user) {
+            $scope.tabs = Tab.getAvailableTabs(user);
+          });
         }
       ],
       templateUrl: '/views/templates/common/sidebar.html',
