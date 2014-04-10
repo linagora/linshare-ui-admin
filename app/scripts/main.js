@@ -19,6 +19,7 @@ require.config({
     restangular: '/components/restangular/src/restangular',
     httpAuthInterceptor: '/components/angular-http-auth/src/http-auth-interceptor',
     loadingBar: '/components/angular-loading-bar/build/loading-bar.min',
+    dragdrop: '/components/angular-dragdrop-ganarajpr/draganddrop',
 
     // Unpackaged lib
     localize: '/unpackaged-lib/internal/localize',
@@ -26,6 +27,7 @@ require.config({
     // Utils
     html5shiv: '/components/html5shiv/html5shiv',
     lodash: '/components/lodash/dist/lodash',
+    jquery: '/components/jquery/dist/jquery.min',
     base64: '/components/js-base64/base64.min'
   },
   shim: { 
@@ -34,6 +36,8 @@ require.config({
      */
 
     'angular':
+        {deps: ['jquery'], exports: 'angular'},
+    'jquery':
         {exports: 'angular'},
     'app':
         {deps: ['angular']},
@@ -70,6 +74,8 @@ require.config({
     'httpAuthInterceptor':
         {deps: ['angular']},
     'loadingBar':
+        {deps: ['angular']},
+    'dragdrop':
         {deps: ['angular']},
 
     // Unpackaged lib
@@ -225,6 +231,7 @@ var dependencies = [
   'restangular',
   'httpAuthInterceptor',
   'loadingBar',
+  'dragdrop',
   
   // Unpackaged lib
   'localize',

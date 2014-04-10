@@ -17,10 +17,12 @@
     "es5-shim": "*",
     "html5shiv": "*",
     "js-base64": "*",
+    "jquery": "~2",
 
     "ng-table": "*",
     "angular-ui-select": "*",
     "angular-loading-bar": "*",
+    "angular-dragdrop-ganarajpr": "*",
     "bootstrap": "~3",
     "adminlte": "https://github.com/almasaeed2010/AdminLTE.git"
   },
