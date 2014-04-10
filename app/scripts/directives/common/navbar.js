@@ -8,14 +8,9 @@ app.directive('lsNavbar', [
       scope: false,
       controller: ['$scope', '$log', 'Authentication', 'localize',
         function($scope, $log, Authentication, localize) {
-          $scope.$watch(Authentication.getCurrentUser,
-            function(newValue, oldValue) {
-              if (angular.isDefined(newValue)) {
-                $scope.userLogged = newValue;
-              }
-            },
-            true
-          );
+          Authentication.getCurrentUser().then(function successCallback(user) {
+            $scope.userLogged = user;
+          });
 
           $scope.setLanguage = function(value) {
             localize.setLanguage(value);

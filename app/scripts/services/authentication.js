@@ -4,17 +4,16 @@
 
 angular.module('myApp.services')
   .factory('Authentication',
-    ['$route', '$http', '$log', 'authService', 'Restangular',
-    function($route, $http, $log, authService, Restangular) {
-      this.currentUser = undefined;
-
+    ['$route', '$http', '$q', '$log', 'authService', 'Restangular',
+    function($route, $http, $q, $log, authService, Restangular) {
+      var deferred = $q.defer();
       var self = this;
 
       // Do at least one authentication request
       // to handle reload of already connected user
       Restangular.all('authentication').customGET('authorized').then(
         function success(user) {
-          self.currentUser = user;
+          deferred.resolve(user);
         }
       );
 
@@ -31,7 +30,7 @@ angular.module('myApp.services')
           }).then(
             function success(user) {
               $log.debug('Connected as ' + user.mail);
-              self.currentUser = user;
+              deferred.resolve(user);
               authService.loginConfirmed();
             }, function error() {
               $log.error(
@@ -58,7 +57,7 @@ angular.module('myApp.services')
           });
         },
         getCurrentUser: function() {
-          return self.currentUser;
+          return deferred.promise;
         }
       };
     }

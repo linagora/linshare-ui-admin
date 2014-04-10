@@ -54,7 +54,7 @@ angular.module('myApp.services')
         icon: 'fa-archive',
         links: [
           {
-            name: localize.getLocalizedString('G_Tab_Audit'),
+            name: localize.getLocalizedString('G_Tab_History-Audit'),
             href: '#history/audit'
           }
         ]

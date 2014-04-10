@@ -33,7 +33,7 @@ var LoginModalInstanceCtrl =
 
     $scope.submit = function() {
       var errorCallback = function() {
-        console.log('bad credentials');
+        console.log('Bad credentials');
         $scope.errorLogin = 'Bad credentials';
       };
       Authentication.request($scope.input.login, $scope.input.password, errorCallback);

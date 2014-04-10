@@ -16,7 +16,7 @@
                 {{'P_History-Audit_ActorMail' | i18n}}
               </label>
               <input id="actorMail" name="actorMail" class="form-control" type="text"
-                     x-ng-model="criteria.actorMail">
+                     x-ng-model="actorMails">
             </div>
             <div class="form-group">
               <label for="actorFirstName">
@@ -38,7 +38,7 @@
               </label>
               <select id="actorDomain" class="form-control"
                       x-ng-model="criteria.actorDomain"
-                      x-ng-options="domain as domain.label for domain in allDomains | orderBy:'label'">
+                      x-ng-options="domain.identifier as domain.label for domain in allDomains | orderBy:'label'">
               </select>
             </div>
           </div>
@@ -51,7 +51,7 @@
                 {{'P_History-Audit_TargetMail' | i18n}}
               </label>
               <input id="targetMail" name="targetMail" class="form-control" type="text"
-                     x-ng-model="criteria.targetMail">
+                     x-ng-model="targetMails">
             </div>
             <div class="form-group">
               <label for="targetFirstName">
@@ -73,7 +73,7 @@
               </label>
               <select id="targetDomain" class="form-control"
                       x-ng-model="criteria.targetDomain"
-                      x-ng-options="domain as domain.label for domain in allDomains | orderBy:'label'">
+                      x-ng-options="domain.identifier as domain.label for domain in allDomains | orderBy:'label'">
               </select>
             </div>
           </div>
@@ -166,7 +166,7 @@
           <tr x-ng-repeat="result in $data">
             <td data-title="'P_History-Audit_ActionDate' | i18n"
                 sortable="'actionDate'">
-              {{result.actionDate}}
+              {{result.actionDate | date:'medium'}}
             </td>
             <td data-title="'P_History-Audit_ActionName' | i18n"
                 sortable="'action'">

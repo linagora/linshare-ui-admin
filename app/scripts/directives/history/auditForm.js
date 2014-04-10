@@ -7,9 +7,14 @@ app.directive('lsAuditForm', [
       transclude: false,
       scope: {},
       controller:
-        ['$scope', '$log', 'ngTableParams', 'Domain', 'Audit',
-        function($scope, $log, ngTableParams, Domain, Audit) {
+        ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'Audit', 'Authentication',
+        function($scope, $filter, $log, ngTableParams, Domain, Audit, Authentication) {
           $scope.criteria = {};
+          $scope.actorMails = '';
+          $scope.targetMails = '';
+          Authentication.getCurrentUser().then(function successCallback(user) {
+            $scope.actorMails = user.mail;
+          });
           $scope.allActions = [];
           $scope.allDomains = [];
           $scope.opened = {
@@ -34,12 +39,14 @@ app.directive('lsAuditForm', [
             page: 1,        // show first page
             count: 10,      // count per page
             sorting: {
-              actionDate: 'asc'
+              actionDate: 'desc'
             }
           }, {
             debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
+              $scope.criteria.actorMails = $scope.actorMails.split(',');
+              $scope.criteria.targetMails = $scope.targetMails.split(',');
               Audit.query($scope.criteria, function successCallback(logs) {
                 var orderedData = params.sorting() ?
                                     $filter('orderBy')(logs, params.orderBy()) :
