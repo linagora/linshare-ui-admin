@@ -117,10 +117,13 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsFrom' | i18n}}">
+                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsFrom' | i18n}}"
+                         datepicker-popup="medium"
+                         is-open="opened.from"
+                         ng-model="criterion.dateFrom">
                   <span class="input-group-btn">
                     <button type="button" class="btn btn-default"
-                            x-ng-click="open($event)">
+                            x-ng-click="open('from', $event)">
                       <i class="fa fa-calendar"></i>
                     </button>
                   </span>
@@ -128,10 +131,13 @@
               </div>
               <div class="col-sm-6">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsTo' | i18n}}">
+                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsTo' | i18n}}"
+                         datepicker-popup="medium"
+                         is-open="opened.to"
+                         ng-model="criterion.dateTo">
                   <span class="input-group-btn">
                     <button type="button" class="btn btn-default"
-                            x-ng-click="open($event)">
+                            x-ng-click="open('to', $event)">
                       <i class="fa fa-calendar"></i>
                     </button>
                   </span>
@@ -142,7 +148,7 @@
               <label></label> <!-- Bootstrap Hack -->
               <select id="availableActions" multiple class="form-control"
                       x-ng-model="criteria.actions"
-                      x-ng-options="domain as domain.label for domain in domains | orderBy:'identifier'">
+                      x-ng-options="action as action for action in allActions | orderBy:'toString()'">
               </select>
             </div>
           </div>

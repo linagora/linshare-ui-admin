@@ -12,11 +12,21 @@ app.directive('lsAuditForm', [
           $scope.criteria = {};
           $scope.allActions = [];
           $scope.allDomains = [];
-          //Audit.getAllActions(function successCallback(actions) {
-          //});
+          $scope.opened = {
+            from: false,
+            to : false,
+          };
+          Audit.getAllActions(function successCallback(actions) {
+            $scope.allActions = actions;
+          });
           Domain.getAll(function successCallback(domains) {
             $scope.allDomains = domains;
           });
+          $scope.open = function(key, $event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.opened[key] = true;
+          };
           $scope.reloadList = function () {
             $scope.tableParams.reload();
           };
