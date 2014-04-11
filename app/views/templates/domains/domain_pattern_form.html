@@ -25,8 +25,9 @@
       <div class="box-body">
         <div class="row">
           <!-- Model selector -->
+          <!-- No ng-if here because the $watch cannot acces to the child scope -->
           <div class="form-group col-sm-5"
-               x-ng-if="state==='create'">
+               x-ng-show="state==='create'">
             <label for="modelSelector">
               {{'P_Domains-DomainPatterns_ModelSelectorLabel' | i18n}}
             </label>

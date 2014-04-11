@@ -80,7 +80,7 @@ app.directive('lsDomainPatternForm', [
             }
           };
           function loadModel() {
-            Restangular.copy($scope.modelSelector, $scope.domainPattern);
+            $scope.domainPattern = Restangular.copy($scope.modelSelector);
             $scope.domainPattern.identifier = "";
           };
           $scope.reset();
