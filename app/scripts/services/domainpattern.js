@@ -5,14 +5,6 @@ angular.module('myApp.services')
     function ($log, Restangular, Notification) {
       this.currentDomainPattern = undefined;
 
-      function unRestangularizeElement(obj) {
-        if(obj) {
-          delete obj.route;
-          delete obj.parentResource;
-          delete obj.restangularCollection;
-        }
-      };
-
       var self = this;
 
       // Public API here

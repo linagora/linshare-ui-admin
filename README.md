@@ -90,6 +90,7 @@ Autre:
 * [http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx](http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx)
 * [http://www.thinkster.io/pick/GtaQ0oMGIl/](http://www.thinkster.io/pick/GtaQ0oMGIl/)
 * [http://eburley.github.io/2013/01/31/angularjs-watch-pub-sub-best-practices.html](http://eburley.github.io/2013/01/31/angularjs-watch-pub-sub-best-practices.html)
+* [http://jasonturim.wordpress.com/](http://jasonturim.wordpress.com/)
 
 
 Vos questions existentielles:

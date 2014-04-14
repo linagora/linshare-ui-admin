@@ -94,13 +94,13 @@
   </div>
   <div class="box-body">
     <form class="form-inline form-group"
-        x-ls-form-submit="addContact()"
+        x-ls-form-submit="addContact(contactToAdd)"
         x-ls-form-attempt>
       <div class="form-group col-sm-4">
         <label class="sr-only" for="mail">
           {{'P_Users-Mails_ContactMail' | i18n}}
         </label>
-        <input type="text" class="form-control" id="mail"
+        <input type="text" class="form-control" id="mail" required
                placeholder="{{'P_Users-Mails_ContactMail' | i18n}}"
                x-ng-model="autocompleteValue"
                x-typeahead-min-length="3"
@@ -126,8 +126,7 @@
                placeholder="{{'P_Users-Mails_ContactLastName' | i18n}}"
                x-ng-model="contactToAdd.lastName"/>
       </div>
-      <button type="submit" class="btn btn-success"
-              x-ng-click="addContact(contactToAdd)">
+      <button type="submit" class="btn btn-success">
         <i class="fa fa-plus"></i>&nbsp;
         {{'P_Users-Mails_ContactAdd' | i18n}}
       </button>
@@ -162,16 +161,16 @@
                 data-title="'P_Users-Mails_ContactActions' | i18n">
               <button class="btn btn-danger"
                       x-ng-show="confirm === undefined"
-                      x-ng-click="confirm = contact.uuid">
+                      x-ng-click="confirm = $index">
                 {{'P_Users-Mails_ContactDelete' | i18n}}
               </button>
               <button class="btn"
-                      x-ng-show="confirm === contact.uuid"
+                      x-ng-show="confirm === $index"
                       x-ng-click="confirm = undefined">
                 {{'G_App_ConfirmNo' | i18n}}
               </button>
               <button class="btn btn-danger"
-                      x-ng-show="confirm === contact.uuid"
+                      x-ng-show="confirm === $index"
                       x-ng-click="deleteContact(contact)">
                 {{'G_App_ConfirmYes' | i18n}}
               </button>

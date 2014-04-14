@@ -82,9 +82,6 @@
           <i class="icon icon-plus"></i>
         </span>
       </div>
-      <div class="spinner" style="margin-top:20px"
-           x-ng-show="searching">
-      </div>
     </div>
     <div class="form-group">
       <div class="table-responsive">
@@ -124,16 +121,16 @@
                 data-title="'P_Users-Threads_MemberActions' | i18n">
               <button class="btn btn-danger"
                       x-ng-show="confirm === undefined"
-                      x-ng-click="confirm = threadMember.userUuid">
+                      x-ng-click="confirm = $index">
                 {{'P_Users-Threads_MemberDelete' | i18n}}
               </button>
               <button class="btn"
-                      x-ng-show="confirm === threadMember.userUuid"
+                      x-ng-show="confirm === $index"
                       x-ng-click="confirm = undefined">
                 {{'G_App_ConfirmNo' | i18n}}
               </button>
               <button class="btn btn-danger"
-                      x-ng-show="confirm === threadMember.userUuid"
+                      x-ng-show="confirm === $index"
                       x-ng-click="deleteMember(threadMember)">
                 {{'G_App_ConfirmYes' | i18n}}
               </button>

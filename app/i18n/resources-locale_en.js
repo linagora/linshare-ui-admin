@@ -63,6 +63,10 @@
     "value": "Management",
     "description": "Link for the management section of domains."
   },
+  "G_Tab_Domains-Policies": {
+    "value": "Domain Policies",
+    "description": "Link for the management section of domains."
+  },
   "G_Tab_Parameters": {
     "value": "Parameters",
     "description": "Link for administration section."
@@ -570,6 +574,86 @@
   "P_Domains-Management_DeleteSuccess": {
     "value": "Domain deletion succeed",
     "description": "Alert message when the deletion succeed."
+  },
+  "P_Domains-Policies_Title": {
+    "value": "Policies management",
+    "description": "Alert message when the deletion succeed."
+  },
+  "P_Domains-Policies_BoxListTitle": {
+    "value": "Domain policies list",
+    "description": "Alert message when the deletion succeed."
+  },
+  "P_Domains-Policies_Add": {
+    "value": "Add",
+    "description": "Alert message when the deletion succeed."
+  },
+  "P_Domains-Policies_List": {
+    "value": "List",
+    "description": "Alert message when the deletion succeed."
+  },
+  "P_Domains-Policies_CreationTitle": {
+    "value": "Creation",
+    "description": "Alert message when the deletion succeed."
+  },
+  "P_Domains-Policies_IdentifierLabel": {
+    "value": "Identifier",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Policies_DescriptionLabel": {
+    "value": "Descrition",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Policies_RulesLabel": {
+    "value": "Rules",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Policies_RulesPositionLabel": {
+    "value": "Position",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Policies_RulesDomainLabel": {
+    "value": "Domain",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Policies_RulesTypeLabel": {
+    "value": "Type",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Policies_RulesActionLabel": {
+    "value": "Action",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Policies_RulesAdd": {
+    "value": "Add rule",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Policies_RulesDelete": {
+    "value": "Delete",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-DomainPolicies_CreateSuccess": {
+    "value": "Domain policy creation succeed",
+    "description": "Alert message when the creation succeed."
+  },
+  "P_Domains-DomainPolicies_DeleteSuccess": {
+    "value": "Domain policy deletion succeed",
+    "description": "Alert message when the creation succeed."
+  },
+  "P_Domains-Policies_ConfirmDeleteText": {
+    "value": "<p>You are about to delete this policy, this procedure is irreversible.</p><p>Do you want to proceed?</p>",
+    "description": "Text in the confirmation modal."
+  },
+  "P_Domains-Policies_Delete": {
+    "value": "Delete",
+    "description": "Label for the delete button."
+  },
+  "P_Domains-Policies_Reset": {
+    "value": "Reset",
+    "description": "Label for the reset button."
+  },
+  "P_Domains-Policies_Submit": {
+    "value": "Submit",
+    "description": "Label for the submit button."
   },
   "P_Users-Threads_Title": {
     "value": "Groups management",

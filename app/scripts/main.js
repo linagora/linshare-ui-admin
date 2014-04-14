@@ -19,7 +19,6 @@ require.config({
     restangular: '/components/restangular/src/restangular',
     httpAuthInterceptor: '/components/angular-http-auth/src/http-auth-interceptor',
     loadingBar: '/components/angular-loading-bar/build/loading-bar.min',
-    dragdrop: '/components/angular-dragdrop-ganarajpr/draganddrop',
 
     // Unpackaged lib
     localize: '/unpackaged-lib/internal/localize',
@@ -75,8 +74,6 @@ require.config({
         {deps: ['angular']},
     'loadingBar':
         {deps: ['angular']},
-    'dragdrop':
-        {deps: ['angular']},
 
     // Unpackaged lib
     'localize':
@@ -99,6 +96,8 @@ require.config({
         {deps: ['controllers/controllers', 'ngtable']},
     'controllers/domainmanagement':
         {deps: ['controllers/controllers', 'bootstrap']},
+    'controllers/domainpolicy':
+        {deps: ['controllers/controllers']},
     'controllers/functionalitymanagement':
         {deps: ['controllers/controllers', 'bootstrap']},
     'controllers/usermanagement':
@@ -158,9 +157,11 @@ require.config({
         {deps: ['directives/directives']},
     'directives/domains/domainForm':
         {deps: ['directives/directives']},
-    
-    'directives/users/userCompletion':
+    'directives/domains/domainPolicyList':
         {deps: ['directives/directives']},
+    'directives/domains/domainPolicyForm':
+        {deps: ['directives/directives']},
+    
     'directives/users/userForm':
         {deps: ['directives/directives']},
     'directives/users/userList':
@@ -231,7 +232,6 @@ var dependencies = [
   'restangular',
   'httpAuthInterceptor',
   'loadingBar',
-  'dragdrop',
   
   // Unpackaged lib
   'localize',
@@ -246,6 +246,7 @@ var dependencies = [
   'controllers/ldapconnection',
   'controllers/domainpattern',
   'controllers/domainmanagement',
+  'controllers/domainpolicy',
   'controllers/functionalitymanagement',
   'controllers/usermanagement',
   'controllers/thread',
@@ -278,9 +279,10 @@ var dependencies = [
   'directives/domains/domainPatternForm',
   'directives/domains/domainTree',
   'directives/domains/domainForm',
+  'directives/domains/domainPolicyList',
+  'directives/domains/domainPolicyForm',
 
   'directives/users/userForm',
-  'directives/users/userCompletion',
   'directives/users/userList',
   'directives/users/threadList',
   'directives/users/threadForm',

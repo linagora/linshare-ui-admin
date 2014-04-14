@@ -25,8 +25,26 @@ var app = angular.module('myApp', [
 .config(['$logProvider', 'preferencesProvider', 'RestangularProvider', 'uiSelectConfig',
   function($logProvider, preferencesProvider, RestangularProvider, uiSelectConfig) {
     uiSelectConfig.theme = 'bootstrap';
-    RestangularProvider.setBaseUrl('/linshare/webservice/rest/admin');
+    RestangularProvider.setBaseUrl('/linshare');
     RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
+    RestangularProvider.addResponseInterceptor(function(data) {
+      var newResponse = data;
+      if (angular.isArray(data)) {
+        angular.forEach(newResponse, function(value, key) {
+          newResponse[key].originalElement = angular.copy(value);
+        });
+      } else {
+        newResponse.originalElement = angular.copy(data);
+      }
+
+      return newResponse;
+    });
+    RestangularProvider.addRequestInterceptor(function(element) {
+      if (element) {
+        delete element.originalElement;
+      }
+      return element;
+    });
     var settings = preferencesProvider.loadSettings();
     var debug = document.cookie.linshareDebug || settings.debug;
     $logProvider.debugEnabled(debug);

@@ -51,15 +51,6 @@
                 <input id="identifier" name="identifier" class="form-control" type="text" required
                        x-ng-model="domainPattern.identifier">
               </div>
-              <div class="form-group"
-                   x-ng-class="{'has-error': domainPatternForm.email.$invalid &&
-                    (domainPatternForm.email.$dirty || ls.domainPatternForm.attempted)}">
-                <label for="email">
-                  {{'P_Domains-DomainPatterns_IdentifierLabel' | i18n}}
-                </label>
-                <input id="email" name="email" class="form-control" type="text" required
-                       x-ng-model="domainPattern.userMail">
-              </div>
             </div>
             <!-- Description -->
             <div class="form-group">
