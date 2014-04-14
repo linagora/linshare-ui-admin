@@ -93,12 +93,15 @@ angular.module('myApp.services')
             }
           );
         },
-        update: function(domain, successCallback) {
+        update: function(domain, successCallback, notify) {
           $log.debug('Domain:update');
+          notify = typeof notify !== 'undefined' ? notify : true;
           delete domain.children;
           return domain.put().then(
             function success(domain) {
-              Notification.addSuccess('P_Domains-Management_UpdateSuccess');
+              if (notify) {
+                Notification.addSuccess('P_Domains-Management_UpdateSuccess');
+              }
               if (successCallback) {
                 return successCallback(domain);
               }

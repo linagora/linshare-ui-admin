@@ -1,0 +1,40 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{'P_Domains-Order_BoxListTitle' | i18n}}
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="table-responsive">
+      <table class="table table-striped"
+             x-ng-table="tableParams">
+        <tbody>
+          <tr x-ng-repeat="domain in $data">
+            <td data-title="'P_Domains-Order_Actions' | i18n">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary"
+                        x-ng-click="swap($index, $index - 1)">
+                  <i class="fa fa-arrow-circle-up"></i>
+                </button>
+                <button type="button" class="btn btn-primary"
+                        x-ng-click="swap($index, $index + 1)">
+                  <i class="fa fa-arrow-circle-down"></i>
+                </button>
+              </div>
+            </td>
+            <td data-title="'P_Domains-Order_Identifier' | i18n">
+              <span>
+                {{domain.identifier}}
+              </span>
+            </td>
+            <td data-title="'P_Domains-Order_Label' | i18n">
+              <span>
+                {{domain.label}}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

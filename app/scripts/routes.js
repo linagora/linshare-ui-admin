@@ -14,6 +14,10 @@ angular.module('myApp').config(['$routeProvider',
       templateUrl: 'views/domains/domain_management.html',
       controller: 'ResetCtrl'
     });
+    $routeProvider.when('/domains/order', {
+      templateUrl: 'views/domains/domain_order.html',
+      controller: 'ResetCtrl'
+    });
     $routeProvider.when('/domains/policies', {
       templateUrl: 'views/domains/domain_policies.html',
       controller: 'ResetCtrl'

@@ -16,6 +16,9 @@ angular.module('myApp.services')
             name: localize.getLocalizedString('G_Tab_Domains-Management'),
             href: '#domains/management'
           }, {
+            name: localize.getLocalizedString('G_Tab_Domains-Order'),
+            href: '#domains/order'
+          }, {
             name: localize.getLocalizedString('G_Tab_Domains-Policies'),
             href: '#domains/policies'
           }

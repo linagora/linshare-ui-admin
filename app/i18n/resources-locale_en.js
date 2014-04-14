@@ -63,6 +63,10 @@
     "value": "Management",
     "description": "Link for the management section of domains."
   },
+  "G_Tab_Domains-Order": {
+    "value": "Domain Order",
+    "description": "Link for the management section of domains."
+  },
   "G_Tab_Domains-Policies": {
     "value": "Domain Policies",
     "description": "Link for the management section of domains."
@@ -574,6 +578,26 @@
   "P_Domains-Management_DeleteSuccess": {
     "value": "Domain deletion succeed",
     "description": "Alert message when the deletion succeed."
+  },
+  "P_Domains-Order_Title": {
+    "value": "Change your domain connection order",
+    "description": "Title for the management section of domains."
+  },
+  "P_Domains-Order_BoxListTitle": {
+    "value": "Domain authentication order",
+    "description": "Title for the management section of domains."
+  },
+  "P_Domains-Order_Actions": {
+    "value": "Actions",
+    "description": "Title for the management section of domains."
+  },
+  "P_Domains-Order_Identifier": {
+    "value": "Identifier",
+    "description": "Title for the management section of domains."
+  },
+  "P_Domains-Order_Label": {
+    "value": "Label",
+    "description": "Title for the management section of domains."
   },
   "P_Domains-Policies_Title": {
     "value": "Policies management",

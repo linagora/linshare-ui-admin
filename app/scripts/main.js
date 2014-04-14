@@ -7,16 +7,16 @@ require.config({
      */
    
     // Angular & modules
-    angular: '/components/angular/angular',
+    angular: '/components/angular/angular.min',
     ngsanitize: '/components/angular-sanitize/angular-sanitize.min',
     ngcookies: '/components/angular-cookies/angular-cookies.min',
-    ngresource: '/components/angular-resource/angular-resource',
-    ngroute: '/components/angular-route/angular-route',
+    ngresource: '/components/angular-resource/angular-resource.min',
+    ngroute: '/components/angular-route/angular-route.min',
     bootstrap: '/components/angular-bootstrap/ui-bootstrap.min',
     bootstrapTpls: '/components/angular-bootstrap/ui-bootstrap-tpls.min',
     uiSelect: '/components/angular-ui-select/dist/select',
-    ngtable: '/components/ng-table-git/ng-table',
-    restangular: '/components/restangular/src/restangular',
+    ngtable: '/components/ng-table/ng-table.min',
+    restangular: '/components/restangular/dist/restangular.min',
     httpAuthInterceptor: '/components/angular-http-auth/src/http-auth-interceptor',
     loadingBar: '/components/angular-loading-bar/build/loading-bar.min',
 
@@ -157,6 +157,8 @@ require.config({
         {deps: ['directives/directives']},
     'directives/domains/domainForm':
         {deps: ['directives/directives']},
+    'directives/domains/domainList':
+        {deps: ['directives/directives']},
     'directives/domains/domainPolicyList':
         {deps: ['directives/directives']},
     'directives/domains/domainPolicyForm':
@@ -279,6 +281,7 @@ var dependencies = [
   'directives/domains/domainPatternForm',
   'directives/domains/domainTree',
   'directives/domains/domainForm',
+  'directives/domains/domainList',
   'directives/domains/domainPolicyList',
   'directives/domains/domainPolicyForm',
 
