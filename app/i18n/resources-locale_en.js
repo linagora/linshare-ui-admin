@@ -631,11 +631,11 @@
     "value": "Delete",
     "description": "Label for the delete button."
   },
-  "P_Domains-DomainPolicies_CreateSuccess": {
+  "P_Domains-Policies_CreateSuccess": {
     "value": "Domain policy creation succeed",
     "description": "Alert message when the creation succeed."
   },
-  "P_Domains-DomainPolicies_DeleteSuccess": {
+  "P_Domains-Policies_DeleteSuccess": {
     "value": "Domain policy deletion succeed",
     "description": "Alert message when the creation succeed."
   },
