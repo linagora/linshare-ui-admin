@@ -5,32 +5,23 @@
     "angular": "1.2.16",
     "angular-bootstrap": "*",
     "angular-cookies": "*",
-    "angular-resource": "*",
-    "angular-sanitize": "*",
-    "angular-route": "*",
     "angular-http-auth": "*",
-    "requirejs": "*",
-    "restangular": "*",
-
-    "json3": "*",
-    "lodash": "*",
+    "angular-loading-bar": "*",
+    "angular-resource": "*",
+    "angular-route": "*",
+    "angular-sanitize": "*",
+    "angular-ui-select": "*",
     "es5-shim": "*",
     "html5shiv": "*",
-    "js-base64": "*",
     "jquery": "~2",
-
-    "ng-table": "*",
-    "angular-ui-select": "*",
-    "angular-loading-bar": "*",
-    "angular-dragdrop-ganarajpr": "*",
-    "bootstrap": "~3",
-    "adminlte": "https://github.com/almasaeed2010/AdminLTE.git"
+    "json3": "*",
+    "js-base64": "*",
+    "lodash": "*",
+    "restangular": "*",
+    "ng-table": "*"
   },
   "devDependencies": {
     "angular-mocks": "*",
     "angular-scenario": "*"
-  },
-  "resolutions": {
-    "angular": "1.2.16"
   }
 }

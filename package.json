@@ -3,29 +3,37 @@
   "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
+    "bower": "*",
     "grunt": "~0.4.1",
-    "bower": "~1.3",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-coffee": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-compass": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-cssmin": "*",
-    "grunt-contrib-connect": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-bower-install": "*",
     "grunt-contrib-clean": "*",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
     "grunt-contrib-htmlmin": "*",
-    "grunt-contrib-imagemin": "*",
-    "grunt-contrib-livereload": "*",
-    "grunt-usemin": "*",
-    "grunt-regarde": "*",
-    "grunt-rev": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
     "grunt-karma": "*",
-    "grunt-google-cdn": "*",
+    "grunt-newer": "*",
     "grunt-ngmin": "*",
-    "matchdep": "*"
+    "grunt-rev": "*",
+    "grunt-usemin": "*",
+    "karma": "*",
+    "karma-ng-html2js-preprocessor": "*",
+    "karma-ng-scenario": "*",
+    "load-grunt-tasks": "*",
+    "protractor": "*",
+    "time-grunt": "~0.2.1"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install",
+    "test": "grunt test"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.10.0"
   }
 }
