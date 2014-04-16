@@ -1,0 +1,3 @@
+[submodule "app/styles/AdminLTE"]
+	path = app/styles/AdminLTE
+	url = https://github.com/almasaeed2010/AdminLTE

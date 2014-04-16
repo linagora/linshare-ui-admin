@@ -5,7 +5,6 @@
   "devDependencies": {
     "bower": "*",
     "grunt": "~0.4.1",
-    "grunt-autoprefixer": "*",
     "grunt-bower-install": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-compass": "*",

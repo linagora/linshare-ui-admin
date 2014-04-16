@@ -44,7 +44,7 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+        tasks: ['compass:server']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -127,21 +127,6 @@ module.exports = function (grunt) {
       server: '.tmp'
     },
 
-    // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
-    },
-
     // Automatically inject Bower components into the app
     bowerInstall: {
       app: {
@@ -158,7 +143,7 @@ module.exports = function (grunt) {
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        fontsDir: '<%= yeoman.app %>/styles/AdminLTE/fonts',
         importPath: '<%= yeoman.app %>/bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
@@ -272,8 +257,11 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
+            '*.json',
+            'i18n/{,*/}*.js',
+            'views/{,**/}*.html',
+            'images/{,*/}*.{webp,png}',
+            'styles/AdminLTE/fonts/*',
             'fonts/*'
           ]
         }, {
@@ -336,7 +324,6 @@ module.exports = function (grunt) {
       'clean:server',
       'bowerInstall',
       'compass:server',
-      'autoprefixer',
       'connect:livereload',
       'watch'
     ]);
@@ -350,7 +337,6 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'compass',
-    'autoprefixer',
     'connect:test',
     'karma'
   ]);
@@ -360,7 +346,6 @@ module.exports = function (grunt) {
     'bowerInstall',
     'useminPrepare',
     'compass:dist',
-    'autoprefixer',
     'concat',
     'ngmin',
     'copy:dist',
