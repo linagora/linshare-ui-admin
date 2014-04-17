@@ -48,13 +48,21 @@ Pour vérifier si des mises à jour sont présentes:
 
 Pour mettre à jour un module via bower:
 
-* Modifier le fichier component.json avec la version souhaitée
-* "bower install" va ensuite retelecharger l'ensemble des plugins et vérifier les dépendances
+* Modifier le fichier bower.json avec la version souhaitée
+* "bower install" va ensuite retelecharger l'ensemble des plugins du fichier bower.json et vérifier les dépendances
 
 ## Lancer l'application
-Pour lancer l'application, la commande est:
+Pour lancer l'application en mode developpement, la commande est:
 
-   grunt server
+   grunt serve
+
+Pour lancer l'application en mode production, la commande est:
+
+   grunt serve:dist
+
+Pour packager l'application en mode production, la commande est:
+
+   grunt build
 
 ## JavaScript
 Un cours sur JavaScript fait par un des créateurs d'AngularJS
@@ -119,10 +127,6 @@ Les pros :
 * [Vojta Jina](https://github.com/vojtajina)
 * [Brian Ford](https://github.com/btford)[blog](http://briantford.com/blog/)
 
-### Difference entre link et controller, dans une directive
-La fonction link ne s'occupe que de la manipulation de la vue (gestion des cliques, des class css etc ...)
-La fonction controller s'occupe de la partie métier (récupération des données depuis un service etc ...)
-
 ## Outils de dev
 L'éditeur de texte Vim est conseillé avec un plugin tel que :
 * [https://github.com/maksimr/vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify)
@@ -135,13 +139,37 @@ Pour éviter des fichiers avec trop de colonne, la tabulation avec 2 espaces est
 Pour l'API rest, le debugger [http://restclient.net/](http://restclient.net/) est conseillé.
 Pour débugger AngularJS [https://github.com/angular/angularjs-batarang](https://github.com/angular/angularjs-batarang)
 
+A suivre [http://ternjs.net/](http://ternjs.net/)
+
+## Block de commentaire dans index.html
+Ces blocks servent a la minification et au build de l'application.
+Les blocks et leur contenu ne doivent pas etre modifier manuellement
+sauf exception de module bower non conforme.
+
+## Utilisation du scaffolding
+On utilise [https://github.com/yeoman/generator-angular](https://github.com/yeoman/generator-angular) pour effectuer du scaffolding.
+Ce dernier est capable de generer les differents composant angular tout en generant les tests et en ajoutant
+la resource dans le fichier index.html
+
+AUCUN COMPOSANT NE DOIT ETRE CREE MANUELLEMENT
+
+ATTENTION LE SCAFFOLDING DOIT ETRE FAIT A LA RACINE DU REPERTOIRE GIT
+
 ## Détails techniques AngularJS
+
+### Difference entre link et controller, dans une directive
+La fonction link ne s'occupe que de la manipulation de la vue (gestion des cliques, des class css etc ...)
+La fonction controller s'occupe de la partie métier (récupération des données depuis un service etc ...)
 
 ### Utilisation de la syntaxe ['module', function(Module){ }]
 Cette syntaxe évite la minification des noms de modules.
+Le module npm grunt-ngmin la genere automatiquement pour les elements de premier niveau.
+Pour plus d'information [https://github.com/btford/grunt-ngmin](https://github.com/btford/grunt-ngmin)
 Les modules AngularJS sont toujours précédés d'un $.
 Les modules possèdent une majuscule (en argument de la fonction)
 lorsqu'il s'agit d'objet et non d'un ensemble de function.
+
+Note cette syntaxe
 
 cf : [http://docs.angularjs.org/guide/di](http://docs.angularjs.org/guide/di)
 
@@ -174,15 +202,11 @@ revient à instancier des variables globales à l'application
 * Attention aux appels Restangular dans les directives. 
 Les appels de resource seront dupliqués a chaque duplication de la directive
 
-### Notes pour la version AngularJS 1.2.X
-* Modifier le module http-auth-interceptor pour modifier les headers sortants.
-* Vérifier la directive d'animation ainsi que les regles CSS associées.
-
-
 ### Notes de controles
 #### Sur le serveur
 * Vérifier les champs obligatoires Missing argument exception
 * Vérifier l'unicité avant création
+* Vérifier que les droits sont respectés
 #### Sur le client
 * Mettre le champs datepicker required dans le userEditForm 
 

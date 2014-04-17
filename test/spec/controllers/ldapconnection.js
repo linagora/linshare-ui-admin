@@ -3,7 +3,7 @@
 describe('Controller: LdapconnectionCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('linshareFrontendAdminApp'));
+  beforeEach(module('linshareUiAdmin'));
 
   var LdapconnectionCtrl,
     scope;

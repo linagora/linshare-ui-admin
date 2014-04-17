@@ -3,7 +3,7 @@
 describe('Controller: DomainpatternCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('linshareFrontendAdminApp'));
+  beforeEach(module('linshareUiAdmin'));
 
   var DomainpatternCtrl,
     scope;

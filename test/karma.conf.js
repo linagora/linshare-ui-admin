@@ -11,16 +11,25 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/angular-resource/angular-resource.js',
-      'app/bower_components/angular-cookies/angular-cookies.js',
-      'app/bower_components/angular-sanitize/angular-sanitize.js',
-      'app/bower_components/angular-route/angular-route.js',
-      'app/scripts/*.js',
-      'app/scripts/**/*.js',
-      'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      '../app/bower_components/angular/angular.js',
+      '../app/bower_components/angular-mocks/angular-mocks.js',
+      '../app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      '../app/bower_components/angular-cookies/angular-cookies.js',
+      '../app/bower_components/angular-http-auth/src/http-auth-interceptor.js',
+      '../app/bower_components/angular-loading-bar/src/loading-bar.js',
+      '../app/bower_components/angular-resource/angular-resource.js',
+      '../app/bower_components/angular-route/angular-route.js',
+      '../app/bower_components/angular-sanitize/angular-sanitize.js',
+      '../app/bower_components/angular-ui-select/dist/select.js',
+      '../app/bower_components/js-base64/base64.js',
+      '../app/bower_components/lodash/dist/lodash.compat.js',
+      '../app/bower_components/restangular/dist/restangular.js',
+      '../app/bower_components/ng-table/ng-table.js',
+      '../app/scripts/*.js',
+      '../app/scripts/**/*.js',
+      '../app/unpackaged-lib/**/*.js',
+      'mock/**/*.js',
+      'spec/**/*.js'
     ],
 
     // list of files / patterns to exclude
@@ -46,7 +55,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
