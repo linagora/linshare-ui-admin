@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('ThreadMember', ['$log', 'Restangular',
     function ($log, Restangular) {
       var getThreadMemberDto = function(thread, user) {
@@ -10,9 +10,9 @@ angular.module('myApp.services')
           'userMail': user.mail,
           'userDomainId': user.domain
         };
-      }
+      };
 
-      var self = this;
+      // var self = this;
 
       // Public API here
       return {
@@ -24,7 +24,7 @@ angular.module('myApp.services')
                 return successCallback(threadMembers);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'ThreadMember:getAll',
@@ -44,7 +44,7 @@ angular.module('myApp.services')
                 return successCallback(threadMember);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'ThreadMember:add',
@@ -64,7 +64,7 @@ angular.module('myApp.services')
                 return successCallback(threadMember);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'ThreadMember:update',
@@ -83,7 +83,7 @@ angular.module('myApp.services')
                 return successCallback(threadMember);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'ThreadMember:remove',

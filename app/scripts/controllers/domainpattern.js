@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.controllers')
+angular.module('linshareUiAdmin')
   .controller('DomainPatternCtrl',
     ['$scope', '$log', 'DomainPattern',
       function ($scope, $log, DomainPattern) {

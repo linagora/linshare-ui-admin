@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('Functionality',
     ['$log', 'Notification', 'Restangular', 'localize',
     function ($log, Notification, Restangular, localize) {
@@ -10,7 +10,7 @@ angular.module('myApp.services')
         functionality.localizedName = localize.getLocalizedString(
           'P_Parameters-Functionalities_Func-' + functionality.identifier
         );
-        angular.forEach(functionality.functionalities, function(childFunctionality, key) {
+        angular.forEach(functionality.functionalities, function(childFunctionality) {
           childFunctionality.localizedName = localize.getLocalizedString(
             'P_Parameters-Functionalities_Func-' + childFunctionality.identifier
           );
@@ -19,7 +19,7 @@ angular.module('myApp.services')
 
       var deleteLocalizedName = function(functionality) {
         delete functionality.localizedName;
-        angular.forEach(functionality.functionalities, function(childFunctionality, key) {
+        angular.forEach(functionality.functionalities, function(childFunctionality) {
           delete childFunctionality.localizedName;
         });
       };
@@ -33,14 +33,14 @@ angular.module('myApp.services')
           return Restangular.all('domains').all(domain.identifier)
             .all('functionalities').getList().then(
               function success(functionalities) {
-                angular.forEach(functionalities, function (functionality, key) {
+                angular.forEach(functionalities, function (functionality) {
                   addLocalizedName(functionality);
                 });
                 if (successCallback) {
                   return successCallback(functionalities);
                 }
               },
-              function error(response) {
+              function error() {
                 $log.error(
                   [
                    'Functionality:getAll',
@@ -62,17 +62,16 @@ angular.module('myApp.services')
                   return successCallback(functionality);
                 }
               },
-              function error(response) {
+              function error() {
                 $log.error(
                   [
                    'Functionality:get',
                    'Unable to get the functionalities',
                    functionalityId,
                    'for domain',
-                   domain.identifier
+                   domainId
                   ].join('\n')
                 );
-                $log.error(domain);
               }
           );
         },
@@ -82,12 +81,12 @@ angular.module('myApp.services')
           rawFunctionality = Restangular.copy(functionality);
           deleteLocalizedName(rawFunctionality);
           return rawFunctionality.put().then(
-            function success(rawFunctionality) {
+            function success() {
               if (successCallback) {
                 return successCallback(functionality);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Functionality:update',
@@ -105,12 +104,12 @@ angular.module('myApp.services')
           rawFunctionality = Restangular.copy(functionality);
           deleteLocalizedName(rawFunctionality);
           return rawFunctionality.remove().then(
-            function success(rawFunctionality) {
+            function success() {
               if (successCallback) {
                 return successCallback(functionality);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Functionality:remove',

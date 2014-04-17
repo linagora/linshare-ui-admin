@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('Thread', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentThread = undefined;
@@ -17,7 +17,7 @@ angular.module('myApp.services')
                 return successCallback(threads);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Thread:getAll',
@@ -36,7 +36,7 @@ angular.module('myApp.services')
                 return successCallback(thread);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Thread:update',
@@ -56,7 +56,7 @@ angular.module('myApp.services')
                 return successCallback(thread);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Thread:remove',

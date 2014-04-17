@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('Mail', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentMail = undefined;
@@ -17,7 +17,7 @@ angular.module('myApp.services')
                 return successCallback(mails);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Mail:getAll',
@@ -35,7 +35,7 @@ angular.module('myApp.services')
                 return successCallback(mail);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Mail:get',
@@ -55,7 +55,7 @@ angular.module('myApp.services')
                 return successCallback(mail);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Mail:update',
@@ -75,7 +75,7 @@ angular.module('myApp.services')
                 return successCallback(mail);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Mail:remove',
@@ -94,7 +94,7 @@ angular.module('myApp.services')
                 return successCallback(contact);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Mail:addContact',
@@ -114,7 +114,7 @@ angular.module('myApp.services')
                 return successCallback(contact);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Mail:removeContact',

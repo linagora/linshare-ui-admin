@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsAlertTimeout', ['$timeout',
+angular.module('linshareUiAdmin').directive('lsAlertTimeout', ['$timeout',
   function($timeout) {
     return {
       restrict: 'A',

@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsFunctionalityList', [
+angular.module('linshareUiAdmin').directive('lsFunctionalityList', [
   function() {
     return {
       restrict: 'A',

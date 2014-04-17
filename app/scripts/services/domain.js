@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('Domain',
     ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {
@@ -17,7 +17,7 @@ angular.module('myApp.services')
           sample.userRole = 'SIMPLE';
         }
         return sample;
-      };
+      }
 
       var self = this;
 
@@ -45,7 +45,7 @@ angular.module('myApp.services')
                 return successCallback(rootDomain);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Domain:getDomainTree',
@@ -63,7 +63,7 @@ angular.module('myApp.services')
                 return successCallback(domains);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Domain:getAll',
@@ -82,7 +82,7 @@ angular.module('myApp.services')
                 return successCallback(domain);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Domain:add',
@@ -106,7 +106,7 @@ angular.module('myApp.services')
                 return successCallback(domain);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Domain:update',
@@ -126,7 +126,7 @@ angular.module('myApp.services')
                 return successCallback(domain);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Domain:remove',

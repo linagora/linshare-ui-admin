@@ -1,12 +1,7 @@
 'use strict';
-/*jshint undef:false*/
 
 // Holds the list of modules which the injector will load before the current module is loaded
-var app = angular.module('myApp', [
-    'myApp.controllers',
-    'myApp.directives',
-    'myApp.filters',
-    'myApp.services',
+angular.module('linshareUiAdmin', [
     'ui.bootstrap',
     'ngLocale',
     'ngSanitize',
@@ -22,10 +17,10 @@ var app = angular.module('myApp', [
 ])
 
 // Register work which needs to be performed on module loading
-.config(['$logProvider', 'preferencesProvider', 'RestangularProvider', 'uiSelectConfig',
-  function($logProvider, preferencesProvider, RestangularProvider, uiSelectConfig) {
+.config(['$logProvider', 'RestangularProvider', 'uiSelectConfig', 'lsAppConfig',
+  function($logProvider, RestangularProvider, uiSelectConfig, lsAppConfig) {
     uiSelectConfig.theme = 'bootstrap';
-    RestangularProvider.setBaseUrl('/linshare');
+    RestangularProvider.setBaseUrl(lsAppConfig.backendURL);
     RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
     RestangularProvider.addResponseInterceptor(function(data) {
       var newResponse = data;
@@ -45,8 +40,7 @@ var app = angular.module('myApp', [
       }
       return element;
     });
-    var settings = preferencesProvider.loadSettings();
-    var debug = document.cookie.linshareDebug || settings.debug;
+    var debug = document.cookie.linshareDebug || lsAppConfig.debug;
     $logProvider.debugEnabled(debug);
 }])
 
@@ -55,7 +49,7 @@ var app = angular.module('myApp', [
   function($log, Restangular, Notification, localize) {
     Restangular.setErrorInterceptor(function(response) {
       $log.error(response);
-      if (response.status != 400) {
+      if (response.status !== 400) {
         Notification.addError(response.data);
       }
       return response;
@@ -63,5 +57,3 @@ var app = angular.module('myApp', [
     localize.initLocalizedResources();
   }
 ]);
-
-/*jshint undef:true*/

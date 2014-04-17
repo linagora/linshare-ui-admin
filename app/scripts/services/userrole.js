@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('UserRole', ['$log', 'Restangular',
     function ($log, Restangular) {
-      var self = this;
+      // var self = this;
 
       // Public API here
       return {
@@ -15,7 +15,7 @@ angular.module('myApp.services')
                 return successCallback(userRoles);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'UserRole:getAll',

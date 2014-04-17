@@ -1,5 +1,5 @@
 {
-  "name": "linshareFrontendAdmin",
+  "name": "linshareUiAdmin",
   "version": "0.0.1",
   "dependencies": {
     "angular": "1.2.16",
@@ -18,10 +18,10 @@
     "js-base64": "*",
     "lodash": "*",
     "restangular": "*",
+    "scriptjs": "*",
     "ng-table": "*"
   },
   "devDependencies": {
-    "angular-mocks": "*",
-    "angular-scenario": "*"
+    "angular-mocks": "*"
   }
 }

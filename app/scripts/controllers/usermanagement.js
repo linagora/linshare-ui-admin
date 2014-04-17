@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.controllers')
+angular.module('linshareUiAdmin')
   .controller('UserManagementCtrl',
     ['$scope', '$log', 'User',
       function ($scope, $log, User) {

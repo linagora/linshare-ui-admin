@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsDomainPatternList', [
+angular.module('linshareUiAdmin').directive('lsDomainPatternList', [
   function() {
     return {
       restrict: 'A',

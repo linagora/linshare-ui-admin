@@ -308,7 +308,7 @@ module.exports = function (grunt) {
     // Test settings
     karma: {
       unit: {
-        configFile: 'karma.conf.js',
+        configFile: 'test/karma.conf.js',
         singleRun: true
       }
     }
@@ -336,6 +336,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'jshint:test',
     'compass',
     'connect:test',
     'karma'
@@ -343,6 +344,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'jshint:all',
     'bowerInstall',
     'useminPrepare',
     'compass:dist',

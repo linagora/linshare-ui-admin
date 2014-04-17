@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsSidebar', [
+angular.module('linshareUiAdmin').directive('lsSidebar', [
   function() {
     return {
       restrict: 'A',

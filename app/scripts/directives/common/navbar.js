@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsNavbar', [
+angular.module('linshareUiAdmin').directive('lsNavbar', [
   function() {
     return {
       restrict: 'A',

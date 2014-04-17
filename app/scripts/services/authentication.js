@@ -2,12 +2,13 @@
 
 /* Services */
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('Authentication',
     ['$route', '$http', '$q', '$log', 'authService', 'Restangular',
     function($route, $http, $q, $log, authService, Restangular) {
       var deferred = $q.defer();
-      var self = this;
+      
+      // var self = this;
 
       // Do at least one authentication request
       // to handle reload of already connected user
@@ -45,7 +46,7 @@ angular.module('myApp.services')
         },
         logout: function() {
           return $http.get('linshare/j_spring_security_logout').success(function() {
-            $log.debug("Authentication:logout");
+            $log.debug('Authentication:logout');
             $route.reload();
           }).error(function() {
             $log.error(

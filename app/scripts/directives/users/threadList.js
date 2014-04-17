@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsThreadList', [
+angular.module('linshareUiAdmin').directive('lsThreadList', [
   function() {
     return {
       restrict: 'A',

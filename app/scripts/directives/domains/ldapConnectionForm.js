@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsLdapConnectionForm', [
+angular.module('linshareUiAdmin').directive('lsLdapConnectionForm', [
   function() {
     return {
       restrict: 'A',

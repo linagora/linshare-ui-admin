@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('User', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentUser = undefined;
@@ -15,7 +15,7 @@ angular.module('myApp.services')
             function success(users) {
               return successCallback(users);
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'User:autocomplete',
@@ -30,12 +30,12 @@ angular.module('myApp.services')
           $log.debug('User:search');
           return Restangular.all('users').customPOST(userSearchDto, 'search').then(
             function success(users) {
-              angular.forEach(users, function(user, key) {
+              angular.forEach(users, function(user) {
                 user = Restangular.restangularizeElement(null, user, 'users');
               });
               return successCallback(users);
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'User:search',
@@ -55,7 +55,7 @@ angular.module('myApp.services')
                 return successCallback(user);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'User:update',
@@ -75,7 +75,7 @@ angular.module('myApp.services')
                 return successCallback(user);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'User:remove',

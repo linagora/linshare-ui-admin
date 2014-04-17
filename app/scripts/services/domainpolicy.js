@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('DomainPolicy', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentDomainPolicy = undefined;
@@ -17,7 +17,7 @@ angular.module('myApp.services')
                 return successCallback(domainPolicies);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'DomainPolicy:getAll',
@@ -35,7 +35,7 @@ angular.module('myApp.services')
                 return successCallback(ruleTypes);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'DomainPolicy:getAllRuleTypes',
@@ -54,7 +54,7 @@ angular.module('myApp.services')
                 return successCallback(domainPolicy);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'DomainPolicy:add',
@@ -74,7 +74,7 @@ angular.module('myApp.services')
                 return successCallback(domainPolicy);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'DomainPolicy:update',
@@ -94,7 +94,7 @@ angular.module('myApp.services')
                 return successCallback(domainPolicy);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'DomainPolicy:remove',

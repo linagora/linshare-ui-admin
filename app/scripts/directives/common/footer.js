@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsFooter', [
+angular.module('linshareUiAdmin').directive('lsFooter', [
   function() {
     return {
       restrict: 'A',

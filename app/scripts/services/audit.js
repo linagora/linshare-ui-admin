@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('Audit', ['$log', 'Restangular',
     function ($log, Restangular) {
-      var self = this;
+      // var self = this;
 
       // Public API here
       return {
@@ -15,7 +15,7 @@ angular.module('myApp.services')
                 return successCallback(actions);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Audit:getAllActions',
@@ -33,7 +33,7 @@ angular.module('myApp.services')
                 return successCallback(results);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'Audit:query',

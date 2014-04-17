@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsAuditForm', [
+angular.module('linshareUiAdmin').directive('lsAuditForm', [
   function() {
     return {
       restrict: 'A',

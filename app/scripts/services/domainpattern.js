@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('DomainPattern', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentDomainPattern = undefined;
@@ -17,7 +17,7 @@ angular.module('myApp.services')
                 return successCallback(domainPatterns);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'DomainPattern:getAll',
@@ -36,7 +36,7 @@ angular.module('myApp.services')
                 return successCallback(domainPattern);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'DomainPattern:add',
@@ -56,7 +56,7 @@ angular.module('myApp.services')
                 return successCallback(domainPattern);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'DomainPattern:update',
@@ -76,7 +76,7 @@ angular.module('myApp.services')
                 return successCallback(domainPattern);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'DomainPattern:remove',

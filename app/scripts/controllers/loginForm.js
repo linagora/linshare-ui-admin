@@ -1,27 +1,5 @@
 'use strict';
 
-app.controller('LoginFormCtrl', ['$scope', '$log', '$modal',
-  function($scope, $log, $modal) {
-    var modalInstance = undefined;
-    $scope.$on('event:auth-loginRequired', function() {
-      $log.debug('event:auth-loginRequired received');
-      if (angular.isUndefined(modalInstance)) {
-        modalInstance = $modal.open({
-          backdrop: 'static',
-          controller: LoginModalInstanceCtrl,
-          templateUrl: '/views/templates/login_form.html',
-        });
-      }
-    });
-    $scope.$on('event:auth-loginConfirmed', function() {
-      $log.debug('event:auth-loginConfirmed received');
-      modalInstance.close();
-      modalInstance = undefined;
-    });
-  }
-]);
-
-
 var LoginModalInstanceCtrl = 
 [ '$scope',
   '$modalInstance',
@@ -44,3 +22,27 @@ var LoginModalInstanceCtrl =
     };
   }
 ];
+
+angular.module('linshareUiAdmin').controller('LoginFormCtrl',
+['$scope', '$log', '$modal',
+  function($scope, $log, $modal) {
+    var modalInstance;
+    $scope.$on('event:auth-loginRequired', function() {
+      $log.debug('event:auth-loginRequired received');
+      if (angular.isUndefined(modalInstance)) {
+        modalInstance = $modal.open({
+          backdrop: 'static',
+          controller: LoginModalInstanceCtrl,
+          templateUrl: '/views/templates/login_form.html',
+        });
+      }
+    });
+    $scope.$on('event:auth-loginConfirmed', function() {
+      $log.debug('event:auth-loginConfirmed received');
+      if (angular.isDefined(modalInstance)) {
+        modalInstance.close();
+      }
+      modalInstance = undefined;
+    });
+  }
+]);

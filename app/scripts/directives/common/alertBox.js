@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsAlertBox', [
+angular.module('linshareUiAdmin').directive('lsAlertBox', [
   function() {
     return {
       restrict: 'A',

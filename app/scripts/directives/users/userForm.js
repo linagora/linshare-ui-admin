@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('lsUserForm', [
+angular.module('linshareUiAdmin').directive('lsUserForm', [
   function() {
     return {
       restrict: 'A',

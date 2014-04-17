@@ -1,4 +1,6 @@
-angular.module('myApp.services')
+'use strict';
+
+angular.module('linshareUiAdmin')
   .factory('Tab',
     ['$log', 'localize',
     function($log, localize) {

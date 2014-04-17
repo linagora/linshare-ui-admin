@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.controllers')
+angular.module('linshareUiAdmin')
   .controller('ThreadCtrl',
     ['$scope', '$log', 'Thread',
       function ($scope, $log, Thread) {

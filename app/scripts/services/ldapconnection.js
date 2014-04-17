@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.services')
+angular.module('linshareUiAdmin')
   .factory('LdapConnection', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentLdapConnection = undefined;
@@ -14,10 +14,10 @@ angular.module('myApp.services')
           return Restangular.all('ldap_connections').getList().then(
             function success(ldapConnections) {
               if (successCallback) {
-                return successCallback(ldapConnections)
+                return successCallback(ldapConnections);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'LdapConnection:getAll',
@@ -36,7 +36,7 @@ angular.module('myApp.services')
                 return successCallback(ldapConnection);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'LdapConnection:add',
@@ -56,7 +56,7 @@ angular.module('myApp.services')
                 return successCallback(ldapConnection);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'LdapConnection:update',
@@ -76,7 +76,7 @@ angular.module('myApp.services')
                 return successCallback(ldapConnection);
               }
             },
-            function error(response) {
+            function error() {
               $log.error(
                 [
                  'LdapConnection:remove',
