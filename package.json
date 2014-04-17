@@ -24,7 +24,6 @@
     "grunt-usemin": "*",
     "karma": "*",
     "karma-jasmine": "*",
-    "karma-phantomjs-launcher": "*",
     "load-grunt-tasks": "*",
     "protractor": "*",
     "time-grunt": "~0.2.1"
