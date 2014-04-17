@@ -7,12 +7,12 @@ angular.module('linshareUiAdmin').directive('lsDomainPolicyForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$filter', '$modal', '$log', 'Restangular', 'ngTableParams', 'Domain', 'DomainPolicy', 'localize',
-        function($scope, $filter, $modal, $log, Restangular, ngTableParams, Domain, DomainPolicy, localize) {
+        ['$scope', '$filter', '$modal', '$log', 'Restangular', 'ngTableParams', 'Enum', 'Domain', 'DomainPolicy', 'localize',
+        function($scope, $filter, $modal, $log, Restangular, ngTableParams, Enum, Domain, DomainPolicy, localize) {
           Domain.getAll(function successCallback(domains) {
             $scope.allDomains = domains;
           });
-          DomainPolicy.getAllRuleTypes(function successCallback(ruleTypes) {
+          Enum.getOptions('domain_access_rule_type', function successCallback(ruleTypes) {
             $scope.allRuleTypes = ruleTypes;
           });
           $scope.submit = function() {

@@ -7,24 +7,6 @@ angular.module('linshareUiAdmin')
 
       // Public API here
       return {
-        getAllActions: function(successCallback) {
-          $log.debug('Audit:getAllActions');
-          return Restangular.all('logs').all('actions').getList().then(
-            function success(actions) {
-              if (successCallback) {
-                return successCallback(actions);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Audit:getAllActions',
-                 'Unable to get all log actions',
-                ].join('\n')
-              );
-            }
-          );
-        },
         query: function(criteria, successCallback) {
           $log.debug('Audit:query');
           return Restangular.all('logs').post(criteria).then(

@@ -7,8 +7,8 @@ angular.module('linshareUiAdmin').directive('lsAuditForm', [
       transclude: false,
       scope: {},
       controller:
-        ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'Audit', 'Authentication',
-        function($scope, $filter, $log, ngTableParams, Domain, Audit, Authentication) {
+        ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'Enum', 'Audit', 'Authentication',
+        function($scope, $filter, $log, ngTableParams, Domain, Enum, Audit, Authentication) {
           $scope.criteria = {};
           $scope.actorMails = '';
           $scope.targetMails = '';
@@ -21,7 +21,7 @@ angular.module('linshareUiAdmin').directive('lsAuditForm', [
             from: false,
             to : false,
           };
-          Audit.getAllActions(function successCallback(actions) {
+          Enum.getOptions('log_action', function successCallback(actions) {
             $scope.allActions = actions;
           });
           Domain.getAll(function successCallback(domains) {

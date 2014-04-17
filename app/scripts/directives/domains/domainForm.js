@@ -9,8 +9,8 @@ angular.module('linshareUiAdmin').directive('lsDomainForm', [
         reload: '&'
       },
       controller:
-        ['$scope', '$modal', '$log', 'Restangular', 'Domain', 'LdapConnection', 'DomainPattern', 'UserRole', 'DomainPolicy', 'localize',
-        function($scope, $modal, $log, Restangular, Domain, LdapConnection, DomainPattern, UserRole, DomainPolicy, localize) {
+        ['$scope', '$modal', '$log', 'Restangular', 'Domain', 'LdapConnection', 'DomainPattern', 'Enum', 'DomainPolicy', 'localize',
+        function($scope, $modal, $log, Restangular, Domain, LdapConnection, DomainPattern, Enum, DomainPolicy, localize) {
           $scope.ldapConnections = []
           $scope.domainPatterns = []
           $scope.userRoles = []
@@ -26,8 +26,12 @@ angular.module('linshareUiAdmin').directive('lsDomainForm', [
               $scope.domainPatterns.push(domainPattern.identifier);
             });
           });
-          UserRole.getAll(function successCallback(userRoles) {
-            $scope.userRoles = userRoles;
+          Enum.getOptions('role', function successCallback(options) {
+            angular.forEach(options, function(opt) {
+              if (opt !== 'SYSTEM') {
+                $scope.userRoles.push(opt);
+              }
+            });
           });
           DomainPolicy.getAll(function successCallback(domainPolicies) {
             angular.forEach(domainPolicies, function(domainPolicy) {

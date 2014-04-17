@@ -27,24 +27,6 @@ angular.module('linshareUiAdmin')
             }
           );
         },
-        getAllRuleTypes: function(successCallback) {
-          $log.debug('DomainPolicy:getAllRuleTypes');
-          return Restangular.all('domain_policies').all('rule_types').getList().then(
-            function success(ruleTypes) {
-              if (successCallback) {
-                return successCallback(ruleTypes);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPolicy:getAllRuleTypes',
-                 'Unable to get all rule types',
-                ].join('\n')
-              );
-            }
-          );
-        },
         add: function(domainPolicy, successCallback) {
           $log.debug('DomainPolicy:add');
           return Restangular.all('domain_policies').post(domainPolicy).then(
