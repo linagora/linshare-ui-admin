@@ -112,7 +112,8 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
           $scope.reset = function() {
             $scope.state = Domain.getState();
             $scope.domain = Restangular.copy(Domain.getCurrent());
-            $scope.disableProvider = ($scope.domain.type === 'ROOTDOMAIN' || $scope.domain.providers.length != 0);
+            $scope.isRootDomain = $scope.domain.type === 'ROOTDOMAIN';
+            $scope.disableProvider = ($scope.isRootDomain || $scope.domain.providers.length != 0);
           };
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
