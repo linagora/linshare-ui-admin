@@ -11,10 +11,12 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
         };
         scope.today = new Date();
       },
-      controller: ['$scope', '$modal', '$log', 'Restangular', 'User', 'Functionality', 'UserRole', 'localize',
-        function($scope, $modal, $log, Restangular, User, Functionality, UserRole, localize) {
-          UserRole.getAll(function successCallback(userRoles) {
-            $scope.userRoles = userRoles;
+      controller: ['$scope', '$modal', '$log', 'Restangular', 'User', 'Functionality', 'Enum', 'localize',
+        function($scope, $modal, $log, Restangular, User, Functionality, Enum, localize) {
+          Enum.getOptions('role', function successCallback(userRoles) {
+            $scope.userRoles = _.remove(userRoles, function(role) {
+              return role !== 'SYSTEM' && role !== 'SUPERADMIN';
+            });
           });
           $scope.open = function($event) {
             $event.preventDefault();

@@ -26,11 +26,9 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
               $scope.domainPatterns.push(domainPattern.identifier);
             });
           });
-          Enum.getOptions('role', function successCallback(options) {
-            angular.forEach(options, function(opt) {
-              if (opt !== 'SYSTEM') {
-                $scope.userRoles.push(opt);
-              }
+          Enum.getOptions('role', function successCallback(userRoles) {
+            $scope.userRoles = _.remove(userRoles, function(role) {
+              return role !== 'SYSTEM' && role !== 'SUPERADMIN';
             });
           });
           DomainPolicy.getAll(function successCallback(domainPolicies) {
