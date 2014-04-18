@@ -25,6 +25,8 @@
     "describe": false,
     "it": false,
     "beforeEach": false,
+    "afterEach": false,
+    "jasmine": false,
     "expect": false,
     "inject": false,
     "Base64": false
