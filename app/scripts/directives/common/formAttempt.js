@@ -2,7 +2,7 @@
 
 // https://github.com/realcrowd/angularjs-utilities
 
-angular.module('linshareUiAdmin').directive('lsFormAttempt', [
+angular.module('linshareAdminApp').directive('lsFormAttempt', [
   function() {
     return {
       restrict: 'A',

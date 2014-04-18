@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin').directive('lsLdapConnectionList', [
+angular.module('linshareAdminApp').directive('lsLdapConnectionList', [
   function() {
     return {
       restrict: 'A',

@@ -3,7 +3,7 @@
 describe('Service: DomainPattern', function () {
 
   // load the service's module
-  beforeEach(module('linshareUiAdmin'));
+  beforeEach(module('linshareAdminApp'));
 
   // instantiate service
   var DomainPattern;

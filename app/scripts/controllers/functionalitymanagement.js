@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .controller('FunctionalityManagementCtrl',
     ['$scope', '$log', 'Domain', 'Functionality',
       function ($scope, $log, Domain, Functionality) {

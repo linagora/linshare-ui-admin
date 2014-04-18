@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin').config(['$routeProvider',
+angular.module('linshareAdminApp').config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.when('/domains/ldap_connections', {
       templateUrl: 'views/domains/ldap_connections.html',

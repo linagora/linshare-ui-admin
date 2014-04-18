@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('Domain',
     ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {

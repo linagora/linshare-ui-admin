@@ -2,7 +2,7 @@
 
 // https://github.com/realcrowd/angularjs-utilities
 
-angular.module('linshareUiAdmin').directive('lsFormSubmit', ['$parse',
+angular.module('linshareAdminApp').directive('lsFormSubmit', ['$parse',
   function($parse) {
     return {
       restrict: 'A',

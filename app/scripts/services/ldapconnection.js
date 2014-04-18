@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('LdapConnection', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentLdapConnection = undefined;

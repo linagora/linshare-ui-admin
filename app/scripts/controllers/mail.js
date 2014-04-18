@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .controller('MailCtrl',
     ['$scope', '$log', 'Mail',
       function ($scope, $log, Mail) {

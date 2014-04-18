@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('User', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentUser = undefined;

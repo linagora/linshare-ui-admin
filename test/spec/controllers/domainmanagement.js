@@ -3,7 +3,7 @@
 describe('Controller: DomainmanagementCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('linshareUiAdmin'));
+  beforeEach(module('linshareAdminApp'));
 
   var DomainmanagementCtrl,
     scope;

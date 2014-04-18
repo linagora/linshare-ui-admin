@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin').directive('lsDomainTree', [
+angular.module('linshareAdminApp').directive('lsDomainTree', [
   function() {
     return {
       restrict: 'A',

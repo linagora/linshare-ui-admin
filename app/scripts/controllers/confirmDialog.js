@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .controller('ConfirmDialogCtrl',
     ['$scope', '$log', '$modalInstance', 'content',
       function ($scope, $log, $modalInstance, content) {

@@ -2,7 +2,7 @@
 
 /* Services */
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('Notification', ['$rootScope', '$timeout', '$log', 'localize',
   function($rootScope, $timeout, $log, localize) {
     return {

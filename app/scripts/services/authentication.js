@@ -2,7 +2,7 @@
 
 /* Services */
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('Authentication',
     ['$route', '$http', '$q', '$log', 'authService', 'Restangular',
     function($route, $http, $q, $log, authService, Restangular) {

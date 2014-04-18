@@ -23,7 +23,7 @@ var LoginModalInstanceCtrl =
   }
 ];
 
-angular.module('linshareUiAdmin').controller('LoginFormCtrl',
+angular.module('linshareAdminApp').controller('LoginFormCtrl',
 ['$scope', '$log', '$modal',
   function($scope, $log, $modal) {
     var modalInstance;

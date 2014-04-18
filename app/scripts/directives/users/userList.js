@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin').directive('lsUserList', [
+angular.module('linshareAdminApp').directive('lsUserList', [
   function() {
     return {
       restrict: 'A',

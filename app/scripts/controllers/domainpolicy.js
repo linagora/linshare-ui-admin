@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .controller('DomainPolicyCtrl',
     ['$scope', '$log', 'DomainPolicy',
       function ($scope, $log, DomainPolicy) {

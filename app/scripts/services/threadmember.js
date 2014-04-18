@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('ThreadMember', ['$log', 'Restangular',
     function ($log, Restangular) {
       var getThreadMemberDto = function(thread, user) {

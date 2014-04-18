@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('Tab',
     ['$log', 'localize',
     function($log, localize) {

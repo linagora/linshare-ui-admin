@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .controller('ResetCtrl',
     ['Domain', 'DomainPattern', 'DomainPolicy', 'Functionality', 'LdapConnection', 'Thread', 'User',
       function (Domain, DomainPattern, DomainPolicy, Functionality, LdapConnection, Thread, User) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('UserRole', ['$log', 'Restangular',
     function ($log, Restangular) {
       // var self = this;

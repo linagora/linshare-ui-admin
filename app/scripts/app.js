@@ -1,7 +1,7 @@
 'use strict';
 
 // Holds the list of modules which the injector will load before the current module is loaded
-angular.module('linshareUiAdmin', [
+angular.module('linshareAdminApp', [
     'ui.bootstrap',
     'ngLocale',
     'ngSanitize',

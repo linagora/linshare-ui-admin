@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin').directive('lsThreadForm', [
+angular.module('linshareAdminApp').directive('lsThreadForm', [
   function() {
     return {
       restrict: 'A',

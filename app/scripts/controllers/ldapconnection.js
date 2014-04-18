@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .controller('LdapConnectionCtrl',
     ['$scope', '$log', 'LdapConnection',
       function ($scope, $log, LdapConnection) {

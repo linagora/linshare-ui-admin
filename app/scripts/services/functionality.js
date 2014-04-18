@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('Functionality',
     ['$log', 'Notification', 'Restangular', 'localize',
     function ($log, Notification, Restangular, localize) {

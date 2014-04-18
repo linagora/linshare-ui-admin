@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .service('Enum', function Enum($log, Restangular) {
     // var self = this;
     

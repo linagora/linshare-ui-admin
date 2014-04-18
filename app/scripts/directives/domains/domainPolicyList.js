@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin').directive('lsDomainPolicyList', [
+angular.module('linshareAdminApp').directive('lsDomainPolicyList', [
   function() {
     return {
       restrict: 'A',

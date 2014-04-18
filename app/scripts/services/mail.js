@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('Mail', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentMail = undefined;

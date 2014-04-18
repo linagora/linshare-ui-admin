@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('DomainPattern', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentDomainPattern = undefined;

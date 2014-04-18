@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linshareUiAdmin')
+angular.module('linshareAdminApp')
   .factory('Thread', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
       this.currentThread = undefined;

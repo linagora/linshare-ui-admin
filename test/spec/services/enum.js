@@ -3,7 +3,7 @@
 describe('Service: Enum', function () {
 
   // load the service's module
-  beforeEach(module('linshareUiAdminApp'));
+  beforeEach(module('linshareAdminApp'));
 
   // instantiate service
   var Enum;
