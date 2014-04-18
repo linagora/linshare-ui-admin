@@ -13,11 +13,13 @@
             <td data-title="'P_Domains-Order_Actions' | i18n">
               <div class="btn-group">
                 <button type="button" class="btn btn-primary"
-                        x-ng-click="swap($index, $index - 1)">
+                        x-ng-click="swap($index, $index - 1, $data)"
+                        x-ng-disabled="$first">
                   <i class="fa fa-arrow-circle-up"></i>
                 </button>
                 <button type="button" class="btn btn-primary"
-                        x-ng-click="swap($index, $index + 1)">
+                        x-ng-click="swap($index, $index + 1, $data)"
+                        x-ng-disabled="$last">
                   <i class="fa fa-arrow-circle-down"></i>
                 </button>
               </div>

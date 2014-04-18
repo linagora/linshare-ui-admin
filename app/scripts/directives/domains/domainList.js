@@ -7,17 +7,11 @@ angular.module('linshareAdminApp').directive('lsDomainList', [
       scope: {},
       controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Domain',
         function($scope, $filter, $log, ngTableParams, Domain) {
-          Domain.getAll(function(domains) {
-            $scope.domains = domains;
-            $scope.reloadList();
-          });
-          $scope.swap = function(x, y) {
-            var domains = $scope.domains;
-            var tmp = domains[x].authShowOrder;
-            domains[x].authShowOrder = domains[y].authShowOrder;
-            domains[y].authShowOrder = tmp;
-            Domain.update(domains[x], function successCallback() {
-              Domain.update(domains[y], function successCallback() {
+          $scope.swap = function(x, y, data) {
+            data[x].authShowOrder = y;
+            data[y].authShowOrder = x;
+            Domain.update(data[x], function successCallback() {
+              Domain.update(data[y], function successCallback() {
                 $scope.reloadList();
               });
             }, false); // Disable one notify
@@ -35,13 +29,13 @@ angular.module('linshareAdminApp').directive('lsDomainList', [
             debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
-              if (angular.isDefined($scope.domains)) {
+              Domain.getAll(function(domains) {
                 var orderedData = params.sorting() ?
-                                    $filter('orderBy')($scope.domains, params.orderBy()) :
-                                    $scope.domains;
+                                    $filter('orderBy')(domains, params.orderBy()) :
+                                    domains;
                 params.total(orderedData.length);
                 $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-              }
+              });
             }
           });
         }
