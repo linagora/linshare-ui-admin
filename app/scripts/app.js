@@ -17,8 +17,9 @@ angular.module('linshareAdminApp', [
 ])
 
 // Register work which needs to be performed on module loading
-.config(['$logProvider', 'RestangularProvider', 'uiSelectConfig', 'lsAppConfig',
-  function($logProvider, RestangularProvider, uiSelectConfig, lsAppConfig) {
+.config(['$logProvider', 'RestangularProvider', 'uiSelectConfig', 'cfpLoadingBarProvider', 'lsAppConfig',
+  function($logProvider, RestangularProvider, uiSelectConfig, cfpLoadingBarProvider, lsAppConfig) {
+    cfpLoadingBarProvider.includeSpinner = false;
     uiSelectConfig.theme = 'bootstrap';
     RestangularProvider.setBaseUrl(lsAppConfig.backendURL);
     RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
