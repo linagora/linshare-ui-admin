@@ -1,0 +1,20 @@
+<section class="content-header">
+  <h1>
+    {{'G_Tab_Users-Inconsistent' | i18n}}
+    <small>
+      {{'P_Users-Inconsistent_Title' | i18n}}
+    </small>
+  </h1>
+</section>
+<section class="content"
+         x-ng-controller="InconsistentUserCtrl">
+  <div class="row">
+    <section class="col-lg-6">
+      <div x-ls-inconsistent-user-list></div>
+    </section>
+    <section class="col-lg-6"
+             x-ng-if="getCurrentUser()">
+       <div x-ls-inconsistent-user-form></div>
+    </section>
+  </div>
+</section>

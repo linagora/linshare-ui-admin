@@ -46,7 +46,10 @@ angular.module('linshareAdminApp')
           {
             name: localize.getLocalizedString('G_Tab_Users-Management'),
             href: '#users/management'
-          }, 
+          }, {
+            name: localize.getLocalizedString('G_Tab_Users-Inconsistent'),
+            href: '#users/inconsistent'
+          }
         ]
       };
       this.threads = {

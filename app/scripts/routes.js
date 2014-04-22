@@ -41,6 +41,10 @@ angular.module('linshareAdminApp').config(['$routeProvider',
       templateUrl: 'views/users/user_management.html',
       controller: 'ResetCtrl'
     });
+    $routeProvider.when('/users/inconsistent', {
+      templateUrl: 'views/users/inconsistent_users.html',
+      controller: 'ResetCtrl'
+    });
     $routeProvider.when('/users/threads', {
       templateUrl: 'views/users/threads.html',
       controller: 'ResetCtrl'

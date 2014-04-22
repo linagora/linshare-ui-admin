@@ -1,0 +1,56 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{'P_Users-Inconsistent_BoxListTitle' | i18n}}
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="table-responsive">
+      <table class="table table-striped"
+             x-ng-table="tableParams"
+             show-filter="true">
+        <tr x-ng-repeat="user in $data"
+            x-ng-click="edit(user)">
+          <td style="cursor: pointer"
+              data-title="'P_Users-Inconsistent_FirstName' | i18n"
+              filter="{ 'firstName': 'text' }"
+              sortable="'firstName'">
+            <span>
+              {{user.firstName}}
+            </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'P_Users-Inconsistent_LastName' | i18n"
+              filter="{ 'lastName': 'text' }"
+              sortable="'lastName'">
+            <span>
+              {{user.lastName}}
+            </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'P_Users-Inconsistent_Mail' | i18n"
+              filter="{ 'mail': 'text' }"
+              sortable="'mail'">
+            <span>
+              {{user.mail}}
+            </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'P_Users-Inconsistent_Domain' | i18n"
+              sortable="'domain'">
+            <span>
+              {{user.domain}}
+            </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'P_Users-Inconsistent_Role' | i18n"
+              sortable="'role'">
+            <span>
+              {{user.role}}
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

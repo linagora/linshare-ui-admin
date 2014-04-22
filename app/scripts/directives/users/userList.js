@@ -5,7 +5,7 @@ angular.module('linshareAdminApp').directive('lsUserList', [
     return {
       restrict: 'A',
       transclude: true,
-      scope: false,
+      scope: {},
       link: function(scope, element, attrs) {
         scope.searching = false;
       },

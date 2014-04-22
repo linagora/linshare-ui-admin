@@ -1,0 +1,122 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{ user.firstName }}&nbsp;{{ user.lastName }}&nbsp;&lt;{{ user.mail }}&gt;
+    </h3>
+    <div class="pull-right box-tools">
+      <button class="btn btn-primary btn-sm"
+              x-ng-click="cancel()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <form class="form" name="userForm"
+        x-ls-form-submit="submit(user, domain)"
+        x-ls-form-attempt>
+    <div class="box-body">
+      <div class="row">
+        <!-- EDITABLE FIELDS -->
+        <div class="col-sm-6">
+          <!-- Domain -->
+          <div class="form-group"
+               x-ng-class="{'has-error': userForm.domain.$invalid &&
+                (userForm.domain.$dirty || ls.domain.attempted)}">
+            <label class="sr-only" for="domain">
+              {{'P_Users-Inconsistent_DomainLabel' | i18n}}
+            </label>
+            <select name="domain" class="form-control" required
+                    x-ng-model="domain"
+                    x-ng-options="domain.originalElement as domain.label for domain in allDomains | orderBy:'label'">
+            </select>
+          </div>
+        </div>
+
+        <!-- UNEDITABLE FIELDS -->
+        <div class="well col-sm-6">
+          <!-- Account type -->
+          <div class="form-group">
+            <label for="status">
+              {{'P_Users-Inconsistent_Status' | i18n}}
+            </label>
+            <div class="controls">
+              <span name="status" class="form-control-static">
+                {{getStatus(user)}}
+              </span>
+            </div>
+          </div>
+          <!-- Creation date -->
+          <div class="form-group">
+            <label for="creationDate">
+              {{'P_Users-Inconsistent_CreationDate' | i18n}}
+            </label>
+            <div class="controls">
+              <span name="creationDate" class="form-control-static">
+                {{user.creationDate | date:'medium'}}
+              </span>
+            </div>
+          </div>
+
+          <!-- Modification date -->
+          <div class="form-group">
+            <label for="modificationDate">
+              {{'P_Users-Inconsistent_ModificationDate' | i18n}}
+            </label>
+            <div class="controls">
+              <span name="modificationDate" class="form-control-static">
+                {{user.modificationDate | date:'medium'}}
+              </span>
+            </div>
+          </div>
+          <!-- First name -->
+          <div class="form-group">
+            <label for="firstName">
+              {{'P_Users-Inconsistent_FirstName' | i18n}}
+            </label>
+            <div class="controls">
+              <span name="firstName" class="form-control-static">
+                {{user.firstName}}
+              </span>
+            </div>
+          </div>
+
+          <!-- Last name -->
+          <div class="form-group">
+            <label for="lastName">
+              {{'P_Users-Inconsistent_LastName' | i18n}}
+            </label>
+            <div class="controls">
+              <span name="lastName" class="form-control-static">
+                {{user.lastName}}
+              </span>
+            </div>
+          </div>
+          <!-- Domain -->
+          <div class="form-group">
+            <label for="domain">
+              {{'P_Users-Inconsistent_Domain' | i18n}}
+            </label>
+            <div class="controls">
+              <span name="domain" class="form-control-static">
+                {{user.domain}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-footer">
+      <!-- Validation -->
+      <div class="form-group">
+        <div class="controls">
+          <button type="button" id="delete" name="delete" class="btn btn-danger"
+                  x-ng-click="delete(user)">
+            {{'P_Users-Inconsistent_Delete' | i18n}}
+          </button>
+          <button type="submit" id="submit" name="submit" class="btn btn-success">
+            {{'P_Users-Inconsistent_Submit' | i18n}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

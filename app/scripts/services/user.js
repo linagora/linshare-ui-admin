@@ -46,6 +46,22 @@ angular.module('linshareAdminApp')
             }
           );
         },
+        getAllInconsistent: function(successCallback) {
+          $log.debug('User:getAllInconsistent');
+          return Restangular.all('users').all('inconsistent').getList().then(
+            function success(users) {
+              return successCallback(users);
+            },
+            function error() {
+              $log.error(
+                [
+                 'User:getAllInconsistent',
+                 'Unable to get all inconsistent users',
+                ].join('\n')
+              );
+            }
+          );
+        },
         update: function(user, successCallback) {
           $log.debug('User:update');
           return user.put().then(
