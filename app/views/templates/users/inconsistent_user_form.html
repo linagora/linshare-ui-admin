@@ -22,7 +22,7 @@
                x-ng-class="{'has-error': userForm.domain.$invalid &&
                 (userForm.domain.$dirty || ls.domain.attempted)}">
             <label class="sr-only" for="domain">
-              {{'P_Users-Inconsistent_DomainLabel' | i18n}}
+              {{'P_Users-Inconsistent_DomainLabel' | translate}}
             </label>
             <select name="domain" class="form-control" required
                     x-ng-model="domain"
@@ -36,7 +36,7 @@
           <!-- Account type -->
           <div class="form-group">
             <label for="status">
-              {{'P_Users-Inconsistent_Status' | i18n}}
+              {{'P_Users-Inconsistent_Status' | translate}}
             </label>
             <div class="controls">
               <span name="status" class="form-control-static">
@@ -47,7 +47,7 @@
           <!-- Creation date -->
           <div class="form-group">
             <label for="creationDate">
-              {{'P_Users-Inconsistent_CreationDate' | i18n}}
+              {{'P_Users-Inconsistent_CreationDate' | translate}}
             </label>
             <div class="controls">
               <span name="creationDate" class="form-control-static">
@@ -59,7 +59,7 @@
           <!-- Modification date -->
           <div class="form-group">
             <label for="modificationDate">
-              {{'P_Users-Inconsistent_ModificationDate' | i18n}}
+              {{'P_Users-Inconsistent_ModificationDate' | translate}}
             </label>
             <div class="controls">
               <span name="modificationDate" class="form-control-static">
@@ -70,7 +70,7 @@
           <!-- First name -->
           <div class="form-group">
             <label for="firstName">
-              {{'P_Users-Inconsistent_FirstName' | i18n}}
+              {{'P_Users-Inconsistent_FirstName' | translate}}
             </label>
             <div class="controls">
               <span name="firstName" class="form-control-static">
@@ -82,7 +82,7 @@
           <!-- Last name -->
           <div class="form-group">
             <label for="lastName">
-              {{'P_Users-Inconsistent_LastName' | i18n}}
+              {{'P_Users-Inconsistent_LastName' | translate}}
             </label>
             <div class="controls">
               <span name="lastName" class="form-control-static">
@@ -93,7 +93,7 @@
           <!-- Domain -->
           <div class="form-group">
             <label for="domain">
-              {{'P_Users-Inconsistent_Domain' | i18n}}
+              {{'P_Users-Inconsistent_Domain' | translate}}
             </label>
             <div class="controls">
               <span name="domain" class="form-control-static">
@@ -110,10 +110,10 @@
         <div class="controls">
           <button type="button" id="delete" name="delete" class="btn btn-danger"
                   x-ng-click="delete(user)">
-            {{'P_Users-Inconsistent_Delete' | i18n}}
+            {{'P_Users-Inconsistent_Delete' | translate}}
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">
-            {{'P_Users-Inconsistent_Submit' | i18n}}
+            {{'P_Users-Inconsistent_Submit' | translate}}
           </button>
         </div>
       </div>

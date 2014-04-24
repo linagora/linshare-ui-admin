@@ -7,8 +7,8 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$modal', '$log', 'Restangular', 'DomainPattern', 'localize',
-        function($scope, $modal, $log, Restangular, DomainPattern, localize) {
+        ['$scope', '$modal', '$log', '$translate', 'Restangular', 'DomainPattern',
+        function($scope, $modal, $log, $translate, Restangular, DomainPattern) {
           var emptyModel = {identifier: ''};
           $scope.submit = function() {
             if ($scope.state === 'edit') {
@@ -36,9 +36,7 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
                 controller: 'ConfirmDialogCtrl',
                 resolve: {
                   content: function() {
-                    return localize.getLocalizedString(
-                      'P_Domains-DomainPatterns_ConfirmDeleteText'
-                    );
+                    return $translate('DOMAIN_PATTERNS.CONFIRM_DELETE_FORM.PARAGRAPH');
                   }
                 }
               });

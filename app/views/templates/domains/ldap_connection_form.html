@@ -2,7 +2,7 @@
   <div class="box-header">
     <div class="box-title">
       <h3 x-ng-if="state === 'create'">
-        {{'P_Domains-LDAPConnections_CreationTitle' | i18n}}
+        {{'P_Domains-LDAPConnections_CreationTitle' | translate}}
       </h3>
       <h3 x-ng-if="state === 'edit'">
         {{ldapConnection.identifier}}
@@ -14,7 +14,7 @@
                 x-ng-click="cancel()">
           <span>
             <i class="fa fa-list"></i> 
-            {{'P_Domains-LDAPConnections_List' | i18n}}
+            {{'P_Domains-LDAPConnections_List' | translate}}
           </span>
         </button>
       </div>
@@ -34,7 +34,7 @@
                     x-ng-class="{'has-error': ldapConnectionForm.identifier.$invalid &&
                     (ldapConnectionForm.identifier.$dirty || ls.ldapConnectionForm.attempted)}">
                 <label for="identifier">
-                  {{'P_Domains-LDAPConnections_IdentifierLabel' | i18n}}
+                  {{'P_Domains-LDAPConnections_IdentifierLabel' | translate}}
                 </label>
                 <input id="identifier" name="identifier" type="text" class="form-control" required
                        x-ng-model="ldapConnection.identifier">
@@ -45,34 +45,34 @@
                  x-ng-class="{'has-error': providerURLForm.providerURL.$invalid &&
                    (providerURLForm.providerURL.$dirty || ls.providerURLForm.attempted)}">
               <label for="providerURL">
-                {{'P_Domains-LDAPConnections_ProviderURLLabel' | i18n}}
+                {{'P_Domains-LDAPConnections_ProviderURLLabel' | translate}}
               </label>
               <input id="providerURL" name="providerURL" type="text" class="form-control" required
                      x-ng-model="ldapConnection.providerUrl">
               <p class="help-block">
-                {{'P_Domains-LDAPConnections_ProviderURLHelp' | i18n}}
+                {{'P_Domains-LDAPConnections_ProviderURLHelp' | translate}}
               </p>
             </div>
             <!-- Security Principal -->
             <div class="form-group">
               <label for="securityPrincipal">
-                {{'P_Domains-LDAPConnections_SecurityPrincipalLabel' | i18n}}
+                {{'P_Domains-LDAPConnections_SecurityPrincipalLabel' | translate}}
               </label>
               <input id="securityPrincipal" name="securityPrincipal" type="text" class="form-control"
                      x-ng-model="ldapConnection.securityPrincipal">
               <p class="help-block">
-                {{'P_Domains-LDAPConnections_SecurityPrincipalHelp' | i18n}}
+                {{'P_Domains-LDAPConnections_SecurityPrincipalHelp' | translate}}
               </p>
             </div>
             <!-- Security Credentials -->
             <div class="form-group">
               <label for="securityCredentials">
-                {{'P_Domains-LDAPConnections_SecurityCredentialsLabel' | i18n}}
+                {{'P_Domains-LDAPConnections_SecurityCredentialsLabel' | translate}}
               </label>
               <input id="securityCredentials" name="securityCredentials" type="text" class="form-control"
                      x-ng-model="ldapConnection.securityCredentials">
               <p class="help-block">
-                {{'P_Domains-LDAPConnections_SecurityCredentialsHelp' | i18n}}
+                {{'P_Domains-LDAPConnections_SecurityCredentialsHelp' | translate}}
               </p>
             </div>
           </div>
@@ -83,14 +83,14 @@
         <button type="button" id="delete" name="delete" class="btn btn-danger"
                 x-ng-show="state === 'edit'"
                 x-ng-click="remove()">
-          {{'P_Domains-LDAPConnections_Delete' | i18n}}
+          {{'P_Domains-LDAPConnections_Delete' | translate}}
         </button>
         <button type="button" id="reset" name="reset" class="btn btn-warning"
                 x-ng-click="reset()">
-          {{'P_Domains-LDAPConnections_Reset' | i18n}}
+          {{'P_Domains-LDAPConnections_Reset' | translate}}
         </button>
         <button type="submit" id="submit" name="submit" class="btn btn-success">
-          {{'P_Domains-LDAPConnections_Submit' | i18n}}
+          {{'P_Domains-LDAPConnections_Submit' | translate}}
         </button>
       </div>
     </fieldset>

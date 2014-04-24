@@ -1,6 +1,6 @@
 <div class="modal-header">
    <h3 id="loginModalLabel">
-     {{'G_App_Login_Title' | i18n}}
+     {{'COMMON.LOGIN_FORM.TITLE' | translate}}
    </h3>
 
 </div>
@@ -12,11 +12,11 @@
          x-ng-class="{error: loginForm.login.$invalid &&
                              (loginForm.login.$dirty || ls.loginForm.attempted)}">
       <label for="login" class="col-sm-2 control-label">
-        {{'G_App_Login_Email' | i18n}}
+        {{'COMMON.LOGIN_FORM.LABEL_EMAIL' | translate}}
       </label>
       <div class="col-sm-10">
         <input type="text" class="form-control" id="login" required
-               placeholder="{{'G_App_Login_Email' | i18n}}" 
+               placeholder="{{'COMMON.LOGIN_FORM.LABEL_EMAIL' | translate}}" 
                x-ng-model="input.login">
       </div>
     </div>
@@ -24,11 +24,11 @@
          x-ng-class="{error: loginForm.password.$invalid &&
                              (loginForm.password.$dirty || ls.loginForm.attempted)}">
       <label for="password" class="col-sm-2 control-label">
-        {{'G_App_Login_Password' | i18n}}
+        {{'COMMON.LOGIN_FORM.LABEL_PASSWORD' | translate}}
       </label>
       <div class="col-sm-10">
         <input type="password" class="form-control" id="password" required
-               placeholder="{{'G_App_Login_Password' | i18n}}"
+        placeholder="{{'COMMON.LOGIN_FORM.LABEL_PASSWORD' | translate}}"
                x-ng-model="input.password">
       </div>
     </div>
@@ -38,7 +38,7 @@
   </div>
   <div class="modal-footer">
     <button type="submit" class="btn btn-primary">
-      {{'G_App_Login_Submit' | i18n}}
+      {{'COMMON.LOGIN_FORM.BUTTON_SUBMIT' | translate}}
     </button>
   </div>
 </form>

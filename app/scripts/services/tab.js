@@ -2,78 +2,73 @@
 
 angular.module('linshareAdminApp')
   .factory('Tab',
-    ['$log', 'localize',
-    function($log, localize) {
+    ['$log', '$translate',
+    function($log, $translate) {
       this.domains = {
-        name: localize.getLocalizedString('G_Tab_Domains'),
+        name: $translate('G_Tab_Domains'),
         icon: 'fa-cloud',
         links: [
           {
-            name: localize.getLocalizedString('G_Tab_Domains-LDAPConnections'),
+            name: $translate('COMMON.TAB.LDAP_CONNECTIONS'),
             href: '#domains/ldap_connections'
           }, {
-            name: localize.getLocalizedString('G_Tab_Domains-DomainPatterns'),
+            name: $translate('COMMON.TAB.DOMAIN_PATTERNS'),
             href: '#domains/domain_patterns'
           }, {
-            name: localize.getLocalizedString('G_Tab_Domains-Management'),
+            name: $translate('COMMON.TAB.MANAGE_DOMAINS'),
             href: '#domains/management'
           }, {
-            name: localize.getLocalizedString('G_Tab_Domains-Order'),
+            name: $translate('COMMON.TAB.DOMAIN_ORDER'),
             href: '#domains/order'
           }, {
-            name: localize.getLocalizedString('G_Tab_Domains-Policies'),
+            name: $translate('COMMON.TAB.DOMAIN_POLICIES'),
             href: '#domains/policies'
           }
         ]
       };
       this.parameters = {
-        name: localize.getLocalizedString('G_Tab_Parameters'),
+        name: $translate('COMMON.TAB.PARAMETERS'),
         icon: 'fa-gears',
         links: [
           {
-            name: localize.getLocalizedString('G_Tab_Parameters-Functionalities'),
+            name: $translate('COMMON.TAB.FUNCTIONALITIES'),
             href: '#parameters/functionalities'
           }, {
-            name: localize.getLocalizedString('G_Tab_Parameters-MailsPersonalization'),
+            name: $translate('COMMON.TAB.MAILS_CONFIGURATION'),
             href: '#parameters/mails_personalization'
           }
         ]
       };
       this.users = {
-        name: localize.getLocalizedString('G_Tab_Users'),
+        name: $translate('COMMON.TAB.USERS'),
         icon: 'fa-users',
         links: [
           {
-            name: localize.getLocalizedString('G_Tab_Users-Management'),
+            name: $translate('COMMON.TAB.MANAGE_USERS'),
             href: '#users/management'
           }, {
-            name: localize.getLocalizedString('G_Tab_Users-Inconsistent'),
+            name: $translate('COMMON.TAB.INCONSISTENT_USERS'),
             href: '#users/inconsistent'
           }
         ]
       };
       this.threads = {
-        name: localize.getLocalizedString('G_Tab_Users-Threads'),
+        name: $translate('COMMON.TAB.THREADS'),
         href: '#users/threads'
       };
       this.mailingLists = {
-        name: localize.getLocalizedString('G_Tab_Users-Mails'),
+        name: $translate('COMMON.TAB.MAILING_LISTS'),
         href: '#users/mailing_lists'
       };
       this.audit = {
-        name: localize.getLocalizedString('G_Tab_History'),
+        name: $translate('COMMON.TAB.HISTORY'),
         icon: 'fa-archive',
         links: [
           {
-            name: localize.getLocalizedString('G_Tab_History-Audit'),
+            name: $translate('COMMON.TAB.AUDIT'),
             href: '#history/audit'
           }
         ]
-      };
-      this.charts = {
-        name: localize.getLocalizedString('G_Tab_Charts'),
-        icon: 'fa-bar-chart-o',
-        links: '#charts'
       };
 
       var self = this;
@@ -93,7 +88,6 @@ angular.module('linshareAdminApp')
           }
           tabs.push(self.users);
           tabs.push(self.audit);
-          // $scope.tabs.push($scope.menuCharts);
           return tabs;
         }
       };

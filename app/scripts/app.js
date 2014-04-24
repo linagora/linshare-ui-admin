@@ -12,15 +12,24 @@ angular.module('linshareAdminApp', [
     'ngTable',
     'http-auth-interceptor',
     'chieffancypants.loadingBar',
-    'localization',
+    'pascalprecht.translate',
     'restangular'
 ])
 
 // Register work which needs to be performed on module loading
-.config(['$logProvider', 'RestangularProvider', 'uiSelectConfig', 'cfpLoadingBarProvider', 'lsAppConfig',
-  function($logProvider, RestangularProvider, uiSelectConfig, cfpLoadingBarProvider, lsAppConfig) {
-    cfpLoadingBarProvider.includeSpinner = false;
-    uiSelectConfig.theme = 'bootstrap';
+.config(['$logProvider', '$translateProvider', 'RestangularProvider', 'uiSelectConfig', 'cfpLoadingBarProvider', 'lsAppConfig',
+  function($logProvider, $translateProvider, RestangularProvider, uiSelectConfig, cfpLoadingBarProvider, lsAppConfig) {
+    var debug = document.cookie.linshareDebug || lsAppConfig.debug;
+    $logProvider.debugEnabled(debug);
+
+    $translateProvider.useStaticFilesLoader({
+      prefix: 'i18n/locale-',
+      suffix: '.json'
+    });
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
+    $translateProvider.useMissingTranslationHandlerLog();
+
     RestangularProvider.setBaseUrl(lsAppConfig.backendURL);
     RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
     RestangularProvider.addResponseInterceptor(function(data) {
@@ -41,13 +50,14 @@ angular.module('linshareAdminApp', [
       }
       return element;
     });
-    var debug = document.cookie.linshareDebug || lsAppConfig.debug;
-    $logProvider.debugEnabled(debug);
+
+    uiSelectConfig.theme = 'bootstrap';
+    cfpLoadingBarProvider.includeSpinner = false;
 }])
 
 // Register work which should be performed when the injector is done loading all modules 
-.run(['$log', 'Restangular', 'Notification', 'localize',
-  function($log, Restangular, Notification, localize) {
+.run(['$log', 'Restangular', 'Notification',
+  function($log, Restangular, Notification) {
     Restangular.setErrorInterceptor(function(response) {
       $log.error(response);
       if (response.status !== 400) {
@@ -55,6 +65,5 @@ angular.module('linshareAdminApp', [
       }
       return response;
     });
-    localize.initLocalizedResources();
   }
 ]);

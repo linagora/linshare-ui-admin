@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">
-      {{'P_Users-Mails_BoxListTitle' | i18n}}
+      {{'P_Users-Mails_BoxListTitle' | translate}}
     </h3>
   </div>
   <div class="box-body">
@@ -11,15 +11,15 @@
         <tr x-ng-repeat="mail in $data"
             x-ng-click="edit(mail)">
           <td style="cursor: pointer"
-              data-title="'P_Users-Mails_ListIdentifier' | i18n"
+              data-title="'P_Users-Mails_ListIdentifier' | translate"
               sortable="'identifier'">
             <span>
               {{mail.identifier}}
             </span>
           </td>
-          <td data-title="'P_Users-Mails_ListIsPublic' | i18n" class="col-sm-2 text-center"
+          <td data-title="'P_Users-Mails_ListIsPublic' | translate" class="col-sm-2 text-center"
               sortable="'public'">
-            <i class="fa" title="{{mail.public ? 'P_Users-Mails_ListPublic' : 'P_Users-Mails_ListPrivate' | i18n}}"
+            <i class="fa" title="{{mail.public ? 'P_Users-Mails_ListPublic' : 'P_Users-Mails_ListPrivate' | translate}}"
                x-ng-class="{'fa-eye': mail.public, 'fa-eye-slash': !mail.public}">
             </i>
           </td>

@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title" x-ng-if="state === 'create'">
-      {{'P_Domains-Policies_CreationTitle' | i18n}}
+      {{'P_Domains-Policies_CreationTitle' | translate}}
     </h3>
     <h3 class="box-title" x-ng-if="state === 'edit'">
       {{domainPolicy.identifier}}
@@ -12,7 +12,7 @@
                 x-ng-click="cancel()">
           <span>
             <i class="fa fa-list"></i> 
-            {{'P_Domains-Policies_List' | i18n}}
+            {{'P_Domains-Policies_List' | translate}}
           </span>
         </button>
       </div>
@@ -29,7 +29,7 @@
                x-ng-class="{'has-error': domainPolicyForm.identifier.$invalid &&
                 (domainPolicyForm.identifier.$dirty || ls.domainPolicyForm.attempted)}">
             <label for="identifier">
-              {{'P_Domains-Policies_IdentifierLabel' | i18n}}
+              {{'P_Domains-Policies_IdentifierLabel' | translate}}
             </label>
             <input id="identifier" name="identifier" class="form-control" type="text" required
                    x-ng-model="domainPolicy.identifier">
@@ -38,7 +38,7 @@
         <!-- Description -->
         <div class="form-group">
           <label for="description">
-            {{'P_Domains-Policies_DescriptionLabel' | i18n}}
+            {{'P_Domains-Policies_DescriptionLabel' | translate}}
           </label>
           <textarea id="description" name="description" class="form-control"
                     x-ng-model="domainPolicy.description">
@@ -46,12 +46,12 @@
         </div>
         <div class="form-group">
           <label>
-            {{'P_Domains-Policies_RulesLabel' | i18n}}
+            {{'P_Domains-Policies_RulesLabel' | translate}}
           </label>
           <div class="form-inline form-group">
             <div class="form-group">
               <label class="sr-only" for="ruleType">
-                {{'P_Domains-Policies_RulesTypeLabel' | i18n}}
+                {{'P_Domains-Policies_RulesTypeLabel' | translate}}
               </label>
               <select name="ruleType" class="form-control"
                       x-ng-model="ruleToAdd.type"
@@ -60,7 +60,7 @@
             </div>
             <div class="form-group">
               <label class="sr-only" for="ruleDomain">
-                {{'P_Domains-Policies_RulesDomainLabel' | i18n}}
+                {{'P_Domains-Policies_RulesDomainLabel' | translate}}
               </label>
               <select name="ruleDomain" class="form-control"
                       x-ng-model="ruleToAdd.domain"
@@ -70,14 +70,14 @@
             <button type="button" class="btn btn-success"
                     x-ng-click="addRule(ruleToAdd)">
               <i class="fa fa-plus"></i>&nbsp;
-              {{'P_Domains-Policies_RulesAdd' | i18n}}
+              {{'P_Domains-Policies_RulesAdd' | translate}}
             </button>
           </div>
           <table class="table table-striped"
                  x-ng-table="tableParams">
             <tbody>
               <tr x-ng-repeat="rule in $data">
-                <td data-title="'P_Domains-Policies_RulesPositionLabel' | i18n">
+                <td data-title="'P_Domains-Policies_RulesPositionLabel' | translate">
                   <div class="btn-group">
                     <button type="button" class="btn btn-primary"
                             x-ng-click="swap($index, $index - 1)"
@@ -91,32 +91,32 @@
                     </button>
                   </div>
                 </td>
-                <td data-title="'P_Domains-Policies_RulesDomainLabel' | i18n">
+                <td data-title="'P_Domains-Policies_RulesDomainLabel' | translate">
                   <span>
                     {{rule.domain.label}}
                   </span>
                 </td>
-                <td data-title="'P_Domains-Policies_RulesTypeLabel' | i18n">
+                <td data-title="'P_Domains-Policies_RulesTypeLabel' | translate">
                   <span>
                     {{rule.type}}
                   </span>
                 </td>
                 <td class="col-sm-2"
-                    data-title="'P_Domains-Policies_RulesActionLabel' | i18n">
+                    data-title="'P_Domains-Policies_RulesActionLabel' | translate">
                   <button class="btn btn-danger" type="button"
                           x-ng-show="confirm === undefined"
                           x-ng-click="confirm = $index">
-                    {{'P_Domains-Policies_RulesDelete' | i18n}}
+                    {{'P_Domains-Policies_RulesDelete' | translate}}
                   </button>
                   <button class="btn" type="button"
                           x-ng-show="confirm === $index"
                           x-ng-click="confirm = undefined">
-                    {{'G_App_ConfirmNo' | i18n}}
+                    {{'G_App_ConfirmNo' | translate}}
                   </button>
                   <button class="btn btn-danger" type="button"
                           x-ng-show="confirm === $index"
                           x-ng-click="deleteRule($index)">
-                    {{'G_App_ConfirmYes' | i18n}}
+                    {{'G_App_ConfirmYes' | translate}}
                   </button>
                 </td>
               </tr>
@@ -129,14 +129,14 @@
         <button id="delete" name="delete" type="button" class="btn btn-danger"
                 x-ng-show="state==='edit'"
                 x-ng-click="remove()">
-          {{'P_Domains-Policies_Delete' | i18n}}
+          {{'P_Domains-Policies_Delete' | translate}}
         </button>
         <button type="button" id="reset" name="reset" class="btn btn-warning"
                 x-ng-click="reset()">
-          {{'P_Domains-Policies_Reset' | i18n}}
+          {{'P_Domains-Policies_Reset' | translate}}
         </button>
         <button type="submit" id="submit" name="submit" class="btn btn-success">
-          {{'P_Domains-Policies_Submit' | i18n}}
+          {{'P_Domains-Policies_Submit' | translate}}
         </button>
       </div>
     </fieldset>

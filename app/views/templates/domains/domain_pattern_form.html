@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title" x-ng-if="state === 'create'">
-      {{'P_Domains-DomainPatterns_CreationTitle' | i18n}}
+      {{'P_Domains-DomainPatterns_CreationTitle' | translate}}
     </h3>
     <h3 class="box-title" x-ng-if="state === 'edit'">
       {{domainPattern.identifier}}
@@ -12,7 +12,7 @@
                 x-ng-click="cancel()">
           <span>
             <i class="fa fa-list"></i> 
-            {{'P_Domains-DomainPatterns_List' | i18n}}
+            {{'P_Domains-DomainPatterns_List' | translate}}
           </span>
         </button>
       </div>
@@ -29,7 +29,7 @@
           <div class="form-group col-sm-5"
                x-ng-show="state==='create'">
             <label for="modelSelector">
-              {{'P_Domains-DomainPatterns_ModelSelectorLabel' | i18n}}
+              {{'P_Domains-DomainPatterns_ModelSelectorLabel' | translate}}
             </label>
             <select id="modelSelector" class="form-control"
                     x-ng-model="modelSelector"
@@ -46,7 +46,7 @@
                    x-ng-class="{'has-error': domainPatternForm.identifier.$invalid &&
                     (domainPatternForm.identifier.$dirty || ls.domainPatternForm.attempted)}">
                 <label for="identifier">
-                  {{'P_Domains-DomainPatterns_IdentifierLabel' | i18n}}
+                  {{'P_Domains-DomainPatterns_IdentifierLabel' | translate}}
                 </label>
                 <input id="identifier" name="identifier" class="form-control" type="text" required
                        x-ng-model="domainPattern.identifier">
@@ -55,7 +55,7 @@
             <!-- Description -->
             <div class="form-group">
               <label for="description">
-                {{'P_Domains-DomainPatterns_DescriptionLabel' | i18n}}
+                {{'P_Domains-DomainPatterns_DescriptionLabel' | translate}}
               </label>
               <textarea id="description" name="description" class="form-control"
                         x-ng-model="domainPattern.description">
@@ -66,13 +66,13 @@
                  x-ng-class="{'has-error': domainPatternForm.authentication.$invalid &&
                    (domainPatternForm.authentication.$dirty || ls.domainPatternForm.attempted)}">
               <label for="authentication">
-                {{'P_Domains-DomainPatterns_AuthenticationLabel' | i18n}}
+                {{'P_Domains-DomainPatterns_AuthenticationLabel' | translate}}
               </label>
               <textarea id="authentication" name="authentication" class="form-control" required
                         x-ng-model="domainPattern.authCommand">
               </textarea>
               <p class="help-block">
-                {{'P_Domains-DomainPatterns_AuthenticationHelp' | i18n}}
+                {{'P_Domains-DomainPatterns_AuthenticationHelp' | translate}}
               </p>
             </div>
             <!-- Search User -->
@@ -80,13 +80,13 @@
                  x-ng-class="{'has-error': domainPatternForm.searchUser.$invalid &&
                    (domainPatternForm.searchUser.$dirty || ls.domainPatternForm.attempted)}">
               <label for="searchUser">
-                {{'P_Domains-DomainPatterns_SearchUserLabel' | i18n}}
+                {{'P_Domains-DomainPatterns_SearchUserLabel' | translate}}
               </label>
               <textarea id="searchUser" name="searchUser" class="form-control" required
                 x-ng-model="domainPattern.searchUserCommand">
               </textarea>
               <p class="help-block">
-                {{'P_Domains-DomainPatterns_SearchUserHelp' | i18n}}
+                {{'P_Domains-DomainPatterns_SearchUserHelp' | translate}}
               </p>
             </div>
             <!-- Auto complete User using firstname, lastname and mail -->
@@ -94,13 +94,13 @@
                  x-ng-class="{'has-error': domainPatternForm.autocomplete1.$invalid &&
                    (domainPatternForm.autocomplete1.$dirty || ls.domainPatternForm.attempted)}">
               <label for="autocomplete1">
-                {{'P_Domains-DomainPatterns_AutoCompleteOnAllAttributesLabel' | i18n}}
+                {{'P_Domains-DomainPatterns_AutoCompleteOnAllAttributesLabel' | translate}}
               </label>
               <textarea id="autocomplete1" name="autocomplete1" class="form-control" required
                         x-ng-model="domainPattern.autoCompleteCommandOnAllAttributes">
               </textarea>
               <p class="help-block">
-                {{'P_Domains-DomainPatterns_AutoCompleteOnAllAttributesHelp' | i18n}}
+                {{'P_Domains-DomainPatterns_AutoCompleteOnAllAttributesHelp' | translate}}
               </p>
             </div>
             <!-- Auto complete User using firstname and lastname -->
@@ -108,13 +108,13 @@
                  x-ng-class="{'has-error': domainPatternForm.autocomplete2.$invalid &&
                    (domainPatternForm.autocomplete2.$dirty || ls.domainPatternForm.attempted)}">
               <label for="autocomplete2">
-                {{'P_Domains-DomainPatterns_AutoCompleteOnFirstNameAndLastNameLabel' | i18n}}
+                {{'P_Domains-DomainPatterns_AutoCompleteOnFirstNameAndLastNameLabel' | translate}}
               </label>
               <textarea id="autocomplete2" name="autocomplete2" class="form-control" required
                         x-ng-model="domainPattern.autoCompleteCommandOnFirstAndLastName">
               </textarea>
               <p class="help-block">
-                {{'P_Domains-DomainPatterns_AutoCompleteOnFirstNameAndLastNameLabel' | i18n}}
+                {{'P_Domains-DomainPatterns_AutoCompleteOnFirstNameAndLastNameLabel' | translate}}
               </p>
             </div>
           </div>
@@ -122,102 +122,102 @@
           <div class="col-md-5">
             <!-- Attributes -->
             <div class="well">
-              <h4>{{'P_Domains-DomainPatterns_Attributes' | i18n}}</h4>
+              <h4>{{'P_Domains-DomainPatterns_Attributes' | translate}}</h4>
 
               <div class="form-group"
                    x-ng-class="{'has-error': domainPatternForm.email.$invalid &&
                      (domainPatternForm.email.$dirty || ls.domainPatternForm.attempted)}">
                 <label for="email">
-                  {{'P_Domains-DomainPatterns_EmailLabel' | i18n}}
+                  {{'P_Domains-DomainPatterns_EmailLabel' | translate}}
                 </label>
                 <input id="email" name="email" type="text" class="form-control" required
                        x-ng-model="domainPattern.userMail">
                 <p class="help-block">
-                  {{'P_Domains-DomainPatterns_EmailHelp' | i18n}}
+                  {{'P_Domains-DomainPatterns_EmailHelp' | translate}}
                 </p>
               </div>
               <div class="form-group"
                    x-ng-class="{'has-error': domainPatternForm.firstName.$invalid &&
                      (domainPatternForm.firstName.$dirty || ls.domainPatternForm.attempted)}">
                 <label for="firstName">
-                  {{'P_Domains-DomainPatterns_FirstNameLabel' | i18n}}
+                  {{'P_Domains-DomainPatterns_FirstNameLabel' | translate}}
                 </label>
                 <input id="firstName" name="firstName" type="text" class="form-control" required
                        x-ng-model="domainPattern.userFirstName">
                 <p class="help-block">
-                  {{'P_Domains-DomainPatterns_FirstNameHelp' | i18n}}
+                  {{'P_Domains-DomainPatterns_FirstNameHelp' | translate}}
                 </p>
               </div>
               <div class="form-group"
                    x-ng-class="{'has-error': domainPatternForm.lastName.$invalid &&
                      (domainPatternForm.lastName.$dirty || ls.domainPatternForm.attempted)}">
                 <label for="lastName">
-                  {{'P_Domains-DomainPatterns_LastNameLabel' | i18n}}
+                  {{'P_Domains-DomainPatterns_LastNameLabel' | translate}}
                 </label>
                 <input id="lastName" name="lastName" type="text" class="form-control" required
                        x-ng-model="domainPattern.userLastName">
                 <p class="help-block">
-                  {{'P_Domains-DomainPatterns_LastNameHelp' | i18n}}
+                  {{'P_Domains-DomainPatterns_LastNameHelp' | translate}}
                 </p>
               </div>
               <div class="form-group"
                    x-ng-class="{'has-error': domainPatternForm.ldapUid.$invalid &&
                      (domainPatternForm.ldapUid.$dirty || ls.domainPatternForm.attempted)}">
                 <label for="ldapUid">
-                  {{'P_Domains-DomainPatterns_LdapUidLabel' | i18n}}
+                  {{'P_Domains-DomainPatterns_LdapUidLabel' | translate}}
                 </label>
                 <input id="ldapUid" name="ldapUid" type="text" class="form-control" required
                        x-ng-model="domainPattern.ldapUid">
                 <p class="help-block">
-                  {{'P_Domains-DomainPatterns_LdapUidHelp' | i18n}}
+                  {{'P_Domains-DomainPatterns_LdapUidHelp' | translate}}
                 </p>
               </div>
               <div class="form-group"
                    x-ng-class="{'has-error': domainPatternForm.searchPageSize.$invalid &&
                      (domainPatternForm.searchPageSize.$dirty || ls.domainPatternForm.attempted)}">
                 <label for="searchPageSize">
-                  {{'P_Domains-DomainPatterns_SearchPageSizeLabel' | i18n}}
+                  {{'P_Domains-DomainPatterns_SearchPageSizeLabel' | translate}}
                 </label>
                 <input id="searchPageSize" name="searchPageSize" type="text" class="form-control" required
                        x-ng-model="domainPattern.searchPageSize">
                 <p class="help-block">
-                  {{'P_Domains-DomainPatterns_SearchPageSizeHelp' | i18n}}
+                  {{'P_Domains-DomainPatterns_SearchPageSizeHelp' | translate}}
                 </p>
               </div>
               <div class="form-group"
                    x-ng-class="{'has-error': domainPatternForm.searchSizeLimit.$invalid &&
                      (domainPatternForm.searchSizeLimit.$dirty || ls.domainPatternForm.attempted)}">
                 <label for="searchSizeLimit">
-                  {{'P_Domains-DomainPatterns_SearchSizeLimitLabel' | i18n}}
+                  {{'P_Domains-DomainPatterns_SearchSizeLimitLabel' | translate}}
                 </label>
                 <input id="searchSizeLimit" name="searchSizeLimit" type="text" class="form-control" required
                        x-ng-model="domainPattern.searchSizeLimit">
                 <p class="help-block">
-                  {{'P_Domains-DomainPatterns_SearchSizeLimitHelp' | i18n}}
+                  {{'P_Domains-DomainPatterns_SearchSizeLimitHelp' | translate}}
                 </p>
               </div>
               <div class="form-group"
                    x-ng-class="{'has-error': domainPatternForm.completionPageSize.$invalid &&
                      (domainPatternForm.completionPageSize.$dirty || ls.domainPatternForm.attempted)}">
                 <label for="completionPageSize">
-                  {{'P_Domains-DomainPatterns_CompletionPageSizeLabel' | i18n}}
+                  {{'P_Domains-DomainPatterns_CompletionPageSizeLabel' | translate}}
                 </label>
                 <input id="completionPageSize" name="completionPageSize" type="text"class="form-control" required
                        x-ng-model="domainPattern.completionPageSize">
                 <p class="help-block">
-                  {{'P_Domains-DomainPatterns_CompletionPageSizeHelp' | i18n}}
+                  {{'P_Domains-DomainPatterns_CompletionPageSizeHelp' | translate}}
                 </p>
               </div>
               <div class="form-group"
                    x-ng-class="{'has-error': domainPatternForm.completionSizeLimit.$invalid &&
                      (domainPatternForm.completionSizeLimit.$dirty || ls.domainPatternForm.attempted)}">
                 <label for="completionSizeLimit">
-                  {{'P_Domains-DomainPatterns_CompletionSizeLimitLabel' | i18n}}
+                  {{'P_Domains-DomainPatterns_CompletionSizeLimitLabel' | translate}}
                 </label>
                 <input id="completionSizeLimit" name="completionSizeLimit" type="text" class="form-control" required
                        x-ng-model="domainPattern.completionSizeLimit">
                 <p class="help-block">
-                  {{'P_Domains-DomainPatterns_CompletionSizeLimitHelp' | i18n}}
+                  {{'P_Domains-DomainPatterns_CompletionSizeLimitHelp' | translate}}
                 </p>
               </div>
             </div>
@@ -229,14 +229,14 @@
         <button id="delete" name="delete" type="button" class="btn btn-danger"
                 x-ng-show="state==='edit'"
                 x-ng-click="remove()">
-          {{'P_Domains-DomainPatterns_Delete' | i18n}}
+          {{'P_Domains-DomainPatterns_Delete' | translate}}
         </button>
         <button type="button" id="reset" name="reset" class="btn btn-warning"
                 x-ng-click="reset()">
-          {{'P_Domains-DomainPatterns_Reset' | i18n}}
+          {{'P_Domains-DomainPatterns_Reset' | translate}}
         </button>
         <button type="submit" id="submit" name="submit" class="btn btn-success">
-          {{'P_Domains-DomainPatterns_Submit' | i18n}}
+          {{'P_Domains-DomainPatterns_Submit' | translate}}
         </button>
       </div>
     </fieldset>

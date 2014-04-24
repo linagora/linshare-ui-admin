@@ -10,6 +10,10 @@
     "angular-resource": "*",
     "angular-route": "*",
     "angular-sanitize": "*",
+    "angular-translate": "*",
+    "angular-translate-loader-static-files": "*",
+    "angular-translate-interpolation-messageformat": "*",
+    "angular-translate-handler-log": "*",
     "angular-ui-select": "*",
     "es5-shim": "*",
     "html5shiv": "*",
@@ -17,6 +21,7 @@
     "json3": "*",
     "js-base64": "*",
     "lodash": "*",
+    "messageformat": "*",
     "restangular": "*",
     "ng-table": "*"
   },

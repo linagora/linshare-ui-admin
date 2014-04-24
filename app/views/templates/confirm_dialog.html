@@ -1,6 +1,6 @@
 <div id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
   <div class="modal-header">
-     <h3 id="confirmModalLabel">{{'G_App_Confirm' | i18n}}</h3>
+     <h3 id="confirmModalLabel">{{'COMMON.BASIC_CONFIRMATION_FORM.TITLE' | translate}}</h3>
 
   </div>
   <div class="modal-body">
@@ -8,10 +8,10 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn" x-ng-click="cancel()">
-      {{'G_App_ConfirmNo' | i18n}}
+      {{'COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO' | translate}}
     </button>
     <button type="submit" class="btn btn-danger" x-ng-click="validate()">
-      {{'G_App_ConfirmYes' | i18n}}
+      {{'COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES' | translate}}
     </button>
   </div>
 </div>

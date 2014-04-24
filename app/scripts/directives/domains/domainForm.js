@@ -9,13 +9,12 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
         reload: '&'
       },
       controller:
-        ['$scope', '$modal', '$log', 'Restangular', 'Domain', 'LdapConnection', 'DomainPattern', 'Enum', 'DomainPolicy', 'localize',
-        function($scope, $modal, $log, Restangular, Domain, LdapConnection, DomainPattern, Enum, DomainPolicy, localize) {
+        ['$scope', '$modal', '$log', '$translate', 'Restangular', 'Domain', 'LdapConnection', 'DomainPattern', 'Enum', 'DomainPolicy',
+        function($scope, $modal, $log, $translate, Restangular, Domain, LdapConnection, DomainPattern, Enum, DomainPolicy) {
           $scope.ldapConnections = []
           $scope.domainPatterns = []
           $scope.userRoles = []
           $scope.domainPolicies = []
-          $scope.locales = localize.getAllLocales();
           LdapConnection.getAll(function successCallback(ldapConnections) {
             angular.forEach(ldapConnections, function(ldapConnection) {
               $scope.ldapConnections.push(ldapConnection.identifier);
@@ -30,6 +29,9 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
             $scope.userRoles = _.remove(userRoles, function(role) {
               return role !== 'SYSTEM' && role !== 'SUPERADMIN';
             });
+          });
+          Enum.getOptions('language', function successCallback(languages) {
+            $scope.locales = languages;
           });
           DomainPolicy.getAll(function successCallback(domainPolicies) {
             angular.forEach(domainPolicies, function(domainPolicy) {
@@ -82,9 +84,7 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
                 controller: 'ConfirmDialogCtrl',
                 resolve: {
                   content: function() {
-                    return localize.getLocalizedString(
-                      'P_Domains-Management_ConfirmDeleteText'
-                    );
+                    return $translate('MANAGE_DOMAINS.CONFIRM_DELETE_FORM.PARAGRAPH');
                   }
                 }
               });

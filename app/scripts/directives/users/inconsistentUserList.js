@@ -6,8 +6,8 @@ angular.module('linshareAdminApp').directive('lsInconsistentUserList', [
       restrict: 'A',
       transclude: true,
       scope: {},
-      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'User', 'localize',
-        function($scope, $filter, $log, ngTableParams, User, localize) {
+      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'User',
+        function($scope, $filter, $log, ngTableParams, User) {
           $scope.$watch(User.getCurrent, function (newValue, oldValue) {
             if (angular.isUndefined(newValue)) {
               $scope.reloadList();

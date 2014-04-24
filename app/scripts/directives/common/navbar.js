@@ -6,18 +6,18 @@ angular.module('linshareAdminApp').directive('lsNavbar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$log', 'Authentication', 'localize',
-        function($scope, $log, Authentication, localize) {
+      controller: ['$scope', '$log', '$translate', 'Authentication',
+        function($scope, $log, $translate, Authentication) {
           Authentication.getCurrentUser().then(function successCallback(user) {
             $scope.userLogged = user;
           });
 
           $scope.setLanguage = function(value) {
-            localize.setLanguage(value);
+            $translate.use(value);
           };
 
           $scope.isCurrentLang = function(value) {
-            return localize.getSimpleLanguage() === value;
+            return $translate.use() === value;
           };
 
           $scope.logout = function() {

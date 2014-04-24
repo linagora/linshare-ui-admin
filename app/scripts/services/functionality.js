@@ -2,17 +2,17 @@
 
 angular.module('linshareAdminApp')
   .factory('Functionality',
-    ['$log', 'Notification', 'Restangular', 'localize',
-    function ($log, Notification, Restangular, localize) {
+    ['$log', '$translate', 'Notification', 'Restangular',
+    function ($log, $translate, Notification, Restangular) {
       this.currentFunctionality = undefined;
 
       var addLocalizedName = function(functionality) {
-        functionality.localizedName = localize.getLocalizedString(
-          'P_Parameters-Functionalities_Func-' + functionality.identifier
+        functionality.localizedName = $translate(
+          'FUNCTIONALITIES.NAMES.' + functionality.identifier
         );
         angular.forEach(functionality.functionalities, function(childFunctionality) {
-          childFunctionality.localizedName = localize.getLocalizedString(
-            'P_Parameters-Functionalities_Func-' + childFunctionality.identifier
+          childFunctionality.localizedName = $translate(
+            'FUNCTIONALITIES.NAMES.' + childFunctionality.identifier
           );
         });
       };

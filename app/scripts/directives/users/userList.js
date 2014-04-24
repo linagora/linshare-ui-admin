@@ -9,8 +9,8 @@ angular.module('linshareAdminApp').directive('lsUserList', [
       link: function(scope, element, attrs) {
         scope.searching = false;
       },
-      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'User', 'localize',
-        function($scope, $filter, $log, ngTableParams, User, localize) {
+      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'User',
+        function($scope, $filter, $log, ngTableParams, User) {
           $scope.reloadList = function () {
             $scope.tableParams.reload();
           };

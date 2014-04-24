@@ -11,8 +11,8 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
         };
         scope.today = new Date();
       },
-      controller: ['$scope', '$modal', '$log', 'Restangular', 'User', 'Functionality', 'Enum', 'localize',
-        function($scope, $modal, $log, Restangular, User, Functionality, Enum, localize) {
+      controller: ['$scope', '$modal', '$log', '$translate', 'Restangular', 'User', 'Functionality', 'Enum',
+        function($scope, $modal, $log, $translate, Restangular, User, Functionality, Enum) {
           Enum.getOptions('role', function successCallback(userRoles) {
             $scope.userRoles = _.remove(userRoles, function(role) {
               return role !== 'SYSTEM' && role !== 'SUPERADMIN';
@@ -27,11 +27,11 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
           $scope.getStatus = function(user) {
             if (angular.isDefined(user)) {
               if (user.guest === true) {
-                return localize.getLocalizedString('P_Users-Management_StatusGuest');
+                return $translate('P_Users-Management_StatusGuest');
               } else if (user.role === 'ADMIN') {
-                return localize.getLocalizedString('P_Users-Management_StatusAdmin');
+                return $translate('P_Users-Management_StatusAdmin');
               } else if (user.role === 'SIMPLE') {
-                return localize.getLocalizedString('P_Users-Management_StatusSimple');
+                return $translate('P_Users-Management_StatusSimple');
               }
             }
           };
@@ -88,9 +88,7 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
               controller: 'ConfirmDialogCtrl',
               resolve: {
                 content: function() {
-                  return localize.getLocalizedString(
-                    'P_Users-Management_ConfirmDeleteText'
-                  );
+                  return $translate('MANAGE_USERS.CONFIRM_DELETE_FORM.PARAGRAPH');
                 }
               }
             });

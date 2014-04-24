@@ -7,8 +7,8 @@ angular.module('linshareAdminApp').directive('lsDomainPolicyForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$filter', '$modal', '$log', 'Restangular', 'ngTableParams', 'Enum', 'Domain', 'DomainPolicy', 'localize',
-        function($scope, $filter, $modal, $log, Restangular, ngTableParams, Enum, Domain, DomainPolicy, localize) {
+        ['$scope', '$filter', '$modal', '$log', '$translate', 'Restangular', 'ngTableParams', 'Enum', 'Domain', 'DomainPolicy',
+        function($scope, $filter, $modal, $log, $translate, Restangular, ngTableParams, Enum, Domain, DomainPolicy) {
           Domain.getAll(function successCallback(domains) {
             $scope.allDomains = domains;
           });
@@ -41,9 +41,7 @@ angular.module('linshareAdminApp').directive('lsDomainPolicyForm', [
                 controller: 'ConfirmDialogCtrl',
                 resolve: {
                   content: function() {
-                    return localize.getLocalizedString(
-                      'P_Domains-Policies_ConfirmDeleteText'
-                    );
+                    return $translate('DOMAIN_POLICIES.CONFIRM_DELETE_FORM.PARAGRAPH');
                   }
                 }
               });

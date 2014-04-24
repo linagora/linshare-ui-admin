@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">
-      {{'P_Domains-LDAPConnections_BoxListTitle' | i18n}}
+      {{'P_Domains-LDAPConnections_BoxListTitle' | translate}}
     </h3>
     <div class="pull-right box-tools">
       <div class="btn-group">
@@ -9,7 +9,7 @@
                 x-ng-click="create()">
         <span>
           <i class="fa fa-plus"></i> 
-          {{'P_Domains-LDAPConnections_Add' | i18n}}
+          {{'P_Domains-LDAPConnections_Add' | translate}}
         </span>
         </button>
       </div>
@@ -21,10 +21,10 @@
              x-ng-table="tableParams">
         <tbody>
           <tr x-ng-repeat="ldapConnection in $data" x-ng-click="edit(ldapConnection)">
-            <td data-title="'P_Domains-LDAPConnections_IdentifierLabel' | i18n" sortable="'identifier'">
+            <td data-title="'P_Domains-LDAPConnections_IdentifierLabel' | translate" sortable="'identifier'">
               <span>{{ldapConnection.identifier}}</span>
             </td>
-            <td data-title="'P_Domains-LDAPConnections_ProviderURLLabel' | i18n" sortable="'providerUrl'">
+            <td data-title="'P_Domains-LDAPConnections_ProviderURLLabel' | translate" sortable="'providerUrl'">
               <span>{{ldapConnection.providerUrl}}</span>
             </td>
           </tr>

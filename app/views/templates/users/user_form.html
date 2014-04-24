@@ -24,7 +24,7 @@
                    x-ng-model="user.canUpload">
           </span>
           <input type="text" class="form-control" style="background-color: transparent" disabled
-                 value="{{'P_Users-Management_CanUpload' | i18n}}">
+                 value="{{'P_Users-Management_CanUpload' | translate}}">
         </div>
         <!-- GUEST -->
         <div x-ng-if="user.guest">
@@ -33,7 +33,7 @@
                x-ng-class="{error: userForm.firstName.$invalid &&
                  (userForm.firstName.$dirty || ls.userForm.attempted)}">
             <label for="firstName">
-              {{'P_Users-Management_FirstName' | i18n}}
+              {{'P_Users-Management_FirstName' | translate}}
             </label>
             <div class="controls">
               <input id="firstName" name="firstName" type="text" class="form-control" required
@@ -46,7 +46,7 @@
                x-ng-class="{error: userForm.lastName.$invalid &&
                  (userForm.lastName.$dirty || ls.userForm.attempted)}">
             <label for="lastName">
-              {{'P_Users-Management_LastName' | i18n}}
+              {{'P_Users-Management_LastName' | translate}}
             </label>
             <div class="controls">
               <input id="lastName" name="lastName" type="text" class="form-control" required
@@ -56,7 +56,7 @@
           <!-- Restricted -->
           <div class="form-group">
             <label for="restricted">
-              {{'P_Users-Management_Restricted' | i18n}}
+              {{'P_Users-Management_Restricted' | translate}}
             </label>
             <div class="controls">
               <input id="restricted" name="restricted" type="checkbox" class="checkbox"
@@ -71,7 +71,7 @@
                  x-ng-repeat="contact in user.restrictedContacts">
               <label for="contacts"
                      x-ng-show="$first">
-                {{'P_Users-Management_RestrictedContacts' | i18n}}
+                {{'P_Users-Management_RestrictedContacts' | translate}}
               </label>
               <div class="controls">
                 <div class="input-append">
@@ -88,7 +88,7 @@
             </div>
             <div class="form-group">
               <label for="contact">
-                {{'P_Users-Management_AddContact' | i18n}}
+                {{'P_Users-Management_AddContact' | translate}}
               </label>
               <div class="controls">
                 <div class="input-append">
@@ -114,7 +114,7 @@
           <!-- Expiration date -->
           <div class="form-group">
             <label for="expirationDate">
-              {{'P_Users-Management_ExpirationDate' | i18n}}
+              {{'P_Users-Management_ExpirationDate' | translate}}
             </label>
             <div class="controls">
               <p class="input-group">
@@ -138,7 +138,7 @@
           <!-- Comment -->
           <div class="form-group">
             <label for="comment">
-              {{'P_Users-Management_Comment' | i18n}}
+              {{'P_Users-Management_Comment' | translate}}
             </label>
             <div class="controls">
               <textarea id="comment" name="comment" class="form-control"
@@ -153,7 +153,7 @@
              x-ng-class="{error: userForm.role.$invalid &&
                (userForm.role.$dirty || ls.userForm.attempted)}">
           <label for="role">
-            {{'P_Users-Management_Role' | i18n}}
+            {{'P_Users-Management_Role' | translate}}
           </label>
           <div class="controls">
             <select id="role" name="role" class="form-control" required
@@ -169,7 +169,7 @@
         <!-- Account type -->
         <div class="form-group">
           <label for="status">
-            {{'P_Users-Management_Status' | i18n}}
+            {{'P_Users-Management_Status' | translate}}
           </label>
           <div class="controls">
             <span name="status" class="form-control-static">
@@ -180,7 +180,7 @@
         <!-- Creation date -->
         <div class="form-group">
           <label for="creationDate">
-            {{'P_Users-Management_CreationDate' | i18n}}
+            {{'P_Users-Management_CreationDate' | translate}}
           </label>
           <div class="controls">
             <span name="creationDate" class="form-control-static">
@@ -192,7 +192,7 @@
         <!-- Modification date -->
         <div class="form-group">
           <label for="modificationDate">
-            {{'P_Users-Management_ModificationDate' | i18n}}
+            {{'P_Users-Management_ModificationDate' | translate}}
           </label>
           <div class="controls">
             <span name="modificationDate" class="form-control-static">
@@ -204,7 +204,7 @@
         <div class="form-group"
              x-ng-if="user.guest">
           <label for="owner">
-            {{'P_Users-Management_Owner' | i18n}}
+            {{'P_Users-Management_Owner' | translate}}
           </label>
           <div class="controls">
             <span name="owner" class="form-control-static">
@@ -217,7 +217,7 @@
           <!-- First name -->
           <div class="form-group">
             <label for="firstName">
-              {{'P_Users-Management_FirstName' | i18n}}
+              {{'P_Users-Management_FirstName' | translate}}
             </label>
             <div class="controls">
               <span name="firstName" class="form-control-static">
@@ -229,7 +229,7 @@
           <!-- Last name -->
           <div class="form-group">
             <label for="lastName">
-              {{'P_Users-Management_LastName' | i18n}}
+              {{'P_Users-Management_LastName' | translate}}
             </label>
             <div class="controls">
               <span name="lastName" class="form-control-static">
@@ -240,7 +240,7 @@
           <!-- Domain -->
           <div class="form-group">
             <label for="domain">
-              {{'P_Users-Management_Domain' | i18n}}
+              {{'P_Users-Management_Domain' | translate}}
             </label>
             <div class="controls">
               <span name="domain" class="form-control-static">
@@ -258,14 +258,14 @@
         <div class="controls">
           <button type="button" id="delete" name="delete" class="btn btn-danger"
                   x-ng-click="delete(user)">
-            {{'P_Users-Management_Delete' | i18n}}
+            {{'P_Users-Management_Delete' | translate}}
           </button>
           <button type="button" id="reset" name="reset" class="btn btn-warning"
                   x-ng-click="reset()">
-            {{'P_Users-Management_Reset' | i18n}}
+            {{'P_Users-Management_Reset' | translate}}
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">
-            {{'P_Users-Management_Submit' | i18n}}
+            {{'P_Users-Management_Submit' | translate}}
           </button>
         </div>
       </div>

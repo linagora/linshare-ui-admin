@@ -3,18 +3,18 @@
     <li class="dropdown language-menu">
       <a href="#" class="dropdown-toggle">
         <i class="fa fa-flag"></i>
-        {{'G_App_Language' | i18n}}
+        {{'G_App_Language' | translate}}
         <i class="caret"></i>
       </a>
       <ul class="dropdown-menu">
         <li x-ng-class="{disabled: isCurrentLang('en')}">
           <a x-ng-click="setLanguage('en-US')">
-            {{'G_App_LangEn' | i18n}}
+            {{'G_App_LangEn' | translate}}
           </a>
         </li>
         <li x-ng-class="{disabled: isCurrentLang('fr')}">
           <a x-ng-click="setLanguage('fr-FR')">
-            {{'G_App_LangFr' | i18n}}
+            {{'G_App_LangFr' | translate}}
           </a>
         </li>
       </ul>
@@ -28,7 +28,7 @@
       <ul class="dropdown-menu">
         <li>
           <a x-ng-click="logout()">
-            {{'G_App_Logout' | i18n}}
+            {{'G_App_Logout' | translate}}
           </a>
         </li>
       </ul>

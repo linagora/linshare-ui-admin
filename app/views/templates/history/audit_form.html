@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title" x-ng-if="state === 'create'">
-      {{'P_History-Audit_BoxTitle' | i18n}}
+      {{'P_History-Audit_BoxTitle' | translate}}
     </h3>
   </div>
   <div class="box-body">
@@ -10,31 +10,31 @@
       <div class="row">
         <div class="col-md-6">
           <div class="well">
-            <legend>{{'P_History-Audit_ActorTitle' | i18n}}</legend>
+            <legend>{{'P_History-Audit_ActorTitle' | translate}}</legend>
             <div class="form-group">
               <label for="actorMail">
-                {{'P_History-Audit_ActorMail' | i18n}}
+                {{'P_History-Audit_ActorMail' | translate}}
               </label>
               <input id="actorMail" name="actorMail" class="form-control" type="text"
                      x-ng-model="actorMails">
             </div>
             <div class="form-group">
               <label for="actorFirstName">
-                {{'P_History-Audit_ActorFirstName' | i18n}}
+                {{'P_History-Audit_ActorFirstName' | translate}}
               </label>
               <input id="actorFirstName" name="actorFirstName" class="form-control" type="text"
                      x-ng-model="criteria.actorFirstName">
             </div>
             <div class="form-group">
               <label for="actorLastName">
-                {{'P_History-Audit_ActorLastName' | i18n}}
+                {{'P_History-Audit_ActorLastName' | translate}}
               </label>
               <input id="actorLastName" name="actorLastName" class="form-control" type="text"
                      x-ng-model="criteria.actorLastName">
             </div>
             <div class="form-group">
               <label for="actorDomain">
-                {{'P_History-Audit_ActorDomain' | i18n}}
+                {{'P_History-Audit_ActorDomain' | translate}}
               </label>
               <select id="actorDomain" class="form-control"
                       x-ng-model="criteria.actorDomain"
@@ -45,31 +45,31 @@
         </div>
         <div class="col-md-6">
           <div class="well">
-            <legend>{{'P_History-Audit_TargetTitle' | i18n}}</legend>
+            <legend>{{'P_History-Audit_TargetTitle' | translate}}</legend>
             <div class="form-group">
               <label for="targetMail">
-                {{'P_History-Audit_TargetMail' | i18n}}
+                {{'P_History-Audit_TargetMail' | translate}}
               </label>
               <input id="targetMail" name="targetMail" class="form-control" type="text"
                      x-ng-model="targetMails">
             </div>
             <div class="form-group">
               <label for="targetFirstName">
-                {{'P_History-Audit_TargetFirstName' | i18n}}
+                {{'P_History-Audit_TargetFirstName' | translate}}
               </label>
               <input id="targetFirstName" name="targetFirstName" class="form-control" type="text"
                      x-ng-model="criteria.targetFirstName">
             </div>
             <div class="form-group">
               <label for="targetLastName">
-                {{'P_History-Audit_TargetLastName' | i18n}}
+                {{'P_History-Audit_TargetLastName' | translate}}
               </label>
               <input id="targetLastName" name="targetLastName" class="form-control" type="text"
                      x-ng-model="criteria.targetLastName">
             </div>
             <div class="form-group">
               <label for="targetDomain">
-                {{'P_History-Audit_TargetDomain' | i18n}}
+                {{'P_History-Audit_TargetDomain' | translate}}
               </label>
               <select id="targetDomain" class="form-control"
                       x-ng-model="criteria.targetDomain"
@@ -82,17 +82,17 @@
       <div class="row">
         <div class="col-md-6">
           <div class="well">
-            <legend>{{'P_History-Audit_FileTitle' | i18n}}</legend>
+            <legend>{{'P_History-Audit_FileTitle' | translate}}</legend>
             <div class="form-group">
               <label for="fileName">
-                {{'P_History-Audit_FileName' | i18n}}
+                {{'P_History-Audit_FileName' | translate}}
               </label>
               <input id="fileName" name="fileName" class="form-control" type="text"
                      x-ng-model="criteria.fileName">
             </div>
             <div class="form-group">
               <label for="fileExtension">
-                {{'P_History-Audit_FileExtension' | i18n}}
+                {{'P_History-Audit_FileExtension' | translate}}
               </label>
               <input id="fileExtension" name="fileExtension" class="form-control" type="text"
                      x-ng-model="criteria.fileExtension">
@@ -101,11 +101,11 @@
         </div>
         <div class="col-md-6">
           <div class="well">
-            <legend>{{'P_History-Audit_ActionsTitle' | i18n}}</legend>
+            <legend>{{'P_History-Audit_ActionsTitle' | translate}}</legend>
             <div class="row">
               <div class="col-sm-6">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsFrom' | i18n}}"
+                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsFrom' | translate}}"
                          datepicker-popup="medium"
                          is-open="opened.from"
                          ng-model="criterion.dateFrom">
@@ -119,7 +119,7 @@
               </div>
               <div class="col-sm-6">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsTo' | i18n}}"
+                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsTo' | translate}}"
                          datepicker-popup="medium"
                          is-open="opened.to"
                          ng-model="criterion.dateTo">
@@ -143,7 +143,7 @@
         </div>
       </div>
       <button type="submit" id="submit" name="submit" class="btn btn-success">
-        {{'P_History-Audit_Submit' | i18n}}
+        {{'P_History-Audit_Submit' | translate}}
       </button>
     </form>
     <hr>
@@ -152,27 +152,27 @@
         <table class="table table-striped"
                x-ng-table="tableParams">
           <tr x-ng-repeat="result in $data">
-            <td data-title="'P_History-Audit_ActionDate' | i18n"
+            <td data-title="'P_History-Audit_ActionDate' | translate"
                 sortable="'actionDate'">
               {{result.actionDate | date:'medium'}}
             </td>
-            <td data-title="'P_History-Audit_ActionName' | i18n"
+            <td data-title="'P_History-Audit_ActionName' | translate"
                 sortable="'action'">
               {{result.logAction}}
             </td>
-            <td data-title="'P_History-Audit_ActorMail' | i18n"
+            <td data-title="'P_History-Audit_ActorMail' | translate"
                 sortable="'actorMail'">
               {{result.actorMail}}
             </td>
-            <td data-title="'P_History-Audit_TargetMail' | i18n"
+            <td data-title="'P_History-Audit_TargetMail' | translate"
                 sortable="'targetMail'">
               {{result.targetMail}}
             </td>
-            <td data-title="'P_History-Audit_FileName' | i18n"
+            <td data-title="'P_History-Audit_FileName' | translate"
                 sortable="'fileName'">
               {{result.fileName}}
             </td>
-            <td data-title="'P_History-Audit_FileExpirationDate' | i18n"
+            <td data-title="'P_History-Audit_FileExpirationDate' | translate"
                 sortable="'expirationDate'">
               {{result.expirationDate}}
             </td>

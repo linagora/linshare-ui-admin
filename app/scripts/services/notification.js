@@ -3,20 +3,20 @@
 /* Services */
 
 angular.module('linshareAdminApp')
-  .factory('Notification', ['$rootScope', '$timeout', '$log', 'localize',
-  function($rootScope, $timeout, $log, localize) {
+  .factory('Notification', ['$rootScope', '$timeout', '$log', '$translate',
+  function($rootScope, $timeout, $log, $translate) {
     return {
-      addSuccess: function(unLocalizeMsg) {
+      addSuccess: function(action) {
         $log.debug('Notification:addSuccess');
         var newAlert = {};
         newAlert.type = 'success';
-        newAlert.msg = localize.getLocalizedString(unLocalizeMsg);
+        newAlert.msg = $translate('COMMON.NOTIFICATION.SUCCESS.' + action);
         $rootScope.$broadcast('pushAlert', newAlert);
       },
       addError: function(newAlert) {
         $log.debug('Notification:addError');
         newAlert.type = 'danger';
-        newAlert.msg = localize.getLocalizedString('G_Err_' + newAlert.errCode);
+        newAlert.msg = $translate('COMMON.NOTIFICATION.ERROR.' + newAlert.errCode);
         $rootScope.$broadcast('pushAlert', newAlert);
       }
     };
