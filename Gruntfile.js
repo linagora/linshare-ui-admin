@@ -260,6 +260,7 @@ module.exports = function (grunt) {
             '*.json',
             'scripts/config.js',
             'i18n/{,*/}*.js',
+            'i18n/{,*/}*.json',
             'views/{,**/}*.html',
             'images/{,*/}*.{webp,png}',
             'styles/AdminLTE/fonts/*',

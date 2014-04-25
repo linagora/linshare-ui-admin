@@ -76,6 +76,7 @@ angular.module('linshareAdminApp')
       // Public API here
       return {
         getAvailableTabs: function(user) {
+          $log.debug('Tab:getAvailableTabs');
           var tabs = [];
 
           tabs.push(self.parameters);
