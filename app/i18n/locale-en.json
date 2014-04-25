@@ -52,7 +52,25 @@
         "DELETE": "Deletion succeed"
       },
       "ERROR": {
-        "": ""
+        "1000": "A error has occured, please contact your LinShare administrator",
+        "4000": "Invalid identifier",
+        "13000": "Domain id already exist",
+        "13001": "Domain id not found",
+        "13002": "Domain invalid type",
+        "13003": "Domain policy not found",
+        "13004": "LDAP connection not found",
+        "13005": "Domain pattern not found",
+        "13006": "Domain base DN not found",
+        "13007": "Domain do not already exists",
+        "13008": "Domain do not exists",
+        "14000": "Functionality entity out of date",
+        "15000": "Relay host not enable",
+        "15666": "XSS filter scan failed",
+        "16000": "Directory unavailable",
+        "17000": "Unauthorized action",
+        "20000": "A error has occured, please contact your LinShare administrator",
+        "20001": "Webservice unauthorized",
+        "20003": "Webservice not found"
       }
     }
   },
