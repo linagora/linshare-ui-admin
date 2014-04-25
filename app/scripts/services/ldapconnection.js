@@ -31,7 +31,7 @@ angular.module('linshareAdminApp')
           $log.debug('LdapConnection:add');
           return Restangular.all('ldap_connections').post(ldapConnection).then(
             function success(ldapConnection) {
-              Notification.addSuccess('P_Domains-LDAPConnections_CreateSuccess');
+              Notification.addSuccess('CREATE');
               if (successCallback) {
                 return successCallback(ldapConnection);
               }
@@ -51,7 +51,7 @@ angular.module('linshareAdminApp')
           $log.debug('LdapConnection:update');
           return ldapConnection.put().then(
             function success(ldapConnection) {
-              Notification.addSuccess('P_Domains-LDAPConnections_UpdateSuccess');
+              Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(ldapConnection);
               }
@@ -71,7 +71,7 @@ angular.module('linshareAdminApp')
           $log.debug('LdapConnection:remove');
           return ldapConnection.remove().then(
             function success(ldapConnection) {
-              Notification.addSuccess('P_Domains-LDAPConnections_DeleteSuccess');
+              Notification.addSuccess('DELETE');
               if (successCallback) {
                 return successCallback(ldapConnection);
               }

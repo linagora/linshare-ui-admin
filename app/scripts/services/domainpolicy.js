@@ -31,7 +31,7 @@ angular.module('linshareAdminApp')
           $log.debug('DomainPolicy:add');
           return Restangular.all('domain_policies').post(domainPolicy).then(
             function success(domainPolicy) {
-              Notification.addSuccess('P_Domains-DomainPolicies_CreateSuccess');
+              Notification.addSuccess('CREATE');
               if (successCallback) {
                 return successCallback(domainPolicy);
               }
@@ -51,7 +51,7 @@ angular.module('linshareAdminApp')
           $log.debug('DomainPolicy:update');
           return domainPolicy.put().then(
             function success(domainPolicy) {
-              Notification.addSuccess('P_Domains-DomainPolicies_UpdateSuccess');
+              Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(domainPolicy);
               }
@@ -71,7 +71,7 @@ angular.module('linshareAdminApp')
           $log.debug('DomainPolicy:remove');
           return domainPolicy.remove().then(
             function success(domainPolicy) {
-              Notification.addSuccess('P_Domains-Policies_DeleteSuccess');
+              Notification.addSuccess('DELETE');
               if (successCallback) {
                 return successCallback(domainPolicy);
               }

@@ -77,7 +77,7 @@ angular.module('linshareAdminApp')
           $log.debug('Domain:add');
           return Restangular.all('domains').post(domain).then(
             function success(domain) {
-              Notification.addSuccess('P_Domains-Management_CreateSuccess');
+              Notification.addSuccess('CREATE');
               if (successCallback) {
                 return successCallback(domain);
               }
@@ -100,7 +100,7 @@ angular.module('linshareAdminApp')
           return domain.put().then(
             function success(domain) {
               if (notify) {
-                Notification.addSuccess('P_Domains-Management_UpdateSuccess');
+                Notification.addSuccess('UPDATE');
               }
               if (successCallback) {
                 return successCallback(domain);
@@ -121,7 +121,7 @@ angular.module('linshareAdminApp')
           $log.debug('Domain:remove');
           return domain.remove().then(
             function success(domain) {
-              Notification.addSuccess('P_Domains-Management_DeleteSuccess');
+              Notification.addSuccess('DELETE');
               if (successCallback) {
                 return successCallback(domain);
               }

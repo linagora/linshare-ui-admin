@@ -31,7 +31,7 @@ angular.module('linshareAdminApp')
           $log.debug('DomainPattern:add');
           return Restangular.all('domain_patterns').post(domainPattern).then(
             function success(domainPattern) {
-              Notification.addSuccess('P_Domains-DomainPatterns_CreateSuccess');
+              Notification.addSuccess('CREATE');
               if (successCallback) {
                 return successCallback(domainPattern);
               }
@@ -51,7 +51,7 @@ angular.module('linshareAdminApp')
           $log.debug('DomainPattern:update');
           return domainPattern.put().then(
             function success(domainPattern) {
-              Notification.addSuccess('P_Domains-DomainPatterns_UpdateSuccess');
+              Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(domainPattern);
               }
@@ -71,7 +71,7 @@ angular.module('linshareAdminApp')
           $log.debug('DomainPattern:remove');
           return domainPattern.remove().then(
             function success(domainPattern) {
-              Notification.addSuccess('P_Domains-DomainPatterns_DeleteSuccess');
+              Notification.addSuccess('DELETE');
               if (successCallback) {
                 return successCallback(domainPattern);
               }

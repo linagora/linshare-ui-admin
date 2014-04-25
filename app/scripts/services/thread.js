@@ -31,7 +31,7 @@ angular.module('linshareAdminApp')
           $log.debug('Thread:update');
           return thread.put().then(
             function success(thread) {
-              Notification.addSuccess('P_Users-Threads_ListUpdateSuccess');
+              Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(thread);
               }
@@ -51,7 +51,7 @@ angular.module('linshareAdminApp')
           $log.debug('Thread:remove');
           return thread.remove().then(
             function success(thread) {
-              Notification.addSuccess('P_Users-Threads_ListDeleteSuccess');
+              Notification.addSuccess('DELETE');
               if (successCallback) {
                 return successCallback(thread);
               }

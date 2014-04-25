@@ -66,7 +66,7 @@ angular.module('linshareAdminApp')
           $log.debug('User:update');
           return user.put().then(
             function success(user) {
-              Notification.addSuccess('P_Users-Management_UpdateSuccess');
+              Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(user);
               }
@@ -86,7 +86,7 @@ angular.module('linshareAdminApp')
           $log.debug('User:remove');
           return user.remove().then(
             function success(user) {
-              Notification.addSuccess('P_Users-Management_DeleteSuccess');
+              Notification.addSuccess('DELETE');
               if (successCallback) {
                 return successCallback(user);
               }
