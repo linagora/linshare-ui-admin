@@ -259,8 +259,7 @@ module.exports = function (grunt) {
             '*.html',
             '*.json',
             'scripts/config.js',
-            'i18n/{,*/}*.js',
-            'i18n/{,*/}*.json',
+            'i18n/{,*/}*.{js,json}',
             'views/{,**/}*.html',
             'images/{,*/}*.{webp,png}',
             'styles/AdminLTE/fonts/*',
@@ -278,6 +277,11 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      }
+    },
+    'json-minify': {
+      dist: {
+        files: '<%= yeoman.dist %>/i18n/{,**/}*.json'
       }
     },
 
@@ -357,7 +361,8 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'json-minify'
   ]);
 
   grunt.registerTask('default', [

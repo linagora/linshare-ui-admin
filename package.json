@@ -16,6 +16,7 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
+    "grunt-json-minify": "*",
     "grunt-karma": "*",
     "grunt-newer": "*",
     "grunt-ngmin": "*",
