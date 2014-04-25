@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">
-      {{'P_Users-Threads_BoxListTitle' | translate}}
+      {{ 'THREADS.BOX_LIST.TITLE' | translate }}
     </h3>
   </div>
   <div class="box-body">
@@ -11,16 +11,16 @@
         <tr x-ng-repeat="thread in $data"
             x-ng-click="edit(thread)">
           <td style="cursor: pointer"
-              data-title="'P_Users-Threads_ListName' | translate"
+              data-title="'THREADS.BOX_LIST.TABLE.HEADER_NAME' | translate"
               sortable="'name'">
             <span>
               {{thread.name}}
             </span>
           </td>
-          <td data-title="'P_Users-Threads_ListModificationDate' | translate"
+          <td data-title="'THREADS.BOX_LIST.TABLE.HEADER_MODIFICATION_DATE' | translate"
               sortable="'modificationDate'">
             <span>
-              {{thread.modificationDate | date:'dd/MM/yyyy HH:mm'}}
+              {{thread.modificationDate | date:'medium'}}
             </span>
           </td>
         </tr>

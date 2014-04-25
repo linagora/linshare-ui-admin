@@ -17,7 +17,7 @@
         <tr x-ng-repeat="functionality in $data"
             x-ng-click="edit(functionality)">
           <td class="col-md-1"
-              data-title="'P_Parameters-Functionalities_Status' | translate"
+              data-title="'FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS' | translate"
               sortable="'activationPolicy.status'">
             <span x-ng-style="style(functionality)">
               <i class="fa fa-check-circle" style="color: green"
@@ -27,7 +27,7 @@
             </span>
           </td>
           <td style="cursor: pointer"
-              data-title="'P_Parameters-Functionalities_Name' | translate"
+              data-title="'FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_NAME' | translate"
               sortable="'localizedName'">
             <span>
               {{functionality.localizedName}}

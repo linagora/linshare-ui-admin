@@ -29,7 +29,7 @@ angular.module('linshareAdminApp').directive('lsUserList', [
               lastName: 'asc',
             }
           }, {
-            debugMode: true,
+            debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
               var canRequest = false;

@@ -24,17 +24,6 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
             $scope.opened = true;
           };
           $scope.limit = new Date();
-          $scope.getStatus = function(user) {
-            if (angular.isDefined(user)) {
-              if (user.guest === true) {
-                return $translate('P_Users-Management_StatusGuest');
-              } else if (user.role === 'ADMIN') {
-                return $translate('P_Users-Management_StatusAdmin');
-              } else if (user.role === 'SIMPLE') {
-                return $translate('P_Users-Management_StatusSimple');
-              }
-            }
-          };
           $scope.removeContact = function(user, index) {
             user.restrictedContacts.splice(index, 1);
           };

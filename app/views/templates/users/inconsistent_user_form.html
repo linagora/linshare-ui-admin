@@ -21,8 +21,8 @@
           <div class="form-group"
                x-ng-class="{'has-error': userForm.domain.$invalid &&
                 (userForm.domain.$dirty || ls.domain.attempted)}">
-            <label class="sr-only" for="domain">
-              {{'P_Users-Inconsistent_DomainLabel' | translate}}
+            <label for="domain">
+              {{ 'INCONSISTENT_USERS.BOX_FORM.LABEL_TARGET_DOMAIN' | translate }}
             </label>
             <select name="domain" class="form-control" required
                     x-ng-model="domain"
@@ -33,25 +33,14 @@
 
         <!-- UNEDITABLE FIELDS -->
         <div class="well col-sm-6">
-          <!-- Account type -->
-          <div class="form-group">
-            <label for="status">
-              {{'P_Users-Inconsistent_Status' | translate}}
-            </label>
-            <div class="controls">
-              <span name="status" class="form-control-static">
-                {{getStatus(user)}}
-              </span>
-            </div>
-          </div>
           <!-- Creation date -->
           <div class="form-group">
             <label for="creationDate">
-              {{'P_Users-Inconsistent_CreationDate' | translate}}
+              {{ 'INCONSISTENT_USERS.BOX_FORM.LABEL_CREATION_DATE' | translate }}
             </label>
             <div class="controls">
               <span name="creationDate" class="form-control-static">
-                {{user.creationDate | date:'medium'}}
+                {{ user.creationDate | date:'medium' }}
               </span>
             </div>
           </div>
@@ -59,18 +48,18 @@
           <!-- Modification date -->
           <div class="form-group">
             <label for="modificationDate">
-              {{'P_Users-Inconsistent_ModificationDate' | translate}}
+              {{ 'INCONSISTENT_USERS.BOX_FORM.LABEL_MODIFICATION_DATE' | translate }}
             </label>
             <div class="controls">
               <span name="modificationDate" class="form-control-static">
-                {{user.modificationDate | date:'medium'}}
+                {{ user.modificationDate | date:'medium' }}
               </span>
             </div>
           </div>
           <!-- First name -->
           <div class="form-group">
             <label for="firstName">
-              {{'P_Users-Inconsistent_FirstName' | translate}}
+              {{ 'INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME' | translate }}
             </label>
             <div class="controls">
               <span name="firstName" class="form-control-static">
@@ -82,7 +71,7 @@
           <!-- Last name -->
           <div class="form-group">
             <label for="lastName">
-              {{'P_Users-Inconsistent_LastName' | translate}}
+              {{ 'INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME' | translate }}
             </label>
             <div class="controls">
               <span name="lastName" class="form-control-static">
@@ -93,7 +82,7 @@
           <!-- Domain -->
           <div class="form-group">
             <label for="domain">
-              {{'P_Users-Inconsistent_Domain' | translate}}
+              {{ 'INCONSISTENT_USERS.BOX_FORM.LABEL_DOMAIN' | translate }}
             </label>
             <div class="controls">
               <span name="domain" class="form-control-static">
@@ -110,10 +99,10 @@
         <div class="controls">
           <button type="button" id="delete" name="delete" class="btn btn-danger"
                   x-ng-click="delete(user)">
-            {{'P_Users-Inconsistent_Delete' | translate}}
+            {{ 'INCONSISTENT_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">
-            {{'P_Users-Inconsistent_Submit' | translate}}
+            {{ 'INCONSISTENT_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
           </button>
         </div>
       </div>

@@ -9,17 +9,17 @@
     <ul class="dropdown-menu">
       <li x-ng-if="canAddTopDomain(domain)">
         <a x-ng-click="addTopDomain(domain)">
-          {{'P_Domains-Management_AddTopDomain' | translate}}
+          {{ 'MANAGE_DOMAINS.BOX_TREE.BUTTON_ADD.TOP_DOMAIN' | translate }}
         </a>
       </li>
       <li x-ng-if="canAddSubDomain(domain)">
         <a x-ng-click="addSubDomain(domain)">
-          {{'P_Domains-Management_AddSubDomain' | translate}}
+          {{ 'MANAGE_DOMAINS.BOX_TREE.BUTTON_ADD.SUB_DOMAIN' | translate }}
         </a>
       </li>
       <li x-ng-if="canAddGuestDomain(domain)">
         <a x-ng-click="addGuestDomain(domain)">
-          {{'P_Domains-Management_AddGuestDomain' | translate}}
+          {{ 'MANAGE_DOMAINS.BOX_TREE.BUTTON_ADD.GUEST_DOMAIN' | translate }}
         </a>
       </li>
     </ul>
@@ -34,7 +34,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">
-      {{'P_Domains-Management_BoxTreeTitle' | translate}}
+      {{ 'MANAGE_DOMAINS.BOX_TREE.TITLE' | translate }}
     </h3>
   </div>
   <div class="box-body">

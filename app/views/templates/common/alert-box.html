@@ -5,13 +5,13 @@
            x-index="$index"
            x-ng-if="alert.type==='success'"
            x-ls-alert-timeout>
-      {{alert.msg}}
+      {{alert.msg | translate}}
     </alert>
     <alert type="alert.type"
            x-close="closeAlert($index)"
            x-index="$index"
            x-ng-if="alert.type==='danger'">
-      {{alert.msg}}
+      {{alert.msg | translate}}
     </alert>
   </div>
 </div>

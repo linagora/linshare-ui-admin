@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">
-      {{'P_Domains-Policies_BoxListTitle' | translate}}
+      {{ 'DOMAIN_POLICIES.BOX_LIST.TITLE' | translate }}
     </h3>
     <div class="pull-right box-tools">
       <div class="btn-group">
@@ -9,7 +9,7 @@
                 x-ng-click="create()">
           <span>
             <i class="fa fa-plus"></i> 
-            {{'P_Domains-Policies_Add' | translate}}
+            {{ 'DOMAIN_POLICIES.BOX_LIST.BUTTON_ADD' | translate }}
           </span>
         </button>
       </div>
@@ -22,13 +22,13 @@
         <tbody>
           <tr x-ng-repeat="domainPolicy in $data"
               x-ng-click="edit(domainPolicy)">
-            <td data-title="'P_Domains-Policies_IdentifierLabel' | translate"
+            <td data-title="'DOMAIN_POLICIES.BOX_LIST.TABLE.HEADER_IDENTIFIER' | translate"
                 sortable="'identifier'">
               <span>
                 {{domainPolicy.identifier}}
               </span>
             </td>
-            <td data-title="'P_Domains-Policies_DescriptionLabel' | translate"
+            <td data-title="'DOMAIN_POLICIES.BOX_LIST.TABLE.HEADER_DESCRIPTION' | translate"
                 sortable="'description'">
               <span>
                 {{domainPolicy.description}}

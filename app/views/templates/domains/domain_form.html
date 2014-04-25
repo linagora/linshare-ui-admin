@@ -5,22 +5,22 @@
       <div x-ng-if="state === 'create'">
         <div x-ng-switch="domain.type">
           <h3 class="box-title"
-              x-ng-switch-when="TOPDOMAIN"
-              x-i18n="P_Domains-Management_CreateTopDomainTitle|{{domain.parent}}">
+            x-ng-switch-when="TOPDOMAIN">
+              {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.TOP_DOMAIN' | translate:domain }}
           </h3>
           <h3 class="box-title"
-              x-ng-switch-when="SUBDOMAIN"
-              x-i18n="P_Domains-Management_CreateSubDomainTitle|{{domain.parent}}">
+              x-ng-switch-when="SUBDOMAIN">
+              {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.SUB_DOMAIN' | translate:domain }}
           </h3>
           <h3 class="box-title"
-              x-ng-switch-when="GUESTDOMAIN"
-              x-i18n="P_Domains-Management_CreateGuestDomainTitle|{{domain.parent}}">
+              x-ng-switch-when="GUESTDOMAIN">
+              {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.GUEST_DOMAIN' | translate:domain }}
           </h3>
         </div>
       </div>
       <div x-ng-if="state === 'edit'">
         <h3>
-          {{ 'P_Domains-Management_BoxEditTitle' | translate}}
+          {{ 'MANAGE_DOMAINS.BOX_FORM.TITLE' | translate }}
         </h3>
       </div>
     </div>
@@ -41,7 +41,7 @@
              x-ng-class="{'has-error': domainForm.identifier.$invalid &&
                (domainForm.identifier.$dirty || ls.domainForm.attempted)}">
           <label for="identifier">
-            {{'P_Domains-Management_IdentifierLabel' | translate}}
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_IDENTIFIER' | translate }}
           </label>
           <input id="identifier" name="identifier" type="text" class="form-control" required
                  x-ng-model="domain.identifier">
@@ -50,7 +50,7 @@
       <div x-ng-if="state === 'edit'">
         <!-- Identifier -->
         <label for="identifier">
-          {{'P_Domains-Management_IdentifierLabel' | translate}}
+          {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_IDENTIFIER' | translate }}
         </label>
         <div class="form-group">
           <p class="form-control-static">
@@ -64,7 +64,7 @@
            x-ng-class="{'has-error': domainForm.name.$invalid &&
              (domainForm.name.$dirty || ls.domainForm.attempted)}">
         <label for="name">
-          {{'P_Domains-Management_NameLabel' | translate}}
+          {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_NAME' | translate }}
         </label>
         <input id="name" name="name" type="text" class="form-control" required
                x-ng-model="domain.label">
@@ -73,7 +73,7 @@
       <!-- Description -->
       <div class="form-group">
         <label for="description">
-          {{'P_Domains-Management_DescriptionLabel' | translate}}
+          {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_DESCRIPTION' | translate }}
         </label>
         <textarea id="description" name="description" class="form-control"
                   x-ng-model="domain.description">
@@ -85,7 +85,7 @@
            x-ng-class="{'has-error': domainForm.locale.$invalid &&
              (domainForm.locale.$dirty || ls.domainForm.attempted)}">
         <label for="locale">
-          {{'P_Domains-Management_LocaleLabel' | translate}}
+          {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LOCALE' | translate }}
         </label>
         <select id="locale" name="locale" class="form-control" required
                 x-ng-model="domain.locale"
@@ -100,7 +100,7 @@
              x-ng-class="{'has-error': domainForm.userRole.$invalid &&
                (domainForm.userRole.$dirty || ls.domainForm.attempted)}">
           <label for="userRole">
-            {{'P_Domains-Management_UserRoleLabel' | translate}}
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_USER_ROLE' | translate }}
           </label>
           <select id="userRole" name="userRole" class="form-control" required
                   x-ng-model="domain.userRole"
@@ -113,7 +113,7 @@
              x-ng-class="{'has-error': domainForm.policy.$invalid &&
                (domainForm.policy.$dirty || ls.domainForm.attempted)}">
           <label for="policy">
-            {{'P_Domains-Management_PolicyLabel' | translate}}
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_POLICY' | translate }}
           </label>
           <select id="policy" name="policy" class="form-control" required
                   x-ng-model="domain.policy.identifier"
@@ -128,7 +128,7 @@
         <button type="button" class="btn"
                 x-ng-disabled="disableProvider"
                 x-ng-click="addProvider()">
-          <i class="fa fa-plus"></i> {{'P_Domains-Management_AddProvider' | translate}}
+          <i class="fa fa-plus"></i> {{ 'MANAGE_DOMAINS.BOX_FORM.BUTTON_ADD_PROVIDER' | translate }}
         </button>
       </div>
       <!-- Provider Form -->
@@ -139,50 +139,41 @@
           &times;
         </button>
         <h4>
-          {{'P_Domains-Management_UserProvider' | translate}}
+          {{ 'MANAGE_DOMAINS.BOX_FORM.TITLE_PROVIDER' | translate }}
         </h4>
         <!-- LDAP Connection -->
         <div class="form-group"
              x-ng-class="{'has-error': domainEditForm.ldapConnection.$invalid &&
                (domainEditForm.ldapConnection.$dirty || ls.domainEditForm.attempted)}">
           <label for="ldapConnection">
-            {{'P_Domains-Management_LDAPConnectionLabel' | translate}}
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LDAP_CONNECTION' | translate }}
           </label>
           <select id="ldapConnection" name="ldapConnection" class="form-control" required
                   x-ng-model="provider.ldapConnectionId"
                   x-ng-options="l for l in ldapConnections">
           </select>
-          <p class="help-block">
-            {{'P_Domains-Management_LDAPConnectionHelp' | translate}}
-          </p>
         </div>
         <!-- Domain Pattern -->
         <div class="form-group"
              x-ng-class="{'has-error': domainEditForm.domainPattern.$invalid &&
                (domainEditForm.domainPattern.$dirty || ls.domainEditForm.attempted)}">
           <label for="domainPattern">
-            {{'P_Domains-Management_DomainPatternLabel' | translate}}
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_DOMAIN_PATTERN' | translate }}
           </label>
           <select id="domainPattern" name="domainPattern" class="form-control" required
                   x-ng-model="provider.domainPatternId"
                   x-ng-options="d for d in domainPatterns">
           </select>
-          <p class="help-block">
-            {{'P_Domains-Management_DomainPatternHelp' | translate}}
-          </p>
         </div>
         <!-- Base Dn -->
         <div class="form-group"
              x-ng-class="{'has-error': domainEditForm.baseDn.$invalid &&
                (domainEditForm.baseDn.$dirty || ls.domainEditForm.attempted)}">
           <label for="baseDn">
-            {{'P_Domains-Management_BaseDnLabel' | translate}}
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_BASE_DN' | translate }}
           </label>
           <input id="baseDn" name="baseDn" type="text" class="form-control" required
                  x-ng-model="provider.baseDn">
-          <p class="help-block">
-            {{'P_Domains-Management_BaseDnHelp' | translate}}
-          </p>
         </div>
       </div>
 
@@ -194,13 +185,14 @@
           <button id="delete" name="delete" type="button" class="btn btn-danger"
                   x-ng-click="remove()"
                   x-ng-if="state==='edit'">
-            {{'P_Domains-Management_Delete' | translate}}
+            {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
           </button>
           <button type="button" id="reset" name="reset" class="btn btn-warning"
-                  x-ng-click="reset()">{{'P_Domains-Management_Reset' | translate}}
+                  x-ng-click="reset()">
+            {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">
-            {{'P_Domains-Management_Submit' | translate}}
+            {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
           </button>
         </div>
       </div>

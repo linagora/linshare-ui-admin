@@ -3,18 +3,18 @@
     <li class="dropdown language-menu">
       <a href="#" class="dropdown-toggle">
         <i class="fa fa-flag"></i>
-        {{'G_App_Language' | translate}}
+        {{'COMMON.NAVBAR.LANGUAGE.SWITCH_TITLE' | translate}}
         <i class="caret"></i>
       </a>
       <ul class="dropdown-menu">
         <li x-ng-class="{disabled: isCurrentLang('en')}">
-          <a x-ng-click="setLanguage('en-US')">
-            {{'G_App_LangEn' | translate}}
+          <a x-ng-click="setLanguage('en')">
+            {{'COMMON.NAVBAR.LANGUAGE.ENGLISH' | translate}}
           </a>
         </li>
         <li x-ng-class="{disabled: isCurrentLang('fr')}">
-          <a x-ng-click="setLanguage('fr-FR')">
-            {{'G_App_LangFr' | translate}}
+          <a x-ng-click="setLanguage('fr')">
+            {{'COMMON.NAVBAR.LANGUAGE.FRENCH' | translate}}
           </a>
         </li>
       </ul>
@@ -28,7 +28,7 @@
       <ul class="dropdown-menu">
         <li>
           <a x-ng-click="logout()">
-            {{'G_App_Logout' | translate}}
+            {{'COMMON.NAVBAR.LOGOUT' | translate}}
           </a>
         </li>
       </ul>

@@ -11,7 +11,7 @@
              x-ng-if="showActivation(functionality)">
           <form>
           <legend style="font-size: 14px; font-weight: bold;">
-            {{'P_Parameters-Functionalities_ActivationPolicy' | translate}}
+            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_ACTIVATION_POLICY' | translate }}
           </legend>
           <div class="col-sm-offset-1 col-sm-12">
             <div class="radio">
@@ -19,7 +19,7 @@
                   <input type="radio" name="activationRadios" id="activationRadios2" value="MANDATORY"
                          x-ng-model="functionality.activationPolicy.policy"
                          x-ng-change="update()">
-                  {{'P_Parameters-Functionalities_Mandatory' | translate}}
+                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_MANDATORY' | translate }}
               </label>
             </div>
             <div class="radio">
@@ -28,7 +28,7 @@
                          x-ng-model="functionality.activationPolicy.policy"
                          x-ng-click="checkPolicyType(functionality.activationPolicy)"
                          x-ng-change="update()">
-                  {{'P_Parameters-Functionalities_Allow' | translate}}
+                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_ALLOWED' | translate }}
               </label>
             </div>
             <div class="radio">
@@ -36,7 +36,7 @@
                   <input type="radio" name="activationRadios" id="activationRadios0" value="FORBIDDEN"
                          x-ng-model="functionality.activationPolicy.policy"
                          x-ng-change="update()">
-                  {{'P_Parameters-Functionalities_Forbidden' | translate}}
+                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_FORBIDDEN' | translate }}
               </label>
             </div>
             <br>
@@ -46,7 +46,7 @@
                          x-ng-disabled="disableStatus(functionality.activationPolicy)"
                          x-ng-model="functionality.activationPolicy.status"
                          x-ng-change="update()">
-                  {{'P_Parameters-Functionalities_Status' | translate}}
+                  {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_STATUS' | translate }}
               </label>
             </div>
           </div>
@@ -56,7 +56,7 @@
                  x-ng-show="showConfiguration(functionality)">
           <form>
           <legend style="font-size: 14px; font-weight: bold;">
-            {{'P_Parameters-Functionalities_ConfigurationPolicy' | translate}}
+            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_CONFIGURATION_POLICY' | translate }}
           </legend>
           <div class="col-sm-offset-1 col-sm-12">
             <div class="radio">
@@ -64,7 +64,8 @@
                   <input type="radio" name="configurationRadios" id="configurationRadios2" value="MANDATORY"
                          x-ng-model="functionality.configurationPolicy.policy"
                          x-ng-change="update()">
-                  {{'P_Parameters-Functionalities_Mandatory' | translate}}
+                         x-ng-change="update()">
+                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_MANDATORY' | translate }}
               </label>
             </div>
             <div class="radio">
@@ -73,7 +74,7 @@
                          x-ng-model="functionality.configurationPolicy.policy"
                          x-ng-click="checkPolicyType(functionality.configurationPolicy)"
                          x-ng-change="update()">
-                  {{'P_Parameters-Functionalities_Allow' | translate}}
+                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_ALLOWED' | translate }}
               </label>
             </div>
             <div class="radio">
@@ -81,7 +82,7 @@
                   <input type="radio" name="configurationRadios" id="configurationRadios0" value="FORBIDDEN"
                          x-ng-model="functionality.configurationPolicy.policy"
                          x-ng-change="update()">
-                  {{'P_Parameters-Functionalities_Forbidden' | translate}}
+                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_FORBIDDEN' | translate }}
               </label>
             </div>
             <br>
@@ -91,7 +92,7 @@
                          x-ng-disabled="disableStatus(functionality.configurationPolicy)"
                          x-ng-model="functionality.configurationPolicy.status"
                          x-ng-change="update()">
-                  {{'P_Parameters-Functionalities_Status' | translate}}
+                  {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_STATUS' | translate }}
               </label>
             </div>
           </div>
@@ -103,7 +104,7 @@
              x-ng-if="showParameters(functionality)">
           <form>
           <legend style="font-size: 14px; font-weight: bold;">
-            {{'P_Parameters-Functionalities_Parameters' | translate}}
+            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_PARAMETERS' | translate }}
           </legend>
           <div x-ng-repeat="parameter in functionality.parameters">
             <div x-ng-switch="parameter.type">
@@ -181,7 +182,7 @@
       <button class="btn btn-primary btn-sm"
               x-ng-click="cancel()">
         <i class="fa fa-list"></i> 
-        {{'P_Parameters-Functionalities_List' | translate}}
+        {{ 'FUNCTIONALITIES.BOX_FORM.BUTTON_LIST' | translate }}
       </button>
     </div>
   </div>
@@ -201,7 +202,7 @@
       <div class="controls">
         <button class="btn btn-danger" type="button"
                 x-ng-click="resetToParent()">
-          {{'P_Parameters-Functionalities_Reset' | translate}}
+          {{ 'FUNCTIONALITIES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
         </button>
       </div>
     </div>

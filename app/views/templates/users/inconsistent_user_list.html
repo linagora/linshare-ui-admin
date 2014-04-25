@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">
-      {{'P_Users-Inconsistent_BoxListTitle' | translate}}
+      {{ 'INCONSISTENT_USERS.BOX_LIST.TITLE' | translate }}
     </h3>
   </div>
   <div class="box-body">
@@ -12,7 +12,7 @@
         <tr x-ng-repeat="user in $data"
             x-ng-click="edit(user)">
           <td style="cursor: pointer"
-              data-title="'P_Users-Inconsistent_FirstName' | translate"
+              data-title="'INCONSISTENT_USERS.BOX_LIST.TABLE.HEADER_FIRST_NAME' | translate"
               filter="{ 'firstName': 'text' }"
               sortable="'firstName'">
             <span>
@@ -20,7 +20,7 @@
             </span>
           </td>
           <td style="cursor: pointer"
-              data-title="'P_Users-Inconsistent_LastName' | translate"
+              data-title="'INCONSISTENT_USERS.BOX_LIST.TABLE.HEADER_LAST_NAME' | translate"
               filter="{ 'lastName': 'text' }"
               sortable="'lastName'">
             <span>
@@ -28,7 +28,7 @@
             </span>
           </td>
           <td style="cursor: pointer"
-              data-title="'P_Users-Inconsistent_Mail' | translate"
+              data-title="'INCONSISTENT_USERS.BOX_LIST.TABLE.HEADER_EMAIL' | translate"
               filter="{ 'mail': 'text' }"
               sortable="'mail'">
             <span>
@@ -36,14 +36,14 @@
             </span>
           </td>
           <td style="cursor: pointer"
-              data-title="'P_Users-Inconsistent_Domain' | translate"
+              data-title="'INCONSISTENT_USERS.BOX_LIST.TABLE.HEADER_DOMAIN' | translate"
               sortable="'domain'">
             <span>
               {{user.domain}}
             </span>
           </td>
           <td style="cursor: pointer"
-              data-title="'P_Users-Inconsistent_Role' | translate"
+              data-title="'INCONSISTENT_USERS.BOX_LIST.TABLE.HEADER_ROLE' | translate"
               sortable="'role'">
             <span>
               {{user.role}}

@@ -13,12 +13,13 @@ angular.module('linshareAdminApp', [
     'http-auth-interceptor',
     'chieffancypants.loadingBar',
     'pascalprecht.translate',
+    'tmh.dynamicLocale',
     'restangular'
 ])
 
 // Register work which needs to be performed on module loading
-.config(['$logProvider', '$translateProvider', 'RestangularProvider', 'uiSelectConfig', 'cfpLoadingBarProvider', 'lsAppConfig',
-  function($logProvider, $translateProvider, RestangularProvider, uiSelectConfig, cfpLoadingBarProvider, lsAppConfig) {
+.config(['$logProvider', '$translateProvider', 'RestangularProvider', 'uiSelectConfig', 'cfpLoadingBarProvider', 'tmhDynamicLocaleProvider', 'lsAppConfig',
+  function($logProvider, $translateProvider, RestangularProvider, uiSelectConfig, cfpLoadingBarProvider, tmhDynamicLocaleProvider, lsAppConfig) {
     var debug = document.cookie.linshareDebug || lsAppConfig.debug;
     $logProvider.debugEnabled(debug);
 
@@ -29,6 +30,8 @@ angular.module('linshareAdminApp', [
     $translateProvider.preferredLanguage('en');
     $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
     $translateProvider.useMissingTranslationHandlerLog();
+
+    tmhDynamicLocaleProvider.localeLocationPattern('i18n/angular/angular-locale_{{locale}}.js');
 
     RestangularProvider.setBaseUrl(lsAppConfig.backendURL);
     RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});

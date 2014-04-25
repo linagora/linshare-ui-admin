@@ -6,8 +6,8 @@ angular.module('linshareAdminApp').directive('lsNavbar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$log', '$translate', 'Authentication',
-        function($scope, $log, $translate, Authentication) {
+      controller: ['$rootScope', '$scope', '$log', '$translate', 'tmhDynamicLocale', 'Authentication',
+        function($rootScope, $scope, $log, $translate, tmhDynamicLocale, Authentication) {
           Authentication.getCurrentUser().then(function successCallback(user) {
             $scope.userLogged = user;
           });
@@ -15,6 +15,12 @@ angular.module('linshareAdminApp').directive('lsNavbar', [
           $scope.setLanguage = function(value) {
             $translate.use(value);
           };
+
+          $rootScope.$on('$translateChangeSuccess', function() {
+            var lang = $translate.use();
+            $log.debug('Language: switched to ' + lang);
+            tmhDynamicLocale.set(lang);
+          });
 
           $scope.isCurrentLang = function(value) {
             return $translate.use() === value;

@@ -26,7 +26,7 @@ angular.module('linshareAdminApp').directive('lsInconsistentUserList', [
               lastName: 'asc',
             }
           }, {
-            debugMode: true,
+            debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
               User.getAllInconsistent(function(users) {

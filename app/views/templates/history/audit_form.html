@@ -1,40 +1,37 @@
 <div class="box box-primary">
-  <div class="box-header">
-    <h3 class="box-title" x-ng-if="state === 'create'">
-      {{'P_History-Audit_BoxTitle' | translate}}
-    </h3>
-  </div>
   <div class="box-body">
     <form role="form"
           x-ls-form-submit="reloadList()">
       <div class="row">
         <div class="col-md-6">
           <div class="well">
-            <legend>{{'P_History-Audit_ActorTitle' | translate}}</legend>
+            <legend>
+              {{ 'AUDIT.BOX_FORM.ACTOR.LEGEND' | translate }}
+            </legend>
             <div class="form-group">
               <label for="actorMail">
-                {{'P_History-Audit_ActorMail' | translate}}
+                {{ 'AUDIT.BOX_FORM.ACTOR.LABEL_EMAIL' | translate }}
               </label>
               <input id="actorMail" name="actorMail" class="form-control" type="text"
                      x-ng-model="actorMails">
             </div>
             <div class="form-group">
               <label for="actorFirstName">
-                {{'P_History-Audit_ActorFirstName' | translate}}
+                {{ 'AUDIT.BOX_FORM.ACTOR.LABEL_FIRST_NAME' | translate }}
               </label>
               <input id="actorFirstName" name="actorFirstName" class="form-control" type="text"
                      x-ng-model="criteria.actorFirstName">
             </div>
             <div class="form-group">
               <label for="actorLastName">
-                {{'P_History-Audit_ActorLastName' | translate}}
+                {{ 'AUDIT.BOX_FORM.ACTOR.LABEL_LAST_NAME' | translate }}
               </label>
               <input id="actorLastName" name="actorLastName" class="form-control" type="text"
                      x-ng-model="criteria.actorLastName">
             </div>
             <div class="form-group">
               <label for="actorDomain">
-                {{'P_History-Audit_ActorDomain' | translate}}
+                {{ 'AUDIT.BOX_FORM.ACTOR.LABEL_DOMAIN' | translate }}
               </label>
               <select id="actorDomain" class="form-control"
                       x-ng-model="criteria.actorDomain"
@@ -45,31 +42,33 @@
         </div>
         <div class="col-md-6">
           <div class="well">
-            <legend>{{'P_History-Audit_TargetTitle' | translate}}</legend>
+            <legend>
+              {{ 'AUDIT.BOX_FORM.TARGET.LEGEND' | translate }}
+            </legend>
             <div class="form-group">
               <label for="targetMail">
-                {{'P_History-Audit_TargetMail' | translate}}
+                {{ 'AUDIT.BOX_FORM.TARGET.LABEL_EMAIL' | translate }}
               </label>
               <input id="targetMail" name="targetMail" class="form-control" type="text"
                      x-ng-model="targetMails">
             </div>
             <div class="form-group">
               <label for="targetFirstName">
-                {{'P_History-Audit_TargetFirstName' | translate}}
+                {{ 'AUDIT.BOX_FORM.TARGET.LABEL_FIRST_NAME' | translate }}
               </label>
               <input id="targetFirstName" name="targetFirstName" class="form-control" type="text"
                      x-ng-model="criteria.targetFirstName">
             </div>
             <div class="form-group">
               <label for="targetLastName">
-                {{'P_History-Audit_TargetLastName' | translate}}
+                {{ 'AUDIT.BOX_FORM.TARGET.LABEL_LAST_NAME' | translate }}
               </label>
               <input id="targetLastName" name="targetLastName" class="form-control" type="text"
                      x-ng-model="criteria.targetLastName">
             </div>
             <div class="form-group">
               <label for="targetDomain">
-                {{'P_History-Audit_TargetDomain' | translate}}
+                {{ 'AUDIT.BOX_FORM.TARGET.LABEL_DOMAIN' | translate }}
               </label>
               <select id="targetDomain" class="form-control"
                       x-ng-model="criteria.targetDomain"
@@ -82,17 +81,19 @@
       <div class="row">
         <div class="col-md-6">
           <div class="well">
-            <legend>{{'P_History-Audit_FileTitle' | translate}}</legend>
+            <legend>
+              {{ 'AUDIT.BOX_FORM.FILE.LEGEND' | translate }}
+            </legend>
             <div class="form-group">
               <label for="fileName">
-                {{'P_History-Audit_FileName' | translate}}
+                {{ 'AUDIT.BOX_FORM.FILE.LABEL_NAME' | translate }}
               </label>
               <input id="fileName" name="fileName" class="form-control" type="text"
                      x-ng-model="criteria.fileName">
             </div>
             <div class="form-group">
               <label for="fileExtension">
-                {{'P_History-Audit_FileExtension' | translate}}
+                {{ 'AUDIT.BOX_FORM.FILE.LABEL_EXTENSION' | translate }}
               </label>
               <input id="fileExtension" name="fileExtension" class="form-control" type="text"
                      x-ng-model="criteria.fileExtension">
@@ -101,11 +102,13 @@
         </div>
         <div class="col-md-6">
           <div class="well">
-            <legend>{{'P_History-Audit_ActionsTitle' | translate}}</legend>
+            <legend>
+              {{ 'AUDIT.BOX_FORM.DATE.LEGEND' | translate }}
+            </legend>
             <div class="row">
               <div class="col-sm-6">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsFrom' | translate}}"
+                  <input type="text" class="form-control" placeholder="{{ 'AUDIT.BOX_FORM.DATE.PLACEHOLDER_FROM' | translate }}"
                          datepicker-popup="medium"
                          is-open="opened.from"
                          ng-model="criterion.dateFrom">
@@ -119,7 +122,7 @@
               </div>
               <div class="col-sm-6">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="{{'P_History-Audit_ActionsTo' | translate}}"
+                  <input type="text" class="form-control" placeholder="{{ 'AUDIT.BOX_FORM.DATE.PLACEHOLDER_TO' | translate }}"
                          datepicker-popup="medium"
                          is-open="opened.to"
                          ng-model="criterion.dateTo">
@@ -143,7 +146,7 @@
         </div>
       </div>
       <button type="submit" id="submit" name="submit" class="btn btn-success">
-        {{'P_History-Audit_Submit' | translate}}
+        {{ 'AUDIT.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
       </button>
     </form>
     <hr>
@@ -152,27 +155,27 @@
         <table class="table table-striped"
                x-ng-table="tableParams">
           <tr x-ng-repeat="result in $data">
-            <td data-title="'P_History-Audit_ActionDate' | translate"
+            <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_DATE' | translate"
                 sortable="'actionDate'">
-              {{result.actionDate | date:'medium'}}
+              {{ result.actionDate | date:'medium' }}
             </td>
-            <td data-title="'P_History-Audit_ActionName' | translate"
+            <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_ACTION' | translate"
                 sortable="'action'">
               {{result.logAction}}
             </td>
-            <td data-title="'P_History-Audit_ActorMail' | translate"
+            <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_ACTOR_EMAIL' | translate"
                 sortable="'actorMail'">
               {{result.actorMail}}
             </td>
-            <td data-title="'P_History-Audit_TargetMail' | translate"
+            <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_TARGET_EMAIL' | translate"
                 sortable="'targetMail'">
               {{result.targetMail}}
             </td>
-            <td data-title="'P_History-Audit_FileName' | translate"
+            <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_FILE_NAME' | translate"
                 sortable="'fileName'">
               {{result.fileName}}
             </td>
-            <td data-title="'P_History-Audit_FileExpirationDate' | translate"
+            <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_EXPIRY_DATE' | translate"
                 sortable="'expirationDate'">
               {{result.expirationDate}}
             </td>

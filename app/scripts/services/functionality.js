@@ -7,12 +7,16 @@ angular.module('linshareAdminApp')
       this.currentFunctionality = undefined;
 
       var addLocalizedName = function(functionality) {
-        functionality.localizedName = $translate(
-          'FUNCTIONALITIES.NAMES.' + functionality.identifier
+        $translate('FUNCTIONALITIES.NAME.' + functionality.identifier)
+          .then(function(localizedName) {
+            functionality.localizedName = localizedName;
+          }
         );
         angular.forEach(functionality.functionalities, function(childFunctionality) {
-          childFunctionality.localizedName = $translate(
-            'FUNCTIONALITIES.NAMES.' + childFunctionality.identifier
+          $translate('FUNCTIONALITIES.NAME.' + childFunctionality.identifier)
+            .then(function(localizedName) {
+              childFunctionality.localizedName = localizedName;
+            }
           );
         });
       };

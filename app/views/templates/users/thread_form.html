@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">
-      {{'P_Users-Threads_FormTitle' | translate}}
+      {{ 'THREADS.BOX_FORM.TITLE' | translate }}
     </h3>
     <div class="pull-right box-tools">
       <div class="btn-group">
@@ -9,7 +9,7 @@
                 x-ng-click="cancel()">
           <span>
             <i class="fa fa-list"></i> 
-            {{'P_Users-Threads_List' | translate}}
+            {{ 'THREADS.BOX_FORM.BUTTON_LIST' | translate }}
           </span>
         </button>
       </div>
@@ -23,7 +23,7 @@
         <!-- Name -->
         <div class="form-group">
           <label for="name">
-            {{'P_Users-Threads_FormName' | translate}}
+            {{ 'THREADS.BOX_FORM.LABEL_NAME' | translate }}
           </label>
           <input id="name" name="name" type="text" class="form-control" required
                  x-ng-model="thread.name">
@@ -35,14 +35,14 @@
           <div class="controls">
             <button id="delete" name="delete" type="button" class="btn btn-danger"
                     x-ng-click="remove()">
-              {{'P_Users-Threads_FormDelete' | translate}}
+              {{ 'THREADS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
             </button>
             <button type="button" id="reset" name="reset" class="btn btn-warning"
                     x-ng-click="reset()">
-              {{'P_Users-Threads_FormReset' | translate}}
+              {{ 'THREADS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
             </button>
             <button type="submit" id="submit" name="submit" class="btn btn-success">
-              {{'P_Users-Threads_FormSubmit' | translate}}
+              {{ 'THREADS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
             </button>
           </div>
         </div>
@@ -64,13 +64,14 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">
-      {{'P_Users-Threads_MemberTitle' | translate}}
+      {{ 'THREADS.BOX_MEMBERS_LIST.TITLE' | translate }}
     </h3>
   </div>
   <div class="box-body">
     <div class="form-group">
       <div class="input-append">
-        <input type="text" class="form-control" placeholder="{{'P_Users-Threads_MemberAdd' | translate}}"
+        <input type="text" class="form-control"
+               placeholder="{{ 'THREADS.BOX_MEMBERS_LIST.PLACEHOLDER_ADD_MEMBER' | translate }}"
                x-ng-model="userToAdd"
                x-typeahead-min-length="3"
                x-typeahead-wait-ms="30"
@@ -89,20 +90,20 @@
                x-ng-table="tableParams">
           <tr x-ng-repeat="threadMember in $data"
               x-ng-click="edit(threadMember)">
-            <td data-title="'P_Users-Threads_MemberFirstName' | translate"
+            <td data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_FIRST_NAME' | translate"
                 sortable="'firstName'">
               <span>
                 {{threadMember.firstName}}
               </span>
             </td>
-            <td data-title="'P_Users-Threads_MemberLastName' | translate"
+            <td data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_LAST_NAME' | translate"
                 sortable="'lastName'">
               <span>
                 {{threadMember.lastName}}
               </span>
             </td>
             <td class="col-sm-1"
-                data-title="'P_Users-Threads_MemberReadOnly' | translate" 
+                data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_READ_ONLY' | translate" 
                 sortable="'readonly'">
               <input type="checkbox"
                      x-ng-model="threadMember.readonly"
@@ -111,28 +112,28 @@
                      x-ng-change="updateMember(threadMember)">
             </td>
             <td class="col-sm-1"
-                data-title="'P_Users-Threads_MemberAdmin' | translate" 
+                data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ADMIN' | translate" 
                 sortable="'admin'">
               <input type="checkbox"
                      x-ng-model="threadMember.admin"
                      x-ng-change="updateMember(threadMember)">
             </td>
             <td class="col-sm-2"
-                data-title="'P_Users-Threads_MemberActions' | translate">
+                data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ACTIONS' | translate">
               <button class="btn btn-danger"
                       x-ng-show="confirm === undefined"
                       x-ng-click="confirm = $index">
-                {{'P_Users-Threads_MemberDelete' | translate}}
+                {{'THREADS.BOX_MEMBERS_LIST.TABLE.BUTTON_DELETE_MEMBER' | translate}}
               </button>
               <button class="btn"
                       x-ng-show="confirm === $index"
                       x-ng-click="confirm = undefined">
-                {{'G_App_ConfirmNo' | translate}}
+                {{'THREADS.BOX_MEMBERS_LIST.TABLE.BUTTON_DELETE_MEMBER_NO' | translate}}
               </button>
               <button class="btn btn-danger"
                       x-ng-show="confirm === $index"
                       x-ng-click="deleteMember(threadMember)">
-                {{'G_App_ConfirmYes' | translate}}
+                {{'THREADS.BOX_MEMBERS_LIST.TABLE.BUTTON_DELETE_MEMBER_YES' | translate}}
               </button>
             </td>
           </tr>

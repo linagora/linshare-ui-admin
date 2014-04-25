@@ -9,7 +9,7 @@
                 x-ng-click="cancel()">
           <span>
             <i class="fa fa-list"></i> 
-            {{'P_Users-Mails_List' | translate}}
+            {{ 'MAILING_LISTS.BOX_FORM.BUTTON_LIST' | translate }}
           </span>
         </button>
       </div>
@@ -23,7 +23,7 @@
         <!-- Description -->
         <div class="form-group">
           <label for="description">
-            {{'P_Users-Mails_FormDescription' | translate}}
+            {{ 'MAILING_LISTS.BOX_FORM.LABEL_DESCRIPTION' | translate }}
           </label>
           <input type="text" id="description" name="description" class="form-control"
                  x-ng-model="mail.description">
@@ -31,7 +31,7 @@
         <!-- Visibility -->
         <div class="form-group">
           <label for="isPublic">
-            {{'P_Users-Mails_FormIsPublic' | translate}}
+            {{ 'MAILING_LISTS.BOX_FORM.LABEL_IS_PUBLIC' | translate }}
           </label>
           <div class="input-group col-sm-1">
             <span class="input-group-addon">
@@ -39,13 +39,13 @@
                      x-ng-model="mail.public">
             </span>
             <input type="text" class="form-control" style="background-color: transparent" disabled
-                   value="{{mail.public ? 'P_Users-Mails_ListPublic' : 'P_Users-Mails_ListPrivate' | translate}}">
+                   value="{{ mail.public ? 'MAILING_LISTS.LABEL_PUBLIC' : 'MAILING_LISTS.LABEL_PRIVATE' | translate }}">
           </div>
         </div>
         <!-- Owner -->
         <div class="form-group">
           <label for="owner">
-            {{'P_Users-Mails_FormOwner' | translate}}
+            {{ 'MAILING_LISTS.BOX_FORM.LABEL_OWNER' | translate }}
           </label>
           <div class="controls">
             <span name="owner" class="form-control-static">
@@ -60,14 +60,14 @@
           <div class="controls">
             <button id="delete" name="delete" type="button" class="btn btn-danger"
                     x-ng-click="remove()">
-              {{'P_Users-Mails_FormDelete' | translate}}
+              {{ 'MAILING_LISTS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
             </button>
             <button type="button" id="reset" name="reset" class="btn btn-warning"
                     x-ng-click="reset()">
-              {{'P_Users-Mails_FormReset' | translate}}
+              {{ 'MAILING_LISTS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
             </button>
             <button type="submit" id="submit" name="submit" class="btn btn-success">
-              {{'P_Users-Mails_FormSubmit' | translate}}
+              {{ 'MAILING_LISTS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
             </button>
           </div>
         </div>
@@ -89,7 +89,7 @@
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">
-      {{'P_Users-Mails_MemberTitle' | translate}}
+      {{ 'MAILING_LISTS.BOX_CONTACTS_LIST.TITLE' | translate }}
     </h3>
   </div>
   <div class="box-body">
@@ -98,10 +98,10 @@
         x-ls-form-attempt>
       <div class="form-group col-sm-4">
         <label class="sr-only" for="mail">
-          {{'P_Users-Mails_ContactMail' | translate}}
+          {{ 'MAILING_LISTS.BOX_CONTACTS_LIST.PLACEHOLDER_EMAIL' | translate }}
         </label>
         <input type="text" class="form-control" id="mail" required
-               placeholder="{{'P_Users-Mails_ContactMail' | translate}}"
+               placeholder="{{ 'MAILING_LISTS.BOX_CONTACTS_LIST.PLACEHOLDER_EMAIL' | translate }}"
                x-ng-model="autocompleteValue"
                x-typeahead-min-length="3"
                x-typeahead-wait-ms="30"
@@ -112,23 +112,23 @@
       </div>
       <div class="form-group col-sm-3">
         <label class="sr-only" for="firstName">
-          {{'P_Users-Mails_ContactFirstName' | translate}}
+          {{ 'MAILING_LISTS.BOX_CONTACTS_LIST.PLACEHOLDER_FIRST_NAME' | translate }}
         </label>
         <input type="text" class="form-control" id="firstName"
-               placeholder="{{'P_Users-Mails_ContactFirstName' | translate}}"
+               placeholder="{{ 'MAILING_LISTS.BOX_CONTACTS_LIST.PLACEHOLDER_FIRST_NAME' | translate }}"
                x-ng-model="contactToAdd.firstName"/>
       </div>
       <div class="form-group col-sm-3">
         <label class="sr-only" for="lastName">
-          {{'P_Users-Mails_ContactLastName' | translate}}
+          {{ 'MAILING_LISTS.BOX_CONTACTS_LIST.PLACEHOLDER_LAST_NAME' | translate }}
         </label>
         <input type="text" class="form-control" id="lastName"
-               placeholder="{{'P_Users-Mails_ContactLastName' | translate}}"
+               placeholder="{{'MAILING_LISTS.BOX_CONTACTS_LIST.PLACEHOLDER_LAST_NAME' | translate}}"
                x-ng-model="contactToAdd.lastName"/>
       </div>
       <button type="submit" class="btn btn-success">
         <i class="fa fa-plus"></i>&nbsp;
-        {{'P_Users-Mails_ContactAdd' | translate}}
+        {{ 'MAILING_LISTS.BOX_CONTACTS_LIST.BUTTON_ADD_CONTACT' | translate }}
       </button>
     </form>
     <div class="form-group">
@@ -137,42 +137,42 @@
                x-ng-table="tableParams">
           <tr x-ng-repeat="contact in $data">
             <td class="col-sm-4"
-                data-title="'P_Users-Mails_ContactMail' | translate"
+                data-title="'MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_EMAIL' | translate"
                 sortable="'mail'">
               <span>
                 {{contact.mail}}
               </span>
             </td>
             <td class="col-sm-3"
-                data-title="'P_Users-Mails_ContactFirstName' | translate"
+                data-title="'MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_FIRST_NAME' | translate"
                 sortable="'firstName'">
               <span>
                 {{contact.firstName}}
               </span>
             </td>
             <td class="col-sm-3"
-                data-title="'P_Users-Mails_ContactLastName' | translate"
+                data-title="'MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_LAST_NAME' | translate"
                 sortable="'lastName'">
               <span>
                 {{contact.lastName}}
               </span>
             </td>
             <td class="col-sm-2"
-                data-title="'P_Users-Mails_ContactActions' | translate">
+                data-title="'MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_ACTIONS' | translate">
               <button class="btn btn-danger"
                       x-ng-show="confirm === undefined"
                       x-ng-click="confirm = $index">
-                {{'P_Users-Mails_ContactDelete' | translate}}
+                {{ 'MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.BUTTON_DELETE_CONTACT' | translate }}
               </button>
               <button class="btn"
                       x-ng-show="confirm === $index"
                       x-ng-click="confirm = undefined">
-                {{'G_App_ConfirmNo' | translate}}
+                {{ 'MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.BUTTON_DELETE_CONTACT_NO' | translate }}
               </button>
               <button class="btn btn-danger"
                       x-ng-show="confirm === $index"
                       x-ng-click="deleteContact(contact)">
-                {{'G_App_ConfirmYes' | translate}}
+                {{ 'MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.BUTTON_DELETE_CONTACT_YES' | translate }}
               </button>
             </td>
           </tr>

@@ -307,9 +307,6 @@
       }
     },
     "BOX_FORM": {
-      "LABEL_STATUS": "Status",
-      "LABEL_STATUS_GUEST": "Guest",
-      "LABEL_STATUS_INTERNAL": "Internal",
       "LABEL_RESTRICTED": "Restricted",
       "LABEL_RESTRICTED_CONTACT_LIST": "Restricted contact list",
       "LABEL_CREATION_DATE": "Creation date",
@@ -359,9 +356,6 @@
         "HEADER_DOMAIN": "Domain",
         "HEADER_ROLE": "Role"
       }
-    },
-    "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
     }
   },
 

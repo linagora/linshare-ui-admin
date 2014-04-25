@@ -18,7 +18,7 @@
          x-ng-class="tab.icon">
       </i>
       <span>
-        &nbsp;{{tab.name}}
+        &nbsp;{{tab.name | translate}}
       </span>
       <i class="fa pull-right"
          x-ng-class="{'fa-angle-down': isopen, 'fa-angle-left': !isopen}">
@@ -28,7 +28,7 @@
       <li x-ng-repeat="link in tab.links">
         <a href="{{link.href}}" style="margin-left: 10px;">
           <i class="fa fa-angle-double-right"></i>
-          {{link.name}}
+          {{link.name | translate}}
         </a>
       </li>
     </ul>
