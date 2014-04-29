@@ -9,7 +9,7 @@ angular.module('linshareAdminApp')
           this.validator = function() {
             return validator();
           }
-        }
+        };
         $scope.newPwdRetyped = '';
         $scope.password = {
           'oldPwd' : '',
@@ -40,7 +40,7 @@ angular.module('linshareAdminApp')
         $scope.match = function() {
           return !$scope.password.newPwd ||
                  !$scope.password.newPwd ||
-                 $scope.password.newPwd == $scope.newPwdRetyped;
+                 $scope.password.newPwd === $scope.newPwdRetyped;
         };
         $scope.strengthScore = function() {
           var strength = 0;
