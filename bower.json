@@ -16,6 +16,7 @@
     "angular-translate-interpolation-messageformat": "*",
     "angular-translate-handler-log": "*",
     "angular-ui-select": "*",
+    "autofill-event": "*",
     "es5-shim": "*",
     "html5shiv": "*",
     "jquery": "~2",
