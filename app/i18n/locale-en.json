@@ -13,6 +13,7 @@
     },
     "NAVBAR": {
       "LOGOUT": "Logout",
+      "CHANGE_PASSWORD": "Change password",
       "LANGUAGE": {
         "SWITCH_TITLE": "Language",
         "ENGLISH": "English",
@@ -71,6 +72,22 @@
         "20000": "A error has occured, please contact your LinShare administrator",
         "20001": "Webservice unauthorized",
         "20003": "Webservice not found"
+      }
+    }
+  },
+
+  "CHANGE_PASSWORD": {
+    "TITLE": "Change your password",
+    "BOX_FORM": {
+      "TITLE": "",
+      "LABEL_PASSWORD": {
+        "OLD": "Old password",
+        "NEW": "New password",
+        "NEW_RETYPED": "Retype new passord"
+      },
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       }
     }
   },

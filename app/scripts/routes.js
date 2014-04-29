@@ -2,6 +2,10 @@
 
 angular.module('linshareAdminApp').config(['$routeProvider',
   function($routeProvider) {
+    $routeProvider.when('/password', {
+      templateUrl: 'views/password.html',
+      controller: 'ResetCtrl'
+    });
     $routeProvider.when('/domains/ldap_connections', {
       templateUrl: 'views/domains/ldap_connections.html',
       controller: 'ResetCtrl'

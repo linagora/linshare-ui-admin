@@ -4,8 +4,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Authentication',
-    ['$route', '$http', '$q', '$log', 'authService', 'Restangular',
-    function($route, $http, $q, $log, authService, Restangular) {
+    ['$route', '$http', '$q', '$log', 'Restangular', 'authService', 'Notification',
+    function($route, $http, $q, $log, Restangular, authService, Notification) {
       var deferred = $q.defer();
       
       // var self = this;
@@ -44,9 +44,29 @@ angular.module('linshareAdminApp')
             }
           );
         },
+        changePassword: function(password, successCallback) {
+          $log.debug('Authentication:changePassword');
+          Restangular.all('authentication').all('change_password').post(password).then(
+            function success() {
+              Notification.addSuccess('UPDATE');
+              if (successCallback) {
+                successCallback();
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'Authentication:changePassword',
+                 'Unable to change the password',
+                ].join('\n')
+              );
+              $log.error(password);
+            }
+          );
+        },
         logout: function() {
+          $log.debug('Authentication:logout');
           return $http.get('linshare/j_spring_security_logout').success(function() {
-            $log.debug('Authentication:logout');
             $route.reload();
           }).error(function() {
             $log.error(

@@ -3,18 +3,18 @@
     <li class="dropdown language-menu">
       <a href="#" class="dropdown-toggle">
         <i class="fa fa-flag"></i>
-        {{'COMMON.NAVBAR.LANGUAGE.SWITCH_TITLE' | translate}}
+        {{ 'COMMON.NAVBAR.LANGUAGE.SWITCH_TITLE' | translate }}
         <i class="caret"></i>
       </a>
       <ul class="dropdown-menu">
         <li x-ng-class="{disabled: isCurrentLang('en')}">
           <a x-ng-click="setLanguage('en')">
-            {{'COMMON.NAVBAR.LANGUAGE.ENGLISH' | translate}}
+            {{ 'COMMON.NAVBAR.LANGUAGE.ENGLISH' | translate }}
           </a>
         </li>
         <li x-ng-class="{disabled: isCurrentLang('fr')}">
           <a x-ng-click="setLanguage('fr')">
-            {{'COMMON.NAVBAR.LANGUAGE.FRENCH' | translate}}
+            {{ 'COMMON.NAVBAR.LANGUAGE.FRENCH' | translate }}
           </a>
         </li>
       </ul>
@@ -26,9 +26,14 @@
         <i class="caret"></i>
       </a>
       <ul class="dropdown-menu">
+        <li x-ng-if="userLogged.role === 'SUPERADMIN'">
+          <a href="#/password">
+            {{ 'COMMON.NAVBAR.CHANGE_PASSWORD' | translate }}
+          </a>
+        </li>
         <li>
           <a x-ng-click="logout()">
-            {{'COMMON.NAVBAR.LOGOUT' | translate}}
+            {{ 'COMMON.NAVBAR.LOGOUT' | translate }}
           </a>
         </li>
       </ul>
