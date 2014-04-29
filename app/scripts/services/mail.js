@@ -50,7 +50,7 @@ angular.module('linshareAdminApp')
           $log.debug('Mail:update');
           return mail.put().then(
             function success(mail) {
-              Notification.addSuccess('P_Users-Mails_ListUpdateSuccess');
+              Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(mail);
               }
@@ -70,7 +70,7 @@ angular.module('linshareAdminApp')
           $log.debug('Mail:remove');
           return mail.remove().then(
             function success(mail) {
-              Notification.addSuccess('P_Users-Mails_ListDeleteSuccess');
+              Notification.addSuccess('DELETE');
               if (successCallback) {
                 return successCallback(mail);
               }
