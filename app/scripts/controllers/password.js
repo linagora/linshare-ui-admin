@@ -8,8 +8,8 @@ angular.module('linshareAdminApp')
           this.description = description;
           this.validator = function() {
             return validator();
-          }
-        };
+          };
+        }
         $scope.newPwdRetyped = '';
         $scope.password = {
           'oldPwd' : '',
