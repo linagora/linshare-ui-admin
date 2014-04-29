@@ -211,6 +211,7 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 * Mettre le champs datepicker required dans le userEditForm 
 
 ### Pour la suite
+* [http://davej.github.io/angular-classy/](http://davej.github.io/angular-classy/)
 * [hint helper](http://kushagragour.in/lab/hint/)
 * [email validation online opensource](http://code.realcrowd.com/using-mailguns-email-address-validation-service-with-angularjs/)
 * [simple spinner](http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner/)
