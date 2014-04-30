@@ -47,7 +47,9 @@ angular.module('linshareAdminApp', [
 
       return newResponse;
     });
-    RestangularProvider.addRequestInterceptor(function(element) {
+    RestangularProvider.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
+      // Bypass basic authentication
+      headers['WWW-No-Authenticate'] = 'linshare';
       if (element) {
         delete element.originalElement;
       }
