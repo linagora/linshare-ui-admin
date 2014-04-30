@@ -8,9 +8,6 @@ angular.module('linshareAdminApp').directive('lsMailForm', [
       controller: ['$scope', '$filter', '$log', 'Restangular', 'ngTableParams', 'Mail', 'User',
         function($scope, $filter, $log, Restangular, ngTableParams, Mail, User) {
           $scope.mail = Restangular.copy(Mail.getCurrent());
-          $scope.reloadList = function () {
-            $scope.tableParams.reload();
-          };
           $scope.remove = function() {
             Mail.remove($scope.mail, function successCallback() {
               $scope.cancel();
@@ -22,8 +19,8 @@ angular.module('linshareAdminApp').directive('lsMailForm', [
           $scope.cancel = function() {
             Mail.setCurrent(undefined);
           };
-          $scope.submit = function() {
-            Mail.update($scope.mail, function successCallback() {
+          $scope.submit = function(mail) {
+            Mail.update(mail, function successCallback() {
               $scope.cancel();
             });
           };
@@ -63,6 +60,9 @@ angular.module('linshareAdminApp').directive('lsMailForm', [
             Mail.removeContact($scope.mail.uuid, contact, function successCallback() {
               $scope.reloadList();
             });
+          };
+          $scope.reloadList = function () {
+            $scope.tableParams.reload();
           };
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
