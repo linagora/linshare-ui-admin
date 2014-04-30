@@ -211,6 +211,7 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 * Mettre le champs datepicker required dans le userEditForm 
 
 ### Pour la suite
+* [http://stackoverflow.com/questions/21455045/angularjs-http-cors-and-http-authentication](http://stackoverflow.com/questions/21455045/angularjs-http-cors-and-http-authentication)
 * [http://davej.github.io/angular-classy/](http://davej.github.io/angular-classy/)
 * [hint helper](http://kushagragour.in/lab/hint/)
 * [email validation online opensource](http://code.realcrowd.com/using-mailguns-email-address-validation-service-with-angularjs/)
