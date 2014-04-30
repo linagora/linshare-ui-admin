@@ -11,6 +11,12 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
           Authentication.getCurrentUser().then(function successCallback(user) {
             $scope.tabs = Tab.getAvailableTabs(user);
           });
+          $scope.$watch('search', function(newValue) {
+            var inSearch = !_.isEmpty(newValue);
+            angular.forEach($scope.tabs, function(value) {
+              value.isopen = inSearch;
+            })
+          });
         }
       ],
       templateUrl: '/views/templates/common/sidebar.html',

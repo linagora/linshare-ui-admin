@@ -20,6 +20,9 @@
         "FRENCH":  "French"
       }
     },
+    "SIDEBAR": {
+      "PLACEHOLDER_SEARCH": "Search..."
+    },
     "LOGIN_FORM": {
       "TITLE": "Login",
       "LABEL_EMAIL": "Email",
