@@ -32,7 +32,7 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
           $scope.remove = function() {
             if ($scope.state === 'edit') {
               var modalInstance = $modal.open({
-                templateUrl: '/views/templates/confirm_dialog.html',
+                templateUrl: 'views/templates/confirm_dialog.html',
                 controller: 'ConfirmDialogCtrl',
                 resolve: {
                   content: function() {
@@ -84,7 +84,7 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
           $scope.reset();
         }
       ],
-      templateUrl: '/views/templates/domains/domain_pattern_form.html',
+      templateUrl: 'views/templates/domains/domain_pattern_form.html',
       replace: false
     };
   }

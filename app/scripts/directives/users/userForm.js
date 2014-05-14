@@ -73,7 +73,7 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
           };
           $scope.delete = function(user) {
             var modalInstance = $modal.open({
-              templateUrl: '/views/templates/confirm_dialog.html',
+              templateUrl: 'views/templates/confirm_dialog.html',
               controller: 'ConfirmDialogCtrl',
               resolve: {
                 content: function() {
@@ -95,7 +95,7 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
           };
         }
       ],
-      templateUrl: '/views/templates/users/user_form.html',
+      templateUrl: 'views/templates/users/user_form.html',
       replace: false
     };
   }

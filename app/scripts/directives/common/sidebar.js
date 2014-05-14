@@ -19,7 +19,7 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
           });
         }
       ],
-      templateUrl: '/views/templates/common/sidebar.html',
+      templateUrl: 'views/templates/common/sidebar.html',
       replace: false
     };
   }

@@ -40,7 +40,7 @@ angular.module('linshareAdminApp').directive('lsDomainList', [
           });
         }
       ],
-      templateUrl: '/views/templates/domains/domain_list.html',
+      templateUrl: 'views/templates/domains/domain_list.html',
       replace: false
     };
   }

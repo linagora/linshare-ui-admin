@@ -51,7 +51,7 @@ angular.module('linshareAdminApp').directive('lsUserList', [
           });
         }
       ],
-      templateUrl: '/views/templates/users/user_list.html',
+      templateUrl: 'views/templates/users/user_list.html',
       replace: false
     };
   }

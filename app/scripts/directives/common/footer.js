@@ -6,7 +6,7 @@ angular.module('linshareAdminApp').directive('lsFooter', [
       restrict: 'A',
       transclude: true,
       scope: false,
-      templateUrl: '/views/templates/common/footer.html',
+      templateUrl: 'views/templates/common/footer.html',
       replace: false
     };
   }

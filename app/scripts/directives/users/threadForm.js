@@ -76,7 +76,7 @@ angular.module('linshareAdminApp').directive('lsThreadForm', [
           });
         }
       ],
-      templateUrl: '/views/templates/users/thread_form.html',
+      templateUrl: 'views/templates/users/thread_form.html',
       replace: false
     };
   }

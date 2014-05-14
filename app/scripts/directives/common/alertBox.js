@@ -17,7 +17,7 @@ angular.module('linshareAdminApp').directive('lsAlertBox', [
           }
         }
       ],
-      templateUrl: '/views/templates/common/alert-box.html',
+      templateUrl: 'views/templates/common/alert-box.html',
       replace: false
     };
   }

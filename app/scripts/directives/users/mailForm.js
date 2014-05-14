@@ -85,7 +85,7 @@ angular.module('linshareAdminApp').directive('lsMailForm', [
           });
         }
       ],
-      templateUrl: '/views/templates/users/mail_form.html',
+      templateUrl: 'views/templates/users/mail_form.html',
       replace: false
     };
   }

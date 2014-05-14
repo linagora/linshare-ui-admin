@@ -31,7 +31,7 @@ angular.module('linshareAdminApp').directive('lsNavbar', [
           }
         }
       ],
-      templateUrl: '/views/templates/common/navbar.html',
+      templateUrl: 'views/templates/common/navbar.html',
       replace: false
     };
   }

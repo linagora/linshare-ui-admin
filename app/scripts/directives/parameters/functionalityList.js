@@ -56,7 +56,7 @@ angular.module('linshareAdminApp').directive('lsFunctionalityList', [
           });
         }
       ],
-      templateUrl: '/views/templates/parameters/functionality_list.html',
+      templateUrl: 'views/templates/parameters/functionality_list.html',
       replace: false
     };
   }

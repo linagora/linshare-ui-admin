@@ -80,7 +80,7 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
           $scope.remove = function() {
             if ($scope.state === 'edit') {
               var modalInstance = $modal.open({
-                templateUrl: '/views/templates/confirm_dialog.html',
+                templateUrl: 'views/templates/confirm_dialog.html',
                 controller: 'ConfirmDialogCtrl',
                 resolve: {
                   content: function() {
@@ -125,7 +125,7 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
           $scope.reset();
         }
       ],
-      templateUrl: '/views/templates/domains/domain_form.html',
+      templateUrl: 'views/templates/domains/domain_form.html',
       replace: false
     };
   }

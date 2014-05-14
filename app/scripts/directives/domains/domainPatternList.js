@@ -44,7 +44,7 @@ angular.module('linshareAdminApp').directive('lsDomainPatternList', [
           });
         }
       ],
-      templateUrl: '/views/templates/domains/domain_pattern_list.html',
+      templateUrl: 'views/templates/domains/domain_pattern_list.html',
       replace: false
     };
   }

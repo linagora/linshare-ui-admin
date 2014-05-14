@@ -40,7 +40,7 @@ angular.module('linshareAdminApp').directive('lsInconsistentUserList', [
           });
         }
       ],
-      templateUrl: '/views/templates/users/inconsistent_user_list.html',
+      templateUrl: 'views/templates/users/inconsistent_user_list.html',
       replace: false
     };
   }

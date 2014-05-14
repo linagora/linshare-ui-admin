@@ -44,7 +44,7 @@ angular.module('linshareAdminApp').directive('lsDomainPolicyList', [
           });
         }
       ],
-      templateUrl: '/views/templates/domains/domain_policy_list.html',
+      templateUrl: 'views/templates/domains/domain_policy_list.html',
       replace: false
     };
   }

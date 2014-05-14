@@ -31,7 +31,7 @@ angular.module('linshareAdminApp').directive('lsLdapConnectionForm', [
           $scope.remove = function() {
             if ($scope.state === 'edit') {
               var modalInstance = $modal.open({
-                templateUrl: '/views/templates/confirm_dialog.html',
+                templateUrl: 'views/templates/confirm_dialog.html',
                 controller: 'ConfirmDialogCtrl',
                 resolve: {
                   content: function() {
@@ -71,7 +71,7 @@ angular.module('linshareAdminApp').directive('lsLdapConnectionForm', [
           $scope.reset();
         }
       ],
-      templateUrl: '/views/templates/domains/ldap_connection_form.html',
+      templateUrl: 'views/templates/domains/ldap_connection_form.html',
       replace: false
     };
   }

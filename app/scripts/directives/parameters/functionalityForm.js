@@ -96,7 +96,7 @@ angular.module('linshareAdminApp').directive('lsFunctionalityForm', [
           };
         }
       ],
-      templateUrl: '/views/templates/parameters/functionality_form.html',
+      templateUrl: 'views/templates/parameters/functionality_form.html',
       replace: false
     };
   }

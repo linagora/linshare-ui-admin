@@ -58,7 +58,7 @@ angular.module('linshareAdminApp').directive('lsAuditForm', [
           });
         }
       ],
-      templateUrl: '/views/templates/history/audit_form.html',
+      templateUrl: 'views/templates/history/audit_form.html',
       replace: false
     };
   }

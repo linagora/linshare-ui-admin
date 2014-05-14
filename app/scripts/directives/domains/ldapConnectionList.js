@@ -44,7 +44,7 @@ angular.module('linshareAdminApp').directive('lsLdapConnectionList', [
           });
         }
       ],
-      templateUrl: '/views/templates/domains/ldap_connection_list.html',
+      templateUrl: 'views/templates/domains/ldap_connection_list.html',
       replace: false
     };
   }

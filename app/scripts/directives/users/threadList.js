@@ -39,7 +39,7 @@ angular.module('linshareAdminApp').directive('lsThreadList', [
           });
         }
       ],
-      templateUrl: '/views/templates/users/thread_list.html',
+      templateUrl: 'views/templates/users/thread_list.html',
       replace: false
     };
   }

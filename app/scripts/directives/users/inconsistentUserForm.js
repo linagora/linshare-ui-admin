@@ -20,7 +20,7 @@ angular.module('linshareAdminApp').directive('lsInconsistentUserForm', [
           };
           $scope.delete = function(user) {
             var modalInstance = $modal.open({
-              templateUrl: '/views/templates/confirm_dialog.html',
+              templateUrl: 'views/templates/confirm_dialog.html',
               controller: 'ConfirmDialogCtrl',
               resolve: {
                 content: function() {
@@ -48,7 +48,7 @@ angular.module('linshareAdminApp').directive('lsInconsistentUserForm', [
           };
         }
       ],
-      templateUrl: '/views/templates/users/inconsistent_user_form.html',
+      templateUrl: 'views/templates/users/inconsistent_user_form.html',
       replace: false
     };
   }

@@ -39,7 +39,7 @@ angular.module('linshareAdminApp').directive('lsMailList', [
           });
         }
       ],
-      templateUrl: '/views/templates/users/mail_list.html',
+      templateUrl: 'views/templates/users/mail_list.html',
       replace: false
     };
   }
