@@ -31,9 +31,16 @@ angular.module('linshareAdminApp').config(['$routeProvider',
       templateUrl: 'views/parameters/functionalities.html',
       controller: 'ResetCtrl'
     });
-
-    $routeProvider.when('/parameters/mails_personalization', {
-      templateUrl: 'views/parameters/mails_personalization.html',
+    $routeProvider.when('/parameters/mail_layout', {
+      templateUrl: 'views/parameters/mail_layout.html',
+      controller: 'ResetCtrl'
+    });
+    $routeProvider.when('/parameters/mail_footer', {
+      templateUrl: 'views/parameters/mail_footer.html',
+      controller: 'ResetCtrl'
+    });
+    $routeProvider.when('/parameters/mail_content', {
+      templateUrl: 'views/parameters/mail_content.html',
       controller: 'ResetCtrl'
     });
 

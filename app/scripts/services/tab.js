@@ -34,8 +34,14 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.FUNCTIONALITIES',
             href: '#parameters/functionalities'
           }, {
-            name: 'COMMON.TAB.MAILS_CONFIGURATION',
-            href: '#parameters/mails_personalization'
+            name: 'COMMON.TAB.MAIL_LAYOUT',
+            href: '#parameters/mail_layout'
+          }, {
+            name: 'COMMON.TAB.MAIL_FOOTER',
+            href: '#parameters/mail_footer'
+          }, {
+            name: 'COMMON.TAB.MAIL_CONTENT',
+            href: '#parameters/mail_content'
           }
         ]
       };

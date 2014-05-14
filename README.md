@@ -84,6 +84,7 @@ pour connaitre AngularJS et les bonnes pratiques:
 * [http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY](http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY)
 * [http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/](http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/)
 * [http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/](http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/)
+* [https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub)
 
 Guide de style:
 

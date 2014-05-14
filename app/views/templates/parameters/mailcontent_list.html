@@ -1,0 +1,42 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{domain.label}}
+    </h3>
+    <div class="pull-right box-tools">
+      <div class="btn-group">
+        <label class="btn btn-success"
+               x-ng-model="filters.language"
+               x-btn-radio="0">
+          {{'MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.ENGLISH' | translate}}
+        </label>
+        <label class="btn btn-success"
+               x-ng-model="filters.language"
+               x-btn-radio="1">
+          {{'MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.FRENCH' | translate}}
+        </label>
+      </div>
+      <button class="btn btn-primary btn-sm"
+              x-ng-click="cancel()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <div class="box-body">
+    <div class="table-responsive">
+      <table class="table table-striped"
+             x-ng-table="tableParams">
+        <tr x-ng-repeat="mailContent in $data"
+            x-ng-click="edit(mailContent)">
+          <td style="cursor: pointer"
+              data-title="'MAIL_CONTENT.BOX_LIST.TABLE.HEADER_NAME' | translate"
+              sortable="'name'">
+            <span>
+              {{mailContent.name}}
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
