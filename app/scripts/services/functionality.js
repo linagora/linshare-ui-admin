@@ -34,8 +34,8 @@ angular.module('linshareAdminApp')
       return {
         getAll: function(domain, successCallback) {
           $log.debug('Functionality:getAll');
-          return Restangular.all('domains').all(domain.identifier)
-            .all('functionalities').getList().then(
+          return Restangular.all('functionalities')
+            .getList({domainId: domain.identifier}).then(
               function success(functionalities) {
                 angular.forEach(functionalities, function (functionality) {
                   addLocalizedName(functionality);
@@ -56,10 +56,10 @@ angular.module('linshareAdminApp')
               }
           );
         },
-        get: function(domainId, functionalityId, successCallback) {
+        get: function(domainId, funcId, successCallback) {
           $log.debug('Functionality:get');
-          return Restangular.all('domains').all(domainId)
-            .one('functionalities', functionalityId).get().then(
+          return Restangular.one('functionalities', funcId)
+            .get({domainId: domainId}).then(
               function success(functionality) {
                 addLocalizedName(functionality);
                 if (successCallback) {
@@ -71,7 +71,7 @@ angular.module('linshareAdminApp')
                   [
                    'Functionality:get',
                    'Unable to get the functionalities',
-                   functionalityId,
+                   funcId,
                    'for domain',
                    domainId
                   ].join('\n')
