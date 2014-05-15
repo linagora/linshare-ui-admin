@@ -11,6 +11,11 @@
     </div>
   </div>
   <div class="box-body">
+    <button type="button" class="btn btn-success"
+            x-ng-click="add()">
+      <i class="fa fa-plus"></i>
+      {{ 'MAIL_LAYOUT.BOX_LIST.BUTTON_ADD' | translate }}
+    </button>
     <div class="table-responsive">
       <table class="table table-striped"
              x-ng-table="tableParams">

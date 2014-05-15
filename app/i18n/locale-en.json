@@ -343,6 +343,7 @@
           "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
         }
       },
+      "BUTTON_ADD": "New mail layout",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME"
       }
@@ -370,6 +371,7 @@
           "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
         }
       },
+      "BUTTON_ADD": "New mail footer",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME"
       }
@@ -397,6 +399,7 @@
           "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
         }
       },
+      "BUTTON_ADD": "New mail content",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME"
       }

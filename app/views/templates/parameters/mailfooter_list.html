@@ -5,12 +5,12 @@
     </h3>
     <div class="pull-right box-tools">
       <div class="btn-group">
-        <label class="btn btn-success"
+        <label class="btn btn-info"
                x-ng-model="filters.language"
                x-btn-radio="0">
           {{ 'MAIL_FOOTER.BOX_LIST.HEADER.LANGUAGE.ENGLISH' | translate }}
         </label>
-        <label class="btn btn-success"
+        <label class="btn btn-info"
                x-ng-model="filters.language"
                x-btn-radio="1">
           {{ 'MAIL_FOOTER.BOX_LIST.HEADER.LANGUAGE.FRENCH' | translate }}
@@ -23,7 +23,11 @@
     </div>
   </div>
   <div class="box-body">
-    {{filters.language}}
+    <button type="button" class="btn btn-success"
+            x-ng-click="add()">
+      <i class="fa fa-plus"></i>
+      {{ 'MAIL_FOOTER.BOX_LIST.BUTTON_ADD' | translate }}
+    </button>
     <div class="table-responsive">
       <table class="table table-striped"
              x-ng-table="tableParams">
