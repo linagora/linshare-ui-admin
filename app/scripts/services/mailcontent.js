@@ -57,6 +57,7 @@ angular.module('linshareAdminApp')
           $log.debug('MailContent:update');
           return mailContent.put().then(
             function success() {
+              Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(mailContent);
               }
@@ -77,6 +78,7 @@ angular.module('linshareAdminApp')
           $log.debug('MailContent:remove');
           return mailContent.remove().then(
             function success() {
+              Notification.addSuccess('DELETE');
               if (successCallback) {
                 return successCallback(mailContent);
               }
