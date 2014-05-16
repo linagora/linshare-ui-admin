@@ -44,7 +44,8 @@
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_IDENTIFIER' | translate }}
           </label>
           <input id="identifier" name="identifier" type="text" class="form-control" required
-                 x-ng-model="domain.identifier">
+                 x-ng-model="domain.identifier"
+                 x-ng-pattern="/^[a-zA-Z0-9_]{4,}$/" >
         </div>
       </div>
       <div x-ng-if="state === 'edit'">
