@@ -4,8 +4,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Authentication',
-    ['$route', '$http', '$q', '$log', 'Restangular', 'authService', 'Notification',
-    function($route, $http, $q, $log, Restangular, authService, Notification) {
+    ['$route', '$cookies', '$q', '$log', 'Restangular', 'authService', 'Notification',
+    function($route, $cookies, $q, $log, Restangular, authService, Notification) {
       var deferred = $q.defer();
       
       // var self = this;
@@ -66,16 +66,9 @@ angular.module('linshareAdminApp')
         },
         logout: function() {
           $log.debug('Authentication:logout');
-          return $http.get('linshare/j_spring_security_logout').success(function() {
-            $route.reload();
-          }).error(function() {
-            $log.error(
-              [
-               'Authentication:logout',
-               'Unable to reach logout url',
-              ].join('\n')
-            );
-          });
+          Restangular.all('authentication').one('logout').get();
+          delete $cookies['JSESSIONID'];
+          window.location.reload();
         },
         getCurrentUser: function() {
           return deferred.promise;
