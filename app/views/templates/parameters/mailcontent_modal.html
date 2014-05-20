@@ -1,0 +1,51 @@
+<div class="modal-header">
+  <h3 class="modal-title">
+    {{ 'MAIL_CONTENT.MODAL_FORM.TITLE' | translate }}
+  </h3>
+</div>
+<form class="form" name="mailContentForm" role="form" novalidate
+      x-ls-form-submit="create()"
+      x-ls-form-attempt>
+  <fieldset>
+    <div class="modal-body">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">
+            {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_NAME' | translate }}
+          </label>
+          <input id="name" name="name" type="text" class="form-control"
+                 required
+                 x-ng-model="mailContent.name">
+        </div>
+        <!-- Content type -->
+        <div class="form-group">
+          <label for="contentType">
+            {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_CONTENT_TYPE' | translate }}
+          </label>
+          <select id="contentType" name="contentType"
+                  x-ng-model="mailContentType"
+                  x-ng-options="m for m in mailContentTypes">
+          </select>
+        </div>
+        <!-- Model -->
+        <div class="form-group">
+          <label for="model">
+            {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_MODEL' | translate }}
+          </label>
+          <select id="model" name="model"
+                  x-ng-model="model"
+                  x-ng-options="modelRepresentation(m) for m in models">
+          </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+                x-ng-click="cancel()">
+          {{ 'MAIL_CONTENT.MODAL_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}
+        </button>
+        <button type="submit" class="btn btn-primary">
+          {{ 'MAIL_CONTENT.MODAL_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+        </button>
+    </div>
+  </fieldset>
+</form>

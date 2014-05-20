@@ -33,7 +33,7 @@ angular.module('linshareAdminApp').controller('LoginFormCtrl',
         modalInstance = $modal.open({
           backdrop: 'static',
           controller: LoginModalInstanceCtrl,
-          templateUrl: '/views/templates/login_form.html',
+          templateUrl: 'views/templates/login_form.html',
         });
       }
     });

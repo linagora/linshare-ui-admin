@@ -4,8 +4,8 @@ angular.module('linshareAdminApp').directive('lsMailFooterList', [
   function() {
     return {
       restrict: 'A',
-      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'MailFooter',
-        function($scope, $filter, $log, ngTableParams, Domain, MailFooter) {
+      controller: ['$scope', '$filter', '$log', '$modal', 'ngTableParams', 'Domain', 'MailFooter',
+        function($scope, $filter, $log, $modal, ngTableParams, Domain, MailFooter) {
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -15,6 +15,12 @@ angular.module('linshareAdminApp').directive('lsMailFooterList', [
             },
             true
           );
+          $scope.add = function() {
+            var modalInstance = $modal.open({
+              controller: 'mailFooterModalCtrl',
+              templateUrl: 'views/templates/parameters/mailfooter_modal.html'
+            });
+          };
           $scope.edit = function(mailFooter) {
             MailFooter.setCurrent(mailFooter);
           };

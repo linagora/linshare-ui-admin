@@ -53,6 +53,26 @@ angular.module('linshareAdminApp')
               }
           );
         },
+        add: function(mailContent, successCallback) {
+          $log.debug('MailContent:add');
+          return Restangular.all('mail_contents').post(mailContent).then(
+            function success(mailContent) {
+              Notification.addSuccess('CREATE');
+              if (successCallback) {
+                return successCallback(mailContent);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'MailContent:add',
+                 'Unable to create a mail content',
+                ].join('\n')
+              );
+              $log.error(mailContent);
+            }
+          );
+        },
         update: function(mailContent, successCallback) {
           $log.debug('MailContent:update');
           return mailContent.put().then(

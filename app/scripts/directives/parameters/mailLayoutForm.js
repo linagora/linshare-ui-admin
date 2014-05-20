@@ -14,7 +14,9 @@ angular.module('linshareAdminApp').directive('lsMailLayoutForm', [
             }
           );
           $scope.remove = function() {
-            MailLayout.remove($scope.mailLayout);
+            MailLayout.remove($scope.mailLayout, function() {
+              $scope.cancel();
+            });
           };
           $scope.update = function() {
             MailLayout.update($scope.mailLayout, function() {

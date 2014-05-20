@@ -4,8 +4,8 @@ angular.module('linshareAdminApp').directive('lsMailContentList', [
   function() {
     return {
       restrict: 'A',
-      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'MailContent',
-        function($scope, $filter, $log, ngTableParams, Domain, MailContent) {
+      controller: ['$scope', '$filter', '$log', '$modal', 'ngTableParams', 'Domain', 'MailContent',
+        function($scope, $filter, $log, $modal, ngTableParams, Domain, MailContent) {
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -15,6 +15,12 @@ angular.module('linshareAdminApp').directive('lsMailContentList', [
             },
             true
           );
+          $scope.add = function() {
+            var modalInstance = $modal.open({
+              controller: 'mailContentModalCtrl',
+              templateUrl: 'views/templates/parameters/mailcontent_modal.html'
+            });
+          };
           $scope.edit = function(mailContent) {
             MailContent.setCurrent(mailContent);
           };

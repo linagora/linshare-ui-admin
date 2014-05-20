@@ -94,6 +94,7 @@ Autre:
 
 * [http://www.frangular.com/](http://www.frangular.com/)
 * [http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/](http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/)
+* [http://scotch.io/tutorials/javascript/angularjs-form-validation](http://scotch.io/tutorials/javascript/angularjs-form-validation)
 * [http://www.egghead.io/](http://www.egghead.io/)
 * [http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx](http://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx)
 * [http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx](http://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx)
@@ -150,16 +151,16 @@ sauf exception de module bower non conforme.
 ## Utilisation du scaffolding
 On utilise [https://github.com/yeoman/generator-angular](https://github.com/yeoman/generator-angular) pour effectuer du scaffolding.
 Ce dernier est capable de generer les differents composant angular tout en generant les tests et en ajoutant
-la resource dans le fichier index.html
-
-AUCUN COMPOSANT NE DOIT ETRE CREE MANUELLEMENT
+la resource dans le fichier index.html. Le scaffolding est operationnel mais a de nombreux desavantages
+(fichier place au mauvais endroit, nommage simpliste, pas de securite pour la minification etc),
+il a ete mis en place comme test pour de futur evolution de yeoman genearator.
 
 ATTENTION LE SCAFFOLDING DOIT ETRE FAIT A LA RACINE DU REPERTOIRE GIT
 
 ## Détails techniques AngularJS
 
 ### Difference entre link et controller, dans une directive
-La fonction link ne s'occupe que de la manipulation de la vue (gestion des cliques, des class css etc ...)
+La fonction link ne s'occupe que de la manipulation de la vue (gestion des clics, des classe css etc ...)
 La fonction controller s'occupe de la partie métier (récupération des données depuis un service etc ...)
 
 ### Utilisation de la syntaxe ['module', function(Module){ }]
@@ -238,7 +239,6 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 * Gestion des tests et des builds
 * Hackaton ? Verifier toutes les secu webservices 
 * Faire un audit de code ?
-* Internationalization complete [http://angular-translate.github.io/](http://angular-translate.github.io/)
 * Mettre a jour / Corriger les REST-URL.md
 * Verifier la mise a jour de modules / node/ bower etc ...
 * Vérifier les messages d'alertes / succes

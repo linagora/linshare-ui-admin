@@ -53,6 +53,26 @@ angular.module('linshareAdminApp')
               }
           );
         },
+        add: function(mailLayout, successCallback) {
+          $log.debug('MailLayout:add');
+          return Restangular.all('mail_layouts').post(mailLayout).then(
+            function success(mailLayout) {
+              Notification.addSuccess('CREATE');
+              if (successCallback) {
+                return successCallback(mailLayout);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'MailLayout:add',
+                 'Unable to create a mail content',
+                ].join('\n')
+              );
+              $log.error(mailLayout);
+            }
+          );
+        },
         update: function(mailLayout, successCallback) {
           $log.debug('MailLayout:update');
           return mailLayout.put().then(

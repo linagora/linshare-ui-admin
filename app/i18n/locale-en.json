@@ -67,8 +67,8 @@
         "13004": "LDAP connection not found",
         "13005": "Domain pattern not found",
         "13006": "Domain base DN not found",
-        "13007": "Domain do not already exists",
-        "13008": "Domain do not exists",
+        "13007": "Domain does not already exist",
+        "13008": "Domain does not exist",
         "14000": "Functionality entity out of date",
         "15000": "Relay host not enable",
         "15666": "XSS filter scan failed",
@@ -359,6 +359,17 @@
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       }
+    },
+    "MODAL_FORM": {
+      "TITLE": "Creation form",
+      "LABEL_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
+      "LABEL_LANGUAGE": "Language",
+      "LABEL_CONTENT_TYPE": "Content type",
+      "LABEL_MODEL": "Model",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "Create"
+      }
     }
   },
 
@@ -386,6 +397,17 @@
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "MODAL_FORM": {
+      "TITLE": "Creation form",
+      "LABEL_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
+      "LABEL_LANGUAGE": "Language",
+      "LABEL_CONTENT_TYPE": "Content type",
+      "LABEL_MODEL": "Model",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "Create"
       }
     }
   },
@@ -416,6 +438,17 @@
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "MODAL_FORM": {
+      "TITLE": "Creation form",
+      "LABEL_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
+      "LABEL_LANGUAGE": "Language",
+      "LABEL_CONTENT_TYPE": "Content type",
+      "LABEL_MODEL": "Model",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "Create"
       }
     }
   },

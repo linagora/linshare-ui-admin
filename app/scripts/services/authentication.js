@@ -67,7 +67,7 @@ angular.module('linshareAdminApp')
         logout: function() {
           $log.debug('Authentication:logout');
           Restangular.all('authentication').one('logout').get();
-          delete $cookies['JSESSIONID'];
+          delete $cookies.JSESSIONID;
           window.location.reload();
         },
         getCurrentUser: function() {
