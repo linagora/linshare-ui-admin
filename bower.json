@@ -1,5 +1,5 @@
 {
-  "name": "linshareAdmin",
+  "name": "linshare-ui-admin",
   "version": "0.0.1",
   "dependencies": {
     "angular": "1.2.16",
@@ -29,5 +29,8 @@
   },
   "devDependencies": {
     "angular-mocks": "*"
-  }
+  },
+  "description": "Admin interface for linshare",
+  "license": "http://www.linshare.org/licenses/LinShare-License_AfferoGPL-v3_en.pdf",
+  "homepage": "http://www.linshare.org"
 }

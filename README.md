@@ -148,6 +148,11 @@ Ces blocks servent a la minification et au build de l'application.
 Les blocks et leur contenu ne doivent pas etre modifier manuellement
 sauf exception de module bower non conforme.
 
+## Versioning
+Les champs 'name', 'version', 'description', 'license', 'homepage'
+sont toujours synchronises depuis le fichier package.json.
+Ce dernier doit donc etre le seul fichier a etre modifie
+
 ## Utilisation du scaffolding
 On utilise [https://github.com/yeoman/generator-angular](https://github.com/yeoman/generator-angular) pour effectuer du scaffolding.
 Ce dernier est capable de generer les differents composant angular tout en generant les tests et en ajoutant

@@ -1,6 +1,29 @@
 {
   "name": "linshare-ui-admin",
   "version": "0.0.1",
+  "description": "Admin interface for linshare",
+  "keywords": ["linshare", "linagora"],
+  "homepage": "http://www.linshare.org",
+  "bugs": {
+    "url": "https://github.com/linagora/linshare-core/issues",
+    "email": "linshare-dev@lists.linpki.org"
+  },
+  "license": "http://www.linshare.org/licenses/LinShare-License_AfferoGPL-v3_en.pdf",
+  "author": {
+    "name": "Linagora",
+    "url": "http://linagora.com/"
+  },
+  "contributors": [{
+    "name": "Camille TJHOA",
+    "email": "ctjhoa@linagora.com"
+  }, {
+    "name": "Frederic MARTIN",
+    "email": "fmartin@linagora.com"
+  }, {
+    "name": "Nicolas BERTRAND",
+    "email": "nbertrand@linagora.com"
+  }],
+  "main": "",
   "dependencies": {},
   "devDependencies": {
     "bower": "*",
@@ -22,6 +45,7 @@
     "grunt-ngmin": "*",
     "grunt-protractor-runner": "*",
     "grunt-rev": "*",
+    "grunt-sync-pkg": "*",
     "grunt-usemin": "*",
     "karma": "*",
     "karma-jasmine": "*",

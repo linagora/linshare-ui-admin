@@ -271,6 +271,9 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        }, {
+          src: 'bower.json',
+          dest: '<%= yeoman.dist %>/about.json'
         }]
       },
       styles: {
@@ -280,9 +283,18 @@ module.exports = function (grunt) {
         src: '{,*/}*.css'
       }
     },
+
+    // Minify json files (i18n files)
     'json-minify': {
       dist: {
         files: '<%= yeoman.dist %>/i18n/{,**/}*.json'
+      }
+    },
+
+    sync: {
+      options: {
+        include: ['name', 'version', 'description', 'license', 'homepage'],
+        exclude: ['main']
       }
     },
 
@@ -351,6 +363,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'sync',
     'jshint:all',
     'bowerInstall',
     'useminPrepare',
