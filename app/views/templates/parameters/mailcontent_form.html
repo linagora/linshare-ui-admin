@@ -16,6 +16,17 @@
         x-ls-form-attempt>
     <fieldset>
       <div class="box-body">
+        <!-- Content type -->
+        <div class="form-group">
+          <label for="contentType">
+            {{ 'MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE' | translate }}
+          </label>
+          <div class="controls">
+            <span name="contentType" class="form-control-static">
+              {{ mailContent.mailContentType }}
+            </span>
+          </div>
+        </div>
         <!-- Name -->
         <div class="form-group">
           <label for="name">

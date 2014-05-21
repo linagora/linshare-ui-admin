@@ -31,7 +31,7 @@ angular.module('linshareAdminApp').directive('lsMailLayoutList', [
             page: 1,        // show first page
             count: 10,      // count per page
             sorting: {
-              layout: 'asc',
+              name: 'asc',
             }
           }, {
             debugMode: false,

@@ -4,8 +4,8 @@ angular.module('linshareAdminApp').directive('lsMailFooterForm', [
   function() {
     return {
       restrict: 'A',
-      controller: ['$scope', '$log', 'Restangular', 'Domain', 'MailFooter',
-        function($scope, $log, Restangular, Domain, MailFooter) {
+      controller: ['$scope', '$log', '$modal', '$translate', 'Restangular', 'Domain', 'MailFooter',
+        function($scope, $log, $modal, $translate, Restangular, Domain, MailFooter) {
           $scope.$watch(MailFooter.getCurrent,
             function successCallback(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -14,9 +14,26 @@ angular.module('linshareAdminApp').directive('lsMailFooterForm', [
             }
           );
           $scope.remove = function() {
-            MailFooter.remove($scope.mailFooter, function() {
-              $scope.cancel();
+            var modalInstance = $modal.open({
+              templateUrl: 'views/templates/confirm_dialog.html',
+              controller: 'ConfirmDialogCtrl',
+              resolve: {
+                content: function() {
+                  return $translate('MAIL_FOOTER.CONFIRM_DELETE_FORM.PARAGRAPH');
+                }
+              }
             });
+            modalInstance.result.then(
+              function validate() {
+                MailFooter.remove($scope.mailFooter,
+                  function successCallback() {
+                    $scope.cancel();
+                  }
+                );
+              }, function cancel() {
+                $log.debug('Deletion modal dismissed');
+              }
+            );
           };
           $scope.update = function() {
             MailFooter.update($scope.mailFooter, function() {

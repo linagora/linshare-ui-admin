@@ -354,6 +354,9 @@
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       }
     },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "You are about to delete this mail layout, this procedure is irreversible. Do you want to proceed?"
+    },
     "MODAL_FORM": {
       "TITLE": "Creation form",
       "LABEL_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
@@ -392,6 +395,9 @@
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       }
     },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "You are about to delete this mail footer, this procedure is irreversible. Do you want to proceed?"
+    },
     "MODAL_FORM": {
       "TITLE": "Creation form",
       "LABEL_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
@@ -416,12 +422,15 @@
       },
       "BUTTON_ADD": "New mail content",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME"
+        "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
+        "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE"
       }
     },
     "BOX_FORM": {
       "BUTTON_LIST": "List",
       "LABEL_NAME": "Name",
+      "LABEL_LANGUAGE": "Language",
+      "LABEL_CONTENT_TYPE": "Content type",
       "LABEL_SUBJECT": "Subject",
       "LABEL_GREETINGS": "Greetings",
       "LABEL_BODY": "Body",
@@ -433,11 +442,14 @@
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       }
     },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "You are about to delete this mail content, this procedure is irreversible. Do you want to proceed?"
+    },
     "MODAL_FORM": {
       "TITLE": "Creation form",
       "LABEL_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
-      "LABEL_LANGUAGE": "Language",
-      "LABEL_CONTENT_TYPE": "Content type",
+      "LABEL_LANGUAGE": "@:MAIL_CONTENT.BOX_FORM.LABEL_LANGUAGE",
+      "LABEL_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
       "LABEL_MODEL": "Model",
       "LABEL_DOMAIN": "Domain",
       "FORM_ACTIONS": {

@@ -35,7 +35,7 @@ angular.module('linshareAdminApp').directive('lsMailFooterList', [
             count: 10,      // count per page
             filter: $scope.filters,
             sorting: {
-              footer: 'asc',
+              name: 'asc',
             }
           }, {
             debugMode: false,

@@ -35,7 +35,7 @@ angular.module('linshareAdminApp').directive('lsMailContentList', [
             count: 10,      // count per page
             filter: $scope.filters,
             sorting: {
-              subject: 'asc',
+              name: 'asc',
             }
           }, {
             debugMode: false,
