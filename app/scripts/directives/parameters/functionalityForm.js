@@ -80,7 +80,7 @@ angular.module('linshareAdminApp').directive('lsFunctionalityForm', [
                 if (angular.isDefined($scope.domain)) {
                   Functionality.update($scope.functionality,
                     function successCallback(functionality) {
-                      Functionality.setCurrent(undefined);
+                      $scope.cancel();
                     }
                   );
                 }

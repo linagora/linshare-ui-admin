@@ -13,6 +13,16 @@ angular.module('linshareAdminApp').directive('lsMailLayoutForm', [
               }
             }
           );
+          $scope.$watch(Domain.getLastAccess,
+            function(newValue, oldValue) {
+              if (angular.isDefined(newValue)) {
+                if (angular.isDefined($scope.domain)) {
+                  $scope.cancel();
+                }
+                $scope.domain = Domain.getCurrent();
+              }
+            }
+          );
           $scope.remove = function() {
             var modalInstance = $modal.open({
               templateUrl: 'views/templates/confirm_dialog.html',
