@@ -337,12 +337,6 @@
   "MAIL_LAYOUT": {
     "TITLE": "Mail layout",
     "BOX_LIST": {
-      "HEADER": {
-        "LANGUAGE": {
-          "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
-          "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
-        }
-      },
       "BUTTON_ADD": "New mail layout",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME"
@@ -363,9 +357,8 @@
     "MODAL_FORM": {
       "TITLE": "Creation form",
       "LABEL_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
-      "LABEL_LANGUAGE": "Language",
-      "LABEL_CONTENT_TYPE": "Content type",
       "LABEL_MODEL": "Model",
+      "LABEL_DOMAIN": "Domain",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_SUBMIT": "Create"
@@ -403,8 +396,8 @@
       "TITLE": "Creation form",
       "LABEL_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
       "LABEL_LANGUAGE": "Language",
-      "LABEL_CONTENT_TYPE": "Content type",
       "LABEL_MODEL": "Model",
+      "LABEL_DOMAIN": "Domain",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_SUBMIT": "Create"
@@ -446,6 +439,7 @@
       "LABEL_LANGUAGE": "Language",
       "LABEL_CONTENT_TYPE": "Content type",
       "LABEL_MODEL": "Model",
+      "LABEL_DOMAIN": "Domain",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_SUBMIT": "Create"

@@ -2,26 +2,43 @@
 
 angular.module('linshareAdminApp')
   .controller('mailContentModalCtrl',
-    ['$scope', '$log', '$modalInstance', 'Domain', 'Enum', 'MailContent',
-      function ($scope, $log, $modalInstance, Domain, Enum, MailContent) {
+    ['$scope', '$log', '$translate', '$modalInstance', 'Domain', 'Enum', 'MailContent',
+      function ($scope, $log, $translate, $modalInstance, Domain, Enum, MailContent) {
         MailContent.getAll(Domain.getCurrent(),
           function successCallback(mailContents) {
-            $scope.model = mailContents[0];
             $scope.models = mailContents;
           }
         );
         Enum.getOptions('mail_content_type',
           function successCallback(options) {
-            $scope.mailContentType = options[0];
             $scope.mailContentTypes = options;
           }
         );
-        $scope.modelRepresentation = function (model) {
-          var lang = model.language ? 'fr' : 'en';
-          return lang + ' - ' + model.name;
+        Domain.getAll(function(domains) {
+          $scope.domains = domains;
+        });
+        $translate('MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.ENGLISH').then(
+          function(en) {
+            $translate('MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.FRENCH').then(
+              function(fr) {
+                $scope.languages = [en, fr];
+              }
+            );
+          }
+        );
+        $scope.isDefined = function(x) {
+          return angular.isDefined(x);
         };
-        $scope.create = function () {
-          var originalModel = $scope.model.originalElement;
+        $scope.reloadModels = function(lang, domain) {
+          if (angular.isDefined(domain) &&
+              angular.isDefined(lang)) {
+            MailContent.getAll(domain.identifier, function(models) {
+              $scope.models = models;
+            });
+          }
+        };
+        $scope.create = function (model) {
+          var originalModel = model.originalElement;
           delete originalModel.name;
           angular.extend($scope.mailContent, originalModel);
           delete $scope.mailContent.uuid;

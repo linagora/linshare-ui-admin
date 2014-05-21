@@ -2,20 +2,38 @@
 
 angular.module('linshareAdminApp')
   .controller('mailFooterModalCtrl',
-    ['$scope', '$log', '$modalInstance', 'Domain', 'MailFooter',
-      function ($scope, $log, $modalInstance, Domain, MailFooter) {
+    ['$scope', '$log', '$translate', '$modalInstance', 'Domain', 'MailFooter',
+      function ($scope, $log, $translate, $modalInstance, Domain, MailFooter) {
         MailFooter.getAll(Domain.getCurrent(),
           function successCallback(mailFooters) {
-            $scope.model = mailFooters[0];
             $scope.models = mailFooters;
           }
         );
-        $scope.modelRepresentation = function (model) {
-          var lang = model.language ? 'fr' : 'en';
-          return lang + ' - ' + model.name;
+        Domain.getAll(function(domains) {
+          $scope.domains = domains;
+        });
+        $translate('MAIL_FOOTER.BOX_LIST.HEADER.LANGUAGE.ENGLISH').then(
+          function(en) {
+            $translate('MAIL_FOOTER.BOX_LIST.HEADER.LANGUAGE.FRENCH').then(
+              function(fr) {
+                $scope.languages = [en, fr];
+              }
+            );
+          }
+        );
+        $scope.isDefined = function(x) {
+          return angular.isDefined(x);
         };
-        $scope.create = function () {
-          var originalModel = $scope.model.originalElement;
+        $scope.reloadModels = function(lang, domain) {
+          if (angular.isDefined(domain) &&
+              angular.isDefined(lang)) {
+            MailFooter.getAll(domain.identifier, function(models) {
+              $scope.models = models;
+            });
+          }
+        };
+        $scope.create = function (model) {
+          var originalModel = model.originalElement;
           delete originalModel.name;
           angular.extend($scope.mailFooter, originalModel);
           delete $scope.mailFooter.uuid;

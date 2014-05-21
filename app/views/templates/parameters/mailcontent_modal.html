@@ -4,48 +4,88 @@
   </h3>
 </div>
 <form class="form" name="mailContentForm" role="form" novalidate
-      x-ls-form-submit="create()"
+      x-ls-form-submit="create(model)"
       x-ls-form-attempt>
   <fieldset>
     <div class="modal-body">
-        <!-- Name -->
-        <div class="form-group">
-          <label for="name">
-            {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_NAME' | translate }}
+      <!-- Name -->
+      <div class="form-group"
+           x-ng-class="{'has-error': mailContentForm.name.$invalid &&
+            (mailContentForm.name.$dirty || ls.mailContentForm.attempted)}">
+        <label for="name">
+          {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_NAME' | translate }}
+        </label>
+        <input id="name" name="name" type="text" class="form-control"
+               required
+               x-ng-model="mailContent.name">
+      </div>
+      <!-- Content type -->
+      <div class="form-group"
+           x-ng-class="{'has-error': mailContentForm.contentType.$invalid &&
+            (mailContentForm.contentType.$dirty || ls.mailContentForm.attempted)}">
+        <label for="contentType">
+          {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_CONTENT_TYPE' | translate }}
+        </label>
+        <select id="contentType" name="contentType" required
+                x-ng-model="mailContentType"
+                x-ng-options="m for m in mailContentTypes">
+        </select>
+      </div>
+      <!-- Model -->
+      <fieldset>
+        <legend>
+          {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_MODEL' | translate }}
+        </legend>
+        <!-- Domain -->
+        <div class="form-group"
+             x-ng-class="{'has-error': mailContentForm.domain.$invalid &&
+              (mailContentForm.domain.$dirty || ls.mailContentForm.attempted)}">
+          <label for="domain">
+            {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_DOMAIN' | translate }}
           </label>
-          <input id="name" name="name" type="text" class="form-control"
-                 required
-                 x-ng-model="mailContent.name">
+          <select id="domain" name="domain" required
+                  x-ng-model="domain"
+                  x-ng-change="reloadModels(lang, domain)"
+                  x-ng-options="d.identifier for d in domains | orderBy:'name'">
+          </select>
         </div>
-        <!-- Content type -->
-        <div class="form-group">
-          <label for="contentType">
-            {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_CONTENT_TYPE' | translate }}
+        <!-- Language -->
+        <div class="form-group"
+             x-ng-show="domain"
+             x-ng-class="{'has-error': mailContentForm.lang.$invalid &&
+              (mailContentForm.lang.$dirty || ls.mailContentForm.attempted)}">
+          <label for="lang">
+            {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_LANGUAGE' | translate }}
           </label>
-          <select id="contentType" name="contentType"
-                  x-ng-model="mailContentType"
-                  x-ng-options="m for m in mailContentTypes">
+          <select id="lang" name="lang" required
+                  x-ng-model="lang"
+                  x-ng-change="reloadModels(lang, domain)"
+                  x-ng-options="languages[i] for i in [0, 1]">
           </select>
         </div>
         <!-- Model -->
-        <div class="form-group">
+        <div class="form-group"
+             x-ng-show="isDefined(domain) && isDefined(lang)"
+             x-ng-class="{'has-error': mailContentForm.model.$invalid &&
+              (mailContentForm.model.$dirty || ls.mailContentForm.attempted)}">
           <label for="model">
             {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_MODEL' | translate }}
           </label>
-          <select id="model" name="model"
+          <select id="model" name="model" required
                   x-ng-model="model"
-                  x-ng-options="modelRepresentation(m) for m in models">
+                  x-ng-options="m.name for m in models | filter:{language: lang} | orderBy:'name'">
           </select>
         </div>
+      </fieldset>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default"
-                x-ng-click="cancel()">
-          {{ 'MAIL_CONTENT.MODAL_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}
-        </button>
-        <button type="submit" class="btn btn-primary">
-          {{ 'MAIL_CONTENT.MODAL_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
-        </button>
+      <button type="button" class="btn btn-default"
+              x-ng-click="cancel()">
+        {{ 'MAIL_CONTENT.MODAL_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}
+      </button>
+      <button type="submit" class="btn btn-primary">
+        {{ 'MAIL_CONTENT.MODAL_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+      </button>
     </div>
   </fieldset>
 </form>

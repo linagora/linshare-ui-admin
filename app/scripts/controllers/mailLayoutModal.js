@@ -6,16 +6,24 @@ angular.module('linshareAdminApp')
       function ($scope, $log, $modalInstance, Domain, MailLayout) {
         MailLayout.getAll(Domain.getCurrent(),
           function successCallback(mailLayouts) {
-            $scope.model = mailLayouts[0];
             $scope.models = mailLayouts;
           }
         );
-        $scope.modelRepresentation = function (model) {
-          var lang = model.language ? 'fr' : 'en';
-          return lang + ' - ' + model.name;
+        Domain.getAll(function(domains) {
+          $scope.domains = domains;
+        });
+        $scope.isDefined = function(x) {
+          return angular.isDefined(x);
         };
-        $scope.create = function () {
-          var originalModel = $scope.model.originalElement;
+        $scope.reloadModels = function(domain) {
+          if (angular.isDefined(domain)) {
+            MailLayout.getAll(domain.identifier, function(models) {
+              $scope.models = models;
+            });
+          }
+        };
+        $scope.create = function (model) {
+          var originalModel = model.originalElement;
           delete originalModel.name;
           angular.extend($scope.mailLayout, originalModel);
           delete $scope.mailLayout.uuid;
