@@ -1,29 +1,29 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('MailFooter',
+  .factory('MailConfig',
     ['$log', '$translate', 'Notification', 'Restangular',
     function ($log, $translate, Notification, Restangular) {
-      this.currentMailFooter = undefined;
+      this.currentMailConfig = undefined;
 
       var self = this;
 
       // Public API here
       return {
         getAll: function(domain, successCallback) {
-          $log.debug('MailFooter:getAll');
-          return Restangular.all('mail_footers')
+          $log.debug('MailConfig:getAll');
+          return Restangular.all('mail_configs')
             .getList({domainId: domain.identifier}).then(
-              function success(mailFooters) {
+              function success(mailConfigs) {
                 if (successCallback) {
-                  return successCallback(mailFooters);
+                  return successCallback(mailConfigs);
                 }
               },
               function error() {
                 $log.error(
                   [
-                   'MailFooter:getAll',
-                   'Unable to get all mail footer for domain',
+                   'MailConfig:getAll',
+                   'Unable to get all mail configs for domain',
                    domain.identifier
                   ].join('\n')
                 );
@@ -31,21 +31,21 @@ angular.module('linshareAdminApp')
               }
           );
         },
-        get: function(domainId, mailFooterId, successCallback) {
-          $log.debug('MailFooter:get');
-          return Restangular.one('mail_footers', mailFooterId)
+        get: function(domainId, mailConfigId, successCallback) {
+          $log.debug('MailConfig:get');
+          return Restangular.one('mail_configs', mailConfigId)
             .get({domainId: domainId}).then(
-              function success(mailFooter) {
+              function success(mailConfig) {
                 if (successCallback) {
-                  return successCallback(mailFooter);
+                  return successCallback(mailConfig);
                 }
               },
               function error() {
                 $log.error(
                   [
-                   'MailFooter:get',
-                   'Unable to get the mail footers',
-                   mailFooterId,
+                   'MailConfig:get',
+                   'Unable to get the mail configs',
+                   mailConfigId,
                    'for domain',
                    domainId
                   ].join('\n')
@@ -53,80 +53,80 @@ angular.module('linshareAdminApp')
               }
           );
         },
-        add: function(mailFooter, successCallback) {
-          $log.debug('MailFooter:add');
-          return Restangular.all('mail_footers').post(mailFooter).then(
-            function success(mailFooter) {
+        add: function(mailConfig, successCallback) {
+          $log.debug('MailConfig:add');
+          return Restangular.all('mail_configs').post(mailConfig).then(
+            function success(mailConfig) {
               Notification.addSuccess('CREATE');
               if (successCallback) {
-                return successCallback(mailFooter);
+                return successCallback(mailConfig);
               }
             },
             function error() {
               $log.error(
                 [
-                 'MailFooter:add',
+                 'MailConfig:add',
                  'Unable to create a mail content',
                 ].join('\n')
               );
-              $log.error(mailFooter);
+              $log.error(mailConfig);
             }
           );
         },
-        update: function(mailFooter, successCallback) {
-          $log.debug('MailFooter:update');
-          return mailFooter.put().then(
+        update: function(mailConfig, successCallback) {
+          $log.debug('MailConfig:update');
+          return mailConfig.put().then(
             function success() {
               Notification.addSuccess('UPDATE');
               if (successCallback) {
-                return successCallback(mailFooter);
+                return successCallback(mailConfig);
               }
             },
             function error() {
               $log.error(
                 [
-                 'MailFooter:update',
-                 'Unable to update mail footer',
-                 mailFooter.identifier
+                 'MailConfig:update',
+                 'Unable to update mail config',
+                 mailConfig.identifier
                 ].join('\n')
               );
-              $log.error(mailFooter);
+              $log.error(mailConfig);
             }
           );
         },
-        remove: function(mailFooter, successCallback) {
-          $log.debug('MailFooter:remove');
-          return mailFooter.remove().then(
+        remove: function(mailConfig, successCallback) {
+          $log.debug('MailConfig:remove');
+          return mailConfig.remove().then(
             function success() {
               Notification.addSuccess('DELETE');
               if (successCallback) {
-                return successCallback(mailFooter);
+                return successCallback(mailConfig);
               }
             },
             function error() {
               $log.error(
                 [
-                 'MailFooter:remove',
-                 'Unable to remove mail footer',
-                 mailFooter.identifier
+                 'MailConfig:remove',
+                 'Unable to remove mail config',
+                 mailConfig.identifier
                 ].join('\n')
               );
-              $log.error(mailFooter);
+              $log.error(mailConfig);
             }
           );
         },
-        setCurrent: function(mailFooter) {
-          $log.debug('MailFooter:setCurrent');
-          self.currentMailFooter = mailFooter;
+        setCurrent: function(mailConfig) {
+          $log.debug('MailConfig:setCurrent');
+          self.currentMailConfig = mailConfig;
         },
         getCurrent: function() {
-          return self.currentMailFooter;
+          return self.currentMailConfig;
         },
         copyCurrent: function() {
-          return Restangular.copy(self.currentMailFooter);
+          return Restangular.copy(self.currentMailConfig);
         },
         currentIsDefined: function() {
-          return angular.isDefined(self.currentMailFooter);
+          return angular.isDefined(self.currentMailConfig);
         }
       };
     }

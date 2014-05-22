@@ -4,8 +4,8 @@ angular.module('linshareAdminApp').directive('lsMailContentForm', [
   function() {
     return {
       restrict: 'A',
-      controller: ['$scope', '$log', '$modal', '$translate', 'Restangular', 'Domain', 'MailContent',
-        function($scope, $log, $modal, $translate, Restangular, Domain, MailContent) {
+      controller: ['$scope', '$log', '$modal', '$translate', 'Domain', 'MailContent',
+        function($scope, $log, $modal, $translate, Domain, MailContent) {
           $scope.$watch(MailContent.getCurrent,
             function successCallback(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -54,7 +54,7 @@ angular.module('linshareAdminApp').directive('lsMailContentForm', [
             MailContent.setCurrent(undefined);
           };
           $scope.reset = function() {
-            $scope.mailContent = Restangular.copy(MailContent.getCurrent());
+            $scope.mailContent = MailContent.copyCurrent();
           };
         }
       ],

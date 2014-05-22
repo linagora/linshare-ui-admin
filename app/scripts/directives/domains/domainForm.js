@@ -9,8 +9,8 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
         reload: '&'
       },
       controller:
-        ['$scope', '$modal', '$log', '$translate', 'Restangular', 'Domain', 'LdapConnection', 'DomainPattern', 'Enum', 'DomainPolicy',
-        function($scope, $modal, $log, $translate, Restangular, Domain, LdapConnection, DomainPattern, Enum, DomainPolicy) {
+        ['$scope', '$modal', '$log', '$translate', 'Domain', 'LdapConnection', 'DomainPattern', 'Enum', 'DomainPolicy',
+        function($scope, $modal, $log, $translate, Domain, LdapConnection, DomainPattern, Enum, DomainPolicy) {
           $scope.ldapConnections = []
           $scope.domainPatterns = []
           $scope.userRoles = []
@@ -109,7 +109,7 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
           };
           $scope.reset = function() {
             $scope.state = Domain.getState();
-            $scope.domain = Restangular.copy(Domain.getCurrent());
+            $scope.domain = Domain.copyCurrent();
             $scope.isRootDomain = $scope.domain.type === 'ROOTDOMAIN';
             $scope.disableProvider = ($scope.isRootDomain || $scope.domain.providers.length != 0);
           };

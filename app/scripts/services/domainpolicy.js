@@ -94,6 +94,9 @@ angular.module('linshareAdminApp')
         getCurrent: function() {
           return self.currentDomainPolicy;
         },
+        copyCurrent: function() {
+          return Restangular.copy(self.currentDomainPolicy);
+        },
         currentIsDefined: function() {
           return angular.isDefined(self.currentDomainPolicy);
         }

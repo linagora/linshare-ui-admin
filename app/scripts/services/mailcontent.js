@@ -122,6 +122,9 @@ angular.module('linshareAdminApp')
         getCurrent: function() {
           return self.currentMailContent;
         },
+        copyCurrent: function() {
+          return Restangular.copy(self.currentMailContent);
+        },
         currentIsDefined: function() {
           return angular.isDefined(self.currentMailContent);
         }

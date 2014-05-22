@@ -39,8 +39,9 @@
             <input id="plaintext" name="plaintext" type="checkbox"
                    x-ng-model="mailFooter.plaintext">
           </span>
-          <input type="text" class="form-control" style="background-color: transparent" disabled
-                 value="{{ 'MAIL_FOOTER.BOX_FORM.LABEL_PLAINTEXT' | translate }}">
+          <span class="form-control">
+            {{ 'MAIL_FOOTER.BOX_FORM.LABEL_PLAINTEXT' | translate }}
+          </span>
         </div>
         <!-- Visible -->
         <div class="input-group">

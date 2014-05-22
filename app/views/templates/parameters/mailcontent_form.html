@@ -66,8 +66,9 @@
             <input id="plaintext" name="plaintext" type="checkbox"
                    x-ng-model="mailContent.plaintext">
           </span>
-          <input type="text" class="form-control" style="background-color: transparent" disabled
-                 value="{{ 'MAIL_CONTENT.BOX_FORM.LABEL_PLAINTEXT' | translate }}">
+          <span class="form-control">
+            {{ 'MAIL_CONTENT.BOX_FORM.LABEL_PLAINTEXT' | translate }}
+          </span>
         </div>
         <!-- Visible -->
         <div class="input-group">
@@ -75,8 +76,9 @@
             <input id="visible" name="visible" type="checkbox"
                    x-ng-model="mailContent.visible">
           </span>
-          <input type="text" class="form-control" style="background-color: transparent" disabled
-                 value="{{ 'MAIL_CONTENT.BOX_FORM.LABEL_VISIBLE' | translate }}">
+          <span class="form-control">
+            {{ 'MAIL_CONTENT.BOX_FORM.LABEL_VISIBLE' | translate }}
+          </span>
         </div>
       </div>
       <div class="box-footer">

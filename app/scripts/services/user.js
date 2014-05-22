@@ -109,6 +109,9 @@ angular.module('linshareAdminApp')
         getCurrent: function() {
           return self.currentUser;
         },
+        copyCurrent: function() {
+          return Restangular.copy(self.currentUser);
+        },
         currentIsDefined: function() {
           return angular.isDefined(self.currentUser);
         }

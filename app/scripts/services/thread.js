@@ -74,6 +74,9 @@ angular.module('linshareAdminApp')
         getCurrent: function() {
           return self.currentThread;
         },
+        copyCurrent: function() {
+          return Restangular.copy(self.currentThread);
+        },
         currentIsDefined: function() {
           return angular.isDefined(self.currentThread);
         }

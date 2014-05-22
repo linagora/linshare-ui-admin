@@ -43,6 +43,7 @@
       "MAIL_LAYOUT": "Mail layout",
       "MAIL_FOOTER": "Mail footer",
       "MAIL_CONTENT": "Mail content",
+      "MAIL_CONFIG": "Mail configuration",
       "USERS": "Users",
       "MANAGE_USERS": "Manage users",
       "INCONSISTENT_USERS": "Inconsistent users",
@@ -458,6 +459,53 @@
       }
     }
   },
+
+  "MAIL_CONFIG": {
+    "TITLE": "Mail config",
+    "BOX_LIST": {
+      "BUTTON_ADD": "New mail config",
+      "TABLE": {
+        "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME"
+      }
+    },
+    "BOX_FORM": {
+      "BUTTON_LIST": "List",
+      "LABEL_NAME": "Name",
+      "LABEL_VISIBLE": "Visible",
+      "LABEL_MAIL_CONTENT_LANG": "Mail contents",
+      "LABEL_MAIL_FOOTER_LANG": "Mail footer",
+      "TABLE": {
+        "HEADER_MAIL_CONTENT_NAME": "Mail content name",
+        "HEADER_MAIL_CONTENT_TYPE": "Mail content type"
+      },
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "BOX_CONTENT_LANG": {
+      "HEADER": {
+        "LANGUAGE": {
+          "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+          "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+        }
+      },
+      "LABEL_MAIL_CONTENT_SELECTOR": "Select the mail content",
+      "FORM_ACTIONS": {
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "BOX_FOOTER_LANG": {
+      "LABEL_LANGUAGE": "Language",
+      "LABEL_FOOTER": "Footer"
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "You are about to delete this mail config, this procedure is irreversible. Do you want to proceed?"
+    }
+  },
+
 
   "MANAGE_USERS": {
     "TITLE": "Manage users",

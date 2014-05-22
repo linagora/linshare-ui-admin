@@ -5,16 +5,16 @@ angular.module('linshareAdminApp').directive('lsMailForm', [
     return {
       restrict: 'A',
       scope: {},
-      controller: ['$scope', '$filter', '$log', 'Restangular', 'ngTableParams', 'Mail', 'User',
-        function($scope, $filter, $log, Restangular, ngTableParams, Mail, User) {
-          $scope.mail = Restangular.copy(Mail.getCurrent());
+      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Mail', 'User',
+        function($scope, $filter, $log, ngTableParams, Mail, User) {
+          $scope.reset();
           $scope.remove = function() {
             Mail.remove($scope.mail, function successCallback() {
               $scope.cancel();
             });
           };
           $scope.reset = function() {
-            $scope.mail = Restangular.copy(Mail.getCurrent());
+            $scope.mail = Mail.copyCurrent();
           };
           $scope.cancel = function() {
             Mail.setCurrent(undefined);

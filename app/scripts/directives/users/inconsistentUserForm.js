@@ -5,14 +5,14 @@ angular.module('linshareAdminApp').directive('lsInconsistentUserForm', [
     return {
       restrict: 'A',
       scope: {},
-      controller: ['$scope', '$modal', '$log', '$translate', 'Restangular', 'Domain', 'User',
-        function($scope, $modal, $log, $translate, Restangular, Domain, User) {
+      controller: ['$scope', '$modal', '$log', '$translate', 'Domain', 'User',
+        function($scope, $modal, $log, $translate, Domain, User) {
           Domain.getAll(function successCallback(domains) {
             $scope.allDomains = domains;
           });
           $scope.$watch(User.getCurrent, function(newValue, oldValue) {
             if (angular.isDefined(newValue)) {
-              $scope.user = Restangular.copy(newValue);
+              $scope.user = User.copyCurrent();
             }
           }, true);
           $scope.cancel = function() {

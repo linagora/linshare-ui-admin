@@ -5,9 +5,9 @@ angular.module('linshareAdminApp').directive('lsThreadForm', [
     return {
       restrict: 'A',
       scope: {},
-      controller: ['$scope', '$filter', '$log', 'Restangular', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
-        function($scope, $filter, $log, Restangular, ngTableParams, Thread, ThreadMember, User) {
-          $scope.thread = Restangular.copy(Thread.getCurrent());
+      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
+        function($scope, $filter, $log, ngTableParams, Thread, ThreadMember, User) {
+          $scope.reset();
           $scope.reloadList = function () {
             $scope.tableParams.reload();
           };
@@ -17,7 +17,7 @@ angular.module('linshareAdminApp').directive('lsThreadForm', [
             });
           };
           $scope.reset = function() {
-            $scope.thread = Restangular.copy(Thread.getCurrent());
+            $scope.thread = Thread.copyCurrent();
           };
           $scope.cancel = function() {
             Thread.setCurrent(undefined);

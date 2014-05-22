@@ -94,6 +94,9 @@ angular.module('linshareAdminApp')
         getCurrent: function() {
           return self.currentLdapConnection;
         },
+        copyCurrent: function() {
+          return Restangular.copy(self.currentLdapConnection);
+        },
         currentIsDefined: function() {
           return angular.isDefined(self.currentLdapConnection);
         }

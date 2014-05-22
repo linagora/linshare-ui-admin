@@ -1,0 +1,77 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{ domain.label }}
+    </h3>
+    <div class="pull-right box-tools">
+      <button class="btn btn-primary btn-sm"
+              x-ng-click="cancel()">
+        <i class="fa fa-list"></i> 
+        {{ 'MAIL_CONFIG.BOX_FORM.BUTTON_LIST' | translate }}
+      </button>
+    </div>
+  </div>
+  <form class="form" name="mailConfigForm" role="form" novalidate
+        x-ls-form-submit="update()"
+        x-ls-form-attempt>
+    <fieldset>
+      <div class="box-body">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">
+            {{ 'MAIL_CONFIG.BOX_FORM.LABEL_NAME' | translate }}
+          </label>
+          <input id="name" name="name" type="text" class="form-control"
+                 required
+                 x-ng-model="mailConfig.name">
+        </div>
+        <!-- Visible -->
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input id="visible" name="visible" type="checkbox"
+                   x-ng-model="mailConfig.visible">
+          </span>
+          <span class="form-control">
+            {{ 'MAIL_CONFIG.BOX_FORM.LABEL_VISIBLE' | translate }}
+          </span>
+        </div>
+        <!-- Mail contents -->
+        <div class="table-responsive">
+          <table class="table table-striped"
+                 x-ng-table="tableParams">
+            <tr x-ng-repeat="mailContentLang in $data"
+                x-ng-click="editMailContentLang(mailContentLang)">
+              <td style="cursor: pointer"
+                  data-title="'MAIL_CONFIG.BOX_FORM.TABLE.HEADER_MAIL_CONTENT_TYPE' | translate"
+                  sortable="'mailContentType'">
+                <span>
+                  {{ mailContentLang.mailContentType }}
+                </span>
+              </td>
+              <td style="cursor: pointer"
+                  data-title="'MAIL_CONFIG.BOX_FORM.TABLE.HEADER_MAIL_CONTENT_NAME' | translate"
+                  sortable="'mailContentName'">
+                <span>
+                  {{ mailContentLang.mailContentName }}
+                </span>
+              </td>
+            </tr>
+        </div>
+      </div>
+      <div class="box-footer">
+        <!-- Validation -->
+        <button type="button" id="delete" name="delete" class="btn btn-danger"
+                x-ng-click="remove()">
+          {{ 'MAIL_CONFIG.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+        </button>
+        <button type="button" id="reset" name="reset" class="btn btn-warning"
+                x-ng-click="reset()">
+          {{ 'MAIL_CONFIG.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+        </button>
+        <button type="submit" id="submit" name="submit" class="btn btn-success">
+          {{ 'MAIL_CONFIG.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>

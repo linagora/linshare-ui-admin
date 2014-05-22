@@ -7,8 +7,8 @@ angular.module('linshareAdminApp').directive('lsLdapConnectionForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$modal', '$log', '$translate', 'Restangular', 'LdapConnection',
-        function($scope, $modal, $log, $translate, Restangular, LdapConnection) {
+        ['$scope', '$modal', '$log', '$translate', 'LdapConnection',
+        function($scope, $modal, $log, $translate, LdapConnection) {
           $scope.submit = function() {
             if ($scope.state === 'edit') {
               LdapConnection.update(
@@ -60,7 +60,7 @@ angular.module('linshareAdminApp').directive('lsLdapConnectionForm', [
           };
           $scope.reset = function() {
             if (LdapConnection.currentIsDefined()) {
-              $scope.ldapConnection = Restangular.copy(LdapConnection.getCurrent());
+              $scope.ldapConnection = LdapConnection.copyCurrent();
               if (_.isEmpty(LdapConnection.getCurrent())) {
                 $scope.state = 'create';
               } else {

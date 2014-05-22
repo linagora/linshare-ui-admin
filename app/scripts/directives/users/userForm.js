@@ -11,8 +11,8 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
         };
         scope.today = new Date();
       },
-      controller: ['$scope', '$modal', '$log', '$translate', 'Restangular', 'User', 'Functionality', 'Enum',
-        function($scope, $modal, $log, $translate, Restangular, User, Functionality, Enum) {
+      controller: ['$scope', '$modal', '$log', '$translate', 'User', 'Functionality', 'Enum',
+        function($scope, $modal, $log, $translate, User, Functionality, Enum) {
           Enum.getOptions('role', function successCallback(userRoles) {
             $scope.userRoles = _.remove(userRoles, function(role) {
               return role !== 'SYSTEM' && role !== 'SUPERADMIN';
@@ -34,7 +34,7 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
           };
           $scope.$watch(User.getCurrent, function(newValue, oldValue) {
             if (angular.isDefined(newValue)) {
-              $scope.user = Restangular.copy(newValue);
+              $scope.reset();
               Functionality.get(newValue.domain , 'ACCOUNT_EXPIRATION',
                 function successCallback(functionality) {
                   var date = new Date();
@@ -60,7 +60,7 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
             User.setCurrent(undefined);
           };
           $scope.reset = function() {
-            $scope.user = Restangular.copy(User.getCurrent());
+            $scope.user = User.copyCurrent();
           };
           $scope.submit = function(user) {
             if (!_.isEqual($scope.user.expirationDate, User.getCurrent().expirationDate)) {

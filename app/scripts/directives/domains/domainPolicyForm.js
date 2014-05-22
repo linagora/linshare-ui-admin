@@ -7,8 +7,8 @@ angular.module('linshareAdminApp').directive('lsDomainPolicyForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$filter', '$modal', '$log', '$translate', 'Restangular', 'ngTableParams', 'Enum', 'Domain', 'DomainPolicy',
-        function($scope, $filter, $modal, $log, $translate, Restangular, ngTableParams, Enum, Domain, DomainPolicy) {
+        ['$scope', '$filter', '$modal', '$log', '$translate', 'ngTableParams', 'Enum', 'Domain', 'DomainPolicy',
+        function($scope, $filter, $modal, $log, $translate, ngTableParams, Enum, Domain, DomainPolicy) {
           Domain.getAll(function successCallback(domains) {
             $scope.allDomains = domains;
           });
@@ -66,7 +66,7 @@ angular.module('linshareAdminApp').directive('lsDomainPolicyForm', [
           };
           $scope.reset = function() {
             if (DomainPolicy.currentIsDefined()) {
-              $scope.domainPolicy = Restangular.copy(DomainPolicy.getCurrent());
+              $scope.domainPolicy = DomainPolicy.copyCurrent();
               if (angular.isDefined($scope.reloadList)) {
                 $scope.reloadList();
               }

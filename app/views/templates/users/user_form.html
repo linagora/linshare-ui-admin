@@ -23,8 +23,9 @@
             <input id="canUpload" name="canUpload" type="checkbox"
                    x-ng-model="user.canUpload">
           </span>
-          <input type="text" class="form-control" style="background-color: transparent" disabled
-                 value="{{ 'MANAGE_USERS.BOX_FORM.LABEL_CAN_UPLOAD' | translate }}">
+          <span class="form-control">
+            {{ 'MANAGE_USERS.BOX_FORM.LABEL_CAN_UPLOAD' | translate }}
+          </span>
         </div>
         <!-- GUEST -->
         <div x-ng-if="user.guest">

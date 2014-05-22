@@ -1,0 +1,54 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{ mailContentLang.mailContentType }}
+    </h3>
+    <div class="pull-right box-tools">
+      <div class="btn-group">
+        <label class="btn btn-info"
+               x-ng-model="lang"
+               x-btn-radio="0">
+          {{ 'MAIL_CONFIG.BOX_CONTENT_LANG.HEADER.LANGUAGE.ENGLISH' | translate }}
+        </label>
+        <label class="btn btn-info"
+               x-ng-model="lang"
+               x-btn-radio="1">
+          {{ 'MAIL_CONFIG.BOX_CONTENT_LANG.HEADER.LANGUAGE.FRENCH' | translate }}
+        </label>
+      </div>
+      <button class="btn btn-primary btn-sm"
+              x-ng-click="cancel()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <form class="form" name="mailContentLangForm" role="form" novalidate
+        x-ls-form-submit="update()"
+        x-ls-form-attempt>
+    <fieldset>
+      <div class="box-body">
+        {{ 'MAIL_CONFIG.BOX_CONTENT_LANG.LABEL_MAIL_CONTENT_SELECTOR' | translate }}
+        <div class="input-group"
+               x-ng-repeat="m in mailContents | filter:{language: lang}">
+          <span class="input-group-addon">
+            <input type="radio" name="radio"
+                   x-ng-model="mailContentLang.mailContent"
+                   x-ng-value="m.uuid">
+          </span>
+          <span class="form-control">
+            {{ m.name }}
+          </span>
+        </div>
+      </div>
+      <div class="box-footer">
+        <!-- Validation -->
+        <button type="button" id="reset" name="reset" class="btn btn-warning">
+          {{ 'MAIL_CONFIG.BOX_CONTENT_LANG.FORM_ACTIONS.BUTTON_RESET' | translate }}
+        </button>
+        <button type="submit" id="submit" name="submit" class="btn btn-success">
+          {{ 'MAIL_CONFIG.BOX_CONTENT_LANG.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>

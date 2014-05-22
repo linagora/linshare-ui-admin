@@ -1,0 +1,29 @@
+<section class="content-header">
+  <h1>
+    {{ 'COMMON.TAB.MAIL_CONFIG' | translate }}
+    <small>
+      {{ 'MAIL_CONFIG.TITLE' | translate }}
+    </small>
+  </h1>
+</section>
+<section class="content"
+         x-ng-controller="MailConfigCtrl">
+  <div class="row">
+    <section class="col-md-4"
+             x-ng-if="!getCurrentMailConfig()">
+      <div x-ls-domain-tree root="root"></div>
+    </section>
+    <section class="col-md-6"
+             x-ng-if="getCurrentDomain() && getCurrentMailConfig()">
+      <div x-ls-mail-config-form></div>
+    </section>
+    <section class="col-md-8"
+             x-ng-if="getCurrentDomain() && !getCurrentMailConfig()">
+      <div x-ls-mail-config-list></div>
+    </section>
+    <section class="col-md-6"
+             x-ng-if="getCurrentDomain() && getCurrentMailConfig() && getCurrentMailContentLang()">
+      <div x-ls-mail-content-lang-form></div>
+    </section>
+  </div>
+</section>

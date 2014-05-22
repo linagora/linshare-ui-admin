@@ -7,8 +7,8 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$modal', '$log', '$translate', 'Restangular', 'DomainPattern',
-        function($scope, $modal, $log, $translate, Restangular, DomainPattern) {
+        ['$scope', '$modal', '$log', '$translate', 'DomainPattern',
+        function($scope, $modal, $log, $translate, DomainPattern) {
           var emptyModel = {identifier: ''};
           $scope.submit = function() {
             if ($scope.state === 'edit') {
@@ -61,7 +61,7 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
           };
           $scope.reset = function() {
             if (DomainPattern.currentIsDefined()) {
-              $scope.domainPattern = Restangular.copy(DomainPattern.getCurrent());
+              $scope.domainPattern = DomainPattern.copyCurrent();
               if (_.isEmpty(DomainPattern.getCurrent())) {
                 $scope.state = 'create';
                 DomainPattern.getAllModels(function success(models) {
@@ -78,8 +78,7 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
             }
           };
           function loadModel() {
-            $scope.domainPattern = Restangular.copy($scope.modelSelector);
-            $scope.domainPattern.identifier = "";
+            $scope.domainPattern = DomainPattern.copyFromModel($scope.modelSelector);
           };
           $scope.reset();
         }

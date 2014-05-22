@@ -4,8 +4,8 @@ angular.module('linshareAdminApp').directive('lsMailFooterForm', [
   function() {
     return {
       restrict: 'A',
-      controller: ['$scope', '$log', '$modal', '$translate', 'Restangular', 'Domain', 'MailFooter',
-        function($scope, $log, $modal, $translate, Restangular, Domain, MailFooter) {
+      controller: ['$scope', '$log', '$modal', '$translate', 'Domain', 'MailFooter',
+        function($scope, $log, $modal, $translate, Domain, MailFooter) {
           $scope.$watch(MailFooter.getCurrent,
             function successCallback(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -54,7 +54,7 @@ angular.module('linshareAdminApp').directive('lsMailFooterForm', [
             MailFooter.setCurrent(undefined);
           };
           $scope.reset = function() {
-            $scope.mailFooter = Restangular.copy(MailFooter.getCurrent());
+            $scope.mailFooter = MailFooter.copyCurrent();
           };
         }
       ],
