@@ -38,8 +38,9 @@
               <input id="isPublic" name="isPublic" type="checkbox"
                      x-ng-model="mail.public">
             </span>
-            <input type="text" class="form-control" style="background-color: transparent" disabled
-                   value="{{ mail.public ? 'MAILING_LISTS.LABEL_PUBLIC' : 'MAILING_LISTS.LABEL_PRIVATE' | translate }}">
+            <span class="form-control">
+              {{ mail.public ? 'MAILING_LISTS.LABEL_PUBLIC' : 'MAILING_LISTS.LABEL_PRIVATE' | translate }}
+            </span>
           </div>
         </div>
         <!-- Owner -->
