@@ -9,7 +9,7 @@ angular.module('linshareAdminApp').directive('lsMailContentForm', [
           $scope.$watch(MailContent.getCurrent,
             function successCallback(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
-                $scope.mailContent = newValue;
+                $scope.reset();
               }
             }
           );

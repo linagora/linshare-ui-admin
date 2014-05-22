@@ -9,7 +9,7 @@ angular.module('linshareAdminApp').directive('lsMailFooterForm', [
           $scope.$watch(MailFooter.getCurrent,
             function successCallback(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
-                $scope.mailFooter = newValue;
+                $scope.reset();
               }
             }
           );

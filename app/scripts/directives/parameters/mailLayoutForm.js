@@ -9,7 +9,7 @@ angular.module('linshareAdminApp').directive('lsMailLayoutForm', [
           $scope.$watch(MailLayout.getCurrent,
             function successCallback(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
-                $scope.mailLayout = newValue;
+                $scope.reset();
               }
             }
           );
