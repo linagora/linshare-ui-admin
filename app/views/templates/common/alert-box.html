@@ -1,13 +1,13 @@
 <div class="alert-box">
   <div x-ng-repeat="alert in alerts">
-    <alert type="alert.type"
+    <alert type="{{ alert.type }}"
            x-close="closeAlert($index)"
            x-index="$index"
            x-ng-if="alert.type==='success'"
            x-ls-alert-timeout>
       {{alert.msg | translate}}
     </alert>
-    <alert type="alert.type"
+    <alert type="{{ alert.type }}"
            x-close="closeAlert($index)"
            x-index="$index"
            x-ng-if="alert.type==='danger'">
