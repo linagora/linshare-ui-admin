@@ -116,7 +116,7 @@ angular.module('linshareAdminApp')
         },
         copyFromModel: function(model) {
           var copy = Restangular.copy(model);
-          copy.identifier = "";
+          copy.identifier = '';
           return copy;
         },
         currentIsDefined: function() {
