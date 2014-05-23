@@ -29,9 +29,10 @@ angular.module('linshareAdminApp')
         $scope.isDefined = function(x) {
           return angular.isDefined(x);
         };
-        $scope.reloadModels = function(lang, domain) {
+        $scope.reloadModels = function(lang, domain, mailContentType) {
           if (angular.isDefined(domain) &&
-              angular.isDefined(lang)) {
+              angular.isDefined(lang) &&
+              angular.isDefined(mailContentType)) {
             MailContent.getAll(domain.identifier, function(models) {
               $scope.models = models;
             });
@@ -44,7 +45,6 @@ angular.module('linshareAdminApp')
           delete $scope.mailContent.uuid;
           delete $scope.mailContent.creationDate;
           delete $scope.mailContent.modificationDate;
-          $scope.mailContent.mailContentType = $scope.mailContentType;
           MailContent.add($scope.mailContent,
             function successCallback(mailContent) {
               MailContent.setCurrent(mailContent);

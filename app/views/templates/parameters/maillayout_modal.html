@@ -33,7 +33,7 @@
           <select id="domain" name="domain" required
                   x-ng-model="domain"
                   x-ng-change="reloadModels(domain)"
-                  x-ng-options="d.identifier for d in domains | orderBy:'name'">
+                  x-ng-options="d.identifier for d in domains | orderBy:'identifier'">
           </select>
         </div>
         <!-- Model -->

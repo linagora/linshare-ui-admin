@@ -19,18 +19,6 @@
                required
                x-ng-model="mailContent.name">
       </div>
-      <!-- Content type -->
-      <div class="form-group"
-           x-ng-class="{'has-error': mailContentForm.contentType.$invalid &&
-            (mailContentForm.contentType.$dirty || ls.mailContentForm.attempted)}">
-        <label for="contentType">
-          {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_CONTENT_TYPE' | translate }}
-        </label>
-        <select id="contentType" name="contentType" required
-                x-ng-model="mailContentType"
-                x-ng-options="m for m in mailContentTypes">
-        </select>
-      </div>
       <!-- Model -->
       <fieldset>
         <legend>
@@ -45,13 +33,27 @@
           </label>
           <select id="domain" name="domain" required
                   x-ng-model="domain"
-                  x-ng-change="reloadModels(lang, domain)"
-                  x-ng-options="d.identifier for d in domains | orderBy:'name'">
+                  x-ng-change="reloadModels(lang, domain, mailContentType)"
+                  x-ng-options="d.identifier for d in domains | orderBy:'identifier'">
+          </select>
+        </div>
+        <!-- Content type -->
+        <div class="form-group"
+             x-ng-show="isDefined(domain)"
+             x-ng-class="{'has-error': mailContentForm.contentType.$invalid &&
+              (mailContentForm.contentType.$dirty || ls.mailContentForm.attempted)}">
+          <label for="contentType">
+            {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_CONTENT_TYPE' | translate }}
+          </label>
+          <select id="contentType" name="contentType" required
+                  x-ng-model="mailContentType"
+                  x-ng-change="reloadModels(lang, domain, mailContentType)"
+                  x-ng-options="m for m in mailContentTypes">
           </select>
         </div>
         <!-- Language -->
         <div class="form-group"
-             x-ng-show="domain"
+             x-ng-show="isDefined(mailContentType)"
              x-ng-class="{'has-error': mailContentForm.lang.$invalid &&
               (mailContentForm.lang.$dirty || ls.mailContentForm.attempted)}">
           <label for="lang">
@@ -59,13 +61,13 @@
           </label>
           <select id="lang" name="lang" required
                   x-ng-model="lang"
-                  x-ng-change="reloadModels(lang, domain)"
+                  x-ng-change="reloadModels(lang, domain, mailContentType)"
                   x-ng-options="languages[i] for i in [0, 1]">
           </select>
         </div>
         <!-- Model -->
         <div class="form-group"
-             x-ng-show="isDefined(domain) && isDefined(lang)"
+             x-ng-show="isDefined(domain) && isDefined(lang) && isDefined(mailContentType)"
              x-ng-class="{'has-error': mailContentForm.model.$invalid &&
               (mailContentForm.model.$dirty || ls.mailContentForm.attempted)}">
           <label for="model">
@@ -73,7 +75,7 @@
           </label>
           <select id="model" name="model" required
                   x-ng-model="model"
-                  x-ng-options="m.name for m in models | filter:{language: lang} | orderBy:'name'">
+                  x-ng-options="m.name for m in models | filter:{language: lang, mailContentType: mailContentType} | orderBy:'name'">
           </select>
         </div>
       </fieldset>
