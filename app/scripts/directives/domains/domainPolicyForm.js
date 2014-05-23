@@ -82,7 +82,7 @@ angular.module('linshareAdminApp').directive('lsDomainPolicyForm', [
           };
           $scope.reset();
           $scope.addRule = function(ruleToAdd) {
-            $scope.domainPolicy.accessPolicy.rules.push(ruleToAdd);
+            $scope.domainPolicy.accessPolicy.rules.push(angular.copy(ruleToAdd));
             $scope.reloadList();
           };
           $scope.deleteRule = function(index) {
