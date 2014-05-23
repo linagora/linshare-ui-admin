@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h3 class="modal-title">
+    {{ 'MAIL_CONFIG.MODAL_FORM.TITLE' | translate }}
+  </h3>
+</div>
+<form class="form" name="mailConfigForm" role="form" novalidate
+      x-ls-form-submit="create()"
+      x-ls-form-attempt>
+  <fieldset>
+    <div class="modal-body">
+      <!-- Name -->
+      <div class="form-group"
+           x-ng-class="{'has-error': mailConfigForm.name.$invalid &&
+            (mailConfigForm.name.$dirty || ls.mailConfigForm.attempted)}">
+        <label for="name">
+          {{ 'MAIL_CONFIG.MODAL_FORM.LABEL_NAME' | translate }}
+        </label>
+        <input id="name" name="name" type="text" class="form-control"
+               required
+               x-ng-model="mailConfig.name">
+      </div>
+      <!-- Visible -->
+      <div class="input-group">
+        <span class="input-group-addon">
+          <input id="visible" name="visible" type="checkbox"
+                 x-ng-model="mailConfig.visible">
+        </span>
+        <span class="form-control">
+          {{ 'MAIL_CONFIG.MODAL_FORM.LABEL_VISIBLE' | translate }}
+        </span>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default"
+              x-ng-click="cancel()">
+        {{ 'MAIL_CONFIG.MODAL_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}
+      </button>
+      <button type="submit" class="btn btn-primary">
+        {{ 'MAIL_CONFIG.MODAL_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+      </button>
+    </div>
+  </fieldset>
+</form>

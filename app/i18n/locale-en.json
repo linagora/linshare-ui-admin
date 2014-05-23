@@ -465,7 +465,16 @@
     "BOX_LIST": {
       "BUTTON_ADD": "New mail config",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME"
+        "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME"
+      }
+    },
+    "MODAL_FORM": {
+      "TITLE": "Mail config creation",
+      "LABEL_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
+      "LABEL_VISIBLE": "@:MAIL_CONFIG.BOX_FORM.LABEL_VISIBLE",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "Create"
       }
     },
     "BOX_FORM": {
