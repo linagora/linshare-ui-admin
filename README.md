@@ -84,11 +84,14 @@ pour connaitre AngularJS et les bonnes pratiques:
 * [http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY](http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY)
 * [http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/](http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/)
 * [http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/](http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/)
+
+Guide de style par ordre de preferences:
+
+* [https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html](https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html)
+* [https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
 * [https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub)
-
-Guide de style:
-
 * [https://github.com/mgechev/angularjs-style-guide](https://github.com/mgechev/angularjs-style-guide)
+* [https://github.com/daniellmb/angular-test-patterns](https://github.com/daniellmb/angular-test-patterns)
 
 Autre:
 
