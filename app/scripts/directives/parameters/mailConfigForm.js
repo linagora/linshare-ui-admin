@@ -57,6 +57,7 @@ angular.module('linshareAdminApp').directive('lsMailConfigForm', [
           };
           $scope.cancel = function() {
             MailConfig.setCurrent(undefined);
+            MailContentLang.setCurrent(undefined);
           };
           $scope.reset = function() {
             $scope.mailConfig = MailConfig.copyCurrent();
