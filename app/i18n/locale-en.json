@@ -478,6 +478,12 @@
       }
     },
     "BOX_FORM": {
+      "HEADER": {
+        "LANGUAGE": {
+          "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+          "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+        }
+      },
       "BUTTON_LIST": "List",
       "LABEL_NAME": "Name",
       "LABEL_VISIBLE": "Visible",
