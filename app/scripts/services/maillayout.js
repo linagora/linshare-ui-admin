@@ -10,10 +10,10 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(domain, successCallback) {
+        getAll: function(domainId, successCallback) {
           $log.debug('MailLayout:getAll');
           return Restangular.all('mail_layouts')
-            .getList({domainId: domain.identifier}).then(
+            .getList({domainId: domainId}).then(
               function success(mailLayouts) {
                 if (successCallback) {
                   return successCallback(mailLayouts);
@@ -24,10 +24,9 @@ angular.module('linshareAdminApp')
                   [
                    'MailLayout:getAll',
                    'Unable to get all mail layout for domain',
-                   domain.identifier
+                   domainId
                   ].join('\n')
                 );
-                $log.error(domain);
               }
           );
         },
@@ -87,7 +86,7 @@ angular.module('linshareAdminApp')
                 [
                  'MailLayout:update',
                  'Unable to update mail layout',
-                 mailLayout.identifier
+                 mailLayout.uuid
                 ].join('\n')
               );
               $log.error(mailLayout);
@@ -108,7 +107,7 @@ angular.module('linshareAdminApp')
                 [
                  'MailLayout:remove',
                  'Unable to remove mail layout',
-                 mailLayout.identifier
+                 mailLayout.uuid
                 ].join('\n')
               );
               $log.error(mailLayout);

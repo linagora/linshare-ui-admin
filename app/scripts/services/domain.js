@@ -164,6 +164,12 @@ angular.module('linshareAdminApp')
         getCurrent: function() {
           return self.currentDomain;
         },
+        getCurrentId: function() {
+          return self.currentDomain.identifier;
+        },
+        getId: function(domain) {
+          return domain.identifier;
+        },
         getState: function() {
           return self.state;
         },

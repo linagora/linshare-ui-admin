@@ -27,7 +27,7 @@ angular.module('linshareAdminApp')
         $scope.reloadModels = function(lang, domain) {
           if (angular.isDefined(domain) &&
               angular.isDefined(lang)) {
-            MailFooter.getAll(domain.identifier, function(models) {
+            MailFooter.getAll(Domain.getId(domain), function(models) {
               $scope.models = models;
             });
           }

@@ -64,7 +64,7 @@ angular.module('linshareAdminApp').directive('lsFunctionalityForm', [
           $scope.resetToParent = function() {
             Functionality.remove($scope.functionality,
               function successCallback(deletedFunc) {
-                Functionality.get($scope.domain.identifier, deletedFunc.identifier,
+                Functionality.get(Domain.getCurrentId(), Functionality.getId(deletedFunc),
                   function successCallback(parentFunc) {
                     Functionality.setCurrent(parentFunc);
                     $scope.displayIconSaved();

@@ -9,7 +9,7 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
       controller: 
         ['$scope', '$modal', '$log', '$translate', 'DomainPattern',
         function($scope, $modal, $log, $translate, DomainPattern) {
-          var emptyModel = {identifier: ''};
+          var emptyModel = DomainPattern.getEmptyModel();
           $scope.submit = function() {
             if ($scope.state === 'edit') {
               DomainPattern.update(

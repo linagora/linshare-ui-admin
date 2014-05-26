@@ -10,10 +10,10 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(domain, successCallback) {
+        getAll: function(domainId, successCallback) {
           $log.debug('MailFooter:getAll');
           return Restangular.all('mail_footers')
-            .getList({domainId: domain.identifier}).then(
+            .getList({domainId: domainId}).then(
               function success(mailFooters) {
                 if (successCallback) {
                   return successCallback(mailFooters);
@@ -24,7 +24,7 @@ angular.module('linshareAdminApp')
                   [
                    'MailFooter:getAll',
                    'Unable to get all mail footer for domain',
-                   domain.identifier
+                   domainId
                   ].join('\n')
                 );
                 $log.error(domain);
@@ -87,7 +87,7 @@ angular.module('linshareAdminApp')
                 [
                  'MailFooter:update',
                  'Unable to update mail footer',
-                 mailFooter.identifier
+                 mailFooter.uuid
                 ].join('\n')
               );
               $log.error(mailFooter);
@@ -108,7 +108,7 @@ angular.module('linshareAdminApp')
                 [
                  'MailFooter:remove',
                  'Unable to remove mail footer',
-                 mailFooter.identifier
+                 mailFooter.uuid
                 ].join('\n')
               );
               $log.error(mailFooter);

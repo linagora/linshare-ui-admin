@@ -32,10 +32,10 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(domain, successCallback) {
+        getAll: function(domainId, successCallback) {
           $log.debug('Functionality:getAll');
           return Restangular.all('functionalities')
-            .getList({domainId: domain.identifier}).then(
+            .getList({domainId: domainId}).then(
               function success(functionalities) {
                 angular.forEach(functionalities, function (functionality) {
                   addLocalizedName(functionality);
@@ -49,7 +49,7 @@ angular.module('linshareAdminApp')
                   [
                    'Functionality:getAll',
                    'Unable to get all functionalities for domain',
-                   domain.identifier
+                   domainId
                   ].join('\n')
                 );
                 $log.error(domain);
@@ -131,6 +131,9 @@ angular.module('linshareAdminApp')
         },
         getCurrent: function() {
           return self.currentFunctionality;
+        },
+        getId: function(functionality) {
+          return functionality.identifier;
         },
         currentIsDefined: function() {
           return angular.isDefined(self.currentFunctionality);

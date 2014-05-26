@@ -94,6 +94,9 @@ angular.module('linshareAdminApp')
         getCurrent: function() {
           return self.currentDomainPolicy;
         },
+        getId: function(domainPolicy) {
+          return domainPolicy.identifier;
+        },
         copyCurrent: function() {
           return Restangular.copy(self.currentDomainPolicy);
         },

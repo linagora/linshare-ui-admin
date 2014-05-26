@@ -94,6 +94,9 @@ angular.module('linshareAdminApp')
         getCurrent: function() {
           return self.currentLdapConnection;
         },
+        getId: function(ldapConnection) {
+          return ldapConnection.identifier;
+        },
         copyCurrent: function() {
           return Restangular.copy(self.currentLdapConnection);
         },

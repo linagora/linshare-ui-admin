@@ -17,7 +17,7 @@ angular.module('linshareAdminApp')
         };
         $scope.reloadModels = function(domain) {
           if (angular.isDefined(domain)) {
-            MailLayout.getAll(domain.identifier, function(models) {
+            MailLayout.getAll(Domain.getId(domain), function(models) {
               $scope.models = models;
             });
           }

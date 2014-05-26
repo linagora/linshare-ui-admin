@@ -17,12 +17,12 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
           $scope.domainPolicies = []
           LdapConnection.getAll(function successCallback(ldapConnections) {
             angular.forEach(ldapConnections, function(ldapConnection) {
-              $scope.ldapConnections.push(ldapConnection.identifier);
+              $scope.ldapConnections.push(LdapConnection.getId(ldapConnection));
             });
           });
           DomainPattern.getAll(function successCallback(domainPatterns) {
             angular.forEach(domainPatterns, function(domainPattern) {
-              $scope.domainPatterns.push(domainPattern.identifier);
+              $scope.domainPatterns.push(DomainPattern.getId(domainPattern));
             });
           });
           Enum.getOptions('role', function successCallback(userRoles) {
@@ -35,7 +35,7 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
           });
           DomainPolicy.getAll(function successCallback(domainPolicies) {
             angular.forEach(domainPolicies, function(domainPolicy) {
-              $scope.domainPolicies.push(domainPolicy.identifier);
+              $scope.domainPolicies.push(DomainPolicy.getId(domainPolicy));
             });
           });
           $scope.addProvider = function() {

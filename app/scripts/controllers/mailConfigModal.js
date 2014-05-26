@@ -21,7 +21,7 @@ angular.module('linshareAdminApp')
         $scope.reset = function() {
           $scope.mailConfig = {
             visible: false,
-            domain: Domain.getCurrent().identifier
+            domain: Domain.getCurrentId()
           };
         };
         $scope.reset();

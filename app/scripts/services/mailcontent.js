@@ -10,10 +10,10 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(domain, successCallback) {
+        getAll: function(domainId, lang, type, successCallback) {
           $log.debug('MailContent:getAll');
           return Restangular.all('mail_contents')
-            .getList({domainId: domain.identifier}).then(
+            .getList({domainId: domainId, language: lang, mailContentType: type}).then(
               function success(mailContents) {
                 if (successCallback) {
                   return successCallback(mailContents);
@@ -24,10 +24,11 @@ angular.module('linshareAdminApp')
                   [
                    'MailContent:getAll',
                    'Unable to get all mail contents for domain',
-                   domain.identifier
+                   domainId,
+                   lang,
+                   type
                   ].join('\n')
                 );
-                $log.error(domain);
               }
           );
         },
@@ -87,7 +88,7 @@ angular.module('linshareAdminApp')
                 [
                  'MailContent:update',
                  'Unable to update mail content',
-                 mailContent.identifier
+                 mailContent.uuid
                 ].join('\n')
               );
               $log.error(mailContent);
@@ -108,7 +109,7 @@ angular.module('linshareAdminApp')
                 [
                  'MailContent:remove',
                  'Unable to remove mail content',
-                 mailContent.identifier
+                 mailContent.uuid
                 ].join('\n')
               );
               $log.error(mailContent);

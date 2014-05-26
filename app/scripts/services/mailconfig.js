@@ -10,10 +10,10 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(domain, successCallback) {
+        getAll: function(domainId, successCallback) {
           $log.debug('MailConfig:getAll');
           return Restangular.all('mail_configs')
-            .getList({domainId: domain.identifier}).then(
+            .getList({domainId: domainId}).then(
               function success(mailConfigs) {
                 if (successCallback) {
                   return successCallback(mailConfigs);
@@ -24,10 +24,9 @@ angular.module('linshareAdminApp')
                   [
                    'MailConfig:getAll',
                    'Unable to get all mail configs for domain',
-                   domain.identifier
+                   domainId
                   ].join('\n')
                 );
-                $log.error(domain);
               }
           );
         },
@@ -87,7 +86,7 @@ angular.module('linshareAdminApp')
                 [
                  'MailConfig:update',
                  'Unable to update mail config',
-                 mailConfig.identifier
+                 mailConfig.uuid
                 ].join('\n')
               );
               $log.error(mailConfig);
@@ -108,7 +107,7 @@ angular.module('linshareAdminApp')
                 [
                  'MailConfig:remove',
                  'Unable to remove mail config',
-                 mailConfig.identifier
+                 mailConfig.uuid
                 ].join('\n')
               );
               $log.error(mailConfig);

@@ -111,6 +111,9 @@ angular.module('linshareAdminApp')
         getCurrent: function() {
           return self.currentDomainPattern;
         },
+        getId: function(domainPattern) {
+          return domainPattern.identifier;
+        },
         copyCurrent: function() {
           return Restangular.copy(self.currentDomainPattern);
         },
@@ -118,6 +121,9 @@ angular.module('linshareAdminApp')
           var copy = Restangular.copy(model);
           copy.identifier = '';
           return copy;
+        },
+        getEmptyModel: function() {
+          return {identifier: ''};
         },
         currentIsDefined: function() {
           return angular.isDefined(self.currentDomainPattern);

@@ -18,7 +18,6 @@ angular.module('linshareAdminApp').directive('lsFunctionalityList', [
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
-                $scope.domain = newValue;
                 $scope.tableParams.reload();
               }
             },
@@ -40,7 +39,7 @@ angular.module('linshareAdminApp').directive('lsFunctionalityList', [
             debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
-              Functionality.getAll($scope.domain, function(functionalities) { 
+              Functionality.getAll(Domain.getCurrentId(), function(functionalities) { 
                 angular.forEach(functionalities, function(value, key) {
                   if (!value.displayable) {
                     functionalities.splice(key, 1);

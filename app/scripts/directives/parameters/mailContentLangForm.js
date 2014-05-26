@@ -10,14 +10,11 @@ angular.module('linshareAdminApp').directive('lsMailContentLangForm', [
           $scope.$watch(MailContentLang.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
-                $scope.mailContentLang = newValue;
+                $scope.reset();
               }
             },
             true
           );
-          MailContent.getAll(Domain.getCurrent(), function(mailContents) {
-            $scope.mailContents = mailContents;
-          });
           $scope.update = function() {
             MailContentLang.update($scope.mailContentLang, function() {
               $scope.cancel();
@@ -25,11 +22,17 @@ angular.module('linshareAdminApp').directive('lsMailContentLangForm', [
           };
           $scope.reset = function() {
             $scope.mailContentLang = MailContentLang.copyCurrent();
+            MailContent.getAll(Domain.getCurrentId(),
+                               mailContentLang.language,
+                               mailContentLang.mailContentType,
+              function(mailContents) {
+                $scope.mailContents = mailContents;
+              }
+            );
           };
           $scope.cancel = function() {
             MailContentLang.setCurrent(undefined);
           };
-          $scope.lang = 0;
         }
       ],
       templateUrl: 'views/templates/parameters/mailcontentlang_form.html',

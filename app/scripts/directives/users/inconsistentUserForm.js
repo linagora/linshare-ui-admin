@@ -41,7 +41,7 @@ angular.module('linshareAdminApp').directive('lsInconsistentUserForm', [
             );
           };
           $scope.submit = function(user, domain) {
-            user.domain = domain.identifier;
+            user.domain = Domain.getId(domain);
             User.update($scope.user, function successCallback(user) {
               $scope.cancel();
             });
