@@ -64,6 +64,7 @@
               </label>
               <select name="ruleDomain" class="form-control"
                       x-ng-model="ruleToAdd.domain"
+                      x-ng-disabled="ruleToAdd.type === 'ALLOW_ALL' || ruleToAdd.type === 'DENY_ALL'"
                       x-ng-options="domain.originalElement as domain.label for domain in allDomains | orderBy:'label'">
               </select>
             </div>
