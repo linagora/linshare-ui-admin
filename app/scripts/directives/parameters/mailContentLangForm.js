@@ -23,6 +23,9 @@ angular.module('linshareAdminApp').directive('lsMailContentLangForm', [
               $scope.cancel();
             });
           };
+          $scope.reset = function() {
+            $scope.mailContentLang = MailContentLang.copyCurrent();
+          };
           $scope.cancel = function() {
             MailContentLang.setCurrent(undefined);
           };
