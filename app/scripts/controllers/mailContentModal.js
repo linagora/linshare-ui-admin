@@ -4,11 +4,6 @@ angular.module('linshareAdminApp')
   .controller('mailContentModalCtrl',
     ['$scope', '$log', '$translate', '$modalInstance', 'Domain', 'Enum', 'MailContent',
       function ($scope, $log, $translate, $modalInstance, Domain, Enum, MailContent) {
-        MailContent.getAll(Domain.getCurrentId(),
-          function successCallback(mailContents) {
-            $scope.models = mailContents;
-          }
-        );
         Enum.getOptions('mail_content_type',
           function successCallback(options) {
             $scope.mailContentTypes = options;
@@ -33,7 +28,7 @@ angular.module('linshareAdminApp')
           if (angular.isDefined(domain) &&
               angular.isDefined(lang) &&
               angular.isDefined(mailContentType)) {
-            MailContent.getAll(Domain.getId(domain), function(models) {
+            MailContent.getAll(Domain.getId(domain), false, function(models) {
               $scope.models = models;
             });
           }

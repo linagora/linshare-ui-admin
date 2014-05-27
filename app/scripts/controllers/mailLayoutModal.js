@@ -4,11 +4,6 @@ angular.module('linshareAdminApp')
   .controller('mailLayoutModalCtrl',
     ['$scope', '$log', '$modalInstance', 'Domain', 'MailLayout',
       function ($scope, $log, $modalInstance, Domain, MailLayout) {
-        MailLayout.getAll(Domain.getCurrent(),
-          function successCallback(mailLayouts) {
-            $scope.models = mailLayouts;
-          }
-        );
         Domain.getAll(function(domains) {
           $scope.domains = domains;
         });
@@ -17,7 +12,7 @@ angular.module('linshareAdminApp')
         };
         $scope.reloadModels = function(domain) {
           if (angular.isDefined(domain)) {
-            MailLayout.getAll(Domain.getId(domain), function(models) {
+            MailLayout.getAll(Domain.getId(domain), false, function(models) {
               $scope.models = models;
             });
           }
