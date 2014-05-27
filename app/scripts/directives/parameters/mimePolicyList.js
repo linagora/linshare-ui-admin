@@ -20,6 +20,9 @@ angular.module('linshareAdminApp').directive('lsMimePolicyList', [
               controller: 'mimePolicyModalCtrl',
               templateUrl: 'views/templates/parameters/mimepolicies_modal.html'
             });
+            modalInstance.result.then(function () {
+              $scope.tableParams.reload();
+            });
           };
           $scope.edit = function(mimePolicy) {
             MimePolicy.get(mimePolicy.uuid, true, function(m) {
