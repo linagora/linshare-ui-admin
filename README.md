@@ -143,6 +143,7 @@ Sinon vous pouvez utiliser sublime text avec le plugin suivant
 Pour éviter des fichiers avec trop de colonne, la tabulation avec 2 espaces est recommandée.
 Pour l'API rest, le debugger [http://restclient.net/](http://restclient.net/) est conseillé.
 Pour débugger AngularJS [https://github.com/angular/angularjs-batarang](https://github.com/angular/angularjs-batarang)
+ou [http://ng-inspector.org/](http://ng-inspector.org/)
 
 A suivre [http://ternjs.net/](http://ternjs.net/)
 
@@ -190,6 +191,8 @@ cette dernière est stockée dans un cookie.
 Le dictionnaire est chargé au démarrage de l'application puis est stocké dans le rootScope,
 on peut donc l'utilisé directement ou en passant par le service de localisation.
 
+Utiliser le paquet npm "json-diff" pour comparer les fichiers de langue
+
 ### Utilisation du logger
 Nous avons wrapper le logger AngularJS dans un service pour pouvoir
 gérer des niveaux de logs. 
@@ -233,14 +236,12 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 
 * [https://github.com/angular-ui/alias](https://github.com/angular-ui/alias)
 * [https://github.com/angular-ui/ui-router](https://github.com/angular-ui/ui-router)
-* [http://angular-translate.github.io/](http://angular-translate.github.io/)
 * [https://github.com/marcorinck/angular-growl](https://github.com/marcorinck/angular-growl) (Si toujours pas d'evolution) [https://github.com/JanStevens/angular-growl-2/](https://github.com/JanStevens/angular-growl-2/)
 
 
 ### TODO
 
 * Ecrire la doc avec [https://github.com/angular/dgeni](https://github.com/angular/dgeni)
-* Tester et integrer [https://github.com/btford/grunt-ngmin](https://github.com/btford/grunt-ngmin)
 * Fix le login et logout
 * Faire une batterie de test
 * Voir si la structure d'angular seed n'evolue pas

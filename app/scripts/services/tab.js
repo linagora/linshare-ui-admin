@@ -26,14 +26,11 @@ angular.module('linshareAdminApp')
           }
         ]
       };
-      this.parameters = {
-        name: 'COMMON.TAB.PARAMETERS',
-        icon: 'fa-gears',
+      this.mails = {
+        name: 'COMMON.TAB.MAILS',
+        icon: 'fa-envelope',
         links: [
           {
-            name: 'COMMON.TAB.FUNCTIONALITIES',
-            href: '#parameters/functionalities'
-          }, {
             name: 'COMMON.TAB.MAIL_LAYOUT',
             href: '#parameters/mail_layout'
           }, {
@@ -45,6 +42,19 @@ angular.module('linshareAdminApp')
           }, {
             name: 'COMMON.TAB.MAIL_CONFIG',
             href: '#parameters/mail_config'
+          }
+        ]
+      };
+      this.parameters = {
+        name: 'COMMON.TAB.PARAMETERS',
+        icon: 'fa-gears',
+        links: [
+          {
+            name: 'COMMON.TAB.FUNCTIONALITIES',
+            href: '#parameters/functionalities'
+          }, {
+            name: 'COMMON.TAB.MIME_POLICIES',
+            href: '#parameters/mime_policy'
           }
         ]
       };
@@ -93,6 +103,7 @@ angular.module('linshareAdminApp')
           tabs.push(self.audit);
           if (user.role === 'SUPERADMIN') {
             tabs.push(self.domains);
+            tabs.push(self.mails);
             self.users.links.push(self.threads);
             self.users.links.push(self.mailingLists);
           }

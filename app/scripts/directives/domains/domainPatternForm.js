@@ -7,8 +7,8 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$modal', '$log', '$translate', 'DomainPattern',
-        function($scope, $modal, $log, $translate, DomainPattern) {
+        ['$scope', '$modal', '$log', 'DomainPattern',
+        function($scope, $modal, $log, DomainPattern) {
           var emptyModel = DomainPattern.getEmptyModel();
           $scope.submit = function() {
             if ($scope.state === 'edit') {
@@ -36,7 +36,7 @@ angular.module('linshareAdminApp').directive('lsDomainPatternForm', [
                 controller: 'ConfirmDialogCtrl',
                 resolve: {
                   content: function() {
-                    return $translate('DOMAIN_PATTERNS.CONFIRM_DELETE_FORM.PARAGRAPH');
+                    return 'DOMAIN_PATTERNS.CONFIRM_DELETE_FORM.PARAGRAPH';
                   }
                 }
               });

@@ -2,18 +2,18 @@
 
 angular.module('linshareAdminApp')
   .factory('MailContent',
-    ['$log', '$translate', 'Notification', 'Restangular',
-    function ($log, $translate, Notification, Restangular) {
+    ['$log', 'Notification', 'Restangular',
+    function ($log, Notification, Restangular) {
       this.currentMailContent = undefined;
 
       var self = this;
 
       // Public API here
       return {
-        getAll: function(domainId, lang, type, successCallback) {
+        getAll: function(domainId, onlyCurrentDomain, successCallback) {
           $log.debug('MailContent:getAll');
           return Restangular.all('mail_contents')
-            .getList({domainId: domainId, language: lang, mailContentType: type}).then(
+            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain}).then(
               function success(mailContents) {
                 if (successCallback) {
                   return successCallback(mailContents);
@@ -24,9 +24,7 @@ angular.module('linshareAdminApp')
                   [
                    'MailContent:getAll',
                    'Unable to get all mail contents for domain',
-                   domainId,
-                   lang,
-                   type
+                   domainId
                   ].join('\n')
                 );
               }

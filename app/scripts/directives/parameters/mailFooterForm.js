@@ -4,8 +4,8 @@ angular.module('linshareAdminApp').directive('lsMailFooterForm', [
   function() {
     return {
       restrict: 'A',
-      controller: ['$scope', '$log', '$modal', '$translate', 'Domain', 'MailFooter',
-        function($scope, $log, $modal, $translate, Domain, MailFooter) {
+      controller: ['$scope', '$log', '$modal', 'Domain', 'MailFooter',
+        function($scope, $log, $modal, Domain, MailFooter) {
           $scope.$watch(MailFooter.getCurrent,
             function successCallback(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -29,7 +29,7 @@ angular.module('linshareAdminApp').directive('lsMailFooterForm', [
               controller: 'ConfirmDialogCtrl',
               resolve: {
                 content: function() {
-                  return $translate('MAIL_FOOTER.CONFIRM_DELETE_FORM.PARAGRAPH');
+                  return 'MAIL_FOOTER.CONFIRM_DELETE_FORM.PARAGRAPH';
                 }
               }
             });

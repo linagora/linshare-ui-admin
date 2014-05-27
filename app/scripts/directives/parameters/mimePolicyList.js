@@ -1,12 +1,11 @@
 'use strict';
 
-angular.module('linshareAdminApp').directive('lsMailConfigList', [
+angular.module('linshareAdminApp').directive('lsMimePolicyList', [
   function() {
     return {
       restrict: 'A',
-      scope: {},
-      controller: ['$scope', '$filter', '$log', '$modal', 'ngTableParams', 'Domain', 'MailConfig',
-        function($scope, $filter, $log, $modal, ngTableParams, Domain, MailConfig) {
+      controller: ['$scope', '$filter', '$log', '$modal', 'ngTableParams', 'Domain', 'MimePolicy',
+        function($scope, $filter, $log, $modal, ngTableParams, Domain, MimePolicy) {
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -18,12 +17,14 @@ angular.module('linshareAdminApp').directive('lsMailConfigList', [
           );
           $scope.add = function() {
             var modalInstance = $modal.open({
-              controller: 'mailConfigModalCtrl',
-              templateUrl: 'views/templates/parameters/mailconfig_modal.html'
+              controller: 'mimePolicyModalCtrl',
+              templateUrl: 'views/templates/parameters/mimepolicy_modal.html'
             });
           };
-          $scope.edit = function(mailConfig) {
-            MailConfig.setCurrent(mailConfig);
+          $scope.edit = function(mimePolicy) {
+            MimePolicy.get(mimePolicy.uuid, true, function(m) {
+              MimePolicy.setCurrent(m);
+            });
           };
           $scope.cancel = function() {
             Domain.setCurrent(undefined);
@@ -38,10 +39,13 @@ angular.module('linshareAdminApp').directive('lsMailConfigList', [
             debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
-              MailConfig.getAll(Domain.getCurrentId(), true, function(mailConfigs) { 
+              MimePolicy.getAll(Domain.getCurrentId(), true, function(mimePolicies) { 
+                var filteredData = params.filter() ?
+                          $filter('filter')(mimePolicies, params.filter()) :
+                          mimePolicies;
                 var orderedData = params.sorting() ?
-                          $filter('orderBy')(mailConfigs, params.orderBy()) :
-                          mailConfigs;
+                          $filter('orderBy')(filteredData, params.orderBy()) :
+                          filteredData;
                 params.total(orderedData.length);
                 $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
               });
@@ -49,7 +53,7 @@ angular.module('linshareAdminApp').directive('lsMailConfigList', [
           });
         }
       ],
-      templateUrl: 'views/templates/parameters/mailconfig_list.html',
+      templateUrl: 'views/templates/parameters/mimepolicies_list.html',
       replace: false
     };
   }

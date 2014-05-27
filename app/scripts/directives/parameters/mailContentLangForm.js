@@ -5,8 +5,8 @@ angular.module('linshareAdminApp').directive('lsMailContentLangForm', [
     return {
       restrict: 'A',
       scope: {},
-      controller: ['$scope', '$log', 'MailContentLang', 'MailContent', 'Domain',
-        function($scope, $log, MailContentLang, MailContent, Domain) {
+      controller: ['$scope', '$log', 'MailContentLang', 'MailConfig',
+        function($scope, $log, MailContentLang, MailConfig) {
           $scope.$watch(MailContentLang.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -22,9 +22,7 @@ angular.module('linshareAdminApp').directive('lsMailContentLangForm', [
           };
           $scope.reset = function() {
             $scope.mailContentLang = MailContentLang.copyCurrent();
-            MailContent.getAll(Domain.getCurrentId(),
-                               mailContentLang.language,
-                               mailContentLang.mailContentType,
+            MailConfig.getAllMailContents($scope.mailContentLang.language, $scope.mailContentLang.mailContentType,
               function(mailContents) {
                 $scope.mailContents = mailContents;
               }

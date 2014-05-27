@@ -4,8 +4,8 @@ angular.module('linshareAdminApp').directive('lsMailContentForm', [
   function() {
     return {
       restrict: 'A',
-      controller: ['$scope', '$log', '$modal', '$translate', 'Domain', 'MailContent',
-        function($scope, $log, $modal, $translate, Domain, MailContent) {
+      controller: ['$scope', '$log', '$modal', 'Domain', 'MailContent',
+        function($scope, $log, $modal, Domain, MailContent) {
           $scope.$watch(MailContent.getCurrent,
             function successCallback(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -29,7 +29,7 @@ angular.module('linshareAdminApp').directive('lsMailContentForm', [
               controller: 'ConfirmDialogCtrl',
               resolve: {
                 content: function() {
-                  return $translate('MAIL_CONTENT.CONFIRM_DELETE_FORM.PARAGRAPH');
+                  return 'MAIL_CONTENT.CONFIRM_DELETE_FORM.PARAGRAPH';
                 }
               }
             });

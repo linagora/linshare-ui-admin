@@ -52,7 +52,6 @@ angular.module('linshareAdminApp')
                    domainId
                   ].join('\n')
                 );
-                $log.error(domain);
               }
           );
         },

@@ -2,18 +2,18 @@
 
 angular.module('linshareAdminApp')
   .factory('MailLayout',
-    ['$log', '$translate', 'Notification', 'Restangular',
-    function ($log, $translate, Notification, Restangular) {
+    ['$log', 'Notification', 'Restangular',
+    function ($log, Notification, Restangular) {
       this.currentMailLayout = undefined;
 
       var self = this;
 
       // Public API here
       return {
-        getAll: function(domainId, successCallback) {
+        getAll: function(domainId, onlyCurrentDomain, successCallback) {
           $log.debug('MailLayout:getAll');
           return Restangular.all('mail_layouts')
-            .getList({domainId: domainId}).then(
+            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain}).then(
               function success(mailLayouts) {
                 if (successCallback) {
                   return successCallback(mailLayouts);

@@ -8,8 +8,8 @@ angular.module('linshareAdminApp').directive('lsDomainTree', [
         state: '@',
         root: "="
       },
-      controller: ['$scope', '$modal', '$log', 'Domain',
-        function($scope, $modal, $log, Domain) {
+      controller: ['$scope', '$log', 'Domain',
+        function($scope, $log, Domain) {
           $scope.setCurrentDomain = function(domain) {
             Domain.setCurrent(domain);
           }

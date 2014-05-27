@@ -2,18 +2,18 @@
 
 angular.module('linshareAdminApp')
   .factory('MailFooter',
-    ['$log', '$translate', 'Notification', 'Restangular',
-    function ($log, $translate, Notification, Restangular) {
+    ['$log', 'Notification', 'Restangular',
+    function ($log, Notification, Restangular) {
       this.currentMailFooter = undefined;
 
       var self = this;
 
       // Public API here
       return {
-        getAll: function(domainId, successCallback) {
+        getAll: function(domainId, onlyCurrentDomain, successCallback) {
           $log.debug('MailFooter:getAll');
           return Restangular.all('mail_footers')
-            .getList({domainId: domainId}).then(
+            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain}).then(
               function success(mailFooters) {
                 if (successCallback) {
                   return successCallback(mailFooters);
@@ -27,7 +27,6 @@ angular.module('linshareAdminApp')
                    domainId
                   ].join('\n')
                 );
-                $log.error(domain);
               }
           );
         },

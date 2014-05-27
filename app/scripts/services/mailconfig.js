@@ -2,18 +2,18 @@
 
 angular.module('linshareAdminApp')
   .factory('MailConfig',
-    ['$log', '$translate', 'Notification', 'Restangular',
-    function ($log, $translate, Notification, Restangular) {
+    ['$log', 'Notification', 'Restangular',
+    function ($log, Notification, Restangular) {
       this.currentMailConfig = undefined;
 
       var self = this;
 
       // Public API here
       return {
-        getAll: function(domainId, successCallback) {
+        getAll: function(domainId, onlyCurrentDomain, successCallback) {
           $log.debug('MailConfig:getAll');
           return Restangular.all('mail_configs')
-            .getList({domainId: domainId}).then(
+            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain}).then(
               function success(mailConfigs) {
                 if (successCallback) {
                   return successCallback(mailConfigs);
@@ -25,6 +25,28 @@ angular.module('linshareAdminApp')
                    'MailConfig:getAll',
                    'Unable to get all mail configs for domain',
                    domainId
+                  ].join('\n')
+                );
+              }
+          );
+        },
+        getAllMailContents: function(language, mailContentType, successCallback) {
+          $log.debug('MailConfig:getAllMailContents');
+          return Restangular.one('mail_configs', self.getCurrentId())
+            .getList({language: language, mailContentType: mailContentType}).then(
+              function success(mailConfigs) {
+                if (successCallback) {
+                  return successCallback(mailConfigs);
+                }
+              },
+              function error() {
+                $log.error(
+                  [
+                   'MailConfig:getAll',
+                   'Unable to get all mail contents with language',
+                   language,
+                   'and mail content type',
+                   mailContentType
                   ].join('\n')
                 );
               }
@@ -120,6 +142,9 @@ angular.module('linshareAdminApp')
         },
         getCurrent: function() {
           return self.currentMailConfig;
+        },
+        getCurrentId: function() {
+          return self.currentMailConfig.uuid;
         },
         copyCurrent: function() {
           return Restangular.copy(self.currentMailConfig);

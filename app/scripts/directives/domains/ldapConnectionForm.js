@@ -7,8 +7,8 @@ angular.module('linshareAdminApp').directive('lsLdapConnectionForm', [
       scope: {},
       transclude: false,
       controller: 
-        ['$scope', '$modal', '$log', '$translate', 'LdapConnection',
-        function($scope, $modal, $log, $translate, LdapConnection) {
+        ['$scope', '$modal', '$log', 'LdapConnection',
+        function($scope, $modal, $log, LdapConnection) {
           $scope.submit = function() {
             if ($scope.state === 'edit') {
               LdapConnection.update(
@@ -35,7 +35,7 @@ angular.module('linshareAdminApp').directive('lsLdapConnectionForm', [
                 controller: 'ConfirmDialogCtrl',
                 resolve: {
                   content: function() {
-                    return $translate('DOMAIN_PATTERNS.CONFIRM_DELETE_FORM.PARAGRAPH');
+                    return 'DOMAIN_PATTERNS.CONFIRM_DELETE_FORM.PARAGRAPH';
                   }
                 }
               });

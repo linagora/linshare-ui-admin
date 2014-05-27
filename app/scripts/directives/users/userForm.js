@@ -11,8 +11,8 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
         };
         scope.today = new Date();
       },
-      controller: ['$scope', '$modal', '$log', '$translate', 'User', 'Functionality', 'Enum',
-        function($scope, $modal, $log, $translate, User, Functionality, Enum) {
+      controller: ['$scope', '$modal', '$log', 'User', 'Functionality', 'Enum',
+        function($scope, $modal, $log, User, Functionality, Enum) {
           Enum.getOptions('role', function successCallback(userRoles) {
             $scope.userRoles = _.remove(userRoles, function(role) {
               return role !== 'SYSTEM' && role !== 'SUPERADMIN';
@@ -77,7 +77,7 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
               controller: 'ConfirmDialogCtrl',
               resolve: {
                 content: function() {
-                  return $translate('MANAGE_USERS.CONFIRM_DELETE_FORM.PARAGRAPH');
+                  return 'MANAGE_USERS.CONFIRM_DELETE_FORM.PARAGRAPH';
                 }
               }
             });

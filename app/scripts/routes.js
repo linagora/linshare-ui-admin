@@ -31,6 +31,10 @@ angular.module('linshareAdminApp').config(['$routeProvider',
       templateUrl: 'views/parameters/functionalities.html',
       controller: 'ResetCtrl'
     });
+    $routeProvider.when('/parameters/mime_policy', {
+      templateUrl: 'views/parameters/mime_policy.html',
+      controller: 'ResetCtrl'
+    });
     $routeProvider.when('/parameters/mail_layout', {
       templateUrl: 'views/parameters/mail_layout.html',
       controller: 'ResetCtrl'

@@ -9,8 +9,8 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
         reload: '&'
       },
       controller:
-        ['$scope', '$modal', '$log', '$translate', 'Domain', 'LdapConnection', 'DomainPattern', 'Enum', 'DomainPolicy',
-        function($scope, $modal, $log, $translate, Domain, LdapConnection, DomainPattern, Enum, DomainPolicy) {
+        ['$scope', '$modal', '$log', 'Domain', 'LdapConnection', 'DomainPattern', 'Enum', 'DomainPolicy',
+        function($scope, $modal, $log, Domain, LdapConnection, DomainPattern, Enum, DomainPolicy) {
           $scope.ldapConnections = []
           $scope.domainPatterns = []
           $scope.userRoles = []
@@ -84,7 +84,7 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
                 controller: 'ConfirmDialogCtrl',
                 resolve: {
                   content: function() {
-                    return $translate('MANAGE_DOMAINS.CONFIRM_DELETE_FORM.PARAGRAPH');
+                    return 'MANAGE_DOMAINS.CONFIRM_DELETE_FORM.PARAGRAPH';
                   }
                 }
               });

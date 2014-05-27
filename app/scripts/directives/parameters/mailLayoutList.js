@@ -37,7 +37,7 @@ angular.module('linshareAdminApp').directive('lsMailLayoutList', [
             debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
-              MailLayout.getAll($scope.domain, function(mailLayouts) { 
+              MailLayout.getAll(Domain.getCurrentId(), true,  function(mailLayouts) { 
                 var orderedData = params.sorting() ?
                           $filter('orderBy')(mailLayouts, params.orderBy()) :
                           mailLayouts;

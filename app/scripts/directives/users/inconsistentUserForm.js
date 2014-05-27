@@ -5,8 +5,8 @@ angular.module('linshareAdminApp').directive('lsInconsistentUserForm', [
     return {
       restrict: 'A',
       scope: {},
-      controller: ['$scope', '$modal', '$log', '$translate', 'Domain', 'User',
-        function($scope, $modal, $log, $translate, Domain, User) {
+      controller: ['$scope', '$modal', '$log', 'Domain', 'User',
+        function($scope, $modal, $log, Domain, User) {
           Domain.getAll(function successCallback(domains) {
             $scope.allDomains = domains;
           });
@@ -24,7 +24,7 @@ angular.module('linshareAdminApp').directive('lsInconsistentUserForm', [
               controller: 'ConfirmDialogCtrl',
               resolve: {
                 content: function() {
-                  return $translate('INCONSISTENT_USERS.CONFIRM_DELETE_FORM.PARAGRAPH');
+                  return 'INCONSISTENT_USERS.CONFIRM_DELETE_FORM.PARAGRAPH';
                 }
               }
             });

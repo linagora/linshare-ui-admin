@@ -9,6 +9,7 @@ angular.module('linshareAdminApp').directive('lsMailContentList', [
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
+                $scope.domain = newValue;
                 $scope.tableParams.reload();
               }
             },
@@ -40,7 +41,7 @@ angular.module('linshareAdminApp').directive('lsMailContentList', [
             debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
-              MailContent.getAll(Domain.getCurrentId(), null, null, function(mailContents) { 
+              MailContent.getAll(Domain.getCurrentId(), true, function(mailContents) { 
                 var filteredData = params.filter() ?
                           $filter('filter')(mailContents, params.filter()) :
                           mailContents;

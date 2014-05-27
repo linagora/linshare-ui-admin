@@ -4,14 +4,14 @@
 
   </div>
   <div class="modal-body">
-    <div x-ng-bind-html="content"></div>
+    {{ content | translate }}
   </div>
   <div class="modal-footer">
     <button type="button" class="btn" x-ng-click="cancel()">
-      {{'COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO' | translate}}
+      {{ 'COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO' | translate }}
     </button>
     <button type="submit" class="btn btn-danger" x-ng-click="validate()">
-      {{'COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES' | translate}}
+      {{ 'COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES' | translate }}
     </button>
   </div>
 </div>
