@@ -1,6 +1,7 @@
 {
   "COMMON": {
     "BASIC_FORM": {
+      "BUTTON_LIST": "List",
       "BUTTON_CANCEL": "Cancel",
       "BUTTON_DELETE": "Delete",
       "BUTTON_RESET": "Reset",
@@ -105,7 +106,7 @@
     "TITLE": "Manage your domain patterns",
     "BOX_LIST": {
       "TITLE": "Domain patterns list",
-      "BUTTON_ADD": "Add",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_DESCRIPTION": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_DESCRIPTION"
@@ -113,7 +114,7 @@
     },
     "BOX_FORM": {
       "TITLE_CREATION": "Creation",
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_MODEL_SELECTOR": "Model selector",
       "LABEL_IDENTIFIER": "Identifier",
       "LABEL_DESCRIPTION": "Description",
@@ -154,7 +155,7 @@
     "TITLE": "Manage your LDAP connections",
     "BOX_LIST": {
       "TITLE": "LDAP connections list",
-      "BUTTON_ADD": "Add",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:LDAP_CONNECTIONS.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_PROVIDER_URL": "@:LDAP_CONNECTIONS.BOX_FORM.LABEL_PROVIDER_URL"
@@ -162,7 +163,7 @@
     },
     "BOX_FORM": {
       "TITLE_CREATION": "Creation",
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_IDENTIFIER": "Identifier",
       "LABEL_PROVIDER_URL": "Provider URL",
       "HELP_PROVIDER_URL": "eg: [ldap|ldaps]://my.ldap.lng:[389|636]",
@@ -197,7 +198,7 @@
       "LABEL_DESCRIPTION": "Description",
       "LABEL_LOCALE": "Default locale",
       "LABEL_USER_ROLE": "User role",
-      "LABEL_POLICY": "POLICY",
+      "LABEL_POLICY": "Policy",
       "BUTTON_ADD_PROVIDER": "Add provider",
       "TITLE_PROVIDER": "User provider",
       "LABEL_LDAP_CONNECTION": "LDAP connection",
@@ -244,7 +245,7 @@
     "TITLE": "Policies management",
     "BOX_LIST": {
       "TITLE": "Domain policies list",
-      "BUTTON_ADD": "Add",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:DOMAIN_POLICIES.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_DESCRIPTION": "@:DOMAIN_POLICIES.BOX_FORM.LABEL_DESCRIPTION"
@@ -252,7 +253,7 @@
     },
     "BOX_FORM": {
       "TITLE_CREATION": "Creation",
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_IDENTIFIER": "Identifier",
       "LABEL_DESCRIPTION": "Description",
       "LABEL_RULES": "Rules",
@@ -289,7 +290,7 @@
       }
     },
     "BOX_FORM": {
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LEGEND_ACTIVATION_POLICY": "Activation policy",
       "LEGEND_CONFIGURATION_POLICY": "Configuration policy",
       "LEGEND_PARAMETERS": "Parameters",
@@ -328,7 +329,7 @@
       "TAB_LIST": "Tab list",
       "RESTRICTED_GUEST": "Restricted guest",
       "SHARE_NOTIFICATION_BEFORE_EXPIRATION": "Share notification before expiry date",
-      "SECURED_ANONYMOUS_URL": "Secured anonymouss URL",
+      "SECURED_ANONYMOUS_URL": "Secured anonymous URL",
       "THREAD_PERMISSION": "Thread permission",
       "UPDATE_FILE": "Update file",
       "DOMAIN_MAIL": "Domain mail",
@@ -341,14 +342,14 @@
   "MIME_POLICIES": {
     "TITLE": "Mime policies",
     "BOX_LIST": {
-      "BUTTON_ADD": "New mime policy",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_NAME": "@:MIME_POLICIES.BOX_FORM.LABEL_NAME"
       }
     },
     "BOX_FORM": {
       "TITLE_MIME_TYPES": "Mime types",
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "Name",
       "TABLE": {
         "HEADER_STATUS": "Status",
@@ -365,7 +366,7 @@
       "PARAGRAPH": "You are about to delete this mime config, this procedure is irreversible. Do you want to proceed?"
     },
     "MODAL_FORM": {
-      "TITLE": "Creation form",
+      "TITLE": "Creation",
       "LABEL_NAME": "@:MIME_POLICIES.BOX_FORM.LABEL_NAME",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
@@ -377,13 +378,13 @@
   "MAIL_LAYOUT": {
     "TITLE": "Mail layout",
     "BOX_LIST": {
-      "BUTTON_ADD": "New mail layout",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME"
       }
     },
     "BOX_FORM": {
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "Name",
       "LABEL_LAYOUT": "Layout",
       "LABEL_PLAINTEXT": "Plain text",
@@ -398,7 +399,7 @@
       "PARAGRAPH": "You are about to delete this mail layout, this procedure is irreversible. Do you want to proceed?"
     },
     "MODAL_FORM": {
-      "TITLE": "Creation form",
+      "TITLE": "Creation",
       "LABEL_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
       "LABEL_MODEL": "Model",
       "LABEL_DOMAIN": "Domain",
@@ -418,13 +419,13 @@
           "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
         }
       },
-      "BUTTON_ADD": "New mail footer",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME"
       }
     },
     "BOX_FORM": {
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "Name",
       "LABEL_FOOTER": "Footer",
       "LABEL_PLAINTEXT": "Plain text",
@@ -439,7 +440,7 @@
       "PARAGRAPH": "You are about to delete this mail footer, this procedure is irreversible. Do you want to proceed?"
     },
     "MODAL_FORM": {
-      "TITLE": "Creation form",
+      "TITLE": "Creation",
       "LABEL_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
       "LABEL_LANGUAGE": "Language",
       "LABEL_MODEL": "Model",
@@ -460,14 +461,14 @@
           "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
         }
       },
-      "BUTTON_ADD": "New mail content",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
         "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE"
       }
     },
     "BOX_FORM": {
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "Name",
       "LABEL_LANGUAGE": "Language",
       "LABEL_CONTENT_TYPE": "Content type",
@@ -486,7 +487,7 @@
       "PARAGRAPH": "You are about to delete this mail content, this procedure is irreversible. Do you want to proceed?"
     },
     "MODAL_FORM": {
-      "TITLE": "Creation form",
+      "TITLE": "Creation",
       "LABEL_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
       "LABEL_LANGUAGE": "@:MAIL_CONTENT.BOX_FORM.LABEL_LANGUAGE",
       "LABEL_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
@@ -502,13 +503,13 @@
   "MAIL_CONFIG": {
     "TITLE": "Mail config",
     "BOX_LIST": {
-      "BUTTON_ADD": "New mail config",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME"
       }
     },
     "MODAL_FORM": {
-      "TITLE": "Mail config creation",
+      "TITLE": "Creation",
       "LABEL_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
       "LABEL_VISIBLE": "@:MAIL_CONFIG.BOX_FORM.LABEL_VISIBLE",
       "FORM_ACTIONS": {
@@ -523,7 +524,7 @@
           "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
         }
       },
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "Name",
       "LABEL_VISIBLE": "Visible",
       "LABEL_MAIL_CONTENT_LANG": "Mail contents",
@@ -643,7 +644,7 @@
     },
     "BOX_FORM": {
       "TITLE": "Edit group",
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "Name",
       "LABEL_MODIFICATION_DATE": "Modification date",
       "FORM_ACTIONS": {
@@ -685,7 +686,7 @@
     },
     "BOX_FORM": {
       "TITLE": "Edit group",
-      "BUTTON_LIST": "List",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_IDENTIFIER": "Identifier",
       "LABEL_IS_PUBLIC": "Visibility",
       "LABEL_OWNER": "Owner",

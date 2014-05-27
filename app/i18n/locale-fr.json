@@ -1,117 +1,142 @@
 {
   "COMMON": {
     "BASIC_FORM": {
-      "BUTTON_CANCEL": "Cancel",
-      "BUTTON_DELETE": "Delete",
-      "BUTTON_RESET": "Reset",
-      "BUTTON_SUBMIT": "Submit"
+      "BUTTON_LIST": "Liste",
+      "BUTTON_CANCEL": "Annuler",
+      "BUTTON_DELETE": "Supprimer",
+      "BUTTON_RESET": "Réinitialiser",
+      "BUTTON_CREATE": "Créer",
+      "BUTTON_SUBMIT": "Soumettre"
     },
     "BASIC_CONFIRMATION_FORM": {
       "TITLE": "Confirmation",
-      "BUTTON_YES": "Yes",
-      "BUTTON_NO": "No"
+      "BUTTON_YES": "Oui",
+      "BUTTON_NO": "Non"
     },
     "NAVBAR": {
-      "LOGOUT": "Logout",
+      "LOGOUT": "Deconnexion",
+      "CHANGE_PASSWORD": "Modifier le mot de passe",
       "LANGUAGE": {
-        "SWITCH_TITLE": "Language",
-        "ENGLISH": "English",
-        "FRENCH":  "French"
+        "SWITCH_TITLE": "Langue",
+        "ENGLISH": "Anglais",
+        "FRENCH":  "Français"
       }
     },
+    "SIDEBAR": {
+      "PLACEHOLDER_SEARCH": "Recherche..."
+    },
     "LOGIN_FORM": {
-      "TITLE": "Login",
+      "TITLE": "Connexion",
       "LABEL_EMAIL": "Email",
-      "LABEL_PASSWORD": "Password",
-      "BUTTON_LOGOUT": "Logout",
+      "LABEL_PASSWORD": "Mot de passe",
       "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
     },
     "TAB": {
-      "DOMAINS": "Domains",
-      "LDAP_CONNECTIONS": "LDAP connections",
-      "DOMAIN_PATTERNS": "Domain patterns",
-      "MANAGE_DOMAINS": "Manage domains",
-      "DOMAIN_ORDER": "Domain order",
-      "DOMAIN_POLICIES": "Domain policies",
-      "PARAMETERS": "Parameters",
-      "FUNCTIONALITIES": "Functionalities",
-      "CONFIGURATION_POLICIES": "Configuration policies",
-      "MAILS_CONFIGURATION": "Mails configuration",
-      "USERS": "Users",
-      "MANAGE_USERS": "Manage users",
-      "INCONSISTENT_USERS": "Inconsistent users",
+      "DOMAINS": "Domaines",
+      "LDAP_CONNECTIONS": "Connexions LDAP",
+      "DOMAIN_PATTERNS": "Modèles de domaine",
+      "MANAGE_DOMAINS": "Configuration des domaines",
+      "DOMAIN_ORDER": "Ordre des domaines",
+      "DOMAIN_POLICIES": "Règles de domaine",
+      "PARAMETERS": "Paramètres",
+      "FUNCTIONALITIES": "Fonctionnalités",
+      "MIME_POLICIES": "Règles de type MIME",
+      "CONFIGURATION_POLICIES": "Règles de configuration",
+      "MAILS": "Courriels",
+      "MAIL_LAYOUT": "Disposition de courriel",
+      "MAIL_FOOTER": "Pied de courriel",
+      "MAIL_CONTENT": "Contenu de courriel",
+      "MAIL_CONFIG": "Configuration de courriel",
+      "USERS": "Utilisateurs",
+      "MANAGE_USERS": "Configuration des utilisateurs",
+      "INCONSISTENT_USERS": "Utilisateurs incohérents",
       "THREADS": "Threads",
-      "MAILING_LISTS": "Mailing lists",
-      "HISTORY": "History",
+      "MAILING_LISTS": "Listes de diffusion",
+      "HISTORY": "Historique",
       "AUDIT": "Audit"
     },
     "NOTIFICATION": {
       "SUCCESS": {
-        "CREATE": "Creation succeed",
-        "UPDATE": "Update succeed",
-        "DELETE": "Deletion succeed"
+        "CREATE": "Creation réussie",
+        "UPDATE": "Mise à jour réussie",
+        "DELETE": "Suppression réussie"
       },
       "ERROR": {
-        "1000": "A error has occured, please contact your LinShare administrator",
-        "4000": "Invalid identifier",
-        "13000": "Domain id already exist",
-        "13001": "Domain id not found",
-        "13002": "Domain invalid type",
-        "13003": "Domain policy not found",
-        "13004": "LDAP connection not found",
-        "13005": "Domain pattern not found",
-        "13006": "Domain base DN not found",
-        "13007": "Domain do not already exists",
-        "13008": "Domain do not exists",
+        "1000": "Une erreur c'est produite, veuillez contacter votre administrateur Linshare",
+        "4000": "Id invalide",
+        "13000": "Domain id déjà présent",
+        "13001": "Domain id introuvable",
+        "13002": "Domain type invalide",
+        "13003": "Domain policy introuvable",
+        "13004": "LDAP connection introuvable",
+        "13005": "Domain pattern introuvable",
+        "13006": "Domain base DN introuvable",
+        "13007": "Domain does not already exist",
+        "13008": "Domain inexistant",
         "14000": "Functionality entity out of date",
-        "15000": "Relay host not enable",
-        "15666": "XSS filter scan failed",
-        "16000": "Directory unavailable",
-        "17000": "Unauthorized action",
-        "20000": "A error has occured, please contact your LinShare administrator",
-        "20001": "Webservice unauthorized",
-        "20003": "Webservice not found"
+        "15000": "Relay host désactivé",
+        "15666": "XSS filter scan echec",
+        "16000": "Annuaire introuvable",
+        "17000": "Action défendue",
+        "20000": "Une erreur c'est produite, veuillez contacter votre administrateur Linshare",
+        "20001": "Webservice défendu",
+        "20003": "Webservice introuvable"
+      }
+    }
+  },
+
+  "CHANGE_PASSWORD": {
+    "TITLE": "Modifier le mot de passe",
+    "BOX_FORM": {
+      "LABEL_PASSWORD": {
+        "OLD": "Ancien mot de passe",
+        "NEW": "Nouveau mot de passe",
+        "NEW_RETYPED": "Confirmer mot de passe"
+      },
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       }
     }
   },
 
   "DOMAIN_PATTERNS": {
-    "TITLE": "Manage your domain patterns",
+    "TITLE": "Gérer les modèles de domaine",
     "BOX_LIST": {
-      "TITLE": "Domain patterns list",
-      "BUTTON_ADD": "Add",
+      "TITLE": "Liste des modèles de domaine",
+      "BUTTON_ADD": "Ajouter",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_DESCRIPTION": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_DESCRIPTION"
       }
     },
     "BOX_FORM": {
-      "TITLE_CREATION": "Creation",
-      "BUTTON_LIST": "List",
-      "LABEL_MODEL_SELECTOR": "Model selector",
-      "LABEL_IDENTIFIER": "Identifier",
+      "TITLE_CREATION": "Création",
+      "BUTTON_LIST": "Liste",
+      "LABEL_MODEL_SELECTOR": "Sélecteur de modèle",
+      "LABEL_IDENTIFIER": "Identifiant",
       "LABEL_DESCRIPTION": "Description",
-      "LABEL_AUTHENTICATION": "Authentication command",
-      "HELP_AUTHENTICATION": "LDAP command to authentication",
-      "LABEL_SEARCH_USER": "Search user command",
-      "HELP_SEARCH_USER": "LDAP command to search an user",
-      "LABEL_AUTOCOMPLETE_ALL": "Autocomplete command on all attributes",
-      "HELP_AUTOCOMPLETE_ALL": "LDAP command to autocomplete an user using all attributes like mail, firstname and lastname",
-      "LABEL_AUTOCOMPLETE_PARTIAL": "Autocomplete command on first and last name",
-      "HELP_AUTOCOMPLETE_PARTIAL": "LDAP command to autocomplete an user using attributes firstname and lastname",
-      "LABEL_ATTRIBUTES": "Attributes",
-      "LABEL_EMAIL": "Email",
-      "LABEL_FIRST_NAME": "First name",
-      "LABEL_LAST_NAME": "Last name",
-      "LABEL_UUID": "User unique identifier",
-      "LABEL_SEARCH_PAGE_SIZE": "Search page size",
-      "HELP_SEARCH_PAGE_SIZE": "Maximum result per page in search",
-      "LABEL_SEARCH_SIZE_LIMIT": "Search limit",
-      "HELP_SEARCH_SIZE_LIMIT": "Limit of maximum result",
-      "LABEL_COMPLETION_PAGE_SIZE": "Completion page size",
-      "HELP_COMPLETION_PAGE_SIZE": "Maximum result per page in completion",
+      "LABEL_AUTHENTICATION": "Commande d'authentification",
+      "HELP_AUTHENTICATION": "Commande LDAP d'authentification",
+      "LABEL_SEARCH_USER": "Commande utilisateur",
+      "HELP_SEARCH_USER": "Commande LDAP de recherche d'utilisateur",
+      "LABEL_AUTOCOMPLETE_ALL": "Commande d'autocompletion sur tous les attributs",
+      "HELP_AUTOCOMPLETE_ALL": "Commande LDAP pour autocompléter un utilisateur sur tous les attributs comme le courriel, le prénom et le nom.",
+      "LABEL_AUTOCOMPLETE_PARTIAL": "Autocompletion sur le prénom et le nom",
+      "HELP_AUTOCOMPLETE_PARTIAL": "Commande LDAP pour autocompléter un utilisateur sur les attributs prénom et nom",
+      "LABEL_ATTRIBUTES": "Attributs",
+      "LABEL_EMAIL": "Courriel",
+      "LABEL_FIRST_NAME": "Prénom",
+      "LABEL_LAST_NAME": "Nom",
+      "LABEL_UUID": "Identifiant unique utilisateur",
+      "LABEL_SEARCH_PAGE_SIZE": "Taille de page de recherche",
+      "HELP_SEARCH_PAGE_SIZE": "Résultats maximum par page dans une recherche",
+      "LABEL_SEARCH_SIZE_LIMIT": "Limite de recherche",
+      "HELP_SEARCH_SIZE_LIMIT": "Maximum de résultat par recherche",
+      "LABEL_COMPLETION_PAGE_SIZE": "Taille de page de complétion",
+      "HELP_COMPLETION_PAGE_SIZE": "Résultats maximum par page dans une complétion",
       "LABEL_COMPLETION_SIZE_LIMIT": "Completion limit",
-      "HELP_COMPLETION_SIZE_LIMIT": "Limit of maximum completion result",
+      "HELP_COMPLETION_SIZE_LIMIT": "Maximum de résultat par complétion",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
@@ -120,28 +145,28 @@
       }
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this domain pattern, this procedure is irreversible. Do you want to proceed?"
+      "PARAGRAPH": "Vous êtes sur le point de supprimer ce modèle de domaine, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
 
   "LDAP_CONNECTIONS": {
-    "TITLE": "Manage your LDAP connections",
+    "TITLE": "Gérer les connexions LDAP",
     "BOX_LIST": {
-      "TITLE": "LDAP connections list",
-      "BUTTON_ADD": "Add",
+      "TITLE": "Liste des connexions LDAP",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:LDAP_CONNECTIONS.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_PROVIDER_URL": "@:LDAP_CONNECTIONS.BOX_FORM.LABEL_PROVIDER_URL"
       }
     },
     "BOX_FORM": {
-      "TITLE_CREATION": "Creation",
-      "BUTTON_LIST": "List",
-      "LABEL_IDENTIFIER": "Identifier",
-      "LABEL_PROVIDER_URL": "Provider URL",
-      "HELP_PROVIDER_URL": "eg: [ldap|ldaps]://my.ldap.lng:[389|636]",
-      "LABEL_USER_DN": "LDAP user dn",
-      "LABEL_PASSWORD": "LDAP password",
+      "TITLE_CREATION": "Création",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_IDENTIFIER": "Identifiant",
+      "LABEL_PROVIDER_URL": "URL du fournisseur",
+      "HELP_PROVIDER_URL": "ex: [ldap|ldaps]://my.ldap.lng:[389|636]",
+      "LABEL_USER_DN": "LDAP 'user dn'",
+      "LABEL_PASSWORD": "LDAP 'password'",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
@@ -150,32 +175,32 @@
       }
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this LDAP connection, this procedure is irreversible. Do you want to proceed?"
+      "PARAGRAPH": "Vous êtes sur le point de supprimer cette connexion LDAP, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
 
   "MANAGE_DOMAINS": {
-    "TITLE": "Manage your domains",
+    "TITLE": "Gérer les domaines",
     "BOX_TREE": {
-      "TITLE": "Domain tree",
+      "TITLE": "Arbre des domaines",
       "BUTTON_ADD": {
-        "TOP_DOMAIN": "Add top domain",
-        "SUB_DOMAIN": "Add sub domain",
-        "GUEST_DOMAIN": "Add guest domain"
+        "TOP_DOMAIN": "Ajouter un top domaine",
+        "SUB_DOMAIN": "Ajouter un sub domaine",
+        "GUEST_DOMAIN": "Ajouter guest domaine"
       }
     },
     "BOX_FORM": {
-      "TITLE": "Edit domain",
-      "LABEL_IDENTIFIER": "Identifier",
-      "LABEL_NAME": "Name",
+      "TITLE": "Edition d'un domaine",
+      "LABEL_IDENTIFIER": "Identifiant",
+      "LABEL_NAME": "Nom",
       "LABEL_DESCRIPTION": "Description",
-      "LABEL_LOCALE": "Default locale",
-      "LABEL_USER_ROLE": "User role",
-      "LABEL_POLICY": "POLICY",
-      "BUTTON_ADD_PROVIDER": "Add provider",
-      "TITLE_PROVIDER": "User provider",
-      "LABEL_LDAP_CONNECTION": "LDAP connection",
-      "LABEL_DOMAIN_PATTERN": "Domain pattern",
+      "LABEL_LOCALE": "Langue par défaut",
+      "LABEL_USER_ROLE": "Rôle utilisateur",
+      "LABEL_POLICY": "Politique",
+      "BUTTON_ADD_PROVIDER": "Ajouter un fournisseur",
+      "TITLE_PROVIDER": "Fournisseur d'utilisateurs",
+      "LABEL_LDAP_CONNECTION": "Connexion LDAP",
+      "LABEL_DOMAIN_PATTERN": "Modèles de domaine",
       "LABEL_BASE_DN": "Base dn",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
@@ -186,56 +211,56 @@
     },
     "CREATE_FORM": {
       "TITLE": {
-        "TOP_DOMAIN": "Create a new top domain in {{parent}}",
-        "SUB_DOMAIN": "Create a new sub domain in {{parent}}",
-        "GUEST_DOMAIN": "Create a new guest domain in {{parent}}"
+        "TOP_DOMAIN": "Créer un top domaine dans {{parent}}",
+        "SUB_DOMAIN": "Créer un sub domaine dans {{parent}}",
+        "GUEST_DOMAIN": "Créer un guest domaine dans {{parent}}"
       }
     },
     "CONFIRM_CANCEL": {
       "TITLE": "@:COMMON.BASIC_CONFIRMATION_FORM.TITLE",
-      "PARAGRAPH": "Any unsaved changes will be lost. Would you like to continue?",
+      "PARAGRAPH": "Toutes modifications ne sera pas sauvegardées. Souhaitez-vous continuer ?",
       "BUTTON_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
       "BUTTON_NO": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO"
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this domain, this procedure is irreversible and destroy all associated users. Do you want to proceed?"
+      "PARAGRAPH": "Vous êtes sur le point de supprimer ce domaine, cette procédure est irréversible et va détruire tout les utilisateurs associés. Souhaitez-vous continuer ?"
     }
   },
 
   "DOMAIN_ORDER": {
-    "TITLE": "Change your domain connection order",
+    "TITLE": "Modifié l'ordre de connexion aux domaines",
     "BOX_LIST": {
-      "TITLE": "Domain authentication order",
+      "TITLE": "Ordre d'authentification aux domaines",
       "TABLE": {
         "HEADER_ACTIONS": "Actions",
-        "HEADER_IDENTIFIER": "Identifier",
-        "HEADER_NAME": "Name"
+        "HEADER_IDENTIFIER": "Identifiant",
+        "HEADER_NAME": "Nom"
       }
     }
   },
 
   "DOMAIN_POLICIES": {
-    "TITLE": "Policies management",
+    "TITLE": "Gestion des politiques de domaine",
     "BOX_LIST": {
-      "TITLE": "Domain policies list",
-      "BUTTON_ADD": "Add",
+      "TITLE": "Liste des politiques de domaine",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:DOMAIN_POLICIES.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_DESCRIPTION": "@:DOMAIN_POLICIES.BOX_FORM.LABEL_DESCRIPTION"
       }
     },
     "BOX_FORM": {
-      "TITLE_CREATION": "Creation",
-      "BUTTON_LIST": "List",
-      "LABEL_IDENTIFIER": "Identifier",
+      "TITLE_CREATION": "Création",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_IDENTIFIER": "Identifiant",
       "LABEL_DESCRIPTION": "Description",
-      "LABEL_RULES": "Rules",
-      "LABEL_RULE_TYPES": "Rule type",
-      "LABEL_DOMAINS": "Domains",
-      "BUTTON_ADD_RULE": "Add rule",
+      "LABEL_RULES": "Règles",
+      "LABEL_RULE_TYPES": "Type de règle",
+      "LABEL_DOMAINS": "Domaines",
+      "BUTTON_ADD_RULE": "Ajouter une règle",
       "TABLE": {
         "HEADER_POSITION": "Position",
-        "HEADER_DOMAIN": "Domain",
+        "HEADER_DOMAIN": "Domaine",
         "HEADER_TYPE": "Type",
         "HEADER_ACTIONS": "Actions",
         "BUTTON_DELETE_RULE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
@@ -250,72 +275,295 @@
       }
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this policy, this procedure is irreversible. Do you want to proceed?"
+      "PARAGRAPH": "Vous êtes sur le point de supprimer cette politique de domaine, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
 
   "FUNCTIONALITIES": {
-    "TITLE": "Functionality management",
+    "TITLE": "Gestion des fonctionnalités",
     "BOX_LIST": {
       "TABLE": {
         "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_FORM.LABEL_STATUS",
-        "HEADER_NAME": "Functionality name"
+        "HEADER_NAME": "Nom de la fonctionnalité"
       }
     },
     "BOX_FORM": {
-      "BUTTON_LIST": "List",
-      "LEGEND_ACTIVATION_POLICY": "Activation policy",
-      "LEGEND_CONFIGURATION_POLICY": "Configuration policy",
-      "LEGEND_PARAMETERS": "Parameters",
-      "RADIO_FORBIDDEN": "Forbidden",
-      "RADIO_ALLOWED": "Allowed",
-      "RADIO_MANDATORY": "Mandatory",
-      "LABEL_SAVED": "Saved",
-      "LABEL_STATUS": "Status",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LEGEND_ACTIVATION_POLICY": "Politique d'activation",
+      "LEGEND_CONFIGURATION_POLICY": "Politique de configuration",
+      "LEGEND_PARAMETERS": "Paramètres",
+      "RADIO_FORBIDDEN": "Interdit",
+      "RADIO_ALLOWED": "Autorisé",
+      "RADIO_MANDATORY": "Obligatoire",
+      "LABEL_SAVED": "Sauvegarde",
+      "LABEL_STATUS": "Statut",
       "FORM_ACTIONS": {
-        "BUTTON_RESET": "Reset to parent value"
+        "BUTTON_RESET": "Réinitialiser à la valeur parente"
       }
     },
     "NAME": {
-      "UPLOAD_REQUEST": "Upload request",
-      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": "Upload request - Notification language",
-      "QUOTA_USER": "Quota user",
-      "MIME_TYPE": "Mime type",
-      "FILESIZE_MAX": "Max file size",
+      "UPLOAD_REQUEST": "Demande de dépôt",
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": "Demande de dépôt - Langue d'émission des courriels",
+      "QUOTA_USER": "Quota utilisateur",
+      "MIME_TYPE": "Type MIME",
+      "FILESIZE_MAX": "Taille de fichier maximum",
       "QUOTA_GLOBAL": "Quota global",
-      "TIME_STAMPING": "Time stamping",
+      "TIME_STAMPING": "Horodatage",
       "ANTIVIRUS": "Antivirus",
       "SIGNATURE": "Signature",
-      "ENCIPHERMENT": "Encipherment",
-      "FILE_EXPIRATION": "File expiration",
-      "SHARE_EXPIRATION": "Share expiration",
-      "CUSTOM_LOGO": "Custom logo",
-      "ACCOUNT_EXPIRATION": "Account expiration",
-      "USER_CAN_UPLOAD": "User can upload",
-      "COMPLETION": "Completion",
-      "ANONYMOUS_URL": "Anonymous URL",
-      "GUESTS": "Guest",
-      "TAB_USER": "Tab user",
-      "TAB_AUDIT": "Tab Audit",
-      "TAB_HELP": "Tab help",
-      "TAB_THREAD": "Tab help",
-      "TAB_LIST": "Tab list",
-      "RESTRICTED_GUEST": "Restricted guest",
+      "ENCIPHERMENT": "Chiffrement",
+      "FILE_EXPIRATION": "Expiration de fichier",
+      "SHARE_EXPIRATION": "Expiration de partage",
+      "CUSTOM_LOGO": "Logo personnalisé",
+      "ACCOUNT_EXPIRATION": "Expiration des comptes invités",
+      "USER_CAN_UPLOAD": "Envoie de fichiers",
+      "COMPLETION": "Complétion",
+      "ANONYMOUS_URL": "URL anonymes",
+      "GUESTS": "Invités autorisés",
+      "TAB_USER": "Onglet 'Utilisateur'",
+      "TAB_AUDIT": "Onglet 'Audit'",
+      "TAB_HELP": "Onglet 'Aide'",
+      "TAB_THREAD": "Onglet 'Thread'",
+      "TAB_LIST": "Onglet 'Listes'",
+      "RESTRICTED_GUEST": "Restreindre les contacts invités",
       "SHARE_NOTIFICATION_BEFORE_EXPIRATION": "Share notification before expiry date",
-      "SECURED_ANONYMOUS_URL": "Secured anonymouss URL",
-      "THREAD_PERMISSION": "Thread permission",
-      "UPDATE_FILE": "Update file",
-      "DOMAIN_MAIL": "Domain mail",
-      "NOTIFICATION_URL": "Notification URL",
-      "LINK_LOGO": "Link logo",
-      "CREATE_THREAD_PERMISSION": "Create thread permission"
+      "SECURED_ANONYMOUS_URL": "Sécurisation des URL anonymes",
+      "THREAD_PERMISSION": "Threads autorisés",
+      "UPDATE_FILE": "Dépôt de fichier",
+      "DOMAIN_MAIL": "Adresse de courriel du domaine",
+      "NOTIFICATION_URL": "URL de base pour les notifications par courriel",
+      "LINK_LOGO": "Ajouter un lien au logo LinShare",
+      "CREATE_THREAD_PERMISSION": "Autoriser la création de threads"
     }
   },
 
-  "MANAGE_USERS": {
-    "TITLE": "Manage users",
+  "MIME_POLICIES": {
+    "TITLE": "Règles de type MIME",
     "BOX_LIST": {
-      "TITLE": "Users list",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "TABLE": {
+        "HEADER_NAME": "@:MIME_POLICIES.BOX_FORM.LABEL_NAME"
+      }
+    },
+    "BOX_FORM": {
+      "TITLE_MIME_TYPES": "Types MIME",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_NAME": "Nom",
+      "TABLE": {
+        "HEADER_STATUS": "Statut",
+        "HEADER_EXTENSIONS": "Extensions",
+        "HEADER_MIME_TYPE": "Type MIME"
+      },
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Vous êtes sur le point de supprimer cette règle, cette procédure est irréversible. Souhaitez-vous continuer ?"
+    },
+    "MODAL_FORM": {
+      "TITLE": "Création",
+      "LABEL_NAME": "@:MIME_POLICIES.BOX_FORM.LABEL_NAME",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+      }
+    }
+  },
+
+  "MAIL_LAYOUT": {
+    "TITLE": "Dispositions de courriel",
+    "BOX_LIST": {
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "TABLE": {
+        "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME"
+      }
+    },
+    "BOX_FORM": {
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_NAME": "Nom",
+      "LABEL_LAYOUT": "Dispositions",
+      "LABEL_PLAINTEXT": "Texte brut",
+      "LABEL_VISIBLE": "Visible",
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Vous êtes sur le point de supprimer cette disposition de courriel, cette procédure est irréversible. Souhaitez-vous continuer ?"
+    },
+    "MODAL_FORM": {
+      "TITLE": "Création",
+      "LABEL_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
+      "LABEL_MODEL": "Modèle",
+      "LABEL_DOMAIN": "Domaine",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+      }
+    }
+  },
+
+  "MAIL_FOOTER": {
+    "TITLE": "Pied de courriel",
+    "BOX_LIST": {
+      "HEADER": {
+        "LANGUAGE": {
+          "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+          "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+        }
+      },
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "TABLE": {
+        "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME"
+      }
+    },
+    "BOX_FORM": {
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_NAME": "Nom",
+      "LABEL_FOOTER": "Pied",
+      "LABEL_PLAINTEXT": "Texte brut",
+      "LABEL_VISIBLE": "Visible",
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Vous êtes sur le point de supprimer ce pied de courriel, cette procédure est irréversible. Souhaitez-vous continuer ?"
+    },
+    "MODAL_FORM": {
+      "TITLE": "Création",
+      "LABEL_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
+      "LABEL_LANGUAGE": "Langue",
+      "LABEL_MODEL": "Modèle",
+      "LABEL_DOMAIN": "Domaine",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+      }
+    }
+  },
+
+  "MAIL_CONTENT": {
+    "TITLE": "Contenu de courriel",
+    "BOX_LIST": {
+      "HEADER": {
+        "LANGUAGE": {
+          "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+          "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+        }
+      },
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "TABLE": {
+        "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
+        "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE"
+      }
+    },
+    "BOX_FORM": {
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_NAME": "Nom",
+      "LABEL_LANGUAGE": "Langue",
+      "LABEL_CONTENT_TYPE": "Type de contenu",
+      "LABEL_SUBJECT": "Sujet",
+      "LABEL_GREETINGS": "Salutations",
+      "LABEL_BODY": "Corps",
+      "LABEL_PLAINTEXT": "Texte brut",
+      "LABEL_VISIBLE": "Visible",
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Vous êtes sur le point de supprimer ce contenu de courriel, cette procédure est irréversible. Souhaitez-vous continuer ?"
+    },
+    "MODAL_FORM": {
+      "TITLE": "Création",
+      "LABEL_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
+      "LABEL_LANGUAGE": "@:MAIL_CONTENT.BOX_FORM.LABEL_LANGUAGE",
+      "LABEL_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
+      "LABEL_MODEL": "Modèle",
+      "LABEL_DOMAIN": "Domaine",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+      }
+    }
+  },
+
+  "MAIL_CONFIG": {
+    "TITLE": "Configuration de courriel",
+    "BOX_LIST": {
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "TABLE": {
+        "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME"
+      }
+    },
+    "MODAL_FORM": {
+      "TITLE": "Création",
+      "LABEL_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
+      "LABEL_VISIBLE": "@:MAIL_CONFIG.BOX_FORM.LABEL_VISIBLE",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+      }
+    },
+    "BOX_FORM": {
+      "HEADER": {
+        "LANGUAGE": {
+          "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+          "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+        }
+      },
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_NAME": "Nom",
+      "LABEL_VISIBLE": "Visible",
+      "LABEL_MAIL_CONTENT_LANG": "Contenus de courriel",
+      "LABEL_MAIL_FOOTER_LANG": "Pied de courriel",
+      "TABLE": {
+        "HEADER_MAIL_CONTENT_NAME": "Mail content name",
+        "HEADER_MAIL_CONTENT_TYPE": "Mail content type"
+      },
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "BOX_CONTENT_LANG": {
+      "HEADER": {
+        "LANGUAGE": {
+          "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+          "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+        }
+      },
+      "LABEL_MAIL_CONTENT_SELECTOR": "Selection du contenu de courriel",
+      "FORM_ACTIONS": {
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "BOX_FOOTER_LANG": {
+      "LABEL_LANGUAGE": "Langue",
+      "LABEL_FOOTER": "Pied"
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Vous êtes sur le point de supprimer cette configuration de courriel, cette procédure est irréversible. Souhaitez-vous continuer ?"
+    }
+  },
+
+
+  "MANAGE_USERS": {
+    "TITLE": "Gestion des utilisateurs",
+    "BOX_LIST": {
+      "TITLE": "Liste des utilisateurs",
       "TABLE": {
         "HEADER_FIRST_NAME": "@:MANAGE_USERS.BOX_FORM.LABEL_FIRST_NAME",
         "HEADER_LAST_NAME": "@:MANAGE_USERS.BOX_FORM.LABEL_LAST_NAME",
@@ -325,22 +573,22 @@
       }
     },
     "BOX_FORM": {
-      "LABEL_STATUS": "Status",
-      "LABEL_STATUS_GUEST": "Guest",
-      "LABEL_STATUS_INTERNAL": "Internal",
-      "LABEL_RESTRICTED": "Restricted",
-      "LABEL_RESTRICTED_CONTACT_LIST": "Restricted contact list",
-      "LABEL_CREATION_DATE": "Creation date",
-      "LABEL_MODIFICATION_DATE": "Modification date",
-      "LABEL_EXPIRY_DATE": "Expiry date",
-      "LABEL_FIRST_NAME": "First name",
-      "LABEL_LAST_NAME": "Last name",
-      "LABEL_EMAIL": "Email",
-      "LABEL_ROLE": "Role",
-      "LABEL_DOMAIN": "Domain",
-      "LABEL_CAN_UPLOAD": "Upload permission",
-      "LABEL_COMMENT": "Comment",
-      "LABEL_OWNER": "Owner",
+      "LABEL_STATUS": "Statut",
+      "LABEL_STATUS_GUEST": "Invité",
+      "LABEL_STATUS_INTERNAL": "Interne",
+      "LABEL_RESTRICTED": "Restreint",
+      "LABEL_RESTRICTED_CONTACT_LIST": "Liste des contacts restreints",
+      "LABEL_CREATION_DATE": "Date de création",
+      "LABEL_MODIFICATION_DATE": "Date de modification",
+      "LABEL_EXPIRY_DATE": "Date d'expiration",
+      "LABEL_FIRST_NAME": "Prénom",
+      "LABEL_LAST_NAME": "Nom",
+      "LABEL_EMAIL": "Courriel",
+      "LABEL_ROLE": "Rôle",
+      "LABEL_DOMAIN": "Domaine",
+      "LABEL_CAN_UPLOAD": "Permission de dépôt",
+      "LABEL_COMMENT": "Commentaire",
+      "LABEL_OWNER": "Propriétaire",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
@@ -349,69 +597,69 @@
       }
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
+      "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"
     }
   },
 
   "INCONSISTENT_USERS": {
     "TITLE": "",
     "BOX_FORM": {
-      "LABEL_TARGET_DOMAIN": "Target domain",
-      "LABEL_STATUS": "Status",
-      "LABEL_CREATION_DATE": "Creation date",
-      "LABEL_MODIFICATION_DATE": "Modification date",
-      "LABEL_FIRST_NAME": "First name",
-      "LABEL_LAST_NAME": "Last name",
-      "LABEL_DOMAIN": "Current domain",
+      "LABEL_TARGET_DOMAIN": "Domaine cible",
+      "LABEL_STATUS": "Statut",
+      "LABEL_CREATION_DATE": "Date de création",
+      "LABEL_MODIFICATION_DATE": "Date de modification",
+      "LABEL_FIRST_NAME": "Prénom",
+      "LABEL_LAST_NAME": "Nom",
+      "LABEL_DOMAIN": "Domaine courant",
       "FORM_ACTIONS": {
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       }
     },
     "BOX_LIST": {
-      "TITLE": "Inconsistent users list",
+      "TITLE": "Liste des utilisateurs incohérents",
       "TABLE" : {
         "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
         "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
-        "HEADER_EMAIL": "Email",
-        "HEADER_DOMAIN": "Domain",
-        "HEADER_ROLE": "Role"
+        "HEADER_EMAIL": "Courriel",
+        "HEADER_DOMAIN": "Domaine",
+        "HEADER_ROLE": "Rôle"
       }
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
+      "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"
     }
   },
 
   "THREADS": {
-    "TITLE": "Groups management",
+    "TITLE": "Gestion des groupes",
     "BOX_LIST": {
-      "TITLE": "Groups list",
+      "TITLE": "Liste des groupes",
       "TABLE": {
         "HEADER_NAME": "@:THREADS.BOX_FORM.LABEL_NAME",
         "HEADER_MODIFICATION_DATE": "@:THREADS.BOX_FORM.LABEL_MODIFICATION_DATE"
       }
     },
     "BOX_FORM": {
-      "TITLE": "Edit group",
-      "BUTTON_LIST": "List",
-      "LABEL_NAME": "Name",
-      "LABEL_MODIFICATION_DATE": "Modification date",
+      "TITLE": "Edition d'un groupe",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_NAME": "Nom",
+      "LABEL_MODIFICATION_DATE": "Date de modification",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
-        "BUTTON_SUBMIT": "Rename"
+        "BUTTON_SUBMIT": "Renommer"
       }
     },
     "BOX_MEMBERS_LIST": {
-      "TITLE": "Members list",
-      "PLACEHOLDER_ADD_MEMBER": "Add member",
+      "TITLE": "Liste des membres",
+      "PLACEHOLDER_ADD_MEMBER": "Ajouter un membre",
       "TABLE": {
-        "HEADER_FIRST_NAME": "First name",
-        "HEADER_LAST_NAME": "Last name",
-        "HEADER_READ_ONLY": "Read only",
-        "HEADER_ADMIN": "Administrator",
+        "HEADER_FIRST_NAME": "Prénom",
+        "HEADER_LAST_NAME": "Nom",
+        "HEADER_READ_ONLY": "Lecture seule",
+        "HEADER_ADMIN": "Adminitrateur",
         "HEADER_ACTIONS": "Actions",
         "BUTTON_DELETE_MEMBER": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_DELETE_MEMBER_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
@@ -419,27 +667,27 @@
       }
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this group and all his content, this procedure is irreversible. Do you want to proceed?"
+      "PARAGRAPH": "Vous êtes sur le point de supprimer ce groupe et tout son contenu, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
 
   "MAILING_LISTS": {
-    "TITLE": "Manage your mailing lists",
-    "LABEL_PUBLIC": "Public",
-    "LABEL_PRIVATE": "Private",
+    "TITLE": "Gestion des listes de diffusion",
+    "LABEL_PUBLIC": "Publique",
+    "LABEL_PRIVATE": "Privée",
     "BOX_LIST": {
-      "TITLE": "Mailing lists",
+      "TITLE": "Listes de diffusion",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:MAILING_LISTS.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_IS_PUBLIC": "@:MAILING_LISTS.BOX_FORM.LABEL_IS_PUBLIC"
       }
     },
     "BOX_FORM": {
-      "TITLE": "Edit group",
-      "BUTTON_LIST": "List",
-      "LABEL_IDENTIFIER": "Identifier",
-      "LABEL_IS_PUBLIC": "Visibility",
-      "LABEL_OWNER": "Owner",
+      "TITLE": "Edition d'une liste de diffusion",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_IDENTIFIER": "Identifiant",
+      "LABEL_IS_PUBLIC": "Visibilité",
+      "LABEL_OWNER": "Propriétaire",
       "LABEL_DESCRIPTION": "Description",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
@@ -453,11 +701,11 @@
       "PLACEHOLDER_EMAIL": "@:MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_EMAIL",
       "PLACEHOLDER_FIRST_NAME": "@:MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_FIRST_NAME",
       "PLACEHOLDER_LAST_NAME": "@:MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_LAST_NAME",
-      "BUTTON_ADD_CONTACT": "Add contact",
+      "BUTTON_ADD_CONTACT": "Ajouter un contact",
       "TABLE": {
-        "HEADER_EMAIL": "Email",
-        "HEADER_FIRST_NAME": "First name",
-        "HEADER_LAST_NAME": "Last name",
+        "HEADER_EMAIL": "Courriel",
+        "HEADER_FIRST_NAME": "Prénom",
+        "HEADER_LAST_NAME": "Nom",
         "HEADER_ACTIONS": "Actions",
         "BUTTON_DELETE_CONTACT": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_DELETE_CONTACT_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
@@ -465,36 +713,36 @@
       }
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this group and all his content, this procedure is irreversible. Do you want to proceed?"
+      "PARAGRAPH": "Vous êtes sur le point de supprimer cette liste de diffusion, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
 
   "AUDIT": {
-    "TITLE": "Audit the application",
+    "TITLE": "Audit de l'application",
     "BOX_FORM": {
       "ACTOR": {
-        "LEGEND": "Actor",
-        "LABEL_EMAIL": "Actor email",
-        "LABEL_FIRST_NAME": "Actor first name",
-        "LABEL_LAST_NAME": "Actor last name",
-        "LABEL_DOMAIN": "Actor domain"
+        "LEGEND": "Acteur",
+        "LABEL_EMAIL": "Acteur courriel",
+        "LABEL_FIRST_NAME": "Acteur prénom",
+        "LABEL_LAST_NAME": "Acteur nom",
+        "LABEL_DOMAIN": "Acteur domaine"
       },
       "TARGET": {
-        "LEGEND": "Target",
-        "LABEL_EMAIL": "Target email",
-        "LABEL_FIRST_NAME": "Target first name",
-        "LABEL_LAST_NAME": "Target last name",
-        "LABEL_DOMAIN": "Target domain"
+        "LEGEND": "Cible",
+        "LABEL_EMAIL": "Cible email",
+        "LABEL_FIRST_NAME": "Cible prénom",
+        "LABEL_LAST_NAME": "Cible nom",
+        "LABEL_DOMAIN": "Cible domaine"
       },
       "FILE": {
-        "LEGEND": "File",
-        "LABEL_NAME": "File name",
-        "LABEL_EXTENSION": "File extension"
+        "LEGEND": "Fichier",
+        "LABEL_NAME": "Nom de fichier",
+        "LABEL_EXTENSION": "Extension de fichier"
       },
       "DATE": {
         "LEGEND": "Actions",
-        "PLACEHOLDER_FROM": "From",
-        "PLACEHOLDER_TO": "To"
+        "PLACEHOLDER_FROM": "Depuis",
+        "PLACEHOLDER_TO": "À"
       },
       "TABLE": {
         "HEADER_DATE": "Date",
@@ -502,7 +750,7 @@
         "HEADER_ACTOR_EMAIL": "@:AUDIT.BOX_FORM.ACTOR.LABEL_EMAIL",
         "HEADER_TARGET_EMAIL": "@:AUDIT.BOX_FORM.TARGET.LABEL_EMAIL",
         "HEADER_FILE_NAME": "@:AUDIT.BOX_FORM.FILE.LABEL_EXTENSION",
-        "HEADER_EXPIRY_DATE": "Expiry date"
+        "HEADER_EXPIRY_DATE": "Date d'expiration"
       },
       "FORM_ACTIONS": {
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
