@@ -32,8 +32,8 @@ angular.module('linshareAdminApp')
         },
         getAllMailContents: function(language, mailContentType, successCallback) {
           $log.debug('MailConfig:getAllMailContents');
-          return Restangular.one('mail_configs', self.getCurrentId())
-            .getList({language: language, mailContentType: mailContentType}).then(
+          return Restangular.one('mail_configs', self.currentMailConfig.uuid)
+            .getList('mail_contents', {language: language, mailContentType: mailContentType}).then(
               function success(mailConfigs) {
                 if (successCallback) {
                   return successCallback(mailConfigs);
