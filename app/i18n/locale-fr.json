@@ -90,6 +90,73 @@
         "20001": "Webservice défendu",
         "20003": "Webservice introuvable"
       }
+    },
+    "ENUM": {
+      "DOMAIN_ACCESS_RULE_TYPE": {
+        "ALLOW_ALL": "Tout autorisé",
+        "DENY_ALL": "Tout interdit",
+        "ALLOW": "Autorisé",
+        "DENY": "Interdit"
+      },
+      "LANGUAGE": {
+        "FRENCH": "Français",
+        "ENGLISH": "Anglais"
+      },
+      "LOG_ACTION": {
+        "FILE_UPLOAD": "Dépôt de fichier",
+        "FILE_SHARE": "Partage de fichier",
+        "FILE_EXPIRE": "Expiration de fichier",
+        "FILE_DELETE": "Suppression de fichier",
+        "FILE_UPDATE": "Mise à jour de fichier",
+        "FILE_INCONSISTENCY": "Incohérence de fichier",
+        "SHARE_RECEIVED": "Reception de partage",
+        "SHARE_EXPIRE": "Expiration de partage",
+        "SHARE_DOWNLOAD": "Téléchargement de partage",
+        "SHARE_DOWNLOADED": "Partage téléchargé",
+        "SHARE_COPY": "Copie de partage",
+        "SHARE_DELETE": "Suppression de partage",
+        "ANONYMOUS_SHARE_DOWNLOAD": "Téléchargement de partage anonyme",
+        "THREAD_CREATE": "Création de groupe",
+        "THREAD_DELETE": "Suppression de groupe",
+        "THREAD_RENAME": "Renommage d'un groupe",
+        "THREAD_ADD_MEMBER": "Ajout d'un membre de groupe",
+        "THREAD_REMOVE_MEMBER": "Suppression d'un membre de groupe",
+        "THREAD_UPLOAD_ENTRY": "Dépôt d'une entrée de groupe",
+        "THREAD_DOWNLOAD_ENTRY": "Téléchargement d'une entrée de groupe",
+        "THREAD_REMOVE_ENTRY": "Suppression d'une entrée de groupe",
+        "THREAD_REMOVE_INCONSISTENCY_ENTRY": "Suppression d'une entrée incohérente de groupe",
+        "USER_CREATE": "Création d'un utilisateur",
+        "USER_DELETE": "Suppression d'un utilisateur",
+        "USER_EXPIRE": "Expiration d'un utilisateur",
+        "USER_AUTH": "Authentification d'un utilisateur",
+        "USER_AUTH_FAILED": "Authentification échouée d'un utilisateur",
+        "USER_UPDATE": "Mise à jour d'un utilisateur", 
+        "FILE_SIGN": "Signature d'un fichier", 
+        "FILE_ENCRYPT": "Chiffrement d'un fichier",
+        "FILE_DECRYPT": "Déchiffrement d'un fichier",
+        "FILE_WITH_VIRUS": "Fichier vérolé",
+        "ANTIVIRUS_SCAN_FAILED": "Scan antivirus échoué"
+      },
+      "MAIL_CONTENT_TYPE": {
+        "ANONYMOUS_DOWNLOAD": "Téléchargement anonyme",
+        "REGISTERED_DOWNLOAD": "Téléchargement enregistré",
+        "NEW_GUEST": "Nouvel invité",
+        "RESET_PASSWORD": "Réinitialisation de mot de passe",
+        "SHARED_DOC_UPDATED": "Partage mis à jour",
+        "SHARED_DOC_DELETED": "Partage supprimé",
+        "SHARED_DOC_UPCOMING_OUTDATED": "Partage prochainement expiré",
+        "DOC_UPCOMING_OUTDATED": "Document prochainement expiré",
+        "NEW_SHARING": "Nouveau partage",
+        "NEW_SHARING_PROTECTED": "Nouveau partage protégé",
+        "NEW_SHARING_CYPHERED": "Nouveau partage chiffré",
+        "NEW_SHARING_CYPHERED_PROTECTED": "Nouveau partage ciffré et protégé"
+      },
+      "ROLE": {
+        "SIMPLE": "Interne",
+        "ADMIN": "Administrateur",
+        "SUPERADMIN": "Super administrateur",
+        "SYSTEM": "Système"
+      }
     }
   },
 

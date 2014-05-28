@@ -91,6 +91,73 @@
         "20001": "Webservice unauthorized",
         "20003": "Webservice not found"
       }
+    },
+    "ENUM": {
+      "DOMAIN_ACCESS_RULE_TYPE": {
+        "ALLOW_ALL": "Allow all",
+        "DENY_ALL": "Deny all",
+        "ALLOW": "Allow",
+        "DENY": "Deny"
+      },
+      "LANGUAGE": {
+        "FRENCH": "French",
+        "ENGLISH": "English"
+      },
+      "LOG_ACTION": {
+        "FILE_UPLOAD": "File upload",
+        "FILE_SHARE": "File share",
+        "FILE_EXPIRE": "File expire",
+        "FILE_DELETE": "File delete",
+        "FILE_UPDATE": "File update",
+        "FILE_INCONSISTENCY": "File iconsistency",
+        "SHARE_RECEIVED": "Share received",
+        "SHARE_EXPIRE": "Share expire",
+        "SHARE_DOWNLOAD": "Share download",
+        "SHARE_DOWNLOADED": "Share downloaded",
+        "SHARE_COPY": "Share copy",
+        "SHARE_DELETE": "Share delete",
+        "ANONYMOUS_SHARE_DOWNLOAD": "Anonymous share download",
+        "THREAD_CREATE": "Thread create",
+        "THREAD_DELETE": "Thread delete",
+        "THREAD_RENAME": "Thread rename",
+        "THREAD_ADD_MEMBER": "Thread add member",
+        "THREAD_REMOVE_MEMBER": "Thread remove member",
+        "THREAD_UPLOAD_ENTRY": "Thread upload entry",
+        "THREAD_DOWNLOAD_ENTRY": "Thread download entry",
+        "THREAD_REMOVE_ENTRY": "Thread remove entry",
+        "THREAD_REMOVE_INCONSISTENCY_ENTRY": "Thread remove inconsistency entry",
+        "USER_CREATE": "User create",
+        "USER_DELETE": "User delete",
+        "USER_EXPIRE": "User expire",
+        "USER_AUTH": "User authentication",
+        "USER_AUTH_FAILED": "User authentication failed",
+        "USER_UPDATE": "User update", 
+        "FILE_SIGN": "File sign", 
+        "FILE_ENCRYPT": "File encrypt",
+        "FILE_DECRYPT": "File decrypt",
+        "FILE_WITH_VIRUS": "File with virus",
+        "ANTIVIRUS_SCAN_FAILED": "Antivirus scan failed"
+      },
+      "MAIL_CONTENT_TYPE": {
+        "ANONYMOUS_DOWNLOAD": "Anonymous download",
+        "REGISTERED_DOWNLOAD": "Registered download",
+        "NEW_GUEST": "New guest",
+        "RESET_PASSWORD": "Reset password",
+        "SHARED_DOC_UPDATED": "Shared document updated",
+        "SHARED_DOC_DELETED": "Shared document deleted",
+        "SHARED_DOC_UPCOMING_OUTDATED": "Shared document upcoming outdated",
+        "DOC_UPCOMING_OUTDATED": "Document upcoming outdated",
+        "NEW_SHARING": "New sharing",
+        "NEW_SHARING_PROTECTED": "New sharing protected",
+        "NEW_SHARING_CYPHERED": "New sharing cyphered",
+        "NEW_SHARING_CYPHERED_PROTECTED": "New sharing cyphered protected"
+      },
+      "ROLE": {
+        "SIMPLE": "Simple",
+        "ADMIN": "Administrator",
+        "SUPERADMIN": "Super administrator",
+        "SYSTEM": "System"
+      }
     }
   },
 
