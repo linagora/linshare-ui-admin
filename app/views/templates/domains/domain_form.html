@@ -90,7 +90,7 @@
         </label>
         <select id="locale" name="locale" class="form-control" required
                 x-ng-model="domain.locale"
-                x-ng-options="l for l in locales">
+                x-ng-options="'COMMON.ENUM.LANGUAGE.' + l | translate for l in locales">
         </select>
       </div>
 

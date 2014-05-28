@@ -159,7 +159,7 @@
           <div class="controls">
             <select id="role" name="role" class="form-control" required
                     x-ng-model="user.role"
-                    x-ng-options="r for r in userRoles">
+                    x-ng-options="'COMMON.ENUM.ROLE.' + r | translate for r in userRoles">
             </select>
           </div>
         </div>

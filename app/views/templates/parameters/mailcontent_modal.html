@@ -48,7 +48,7 @@
           <select id="contentType" name="contentType" required
                   x-ng-model="mailContentType"
                   x-ng-change="reloadModels(lang, domain, mailContentType)"
-                  x-ng-options="m for m in mailContentTypes">
+                  x-ng-options="'COMMON.ENUM.MAIL_CONTENT_TYPE.' + m | translate for m in mailContentTypes">
           </select>
         </div>
         <!-- Language -->

@@ -55,7 +55,7 @@
               </label>
               <select name="ruleType" class="form-control"
                       x-ng-model="ruleToAdd.type"
-                      x-ng-options="type as type for type in allRuleTypes | orderBy:'toString()'">
+                      x-ng-options="type as 'COMMON.ENUM.DOMAIN_ACCESS_RULE_TYPE.' + type | translate for type in allRuleTypes | orderBy:'toString()'">
               </select>
             </div>
             <div class="form-group">

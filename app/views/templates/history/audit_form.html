@@ -139,7 +139,7 @@
               <label></label> <!-- Bootstrap Hack -->
               <select id="availableActions" multiple class="form-control"
                       x-ng-model="criteria.logActions"
-                      x-ng-options="action as action for action in allActions | orderBy:'toString()'">
+                      x-ng-options="action as 'COMMON.ENUM.LOG_ACTION.' + action | translate for action in allActions | orderBy:'toString()'">
               </select>
             </div>
           </div>
@@ -161,23 +161,23 @@
             </td>
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_ACTION' | translate"
                 sortable="'action'">
-              {{result.logAction}}
+              {{ 'COMMON.ENUM.LOG_ACTION.' + result.logAction | translate }}
             </td>
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_ACTOR_EMAIL' | translate"
                 sortable="'actorMail'">
-              {{result.actorMail}}
+              {{ result.actorMail }}
             </td>
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_TARGET_EMAIL' | translate"
                 sortable="'targetMail'">
-              {{result.targetMail}}
+              {{ result.targetMail }}
             </td>
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_FILE_NAME' | translate"
                 sortable="'fileName'">
-              {{result.fileName}}
+              {{ result.fileName }}
             </td>
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_EXPIRY_DATE' | translate"
                 sortable="'expirationDate'">
-              {{result.expirationDate}}
+              {{ result.expirationDate }}
             </td>
           </tr>
         </table>
