@@ -7,7 +7,7 @@ angular.module('linshareAdminApp')
         $scope.create = function () {
           console.log($scope.mimePolicy);
           MimePolicy.add($scope.mimePolicy,
-            function successCallback(mimePolicy) {
+            function successCallback() {
               $modalInstance.close();
               $scope.reset();
             }
