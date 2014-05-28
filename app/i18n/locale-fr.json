@@ -422,6 +422,10 @@
       }
     },
     "BOX_FORM": {
+      "HEADER": {
+        "ENABLE_ALL": "Activer tous",
+        "DISABLE_ALL": "Désactiver tous"
+      },
       "TITLE_MIME_TYPES": "Types MIME",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",

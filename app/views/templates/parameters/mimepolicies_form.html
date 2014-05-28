@@ -48,6 +48,22 @@
     <i class="fa fa-save fade"
       x-ng-class="{in: iconSaved}">
     </i>
+    <div class="pull-right box-tools">
+      <div class="btn-group">
+        <label class="btn btn-info"
+               x-ng-click="enableAllMimeTypes(mimePolicy)">
+          {{ 'MIME_POLICIES.BOX_FORM.HEADER.ENABLE_ALL' | translate }}
+        </label>
+        <label class="btn btn-info"
+               x-ng-click="disableAllMimeTypes(mimePolicy)">
+          {{ 'MIME_POLICIES.BOX_FORM.HEADER.DISABLE_ALL' | translate }}
+        </label>
+      </div>
+      <button class="btn btn-primary btn-sm"
+              x-ng-click="cancel()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
   </div>
   <div class="box-body">
     <div class="table-responsive">

@@ -52,6 +52,18 @@ angular.module('linshareAdminApp').directive('lsMimePolicyForm', [
               $scope.displayIconSaved();
             });
           };
+          $scope.enableAllMimeTypes = function(mimeConfig) {
+            MimePolicy.enableAllMimeTypes(mimeConfig.uuid, function(mimePolicy) {
+              MimePolicy.setCurrent(mimePolicy);
+              $scope.displayIconSaved();
+            });
+          };
+          $scope.disableAllMimeTypes = function(mimeConfig) {
+            MimePolicy.disableAllMimeTypes(mimeConfig.uuid, function(mimePolicy) {
+              MimePolicy.setCurrent(mimePolicy);
+              $scope.displayIconSaved();
+            });
+          };
           $scope.cancel = function() {
             MimePolicy.setCurrent(undefined);
           };

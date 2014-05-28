@@ -97,7 +97,7 @@ angular.module('linshareAdminApp')
         update: function(mailConfig, successCallback) {
           $log.debug('MailConfig:update');
           return mailConfig.put().then(
-            function success() {
+            function success(mailConfig) {
               Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(mailConfig);

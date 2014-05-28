@@ -33,7 +33,7 @@ angular.module('linshareAdminApp')
         update: function(mailContentLang, successCallback) {
           $log.debug('MailContentLang:update');
           return mailContentLang.put().then(
-            function success() {
+            function success(mailContentLang) {
               Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(mailContentLang);

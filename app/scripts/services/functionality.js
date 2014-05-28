@@ -84,7 +84,7 @@ angular.module('linshareAdminApp')
           rawFunctionality = Restangular.copy(functionality);
           deleteLocalizedName(rawFunctionality);
           return rawFunctionality.put().then(
-            function success() {
+            function success(functionality) {
               if (successCallback) {
                 return successCallback(functionality);
               }

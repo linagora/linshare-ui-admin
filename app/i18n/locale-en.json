@@ -424,6 +424,10 @@
       }
     },
     "BOX_FORM": {
+      "HEADER": {
+        "ENABLE_ALL": "Enable all",
+        "DISABLE_ALL": "Disable all"
+      },
       "TITLE_MIME_TYPES": "Mime types",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",

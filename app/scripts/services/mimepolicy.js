@@ -73,7 +73,7 @@ angular.module('linshareAdminApp')
         update: function(mimePolicy, successCallback) {
           $log.debug('MimePolicy:update');
           return mimePolicy.put().then(
-            function success() {
+            function success(mimePolicy) {
               Notification.addSuccess('UPDATE');
               if (successCallback) {
                 return successCallback(mimePolicy);
@@ -88,6 +88,46 @@ angular.module('linshareAdminApp')
                 ].join('\n')
               );
               $log.error(mimePolicy);
+            }
+          );
+        },
+        enableAllMimeTypes: function(mimePolicyId, successCallback) {
+          $log.debug('MimePolicy:enableAllMimeTypes');
+          return Restangular.one('mime_policies', mimePolicyId).customPUT(null, 'enable_all').then(
+            function success(mimePolicy) {
+              if (successCallback) {
+                return successCallback(mimePolicy);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'MimePolicy:enableAllMimeTypes',
+                 'Unable to enable all mime types',
+                 'of the mime policy :',
+                 mimePolicyId
+                ].join('\n')
+              );
+            }
+          );
+        },
+        disableAllMimeTypes: function(mimePolicyId, successCallback) {
+          $log.debug('MimePolicy:disableAllMimeTypes');
+          return Restangular.one('mime_policies', mimePolicyId).customPUT(null, 'disable_all').then(
+            function success(mimePolicy) {
+              if (successCallback) {
+                return successCallback(mimePolicy);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'MimePolicy:disableAllMimeTypes',
+                 'Unable to disable all mime types',
+                 'of the mime policy :',
+                 mimePolicyId
+                ].join('\n')
+              );
             }
           );
         },

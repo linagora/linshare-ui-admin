@@ -9,7 +9,7 @@ angular.module('linshareAdminApp')
         update: function(mimeType, successCallback) {
           $log.debug('MimeType:update');
           return Restangular.all('mime_types').customPUT(mimeType).then(
-            function success() {
+            function success(mimeType) {
               if (successCallback) {
                 return successCallback(mimeType);
               }
