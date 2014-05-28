@@ -1,11 +1,19 @@
 {
   "COMMON": {
     "BASIC_FORM": {
+      "TITLE_CREATION": "Creation",
+      "LABEL_IDENTIFIER": "Identifier",
+      "LABEL_DESCRIPTION": "Description",
+      "LABEL_EMAIL": "Mail",
+      "LABEL_FIRST_NAME": "First name",
+      "LABEL_LAST_NAME": "Last name",
+      "LABEL_NAME": "Name",
       "BUTTON_LIST": "List",
       "BUTTON_CANCEL": "Cancel",
       "BUTTON_DELETE": "Delete",
       "BUTTON_RESET": "Reset",
       "BUTTON_CREATE": "Create",
+      "BUTTON_ADD": "Add",
       "BUTTON_SUBMIT": "Submit"
     },
     "BASIC_CONFIRMATION_FORM": {
@@ -27,7 +35,7 @@
     },
     "LOGIN_FORM": {
       "TITLE": "Login",
-      "LABEL_EMAIL": "Email",
+      "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
       "LABEL_PASSWORD": "Password",
       "BUTTON_LOGOUT": "Logout",
       "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
@@ -106,18 +114,18 @@
     "TITLE": "Manage your domain patterns",
     "BOX_LIST": {
       "TITLE": "Domain patterns list",
-      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_DESCRIPTION": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_DESCRIPTION"
       }
     },
     "BOX_FORM": {
-      "TITLE_CREATION": "Creation",
+      "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_MODEL_SELECTOR": "Model selector",
-      "LABEL_IDENTIFIER": "Identifier",
-      "LABEL_DESCRIPTION": "Description",
+      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+      "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
       "LABEL_AUTHENTICATION": "Authentication command",
       "HELP_AUTHENTICATION": "LDAP command to authentication",
       "LABEL_SEARCH_USER": "Search user command",
@@ -127,9 +135,9 @@
       "LABEL_AUTOCOMPLETE_PARTIAL": "Autocomplete command on first and last name",
       "HELP_AUTOCOMPLETE_PARTIAL": "LDAP command to autocomplete an user using attributes firstname and lastname",
       "LABEL_ATTRIBUTES": "Attributes",
-      "LABEL_EMAIL": "Email",
-      "LABEL_FIRST_NAME": "First name",
-      "LABEL_LAST_NAME": "Last name",
+      "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
+      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
       "LABEL_UUID": "User unique identifier",
       "LABEL_SEARCH_PAGE_SIZE": "Search page size",
       "HELP_SEARCH_PAGE_SIZE": "Maximum result per page in search",
@@ -155,16 +163,16 @@
     "TITLE": "Manage your LDAP connections",
     "BOX_LIST": {
       "TITLE": "LDAP connections list",
-      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:LDAP_CONNECTIONS.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_PROVIDER_URL": "@:LDAP_CONNECTIONS.BOX_FORM.LABEL_PROVIDER_URL"
       }
     },
     "BOX_FORM": {
-      "TITLE_CREATION": "Creation",
+      "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_IDENTIFIER": "Identifier",
+      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
       "LABEL_PROVIDER_URL": "Provider URL",
       "HELP_PROVIDER_URL": "eg: [ldap|ldaps]://my.ldap.lng:[389|636]",
       "LABEL_USER_DN": "LDAP user dn",
@@ -193,9 +201,9 @@
     },
     "BOX_FORM": {
       "TITLE": "Edit domain",
-      "LABEL_IDENTIFIER": "Identifier",
-      "LABEL_NAME": "Name",
-      "LABEL_DESCRIPTION": "Description",
+      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+      "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
       "LABEL_LOCALE": "Default locale",
       "LABEL_USER_ROLE": "User role",
       "LABEL_POLICY": "Policy",
@@ -245,17 +253,17 @@
     "TITLE": "Policies management",
     "BOX_LIST": {
       "TITLE": "Domain policies list",
-      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:DOMAIN_POLICIES.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_DESCRIPTION": "@:DOMAIN_POLICIES.BOX_FORM.LABEL_DESCRIPTION"
       }
     },
     "BOX_FORM": {
-      "TITLE_CREATION": "Creation",
+      "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_IDENTIFIER": "Identifier",
-      "LABEL_DESCRIPTION": "Description",
+      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+      "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
       "LABEL_RULES": "Rules",
       "LABEL_RULE_TYPES": "Rule type",
       "LABEL_DOMAINS": "Domains",
@@ -342,7 +350,7 @@
   "MIME_POLICIES": {
     "TITLE": "Mime policies",
     "BOX_LIST": {
-      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_NAME": "@:MIME_POLICIES.BOX_FORM.LABEL_NAME"
       }
@@ -350,7 +358,7 @@
     "BOX_FORM": {
       "TITLE_MIME_TYPES": "Mime types",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_NAME": "Name",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "TABLE": {
         "HEADER_STATUS": "Status",
         "HEADER_EXTENSIONS": "Extensions",
@@ -378,14 +386,14 @@
   "MAIL_LAYOUT": {
     "TITLE": "Mail layout",
     "BOX_LIST": {
-      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME"
       }
     },
     "BOX_FORM": {
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_NAME": "Name",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_LAYOUT": "Layout",
       "LABEL_PLAINTEXT": "Plain text",
       "LABEL_VISIBLE": "Visible",
@@ -419,14 +427,14 @@
           "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
         }
       },
-      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME"
       }
     },
     "BOX_FORM": {
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_NAME": "Name",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_FOOTER": "Footer",
       "LABEL_PLAINTEXT": "Plain text",
       "LABEL_VISIBLE": "Visible",
@@ -461,7 +469,7 @@
           "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
         }
       },
-      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
         "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE"
@@ -469,7 +477,7 @@
     },
     "BOX_FORM": {
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_NAME": "Name",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_LANGUAGE": "Language",
       "LABEL_CONTENT_TYPE": "Content type",
       "LABEL_SUBJECT": "Subject",
@@ -503,7 +511,7 @@
   "MAIL_CONFIG": {
     "TITLE": "Mail config",
     "BOX_LIST": {
-      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME"
       }
@@ -525,7 +533,7 @@
         }
       },
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_NAME": "Name",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_VISIBLE": "Visible",
       "LABEL_MAIL_CONTENT_LANG": "Mail contents",
       "LABEL_MAIL_FOOTER_LANG": "Mail footer",
@@ -583,9 +591,9 @@
       "LABEL_CREATION_DATE": "Creation date",
       "LABEL_MODIFICATION_DATE": "Modification date",
       "LABEL_EXPIRY_DATE": "Expiry date",
-      "LABEL_FIRST_NAME": "First name",
-      "LABEL_LAST_NAME": "Last name",
-      "LABEL_EMAIL": "Email",
+      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+      "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
       "LABEL_ROLE": "Role",
       "LABEL_DOMAIN": "Domain",
       "LABEL_CAN_UPLOAD": "Upload permission",
@@ -610,8 +618,8 @@
       "LABEL_STATUS": "Status",
       "LABEL_CREATION_DATE": "Creation date",
       "LABEL_MODIFICATION_DATE": "Modification date",
-      "LABEL_FIRST_NAME": "First name",
-      "LABEL_LAST_NAME": "Last name",
+      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
       "LABEL_DOMAIN": "Current domain",
       "FORM_ACTIONS": {
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
@@ -645,7 +653,7 @@
     "BOX_FORM": {
       "TITLE": "Edit group",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_NAME": "Name",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_MODIFICATION_DATE": "Modification date",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
@@ -687,10 +695,10 @@
     "BOX_FORM": {
       "TITLE": "Edit group",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_IDENTIFIER": "Identifier",
+      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
       "LABEL_IS_PUBLIC": "Visibility",
       "LABEL_OWNER": "Owner",
-      "LABEL_DESCRIPTION": "Description",
+      "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
