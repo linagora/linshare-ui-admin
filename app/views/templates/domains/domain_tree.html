@@ -1,24 +1,24 @@
 <script type="text/ng-template" id="tree_item_renderer">
-  <div class="btn-group">
+  <div class="btn-group" dropdown is-open="isopen">
     <button class="btn btn-default" x-ng-click="setCurrentDomain(domain)">
       {{domain.label}}
     </button>
     <button class="btn btn-success dropdown-toggle" x-ng-show="canAddChildDomain(domain)">
       <span>&nbsp;<i class="fa fa-plus"></i><span>
     </button>
-    <ul class="dropdown-menu">
-      <li x-ng-if="canAddTopDomain(domain)">
-        <a x-ng-click="addTopDomain(domain)">
+    <ul class="dropdown-menu" role="menu">
+      <li x-ng-show="canAddTopDomain(domain)">
+        <a x-ng-click="addTopDomain(domain);isopen=false;">
           {{ 'MANAGE_DOMAINS.BOX_TREE.BUTTON_ADD.TOP_DOMAIN' | translate }}
         </a>
       </li>
-      <li x-ng-if="canAddSubDomain(domain)">
-        <a x-ng-click="addSubDomain(domain)">
+      <li x-ng-show="canAddSubDomain(domain)">
+        <a x-ng-click="addSubDomain(domain);isopen=false;">
           {{ 'MANAGE_DOMAINS.BOX_TREE.BUTTON_ADD.SUB_DOMAIN' | translate }}
         </a>
       </li>
-      <li x-ng-if="canAddGuestDomain(domain)">
-        <a x-ng-click="addGuestDomain(domain)">
+      <li x-ng-show="canAddGuestDomain(domain)">
+        <a x-ng-click="addGuestDomain(domain);isopen=false;">
           {{ 'MANAGE_DOMAINS.BOX_TREE.BUTTON_ADD.GUEST_DOMAIN' | translate }}
         </a>
       </li>
