@@ -171,6 +171,7 @@ ATTENTION LE SCAFFOLDING DOIT ETRE FAIT A LA RACINE DU REPERTOIRE GIT
 ### Difference entre link et controller, dans une directive
 La fonction link ne s'occupe que de la manipulation de la vue (gestion des clics, des classe css etc ...)
 La fonction controller s'occupe de la partie métier (récupération des données depuis un service etc ...)
+[http://odetocode.com/blogs/scott/archive/2014/05/28/compile-pre-and-post-linking-in-angularjs.aspx](http://odetocode.com/blogs/scott/archive/2014/05/28/compile-pre-and-post-linking-in-angularjs.aspx)
 
 ### Utilisation de la syntaxe ['module', function(Module){ }]
 Cette syntaxe évite la minification des noms de modules.
