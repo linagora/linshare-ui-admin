@@ -41,12 +41,6 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
           Authentication.getCurrentUser().then(function successCallback(user) {
             $scope.isSuperAdmin = Authentication.isSuperAdmin(user);
           });
-          MailConfig.getAll(Domain.getCurrentId(), false, function successCallback(mailConfigs) {
-            $scope.mailConfigs = mailConfigs;
-          });
-          MimePolicy.getAll(Domain.getCurrentId(), false, function successCallback(mimePolicies) {
-            $scope.mimePolicies = mimePolicies;
-          });
           $scope.addProvider = function() {
             if (!$scope.disableProvider) {
               $scope.domain.providers.push({
@@ -121,6 +115,12 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
             $scope.domain = Domain.copyCurrent();
             $scope.isRootDomain = $scope.domain.type === 'ROOTDOMAIN';
             $scope.disableProvider = ($scope.isRootDomain || $scope.domain.providers.length != 0);
+            MailConfig.getAll(Domain.getCurrentId(), false, function successCallback(mailConfigs) {
+              $scope.mailConfigs = mailConfigs;
+            });
+            MimePolicy.getAll(Domain.getCurrentId(), false, function successCallback(mimePolicies) {
+              $scope.mimePolicies = mimePolicies;
+            });
           };
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
