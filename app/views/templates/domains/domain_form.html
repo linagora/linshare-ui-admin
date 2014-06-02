@@ -94,6 +94,32 @@
         </select>
       </div>
 
+      <!-- mailConfig -->
+      <div class="form-group"
+           x-ng-class="{'has-error': domainForm.mailConfig.$invalid &&
+             (domainForm.mailConfig.$dirty || ls.domainForm.attempted)}">
+        <label for="mailConfig">
+          {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_MAIL_CONFIG' | translate }}
+        </label>
+        <select id="mailConfig" name="mailConfig" class="form-control" required
+                x-ng-model="domain.mailConfigUuid"
+                x-ng-options="m.uuid as m.name for m in mailConfigs">
+        </select>
+      </div>
+
+      <!-- mimePolicy -->
+      <div class="form-group"
+           x-ng-class="{'has-error': domainForm.mimePolicy.$invalid &&
+             (domainForm.mimePolicy.$dirty || ls.domainForm.attempted)}">
+        <label for="mimePolicy">
+          {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_MIME_POLICY' | translate }}
+        </label>
+        <select id="mimePolicy" name="mimePolicy" class="form-control" required
+                x-ng-model="domain.mimePolicyUuid"
+                x-ng-options="m.uuid as m.name for m in mimePolicies">
+        </select>
+      </div>
+
       <div x-ng-hide="isRootDomain">
         <!-- User role -->
         <div class="form-group"

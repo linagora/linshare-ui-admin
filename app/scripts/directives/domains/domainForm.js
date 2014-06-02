@@ -9,8 +9,8 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
         reload: '&'
       },
       controller:
-        ['$scope', '$modal', '$log', 'Domain', 'LdapConnection', 'DomainPattern', 'Enum', 'DomainPolicy',
-        function($scope, $modal, $log, Domain, LdapConnection, DomainPattern, Enum, DomainPolicy) {
+        ['$scope', '$modal', '$log', 'Domain', 'LdapConnection', 'DomainPattern', 'Enum', 'DomainPolicy', 'Authentication', 'MimePolicy', 'MailConfig',
+        function($scope, $modal, $log, Domain, LdapConnection, DomainPattern, Enum, DomainPolicy, Authentication, MimePolicy, MailConfig) {
           $scope.ldapConnections = []
           $scope.domainPatterns = []
           $scope.userRoles = []
@@ -37,6 +37,15 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
             angular.forEach(domainPolicies, function(domainPolicy) {
               $scope.domainPolicies.push(DomainPolicy.getId(domainPolicy));
             });
+          });
+          Authentication.getCurrentUser().then(function successCallback(user) {
+            $scope.isSuperAdmin = Authentication.isSuperAdmin(user);
+          });
+          MailConfig.getAll(Domain.getCurrentId(), false, function successCallback(mailConfigs) {
+            $scope.mailConfigs = mailConfigs;
+          });
+          MimePolicy.getAll(Domain.getCurrentId(), false, function successCallback(mimePolicies) {
+            $scope.mimePolicies = mimePolicies;
           });
           $scope.addProvider = function() {
             if (!$scope.disableProvider) {

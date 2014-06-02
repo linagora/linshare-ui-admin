@@ -271,6 +271,8 @@
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
       "LABEL_LOCALE": "Langue par défaut",
+      "LABEL_MAIL_CONFIG": "Configuration de courriel",
+      "LABEL_MIME_POLICY": "Politique de type MIME",
       "LABEL_USER_ROLE": "Rôle utilisateur",
       "LABEL_POLICY": "Politique",
       "BUTTON_ADD_PROVIDER": "Ajouter un fournisseur",

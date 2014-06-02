@@ -29,7 +29,7 @@
         <i class="caret"></i>
       </a>
       <ul class="dropdown-menu">
-        <li x-ng-if="userLogged.role === 'SUPERADMIN'">
+        <li x-ng-if="isSuperAdmin">
           <a href="#/password">
             {{ 'COMMON.NAVBAR.CHANGE_PASSWORD' | translate }}
           </a>

@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Tab',
-    ['$log',
-    function($log) {
+    ['$log', 'Authentication',
+    function($log, Authentication) {
       this.domains = {
         name: 'COMMON.TAB.DOMAINS',
         icon: 'fa-cloud',
@@ -101,7 +101,7 @@ angular.module('linshareAdminApp')
           tabs.push(self.parameters);
           tabs.push(self.users);
           tabs.push(self.audit);
-          if (user.role === 'SUPERADMIN') {
+          if (Authentication.isSuperAdmin(user)) {
             tabs.push(self.domains);
             tabs.push(self.mails);
             self.users.links.push(self.threads);

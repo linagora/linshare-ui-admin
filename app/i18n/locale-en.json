@@ -273,6 +273,8 @@
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
       "LABEL_LOCALE": "Default locale",
+      "LABEL_MAIL_CONFIG": "Mail configuration",
+      "LABEL_MIME_POLICY": "Mime policy",
       "LABEL_USER_ROLE": "User role",
       "LABEL_POLICY": "Policy",
       "BUTTON_ADD_PROVIDER": "Add provider",

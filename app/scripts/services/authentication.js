@@ -44,6 +44,9 @@ angular.module('linshareAdminApp')
             }
           );
         },
+        isSuperAdmin: function(user) {
+          return user.role === 'SUPERADMIN';
+        },
         changePassword: function(password, successCallback) {
           $log.debug('Authentication:changePassword');
           Restangular.all('authentication').all('change_password').post(password).then(
