@@ -56,12 +56,14 @@ angular.module('linshareAdminApp').directive('lsMimePolicyForm', [
             MimePolicy.enableAllMimeTypes(mimeConfig.uuid, function(mimePolicy) {
               MimePolicy.setCurrent(mimePolicy);
               $scope.displayIconSaved();
+              $scope.reset();
             });
           };
           $scope.disableAllMimeTypes = function(mimeConfig) {
             MimePolicy.disableAllMimeTypes(mimeConfig.uuid, function(mimePolicy) {
               MimePolicy.setCurrent(mimePolicy);
               $scope.displayIconSaved();
+              $scope.reset();
             });
           };
           $scope.cancel = function() {
@@ -69,6 +71,7 @@ angular.module('linshareAdminApp').directive('lsMimePolicyForm', [
           };
           $scope.reset = function() {
             $scope.mimePolicy = MimePolicy.copyCurrent();
+            $scope.tableParams.reload();
           };
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
@@ -80,15 +83,18 @@ angular.module('linshareAdminApp').directive('lsMimePolicyForm', [
             debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
-              var filteredData = params.filter() ?
-                        $filter('filter')($scope.mimePolicy.mimeTypes, params.filter()) :
-                        $scope.mimePolicy.mimeTypes;
-              var orderedData = params.sorting() ?
-                        $filter('orderBy')(filteredData, params.orderBy()) :
-                        filteredData;
-              params.total(orderedData.length);
-              $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-            }
+              if (angular.isDefined($scope.mimePolicy)) {
+                var filteredData = params.filter() ?
+                          $filter('filter')($scope.mimePolicy.mimeTypes, params.filter()) :
+                          $scope.mimePolicy.mimeTypes;
+                var orderedData = params.sorting() ?
+                          $filter('orderBy')(filteredData, params.orderBy()) :
+                          filteredData;
+                params.total(orderedData.length);
+                $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+              }
+            },
+            $scope: { $data: {}, $emit: function() {} }
           });
         }
       ],
