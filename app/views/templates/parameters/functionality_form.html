@@ -127,7 +127,7 @@
                     <div class="form-group col-sm-5">
                       <select class="form-control"
                               x-ng-model="parameter.string"
-                              x-ng-options="option for option in parameter.select">
+                              x-ng-options="option as 'COMMON.ENUM.UNIT_TIME.' + option | translate for option in parameter.select">
                       </select>
                     </div>
                   </div>
@@ -146,7 +146,7 @@
                       <select class="form-control"
                               x-ng-model="parameter.string"
                               x-ng-change="update()"
-                              x-ng-options="option for option in parameter.select">
+                              x-ng-options="option as 'COMMON.ENUM.UNIT_SIZE.' + option | translate for option in parameter.select">
                       </select>
                     </div>
                   </div>

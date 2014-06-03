@@ -158,6 +158,16 @@
         "ADMIN": "Administrator",
         "SUPERADMIN": "Super administrator",
         "SYSTEM": "System"
+      },
+      "UNIT_SIZE": {
+        "KILO": "Kilobyte",
+        "MEGA": "Megabyte",
+        "GIGA": "Gigabyte"
+      },
+      "UNIT_TIME": {
+        "DAY": "Day",
+        "WEEK": "Week",
+        "MONTH": "Month"
       }
     }
   },
