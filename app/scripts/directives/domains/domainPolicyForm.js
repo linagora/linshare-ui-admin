@@ -82,6 +82,9 @@ angular.module('linshareAdminApp').directive('lsDomainPolicyForm', [
           };
           $scope.reset();
           $scope.addRule = function(ruleToAdd) {
+            if (ruleToAdd.type === 'ALLOW_ALL' || ruleToAdd.type === 'DENY_ALL') {
+              delete ruleToAdd.domain;
+            }
             $scope.domainPolicy.accessPolicy.rules.push(angular.copy(ruleToAdd));
             $scope.reloadList();
           };
