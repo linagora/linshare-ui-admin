@@ -3,7 +3,9 @@
 </div>
 <div class="navbar-right">
   <ul class="nav navbar-nav">
-    <li class="dropdown language-menu">
+    <li class="language-menu"
+        dropdown
+        is-open="isopen">
       <a href="#" class="dropdown-toggle">
         <i class="fa fa-flag"></i>
         {{ 'COMMON.NAVBAR.LANGUAGE.SWITCH_TITLE' | translate }}
@@ -11,12 +13,12 @@
       </a>
       <ul class="dropdown-menu">
         <li x-ng-class="{disabled: isCurrentLang('en')}">
-          <a x-ng-click="setLanguage('en')">
+          <a x-ng-click="setLanguage('en');isopen=false;">
             {{ 'COMMON.NAVBAR.LANGUAGE.ENGLISH' | translate }}
           </a>
         </li>
         <li x-ng-class="{disabled: isCurrentLang('fr')}">
-          <a x-ng-click="setLanguage('fr')">
+          <a x-ng-click="setLanguage('fr');isopen=false;">
             {{ 'COMMON.NAVBAR.LANGUAGE.FRENCH' | translate }}
           </a>
         </li>
