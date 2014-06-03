@@ -40,6 +40,7 @@ angular.module('linshareAdminApp')
           delete $scope.mailContent.uuid;
           delete $scope.mailContent.creationDate;
           delete $scope.mailContent.modificationDate;
+          $scope.mailContent.domain = Domain.getCurrentId();
           MailContent.add($scope.mailContent,
             function successCallback(mailContent) {
               MailContent.setCurrent(mailContent);

@@ -24,6 +24,7 @@ angular.module('linshareAdminApp')
           delete $scope.mailLayout.uuid;
           delete $scope.mailLayout.creationDate;
           delete $scope.mailLayout.modificationDate;
+          $scope.mailLayout.domain = Domain.getCurrentId();
           MailLayout.add($scope.mailLayout,
             function successCallback(mailLayout) {
               MailLayout.setCurrent(mailLayout);

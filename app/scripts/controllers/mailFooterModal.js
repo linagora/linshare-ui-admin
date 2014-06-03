@@ -34,6 +34,7 @@ angular.module('linshareAdminApp')
           delete $scope.mailFooter.uuid;
           delete $scope.mailFooter.creationDate;
           delete $scope.mailFooter.modificationDate;
+          $scope.mailFooter.domain = Domain.getCurrentId();
           MailFooter.add($scope.mailFooter,
             function successCallback(mailFooter) {
               MailFooter.setCurrent(mailFooter);
