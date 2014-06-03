@@ -45,8 +45,18 @@ angular.module('linshareAdminApp').directive('lsAuditForm', [
             debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
-              $scope.criteria.actorMails = $scope.actorMails.split(',');
-              $scope.criteria.targetMails = $scope.targetMails.split(',');
+              var actorMails = $scope.actorMails.trim();
+              if (actorMails) {
+                $scope.criteria.actorMails = actorMails.split(',');
+              } else {
+                $scope.criteria.actorMails = undefined;
+              }
+              var targetMails = $scope.targetMails.trim();
+              if (targetMails) {
+                $scope.criteria.targetMails = targetMails.split(',');
+              } else {
+                $scope.criteria.targetMails = undefined;
+              }
               Audit.query($scope.criteria, function successCallback(logs) {
                 var orderedData = params.sorting() ?
                                     $filter('orderBy')(logs, params.orderBy()) :
