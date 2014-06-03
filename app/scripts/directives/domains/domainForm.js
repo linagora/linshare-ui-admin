@@ -31,7 +31,7 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
             });
           });
           Enum.getOptions('language', function successCallback(languages) {
-            $scope.locales = languages;
+            $scope.languages = languages;
           });
           DomainPolicy.getAll(function successCallback(domainPolicies) {
             angular.forEach(domainPolicies, function(domainPolicy) {

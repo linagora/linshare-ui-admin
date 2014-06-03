@@ -83,14 +83,14 @@
 
         <!-- Locale -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.locale.$invalid &&
-               (domainForm.locale.$dirty || ls.domainForm.attempted)}">
-          <label for="locale">
-            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LOCALE' | translate }}
+             x-ng-class="{'has-error': domainForm.language.$invalid &&
+               (domainForm.language.$dirty || ls.domainForm.attempted)}">
+          <label for="language">
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE' | translate }}
           </label>
-          <select id="locale" name="locale" class="form-control" required
-                  x-ng-model="domain.locale"
-                  x-ng-options="'COMMON.ENUM.LANGUAGE.' + l | translate for l in locales">
+          <select id="language" name="language" class="form-control" required
+                  x-ng-model="domain.language"
+                  x-ng-options="l as 'COMMON.ENUM.LANGUAGE.' + l | translate for l in languages">
           </select>
         </div>
       </div>
