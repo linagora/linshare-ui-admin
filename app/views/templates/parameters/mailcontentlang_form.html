@@ -17,7 +17,7 @@
       <div class="box-body">
         {{ 'MAIL_CONFIG.BOX_CONTENT_LANG.LABEL_MAIL_CONTENT_SELECTOR' | translate }}
         <div class="input-group"
-               x-ng-repeat="m in mailContents | filter:{language: lang}">
+               x-ng-repeat="m in mailContents">
           <span class="input-group-addon">
             <input type="radio" name="radio"
                    x-ng-model="mailContentLang.mailContent"

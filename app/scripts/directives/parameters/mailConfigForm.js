@@ -68,7 +68,7 @@ angular.module('linshareAdminApp').directive('lsMailConfigForm', [
             })
           };
           $scope.filters = {
-            language: 0
+            language: 'ENGLISH'
           };
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
