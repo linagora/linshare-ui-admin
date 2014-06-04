@@ -111,7 +111,7 @@
                   <input type="text" class="form-control" placeholder="{{ 'AUDIT.BOX_FORM.DATE.PLACEHOLDER_FROM' | translate }}"
                          datepicker-popup="medium"
                          is-open="opened.from"
-                         ng-model="criterion.dateFrom">
+                         ng-model="criteria.beforeDate">
                   <span class="input-group-btn">
                     <button type="button" class="btn btn-default"
                             x-ng-click="open('from', $event)">
@@ -125,7 +125,7 @@
                   <input type="text" class="form-control" placeholder="{{ 'AUDIT.BOX_FORM.DATE.PLACEHOLDER_TO' | translate }}"
                          datepicker-popup="medium"
                          is-open="opened.to"
-                         ng-model="criterion.dateTo">
+                         ng-model="criteria.afterDate">
                   <span class="input-group-btn">
                     <button type="button" class="btn btn-default"
                             x-ng-click="open('to', $event)">
