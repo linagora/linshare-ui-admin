@@ -13,7 +13,7 @@
     "angular-sanitize": "*",
     "angular-translate": "*",
     "angular-translate-loader-static-files": "*",
-    "angular-translate-interpolation-messageformat": "*",
+    "angular-translate-interpolation-messageformat": "~0",
     "angular-translate-handler-log": "~0",
     "angular-translate-storage-cookie": "*",
     "angular-ui-select": "*",
@@ -35,6 +35,6 @@
   "license": "http://www.linshare.org/licenses/LinShare-License_AfferoGPL-v3_en.pdf",
   "homepage": "http://www.linshare.org",
   "resolutions": {
-    "angular-translate": "~2.2.0"
+    "angular-translate": "2.2.0"
   }
 }
