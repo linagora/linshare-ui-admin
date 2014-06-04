@@ -30,6 +30,7 @@ angular.module('linshareAdminApp', [
     $translateProvider.preferredLanguage('en');
     $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
     $translateProvider.useMissingTranslationHandlerLog();
+    $translateProvider.useCookieStorage();
 
     tmhDynamicLocaleProvider.localeLocationPattern('i18n/angular/angular-locale_{{locale}}.js');
 

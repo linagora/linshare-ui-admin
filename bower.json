@@ -14,7 +14,8 @@
     "angular-translate": "*",
     "angular-translate-loader-static-files": "*",
     "angular-translate-interpolation-messageformat": "*",
-    "angular-translate-handler-log": "*",
+    "angular-translate-handler-log": "~0",
+    "angular-translate-storage-cookie": "*",
     "angular-ui-select": "*",
     "autofill-event": "*",
     "es5-shim": "*",
@@ -32,5 +33,8 @@
   },
   "description": "Admin interface for linshare",
   "license": "http://www.linshare.org/licenses/LinShare-License_AfferoGPL-v3_en.pdf",
-  "homepage": "http://www.linshare.org"
+  "homepage": "http://www.linshare.org",
+  "resolutions": {
+    "angular-translate": "~2.2.0"
+  }
 }
