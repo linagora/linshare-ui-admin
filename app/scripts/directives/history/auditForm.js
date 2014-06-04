@@ -57,12 +57,6 @@ angular.module('linshareAdminApp').directive('lsAuditForm', [
               } else {
                 $scope.criteria.targetMails = undefined;
               }
-              if ($scope.criteria.beforeDate) {
-                $scope.criteria.beforeDate = $scope.criteria.beforeDate.getTime();
-              }
-              if ($scope.criteria.afterDate) {
-                $scope.criteria.afterDate = $scope.criteria.afterDate.getTime();
-              }
               Audit.query($scope.criteria, function successCallback(logs) {
                 var orderedData = params.sorting() ?
                                     $filter('orderBy')(logs, params.orderBy()) :
