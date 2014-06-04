@@ -33,8 +33,5 @@
   },
   "description": "Admin interface for linshare",
   "license": "http://www.linshare.org/licenses/LinShare-License_AfferoGPL-v3_en.pdf",
-  "homepage": "http://www.linshare.org",
-  "resolutions": {
-    "angular-translate": "2.2.0"
-  }
+  "homepage": "http://www.linshare.org"
 }
