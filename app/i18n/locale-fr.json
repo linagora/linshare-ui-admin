@@ -628,6 +628,8 @@
       "LABEL_VISIBLE": "Visible",
       "LABEL_MAIL_CONTENT_LANG": "Contenus de courriel",
       "LABEL_MAIL_FOOTER_LANG": "Pied de courriel",
+      "LABEL_MAIL_LAYOUT_TEXT": "Disposition de courriel texte",
+      "LABEL_MAIL_LAYOUT_HTML": "Disposition de courriel HTML",
       "TABLE": {
         "HEADER_MAIL_CONTENT_NAME": "Mail content name",
         "HEADER_MAIL_CONTENT_TYPE": "Mail content type"

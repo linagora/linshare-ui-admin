@@ -24,7 +24,7 @@
     </div>
   </div>
   <form class="form" name="mailConfigForm" role="form" novalidate
-        x-ls-form-submit="update()"
+        x-ls-form-submit="update(true)"
         x-ls-form-attempt>
     <fieldset>
       <div class="box-body">
@@ -46,6 +46,47 @@
           <span class="form-control">
             {{ 'MAIL_CONFIG.BOX_FORM.LABEL_VISIBLE' | translate }}
           </span>
+        </div>
+      </div>
+      <div class="box-footer">
+        <!-- Validation -->
+        <button type="button" id="delete" name="delete" class="btn btn-danger"
+                x-ng-click="remove()">
+          {{ 'MAIL_CONFIG.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+        </button>
+        <button type="button" id="reset" name="reset" class="btn btn-warning"
+                x-ng-click="reset()">
+          {{ 'MAIL_CONFIG.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+        </button>
+        <button type="submit" id="submit" name="submit" class="btn btn-success">
+          {{ 'MAIL_CONFIG.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+        </button>
+        <hr>
+        <!-- Mail layout text -->
+        <div class="form-group"
+             x-ng-class="{'has-error': mailConfigForm.mailLayoutText.$invalid &&
+              (mailConfigForm.mailLayoutText.$dirty || ls.mailConfigForm.attempted)}">
+          <label for="mailLayoutText">
+            {{ 'MAIL_CONFIG.BOX_FORM.LABEL_MAIL_LAYOUT_TEXT' | translate }}
+          </label>
+          <select id="mailLayoutText" name="mailLayoutText" required
+                  x-ng-model="mailConfig.mailLayoutText"
+                  x-ng-change="update(false)"
+                  x-ng-options="mlt.uuid as mlt.name for mlt in mailLayouts | orderBy:'name' | filter:{plaintext: true}">
+          </select>
+        </div>
+        <!-- Mail layout html -->
+        <div class="form-group"
+             x-ng-class="{'has-error': mailConfigForm.mailLayoutHtml.$invalid &&
+              (mailConfigForm.mailLayoutHtml.$dirty || ls.mailConfigForm.attempted)}">
+          <label for="mailLayoutHtml">
+            {{ 'MAIL_CONFIG.BOX_FORM.LABEL_MAIL_LAYOUT_HTML' | translate }}
+          </label>
+          <select id="mailLayoutHtml" name="mailLayoutHtml" required
+                  x-ng-model="mailConfig.mailLayoutHtml"
+                  x-ng-change="update(false)"
+                  x-ng-options="mlh.uuid as mlh.name for mlh in mailLayouts | orderBy:'name' | filter:{plaintext: false}">
+          </select>
         </div>
         <!-- Mail contents -->
         <div class="table-responsive">
@@ -69,20 +110,19 @@
               </td>
             </tr>
         </div>
-      </div>
-      <div class="box-footer">
-        <!-- Validation -->
-        <button type="button" id="delete" name="delete" class="btn btn-danger"
-                x-ng-click="remove()">
-          {{ 'MAIL_CONFIG.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
-        </button>
-        <button type="button" id="reset" name="reset" class="btn btn-warning"
-                x-ng-click="reset()">
-          {{ 'MAIL_CONFIG.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-        </button>
-        <button type="submit" id="submit" name="submit" class="btn btn-success">
-          {{ 'MAIL_CONFIG.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
-        </button>
+        <!-- Mail footer -->
+        <div class="form-group"
+             x-ng-class="{'has-error': mailConfigForm.mailFooterLang.$invalid &&
+              (mailConfigForm.mailFooterLang.$dirty || ls.mailConfigForm.attempted)}">
+          <label for="mailFooter">
+            {{ 'MAIL_CONFIG.BOX_FORM.LABEL_MAIL_FOOTER_LANG' | translate }}
+          </label>
+          <select id="mailFooter" name="mailFooterLang" required
+                  x-ng-model="mailConfig.mailFooterLangs[filters.language].mailFooter"
+                  x-ng-change="updateMailFooterLang(mailConfig.mailFooterLangs[filters.language])"
+                  x-ng-options="mfl.uuid as mfl.name for mfl in mailFooterLangs | orderBy:'name'">
+          </select>
+        </div>
       </div>
     </fieldset>
   </form>

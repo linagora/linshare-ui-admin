@@ -5,8 +5,8 @@ angular.module('linshareAdminApp').directive('lsMailConfigForm', [
     return {
       restrict: 'A',
       scope: {},
-      controller: ['$scope', '$filter', '$log', '$modal', 'ngTableParams', 'MailConfig', 'MailContentLang',
-        function($scope, $filter, $log, $modal, ngTableParams, MailConfig, MailContentLang) {
+      controller: ['$scope', '$filter', '$log', '$modal', 'ngTableParams', 'MailConfig', 'MailContentLang', 'MailFooterLang', 'MailLayout',
+        function($scope, $filter, $log, $modal, ngTableParams, MailConfig, MailContentLang, MailFooterLang, MailLayout) {
           $scope.$watch(MailConfig.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -50,9 +50,11 @@ angular.module('linshareAdminApp').directive('lsMailConfigForm', [
               }
             );
           };
-          $scope.update = function() {
+          $scope.update = function(redirect) {
             MailConfig.update($scope.mailConfig, function() {
-              $scope.cancel();
+              if (redirect) {
+                $scope.cancel();
+              }
             });
           };
           $scope.cancel = function() {
@@ -61,15 +63,31 @@ angular.module('linshareAdminApp').directive('lsMailConfigForm', [
           };
           $scope.reset = function() {
             $scope.mailConfig = MailConfig.copyCurrent();
+            MailLayout.getAll($scope.mailConfig.domain, false, function(mailLayouts) {
+              $scope.mailLayouts = mailLayouts;
+            });
           };
           $scope.editMailContentLang = function(mailContentLang) {
             MailContentLang.get(mailContentLang.uuid, function(mailContentLang){
               MailContentLang.setCurrent(mailContentLang);
             })
           };
+          $scope.updateMailFooterLang = function(mailFooterLang) {
+            MailFooterLang.update(mailFooterLang)
+          };
           $scope.filters = {
             language: 'ENGLISH'
           };
+          $scope.$watch('filters.language',
+            function(newValue, oldValue) {
+              if (angular.isDefined(newValue)) {
+                MailConfig.getAllMailFooters(newValue, function(mailFooterLangs) {
+                  $scope.mailFooterLangs = mailFooterLangs;
+                });
+              }
+            },
+            true
+          );
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
             count: 10,      // count per page

@@ -52,6 +52,26 @@ angular.module('linshareAdminApp')
               }
           );
         },
+        getAllMailFooters: function(language, successCallback) {
+          $log.debug('MailConfig:getAllMailFooters');
+          return Restangular.one('mail_configs', self.currentMailConfig.uuid)
+            .getList('mail_footers', {language: language}).then(
+              function success(mailConfigs) {
+                if (successCallback) {
+                  return successCallback(mailConfigs);
+                }
+              },
+              function error() {
+                $log.error(
+                  [
+                   'MailConfig:getAll',
+                   'Unable to get all mail footers with language',
+                   language
+                  ].join('\n')
+                );
+              }
+          );
+        },
         get: function(domainId, mailConfigId, successCallback) {
           $log.debug('MailConfig:get');
           return Restangular.one('mail_configs', mailConfigId)

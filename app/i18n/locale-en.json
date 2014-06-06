@@ -37,7 +37,6 @@
       "TITLE": "Login",
       "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
       "LABEL_PASSWORD": "Password",
-      "BUTTON_LOGOUT": "Logout",
       "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
     },
     "TAB": {
@@ -175,7 +174,6 @@
   "CHANGE_PASSWORD": {
     "TITLE": "Change your password",
     "BOX_FORM": {
-      "TITLE": "",
       "LABEL_PASSWORD": {
         "OLD": "Old password",
         "NEW": "New password",
@@ -631,6 +629,8 @@
       "LABEL_VISIBLE": "Visible",
       "LABEL_MAIL_CONTENT_LANG": "Mail contents",
       "LABEL_MAIL_FOOTER_LANG": "Mail footer",
+      "LABEL_MAIL_LAYOUT_TEXT": "Mail layout text",
+      "LABEL_MAIL_LAYOUT_HTML": "Mail layout HTML",
       "TABLE": {
         "HEADER_MAIL_CONTENT_NAME": "Mail content name",
         "HEADER_MAIL_CONTENT_TYPE": "Mail content type"
