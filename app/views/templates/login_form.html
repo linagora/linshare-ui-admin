@@ -32,8 +32,9 @@
                x-ng-model="input.password">
       </div>
     </div>
-    <p class="text-danger">
-      {{errorLogin}}
+    <p class="text-danger"
+       x-ng-show="errorLogin">
+      {{ 'COMMON.LOGIN_FORM.BAD_CREDENTIALS' }}
     </p>
   </div>
   <div class="modal-footer">

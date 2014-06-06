@@ -9,12 +9,14 @@ var LoginModalInstanceCtrl =
     // because of Javascript's prototypical inheritance
     $scope.input = {};
 
+    $scope.$on('event:auth-loginRequired', function(event, rejection) {
+      if (rejection.statusText === 'Bad credentials') {
+        $scope.errorLogin = true;
+      }
+    });
+
     $scope.submit = function() {
-      var errorCallback = function() {
-        console.log('Bad credentials');
-        $scope.errorLogin = 'Bad credentials';
-      };
-      Authentication.request($scope.input.login, $scope.input.password, errorCallback);
+      Authentication.request($scope.input.login, $scope.input.password);
     };
 
     this.close = function() {

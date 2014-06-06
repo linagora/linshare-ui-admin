@@ -37,6 +37,7 @@
       "TITLE": "Login",
       "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
       "LABEL_PASSWORD": "Password",
+      "BAD_CREDENTIALS": "Bad credentials",
       "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
     },
     "TAB": {

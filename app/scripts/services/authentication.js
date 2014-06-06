@@ -33,11 +33,12 @@ angular.module('linshareAdminApp')
               $log.debug('Connected as ' + user.mail);
               deferred.resolve(user);
               authService.loginConfirmed();
-            }, function error() {
+            }, function error(response) {
               $log.error(
                 [
                  'Authentication:request',
                  'Authentication failed',
+                 response.status
                 ].join('\n')
               );
               return errorCallback();

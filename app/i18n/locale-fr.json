@@ -37,6 +37,7 @@
       "TITLE": "Connexion",
       "LABEL_EMAIL": "Email",
       "LABEL_PASSWORD": "Mot de passe",
+      "BAD_CREDENTIALS": "Identifiant incorrect",
       "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
     },
     "TAB": {
