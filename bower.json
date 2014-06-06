@@ -1,6 +1,6 @@
 {
   "name": "linshare-ui-admin",
-  "version": "0.0.1",
+  "version": "2.0.0-rc1",
   "dependencies": {
     "angular": "1.2.16",
     "angular-bootstrap": "~0.11.0",
@@ -33,5 +33,8 @@
   },
   "description": "Admin interface for linshare",
   "license": "http://www.linshare.org/licenses/LinShare-License_AfferoGPL-v3_en.pdf",
-  "homepage": "http://www.linshare.org"
+  "homepage": "http://www.linshare.org",
+  "resolutions": {
+    "angular-translate": "2.2.0"
+  }
 }
