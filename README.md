@@ -1,4 +1,4 @@
-# Linshare NG proof of concept
+# Linshare UI admin
 
 ## Installation
 
@@ -65,7 +65,7 @@ Pour packager l'application en mode production, la commande est:
    grunt build
 
 ## JavaScript
-Un cours sur JavaScript fait par un des créateurs d'AngularJS
+Quelques cours sur Javascript
 
 * [http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/](http://microclub.ch/2012/10/21/javascript-le-langage-de-programmation-le-plus-incompris-du-monde/)
 * [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
@@ -84,6 +84,8 @@ pour connaitre AngularJS et les bonnes pratiques:
 * [http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY](http://www.youtube.com/watch?v=P2ErSQj3SN8&list=TLEg-hpGDzoaY)
 * [http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/](http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/)
 * [http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/](http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/)
+* [http://blog.mgechev.com/2014/05/08/angularjs-in-patterns-part-1-overview-of-angularjs/](http://blog.mgechev.com/2014/05/08/angularjs-in-patterns-part-1-overview-of-angularjs/)
+* [http://blog.mgechev.com/2014/05/08/angularjs-in-patterns-part-1-overview-of-angularjs/](http://blog.mgechev.com/2014/05/08/angularjs-in-patterns-part-1-overview-of-angularjs/)
 
 Guide de style par ordre de preferences:
 
@@ -96,6 +98,7 @@ Guide de style par ordre de preferences:
 Autre:
 
 * [http://www.frangular.com/](http://www.frangular.com/)
+* [http://blog.mgechev.com/](http://blog.mgechev.com/)
 * [http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/](http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/)
 * [http://scotch.io/tutorials/javascript/angularjs-form-validation](http://scotch.io/tutorials/javascript/angularjs-form-validation)
 * [http://www.egghead.io/](http://www.egghead.io/)
@@ -237,13 +240,13 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 
 * [https://github.com/angular-ui/alias](https://github.com/angular-ui/alias)
 * [https://github.com/angular-ui/ui-router](https://github.com/angular-ui/ui-router)
+* [https://github.com/ncuillery/angular-breadcrumb](https://github.com/ncuillery/angular-breadcrumb)
 * [https://github.com/marcorinck/angular-growl](https://github.com/marcorinck/angular-growl) (Si toujours pas d'evolution) [https://github.com/JanStevens/angular-growl-2/](https://github.com/JanStevens/angular-growl-2/)
 
 
 ### TODO
 
 * Ecrire la doc avec [https://github.com/angular/dgeni](https://github.com/angular/dgeni)
-* Fix le login et logout
 * Faire une batterie de test
 * Voir si la structure d'angular seed n'evolue pas
 * Gestion des tests et des builds
