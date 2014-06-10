@@ -13,8 +13,8 @@ angular.module('linshareAdminApp').directive('lsFunctionalityList', [
           return functionality.activationPolicy.status;
         };
       },
-      controller: ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'Functionality',
-        function($scope, $filter, $log, ngTableParams, Domain, Functionality) {
+      controller: ['$scope', '$filter', '$q', '$log', '$translate', 'ngTableParams', 'Domain', 'Functionality',
+        function($scope, $filter, $q, $log, $translate, ngTableParams, Domain, Functionality) {
           $scope.$watch(Domain.getCurrent,
             function(newValue, oldValue) {
               if (angular.isDefined(newValue)) {
@@ -29,6 +29,13 @@ angular.module('linshareAdminApp').directive('lsFunctionalityList', [
           $scope.cancel = function() {
             Domain.setCurrent(undefined);
           };
+          $scope.localizedName = function(column) {
+            var def = $q.defer();
+            var names = [];
+
+            def.resolve(names);
+            return def;
+          };
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
             count: 10,      // count per page
@@ -40,16 +47,34 @@ angular.module('linshareAdminApp').directive('lsFunctionalityList', [
             total: 0, // length of data
             getData: function($defer, params) {
               Functionality.getAll(Domain.getCurrentId(), function(functionalities) { 
-                angular.forEach(functionalities, function(value, key) {
-                  if (!value.displayable) {
-                    functionalities.splice(key, 1);
-                  }
-                });
-                var orderedData = params.sorting() ?
-                          $filter('orderBy')(functionalities, params.orderBy()) :
-                          functionalities;
-                params.total(orderedData.length);
-                $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+                var displayableFuncs = _.where(functionalities, {'displayable': true});
+                var nameFilter = params.filter().localizedName;
+                var deferred = $q.defer();
+
+                if (!_.isEmpty(nameFilter)) {
+                  var ids = _.pluck(displayableFuncs, 'identifier');
+                  var localizedNames = _.map(ids, function(id) { return 'FUNCTIONALITIES.NAME.' + id });
+                  $translate(localizedNames).then(
+                    function(translations) {
+                      deferred.resolve(_.filter(displayableFuncs, function(f) {
+                        return translations['FUNCTIONALITIES.NAME.' + f.identifier].indexOf(nameFilter) != -1;
+                      }));
+                    }
+                  );
+                  deferred.promise.then(function(data) {
+                    var orderedData = params.sorting() ?
+                              $filter('orderBy')(data, params.orderBy()) :
+                              data;
+                    params.total(orderedData.length);
+                    $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+                  });
+                } else {
+                  var orderedData = params.sorting() ?
+                            $filter('orderBy')(displayableFuncs, params.orderBy()) :
+                            directive;
+                  params.total(orderedData.length);
+                  $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+                }
               });
             }
           });

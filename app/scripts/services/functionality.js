@@ -6,28 +6,6 @@ angular.module('linshareAdminApp')
     function ($log, $translate, Notification, Restangular) {
       this.currentFunctionality = undefined;
 
-      var addLocalizedName = function(functionality) {
-        $translate('FUNCTIONALITIES.NAME.' + functionality.identifier)
-          .then(function(localizedName) {
-            functionality.localizedName = localizedName;
-          }
-        );
-        angular.forEach(functionality.functionalities, function(childFunctionality) {
-          $translate('FUNCTIONALITIES.NAME.' + childFunctionality.identifier)
-            .then(function(localizedName) {
-              childFunctionality.localizedName = localizedName;
-            }
-          );
-        });
-      };
-
-      var deleteLocalizedName = function(functionality) {
-        delete functionality.localizedName;
-        angular.forEach(functionality.functionalities, function(childFunctionality) {
-          delete childFunctionality.localizedName;
-        });
-      };
-
       var self = this;
 
       // Public API here
@@ -37,9 +15,6 @@ angular.module('linshareAdminApp')
           return Restangular.all('functionalities')
             .getList({domainId: domainId}).then(
               function success(functionalities) {
-                angular.forEach(functionalities, function (functionality) {
-                  addLocalizedName(functionality);
-                });
                 if (successCallback) {
                   return successCallback(functionalities);
                 }
@@ -60,7 +35,6 @@ angular.module('linshareAdminApp')
           return Restangular.one('functionalities', funcId)
             .get({domainId: domainId}).then(
               function success(functionality) {
-                addLocalizedName(functionality);
                 if (successCallback) {
                   return successCallback(functionality);
                 }
@@ -80,10 +54,7 @@ angular.module('linshareAdminApp')
         },
         update: function(functionality, successCallback) {
           $log.debug('Functionality:update');
-          var rawFunctionality = {};
-          rawFunctionality = Restangular.copy(functionality);
-          deleteLocalizedName(rawFunctionality);
-          return rawFunctionality.put().then(
+          return functionality.put().then(
             function success(functionality) {
               if (successCallback) {
                 return successCallback(functionality);
@@ -103,10 +74,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(functionality, successCallback) {
           $log.debug('Functionality:remove');
-          var rawFunctionality = {};
-          rawFunctionality = Restangular.copy(functionality);
-          deleteLocalizedName(rawFunctionality);
-          return rawFunctionality.remove().then(
+          return functionality.remove().then(
             function success() {
               if (successCallback) {
                 return successCallback(functionality);

@@ -3,7 +3,7 @@
        x-ng-class="{'box-success': functionality.activationPolicy.status,
                     'box-danger': !functionality.activationPolicy.status}">
     <div class="box-header">
-      <h4 class="box-title">{{domain.label}} - {{functionality.localizedName}}</h4>
+      <h4 class="box-title">{{domain.label}} - {{ 'FUNCTIONALITIES.NAME.' + functionality.identifier | translate }}</h4>
     </div>
     <div class="box-body">
       <div class="row">
