@@ -45,7 +45,7 @@
           <select id="lang" name="lang" required
                   x-ng-model="lang"
                   x-ng-change="reloadModels(lang, domain)"
-                  x-ng-options="languages[i] for i in ['ENGLISH', 'FRENCH']">
+                  x-ng-options="'MAIL_FOOTER.BOX_LIST.HEADER.LANGUAGE.' + l | translate for l in ['ENGLISH', 'FRENCH']">
           </select>
         </div>
         <!-- Model -->

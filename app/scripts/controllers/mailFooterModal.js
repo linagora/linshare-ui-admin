@@ -7,15 +7,6 @@ angular.module('linshareAdminApp')
         Domain.getAll(function(domains) {
           $scope.domains = domains;
         });
-        $translate('MAIL_FOOTER.BOX_LIST.HEADER.LANGUAGE.ENGLISH').then(
-          function(en) {
-            $translate('MAIL_FOOTER.BOX_LIST.HEADER.LANGUAGE.FRENCH').then(
-              function(fr) {
-                $scope.languages = [en, fr];
-              }
-            );
-          }
-        );
         $scope.isDefined = function(x) {
           return angular.isDefined(x);
         };
