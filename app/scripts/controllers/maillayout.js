@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('MailLayoutCtrl',
-    ['$scope', '$log', 'Domain', 'MailLayout',
-      function ($scope, $log, Domain, MailLayout) {
+    ['$scope', '$log', 'Authentication', 'Domain', 'MailLayout',
+      function ($scope, $log, Authentication, Domain, MailLayout) {
         $scope.getCurrentDomain = function() {
           return Domain.getCurrent();
         };
@@ -11,10 +11,12 @@ angular.module('linshareAdminApp')
           return MailLayout.getCurrent();
         };
         $scope.reload = function() {
-          Domain.setCurrent(undefined);
-          MailLayout.setCurrent(undefined);
-          Domain.getDomainTree(function(domainTree) {
-            $scope.root = [domainTree];
+          Authentication.getCurrentUser().then(function(user) {
+            Domain.setCurrent(undefined);
+            MailLayout.setCurrent(undefined);
+            Domain.getDomainTree(user.domain, function(domainTree) {
+              $scope.root = [domainTree];
+            });
           });
         };
         $scope.reload();

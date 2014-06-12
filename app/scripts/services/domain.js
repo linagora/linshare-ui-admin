@@ -36,9 +36,9 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getDomainTree: function(successCallback) {
+        getDomainTree: function(domainId, successCallback) {
           $log.debug('Domain:getDomainTree');
-          return Restangular.all('domains').one('LinShareRootDomain').get({tree: true}).then(
+          return Restangular.all('domains').one(domainId).get({tree: true}).then(
             function success(rootDomain) {
               restangularizeTree(rootDomain, 'domains');
               if (successCallback) {

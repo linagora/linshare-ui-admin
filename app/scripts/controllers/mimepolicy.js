@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('MimePolicyCtrl',
-    ['$scope', '$log', 'Domain', 'MimePolicy',
-      function ($scope, $log, Domain, MimePolicy) {
+    ['$scope', '$log', 'Authentication', 'Domain', 'MimePolicy',
+      function ($scope, $log, Authentication, Domain, MimePolicy) {
         $scope.getCurrentDomain = function() {
           return Domain.getCurrent();
         };
@@ -11,10 +11,12 @@ angular.module('linshareAdminApp')
           return MimePolicy.getCurrent();
         };
         $scope.reload = function() {
-          Domain.setCurrent(undefined);
-          MimePolicy.setCurrent(undefined);
-          Domain.getDomainTree(function(domainTree) {
-            $scope.root = [domainTree];
+          Authentication.getCurrentUser().then(function(user) {
+            Domain.setCurrent(undefined);
+            MimePolicy.setCurrent(undefined);
+            Domain.getDomainTree(user.domain, function(domainTree) {
+              $scope.root = [domainTree];
+            });
           });
         };
         $scope.reload();

@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('MailFooterCtrl',
-    ['$scope', '$log', 'Domain', 'MailFooter',
-      function ($scope, $log, Domain, MailFooter) {
+    ['$scope', '$log', 'Authentication', 'Domain', 'MailFooter',
+      function ($scope, $log, Authentication, Domain, MailFooter) {
         $scope.getCurrentDomain = function() {
           return Domain.getCurrent();
         };
@@ -11,10 +11,12 @@ angular.module('linshareAdminApp')
           return MailFooter.getCurrent();
         };
         $scope.reload = function() {
-          Domain.setCurrent(undefined);
-          MailFooter.setCurrent(undefined);
-          Domain.getDomainTree(function(domainTree) {
-            $scope.root = [domainTree];
+          Authentication.getCurrentUser().then(function(user) {
+            Domain.setCurrent(undefined);
+            MailFooter.setCurrent(undefined);
+            Domain.getDomainTree(user.domain, function(domainTree) {
+              $scope.root = [domainTree];
+            });
           });
         };
         $scope.reload();

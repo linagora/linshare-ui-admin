@@ -2,15 +2,17 @@
 
 angular.module('linshareAdminApp')
   .controller('DomainManagementCtrl',
-    ['$scope', '$log', 'Domain',
-      function ($scope, $log, Domain) {
+    ['$scope', '$log', 'Authentication', 'Domain',
+      function ($scope, $log, Authentication, Domain) {
         $scope.getCurrentDomain = function() {
           return Domain.getCurrent();
         };
         $scope.reload = function() {
-          Domain.setCurrent(undefined);
-          Domain.getDomainTree(function(domainTree) {
-            $scope.root = [domainTree];
+          Authentication.getCurrentUser().then(function(user) {
+            Domain.setCurrent(undefined);
+            Domain.getDomainTree(user.domain, function(domainTree) {
+              $scope.root = [domainTree];
+            });
           });
         };
         $scope.reload();

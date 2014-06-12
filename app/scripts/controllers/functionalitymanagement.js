@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('FunctionalityManagementCtrl',
-    ['$scope', '$log', 'Domain', 'Functionality',
-      function ($scope, $log, Domain, Functionality) {
+    ['$scope', '$log', 'Authentication', 'Domain', 'Functionality',
+      function ($scope, $log, Authentication, Domain, Functionality) {
         $scope.getCurrentDomain = function() {
           return Domain.getCurrent();
         };
@@ -11,10 +11,12 @@ angular.module('linshareAdminApp')
           return Functionality.getCurrent();
         };
         $scope.reload = function() {
-          Domain.setCurrent(undefined);
-          Functionality.setCurrent(undefined);
-          Domain.getDomainTree(function(domainTree) {
-            $scope.root = [domainTree];
+          Authentication.getCurrentUser().then(function(user) {
+            Domain.setCurrent(undefined);
+            Functionality.setCurrent(undefined);
+            Domain.getDomainTree(user.domain, function(domainTree) {
+              $scope.root = [domainTree];
+            });
           });
         };
         $scope.reload();
