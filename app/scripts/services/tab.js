@@ -65,11 +65,12 @@ angular.module('linshareAdminApp')
           {
             name: 'COMMON.TAB.MANAGE_USERS',
             href: '#users/management'
-          }, {
-            name: 'COMMON.TAB.INCONSISTENT_USERS',
-            href: '#users/inconsistent'
           }
         ]
+      };
+      this.inconsistent = {
+        name: 'COMMON.TAB.INCONSISTENT_USERS',
+        href: '#users/inconsistent'
       };
       this.threads = {
         name: 'COMMON.TAB.THREADS',
@@ -105,6 +106,7 @@ angular.module('linshareAdminApp')
             tabs.push(self.domains);
             tabs.push(self.mails);
             self.users.links.push(self.threads);
+            self.users.links.push(self.inconsistent);
             self.users.links.push(self.mailingLists);
           }
           return tabs;
