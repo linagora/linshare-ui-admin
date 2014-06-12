@@ -1,24 +1,28 @@
 <script type="text/ng-template" id="tree_item_renderer">
   <div class="btn-group" dropdown is-open="isopen">
-    <button class="btn btn-default" x-ng-click="setCurrentDomain(domain)">
+    <button id="{{domain.identifier}}" class="btn btn-default"
+            x-ng-click="setCurrentDomain(domain)">
       {{domain.label}}
     </button>
-    <button class="btn btn-success dropdown-toggle" x-ng-show="canAddChildDomain(domain)">
+    <button id="{{domain.identifier}}-add" class="btn btn-success dropdown-toggle" x-ng-show="canAddChildDomain(domain)">
       <span>&nbsp;<i class="fa fa-plus"></i><span>
     </button>
     <ul class="dropdown-menu" role="menu">
       <li x-ng-show="canAddTopDomain(domain)">
-        <a x-ng-click="addTopDomain(domain);isopen=false;">
+        <a id="{{domain.identifier}}-add-top"
+           x-ng-click="addTopDomain(domain);isopen=false;">
           {{ 'MANAGE_DOMAINS.BOX_TREE.BUTTON_ADD.TOP_DOMAIN' | translate }}
         </a>
       </li>
       <li x-ng-show="canAddSubDomain(domain)">
-        <a x-ng-click="addSubDomain(domain);isopen=false;">
+        <a id="{{domain.identifier}}-add-sub"
+           x-ng-click="addSubDomain(domain);isopen=false;">
           {{ 'MANAGE_DOMAINS.BOX_TREE.BUTTON_ADD.SUB_DOMAIN' | translate }}
         </a>
       </li>
       <li x-ng-show="canAddGuestDomain(domain)">
-        <a x-ng-click="addGuestDomain(domain);isopen=false;">
+        <a id="{{domain.identifier}}-add-guest"
+           x-ng-click="addGuestDomain(domain);isopen=false;">
           {{ 'MANAGE_DOMAINS.BOX_TREE.BUTTON_ADD.GUEST_DOMAIN' | translate }}
         </a>
       </li>
