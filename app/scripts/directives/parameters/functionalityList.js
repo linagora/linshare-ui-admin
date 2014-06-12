@@ -57,7 +57,7 @@ angular.module('linshareAdminApp').directive('lsFunctionalityList', [
                   $translate(localizedNames).then(
                     function(translations) {
                       deferred.resolve(_.filter(displayableFuncs, function(f) {
-                        return translations['FUNCTIONALITIES.NAME.' + f.identifier].indexOf(nameFilter) != -1;
+                        return translations['FUNCTIONALITIES.NAME.' + f.identifier].toLowerCase().indexOf(nameFilter.toLowerCase()) != -1;
                       }));
                     }
                   );
