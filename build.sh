@@ -19,7 +19,12 @@ if [ "${l_mode}" == "dev" ] ; then
   l_dist="linshare-ui-admin-${l_version}-${l_git_uuid}"
   l_output="linshare-ui-admin-${l_version}-${l_git_uuid}.tar.bz2"
 fi
+
 mv -v dist ${l_dist}
+if [ "${l_mode}" != "dev" ] ; then
+  sed -i -e 's/debug: true/debug: false/g' ${l_dist}/scripts/config.js
+fi
+
 tar cjf ${l_output} ${l_dist}
 
 echo "INFO: Done"
