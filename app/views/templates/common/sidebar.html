@@ -33,7 +33,7 @@
       x-is-open="tab.isopen"
       x-ng-repeat="tab in tabs | filter:search">
     <accordion-heading>
-      <i class="fa"
+      <i id="{{tab.name.replace('COMMON.TAB.', 'MENU-')}}" class="fa"
          x-ng-class="tab.icon">
       </i>
       <span>
