@@ -134,6 +134,7 @@ Les pros :
 * [Matias Niemelä](https://github.com/matsko) [blog](http://www.yearofmoo.com/)
 * [Vojta Jina](https://github.com/vojtajina)
 * [Brian Ford](https://github.com/btford)[blog](http://briantford.com/blog/)
+* [Rhys Bret-Bowen](https://github.com/rhysbrettbowen)[blog](http://rhysbrettbowen.com/)
 
 ## Outils de dev
 L'éditeur de texte Vim est conseillé avec un plugin tel que :
