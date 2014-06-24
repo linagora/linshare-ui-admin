@@ -68,9 +68,10 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        logout: function() {
+        logout: function(callback) {
           $log.debug('Authentication:logout');
           Restangular.all('authentication').one('logout').get();
+          authService.loginCancelled();
           delete $cookies.JSESSIONID;
           location.reload(true);
         },
