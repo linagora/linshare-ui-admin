@@ -74,9 +74,8 @@ angular.module('linshareAdminApp')
             // QueryParams - Bypass the module authService
             ignoreAuthModule: true
           }).then(function() {
-            console.log('kasdjfkl;sarhgkljhdarfgkljhsdf');
-          authService.loginCancelled(true, true);
-          delete $cookies.JSESSIONID;
+            authService.loginCancelled(true, true);
+            delete $cookies.JSESSIONID;
           });
           //location.reload(true);
         },
