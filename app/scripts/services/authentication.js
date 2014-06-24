@@ -70,14 +70,15 @@ angular.module('linshareAdminApp')
         },
         logout: function() {
           $log.debug('Authentication:logout');
-          Restangular.all('authentication').one('logout').get({
-            // QueryParams - Bypass the module authService
-            ignoreAuthModule: true
-          }).then(function() {
-            authService.loginCancelled(true, true);
+          Restangular.all('authentication').one('logout').get().then(function() {
             delete $cookies.JSESSIONID;
+            // Reload authentication modal
+            Restangular.all('authentication').customGET('authorized').then(
+              function success(user) {
+                deferred.resolve(user);
+              }
+            );
           });
-          //location.reload(true);
         },
         getCurrentUser: function() {
           return deferred.promise;
