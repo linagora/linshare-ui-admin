@@ -68,12 +68,17 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        logout: function(callback) {
+        logout: function() {
           $log.debug('Authentication:logout');
-          Restangular.all('authentication').one('logout').get();
-          authService.loginCancelled();
+          Restangular.all('authentication').one('logout').get({
+            // QueryParams - Bypass the module authService
+            ignoreAuthModule: true
+          }).then(function() {
+            console.log('kasdjfkl;sarhgkljhdarfgkljhsdf');
+          authService.loginCancelled(true, true);
           delete $cookies.JSESSIONID;
-          location.reload(true);
+          });
+          //location.reload(true);
         },
         getCurrentUser: function() {
           return deferred.promise;
