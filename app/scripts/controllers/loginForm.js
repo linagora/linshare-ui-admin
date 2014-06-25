@@ -2,17 +2,19 @@
 
 var LoginModalInstanceCtrl = 
 [ '$scope',
+  '$timeout',
   '$modalInstance',
   'Authentication',
-  function ($scope, $modalInstance, Authentication) {
+  function ($scope, $timeout, $modalInstance, Authentication) {
     // Need this variable to store modal inputs
     // because of Javascript's prototypical inheritance
     $scope.input = {};
 
-    $scope.$on('event:auth-loginRequired', function(event, rejection) {
-      if (rejection.statusText === 'Bad credentials') {
-        $scope.errorLogin = true;
-      }
+    $scope.$on('event:auth-loginRequired', function() {
+      $scope.errorLogin = Authentication.isWaitingForResponse();
+      $timeout(function() {
+        $scope.errorLogin = false;
+      }, 2000);
     });
 
     $scope.submit = function() {

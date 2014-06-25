@@ -7,8 +7,9 @@ angular.module('linshareAdminApp')
     ['$route', '$cookies', '$q', '$log', 'Restangular', 'authService', 'Notification',
     function($route, $cookies, $q, $log, Restangular, authService, Notification) {
       var deferred = $q.defer();
+      this.waitingForResponse = false;
       
-      // var self = this;
+      var self = this;
 
       // Do at least one authentication request
       // to handle reload of already connected user
@@ -21,6 +22,7 @@ angular.module('linshareAdminApp')
       // Public API here
       return {
         request: function(login, password, errorCallback) {
+          self.waitingForResponse = true;
           $log.debug('Authentication:request');
           return Restangular.all('authentication').customGET('authorized', {
             // QueryParams - Bypass the module authService
@@ -33,6 +35,7 @@ angular.module('linshareAdminApp')
               $log.debug('Connected as ' + user.mail);
               deferred.resolve(user);
               authService.loginConfirmed();
+              self.waitingForResponse = false;
             }, function error(response) {
               $log.error(
                 [
@@ -79,6 +82,9 @@ angular.module('linshareAdminApp')
               }
             );
           });
+        },
+        isWaitingForResponse: function() {
+          return self.waitingForResponse;
         },
         getCurrentUser: function() {
           return deferred.promise;
