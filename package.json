@@ -1,6 +1,6 @@
 {
   "name": "linshare-ui-admin",
-  "version": "2.0.0-rc2",
+  "version": "2.0.0-rc3",
   "description": "Admin interface for linshare",
   "keywords": ["linshare", "linagora"],
   "homepage": "http://www.linshare.org",
