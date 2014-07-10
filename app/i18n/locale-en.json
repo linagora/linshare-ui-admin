@@ -380,6 +380,7 @@
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LEGEND_ACTIVATION_POLICY": "Activation policy",
       "LEGEND_CONFIGURATION_POLICY": "Configuration policy",
+      "LEGEND_DELEGATION_POLICY": "Delegation policy",
       "LEGEND_PARAMETERS": "Parameters",
       "RADIO_FORBIDDEN": "Forbidden",
       "RADIO_ALLOWED": "Allowed",

@@ -100,6 +100,51 @@
       </div>
       <div class="row">
         <div class="col-md-6"
+                 x-ng-show="showDelegation(functionality)">
+          <form>
+          <legend style="font-size: 14px; font-weight: bold;">
+            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_DELEGATION_POLICY' | translate }}
+          </legend>
+          <div class="col-sm-offset-1 col-sm-12">
+            <div class="radio">
+              <label>
+                  <input type="radio" name="delegationRadios" id="delegationRadios2" value="MANDATORY"
+                         x-ng-model="functionality.delegationPolicy.policy"
+                         x-ng-change="update()">
+                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_MANDATORY' | translate }}
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                  <input type="radio" name="delegationRadios" id="delegationRadios1" value="ALLOWED"
+                         x-ng-model="functionality.delegationPolicy.policy"
+                         x-ng-click="checkPolicyType(functionality.delegationPolicy)"
+                         x-ng-change="update()">
+                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_ALLOWED' | translate }}
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                  <input type="radio" name="delegationRadios" id="delegationRadios0" value="FORBIDDEN"
+                         x-ng-model="functionality.delegationPolicy.policy"
+                         x-ng-change="update()">
+                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_FORBIDDEN' | translate }}
+              </label>
+            </div>
+            <br>
+            <div class="checkbox">
+              <label>
+                  <input type="checkbox"
+                         x-ng-disabled="disableStatus(functionality.delegationPolicy)"
+                         x-ng-model="functionality.delegationPolicy.status"
+                         x-ng-change="update()">
+                  {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_STATUS' | translate }}
+              </label>
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="col-md-6"
              x-ng-if="showParameters(functionality)">
           <form>
           <legend style="font-size: 14px; font-weight: bold;">

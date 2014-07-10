@@ -12,11 +12,19 @@ angular.module('linshareAdminApp').directive('lsFunctionalityForm', [
           return functionality.activationPolicy.policy != 'FORBIDDEN' 
                   && functionality.configurationPolicy.parentAllowUpdate;
         };
+        scope.showDelegation = function(functionality) {
+          return functionality.activationPolicy.policy != 'FORBIDDEN' 
+                  && functionality.delegationPolicy
+                  && functionality.delegationPolicy.parentAllowUpdate;
+        };
         scope.showParameters = function(functionality) {
           return functionality.parentAllowParametersUpdate;
         };
         scope.disableStatus = function(policyType) {
-          return policyType.policy !== 'ALLOWED';
+          if (policyType) {
+            return policyType.policy !== 'ALLOWED';
+          }
+          return false;
         };
         scope.iconSaved = false;
       },
@@ -24,7 +32,9 @@ angular.module('linshareAdminApp').directive('lsFunctionalityForm', [
         function($scope, $timeout, $log, Domain, Functionality) {
           var timeoutId = undefined;
           var updateStatus = function(policyType) {
-            policyType.status = policyType.policy === 'ALLOWED' ? policyType.status : policyType.policy === 'MANDATORY';
+            if (policyType) {
+              policyType.status = policyType.policy === 'ALLOWED' ? policyType.status : policyType.policy === 'MANDATORY';
+            }
           };
 
           $scope.checkPolicyType = function (policyType) {
@@ -55,6 +65,7 @@ angular.module('linshareAdminApp').directive('lsFunctionalityForm', [
           $scope.update = function() {
             updateStatus($scope.functionality.activationPolicy);
             updateStatus($scope.functionality.configurationPolicy);
+            updateStatus($scope.functionality.delegationPolicy);
             Functionality.update($scope.functionality,
               function successCallback(updatedFunc) {
                 $scope.displayIconSaved();
