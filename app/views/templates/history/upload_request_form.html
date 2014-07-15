@@ -72,9 +72,10 @@
       <div class="col-md-12">
         <table class="table table-striped"
                x-ng-table="tableParams">
+          <tbody>
           <tr x-ng-repeat="result in $data"
               x-ng-click="setCurrentUuid(result.uuid)"
-              x-ng-class="{'info': result.uuid === currentUuid}">
+              x-ng-class="{'ls-table-info': result.uuid === currentUuid}">
             <td data-title="'UPLOAD_REQUEST.BOX_FORM.TABLE.HEADER_SUBJECT' | translate"
                 sortable="'subject'">
               {{ result.subject }}
@@ -92,6 +93,7 @@
               {{ result.creationDate | date:'medium' }}
             </td>
           </tr>
+          </tbody>
         </table>
       </div>
     </div>
