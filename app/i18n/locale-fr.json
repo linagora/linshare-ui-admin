@@ -62,6 +62,7 @@
       "THREADS": "Groupes",
       "MAILING_LISTS": "Listes de diffusion",
       "HISTORY": "Historique",
+      "UPLOAD_REQUEST": "Invitation de dépôt",
       "AUDIT": "Audit"
     },
     "NOTIFICATION": {
@@ -168,6 +169,14 @@
         "DAY": "Jour",
         "WEEK": "Semaine",
         "MONTH": "Mois"
+      },
+      "UPLOAD_REQUEST_STATUS": {
+        "STATUS_ENABLED": "Statut activé",
+        "STATUS_DELETED": "Statut supprimé",
+        "STATUS_CREATED": "Statut créé",
+        "STATUS_CLOSED": "Statut clôturé",
+        "STATUS_CANCELED": "Statut annulé",
+        "STATUS_ARCHIVED": "Statut archivé"
       }
     }
   },
@@ -856,6 +865,39 @@
         "HEADER_TARGET_EMAIL": "@:AUDIT.BOX_FORM.TARGET.LABEL_EMAIL",
         "HEADER_FILE_NAME": "@:AUDIT.BOX_FORM.FILE.LABEL_NAME",
         "HEADER_EXPIRY_DATE": "Date d'expiration"
+      },
+      "FORM_ACTIONS": {
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    }
+  },
+  "UPLOAD_REQUEST": {
+    "TITLE": "Invitation de dépôt",
+    "BOX_FORM": {
+      "STATUS": {
+        "LEGEND": "Statut"
+      },
+      "DATE": {
+        "LEGEND": "Actions",
+        "PLACEHOLDER_FROM": "Depuis",
+        "PLACEHOLDER_TO": "À"
+      },
+      "TABLE": {
+        "HEADER_CREATION_DATE": "Date de création",
+        "HEADER_OWNER": "Propriétaire",
+        "HEADER_SUBJECT": "Sujet",
+        "HEADER_STATUS": "Statut"
+      },
+      "TABLE_HISTORY": {
+        "TITLE": "Historique",
+        "HEADER_MODIFICATION_DATE": "Date de modification",
+        "HEADER_STATUS": "Statut",
+        "HEADER_MAX_DEPOSIT_SIZE": "Taille maximale de dépôt",
+        "HEADER_MAX_FILE_COUNT": "Nombre maximum de fichier",
+        "HEADER_MAX_FILE_SIZE": "Taille maximale par fichier",
+        "HEADER_CAN_DELETE": "Possibilité de suppression",
+        "HEADER_CAN_CLOSE": "Possibilité de clôture",
+        "HEADER_SECURED": "Sécurisé"
       },
       "FORM_ACTIONS": {
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"

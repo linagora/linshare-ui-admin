@@ -87,6 +87,10 @@ angular.module('linshareAdminApp')
           {
             name: 'COMMON.TAB.AUDIT',
             href: '#history/audit'
+          },
+          {
+            name: 'COMMON.TAB.UPLOAD_REQUEST',
+            href: '#history/upload_request'
           }
         ]
       };

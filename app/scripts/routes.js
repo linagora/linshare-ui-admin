@@ -77,6 +77,10 @@ angular.module('linshareAdminApp').config(['$routeProvider',
       templateUrl: 'views/history/audit.html',
       controller: 'ResetCtrl'
     });
+    $routeProvider.when('/history/upload_request', {
+      templateUrl: 'views/history/upload_request.html',
+      controller: 'ResetCtrl'
+    });
 
     $routeProvider.when('/charts', {
       templateUrl: 'views/charts.html',

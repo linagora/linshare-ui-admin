@@ -62,6 +62,7 @@
       "THREADS": "Groups",
       "MAILING_LISTS": "Mailing lists",
       "HISTORY": "History",
+      "UPLOAD_REQUEST": "Upload request",
       "AUDIT": "Audit"
     },
     "NOTIFICATION": {
@@ -168,6 +169,14 @@
         "DAY": "Day",
         "WEEK": "Week",
         "MONTH": "Month"
+      },
+      "UPLOAD_REQUEST_STATUS": {
+        "STATUS_ENABLED": "Status enabled",
+        "STATUS_DELETED": "Status deleted",
+        "STATUS_CREATED": "Status created",
+        "STATUS_CLOSED": "Status closed",
+        "STATUS_CANCELED": "Status canceled",
+        "STATUS_ARCHIVED": "Status archived"
       }
     }
   },
@@ -857,6 +866,39 @@
         "HEADER_TARGET_EMAIL": "@:AUDIT.BOX_FORM.TARGET.LABEL_EMAIL",
         "HEADER_FILE_NAME": "@:AUDIT.BOX_FORM.FILE.LABEL_NAME",
         "HEADER_EXPIRY_DATE": "Expiry date"
+      },
+      "FORM_ACTIONS": {
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    }
+  },
+  "UPLOAD_REQUEST": {
+    "TITLE": "Upload request",
+    "BOX_FORM": {
+      "STATUS": {
+        "LEGEND": "Status"
+      },
+      "DATE": {
+        "LEGEND": "Actions",
+        "PLACEHOLDER_FROM": "From",
+        "PLACEHOLDER_TO": "To"
+      },
+      "TABLE": {
+        "HEADER_CREATION_DATE": "Creation date",
+        "HEADER_OWNER": "Owner",
+        "HEADER_SUBJECT": "Subject",
+        "HEADER_STATUS": "Status"
+      },
+      "TABLE_HISTORY": {
+        "TITLE": "History",
+        "HEADER_MODIFICATION_DATE": "Modification date",
+        "HEADER_STATUS": "Status",
+        "HEADER_MAX_DEPOSIT_SIZE": "Max deposit size",
+        "HEADER_MAX_FILE_COUNT": "Max file count",
+        "HEADER_MAX_FILE_SIZE": "Max file size",
+        "HEADER_CAN_DELETE": "Can delete",
+        "HEADER_CAN_CLOSE": "Can close",
+        "HEADER_SECURED": "Secured"
       },
       "FORM_ACTIONS": {
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"

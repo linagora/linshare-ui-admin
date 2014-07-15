@@ -2,7 +2,10 @@
   "name": "linshare-ui-admin",
   "version": "2.0.0-rc3",
   "description": "Admin interface for linshare",
-  "keywords": ["linshare", "linagora"],
+  "keywords": [
+    "linshare",
+    "linagora"
+  ],
   "homepage": "http://www.linshare.org",
   "bugs": {
     "url": "https://github.com/linagora/linshare-core/issues",
@@ -13,22 +16,27 @@
     "name": "Linagora",
     "url": "http://linagora.com/"
   },
-  "contributors": [{
-    "name": "Camille TJHOA",
-    "email": "ctjhoa@linagora.com"
-  }, {
-    "name": "Frederic MARTIN",
-    "email": "fmartin@linagora.com"
-  }, {
-    "name": "Nicolas BERTRAND",
-    "email": "nbertrand@linagora.com"
-  }],
+  "contributors": [
+    {
+      "name": "Camille TJHOA",
+      "email": "ctjhoa@linagora.com"
+    },
+    {
+      "name": "Frederic MARTIN",
+      "email": "fmartin@linagora.com"
+    },
+    {
+      "name": "Nicolas BERTRAND",
+      "email": "nbertrand@linagora.com"
+    }
+  ],
   "main": "",
   "dependencies": {},
   "devDependencies": {
     "bower": "~1.3.3",
     "grunt": "~0.4.1",
     "grunt-bower-install": "~1.6.0",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-compass": "~0.8.0",
     "grunt-contrib-concat": "~0.4.0",

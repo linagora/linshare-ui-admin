@@ -14,7 +14,8 @@ angular.module('linshareAdminApp', [
     'chieffancypants.loadingBar',
     'pascalprecht.translate',
     'tmh.dynamicLocale',
-    'restangular'
+    'restangular',
+    'checklist-model'
 ])
 
 // Register work which needs to be performed on module loading

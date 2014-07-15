@@ -112,6 +112,7 @@
                          datepicker-popup="medium"
                          show-button-bar="false"
                          is-open="opened.from"
+                         max-date="criteria.afterDate"
                          ng-model="criteria.beforeDate">
                   <span class="input-group-btn">
                     <button type="button" class="btn btn-default"
@@ -127,6 +128,7 @@
                          datepicker-popup="medium"
                          show-button-bar="false"
                          is-open="opened.to"
+                         min-date="criteria.beforeDate"
                          ng-model="criteria.afterDate">
                   <span class="input-group-btn">
                     <button type="button" class="btn btn-default"
