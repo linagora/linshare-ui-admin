@@ -13,7 +13,7 @@ l_dist=linshare-ui-admin-${l_version}
 echo "INFO: Cleaning ..."
 rm -fr linshare-ui-admin-*
 echo "INFO: Building ..."
-grunt build
+./node_modules/.bin/grunt build
 echo "INFO: Packaging..."
 if [ "${l_mode}" == "dev" ] ; then
   l_dist="linshare-ui-admin-${l_version}-${l_git_uuid}"
