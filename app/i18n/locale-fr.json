@@ -152,7 +152,8 @@
         "NEW_SHARING": "Nouveau partage",
         "NEW_SHARING_PROTECTED": "Nouveau partage protégé",
         "NEW_SHARING_CYPHERED": "Nouveau partage chiffré",
-        "NEW_SHARING_CYPHERED_PROTECTED": "Nouveau partage ciffré et protégé"
+        "NEW_SHARING_CYPHERED_PROTECTED": "Nouveau partage ciffré et protégé",
+        "UPLOAD_REQUEST_ACTIVATED": "Invitation de dépôt activée"
       },
       "ROLE": {
         "SIMPLE": "Interne",

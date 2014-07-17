@@ -152,7 +152,8 @@
         "NEW_SHARING": "New sharing",
         "NEW_SHARING_PROTECTED": "New sharing protected",
         "NEW_SHARING_CYPHERED": "New sharing cyphered",
-        "NEW_SHARING_CYPHERED_PROTECTED": "New sharing cyphered protected"
+        "NEW_SHARING_CYPHERED_PROTECTED": "New sharing cyphered protected",
+        "UPLOAD_REQUEST_ACTIVATED": "Upload request activated"
       },
       "ROLE": {
         "SIMPLE": "Simple",
