@@ -1,4 +1,4 @@
 angular.module('linshareAdminApp').constant('lsAppConfig', {
-  backendURL: 'nico',
+  backendURL: 'linshare',
   debug: true
 });
