@@ -25,11 +25,7 @@ angular.module('linshareAdminApp').directive('lsDomainForm', [
               $scope.domainPatterns.push(DomainPattern.getId(domainPattern));
             });
           });
-          Enum.getOptions('role', function successCallback(userRoles) {
-            $scope.userRoles = _.remove(userRoles, function(role) {
-              return role !== 'SYSTEM' && role !== 'SUPERADMIN';
-            });
-          });
+          $scope.userRoles = ['SIMPLE', 'ADMIN'];
           Enum.getOptions('language', function successCallback(languages) {
             $scope.languages = languages;
           });
