@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp')
   .controller('MailConfigCtrl',
     ['$scope', '$log', 'Authentication', 'Domain', 'MailConfig', 'MailContentLang',
-      function ($scope, Authentication, $log, Domain, MailConfig, MailContentLang) {
+      function ($scope, $log, Authentication, Domain, MailConfig, MailContentLang) {
         $scope.getCurrentDomain = function() {
           return Domain.getCurrent();
         };
