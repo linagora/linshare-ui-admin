@@ -362,8 +362,8 @@
       "TITLE": "Arbre des domaines",
       "BUTTON_ADD": {
         "TOP_DOMAIN": "Ajouter un top domaine",
-        "SUB_DOMAIN": "Ajouter un sub domaine",
-        "GUEST_DOMAIN": "Ajouter guest domaine"
+        "SUB_DOMAIN": "Ajouter un sous domaine",
+        "GUEST_DOMAIN": "Ajouter un domaine invité"
       }
     },
     "BOX_FORM": {
