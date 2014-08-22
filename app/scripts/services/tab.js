@@ -4,9 +4,10 @@ angular.module('linshareAdminApp')
   .factory('Tab',
     ['$log', 'Authentication',
     function($log, Authentication) {
-      this.domains = {
+     var domains = {
         name: 'COMMON.TAB.DOMAINS',
         icon: 'fa-cloud',
+        superAdminOnly: true,
         links: [
           {
             name: 'COMMON.TAB.LDAP_CONNECTIONS',
@@ -26,9 +27,11 @@ angular.module('linshareAdminApp')
           }
         ]
       };
-      this.mails = {
+     
+      var mails = { 
         name: 'COMMON.TAB.MAILS',
         icon: 'fa-envelope',
+        superAdminOnly: true,
         links: [
           {
             name: 'COMMON.TAB.MAIL_LAYOUT',
@@ -45,58 +48,71 @@ angular.module('linshareAdminApp')
           }
         ]
       };
-      this.parameters = {
+
+      var parameters = {
         name: 'COMMON.TAB.PARAMETERS',
         icon: 'fa-gears',
+        superAdminOnly: false,
         links: [
           {
             name: 'COMMON.TAB.FUNCTIONALITIES',
+            superAdminOnly: false,
             href: '#parameters/functionalities'
           }, {
             name: 'COMMON.TAB.MIME_POLICIES',
+            superAdminOnly: false,
             href: '#parameters/mime_policy'
           }, {
             name: 'COMMON.TAB.UPLOAD_PROPOSITION_FILTER',
+            superAdminOnly: false,
             href: '#parameters/upload_proposition_filter'
           }
         ]
       };
-      this.users = {
+
+      var users = {
         name: 'COMMON.TAB.USERS',
         icon: 'fa-users',
+        superAdminOnly: false,
         links: [
           {
             name: 'COMMON.TAB.MANAGE_USERS',
+            superAdminOnly: false,
             href: '#users/management'
+          }, {
+            name: 'COMMON.TAB.INCONSISTENT_USERS',
+            superAdminOnly: true,
+            href: '#users/inconsistent'
+          }, {
+            name: 'COMMON.TAB.THREADS',
+            superAdminOnly: true,
+            href: '#users/threads'
+          }, {
+            name: 'COMMON.TAB.MAILING_LISTS',
+            superAdminOnly: true,
+            href: '#users/mailing_lists'
           }
         ]
       };
-      this.inconsistent = {
-        name: 'COMMON.TAB.INCONSISTENT_USERS',
-        href: '#users/inconsistent'
-      };
-      this.threads = {
-        name: 'COMMON.TAB.THREADS',
-        href: '#users/threads'
-      };
-      this.mailingLists = {
-        name: 'COMMON.TAB.MAILING_LISTS',
-        href: '#users/mailing_lists'
-      };
-      this.audit = {
+
+      var history = {
         name: 'COMMON.TAB.HISTORY',
         icon: 'fa-archive',
+        superAdminOnly: false,
         links: [
           {
             name: 'COMMON.TAB.AUDIT',
+            superAdminOnly: false,
             href: '#history/audit'
-          },
-          {
+          }, {
             name: 'COMMON.TAB.UPLOAD_REQUEST',
+            superAdminOnly: false,
             href: '#history/upload_request'
           }
         ]
       };
+
+      this.tabs = [parameters, users, history, domains, mails];
 
       var self = this;
 
@@ -104,17 +120,17 @@ angular.module('linshareAdminApp')
       return {
         getAvailableTabs: function(user) {
           $log.debug('Tab:getAvailableTabs');
-          var tabs = [];
-
-          tabs.push(self.parameters);
-          tabs.push(self.users);
-          tabs.push(self.audit);
-          if (Authentication.isSuperAdmin(user)) {
-            tabs.push(self.domains);
-            tabs.push(self.mails);
-            self.users.links.push(self.threads);
-            self.users.links.push(self.inconsistent);
-            self.users.links.push(self.mailingLists);
+          var tabs = self.tabs;
+          if (!Authentication.isSuperAdmin(user)) {
+            var tabs = _.filter(tabs, function(container) {
+              return container.superAdminOnly === false;
+            });
+            
+            _.forEach(tabs, function(container) {
+              container.links = _.filter(container.links, function(link) {
+                return link.superAdminOnly === false;
+              });
+            });
           }
           return tabs;
         }
