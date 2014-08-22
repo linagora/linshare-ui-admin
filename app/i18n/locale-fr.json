@@ -938,6 +938,9 @@
       "BUTTON_LIST": "Liste des filtres",
       "BUTTON_ADD_RULE": "Ajouter une règle",
       "LABEL_NAME": "Nom",
+      "LABEL_STATUS": "Statut",
+      "LABEL_ENABLED": "Activé",
+      "LABEL_DISABLED": "Désactivé",
       "LABEL_RULES": "Règles de correspondance",
       "LABEL_ACTION": "Action",
       "FORM_ACTIONS": {
