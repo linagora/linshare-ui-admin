@@ -1,0 +1,24 @@
+<section class="content-header">
+  <h1>
+    {{'COMMON.TAB.UPLOAD_PROPOSITION_FILTER' | translate}}
+    <small>
+      {{'UPLOAD_PROPOSITION_FILTER.TITLE' | translate}}
+    </small>
+  </h1>
+</section>
+<section class="content"
+         x-ng-controller="UploadPropositionFilterCtrl">
+  <div class="row">
+    <section class="col-md-12">
+      <!-- Form -->
+      <div x-ng-if="getCurrentFilter()">
+        <div x-ls-upload-proposition-filter-form></div>
+      </div>
+
+      <!-- List -->
+      <div x-ng-if="!getCurrentFilter()">
+        <div x-ls-upload-proposition-filter-list>
+      </div>
+    </section>
+  </div>
+</section>

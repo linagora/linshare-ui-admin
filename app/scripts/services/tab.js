@@ -55,6 +55,9 @@ angular.module('linshareAdminApp')
           }, {
             name: 'COMMON.TAB.MIME_POLICIES',
             href: '#parameters/mime_policy'
+          }, {
+            name: 'COMMON.TAB.UPLOAD_PROPOSITION_FILTER',
+            href: '#parameters/upload_proposition_filter'
           }
         ]
       };

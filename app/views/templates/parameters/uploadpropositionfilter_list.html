@@ -1,0 +1,57 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{ 'UPLOAD_PROPOSITION_FILTER.BOX_LIST.TITLE' | translate }}
+    </h3>
+    <div class="pull-right box-tools">
+      <div class="btn-group">
+        <button class="btn btn-primary" type="button"
+                x-ng-click="create()">
+          <span>
+            <i class="fa fa-plus"></i> 
+            {{ 'UPLOAD_PROPOSITION_FILTER.BOX_LIST.BUTTON_ADD' | translate }}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="box-body">
+    <div class="table-responsive">
+      <table class="table table-striped"
+             x-ng-table="tableParams">
+        <tbody>
+          <tr x-ng-repeat="filter in $data"
+              x-ng-click="edit(filter)">
+            <td class="col-md-1" data-title="'UPLOAD_PROPOSITION_FILTER.BOX_LIST.TABLE.HEADER_ACTIONS' | translate">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary"
+                        x-ng-click="swap($index, $index - 1, $data)"
+                        x-ng-disabled="$first">
+                  <i class="fa fa-arrow-circle-up"></i>
+                </button>
+                <button type="button" class="btn btn-primary"
+                        x-ng-click="swap($index, $index + 1, $data)"
+                        x-ng-disabled="$last">
+                  <i class="fa fa-arrow-circle-down"></i>
+                </button>
+              </div>
+            </td>
+            <td style="cursor: pointer" data-title="'UPLOAD_PROPOSITION_FILTER.BOX_LIST.TABLE.HEADER_NAME' | translate">
+              <span>
+                {{filter.name}}
+              </span>
+            </td>
+            <td class="col-md-1" data-title="'UPLOAD_PROPOSITION_FILTER.BOX_LIST.TABLE.HEADER_STATUS' | translate">
+              <span>
+                <i class="fa fa-check-circle" style="color: green"
+                   x-ng-show="filter.enable"></i>
+                <i class="fa fa-times-circle" style="color: red"
+                   x-ng-show="!filter.enable"></i>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -63,6 +63,7 @@
       "MAILING_LISTS": "Listes de diffusion",
       "HISTORY": "Historique",
       "UPLOAD_REQUEST": "Invitation de dépôt",
+      "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt",
       "AUDIT": "Audit"
     },
     "NOTIFICATION": {
@@ -178,6 +179,30 @@
         "STATUS_CLOSED": "Statut clôturé",
         "STATUS_CANCELED": "Statut annulé",
         "STATUS_ARCHIVED": "Statut archivé"
+      },
+      "UPLOAD_PROPOSITION_MATCH_TYPE": {
+        "ALL": "Toutes les conditions",
+        "ANY": "Au moins une condition",
+        "TRUE": "Pas de conditions"
+      },
+      "UPLOAD_PROPOSITION_RULE_TYPE": {
+        "SENDER_EMAIL": "Email du demandeur",
+        "RECIPIENT_EMAIL": "Email du destinataire",
+        "RECIPIENT_DOMAIN": "Domaine du destinataire",
+        "SUBJECT": "Sujet"
+      },
+      "UPLOAD_PROPOSITION_OPERATOR_TYPE": {
+        "CONTAIN": "Contient",
+        "DO_NOT_CONTAIN": "Ne contient pas",
+        "EQUAL": "Égale",
+        "DO_NOT_EQUAL": "N'égale pas",
+        "BEGIN_WITH": "Commence par",
+        "END_WITH": "Se termine par"
+      },
+      "UPLOAD_PROPOSITION_ACTION_TYPE": {
+        "ACCEPT": "Accepter l'invitation",
+        "MANUAL": "Ne rien faire (traitement manuel par le destinataire)",
+        "REJECT": "Rejecter l'invitation"
       }
     }
   },
@@ -442,7 +467,8 @@
       "DOMAIN_MAIL": "Adresse de courriel du domaine",
       "NOTIFICATION_URL": "URL de base pour les notifications par courriel",
       "LINK_LOGO": "Ajouter un lien au logo LinShare",
-      "CREATE_THREAD_PERMISSION": "Autoriser la création de groupe"
+      "CREATE_THREAD_PERMISSION": "Autoriser la création de groupe",
+      "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt"
     }
   },
 
@@ -902,6 +928,31 @@
       },
       "FORM_ACTIONS": {
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    }
+  },
+  "UPLOAD_PROPOSITION_FILTER": {
+    "TITLE": "Filtre de demande d'invitation de partage",
+    "BOX_FORM": {
+      "TITLE": "Formulaire de filtre",
+      "BUTTON_LIST": "Liste des filtres",
+      "BUTTON_ADD_RULE": "Ajouter une règle",
+      "LABEL_NAME": "Nom",
+      "LABEL_RULES": "Règles de correspondance",
+      "LABEL_ACTION": "Action",
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "BOX_LIST": {
+      "TITLE": "Liste des filtres",
+      "BUTTON_ADD": "Créer un filtre",
+      "TABLE" : {
+        "HEADER_ACTIONS": "Actions",
+        "HEADER_NAME": "Nom",
+        "HEADER_STATUS": "Statut"
       }
     }
   }

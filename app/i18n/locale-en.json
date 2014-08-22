@@ -63,6 +63,7 @@
       "MAILING_LISTS": "Mailing lists",
       "HISTORY": "History",
       "UPLOAD_REQUEST": "Upload request",
+      "UPLOAD_PROPOSITION_FILTER": "Upload proposition filtering",
       "AUDIT": "Audit"
     },
     "NOTIFICATION": {
@@ -178,6 +179,30 @@
         "STATUS_CLOSED": "Status closed",
         "STATUS_CANCELED": "Status canceled",
         "STATUS_ARCHIVED": "Status archived"
+      },
+      "UPLOAD_PROPOSITION_MATCH_TYPE": {
+        "ALL": "Every rules",
+        "ANY": "At least one rule",
+        "TRUE": "No rules"
+      },
+      "UPLOAD_PROPOSITION_RULE_TYPE": {
+        "SENDER_EMAIL": "Sender's mail",
+        "RECIPIENT_EMAIL": "Recipient's mail",
+        "RECIPIENT_DOMAIN": "Recipient's domain",
+        "SUBJECT": "Subject"
+      },
+      "UPLOAD_PROPOSITION_OPERATOR_TYPE": {
+        "CONTAIN": "Contain",
+        "DO_NOT_CONTAIN": "Do not contain",
+        "EQUAL": "Equal",
+        "DO_NOT_EQUAL": "Do not equal",
+        "BEGIN_WITH": "Begin with",
+        "END_WITH": "End with"
+      },
+      "UPLOAD_PROPOSITION_ACTION_TYPE": {
+        "ACCEPT": "Accept the proposition",
+        "MANUAL": "Do nothing (manual action by recipient)",
+        "REJECT": "Reject the proposition"
       }
     }
   },
@@ -443,7 +468,8 @@
       "DOMAIN_MAIL": "Domain mail",
       "NOTIFICATION_URL": "Notification URL",
       "LINK_LOGO": "Link logo",
-      "CREATE_THREAD_PERMISSION": "Create thread permission"
+      "CREATE_THREAD_PERMISSION": "Create thread permission",
+      "UPLOAD_PROPOSITION_FILTER": "Filtering on upload proposition"
     }
   },
 
@@ -903,6 +929,33 @@
       },
       "FORM_ACTIONS": {
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    }
+  },
+  "UPLOAD_PROPOSITION_FILTER": {
+    "TITLE": "Upload proposition filter",
+    "BOX_FORM": {
+      "TITLE": "Filter form",
+      "BUTTON_LIST": "Filters list",
+      "BUTTON_ADD_RULE": "Add rule",
+      "LABEL_NAME": "Name",
+      "LABEL_RULES": "Matching rules",
+      "LABEL_MATCH_ALL": "Match all rules",
+      "LABEL_MATCH_ONE": "Match at least one rule",
+      "LABEL_ACTION": "Action",
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "BOX_LIST": {
+      "TITLE": "Filters list",
+      "BUTTON_ADD": "Create filter",
+      "TABLE" : {
+        "HEADER_ACTIONS": "Actions",
+        "HEADER_NAME": "Name",
+        "HEADER_STATUS": "Status"
       }
     }
   }

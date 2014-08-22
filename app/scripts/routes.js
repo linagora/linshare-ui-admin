@@ -51,6 +51,10 @@ angular.module('linshareAdminApp').config(['$routeProvider',
       templateUrl: 'views/parameters/mail_config.html',
       controller: 'ResetCtrl'
     });
+    $routeProvider.when('/parameters/upload_proposition_filter', {
+      templateUrl: 'views/parameters/upload_proposition_filter.html',
+      controller: 'ResetCtrl'
+    });
 
     $routeProvider.when('/users', {
       templateUrl: 'views/users.html',
