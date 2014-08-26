@@ -59,6 +59,7 @@
       "USERS": "Users",
       "MANAGE_USERS": "Manage users",
       "INCONSISTENT_USERS": "Inconsistent users",
+      "TECHNICAL_ACCOUNT": "Technical accounts",
       "THREADS": "Groups",
       "MAILING_LISTS": "Mailing lists",
       "HISTORY": "History",
@@ -160,7 +161,46 @@
         "SIMPLE": "Simple",
         "ADMIN": "Administrator",
         "SUPERADMIN": "Super administrator",
-        "SYSTEM": "System"
+        "SYSTEM": "System",
+        "DELEGATION": "Delegation",
+        "UPLOAD_PROPOSITION": "Upload proposition"
+      },
+      "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {
+        "GUESTS_LIST": "List guests",
+        "GUESTS_GET": "Get guest",
+        "GUESTS_CREATE": "Create guest",
+        "GUESTS_UPDATE": "Update guest",
+        "GUESTS_DELETE": "Delete guest",
+        "DOCUMENTS_LIST": "List documents",
+        "DOCUMENTS_GET": "Get document",
+        "DOCUMENTS_CREATE": "Create document",
+        "DOCUMENTS_UPDATE": "Update document",
+        "DOCUMENTS_DELETE": "Delete document",
+        "SHARES_LIST": "List shares",
+        "SHARES_GET": "Get share",
+        "SHARES_CREATE": "Create share",
+        "SHARES_UPDATE": "Update share",
+        "SHARES_DELETE": "Delete share",
+        "RECEIVED_SHARES_LIST": "List received shares",
+        "RECEIVED_SHARES_GET": "Get received share",
+        "RECEIVED_SHARES_CREATE": "Create received share",
+        "RECEIVED_SHARES_UPDATE": "Update received share",
+        "RECEIVED_SHARES_DELETE": "Delete received share",
+        "THREADS_LIST": "List groups",
+        "THREADS_GET": "Get group",
+        "THREADS_CREATE": "Create group",
+        "THREADS_UPDATE": "Update group",
+        "THREADS_DELETE": "Delete group",
+        "THREADS_MEMBER_LIST": "List group members",
+        "THREADS_MEMBER_GET": "Get group member",
+        "THREADS_MEMBER_CREATE": "Create group member",
+        "THREADS_MEMBER_UPDATE": "Update group member",
+        "THREADS_MEMBER_DELETE": "Delete group member",
+        "LISTS_LIST": "List mailing lists",
+        "LISTS_GET": "Get mailing list",
+        "LISTS_CREATE": "Create mailing list",
+        "LISTS_UPDATE": "Update mailing list",
+        "LISTS_DELETE": "Delete mailing list"
       },
       "UNIT_SIZE": {
         "KILO": "Kilobyte",
@@ -959,6 +999,39 @@
         "HEADER_ACTIONS": "Actions",
         "HEADER_NAME": "Name",
         "HEADER_STATUS": "Status"
+      }
+    }
+  },
+  "TECHNICAL_ACCOUNT": {
+    "TITLE": "Technical accounts",
+    "BOX_FORM": {
+      "TITLE": "Technical account",
+      "TITLE_PASSWORD": "Change password",
+      "BUTTON_LIST": "Account list",
+      "LABEL_NAME": "Name",
+      "LABEL_MAIL": "Mail",
+      "LABEL_ROLE": "Role",
+      "LABEL_PERMISSIONS": "Permissions",
+      "LABEL_UUID": "Identifier (login)",
+      "LABEL_STATUS": "Status",
+      "LABEL_ENABLED": "Enabled",
+      "LABEL_DISABLED": "Disabled",
+      "LABEL_CREATION_DATE": "Creation date",
+      "LABEL_MODIFICATION_DATE": "Modification date",
+      "LABEL_OLD_PWD": "Old password",
+      "LABEL_NEW_PWD": "New password",
+      "LABEL_NEW_PWD_RETYPED": "Confirm new password",
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "BOX_LIST": {
+      "TITLE": "Account list",
+      "BUTTON_ADD": "Create a technical account",
+      "TABLE" : {
+        "HEADER_NAME": "Name"
       }
     }
   }

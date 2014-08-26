@@ -1,0 +1,21 @@
+<section class="content-header">
+  <h1>
+    {{'COMMON.TAB.TECHNICAL_ACCOUNT' | translate}}
+    <small>
+      {{'TECHNICAL_ACCOUNT.TITLE' | translate}}
+    </small>
+  </h1>
+</section>
+<section class="content"
+         x-ng-controller="TechnicalAccountCtrl">
+  <div class="row">
+    <section class="col-lg-12">
+      <div x-ng-if="!getCurrentAccount()">
+        <div x-ls-technical-account-list></div>
+      </div>
+      <div x-ng-if="getCurrentAccount()">
+        <div x-ls-technical-account-form></div>
+      </div>
+    </section>
+  </div>
+</section>

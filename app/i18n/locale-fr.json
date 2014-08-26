@@ -59,6 +59,7 @@
       "USERS": "Utilisateurs",
       "MANAGE_USERS": "Configuration des utilisateurs",
       "INCONSISTENT_USERS": "Utilisateurs incohérents",
+      "TECHNICAL_ACCOUNT": "Comptes techniques",
       "THREADS": "Groupes",
       "MAILING_LISTS": "Listes de diffusion",
       "HISTORY": "Historique",
@@ -160,7 +161,46 @@
         "SIMPLE": "Interne",
         "ADMIN": "Administrateur",
         "SUPERADMIN": "Super administrateur",
-        "SYSTEM": "Système"
+        "SYSTEM": "Système",
+        "DELEGATION": "Délégation",
+        "UPLOAD_PROPOSITION": "Demande d'invitation de partage"
+      },
+      "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {
+        "GUESTS_LIST": "Lister les invités",
+        "GUESTS_GET": "Détail d'un invité",
+        "GUESTS_CREATE": "Créer un invité",
+        "GUESTS_UPDATE": "Mettre à jour un invité",
+        "GUESTS_DELETE": "Supprimer un invité",
+        "DOCUMENTS_LIST": "Lister les documents",
+        "DOCUMENTS_GET": "Détail d'un document",
+        "DOCUMENTS_CREATE": "Créer un document",
+        "DOCUMENTS_UPDATE": "Mettre à jour un document",
+        "DOCUMENTS_DELETE": "Supprimer un document",
+        "SHARES_LIST": "Lister les partages effectués",
+        "SHARES_GET": "Détail d'un partage effectué",
+        "SHARES_CREATE": "Créer un partage effectué",
+        "SHARES_UPDATE": "Mettre à jour un partage effectué",
+        "SHARES_DELETE": "Supprimer un partage effectué",
+        "RECEIVED_SHARES_LIST": "Lister les partages reçus",
+        "RECEIVED_SHARES_GET": "Détail d'un partage reçu",
+        "RECEIVED_SHARES_CREATE": "Créer un partage reçu",
+        "RECEIVED_SHARES_UPDATE": "Mettre à jour un partage reçu",
+        "RECEIVED_SHARES_DELETE": "Supprimer un partage reçu",
+        "THREADS_LIST": "Lister les groupes",
+        "THREADS_GET": "Détail d'un groupe",
+        "THREADS_CREATE": "Créer un groupe",
+        "THREADS_UPDATE": "Mettre à jour un groupe",
+        "THREADS_DELETE": "Supprimer un groupe",
+        "THREADS_MEMBER_LIST": "Lister les membres de groupe",
+        "THREADS_MEMBER_GET": "Détail d'un membre de groupe",
+        "THREADS_MEMBER_CREATE": "Créer un membre de groupe",
+        "THREADS_MEMBER_UPDATE": "Mettre à jour un membre de groupe",
+        "THREADS_MEMBER_DELETE": "Supprimer un membre de groupe",
+        "LISTS_LIST": "Lister les listes de diffusion",
+        "LISTS_GET": "Détail d'une liste de diffusion",
+        "LISTS_CREATE": "Créer une liste de diffusion",
+        "LISTS_UPDATE": "Mettre à jour une liste de diffusion",
+        "LISTS_DELETE" : "Supprimer une liste de diffusion"
       },
       "UNIT_SIZE": {
         "KILO": "Kilooctet",
@@ -956,6 +996,39 @@
         "HEADER_ACTIONS": "Actions",
         "HEADER_NAME": "Nom",
         "HEADER_STATUS": "Statut"
+      }
+    }
+  },
+  "TECHNICAL_ACCOUNT": {
+    "TITLE": "Comptes techniques",
+    "BOX_FORM": {
+      "TITLE": "Compte technique",
+      "TITLE_PASSWORD": "Modifier le mot de passe",
+      "BUTTON_LIST": "Liste des comptes",
+      "LABEL_NAME": "Nom",
+      "LABEL_MAIL": "Courriel",
+      "LABEL_ROLE": "Rôle",
+      "LABEL_PERMISSIONS": "Permissions",
+      "LABEL_UUID": "Identifiant (login)",
+      "LABEL_STATUS": "Statut",
+      "LABEL_ENABLED": "Activé",
+      "LABEL_DISABLED": "Désactivé",
+      "LABEL_CREATION_DATE": "Création date",
+      "LABEL_MODIFICATION_DATE": "Modification date",
+      "LABEL_OLD_PWD": "Ancien mot de passe",
+      "LABEL_NEW_PWD": "Nouveau mot de passe",
+      "LABEL_NEW_PWD_RETYPED": "Confirmation nouveau mot de passe",
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "BOX_LIST": {
+      "TITLE": "Liste des comptes",
+      "BUTTON_ADD": "Créer un compte",
+      "TABLE" : {
+        "HEADER_NAME": "Nom"
       }
     }
   }

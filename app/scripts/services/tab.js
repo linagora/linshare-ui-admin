@@ -4,7 +4,7 @@ angular.module('linshareAdminApp')
   .factory('Tab',
     ['$log', 'Authentication',
     function($log, Authentication) {
-     var domains = {
+      var domains = {
         name: 'COMMON.TAB.DOMAINS',
         icon: 'fa-cloud',
         superAdminOnly: true,
@@ -91,6 +91,10 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.MAILING_LISTS',
             superAdminOnly: true,
             href: '#users/mailing_lists'
+          }, {
+            name: 'COMMON.TAB.TECHNICAL_ACCOUNT',
+            superAdminOnly: true,
+            href: '#users/technical_account'
           }
         ]
       };
@@ -122,7 +126,7 @@ angular.module('linshareAdminApp')
           $log.debug('Tab:getAvailableTabs');
           var tabs = self.tabs;
           if (!Authentication.isSuperAdmin(user)) {
-            var tabs = _.filter(tabs, function(container) {
+            tabs = _.filter(tabs, function(container) {
               return container.superAdminOnly === false;
             });
             

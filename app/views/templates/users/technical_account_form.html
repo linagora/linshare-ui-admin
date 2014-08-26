@@ -1,0 +1,227 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{ 'TECHNICAL_ACCOUNT.BOX_FORM.TITLE' | translate }}
+    </h3>
+    <div class="pull-right box-tools">
+      <div class="btn-group">
+        <button class="btn btn-primary pull-right" type="button"
+                x-ng-click="cancel()">
+          <span>
+            <i class="fa fa-list"></i> 
+            {{ 'TECHNICAL_ACCOUNT.BOX_FORM.BUTTON_LIST' | translate }}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <form class="form" name="technicalAccountForm" novalidate
+        x-ls-form-submit="(state==='create') ? match(account.password, tmp.newPwdRetyped1) && submit() : submit()"
+        x-ls-form-attempt>
+    <div class="box-body">
+      <div class="row">
+        <!-- EDITABLE FIELDS -->
+        <div class="col-sm-6">
+          <!-- Name -->
+          <div class="form-group"
+               x-ng-class="{'has-error': technicalAccountForm.name.$invalid &&
+                (technicalAccountForm.name.$dirty || ls.name.attempted)}">
+            <label for="name">
+              {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_NAME' | translate }}
+            </label>
+            <input type="text" class="form-control" name="name" required
+                   x-ng-model="account.name">
+          </div>
+          <!-- Mail -->
+          <div class="form-group"
+               x-ng-class="{'has-error': technicalAccountForm.mail.$invalid &&
+                (technicalAccountForm.mail.$dirty || ls.mail.attempted)}">
+            <label for="mail">
+              {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_MAIL' | translate }}
+            </label>
+            <input type="text" class="form-control" name="mail" required
+                   x-ng-model="account.mail">
+          </div>
+          <!-- Role -->
+          <div class="form-group"
+               x-ng-class="{'has-error': technicalAccountForm.role.$invalid &&
+                (technicalAccountForm.role.$dirty || ls.role.attempted)}">
+            <label for="mail">
+              {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_ROLE' | translate }}
+            </label>
+            <select class="form-control" name="role" required
+                   x-ng-model="account.role"
+                   x-ng-options="r as 'COMMON.ENUM.ROLE.' + r | translate for r in ['DELEGATION', 'UPLOAD_PROPOSITION']">
+            </select>
+          </div>
+          <!-- Status -->
+          <div class="form-group">
+            <label for="status">
+              {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_STATUS' | translate }}
+            </label>
+            <div class="input-group">
+              <span class="input-group-addon">
+                <input type="checkbox" x-ng-model="account.enable">
+              </span>
+              <span class="form-control" x-ng-if="account.enable">
+                {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_ENABLED' | translate }}
+              </span>
+              <span class="form-control" x-ng-if="!account.enable">
+                {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_DISABLED' | translate }}
+              </span>
+            </div>
+          </div>
+          <div x-ng-if="state==='create'">
+            <!-- Password -->
+            <div class="form-group"
+                 x-ng-class="{'has-error': technicalAccountForm.newPwd.$invalid &&
+                   (technicalAccountForm.newPwd.$dirty || ls.technicalAccountForm.attempted)}">
+              <label for="newPwd">
+                {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_NEW_PWD' | translate }}
+              </label>
+              <meter value="{{ strengthScore(account.password) }}" min="0" low="30" optimum="70" high="50" max="100"
+                     style="margin-left:10px">
+              </meter>
+              <input id="newPwd" name="newPwd" type="password" class="form-control" required
+                     x-ng-model="account.password">
+            </div>
+            <div class="form-group"
+                 x-ng-class="{'has-error': !match(account.password, tmp.newPwdRetyped1) ||
+                   (technicalAccountForm.newPwdRetyped1.$invalid &&
+                   (technicalAccountForm.newPwdRetyped1.$dirty || ls.technicalAccountForm.attempted))}">
+              <label for="newPwdRetyped1">
+                {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_NEW_PWD_RETYPED' | translate }}
+              </label>
+              <input id="newPwdRetyped1" name="newPwdRetyped1" type="password" class="form-control" required
+                     x-ng-model="tmp.newPwdRetyped1">
+            </div>
+          </div>
+          <div x-ng-if="state==='edit'">
+            <div class="form-group">
+              <label>
+                {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_PERMISSIONS' | translate }}
+              </label>
+              <select id="permissions" multiple class="form-control" size="10"
+                      x-ng-model="account.permissions"
+                      x-ng-options="p as 'COMMON.ENUM.TECHNICAL_ACCOUNT_PERMISSION_TYPE.' + p | translate for p in permissionTypes | orderBy:'toString()'">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div x-ng-if="state==='edit'">
+          <!-- UNEDITABLE FIELDS -->
+          <div class="well col-sm-5">
+            <!-- Uuid -->
+            <div class="form-group">
+              <label for="uuid">
+                {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_UUID' | translate }}
+              </label>
+              <div class="controls">
+                <span name="uuid" class="form-control-static">
+                  {{ account.uuid }}
+                </span>
+              </div>
+            </div>
+            <!-- Creation date -->
+            <div class="form-group">
+              <label for="creationDate">
+                {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_CREATION_DATE' | translate }}
+              </label>
+              <div class="controls">
+                <span name="creationDate" class="form-control-static">
+                  {{ account.creationDate | date:'medium' }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Modification date -->
+            <div class="form-group">
+              <label for="modificationDate">
+                {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_MODIFICATION_DATE' | translate }}
+              </label>
+              <div class="controls">
+                <span name="modificationDate" class="form-control-static">
+                  {{ account.modificationDate | date:'medium' }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-footer">
+      <!-- Validation -->
+      <div class="form-group">
+        <div class="controls">
+          <button type="button" id="delete" name="delete" class="btn btn-danger"
+                  x-ng-click="delete(account)">
+            {{ 'TECHNICAL_ACCOUNT.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+          </button>
+          <button type="button" id="reset" name="reset" class="btn btn-warning"
+                  x-ng-click="reset()">
+            {{ 'TECHNICAL_ACCOUNT.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+          </button>
+          <button type="submit" id="submit" name="submit" class="btn btn-success">
+            {{ 'TECHNICAL_ACCOUNT.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Password -->
+<div class="box box-primary"
+     x-ng-if="state==='edit'">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{ 'TECHNICAL_ACCOUNT.BOX_FORM.TITLE_PASSWORD' | translate }}
+    </h3>
+  </div>
+  <form class="form" name="technicalAccountPasswordForm" novalidate
+        x-ls-form-submit="match(password.newPwd, tmp.newPwdRetyped2) && changePassword()"
+        x-ls-form-attempt>
+    <div class="box-body">
+      <div class="form-group"
+           x-ng-class="{'has-error': technicalAccountPasswordForm.oldPwd.$invalid &&
+             (technicalAccountPasswordForm.oldPwd.$dirty || ls.technicalAccountPasswordForm.attempted)}">
+        <label for="oldPwd">
+          {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_OLD_PWD' | translate }}
+        </label>
+        <input id="oldPwd" name="oldPwd" type="password" class="form-control" required
+               x-ng-model="password.oldPwd">
+      </div>
+      <div class="form-group"
+           x-ng-class="{'has-error': technicalAccountPasswordForm.newPwd.$invalid &&
+             (technicalAccountPasswordForm.newPwd.$dirty || ls.technicalAccountPasswordForm.attempted)}">
+        <label for="newPwd">
+          {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_NEW_PWD' | translate }}
+        </label>
+        <meter value="{{ strengthScore(password.newPwd) }}" min="0" low="30" optimum="70" high="50" max="100"
+               style="margin-left:10px">
+        </meter>
+        <input id="newPwd" name="newPwd" type="password" class="form-control" required
+               x-ng-model="password.newPwd">
+      </div>
+      <div class="form-group"
+           x-ng-class="{'has-error': !match(password.newPwd, tmp.newPwdRetyped2) ||
+             (technicalAccountPasswordForm.newPwdRetyped2.$invalid &&
+             (technicalAccountPasswordForm.newPwdRetyped2.$dirty || ls.technicalAccountPasswordForm.attempted))}">
+        <label for="newPwdRetyped2">
+          {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_NEW_PWD_RETYPED' | translate }}
+        </label>
+        <input id="newPwdRetyped2" name="newPwdRetyped2" type="password" class="form-control" required
+               x-ng-model="tmp.newPwdRetyped2">
+      </div>
+    </div>
+    <div class="box-footer">
+      <!-- Validation -->
+      <div class="form-group">
+        <div class="controls">
+          <button type="submit" id="submit" name="submit" class="btn btn-success">
+            {{ 'TECHNICAL_ACCOUNT.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
