@@ -16,15 +16,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      views: {
     //        'tree@domain': {},
     //        'list': {
-    //          templateUrl: 'ng_components/functionality/functionality-list.html',
-    //          controller: 'ng_components/functionality/functionality-list-controller.js',
+    //          templateUrl: 'ng_components/functionality/functionality_list.html',
+    //          controller: 'ng_components/functionality/functionality_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('functionality.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/functionality/functionality-detail.html',
-    //      controller: 'ng_components/functionality/functionality-detail-controller.js'
+    //      templateUrl: 'ng_components/functionality/functionality_detail.html',
+    //      controller: 'ng_components/functionality/functionality_detail-controller.js'
     //    })
     //
     //    .state('mimepolicy', {
@@ -37,15 +37,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      views: {
     //        'tree@domain': {},
     //        'list': {
-    //          templateUrl: 'ng_components/mimepolicy/mimepolicy-list.html',
-    //          controller: 'ng_components/mimepolicy/mimepolicy-list-controller.js',
+    //          templateUrl: 'ng_components/mimepolicy/mimepolicy_list.html',
+    //          controller: 'ng_components/mimepolicy/mimepolicy_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('mimepolicy.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/mimepolicy/mimepolicy-detail.html',
-    //      controller: 'ng_components/mimepolicy/mimepolicy-detail-controller.js'
+    //      templateUrl: 'ng_components/mimepolicy/mimepolicy_detail.html',
+    //      controller: 'ng_components/mimepolicy/mimepolicy_detail-controller.js'
     //    })
     //
     //    .state('user', {
@@ -57,15 +57,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      url: '/list',
     //      views: {
     //        'list': {
-    //          templateUrl: 'ng_components/user/user-list.html',
-    //          controller: 'ng_components/user/user-list-controller.js',
+    //          templateUrl: 'ng_components/user/user_list.html',
+    //          controller: 'ng_components/user/user_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('user.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/user/user-detail.html',
-    //      controller: 'ng_components/user/user-detail-controller.js'
+    //      templateUrl: 'ng_components/user/user_detail.html',
+    //      controller: 'ng_components/user/user_detail-controller.js'
     //    })
     //
     //    .state('inconsistentuser', {
@@ -77,15 +77,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      url: '/list',
     //      views: {
     //        'list': {
-    //          templateUrl: 'ng_components/inconsistentuser/inconsistentuser-list.html',
-    //          controller: 'ng_components/inconsistentuser/inconsistentuser-list-controller.js',
+    //          templateUrl: 'ng_components/inconsistentuser/inconsistentuser_list.html',
+    //          controller: 'ng_components/inconsistentuser/inconsistentuser_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('inconsistentuser.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/inconsistentuser/inconsistentuser-detail.html',
-    //      controller: 'ng_components/inconsistentuser/inconsistentuser-detail-controller.js'
+    //      templateUrl: 'ng_components/inconsistentuser/inconsistentuser_detail.html',
+    //      controller: 'ng_components/inconsistentuser/inconsistentuser_detail-controller.js'
     //    })
     //
     //    .state('thread', {
@@ -97,15 +97,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      url: '/list',
     //      views: {
     //        'list': {
-    //          templateUrl: 'ng_components/thread/thread-list.html',
-    //          controller: 'ng_components/thread/thread-list-controller.js',
+    //          templateUrl: 'ng_components/thread/thread_list.html',
+    //          controller: 'ng_components/thread/thread_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('thread.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/thread/thread-detail.html',
-    //      controller: 'ng_components/thread/thread-detail-controller.js'
+    //      templateUrl: 'ng_components/thread/thread_detail.html',
+    //      controller: 'ng_components/thread/thread_detail-controller.js'
     //    })
     //
     //    .state('mailinglist', {
@@ -117,15 +117,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      url: '/list',
     //      views: {
     //        'list': {
-    //          templateUrl: 'ng_components/mailinglist/mailinglist-list.html',
-    //          controller: 'ng_components/mailinglist/mailinglist-list-controller.js',
+    //          templateUrl: 'ng_components/mailinglist/mailinglist_list.html',
+    //          controller: 'ng_components/mailinglist/mailinglist_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('mailinglist.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/mailinglist/mailinglist-detail.html',
-    //      controller: 'ng_components/mailinglist/mailinglist-detail-controller.js'
+    //      templateUrl: 'ng_components/mailinglist/mailinglist_detail.html',
+    //      controller: 'ng_components/mailinglist/mailinglist_detail-controller.js'
     //    })
     //
     //    .state('audit', {
@@ -143,15 +143,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      url: '/list',
     //      views: {
     //        'list': {
-    //          templateUrl: 'ng_components/ldapconnection/ldapconnection-list.html',
-    //          controller: 'ng_components/ldapconnection/ldapconnection-list-controller.js',
+    //          templateUrl: 'ng_components/ldapconnection/ldapconnection_list.html',
+    //          controller: 'ng_components/ldapconnection/ldapconnection_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('ldapconnection.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/ldapconnection/ldapconnection-detail.html',
-    //      controller: 'ng_components/ldapconnection/ldapconnection-detail-controller.js'
+    //      templateUrl: 'ng_components/ldapconnection/ldapconnection_detail.html',
+    //      controller: 'ng_components/ldapconnection/ldapconnection_detail-controller.js'
     //    })
     //
     //    .state('domainpattern', {
@@ -163,35 +163,35 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      url: '/list',
     //      views: {
     //        'list': {
-    //          templateUrl: 'ng_components/domainpattern/domainpattern-list.html',
-    //          controller: 'ng_components/domainpattern/domainpattern-list-controller.js',
+    //          templateUrl: 'ng_components/domainpattern/domainpattern_list.html',
+    //          controller: 'ng_components/domainpattern/domainpattern_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('domainpattern.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/domainpattern/domainpattern-detail.html',
-    //      controller: 'ng_components/domainpattern/domainpattern-detail-controller.js'
+    //      templateUrl: 'ng_components/domainpattern/domainpattern_detail.html',
+    //      controller: 'ng_components/domainpattern/domainpattern_detail-controller.js'
     //    })
     //
     //    .state('domain', {
     //      url: '/domain',
     //      views: {
     //        'tree': {
-    //          templateUrl: 'ng_components/domain/domain-tree.html',
-    //          controller: 'ng_components/domain/domain-tree-controller.js',
+    //          templateUrl: 'ng_components/domain/domain_tree.html',
+    //          controller: 'ng_components/domain/domain_tree-controller.js',
     //        }
     //      }
     //    })
     //    .state('domain.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/domain/domain-detail.html',
-    //      controller: 'ng_components/domain/domain-detail-controller.js'
+    //      templateUrl: 'ng_components/domain/domain_detail.html',
+    //      controller: 'ng_components/domain/domain_detail-controller.js'
     //    })
     //    .state('domain.order', {
     //      url: '/order'
-    //      templateUrl: 'ng_components/domain/domain-order.html',
-    //      controller: 'ng_components/domain/domain-order-controller.js'
+    //      templateUrl: 'ng_components/domain/domain_order.html',
+    //      controller: 'ng_components/domain/domain_order-controller.js'
     //    })
     //
     //    .state('domainpolicy', {
@@ -203,15 +203,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      url: '/list',
     //      views: {
     //        'list': {
-    //          templateUrl: 'ng_components/domainpolicy/domainpolicy-list.html',
-    //          controller: 'ng_components/domainpolicy/domainpolicy-list-controller.js',
+    //          templateUrl: 'ng_components/domainpolicy/domainpolicy_list.html',
+    //          controller: 'ng_components/domainpolicy/domainpolicy_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('domainpolicy.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/domainpolicy/domainpolicy-detail.html',
-    //      controller: 'ng_components/domainpolicy/domainpolicy-detail-controller.js'
+    //      templateUrl: 'ng_components/domainpolicy/domainpolicy_detail.html',
+    //      controller: 'ng_components/domainpolicy/domainpolicy_detail-controller.js'
     //    })
     //
     //    .state('maillayout', {
@@ -224,15 +224,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      views: {
     //        'tree@domain': {},
     //        'list': {
-    //          templateUrl: 'ng_components/maillayout/maillayout-list.html',
-    //          controller: 'ng_components/maillayout/maillayout-list-controller.js',
+    //          templateUrl: 'ng_components/maillayout/maillayout_list.html',
+    //          controller: 'ng_components/maillayout/maillayout_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('maillayout.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/maillayout/maillayout-detail.html',
-    //      controller: 'ng_components/maillayout/maillayout-detail-controller.js'
+    //      templateUrl: 'ng_components/maillayout/maillayout_detail.html',
+    //      controller: 'ng_components/maillayout/maillayout_detail-controller.js'
     //    })
     //
     //    .state('mailcontent', {
@@ -245,15 +245,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      views: {
     //        'tree@domain': {},
     //        'list': {
-    //          templateUrl: 'ng_components/mailcontent/mailcontent-list.html',
-    //          controller: 'ng_components/mailcontent/mailcontent-list-controller.js',
+    //          templateUrl: 'ng_components/mailcontent/mailcontent_list.html',
+    //          controller: 'ng_components/mailcontent/mailcontent_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('mailcontent.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/mailcontent/mailcontent-detail.html',
-    //      controller: 'ng_components/mailcontent/mailcontent-detail-controller.js'
+    //      templateUrl: 'ng_components/mailcontent/mailcontent_detail.html',
+    //      controller: 'ng_components/mailcontent/mailcontent_detail-controller.js'
     //    })
     //
     //    .state('mailfooter', {
@@ -266,15 +266,15 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      views: {
     //        'tree@domain': {},
     //        'list': {
-    //          templateUrl: 'ng_components/mailfooter/mailfooter-list.html',
-    //          controller: 'ng_components/mailfooter/mailfooter-list-controller.js',
+    //          templateUrl: 'ng_components/mailfooter/mailfooter_list.html',
+    //          controller: 'ng_components/mailfooter/mailfooter_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('mailfooter.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/mailfooter/mailfooter-detail.html',
-    //      controller: 'ng_components/mailfooter/mailfooter-detail-controller.js'
+    //      templateUrl: 'ng_components/mailfooter/mailfooter_detail.html',
+    //      controller: 'ng_components/mailfooter/mailfooter_detail-controller.js'
     //    })
     //
     //    .state('mailconfig', {
@@ -287,20 +287,20 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      views: {
     //        'tree@domain': {},
     //        'list': {
-    //          templateUrl: 'ng_components/mailconfig/mailconfig-list.html',
-    //          controller: 'ng_components/mailconfig/mailconfig-list-controller.js',
+    //          templateUrl: 'ng_components/mailconfig/mailconfig_list.html',
+    //          controller: 'ng_components/mailconfig/mailconfig_list-controller.js',
     //        }
     //      }
     //    })
     //    .state('mailconfig.detail', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/mailconfig/mailconfig-detail.html',
-    //      controller: 'ng_components/mailconfig/mailconfig-detail-controller.js'
+    //      templateUrl: 'ng_components/mailconfig/mailconfig_detail.html',
+    //      controller: 'ng_components/mailconfig/mailconfig_detail-controller.js'
     //    })
     //    .state('mailconfig.mailcontentlang', {
     //      url: '/:id'
-    //      templateUrl: 'ng_components/mailconfig/mailconfig-mailcontentlang.html',
-    //      controller: 'ng_components/mailconfig/mailconfig-mailcontentlang-controller.js'
+    //      templateUrl: 'ng_components/mailconfig/mailconfig_mailcontentlang.html',
+    //      controller: 'ng_components/mailconfig/mailconfig_mailcontentlang-controller.js'
     //    })
     //
     //    .state('password', {
@@ -308,98 +308,92 @@ angular.module('linshareAdminApp').config(['$routeProvider', '$stateProvider', '
     //      templateUrl: 'ng_components/password/password.html',
     //      controller: 'ng_components/password/password-controller.js'
     //    })
-    //
 
     $routeProvider.when('/password', {
-      templateUrl: 'views/password.html',
+      templateUrl: 'ng_components/password/password.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/domains/ldap_connections', {
-      templateUrl: 'views/domains/ldap_connections.html',
+      templateUrl: 'ng_components/ldapconnection/ldapconnection.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/domains/domain_patterns', {
-      templateUrl: 'views/domains/domain_patterns.html',
+      templateUrl: 'ng_components/domainpattern/domainpattern.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/domains/management', {
-      templateUrl: 'views/domains/domain_management.html',
+      templateUrl: 'ng_components/domain/domain.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/domains/order', {
-      templateUrl: 'views/domains/domain_order.html',
+      templateUrl: 'ng_components/domain/domain_order.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/domains/policies', {
-      templateUrl: 'views/domains/domain_policies.html',
+      templateUrl: 'ng_components/domainpolicy/domainpolicy.html',
       controller: 'ResetCtrl'
     });
 
     $routeProvider.when('/parameters/functionalities', {
-      templateUrl: 'views/parameters/functionalities.html',
+      templateUrl: 'ng_components/functionality/functionality.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/parameters/mime_policy', {
-      templateUrl: 'views/parameters/mime_policy.html',
+      templateUrl: 'ng_components/mimepolicy/mimepolicy.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/parameters/mail_layout', {
-      templateUrl: 'views/parameters/mail_layout.html',
+      templateUrl: 'ng_components/maillayout/maillayout.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/parameters/mail_footer', {
-      templateUrl: 'views/parameters/mail_footer.html',
+      templateUrl: 'ng_components/mailfooter/mailfooter.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/parameters/mail_content', {
-      templateUrl: 'views/parameters/mail_content.html',
+      templateUrl: 'ng_components/mailcontent/mailcontent.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/parameters/mail_config', {
-      templateUrl: 'views/parameters/mail_config.html',
+      templateUrl: 'ng_components/mailconfig/mailconfig.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/parameters/upload_proposition_filter', {
-      templateUrl: 'views/parameters/upload_proposition_filter.html',
+      templateUrl: 'ng_components/uploadpropositionfilter/uploadpropositionfilter.html',
       controller: 'ResetCtrl'
     });
 
-    $routeProvider.when('/users', {
-      templateUrl: 'views/users.html',
-      controller: 'ResetCtrl'
-    });
+    //$routeProvider.when('/users', {
+    //  templateUrl: 'ng_components/user/user.html',
+    //  controller: 'ResetCtrl'
+    //});
     $routeProvider.when('/users/management', {
-      templateUrl: 'views/users/user_management.html',
+      templateUrl: 'ng_components/user/user.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/users/inconsistent', {
-      templateUrl: 'views/users/inconsistent_users.html',
+      templateUrl: 'ng_components/inconsistentuser/inconsistentuser.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/users/threads', {
-      templateUrl: 'views/users/threads.html',
+      templateUrl: 'ng_components/thread/thread.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/users/technical_account', {
-      templateUrl: 'views/users/technical_account.html',
+      templateUrl: 'ng_components/technicalaccount/technicalaccount.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/users/mailing_lists', {
-      templateUrl: 'views/users/mails.html',
+      templateUrl: 'ng_components/mailinglist/mailinglist.html',
       controller: 'ResetCtrl'
     });
 
     $routeProvider.when('/history/audit', {
-      templateUrl: 'views/history/audit.html',
+      templateUrl: 'ng_components/audit/audit.html',
       controller: 'ResetCtrl'
     });
     $routeProvider.when('/history/upload_request', {
-      templateUrl: 'views/history/upload_request.html',
-      controller: 'ResetCtrl'
-    });
-
-    $routeProvider.when('/charts', {
-      templateUrl: 'views/charts.html',
+      templateUrl: 'ng_components/uploadrequest/uploadrequest.html',
       controller: 'ResetCtrl'
     });
 
