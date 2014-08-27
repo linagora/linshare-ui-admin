@@ -476,6 +476,7 @@
       "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": "Invitation de dépôt - Maximum file size",
       "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": "Invitation de dépôt - Maximum deposit size",
       "UPLOAD_REQUEST__SECURED_URL": "Invitation de dépôt - Secured URL",
+      "UPLOAD_REQUEST__CAN_CLOSE": "Invitation de dépôt - Droit de clôture",
       "UPLOAD_REQUEST__PROLONGATION": "Invitation de dépôt - Prolongation",
       "UPLOAD_REQUEST__DEPOSIT_ONLY": "Invitation de dépôt - Deposit only",
       "QUOTA_USER": "Quota utilisateur",
@@ -508,7 +509,8 @@
       "NOTIFICATION_URL": "URL de base pour les notifications par courriel",
       "LINK_LOGO": "Ajouter un lien au logo LinShare",
       "CREATE_THREAD_PERMISSION": "Autoriser la création de groupe",
-      "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt"
+      "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt",
+      "UPLOAD_PROPOSITION": "Demande d'invitation de dépôt"
     }
   },
 
