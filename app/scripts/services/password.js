@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .service('Password', function Password($log) {
+  .service('Password', function Password() {
     function Rule(description, validator) {
       this.description = description;
       this.validator = function(pwd) {
