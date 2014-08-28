@@ -511,6 +511,14 @@
       "CREATE_THREAD_PERMISSION": "Autoriser la création de groupe",
       "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt",
       "UPLOAD_PROPOSITION": "Demande d'invitation de dépôt"
+    },
+    "PARAMETERS": {
+      "SHARE_EXPIRATION__BOOLEAN" : "Suppression du fichier partagé",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN" : "Valeur par défaut",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN" : "Valeur par défaut",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN" : "Valeur par défaut",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN" : "Valeur par défaut",
+      "UPLOAD_REQUEST__TOGETHER_MODE__BOOLEAN" : "Valeur par défaut"
     }
   },
 
