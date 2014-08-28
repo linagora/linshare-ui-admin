@@ -478,7 +478,7 @@
       "UPLOAD_REQUEST__SECURED_URL": "Upload request - Secured URL",
       "UPLOAD_REQUEST__CAN_CLOSE": "Upload request - Closure right",
       "UPLOAD_REQUEST__PROLONGATION": "Upload request - Prolongation",
-      "UPLOAD_REQUEST__DEPOSIT_ONLY": "Upload request - Deposit only",
+      "UPLOAD_REQUEST__CAN_DELETE": "Upload request - Recipient delete right",
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": "Upload request - Delay before notification",
       "QUOTA_USER": "Quota user",
       "MIME_TYPE": "Mime type",
@@ -512,6 +512,14 @@
       "CREATE_THREAD_PERMISSION": "Create thread permission",
       "UPLOAD_PROPOSITION_FILTER": "Filtering on upload proposition",
       "UPLOAD_PROPOSITION": "Upload proposition"
+    },
+    "PARAMETERS": {
+      "SHARE_EXPIRATION__BOOLEAN" : "Delete shared file",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN" : "Default value",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN" : "Default value",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN" : "Default value",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN" : "Default value",
+      "UPLOAD_REQUEST__TOGETHER_MODE__BOOLEAN" : "Default value"
     }
   },
 

@@ -478,7 +478,7 @@
       "UPLOAD_REQUEST__SECURED_URL": "Invitation de dépôt - Secured URL",
       "UPLOAD_REQUEST__CAN_CLOSE": "Invitation de dépôt - Droit de clôture",
       "UPLOAD_REQUEST__PROLONGATION": "Invitation de dépôt - Prolongation",
-      "UPLOAD_REQUEST__DEPOSIT_ONLY": "Invitation de dépôt - Deposit only",
+      "UPLOAD_REQUEST__CAN_DELETE": "Invitation de dépôt - Droit de suppression de fichiers pour le destinataire",
       "QUOTA_USER": "Quota utilisateur",
       "MIME_TYPE": "Type MIME",
       "FILESIZE_MAX": "Taille de fichier maximum",
