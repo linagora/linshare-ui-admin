@@ -6,19 +6,14 @@
     </small>
   </h1>
 </section>
-<section class="content"
-         x-ng-controller="FunctionalityManagementCtrl">
+<section class="content">
   <div class="row">
     <section class="col-md-4">
-      <div x-ls-domain-tree root="root">
+      <div x-ui-view="tree"/>
     </section>
-    <section class="col-md-8"
-             x-ng-if="getCurrentDomain() && !getCurrentFunctionality()">
-      <div x-ls-functionality-list></div>
-    </section>
-    <section class="col-md-8"
-             x-ng-if="getCurrentDomain() && getCurrentFunctionality()">
-      <div x-ls-functionality-form></div>
+    <section class="col-md-8">
+      <div x-ui-view="list"/>
+      <div x-ui-view="detail"/>
     </section>
   </div>
 </section>

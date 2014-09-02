@@ -6,15 +6,13 @@
     </small>
   </h1>
 </section>
-<section class="content"
-         x-ng-controller="DomainManagementCtrl">
+<section class="content">
   <div class="row">
     <section class="col-md-4">
-      <div x-ls-domain-tree state="edit" root="root">
+      <div x-ui-view="tree"/>
     </section>
-    <section class="col-md-8"
-             x-ng-if="getCurrentDomain()">
-      <div x-ls-domain-form reload="reload()">
+    <section class="col-md-8">
+      <div x-ui-view="detail"/>
     </section>
   </div>
 </section>

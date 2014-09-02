@@ -6,7 +6,7 @@
     <div class="pull-right box-tools">
       <div class="btn-group">
         <button class="btn btn-primary" type="button"
-                x-ng-click="create()">
+                x-ui-sref="ldapconnection.detail({formState: 'create'})">
         <span>
           <i class="fa fa-plus"></i> 
           {{ 'LDAP_CONNECTIONS.BOX_LIST.BUTTON_ADD' | translate }}
@@ -21,7 +21,7 @@
              x-ng-table="tableParams">
         <tbody>
           <tr x-ng-repeat="ldapConnection in $data"
-              x-ng-click="edit(ldapConnection)">
+              x-ui-sref="ldapconnection.detail({id: ldapConnection.identifier, formState: 'edit'})">
             <td data-title="'LDAP_CONNECTIONS.BOX_LIST.TABLE.HEADER_IDENTIFIER' | translate"
                 sortable="'identifier'">
               <span>{{ldapConnection.identifier}}</span>

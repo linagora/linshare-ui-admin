@@ -2,14 +2,13 @@
 
 angular.module('linshareAdminApp')
   .controller('mimePolicyModalCtrl',
-    ['$scope', '$log', '$modalInstance', 'Domain', 'MimePolicy',
-      function ($scope, $log, $modalInstance, Domain, MimePolicy) {
+    ['$scope', '$log', '$state', '$modalInstance', 'MimePolicy',
+      function ($scope, $log, $state, $modalInstance, MimePolicy) {
         $scope.create = function () {
-          console.log($scope.mimePolicy);
           MimePolicy.add($scope.mimePolicy,
             function successCallback() {
               $modalInstance.close();
-              $scope.reset();
+              $state.reinit();
             }
           );
         };
@@ -19,7 +18,7 @@ angular.module('linshareAdminApp')
         };
         $scope.reset = function() {
           $scope.mimePolicy = {
-            domainId: Domain.getCurrentId()
+            domainId: $state.params.domainId
           };
         };
         $scope.reset();

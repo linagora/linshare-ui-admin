@@ -10,7 +10,7 @@ angular.module('linshareAdminApp')
         return Restangular.all('enums').all(name).options().then(
           function success(options){
             if (successCallback) {
-              successCallback(options);
+              return successCallback(options);
             }
           },
           function error() {

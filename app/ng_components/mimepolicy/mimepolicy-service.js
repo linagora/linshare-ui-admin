@@ -4,9 +4,7 @@ angular.module('linshareAdminApp')
   .factory('MimePolicy',
     ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {
-      this.currentMimePolicy = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -152,19 +150,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(mimePolicy) {
-          $log.debug('MimePolicy:setCurrent');
-          self.currentMimePolicy = mimePolicy;
-        },
-        getCurrent: function() {
-          return self.currentMimePolicy;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentMimePolicy);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentMimePolicy);
-        }
       };
     }
   ]

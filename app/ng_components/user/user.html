@@ -6,15 +6,10 @@
     </small>
   </h1>
 </section>
-<section class="content"
-         x-ng-controller="UserManagementCtrl">
+<section class="content">
   <div class="row">
-    <section class="col-lg-6">
-      <div x-ls-user-list></div>
-    </section>
-    <section class="col-lg-6"
-             x-ng-if="getCurrentUser()">
-       <div x-ls-user-form></div>
+    <section class="col-lg-12">
+      <div x-ui-view></div>
     </section>
   </div>
 </section>

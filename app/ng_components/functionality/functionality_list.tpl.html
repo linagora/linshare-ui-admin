@@ -16,7 +16,7 @@
              x-ng-table="tableParams"
              show-filter="true">
         <tr x-ng-repeat="functionality in $data"
-            x-ng-click="edit(functionality)">
+          x-ui-sref="functionality.detail({id: functionality.identifier, domainId: functionality.domain})">
           <td class="col-md-1"
               data-title="'FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS' | translate"
               sortable="'activationPolicy.status'">

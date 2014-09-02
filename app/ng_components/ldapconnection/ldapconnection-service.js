@@ -3,8 +3,6 @@
 angular.module('linshareAdminApp')
   .factory('LdapConnection', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
-      this.currentLdapConnection = undefined;
-
       var self = this;
 
       // Public API here
@@ -22,6 +20,24 @@ angular.module('linshareAdminApp')
                 [
                  'LdapConnection:getAll',
                  'Unable to get all ldap connections',
+                ].join('\n')
+              );
+            }
+          );
+        },
+        get: function(id, successCallback) {
+          $log.debug('LdapConnection:get');
+          return Restangular.one('ldap_connections', id).get().then(
+            function success(ldapConnection) {
+              if (successCallback) {
+                return successCallback(ldapConnection);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'LdapConnection:get',
+                 'Unable to get a ldap connection',
                 ].join('\n')
               );
             }
@@ -87,22 +103,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(ldapConnection) {
-          $log.debug('LdapConnection:setCurrent');
-          self.currentLdapConnection = ldapConnection;
-        },
-        getCurrent: function() {
-          return self.currentLdapConnection;
-        },
-        getId: function(ldapConnection) {
-          return ldapConnection.identifier;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentLdapConnection);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentLdapConnection);
-        }
       };
     }
   ]

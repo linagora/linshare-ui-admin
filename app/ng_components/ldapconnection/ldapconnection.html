@@ -6,19 +6,10 @@
     </small>
   </h1>
 </section>
-<section class="content"
-         x-ng-controller="LdapConnectionCtrl">
+<section class="content">
   <div class="row">
     <section class="col-lg-12">
-      <!-- Form -->
-      <div x-ng-if="getCurrentLdapConnection()">
-        <div x-ls-ldap-connection-form></div>
-      </div>
-
-      <!-- List -->
-      <div x-ng-if="!getCurrentLdapConnection()">
-        <div x-ls-ldap-connection-list></div>
-      </div>
+      <div x-ui-view/>
     </section>
   </div>
 </section>

@@ -3,9 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('User', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
-      this.currentUser = undefined;
-
-      var self = this;
+      // var self = this;
 
       // Public API here
       return {
@@ -43,6 +41,26 @@ angular.module('linshareAdminApp')
                 ].join('\n')
               );
               $log.error(userSearchDto);
+            }
+          );
+        },
+        get: function(uuid, successCallback) {
+          $log.debug('User:get');
+          return Restangular.one('users', uuid).get().then(
+            function success(user) {
+              if (successCallback) {
+                return successCallback(user);
+              }
+              return user;
+            },
+            function error() {
+              $log.error(
+                [
+                 'User:get',
+                 'Unable to get a user',
+                 uuid
+                ].join('\n')
+              );
             }
           );
         },
@@ -101,19 +119,6 @@ angular.module('linshareAdminApp')
               $log.error(user);
             }
           );
-        },
-        setCurrent: function(user) {
-          $log.debug('User:setCurrent');
-          self.currentUser = user;
-        },
-        getCurrent: function() {
-          return self.currentUser;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentUser);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentUser);
         }
       };
     }

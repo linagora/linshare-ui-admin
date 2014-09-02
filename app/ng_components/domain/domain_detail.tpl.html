@@ -1,4 +1,4 @@
-<div class="box box-primary">
+<div class="box box-primary" x-ng-if="state">
   <div class="box-header">
     <div class="box-title">
       <!-- Legend -->
@@ -133,7 +133,7 @@
             </label>
             <select id="userRole" name="userRole" class="form-control" required
                     x-ng-model="domain.userRole"
-                    x-ng-options="u as 'COMMON.ENUM.ROLE.' + u | translate for u in userRoles">
+                    x-ng-options="u as 'COMMON.ENUM.ROLE.' + u | translate for u in userRoles track by u">
             </select>
           </div>
 

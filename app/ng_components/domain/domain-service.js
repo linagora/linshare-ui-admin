@@ -4,22 +4,7 @@ angular.module('linshareAdminApp')
   .factory('Domain',
     ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {
-      this.currentDomain = undefined;
-      this.state = undefined;
-      this.lastAccess = undefined;
-
-      function createSample(_parent, _type) {
-        var sample = {};
-        sample.parent = _parent.identifier;
-        sample.type = _type;
-        sample.providers = [];
-        if(_type === 'GUESTDOMAIN') {
-          sample.userRole = 'SIMPLE';
-        }
-        return sample;
-      }
-
-      var self = this;
+      // var self = this;
 
       /**
        * As domains are returned as tree, 
@@ -68,6 +53,25 @@ angular.module('linshareAdminApp')
                 [
                  'Domain:getAll',
                  'Unable to get all domains',
+                ].join('\n')
+              );
+            }
+          );
+        },
+        get: function(id, successCallback) {
+          $log.debug('Domain:get');
+          return Restangular.one('domains', id).get({tree: true}).then(
+            function success(domain) {
+              if (successCallback) {
+                return successCallback(domain);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'Domain:get',
+                 'Unable to get domain',
+                 id
                 ].join('\n')
               );
             }
@@ -137,48 +141,19 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrentTopDomainSample: function(rootDomain) {
-          $log.debug('Domain:setCurrentTopDomainSample');
-          self.state = 'create';
-          self.currentDomain = createSample(rootDomain, 'TOPDOMAIN');
-        },
-        setCurrentSubDomainSample: function(topDomain) {
-          $log.debug('Domain:setCurrentSubDomainSample');
-          self.state = 'create';
-          self.currentDomain = createSample(topDomain, 'SUBDOMAIN');
-        },
-        setCurrentGuestDomainSample: function(topDomain) {
-          $log.debug('Domain:setCurrentGuestDomainSample');
-          self.state = 'create';
-          self.currentDomain = createSample(topDomain, 'GUESTDOMAIN');
-        },
-        setCurrent: function(domain) {
-          $log.debug('Domain:setCurrent');
-          self.state = 'edit';
-          self.lastAccess = Date.now();
-          self.currentDomain = domain;
-        },
-        getLastAccess: function() {
-          return self.lastAccess;
-        },
-        getCurrent: function() {
-          return self.currentDomain;
-        },
-        getCurrentId: function() {
-          return self.currentDomain.identifier;
+        createSample: function (parentId, type) {
+          var sample = {};
+          sample.parent = parentId;
+          sample.type = type;
+          sample.providers = [];
+          if(type === 'GUESTDOMAIN') {
+            sample.userRole = 'SIMPLE';
+          }
+          return sample;
         },
         getId: function(domain) {
           return domain.identifier;
         },
-        getState: function() {
-          return self.state;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentDomain);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentDomain);
-        }
       };
     }
   ]

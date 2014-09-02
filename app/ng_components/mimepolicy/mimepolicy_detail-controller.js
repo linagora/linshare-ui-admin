@@ -1,18 +1,12 @@
 'use strict';
 
-angular.module('linshareAdminApp').directive('lsMimePolicyForm', [
-  function() {
-    return {
-      restrict: 'A',
-      controller: ['$scope', '$filter', '$timeout', '$log', '$modal', 'ngTableParams', 'Domain', 'MimePolicy', 'MimeType',
-        function($scope, $filter, $timeout, $log, $modal, ngTableParams, Domain, MimePolicy, MimeType) {
-          $scope.$watch(MimePolicy.getCurrent,
-            function successCallback(newValue, oldValue) {
-              if (angular.isDefined(newValue)) {
-                $scope.reset();
-              }
-            }
-          );
+angular.module('linshareAdminApp')
+  .controller('MimePolicyDetailCtrl',
+    ['$scope', '$filter', '$timeout', '$log', '$modal', '$state', 'ngTableParams', 'MimePolicy', 'MimeType', 'currentMimePolicy',
+    function($scope, $filter, $timeout, $log, $modal, $state, ngTableParams, MimePolicy, MimeType, currentMimePolicy) {
+          $scope.mimePolicy = currentMimePolicy;
+          $scope.iconSaved = false;
+
           $scope.remove = function() {
             var modalInstance = $modal.open({
               templateUrl: 'ng_components/common/confirm_modal.tpl.html',
@@ -35,7 +29,6 @@ angular.module('linshareAdminApp').directive('lsMimePolicyForm', [
               }
             );
           };
-          $scope.iconSaved = false;
           $scope.displayIconSaved = function() {
             $scope.iconSaved = true;
             $timeout(function() {
@@ -67,11 +60,10 @@ angular.module('linshareAdminApp').directive('lsMimePolicyForm', [
             });
           };
           $scope.cancel = function() {
-            MimePolicy.setCurrent(undefined);
+            $state.go('mimepolicy.list', {domainId: currentMimePolicy.domainId});
           };
           $scope.reset = function() {
-            $scope.mimePolicy = MimePolicy.copyCurrent();
-            $scope.tableParams.reload();
+            $state.reinit();
           };
           $scope.tableParams = new ngTableParams({
             page: 1,        // show first page
@@ -83,23 +75,16 @@ angular.module('linshareAdminApp').directive('lsMimePolicyForm', [
             debugMode: false,
             total: 0, // length of data
             getData: function($defer, params) {
-              if (angular.isDefined($scope.mimePolicy)) {
-                var filteredData = params.filter() ?
-                          $filter('filter')($scope.mimePolicy.mimeTypes, params.filter()) :
-                          $scope.mimePolicy.mimeTypes;
-                var orderedData = params.sorting() ?
-                          $filter('orderBy')(filteredData, params.orderBy()) :
-                          filteredData;
-                params.total(orderedData.length);
-                $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-              }
+              var filteredData = params.filter() ?
+                        $filter('filter')($scope.mimePolicy.mimeTypes, params.filter()) :
+                        $scope.mimePolicy.mimeTypes;
+              var orderedData = params.sorting() ?
+                        $filter('orderBy')(filteredData, params.orderBy()) :
+                        filteredData;
+              params.total(orderedData.length);
+              $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
             },
             $scope: { $data: {}, $emit: function() {} }
           });
-        }
-      ],
-      templateUrl: 'ng_components/mimepolicy/mimepolicy_detail-directive.js',
-      replace: false
-    };
-  }
-]);
+    }]
+  )

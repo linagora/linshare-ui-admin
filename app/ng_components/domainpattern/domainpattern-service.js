@@ -3,9 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('DomainPattern', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
-      this.currentDomainPattern = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -22,6 +20,24 @@ angular.module('linshareAdminApp')
                 [
                  'DomainPattern:getAll',
                  'Unable to get all domain patterns',
+                ].join('\n')
+              );
+            }
+          );
+        },
+        get: function(id, successCallback) {
+          $log.debug('DomainPattern:get');
+          return Restangular.one('domain_patterns', id).get().then(
+            function success(domainPattern) {
+              if (successCallback) {
+                return successCallback(domainPattern);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'DomainPattern:get',
+                 'Unable to get a domain pattern',
                 ].join('\n')
               );
             }
@@ -104,19 +120,6 @@ angular.module('linshareAdminApp')
               );
             });
         },
-        setCurrent: function(domainPattern) {
-          $log.debug('DomainPattern:setCurrent');
-          self.currentDomainPattern = domainPattern;
-        },
-        getCurrent: function() {
-          return self.currentDomainPattern;
-        },
-        getId: function(domainPattern) {
-          return domainPattern.identifier;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentDomainPattern);
-        },
         copyFromModel: function(model) {
           var copy = Restangular.copy(model);
           copy.identifier = '';
@@ -125,9 +128,6 @@ angular.module('linshareAdminApp')
         getEmptyModel: function() {
           return {identifier: ''};
         },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentDomainPattern);
-        }
       };
     }
   ]

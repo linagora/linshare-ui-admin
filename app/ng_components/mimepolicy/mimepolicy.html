@@ -6,20 +6,16 @@
     </small>
   </h1>
 </section>
-<section class="content"
-         x-ng-controller="MimePolicyCtrl">
+<section class="content">
   <div class="row">
-    <section class="col-md-4"
-             x-ng-if="!getCurrentMimePolicy()">
-      <div x-ls-domain-tree root="root">
+    <section class="col-md-4">
+      <div x-ui-view="tree"/>
     </section>
-    <section class="col-md-8"
-             x-ng-if="getCurrentDomain() && !getCurrentMimePolicy()">
-      <div x-ls-mime-policy-list></div>
+    <section class="col-md-8">
+      <div x-ui-view="list"/>
     </section>
-    <section class="col-md-12"
-             x-ng-if="getCurrentDomain() && getCurrentMimePolicy()">
-      <div x-ls-mime-policy-form></div>
+    <section class="col-md-12">
+      <div x-ui-view="detail"/>
     </section>
   </div>
 </section>

@@ -5,7 +5,7 @@
     </h3>
     <div class="pull-right box-tools">
       <button class="btn btn-primary btn-sm"
-              x-ng-click="cancel()">
+              x-ui-sref="mimepolicy.list({domainId: null})">
         <i class="fa fa-times"></i>
       </button>
     </div>
@@ -20,7 +20,7 @@
       <table class="table table-striped"
              x-ng-table="tableParams">
         <tr x-ng-repeat="mimePolicy in $data"
-            x-ng-click="edit(mimePolicy)">
+            x-ui-sref="mimepolicy.detail({id: mimePolicy.uuid})">
           <td style="cursor: pointer"
               data-title="'MIME_POLICIES.BOX_LIST.TABLE.HEADER_NAME' | translate"
               sortable="'name'">
