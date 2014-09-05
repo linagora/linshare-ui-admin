@@ -24,7 +24,7 @@ angular.module('linshareAdminApp')
               }
             });
             if (canRequest) {
-              User.search(params.filter(), function(users) {
+              User.search(params.filter()).then(function(users) {
                 users = params.sorting() ?
                                     $filter('orderBy')(users, params.orderBy()) :
                                     users;

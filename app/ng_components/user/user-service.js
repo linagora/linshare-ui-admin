@@ -1,124 +1,46 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('User', ['$log', 'Restangular', 'Notification',
-    function ($log, Restangular, Notification) {
+  .factory('User', ['$q', '$log', 'Restangular', 'Notification',
+    function ($q, $log, Restangular, Notification) {
       // var self = this;
 
       // Public API here
       return {
-        autocomplete: function(pattern, successCallback) {
+        autocomplete: function(pattern) {
           $log.debug('User:autocomplete');
-          return Restangular.all('users').one('autocomplete', pattern).get().then(
-            function success(users) {
-              return successCallback(users);
-            },
-            function error() {
-              $log.error(
-                [
-                 'User:autocomplete',
-                 'Unable to autocomplete users',
-                ].join('\n')
-              );
-              $log.error(pattern);
-            }
-          );
+          return Restangular.all('users').one('autocomplete', pattern).get();
         },
-        search: function(userSearchDto, successCallback) {
+        search: function(userSearchDto) {
           $log.debug('User:search');
-          return Restangular.all('users').customPOST(userSearchDto, 'search').then(
-            function success(users) {
-              angular.forEach(users, function(user) {
-                user = Restangular.restangularizeElement(null, user, 'users');
-              });
-              return successCallback(users);
-            },
-            function error() {
-              $log.error(
-                [
-                 'User:search',
-                 'Unable to search users',
-                ].join('\n')
-              );
-              $log.error(userSearchDto);
-            }
-          );
+          return Restangular.all('users').customPOST(userSearchDto, 'search').then(function(users) {
+            angular.forEach(users, function(user) {
+              user = Restangular.restangularizeElement(null, user, 'users');
+            });
+            var dfd = $q.defer();
+            dfd.resolve(users);
+            return dfd.promise;
+          });
         },
-        get: function(uuid, successCallback) {
+        get: function(uuid) {
           $log.debug('User:get');
-          return Restangular.one('users', uuid).get().then(
-            function success(user) {
-              if (successCallback) {
-                return successCallback(user);
-              }
-              return user;
-            },
-            function error() {
-              $log.error(
-                [
-                 'User:get',
-                 'Unable to get a user',
-                 uuid
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('users', uuid).get();
         },
-        getAllInconsistent: function(successCallback) {
+        getAllInconsistent: function() {
           $log.debug('User:getAllInconsistent');
-          return Restangular.all('users').all('inconsistent').getList().then(
-            function success(users) {
-              return successCallback(users);
-            },
-            function error() {
-              $log.error(
-                [
-                 'User:getAllInconsistent',
-                 'Unable to get all inconsistent users',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('users').all('inconsistent').getList();
         },
         update: function(user, successCallback) {
           $log.debug('User:update');
-          return user.put().then(
-            function success(user) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(user);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'User:update',
-                 'Unable to update user',
-                ].join('\n')
-              );
-              $log.error(user);
-            }
-          );
+          return user.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
         remove: function(user, successCallback) {
           $log.debug('User:remove');
-          return user.remove().then(
-            function success(user) {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(user);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'User:remove',
-                 'Unable to remove user',
-                ].join('\n')
-              );
-              $log.error(user);
-            }
-          );
+          return user.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         }
       };
     }

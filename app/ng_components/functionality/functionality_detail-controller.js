@@ -60,14 +60,12 @@ angular.module('linshareAdminApp')
           updateStatus($scope.functionality.activationPolicy);
           updateStatus($scope.functionality.configurationPolicy);
           updateStatus($scope.functionality.delegationPolicy);
-          Functionality.update($scope.functionality,
-            function successCallback(updatedFunc) {
-              $scope.displayIconSaved();
-            }
-          );
+          Functionality.update($scope.functionality).then(function() {
+            $scope.displayIconSaved();
+          });
         };
         $scope.resetToParent = function() {
-          Functionality.remove($scope.functionality, function() {
+          Functionality.remove($scope.functionality).then(function() {
             $state.reinit();
             $scope.displayIconSaved();
           });

@@ -22,11 +22,9 @@ angular.module('linshareAdminApp')
         });
         modalInstance.result.then(
           function validate() {
-            User.remove($scope.user,
-              function successCallback(user) {
-                $scope.cancel();
-              }
-            );
+            User.remove($scope.user).then(function() {
+              $scope.cancel();
+            });
           }, function cancel() {
             $log.debug('Deletion modal dismissed');
           }
@@ -34,7 +32,7 @@ angular.module('linshareAdminApp')
       };
       $scope.submit = function(user, domain) {
         user.domain = domain;
-        User.update($scope.user, function successCallback(user) {
+        User.update($scope.user).then(function() {
           $scope.cancel();
         });
       };

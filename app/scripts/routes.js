@@ -42,16 +42,12 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
 
     var funcAccountExpiration = function(currentUser, Functionality) {
       if (currentUser) {
-        return Functionality.get(currentUser.domain , 'ACCOUNT_EXPIRATION', function(functionality) {
-          return functionality;
-        });
+        return Functionality.get(currentUser.domain , 'ACCOUNT_EXPIRATION');
       }
     };
     var funcRestrictedGuest = function(currentUser, Functionality) {
       if (currentUser) {
-        return Functionality.get(currentUser.domain , 'RESTRICTED_GUEST', function(functionality) {
-          return functionality;
-        });
+        return Functionality.get(currentUser.domain , 'RESTRICTED_GUEST');
       }
     };
 
@@ -156,9 +152,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               },
               functionalities: function(Functionality, currentDomain) {
                 if (currentDomain) {
-                  return Functionality.getAll(currentDomain.identifier, function(functionalities) {
-                    return functionalities;
-                  });
+                  return Functionality.getAll(currentDomain.identifier);
                 }
               }
             }
@@ -179,7 +173,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 });
               },
               currentFunctionality: function(Functionality, $stateParams) {
-                return Functionality.getAll($stateParams.domainId, function(functionalities) {
+                return Functionality.getAll($stateParams.domainId).then(function(functionalities) {
                   return _.find(functionalities, {identifier: $stateParams.id});
                 });
               }
@@ -305,9 +299,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         templateUrl: 'ng_components/inconsistentuser/inconsistentuser.html',
         resolve: {
           allInconsistents: function(User) {
-            return User.getAllInconsistent(function(users) {
-              return users;
-            });
+            return User.getAllInconsistent();
           }
         }
       })
