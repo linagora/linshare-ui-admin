@@ -5,11 +5,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
     //  For any unmatched url, redirect
     $urlRouterProvider.otherwise('/user/list');
 
-    var allDomainPolicies = function(DomainPolicy) {
-      return DomainPolicy.getAll(function (domainPolicies) {
-        return domainPolicies;
-      });
-    };
     var allThreads = function(Thread) {
       return Thread.getAll(function(threads) {
         return threads;
@@ -522,7 +517,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               _allDomainPatterns: function(DomainPattern) {
                 return DomainPattern.getAll();
               },
-              _allDomainPolicies: allDomainPolicies,
+              _allDomainPolicies: function(DomainPolicy) {
+                return DomainPolicy.getAll();
+              },
               _allMailConfigs: allMailConfigs,
               _allMimePolicies: allMimePolicies,
               _enumRole: enumRole,
@@ -552,7 +549,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         templateUrl: 'ng_components/domainpolicy/domainpolicy_list.tpl.html',
         controller: 'DomainPolicyListCtrl',
         resolve: {
-          domainPolicies: allDomainPolicies,
+          domainPolicies: function(DomainPolicy) {
+            return DomainPolicy.getAll();
+          },
         }
       })
       .state('domainpolicy.detail', {
@@ -568,9 +567,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           },
           currentDomainPolicy: function($stateParams, DomainPolicy) {
             if ($stateParams.id) {
-              return DomainPolicy.get($stateParams.id, function(domainPolicy) {
-                return domainPolicy;
-              });
+              return DomainPolicy.get($stateParams.id);
             }
           },
           _allDomains: function(Domain) {

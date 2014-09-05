@@ -7,101 +7,31 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(successCallback) {
+        getAll: function() {
           $log.debug('DomainPolicy:getAll');
-          return Restangular.all('domain_policies').getList().then(
-            function success(domainPolicies) {
-              if (successCallback) {
-                return successCallback(domainPolicies);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPolicy:getAll',
-                 'Unable to get all domain policies',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('domain_policies').getList();
         },
-        get: function(id, successCallback) {
+        get: function(id) {
           $log.debug('DomainPolicy:get');
-          return Restangular.one('domain_policies', id).get().then(
-            function success(domainPolicy) {
-              if (successCallback) {
-                return successCallback(domainPolicy);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPolicy:get',
-                 'Unable to get a domain policy',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('domain_policies', id).get();
         },
-        add: function(domainPolicy, successCallback) {
+        add: function(domainPolicy) {
           $log.debug('DomainPolicy:add');
-          return Restangular.all('domain_policies').post(domainPolicy).then(
-            function success(domainPolicy) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(domainPolicy);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPolicy:add',
-                 'Unable to add a domain policy',
-                ].join('\n')
-              );
-              $log.error(domainPolicy);
-            }
-          );
+          return Restangular.all('domain_policies').post(domainPolicy).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(domainPolicy, successCallback) {
+        update: function(domainPolicy) {
           $log.debug('DomainPolicy:update');
-          return domainPolicy.put().then(
-            function success(domainPolicy) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(domainPolicy);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPolicy:update',
-                 'Unable to update domain policy',
-                ].join('\n')
-              );
-              $log.error(domainPolicy);
-            }
-          );
+          return domainPolicy.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        remove: function(domainPolicy, successCallback) {
+        remove: function(domainPolicy) {
           $log.debug('DomainPolicy:remove');
-          return domainPolicy.remove().then(
-            function success(domainPolicy) {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(domainPolicy);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPolicy:remove',
-                 'Unable to remove domain policy',
-                ].join('\n')
-              );
-              $log.error(domainPolicy);
-            }
-          );
+          return domainPolicy.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
       };
     }
