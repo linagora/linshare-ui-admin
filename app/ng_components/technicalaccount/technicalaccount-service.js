@@ -3,9 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('TechnicalAccount', ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {
-      this.currentAccount = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -126,19 +124,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(account) {
-          $log.debug('TechnicalAccount:setCurrent');
-          self.currentAccount = account;
-        },
-        getCurrent: function() {
-          return self.currentAccount;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentAccount);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentAccount);
-        }
       };
     }
   ]

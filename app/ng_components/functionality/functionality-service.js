@@ -4,9 +4,7 @@ angular.module('linshareAdminApp')
   .factory('Functionality',
     ['$log', '$translate', 'Notification', 'Restangular',
     function ($log, $translate, Notification, Restangular) {
-      this.currentFunctionality = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -92,19 +90,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(functionality) {
-          $log.debug('Functionality:setCurrent');
-          self.currentFunctionality = functionality;
-        },
-        getCurrent: function() {
-          return self.currentFunctionality;
-        },
-        getId: function(functionality) {
-          return functionality.identifier;
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentFunctionality);
-        }
       };
     }
   ]

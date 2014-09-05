@@ -4,9 +4,7 @@ angular.module('linshareAdminApp')
   .factory('MailFooterLang',
     ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {
-      this.currentMailFooterLang = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -51,19 +49,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(mailFooterLang) {
-          $log.debug('MailFooterLang:setCurrent');
-          self.currentMailFooterLang = mailFooterLang;
-        },
-        getCurrent: function() {
-          return self.currentMailFooterLang;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentMailFooterLang);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentMailFooterLang);
-        }
       };
     }
   ]

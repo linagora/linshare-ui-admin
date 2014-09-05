@@ -4,9 +4,7 @@ angular.module('linshareAdminApp')
   .factory('MailConfig',
     ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {
-      this.currentMailConfig = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -156,22 +154,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(mailConfig) {
-          $log.debug('MailConfig:setCurrent');
-          self.currentMailConfig = mailConfig;
-        },
-        getCurrent: function() {
-          return self.currentMailConfig;
-        },
-        getCurrentId: function() {
-          return self.currentMailConfig.uuid;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentMailConfig);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentMailConfig);
-        }
       };
     }
   ]

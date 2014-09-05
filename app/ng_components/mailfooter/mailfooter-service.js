@@ -4,9 +4,7 @@ angular.module('linshareAdminApp')
   .factory('MailFooter',
     ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {
-      this.currentMailFooter = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -114,19 +112,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(mailFooter) {
-          $log.debug('MailFooter:setCurrent');
-          self.currentMailFooter = mailFooter;
-        },
-        getCurrent: function() {
-          return self.currentMailFooter;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentMailFooter);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentMailFooter);
-        }
       };
     }
   ]
