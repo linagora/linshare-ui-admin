@@ -11,19 +11,19 @@ angular.module('linshareAdminApp')
         links: [
           {
             name: 'COMMON.TAB.LDAP_CONNECTIONS',
-            href: '#domains/ldap_connections'
+            href: '#ldapconnection/list'
           }, {
             name: 'COMMON.TAB.DOMAIN_PATTERNS',
-            href: '#domains/domain_patterns'
+            href: '#domainpattern/list'
           }, {
             name: 'COMMON.TAB.MANAGE_DOMAINS',
-            href: '#domains/management'
+            href: '#domain/tree'
           }, {
             name: 'COMMON.TAB.DOMAIN_ORDER',
-            href: '#domains/order'
+            href: '#domain/order'
           }, {
             name: 'COMMON.TAB.DOMAIN_POLICIES',
-            href: '#domains/policies'
+            href: '#domainpolicy/list'
           }
         ]
       };
@@ -35,16 +35,16 @@ angular.module('linshareAdminApp')
         links: [
           {
             name: 'COMMON.TAB.MAIL_LAYOUT',
-            href: '#parameters/mail_layout'
+            href: '#maillayout/list'
           }, {
             name: 'COMMON.TAB.MAIL_FOOTER',
-            href: '#parameters/mail_footer'
+            href: '#mailfooter/list'
           }, {
             name: 'COMMON.TAB.MAIL_CONTENT',
-            href: '#parameters/mail_content'
+            href: '#mailcontent/list'
           }, {
             name: 'COMMON.TAB.MAIL_CONFIG',
-            href: '#parameters/mail_config'
+            href: '#mailcondig/list'
           }
         ]
       };
@@ -57,15 +57,15 @@ angular.module('linshareAdminApp')
           {
             name: 'COMMON.TAB.FUNCTIONALITIES',
             superAdminOnly: false,
-            href: '#parameters/functionalities'
+            href: '#functionality/list'
           }, {
             name: 'COMMON.TAB.MIME_POLICIES',
             superAdminOnly: false,
-            href: '#parameters/mime_policy'
+            href: '#mimepolicy/list'
           }, {
             name: 'COMMON.TAB.UPLOAD_PROPOSITION_FILTER',
             superAdminOnly: false,
-            href: '#parameters/upload_proposition_filter'
+            href: '#uploadpropositionfilter/list'
           }
         ]
       };
@@ -78,23 +78,23 @@ angular.module('linshareAdminApp')
           {
             name: 'COMMON.TAB.MANAGE_USERS',
             superAdminOnly: false,
-            href: '#users/management'
+            href: '#user/list'
           }, {
             name: 'COMMON.TAB.INCONSISTENT_USERS',
             superAdminOnly: true,
-            href: '#users/inconsistent'
+            href: '#inconsistentuser/list'
           }, {
             name: 'COMMON.TAB.THREADS',
             superAdminOnly: true,
-            href: '#users/threads'
+            href: '#group/list'
           }, {
             name: 'COMMON.TAB.MAILING_LISTS',
             superAdminOnly: true,
-            href: '#users/mailing_lists'
+            href: '#mailinglist/list'
           }, {
             name: 'COMMON.TAB.TECHNICAL_ACCOUNT',
             superAdminOnly: true,
-            href: '#users/technical_account'
+            href: '#technicalaccount/list'
           }
         ]
       };
@@ -107,11 +107,11 @@ angular.module('linshareAdminApp')
           {
             name: 'COMMON.TAB.AUDIT',
             superAdminOnly: false,
-            href: '#history/audit'
+            href: '#audit'
           }, {
             name: 'COMMON.TAB.UPLOAD_REQUEST',
             superAdminOnly: false,
-            href: '#history/upload_request'
+            href: '#uploadrequest/list'
           }
         ]
       };

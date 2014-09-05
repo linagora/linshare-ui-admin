@@ -119,6 +119,11 @@ angular.module('linshareAdminApp').config(['$stateProvider',
         return permissionTypes;
       });
     };
+    var enumUploadRequestStatus = function(Enum) {
+      return Enum.getOptions('upload_request_status', function(uploadRequestStatus) {
+        return uploadRequestStatus;
+      });
+    };
 
     var authenticatedUser = function(Authentication) {
       return Authentication.getCurrentUser().then(function(user) {
@@ -346,7 +351,7 @@ angular.module('linshareAdminApp').config(['$stateProvider',
 
       .state('thread', {
         abstract: true,
-        url: '/thread',
+        url: '/group',
         templateUrl: 'ng_components/thread/thread.html'
       })
       .state('thread.list', {
@@ -946,7 +951,22 @@ angular.module('linshareAdminApp').config(['$stateProvider',
           },
           _enumTechnicalAccountPermissionTypes: enumTechnicalAccountPermissionTypes,
         }
-      });
+      })
 
+      .state('uploadrequest', {
+        url: '/uploadrequest',
+        abstract: true,
+        templateUrl: 'ng_components/uploadrequest/uploadrequest.html',
+      })
+      .state('uploadrequest.form', {
+        url: '/form',
+        templateUrl: 'ng_components/uploadrequest/uploadrequest_form.tpl.html',
+        controller: 'UploadRequestFormCtrl',
+        resolve: {
+          uploadRequestStatus: enumUploadRequestStatus,
+        }
+      })
+
+      ;
   }
 ]);
