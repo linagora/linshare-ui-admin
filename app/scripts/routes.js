@@ -5,16 +5,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
     //  For any unmatched url, redirect
     $urlRouterProvider.otherwise('/user/list');
 
-    var allLdapConnections = function(LdapConnection) {
-      return LdapConnection.getAll(function (ldapConnections) {
-        return ldapConnections;
-      });
-    };
-    var allDomainPatterns = function(DomainPattern) {
-      return DomainPattern.getAll(function (domainPatterns) {
-        return domainPatterns;
-      });
-    };
     var allDomainPolicies = function(DomainPolicy) {
       return DomainPolicy.getAll(function (domainPolicies) {
         return domainPolicies;
@@ -441,7 +431,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         templateUrl: 'ng_components/ldapconnection/ldapconnection_list.tpl.html',
         controller: 'LdapConnectionListCtrl',
         resolve: {
-          ldapConnections: allLdapConnections,
+          ldapConnections: function(LdapConnection) {
+            return LdapConnection.getAll();
+          },
         }
       })
       .state('ldapconnection.detail', {
@@ -451,9 +443,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         resolve: {
           currentLdapConnection: function($stateParams, LdapConnection) {
             if ($stateParams.id) {
-              return LdapConnection.get($stateParams.id, function(ldapConnection) {
-                return ldapConnection;
-              });
+              return LdapConnection.get($stateParams.id);
             }
           }
         }
@@ -469,7 +459,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         templateUrl: 'ng_components/domainpattern/domainpattern_list.tpl.html',
         controller: 'DomainPatternListCtrl',
         resolve: {
-          domainPatterns: allDomainPatterns,
+          domainPatterns: function(DomainPattern) {
+            return DomainPattern.getAll();
+          },
         }
       })
       .state('domainpattern.detail', {
@@ -479,15 +471,11 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         resolve: {
           currentDomainPattern: function($stateParams, DomainPattern) {
             if ($stateParams.id) {
-              return DomainPattern.get($stateParams.id, function(domainPattern) {
-                return domainPattern;
-              });
+              return DomainPattern.get($stateParams.id);
             }
           },
           models: function(DomainPattern) {
-            return DomainPattern.getAllModels(function(models) {
-              return models;
-            });
+            return DomainPattern.getAllModels();
           }
         }
       })
@@ -533,8 +521,12 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                   });
                 }
               },
-              _allLdapConnections: allLdapConnections,
-              _allDomainPatterns: allDomainPatterns,
+              _allLdapConnections: function(LdapConnection) {
+                return LdapConnection.getAll();
+              },
+              _allDomainPatterns: function(DomainPattern) {
+                return DomainPattern.getAll();
+              },
               _allDomainPolicies: allDomainPolicies,
               _allMailConfigs: allMailConfigs,
               _allMimePolicies: allMimePolicies,

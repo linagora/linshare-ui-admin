@@ -7,101 +7,31 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(successCallback) {
+        getAll: function() {
           $log.debug('LdapConnection:getAll');
-          return Restangular.all('ldap_connections').getList().then(
-            function success(ldapConnections) {
-              if (successCallback) {
-                return successCallback(ldapConnections);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'LdapConnection:getAll',
-                 'Unable to get all ldap connections',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('ldap_connections').getList();
         },
-        get: function(id, successCallback) {
+        get: function(id) {
           $log.debug('LdapConnection:get');
-          return Restangular.one('ldap_connections', id).get().then(
-            function success(ldapConnection) {
-              if (successCallback) {
-                return successCallback(ldapConnection);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'LdapConnection:get',
-                 'Unable to get a ldap connection',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('ldap_connections', id).get();
         },
-        add: function(ldapConnection, successCallback) {
+        add: function(ldapConnection) {
           $log.debug('LdapConnection:add');
-          return Restangular.all('ldap_connections').post(ldapConnection).then(
-            function success(ldapConnection) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(ldapConnection);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'LdapConnection:add',
-                 'Unable to create a ldap connection',
-                ].join('\n')
-              );
-              $log.error(ldapConnection);
-            }
-          );
+          return Restangular.all('ldap_connections').post(ldapConnection).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(ldapConnection, successCallback) {
+        update: function(ldapConnection) {
           $log.debug('LdapConnection:update');
-          return ldapConnection.put().then(
-            function success(ldapConnection) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(ldapConnection);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'LdapConnection:update',
-                 'Unable to update ldap connection',
-                ].join('\n')
-              );
-              $log.error(ldapConnection);
-            }
-          );
+          return ldapConnection.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        remove: function(ldapConnection, successCallback) {
+        remove: function(ldapConnection) {
           $log.debug('LdapConnection:remove');
-          return ldapConnection.remove().then(
-            function success(ldapConnection) {
+          return ldapConnection.remove().then(function() {
               Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(ldapConnection);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'LdapConnection:remove',
-                 'Unable to remove ldap connection',
-                ].join('\n')
-              );
-              $log.error(ldapConnection);
-            }
-          );
+          });
         },
       };
     }

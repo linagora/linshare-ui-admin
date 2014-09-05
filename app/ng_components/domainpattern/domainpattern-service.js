@@ -1,124 +1,41 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('DomainPattern', ['$log', 'Restangular', 'Notification',
-    function ($log, Restangular, Notification) {
+  .factory('DomainPattern', ['$q', '$log', 'Restangular', 'Notification',
+    function ($q, $log, Restangular, Notification) {
       //var self = this;
 
       // Public API here
       return {
-        getAll: function(successCallback) {
+        getAll: function() {
           $log.debug('DomainPattern:getAll');
-          return Restangular.all('domain_patterns').getList().then(
-            function success(domainPatterns) {
-              if (successCallback) {
-                return successCallback(domainPatterns);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPattern:getAll',
-                 'Unable to get all domain patterns',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('domain_patterns').getList();
         },
-        get: function(id, successCallback) {
+        get: function(id) {
           $log.debug('DomainPattern:get');
-          return Restangular.one('domain_patterns', id).get().then(
-            function success(domainPattern) {
-              if (successCallback) {
-                return successCallback(domainPattern);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPattern:get',
-                 'Unable to get a domain pattern',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('domain_patterns', id).get();
         },
-        add: function(domainPattern, successCallback) {
+        add: function(domainPattern) {
           $log.debug('DomainPattern:add');
-          return Restangular.all('domain_patterns').post(domainPattern).then(
-            function success(domainPattern) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(domainPattern);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPattern:add',
-                 'Unable to create a domain pattern',
-                ].join('\n')
-              );
-              $log.error(domainPattern);
-            }
-          );
+          return Restangular.all('domain_patterns').post(domainPattern).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(domainPattern, successCallback) {
+        update: function(domainPattern) {
           $log.debug('DomainPattern:update');
-          return domainPattern.put().then(
-            function success(domainPattern) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(domainPattern);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPattern:update',
-                 'Unable to update domain pattern',
-                ].join('\n')
-              );
-              $log.error(domainPattern);
-            }
-          );
+          return domainPattern.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        remove: function(domainPattern, successCallback) {
+        remove: function(domainPattern) {
           $log.debug('DomainPattern:remove');
-          return domainPattern.remove().then(
-            function success(domainPattern) {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(domainPattern);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPattern:remove',
-                 'Unable to remove domain pattern',
-                ].join('\n')
-              );
-              $log.error(domainPattern);
-            }
-          );
+          return domainPattern.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
-        getAllModels: function(successCallback) {
+        getAllModels: function() {
           $log.debug('DomainPattern:getAllModels');
-          return Restangular.all('domain_patterns').all('models').getList().then(
-            function success(models) {
-              if (successCallback) {
-                return successCallback(models);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'DomainPattern:remove',
-                 'Unable to get all domain pattern model',
-                ].join('\n')
-              );
-            });
+          return Restangular.all('domain_patterns').all('models').getList();
         },
         copyFromModel: function(model) {
           var copy = Restangular.copy(model);
