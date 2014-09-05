@@ -10,11 +10,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         return domainPolicies;
       });
     };
-    var allDomains = function(Domain) {
-      return Domain.getAll(function(domains) {
-        return domains;
-      });
-    };
     var allThreads = function(Thread) {
       return Thread.getAll(function(threads) {
         return threads;
@@ -128,9 +123,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       controller: 'DomainTreeCtrl',
       resolve: {
         rootDomain: function(Domain, authenticatedUser) {
-          return Domain.getDomainTree(authenticatedUser.domain, function(domain) {
-            return domain;
-          });
+          return Domain.getDomainTree(authenticatedUser.domain);
         },
       }
     };
@@ -334,7 +327,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           currentUser: function(allInconsistents, $stateParams) {
             return _.find(allInconsistents, {uuid: $stateParams.uuid});
           },
-          allDomains: allDomains,
+          allDomains: function(Domain) {
+            return Domain.getAll();
+          },
         },
         templateUrl: 'ng_components/inconsistentuser/inconsistentuser_detail.tpl.html',
         controller: 'InconsistentUserDetailCtrl',
@@ -414,7 +409,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 };
               },
               authenticatedUser: authenticatedUser,
-              _allDomains: allDomains,
+              _allDomains: function(Domain) {
+                return Domain.getAll();
+              },
               _enumLogAction: enumLogAction,
             }
           }
@@ -516,9 +513,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               },
               currentDomain: function(Domain, $stateParams) {
                 if ($stateParams.domainId) {
-                  return Domain.get($stateParams.domainId, function(domain) {
-                    return domain;
-                  });
+                  return Domain.get($stateParams.domainId);
                 }
               },
               _allLdapConnections: function(LdapConnection) {
@@ -541,7 +536,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
        templateUrl: 'ng_components/domain/domain_order.tpl.html',
        controller: 'DomainOrderCtrl',
        resolve: {
-         domains: allDomains,
+         domains: function(Domain) {
+           return Domain.getAll();
+         },
        }
      })
     
@@ -576,7 +573,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               });
             }
           },
-          _allDomains: allDomains,
+          _allDomains: function(Domain) {
+            return Domain.getAll();
+          },
           _enumDomainAccessRuleTypes: enumDomainAccessRuleTypes,
         }
       })
@@ -606,9 +605,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             resolve: {
               currentDomain: function(Domain, $stateParams) {
                 if ($stateParams.domainId) {
-                  return Domain.get($stateParams.domainId, function(domain) {
-                    return domain;
-                  });
+                  return Domain.get($stateParams.domainId);
                 }
               },
               mailLayouts: function(MailLayout, currentDomain) {
@@ -631,9 +628,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             controller: 'MailLayoutDetailCtrl',
             resolve: {
               currentDomain: function(Domain, $stateParams) {
-                return Domain.get($stateParams.domainId, function(domain) {
-                  return domain;
-                });
+                return Domain.get($stateParams.domainId);
               },
               currentMailLayout: function(MailLayout, $stateParams) {
                 return MailLayout.get($stateParams.domainId, $stateParams.id, function(maillayout) {
@@ -670,9 +665,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             resolve: {
               currentDomain: function(Domain, $stateParams) {
                 if ($stateParams.domainId) {
-                  return Domain.get($stateParams.domainId, function(domain) {
-                    return domain;
-                  });
+                  return Domain.get($stateParams.domainId);
                 }
               },
               mailContents: function(MailContent, currentDomain) {
@@ -695,9 +688,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             controller: 'MailContentDetailCtrl',
             resolve: {
               currentDomain: function(Domain, $stateParams) {
-                return Domain.get($stateParams.domainId, function(domain) {
-                  return domain;
-                });
+                return Domain.get($stateParams.domainId);
               },
               currentMailContent: function(MailContent, $stateParams) {
                 return MailContent.get($stateParams.domainId, $stateParams.id, function(mailcontent) {
@@ -734,9 +725,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             resolve: {
               currentDomain: function(Domain, $stateParams) {
                 if ($stateParams.domainId) {
-                  return Domain.get($stateParams.domainId, function(domain) {
-                    return domain;
-                  });
+                  return Domain.get($stateParams.domainId);
                 }
               },
               mailFooters: function(MailFooter, currentDomain) {
@@ -759,9 +748,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             controller: 'MailFooterDetailCtrl',
             resolve: {
               currentDomain: function(Domain, $stateParams) {
-                return Domain.get($stateParams.domainId, function(domain) {
-                  return domain;
-                });
+                return Domain.get($stateParams.domainId);
               },
               currentMailFooter: function(MailFooter, $stateParams) {
                 return MailFooter.get($stateParams.domainId, $stateParams.id, function(mailfooter) {
@@ -798,9 +785,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             resolve: {
               currentDomain: function(Domain, $stateParams) {
                 if ($stateParams.domainId) {
-                  return Domain.get($stateParams.domainId, function(domain) {
-                    return domain;
-                  });
+                  return Domain.get($stateParams.domainId);
                 }
               },
               mailConfigs: function(MailConfig, currentDomain) {
@@ -832,9 +817,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 });
               },
               currentDomain: function(Domain, $stateParams) {
-                return Domain.get($stateParams.domainId, function(domain) {
-                  return domain;
-                });
+                return Domain.get($stateParams.domainId);
               },
               currentMailConfig: function(MailConfig, $stateParams) {
                 return MailConfig.get($stateParams.domainId, $stateParams.id, function(mailconfig) {

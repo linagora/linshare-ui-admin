@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Domain',
-    ['$log', 'Notification', 'Restangular',
-    function ($log, Notification, Restangular) {
+    ['$q', '$log', 'Notification', 'Restangular',
+    function ($q, $log, Notification, Restangular) {
       // var self = this;
 
       /**
@@ -21,125 +21,44 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getDomainTree: function(domainId, successCallback) {
+        getDomainTree: function(domainId) {
           $log.debug('Domain:getDomainTree');
-          return Restangular.all('domains').one(domainId).get({tree: true}).then(
-            function success(rootDomain) {
-              restangularizeTree(rootDomain, 'domains');
-              if (successCallback) {
-                return successCallback(rootDomain);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Domain:getDomainTree',
-                 'Unable to get domain tree',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('domains').one(domainId).get({tree: true}).then(function(rootDomain) {
+            restangularizeTree(rootDomain, 'domains');
+            var dfd = $q.defer();
+            dfd.resolve(rootDomain);
+            return dfd.promise;
+          });
         },
-        getAll: function(successCallback) {
+        getAll: function() {
           $log.debug('Domain:getAll');
-          return Restangular.all('domains').getList().then(
-            function success(domains) {
-              if (successCallback) {
-                return successCallback(domains);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Domain:getAll',
-                 'Unable to get all domains',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('domains').getList();
         },
-        get: function(id, successCallback) {
+        get: function(id) {
           $log.debug('Domain:get');
-          return Restangular.one('domains', id).get({tree: true}).then(
-            function success(domain) {
-              if (successCallback) {
-                return successCallback(domain);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Domain:get',
-                 'Unable to get domain',
-                 id
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('domains', id).get({tree: true});
         },
-        add: function(domain, successCallback) {
+        add: function(domain) {
           $log.debug('Domain:add');
-          return Restangular.all('domains').post(domain).then(
-            function success(domain) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(domain);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Domain:add',
-                 'Unable to create a domain',
-                ].join('\n')
-              );
-              $log.error(domain);
-            }
-          );
+          return Restangular.all('domains').post(domain).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(domain, successCallback, notify) {
+        update: function(domain, notify) {
           $log.debug('Domain:update');
           notify = typeof notify !== 'undefined' ? notify : true;
           delete domain.children;
-          return domain.put().then(
-            function success(domain) {
-              if (notify) {
-                Notification.addSuccess('UPDATE');
-              }
-              if (successCallback) {
-                return successCallback(domain);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Domain:update',
-                 'Unable to update a domain',
-                ].join('\n')
-              );
-              $log.error(domain);
+          return domain.put().then(function() {
+            if (notify) {
+              Notification.addSuccess('UPDATE');
             }
-          );
+          });
         },
-        remove: function(domain, successCallback) {
+        remove: function(domain) {
           $log.debug('Domain:remove');
-          return domain.remove().then(
-            function success(domain) {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(domain);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Domain:remove',
-                 'Unable to remove domain',
-                ].join('\n')
-              );
-              $log.error(domain);
-            }
-          );
+          return domain.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
         createSample: function (parentId, type) {
           var sample = {};
