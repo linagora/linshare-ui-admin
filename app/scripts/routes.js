@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
+angular.module('linshareAdminApp').config(['$stateProvider',
+  function($stateProvider) {
     //  For any unmatched url, redirect
     //$urlRouterProvider.otherwise('/user/list');
     var allLdapConnections = function(LdapConnection) {
@@ -538,12 +538,15 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         },
       })
-    //  .state('domain.order', {
-    //    url: '/order',
-    //    templateUrl: 'ng_components/domain/domain_order.html',
-    //    controller: 'DomainOrderCtrl'
-    //  })
-    //
+     .state('domain.order', {
+       url: '/order',
+       templateUrl: 'ng_components/domain/domain_order.tpl.html',
+       controller: 'DomainOrderCtrl',
+       resolve: {
+         domains: allDomains,
+       }
+     })
+    
       .state('domainpolicy', {
         abstract: true,
         url: '/domainpolicy',
@@ -846,7 +849,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             templateUrl: 'ng_components/mailcontent/mailcontentlang_detail.tpl.html',
             controller: 'MailContentLangDetailCtrl',
             resolve: {
-              currentMailContentLang: function(MailContentLang, $stateParams, $q) {
+              currentMailContentLang: function(MailContentLang, $stateParams) {
                 if ($stateParams.mailContentLangId) {
                   return MailContentLang.get($stateParams.mailContentLangId, function(mailContentLang) {
                     return mailContentLang;
@@ -943,7 +946,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           },
           _enumTechnicalAccountPermissionTypes: enumTechnicalAccountPermissionTypes,
         }
-      })
+      });
 
   }
 ]);
