@@ -469,15 +469,17 @@
     "NAME": {
       "UPLOAD_REQUEST": "Invitation de dépôt",
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": "Invitation de dépôt - Langue d'émission des courriels",
-      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": "Invitation de dépôt - Delay before activation",
-      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": "Invitation de dépôt - Delay before expiration",
-      "UPLOAD_REQUEST__TOGETHER_MODE": "Invitation de dépôt - Together mode",
-      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": "Invitation de dépôt - Maximum file count",
-      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": "Invitation de dépôt - Maximum file size",
-      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": "Invitation de dépôt - Maximum deposit size",
-      "UPLOAD_REQUEST__SECURED_URL": "Invitation de dépôt - Secured URL",
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": "Invitation de dépôt - Délais avant activation",
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": "Invitation de dépôt - Délais avant expiration",
+      "UPLOAD_REQUEST__GROUPED_MODE": "Invitation de dépôt - Mode groupé",
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": "Invitation de dépôt - Nombre maximum de fichiers",
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": "Invitation de dépôt - Taille maximale d'un fichier",
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": "Invitation de dépôt - Taille maximale du dépôt",
+      "UPLOAD_REQUEST__SECURED_URL": "Invitation de dépôt - Sécurisation des URLs",
+      "UPLOAD_REQUEST__CAN_CLOSE": "Invitation de dépôt - Droit de clôture",
       "UPLOAD_REQUEST__PROLONGATION": "Invitation de dépôt - Prolongation",
-      "UPLOAD_REQUEST__DEPOSIT_ONLY": "Invitation de dépôt - Deposit only",
+      "UPLOAD_REQUEST__CAN_DELETE": "Invitation de dépôt - Droit de suppression de fichiers pour le destinataire",
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": "Invitation de dépôt - Délais avant notification",
       "QUOTA_USER": "Quota utilisateur",
       "MIME_TYPE": "Type MIME",
       "FILESIZE_MAX": "Taille de fichier maximum",
@@ -500,7 +502,7 @@
       "TAB_THREAD": "Onglet 'Thread'",
       "TAB_LIST": "Onglet 'Listes'",
       "RESTRICTED_GUEST": "Restreindre les contacts invités",
-      "SHARE_NOTIFICATION_BEFORE_EXPIRATION": "Share notification before expiry date",
+      "SHARE_NOTIFICATION_BEFORE_EXPIRATION": "Délais de notification avant expiration.",
       "SECURED_ANONYMOUS_URL": "Sécurisation des URL anonymes",
       "THREAD_PERMISSION": "Groupes autorisés",
       "UPDATE_FILE": "Dépôt de fichier",
@@ -508,7 +510,16 @@
       "NOTIFICATION_URL": "URL de base pour les notifications par courriel",
       "LINK_LOGO": "Ajouter un lien au logo LinShare",
       "CREATE_THREAD_PERMISSION": "Autoriser la création de groupe",
-      "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt"
+      "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt",
+      "UPLOAD_PROPOSITION": "Demande d'invitation de dépôt"
+    },
+    "PARAMETERS": {
+      "SHARE_EXPIRATION__BOOLEAN" : "Suppression du fichier partagé",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN" : "Valeur par défaut",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN" : "Valeur par défaut",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN" : "Valeur par défaut",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN" : "Valeur par défaut",
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN" : "Valeur par défaut"
     }
   },
 

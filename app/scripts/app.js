@@ -82,14 +82,14 @@ angular.module('linshareAdminApp', [
       return true;
     });
     if (lsAppConfig.debug) {
-      $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
+      $rootScope.$on('$stateChangeStart',function(event, toState, toParams){
         console.log('$stateChangeStart to '+toState.to+'- fired when the transition begins. toState,toParams : \n',toState, toParams);
       });
       $rootScope.$on('$stateChangeError',function(event, toState, toParams, fromState, fromParams){
         console.log('$stateChangeError - fired when an error occurs during transition.');
-        console.log(arguments);
+        console.log([event, toState, toParams, fromState, fromParams].join('\n'));
       });
-      $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
+      $rootScope.$on('$stateChangeSuccess',function(event, toState){
         console.log('$stateChangeSuccess to '+toState.name+'- fired once the state transition is complete.');
       });
       // $rootScope.$on('$viewContentLoading',function(event, viewConfig){

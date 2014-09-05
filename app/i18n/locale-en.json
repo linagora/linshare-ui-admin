@@ -471,13 +471,14 @@
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": "Upload request - Notification language",
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": "Upload request - Delay before activation",
       "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": "Upload request - Delay before expiration",
-      "UPLOAD_REQUEST__TOGETHER_MODE": "Upload request - Together mode",
+      "UPLOAD_REQUEST__TOGETHER_MODE": "Upload request - Grouped mode",
       "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": "Upload request - Maximum file count",
       "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": "Upload request - Maximum file size",
       "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": "Upload request - Maximum deposit size",
       "UPLOAD_REQUEST__SECURED_URL": "Upload request - Secured URL",
+      "UPLOAD_REQUEST__CAN_CLOSE": "Upload request - Closure right",
       "UPLOAD_REQUEST__PROLONGATION": "Upload request - Prolongation",
-      "UPLOAD_REQUEST__DEPOSIT_ONLY": "Upload request - Deposit only",
+      "UPLOAD_REQUEST__CAN_DELETE": "Upload request - Recipient delete right",
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": "Upload request - Delay before notification",
       "QUOTA_USER": "Quota user",
       "MIME_TYPE": "Mime type",
@@ -509,7 +510,16 @@
       "NOTIFICATION_URL": "Notification URL",
       "LINK_LOGO": "Link logo",
       "CREATE_THREAD_PERMISSION": "Create thread permission",
-      "UPLOAD_PROPOSITION_FILTER": "Filtering on upload proposition"
+      "UPLOAD_PROPOSITION_FILTER": "Filtering on upload proposition",
+      "UPLOAD_PROPOSITION": "Upload proposition"
+    },
+    "PARAMETERS": {
+      "SHARE_EXPIRATION__BOOLEAN" : "Delete shared file",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN" : "Default value",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN" : "Default value",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN" : "Default value",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN" : "Default value",
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN" : "Default value"
     }
   },
 

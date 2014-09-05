@@ -206,6 +206,21 @@
                          x-ng-minLength="1">
                 </div>
               </div>
+              <div x-ng-switch-when="BOOLEAN">
+                <br>
+                <br>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <input name="$index" type="checkbox" class="form-control" required
+                             x-ng-model="parameter.bool"
+                             x-ng-change="updateWithTimeout()">
+                    </span>
+                    <span class="form-control">
+                    {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type | translate }}
+                    </span>
+                </div>
+              </div>
             </div>
           </div>
           </form>
