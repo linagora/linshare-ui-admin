@@ -17,7 +17,7 @@ angular.module('linshareAdminApp')
             href: '#domainpattern/list'
           }, {
             name: 'COMMON.TAB.MANAGE_DOMAINS',
-            href: '#domain/tree'
+            href: '#domain/detail/'
           }, {
             name: 'COMMON.TAB.DOMAIN_ORDER',
             href: '#domain/order'
