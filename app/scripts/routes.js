@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('linshareAdminApp').config(['$stateProvider',
-  function($stateProvider) {
+angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
     //  For any unmatched url, redirect
-    //$urlRouterProvider.otherwise('/user/list');
+    $urlRouterProvider.otherwise('/user/list');
+
     var allLdapConnections = function(LdapConnection) {
       return LdapConnection.getAll(function (ldapConnections) {
         return ldapConnections;
