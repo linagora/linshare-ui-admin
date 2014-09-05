@@ -3,9 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('UploadPropositionFilter', ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {
-      this.currentFilter = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -21,6 +19,24 @@ angular.module('linshareAdminApp')
               $log.error(
                 [
                  'UploadPropositionFilter:getAll',
+                 'Unable to get all upload proposition filters',
+                ].join('\n')
+              );
+            }
+          );
+        },
+        get: function(id, successCallback) {
+          $log.debug('UploadPropositionFilter:get');
+          return Restangular.one('upload_proposition_filters', id).get().then(
+            function success(filter) {
+              if (successCallback) {
+                return successCallback(filter);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'UploadPropositionFilter:get',
                  'Unable to get all upload proposition filters',
                 ].join('\n')
               );
@@ -90,19 +106,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(filter) {
-          $log.debug('UploadPropositionFilter:setCurrent');
-          self.currentFilter = filter;
-        },
-        getCurrent: function() {
-          return self.currentFilter;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentFilter);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentFilter);
-        }
       };
     }
   ]

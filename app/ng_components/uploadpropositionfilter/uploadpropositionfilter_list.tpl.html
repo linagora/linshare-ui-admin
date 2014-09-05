@@ -6,7 +6,7 @@
     <div class="pull-right box-tools">
       <div class="btn-group">
         <button class="btn btn-primary" type="button"
-                x-ng-click="create()">
+                x-ui-sref="uploadpropositionfilter.detail({formState: 'create'})">
           <span>
             <i class="fa fa-plus"></i> 
             {{ 'UPLOAD_PROPOSITION_FILTER.BOX_LIST.BUTTON_ADD' | translate }}
@@ -21,7 +21,7 @@
              x-ng-table="tableParams">
         <tbody>
           <tr x-ng-repeat="filter in $data"
-              x-ng-click="edit(filter)">
+              x-ui-sref="uploadpropositionfilter.detail({id: filter.uuid, formState: 'edit'})">
             <td class="col-md-1" data-title="'UPLOAD_PROPOSITION_FILTER.BOX_LIST.TABLE.HEADER_ACTIONS' | translate">
               <div class="btn-group">
                 <button type="button" class="btn btn-primary"

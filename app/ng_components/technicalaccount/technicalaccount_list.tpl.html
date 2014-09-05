@@ -6,7 +6,7 @@
     <div class="pull-right box-tools">
       <div class="btn-group">
         <button class="btn btn-primary" type="button"
-                x-ng-click="create()">
+                x-ui-sref="technicalaccount.detail({formState: 'create'})">
           <span>
             <i class="fa fa-plus"></i> 
             {{ 'TECHNICAL_ACCOUNT.BOX_LIST.BUTTON_ADD' | translate }}
@@ -20,7 +20,7 @@
       <table class="table table-striped"
              x-ng-table="tableParams">
         <tr x-ng-repeat="account in $data"
-            x-ng-click="edit(account)">
+            x-ui-sref="technicalaccount.detail({id: account.uuid, formState: 'edit'})">
           <td style="cursor: pointer"
               data-title="'TECHNICAL_ACCOUNT.BOX_LIST.TABLE.HEADER_NAME' | translate"
               sortable="'name'">

@@ -34,6 +34,16 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         return mailingLists;
       });
     };
+    var allUploadPropositionFilters = function(UploadPropositionFilter) {
+      return UploadPropositionFilter.getAll(function(uploadPropositionFilters) {
+        return uploadPropositionFilters;
+      });
+    };
+    var allTechnicalAccounts = function(TechnicalAccount) {
+      return TechnicalAccount.getAll(function(technicalAccounts) {
+        return technicalAccounts;
+      });
+    };
     var allMailConfigs = function(currentDomain, MailConfig) {
       if (currentDomain) {
         return MailConfig.getAll(currentDomain.identifier, false, function(mailConfigs) {
@@ -82,6 +92,31 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
     var enumDomainAccessRuleTypes = function(Enum) {
       return Enum.getOptions('domain_access_rule_type', function(rules) {
         return rules;
+      });
+    };
+    var enumUploadPropositionFieldTypes = function(Enum) {
+      return Enum.getOptions('upload_proposition_rule_field_type', function(fieldTypes) {
+        return fieldTypes;
+      });
+    };
+    var enumUploadPropositionOperatorTypes = function(Enum) {
+      return Enum.getOptions('upload_proposition_rule_operator_type', function(operatorTypes) {
+        return operatorTypes;
+      });
+    };
+    var enumUploadPropositionActionTypes = function(Enum) {
+      return Enum.getOptions('upload_proposition_action_type', function(actionTypes) {
+        return actionTypes;
+      });
+    };
+    var enumUploadPropositionMatchTypes = function(Enum) {
+      return Enum.getOptions('upload_proposition_match_type', function(matchTypes) {
+        return matchTypes;
+      });
+    };
+    var enumTechnicalAccountPermissionTypes = function(Enum) {
+      return Enum.getOptions('technical_account_permission_type', function(permissionTypes) {
+        return permissionTypes;
       });
     };
 
@@ -829,37 +864,86 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         },
       })
-    //
-    //    .state('mailconfig', {
-    //      abstract: true,
-    //      url: '/mailconfig',
-    //      templateUrl: 'ng_components/mailconfig/mailconfig.html'
-    //    })
-    //    .state('mailconfig.list', {
-    //      url: '/list',
-    //      views: {
-    //        'tree@domain': {},
-    //        'list': {
-    //          templateUrl: 'ng_components/mailconfig/mailconfig_list.html',
-    //          controller: 'ng_components/mailconfig/mailconfig_list-controller.js',
-    //        }
-    //      }
-    //    })
-    //    .state('mailconfig.detail', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/mailconfig/mailconfig_detail.html',
-    //      controller: 'ng_components/mailconfig/mailconfig_detail-controller.js'
-    //    })
-    //    .state('mailconfig.mailcontentlang', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/mailconfig/mailconfig_mailcontentlang.html',
-    //      controller: 'ng_components/mailconfig/mailconfig_mailcontentlang-controller.js'
-    //    })
-    //
-    //    .state('password', {
-    //      url: '/password'
-    //      templateUrl: 'ng_components/password/password.html',
-    //      controller: 'ng_components/password/password-controller.js'
-    //    })
+
+      .state('password', {
+        url: '/password',
+        templateUrl: 'ng_components/password/password.html',
+        controller: 'PasswordCtrl'
+      })
+
+      .state('uploadpropositionfilter', {
+        abstract: true,
+        url: '/uploadpropositionfilter',
+        templateUrl: 'ng_components/uploadpropositionfilter/uploadpropositionfilter.html'
+      })
+      .state('uploadpropositionfilter.list', {
+        url: '/list',
+        templateUrl: 'ng_components/uploadpropositionfilter/uploadpropositionfilter_list.tpl.html',
+        controller: 'UploadPropositionFilterListCtrl',
+        resolve: {
+          uploadPropositionFilters: allUploadPropositionFilters,
+        }
+      })
+      .state('uploadpropositionfilter.detail', {
+        url: '/:id?formState',
+        templateUrl: 'ng_components/uploadpropositionfilter/uploadpropositionfilter_detail.tpl.html',
+        controller: 'UploadPropositionFilterDetailCtrl',
+        resolve: {
+          currentUploadPropositionFilter: function($stateParams, UploadPropositionFilter) {
+            if ($stateParams.id) {
+              return UploadPropositionFilter.get($stateParams.id, function(uploadPropositionFilter) {
+                return uploadPropositionFilter;
+              });
+            }
+          },
+          selectOptions: function(_enumUploadPropositionFieldTypes, _enumUploadPropositionOperatorTypes, _enumUploadPropositionActionTypes, _enumUploadPropositionMatchTypes) {
+            return {
+              fieldTypes: _enumUploadPropositionFieldTypes,
+              operatorTypes: _enumUploadPropositionOperatorTypes,
+              actionTypes: _enumUploadPropositionActionTypes,
+              matchTypes: _enumUploadPropositionMatchTypes
+            };
+          },
+          _enumUploadPropositionFieldTypes: enumUploadPropositionFieldTypes,
+          _enumUploadPropositionOperatorTypes: enumUploadPropositionOperatorTypes,
+          _enumUploadPropositionActionTypes: enumUploadPropositionActionTypes,
+          _enumUploadPropositionMatchTypes: enumUploadPropositionMatchTypes
+        }
+      })
+
+      .state('technicalaccount', {
+        abstract: true,
+        url: '/technicalaccount',
+        templateUrl: 'ng_components/technicalaccount/technicalaccount.html'
+      })
+      .state('technicalaccount.list', {
+        url: '/list',
+        templateUrl: 'ng_components/technicalaccount/technicalaccount_list.tpl.html',
+        controller: 'TechnicalAccountListCtrl',
+        resolve: {
+          technicalAccounts: allTechnicalAccounts,
+        }
+      })
+      .state('technicalaccount.detail', {
+        url: '/:id?formState',
+        templateUrl: 'ng_components/technicalaccount/technicalaccount_detail.tpl.html',
+        controller: 'TechnicalAccountDetailCtrl',
+        resolve: {
+          currentTechnicalAccount: function($stateParams, TechnicalAccount) {
+            if ($stateParams.id) {
+              return TechnicalAccount.get($stateParams.id, function(technicalAccount) {
+                return technicalAccount;
+              });
+            }
+          },
+          selectOptions: function(_enumTechnicalAccountPermissionTypes) {
+            return {
+              permissionTypes: _enumTechnicalAccountPermissionTypes,
+            };
+          },
+          _enumTechnicalAccountPermissionTypes: enumTechnicalAccountPermissionTypes,
+        }
+      })
+
   }
 ]);

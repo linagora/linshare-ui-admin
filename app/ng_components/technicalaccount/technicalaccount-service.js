@@ -27,6 +27,24 @@ angular.module('linshareAdminApp')
             }
           );
         },
+        get: function(id, successCallback) {
+          $log.debug('TechnicalAccount:get');
+          return Restangular.one('technical_accounts', id).get().then(
+            function success(accounts) {
+              if (successCallback) {
+                return successCallback(accounts);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'TechnicalAccount:get',
+                 'Unable to get a account',
+                ].join('\n')
+              );
+            }
+          );
+        },
         add: function(account, successCallback) {
           $log.debug('TechnicalAccount:add');
           return Restangular.all('technical_accounts').post(account).then(
