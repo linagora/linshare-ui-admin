@@ -30,9 +30,9 @@ angular.module('linshareAdminApp')
               }
           );
         },
-        getAllMailContents: function(language, mailContentType, successCallback) {
+        getAllMailContents: function(mailConfigUuid, language, mailContentType, successCallback) {
           $log.debug('MailConfig:getAllMailContents');
-          return Restangular.one('mail_configs', self.currentMailConfig.uuid)
+          return Restangular.one('mail_configs', mailConfigUuid)
             .getList('mail_contents', {language: language, mailContentType: mailContentType}).then(
               function success(mailConfigs) {
                 if (successCallback) {
@@ -52,9 +52,9 @@ angular.module('linshareAdminApp')
               }
           );
         },
-        getAllMailFooters: function(language, successCallback) {
+        getAllMailFooters: function(mailConfigUuid, language, successCallback) {
           $log.debug('MailConfig:getAllMailFooters');
-          return Restangular.one('mail_configs', self.currentMailConfig.uuid)
+          return Restangular.one('mail_configs', mailConfigUuid)
             .getList('mail_footers', {language: language}).then(
               function success(mailConfigs) {
                 if (successCallback) {

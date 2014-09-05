@@ -24,6 +24,16 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         return domains;
       });
     };
+    var allThreads = function(Thread) {
+      return Thread.getAll(function(threads) {
+        return threads;
+      });
+    };
+    var allMailingLists = function(MailingList) {
+      return MailingList.getAll(function(mailingLists) {
+        return mailingLists;
+      });
+    };
     var allMailConfigs = function(currentDomain, MailConfig) {
       if (currentDomain) {
         return MailConfig.getAll(currentDomain.identifier, false, function(mailConfigs) {
@@ -69,6 +79,11 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         return actions;
       });
     };
+    var enumDomainAccessRuleTypes = function(Enum) {
+      return Enum.getOptions('domain_access_rule_type', function(rules) {
+        return rules;
+      });
+    };
 
     var authenticatedUser = function(Authentication) {
       return Authentication.getCurrentUser().then(function(user) {
@@ -99,6 +114,10 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             return 'read';
           },
           authenticatedUser: authenticatedUser,
+        },
+        controller: function($scope, $state) {
+          // Needed to conditional view loading
+          $scope.$state = $state;
         }
       })
       .state('functionality.list', {
@@ -141,8 +160,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 });
               },
               currentFunctionality: function(Functionality, $stateParams) {
-                return Functionality.get($stateParams.domainId, $stateParams.id, function(functionality) {
-                  return functionality;
+                return Functionality.getAll($stateParams.domainId, function(functionalities) {
+                  return _.find(functionalities, {identifier: $stateParams.id});
                 });
               }
             }
@@ -159,6 +178,10 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             return 'read';
           },
           authenticatedUser: authenticatedUser,
+        },
+        controller: function($scope, $state) {
+          // Needed to conditional view loading
+          $scope.$state = $state;
         }
       })
       .state('mimepolicy.list', {
@@ -256,67 +279,92 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         templateUrl: 'ng_components/user/user_detail.tpl.html',
         controller: 'UserDetailCtrl',
       })
-    //
-    //    .state('inconsistentuser', {
-    //      abstract: true,
-    //      url: '/inconsistentuser',
-    //      templateUrl: 'ng_components/inconsistentuser/inconsistentuser.html'
-    //    })
-    //    .state('inconsistentuser.list', {
-    //      url: '/list',
-    //      views: {
-    //        'list': {
-    //          templateUrl: 'ng_components/inconsistentuser/inconsistentuser_list.html',
-    //          controller: 'ng_components/inconsistentuser/inconsistentuser_list-controller.js',
-    //        }
-    //      }
-    //    })
-    //    .state('inconsistentuser.detail', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/inconsistentuser/inconsistentuser_detail.html',
-    //      controller: 'ng_components/inconsistentuser/inconsistentuser_detail-controller.js'
-    //    })
-    //
-    //    .state('thread', {
-    //      abstract: true,
-    //      url: '/thread',
-    //      templateUrl: 'ng_components/thread/thread.html'
-    //    })
-    //    .state('thread.list', {
-    //      url: '/list',
-    //      views: {
-    //        'list': {
-    //          templateUrl: 'ng_components/thread/thread_list.html',
-    //          controller: 'ng_components/thread/thread_list-controller.js',
-    //        }
-    //      }
-    //    })
-    //    .state('thread.detail', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/thread/thread_detail.html',
-    //      controller: 'ng_components/thread/thread_detail-controller.js'
-    //    })
-    //
-    //    .state('mailinglist', {
-    //      abstract: true,
-    //      url: '/mailinglist',
-    //      templateUrl: 'ng_components/mailinglist/mailinglist.html'
-    //    })
-    //    .state('mailinglist.list', {
-    //      url: '/list',
-    //      views: {
-    //        'list': {
-    //          templateUrl: 'ng_components/mailinglist/mailinglist_list.html',
-    //          controller: 'ng_components/mailinglist/mailinglist_list-controller.js',
-    //        }
-    //      }
-    //    })
-    //    .state('mailinglist.detail', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/mailinglist/mailinglist_detail.html',
-    //      controller: 'ng_components/mailinglist/mailinglist_detail-controller.js'
-    //    })
-    //
+
+      .state('inconsistentuser', {
+        abstract: true,
+        url: '/inconsistentuser',
+        templateUrl: 'ng_components/inconsistentuser/inconsistentuser.html',
+        resolve: {
+          allInconsistents: function(User) {
+            return User.getAllInconsistent(function(users) {
+              return users;
+            });
+          }
+        }
+      })
+      .state('inconsistentuser.list', {
+        url: '/list',
+        templateUrl: 'ng_components/inconsistentuser/inconsistentuser_list.tpl.html',
+        controller: 'InconsistentUserListCtrl',
+      })
+      .state('inconsistentuser.detail', {
+        url: '/:uuid',
+        resolve: {
+          currentUser: function(allInconsistents, $stateParams) {
+            return _.find(allInconsistents, {uuid: $stateParams.uuid});
+          },
+          allDomains: allDomains,
+        },
+        templateUrl: 'ng_components/inconsistentuser/inconsistentuser_detail.tpl.html',
+        controller: 'InconsistentUserDetailCtrl',
+      })
+
+      .state('thread', {
+        abstract: true,
+        url: '/thread',
+        templateUrl: 'ng_components/thread/thread.html'
+      })
+      .state('thread.list', {
+        url: '/list',
+        templateUrl: 'ng_components/thread/thread_list.tpl.html',
+        controller: 'ThreadListCtrl',
+        resolve: {
+          threads: allThreads,
+        }
+      })
+      .state('thread.detail', {
+        url: '/:id',
+        templateUrl: 'ng_components/thread/thread_detail.tpl.html',
+        controller: 'ThreadDetailCtrl',
+        resolve: {
+          currentThread: function($stateParams, Thread) {
+            if ($stateParams.id) {
+              return Thread.get($stateParams.id, function(thread) {
+                return thread;
+              });
+            }
+          }
+        }
+      })
+    
+      .state('mailinglist', {
+        abstract: true,
+        url: '/mailinglist',
+        templateUrl: 'ng_components/mailinglist/mailinglist.html'
+      })
+      .state('mailinglist.list', {
+        url: '/list',
+        templateUrl: 'ng_components/mailinglist/mailinglist_list.tpl.html',
+        controller: 'MailingListListCtrl',
+        resolve: {
+          mailingLists: allMailingLists,
+        }
+      })
+      .state('mailinglist.detail', {
+        url: '/:id',
+        templateUrl: 'ng_components/mailinglist/mailinglist_detail.tpl.html',
+        controller: 'MailingListDetailCtrl',
+        resolve: {
+          currentMailingList: function($stateParams, MailingList) {
+            if ($stateParams.id) {
+              return MailingList.get($stateParams.id, function(mailingList) {
+                return mailingList;
+              });
+            }
+          }
+        }
+      })
+
       .state('audit', {
         abstract: true,
         templateUrl: 'ng_components/audit/audit.html',
@@ -341,7 +389,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-    
+
       .state('ldapconnection', {
         abstract: true,
         url: '/ldapconnection',
@@ -402,26 +450,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-    //    .state('domainpattern', {
-    //      abstract: true,
-    //      url: '/domainpattern',
-    //      templateUrl: 'ng_components/domainpattern/domainpattern.html'
-    //    })
-    //    .state('domainpattern.list', {
-    //      url: '/list',
-    //      views: {
-    //        'list': {
-    //          templateUrl: 'ng_components/domainpattern/domainpattern_list.html',
-    //          controller: 'ng_components/domainpattern/domainpattern_list-controller.js',
-    //        }
-    //      }
-    //    })
-    //    .state('domainpattern.detail', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/domainpattern/domainpattern_detail.html',
-    //      controller: 'ng_components/domainpattern/domainpattern_detail-controller.js'
-    //    })
-    //
+
       .state('domain', {
         url: '/domain',
         abstract: true,
@@ -480,88 +509,326 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
     //    controller: 'DomainOrderCtrl'
     //  })
     //
-    //    .state('domainpolicy', {
-    //      abstract: true,
-    //      url: '/domainpolicy',
-    //      templateUrl: 'ng_components/domainpolicy/domainpolicy.html'
-    //    })
-    //    .state('domainpolicy.list', {
-    //      url: '/list',
-    //      views: {
-    //        'list': {
-    //          templateUrl: 'ng_components/domainpolicy/domainpolicy_list.html',
-    //          controller: 'ng_components/domainpolicy/domainpolicy_list-controller.js',
-    //        }
-    //      }
-    //    })
-    //    .state('domainpolicy.detail', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/domainpolicy/domainpolicy_detail.html',
-    //      controller: 'ng_components/domainpolicy/domainpolicy_detail-controller.js'
-    //    })
-    //
-    //    .state('maillayout', {
-    //      abstract: true,
-    //      url: '/maillayout',
-    //      templateUrl: 'ng_components/maillayout/maillayout.html'
-    //    })
-    //    .state('maillayout.list', {
-    //      url: '/list',
-    //      views: {
-    //        'tree@domain': {},
-    //        'list': {
-    //          templateUrl: 'ng_components/maillayout/maillayout_list.html',
-    //          controller: 'ng_components/maillayout/maillayout_list-controller.js',
-    //        }
-    //      }
-    //    })
-    //    .state('maillayout.detail', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/maillayout/maillayout_detail.html',
-    //      controller: 'ng_components/maillayout/maillayout_detail-controller.js'
-    //    })
-    //
-    //    .state('mailcontent', {
-    //      abstract: true,
-    //      url: '/mailcontent',
-    //      templateUrl: 'ng_components/mailcontent/mailcontent.html'
-    //    })
-    //    .state('mailcontent.list', {
-    //      url: '/list',
-    //      views: {
-    //        'tree@domain': {},
-    //        'list': {
-    //          templateUrl: 'ng_components/mailcontent/mailcontent_list.html',
-    //          controller: 'ng_components/mailcontent/mailcontent_list-controller.js',
-    //        }
-    //      }
-    //    })
-    //    .state('mailcontent.detail', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/mailcontent/mailcontent_detail.html',
-    //      controller: 'ng_components/mailcontent/mailcontent_detail-controller.js'
-    //    })
-    //
-    //    .state('mailfooter', {
-    //      abstract: true,
-    //      url: '/mailfooter',
-    //      templateUrl: 'ng_components/mailfooter/mailfooter.html'
-    //    })
-    //    .state('mailfooter.list', {
-    //      url: '/list',
-    //      views: {
-    //        'tree@domain': {},
-    //        'list': {
-    //          templateUrl: 'ng_components/mailfooter/mailfooter_list.html',
-    //          controller: 'ng_components/mailfooter/mailfooter_list-controller.js',
-    //        }
-    //      }
-    //    })
-    //    .state('mailfooter.detail', {
-    //      url: '/:id'
-    //      templateUrl: 'ng_components/mailfooter/mailfooter_detail.html',
-    //      controller: 'ng_components/mailfooter/mailfooter_detail-controller.js'
-    //    })
+      .state('domainpolicy', {
+        abstract: true,
+        url: '/domainpolicy',
+        templateUrl: 'ng_components/domainpolicy/domainpolicy.html'
+      })
+      .state('domainpolicy.list', {
+        url: '/list',
+        templateUrl: 'ng_components/domainpolicy/domainpolicy_list.tpl.html',
+        controller: 'DomainPolicyListCtrl',
+        resolve: {
+          domainPolicies: allDomainPolicies,
+        }
+      })
+      .state('domainpolicy.detail', {
+        url: '/:id?formState',
+        templateUrl: 'ng_components/domainpolicy/domainpolicy_detail.tpl.html',
+        controller: 'DomainPolicyDetailCtrl',
+        resolve: {
+          selectOptions: function(_allDomains, _enumDomainAccessRuleTypes) {
+            return {
+              domains: _allDomains,
+              domainAccessRuleTypes: _enumDomainAccessRuleTypes,
+            };
+          },
+          currentDomainPolicy: function($stateParams, DomainPolicy) {
+            if ($stateParams.id) {
+              return DomainPolicy.get($stateParams.id, function(domainPolicy) {
+                return domainPolicy;
+              });
+            }
+          },
+          _allDomains: allDomains,
+          _enumDomainAccessRuleTypes: enumDomainAccessRuleTypes,
+        }
+      })
+
+      .state('maillayout', {
+        abstract: true,
+        url: '/maillayout',
+        templateUrl: 'ng_components/maillayout/maillayout.html',
+        resolve: {
+          treeType: function() {
+            return 'read';
+          },
+          authenticatedUser: authenticatedUser,
+        },
+        controller: function($scope, $state) {
+          // Needed to conditional view loading
+          $scope.$state = $state;
+        }
+      })
+      .state('maillayout.list', {
+        url: '/list?domainId',
+        views: {
+          'tree': domainTreeView,
+          'list': {
+            templateUrl: 'ng_components/maillayout/maillayout_list.tpl.html',
+            controller: 'MailLayoutListCtrl',
+            resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                if ($stateParams.domainId) {
+                  return Domain.get($stateParams.domainId, function(domain) {
+                    return domain;
+                  });
+                }
+              },
+              mailLayouts: function(MailLayout, currentDomain) {
+                if (currentDomain) {
+                  return MailLayout.getAll(currentDomain.identifier, true, function(mailLayouts) {
+                    return mailLayouts;
+                  });
+                }
+              }
+            }
+          },
+        },
+      })
+      .state('maillayout.detail', {
+        url: '/detail/:id?domainId',
+        views: {
+          'tree': domainTreeView,
+          'detail': {
+            templateUrl: 'ng_components/maillayout/maillayout_detail.tpl.html',
+            controller: 'MailLayoutDetailCtrl',
+            resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                return Domain.get($stateParams.domainId, function(domain) {
+                  return domain;
+                });
+              },
+              currentMailLayout: function(MailLayout, $stateParams) {
+                return MailLayout.get($stateParams.domainId, $stateParams.id, function(maillayout) {
+                  return maillayout;
+                });
+              }
+            }
+          },
+        },
+      })
+
+      .state('mailcontent', {
+        abstract: true,
+        url: '/mailcontent',
+        templateUrl: 'ng_components/mailcontent/mailcontent.html',
+        resolve: {
+          treeType: function() {
+            return 'read';
+          },
+          authenticatedUser: authenticatedUser,
+        },
+        controller: function($scope, $state) {
+          // Needed to conditional view loading
+          $scope.$state = $state;
+        }
+      })
+      .state('mailcontent.list', {
+        url: '/list?domainId',
+        views: {
+          'tree': domainTreeView,
+          'list': {
+            templateUrl: 'ng_components/mailcontent/mailcontent_list.tpl.html',
+            controller: 'MailContentListCtrl',
+            resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                if ($stateParams.domainId) {
+                  return Domain.get($stateParams.domainId, function(domain) {
+                    return domain;
+                  });
+                }
+              },
+              mailContents: function(MailContent, currentDomain) {
+                if (currentDomain) {
+                  return MailContent.getAll(currentDomain.identifier, true, function(mailContents) {
+                    return mailContents;
+                  });
+                }
+              }
+            }
+          },
+        },
+      })
+      .state('mailcontent.detail', {
+        url: '/detail/:id?domainId',
+        views: {
+          'tree': domainTreeView,
+          'detail': {
+            templateUrl: 'ng_components/mailcontent/mailcontent_detail.tpl.html',
+            controller: 'MailContentDetailCtrl',
+            resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                return Domain.get($stateParams.domainId, function(domain) {
+                  return domain;
+                });
+              },
+              currentMailContent: function(MailContent, $stateParams) {
+                return MailContent.get($stateParams.domainId, $stateParams.id, function(mailcontent) {
+                  return mailcontent;
+                });
+              }
+            }
+          },
+        },
+      })
+
+      .state('mailfooter', {
+        abstract: true,
+        url: '/mailfooter',
+        templateUrl: 'ng_components/mailfooter/mailfooter.html',
+        resolve: {
+          treeType: function() {
+            return 'read';
+          },
+          authenticatedUser: authenticatedUser,
+        },
+        controller: function($scope, $state) {
+          // Needed to conditional view loading
+          $scope.$state = $state;
+        }
+      })
+      .state('mailfooter.list', {
+        url: '/list?domainId',
+        views: {
+          'tree': domainTreeView,
+          'list': {
+            templateUrl: 'ng_components/mailfooter/mailfooter_list.tpl.html',
+            controller: 'MailFooterListCtrl',
+            resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                if ($stateParams.domainId) {
+                  return Domain.get($stateParams.domainId, function(domain) {
+                    return domain;
+                  });
+                }
+              },
+              mailFooters: function(MailFooter, currentDomain) {
+                if (currentDomain) {
+                  return MailFooter.getAll(currentDomain.identifier, true, function(mailFooters) {
+                    return mailFooters;
+                  });
+                }
+              }
+            }
+          },
+        },
+      })
+      .state('mailfooter.detail', {
+        url: '/detail/:id?domainId',
+        views: {
+          'tree': domainTreeView,
+          'detail': {
+            templateUrl: 'ng_components/mailfooter/mailfooter_detail.tpl.html',
+            controller: 'MailFooterDetailCtrl',
+            resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                return Domain.get($stateParams.domainId, function(domain) {
+                  return domain;
+                });
+              },
+              currentMailFooter: function(MailFooter, $stateParams) {
+                return MailFooter.get($stateParams.domainId, $stateParams.id, function(mailfooter) {
+                  return mailfooter;
+                });
+              }
+            }
+          },
+        },
+      })
+
+      .state('mailconfig', {
+        abstract: true,
+        url: '/mailconfig',
+        templateUrl: 'ng_components/mailconfig/mailconfig.html',
+        resolve: {
+          treeType: function() {
+            return 'read';
+          },
+          authenticatedUser: authenticatedUser,
+        },
+        controller: function($scope, $state) {
+          // Needed to conditional view loading
+          $scope.$state = $state;
+        }
+      })
+      .state('mailconfig.list', {
+        url: '/list?domainId',
+        views: {
+          'tree': domainTreeView,
+          'list': {
+            templateUrl: 'ng_components/mailconfig/mailconfig_list.tpl.html',
+            controller: 'MailConfigListCtrl',
+            resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                if ($stateParams.domainId) {
+                  return Domain.get($stateParams.domainId, function(domain) {
+                    return domain;
+                  });
+                }
+              },
+              mailConfigs: function(MailConfig, currentDomain) {
+                if (currentDomain) {
+                  return MailConfig.getAll(currentDomain.identifier, true, function(mailConfigs) {
+                    return mailConfigs;
+                  });
+                }
+              }
+            }
+          },
+        },
+      })
+      .state('mailconfig.detail', {
+        url: '/detail/:id?domainId&language&mailContentLangId',
+        views: {
+          'detail': {
+            templateUrl: 'ng_components/mailconfig/mailconfig_detail.tpl.html',
+            controller: 'MailConfigDetailCtrl',
+            resolve: {
+              mailLayouts: function(MailLayout, $stateParams) {
+                return MailLayout.getAll($stateParams.domainId, false, function(mailLayouts) {
+                  return mailLayouts;
+                });
+              },
+              mailFooterLangs: function(MailConfig, $stateParams) {
+                return MailConfig.getAllMailFooters($stateParams.id, $stateParams.language, function(mailFooterLangs) {
+                  return mailFooterLangs;
+                });
+              },
+              currentDomain: function(Domain, $stateParams) {
+                return Domain.get($stateParams.domainId, function(domain) {
+                  return domain;
+                });
+              },
+              currentMailConfig: function(MailConfig, $stateParams) {
+                return MailConfig.get($stateParams.domainId, $stateParams.id, function(mailconfig) {
+                  return mailconfig;
+                });
+              }
+            }
+          },
+          'mailcontentlang': {
+            templateUrl: 'ng_components/mailcontent/mailcontentlang_detail.tpl.html',
+            controller: 'MailContentLangDetailCtrl',
+            resolve: {
+              currentMailContentLang: function(MailContentLang, $stateParams, $q) {
+                if ($stateParams.mailContentLangId) {
+                  return MailContentLang.get($stateParams.mailContentLangId, function(mailContentLang) {
+                    return mailContentLang;
+                  });
+                }
+              },
+              mailContents: function(MailConfig, currentMailContentLang, $stateParams) {
+                if (currentMailContentLang) {
+                  return MailConfig.getAllMailContents($stateParams.id, currentMailContentLang.language, currentMailContentLang.mailContentType, function(mailContents) {
+                    return mailContents;
+                  });
+                }
+              },
+            }
+          }
+        },
+      })
     //
     //    .state('mailconfig', {
     //      abstract: true,

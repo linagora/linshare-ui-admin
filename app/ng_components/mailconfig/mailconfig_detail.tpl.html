@@ -69,7 +69,7 @@
           <label for="mailLayoutText">
             {{ 'MAIL_CONFIG.BOX_FORM.LABEL_MAIL_LAYOUT_TEXT' | translate }}
           </label>
-          <select id="mailLayoutText" name="mailLayoutText" required
+          <select id="mailLayoutText" name="mailLayoutText" class="form-control" required
                   x-ng-model="mailConfig.mailLayoutText"
                   x-ng-change="update(false)"
                   x-ng-options="mlt.uuid as mlt.name for mlt in mailLayouts | orderBy:'name' | filter:{plaintext: true}">
@@ -82,7 +82,7 @@
           <label for="mailLayoutHtml">
             {{ 'MAIL_CONFIG.BOX_FORM.LABEL_MAIL_LAYOUT_HTML' | translate }}
           </label>
-          <select id="mailLayoutHtml" name="mailLayoutHtml" required
+          <select id="mailLayoutHtml" name="mailLayoutHtml" class="form-control" required
                   x-ng-model="mailConfig.mailLayoutHtml"
                   x-ng-change="update(false)"
                   x-ng-options="mlh.uuid as mlh.name for mlh in mailLayouts | orderBy:'name' | filter:{plaintext: false}">
@@ -93,7 +93,7 @@
           <table class="table table-striped"
                  x-ng-table="tableParams">
             <tr x-ng-repeat="mailContentLang in $data"
-                x-ng-click="editMailContentLang(mailContentLang)">
+                x-ui-sref="{mailContentLangId: mailContentLang.uuid}">
               <td style="cursor: pointer"
                   data-title="'MAIL_CONFIG.BOX_FORM.TABLE.HEADER_MAIL_CONTENT_TYPE' | translate"
                   sortable="'mailContentType'">
@@ -117,7 +117,7 @@
           <label for="mailFooter">
             {{ 'MAIL_CONFIG.BOX_FORM.LABEL_MAIL_FOOTER_LANG' | translate }}
           </label>
-          <select id="mailFooter" name="mailFooterLang" required
+          <select id="mailFooter" name="mailFooterLang" class="form-control" required
                   x-ng-model="mailConfig.mailFooterLangs[filters.language].mailFooter"
                   x-ng-change="updateMailFooterLang(mailConfig.mailFooterLangs[filters.language])"
                   x-ng-options="mfl.uuid as mfl.name for mfl in mailFooterLangs | orderBy:'name'">

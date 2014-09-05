@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('mailFooterModalCtrl',
-    ['$scope', '$log', '$translate', '$modalInstance', 'Domain', 'MailFooter',
-      function ($scope, $log, $translate, $modalInstance, Domain, MailFooter) {
+    ['$scope', '$log', '$translate', '$state', '$modalInstance', 'Domain', 'MailFooter',
+      function ($scope, $log, $translate, $state, $modalInstance, Domain, MailFooter) {
         Domain.getAll(function(domains) {
           $scope.domains = domains;
         });
@@ -13,7 +13,7 @@ angular.module('linshareAdminApp')
         $scope.reloadModels = function(lang, domain) {
           if (angular.isDefined(domain) &&
               angular.isDefined(lang)) {
-            MailFooter.getAll(Domain.getId(domain), false, function(models) {
+            MailFooter.getAll(domain.identifier, false, function(models) {
               $scope.models = models;
             });
           }
@@ -25,12 +25,13 @@ angular.module('linshareAdminApp')
           delete $scope.mailFooter.uuid;
           delete $scope.mailFooter.creationDate;
           delete $scope.mailFooter.modificationDate;
-          $scope.mailFooter.domain = Domain.getCurrentId();
+          $scope.mailFooter.domain = $state.params.domainId;
           MailFooter.add($scope.mailFooter,
             function successCallback(mailFooter) {
               MailFooter.setCurrent(mailFooter);
               $modalInstance.close();
               $scope.reset();
+              $state.reinit();
             }
           );
         };

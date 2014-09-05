@@ -6,19 +6,10 @@
     </small>
   </h1>
 </section>
-<section class="content"
-         x-ng-controller="DomainPolicyCtrl">
+<section class="content">
   <div class="row">
     <section class="col-lg-12">
-      <!-- Form -->
-      <div x-ng-if="getCurrentDomainPolicy()">
-        <div x-ls-domain-policy-form></div>
-      </div>
-
-      <!-- List -->
-      <div x-ng-if="!getCurrentDomainPolicy()">
-        <div x-ls-domain-policy-list></div>
-      </div>
+      <div x-ui-view />
     </section>
   </div>
 </section>

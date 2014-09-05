@@ -65,7 +65,7 @@ angular.module('linshareAdminApp', [
     // Force reloading controller (https://github.com/angular-ui/ui-router/issues/582)
     $provide.decorator('$state', function($delegate) {
       $delegate.reinit = function() {
-        this.go('.', {}, {reload: true});;
+        this.go('.', {}, {reload: true});
       };
       return $delegate;
     });

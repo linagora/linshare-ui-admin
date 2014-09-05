@@ -9,7 +9,7 @@
       <table class="table table-striped"
              x-ng-table="tableParams">
         <tr x-ng-repeat="mail in $data"
-            x-ng-click="edit(mail)">
+          x-ui-sref="mailinglist.detail({id: mail.uuid})">
           <td style="cursor: pointer"
               data-title="'MAILING_LISTS.BOX_LIST.TABLE.HEADER_IDENTIFIER' | translate"
               sortable="'identifier'">

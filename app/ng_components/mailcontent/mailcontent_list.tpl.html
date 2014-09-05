@@ -16,10 +16,6 @@
           {{ 'MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.FRENCH' | translate }}
         </label>
       </div>
-      <button class="btn btn-primary btn-sm"
-              x-ng-click="cancel()">
-        <i class="fa fa-times"></i>
-      </button>
     </div>
   </div>
   <div class="box-body">
@@ -32,7 +28,7 @@
       <table class="table table-striped"
              x-ng-table="tableParams">
         <tr x-ng-repeat="mailContent in $data"
-            x-ng-click="edit(mailContent)">
+            x-ui-sref="mailcontent.detail({id: mailContent.uuid, domainId: mailContent.domain})">
           <td style="cursor: pointer"
               data-title="'MAIL_CONTENT.BOX_LIST.TABLE.HEADER_NAME' | translate"
               sortable="'name'">

@@ -3,9 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('Thread', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
-      this.currentThread = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -22,6 +20,24 @@ angular.module('linshareAdminApp')
                 [
                  'Thread:getAll',
                  'Unable to get all threads',
+                ].join('\n')
+              );
+            }
+          );
+        },
+        get: function(id, successCallback) {
+          $log.debug('Thread:get');
+          return Restangular.one('threads', id).get().then(
+            function success(threads) {
+              if (successCallback) {
+                return successCallback(threads);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'Thread:get',
+                 'Unable to get a thread',
                 ].join('\n')
               );
             }
@@ -67,19 +83,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(thread) {
-          $log.debug('Thread:setCurrent');
-          self.currentThread = thread;
-        },
-        getCurrent: function() {
-          return self.currentThread;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentThread);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentThread);
-        }
       };
     }
   ]

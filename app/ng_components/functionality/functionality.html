@@ -9,11 +9,11 @@
 <section class="content">
   <div class="row">
     <section class="col-md-4">
-      <div x-ui-view="tree"/>
+      <div x-ui-view="tree" />
     </section>
     <section class="col-md-8">
-      <div x-ui-view="list"/>
-      <div x-ui-view="detail"/>
+      <div x-ui-view="list" x-ng-show="$state.params.domainId" />
+      <div x-ui-view="detail" />
     </section>
   </div>
 </section>

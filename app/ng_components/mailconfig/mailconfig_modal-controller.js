@@ -2,15 +2,15 @@
 
 angular.module('linshareAdminApp')
   .controller('mailConfigModalCtrl',
-    ['$scope', '$log', '$modalInstance', 'Domain', 'MailConfig',
-      function ($scope, $log, $modalInstance, Domain, MailConfig) {
+    ['$scope', '$log', '$state', '$modalInstance', 'MailConfig',
+      function ($scope, $log, $state, $modalInstance, MailConfig) {
         $scope.create = function () {
-          console.log($scope.mailConfig);
           MailConfig.add($scope.mailConfig,
             function successCallback(mailConfig) {
               MailConfig.setCurrent(mailConfig);
               $modalInstance.close();
               $scope.reset();
+              $state.reinit();
             }
           );
         };
@@ -21,7 +21,7 @@ angular.module('linshareAdminApp')
         $scope.reset = function() {
           $scope.mailConfig = {
             visible: false,
-            domain: Domain.getCurrentId()
+            domain: $state.params.domainId
           };
         };
         $scope.reset();

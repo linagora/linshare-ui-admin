@@ -6,24 +6,20 @@
     </small>
   </h1>
 </section>
-<section class="content"
-         x-ng-controller="MailConfigCtrl">
+<section class="content">
   <div class="row">
-    <section class="col-md-4"
-             x-ng-if="!getCurrentMailConfig()">
-      <div x-ls-domain-tree root="root"></div>
+    <section class="col-md-4">
+      <div x-ui-view="tree"/>
     </section>
-    <section class="col-md-6"
-             x-ng-if="getCurrentDomain() && getCurrentMailConfig()">
-      <div x-ls-mail-config-form></div>
+    <section class="col-md-8">
+      <div x-ui-view="list" x-ng-show="$state.params.domainId" />
     </section>
-    <section class="col-md-8"
-             x-ng-if="getCurrentDomain() && !getCurrentMailConfig()">
-      <div x-ls-mail-config-list></div>
+    <section class="col-md-6">
+      <div x-ui-view="detail"/>
     </section>
-    <section class="col-md-6"
-             x-ng-if="getCurrentDomain() && getCurrentMailConfig() && getCurrentMailContentLang()">
-      <div x-ls-mail-content-lang-form></div>
+    <section class="col-md-6">
+      <div x-ui-view="mailcontentlang"
+           x-ng-show="$state.params.mailContentLangId"/>
     </section>
   </div>
 </section>

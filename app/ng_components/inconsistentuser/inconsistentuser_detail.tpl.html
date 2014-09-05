@@ -26,7 +26,7 @@
             </label>
             <select name="domain" class="form-control" required
                     x-ng-model="domain"
-                    x-ng-options="domain.originalElement as domain.label for domain in allDomains | orderBy:'label'">
+                    x-ng-options="domain.identifier as domain.label for domain in allDomains | orderBy:'label'">
             </select>
           </div>
         </div>

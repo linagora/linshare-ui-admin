@@ -3,9 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('DomainPolicy', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
-      this.currentDomainPolicy = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -22,6 +20,24 @@ angular.module('linshareAdminApp')
                 [
                  'DomainPolicy:getAll',
                  'Unable to get all domain policies',
+                ].join('\n')
+              );
+            }
+          );
+        },
+        get: function(id, successCallback) {
+          $log.debug('DomainPolicy:get');
+          return Restangular.one('domain_policies', id).get().then(
+            function success(domainPolicy) {
+              if (successCallback) {
+                return successCallback(domainPolicy);
+              }
+            },
+            function error() {
+              $log.error(
+                [
+                 'DomainPolicy:get',
+                 'Unable to get a domain policy',
                 ].join('\n')
               );
             }
@@ -87,22 +103,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(domainPolicy) {
-          $log.debug('DomainPolicy:setCurrent');
-          self.currentDomainPolicy = domainPolicy;
-        },
-        getCurrent: function() {
-          return self.currentDomainPolicy;
-        },
-        getId: function(domainPolicy) {
-          return domainPolicy.identifier;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentDomainPolicy);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentDomainPolicy);
-        }
       };
     }
   ]

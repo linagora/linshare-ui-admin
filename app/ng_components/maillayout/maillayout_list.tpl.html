@@ -3,12 +3,6 @@
     <h3 class="box-title">
       {{domain.label}}
     </h3>
-    <div class="pull-right box-tools">
-      <button class="btn btn-primary btn-sm"
-              x-ng-click="cancel()">
-        <i class="fa fa-times"></i>
-      </button>
-    </div>
   </div>
   <div class="box-body">
     <button type="button" class="btn btn-success"
@@ -20,7 +14,7 @@
       <table class="table table-striped"
              x-ng-table="tableParams">
         <tr x-ng-repeat="mailLayout in $data"
-            x-ng-click="edit(mailLayout)">
+            x-ui-sref="maillayout.detail({id: mailLayout.uuid, domainId: mailLayout.domain})">
           <td style="cursor: pointer"
               data-title="'MAIL_LAYOUT.BOX_LIST.TABLE.HEADER_NAME' | translate">
             <span>

@@ -4,9 +4,7 @@ angular.module('linshareAdminApp')
   .factory('MailLayout',
     ['$log', 'Notification', 'Restangular',
     function ($log, Notification, Restangular) {
-      this.currentMailLayout = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
@@ -114,19 +112,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(mailLayout) {
-          $log.debug('MailLayout:setCurrent');
-          self.currentMailLayout = mailLayout;
-        },
-        getCurrent: function() {
-          return self.currentMailLayout;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentMailLayout);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentMailLayout);
-        }
       };
     }
   ]

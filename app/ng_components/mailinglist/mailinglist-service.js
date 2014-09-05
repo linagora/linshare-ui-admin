@@ -1,16 +1,14 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('Mail', ['$log', 'Restangular', 'Notification',
+  .factory('MailingList', ['$log', 'Restangular', 'Notification',
     function ($log, Restangular, Notification) {
-      this.currentMail = undefined;
-
-      var self = this;
+      //var self = this;
 
       // Public API here
       return {
         getAll: function(successCallback) {
-          $log.debug('Mail:getAll');
+          $log.debug('MailingList:getAll');
           return Restangular.all('lists').getList().then(
             function success(mails) {
               if (successCallback) {
@@ -20,7 +18,7 @@ angular.module('linshareAdminApp')
             function error() {
               $log.error(
                 [
-                 'Mail:getAll',
+                 'MailingList:getAll',
                  'Unable to get all mailing lists',
                 ].join('\n')
               );
@@ -28,7 +26,7 @@ angular.module('linshareAdminApp')
           );
         },
         get: function(mailId, successCallback) {
-          $log.debug('Mail:get');
+          $log.debug('MailingList:get');
           return Restangular.one('lists', mailId).get().then(
             function success(mail) {
               if (successCallback) {
@@ -38,7 +36,7 @@ angular.module('linshareAdminApp')
             function error() {
               $log.error(
                 [
-                 'Mail:get',
+                 'MailingList:get',
                  'Unable to get mailing list',
                  mailId
                 ].join('\n')
@@ -47,7 +45,7 @@ angular.module('linshareAdminApp')
           );
         },
         update: function(mail, successCallback) {
-          $log.debug('Mail:update');
+          $log.debug('MailingList:update');
           return mail.put().then(
             function success(mail) {
               Notification.addSuccess('UPDATE');
@@ -58,7 +56,7 @@ angular.module('linshareAdminApp')
             function error() {
               $log.error(
                 [
-                 'Mail:update',
+                 'MailingList:update',
                  'Unable to update mailing list',
                 ].join('\n')
               );
@@ -67,7 +65,7 @@ angular.module('linshareAdminApp')
           );
         },
         remove: function(mail, successCallback) {
-          $log.debug('Mail:remove');
+          $log.debug('MailingList:remove');
           return mail.remove().then(
             function success(mail) {
               Notification.addSuccess('DELETE');
@@ -78,7 +76,7 @@ angular.module('linshareAdminApp')
             function error() {
               $log.error(
                 [
-                 'Mail:remove',
+                 'MailingList:remove',
                  'Unable to remove mailing list',
                 ].join('\n')
               );
@@ -87,7 +85,7 @@ angular.module('linshareAdminApp')
           );
         },
         addContact: function(mailId, contact, successCallback) {
-          $log.debug('Mail:addContact');
+          $log.debug('MailingList:addContact');
           return Restangular.one('lists', mailId).all('contacts').customPOST(contact).then(
             function success(contact) {
               if (successCallback) {
@@ -97,7 +95,7 @@ angular.module('linshareAdminApp')
             function error() {
               $log.error(
                 [
-                 'Mail:addContact',
+                 'MailingList:addContact',
                  'Unable to add contact',
                  mailId
                 ].join('\n')
@@ -107,7 +105,7 @@ angular.module('linshareAdminApp')
           );
         },
         removeContact: function(mailId, contact, successCallback) {
-          $log.debug('Mail:removeContact');
+          $log.debug('MailingList:removeContact');
           return Restangular.one('lists', mailId).all('contacts').customOperation('remove', '', {}, {}, contact).then(
             function success(contact) {
               if (successCallback) {
@@ -117,7 +115,7 @@ angular.module('linshareAdminApp')
             function error() {
               $log.error(
                 [
-                 'Mail:removeContact',
+                 'MailingList:removeContact',
                  'Unable to remove contact in',
                  mailId
                 ].join('\n')
@@ -126,19 +124,6 @@ angular.module('linshareAdminApp')
             }
           );
         },
-        setCurrent: function(mail) {
-          $log.debug('Mail:setCurrent');
-          self.currentMail = mail;
-        },
-        getCurrent: function() {
-          return self.currentMail;
-        },
-        copyCurrent: function() {
-          return Restangular.copy(self.currentMail);
-        },
-        currentIsDefined: function() {
-          return angular.isDefined(self.currentMail);
-        }
       };
     }
   ]

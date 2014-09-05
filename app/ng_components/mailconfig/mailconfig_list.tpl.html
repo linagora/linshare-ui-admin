@@ -14,7 +14,7 @@
       <table class="table table-striped"
              x-ng-table="tableParams">
         <tr x-ng-repeat="mailConfig in $data"
-            x-ng-click="edit(mailConfig)">
+            x-ui-sref="mailconfig.detail({id: mailConfig.uuid, domainId: mailConfig.domain, language: 'ENGLISH'})">
           <td style="cursor: pointer"
               data-title="'MAIL_CONFIG.BOX_LIST.TABLE.HEADER_NAME' | translate"
               sortable="'name'">

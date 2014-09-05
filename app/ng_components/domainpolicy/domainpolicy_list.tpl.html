@@ -6,7 +6,7 @@
     <div class="pull-right box-tools">
       <div class="btn-group">
         <button class="btn btn-primary" type="button"
-                x-ng-click="create()">
+                x-ui-sref="domainpolicy.detail({formState: 'create'})">
           <span>
             <i class="fa fa-plus"></i> 
             {{ 'DOMAIN_POLICIES.BOX_LIST.BUTTON_ADD' | translate }}
@@ -21,7 +21,7 @@
              x-ng-table="tableParams">
         <tbody>
           <tr x-ng-repeat="domainPolicy in $data"
-              x-ng-click="edit(domainPolicy)">
+              x-ui-sref="domainpolicy.detail({id: domainPolicy.identifier, formState: 'edit'})">
             <td data-title="'DOMAIN_POLICIES.BOX_LIST.TABLE.HEADER_IDENTIFIER' | translate"
                 sortable="'identifier'">
               <span>

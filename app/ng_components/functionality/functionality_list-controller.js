@@ -13,9 +13,6 @@ angular.module('linshareAdminApp')
       $scope.isActivated = function(functionality) {
         return functionality.activationPolicy.status;
       };
-      $scope.cancel = function() {
-        $state.go('functionality.list', {domainId: null});
-      };
       $scope.localizedName = function(column) {
         var def = $q.defer();
         var names = [];

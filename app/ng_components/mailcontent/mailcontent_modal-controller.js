@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('mailContentModalCtrl',
-    ['$scope', '$log', '$translate', '$modalInstance', 'Domain', 'Enum', 'MailContent',
-      function ($scope, $log, $translate, $modalInstance, Domain, Enum, MailContent) {
+    ['$scope', '$log', '$translate', '$state', '$modalInstance', 'Domain', 'Enum', 'MailContent',
+      function ($scope, $log, $translate, $state, $modalInstance, Domain, Enum, MailContent) {
         Enum.getOptions('mail_content_type',
           function successCallback(options) {
             $scope.mailContentTypes = options;
@@ -31,12 +31,13 @@ angular.module('linshareAdminApp')
           delete $scope.mailContent.uuid;
           delete $scope.mailContent.creationDate;
           delete $scope.mailContent.modificationDate;
-          $scope.mailContent.domain = Domain.getCurrentId();
+          $scope.mailContent.domain = $state.params.domainId;
           MailContent.add($scope.mailContent,
             function successCallback(mailContent) {
               MailContent.setCurrent(mailContent);
               $modalInstance.close();
               $scope.reset();
+              $state.reinit();
             }
           );
         };

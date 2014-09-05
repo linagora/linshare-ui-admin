@@ -31,7 +31,7 @@
           <label for="domain">
             {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_DOMAIN' | translate }}
           </label>
-          <select id="domain" name="domain" required
+          <select id="domain" name="domain" class="form-control" required
                   x-ng-model="domain"
                   x-ng-change="reloadModels(lang, domain, mailContentType)"
                   x-ng-options="d.identifier for d in domains | orderBy:'identifier'">
@@ -45,7 +45,7 @@
           <label for="contentType">
             {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_CONTENT_TYPE' | translate }}
           </label>
-          <select id="contentType" name="contentType" required
+          <select id="contentType" name="contentType" class="form-control" required
                   x-ng-model="mailContentType"
                   x-ng-change="reloadModels(lang, domain, mailContentType)"
                   x-ng-options="'COMMON.ENUM.MAIL_CONTENT_TYPE.' + m | translate for m in mailContentTypes">
@@ -59,7 +59,7 @@
           <label for="lang">
             {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_LANGUAGE' | translate }}
           </label>
-          <select id="lang" name="lang" required
+          <select id="lang" name="lang" class="form-control" required
                   x-ng-model="lang"
                   x-ng-change="reloadModels(lang, domain, mailContentType)"
                   x-ng-options="'MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.' + l | translate for l in ['ENGLISH', 'FRENCH']">
@@ -73,7 +73,7 @@
           <label for="model">
             {{ 'MAIL_CONTENT.MODAL_FORM.LABEL_MODEL' | translate }}
           </label>
-          <select id="model" name="model" required
+          <select id="model" name="model" class="form-control" required
                   x-ng-model="model"
                   x-ng-options="m.name for m in models | filter:{language: lang, mailContentType: mailContentType} | orderBy:'name'">
           </select>

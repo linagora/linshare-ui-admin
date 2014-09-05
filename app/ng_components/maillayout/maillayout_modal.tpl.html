@@ -30,7 +30,7 @@
           <label for="domain">
             {{ 'MAIL_LAYOUT.MODAL_FORM.LABEL_DOMAIN' | translate }}
           </label>
-          <select id="domain" name="domain" required
+          <select id="domain" name="domain" class="form-control" required
                   x-ng-model="domain"
                   x-ng-change="reloadModels(domain)"
                   x-ng-options="d.identifier for d in domains | orderBy:'identifier'">
@@ -44,7 +44,7 @@
           <label for="model">
             {{ 'MAIL_LAYOUT.MODAL_FORM.LABEL_MODEL' | translate }}
           </label>
-          <select id="model" name="model" required
+          <select id="model" name="model" class="form-control" required
                   x-ng-model="model"
                   x-ng-options="m.name for m in models | orderBy:'name'">
           </select>

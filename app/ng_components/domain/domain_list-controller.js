@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp')
   .controller('DomainListCtrl',
     [
-    function(){
+    function() {
 
     }]
   );

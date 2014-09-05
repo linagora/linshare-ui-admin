@@ -9,7 +9,7 @@
       <table class="table table-striped"
              x-ng-table="tableParams">
         <tr x-ng-repeat="thread in $data"
-            x-ng-click="edit(thread)">
+          x-ui-sref="thread.detail({id: thread.uuid})">
           <td style="cursor: pointer"
               data-title="'THREADS.BOX_LIST.TABLE.HEADER_NAME' | translate"
               sortable="'name'">
