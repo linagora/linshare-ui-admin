@@ -7,24 +7,9 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        query: function(criteria, successCallback) {
+        query: function(criteria) {
           $log.debug('Audit:query');
-          return Restangular.all('logs').post(criteria).then(
-            function success(results) {
-              if (successCallback) {
-                return successCallback(results);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Audit:query',
-                 'Unable to query',
-                ].join('\n')
-              );
-              $log.error(criteria);
-            }
-          );
+          return Restangular.all('logs').post(criteria);
         }
       };
     }

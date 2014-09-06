@@ -5,12 +5,10 @@ angular.module('linshareAdminApp')
     ['$scope', '$log', '$state', '$modalInstance', 'MimePolicy',
       function ($scope, $log, $state, $modalInstance, MimePolicy) {
         $scope.create = function () {
-          MimePolicy.add($scope.mimePolicy,
-            function successCallback() {
-              $modalInstance.close();
-              $state.reinit();
-            }
-          );
+          MimePolicy.add($scope.mimePolicy).then(function() {
+            $modalInstance.close();
+            $state.reinit();
+          });
         };
         $scope.cancel = function () {
           $modalInstance.dismiss('cancel');

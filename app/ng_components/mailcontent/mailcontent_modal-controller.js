@@ -4,11 +4,9 @@ angular.module('linshareAdminApp')
   .controller('mailContentModalCtrl',
     ['$scope', '$log', '$translate', '$state', '$modalInstance', 'Domain', 'Enum', 'MailContent',
       function ($scope, $log, $translate, $state, $modalInstance, Domain, Enum, MailContent) {
-        Enum.getOptions('mail_content_type',
-          function successCallback(options) {
-            $scope.mailContentTypes = options;
-          }
-        );
+        Enum.getOptions('mail_content_type').then(function() {
+          $scope.mailContentTypes = options;
+        });
         Domain.getAll(function(domains) {
           $scope.domains = domains;
         });
@@ -19,7 +17,7 @@ angular.module('linshareAdminApp')
           if (angular.isDefined(domain) &&
               angular.isDefined(lang) &&
               angular.isDefined(mailContentType)) {
-            MailContent.getAll(Domain.getId(domain), false, function(models) {
+            MailContent.getAll(Domain.getId(domain), false).then(function(models) {
               $scope.models = models;
             });
           }
@@ -32,14 +30,11 @@ angular.module('linshareAdminApp')
           delete $scope.mailContent.creationDate;
           delete $scope.mailContent.modificationDate;
           $scope.mailContent.domain = $state.params.domainId;
-          MailContent.add($scope.mailContent,
-            function successCallback(mailContent) {
-              MailContent.setCurrent(mailContent);
-              $modalInstance.close();
-              $scope.reset();
-              $state.reinit();
-            }
-          );
+          MailContent.add($scope.mailContent).then(function() {
+            $modalInstance.close();
+            $scope.reset();
+            $state.reinit();
+          });
         };
         $scope.cancel = function () {
           $modalInstance.dismiss('cancel');

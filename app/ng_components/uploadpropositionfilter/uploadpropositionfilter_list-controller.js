@@ -8,8 +8,8 @@ angular.module('linshareAdminApp')
       $scope.swap = function(x, y, data) {
         data[x].order = y;
         data[y].order = x;
-        UploadPropositionFilter.update(data[x], function successCallback() {
-          UploadPropositionFilter.update(data[y], function successCallback() {
+        UploadPropositionFilter.update(data[x]).then(function() {
+          UploadPropositionFilter.update(data[y]).then(function() {
             $scope.reloadList();
           });
         }, false); // Disable one notify

@@ -6,25 +6,9 @@ angular.module('linshareAdminApp')
     function ($log, Notification, Restangular) {
       // Public API here
       return {
-        update: function(mimeType, successCallback) {
+        update: function(mimeType) {
           $log.debug('MimeType:update');
-          return Restangular.all('mime_types').customPUT(mimeType).then(
-            function success(mimeType) {
-              if (successCallback) {
-                return successCallback(mimeType);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MimeType:update',
-                 'Unable to update mime type',
-                 mimeType.uuid
-                ].join('\n')
-              );
-              $log.error(mimeType);
-            }
-          );
+          return Restangular.all('mime_types').customPUT(mimeType);
         }
       };
     }

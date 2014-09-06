@@ -30,13 +30,13 @@ angular.module('linshareAdminApp')
           $log.debug('User:getAllInconsistent');
           return Restangular.all('users').all('inconsistent').getList();
         },
-        update: function(user, successCallback) {
+        update: function(user) {
           $log.debug('User:update');
           return user.put().then(function() {
             Notification.addSuccess('UPDATE');
           });
         },
-        remove: function(user, successCallback) {
+        remove: function(user) {
           $log.debug('User:remove');
           return user.remove().then(function() {
             Notification.addSuccess('DELETE');

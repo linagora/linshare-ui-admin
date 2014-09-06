@@ -8,109 +8,32 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(domainId, onlyCurrentDomain, successCallback) {
+        getAll: function(domainId, onlyCurrentDomain) {
           $log.debug('MailLayout:getAll');
           return Restangular.all('mail_layouts')
-            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain}).then(
-              function success(mailLayouts) {
-                if (successCallback) {
-                  return successCallback(mailLayouts);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MailLayout:getAll',
-                   'Unable to get all mail layout for domain',
-                   domainId
-                  ].join('\n')
-                );
-              }
-          );
+            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain});
         },
-        get: function(domainId, mailLayoutId, successCallback) {
+        get: function(domainId, mailLayoutId) {
           $log.debug('MailLayout:get');
-          return Restangular.one('mail_layouts', mailLayoutId)
-            .get({domainId: domainId}).then(
-              function success(mailLayout) {
-                if (successCallback) {
-                  return successCallback(mailLayout);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MailLayout:get',
-                   'Unable to get the mail layouts',
-                   mailLayoutId,
-                   'for domain',
-                   domainId
-                  ].join('\n')
-                );
-              }
-          );
+          return Restangular.one('mail_layouts', mailLayoutId).get({domainId: domainId});
         },
-        add: function(mailLayout, successCallback) {
+        add: function(mailLayout) {
           $log.debug('MailLayout:add');
-          return Restangular.all('mail_layouts').post(mailLayout).then(
-            function success(mailLayout) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(mailLayout);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailLayout:add',
-                 'Unable to create a mail content',
-                ].join('\n')
-              );
-              $log.error(mailLayout);
-            }
-          );
+          return Restangular.all('mail_layouts').post(mailLayout).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(mailLayout, successCallback) {
+        update: function(mailLayout) {
           $log.debug('MailLayout:update');
-          return mailLayout.put().then(
-            function success(mailLayout) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(mailLayout);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailLayout:update',
-                 'Unable to update mail layout',
-                 mailLayout.uuid
-                ].join('\n')
-              );
-              $log.error(mailLayout);
-            }
-          );
+          return mailLayout.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        remove: function(mailLayout, successCallback) {
+        remove: function(mailLayout) {
           $log.debug('MailLayout:remove');
-          return mailLayout.remove().then(
-            function success() {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(mailLayout);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailLayout:remove',
-                 'Unable to remove mail layout',
-                 mailLayout.uuid
-                ].join('\n')
-              );
-              $log.error(mailLayout);
-            }
-          );
+          return mailLayout.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
       };
     }

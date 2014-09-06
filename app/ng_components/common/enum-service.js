@@ -5,23 +5,9 @@ angular.module('linshareAdminApp')
     // var self = this;
     
     return {
-      getOptions: function(name, successCallback) {
+      getOptions: function(name) {
         $log.debug('Enum:getOptions:' + name);
-        return Restangular.all('enums').all(name).options().then(
-          function success(options){
-            if (successCallback) {
-              return successCallback(options);
-            }
-          },
-          function error() {
-            $log.error(
-              [
-               'Enum:getOptions:' + name,
-               'Unable to get ' + name + ' options',
-              ].join('\n')
-            );
-          }
-        );
+        return Restangular.all('enums').all(name).options();
       }
     };
   });

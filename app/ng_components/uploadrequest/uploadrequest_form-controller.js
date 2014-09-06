@@ -54,7 +54,7 @@ angular.module('linshareAdminApp')
         debugMode: false,
         total: 0, // length of data
         getData: function($defer, params) {
-          UploadRequest.query($scope.criteria, function successCallback(uploadRequests) {
+          UploadRequest.query($scope.criteria).then(function(uploadRequests) {
             $scope.currentUuid = undefined;
             var orderedData = params.sorting() ?
                                 $filter('orderBy')(uploadRequests, params.orderBy()) :
@@ -75,7 +75,7 @@ angular.module('linshareAdminApp')
         total: 0, // length of data
         getData: function($defer, params) {
           if ($scope.currentUuid) {
-            UploadRequest.history($scope.currentUuid, function successCallback(history) {
+            UploadRequest.history($scope.currentUuid).then(function(history) {
               var orderedData = params.sorting() ?
                                   $filter('orderBy')(history, params.orderBy()) :
                                   history;

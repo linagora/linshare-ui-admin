@@ -88,6 +88,7 @@ angular.module('linshareAdminApp', [
       $rootScope.$on('$stateChangeError',function(event, toState, toParams, fromState, fromParams){
         console.log('$stateChangeError - fired when an error occurs during transition.');
         console.log([event, toState, toParams, fromState, fromParams].join('\n'));
+        console.log(arguments);
       });
       $rootScope.$on('$stateChangeSuccess',function(event, toState){
         console.log('$stateChangeSuccess to '+toState.name+'- fired once the state transition is complete.');

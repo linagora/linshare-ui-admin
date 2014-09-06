@@ -12,7 +12,7 @@ angular.module('linshareAdminApp')
         };
         $scope.reloadModels = function(domain) {
           if (angular.isDefined(domain)) {
-            MailLayout.getAll(Domain.getId(domain), false, function(models) {
+            MailLayout.getAll(Domain.getId(domain), false).then(function(models) {
               $scope.models = models;
             });
           }
@@ -20,20 +20,16 @@ angular.module('linshareAdminApp')
         $scope.create = function (model) {
           var originalModel = model.originalElement;
           delete originalModel.name;
-          console.log($scope.mailLayout);
-          console.log(originalModel);
           angular.extend($scope.mailLayout, originalModel);
           delete $scope.mailLayout.uuid;
           delete $scope.mailLayout.creationDate;
           delete $scope.mailLayout.modificationDate;
           $scope.mailLayout.domain = $state.params.domainId;
-          MailLayout.add($scope.mailLayout,
-            function successCallback(mailLayout) {
-              $modalInstance.close();
-              $scope.reset();
-              $state.reinit();
-            }
-          );
+          MailLayout.add($scope.mailLayout).then(function() {
+            $modalInstance.close();
+            $scope.reset();
+            $state.reinit();
+          });
         };
         $scope.cancel = function () {
           $modalInstance.dismiss('cancel');

@@ -7,81 +7,25 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(successCallback) {
+        getAll: function() {
           $log.debug('Thread:getAll');
-          return Restangular.all('threads').getList().then(
-            function success(threads) {
-              if (successCallback) {
-                return successCallback(threads);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Thread:getAll',
-                 'Unable to get all threads',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('threads').getList();
         },
-        get: function(id, successCallback) {
+        get: function(id) {
           $log.debug('Thread:get');
-          return Restangular.one('threads', id).get().then(
-            function success(threads) {
-              if (successCallback) {
-                return successCallback(threads);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Thread:get',
-                 'Unable to get a thread',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('threads', id).get();
         },
-        update: function(thread, successCallback) {
+        update: function(thread) {
           $log.debug('Thread:update');
-          return thread.put().then(
-            function success(thread) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(thread);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Thread:update',
-                 'Unable to update thread',
-                ].join('\n')
-              );
-              $log.error(thread);
-            }
-          );
+          return thread.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        remove: function(thread, successCallback) {
+        remove: function(thread) {
           $log.debug('Thread:remove');
-          return thread.remove().then(
-            function success(thread) {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(thread);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Thread:remove',
-                 'Unable to remove thread',
-                ].join('\n')
-              );
-              $log.error(thread);
-            }
-          );
+          return thread.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
       };
     }

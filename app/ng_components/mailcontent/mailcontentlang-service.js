@@ -8,46 +8,15 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        get: function(mailContentLangId, successCallback) {
+        get: function(mailContentLangId) {
           $log.debug('MailContenLang:get');
-          return Restangular.one('mail_content_langs', mailContentLangId)
-            .get().then(
-              function success(mailContentLang) {
-                if (successCallback) {
-                  return successCallback(mailContentLang);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MailContentLang:get',
-                   'Unable to get the mail content lang',
-                   mailContentLangId
-                  ].join('\n')
-                );
-              }
-          );
+          return Restangular.one('mail_content_langs', mailContentLangId).get();
         },
-        update: function(mailContentLang, successCallback) {
+        update: function(mailContentLang) {
           $log.debug('MailContentLang:update');
-          return mailContentLang.put().then(
-            function success(mailContentLang) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(mailContentLang);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailContentLang:update',
-                 'Unable to update mail content lang',
-                 mailContentLang.uuid
-                ].join('\n')
-              );
-              $log.error(mailContentLang);
-            }
-          );
+          return mailContentLang.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         }
       };
     }

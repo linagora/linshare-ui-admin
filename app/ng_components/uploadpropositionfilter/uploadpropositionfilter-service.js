@@ -7,104 +7,34 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(successCallback) {
+        getAll: function() {
           $log.debug('UploadPropositionFilter:getAll');
-          return Restangular.all('upload_proposition_filters').getList().then(
-            function success(filters) {
-              if (successCallback) {
-                return successCallback(filters);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'UploadPropositionFilter:getAll',
-                 'Unable to get all upload proposition filters',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('upload_proposition_filters').getList();
         },
-        get: function(id, successCallback) {
+        get: function(id) {
           $log.debug('UploadPropositionFilter:get');
-          return Restangular.one('upload_proposition_filters', id).get().then(
-            function success(filter) {
-              if (successCallback) {
-                return successCallback(filter);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'UploadPropositionFilter:get',
-                 'Unable to get all upload proposition filters',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('upload_proposition_filters', id).get();
         },
-        add: function(filter, successCallback) {
+        add: function(filter) {
           $log.debug('UploadPropositionFilter:add');
-          return Restangular.all('upload_proposition_filters').post(filter).then(
-            function success(filter) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(filter);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'UploadPropositionFilter:add',
-                 'Unable to create an upload proposition filter',
-                ].join('\n')
-              );
-              $log.error(filter);
-            }
-          );
+          return Restangular.all('upload_proposition_filters').post(filter).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(filter, successCallback, notify) {
+        update: function(filter, notify) {
           $log.debug('UploadPropositionFilter:update');
           notify = typeof notify !== 'undefined' ? notify : true;
-          return filter.put().then(
-            function success(filter) {
-              if (notify) {
-                Notification.addSuccess('UPDATE');
-              }
-              if (successCallback) {
-                return successCallback(filter);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'UploadPropositionFilter:update',
-                 'Unable to update an upload proposition filter',
-                ].join('\n')
-              );
-              $log.error(filter);
+          return filter.put().then(function() {
+            if (notify) {
+              Notification.addSuccess('UPDATE');
             }
-          );
+          });
         },
-        remove: function(filter, successCallback) {
+        remove: function(filter) {
           $log.debug('UploadPropositionFilter:remove');
-          return filter.remove().then(
-            function success(filter) {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(filter);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'UploadPropositionFilter:remove',
-                 'Unable to remove upload proposition filter',
-                ].join('\n')
-              );
-              $log.error(filter);
-            }
-          );
+          return filter.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
       };
     }

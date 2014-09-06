@@ -19,7 +19,7 @@ angular.module('linshareAdminApp')
           $location.path('/');
         };
         $scope.submit = function() {
-          Authentication.changePassword($scope.password, function successCallback() {
+          Authentication.changePassword($scope.password).then(function() {
             $location.path('/');
           });
         };

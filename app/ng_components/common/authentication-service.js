@@ -51,36 +51,20 @@ angular.module('linshareAdminApp')
         isSuperAdmin: function(user) {
           return user.role === 'SUPERADMIN';
         },
-        changePassword: function(password, successCallback) {
+        changePassword: function(password) {
           $log.debug('Authentication:changePassword');
-          Restangular.all('authentication').all('change_password').post(password).then(
-            function success() {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                successCallback();
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'Authentication:changePassword',
-                 'Unable to change the password',
-                ].join('\n')
-              );
-              $log.error(password);
-            }
-          );
+          Restangular.all('authentication').all('change_password').post(password).then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
         logout: function() {
           $log.debug('Authentication:logout');
           Restangular.all('authentication').one('logout').get().then(function() {
             delete $cookies.JSESSIONID;
             // Reload authentication modal
-            Restangular.all('authentication').customGET('authorized').then(
-              function success(user) {
+            Restangular.all('authentication').customGET('authorized').then(function() {
                 deferred.resolve(user);
-              }
-            );
+            });
           });
         },
         isWaitingForResponse: function() {

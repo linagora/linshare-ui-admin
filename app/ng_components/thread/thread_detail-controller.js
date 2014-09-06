@@ -10,7 +10,7 @@ angular.module('linshareAdminApp')
         $scope.tableParams.reload();
       };
       $scope.remove = function() {
-        Thread.remove($scope.thread, function successCallback() {
+        Thread.remove($scope.thread).then(function() {
           $scope.cancel();
         });
       };
@@ -21,18 +21,18 @@ angular.module('linshareAdminApp')
         $state.go('thread.list');
       };
       $scope.submit = function() {
-        Thread.update($scope.thread, function successCallback() {
+        Thread.update($scope.thread).then(function() {
           $scope.cancel();
         });
       };
       $scope.addMember = function(member) {
-        ThreadMember.add($scope.thread, member, function successCallback() {
+        ThreadMember.add($scope.thread, member).then(function() {
           $scope.reloadList();
           $scope.userToAdd = undefined;
         });
       };
       $scope.autocompleteUsers = function(pattern) {
-        return User.autocomplete(pattern, function successCallback(users) {
+        return User.autocomplete(pattern).then(function() {
           // Remove existing members
           angular.forEach($scope.tableParams.data, function(threadMember) {
             angular.forEach(users, function(user, key) {
@@ -49,7 +49,7 @@ angular.module('linshareAdminApp')
         ThreadMember.update(member);
       };
       $scope.deleteMember = function(member) {
-        ThreadMember.remove(member, function successCallback() {
+        ThreadMember.remove(member).then(function() {
           $scope.reloadList();
         });
       };
@@ -63,7 +63,7 @@ angular.module('linshareAdminApp')
         debugMode: false,
         total: 0, // length of data
         getData: function($defer, params) {
-          ThreadMember.getAll($scope.thread, function(threadMembers) {
+          ThreadMember.getAll($scope.thread).then(function(threadMembers) {
             var orderedData = params.sorting() ?
                                 $filter('orderBy')(threadMembers, params.orderBy()) :
                                 threadMembers;

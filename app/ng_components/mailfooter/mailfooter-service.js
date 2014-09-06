@@ -8,109 +8,33 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(domainId, onlyCurrentDomain, successCallback) {
+        getAll: function(domainId, onlyCurrentDomain) {
           $log.debug('MailFooter:getAll');
           return Restangular.all('mail_footers')
-            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain}).then(
-              function success(mailFooters) {
-                if (successCallback) {
-                  return successCallback(mailFooters);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MailFooter:getAll',
-                   'Unable to get all mail footer for domain',
-                   domainId
-                  ].join('\n')
-                );
-              }
-          );
+            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain});
         },
-        get: function(domainId, mailFooterId, successCallback) {
+        get: function(domainId, mailFooterId) {
           $log.debug('MailFooter:get');
           return Restangular.one('mail_footers', mailFooterId)
-            .get({domainId: domainId}).then(
-              function success(mailFooter) {
-                if (successCallback) {
-                  return successCallback(mailFooter);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MailFooter:get',
-                   'Unable to get the mail footers',
-                   mailFooterId,
-                   'for domain',
-                   domainId
-                  ].join('\n')
-                );
-              }
-          );
+            .get({domainId: domainId});
         },
-        add: function(mailFooter, successCallback) {
+        add: function(mailFooter) {
           $log.debug('MailFooter:add');
-          return Restangular.all('mail_footers').post(mailFooter).then(
-            function success(mailFooter) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(mailFooter);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailFooter:add',
-                 'Unable to create a mail content',
-                ].join('\n')
-              );
-              $log.error(mailFooter);
-            }
-          );
+          return Restangular.all('mail_footers').post(mailFooter).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(mailFooter, successCallback) {
+        update: function(mailFooter) {
           $log.debug('MailFooter:update');
-          return mailFooter.put().then(
-            function success(mailFooter) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(mailFooter);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailFooter:update',
-                 'Unable to update mail footer',
-                 mailFooter.uuid
-                ].join('\n')
-              );
-              $log.error(mailFooter);
-            }
-          );
+          return mailFooter.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        remove: function(mailFooter, successCallback) {
+        remove: function(mailFooter) {
           $log.debug('MailFooter:remove');
-          return mailFooter.remove().then(
-            function success() {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(mailFooter);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailFooter:remove',
-                 'Unable to remove mail footer',
-                 mailFooter.uuid
-                ].join('\n')
-              );
-              $log.error(mailFooter);
-            }
-          );
+          return mailFooter.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
       };
     }

@@ -1,6 +1,7 @@
 <script type="text/ng-template" id="tree_item_renderer">
   <div class="btn-group" dropdown is-open="isopen">
-    <button id="{{domain.identifier}}" class="btn btn-default"
+    <button id="{{domain.identifier}}" class="btn"
+            x-ng-class="{true: 'btn-primary', false: 'btn-default'}[$state.params.domainId === domain.identifier]"
             x-ui-sref="{domainId: domain.identifier, formState: 'edit', domainType: null}">
       {{domain.label}}
     </button>

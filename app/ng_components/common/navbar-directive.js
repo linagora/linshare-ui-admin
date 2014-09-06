@@ -8,7 +8,7 @@ angular.module('linshareAdminApp').directive('lsNavbar', [
       scope: false,
       controller: ['$rootScope', '$scope', '$log', '$translate', 'tmhDynamicLocale', 'Authentication',
         function($rootScope, $scope, $log, $translate, tmhDynamicLocale, Authentication) {
-          Authentication.getCurrentUser().then(function successCallback(user) {
+          Authentication.getCurrentUser().then(function(user) {
             $scope.userLogged = user;
             $scope.isSuperAdmin = Authentication.isSuperAdmin(user);
           });

@@ -7,8 +7,8 @@ angular.module('linshareAdminApp')
       $scope.swap = function(x, y, data) {
         data[x].authShowOrder = y;
         data[y].authShowOrder = x;
-        Domain.update(data[x], function successCallback() {
-          Domain.update(data[y], function successCallback() {
+        Domain.update(data[x]).then(function() {
+          Domain.update(data[y]).then(function() {
             $scope.reloadList();
           });
         }, false); // Disable one notify

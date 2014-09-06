@@ -8,147 +8,40 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(domainId, onlyCurrentDomain, successCallback) {
+        getAll: function(domainId, onlyCurrentDomain) {
           $log.debug('MimePolicy:getAll');
           return Restangular.all('mime_policies')
-            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain}).then(
-              function success(mimePolicies) {
-                if (successCallback) {
-                  return successCallback(mimePolicies);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MimePolicy:getAll',
-                   'Unable to get all mime policies for domain',
-                   domainId
-                  ].join('\n')
-                );
-              }
-          );
+            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain});
         },
-        get: function(mimePolicyId, full, successCallback) {
+        get: function(mimePolicyId, full) {
           $log.debug('MimePolicy:get');
-          return Restangular.one('mime_policies', mimePolicyId)
-            .get({full: full}).then(
-              function success(mimePolicy) {
-                if (successCallback) {
-                  return successCallback(mimePolicy);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MimePolicy:get',
-                   'Unable to get the mime policy',
-                   mimePolicyId
-                  ].join('\n')
-                );
-              }
-          );
+          return Restangular.one('mime_policies', mimePolicyId).get({full: full});
         },
-        add: function(mimePolicy, successCallback) {
+        add: function(mimePolicy) {
           $log.debug('MimePolicy:add');
-          return Restangular.all('mime_policies').post(mimePolicy).then(
-            function success(mimePolicy) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(mimePolicy);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MimePolicy:add',
-                 'Unable to create a mime policy',
-                ].join('\n')
-              );
-              $log.error(mimePolicy);
-            }
-          );
+          return Restangular.all('mime_policies').post(mimePolicy).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(mimePolicy, successCallback) {
+        update: function(mimePolicy) {
           $log.debug('MimePolicy:update');
-          return mimePolicy.put().then(
-            function success(mimePolicy) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(mimePolicy);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MimePolicy:update',
-                 'Unable to update mime policy',
-                 mimePolicy.uuid
-                ].join('\n')
-              );
-              $log.error(mimePolicy);
-            }
-          );
+          return mimePolicy.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        enableAllMimeTypes: function(mimePolicyId, successCallback) {
+        enableAllMimeTypes: function(mimePolicyId) {
           $log.debug('MimePolicy:enableAllMimeTypes');
-          return Restangular.one('mime_policies', mimePolicyId).customPUT(null, 'enable_all').then(
-            function success(mimePolicy) {
-              if (successCallback) {
-                return successCallback(mimePolicy);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MimePolicy:enableAllMimeTypes',
-                 'Unable to enable all mime types',
-                 'of the mime policy :',
-                 mimePolicyId
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('mime_policies', mimePolicyId).customPUT(null, 'enable_all');
         },
-        disableAllMimeTypes: function(mimePolicyId, successCallback) {
+        disableAllMimeTypes: function(mimePolicyId) {
           $log.debug('MimePolicy:disableAllMimeTypes');
-          return Restangular.one('mime_policies', mimePolicyId).customPUT(null, 'disable_all').then(
-            function success(mimePolicy) {
-              if (successCallback) {
-                return successCallback(mimePolicy);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MimePolicy:disableAllMimeTypes',
-                 'Unable to disable all mime types',
-                 'of the mime policy :',
-                 mimePolicyId
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('mime_policies', mimePolicyId).customPUT(null, 'disable_all');
         },
-        remove: function(mimePolicy, successCallback) {
+        remove: function(mimePolicy) {
           $log.debug('MimePolicy:remove');
-          return mimePolicy.remove().then(
-            function success() {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(mimePolicy);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MimePolicy:remove',
-                 'Unable to remove mime policy',
-                 mimePolicy.uuid
-                ].join('\n')
-              );
-              $log.error(mimePolicy);
-            }
-          );
+          return mimePolicy.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
       };
     }

@@ -7,122 +7,37 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(successCallback) {
+        getAll: function() {
           $log.debug('TechnicalAccount:getAll');
-          return Restangular.all('technical_accounts').getList().then(
-            function success(accounts) {
-              if (successCallback) {
-                return successCallback(accounts);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'TechnicalAccount:getAll',
-                 'Unable to get all accounts',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('technical_accounts').getList();
         },
-        get: function(id, successCallback) {
+        get: function(id) {
           $log.debug('TechnicalAccount:get');
-          return Restangular.one('technical_accounts', id).get().then(
-            function success(accounts) {
-              if (successCallback) {
-                return successCallback(accounts);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'TechnicalAccount:get',
-                 'Unable to get a account',
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.one('technical_accounts', id).get();
         },
-        add: function(account, successCallback) {
+        add: function(account) {
           $log.debug('TechnicalAccount:add');
-          return Restangular.all('technical_accounts').post(account).then(
-            function success(account) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(account);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'TechnicalAccount:add',
-                 'Unable to create an account',
-                ].join('\n')
-              );
-              $log.error(account);
-            }
-          );
+          return Restangular.all('technical_accounts').post(account).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(account, successCallback) {
+        update: function(account) {
           $log.debug('TechnicalAccount:update');
-          return account.put().then(
-            function success(account) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(account);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'TechnicalAccount:update',
-                 'Unable to update an account',
-                ].join('\n')
-              );
-              $log.error(account);
-            }
-          );
+          return account.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        changePassword: function(accountId, password, successCallback) {
+        changePassword: function(accountId, password) {
           $log.debug('TechnicalAccount:changePassword');
-          return Restangular.all('technical_accounts').all(accountId).all('change_password').post(password).then(
-            function success(account) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(account);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'TechnicalAccount:changePassword',
-                 'Unable to change technical account password',
-                 accountId,
-                 password,
-                ].join('\n')
-              );
-            }
-          );
+          return Restangular.all('technical_accounts').all(accountId).all('change_password').post(password).then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        remove: function(account, successCallback) {
+        remove: function(account) {
           $log.debug('TechnicalAccount:remove');
-          return account.remove().then(
-            function success(account) {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(account);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'TechnicalAccount:remove',
-                 'Unable to remove an account',
-                ].join('\n')
-              );
-              $log.error(account);
-            }
-          );
+          return account.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
       };
     }

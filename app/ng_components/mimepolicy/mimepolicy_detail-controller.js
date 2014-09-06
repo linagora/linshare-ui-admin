@@ -19,11 +19,9 @@ angular.module('linshareAdminApp')
             });
             modalInstance.result.then(
               function validate() {
-                MimePolicy.remove($scope.mimePolicy,
-                  function successCallback() {
+                MimePolicy.remove($scope.mimePolicy).then(function() {
                     $scope.cancel();
-                  }
-                );
+                });
               }, function cancel() {
                 $log.debug('Deletion modal dismissed');
               }
@@ -36,7 +34,7 @@ angular.module('linshareAdminApp')
             }, 800);
           };
           $scope.update = function() {
-            MimePolicy.update($scope.mimePolicy, function() {
+            MimePolicy.update($scope.mimePolicy).then(function() {
               $scope.cancel();
             });
           };
@@ -46,15 +44,13 @@ angular.module('linshareAdminApp')
             });
           };
           $scope.enableAllMimeTypes = function(mimeConfig) {
-            MimePolicy.enableAllMimeTypes(mimeConfig.uuid, function(mimePolicy) {
-              MimePolicy.setCurrent(mimePolicy);
+            MimePolicy.enableAllMimeTypes(mimeConfig.uuid).then(function() {
               $scope.displayIconSaved();
               $scope.reset();
             });
           };
           $scope.disableAllMimeTypes = function(mimeConfig) {
-            MimePolicy.disableAllMimeTypes(mimeConfig.uuid, function(mimePolicy) {
-              MimePolicy.setCurrent(mimePolicy);
+            MimePolicy.disableAllMimeTypes(mimeConfig.uuid).then(function() {
               $scope.displayIconSaved();
               $scope.reset();
             });

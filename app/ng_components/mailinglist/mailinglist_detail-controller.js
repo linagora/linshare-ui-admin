@@ -7,7 +7,7 @@ angular.module('linshareAdminApp')
       $scope.mail = currentMailingList;
 
       $scope.remove = function() {
-        MailingList.remove($scope.mail, function successCallback() {
+        MailingList.remove($scope.mail).then(function() {
           $scope.cancel();
         });
       };
@@ -18,12 +18,12 @@ angular.module('linshareAdminApp')
         $state.go('mailinglist.list');
       };
       $scope.submit = function(mail) {
-        MailingList.update(mail, function successCallback() {
+        MailingList.update(mail).then(function() {
           $scope.cancel();
         });
       };
       $scope.autocompleteUsers = function(pattern) {
-        return User.autocomplete(pattern, function successCallback(users) {
+        return User.autocomplete(pattern).then(function(users) {
           // Remove existing contacts
           angular.forEach($scope.tableParams.data, function(contact) {
             angular.forEach(users, function(user, key) {
@@ -48,14 +48,14 @@ angular.module('linshareAdminApp')
           'firstName': $scope.contactToAdd.firstName,
           'lastName': $scope.contactToAdd.lastName,
         };
-        MailingList.addContact($scope.mail.uuid, contact, function successCallback() {
+        MailingList.addContact($scope.mail.uuid, contact).then(function() {
           $scope.reloadList();
           $scope.contactToAdd = undefined;
           $scope.autocompleteValue = undefined;
         });
       };
       $scope.deleteContact = function(contact) {
-        MailingList.removeContact($scope.mail.uuid, contact, function successCallback() {
+        MailingList.removeContact($scope.mail.uuid, contact).then(function() {
           $scope.reloadList();
         });
       };
@@ -72,7 +72,7 @@ angular.module('linshareAdminApp')
         debugMode: false,
         total: 0, // length of data
         getData: function($defer, params) {
-          MailingList.get($scope.mail.uuid, function(mail) {
+          MailingList.get($scope.mail.uuid).then(function(mail) {
             var orderedData = params.sorting() ?
                                 $filter('orderBy')(mail.contacts, params.orderBy()) :
                                 mail.contacts;

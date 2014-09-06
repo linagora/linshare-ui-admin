@@ -26,11 +26,11 @@ angular.module('linshareAdminApp')
       $scope.submit = function() {
         //$scope.filters.uploadPropositionRules = _.filter($scope.filters.uploadPropositionRules, function(obj) { return obj != {} ; });
         if ($scope.state === 'create') {
-          UploadPropositionFilter.add($scope.filter, function () {
+          UploadPropositionFilter.add($scope.filter).then(function () {
             $scope.cancel();
           });
         } else {
-          UploadPropositionFilter.update($scope.filter, function () {
+          UploadPropositionFilter.update($scope.filter).then(function () {
             $scope.cancel();
           });
         }
@@ -39,7 +39,7 @@ angular.module('linshareAdminApp')
         if ($scope.state != 'edit') {
           $log.error('Invalid state');
         }
-        UploadPropositionFilter.remove($scope.filter, function() {
+        UploadPropositionFilter.remove($scope.filter).then(function() {
           $scope.cancel();
         });
       };

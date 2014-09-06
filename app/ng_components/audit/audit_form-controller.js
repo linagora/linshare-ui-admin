@@ -45,7 +45,7 @@ angular.module('linshareAdminApp')
           } else {
             $scope.criteria.targetMails = undefined;
           }
-          Audit.query($scope.criteria, function successCallback(logs) {
+          Audit.query($scope.criteria).then(function(logs) {
             var orderedData = params.sorting() ?
                                 $filter('orderBy')(logs, params.orderBy()) :
                                 logs;
