@@ -44,7 +44,7 @@ angular.module('linshareAdminApp')
             href: '#mailcontent/list'
           }, {
             name: 'COMMON.TAB.MAIL_CONFIG',
-            href: '#mailcondig/list'
+            href: '#mailconfig/list'
           }
         ]
       };
