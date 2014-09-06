@@ -8,151 +8,43 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getAll: function(domainId, onlyCurrentDomain, successCallback) {
+        getAll: function(domainId, onlyCurrentDomain) {
           $log.debug('MailConfig:getAll');
           return Restangular.all('mail_configs')
-            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain}).then(
-              function success(mailConfigs) {
-                if (successCallback) {
-                  return successCallback(mailConfigs);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MailConfig:getAll',
-                   'Unable to get all mail configs for domain',
-                   domainId
-                  ].join('\n')
-                );
-              }
-          );
+            .getList({domainId: domainId, onlyCurrentDomain: onlyCurrentDomain});
         },
-        getAllMailContents: function(mailConfigUuid, language, mailContentType, successCallback) {
+        getAllMailContents: function(mailConfigUuid, language, mailContentType) {
           $log.debug('MailConfig:getAllMailContents');
           return Restangular.one('mail_configs', mailConfigUuid)
-            .getList('mail_contents', {language: language, mailContentType: mailContentType}).then(
-              function success(mailConfigs) {
-                if (successCallback) {
-                  return successCallback(mailConfigs);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MailConfig:getAll',
-                   'Unable to get all mail contents with language',
-                   language,
-                   'and mail content type',
-                   mailContentType
-                  ].join('\n')
-                );
-              }
-          );
+            .getList('mail_contents', {language: language, mailContentType: mailContentType});
         },
-        getAllMailFooters: function(mailConfigUuid, language, successCallback) {
+        getAllMailFooters: function(mailConfigUuid, language) {
           $log.debug('MailConfig:getAllMailFooters');
           return Restangular.one('mail_configs', mailConfigUuid)
-            .getList('mail_footers', {language: language}).then(
-              function success(mailConfigs) {
-                if (successCallback) {
-                  return successCallback(mailConfigs);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MailConfig:getAll',
-                   'Unable to get all mail footers with language',
-                   language
-                  ].join('\n')
-                );
-              }
-          );
+            .getList('mail_footers', {language: language});
         },
-        get: function(domainId, mailConfigId, successCallback) {
+        get: function(domainId, mailConfigId) {
           $log.debug('MailConfig:get');
           return Restangular.one('mail_configs', mailConfigId)
-            .get({domainId: domainId}).then(
-              function success(mailConfig) {
-                if (successCallback) {
-                  return successCallback(mailConfig);
-                }
-              },
-              function error() {
-                $log.error(
-                  [
-                   'MailConfig:get',
-                   'Unable to get the mail configs',
-                   mailConfigId,
-                   'for domain',
-                   domainId
-                  ].join('\n')
-                );
-              }
-          );
+            .get({domainId: domainId});
         },
-        add: function(mailConfig, successCallback) {
+        add: function(mailConfig) {
           $log.debug('MailConfig:add');
-          return Restangular.all('mail_configs').post(mailConfig).then(
-            function success(mailConfig) {
-              Notification.addSuccess('CREATE');
-              if (successCallback) {
-                return successCallback(mailConfig);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailConfig:add',
-                 'Unable to create a mail content',
-                ].join('\n')
-              );
-              $log.error(mailConfig);
-            }
-          );
+          return Restangular.all('mail_configs').post(mailConfig).then(function() {
+            Notification.addSuccess('CREATE');
+          });
         },
-        update: function(mailConfig, successCallback) {
+        update: function(mailConfig) {
           $log.debug('MailConfig:update');
-          return mailConfig.put().then(
-            function success(mailConfig) {
-              Notification.addSuccess('UPDATE');
-              if (successCallback) {
-                return successCallback(mailConfig);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailConfig:update',
-                 'Unable to update mail config',
-                 mailConfig.uuid
-                ].join('\n')
-              );
-              $log.error(mailConfig);
-            }
-          );
+          return mailConfig.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         },
-        remove: function(mailConfig, successCallback) {
+        remove: function(mailConfig) {
           $log.debug('MailConfig:remove');
-          return mailConfig.remove().then(
-            function success() {
-              Notification.addSuccess('DELETE');
-              if (successCallback) {
-                return successCallback(mailConfig);
-              }
-            },
-            function error() {
-              $log.error(
-                [
-                 'MailConfig:remove',
-                 'Unable to remove mail config',
-                 mailConfig.uuid
-                ].join('\n')
-              );
-              $log.error(mailConfig);
-            }
-          );
+          return mailConfig.remove().then(function() {
+            Notification.addSuccess('DELETE');
+          });
         },
       };
     }

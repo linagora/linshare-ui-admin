@@ -25,13 +25,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         return technicalAccounts;
       });
     };
-    var allMailConfigs = function(currentDomain, MailConfig) {
-      if (currentDomain) {
-        return MailConfig.getAll(currentDomain.identifier, false, function(mailConfigs) {
-          return mailConfigs;
-        });
-      }
-    };
     var allMimePolicies = function(currentDomain, MimePolicy) {
       if (currentDomain) {
         return MimePolicy.getAll(currentDomain.identifier, false, function(mimePolicies) {
@@ -512,7 +505,11 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               _allDomainPolicies: function(DomainPolicy) {
                 return DomainPolicy.getAll();
               },
-              _allMailConfigs: allMailConfigs,
+              _allMailConfigs: function(MailConfig) {
+                if (currentDomain) {
+                  return MailConfig.getAll(currentDomain.identifier, false);
+                }
+              },
               _allMimePolicies: allMimePolicies,
               _enumRole: enumRole,
               _enumLanguage: enumLanguage,
@@ -779,9 +776,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               },
               mailConfigs: function(MailConfig, currentDomain) {
                 if (currentDomain) {
-                  return MailConfig.getAll(currentDomain.identifier, true, function(mailConfigs) {
-                    return mailConfigs;
-                  });
+                  return MailConfig.getAll(currentDomain.identifier, true);
                 }
               }
             }
@@ -796,22 +791,16 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             controller: 'MailConfigDetailCtrl',
             resolve: {
               mailLayouts: function(MailLayout, $stateParams) {
-                return MailLayout.getAll($stateParams.domainId, false, function(mailLayouts) {
-                  return mailLayouts;
-                });
+                return MailLayout.getAll($stateParams.domainId, false);
               },
               mailFooterLangs: function(MailConfig, $stateParams) {
-                return MailConfig.getAllMailFooters($stateParams.id, $stateParams.language, function(mailFooterLangs) {
-                  return mailFooterLangs;
-                });
+                return MailConfig.getAllMailFooters($stateParams.id, $stateParams.language);
               },
               currentDomain: function(Domain, $stateParams) {
                 return Domain.get($stateParams.domainId);
               },
               currentMailConfig: function(MailConfig, $stateParams) {
-                return MailConfig.get($stateParams.domainId, $stateParams.id, function(mailconfig) {
-                  return mailconfig;
-                });
+                return MailConfig.get($stateParams.domainId, $stateParams.id);
               }
             }
           },
@@ -828,9 +817,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               },
               mailContents: function(MailConfig, currentMailContentLang, $stateParams) {
                 if (currentMailContentLang) {
-                  return MailConfig.getAllMailContents($stateParams.id, currentMailContentLang.language, currentMailContentLang.mailContentType, function(mailContents) {
-                    return mailContents;
-                  });
+                  return MailConfig.getAllMailContents($stateParams.id, currentMailContentLang.language, currentMailContentLang.mailContentType);
                 }
               },
             }

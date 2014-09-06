@@ -21,18 +21,16 @@ angular.module('linshareAdminApp')
         });
         modalInstance.result.then(
           function validate() {
-            MailConfig.remove($scope.mailConfig,
-              function successCallback() {
-                $scope.cancel();
-              }
-            );
+            MailConfig.remove($scope.mailConfig).then(function() {
+              $scope.cancel();
+            });
           }, function cancel() {
             $log.debug('Deletion modal dismissed');
           }
         );
       };
       $scope.update = function(redirect) {
-        MailConfig.update($scope.mailConfig, function() {
+        MailConfig.update($scope.mailConfig).then(function() {
           if (redirect) {
             $scope.cancel();
           }
