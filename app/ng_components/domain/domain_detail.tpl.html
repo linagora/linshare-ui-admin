@@ -214,7 +214,8 @@
         <div class="controls">
           <button id="delete" name="delete" type="button" class="btn btn-danger"
                   x-ng-click="remove()"
-                  x-ng-if="state==='edit'">
+                  x-ng-if="state==='edit'"
+                  x-ng-hide="isRootDomain">
             {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
           </button>
           <button type="button" id="reset" name="reset" class="btn btn-warning"

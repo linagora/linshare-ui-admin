@@ -25,7 +25,7 @@
       {{ 'MAIL_FOOTER.BOX_LIST.BUTTON_ADD' | translate }}
     </button>
     <div class="table-responsive">
-      <table class="table table-striped"
+      <table class="table table-striped table-hover"
              x-ng-table="tableParams">
         <tr x-ng-repeat="mailFooter in $data"
             x-ui-sref="mailfooter.detail({id: mailFooter.uuid, domainId: mailFooter.domain})">

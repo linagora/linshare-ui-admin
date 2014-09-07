@@ -2,17 +2,17 @@
 
 angular.module('linshareAdminApp')
   .controller('UploadPropositionFilterListCtrl',
-    ['$scope', '$filter', '$log', 'ngTableParams', 'uploadPropositionFilters',
-    function($scope, $filter, $log, ngTableParams, uploadPropositionFilters) {
+    ['$scope', '$filter', '$log', 'ngTableParams', 'UploadPropositionFilter', 'uploadPropositionFilters',
+    function($scope, $filter, $log, ngTableParams, UploadPropositionFilter, uploadPropositionFilters) {
 
       $scope.swap = function(x, y, data) {
         data[x].order = y;
         data[y].order = x;
-        UploadPropositionFilter.update(data[x]).then(function() {
+        UploadPropositionFilter.update(data[x], false).then(function() { // Disable one notify
           UploadPropositionFilter.update(data[y]).then(function() {
             $scope.reloadList();
           });
-        }, false); // Disable one notify
+        });
       };
       $scope.reloadList = function () {
         $scope.tableParams.reload();

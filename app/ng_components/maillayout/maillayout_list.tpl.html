@@ -11,7 +11,7 @@
       {{ 'MAIL_LAYOUT.BOX_LIST.BUTTON_ADD' | translate }}
     </button>
     <div class="table-responsive">
-      <table class="table table-striped"
+      <table class="table table-striped table-hover"
              x-ng-table="tableParams">
         <tr x-ng-repeat="mailLayout in $data"
             x-ui-sref="maillayout.detail({id: mailLayout.uuid, domainId: mailLayout.domain})">

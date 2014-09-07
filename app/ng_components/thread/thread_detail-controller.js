@@ -32,7 +32,7 @@ angular.module('linshareAdminApp')
         });
       };
       $scope.autocompleteUsers = function(pattern) {
-        return User.autocomplete(pattern).then(function() {
+        return User.autocomplete(pattern).then(function(users) {
           // Remove existing members
           angular.forEach($scope.tableParams.data, function(threadMember) {
             angular.forEach(users, function(user, key) {

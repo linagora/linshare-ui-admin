@@ -8,7 +8,7 @@ angular.module('linshareAdminApp')
       $scope.mailContents = mailContents;
 
       $scope.update = function() {
-        MailContentLang.update($scope.mailContentLang, function() {
+        MailContentLang.update($scope.mailContentLang).then(function() {
           $scope.cancel();
         });
       };
@@ -16,7 +16,7 @@ angular.module('linshareAdminApp')
         $state.reinit();
       };
       $scope.cancel = function() {
-        $state.go(".", {mailContentLangId: null});
+        $state.go("mailconfig.detail", {id: $state.params.mailConfigId, language: $scope.mailContentLang.language, domainId: $state.params.domainId});
       };
     }]
   );

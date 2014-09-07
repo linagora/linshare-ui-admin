@@ -11,7 +11,7 @@
       {{ 'MAIL_CONFIG.BOX_LIST.BUTTON_ADD' | translate }}
     </button>
     <div class="table-responsive">
-      <table class="table table-striped"
+      <table class="table table-striped table-hover"
              x-ng-table="tableParams">
         <tr x-ng-repeat="mailConfig in $data"
             x-ui-sref="mailconfig.detail({id: mailConfig.uuid, domainId: mailConfig.domain, language: 'ENGLISH'})">

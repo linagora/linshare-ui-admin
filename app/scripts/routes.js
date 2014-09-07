@@ -200,7 +200,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           selectOptions: function(_enumRole) {
             return {
               userRoles: _.remove(_enumRole, function(role) {
-                return role !== 'SYSTEM' && role !== 'SUPERADMIN';
+                return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' && role !== 'UPLOAD_PROPOSITION';
               }),
             };
           },
@@ -415,7 +415,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                   mailConfigs: _allMailConfigs,
                   mimePolicies: _allMimePolicies,
                   userRoles: _.remove(_enumRole, function(role) {
-                    return role !== 'SYSTEM' && role !== 'SUPERADMIN';
+                    return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' && role !== 'UPLOAD_PROPOSITION';
                   }),
                   languages: _enumLanguage,
                 };
@@ -689,7 +689,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         },
       })
       .state('mailconfig.detail', {
-        url: '/:domainId/detail/:id?language&mailContentLangId',
+        url: '/:domainId/detail/:id?language',
         views: {
           'detail': {
             templateUrl: 'ng_components/mailconfig/mailconfig_detail.tpl.html',
@@ -709,23 +709,24 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               }
             }
           },
+        },
+      })
+      .state('mailconfig.mailcontentlang', {
+        url: '/:domainId/mailcontentlang/:mailConfigId/:id',
+        views: {
           'mailcontentlang': {
             templateUrl: 'ng_components/mailcontent/mailcontentlang_detail.tpl.html',
             controller: 'MailContentLangDetailCtrl',
             resolve: {
               currentMailContentLang: function(MailContentLang, $stateParams) {
-                if ($stateParams.mailContentLangId) {
-                  return MailContentLang.get($stateParams.mailContentLangId);
-                }
+                return MailContentLang.get($stateParams.id);
               },
               mailContents: function(MailConfig, currentMailContentLang, $stateParams) {
-                if (currentMailContentLang) {
-                  return MailConfig.getAllMailContents($stateParams.id, currentMailContentLang.language, currentMailContentLang.mailContentType);
-                }
+                return MailConfig.getAllMailContents($stateParams.mailConfigId, currentMailContentLang.language, currentMailContentLang.mailContentType);
               },
             }
           }
-        },
+        }
       })
 
       .state('password', {

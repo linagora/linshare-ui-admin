@@ -39,7 +39,7 @@ angular.module('linshareAdminApp')
           policyType.status = policyType.defaultStatus;
         };
         $scope.isRootDomain = function() {
-          return $scope.functionality.domain.type === 'ROOTDOMAIN';
+          return $scope.functionality.domain === 'LinShareRootDomain';
         };
         $scope.displayIconSaved = function() {
           $scope.iconSaved = true;

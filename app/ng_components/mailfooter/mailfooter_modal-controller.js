@@ -4,7 +4,7 @@ angular.module('linshareAdminApp')
   .controller('mailFooterModalCtrl',
     ['$scope', '$log', '$translate', '$state', '$modalInstance', 'Domain', 'MailFooter',
       function ($scope, $log, $translate, $state, $modalInstance, Domain, MailFooter) {
-        Domain.getAll(function(domains) {
+        Domain.getAll().then(function(domains) {
           $scope.domains = domains;
         });
         $scope.isDefined = function(x) {
