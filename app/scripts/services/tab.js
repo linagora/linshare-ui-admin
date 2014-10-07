@@ -60,11 +60,11 @@ angular.module('linshareAdminApp')
             href: '#parameters/functionalities'
           }, {
             name: 'COMMON.TAB.MIME_POLICIES',
-            superAdminOnly: false,
+            superAdminOnly: true,
             href: '#parameters/mime_policy'
           }, {
             name: 'COMMON.TAB.UPLOAD_PROPOSITION_FILTER',
-            superAdminOnly: false,
+            superAdminOnly: true,
             href: '#parameters/upload_proposition_filter'
           }
         ]
@@ -110,7 +110,7 @@ angular.module('linshareAdminApp')
             href: '#history/audit'
           }, {
             name: 'COMMON.TAB.UPLOAD_REQUEST',
-            superAdminOnly: false,
+            superAdminOnly: true,
             href: '#history/upload_request'
           }
         ]
