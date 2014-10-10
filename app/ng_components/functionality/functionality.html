@@ -1,0 +1,19 @@
+<section class="content-header">
+  <h1>
+    {{'COMMON.TAB.FUNCTIONALITIES' | translate}}
+    <small>
+      {{'FUNCTIONALITIES.TITLE' | translate}}
+    </small>
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <section class="col-md-4">
+      <div x-ui-view="tree" />
+    </section>
+    <section class="col-md-8">
+      <div x-ui-view="list"/>
+      <div x-ui-view="detail" />
+    </section>
+  </div>
+</section>

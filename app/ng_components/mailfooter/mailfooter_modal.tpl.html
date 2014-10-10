@@ -1,0 +1,76 @@
+<div class="modal-header">
+  <h3 class="modal-title">
+    {{ 'MAIL_FOOTER.MODAL_FORM.TITLE' | translate }}
+  </h3>
+</div>
+<form class="form" name="mailFooterForm" role="form" novalidate
+      x-ls-form-submit="create(model)"
+      x-ls-form-attempt>
+  <fieldset>
+    <div class="modal-body">
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">
+          {{ 'MAIL_FOOTER.MODAL_FORM.LABEL_NAME' | translate }}
+        </label>
+        <input id="name" name="name" type="text" class="form-control" required
+               x-ng-model="mailFooter.name">
+      </div>
+      <!-- Model -->
+      <fieldset>
+        <legend>
+          {{ 'MAIL_FOOTER.MODAL_FORM.LABEL_MODEL' | translate }}
+        </legend>
+        <!-- Domain -->
+        <div class="form-group"
+             x-ng-class="{'has-error': mailFooterForm.domain.$invalid &&
+              (mailFooterForm.domain.$dirty || ls.mailFooterForm.attempted)}">
+          <label for="domain">
+            {{ 'MAIL_FOOTER.MODAL_FORM.LABEL_DOMAIN' | translate }}
+          </label>
+          <select id="domain" name="domain" class="form-control" required
+                  x-ng-model="domain"
+                  x-ng-change="reloadModels(lang, domain)"
+                  x-ng-options="d.identifier for d in domains | orderBy:'identifier'">
+          </select>
+        </div>
+        <!-- Language -->
+        <div class="form-group"
+             x-ng-show="domain"
+             x-ng-class="{'has-error': mailFooterForm.lang.$invalid &&
+              (mailFooterForm.lang.$dirty || ls.mailFooterForm.attempted)}">
+          <label for="lang">
+            {{ 'MAIL_FOOTER.MODAL_FORM.LABEL_LANGUAGE' | translate }}
+          </label>
+          <select id="lang" name="lang" class="form-control" required
+                  x-ng-model="lang"
+                  x-ng-change="reloadModels(lang, domain)"
+                  x-ng-options="'MAIL_FOOTER.BOX_LIST.HEADER.LANGUAGE.' + l | translate for l in ['ENGLISH', 'FRENCH']">
+          </select>
+        </div>
+        <!-- Model -->
+        <div class="form-group"
+             x-ng-show="isDefined(domain) && isDefined(lang)"
+             x-ng-class="{'has-error': mailFooterForm.model.$invalid &&
+              (mailFooterForm.model.$dirty || ls.mailFooterForm.attempted)}">
+          <label for="model">
+            {{ 'MAIL_FOOTER.MODAL_FORM.LABEL_MODEL' | translate }}
+          </label>
+          <select id="model" name="model" class="form-control" required
+                  x-ng-model="model"
+                  x-ng-options="m.name for m in models | filter:{language: lang} | orderBy:'name'">
+          </select>
+        </div>
+      </fieldset>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default"
+              x-ng-click="cancel()">
+        {{ 'MAIL_FOOTER.MODAL_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}
+      </button>
+      <button type="submit" class="btn btn-primary">
+        {{ 'MAIL_FOOTER.MODAL_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+      </button>
+    </div>
+  </fieldset>
+</form>

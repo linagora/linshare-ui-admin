@@ -1,0 +1,24 @@
+<section class="content-header">
+  <h1>
+    {{ 'COMMON.TAB.MAIL_CONFIG' | translate }}
+    <small>
+      {{ 'MAIL_CONFIG.TITLE' | translate }}
+    </small>
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <section class="col-md-4">
+      <div x-ui-view="tree"/>
+    </section>
+    <section class="col-md-8">
+      <div x-ui-view="list"/>
+    </section>
+    <section class="col-md-12">
+      <div x-ui-view="detail"/>
+    </section>
+    <section class="col-md-12">
+      <div x-ui-view="mailcontentlang"/>
+    </section>
+  </div>
+</section>

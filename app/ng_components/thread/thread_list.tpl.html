@@ -1,0 +1,30 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{ 'THREADS.BOX_LIST.TITLE' | translate }}
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover"
+             x-ng-table="tableParams">
+        <tr x-ng-repeat="thread in $data"
+          x-ui-sref="thread.detail({id: thread.uuid})">
+          <td style="cursor: pointer"
+              data-title="'THREADS.BOX_LIST.TABLE.HEADER_NAME' | translate"
+              sortable="'name'">
+            <span>
+              {{thread.name}}
+            </span>
+          </td>
+          <td data-title="'THREADS.BOX_LIST.TABLE.HEADER_MODIFICATION_DATE' | translate"
+              sortable="'modificationDate'">
+            <span>
+              {{thread.modificationDate | date:'medium'}}
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -19,6 +19,7 @@
   color: #f6f6f6;
   background: #444;
   cursor: pointer;
+  cursor: hand;
 }
 
 .treeview > .panel-heading > .panel-title {
@@ -38,6 +39,11 @@
 
 .sidebar .sidebar-menu .treeview-menu > li > a {
   padding: 5px 5px 5px 15px;
+}
+
+.sidebar .sidebar-menu .treeview-menu > li:hover {
+  cursor: pointer;
+  cursor: hand;
 }
 
 .panel-group > div:first-of-type {
