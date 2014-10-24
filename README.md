@@ -1,47 +1,48 @@
 # Linshare UI admin
 
-## Installation
+## Prérequis
 
-### Installer les outils
-5 outils sont nécessaire pour installer le projet:
-- nodejs
-- npm
-- grunt
-- bower
-- yeoman (yo)
+Récupérer le projet __linshare-ui-admin__ depuis le dépôt
+    
+Installer nodesjs et npm
 
-#### Installer nodejs & npm
     curl http://nodejs.org/dist/node-latest.tar.gz -o node-latest.tar.gz
     tar xvf node-latest.tar.gz
     cd node-v0.XX.XX
     ./configure
     make
-    make install
+    sudo make install
+    
+Installer compass
 
-#### Installer les modules grunt, bower, yo 
-    sudo npm install -g yo grunt-cli bower
-    sudo npm install -g generator-webapp
+    gem install compass 
+    Si vous avez une erreur, désinstaller sass et réessayer l'installation. Sinon faites apt-get install ruby-compass
+    
 
-#### Checker les modules npm a mettre à jour
-    sudo npm outdated -g
+## Installation de l'application
 
-#### Mettre a jour nodejs
+
+#### Installer les modules définis dans le fichier package.json en local 
+    npm install
+
+#### Mettre des alias pour les modules installés en local
+Rajoutez ces lignes dans le fichier .bashrc:
+    
+    alias bower = './node_modules/.bin/bower'
+    alias grunt = './node_modules/.bin/grunt'
+    
+#### Checker les modules npm à mettre à jour
+    npm outdated 
+
+#### Mettre à jour nodejs
     sudo npm cache clean -f
     sudo npm install -g n
     sudo n stable
 
-#### Mettre a jour npm & ses modules
-    sudo npm update -g
+#### Mettre à jour npm & ses modules
+    sudo npm update 
 
-#### Mettre a jour yeoman
-    sudo npm cache clean && npm update -g yo
-
-### Installer le projet
-    npm install
-    bower install
-
-
-## Procedure de mise à jour
+## Procédure de mise à jour
 Pour vérifier si des mises à jour sont présentes:
 
     bower list
