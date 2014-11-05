@@ -28,8 +28,8 @@ Installer compass
 #### Mettre des alias pour les modules installés en local
 Rajoutez ces lignes dans le fichier .bashrc:
     
-    alias bower = './node_modules/.bin/bower'
-    alias grunt = './node_modules/.bin/grunt'
+    alias bower='./node_modules/.bin/bower'
+    alias grunt='./node_modules/.bin/grunt'
     
 #### Checker les modules npm à mettre à jour
     npm outdated 
