@@ -34,18 +34,18 @@
         <tr x-ng-repeat="mailContent in $data"
             x-ng-click="edit(mailContent)">
           <td style="cursor: pointer"
-              data-title="'MAIL_CONTENT.BOX_LIST.TABLE.HEADER_NAME' | translate"
-              sortable="'name'">
-            <span>
-              {{ mailContent.name }}
-            </span>
-          </td>
-          <td style="cursor: pointer"
               data-title="'MAIL_CONTENT.BOX_LIST.TABLE.HEADER_CONTENT_TYPE' | translate"
               sortable="'mailContentType'">
             <span>
               {{ 'COMMON.ENUM.MAIL_CONTENT_TYPE.' + mailContent.mailContentType | translate }}
             </span>
+          </td>
+          <td style="cursor: pointer"
+              data-title="'MAIL_CONTENT.BOX_LIST.TABLE.HEADER_NAME' | translate"
+              sortable="'name'">
+           <span>
+             {{ mailContent.name }}
+           </span>
           </td>
         </tr>
       </table>
