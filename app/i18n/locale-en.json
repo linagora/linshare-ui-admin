@@ -155,7 +155,22 @@
         "NEW_SHARING_PROTECTED": "New sharing protected",
         "NEW_SHARING_CYPHERED": "New sharing cyphered",
         "NEW_SHARING_CYPHERED_PROTECTED": "New sharing cyphered protected",
-        "UPLOAD_REQUEST_CREATED": "New upload request"
+        "UPLOAD_PROPOSITION_CREATED": "New upload created",
+        "UPLOAD_REQUEST_CREATED": "New upload request",
+        "UPLOAD_PROPOSITION_REJECTED": "New upload proposition rejected",
+        "UPLOAD_REQUEST_AUTO_FILTER": "Upload proposition filter",
+        "UPLOAD_REQUEST_ACKNOWLEDGMENT": "Upload request acknowledgment",
+        "UPLOAD_REQUEST_ACTIVATED": "Upload request activated",
+        "UPLOAD_REQUEST_CLOSED_BY_OWNER": "Upload request has been closed by the owner",
+        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Upload request has been closed by the recipient",
+        "UPLOAD_REQUEST_DELETED_BY_OWNER": "Upload request deleted by the owner",
+        "UPLOAD_REQUEST_NO_SPACE_LEFT": "No space left for this upload request",
+        "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": "Warning sent to the recipient for the upload request expiry",
+        "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": "Warning notification to the owner for the upload request expiry",
+        "UPLOAD_REQUEST_REMINDER": "A reminder for the upload request",
+        "UPLOAD_REQUEST_UPDATED": "The upload request has been updated",
+        "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": "Warning notification sent to the recipient before the upload request expiry",
+        "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY":"Warning notification sent to the owner before the upload request expiry"
       },
       "ROLE": {
         "SIMPLE": "Simple",
