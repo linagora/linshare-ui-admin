@@ -40,10 +40,11 @@ angular.module('linshareAdminApp', [
     RestangularProvider.addResponseInterceptor(function(data) {
       var newResponse = data;
       if (angular.isArray(data)) {
+        newResponse.originalElement = [];
         angular.forEach(newResponse, function(value, key) {
-          newResponse[key].originalElement = angular.copy(value);
+          newResponse.originalElement[key] = angular.copy(value);
         });
-      } else {
+      } else if (angular.isObject(data)){
         newResponse.originalElement = angular.copy(data);
       }
 
@@ -62,7 +63,7 @@ angular.module('linshareAdminApp', [
     cfpLoadingBarProvider.includeSpinner = false;
 }])
 
-// Register work which should be performed when the injector is done loading all modules 
+// Register work which should be performed when the injector is done loading all modules
 .run(['$log', 'Restangular', 'Notification',
   function($log, Restangular, Notification) {
     Restangular.setErrorInterceptor(function(response) {
