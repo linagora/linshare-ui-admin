@@ -10,8 +10,14 @@
     <alert type="{{ alert.type }}"
            x-close="closeAlert($index)"
            x-index="$index"
-           x-ng-if="alert.type==='danger'">
+           x-ng-if="alert.type==='danger' && alert.errorType === undefined">
       {{alert.msg | translate}}
+    </alert>
+    <alert type="{{ alert.type }}"
+           x-close="closeAlert($index)"
+           x-index="$index"
+           x-ng-if="alert.type==='danger' && alert.errorType === 500">
+          <a href="{{alert.url}}" target="_blank">{{alert.msg | translate}}</a>
     </alert>
   </div>
 </div>
