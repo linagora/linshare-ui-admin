@@ -74,6 +74,7 @@
         "DELETE": "Suppression réussie"
       },
       "ERROR": {
+        "503": "Serveur indisponible.",
         "1000": "Une erreur c'est produite, veuillez contacter votre administrateur Linshare",
         "4000": "Id invalide",
         "13000": "Domain id déjà présent",

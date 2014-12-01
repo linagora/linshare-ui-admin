@@ -3,8 +3,8 @@
 /* Services */
 
 angular.module('linshareAdminApp')
-  .factory('Notification', ['$rootScope', '$timeout', '$log',
-  function($rootScope, $timeout, $log) {
+  .factory('Notification', ['$rootScope', '$timeout', '$log', 'lsAppConfig',
+  function($rootScope, $timeout, $log, lsAppConfig) {
     return {
       addSuccess: function(action) {
         $log.debug('Notification:addSuccess');
@@ -15,9 +15,18 @@ angular.module('linshareAdminApp')
       },
       addError: function(newAlert) {
         $log.debug('Notification:addError');
-        newAlert.type = 'danger';
-        newAlert.msg = 'COMMON.NOTIFICATION.ERROR.' + newAlert.errCode;
-        $rootScope.$broadcast('pushAlert', newAlert);
+        if (newAlert.status !== undefined && newAlert.status >= 500 && newAlert.status < 600){
+          newAlert.type = 'danger';
+          newAlert.errorType = 500;
+          newAlert.url = lsAppConfig.backendURL;
+          newAlert.msg = 'COMMON.NOTIFICATION.ERROR.' + newAlert.status;
+          $rootScope.$broadcast('pushAlert', newAlert);
+        }
+        else {
+          newAlert.type = 'danger';
+          newAlert.msg = 'COMMON.NOTIFICATION.ERROR.' + newAlert.errCode;
+          $rootScope.$broadcast('pushAlert', newAlert);
+        }
       }
     };
   }

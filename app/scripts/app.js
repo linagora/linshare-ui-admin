@@ -68,8 +68,11 @@ angular.module('linshareAdminApp', [
   function($log, Restangular, Notification) {
     Restangular.setErrorInterceptor(function(response) {
       $log.error(response);
-      if (response.status !== 200 && response.status !== 401) {
+      if (response.status !== 200 && response.status !== 401 && response.status < 500) {
         Notification.addError(response.data);
+      }
+      if (response.status >= 500 && response.status < 600){
+        Notification.addError(response);
       }
       return response;
     });

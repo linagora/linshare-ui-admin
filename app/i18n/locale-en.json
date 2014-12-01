@@ -74,6 +74,7 @@
         "DELETE": "Deletion succeed"
       },
       "ERROR": {
+        "503": "Service Unavailable.",
         "1000": "A error has occured, please contact your LinShare administrator",
         "4000": "Invalid identifier",
         "13000": "Domain id already exist",
@@ -135,8 +136,8 @@
         "USER_EXPIRE": "User expire",
         "USER_AUTH": "User authentication",
         "USER_AUTH_FAILED": "User authentication failed",
-        "USER_UPDATE": "User update", 
-        "FILE_SIGN": "File sign", 
+        "USER_UPDATE": "User update",
+        "FILE_SIGN": "File sign",
         "FILE_ENCRYPT": "File encrypt",
         "FILE_DECRYPT": "File decrypt",
         "FILE_WITH_VIRUS": "File with virus",
