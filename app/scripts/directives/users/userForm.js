@@ -18,6 +18,7 @@ angular.module('linshareAdminApp').directive('lsUserForm', [
               return role !== 'SYSTEM' && role !== 'SUPERADMIN';
             });
           });
+          $scope.userRolesSimple = ['SIMPLE', 'ADMIN'];
           $scope.open = function($event) {
             $event.preventDefault();
             $event.stopPropagation();
