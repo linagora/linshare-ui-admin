@@ -5,6 +5,7 @@ angular.module('linshareAdminApp')
      ['$scope', '$modal', '$state',  '$log', 'User', 'selectOptions', 'currentUser', 'maxExpiryDate', 'restrictedGuestStatus',
       function ($scope, $modal, $state, $log, User, selectOptions, currentUser, maxExpiryDate, restrictedGuestStatus) {
         $scope.userRoles = selectOptions.userRoles;
+        $scope.userRolesSimple = ['SIMPLE', 'ADMIN'];
         $scope.user = currentUser;
         $scope.limit = maxExpiryDate;
         $scope.restrictedDisabled = restrictedGuestStatus;
