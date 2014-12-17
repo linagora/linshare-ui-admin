@@ -171,7 +171,7 @@
         "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": "Avertissement d'une future expiration d'une invitation de dépôt (destinataire)",
         "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": "Avertissement d'une future expiration d'une invitation de dépôt (émetteur)",
         "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": "Notification d'expiration d'une invitation de dépôt (destinataire)",
-        "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": "Notification d'expiration d'une invitation de dépôt (émetteur)",
+        "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": "Notification d'expiration d'une invitation de dépôt (émetteur)"
       },
       "ROLE": {
         "SIMPLE": "Interne",
