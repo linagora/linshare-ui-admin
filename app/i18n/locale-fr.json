@@ -74,6 +74,7 @@
         "DELETE": "Suppression réussie"
       },
       "ERROR": {
+        "500": "Erreur interne du serveur",
         "503": "Serveur indisponible.",
         "1000": "Une erreur c'est produite, veuillez contacter votre administrateur Linshare",
         "4000": "Id invalide",
@@ -793,10 +794,13 @@
       "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
       "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
       "LABEL_ROLE": "Rôle",
+      "LABEL_LANGUAGE": "Langue d'affichage par défaut du site",
+      "LABEL_MAIL_LANGUAGE": "Langue des courriels",
       "LABEL_DOMAIN": "Domaine",
       "LABEL_CAN_UPLOAD": "Permission de dépôt",
       "LABEL_COMMENT": "Commentaire",
       "LABEL_OWNER": "Propriétaire",
+      "BUTTON_ADD_CONTACT": "Ajouter un contact",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",

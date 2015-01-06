@@ -74,6 +74,7 @@
         "DELETE": "Deletion succeed"
       },
       "ERROR": {
+        "500": "Internal Server Error",
         "503": "Service Unavailable.",
         "1000": "A error has occured, please contact your LinShare administrator",
         "4000": "Invalid identifier",
@@ -793,10 +794,13 @@
       "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
       "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
       "LABEL_ROLE": "Role",
+      "LABEL_LANGUAGE": "Default language of the site",
+      "LABEL_MAIL_LANGUAGE": "Notification's language",
       "LABEL_DOMAIN": "Domain",
       "LABEL_CAN_UPLOAD": "Upload permission",
       "LABEL_COMMENT": "Comment",
       "LABEL_OWNER": "Owner",
+      "BUTTON_ADD_CONTACT": "Add contact",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
