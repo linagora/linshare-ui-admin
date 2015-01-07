@@ -27,8 +27,22 @@
             {{ 'MANAGE_USERS.BOX_FORM.LABEL_CAN_UPLOAD' | translate }}
           </span>
         </div>
-        <!-- GUEST -->
-        <div x-ng-if="user.guest">
+
+        <!-- User role -->
+        <div class="form-group"
+             x-ng-if="isGuest()"
+             x-ng-class="{error: userForm.role.$invalid &&
+               (userForm.role.$dirty || ls.userForm.attempted)}">
+          <label for="role">
+            {{ 'MANAGE_USERS.BOX_FORM.LABEL_ROLE' | translate }}
+          </label>
+          <div class="controls">
+            <select id="role" name="role" class="form-control" required
+                    x-ng-model="user.role"
+                    x-ng-options="'COMMON.ENUM.ROLE.' + r | translate for r in userRolesSimple">
+            </select>
+          </div>
+        </div>
           <!-- First name -->
           <div class="form-group"
                x-ng-class="{error: userForm.firstName.$invalid &&
@@ -52,6 +66,38 @@
             <div class="controls">
               <input id="lastName" name="lastName" type="text" class="form-control" required
                      x-ng-model="user.lastName">
+            </div>
+          </div>
+        <!-- Language -->
+        <div class="form-group">
+          <label for="locale">
+            {{ 'MANAGE_USERS.BOX_FORM.LABEL_LANGUAGE' | translate }}
+          </label>
+          <div class="controls">
+            <input class="form-control" id="locale" class="form-control-static" x-ng-model="user.locale" />
+          </div>
+        </div>
+        <!-- External Mail Locale -->
+        <div class="form-group">
+          <label for="externalMailLocale">
+            {{ 'MANAGE_USERS.BOX_FORM.LABEL_MAIL_LANGUAGE' | translate }}
+          </label>
+          <div class="controls">
+            <input class="form-control" id="externalMailLocale" class="form-control-static" x-ng-model="user.externalMailLocale" />
+          </div>
+        </div>
+
+        <!-- GUEST -->
+        <div x-ng-if="isGuest()">
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="mail">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_EMAIL' | translate }}
+            </label>
+            <div class="controls">
+              <input id="mail" name="mail" type="email" class="form-control" required
+                     x-ng-model="user.mail">
             </div>
           </div>
           <!-- Restricted -->
@@ -112,30 +158,6 @@
             </div>
           </div>
 
-          <!-- Expiration date -->
-          <div class="form-group">
-            <label for="expirationDate">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_EXPIRY_DATE' | translate }}
-            </label>
-            <div class="controls">
-              <p class="input-group">
-                <input type="text" name="expirationDate"
-                       x-datepicker-popup="dd-MMMM-yyyy" 
-                       x-ng-model="user.expirationDate"
-                       x-is-opened="opened"
-                       x-min-date="today"
-                       x-max-date="limit"
-                       x-show-weeks="false"/>
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-default"
-                          x-ng-click="open($event)">
-                    <i class="fa fa-calendar"></i>
-                  </button>
-                </span>
-              </p>
-            </div>
-          </div>
-
           <!-- Comment -->
           <div class="form-group">
             <label for="comment">
@@ -146,21 +168,6 @@
                         x-ng-model="user.comment">
               </textarea>
             </div>
-          </div>
-        </div>
-        <!-- User role -->
-        <div class="form-group"
-             x-ng-if="!user.guest"
-             x-ng-class="{error: userForm.role.$invalid &&
-               (userForm.role.$dirty || ls.userForm.attempted)}">
-          <label for="role">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_ROLE' | translate }}
-          </label>
-          <div class="controls">
-            <select id="role" name="role" class="form-control" required
-                    x-ng-model="user.role"
-                    x-ng-options="'COMMON.ENUM.ROLE.' + r | translate for r in userRolesSimple">
-            </select>
           </div>
         </div>
       </div>
@@ -174,7 +181,7 @@
           </label>
           <div class="controls">
             <span name="status" class="form-control-static">
-              {{ user.guest ? 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_GUEST' : 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_INTERNAL' | translate }}
+              {{ isGuest() ? 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_GUEST' : 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_INTERNAL' | translate }}
             </span>
           </div>
         </div>
@@ -201,9 +208,22 @@
             </span>
           </div>
         </div>
+
+        <!-- Expiration date -->
+        <div class="form-group" x-ng-if="isGuest()">
+          <label for="expirationDate">
+            {{ 'MANAGE_USERS.BOX_FORM.LABEL_EXPIRY_DATE' | translate }}
+          </label>
+          <div class="controls">
+            <span name="expirationDate" class="form-control-static">
+              {{user.expirationDate | date: 'medium'}}
+            </span>
+          </div>
+        </div>
+
         <!-- Owner  -->
         <div class="form-group"
-             x-ng-if="user.guest">
+             x-ng-if="isGuest()">
           <label for="owner">
             {{ 'MANAGE_USERS.BOX_FORM.LABEL_OWNER' | translate }}
           </label>
@@ -214,30 +234,8 @@
           </div>
         </div>
         <!-- INTERNAL -->
-        <div x-ng-if="!user.guest">
-          <!-- First name -->
-          <div class="form-group">
-            <label for="firstName">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_FIRST_NAME' | translate }}
-            </label>
-            <div class="controls">
-              <span name="firstName" class="form-control-static">
-                {{user.firstName}}
-              </span>
-            </div>
-          </div>
+        <div x-ng-if="isGuest()">
 
-          <!-- Last name -->
-          <div class="form-group">
-            <label for="lastName">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_LAST_NAME' | translate }}
-            </label>
-            <div class="controls">
-              <span name="lastName" class="form-control-static">
-                {{user.lastName}}
-              </span>
-            </div>
-          </div>
           <!-- Domain -->
           <div class="form-group">
             <label for="domain">

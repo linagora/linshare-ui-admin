@@ -34,6 +34,9 @@ angular.module('linshareAdminApp')
             $scope.cancel();
           });
         };
+        $scope.isGuest = function() {
+          return $scope.user.accountType == 'GUEST';
+        };
         $scope.delete = function(user) {
           var modalInstance = $modal.open({
             templateUrl: 'ng_components/common/confirm_modal.tpl.html',
