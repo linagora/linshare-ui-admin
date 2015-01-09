@@ -30,7 +30,7 @@
 
         <!-- User role -->
         <div class="form-group"
-             x-ng-if="isGuest()"
+             x-ng-if="!isGuest()"
              x-ng-class="{error: userForm.role.$invalid &&
                (userForm.role.$dirty || ls.userForm.attempted)}">
           <label for="role">
@@ -74,7 +74,10 @@
             {{ 'MANAGE_USERS.BOX_FORM.LABEL_LANGUAGE' | translate }}
           </label>
           <div class="controls">
-            <input class="form-control" id="locale" class="form-control-static" x-ng-model="user.locale" />
+            <select name="locale" id="locale" class="form-control"
+                    x-ng-model="user.locale"
+                    x-ng-options="locale as 'COMMON.ENUM.LANGUAGE.' + locale | translate for locale in selectEnumLanguage">
+            </select>
           </div>
         </div>
         <!-- External Mail Locale -->
@@ -83,7 +86,10 @@
             {{ 'MANAGE_USERS.BOX_FORM.LABEL_MAIL_LANGUAGE' | translate }}
           </label>
           <div class="controls">
-            <input class="form-control" id="externalMailLocale" class="form-control-static" x-ng-model="user.externalMailLocale" />
+            <select name="externalMailLocale" id="externalMailLocale" class="form-control"
+                    x-ng-model="user.externalMailLocale"
+                    x-ng-options="locale as 'COMMON.ENUM.LANGUAGE.' + locale | translate for locale in selectEnumLanguage">
+            </select>
           </div>
         </div>
 

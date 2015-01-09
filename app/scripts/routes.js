@@ -115,7 +115,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           },
         },
       })
-    
+
       .state('mimepolicy', {
         abstract: true,
         url: '/mimepolicy',
@@ -165,7 +165,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-    
+
       .state('user', {
         abstract: true,
         url: '/user',
@@ -197,16 +197,18 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           restrictedGuestStatus: function(_funcRestrictedGuest) {
             return _funcRestrictedGuest.activationPolicy.policy !== 'ALLOWED';
           },
-          selectOptions: function(_enumRole) {
+          selectOptions: function(_enumRole, _enumLanguage) {
             return {
               userRoles: _.remove(_enumRole, function(role) {
                 return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' && role !== 'UPLOAD_PROPOSITION';
               }),
+              selectEnumLanguage: _enumLanguage
             };
           },
           _funcAccountExpiration: funcAccountExpiration,
           _funcRestrictedGuest: funcRestrictedGuest,
           _enumRole: enumRole,
+          _enumLanguage: enumLanguage
         },
         templateUrl: 'ng_components/user/user_detail.tpl.html',
         controller: 'UserDetailCtrl',
@@ -268,7 +270,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-    
+
       .state('mailinglist', {
         abstract: true,
         url: '/mailinglist',
@@ -351,7 +353,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-    
+
       .state('domainpattern', {
         abstract: true,
         url: '/domainpattern',
@@ -460,7 +462,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
          },
        }
      })
-    
+
       .state('domainpolicy', {
         abstract: true,
         url: '/domainpolicy',
