@@ -181,7 +181,7 @@
             </td>
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_EXPIRY_DATE' | translate"
                 sortable="'expirationDate'">
-              {{ result.expirationDate }}
+              {{ result.expirationDate | date:'medium' }}
             </td>
           </tr>
         </table>
