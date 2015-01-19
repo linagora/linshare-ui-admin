@@ -41,6 +41,15 @@
   padding: 5px 5px 5px 15px;
 }
 
+.sidebar .sidebar-menu .treeview-menu > li > a.active {
+  color:#fff;
+  font-weight:bold;
+}
+
+.sidebar .sidebar-menu .treeview-menu > li > a.active > .fa {
+  font-weight:bold; 
+}
+
 .sidebar .sidebar-menu .treeview-menu > li:hover {
   cursor: pointer;
   cursor: hand;

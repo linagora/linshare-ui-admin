@@ -73,8 +73,8 @@ angular.module('linshareAdminApp', [
 }])
 
 // Register work which should be performed when the injector is done loading all modules 
-.run(['$rootScope', '$log', 'Restangular', 'Notification', 'lsAppConfig',
-  function($rootScope, $log, Restangular, Notification, lsAppConfig) {
+.run(['$rootScope', '$state', '$log', 'Restangular', 'Notification', 'lsAppConfig',
+  function($rootScope, $state, $log, Restangular, Notification, lsAppConfig) {
     Restangular.setErrorInterceptor(function(response) {
       $log.error(response);
       if (response.status !== 200 && response.status !== 401 && response.status < 500) {
@@ -84,6 +84,9 @@ angular.module('linshareAdminApp', [
         Notification.addError(response);
       }
       return true;
+    });
+    $rootScope.$on('$stateChangeStart',function(event, toState){
+      $state.current.name = toState.name;
     });
     if (lsAppConfig.debug) {
       $rootScope.$on('$stateChangeStart',function(event, toState, toParams){

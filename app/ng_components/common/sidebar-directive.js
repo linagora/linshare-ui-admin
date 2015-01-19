@@ -10,6 +10,13 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
         function($scope, $log, $state, Authentication, Tab) {
           Authentication.getCurrentUser().then(function(user) {
             $scope.tabs = Tab.getAvailableTabs(user);
+            $scope.linkActive = $state.current.name;
+            angular.forEach($scope.tabs, function(value) {
+              angular.forEach(value.links, function(link) {
+                if ($state.current.name == link.sref)
+                  value.isopen = true;
+              })
+            });
           });
           $scope.$watch('search', function(newValue) {
             var inSearch = !_.isEmpty(newValue);
@@ -20,6 +27,7 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
           $scope.changeState = function(sref) {
             Authentication.getCurrentUser().then(function(user) {
               $state.go(sref, {domainId: user.domain});
+              $scope.linkActive = sref;
             });
           };
         }
