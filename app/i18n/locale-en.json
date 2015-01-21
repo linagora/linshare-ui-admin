@@ -229,6 +229,11 @@
         "WEEK": "Week",
         "MONTH": "Month"
       },
+      "ENUM_LANG": {
+        "fr": "French",
+        "en": "English",
+        "nl": "Dutch"
+      },
       "UPLOAD_REQUEST_STATUS": {
         "STATUS_ENABLED": "Status enabled",
         "STATUS_DELETED": "Status deleted",

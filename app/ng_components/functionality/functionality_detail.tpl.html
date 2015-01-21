@@ -202,7 +202,7 @@
                   <label class="control-label" for="$index"></label>
                   <input name="$index" type="text" class="form-control" required
                          x-ng-model="parameter.string"
-                         x-ng-change="updateWithTimeout()" 
+                         x-ng-change="updateWithTimeout()"
                          x-ng-minLength="1">
                 </div>
               </div>
@@ -219,6 +219,17 @@
                     <span class="form-control">
                     {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type | translate }}
                     </span>
+                </div>
+              </div>
+              </div>
+              <div x-ng-switch-when="ENUM_LANG">
+                <div class="form-group">
+                  <label class="control-label" for="$index"></label>
+                  <select class="form-control"
+                          x-ng-model="parameter.string"
+                          x-ng-change="updateWithTimeout()"
+                          x-ng-options="option as 'COMMON.ENUM.ENUM_LANG.' + option | translate for option in parameter.select">
+                  </select>
                 </div>
               </div>
             </div>
@@ -240,7 +251,7 @@
     <div class="pull-right box-tools">
       <button class="btn btn-primary btn-sm"
               x-ng-click="cancel()">
-        <i class="fa fa-list"></i> 
+        <i class="fa fa-list"></i>
         {{ 'FUNCTIONALITIES.BOX_FORM.BUTTON_LIST' | translate }}
       </button>
     </div>
