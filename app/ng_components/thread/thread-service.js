@@ -1,15 +1,17 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('Thread', ['$log', 'Restangular', 'Notification',
-    function ($log, Restangular, Notification) {
+  .factory('Thread', ['$q', '$log', 'Restangular', 'Notification',
+    function ($q, $log, Restangular, Notification) {
       //var self = this;
 
       // Public API here
       return {
-        getAll: function() {
+        getAll: function(pattern) {
           $log.debug('Thread:getAll');
-          return Restangular.all('threads').getList();
+          if (pattern == null)
+            return Restangular.all('threads').getList();
+          return Restangular.all('threads').getList({pattern:pattern});
         },
         get: function(id) {
           $log.debug('Thread:get');
@@ -26,7 +28,7 @@ angular.module('linshareAdminApp')
           return thread.remove().then(function() {
             Notification.addSuccess('DELETE');
           });
-        },
+        }
       };
     }
   ]

@@ -252,11 +252,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/list',
         templateUrl: 'ng_components/thread/thread_list.tpl.html',
         controller: 'ThreadListCtrl',
-        resolve: {
-          threads: function(Thread) {
-            return Thread.getAll();
-          },
-        }
       })
       .state('thread.detail', {
         url: '/:id',

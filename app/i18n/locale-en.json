@@ -857,6 +857,10 @@
         "HEADER_MODIFICATION_DATE": "@:THREADS.BOX_FORM.LABEL_MODIFICATION_DATE"
       }
     },
+    "SEARCH": {
+      "SERVER": "Search threads from the server",
+      "CLIENT": "Filter the result by thread name"
+    },
     "BOX_FORM": {
       "TITLE": "Edit group",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",

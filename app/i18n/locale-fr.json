@@ -857,6 +857,10 @@
         "HEADER_MODIFICATION_DATE": "@:THREADS.BOX_FORM.LABEL_MODIFICATION_DATE"
       }
     },
+    "SEARCH": {
+      "SERVER": "Rechercher un groupe depuis le server",
+      "CLIENT": "Filtrer votre résultat avec le nom du groupe"
+    },
     "BOX_FORM": {
       "TITLE": "Edition d'un groupe",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",

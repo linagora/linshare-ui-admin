@@ -3,16 +3,28 @@
     <h3 class="box-title">
       {{ 'THREADS.BOX_LIST.TITLE' | translate }}
     </h3>
+    <div class="row">
+      <div class="col-lg-6 pull-right">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="{{'THREADS.SEARCH.SERVER' | translate}}" ng-model="threadSearch">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="isClicked()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div>
   </div>
-  <div class="box-body">
+    <div class="box-body">
     <div class="table-responsive">
-      <table class="table table-striped table-hover"
-             x-ng-table="tableParams">
-        <tr x-ng-repeat="thread in $data"
-          x-ui-sref="thread.detail({id: thread.uuid})">
+      <div>
+        <input ng-hide="tableParams.data.length == 0" class="col-md-5" type="text" ng-model="search" placeholder="{{'THREADS.SEARCH.CLIENT' | translate}}" />
+      </div><br />
+      <table class="table table-striped table-hover" x-ng-table="tableParams">
+        <tr x-ng-repeat="thread in $data | filter: search"
+            x-ui-sref="thread.detail({id: thread.uuid})">
           <td style="cursor: pointer"
               data-title="'THREADS.BOX_LIST.TABLE.HEADER_NAME' | translate"
-              sortable="'name'">
+              sortable="'name'" class="col-lg-5">
             <span>
               {{thread.name}}
             </span>
