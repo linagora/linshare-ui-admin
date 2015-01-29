@@ -819,7 +819,5 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           uploadRequestStatus: enumUploadRequestStatus,
         }
       })
-
-      ;
-  }
+    }
 ]);

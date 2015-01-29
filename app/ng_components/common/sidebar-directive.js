@@ -10,13 +10,14 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
         function($rootScope, $scope, $log, $state, $translate, Authentication, Tab, Languages) {
           Authentication.getCurrentUser().then(function(user) {
             $scope.tabs = Tab.getAvailableTabs(user);
-            $scope.linkActive = $state.current.name;
-            angular.forEach($scope.tabs, function(value) {
-              angular.forEach(value.links, function(link) {
-                if ($state.current.name == link.sref)
-                  value.isopen = true;
-              })
+            $scope.linkActive = false;
+            $scope.userDomain = user.domain;
+            $rootScope.$on('$stateChangeStart',function(event, toState, toParams){
+              $scope.checkActiveSection(toState.name);
             });
+            if ($scope.linkActive == false){
+              $scope.checkActiveSection($state.next.name);
+            }
           });
           $scope.$watch('search', function(newValue) {
             var inSearch = !_.isEmpty(newValue);
@@ -40,7 +41,11 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
                   });
                 }
               })
-            })
+            });
+          };
+          $scope.setActiveSection = function(link, value) {
+            $scope.linkActive = link;
+            value.isopen = true;
           };
         }
       ],
@@ -49,3 +54,4 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
     };
   }
 ]);
+

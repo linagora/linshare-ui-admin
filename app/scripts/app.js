@@ -69,10 +69,14 @@ angular.module('linshareAdminApp', [
     cfpLoadingBarProvider.includeSpinner = false;
 
     // Force reloading controller (https://github.com/angular-ui/ui-router/issues/582)
-    $provide.decorator('$state', function($delegate) {
+    $provide.decorator('$state', function($delegate, $rootScope) {
       $delegate.reinit = function() {
         this.go('.', {}, {reload: true});
       };
+      $rootScope.$on('$stateChangeStart', function(event, state, params) {
+        $delegate.next = state;
+        $delegate.toParams = params;
+      });
       return $delegate;
     });
 }])
@@ -89,9 +93,6 @@ angular.module('linshareAdminApp', [
         Notification.addError(response);
       }
       return true;
-    });
-    $rootScope.$on('$stateChangeStart',function(event, toState){
-      $state.current.name = toState.name;
     });
     if (lsAppConfig.debug) {
       $rootScope.$on('$stateChangeStart',function(event, toState, toParams){
