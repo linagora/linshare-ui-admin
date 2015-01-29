@@ -6,8 +6,8 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$scope', '$log', '$state', 'Authentication', 'Tab',
-        function($scope, $log, $state, Authentication, Tab) {
+      controller: ['$rootScope', '$scope', '$log', '$state', '$translate', 'Authentication', 'Tab', 'Languages',
+        function($rootScope, $scope, $log, $state, $translate, Authentication, Tab, Languages) {
           Authentication.getCurrentUser().then(function(user) {
             $scope.tabs = Tab.getAvailableTabs(user);
             $scope.linkActive = $state.current.name;
@@ -24,11 +24,23 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
               value.isopen = inSearch;
             })
           });
-          $scope.changeState = function(sref) {
-            Authentication.getCurrentUser().then(function(user) {
-              $state.go(sref, {domainId: user.domain});
-              $scope.linkActive = sref;
-            });
+          $scope.language = Languages.getCurrentLang().filter;
+          $scope.checkActiveSection = function(currentState) {
+            angular.forEach($scope.tabs, function(value) {
+              angular.forEach(value.links, function(link) {
+
+                if (currentState == link.sref) {
+                  $scope.setActiveSection(link.sref, value);
+
+                } else if (link.children_sref) {
+
+                  angular.forEach(link.children_sref, function(subLink) {
+                    if (currentState == link.sref || currentState == subLink)
+                      $scope.setActiveSection(link.sref, value);
+                  });
+                }
+              })
+            })
           };
         }
       ],

@@ -566,7 +566,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         }
       })
       .state('mailcontent.list', {
-        url: '/:domainId/list',
+        url: '/:domainId/list?language',
         views: {
           'tree': domainTreeView,
           'list': {
@@ -584,7 +584,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         },
       })
       .state('mailcontent.detail', {
-        url: '/:domainId/detail/:id',
+        url: '/:domainId/detail/:id?language',
         views: {
           'tree': domainTreeView,
           'detail': {
@@ -617,7 +617,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         }
       })
       .state('mailfooter.list', {
-        url: '/:domainId/list',
+        url: '/:domainId/list?language',
         views: {
           'tree': domainTreeView,
           'list': {
@@ -635,7 +635,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         },
       })
       .state('mailfooter.detail', {
-        url: '/:domainId/detail/:id',
+        url: '/:domainId/detail/:id?language',
         views: {
           'tree': domainTreeView,
           'detail': {

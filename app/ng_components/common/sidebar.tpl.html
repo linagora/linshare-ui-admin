@@ -45,7 +45,8 @@
     </accordion-heading>
     <ul class="treeview-menu">
       <li x-ng-repeat="link in tab.links | filter:search">
-      <a id="{{link.name.replace('COMMON.TAB.', 'MENU-')}}" x-ng-class="{'active': link.sref==linkActive}" x-ng-click="changeState(link.sref)"  style="margin-left: 10px;">
+      <a id="{{link.name.replace('COMMON.TAB.', 'MENU-')}}" x-ng-class="{'active': link.sref==linkActive}" 
+      x-ui-sref="{{link.sref}}({domainId: userDomain, language: language})"  style="margin-left: 10px;">
           <i class="fa fa-angle-double-right"></i>
           {{link.name | translate}}
         </a>

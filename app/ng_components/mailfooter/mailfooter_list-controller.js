@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('MailFooterListCtrl',
-    ['$scope', '$filter', '$log', '$modal', 'ngTableParams', 'mailFooters', 'currentDomain',
-    function($scope, $filter, $log, $modal, ngTableParams, mailFooters, currentDomain) {
+    ['$scope', '$filter', '$log', '$modal', '$state', 'ngTableParams', 'mailFooters', 'currentDomain', 'Languages',
+    function($scope, $filter, $log, $modal, $state, ngTableParams, mailFooters, currentDomain, Languages) {
       $scope.domain = currentDomain;
 
       $scope.add = function() {
@@ -13,8 +13,13 @@ angular.module('linshareAdminApp')
         });
       };
       $scope.filters = {
-        language: 'ENGLISH'
+        language: Languages.langCmp($state.params.language).filter
       };
+      $scope.$watch('filters.language',
+        function(newValue) {
+          $state.go('.', {domainId: $state.params.domainId, language: newValue});
+        }
+      );
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
         count: 10,      // count per page

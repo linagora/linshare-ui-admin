@@ -33,7 +33,7 @@ angular.module('linshareAdminApp')
         });
       };
       $scope.cancel = function() {
-        $state.go('mailcontent.list', {domainId: $state.params.domainId});
+        $state.go('mailcontent.list', {domainId: $state.params.domainId, language: $state.params.language});
       };
       $scope.reset = function() {
         $state.reinit();
