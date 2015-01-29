@@ -87,6 +87,8 @@
         "13006": "Domain base DN not found",
         "13007": "Domain does not already exist",
         "13008": "Domain does not exist",
+        "13017": "This LDAP connection can't be deleted, it is used by a domain",
+        "13018": "This Domain pattern can't be deleted, it is used by a domain",
         "14000": "Functionality entity out of date",
         "15000": "Relay host not enable",
         "15666": "XSS filter scan failed",
