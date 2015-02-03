@@ -40,9 +40,14 @@ angular.module('linshareAdminApp', [
     RestangularProvider.addResponseInterceptor(function(data) {
       var newResponse = data;
       if (angular.isArray(data)) {
-        newResponse.originalElement = [];
         angular.forEach(newResponse, function(value, key) {
-          newResponse.originalElement[key] = angular.copy(value);
+          if (angular.isObject(value)) {
+            newResponse[key].originalElement = angular.copy(value);
+          }else{
+            newResponse.originalElement = [];
+            newResponse.originalElement[key] = angular.copy(value);
+          }
+
         });
       } else if (angular.isObject(data)){
         newResponse.originalElement = angular.copy(data);
