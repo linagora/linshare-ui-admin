@@ -8,6 +8,8 @@ angular.module('linshareAdminApp')
       $scope.allRuleTypes = selectOptions.domainAccessRuleTypes;
       $scope.state = $state.params.formState;
       $scope.domainPolicy = currentDomainPolicy || {};
+      $scope.ruleToAdd = {domain: $scope.allDomains.originalElement[0]};
+      $scope.ruleToAdd = {type: $scope.allRuleTypes.originalElement[0]};
       if ($scope.state === 'create') {
         $scope.domainPolicy.accessPolicy = {
           'rules': []
