@@ -6,7 +6,7 @@
     <div class="pull-right box-tools">
       <button class="btn btn-primary btn-sm"
               x-ng-click="cancel()">
-        <i class="fa fa-list"></i> 
+        <i class="fa fa-list"></i>
         {{ 'MAIL_CONTENT.BOX_FORM.BUTTON_LIST' | translate }}
       </button>
     </div>
@@ -43,6 +43,14 @@
           </label>
           <input id="subject" name="subject" type="text" class="form-control"
                  x-ng-model="mailContent.subject">
+        </div>
+        <!-- Alternative Subject -->
+        <div ng-show="mailContent.asUsed == true" class="form-group">
+          <label for="alternativesubject">
+            {{ 'MAIL_CONTENT.BOX_FORM.LABEL_ALTERNATIVE_SUBJECT' | translate }}
+          </label>
+          <input id="alternativesubject" name="alternativesubject" type="text" class="form-control"
+                 required x-ng-model="mailContent.alternativeSubject">
         </div>
         <!-- Greetings -->
         <div class="form-group">

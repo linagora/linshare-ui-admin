@@ -724,10 +724,13 @@
       "LABEL_LANGUAGE": "Langue",
       "LABEL_CONTENT_TYPE": "Type de contenu",
       "LABEL_SUBJECT": "Sujet",
+      "LABEL_ALTERNATIVE_SUBJECT": "Sujet alternatif",
       "LABEL_GREETINGS": "Salutations",
       "LABEL_BODY": "Corps",
       "LABEL_PLAINTEXT": "Texte brut",
       "LABEL_VISIBLE": "Visible",
+      "LABEL_IS_AS_USED_false": "Activer le sujet alternatif",
+      "LABEL_IS_AS_USED_true": "Désactiver le sujet alternatif",
       "FORM_ACTIONS": {
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
