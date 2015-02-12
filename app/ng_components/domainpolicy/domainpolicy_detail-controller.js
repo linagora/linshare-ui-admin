@@ -14,11 +14,6 @@ angular.module('linshareAdminApp')
         };
       }
 
-      // this call is just an example . can be removed
-      DomainPolicy.exist('domainteste').then(function(success){
-        console.log('false or true', success);
-      });
-
       $scope.submit = function() {
         if ($scope.state === 'edit') {
           DomainPolicy.update($scope.domainPolicy).then(function() {

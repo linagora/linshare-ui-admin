@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('DomainPolicy', ['$log', 'Restangular', 'Notification',
-    function ($log, Restangular, Notification) {
+  .factory('DomainPolicy', ['$rootScope', '$log', 'Restangular', 'Notification',
+    function ($rootScope, $log, Restangular, Notification) {
       //var self = this;
 
       // Public API here
@@ -13,18 +13,34 @@ angular.module('linshareAdminApp')
         },
         get: function(id) {
           $log.debug('DomainPolicy:get');
-          return Restangular.one('domain_policies', id).get();
+          if (angular.isObject(id))
+          {
+            return Restangular.one('domain_policies', id.id).get().then(
+              function(success){
+                return success;
+              },
+              function(data){
+                return data.status;
+              }
+            );
+          }
+          else
+            return Restangular.one('domain_policies', id).get();
         },
         add: function(domainPolicy) {
           $log.debug('DomainPolicy:add');
+          var notification = Notification.getNotification(domainPolicy);
           return Restangular.all('domain_policies').post(domainPolicy).then(function() {
-            Notification.addSuccess('CREATE');
+            if (notification == true)
+              Notification.addSuccess('CREATE');
           });
         },
         update: function(domainPolicy) {
           $log.debug('DomainPolicy:update');
+          var notification = Notification.getNotification(domainPolicy);
           return domainPolicy.put().then(function() {
-            Notification.addSuccess('UPDATE');
+            if (notification == true)
+              Notification.addSuccess('UPDATE');
           });
         },
         exist: function(domainIdentifier) {

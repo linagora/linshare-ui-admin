@@ -46,7 +46,7 @@
       "DOMAIN_PATTERNS": "Domain patterns",
       "MANAGE_DOMAINS": "Manage domains",
       "DOMAIN_ORDER": "Domain order",
-      "DOMAIN_POLICIES": "Domain policies",
+      "DOMAIN_POLICIES": "Inter-domains communication rules",
       "PARAMETERS": "Parameters",
       "FUNCTIONALITIES": "Functionalities",
       "MIME_POLICIES": "Mime policies",
@@ -88,6 +88,8 @@
         "13006": "Domain base DN not found",
         "13007": "Domain does not already exist",
         "13008": "Domain does not exist",
+        "13009": "The inter-domain communication rule already exist.",
+        "13020": "A domain policies has the same identifier as that field.",
         "13017": "This LDAP connection can't be deleted, it is used by a domain",
         "13018": "This Domain pattern can't be deleted, it is used by a domain",
         "14000": "Functionality entity out of date",
@@ -419,7 +421,7 @@
       "LABEL_MAIL_CONFIG": "Mail configuration",
       "LABEL_MIME_POLICY": "Mime policy",
       "LABEL_USER_ROLE": "User role",
-      "LABEL_POLICY": "Policy",
+      "LABEL_POLICY": "Inter-domains communication rules",
       "BUTTON_ADD_PROVIDER": "Add provider",
       "TITLE_PROVIDER": "User provider",
       "LABEL_LDAP_CONNECTION": "LDAP connection",
@@ -433,6 +435,7 @@
       }
     },
     "CREATE_FORM": {
+      "SELECT_OPTION_POLICY": "Automatic creation",
       "TITLE": {
         "TOP_DOMAIN": "Create a new top domain in {{parent}}",
         "SUB_DOMAIN": "Create a new sub domain in {{parent}}",

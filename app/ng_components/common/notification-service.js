@@ -28,6 +28,15 @@ angular.module('linshareAdminApp')
           newAlert.msg = 'COMMON.NOTIFICATION.ERROR.' + newAlert.errCode;
           $rootScope.$broadcast('pushAlert', newAlert);
         }
+      },
+      getNotification: function(action){
+        var notif = true;
+        if ('notification' in action && !action.notification)
+          {
+            notif = false;
+            delete action.notification;
+          }
+        return notif;
       }
     };
   }

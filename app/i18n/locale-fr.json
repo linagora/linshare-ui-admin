@@ -1,3 +1,4 @@
+
 {
   "COMMON": {
     "BASIC_FORM": {
@@ -46,7 +47,7 @@
       "DOMAIN_PATTERNS": "Modèles de domaine",
       "MANAGE_DOMAINS": "Configuration des domaines",
       "DOMAIN_ORDER": "Ordre des domaines",
-      "DOMAIN_POLICIES": "Règles de domaine",
+      "DOMAIN_POLICIES": "Règles de communication inter-domaines",
       "PARAMETERS": "Paramètres",
       "FUNCTIONALITIES": "Fonctionnalités",
       "MIME_POLICIES": "Règles de type MIME",
@@ -88,6 +89,8 @@
         "13006": "Domain base DN introuvable",
         "13007": "Domain does not already exist",
         "13008": "Domain inexistant",
+        "13009": "La règle de communication inter-domaine existe déjà",
+        "13020": "Une règle de domaine possède le même identifiant que ce domaine.",
         "13017": "Cette connexion LDAP ne peut pas être supprimée, elle est utilisée par un domaine",
         "13018": "Ce modèle de domaine ne peut pas être supprimé, il est utilisé par un domaine",
         "14000": "Functionality entity out of date",
@@ -419,7 +422,7 @@
       "LABEL_MAIL_CONFIG": "Configuration de courriel",
       "LABEL_MIME_POLICY": "Politique de type MIME",
       "LABEL_USER_ROLE": "Rôle utilisateur",
-      "LABEL_POLICY": "Politique",
+      "LABEL_POLICY": "Règles de communication inter-domaines",
       "BUTTON_ADD_PROVIDER": "Ajouter un fournisseur",
       "TITLE_PROVIDER": "Fournisseur d'utilisateurs",
       "LABEL_LDAP_CONNECTION": "Connexion LDAP",
@@ -433,6 +436,7 @@
       }
     },
     "CREATE_FORM": {
+      "SELECT_OPTION_POLICY": "Création automatique",
       "TITLE": {
         "TOP_DOMAIN": "Créer un top domaine dans {{parent}}",
         "SUB_DOMAIN": "Créer un sub domaine dans {{parent}}",

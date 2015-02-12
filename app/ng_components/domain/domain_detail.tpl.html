@@ -70,7 +70,6 @@
           <input id="name" name="name" type="text" class="form-control" required
                  x-ng-model="domain.label">
         </div>
-        
         <!-- Description -->
         <div class="form-group">
           <label for="description">
@@ -145,8 +144,14 @@
               {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_POLICY' | translate }}
             </label>
             <select id="policy" name="policy" class="form-control" required
-                    x-ng-model="domain.policy.identifier"
-                    x-ng-options="p for p in domainPolicies">
+                    x-ng-model="domain.policy.identifier">
+              <option
+                x-ng-repeat="(key, policy) in domainPolicies"
+                x-ng-selected="{{domain.policy.identifier == policy.name}}"
+                x-ng-class="{'boldOption': policy.name == 'DefaultDomainPolicy' || policy.value == 'cb621f5f-e5cd-42e7-b704-1f5b46fe50da'}"
+                value="{{policy.value}}">
+                  {{policy.name}}
+              </option>
             </select>
           </div>
         </div>

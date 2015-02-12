@@ -7,13 +7,13 @@ angular.module('linshareAdminApp')
       'fr': 'FRENCH',
       'en': 'ENGLISH'
     };
-        
+
     return {
   		getCurrentLang: function(){
         var current = $translate.use();
   			if (languages[current])
-         return {local: current, filter: languages[current] };
-       return {local: 'en', filter: 'ENGLISH'};
+         return {local: current, filter: languages[current]};
+        return {local: 'en', filter: 'ENGLISH'};
   		},
   		langCmp: function(lang){
         var currentLang = {};
