@@ -13,10 +13,10 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
             $scope.linkActive = false;
             $scope.userDomain = user.domain;
             $rootScope.$on('$stateChangeStart',function(event, toState, toParams){
-              $scope.checkActiveSection(toState.name);
+              $scope.compareCurrentStateToTab(toState.name);
             });
             if ($scope.linkActive == false){
-              $scope.checkActiveSection($state.next.name);
+              $scope.compareCurrentStateToTab($state.next.name);
             }
           });
           $scope.$watch('search', function(newValue) {
@@ -26,7 +26,7 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
             })
           });
           $scope.language = Languages.getCurrentLang().filter;
-          $scope.checkActiveSection = function(currentState) {
+          $scope.compareCurrentStateToTab = function(currentState) {
             angular.forEach($scope.tabs, function(value) {
               angular.forEach(value.links, function(link) {
 
