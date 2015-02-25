@@ -12,7 +12,7 @@ angular.module('linshareAdminApp')
       $scope.allDomains = selectOptions.domains;
       $scope.opened = {
         from: false,
-        to : false,
+        to : false
       };
 
       $scope.open = function(key, $event) {

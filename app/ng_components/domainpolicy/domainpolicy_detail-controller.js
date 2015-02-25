@@ -81,7 +81,7 @@ angular.module('linshareAdminApp')
       };
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
-        count: 10,      // count per page
+        count: 10      // count per page
       }, {
         debugMode: false,
         total: 0, // length of data

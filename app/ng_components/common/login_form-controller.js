@@ -1,6 +1,6 @@
 'use strict';
 
-var LoginModalInstanceCtrl = 
+var LoginModalInstanceCtrl =
 [ '$scope',
   '$timeout',
   '$modalInstance',
@@ -37,7 +37,7 @@ angular.module('linshareAdminApp').controller('LoginFormCtrl',
         modalInstance = $modal.open({
           backdrop: 'static',
           controller: LoginModalInstanceCtrl,
-          templateUrl: 'ng_components/common/login_form.tpl.html',
+          templateUrl: 'ng_components/common/login_form.tpl.html'
         });
       }
     });

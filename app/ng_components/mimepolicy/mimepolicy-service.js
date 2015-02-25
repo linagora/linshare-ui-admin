@@ -42,7 +42,7 @@ angular.module('linshareAdminApp')
           return mimePolicy.remove().then(function() {
             Notification.addSuccess('DELETE');
           });
-        },
+        }
       };
     }
   ]

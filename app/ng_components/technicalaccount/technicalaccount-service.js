@@ -38,7 +38,7 @@ angular.module('linshareAdminApp')
           return account.remove().then(function() {
             Notification.addSuccess('DELETE');
           });
-        },
+        }
       };
     }
   ]

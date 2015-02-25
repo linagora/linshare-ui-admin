@@ -33,7 +33,7 @@ angular.module('linshareAdminApp')
           return mailContent.remove().then(function() {
             Notification.addSuccess('DELETE');
           });
-        },
+        }
       };
     }
   ]

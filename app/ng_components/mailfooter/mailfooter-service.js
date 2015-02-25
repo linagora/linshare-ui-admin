@@ -35,7 +35,7 @@ angular.module('linshareAdminApp')
           return mailFooter.remove().then(function() {
             Notification.addSuccess('DELETE');
           });
-        },
+        }
       };
     }
   ]

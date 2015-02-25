@@ -17,7 +17,7 @@ angular.module('linshareAdminApp')
           return Restangular.all('mail_footer_langs').customPUT(mailFooterLang).then(function() {
             Notification.addSuccess('UPDATE');
           });
-        },
+        }
       };
     }
   ]

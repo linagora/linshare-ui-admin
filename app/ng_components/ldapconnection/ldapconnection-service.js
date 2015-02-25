@@ -32,7 +32,7 @@ angular.module('linshareAdminApp')
           return ldapConnection.remove().then(function() {
               Notification.addSuccess('DELETE');
           });
-        },
+        }
       };
     }
   ]

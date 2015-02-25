@@ -11,7 +11,7 @@ angular.module('linshareAdminApp')
           page: 1,        // show first page
           count: 10,      // count per page
           sorting: {
-            lastName: 'asc',
+            lastName: 'asc'
           }
         }, {
           debugMode: false,

@@ -44,7 +44,7 @@ angular.module('linshareAdminApp')
         },
         getEmptyModel: function() {
           return {identifier: ''};
-        },
+        }
       };
     }
   ]

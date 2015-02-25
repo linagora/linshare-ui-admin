@@ -23,7 +23,7 @@ angular.module('linshareAdminApp')
         remove: function(functionality) {
           $log.debug('Functionality:remove');
           return functionality.remove();
-        },
+        }
       };
     }
   ]

@@ -22,7 +22,7 @@ angular.module('linshareAdminApp')
       };
       $scope.opened = {
         from: false,
-        to : false,
+        to : false
       };
       $scope.humanFileSize = function(bytes, si) {
         var thresh = si ? 1000 : 1024;

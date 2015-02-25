@@ -32,7 +32,7 @@ angular.module('linshareAdminApp')
           return domainPolicy.remove().then(function() {
             Notification.addSuccess('DELETE');
           });
-        },
+        }
       };
     }
   ]

@@ -7,7 +7,7 @@ angular.module('linshareAdminApp')
       $scope.domain = currentDomain;
 
       $scope.showFunctionality = function(functionality) {
-        return functionality.activationPolicy.parentAllowUpdate 
+        return functionality.activationPolicy.parentAllowUpdate
               || functionality.configurationPolicy.parentAllowUpdate;
       };
       $scope.isActivated = function(functionality) {
@@ -24,7 +24,7 @@ angular.module('linshareAdminApp')
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {
-          localizedName: 'asc',
+          localizedName: 'asc'
         }
       }, {
         debugMode: false,

@@ -46,7 +46,7 @@ angular.module('linshareAdminApp')
         var contact = {
           'mail': $scope.autocompleteValue,
           'firstName': $scope.contactToAdd.firstName,
-          'lastName': $scope.contactToAdd.lastName,
+          'lastName': $scope.contactToAdd.lastName
         };
         MailingList.addContact($scope.mail.uuid, contact).then(function() {
           $scope.reloadList();
@@ -66,7 +66,7 @@ angular.module('linshareAdminApp')
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {
-          firstName: 'asc',
+          firstName: 'asc'
         }
       }, {
         debugMode: false,

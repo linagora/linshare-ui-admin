@@ -32,7 +32,7 @@ angular.module('linshareAdminApp')
         remove: function(threadMember) {
           $log.debug('ThreadMember:remove');
           return Restangular.all('thread_members').customOperation('remove', '', {}, {}, threadMember);
-        },
+        }
       };
     }
   ]

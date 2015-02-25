@@ -61,7 +61,7 @@ angular.module('linshareAdminApp')
         count: 10,      // count per page
         filter: $scope.filters,
         sorting: {
-          mailContentName: 'asc',
+          mailContentName: 'asc'
         }
       }, {
         debugMode: false,

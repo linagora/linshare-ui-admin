@@ -34,7 +34,7 @@ angular.module('linshareAdminApp')
           return mailLayout.remove().then(function() {
             Notification.addSuccess('DELETE');
           });
-        },
+        }
       };
     }
   ]

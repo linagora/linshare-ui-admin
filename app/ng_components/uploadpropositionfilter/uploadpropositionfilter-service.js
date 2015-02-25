@@ -35,7 +35,7 @@ angular.module('linshareAdminApp')
           return filter.remove().then(function() {
             Notification.addSuccess('DELETE');
           });
-        },
+        }
       };
     }
   ]

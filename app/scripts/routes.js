@@ -58,7 +58,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       resolve: {
         rootDomain: function(Domain, authenticatedUser) {
           return Domain.getDomainTree(authenticatedUser.domain);
-        },
+        }
       }
     };
 
@@ -71,7 +71,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           treeType: function() {
             return 'read';
           },
-          authenticatedUser: authenticatedUser,
+          authenticatedUser: authenticatedUser
         },
         controller: function($scope, $state) {
           $scope.$state = $state;
@@ -92,8 +92,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return Functionality.getAll(currentDomain.identifier);
               }
             }
-          },
-        },
+          }
+        }
       })
       .state('functionality.detail', {
         url: '/:domainId/detail/:id',
@@ -112,8 +112,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 });
               }
             }
-          },
-        },
+          }
+        }
       })
 
       .state('mimepolicy', {
@@ -124,7 +124,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           treeType: function() {
             return 'read';
           },
-          authenticatedUser: authenticatedUser,
+          authenticatedUser: authenticatedUser
         },
         controller: function($scope, $state) {
           $scope.$state = $state;
@@ -145,8 +145,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MimePolicy.getAll(currentDomain.identifier, true);
               }
             }
-          },
-        },
+          }
+        }
       })
       .state('mimepolicy.detail', {
         url: '/:domainId/detail/:id',
@@ -174,7 +174,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('user.list', {
         url: '/list',
         templateUrl: 'ng_components/user/user_list.tpl.html',
-        controller: 'UserListCtrl',
+        controller: 'UserListCtrl'
       })
       .state('user.detail', {
         url: '/:uuid',
@@ -211,7 +211,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           _enumLanguage: enumLanguage
         },
         templateUrl: 'ng_components/user/user_detail.tpl.html',
-        controller: 'UserDetailCtrl',
+        controller: 'UserDetailCtrl'
       })
 
       .state('inconsistentuser', {
@@ -227,7 +227,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('inconsistentuser.list', {
         url: '/list',
         templateUrl: 'ng_components/inconsistentuser/inconsistentuser_list.tpl.html',
-        controller: 'InconsistentUserListCtrl',
+        controller: 'InconsistentUserListCtrl'
       })
       .state('inconsistentuser.detail', {
         url: '/:uuid',
@@ -237,10 +237,10 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           },
           allDomains: function(Domain) {
             return Domain.getAll();
-          },
+          }
         },
         templateUrl: 'ng_components/inconsistentuser/inconsistentuser_detail.tpl.html',
-        controller: 'InconsistentUserDetailCtrl',
+        controller: 'InconsistentUserDetailCtrl'
       })
 
       .state('thread', {
@@ -251,7 +251,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('thread.list', {
         url: '/list',
         templateUrl: 'ng_components/thread/thread_list.tpl.html',
-        controller: 'ThreadListCtrl',
+        controller: 'ThreadListCtrl'
       })
       .state('thread.detail', {
         url: '/:id',
@@ -278,7 +278,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         resolve: {
           mailingLists: function(MailingList) {
             return MailingList.getAll();
-          },
+          }
         }
       })
       .state('mailinglist.detail', {
@@ -296,7 +296,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
 
       .state('audit', {
         abstract: true,
-        templateUrl: 'ng_components/audit/audit.html',
+        templateUrl: 'ng_components/audit/audit.html'
       })
       .state('audit.form', {
         url: '/audit',
@@ -308,14 +308,14 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               selectOptions: function(_allDomains, _enumLogAction) {
                 return {
                   domains: _allDomains,
-                  actions: _enumLogAction,
+                  actions: _enumLogAction
                 };
               },
               authenticatedUser: authenticatedUser,
               _allDomains: function(Domain) {
                 return Domain.getAll();
               },
-              _enumLogAction: enumLogAction,
+              _enumLogAction: enumLogAction
             }
           }
         }
@@ -333,7 +333,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         resolve: {
           ldapConnections: function(LdapConnection) {
             return LdapConnection.getAll();
-          },
+          }
         }
       })
       .state('ldapconnection.detail', {
@@ -361,7 +361,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         resolve: {
           domainPatterns: function(DomainPattern) {
             return DomainPattern.getAll();
-          },
+          }
         }
       })
       .state('domainpattern.detail', {
@@ -396,7 +396,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('domain.detail', {
         url: '/detail/:domainId?formState&domainType',
         resolve: {
-          authenticatedUser: authenticatedUser,
+          authenticatedUser: authenticatedUser
         },
         views : {
           'tree': domainTreeView,
@@ -414,7 +414,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                   userRoles: _.remove(_enumRole, function(role) {
                     return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' && role !== 'UPLOAD_PROPOSITION';
                   }),
-                  languages: _enumLanguage,
+                  languages: _enumLanguage
                 };
               },
               currentDomain: function(Domain, $stateParams) {
@@ -442,10 +442,10 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 }
               },
               _enumRole: enumRole,
-              _enumLanguage: enumLanguage,
+              _enumLanguage: enumLanguage
             }
           }
-        },
+        }
       })
      .state('domain.order', {
        url: '/order',
@@ -454,7 +454,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
        resolve: {
          domains: function(Domain) {
            return Domain.getAll();
-         },
+         }
        }
      })
 
@@ -470,7 +470,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         resolve: {
           domainPolicies: function(DomainPolicy) {
             return DomainPolicy.getAll();
-          },
+          }
         }
       })
       .state('domainpolicy.detail', {
@@ -481,7 +481,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           selectOptions: function(_allDomains, _enumDomainAccessRuleTypes) {
             return {
               domains: _allDomains,
-              domainAccessRuleTypes: _enumDomainAccessRuleTypes,
+              domainAccessRuleTypes: _enumDomainAccessRuleTypes
             };
           },
           currentDomainPolicy: function($stateParams, DomainPolicy) {
@@ -492,7 +492,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           _allDomains: function(Domain) {
             return Domain.getAll();
           },
-          _enumDomainAccessRuleTypes: enumDomainAccessRuleTypes,
+          _enumDomainAccessRuleTypes: enumDomainAccessRuleTypes
         }
       })
 
@@ -529,8 +529,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailLayout.getAll(currentDomain.identifier, true);
               }
             }
-          },
-        },
+          }
+        }
       })
       .state('maillayout.detail', {
         url: '/:domainId/detail/:id',
@@ -547,8 +547,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailLayout.get($stateParams.domainId, $stateParams.id);
               }
             }
-          },
-        },
+          }
+        }
       })
 
       .state('mailcontent', {
@@ -559,7 +559,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           treeType: function() {
             return 'read';
           },
-          authenticatedUser: authenticatedUser,
+          authenticatedUser: authenticatedUser
         },
         controller: function($scope, $state) {
           $scope.$state = $state;
@@ -580,8 +580,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailContent.getAll(currentDomain.identifier, true);
               }
             }
-          },
-        },
+          }
+        }
       })
       .state('mailcontent.detail', {
         url: '/:domainId/detail/:id?language',
@@ -598,8 +598,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailContent.get($stateParams.domainId, $stateParams.id);
               }
             }
-          },
-        },
+          }
+        }
       })
 
       .state('mailfooter', {
@@ -610,7 +610,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           treeType: function() {
             return 'read';
           },
-          authenticatedUser: authenticatedUser,
+          authenticatedUser: authenticatedUser
         },
         controller: function($scope, $state) {
           $scope.$state = $state;
@@ -631,8 +631,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailFooter.getAll(currentDomain.identifier, true);
               }
             }
-          },
-        },
+          }
+        }
       })
       .state('mailfooter.detail', {
         url: '/:domainId/detail/:id?language',
@@ -649,8 +649,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailFooter.get($stateParams.domainId, $stateParams.id);
               }
             }
-          },
-        },
+          }
+        }
       })
 
       .state('mailconfig', {
@@ -661,7 +661,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           treeType: function() {
             return 'read';
           },
-          authenticatedUser: authenticatedUser,
+          authenticatedUser: authenticatedUser
         },
         controller: function($scope, $state) {
           $scope.$state = $state;
@@ -682,8 +682,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailConfig.getAll(currentDomain.identifier, true);
               }
             }
-          },
-        },
+          }
+        }
       })
       .state('mailconfig.detail', {
         url: '/:domainId/detail/:id?language',
@@ -705,8 +705,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailConfig.get($stateParams.domainId, $stateParams.id);
               }
             }
-          },
-        },
+          }
+        }
       })
       .state('mailconfig.mailcontentlang', {
         url: '/:domainId/mailcontentlang/:mailConfigId/:id',
@@ -720,7 +720,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               },
               mailContents: function(MailConfig, currentMailContentLang, $stateParams) {
                 return MailConfig.getAllMailContents($stateParams.mailConfigId, currentMailContentLang.language, currentMailContentLang.mailContentType);
-              },
+              }
             }
           }
         }
@@ -799,24 +799,24 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           },
           selectOptions: function(_enumTechnicalAccountPermissionTypes) {
             return {
-              permissionTypes: _enumTechnicalAccountPermissionTypes,
+              permissionTypes: _enumTechnicalAccountPermissionTypes
             };
           },
-          _enumTechnicalAccountPermissionTypes: enumTechnicalAccountPermissionTypes,
+          _enumTechnicalAccountPermissionTypes: enumTechnicalAccountPermissionTypes
         }
       })
 
       .state('uploadrequest', {
         url: '/uploadrequest',
         abstract: true,
-        templateUrl: 'ng_components/uploadrequest/uploadrequest.html',
+        templateUrl: 'ng_components/uploadrequest/uploadrequest.html'
       })
       .state('uploadrequest.form', {
         url: '/form',
         templateUrl: 'ng_components/uploadrequest/uploadrequest_form.tpl.html',
         controller: 'UploadRequestFormCtrl',
         resolve: {
-          uploadRequestStatus: enumUploadRequestStatus,
+          uploadRequestStatus: enumUploadRequestStatus
         }
       });
     }

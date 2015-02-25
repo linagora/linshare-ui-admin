@@ -7,7 +7,7 @@ angular.module('linshareAdminApp')
       // var self = this;
 
       /**
-       * As domains are returned as tree, 
+       * As domains are returned as tree,
        * we need to put restangular route manually in all domains
        */
       function restangularizeTree(domain, route) {
@@ -72,7 +72,7 @@ angular.module('linshareAdminApp')
         },
         getId: function(domain) {
           return domain.identifier;
-        },
+        }
       };
     }
   ]

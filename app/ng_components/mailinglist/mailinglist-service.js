@@ -34,7 +34,7 @@ angular.module('linshareAdminApp')
         removeContact: function(mailId, contact) {
           $log.debug('MailingList:removeContact');
           return Restangular.one('lists', mailId).all('contacts').customOperation('remove', '', {}, {}, contact);
-        },
+        }
       };
     }
   ]

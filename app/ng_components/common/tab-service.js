@@ -14,13 +14,13 @@ angular.module('linshareAdminApp')
             sref: 'ldapconnection.list',
             children_sref: [
               'ldapconnection.detail'
-            ],
+            ]
           }, {
             name: 'COMMON.TAB.DOMAIN_PATTERNS',
             sref: 'domainpattern.list',
             children_sref: [
               'domainpattern.detail'
-            ],
+            ]
           }, {
             name: 'COMMON.TAB.MANAGE_DOMAINS',
             sref: 'domain.detail'
@@ -32,12 +32,12 @@ angular.module('linshareAdminApp')
             sref: 'domainpolicy.list',
             children_sref: [
               'domainpolicy.detail'
-            ],
+            ]
           }
         ]
       };
-     
-      var mails = { 
+
+      var mails = {
         name: 'COMMON.TAB.MAILS',
         icon: 'fa-envelope',
         superAdminOnly: true,
@@ -47,25 +47,25 @@ angular.module('linshareAdminApp')
             sref: 'maillayout.list',
             children_sref: [
               'maillayout.detail'
-            ],
+            ]
           }, {
             name: 'COMMON.TAB.MAIL_FOOTER',
             sref: 'mailfooter.list',
             children_sref: [
               'mailfooter.detail'
-            ],
+            ]
           }, {
             name: 'COMMON.TAB.MAIL_CONTENT',
             sref: 'mailcontent.list',
             children_sref: [
               'mailcontent.detail'
-            ],
+            ]
           }, {
             name: 'COMMON.TAB.MAIL_CONFIG',
             sref: 'mailconfig.list',
             children_sref: [
               'mailconfig.detail'
-            ],
+            ]
           }
         ]
       };
@@ -81,21 +81,21 @@ angular.module('linshareAdminApp')
             sref: 'functionality.list',
             children_sref: [
               'functionality.detail'
-            ],
+            ]
           }, {
             name: 'COMMON.TAB.MIME_POLICIES',
             superAdminOnly: true,
             sref: 'mimepolicy.list',
             children_sref: [
               'mimepolicy.detail'
-            ],
+            ]
           }, {
             name: 'COMMON.TAB.UPLOAD_PROPOSITION_FILTER',
             superAdminOnly: true,
             sref: 'uploadpropositionfilter.list',
             children_sref: [
               'uploadpropositionfilter.detail',
-            ],
+            ]
           }
         ]
       };
@@ -174,7 +174,7 @@ angular.module('linshareAdminApp')
             tabs = _.filter(tabs, function(container) {
               return container.superAdminOnly === false;
             });
-            
+
             _.forEach(tabs, function(container) {
               container.links = _.filter(container.links, function(link) {
                 return link.superAdminOnly === false;
