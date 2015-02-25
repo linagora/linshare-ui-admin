@@ -145,10 +145,9 @@ module.exports = function (grunt) {
       }
     },
 
-    // ngmin tries to make the code safe for minification automatically by
-    // using the Angular long form for dependency injection. It doesn't work on
-    // things like resolve or inject so those have to be done manually.
-    ngmin: {
+    // ngAnnotate adds and removes AngularJS dependency injection annotations.
+    // It makes your code safe for minification.
+    ngAnnotate: {
       dist: {
         files: [{
           expand: true,
@@ -220,7 +219,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'compass:dist',
     'concat',
-    'ngmin',
+    'ngAnnotate',
     'copy:dist',
     'cssmin',
     'rev',

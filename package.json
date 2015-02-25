@@ -50,7 +50,7 @@
     "grunt-json-minify": "~0.4.0",
     "grunt-karma": "~0.8.3",
     "grunt-newer": "~0.7.0",
-    "grunt-ngmin": "~0.0.3",
+    "grunt-ng-annotate": "^0.10.0",
     "grunt-protractor-runner": "~0.2.4",
     "grunt-rev": "~0.1.0",
     "grunt-sync-pkg": "~0.1.2",
