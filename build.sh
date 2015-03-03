@@ -18,6 +18,7 @@ fi
 
 l_version=$(grep version package.json | cut -d'"' -f4)
 l_output="linshare-ui-admin-${l_version}.tar.bz2"
+l_hash="linshare-ui-admin-${l_version}.sha256sum"
 l_git_uuid=$(git log -n 1 --format=oneline|cut -d' ' -f1)
 l_dist=linshare-ui-admin-${l_version}
 
@@ -37,12 +38,15 @@ echo "INFO: Packaging..."
 if [ "${l_mode}" == "dev" ] ; then
   l_dist="linshare-ui-admin-${l_version}-${l_git_uuid}"
   l_output="linshare-ui-admin-${l_version}-${l_git_uuid}.tar.bz2"
+  l_hash="linshare-ui-admin-${l_version}-${l_git_uuid}.sha256sum"
 elif [ "${l_mode}" == "dev-nomin" ] ; then
   l_dist="linshare-ui-admin-${l_version}-nomin-${l_git_uuid}"
   l_output="linshare-ui-admin-${l_version}-nomin-${l_git_uuid}.tar.bz2"
+  l_hash="linshare-ui-admin-${l_version}-nomin-${l_git_uuid}.sha256sum"
 elif [ "${l_mode}" == "prod-nomin" ] ; then
   l_dist="linshare-ui-admin-${l_version}-nomin"
   l_output="linshare-ui-admin-${l_version}-nomin.tar.bz2"
+  l_hash="linshare-ui-admin-${l_version}-nomin.sha256sum"
 fi
 
 mv -v dist ${l_dist}
@@ -51,8 +55,10 @@ if [ "${l_mode}" == "dev" ] || [ "${l_mode}" == "dev-nomin" ] ; then
 fi
 
 tar cjf ${l_output} ${l_dist}
+sha256sum ${l_output} > ${l_hash}
 mkdir -p distrib
 mv -v ${l_output} distrib/
+mv -v ${l_hash} distrib/
 
 echo "INFO: Done"
 
