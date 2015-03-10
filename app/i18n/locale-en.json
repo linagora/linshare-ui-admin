@@ -479,7 +479,7 @@
       "RADIO_ALLOWED": "Allowed",
       "RADIO_MANDATORY": "Mandatory",
       "LABEL_SAVED": "Saved",
-      "LABEL_STATUS": "Status",
+      "LABEL_STATUS": "Enable",
       "FORM_ACTIONS": {
         "BUTTON_RESET": "Reset to parent value"
       }

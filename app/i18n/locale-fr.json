@@ -479,7 +479,7 @@
       "RADIO_ALLOWED": "Autorisé",
       "RADIO_MANDATORY": "Obligatoire",
       "LABEL_SAVED": "Sauvegarde",
-      "LABEL_STATUS": "Statut",
+      "LABEL_STATUS": "Activer",
       "FORM_ACTIONS": {
         "BUTTON_RESET": "Réinitialiser à la valeur parente"
       }
