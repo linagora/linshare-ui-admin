@@ -171,6 +171,7 @@
                       </div>
                       <div class="form-group col-sm-5">
                         <select class="form-control"
+                                x-ng-change="update()"
                                 x-ng-model="parameter.string"
                                 x-ng-options="option as 'COMMON.ENUM.UNIT_TIME.' + option | translate for option in parameter.select">
                         </select>
@@ -189,6 +190,7 @@
                       </div>
                       <div class="form-group col-sm-5">
                         <select class="form-control"
+                                x-ng-change="update()"
                                 x-ng-model="parameter.string"
                                 x-ng-change="update()"
                                 x-ng-options="option as 'COMMON.ENUM.UNIT_SIZE.' + option | translate for option in parameter.select">
@@ -196,34 +198,43 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                <div x-ng-switch-when="STRING">
+                  <div x-ng-switch-when="STRING">
+                    <div class="form-group">
+                      <label class="control-label" for="$index"></label>
+                      <input name="$index" type="text" class="form-control" required
+                             x-ng-model="parameter.string"
+                             x-ng-change="updateWithTimeout()"
+                             x-ng-minLength="1">
+                    </div>
+                  </div>
+                  <div x-ng-switch-when="BOOLEAN">
+                    <br>
+                    <br>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <input name="$index" type="checkbox"
+                                 x-ng-model="parameter.bool"
+                                 x-ng-change="updateWithTimeout()">
+                        </span>
+                        <span class="form-control">
+                          {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type | translate }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                <div x-ng-switch-when="ENUM_LANG">
                   <div class="form-group">
                     <label class="control-label" for="$index"></label>
-                    <input name="$index" type="text" class="form-control" required
-                           x-ng-model="parameter.string"
-                           x-ng-change="updateWithTimeout()"
-                           x-ng-minLength="1">
-                  </div>
-                </div>
-                <div x-ng-switch-when="BOOLEAN">
-                  <br>
-                  <br>
-                  <div class="form-group">
-                    <div class="input-group">
-                    <span class="input-group-addon">
-                      <input name="$index" type="checkbox"
-                             x-ng-model="parameter.bool"
-                             x-ng-change="updateWithTimeout()">
-                    </span>
-                    <span class="form-control">
-                    {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type | translate }}
-                    </span>
-                    </div>
+                    <select class="form-control"
+                            x-ng-change="update()"
+                            x-ng-model="parameter.string"
+                            x-ng-change="updateWithTimeout()"
+                            x-ng-options="option as 'COMMON.ENUM.ENUM_LANG.' + option | translate for option in parameter.select">
+                    </select>
                   </div>
                 </div>
               </div>
-            </div>
           </form>
         </div>
       </div>
