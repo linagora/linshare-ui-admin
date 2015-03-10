@@ -171,6 +171,7 @@
                     </div>
                     <div class="form-group col-sm-5">
                       <select class="form-control"
+                              x-ng-change="update()"
                               x-ng-model="parameter.string"
                               x-ng-options="option as 'COMMON.ENUM.UNIT_TIME.' + option | translate for option in parameter.select">
                       </select>
@@ -189,6 +190,7 @@
                     </div>
                     <div class="form-group col-sm-5">
                       <select class="form-control"
+                              x-ng-change="update()"
                               x-ng-model="parameter.string"
                               x-ng-change="update()"
                               x-ng-options="option as 'COMMON.ENUM.UNIT_SIZE.' + option | translate for option in parameter.select">
@@ -226,6 +228,7 @@
                 <div class="form-group">
                   <label class="control-label" for="$index"></label>
                   <select class="form-control"
+                          x-ng-change="update()"
                           x-ng-model="parameter.string"
                           x-ng-change="updateWithTimeout()"
                           x-ng-options="option as 'COMMON.ENUM.ENUM_LANG.' + option | translate for option in parameter.select">
