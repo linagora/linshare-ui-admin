@@ -38,7 +38,11 @@ angular.module('linshareAdminApp', [
 
     RestangularProvider.setBaseUrl(lsAppConfig.backendURL);
     RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
-    RestangularProvider.addResponseInterceptor(function(data) {
+    RestangularProvider.addResponseInterceptor(function(data, operation) {
+      // on succes from head request, the new response is true
+      if(operation === 'head' ) {
+        return true;
+      }
       var newResponse = data;
       if (angular.isArray(data)) {
         angular.forEach(newResponse, function(value, key) {
@@ -69,7 +73,7 @@ angular.module('linshareAdminApp', [
     cfpLoadingBarProvider.includeSpinner = false;
 
     // Force reloading controller (https://github.com/angular-ui/ui-router/issues/582)
-    $provide.decorator('$state', function($delegate, $rootScope) {
+    $provide.decorator('$state', ['$delegate', '$rootScope', function($delegate, $rootScope) {
       $delegate.reinit = function() {
         this.go('.', {}, {reload: true});
       };
@@ -78,22 +82,27 @@ angular.module('linshareAdminApp', [
         $delegate.toParams = params;
       });
       return $delegate;
-    });
+    }]);
 }])
 
-// Register work which should be performed when the injector is done loading all modules 
+// Register work which should be performed when the injector is done loading all modules
 .run(['$rootScope', '$state', '$log', 'Restangular', 'Notification', 'lsAppConfig',
   function($rootScope, $state, $log, Restangular, Notification, lsAppConfig) {
-    Restangular.setErrorInterceptor(function(response) {
-      $log.error(response);
-      if (response.status !== 200 && response.status !== 401 && response.status < 500) {
-        Notification.addError(response.data);
+    Restangular.setErrorInterceptor(function(response, deferred) {
+        if (response.config.method === 'HEAD' && response.status === 404) {
+          deferred.resolve(false);
+          return false;
+        }
+        $log.error(response);
+        if (response.status !== 401 && response.status < 500) {
+          Notification.addError(response.data);
+        }
+        if (response.status >= 500 && response.status < 600) {
+          Notification.addError(response);
+        }
+        return true;
       }
-      if (response.status >= 500 && response.status < 600){
-        Notification.addError(response);
-      }
-      return true;
-    });
+    );
     if (lsAppConfig.debug) {
       $rootScope.$on('$stateChangeStart',function(event, toState, toParams){
         console.log('$stateChangeStart to '+toState.to+'- fired when the transition begins. toState,toParams : \n',toState, toParams);

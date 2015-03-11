@@ -27,6 +27,10 @@ angular.module('linshareAdminApp')
             Notification.addSuccess('UPDATE');
           });
         },
+        exist: function(domainIdentifier) {
+          $log.debug('DomainPolicy:head');
+          return Restangular.one('domain_policies', domainIdentifier).head();
+        },
         remove: function(domainPolicy) {
           $log.debug('DomainPolicy:remove');
           return domainPolicy.remove().then(function() {
