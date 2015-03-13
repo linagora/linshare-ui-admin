@@ -42,18 +42,6 @@
             <input type="text" class="form-control" name="mail" required
                    x-ng-model="account.mail">
           </div>
-          <!-- Role -->
-          <div class="form-group"
-               x-ng-class="{'has-error': technicalAccountForm.role.$invalid &&
-                (technicalAccountForm.role.$dirty || ls.role.attempted)}">
-            <label for="mail">
-              {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_ROLE' | translate }}
-            </label>
-            <select class="form-control" name="role" required
-                   x-ng-model="account.role"
-                   x-ng-options="r as 'COMMON.ENUM.ROLE.' + r | translate for r in ['DELEGATION', 'UPLOAD_PROPOSITION']">
-            </select>
-          </div>
           <!-- Status -->
           <div class="form-group">
             <label for="status">
@@ -70,6 +58,19 @@
                 {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_DISABLED' | translate }}
               </span>
             </div>
+          </div>
+          <!-- Role -->
+          <div class="form-group"
+               x-ng-class="{'has-error': technicalAccountForm.role.$invalid &&
+                (technicalAccountForm.role.$dirty || ls.role.attempted)}"
+              x-ng-if="state==='create'">
+            <label for="role">
+              {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_ROLE' | translate }}
+            </label>
+            <select class="form-control" name="role" required
+                   x-ng-model="account.role"
+                   x-ng-options="r as 'COMMON.ENUM.ROLE.' + r | translate for r in ['DELEGATION', 'UPLOAD_PROPOSITION']">
+            </select>
           </div>
           <div x-ng-if="state==='create'">
             <!-- Password -->
@@ -96,14 +97,14 @@
                      x-ng-model="tmp.newPwdRetyped1">
             </div>
           </div>
-          <div x-ng-if="state==='edit'">
+          <div x-ng-if="state==='edit' && account.role == 'DELEGATION'">
             <div class="form-group">
               <label>
                 {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_PERMISSIONS' | translate }}
               </label>
               <select id="permissions" multiple class="form-control" size="10"
                       x-ng-model="account.permissions"
-                      x-ng-options="p as 'COMMON.ENUM.TECHNICAL_ACCOUNT_PERMISSION_TYPE.' + p | translate for p in permissionTypes | orderBy:'toString()'">
+                      x-ng-options="'COMMON.ENUM.TECHNICAL_ACCOUNT_PERMISSION_TYPE.' + p | translate for p in permissionTypes | orderBy:'toString()'">
               </select>
             </div>
           </div>
@@ -119,6 +120,17 @@
               <div class="controls">
                 <span name="uuid" class="form-control-static">
                   {{ account.uuid }}
+                </span>
+              </div>
+            </div>
+            <!-- Role -->
+            <div class="form-group">
+              <label for="role">
+                {{ 'TECHNICAL_ACCOUNT.BOX_FORM.LABEL_ROLE' | translate }}
+              </label>
+              <div class="controls">
+                <span name="uuid" class="form-control-static">
+                  {{ 'COMMON.ENUM.ROLE.' + account.role | translate }}
                 </span>
               </div>
             </div>
