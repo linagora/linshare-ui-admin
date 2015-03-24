@@ -545,6 +545,9 @@
       "UPLOAD_REQUEST__PROLONGATION": "Upload request - Prolongation",
       "UPLOAD_REQUEST__CAN_DELETE": "Upload request - Recipient delete right",
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": "Upload request - Delay before notification",
+      "UPLOAD_REQUEST_ENTRY_URL": "Upload Request Entry Url",
+      "UPLOAD_REQUEST_ENTRY_URL__EXPIRATION": "Upload Request Entry Url - Url expiry Date",
+      "UPLOAD_REQUEST_ENTRY_URL__PASSWORD": "Upload Request Entry Url - Password",
       "QUOTA_USER": "Quota user",
       "MIME_TYPE": "Mime type",
       "FILESIZE_MAX": "Max file size",
@@ -584,7 +587,8 @@
       "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN" : "Default value",
       "UPLOAD_REQUEST__PROLONGATION__BOOLEAN" : "Default value",
       "UPLOAD_REQUEST__SECURED_URL__BOOLEAN" : "Default value",
-      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN" : "Default value"
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN" : "Default value",
+      "UPLOAD_REQUEST_ENTRY_URL__PASSWORD__BOOLEAN": "Default Value"
     }
   },
 

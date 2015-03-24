@@ -546,6 +546,9 @@
       "UPLOAD_REQUEST__PROLONGATION": "Invitation de dépôt - Prolongation",
       "UPLOAD_REQUEST__CAN_DELETE": "Invitation de dépôt - Droit de suppression de fichiers pour le destinataire",
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": "Invitation de dépôt - Délais avant notification",
+      "UPLOAD_REQUEST_ENTRY_URL": "Upload Request Entry Url",
+      "UPLOAD_REQUEST_ENTRY_URL__EXPIRATION": "Upload Request Entry Url - Date d'expiration de l'Url",
+      "UPLOAD_REQUEST_ENTRY_URL__PASSWORD": "Upload Request Entry Url - Mot de passe",
       "QUOTA_USER": "Quota utilisateur",
       "MIME_TYPE": "Type MIME",
       "FILESIZE_MAX": "Taille de fichier maximum",
@@ -585,7 +588,8 @@
       "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN" : "Valeur par défaut",
       "UPLOAD_REQUEST__PROLONGATION__BOOLEAN" : "Valeur par défaut",
       "UPLOAD_REQUEST__SECURED_URL__BOOLEAN" : "Valeur par défaut",
-      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN" : "Valeur par défaut"
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN" : "Valeur par défaut",
+      "UPLOAD_REQUEST_ENTRY_URL__PASSWORD__BOOLEAN": "Valeur par défaut"
     }
   },
 
