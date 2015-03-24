@@ -22,6 +22,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
     var enumLanguage = function(Enum) {
       return Enum.getOptions('language');
     };
+    var enumSupportedLanguage = function(Enum) {
+      return Enum.getOptions('supported_language');
+    };
     var enumLogAction = function(Enum) {
       return Enum.getOptions('log_action');
     };
@@ -405,7 +408,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             templateUrl: 'ng_components/domain/domain_detail.tpl.html',
             controller: 'DomainDetailCtrl',
             resolve: {
-              selectOptions: function(_allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs, _allMimePolicies,  _enumRole, _enumLanguage) {
+              selectOptions: function(_allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs, _allMimePolicies,  _enumRole, _enumLanguage, _enumSupportedLanguage) {
                 return {
                   ldapConnectionIds: _.pluck(_allLdapConnections, 'identifier'),
                   domainPatternIds: _.pluck(_allDomainPatterns, 'identifier'),
@@ -415,7 +418,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                   userRoles: _.remove(_enumRole, function(role) {
                     return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' && role !== 'UPLOAD_PROPOSITION';
                   }),
-                  languages: _enumLanguage
+                  languages: _enumLanguage,
+                  supportedLanguages: _enumSupportedLanguage
                 };
               },
               currentDomain: function(Domain, $stateParams) {
@@ -443,7 +447,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 }
               },
               _enumRole: enumRole,
-              _enumLanguage: enumLanguage
+              _enumLanguage: enumLanguage,
+              _enumSupportedLanguage: enumSupportedLanguage
             }
           }
         }

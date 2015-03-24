@@ -89,6 +89,19 @@
           </label>
           <select id="language" name="language" class="form-control" required
                   x-ng-model="domain.language"
+                  x-ng-options="l as 'COMMON.ENUM.LANGUAGE.' + l | translate for l in supportedLanguages">
+          </select>
+        </div>
+
+        <!-- Notification language -->
+        <div class="form-group"
+             x-ng-class="{'has-error': domainForm.notificationLanguage.$invalid &&
+               (domainForm.notificationLanguage.$dirty || ls.domainForm.attempted)}">
+          <label for="notificationLanguage">
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_NOTIFICATION_LANGUAGE' | translate }}
+          </label>
+          <select id="notificationLanguage" name="notificationLanguage" class="form-control" required
+                  x-ng-model="domain.externalMailLocale"
                   x-ng-options="l as 'COMMON.ENUM.LANGUAGE.' + l | translate for l in languages">
           </select>
         </div>

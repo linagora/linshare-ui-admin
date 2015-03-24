@@ -111,9 +111,11 @@
         "DENY": "Deny"
       },
       "LANGUAGE": {
-        "FRENCH": "French",
+        "CREOLE": "Creole",
         "DUTCH": "Dutch",
-        "ENGLISH": "English"
+        "ENGLISH": "English",
+        "FRENCH": "French",
+        "VIETNAMESE": "Vietnamese"
       },
       "LOG_ACTION": {
         "FILE_UPLOAD": "File upload",
@@ -418,6 +420,7 @@
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
       "LABEL_LANGUAGE": "Default language",
+      "LABEL_NOTIFICATION_LANGUAGE": "Notification language",
       "LABEL_MAIL_CONFIG": "Mail configuration",
       "LABEL_MIME_POLICY": "Mime policy",
       "LABEL_USER_ROLE": "User role",

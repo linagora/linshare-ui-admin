@@ -27,6 +27,7 @@ angular.module('linshareAdminApp')
         $scope.mimePolicies = selectOptions.mimePolicies;
         $scope.userRoles = selectOptions.userRoles;
         $scope.languages = selectOptions.languages;
+        $scope.supportedLanguages = selectOptions.supportedLanguages;
         $scope.state = $state.params.formState;
         if ($scope.state === 'create') {
           currentDomain = Domain.createSample(currentDomain.identifier, $state.params.domainType);
