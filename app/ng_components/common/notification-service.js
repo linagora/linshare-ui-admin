@@ -15,6 +15,7 @@ angular.module('linshareAdminApp')
       },
       addError: function(newAlert) {
         $log.debug('Notification:addError');
+        newAlert.date = new Date();
         if (newAlert.status !== undefined && newAlert.status >= 500 && newAlert.status < 600){
           newAlert.type = 'danger';
           newAlert.errorType = 500;

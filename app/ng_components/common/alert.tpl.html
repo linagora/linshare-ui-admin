@@ -10,14 +10,22 @@
     <alert type="{{ alert.type }}"
            x-close="closeAlert($index)"
            x-index="$index"
+           x-ls-alert-timeout
            x-ng-if="alert.type==='danger' && alert.errorType === undefined">
-      {{alert.msg | translate}}
+       <a href="{{alert.url}}" target="_blank">
+            {{alert.date | date:'H:mm:ss'}}<br>
+            {{alert.msg | translate}}
+          </a>
     </alert>
     <alert type="{{ alert.type }}"
            x-close="closeAlert($index)"
            x-index="$index"
+           x-ls-alert-timeout
            x-ng-if="alert.type==='danger' && alert.errorType === 500">
-          <a href="{{alert.url}}" target="_blank">{{alert.msg | translate}}</a>
+           <a href="{{alert.url}}" target="_blank">
+            {{alert.date | date:'H:mm:ss'}}<br>
+            {{alert.msg | translate}}
+          </a>
     </alert>
   </div>
 </div>
