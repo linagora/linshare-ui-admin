@@ -2,14 +2,15 @@
 
 angular.module('linshareAdminApp')
   .controller('ThreadListCtrl',
-    ['$scope', '$filter', '$log', 'ngTableParams', 'Thread',
-    function($scope, $filter, $log, ngTableParams, Thread) {
-      $scope.$watch('threadSearch', function(newValue){
-        if(newValue) $scope.searchEntry = newValue;
-        else $scope.searchEntry = null;
-      });
+    ['$scope', '$filter', '$log', '$state', '$location', 'ngTableParams', 'Thread',
+    function($scope, $filter, $log, $state, $location, ngTableParams, Thread) {
       var canRequest = false;
+      if ($state.params.search) {
+        $scope.threadSearch = $state.params.search;
+        canRequest = true;
+      }
       $scope.isClicked = function(){
+        $location.search('search', $scope.threadSearch);
         canRequest = true;
         $scope.tableParams.reload();
       };
@@ -24,7 +25,7 @@ angular.module('linshareAdminApp')
         total: 0, // length of data
         getData: function($defer, params) {
           if (canRequest) {
-            Thread.getAll($scope.searchEntry).then(function(thread) {
+            Thread.getAll($scope.threadSearch).then(function(thread) {
               thread = params.sorting() ?
                 $filter('orderBy')(thread, params.orderBy()) :
                 thread;

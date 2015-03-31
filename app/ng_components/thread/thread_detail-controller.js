@@ -2,10 +2,9 @@
 
 angular.module('linshareAdminApp')
   .controller('ThreadDetailCtrl',
-    ['$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User', 'currentThread',
-    function($scope, $filter, $log, $state, ngTableParams, Thread, ThreadMember, User, currentThread) {
+    ['$rootScope', '$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User', 'currentThread',
+    function($rootScope, $scope, $filter, $log, $state, ngTableParams, Thread, ThreadMember, User, currentThread) {
       $scope.thread = currentThread;
-
       $scope.reloadList = function () {
         $scope.tableParams.reload();
       };
@@ -18,7 +17,7 @@ angular.module('linshareAdminApp')
         $state.reinit();
       };
       $scope.cancel = function() {
-        $state.go('thread.list');
+        $state.go('thread.list', {search: $state.params.search});
       };
       $scope.submit = function() {
         Thread.update($scope.thread).then(function() {

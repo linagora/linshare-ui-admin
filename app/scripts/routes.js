@@ -249,12 +249,13 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         templateUrl: 'ng_components/thread/thread.html'
       })
       .state('thread.list', {
-        url: '/list',
+        url: '/list?search',
+        reloadOnSearch: false,
         templateUrl: 'ng_components/thread/thread_list.tpl.html',
         controller: 'ThreadListCtrl'
       })
       .state('thread.detail', {
-        url: '/:id',
+        url: '/:id?search',
         templateUrl: 'ng_components/thread/thread_detail.tpl.html',
         controller: 'ThreadDetailCtrl',
         resolve: {

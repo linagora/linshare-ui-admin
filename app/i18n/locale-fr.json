@@ -895,7 +895,9 @@
       }
     },
     "SEARCH": {
-      "SERVER": "Rechercher un groupe depuis le server",
+      "INFO": "Rechercher un groupe depuis le champ de recherche, pour afficher tous les groupes faite une recherche vide.",
+      "SERVER": "Rechercher un groupe depuis le serveur",
+      "FIELDS": "Nom du groupe, nom du membre ou prénom du membre",
       "CLIENT": "Filtrer votre résultat avec le nom du groupe"
     },
     "BOX_FORM": {

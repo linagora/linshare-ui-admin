@@ -895,7 +895,9 @@
       }
     },
     "SEARCH": {
+      "INFO": "Search threads with the search form, to show all threads, please send an empty search request.",
       "SERVER": "Search threads from the server",
+      "FIELDS": "thread name, firstname or lastname member",
       "CLIENT": "Filter the result by thread name"
     },
     "BOX_FORM": {
