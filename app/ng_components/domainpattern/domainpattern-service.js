@@ -39,11 +39,11 @@ angular.module('linshareAdminApp')
         },
         copyFromModel: function(model) {
           var copy = Restangular.copy(model);
-          copy.identifier = '';
+          copy.label = '';
           return copy;
         },
         getEmptyModel: function() {
-          return {identifier: ''};
+          return {label: ''};
         }
       };
     }

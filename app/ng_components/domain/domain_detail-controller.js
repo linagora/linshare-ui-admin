@@ -6,6 +6,7 @@ angular.module('linshareAdminApp')
     function($rootScope, $scope, $log, $modal, $state, $translate, Notification, selectOptions, currentDomain, authenticatedUser, Domain, DomainPolicy) {
       if (currentDomain) {
         $scope.ldapConnections = selectOptions.ldapConnectionIds;
+        $scope.welcomeMessages = selectOptions.welcomemessagesIds;
         $scope.domainPatterns = selectOptions.domainPatternIds;
         $scope.domainPolicies = [];
         angular.forEach(selectOptions.domainPolicyIds, function(value, key) {

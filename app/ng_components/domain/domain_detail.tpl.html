@@ -85,27 +85,26 @@
              x-ng-class="{'has-error': domainForm.language.$invalid &&
                (domainForm.language.$dirty || ls.domainForm.attempted)}">
           <label for="language">
-            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE' | translate }}
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE_MAIL' | translate }}
           </label>
           <select id="language" name="language" class="form-control" required
                   x-ng-model="domain.language"
-                  x-ng-options="l as 'COMMON.ENUM.LANGUAGE.' + l | translate for l in supportedLanguages">
+                  x-ng-options="l as 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + l | translate for l in supportedLanguages">
           </select>
         </div>
 
-        <!-- Notification language -->
+        <!-- externalMailLocale -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.notificationLanguage.$invalid &&
-               (domainForm.notificationLanguage.$dirty || ls.domainForm.attempted)}">
-          <label for="notificationLanguage">
-            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_NOTIFICATION_LANGUAGE' | translate }}
+             x-ng-class="{'has-error': domainForm.externalMailLocale.$invalid &&
+               (domainForm.externalMailLocale.$dirty || ls.domainForm.attempted)}">
+          <label for="externalMailLocale">
+            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE' | translate }}
           </label>
-          <select id="notificationLanguage" name="notificationLanguage" class="form-control" required
+          <select id="externalMailLocale" name="externalMailLocale" class="form-control" required
                   x-ng-model="domain.externalMailLocale"
                   x-ng-options="l as 'COMMON.ENUM.LANGUAGE.' + l | translate for l in languages">
           </select>
         </div>
-      </div>
 
       <!-- mailConfig -->
       <div class="form-group"
@@ -117,6 +116,24 @@
         <select id="mailConfig" name="mailConfig" class="form-control" required
                 x-ng-model="domain.mailConfigUuid"
                 x-ng-options="m.uuid as m.name for m in mailConfigs">
+        </select>
+      </div>
+
+      <!-- welcomeMessages -->
+      <div class="form-group"
+           x-ng-class="{'has-error': domainForm.currentWelcomeMessages.$invalid &&
+             (domainForm.currentWelcomeMessages.$dirty || ls.domainForm.attempted)}">
+        <label for="currentWelcomeMessages">
+          {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_WELCOME_MESSAGES' | translate }}
+        </label>
+        <select id="currentWelcomeMessages" name="currentWelcomeMessages" class="form-control" required
+                x-ng-model="domain.currentWelcomeMessages.uuid">
+          <option
+            x-ng-repeat="(key, val) in welcomeMessages"
+            x-ng-selected="{{domain.currentWelcomeMessages == key}}"
+            value="{{key}}">
+            {{val}}
+          </option>
         </select>
       </div>
 
@@ -196,8 +213,13 @@
               {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LDAP_CONNECTION' | translate }}
             </label>
             <select id="ldapConnection" name="ldapConnection" class="form-control" required
-                    x-ng-model="provider.ldapConnectionId"
-                    x-ng-options="l for l in ldapConnections">
+                    x-ng-model="provider.ldapConnectionId">
+              <option
+                x-ng-repeat="(key, val) in ldapConnections"
+                x-ng-selected="{{provider.ldapConnectionId == key}}"
+                value="{{key}}">
+                {{val}}
+              </option>
             </select>
           </div>
           <!-- Domain Pattern -->
@@ -207,9 +229,15 @@
             <label for="domainPattern">
               {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_DOMAIN_PATTERN' | translate }}
             </label>
+                    <!-- x-ng-options="d for d in domainPatterns" -->
             <select id="domainPattern" name="domainPattern" class="form-control" required
-                    x-ng-model="provider.domainPatternId"
-                    x-ng-options="d for d in domainPatterns">
+                    x-ng-model="provider.domainPatternId">
+              <option
+                x-ng-repeat="(key, val) in domainPatterns"
+                x-ng-selected="{{provider.domainPatternId == key}}"
+                value="{{key}}">
+                {{val}}
+              </option>
             </select>
           </div>
           <!-- Base Dn -->

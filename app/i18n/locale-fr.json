@@ -1,4 +1,3 @@
-
 {
   "COMMON": {
     "BASIC_FORM": {
@@ -91,6 +90,7 @@
         "13008": "Domain inexistant",
         "13009": "La règle de communication inter-domaine existe déjà",
         "13020": "Une règle de domaine possède le même identifiant que ce domaine.",
+        "13014": "Cet identifiant existe déjà pour un modèle de domaine.",
         "13017": "Cette connexion LDAP ne peut pas être supprimée, elle est utilisée par un domaine",
         "13018": "Ce modèle de domaine ne peut pas être supprimé, il est utilisé par un domaine",
         "14000": "Functionality entity out of date",
@@ -112,10 +112,15 @@
         "DENY": "Interdit"
       },
       "LANGUAGE": {
-        "CREOLE": "Créole",
+        "FRENCH": "Français",
+        "DUTCH": "Néerlandais",
+        "ENGLISH": "Anglais"
+      },
+      "SUPPORTED_LANGUAGE": {
+        "FRENCH": "Français",
         "DUTCH": "Néerlandais",
         "ENGLISH": "Anglais",
-        "FRENCH": "Français",
+        "CREOLE": "Créole",
         "VIETNAMESE": "Vietnamien"
       },
       "LOG_ACTION": {
@@ -332,7 +337,7 @@
       "TITLE": "Liste des modèles de domaine",
       "BUTTON_ADD": "Ajouter",
       "TABLE": {
-        "HEADER_IDENTIFIER": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_IDENTIFIER",
+        "HEADER_IDENTIFIER": "Nom",
         "HEADER_DESCRIPTION": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_DESCRIPTION"
       }
     },
@@ -340,7 +345,7 @@
       "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
       "BUTTON_LIST": "Liste",
       "LABEL_MODEL_SELECTOR": "Sélecteur de modèle",
-      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+      "LABEL_IDENTIFIER": "Nom",
       "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
       "LABEL_AUTHENTICATION": "Commande d'authentification",
       "HELP_AUTHENTICATION": "Commande LDAP d'authentification",
@@ -388,7 +393,7 @@
     "BOX_FORM": {
       "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+      "LABEL_IDENTIFIER": "Nom",
       "LABEL_PROVIDER_URL": "URL du fournisseur",
       "HELP_PROVIDER_URL": "ex: [ldap|ldaps]://my.ldap.lng:[389|636]",
       "LABEL_USER_DN": "LDAP 'user dn'",
@@ -420,9 +425,11 @@
       "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+      "LABEL_LANGUAGE_MAIL": "Langue des mails par défaut",
       "LABEL_LANGUAGE": "Langue par défaut",
       "LABEL_NOTIFICATION_LANGUAGE": "Language de Notification",
       "LABEL_MAIL_CONFIG": "Configuration de courriel",
+      "LABEL_WELCOME_MESSAGES": "Configuration des messages d'accueil",
       "LABEL_MIME_POLICY": "Politique de type MIME",
       "LABEL_USER_ROLE": "Rôle utilisateur",
       "LABEL_POLICY": "Règles de communication inter-domaines",

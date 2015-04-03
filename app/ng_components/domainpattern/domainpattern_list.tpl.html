@@ -8,7 +8,7 @@
         <button class="btn btn-primary" type="button"
                 x-ui-sref="domainpattern.detail({formState: 'create'})">
           <span>
-            <i class="fa fa-plus"></i> 
+            <i class="fa fa-plus"></i>
             {{ 'DOMAIN_PATTERNS.BOX_LIST.BUTTON_ADD' | translate }}
           </span>
         </button>
@@ -21,11 +21,11 @@
              x-ng-table="tableParams">
         <tbody>
           <tr x-ng-repeat="domainPattern in $data"
-              x-ui-sref="domainpattern.detail({id: domainPattern.identifier, formState: 'edit'})">
+              x-ui-sref="domainpattern.detail({id: domainPattern.uuid, formState: 'edit'})">
             <td data-title="'DOMAIN_PATTERNS.BOX_LIST.TABLE.HEADER_IDENTIFIER' | translate"
-                sortable="'identifier'">
+                sortable="'label'">
               <span>
-                {{domainPattern.identifier}}
+                {{domainPattern.label}}
               </span>
             </td>
             <td data-title="'DOMAIN_PATTERNS.BOX_LIST.TABLE.HEADER_DESCRIPTION' | translate"

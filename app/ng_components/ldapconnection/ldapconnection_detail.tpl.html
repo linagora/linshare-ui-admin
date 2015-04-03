@@ -5,7 +5,7 @@
         {{ 'LDAP_CONNECTIONS.BOX_FORM.TITLE_CREATION' | translate }}
       </h3>
       <h3 x-ng-if="state === 'edit'">
-        {{ldapConnection.identifier}}
+        {{ldapConnection.label}}
       </h3>
     </div>
     <div class="pull-right box-tools">
@@ -31,13 +31,13 @@
             <div x-ng-if="state === 'create'">
               <!-- Identifier -->
               <div class="form-group"
-                    x-ng-class="{'has-error': ldapConnectionForm.identifier.$invalid &&
-                    (ldapConnectionForm.identifier.$dirty || ls.ldapConnectionForm.attempted)}">
-                <label for="identifier">
+                    x-ng-class="{'has-error': ldapConnectionForm.label.$invalid &&
+                    (ldapConnectionForm.label.$dirty || ls.ldapConnectionForm.attempted)}">
+                <label for="label">
                   {{ 'LDAP_CONNECTIONS.BOX_FORM.LABEL_IDENTIFIER' | translate }}
                 </label>
-                <input id="identifier" name="identifier" type="text" class="form-control" required
-                       x-ng-model="ldapConnection.identifier">
+                <input id="label" name="label" type="text" class="form-control" required
+                       x-ng-model="ldapConnection.label">
               </div>
             </div>
             <!-- Provider URL -->

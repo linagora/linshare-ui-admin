@@ -4,7 +4,7 @@
       {{ 'DOMAIN_PATTERNS.BOX_FORM.TITLE_CREATION' | translate }}
     </h3>
     <h3 class="box-title" x-ng-if="state === 'edit'">
-      {{domainPattern.identifier}}
+      {{domainPattern.label}}
     </h3>
     <div class="pull-right box-tools">
       <div class="btn-group">
@@ -33,7 +33,7 @@
             </label>
             <select id="modelSelector" class="form-control"
                     x-ng-model="modelSelector"
-                    x-ng-options="model as model.identifier for model in models | orderBy:'identifier'">
+                    x-ng-options="model as model.label for model in models | orderBy:'label'">
             </select>
           </div>
         </div>
@@ -43,13 +43,13 @@
             <div x-ng-if="state === 'create'">
               <!-- Identifier -->
               <div class="form-group"
-                   x-ng-class="{'has-error': domainPatternForm.identifier.$invalid &&
-                    (domainPatternForm.identifier.$dirty || ls.domainPatternForm.attempted)}">
-                <label for="identifier">
+                   x-ng-class="{'has-error': domainPatternForm.label.$invalid &&
+                    (domainPatternForm.label.$dirty || ls.domainPatternForm.attempted)}">
+                <label for="label">
                   {{ 'DOMAIN_PATTERNS.BOX_FORM.LABEL_IDENTIFIER' | translate }}
                 </label>
-                <input id="identifier" name="identifier" class="form-control" type="text" required
-                       x-ng-model="domainPattern.identifier">
+                <input id="label" name="label" class="form-control" type="text" required
+                       x-ng-model="domainPattern.label">
               </div>
             </div>
             <!-- Description -->

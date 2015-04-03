@@ -14,7 +14,7 @@ angular.module('linshareAdminApp')
         $scope.$watch('modelSelector', function() {
           loadModel();
         });
-      } 
+      }
 
       $scope.submit = function() {
         if ($scope.state === 'edit') {

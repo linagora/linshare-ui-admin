@@ -21,10 +21,10 @@
              x-ng-table="tableParams">
         <tbody>
           <tr x-ng-repeat="ldapConnection in $data"
-              x-ui-sref="ldapconnection.detail({id: ldapConnection.identifier, formState: 'edit'})">
+              x-ui-sref="ldapconnection.detail({id: ldapConnection.uuid, formState: 'edit'})">
             <td data-title="'LDAP_CONNECTIONS.BOX_LIST.TABLE.HEADER_IDENTIFIER' | translate"
-                sortable="'identifier'">
-              <span>{{ldapConnection.identifier}}</span>
+                sortable="'label'">
+              <span>{{ldapConnection.label}}</span>
             </td>
             <td data-title="'LDAP_CONNECTIONS.BOX_LIST.TABLE.HEADER_PROVIDER_URL' | translate"
                 sortable="'providerUrl'">

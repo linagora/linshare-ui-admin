@@ -20,6 +20,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       return Enum.getOptions('role');
     };
     var enumLanguage = function(Enum) {
+      return Enum.getOptions('supported_language');
+    };
+    var enumMailLanguage = function(Enum) {
       return Enum.getOptions('language');
     };
     var enumSupportedLanguage = function(Enum) {
@@ -408,10 +411,12 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             templateUrl: 'ng_components/domain/domain_detail.tpl.html',
             controller: 'DomainDetailCtrl',
             resolve: {
-              selectOptions: function(_allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs, _allMimePolicies,  _enumRole, _enumLanguage, _enumSupportedLanguage) {
+              selectOptions: function(_allWelcomeMessages, _allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs, _allMimePolicies,  _enumRole, _enumLanguage, _enumSupportedLanguage) {
+
                 return {
-                  ldapConnectionIds: _.pluck(_allLdapConnections, 'identifier'),
-                  domainPatternIds: _.pluck(_allDomainPatterns, 'identifier'),
+                  welcomemessagesIds: _.object(_.pluck(_allWelcomeMessages, 'uuid'), _.pluck(_allWelcomeMessages, 'name')),
+                  ldapConnectionIds: _.object(_.pluck(_allLdapConnections, 'uuid'), _.pluck(_allLdapConnections, 'label')),
+                  domainPatternIds: _.object(_.pluck(_allDomainPatterns, 'uuid'), _.pluck(_allDomainPatterns, 'label')),
                   domainPolicyIds: _.pluck(_allDomainPolicies, 'identifier'),
                   mailConfigs: _allMailConfigs,
                   mimePolicies: _allMimePolicies,
@@ -426,6 +431,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 if ($stateParams.domainId) {
                   return Domain.get($stateParams.domainId);
                 }
+              },
+              _allWelcomeMessages: function(WelcomeMessages) {
+                return WelcomeMessages.getAll();
               },
               _allLdapConnections: function(LdapConnection) {
                 return LdapConnection.getAll();
@@ -447,8 +455,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 }
               },
               _enumRole: enumRole,
-              _enumLanguage: enumLanguage,
-              _enumSupportedLanguage: enumSupportedLanguage
+              _enumLanguage: enumMailLanguage,
+              _enumSupportedLanguage: enumLanguage
             }
           }
         }

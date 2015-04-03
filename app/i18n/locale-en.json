@@ -90,6 +90,7 @@
         "13008": "Domain does not exist",
         "13009": "The inter-domain communication rule already exist.",
         "13020": "A domain policies has the same identifier as that field.",
+        "13014": "This new domain pattern identifier already exists.",
         "13017": "This LDAP connection can't be deleted, it is used by a domain",
         "13018": "This Domain pattern can't be deleted, it is used by a domain",
         "14000": "Functionality entity out of date",
@@ -111,10 +112,15 @@
         "DENY": "Deny"
       },
       "LANGUAGE": {
-        "CREOLE": "Creole",
+        "FRENCH": "French",
+        "DUTCH": "Dutch",
+        "ENGLISH": "English"
+      },
+      "SUPPORTED_LANGUAGE": {
+        "FRENCH": "French",
         "DUTCH": "Dutch",
         "ENGLISH": "English",
-        "FRENCH": "French",
+        "CREOLE": "Creole",
         "VIETNAMESE": "Vietnamese"
       },
       "LOG_ACTION": {
@@ -331,7 +337,7 @@
       "TITLE": "Domain patterns list",
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_IDENTIFIER": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_IDENTIFIER",
+        "HEADER_IDENTIFIER": "Name",
         "HEADER_DESCRIPTION": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_DESCRIPTION"
       }
     },
@@ -339,7 +345,7 @@
       "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_MODEL_SELECTOR": "Model selector",
-      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+      "LABEL_IDENTIFIER": "Name",
       "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
       "LABEL_AUTHENTICATION": "Authentication command",
       "HELP_AUTHENTICATION": "LDAP command to authentication",
@@ -387,7 +393,7 @@
     "BOX_FORM": {
       "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
-      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+      "LABEL_IDENTIFIER": "Name",
       "LABEL_PROVIDER_URL": "Provider URL",
       "HELP_PROVIDER_URL": "eg: [ldap|ldaps]://my.ldap.lng:[389|636]",
       "LABEL_USER_DN": "LDAP user dn",
@@ -416,12 +422,14 @@
     },
     "BOX_FORM": {
       "TITLE": "Edit domain",
-      "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+      "LABEL_IDENTIFIER": "Name",
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+      "LABEL_LANGUAGE_MAIL": "Default mail language",
       "LABEL_LANGUAGE": "Default language",
       "LABEL_NOTIFICATION_LANGUAGE": "Notification language",
       "LABEL_MAIL_CONFIG": "Mail configuration",
+      "LABEL_WELCOME_MESSAGES": "Welcome messages configuration",
       "LABEL_MIME_POLICY": "Mime policy",
       "LABEL_USER_ROLE": "User role",
       "LABEL_POLICY": "Inter-domains communication rules",
