@@ -36,4 +36,13 @@ angular.module('linshareAdminApp')
         });
       }
     ]
-  );
+  )
+  .directive('lsUserGlobal', function($rootScope){
+    return {
+      link: function(scope, elm) {
+        elm.bind('click', function(){
+          $rootScope.SelectedUserInManageUser = scope.user;
+        });
+      }
+    }
+  });
