@@ -26,6 +26,10 @@ angular.module('linshareAdminApp')
           $log.debug('User:get');
           return Restangular.one('users', uuid).get();
         },
+        exist: function(uuid) {
+          $log.debug('User:exist');
+          return Restangular.one('users', uuid).head();
+        },
         getAllInconsistent: function() {
           $log.debug('User:getAllInconsistent');
           return Restangular.all('users').all('inconsistent').getList();

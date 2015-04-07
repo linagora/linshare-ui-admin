@@ -10,7 +10,7 @@
              x-ng-table="tableParams"
              show-filter="true">
         <tr x-ng-repeat="user in $data"
-            x-ui-sref="user.detail({uuid: user.uuid})">
+            x-ui-sref="user.detail({uuid: user.uuid})" ls-user-global>
           <td style="cursor: pointer"
               data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_FIRST_NAME' | translate"
               filter="{ 'firstName': 'text' }"

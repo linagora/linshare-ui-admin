@@ -187,8 +187,15 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('user.detail', {
         url: '/:uuid',
         resolve: {
-          currentUser: function(User, $stateParams) {
-            return User.get($stateParams.uuid);
+          currentUser: function(User, $stateParams, $rootScope, Restangular) {
+            return User.exist($stateParams.uuid).then(function(success){
+              if(success === true){
+                return User.get($stateParams.uuid);
+              }
+              else {
+                return Restangular.all('users').post($rootScope.SelectedUserInManageUser);
+              }
+            })
           },
           maxExpiryDate: function(_funcAccountExpiration) {
             var date = new Date();
