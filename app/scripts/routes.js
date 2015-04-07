@@ -7,12 +7,12 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
 
     var funcAccountExpiration = function(currentUser, Functionality) {
       if (currentUser) {
-        return Functionality.get(currentUser.domain , 'ACCOUNT_EXPIRATION');
+        return Functionality.get(currentUser.domain , 'GUESTS__EXPIRATION');
       }
     };
     var funcRestrictedGuest = function(currentUser, Functionality) {
       if (currentUser) {
-        return Functionality.get(currentUser.domain , 'RESTRICTED_GUEST');
+        return Functionality.get(currentUser.domain , 'GUESTS__RESTRICTED');
       }
     };
 
