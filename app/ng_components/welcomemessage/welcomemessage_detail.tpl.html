@@ -1,0 +1,229 @@
+ <script type="text/ng-template" id="ng-table/filters/active.html">
+    <input type="checkbox"  x-ng-checked="check.bool" x-ng-click="selectAll()" />
+    {{ 'COMMON.BASIC_FORM.' + check.label | translate }}
+    </br>
+    {{ 'COMMON.BASIC_FORM.LABEL_FILTER' | translate }}
+    <select ng-model="params.filter()[name]" name="filter-active" style="font-family: 'FontAwesome', 'Helvetica';width: 50%;margin-top: 10px;">
+      <option value="">&#xf068; {{ 'COMMON.BASIC_FORM.LABEL_ALL' | translate }}</option>
+      <option x-ng-value="true">&#xf058; {{ 'WELCOME_MESSAGES.BOX_FORM.TABLE_ACTIVE' | translate }}</option>
+      <option x-ng-value="false">&#xf057; {{ 'WELCOME_MESSAGES.BOX_FORM.TABLE_INACTIVE' | translate }}</option>
+    </select>
+</script>
+<script type="text/ng-template" id="ng-table/filters/text.html">
+    <input type="text" ng-model="params.filter()[name]" placeholder="{{ 'WELCOME_MESSAGES.BOX_FORM.TABLE_FILTER_IDENTIFIER' | translate }} {{name}}" class="input-filter form-control"/>
+</script>
+<div class="box box-primary">
+  <div class="box-header">
+    <div class="box-title">
+      <!-- Legend -->
+      <div>
+        <h3 x-ng-if="isParent() && !edit">
+          {{ 'WELCOME_MESSAGES.EDIT_FORM.START_TITLE' | translate }} <strong>'{{welcomeMessage.name}}'</strong> {{ 'WELCOME_MESSAGES.EDIT_FORM.MIDDLE_TITLE' | translate }} <strong>'{{welcomeMessage.myDomain.identifier}}'</strong>
+        </h3>
+        <h3 x-ng-if="!isParent() || edit">
+          {{ 'WELCOME_MESSAGES.SHOW_FORM.START_TITLE' | translate }} <strong>'{{welcomeMessage.name}}'</strong> {{ 'WELCOME_MESSAGES.SHOW_FORM.MIDDLE_TITLE' | translate }} <strong>'{{welcomeMessage.myDomain.identifier}}'</strong>
+        </h3>
+        <small x-ng-if="!isParent() || edit"
+        class="label label-danger"><i class="fa fa-eye"></i> {{ 'WELCOME_MESSAGES.SHOW_FORM.LABEL' | translate }}</small>
+      </div>
+    </div>
+    <div class="pull-right box-tools">
+      <a class="btn btn-success btn-sm"
+          x-ng-click="add()"
+          tooltip="{{ 'WELCOME_MESSAGES.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_DUPLICATE' | translate }}">
+        <i class="fa fa-files-o"></i>
+      </a>
+      <a class="btn btn-info btn-sm"
+          x-ui-sref="welcomemessage.detail({id: welcomeMessage.uuid, state: 'edit'})"
+          tooltip="{{ 'WELCOME_MESSAGES.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_EDIT' | translate }}"
+          x-ng-if="isParent() && edit">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn btn-danger" type="button"
+            x-ng-hide="!isParent(welcomeMessage) || welcomeMessage.uuid == '4bc57114-c8c9-11e4-a859-37b5db95d856'"
+            tooltip="{{ 'WELCOME_MESSAGES.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_DELETE' | translate }}"
+            x-ng-click="remove()">
+      <i class="fa fa-trash-o"></i>
+    </a>
+      <a class="btn btn-cancel btn-sm"
+          x-ui-sref="welcomemessage.list({domainId: welcomeMessage.myDomain.identifier})"
+          tooltip="{{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+  <form name="welcomeMessageForm" class="form" role="form"
+        x-ls-form-submit="submit()"
+        x-ls-form-attempt
+        x-ng-if="isParent() && !edit"
+        >
+    <div class="box-body">
+      <div class="col-md-3">
+        <div class="section-fieldset">
+          <h4>
+              {{ 'WELCOME_MESSAGES.BOX_FORM.TITLE_GENERAL' | translate }}
+          </h4>
+          <p>
+            {{ 'WELCOME_MESSAGES.BOX_FORM.DESCRIPTION_GENERAL_EDIT' | translate }}
+          </p>
+          <div class="form-group">
+            <!-- Name -->
+            <label for="name">
+              {{ 'WELCOME_MESSAGES.BOX_FORM.LABEL_NAME' | translate }}
+            </label>
+            <div class="form-group">
+              <input type="text" class="form-control" x-ng-model="welcomeMessage.name" value="msg" />
+            </div>
+          </div>
+          <div class="form-group">
+            <!-- Description -->
+            <label for="description">
+              {{ 'WELCOME_MESSAGES.BOX_FORM.LABEL_DESCRIPTION' | translate }}
+            </label>
+            <textarea id="description" name="description" class="form-control" required x-ng-model="welcomeMessage.description" style="resize:vertical;">
+            </textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <accordion id="accordion">
+          <accordion-group
+              is-open="isOpen">
+            <accordion-heading x-ng-class="{'activ': isOpen, 'no': !isOpen}">
+              {{ 'WELCOME_MESSAGES.BOX_FORM.TITLE_LANGUAGE_EDIT' | translate }}
+            </accordion-heading>
+            <p>
+              {{ 'WELCOME_MESSAGES.BOX_FORM.DESCRIPTION_LANGUAGE' | translate }}
+            </p>
+            <div class="form-group" x-ng-repeat="(key, msg) in welcomeMessage.welcomeMessagesEntries">
+              <label>
+                {{ 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + key | translate }}
+              </label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <img src="/images/flag/{{key}}.svg" style="width:30px;" alt="{{ 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + key | translate }}" />
+                </div>
+                <input type="text" class="form-control" x-ng-model="welcomeMessage.welcomeMessagesEntries[key]" value="msg" />
+              </div><!-- /.input group -->
+            </div>
+            </accordion-group>
+            <accordion-group>
+              <accordion-heading x-ng-class="{'activ': isOpen, 'no': !isOpen}">
+                {{ 'WELCOME_MESSAGES.BOX_FORM.TITLE_DOMAIN_EDIT' | translate }}
+              </accordion-heading>
+              <p>
+                {{ 'WELCOME_MESSAGES.BOX_FORM.DESCRIPTION_DOMAIN_EDIT' | translate }}
+              </p>
+              <table class="table table-hover"
+                 x-ng-table="tableParams" show-filter="true">
+                <tbody>
+                  <tr x-ng-repeat="domain in $data" x-ng-class="{'success': domain.active}" x-ng-click="changeItem(domain)">
+                    <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_IDENTIFIER' | translate"
+                        sortable="'identifier'" filter="{ 'identifier': 'text' }">
+                      <strong>{{domain.identifier}}</strong>, {{domain.label}}
+                    </td>
+                    <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_ACTIVE' | translate"
+                        sortable="'active'" width="200" filter="{'active': 'active' }"style="text-align: center;">
+                      <i class="fa fa-check-circle" style="color: green" x-ng-show="domain.active"></i>
+                      <i class="fa fa-times-circle" style="color: red" x-ng-show="!domain.active"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </accordion-group>
+        </accordion>
+      </div>
+      <div class="clearfix"></div>
+      <div class="box-footer">
+        <!-- Validation -->
+        <div class="form-group">
+          <div class="controls">
+            <a class="btn btn-info"
+                x-ui-sref="welcomemessage.list({domainId: welcomeMessage.myDomain.identifier})">
+              {{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}
+            </a>
+            <button type="button" id="reset" name="reset" class="btn btn-warning"
+                x-ng-click="reset()">
+              {{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+            </button>
+            <button type="submit" id="submit" name="submit" class="btn btn-success">
+              {{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- BOX PRESENTATION -->
+  <div x-ng-if="!isParent() || edit">
+    <div class="box-body">
+      <div class="col-md-3">
+        <div class="section-fieldset">
+          <h4>
+              {{ 'WELCOME_MESSAGES.BOX_FORM.TITLE_GENERAL' | translate }}
+          </h4>
+          <!-- Name -->
+          <label for="name">
+            {{ 'WELCOME_MESSAGES.BOX_FORM.LABEL_NAME' | translate }}
+          </label>
+          <p>
+           {{ welcomeMessage.name}}
+          </p>
+          <!-- Description -->
+          <label for="description">
+            {{ 'WELCOME_MESSAGES.BOX_FORM.LABEL_DESCRIPTION' | translate }}
+          </label>
+          <p>
+            {{welcomeMessage.description}}
+          </p>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <accordion id="accordion">
+          <accordion-group
+              is-open="isOpen">
+            <accordion-heading x-ng-class="{'activ': isOpen, 'no': !isOpen}">
+              {{ 'WELCOME_MESSAGES.BOX_FORM.TITLE_LANGUAGE_SHOW' | translate }}
+            </accordion-heading>
+            <div class="form-group" x-ng-repeat="(key, msg) in welcomeMessage.welcomeMessagesEntries">
+              <label>
+                {{ 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + key | translate }}
+              </label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <img src="/images/flag/{{key}}.svg" style="width:30px;" alt="{{ 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + key | translate }}" />
+                </div>
+                <input type="text" class="form-control" x-ng-model="welcomeMessage.welcomeMessagesEntries[key]" value="msg" disabled/>
+              </div><!-- /.input group -->
+            </div>
+            </accordion-group>
+            <accordion-group>
+              <accordion-heading x-ng-class="{'activ': isOpen, 'no': !isOpen}">
+                {{ 'WELCOME_MESSAGES.BOX_FORM.TITLE_DOMAIN_SHOW' | translate }}
+              </accordion-heading>
+              <p>
+                {{ 'WELCOME_MESSAGES.BOX_FORM.DESCRIPTION_DOMAIN_SHOW' | translate }}
+              </p>
+              <table class="table table-hover table-show"
+               x-ng-table="tableParams" show-filter="true">
+                <tbody>
+                  <tr x-ng-repeat="domain in $data  | filter: search" x-ng-class="{'success': domain.active}">
+                    <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_IDENTIFIER' | translate"
+                        sortable="'identifier'" filter="{ 'identifier': 'text' }">
+                      <strong>{{domain.identifier}}</strong>, {{domain.label}}
+                    </td>
+                    <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_ACTIVE' | translate"
+                        sortable="'active'" width="200" filter="{'active': 'active' }"style="text-align: center;">
+                      <i class="fa fa-check-circle" style="color: green" x-ng-show="domain.active"></i>
+                      <i class="fa fa-times-circle" style="color: red" x-ng-show="!domain.active"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </accordion-group>
+        </accordion>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

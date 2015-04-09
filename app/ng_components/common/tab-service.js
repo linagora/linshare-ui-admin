@@ -96,6 +96,13 @@ angular.module('linshareAdminApp')
             children_sref: [
               'uploadpropositionfilter.detail',
             ]
+          }, {
+            name: 'COMMON.TAB.WELCOME_MESSAGES',
+            superAdminOnly: false,
+            sref: 'welcomemessage.list',
+            children_sref: [
+              'welcomemessage.detail',
+            ]
           }
         ]
       };

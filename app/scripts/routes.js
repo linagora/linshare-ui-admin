@@ -184,6 +184,68 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         }
       })
 
+      .state('welcomemessage', {
+        abstract: true,
+        url: '/welcomemessage',
+        templateUrl: 'ng_components/welcomemessage/welcomemessage.html',
+        resolve: {
+          treeType: function() {
+            return 'read';
+          },
+          authenticatedUser: authenticatedUser
+        },
+        controller: function($scope, $state) {
+          $scope.$state = $state;
+        }
+      })
+      .state('welcomemessage.list', {
+        url: '/:domainId/list',
+        views: {
+          'tree': {
+            templateUrl: 'ng_components/domain/domain_tree.tpl.html',
+            controller: 'DomainTreeCtrl',
+            resolve: {
+              rootDomain: function(Domain, authenticatedUser) {
+                return Domain.getDomainTree(authenticatedUser.domain, true);
+              }
+            }
+          },
+          'list': {
+            templateUrl: 'ng_components/welcomemessage/welcomemessage_list.tpl.html',
+            controller: 'WelcomeMessageListCtrl',
+            resolve: {
+              welcomesMessages: function(WelcomeMessage, $stateParams) {
+                return WelcomeMessage.getAll($stateParams.domainId);
+              },
+              rootDomain: function(Domain, authenticatedUser) {
+                return Domain.getDomainTree(authenticatedUser.domain);
+              },
+              authenticatedUser: authenticatedUser
+            }
+          }
+        }
+      })
+      .state('welcomemessage.detail', {
+        url: '/:id?state',
+        views: {
+          'detail': {
+            templateUrl: 'ng_components/welcomemessage/welcomemessage_detail.tpl.html',
+            controller: 'WelcomeMessageDetailCtrl',
+            resolve: {
+              currentWelcomesMessage: function(WelcomeMessage, $stateParams) {
+                if ($stateParams.id) {
+                  return WelcomeMessage.get($stateParams.id);
+                }
+              },
+              rootDomain: function(Domain, authenticatedUser) {
+                return Domain.getDomainTree(authenticatedUser.domain);
+              },
+              authenticatedUser: authenticatedUser
+            }
+          }
+        }
+      })
+
       .state('user', {
         abstract: true,
         url: '/user',
@@ -451,8 +513,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                   return Domain.get($stateParams.domainId);
                 }
               },
-              _allWelcomeMessages: function(WelcomeMessages) {
-                return WelcomeMessages.getAll();
+              _allWelcomeMessages: function(WelcomeMessage) {
+                return WelcomeMessage.getAll();
               },
               _allLdapConnections: function(LdapConnection) {
                 return LdapConnection.getAll();

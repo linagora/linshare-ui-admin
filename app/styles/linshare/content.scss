@@ -9,3 +9,7 @@
   cursor: pointer;
   cursor: hand;
 }
+
+.table-hover.table-show tbody tr:hover > td {
+  cursor: auto;
+}

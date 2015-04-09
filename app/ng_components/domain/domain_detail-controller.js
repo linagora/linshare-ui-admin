@@ -42,8 +42,8 @@ angular.module('linshareAdminApp')
       $scope.addProvider = function() {
         if (!$scope.disableProvider) {
           $scope.domain.providers.push({
-            ldapConnectionId: '',
-            domainPatternId: '',
+            ldapConnectionUuid: '',
+            userLdapPatternUuid: '',
             baseDn: ''
           });
           $scope.disableProvider = true;

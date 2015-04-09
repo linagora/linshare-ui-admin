@@ -21,9 +21,10 @@ angular.module('linshareAdminApp')
 
       // Public API here
       return {
-        getDomainTree: function(domainId) {
+        getDomainTree: function(domainId, parent) {
           $log.debug('Domain:getDomainTree');
-          return Restangular.all('domains').one(domainId).get({tree: true}).then(function(rootDomain) {
+          parent = parent || false;
+          return Restangular.all('domains').one(domainId).get({tree: true, parent: parent}).then(function(rootDomain) {
             restangularizeTree(rootDomain, 'domains');
             var dfd = $q.defer();
             dfd.resolve(rootDomain);

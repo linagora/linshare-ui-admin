@@ -2,10 +2,52 @@
 
 angular.module('linshareAdminApp')
   .controller('DomainTreeCtrl',
-  ['$scope', '$log', '$state', 'treeType', 'rootDomain',
-    function ($scope, $log, $state, treeType, rootDomain) {
+  ['$scope', '$log', '$state', 'treeType', 'rootDomain', 'Authentication',
+    function ($scope, $log, $state, treeType, rootDomain, Authentication) {
       $scope.root = [rootDomain];
       $scope.state = treeType;
+      Authentication.getCurrentUser().then(function(user) {
+        $scope.adminDomain = user.domain;
+      });
+      var findDeep = function(domain, attrs) {
+
+        var match = function(attrValue, attrs) {
+          for (var key in attrs) {
+            if(!_.isUndefined(attrValue)) {
+              if (attrs[key] !== attrValue[key]) {
+                return false;
+              }
+            }
+          }
+          return true;
+        };
+
+        var traverse = function(domain, attrs) {
+          var result;
+
+          _.forEach(domain, function (attr) {
+            if (attr && match(attr, attrs)) {
+              result = attr;
+              return false;
+            }
+
+            if (_.isObject(attr) || _.isArray(attr)) {
+              result = traverse(attr, attrs);
+            }
+
+            if (result) {
+              return false;
+            }
+          });
+          return result;
+        }
+
+        return traverse(domain, attrs);
+
+      };
+      $scope.isParent = function (domain) {
+        return !_.isEmpty(findDeep(domain.children, {'identifier': $scope.adminDomain}));
+      };
       $scope.hasGuestDomain = function (topDomain) {
         return !_.isEmpty(
           _.find(topDomain.children, {'type': 'GUESTDOMAIN'})

@@ -134,7 +134,7 @@
                 x-ng-model="domain.currentWelcomeMessages.uuid">
           <option
             x-ng-repeat="(key, val) in welcomeMessages"
-            x-ng-selected="{{domain.currentWelcomeMessages == key}}"
+            x-ng-selected="domain.currentWelcomeMessages.uuid == key"
             value="{{key}}">
             {{val}}
           </option>
@@ -219,10 +219,10 @@
               {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LDAP_CONNECTION' | translate }}
             </label>
             <select id="ldapConnection" name="ldapConnection" class="form-control" required
-                    x-ng-model="provider.ldapConnectionId">
+                    x-ng-model="provider.ldapConnectionUuid">
               <option
                 x-ng-repeat="(key, val) in ldapConnections"
-                x-ng-selected="{{provider.ldapConnectionId == key}}"
+                x-ng-selected="{{provider.ldapConnectionUuid == key}}"
                 value="{{key}}">
                 {{val}}
               </option>
@@ -237,10 +237,10 @@
             </label>
                     <!-- x-ng-options="d for d in domainPatterns" -->
             <select id="domainPattern" name="domainPattern" class="form-control" required
-                    x-ng-model="provider.domainPatternId">
+                    x-ng-model="provider.userLdapPatternUuid">
               <option
                 x-ng-repeat="(key, val) in domainPatterns"
-                x-ng-selected="{{provider.domainPatternId == key}}"
+                x-ng-selected="{{provider.userLdapPatternUuid == key}}"
                 value="{{key}}">
                 {{val}}
               </option>

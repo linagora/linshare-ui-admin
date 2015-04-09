@@ -1,28 +1,40 @@
 $pink: #D70075;
+$darkPink: #ca195a;
 $blue: #0372B3;
-$blueDark: #015A8F;
+$darkBlue: #015A8F;
 $red: #EE0037;
 $green: #00A114;
 $beige: #F4F4F4;
 $black: #444;
 $lightBlack: #555;
 $grey: #ddd;
-$greyDark: #999;
+$darkGrey: #999;
+$lightGrey: #EFEFEF;
+$orange: #f0ad4e;
 
 .grey {
-  color: $greyDark;
+  color: $darkGrey;
 }
 
 .boldOption {
   font-weight:bold;
 }
-
+/*
+** FONT CUSTOMIZATION
+*/
 @mixin legend {
   font-size: 16px;
   font-weight: bold;
   text-align: left;
   color: $black;
   margin-top: 10px;
+  i.fa-info {
+    color: $lightBlack;
+    cursor: pointer;
+    &:hover, &:active {
+      color: $darkGrey;
+    }
+  }
   i.fa-info.pull-left {
     line-height: 23px;
     margin-right: 10px;
@@ -114,23 +126,129 @@ body {
   margin-bottom: 0px;
 }
 
+.top-buffer {
+  margin-top: 20px;
+}
+.bottom-buffer {
+  margin-bottom: 20px;
+}
+.description {
+  color : $darkGrey;
+  margin: 20px 0px 30px 0;
+}
+.txtalign-right {
+  text-align: right;
+}
+.txtalign-left {
+  text-align: left;
+}
+
 .skin-black .navbar {
   background-color: $blue;
 }
 .active {
-  color: $blueDark;
+  color: $darkBlue;
+}
+.badge-active {
+  background-color: $green;
+  color: #fff;
+}
+.section-fieldset {
+  border-top: solid 1px $grey;
+  margin-top: 30px;
+  h4 {
+    font-weight: bold;
+    color: #0372b3;
+  }
+  h4 + p {
+    margin-bottom: 35px;
+    color: $darkGrey;
+  }
+}
+.section-fieldset:first-child {
+  border-top: 0px;
 }
 
+#accordion {
+  .panel-group {
+    .panel-default {
+      border-top-color: $grey;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      .panel-heading {
+        background-color: $beige;
+        color: $blue;
+        cursor: pointer;
+        &:hover {
+          background-color: $grey;
+          color: $darkBlue;
+        }
+        a {
+          &:hover {
+            cursor: pointer;
+            color: $darkBlue;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+** BUTTON CUSTOMIZATION
+*/
 .btn.btn-info {
   background-color: $blue;
   border-color: #367fa9;
   &:hover {
-    background-color: $blueDark;
+    background-color: $darkBlue;
   }
 }
 
 .box .box-header a {
   color: #fff;
+}
+
+.btn.btn-primary {
+  background-color: $blue;
+  border-color: #367fa9;
+  &:hover {
+    background-color: $darkBlue;
+  }
+}
+.btn.btn-cancel {
+  background-color: $pink;
+}
+a.btn {
+  padding: 6px 12px;
+  i {
+    color: #fff;
+  }
+}
+a.clear-btn, button.clear-btn {
+  background-color: transparent;
+  border: 0px;
+  display: inline;
+  // &:hover {
+  //   background-color: $darkBlue;
+  // }
+  &.success {
+    color: $green;
+  }
+  &.error {
+    color: $red;
+  }
+  &.blue {
+    color: $blue;
+    &:hover {
+      color: $darkBlue;
+    }
+  }
+  &.warning {
+    color: $orange;
+  }
 }
 
 .cursor-pointer {
@@ -142,12 +260,36 @@ body {
   position: fixed;
   width: 26%;
 }
+.box-title {
+  h3 {
+    margin: 0px;
+    float: left;
+  }
+  small.label {
+    font-size: 12px;
+    margin-left: 20px;
+  }
+}
+.box .box-header h3 + .fa {
+  padding: 10px;
+  color: $pink;
+  cursor: pointer;
+  &:hover {
+    color: $darkPink;
+  }
+  &.active {
+    color: $darkPink;
+  }
+  small.label {
+    font-size: 12px;
+  }
+}
 .box.box-primary {
   border-top: solid 2px $pink;
   border-top-color: $pink;
-  top: 50px;
+  // top: 50px;
   .box-header {
-    height: 55px;
+    min-height: 55px;
     border-bottom: solid 1px #ccc;
     background-color: $beige;
     color: $blue;
@@ -157,6 +299,9 @@ body {
     background-color: #fff;
     border-color: #eee;
     color: $blue;
+    i {
+      color: $blue;
+    }
     &:hover {
       background-color: #eee;
       border-color: #ddd;
@@ -222,7 +367,7 @@ body {
     }
     .description {
       font-size: 14px;
-      color: $greyDark;
+      color: $darkGrey;
       margin-bottom: 10px;
       .warning {
           font-size: 11px;
@@ -243,14 +388,14 @@ body {
       margin-bottom: 20px;
     }
     .description {
-      color: $greyDark;
+      color: $darkGrey;
     }
   }
   #functionality_description {
     margin: 20px 0px;
     background-color: $beige;
     padding: 10px;
-    color: $greyDark;
+    color: $darkGrey;
     box-shadow: 1px 2px 4px $grey;
     .description {
       float: left;
@@ -267,30 +412,6 @@ body {
   .functionality-parent {
     .box {
       border-top: 0px;
-    }
-  }
-  .functionality-children {
-    .panel-default {
-      border-top-color: $grey;
-      border-top-right-radius: 3px;
-      border-top-left-radius: 3px;
-      border-bottom-right-radius: 0px;
-      border-bottom-left-radius: 0px;
-      .panel-heading {
-        background-color: $beige;
-        color: $blue;
-        cursor: pointer;
-        &:hover {
-          background-color: $grey;
-          color: $blueDark;
-        }
-        a {
-          &:hover {
-            cursor: pointer;
-            color: $blueDark;
-          }
-        }
-      }
     }
   }
   .toggle-switch {
@@ -310,4 +431,67 @@ body {
 }
 .footer {
   z-index: -10;
+}
+
+.table {
+  tbody {
+    tr {
+      td {
+        padding: 8px;
+        &.actions {
+          a {
+            display: inline;
+            padding: 0px 6px;
+            line-height: 30px;
+          }
+        }
+        a {
+          padding: 8px;
+          color: #000;
+          display: block;
+          &:hover {
+            color: #000;
+          }
+        }
+        a.btn {
+          display: inline-block;
+          padding: 6px 12px;
+        }
+      }
+      &:hover {
+        td {
+          background-color: #EFEFEF;
+        }
+      }
+    }
+  }
+}
+
+.list-group-item-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  // cursor: pointer;
+  .badge {
+    background-color: $green;
+  }
+}
+
+a.list-group-item-success:hover {
+  color: #3c763d;
+  background-color: #d0e9c6;
+  // cursor: pointer;
+}
+
+.btn.btn-parent {
+  background-color: $grey !important;
+  &:hover {
+    background-color: #B1B1B1 !important;
+  }
+}
+.btn.btn-parent-active {
+  background-color: $darkGrey !important;
+  border-color: #666;
+  &:hover {
+    background-color: #6C6C6C !important;
+  }
 }

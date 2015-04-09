@@ -8,13 +8,24 @@
       "LABEL_FIRST_NAME": "Prénom",
       "LABEL_LAST_NAME": "Nom",
       "LABEL_NAME": "Nom",
+      "LABEL_ACTIVE": "Actif",
+      "LABEL_INACTIVE": "Inactif",
+      "LABEL_NONE": "Aucun",
+      "LABEL_ALL": "Tous",
+      "LABEL_UNSELECT": "Tous déséléctionner",
+      "LABEL_SELECT": "Tous séléctionner",
+      "LABEL_FILTER": "Filtrer par",
       "BUTTON_LIST": "Liste",
       "BUTTON_CANCEL": "Annuler",
       "BUTTON_DELETE": "Supprimer",
+      "BUTTON_CLOSE": "Fermer",
       "BUTTON_RESET": "Réinitialiser",
       "BUTTON_CREATE": "Créer",
       "BUTTON_ADD": "Ajouter",
-      "BUTTON_SUBMIT": "Soumettre"
+      "BUTTON_EDIT": "Modifier",
+      "BUTTON_SHOW": "Aperçu",
+      "BUTTON_DUPLICATE": "Dupliquer",
+      "BUTTON_SUBMIT": "Sauvegarder"
     },
     "BASIC_CONFIRMATION_FORM": {
       "TITLE": "Confirmation",
@@ -49,6 +60,7 @@
       "DOMAIN_POLICIES": "Règles de communication inter-domaines",
       "PARAMETERS": "Paramètres",
       "FUNCTIONALITIES": "Fonctionnalités",
+      "WELCOME_MESSAGES": "Messages d'accueil",
       "MIME_POLICIES": "Règles de type MIME",
       "CONFIGURATION_POLICIES": "Règles de configuration",
       "MAILS": "Courriels",
@@ -101,7 +113,11 @@
         "20000": "Une erreur c'est produite, veuillez contacter votre administrateur Linshare",
         "20001": "Webservice défendu",
         "20003": "Webservice introuvable",
-        "29000": "Le compte technique n'existe pas"
+        "29000": "Le compte technique n'existe pas",
+        "36001": "Ce message d'accueil existe déjà",
+        "36003": "Vous n'êtes pas autoriser à utiliser ce message d'accueil",
+        "36004": "Ce message d'accueil n'existe pas",
+        "36005": "Vous tentez de mettre à jour le message d'accueil avec des langues non supportés"
       }
     },
     "ENUM": {
@@ -117,6 +133,13 @@
         "ENGLISH": "Anglais"
       },
       "SUPPORTED_LANGUAGE": {
+        "FRENCH": "Français",
+        "DUTCH": "Néerlandais",
+        "ENGLISH": "Anglais",
+        "CREOLE": "Créole",
+        "VIETNAMESE": "Vietnamien"
+      },
+      "FLAG_LANGUAGE": {
         "FRENCH": "Français",
         "DUTCH": "Néerlandais",
         "ENGLISH": "Anglais",
@@ -475,6 +498,73 @@
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer ce domaine, cette procédure est irréversible et va détruire tout les utilisateurs associés. Souhaitez-vous continuer ?"
     }
+  },
+  "WELCOME_MESSAGES": {
+    "TITLE": "Gestion de vos messages d'accueil",
+    "MODAL_FORM": {
+      "TITLE": "Dupliquer un message d'accueil",
+      "INFOMATION": "Le message d'accueil fourni par défaut par l'application sera dupliqué pour permettre la création d'un nouveau message d'accueil, veuillez renseigner le nom du nouveau message d'accueil.",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+      "LABEL_DOMAIN": "Faire une copie dans ce domaine",
+      "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+      "BUTTON_CREATE": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_CONTINUE": "Créer et suivre"
+    },
+    "BOX_LIST": {
+      "TITLE": "Liste des messages d'accueil",
+      "TABLE": {
+        "HEADER_ACTIONS": "Actions",
+        "HEADER_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+        "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "HEADER_MODIFICATION_DATE": "@:THREADS.BOX_FORM.LABEL_MODIFICATION_DATE",
+        "TABLE_ACTIONS": {
+          "BUTTON_DUPLICATE": "Créer un nouvel élément à partir de celui-ci",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_EDIT": "@:COMMON.BASIC_FORM.BUTTON_EDIT",
+          "BUTTON_SHOW": "@:COMMON.BASIC_FORM.BUTTON_SHOW",
+          "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+          "BUTTON_DELETE_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
+          "BUTTON_DELETE_NO": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO"
+        }
+      }
+    },
+    "BOX_FORM": {
+      "TITLE_GENERAL": "Configuration générale",
+      "DESCRIPTION_GENERAL_EDIT": "Veuillez renseigner le nom et la description du message d'accueil.",
+      "TITLE_LANGUAGE_EDIT": "Edition des messages d'accueil",
+      "TITLE_LANGUAGE_SHOW": "Les messages d'accueil",
+      "DESCRIPTION_LANGUAGE": "Vous devez renseigner tous les champs.",
+      "TITLE_DOMAIN_EDIT": "Configuration des domaines associés",
+      "TITLE_DOMAIN_SHOW": "Liste des domaines associés",
+      "DESCRIPTION_DOMAIN_EDIT": "Veuillez séléctionner les domaines qui afficheront de ce message d'accueil. Si aucun domaine est choisis ils hériterons du message d'accueil par défaut. Les domaines séléctionnés pourront choisir le message d'accueil dans la section 'Domaines > Configuration des domaines'.",
+      "DESCRIPTION_DOMAIN_SHOW": "Ci-dessous, les domaines associés au message d'accueil. Si aucun domaine est séléctionné les domaines hériterons du message d'accueil par défaut. Les domaines séléctionnés pourront choisir le message d'accueil dans la section 'Domaines > Configuration des domaines'.",
+      "LABEL_MESSAGES_ENTRIES": "Welcome messages",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+      "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+      "LABEL_DOMAIN": "Modèles associés",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_DUPLICATE": "Créer un nouvel élément à partir de celui-ci",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      },
+      "TABLE_ACTIVE": "@:COMMON.BASIC_FORM.LABEL_ACTIVE",
+      "TABLE_INACTIVE": "@:COMMON.BASIC_FORM.LABEL_INACTIVE",
+      "TABLE_ALL": "@:COMMON.BASIC_FORM.LABEL_ALL",
+      "TABLE_FILTER_IDENTIFIER": "Recherche par ",
+      "TABLE_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER"
+    },
+    "SHOW_FORM": {
+      "START_TITLE": "Prévisualisation de ",
+      "LABEL": "Mode lecture",
+      "MIDDLE_TITLE": " dans "
+    },
+    "EDIT_FORM": {
+      "START_TITLE": "Édition de ",
+      "MIDDLE_TITLE": " dans "
+    },
+    "CONFIRM_DELETE_FORM": "Vous êtes sur le point de supprimer ce message d'accueil, cette procédure est irréversible. Souhaitez-vous continuer ?"
   },
 
   "DOMAIN_ORDER": {
@@ -973,7 +1063,7 @@
       "TAB_HELP": {
         "NAME": "Onglet 'Aide'",
         "USE_EXTENDED_DESCRIPTION" : "1",
-        "DESCRIPTION": "Dans la rubrique 'Aide' de linshare vous trouverez des manuels d'utilisation pour l'interface utilisateur et administration, ainsi que les informations du support.",
+        "DESCRIPTION": "Dans la rubrique 'Aide' de LinShare vous trouverez des manuels d'utilisation pour l'interface utilisateur et administration, ainsi que les informations du support.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "",
@@ -1069,7 +1159,12 @@
       "UPLOAD_PROPOSITION": {
         "NAME": "Demande d'invitation de dépôt",
         "USE_EXTENDED_DESCRIPTION" : "0",
-        "DESCRIPTION": "",
+        "DESCRIPTION": ""
+      },
+      "LINK_LOGO": {
+        "NAME": "Ajouter un lien au logo LinShare",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Avec cette fonctionnalité vous pourrez ajouter un lien au logo LinShare. Il est conseillé de fournir l'adresse de votre Linshare.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "",

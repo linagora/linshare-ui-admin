@@ -8,13 +8,24 @@
       "LABEL_FIRST_NAME": "First name",
       "LABEL_LAST_NAME": "Last name",
       "LABEL_NAME": "Name",
+      "LABEL_ACTIVE": "Active",
+      "LABEL_INACTIVE": "Inactive",
+      "LABEL_NONE": "None",
+      "LABEL_ALL": "All",
+      "LABEL_UNSELECT": "Unselect all",
+      "LABEL_SELECT": "Select all",
+      "LABEL_FILTER": "Filter by",
       "BUTTON_LIST": "List",
       "BUTTON_CANCEL": "Cancel",
       "BUTTON_DELETE": "Delete",
+      "BUTTON_CLOSE": "Close",
       "BUTTON_RESET": "Reset",
       "BUTTON_CREATE": "Create",
       "BUTTON_ADD": "Add",
-      "BUTTON_SUBMIT": "Submit"
+      "BUTTON_EDIT": "Edit",
+      "BUTTON_SHOW": "Show",
+      "BUTTON_DUPLICATE": "Duplicate",
+      "BUTTON_SUBMIT": "Save"
     },
     "BASIC_CONFIRMATION_FORM": {
       "TITLE": "Confirmation",
@@ -49,6 +60,7 @@
       "DOMAIN_POLICIES": "Inter-domains communication rules",
       "PARAMETERS": "Parameters",
       "FUNCTIONALITIES": "Functionalities",
+      "WELCOME_MESSAGES": "Welcome messages",
       "MIME_POLICIES": "Mime policies",
       "CONFIGURATION_POLICIES": "Configuration policies",
       "MAILS": "Mails",
@@ -101,7 +113,11 @@
         "20000": "A error has occured, please contact your LinShare administrator",
         "20001": "Webservice unauthorized",
         "20003": "Webservice not found",
-        "29000": "The technical account does not exist"
+        "29000": "The technical account does not exist",
+        "36001": "This welcome message already exist",
+        "36003": "You are not allowed to use this welcome message",
+        "36004": "Welcome message not found",
+        "36005": "You try to update the welcome message with unsupported languages"
       }
     },
     "ENUM": {
@@ -475,6 +491,73 @@
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this domain, this procedure is irreversible and destroy all associated users. Do you want to proceed?"
     }
+  },
+
+  "WELCOME_MESSAGES": {
+    "TITLE": "Edit your welcome messages",
+    "MODAL_FORM": {
+      "TITLE": "Duplicate welcome message",
+      "INFOMATION": "The greeting by default with the application will be duplicated to allow the creation of a new welcome message, please fill in the name of the new welcome message",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+      "LABEL_DOMAIN": "Copy in this domain",
+      "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+      "BUTTON_CREATE": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+      "BUTTON_CONTINUE": "Create and continue"
+    },
+    "BOX_LIST": {
+      "TITLE": "Welcome messages list",
+      "TABLE": {
+        "HEADER_ACTIONS": "Actions",
+        "HEADER_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+        "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "HEADER_MODIFICATION_DATE": "@:THREADS.BOX_FORM.LABEL_MODIFICATION_DATE",
+        "TABLE_ACTIONS": {
+          "BUTTON_DUPLICATE": "Create new element with this one",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_EDIT": "@:COMMON.BASIC_FORM.BUTTON_EDIT",
+          "BUTTON_SHOW": "@:COMMON.BASIC_FORM.BUTTON_SHOW",
+          "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+          "BUTTON_DELETE_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
+          "BUTTON_DELETE_NO": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO"
+        }
+      }
+    },
+    "BOX_FORM": {
+      "TITLE_GENERAL": "General configuration",
+      "DESCRIPTION_GENERAL_EDIT": "Please fill in the name and description of the welcome message",
+      "TITLE_LANGUAGE_EDIT": "Edit welcome messages",
+      "TITLE_LANGUAGE_SHOW": "The welcome messages",
+      "DESCRIPTION_LANGUAGE": "You have to set all fields.",
+      "TITLE_DOMAIN_EDIT": "Edit associated domain",
+      "TITLE_DOMAIN_SHOW": "Associated domain",
+      "DESCRIPTION_DOMAIN": "Please select the domains that will inherit this welcome message. If no domain is selected they will inherit the default welcome message. Select areas can choose the domain in the section 'Domains > Manage domains' areas.",
+      "LABEL_MESSAGES_ENTRIES": "Welcome messages",
+      "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+      "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+      "LABEL_DOMAIN": "Associated models",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_DUPLICATE": "Create new element with this one",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      },
+      "TABLE_ACTIVE": "@:COMMON.BASIC_FORM.LABEL_ACTIVE",
+      "TABLE_INACTIVE": "@:COMMON.BASIC_FORM.LABEL_INACTIVE",
+      "TABLE_ALL": "@:COMMON.BASIC_FORM.LABEL_ALL",
+      "TABLE_FILTER_IDENTIFIER": "Search by ",
+      "TABLE_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER"
+    },
+    "SHOW_FORM": {
+      "START_TITLE": "Show ",
+      "LABEL": "Read only",
+      "MIDDLE_TITLE": " in "
+    },
+    "EDIT_FORM": {
+      "START_TITLE": "Edit ",
+      "MIDDLE_TITLE": " in "
+    },
+    "CONFIRM_DELETE_FORM": "You are about to delete this welcome message, this procedure is irreversible. Do you want to proceed?"
   },
 
   "DOMAIN_ORDER": {
