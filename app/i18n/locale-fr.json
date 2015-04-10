@@ -789,8 +789,8 @@
       },
       "ENCIPHERMENT": {
         "NAME": "Chiffrement",
-        "USE_EXTENDED_DESCRIPTION" : "1",
-        "DESCRIPTION": "Le chiffrement de fichier vous offre la possibilité rendre la compréhension d'un document impossible à toute personne qui n'a pas la clé de (dé)chiffrement. Vous pourrez chiffrez vos fichiers dans l'interface web de linshare.",
+        "USE_EXTENDED_DESCRIPTION" : "3",
+        "DESCRIPTION": "Le chiffrement de fichier vous offre la possibilité rendre la compréhension d'un document impossible à toute personne qui n'a pas le mot de passe de déchiffrement.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "Une fois activé, vous pourrez choissir de chiffrer ou non vos fichiers.",
