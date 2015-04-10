@@ -16,7 +16,8 @@ angular.module('linshareAdminApp', [
     'pascalprecht.translate',
     'tmh.dynamicLocale',
     'restangular',
-    'checklist-model'
+    'checklist-model',
+    'toggle-switch'
 ])
 
 // Register work which needs to be performed on module loading
@@ -33,6 +34,7 @@ angular.module('linshareAdminApp', [
     $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
     $translateProvider.useMissingTranslationHandlerLog();
     $translateProvider.useCookieStorage();
+    // $translateProvider.useMissingTranslationHandler('myCustomHandlerFactory');
 
     tmhDynamicLocaleProvider.localeLocationPattern('i18n/angular/angular-locale_{{locale}}.js');
 

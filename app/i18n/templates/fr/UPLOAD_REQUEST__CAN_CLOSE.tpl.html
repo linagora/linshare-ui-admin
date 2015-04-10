@@ -1,0 +1,46 @@
+<div>
+	<p><strong>Clôture d'une invitation (émetteur ou destinataire)</strong></p>
+	<p>
+		L'émetteur et optionnellement le destinataire ont la possibilité de clôturer une invitation. Le destinataire ne peut plus ni modifier ni ajouter des documents à l'invitation. L'invitation apparaît alors clôturée dans la vue courante.
+		</br>
+		Une invitation expirée reprend le même comportement qu'une invitation clôturée manuellement.
+		</br>
+		Les destinataires sont notifiés dans le cas où l'émetteur clôture ou supprime l'invitation.
+		</br>
+		L'émetteur est notifié dans le cas où le destinataire clôture l'invitation.
+	</p>
+</div>
+<div collapse="!functionality.collapse.showDsec">
+	<ul>
+		<li>Statut de l'invitation : en attente d'activation</li>
+		<li>Interface utilisateur : liste des invitations de dépôt (IHM_0301)</li>
+	</ul>
+<p><strong>Invitation clôturée</strong></p>
+
+<ul>
+<li>Actions menant à cet état :
+	<ul>
+		<li>Clôture par le système suite à l'atteinte de la date d'expiration</li>
+
+		<li>Clôture par l'utilisateur externe, si les paramètres de l'invitation le permettent</li>
+
+		<li>Clôture par l'utilisateur interne</li>
+	</ul>
+</li>
+
+<li>Statut de l'invitation : selon l'action précédente, respectivement
+<ul>
+	<li>Clôturée (expirée)</li>
+
+	<li>Clôturée (par [nom de l'utilisateur externe])</li>
+
+	<li>Clôturée (par vous)</li>
+</ul>
+</li>
+<li>Interface utilisateur :
+	<ul>
+	<li>liste des invitations de dépôt (IHM_0301)</li>
+	</ul>
+</li>
+</div>
+<i class="fa fa-fw btn-description pull-right" ng-click="functionality.collapse.showDsec = !functionality.collapse.showDsec" ng-class="{'fa-plus': !functionality.collapse.showDsec, 'fa-minus': functionality.collapse.showDsec}"></i>

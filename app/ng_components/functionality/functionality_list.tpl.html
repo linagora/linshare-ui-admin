@@ -10,7 +10,7 @@
              x-ng-table="tableParams"
              show-filter="true">
         <tr x-ng-repeat="functionality in $data"
-          x-ui-sref="functionality.detail({id: functionality.identifier, domainId: functionality.domain})">
+          x-ui-sref="functionality.detail({id: functionality.identifier, domainId: functionality.domain, view: view})">
           <td class="col-md-1"
               data-title="'FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS' | translate"
               sortable="'activationPolicy.status'">
@@ -25,7 +25,7 @@
               data-title="'FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_NAME' | translate"
               filter="{ 'localizedName': 'text' }">
             <span>
-              {{ 'FUNCTIONALITIES.NAME.' + functionality.identifier | translate }}
+              {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
             </span>
           </td>
         </tr>

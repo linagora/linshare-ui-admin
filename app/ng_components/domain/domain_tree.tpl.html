@@ -1,9 +1,10 @@
 <script type="text/ng-template" id="tree_item_renderer">
   <div class="btn-group" dropdown is-open="isopen">
     <button id="{{domain.identifier}}" class="btn"
-            x-ng-class="{true: 'btn-primary', false: 'btn-default'}[$state.params.domainId === domain.identifier]"
-            x-ui-sref="{domainId: domain.identifier, formState: 'edit', domainType: null}">
-      {{domain.label}}
+            x-ng-class="{true: 'btn-info', false: 'btn-default'}[$state.params.domainId === domain.identifier]"
+            x-ui-sref="{domainId: domain.identifier, formState: 'edit', domainType: null, view: view}">
+      {{domain.label | truncate:20 }}
+      {{view}}
     </button>
     <button id="{{domain.identifier}}-add" class="btn btn-success dropdown-toggle" x-ng-show="canAddChildDomain(domain)">
       <span>&nbsp;<i class="fa fa-plus"></i><span>
@@ -39,7 +40,7 @@
   </ul>
 </script>
 
-<div class="box box-primary">
+<div class="box box-primary" id="tree">
   <div class="box-header">
     <h3 class="box-title">
       {{ 'MANAGE_DOMAINS.BOX_TREE.TITLE' | translate }}

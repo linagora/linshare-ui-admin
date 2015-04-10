@@ -5,6 +5,7 @@ angular.module('linshareAdminApp')
     ['$scope', '$filter', '$q', '$translate', '$state', 'ngTableParams', 'functionalities', 'currentDomain',
     function($scope, $filter, $q, $translate, $state, ngTableParams, functionalities, currentDomain) {
       $scope.domain = currentDomain;
+      $scope.view = $state.params.view;
 
       $scope.showFunctionality = function(functionality) {
         return functionality.activationPolicy.parentAllowUpdate
@@ -36,11 +37,11 @@ angular.module('linshareAdminApp')
 
           if (!_.isEmpty(nameFilter)) {
             var ids = _.pluck(displayableFuncs, 'identifier');
-            var localizedNames = _.map(ids, function(id) { return 'FUNCTIONALITIES.NAME.' + id });
+            var localizedNames = _.map(ids, function(id) { return 'FUNCTIONALITIES.DETAILS.' + id + '.NAME'});
             $translate(localizedNames).then(
               function(translations) {
                 deferred.resolve(_.filter(displayableFuncs, function(f) {
-                  return translations['FUNCTIONALITIES.NAME.' + f.identifier].toLowerCase().indexOf(nameFilter.toLowerCase()) != -1;
+                  return translations['FUNCTIONALITIES.DETAILS.' + f.identifier + '.NAME'].toLowerCase().indexOf(nameFilter.toLowerCase()) != -1;
                 }));
               }
             );

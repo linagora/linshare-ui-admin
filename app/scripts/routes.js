@@ -25,9 +25,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
     var enumMailLanguage = function(Enum) {
       return Enum.getOptions('language');
     };
-    var enumSupportedLanguage = function(Enum) {
-      return Enum.getOptions('supported_language');
-    };
     var enumLogAction = function(Enum) {
       return Enum.getOptions('log_action');
     };
@@ -84,7 +81,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         }
       })
       .state('functionality.list', {
-        url: '/:domainId/list',
+        url: '/:domainId/list?view',
         views: {
           'tree': domainTreeView,
           'list': {
@@ -95,14 +92,14 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return Domain.get($stateParams.domainId);
               },
               functionalities: function(Functionality, currentDomain) {
-                return Functionality.getAll(currentDomain.identifier);
+                return Functionality.getAll(currentDomain.identifier, null);
               }
             }
           }
         }
       })
       .state('functionality.detail', {
-        url: '/:domainId/detail/:id',
+        url: '/:domainId/detail/:id?view&f',
         views: {
           'tree': domainTreeView,
           'detail': {
@@ -113,8 +110,13 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return Domain.get($stateParams.domainId);
               },
               currentFunctionality: function(Functionality, $stateParams) {
-                return Functionality.getAll($stateParams.domainId).then(function(functionalities) {
-                  return _.find(functionalities, {identifier: $stateParams.id});
+                return Functionality.get($stateParams.domainId, $stateParams.id).then(function(functionalities) {
+                  return functionalities;
+                });
+              },
+              childrenFunctionality: function(Functionality, $stateParams) {
+                return Functionality.getAll($stateParams.domainId, $stateParams.id).then(function(functionalities) {
+                  return functionalities;
                 });
               }
             }

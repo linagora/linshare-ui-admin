@@ -1,283 +1,52 @@
-<script type="text/ng-template" id="functionality_renderer">
-  <div class="box"
-       x-ng-class="{'box-success': functionality.activationPolicy.status,
-                    'box-danger': !functionality.activationPolicy.status}">
-    <div class="box-header">
-      <h4 class="box-title">{{domain.label}} - {{ 'FUNCTIONALITIES.NAME.' + functionality.identifier | translate }}</h4>
-    </div>
-    <div class="box-body">
-      <div class="row">
-        <div class="col-md-6"
-             x-ng-if="showActivation(functionality)">
-          <form>
-          <legend style="font-size: 14px; font-weight: bold;">
-            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_ACTIVATION_POLICY' | translate }}
-          </legend>
-          <div class="col-sm-offset-1 col-sm-12">
-            <div class="radio">
-              <label>
-                  <input type="radio" name="activationRadios" id="activationRadios2" value="MANDATORY"
-                         x-ng-model="functionality.activationPolicy.policy"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_MANDATORY' | translate }}
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                  <input type="radio" name="activationRadios" id="activationRadios1" value="ALLOWED"
-                         x-ng-model="functionality.activationPolicy.policy"
-                         x-ng-click="checkPolicyType(functionality.activationPolicy)"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_ALLOWED' | translate }}
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                  <input type="radio" name="activationRadios" id="activationRadios0" value="FORBIDDEN"
-                         x-ng-model="functionality.activationPolicy.policy"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_FORBIDDEN' | translate }}
-              </label>
-            </div>
-            <br>
-            <div class="checkbox">
-              <label>
-                  <input type="checkbox"
-                         x-ng-disabled="disableStatus(functionality.activationPolicy)"
-                         x-ng-model="functionality.activationPolicy.status"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_STATUS' | translate }}
-              </label>
-            </div>
-          </div>
-          </form>
-        </div>
-        <div class="col-md-6"
-                 x-ng-show="showConfiguration(functionality)">
-          <form>
-          <legend style="font-size: 14px; font-weight: bold;">
-            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_CONFIGURATION_POLICY' | translate }}
-          </legend>
-          <div class="col-sm-offset-1 col-sm-12">
-            <div class="radio">
-              <label>
-                  <input type="radio" name="configurationRadios" id="configurationRadios2" value="MANDATORY"
-                         x-ng-model="functionality.configurationPolicy.policy"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_MANDATORY' | translate }}
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                  <input type="radio" name="configurationRadios" id="configurationRadios1" value="ALLOWED"
-                         x-ng-model="functionality.configurationPolicy.policy"
-                         x-ng-click="checkPolicyType(functionality.configurationPolicy)"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_ALLOWED' | translate }}
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                  <input type="radio" name="configurationRadios" id="configurationRadios0" value="FORBIDDEN"
-                         x-ng-model="functionality.configurationPolicy.policy"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_FORBIDDEN' | translate }}
-              </label>
-            </div>
-            <br>
-            <div class="checkbox">
-              <label>
-                  <input type="checkbox"
-                         x-ng-disabled="disableStatus(functionality.configurationPolicy)"
-                         x-ng-model="functionality.configurationPolicy.status"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_STATUS' | translate }}
-              </label>
-            </div>
-          </div>
-          </form>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6"
-                 x-ng-show="showDelegation(functionality)">
-          <form>
-          <legend style="font-size: 14px; font-weight: bold;">
-            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_DELEGATION_POLICY' | translate }}
-          </legend>
-          <div class="col-sm-offset-1 col-sm-12">
-            <div class="radio">
-              <label>
-                  <input type="radio" name="delegationRadios" id="delegationRadios2" value="MANDATORY"
-                         x-ng-model="functionality.delegationPolicy.policy"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_MANDATORY' | translate }}
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                  <input type="radio" name="delegationRadios" id="delegationRadios1" value="ALLOWED"
-                         x-ng-model="functionality.delegationPolicy.policy"
-                         x-ng-click="checkPolicyType(functionality.delegationPolicy)"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_ALLOWED' | translate }}
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                  <input type="radio" name="delegationRadios" id="delegationRadios0" value="FORBIDDEN"
-                         x-ng-model="functionality.delegationPolicy.policy"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_FORBIDDEN' | translate }}
-              </label>
-            </div>
-            <br>
-            <div class="checkbox">
-              <label>
-                  <input type="checkbox"
-                         x-ng-disabled="disableStatus(functionality.delegationPolicy)"
-                         x-ng-model="functionality.delegationPolicy.status"
-                         x-ng-change="update()">
-                  {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_STATUS' | translate }}
-              </label>
-            </div>
-          </div>
-          </form>
-        </div>
-        <div class="col-md-6"
-             x-ng-if="showParameters(functionality)">
-          <form>
-          <legend style="font-size: 14px; font-weight: bold;">
-            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_PARAMETERS' | translate }}
-          </legend>
-          <div x-ng-repeat="parameter in functionality.parameters">
-            <div x-ng-switch="parameter.type">
-              <div x-ng-switch-when="INTEGER">
-                <div class="form-group">
-                  <label class="control-label" for="$index"></label>
-                  <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
-                         x-ng-model="parameter.integer"
-                         x-ng-change="updateWithTimeout()">
-                </div>
-              </div>
-              <div x-ng-switch-when="UNIT_TIME">
-                <div class="form-group">
-                  <label class="control-label" for="$index"></label>
-                  <div class="form-inline">
-                    <div class="form-group col-sm-5">
-                      <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
-                             x-ng-model="parameter.integer"
-                             x-ng-change="updateWithTimeout()">
-                    </div>
-                    <div class="form-group col-sm-5">
-                      <select class="form-control"
-                              x-ng-change="update()"
-                              x-ng-model="parameter.string"
-                              x-ng-options="option as 'COMMON.ENUM.UNIT_TIME.' + option | translate for option in parameter.select">
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div x-ng-switch-when="UNIT_SIZE">
-                <div class="form-group">
-                  <label class="control-label" for="$index"></label>
-                  <div class="form-inline">
-                    <div class="form-group col-sm-5">
-                      <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
-                             x-ng-model="parameter.integer"
-                             x-ng-change="updateWithTimeout()">
-                    </div>
-                    <div class="form-group col-sm-5">
-                      <select class="form-control"
-                              x-ng-change="update()"
-                              x-ng-model="parameter.string"
-                              x-ng-change="update()"
-                              x-ng-options="option as 'COMMON.ENUM.UNIT_SIZE.' + option | translate for option in parameter.select">
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div x-ng-switch-when="STRING">
-                <div class="form-group">
-                  <label class="control-label" for="$index"></label>
-                  <input name="$index" type="text" class="form-control" required
-                         x-ng-model="parameter.string"
-                         x-ng-change="updateWithTimeout()"
-                         x-ng-minLength="1">
-                </div>
-              </div>
-              <div x-ng-switch-when="BOOLEAN">
-                <br>
-                <br>
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon">
-                      <input name="$index" type="checkbox"
-                             x-ng-model="parameter.bool"
-                             x-ng-change="updateWithTimeout()">
-                    </span>
-                    <span class="form-control">
-                    {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type | translate }}
-                    </span>
-                </div>
-              </div>
-              </div>
-              <div x-ng-switch-when="ENUM_LANG">
-                <div class="form-group">
-                  <label class="control-label" for="$index"></label>
-                  <select class="form-control"
-                          x-ng-change="update()"
-                          x-ng-model="parameter.string"
-                          x-ng-change="updateWithTimeout()"
-                          x-ng-options="option as 'COMMON.ENUM.ENUM_LANG.' + option | translate for option in parameter.select">
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</script>
-<div class="box box-primary">
+<div class="box box-primary" id="functionality_details">
   <div class="box-header">
     <h3 class="box-title">
-      {{domain.label}}
+      <i class="fa pull-left" x-ng-class="{'fa-check': functionality.activationPolicy.status, 'fa-times': !functionality.activationPolicy.status}"></i>
+      {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
     </h3>
     <i class="fa fa-save fade"
       x-ng-class="{in: iconSaved}">
     </i>
     <div class="pull-right box-tools">
-      <button class="btn btn-primary btn-sm"
-              x-ng-click="cancel()">
-        <i class="fa fa-list"></i>
-        {{ 'FUNCTIONALITIES.BOX_FORM.BUTTON_LIST' | translate }}
+      <div class="btn-group">
+        <button type="button" class="btn"
+          x-ng-click="changeView('simple')"
+          x-ng-class="{'btn-success': view == 'simple', 'btn-gray': view == 'advanced'}">
+          Simple
+        </button>
+        <button type="button" class="btn"
+          x-ng-click="changeView('advanced')"
+          x-ng-class="{'btn-success': view == 'advanced', 'btn-gray': view == 'simple'}">
+          Advanced
+        </button>
+      </div>
+      <button type="button" class="btn btn-maroon list" x-ng-click="cancel()">
+        <i class="fa fa-bars"></i>
       </button>
     </div>
   </div>
-  <div class="box-body">
-    <div class="functionality-parent"
-         x-ng-include="'functionality_renderer'">
+  <div class="box-body" ng-style="{height: {{height}} + 'px'}">
+    <div class="functionality-parent">
+        <x-ls-doc func="functionality"></x-ls-doc>
+        <ls-functionality-display></ls-functionality-display>
+        <div class="clearfix"></div>
     </div>
     <div class="functionality-children">
-      <div x-ng-repeat="functionality in functionality.functionalities"
-           x-ng-include="'functionality_renderer'">
-      </div>
+      <accordion>
+        <accordion-group
+            x-ng-repeat="functionality in childrenFunctionality track by $index"
+            is-open="isOpen">
+          <accordion-heading x-ng-class="{'activ': isOpen, 'no': !isOpen}">
+          {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
+          <i class="fa pull-right" x-ng-class="{'fa-check': functionality.activationPolicy.status, 'fa-times': !functionality.activationPolicy.status}"></i>
+          </accordion-heading>
+            <x-ls-doc func="functionality"></x-ls-doc>
+            <ls-functionality-display>
+            </ls-functionality-display>
+          </accordion-group>
+      </accordion>
     </div>
   </div>
   <div class="box-footer">
-    <div class="form-group"
-         x-ng-if="!isRootDomain()">
-      <div class="controls">
-        <button class="btn btn-danger" type="button"
-                x-ng-click="resetToParent()">
-          {{ 'FUNCTIONALITIES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-        </button>
-      </div>
-    </div>
   </div>
 </div>

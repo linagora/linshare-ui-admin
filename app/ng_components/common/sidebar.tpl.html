@@ -1,19 +1,19 @@
 <!-- Override template -->
 <script id="template/accordion/accordion-group.html" type="text/ng-template">
-<div class="panel panel-default">
-  <div class="panel-heading" ng-click="toggleOpen()">
-    <h4 class="panel-title">
-      <a class="accordion-toggle" accordion-transclude="heading">
+  <div class="panel panel-default">
+    <div class="panel-heading" ng-click="toggleOpen()">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" accordion-transclude="heading">
         <span ng-class="{'text-muted': isDisabled}">
           {{heading}}
         </span>
-      </a>
-    </h4>
+        </a>
+      </h4>
+    </div>
+    <div class="panel-collapse" collapse="!isOpen">
+      <div class="panel-body" ng-transclude></div>
+    </div>
   </div>
-  <div class="panel-collapse" collapse="!isOpen">
-    <div class="panel-body" ng-transclude></div>
-  </div>
-</div>
 </script>
 
 <form class="sidebar-form" autocomplete="off">
@@ -45,12 +45,13 @@
     </accordion-heading>
     <ul class="treeview-menu">
       <li x-ng-repeat="link in tab.links | filter:search">
-      <a id="{{link.name.replace('COMMON.TAB.', 'MENU-')}}" x-ng-class="{'active': link.sref==linkActive}" 
-      x-ui-sref="{{link.sref}}({domainId: userDomain, language: language})"  style="margin-left: 10px;">
+        <a id="{{link.name.replace('COMMON.TAB.', 'MENU-')}}" x-ng-class="{'active': link.sref==linkActive}"
+           x-ui-sref="{{link.sref}}({domainId: userDomain, language: language, view: 'simple'})"
+           style="margin-left: 10px;">
           <i class="fa fa-angle-double-right"></i>
           {{link.name | translate}}
         </a>
       </li>
     </ul>
-  </accordion-group> 
+  </accordion-group>
 </accordion>

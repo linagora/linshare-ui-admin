@@ -2,76 +2,27 @@
 
 angular.module('linshareAdminApp')
   .controller('FunctionalityDetailCtrl',
-    ['$scope', '$timeout', '$log', '$state', 'Functionality', 'currentDomain', 'currentFunctionality',
-    function($scope, $timeout, $log, $state, Functionality, currentDomain, currentFunctionality) {
-        $scope.functionality = currentFunctionality;
-        $scope.domain = currentDomain;
+    ['$scope', '$timeout', '$log', '$state', '$filter', '$window', '$translate', '$location', '$rootScope',
+      'Functionality', 'currentDomain', 'currentFunctionality', 'childrenFunctionality',
+    function($scope, $timeout, $log, $state, $filter, $window, $translate, $location, $rootScope,
+             Functionality, currentDomain, currentFunctionality, childrenFunctionality) {
         $scope.iconSaved = false;
-        var timeoutId = undefined;
-        var updateStatus = function(policyType) {
-          if (policyType) {
-            policyType.status = policyType.policy === 'ALLOWED' ? policyType.status : policyType.policy === 'MANDATORY';
-          }
-        };
+        $scope.view = (!$state.params.view || ($state.params.view != 'simple' && $state.params.view != 'advanced') ) ? 'simple' : $state.params.view;
+        $scope.functionality = currentFunctionality;
+        $scope.childrenFunctionality = childrenFunctionality;
+        $scope.domain = currentDomain;
 
-        $scope.showActivation = function(functionality) {
-          return functionality.activationPolicy.parentAllowUpdate;
-        };
-        $scope.showConfiguration = function(functionality) {
-          return functionality.activationPolicy.policy != 'FORBIDDEN' 
-                  && functionality.configurationPolicy.parentAllowUpdate;
-        };
-        $scope.showDelegation = function(functionality) {
-          return functionality.activationPolicy.policy != 'FORBIDDEN' 
-                  && functionality.delegationPolicy
-                  && functionality.delegationPolicy.parentAllowUpdate;
-        };
-        $scope.showParameters = function(functionality) {
-          return functionality.parentAllowParametersUpdate;
-        };
-        $scope.disableStatus = function(policyType) {
-          if (policyType) {
-            return policyType.policy !== 'ALLOWED';
-          }
-          return false;
-        };
-        $scope.checkPolicyType = function (policyType) {
-          policyType.status = policyType.defaultStatus;
-        };
-        $scope.isRootDomain = function() {
-          return $scope.functionality.domain === 'LinShareRootDomain';
-        };
-        $scope.displayIconSaved = function() {
-          $scope.iconSaved = true;
-          $timeout(function() {
-            $scope.iconSaved = false;
-          }, 800);
-        };
-        $scope.updateWithTimeout = function() {
-          if (angular.isDefined(timeoutId)) {
-            $timeout.cancel(timeoutId);
-          }
-          timeoutId = $timeout(function() {
-            $scope.update();
-            timeoutId = undefined;
-          }, 1500);
-        };
-        $scope.update = function() {
-          updateStatus($scope.functionality.activationPolicy);
-          updateStatus($scope.functionality.configurationPolicy);
-          updateStatus($scope.functionality.delegationPolicy);
-          Functionality.update($scope.functionality).then(function() {
-            $scope.displayIconSaved();
-          });
-        };
-        $scope.resetToParent = function() {
-          Functionality.remove($scope.functionality).then(function() {
-            $state.reinit();
-            $scope.displayIconSaved();
-          });
-        };
+        var bodyHeight = ($window.innerHeight - 250);
+        $scope.height = ( bodyHeight > 400 ) ? bodyHeight : 400 ;
+
         $scope.cancel = function() {
-          $state.go('functionality.list', {domainId: $scope.functionality.domain});
+          $state.go('functionality.list', {domainId: $scope.functionality.domain, view: $state.params.view});
+        };
+        $scope.changeView = function(view) {
+          if ($scope.view != view) {
+            $state.go('functionality.detail', {domainId: $scope.functionality.domain, id: $scope.functionality.identifier, view: view});
+            $scope.view = view;
+          }
         };
     }]
   );
