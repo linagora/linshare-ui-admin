@@ -9,28 +9,26 @@ $lightBlack: #555;
 $grey: #ddd;
 $greyDark: #999;
 
+.grey {
+  color: $greyDark;
+}
+
+.boldOption {
+  font-weight:bold;
+}
+
 @mixin legend {
   font-size: 16px;
   font-weight: bold;
-  // letter-spacing: 1px;
   text-align: left;
   color: $black;
   margin-top: 10px;
-  i.fa-info {
-    color: $lightBlack;
-    cursor: pointer;
-    &:hover, &:active {
-      color: $greyDark;
-    }
-  }
   i.fa-info.pull-left {
     line-height: 23px;
     margin-right: 10px;
   }
 }
-.boldOption {
-  font-weight:bold;
-}
+
 body {
   .header {
     .logo {
@@ -41,6 +39,25 @@ body {
       img {
         margin-top: -5px;
         height: 80%;
+      }
+    }
+  }
+  .table {
+    tbody {
+      tr {
+        td {
+          padding: 0px;
+          a {
+            color: $black;
+            width: 100%;
+            display: block;
+            height: 100%;
+            padding: 8px;
+            &:hover {
+              color: $black;
+            }
+          }
+        }
       }
     }
   }
@@ -65,8 +82,16 @@ body {
   }
 }
 
+.box .box-header a {
+  color: #fff;
+}
+
 .content-header {
   position: fixed !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 #tree {
@@ -95,7 +120,8 @@ body {
     }
   }
   .btn.btn-gray {
-    color: #fff;
+    color: white;
+    background-color: $grey;
     &:hover {
       background-color:#d2d6de;
     }
@@ -171,6 +197,10 @@ body {
   #functionality_renderer_simple {
     .legend {
       @include legend;
+      margin-bottom: 20px;
+    }
+    .description {
+      color: $greyDark;
     }
   }
   #functionality_description {

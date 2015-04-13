@@ -9,20 +9,21 @@
     </i>
     <div class="pull-right box-tools">
       <div class="btn-group">
-        <button type="button" class="btn"
-          x-ng-click="changeView('simple')"
+        <a type="button" class="btn"
+          x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'simple'})"
           x-ng-class="{'btn-success': view == 'simple', 'btn-gray': view == 'advanced'}">
           Simple
-        </button>
-        <button type="button" class="btn"
-          x-ng-click="changeView('advanced')"
+        </a>
+        <a class="btn"
+          x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'advanced'})"
           x-ng-class="{'btn-success': view == 'advanced', 'btn-gray': view == 'simple'}">
           Advanced
-        </button>
+        </a>
       </div>
-      <button type="button" class="btn btn-maroon list" x-ng-click="cancel()">
+      <a class="btn btn-maroon list"
+          x-ui-sref="functionality.list({domainId: functionality.domain, view: view})">
         <i class="fa fa-bars"></i>
-      </button>
+      </a>
     </div>
   </div>
   <div class="box-body" ng-style="{height: {{height}} + 'px'}">

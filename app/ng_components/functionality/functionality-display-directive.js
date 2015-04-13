@@ -31,7 +31,6 @@ angular.module('linshareAdminApp')
           USE_EXTENDED_DESCRIPTION: ''
         };
 
-        // console.log('THE SCOPE AFTER : ', scope);
         var initTraduction = function () {
           angular.forEach(scope.translations, function (key, value) {
             $translate(getIdName(scope.functionality.identifier, '.' + value)).then(function (translation) {

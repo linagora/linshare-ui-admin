@@ -520,6 +520,8 @@
     "TITLE": "Functionality management",
     "MORE": "More",
     "LESS": "Less",
+    "HELP": "Click to show some help",
+    "NO_DATA": "No information available",
     "BOX_LIST": {
       "TABLE": {
         "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_FORM.LABEL_STATUS",
@@ -835,20 +837,8 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "ACCOUNT_EXPIRATION": {
-        "NAME": "Account expiration",
-        "USE_EXTENDED_DESCRIPTION" : "0",
-        "DESCRIPTION": "",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "",
-        "DELEGATION_POLICY": "",
-        "CONFIGURATION_POLICY": "",
-        "PARAMETER_NAME": "Parameters",
-        "PARAMETER_DESCRIPTION": ""
-      },
-      "USER_CAN_UPLOAD": {
-        "NAME": "User can upload",
+      "CUSTOM_LOGO__LINK": {
+        "NAME": "Link logo",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
@@ -885,6 +875,42 @@
       },
       "GUESTS": {
         "NAME": "Guest",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "GUESTS_EXPIRATION": {
+        "NAME": "Account expiration",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "GUEST__CAN_UPLOAD": {
+        "NAME": "User can upload",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "GUEST__RESTRICTED": {
+        "NAME": "Restricted guest",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
@@ -943,6 +969,18 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
+      "TAB_THREAD__CREATE_PERMISSION": {
+        "NAME": "Create thread permission",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
       "TAB_LIST": {
         "NAME": "Tab List",
         "USE_EXTENDED_DESCRIPTION" : "0",
@@ -955,32 +993,8 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "RESTRICTED_GUEST": {
-        "NAME": "Restricted guest",
-        "USE_EXTENDED_DESCRIPTION" : "0",
-        "DESCRIPTION": "",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "",
-        "DELEGATION_POLICY": "",
-        "CONFIGURATION_POLICY": "",
-        "PARAMETER_NAME": "Parameters",
-        "PARAMETER_DESCRIPTION": ""
-      },
       "SHARE_NOTIFICATION_BEFORE_EXPIRATION": {
         "NAME": "Share notification before expiry date",
-        "USE_EXTENDED_DESCRIPTION" : "0",
-        "DESCRIPTION": "",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "",
-        "DELEGATION_POLICY": "",
-        "CONFIGURATION_POLICY": "",
-        "PARAMETER_NAME": "Parameters",
-        "PARAMETER_DESCRIPTION": ""
-      },
-      "SECURED_ANONYMOUS_URL": {
-        "NAME": "Secured anonymous URL",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
@@ -1015,7 +1029,19 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "DOMAIN_MAIL": {
+      "DOMAIN": {
+        "NAME": "Domain",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "DOMAIN__MAIL": {
         "NAME": "Domain mail",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
@@ -1027,32 +1053,8 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "NOTIFICATION_URL": {
+      "DOMAIN__NOTIFICATION_URL": {
         "NAME": "Notification URL",
-        "USE_EXTENDED_DESCRIPTION" : "0",
-        "DESCRIPTION": "",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "",
-        "DELEGATION_POLICY": "",
-        "CONFIGURATION_POLICY": "",
-        "PARAMETER_NAME": "Parameters",
-        "PARAMETER_DESCRIPTION": ""
-      },
-      "LINK_LOGO": {
-        "NAME": "Link logo",
-        "USE_EXTENDED_DESCRIPTION" : "0",
-        "DESCRIPTION": "",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "",
-        "DELEGATION_POLICY": "",
-        "CONFIGURATION_POLICY": "",
-        "PARAMETER_NAME": "Parameters",
-        "PARAMETER_DESCRIPTION": ""
-      },
-      "CREATE_THREAD_PERMISSION": {
-        "NAME": "Create thread permission",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
@@ -1077,6 +1079,30 @@
       },
       "UPLOAD_PROPOSITION": {
         "NAME": "Upload proposition",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "INTERNAL_CAN_UPLOAD": {
+        "NAME": "Internal can upload",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "INTERNAL_CAN_CREATE_GUESTS": {
+        "NAME": "Can create guest",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",

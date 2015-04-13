@@ -14,15 +14,5 @@ angular.module('linshareAdminApp')
 
         var bodyHeight = ($window.innerHeight - 250);
         $scope.height = ( bodyHeight > 400 ) ? bodyHeight : 400 ;
-
-        $scope.cancel = function() {
-          $state.go('functionality.list', {domainId: $scope.functionality.domain, view: $state.params.view});
-        };
-        $scope.changeView = function(view) {
-          if ($scope.view != view) {
-            $state.go('functionality.detail', {domainId: $scope.functionality.domain, id: $scope.functionality.identifier, view: view});
-            $scope.view = view;
-          }
-        };
     }]
   );

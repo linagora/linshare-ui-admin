@@ -3,9 +3,12 @@
     <div class="col-md-6" x-ng-if="showActivation()">
       <form>
         <fieldset>
-          <legend class="legend">
-            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_ACTIVATION_POLICY' | translate }}
-            <i class="fa fa-info pull-right" x-ng-click="isCollapseActivation = !isCollapseActivation"></i>
+          <legend class="legend"
+                title="{{translations.ACTIVATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+                x-ng-click="isCollapseActivation = !isCollapseActivation"
+                x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY}">
+              {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_ACTIVATION_POLICY' | translate }}
+              <i class="fa fa-info pull-right" x-ng-class="{'grey': !translations.ACTIVATION_POLICY}"></i>
           </legend>
           <div class="description" collapse="!isCollapseActivation" x-ng-show="translations.ACTIVATION_POLICY">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.ACTIVATION_POLICY' | translate }}
@@ -54,9 +57,12 @@
     <div class="col-md-6" x-ng-show="showConfiguration()">
       <form>
         <fieldset>
-          <legend class="legend">
+          <legend class="legend"
+                title="{{translations.CONFIGURATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+                ng-click="isCollapseConfiguration = !isCollapseConfiguration"
+                x-ng-class="{'cursor-pointer': translations.CONFIGURATION_POLICY}">
             {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_CONFIGURATION_POLICY' | translate }}
-            <i class="fa fa-info pull-right" x-ng-click="isCollapseConfiguration = !isCollapseConfiguration"></i>
+            <i class="fa fa-info pull-right" x-ng-class="{'grey': !translations.CONFIGURATION_POLICY}"></i>
           </legend>
           <div class="description" collapse="!isCollapseConfiguration" x-ng-show="translations.CONFIGURATION_POLICY">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.CONFIGURATION_POLICY' | translate }}
@@ -108,9 +114,12 @@
          x-ng-show="showDelegation()">
       <form>
         <fieldset>
-          <legend class="legend">
+          <legend class="legend"
+                title="{{translations.DELEGATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+                ng-click="isCollapseDelegation = !isCollapseDelegation"
+                x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY}">
             {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_DELEGATION_POLICY' | translate }}
-            <i class="fa fa-info pull-right" ng-click="isCollapseDelegation = !isCollapseDelegation"></i>
+            <i class="fa fa-info pull-right" x-ng-class="{'grey': !translations.DELEGATION_POLICY}"></i>
           </legend>
           <div class="description" collapse="!isCollapseDelegation" x-ng-show="translations.DELEGATION_POLICY">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.DELEGATION_POLICY' | translate }}
@@ -160,9 +169,12 @@
          x-ng-if="showParameters()">
       <form>
         <fieldset>
-          <legend class="legend" x-ng-click="isCollapseParameter = !isCollapseParameter">
+          <legend class="legend"
+                title="{{translations.PARAMETER_DESCRIPTION ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+                x-ng-click="isCollapseParameter = !isCollapseParameter"
+                x-ng-class="{'cursor-pointer': translations.PARAMETER_DESCRIPTION}">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_NAME' | translate }}
-            <i class="fa fa-info pull-right"></i>
+            <i class="fa fa-info pull-right" x-ng-class="{'grey': !translations.PARAMETER_DESCRIPTION}"></i>
           </legend>
           <div class="description" collapse="!isCollapseParameter" x-ng-show="translations.PARAMETER_DESCRIPTION">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_DESCRIPTION' | translate }}
@@ -171,7 +183,6 @@
             <div x-ng-switch="parameter.type">
               <div x-ng-switch-when="INTEGER">
                 <div class="form-group">
-                  <label class="control-label" for="$index"></label>
                   <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
                          x-ng-model="parameter.integer"
                          x-ng-change="updateWithTimeout()">
@@ -179,7 +190,6 @@
               </div>
               <div x-ng-switch-when="UNIT_TIME">
                 <div class="form-group">
-                  <label class="control-label" for="$index"></label>
 
                   <div class="form-inline row">
                     <div class="form-group col-sm-5">
@@ -198,7 +208,6 @@
               </div>
               <div x-ng-switch-when="UNIT_SIZE">
                 <div class="form-group">
-                  <label class="control-label" for="$index"></label>
 
                   <div class="form-inline row">
                     <div class="form-group col-sm-5">
@@ -218,7 +227,6 @@
               </div>
               <div x-ng-switch-when="STRING">
                 <div class="form-group">
-                  <label class="control-label" for="$index"></label>
                   <input name="$index" type="text" class="form-control" required
                          x-ng-model="parameter.string"
                          x-ng-change="updateWithTimeout()"
@@ -226,9 +234,6 @@
                 </div>
               </div>
               <div x-ng-switch-when="BOOLEAN">
-                <br>
-                <br>
-
                 <div class="form-group">
                   <div class="input-group">
           <span class="input-group-addon">
@@ -237,14 +242,13 @@
                    x-ng-change="updateWithTimeout()">
           </span>
           <span class="form-control">
-            {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type | translate }}
+            {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type + '_' + parameter.bool | translate }}
           </span>
                   </div>
                 </div>
               </div>
               <div x-ng-switch-when="ENUM_LANG">
                 <div class="form-group">
-                  <label class="control-label" for="$index"></label>
                   <select class="form-control"
                           x-ng-model="parameter.string"
                           x-ng-change="updateWithTimeout()"
