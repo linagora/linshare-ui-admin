@@ -195,7 +195,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               else {
                 return Restangular.all('users').post($rootScope.SelectedUserInManageUser);
               }
-            })
+            });
           },
           maxExpiryDate: function(_funcAccountExpiration) {
             var date = new Date();
