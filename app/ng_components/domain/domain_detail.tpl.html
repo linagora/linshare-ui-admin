@@ -83,7 +83,8 @@
         <!-- Locale -->
         <div class="form-group"
              x-ng-class="{'has-error': domainForm.language.$invalid &&
-               (domainForm.language.$dirty || ls.domainForm.attempted)}">
+               (domainForm.language.$dirty || ls.domainForm.attempted)}"
+            x-ng-hide="isRootDomain">
           <label for="language">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE_MAIL' | translate }}
           </label>
@@ -96,7 +97,8 @@
         <!-- externalMailLocale -->
         <div class="form-group"
              x-ng-class="{'has-error': domainForm.externalMailLocale.$invalid &&
-               (domainForm.externalMailLocale.$dirty || ls.domainForm.attempted)}">
+               (domainForm.externalMailLocale.$dirty || ls.domainForm.attempted)}"
+            x-ng-hide="isRootDomain">
           <label for="externalMailLocale">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE' | translate }}
           </label>
@@ -109,7 +111,8 @@
       <!-- mailConfig -->
       <div class="form-group"
            x-ng-class="{'has-error': domainForm.mailConfig.$invalid &&
-             (domainForm.mailConfig.$dirty || ls.domainForm.attempted)}">
+             (domainForm.mailConfig.$dirty || ls.domainForm.attempted)}"
+          x-ng-hide="isRootDomain">
         <label for="mailConfig">
           {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_MAIL_CONFIG' | translate }}
         </label>
@@ -122,7 +125,8 @@
       <!-- welcomeMessages -->
       <div class="form-group"
            x-ng-class="{'has-error': domainForm.currentWelcomeMessages.$invalid &&
-             (domainForm.currentWelcomeMessages.$dirty || ls.domainForm.attempted)}">
+             (domainForm.currentWelcomeMessages.$dirty || ls.domainForm.attempted)}"
+          x-ng-hide="isRootDomain">
         <label for="currentWelcomeMessages">
           {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_WELCOME_MESSAGES' | translate }}
         </label>
@@ -140,7 +144,8 @@
       <!-- mimePolicy -->
       <div class="form-group"
            x-ng-class="{'has-error': domainForm.mimePolicy.$invalid &&
-             (domainForm.mimePolicy.$dirty || ls.domainForm.attempted)}">
+             (domainForm.mimePolicy.$dirty || ls.domainForm.attempted)}"
+          x-ng-hide="isRootDomain">
         <label for="mimePolicy">
           {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_MIME_POLICY' | translate }}
         </label>
@@ -191,6 +196,7 @@
              x-ng-show="domain.type!='GUESTDOMAIN'">
           <button type="button" class="btn"
                   x-ng-disabled="disableProvider"
+                  x-ng-hide="isRootDomain"
                   x-ng-click="addProvider()">
             <i class="fa fa-plus"></i> {{ 'MANAGE_DOMAINS.BOX_FORM.BUTTON_ADD_PROVIDER' | translate }}
           </button>
