@@ -43,7 +43,9 @@
       }
     },
     "SIDEBAR": {
-      "PLACEHOLDER_SEARCH": "Recherche..."
+      "PLACEHOLDER_SEARCH": "Recherche ...",
+      "PRODUCT_VERSION": "Version du produit",
+      "CORE_VERSION": "Version du core"
     },
     "LOGIN_FORM": {
       "TITLE": "Connexion",

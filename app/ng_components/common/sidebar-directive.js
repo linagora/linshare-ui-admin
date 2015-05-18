@@ -6,8 +6,8 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$rootScope', '$scope', '$log', '$state', '$translate', 'Authentication', 'Tab', 'Languages',
-        function($rootScope, $scope, $log, $state, $translate, Authentication, Tab, Languages) {
+      controller: ['$rootScope', '$scope', '$log', '$state', '$translate', 'Authentication', 'Tab', 'Languages', '$compile', '$http', '$templateCache',
+        function($rootScope, $scope, $log, $state, $translate, Authentication, Tab, Languages, $compile, $http, $templateCache) {
           Authentication.getCurrentUser().then(function(user) {
             $scope.tabs = Tab.getAvailableTabs(user);
             $scope.linkActive = false;
@@ -18,6 +18,13 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
             if ($scope.linkActive == false){
               $scope.compareCurrentStateToTab($state.next.name);
             }
+          });
+          Authentication.version().then(function(version){
+            $scope.coreVersion = version;
+          });
+          $scope.productVersion = 'dev';
+          $http.get('/about.json').success(function (data) {
+            $scope.productVersion = data.version;
           });
           $scope.$watch('search', function(newValue) {
             var inSearch = !_.isEmpty(newValue);

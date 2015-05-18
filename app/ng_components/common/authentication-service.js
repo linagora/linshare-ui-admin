@@ -67,6 +67,10 @@ angular.module('linshareAdminApp')
             });
           });
         },
+        version: function() {
+          $log.debug('Authentication:version');
+          return Restangular.one('authentication', 'version').get();
+        },
         isWaitingForResponse: function() {
           return self.waitingForResponse;
         },

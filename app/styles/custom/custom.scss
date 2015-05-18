@@ -461,8 +461,14 @@ a.clear-btn, button.clear-btn {
 .footer {
   z-index: -10;
 }
-
-.table {
+.product-version {
+  color: #ccc;
+  position: absolute;
+  width: 100%;
+  bottom: 6%;
+  text-align: center;
+  font-size: 12px;
+}.table {
   thead {
     th {
       text-align: left;

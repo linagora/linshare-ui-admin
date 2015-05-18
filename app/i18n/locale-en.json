@@ -43,7 +43,9 @@
       }
     },
     "SIDEBAR": {
-      "PLACEHOLDER_SEARCH": "Search..."
+      "PLACEHOLDER_SEARCH": "Search ...",
+      "PRODUCT_VERSION": "Product version",
+      "CORE_VERSION": "Core version"
     },
     "LOGIN_FORM": {
       "TITLE": "Login",
