@@ -316,6 +316,19 @@
     }
   },
 
+  "DASHBOARD": {
+    "TITLE": "Panneau de controle",
+    "SUB_TITLE": "",
+    "DESCRIPTION": "Bienvenu sur votre dashboard LinShare.",
+    "MORE_INFO": "Plus d'informations",
+    "MANAGE_USERS_TITLE": "Gestion des utilisateurs",
+    "MANAGE_USERS_SUB_TITLE": "Configuration des utilisateurs",
+    "MANAGE_DOMAINS_TITLE": "Configuration des domaines",
+    "MANAGE_DOMAINS_SUB_TITLE": "Gérer les domaines",
+    "AUDIT_TITLE": "Historique",
+    "AUDIT_SUB_TITLE": "Audit de l'application"
+  },
+
   "CHANGE_PASSWORD": {
     "TITLE": "Modifier le mot de passe",
     "BOX_FORM": {

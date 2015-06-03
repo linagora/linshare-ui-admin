@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
     //  For any unmatched url, redirect
-    $urlRouterProvider.otherwise('/user/list');
+    $urlRouterProvider.otherwise("/dashboard");
 
     var funcAccountExpiration = function(currentUser, Functionality) {
       if (currentUser) {
@@ -66,6 +66,16 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
     };
 
     $stateProvider
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'ng_components/dashboard/index.tpl.html',
+        controller: 'DashbordCtrl',
+        resolve: {
+          authenticatedUser: authenticatedUser
+        },
+      })
+
+
       .state('functionality', {
         abstract: true,
         url: '/functionality',

@@ -63,6 +63,53 @@ body {
   }
 }
 
+#dashboard {
+  .inner {
+    a {
+      color: #fff;
+    }
+  }
+  .small-box {
+    max-width: 550px;
+    h3 {
+      font-size: 28px;
+    }
+    .icon {
+      position: absolute;
+      top: auto;
+      bottom: 25px;
+      right: 15px;
+      z-index: 0;
+      font-size: 60px;
+      a {
+        color: rgba(255, 255, 255, 0.25);
+      }
+    }
+    &:hover {
+      .small-box-footer {
+        color: #fff;
+        background: rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+@keyframes tansformAnimation {
+  from {
+    font-size: 60px;
+  }
+  to {
+    font-size: 75px;
+  }
+}
+@-webkit-keyframes tansformAnimation {
+  from {
+    font-size: 60px;
+  }
+  to {
+    font-size: 75px;
+  }
+}
+
 .content {
   margin-bottom: 0px;
 }
@@ -84,10 +131,6 @@ body {
 
 .box .box-header a {
   color: #fff;
-}
-
-.content-header {
-  position: fixed !important;
 }
 
 .cursor-pointer {

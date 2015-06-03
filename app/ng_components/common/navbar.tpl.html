@@ -3,13 +3,16 @@
 </div>
 <div class="navbar-right">
   <ul class="nav navbar-nav">
+    <li class="">
+      <a x-ui-sref="dashboard" class="dropdown-toggle">
+        <i class="fa fa-home"></i>
+      </a>
+    </li>
     <li class="language-menu"
         dropdown
         is-open="isopen">
       <a href="#" class="dropdown-toggle">
         <i class="fa fa-flag"></i>
-        {{ 'COMMON.NAVBAR.LANGUAGE.SWITCH_TITLE' | translate }}
-        <i class="caret"></i>
       </a>
       <ul class="dropdown-menu">
         <li x-ng-class="{disabled: isCurrentLang('en')}">
@@ -27,10 +30,12 @@
     <li class="dropdown user user-menu">
       <a href="#" class="dropdown-toggle">
         <i class="fa fa-user"></i>
-        {{userLogged.mail}}
-        <i class="caret"></i>
       </a>
       <ul class="dropdown-menu">
+        <li>
+          <p style="padding:3px 20px">{{userLogged.mail}}</p>
+        </li>
+        <li class="divider"></li>
         <li x-ng-if="isSuperAdmin">
           <a href="#/password">
             {{ 'COMMON.NAVBAR.CHANGE_PASSWORD' | translate }}
