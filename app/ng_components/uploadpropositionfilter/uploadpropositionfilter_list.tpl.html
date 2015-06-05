@@ -5,17 +5,20 @@
     </h3>
     <div class="pull-right box-tools">
       <div class="btn-group">
-        <button class="btn btn-primary" type="button"
-                x-ui-sref="uploadpropositionfilter.detail({formState: 'create'})">
-          <span>
-            <i class="fa fa-plus"></i> 
-            {{ 'UPLOAD_PROPOSITION_FILTER.BOX_LIST.BUTTON_ADD' | translate }}
-          </span>
-        </button>
+        <a class="clear-btn blue" x-ui-sref="uploadpropositionfilter.detail({formState: 'create'})">
+          <i class="fa fa-plus-circle fa-lg" tooltip="{{ 'UPLOAD_PROPOSITION_FILTER.BOX_LIST.BUTTON_ADD' | translate }}"></i>
+        </a>
+        <button class="clear-btn pink" x-ng-click="isCollapsed = !isCollapsed" x-ng-class="{'active': isCollapsed}">
+        <i class="fa fa-info-circle fa-lg
+        "></i>
+      </button>
       </div>
     </div>
   </div>
   <div class="box-body">
+    <div class="description" collapse="!isCollapsed">
+      <x-ls-help content="getTemplate()"></x-ls-help>
+    </div>
     <div class="table-responsive">
       <table class="table table-striped table-hover"
              x-ng-table="tableParams">
@@ -35,19 +38,22 @@
                 </button>
               </div>
             </td>
-            <td data-title="'UPLOAD_PROPOSITION_FILTER.BOX_LIST.TABLE.HEADER_NAME' | translate"
-                x-ui-sref="uploadpropositionfilter.detail({id: filter.uuid, formState: 'edit'})">
-              <span>
-                {{filter.name}}
-              </span>
+            <td data-title="'UPLOAD_PROPOSITION_FILTER.BOX_LIST.TABLE.HEADER_NAME' | translate">
+              <a x-ui-sref="uploadpropositionfilter.detail({id: filter.uuid, formState: 'edit'})">
+                <span>
+                  {{filter.name}}
+                </span>
+              </a>
             </td>
             <td class="col-md-1" data-title="'UPLOAD_PROPOSITION_FILTER.BOX_LIST.TABLE.HEADER_STATUS' | translate">
-              <span>
-                <i class="fa fa-check-circle" style="color: green"
-                   x-ng-show="filter.enable"></i>
-                <i class="fa fa-times-circle" style="color: red"
-                   x-ng-show="!filter.enable"></i>
-              </span>
+              <a x-ui-sref="uploadpropositionfilter.detail({id: filter.uuid, formState: 'edit'})">
+                <span>
+                  <i class="fa fa-check-circle" style="color: green"
+                     x-ng-show="filter.enable"></i>
+                  <i class="fa fa-times-circle" style="color: red"
+                     x-ng-show="!filter.enable"></i>
+                </span>
+              </a>
             </td>
           </tr>
         </tbody>

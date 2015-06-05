@@ -3,10 +3,17 @@
     <h3 class="box-title">
       {{ user.firstName }}&nbsp;{{ user.lastName }}&nbsp;&lt;{{ user.mail }}&gt;
     </h3>
-    <div class="pull-right box-tools">
+    <!-- <div class="pull-right box-tools">
       <button class="btn btn-primary btn-sm"
               x-ng-click="cancel()">
         <i class="fa fa-times"></i>
+      </button>
+    </div> -->
+    <div class="pull-right box-tools">
+      <button class="btn btn-maroon btn-sm"
+              tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}"
+              x-ng-click="cancel()">
+        <i class="fa fa-bars"></i>
       </button>
     </div>
   </div>

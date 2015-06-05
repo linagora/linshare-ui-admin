@@ -5,7 +5,7 @@
       <div class="col-md-10 legend"
                 title="{{translations.ACTIVATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
                 x-ng-click="isCollapseActivation = !isCollapseActivation"
-                x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY}">
+                x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY != NULL}">
         {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_ENABLE' | translate }}
         <i class="fa fa-info pull-left" x-ng-class="{'grey': !translations.ACTIVATION_POLICY}"></i>
       </div>
@@ -35,7 +35,7 @@
       <div class="col-md-10 legend"
                 title="{{translations.DELEGATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
                 x-ng-click="isCollapseDelegation = !isCollapseDelegation"
-                x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY}">
+                x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY != NULL}">
         {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_DELEGATION_POLICY' | translate }}
         <i class="fa fa-info pull-left" x-ng-class="{'grey': !translations.DELEGATION_POLICY}"></i>
       </div>
@@ -59,7 +59,7 @@
     <div class="col-md-10 legend"
                 title="{{translations.PARAMETER_DESCRIPTION ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
                 x-ng-click="isCollapseParameter = !isCollapseParameter"
-                x-ng-class="{'cursor-pointer': translations.PARAMETER_DESCRIPTION}">
+                x-ng-class="{'cursor-pointer': translations.PARAMETER_DESCRIPTION != NULL}">
       {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_NAME' | translate }}
         <i class="fa fa-info pull-left" x-ng-class="{'grey': !translations.PARAMETER_DESCRIPTION}"></i>
     </div>
@@ -135,7 +135,7 @@
                 x-ng-change="updateWithTimeout()">
               </span>
               <span class="form-control">
-                {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type | translate }}
+                {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type + '_' + parameter.bool | translate }}
               </span>
             </div>
           </div>

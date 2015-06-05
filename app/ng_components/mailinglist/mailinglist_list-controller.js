@@ -4,7 +4,10 @@ angular.module('linshareAdminApp')
   .controller('MailingListListCtrl',
     ['$scope', '$filter', '$log', 'ngTableParams', 'mailingLists',
     function($scope, $filter, $log, ngTableParams, mailingLists) {
-
+      $scope.isCollapsed = true;
+      $scope.getTemplate = function () {
+        return 'MAILINGLIST';
+      };
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
         count: 10,      // count per page

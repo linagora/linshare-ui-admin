@@ -12,7 +12,7 @@ angular.module('linshareAdminApp')
         };
 
       var getTemplate = function (identifier) {
-        return '/i18n/templates/' + $translate.use() + '/' + identifier + '.tpl.html';
+        return '/i18n/templates/functionalities/' + $translate.use() + '/' + identifier + '.tpl.html';
       };
 
       var getIdName = function (functionality, identifier) {

@@ -6,7 +6,7 @@
           <legend class="legend"
                 title="{{translations.ACTIVATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
                 x-ng-click="isCollapseActivation = !isCollapseActivation"
-                x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY}">
+                x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY != NULL}">
               {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_ACTIVATION_POLICY' | translate }}
               <i class="fa fa-info pull-right" x-ng-class="{'grey': !translations.ACTIVATION_POLICY}"></i>
           </legend>
@@ -60,7 +60,7 @@
           <legend class="legend"
                 title="{{translations.CONFIGURATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
                 ng-click="isCollapseConfiguration = !isCollapseConfiguration"
-                x-ng-class="{'cursor-pointer': translations.CONFIGURATION_POLICY}">
+                x-ng-class="{'cursor-pointer': translations.CONFIGURATION_POLICY != NULL}">
             {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_CONFIGURATION_POLICY' | translate }}
             <i class="fa fa-info pull-right" x-ng-class="{'grey': !translations.CONFIGURATION_POLICY}"></i>
           </legend>
@@ -117,7 +117,7 @@
           <legend class="legend"
                 title="{{translations.DELEGATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
                 ng-click="isCollapseDelegation = !isCollapseDelegation"
-                x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY}">
+                x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY != NULL}">
             {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_DELEGATION_POLICY' | translate }}
             <i class="fa fa-info pull-right" x-ng-class="{'grey': !translations.DELEGATION_POLICY}"></i>
           </legend>
@@ -172,7 +172,7 @@
           <legend class="legend"
                 title="{{translations.PARAMETER_DESCRIPTION ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
                 x-ng-click="isCollapseParameter = !isCollapseParameter"
-                x-ng-class="{'cursor-pointer': translations.PARAMETER_DESCRIPTION}">
+                x-ng-class="{'cursor-pointer': translations.PARAMETER_DESCRIPTION != NULL}">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_NAME' | translate }}
             <i class="fa fa-info pull-right" x-ng-class="{'grey': !translations.PARAMETER_DESCRIPTION}"></i>
           </legend>

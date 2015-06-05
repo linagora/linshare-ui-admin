@@ -1,5 +1,6 @@
 {
   "COMMON": {
+  "NAME": "LinShare",
     "BASIC_FORM": {
       "TITLE_CREATION": "Création",
       "LABEL_IDENTIFIER": "Identifiant",
@@ -64,7 +65,7 @@
       "MIME_POLICIES": "Règles de type MIME",
       "CONFIGURATION_POLICIES": "Règles de configuration",
       "MAILS": "Courriels",
-      "MAIL_LAYOUT": "Disposition de courriel",
+      "MAIL_LAYOUT": "Structure de courriel",
       "MAIL_FOOTER": "Pied de courriel",
       "MAIL_CONTENT": "Contenu de courriel",
       "MAIL_CONFIG": "Configuration de courriel",
@@ -88,7 +89,7 @@
       "ERROR": {
         "500": "Erreur interne du serveur",
         "503": "Serveur indisponible.",
-        "1000": "Une erreur c'est produite, veuillez contacter votre administrateur Linshare",
+        "1000": "Une erreur c'est produite, veuillez contacter votre administrateur LinShare",
         "2000": "Le mot de passe fourni est invalide",
         "4000": "Id invalide",
         "13000": "Domain id déjà présent",
@@ -110,7 +111,7 @@
         "15666": "XSS filter scan echec",
         "16000": "Annuaire introuvable",
         "17000": "Action défendue",
-        "20000": "Une erreur c'est produite, veuillez contacter votre administrateur Linshare",
+        "20000": "Une erreur c'est produite, veuillez contacter votre administrateur LinShare",
         "20001": "Webservice défendu",
         "20003": "Webservice introuvable",
         "29000": "Le compte technique n'existe pas",
@@ -209,7 +210,10 @@
         "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": "Avertissement d'une future expiration d'une invitation de dépôt (destinataire)",
         "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": "Avertissement d'une future expiration d'une invitation de dépôt (émetteur)",
         "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": "Notification d'expiration d'une invitation de dépôt (destinataire)",
-        "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": "Notification d'expiration d'une invitation de dépôt (émetteur)"
+        "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": "Notification d'expiration d'une invitation de dépôt (émetteur)",
+        "SHARE_CREATION_ACKNOWLEDGMENT_FOR_OWNER": "Accusé de réception de création de partage pour l'émetteur",
+        "SHARE_CREATION_ACKNOWLEDGMENT_WITH_SPECIAL_MESSAGE_FOR_OWNER": "Accusé de réception de création de partage pour l'émetteur avec sujet personnalisé",
+        "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": "Notification de suppression d'un fichier par l'utilisateur externe"
       },
       "ROLE": {
         "SIMPLE": "Interne",
@@ -570,7 +574,7 @@
   "DOMAIN_ORDER": {
     "TITLE": "Modifié l'ordre de connexion aux domaines",
     "BOX_LIST": {
-      "TITLE": "Ordre d'authentification aux domaines",
+      "TITLE": "Ordre de présentation des domaines lors de l'authentification",
       "TABLE": {
         "HEADER_ACTIONS": "Actions",
         "HEADER_IDENTIFIER": "Identifiant",
@@ -808,6 +812,18 @@
         "PARAMETER_NAME": "Durée avant la date d'expiration",
         "PARAMETER_DESCRIPTION": ""
       },
+      "UPLOAD_REQUEST_ENABLE_TEMPLATE": {
+        "NAME": "Modèles d'invitation de dépôt",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette fonctionnalité permet d'autoriser l'utilisateur à créer des modèles d'invitation de dépôt",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "",
+        "PARAMETER_DESCRIPTION": ""
+      },
       "QUOTA_USER": {
         "NAME": "Quota utilisateur",
         "USE_EXTENDED_DESCRIPTION" : "1",
@@ -955,7 +971,7 @@
       "CUSTOM_LOGO__LINK": {
         "NAME": "Ajouter un lien au logo LinShare",
         "USE_EXTENDED_DESCRIPTION" : "1",
-        "DESCRIPTION": "Avec cette fonctionnalité vous pourrez ajouter un lien au logo linshare. Il est conseillé de fournir l'adresse de votre Linshare.",
+        "DESCRIPTION": "Avec cette fonctionnalité vous pourrez ajouter un lien au logo LinShare. Il est conseillé de fournir l'adresse de votre LinShare.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "Une fois activée, le logo de l'interface renverra vers le lien saisie.",
@@ -965,7 +981,7 @@
         "PARAMETER_DESCRIPTION": ""
       },
       "GUESTS": {
-        "NAME": "Invités autorisés",
+        "NAME": "Invités",
         "USE_EXTENDED_DESCRIPTION" : "1",
         "DESCRIPTION": "Les invités autorisés vous permettront de créer des comptes invités et des domaines invités.",
         "ADVANCED_DESCRIPTION": "",
@@ -988,7 +1004,7 @@
         "PARAMETER_NAME": "Délai d'expiration du compte invité",
         "PARAMETER_DESCRIPTION": ""
       },
-      "GUEST__CAN_UPLOAD": {
+      "GUESTS__CAN_UPLOAD": {
         "NAME": "Envoi de fichiers",
         "USE_EXTENDED_DESCRIPTION" : "1",
         "DESCRIPTION": "L'envoi de fichiers vous permet d'autoriser aux invités de déposer des fichiers. La modification de cette fonctionnalité n'est prise en compte que pour les comptes utilisateurs créés après la modification.",
@@ -1000,13 +1016,25 @@
         "PARAMETER_NAME": "Paramètres",
         "PARAMETER_DESCRIPTION": ""
       },
-      "GUEST__RESTRICTED": {
+      "GUESTS__RESTRICTED": {
         "NAME": "Restreindre les contacts invités",
         "USE_EXTENDED_DESCRIPTION" : "1",
         "DESCRIPTION": "En activant la restriction des contacts invités vous forcerez la restriction de contact lors de la création de compte invité en choisissant « Obligatoire ». Il est également possible de laisser le choix à l’utilisateur quand à son utilisation tout en spécifiant une valeur par défaut en choisissant « Autorisé ». Nécessite que la clé « Invités autorisés » soit activée dans les politiques d’activation.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "En activant la restriction des contacts invités, lors de la création vous pourrez choisir la mention 'obligatoire' pour restreindre le nouvel invité.",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Paramètres",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Autoriser la prolongation de la date d'expiration des invités",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette fonctionnalité permet d'autoriser les utilisateurs à modifier la date d'expiration d'un invité, de repousser indéfiniment sa date d'expiration lors de l'édition.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
         "CONFIGURATION_POLICY": "",
         "DELEGATION_POLICY": "",
         "PARAMETER_NAME": "Paramètres",
@@ -1196,13 +1224,27 @@
         "DELEGATION_POLICY": "",
         "PARAMETER_NAME": "Paramètres",
         "PARAMETER_DESCRIPTION": ""
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Accusé de partage",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Lors d'un partage, l'émetteur peut recevoir un récapitulatif des documents et destinataires de son partage via un accusé de partage.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Paramètres",
+        "PARAMETER_DESCRIPTION": ""
       }
     },
     "PARAMETERS": {
-      "GUEST__RESTRICTED__BOOLEAN_false" : "L'utilisateur ne sera pas restreint à son créateur par défaut dans le formulaire de création",
-      "GUEST__RESTRICTED__BOOLEAN_true" : "L'utilisateur sera restreint à son créateur par défaut dans le formulaire de création",
-      "GUEST__CAN_UPLOAD__BOOLEAN_false" : "L'utilisateur n'aura pas les droits de dépôt par défaut dans le formulaire de création",
-      "GUEST__CAN_UPLOAD__BOOLEAN_true" : "L'utilisateur aura les droits de dépôt par défaut dans le formulaire de création",
+      "GUESTS__RESTRICTED__BOOLEAN_false" : "L'utilisateur ne sera pas restreint à son créateur par défaut dans le formulaire de création",
+      "GUESTS__RESTRICTED__BOOLEAN_true" : "L'utilisateur sera restreint à son créateur par défaut dans le formulaire de création",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_false" : "L'utilisateur n'aura pas les droits de dépôt par défaut dans le formulaire de création",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_true" : "L'utilisateur aura les droits de dépôt par défaut dans le formulaire de création",
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_false" : "L'utilisateur ne pourra pas prolonger la date d'expiration d'un invité",
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_true" : "L'utilisateur pourra prolonger la date d'expiration d'un invité",
       "ANONYMOUS_URL__BOOLEAN_false" : "Les partages anonymes ne seront pas sécurisés par un mot de passe lors de leur création",
       "ANONYMOUS_URL__BOOLEAN_true" : "Les partages anonymes seront sécurisés par un mot de passe lors de leur création",
       "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_false" : "Suppression du fichier lors de l'expiration du dernier partage",
@@ -1216,7 +1258,9 @@
       "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false" : "L'accès à l'invitation ne sera pas protégé par un mot de passe",
       "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true" : "L'accès à l'invitation sera protégé par un mot de passe",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false" : "Une invitation sera créée par destinataire",
-      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true" : "L'ensemble des destinataires se partageront les conditions d'utilisation de l'invitation"
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true" : "L'ensemble des destinataires se partageront les conditions d'utilisation de l'invitation",
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false" : "Aucun accusé de partage sera envoyé",
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true" : "Un accusé de partage sera envoyé à l'émetteur du partage"
     }
   },
 
@@ -1233,7 +1277,9 @@
         "ENABLE_ALL": "Activer tous",
         "DISABLE_ALL": "Désactiver tous"
       },
-      "TITLE_MIME_TYPES": "Types MIME",
+      "TITLE_MIME_TYPES": "Edition des regles types MIME",
+      "IN": "dans",
+      "DESCRIPTION": "Séléctionnez tous les types MIME que vous souhaitez autoriser.",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "TABLE": {
@@ -1265,7 +1311,13 @@
     "BOX_LIST": {
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME"
+        "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
+        "HEADER_ACTIONS": "Actions",
+        "TABLE_ACTIONS" : {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_YES": "Oui",
+          "BUTTON_DELETE_NO": "Non"
+        }
       }
     },
     "BOX_FORM": {
@@ -1306,7 +1358,13 @@
       },
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME"
+        "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
+        "HEADER_ACTIONS": "Actions",
+        "TABLE_ACTIONS" : {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_YES": "Oui",
+          "BUTTON_DELETE_NO": "Non"
+        }
       }
     },
     "BOX_FORM": {
@@ -1349,7 +1407,13 @@
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
-        "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE"
+        "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
+        "HEADER_ACTIONS": "Actions",
+        "TABLE_ACTIONS" : {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_YES": "Oui",
+          "BUTTON_DELETE_NO": "Non"
+        }
       }
     },
     "BOX_FORM": {
@@ -1393,7 +1457,13 @@
     "BOX_LIST": {
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME"
+        "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
+        "HEADER_ACTIONS": "Actions",
+        "TABLE_ACTIONS" : {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_YES": "Oui",
+          "BUTTON_DELETE_NO": "Non"
+        }
       }
     },
     "MODAL_FORM": {
@@ -1555,6 +1625,7 @@
     },
     "BOX_MEMBERS_LIST": {
       "TITLE": "Liste des membres",
+      "DESCRIPTION": "Vous pouvez ajouter des membres au groupe grâce au champ de recherche ci-dessous. Vous pouvez rechercher par nom, prénom et email, il vous suffira de séléctionner le membre.",
       "PLACEHOLDER_ADD_MEMBER": "Ajouter un membre",
       "TABLE": {
         "HEADER_FIRST_NAME": "Prénom",

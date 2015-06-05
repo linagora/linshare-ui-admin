@@ -2,9 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('TechnicalAccountListCtrl',
-    ['$scope', '$filter', '$log', 'ngTableParams', 'technicalAccounts',
-    function($scope, $filter, $log, ngTableParams, technicalAccounts) {
-
+    ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'technicalAccounts',
+    function($scope, $filter, $log, $translate, ngTableParams, technicalAccounts) {
+      $scope.getTemplate = function () {
+        return 'TECHNICAL_ACCOUNT';
+      };
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
         count: 10,      // count per page

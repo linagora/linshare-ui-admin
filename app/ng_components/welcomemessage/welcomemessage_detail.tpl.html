@@ -117,7 +117,7 @@
               <table class="table table-hover"
                  x-ng-table="tableParams" show-filter="true">
                 <tbody>
-                  <tr x-ng-repeat="domain in $data" x-ng-class="{'success': domain.active}" x-ng-click="changeItem(domain)">
+                  <tr x-ng-repeat="domain in $data" x-ng-class="{'success': domain.active}" x-ng-click="changeItem(domain)" class="not-linked">
                     <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_IDENTIFIER' | translate"
                         sortable="'identifier'" filter="{ 'identifier': 'text' }">
                       <strong>{{domain.identifier}}</strong>, {{domain.label}}
@@ -207,7 +207,7 @@
               <table class="table table-hover table-show"
                x-ng-table="tableParams" show-filter="true">
                 <tbody>
-                  <tr x-ng-repeat="domain in $data  | filter: search" x-ng-class="{'success': domain.active}">
+                  <tr x-ng-repeat="domain in $data  | filter: search" x-ng-class="{'success': domain.active}" class="not-linked">
                     <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_IDENTIFIER' | translate"
                         sortable="'identifier'" filter="{ 'identifier': 'text' }">
                       <strong>{{domain.identifier}}</strong>, {{domain.label}}

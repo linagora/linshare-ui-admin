@@ -39,7 +39,7 @@ angular.module('linshareAdminApp')
             });
           };
           $scope.updateMimeType = function(mimeType) {
-            MimeType.update(mimeType, function() {
+            MimeType.update(mimeType).then(function() {
               $scope.displayIconSaved();
             });
           };

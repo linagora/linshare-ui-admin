@@ -7,15 +7,11 @@
       {{domainPolicy.identifier}}
     </h3>
     <div class="pull-right box-tools">
-      <div class="btn-group">
-        <button class="btn btn-primary pull-right" type="button"
-                x-ng-click="cancel()">
-          <span>
-            <i class="fa fa-list"></i> 
-            {{ 'DOMAIN_POLICIES.BOX_FORM.BUTTON_LIST' | translate }}
-          </span>
-        </button>
-      </div>
+      <button class="btn btn-maroon btn-sm"
+              tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}"
+              x-ng-click="cancel()">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
   </div>
   <form class="form" name="domainPolicyForm" role="form" novalidate
@@ -77,7 +73,7 @@
           <table class="table table-striped"
                  x-ng-table="tableParams">
             <tbody>
-              <tr x-ng-repeat="rule in $data">
+              <tr x-ng-repeat="rule in $data" class="not-linked">
                 <td data-title="'DOMAIN_POLICIES.BOX_FORM.TABLE.HEADER_POSITION' | translate">
                   <div class="btn-group">
                     <button type="button" class="btn btn-primary"

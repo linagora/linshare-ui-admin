@@ -4,15 +4,11 @@
       {{mail.identifier}}
     </h3>
     <div class="pull-right box-tools">
-      <div class="btn-group">
-        <button class="btn btn-primary pull-right" type="button"
-                x-ng-click="cancel()">
-          <span>
-            <i class="fa fa-list"></i> 
-            {{ 'MAILING_LISTS.BOX_FORM.BUTTON_LIST' | translate }}
-          </span>
-        </button>
-      </div>
+      <button class="btn btn-maroon btn-sm"
+              tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}"
+              x-ng-click="cancel()">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
   </div>
   <form class="form" name="mailForm" novalidate
@@ -136,7 +132,7 @@
       <div class="table-responsive">
         <table class="table"
                x-ng-table="tableParams">
-          <tr x-ng-repeat="contact in $data">
+          <tr x-ng-repeat="contact in $data" class="not-linked">
             <td class="col-sm-4"
                 data-title="'MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_EMAIL' | translate"
                 sortable="'mail'">

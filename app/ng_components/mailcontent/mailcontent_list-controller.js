@@ -1,11 +1,18 @@
-'use strict';
+  'use strict';
 
 angular.module('linshareAdminApp')
   .controller('MailContentListCtrl',
-            ['$scope', '$filter', '$log', '$modal', '$state', 'ngTableParams', 'mailContents', 'currentDomain', 'Languages',
-    function($scope, $filter, $log, $modal, $state, ngTableParams, mailContents, currentDomain, Languages) {
+            ['$scope', '$filter', '$log', '$modal', '$state', '$translate', 'ngTableParams', 'MailContent', 'mailContents', 'currentDomain', 'Languages',
+    function($scope, $filter, $log, $modal, $state, $translate, ngTableParams, MailContent, mailContents, currentDomain, Languages) {
       $scope.domain = currentDomain;
-
+      $scope.getTemplate = function () {
+        return 'MAIL_CONTENT';
+      };
+      $scope.delete = function (_mailContent) {
+        MailContent.remove(_mailContent).then(function() {
+          $state.reinit();
+        });
+      };
       $scope.add = function() {
         var modalInstance = $modal.open({
           controller: 'mailContentModalCtrl',

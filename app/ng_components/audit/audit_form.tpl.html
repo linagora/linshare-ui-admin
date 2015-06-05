@@ -158,7 +158,7 @@
       <div class="col-md-12">
         <table class="table table-striped"
                x-ng-table="tableParams">
-          <tr x-ng-repeat="result in $data">
+          <tr x-ng-repeat="result in $data" class="not-linked">
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_DATE' | translate"
                 sortable="'actionDate'">
               {{ result.actionDate | date:'medium' }}

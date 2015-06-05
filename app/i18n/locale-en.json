@@ -1,5 +1,6 @@
 {
   "COMMON": {
+    "NAME": "LinShare",
     "BASIC_FORM": {
       "TITLE_CREATION": "Creation",
       "LABEL_IDENTIFIER": "Identifier",
@@ -88,7 +89,7 @@
       "ERROR": {
         "500": "Internal Server Error",
         "503": "Service Unavailable.",
-        "1000": "A error has occured, please contact your LinShare administrator",
+        "1000": "A error has occured, please contact your @:COMMON.NAME administrator",
         "2000": "The supplied password is invalid",
         "4000": "Invalid identifier",
         "13000": "Domain id already exist",
@@ -110,7 +111,7 @@
         "15666": "XSS filter scan failed",
         "16000": "Directory unavailable",
         "17000": "Unauthorized action",
-        "20000": "A error has occured, please contact your LinShare administrator",
+        "20000": "A error has occured, please contact your @:COMMON.NAME administrator",
         "20001": "Webservice unauthorized",
         "20003": "Webservice not found",
         "29000": "The technical account does not exist",
@@ -202,7 +203,10 @@
         "UPLOAD_REQUEST_REMINDER": "A reminder for the upload request",
         "UPLOAD_REQUEST_UPDATED": "The upload request has been updated",
         "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": "Warning notification sent to the recipient before the upload request expiry",
-        "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY":"Warning notification sent to the owner before the upload request expiry"
+        "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY":"Warning notification sent to the owner before the upload request expiry",
+        "SHARE_CREATION_ACKNOWLEDGMENT_FOR_OWNER": "Sharing creative receipt for the issuer",
+        "SHARE_CREATION_ACKNOWLEDGMENT_WITH_SPECIAL_MESSAGE_FOR_OWNER": "Sharing creative receipt for transmitter with personalized subject",
+        "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": "Notification of deleting a file from the external user"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -801,6 +805,18 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
+      "UPLOAD_REQUEST_ENABLE_TEMPLATE": {
+        "NAME": "Deposit Invitation Templates",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "",
+        "PARAMETER_DESCRIPTION": ""
+      },
       "QUOTA_USER": {
         "NAME": "Quota user",
         "USE_EXTENDED_DESCRIPTION" : "0",
@@ -921,6 +937,18 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Deleting files on expiration shares",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
       "CUSTOM_LOGO": {
         "NAME": "Custom logo",
         "USE_EXTENDED_DESCRIPTION" : "0",
@@ -970,7 +998,7 @@
         "PARAMETER_DESCRIPTION": ""
       },
       "GUESTS": {
-        "NAME": "Guest",
+        "NAME": "Guests",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
@@ -981,7 +1009,7 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "GUESTS_EXPIRATION": {
+      "GUESTS__EXPIRATION": {
         "NAME": "Account expiration",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
@@ -993,7 +1021,7 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "GUEST__CAN_UPLOAD": {
+      "GUESTS__CAN_UPLOAD": {
         "NAME": "User can upload",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
@@ -1005,7 +1033,7 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "GUEST__RESTRICTED": {
+      "GUESTS__RESTRICTED": {
         "NAME": "Restricted guest",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
@@ -1015,6 +1043,18 @@
         "DELEGATION_POLICY": "",
         "CONFIGURATION_POLICY": "",
         "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Authorize the extension of the expiration date of the guests",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Paramètres",
         "PARAMETER_DESCRIPTION": ""
       },
       "TAB_USER": {
@@ -1208,16 +1248,43 @@
         "CONFIGURATION_POLICY": "",
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Accused sharing",
+        "USE_EXTENDED_DESCRIPTION" : "0",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Paramètres",
+        "PARAMETER_DESCRIPTION": ""
       }
     },
     "PARAMETERS": {
-      "SHARE_EXPIRATION__BOOLEAN" : "Delete shared file",
-      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN" : "Default value",
-      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN" : "Default value",
-      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN" : "Default value",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN" : "Default value",
-      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN" : "Default value",
-      "UPLOAD_REQUEST_ENTRY_URL__PASSWORD__BOOLEAN": "Default Value"
+      "GUESTS__RESTRICTED__BOOLEAN_false" : "The user will not be restricted to its default creator creation form",
+      "GUESTS__RESTRICTED__BOOLEAN_true" : "The user will be restricted to the default creator creation form",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_false" : "The user will not default filing fees in the creation form",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_true" : "The user will have the default filing fees in the creation form",
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_false" : "The user can not extend the expiration date of a guest",
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_true" : "The user can extend the expiration date of a guest",
+      "ANONYMOUS_URL__BOOLEAN_false" : "The anonymous shares will not be secured by a password when created",
+      "ANONYMOUS_URL__BOOLEAN_true" : "The anonymous shares will be secured by a password when created",
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_false" : "File deletion at the end of the last partition",
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_true" : "File deletion at the end of the last partition",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_false" : "The recipient can not cloturer the filing invitation",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_true" : "The recipient can cloturer the filing invitation",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_false" : "The recipient can not delete files",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true" : "The recipient can delete files",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false" : "The transmitter will not postpone the expiry date",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true" : "The transmitter will postpone the expiry date",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false" : "L'accès Access to the invitation will not be protected by a password",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true" : "Access to the invitation will be protected by a password",
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false" : "An invitation will be created per recipient",
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true" : "All recipients share the conditions of use of the invitation",
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false" : "No acknowledgment will be sent sharing",
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true" : "Sharing of receipt will be sent to the issuer of shares"
     }
   },
 
@@ -1234,7 +1301,9 @@
         "ENABLE_ALL": "Enable all",
         "DISABLE_ALL": "Disable all"
       },
-      "TITLE_MIME_TYPES": "Mime types",
+      "TITLE_MIME_TYPES": "Edit Mime type",
+      "IN": "in",
+      "DESCRIPTION": "Select all MIME types that you want to allow.",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "TABLE": {
@@ -1266,7 +1335,13 @@
     "BOX_LIST": {
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME"
+        "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
+        "HEADER_ACTIONS": "Actions",
+        "TABLE_ACTIONS" : {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_YES": "Yes",
+          "BUTTON_DELETE_NO": "No"
+        }
       }
     },
     "BOX_FORM": {
@@ -1307,7 +1382,13 @@
       },
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME"
+        "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
+        "HEADER_ACTIONS": "Actions",
+        "TABLE_ACTIONS" : {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_YES": "Yes",
+          "BUTTON_DELETE_NO": "No"
+        }
       }
     },
     "BOX_FORM": {
@@ -1350,7 +1431,13 @@
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
-        "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE"
+        "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
+        "HEADER_ACTIONS": "Actions",
+        "TABLE_ACTIONS" : {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_YES": "Yes",
+          "BUTTON_DELETE_NO": "No"
+        }
       }
     },
     "BOX_FORM": {
@@ -1394,7 +1481,13 @@
     "BOX_LIST": {
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME"
+        "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
+        "HEADER_ACTIONS": "Actions",
+        "TABLE_ACTIONS" : {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_YES": "Yes",
+          "BUTTON_DELETE_NO": "No"
+        }
       }
     },
     "MODAL_FORM": {
@@ -1544,6 +1637,7 @@
     },
     "BOX_FORM": {
       "TITLE": "Edit group",
+      "DESCRIPTION": "Vous pouvez ajouter des membres au groupe grâce au champ de recherche ci-dessous. Vous pouvez rechercher par nom, prénom et email, il vous suffira de séléctionner le membre.You can add members to the group using the search box below. You can search by name, surname and email, you can simply select the member.",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_MODIFICATION_DATE": "Modification date",

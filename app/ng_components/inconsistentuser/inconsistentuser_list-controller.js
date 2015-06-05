@@ -2,8 +2,12 @@
 
 angular.module('linshareAdminApp')
   .controller('InconsistentUserListCtrl',
-    ['$scope', '$filter', '$log', 'ngTableParams', 'allInconsistents',
-    function($scope, $filter, $log, ngTableParams, allInconsistents) {
+    ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'allInconsistents',
+    function($scope, $filter, $log, $translate, ngTableParams, allInconsistents) {
+      $scope.isCollapsed = true;
+      $scope.getTemplate = function () {
+        return 'INCONSISTENT_USER';
+      };
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
         count: 10,      // count per page

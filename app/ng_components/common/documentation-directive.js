@@ -4,7 +4,7 @@ angular.module('linshareAdminApp')
   .directive('lsDoc', function($rootScope, $translate) {
 
     var getTemplate = function (identifier) {
-      return '/i18n/templates/' + $translate.use() + '/' + identifier + '.tpl.html';
+      return '/i18n/templates/functionalities/' + $translate.use() + '/' + identifier + '.tpl.html';
     };
 
     var linker = function (scope) {

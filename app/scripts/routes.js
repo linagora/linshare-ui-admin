@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
     //  For any unmatched url, redirect
-    $urlRouterProvider.otherwise("/dashboard");
+    $urlRouterProvider.otherwise('/dashboard');
 
     var funcAccountExpiration = function(currentUser, Functionality) {
       if (currentUser) {
@@ -542,9 +542,14 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-     .state('domain.order', {
+     .state('domainorder', {
+       abstract: true,
+        url: '/domainorder',
+        templateUrl: 'ng_components/domainorder/domain_order.html'
+     })
+     .state('domainorder.order', {
        url: '/order',
-       templateUrl: 'ng_components/domain/domain_order.tpl.html',
+       templateUrl: 'ng_components/domainorder/domain_order.tpl.html',
        controller: 'DomainOrderCtrl',
        resolve: {
          domains: function(Domain) {

@@ -2,8 +2,12 @@
 
 angular.module('linshareAdminApp')
   .controller('UserListCtrl',
-     ['$scope', '$filter', '$log', 'ngTableParams', 'User',
-      function ($scope, $filter, $log, ngTableParams, User) {
+     ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'User',
+      function ($scope, $filter, $log, $translate, ngTableParams, User) {
+        $scope.isCollapsed = true;
+        $scope.getTemplate = function () {
+          return 'USER';
+        };
         $scope.reloadList = function () {
           $scope.tableParams.reload();
         };

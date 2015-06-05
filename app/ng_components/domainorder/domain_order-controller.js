@@ -2,8 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('DomainOrderCtrl',
-    ['$scope', '$filter', '$log', 'ngTableParams', 'Domain', 'domains',
-    function($scope, $filter, $log, ngTableParams, Domain, domains) {
+    ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'Domain', 'domains',
+    function($scope, $filter, $log, $translate, ngTableParams, Domain, domains) {
+      $scope.getTemplate = function () {
+        return 'DOMAIN_ORDER';
+      };
       $scope.swap = function(x, y, data) {
         data[x].authShowOrder = y;
         data[y].authShowOrder = x;

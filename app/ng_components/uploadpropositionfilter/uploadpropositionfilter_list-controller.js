@@ -2,9 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('UploadPropositionFilterListCtrl',
-    ['$scope', '$filter', '$log', 'ngTableParams', 'UploadPropositionFilter', 'uploadPropositionFilters',
-    function($scope, $filter, $log, ngTableParams, UploadPropositionFilter, uploadPropositionFilters) {
-
+    ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'UploadPropositionFilter', 'uploadPropositionFilters',
+    function($scope, $filter, $log, $translate, ngTableParams, UploadPropositionFilter, uploadPropositionFilters) {
+      $scope.getTemplate = function () {
+        return 'UPLOAD_PROPOSITION_FILTERING';
+      };
       $scope.swap = function(x, y, data) {
         data[x].order = y;
         data[y].order = x;
@@ -32,6 +34,7 @@ angular.module('linshareAdminApp')
                               uploadPropositionFilters;
           params.total(orderedData.length);
           $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+          $scope.isCollapsed = (orderedData.length == 0) ? true : false;
         }
       });
     }]

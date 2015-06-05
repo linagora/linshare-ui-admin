@@ -2,9 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('LdapConnectionListCtrl',
-    ['$scope', '$filter', '$log', 'ngTableParams', 'ldapConnections',
-    function($scope, $filter, $log, ngTableParams, ldapConnections){
-
+    ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'ldapConnections',
+    function($scope, $filter, $log, $translate, ngTableParams, ldapConnections){
+      $scope.getTemplate = function () {
+        return 'LDAP_CONNECTION';
+      };
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
         count: 10,      // count per page

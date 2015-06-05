@@ -26,7 +26,7 @@ angular.module('linshareAdminApp')
             sref: 'domain.detail'
           }, {
             name: 'COMMON.TAB.DOMAIN_ORDER',
-            sref: 'domain.order'
+            sref: 'domainorder.order'
           }, {
             name: 'COMMON.TAB.DOMAIN_POLICIES',
             sref: 'domainpolicy.list',

@@ -1,10 +1,26 @@
+<script type="text/ng-template" id="ng-table/filters/active.html">
+  <!-- pull-left -->
+  <div class="btn-group">
+    <label class="btn btn-info"
+           x-ng-click="enableAllMimeTypes(mimePolicy)">
+      {{ 'MIME_POLICIES.BOX_FORM.HEADER.ENABLE_ALL' | translate }}
+    </label>
+    <label class="btn btn-info"
+           x-ng-click="disableAllMimeTypes(mimePolicy)">
+      {{ 'MIME_POLICIES.BOX_FORM.HEADER.DISABLE_ALL' | translate }}
+    </label>
+  </div>
+</script>
 <div class="box box-primary">
   <div class="box-header">
+    <h3 class="box-title">
+      {{ 'MIME_POLICIES.BOX_FORM.TITLE_MIME_TYPES' | translate }} <strong>'{{mimePolicy.name}}'</strong> {{ 'MIME_POLICIES.BOX_FORM.IN' | translate }} <strong>'{{mimePolicy.domainId}}'</strong>
+    </h3>
     <div class="pull-right box-tools">
-      <button class="btn btn-primary btn-sm"
+      <button class="btn btn-maroon btn-sm"
+              tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}"
               x-ng-click="cancel()">
-        <i class="fa fa-list"></i> 
-        {{ 'MIME_POLICIES.BOX_FORM.BUTTON_LIST' | translate }}
+        <i class="fa fa-bars"></i>
       </button>
     </div>
   </div>
@@ -22,77 +38,64 @@
                  required
                  x-ng-model="mimePolicy.name">
         </div>
+        <div class="section-fieldset">
+          <h4>
+            {{ 'MIME_POLICIES.BOX_FORM.TITLE_MIME_TYPES' | translate }}
+            <i class="fa fa-save fade pull-right" style="line-height: 35px;
+  margin-right: 10px;"
+              x-ng-class="{in: iconSaved}">
+            </i>
+          </h4>
+          <div class="clearfix"></div>
+          <p>
+            {{ 'MIME_POLICIES.BOX_FORM.DESCRIPTION' | translate }}
+          </p>
+          <div class="table-responsive">
+            <table class="table table-striped"
+                   x-ng-table="tableParams"
+                   show-filter="true">
+              <tr x-ng-repeat="mimeType in $data" class="not-linked">
+                <td style="cursor: pointer"
+                    data-title="'MIME_POLICIES.BOX_FORM.TABLE.HEADER_STATUS' | translate"
+                    filter="{'enable': 'active' }"
+                    sortable="'enable'">
+                  <input type="checkbox"
+                         x-ng-model="mimeType.enable"
+                         x-ng-change="updateMimeType(mimeType)">
+                </td>
+                <td data-title="'MIME_POLICIES.BOX_FORM.TABLE.HEADER_EXTENSIONS' | translate"
+                    filter="{ 'extensions': 'text' }"
+                    sortable="'extensions'">
+                  <span>
+                    {{ mimeType.extensions }}
+                  </span>
+                </td>
+                <td data-title="'MIME_POLICIES.BOX_FORM.TABLE.HEADER_MIME_TYPE' | translate"
+                    filter="{ 'mimeType': 'text' }"
+                    sortable="'mimeType'">
+                  <span>
+                    {{ mimeType.mimeType }}
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="box-footer">
-        <!-- Validation -->
-        <button type="button" id="delete" name="delete" class="btn btn-danger"
-                x-ng-click="remove()">
-          {{ 'MIME_POLICIES.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
-        </button>
-        <button type="button" id="reset" name="reset" class="btn btn-warning"
-                x-ng-click="reset()">
-          {{ 'MIME_POLICIES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-        </button>
-        <button type="submit" id="submit" name="submit" class="btn btn-success">
-          {{ 'MIME_POLICIES.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
-        </button>
-      </div>
-    </fieldset>
+        <div class="box-footer">
+          <!-- Validation -->
+          <button type="button" id="delete" name="delete" class="btn btn-danger"
+                  x-ng-click="remove()">
+            {{ 'MIME_POLICIES.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+          </button>
+          <button type="button" id="reset" name="reset" class="btn btn-warning"
+                  x-ng-click="reset()">
+            {{ 'MIME_POLICIES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+          </button>
+          <button type="submit" id="submit" name="submit" class="btn btn-success">
+            {{ 'MIME_POLICIES.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+          </button>
+        </div>
+      </fieldset>
   </form>
-</div>
-<div class="box box-primary">
-  <div class="box-header">
-    <h3 class="box-title">
-      {{ 'MIME_POLICIES.BOX_FORM.TITLE_MIME_TYPES' | translate }}
-    </h3>
-    <i class="fa fa-save fade"
-      x-ng-class="{in: iconSaved}">
-    </i>
-    <div class="pull-right box-tools">
-      <div class="btn-group">
-        <label class="btn btn-info"
-               x-ng-click="enableAllMimeTypes(mimePolicy)">
-          {{ 'MIME_POLICIES.BOX_FORM.HEADER.ENABLE_ALL' | translate }}
-        </label>
-        <label class="btn btn-info"
-               x-ng-click="disableAllMimeTypes(mimePolicy)">
-          {{ 'MIME_POLICIES.BOX_FORM.HEADER.DISABLE_ALL' | translate }}
-        </label>
-      </div>
-      <button class="btn btn-primary btn-sm"
-              x-ng-click="cancel()">
-        <i class="fa fa-times"></i>
-      </button>
-    </div>
-  </div>
-  <div class="box-body">
-    <div class="table-responsive">
-      <table class="table table-striped"
-             x-ng-table="tableParams"
-             show-filter="true">
-        <tr x-ng-repeat="mimeType in $data">
-          <td style="cursor: pointer"
-              data-title="'MIME_POLICIES.BOX_FORM.TABLE.HEADER_STATUS' | translate"
-              sortable="'enable'">
-            <input type="checkbox"
-                   x-ng-model="mimeType.enable"
-                   x-ng-change="updateMimeType(mimeType)">
-          </td>
-          <td data-title="'MIME_POLICIES.BOX_FORM.TABLE.HEADER_EXTENSIONS' | translate"
-              filter="{ 'extensions': 'text' }"
-              sortable="'extensions'">
-            <span>
-              {{ mimeType.extensions }}
-            </span>
-          </td>
-          <td data-title="'MIME_POLICIES.BOX_FORM.TABLE.HEADER_MIME_TYPE' | translate"
-              filter="{ 'mimeType': 'text' }"
-              sortable="'mimeType'">
-            <span>
-              {{ mimeType.mimeType }}
-            </span>
-          </td>
-        </tr>
-    </div>
-  </div>
 </div>

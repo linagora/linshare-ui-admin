@@ -2,14 +2,21 @@
 
 angular.module('linshareAdminApp')
   .controller('MailFooterListCtrl',
-    ['$scope', '$filter', '$log', '$modal', '$state', 'ngTableParams', 'mailFooters', 'currentDomain', 'Languages',
-    function($scope, $filter, $log, $modal, $state, ngTableParams, mailFooters, currentDomain, Languages) {
+    ['$scope', '$filter', '$log', '$modal', '$state', '$translate', 'ngTableParams', 'MailFooter', 'mailFooters', 'currentDomain', 'Languages',
+    function($scope, $filter, $log, $modal, $state, $translate, ngTableParams, MailFooter, mailFooters, currentDomain, Languages) {
       $scope.domain = currentDomain;
-
+      $scope.getTemplate = function () {
+        return 'MAIL_FOOTER';
+      };
       $scope.add = function() {
         var modalInstance = $modal.open({
           controller: 'mailFooterModalCtrl',
           templateUrl: 'ng_components/mailfooter/mailfooter_modal.tpl.html'
+        });
+      };
+      $scope.delete = function (_mailFooter) {
+        MailFooter.remove(_mailFooter).then(function() {
+          $state.reinit();
         });
       };
       $scope.filters = {

@@ -2,8 +2,12 @@
 
 angular.module('linshareAdminApp')
   .controller('ThreadListCtrl',
-    ['$scope', '$filter', '$log', '$state', '$location', 'ngTableParams', 'Thread',
-    function($scope, $filter, $log, $state, $location, ngTableParams, Thread) {
+    ['$scope', '$filter', '$log', '$state', '$location', '$translate', 'ngTableParams', 'Thread',
+    function($scope, $filter, $log, $state, $location, $translate, ngTableParams, Thread) {
+      $scope.isCollapsed = true;
+      $scope.getTemplate = function () {
+        return 'THREADS';
+      };
       var canRequest = false;
       if ($state.params.search) {
         $scope.threadSearch = $state.params.search;
@@ -26,11 +30,14 @@ angular.module('linshareAdminApp')
         getData: function($defer, params) {
           if (canRequest) {
             Thread.getAll($scope.threadSearch).then(function(thread) {
-              thread = params.sorting() ?
-                $filter('orderBy')(thread, params.orderBy()) :
-                thread;
-              params.total(thread.length);
-              $defer.resolve(thread.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+              var filteredData = params.filter() ?
+                        $filter('filter')(thread, params.filter()) : thread;
+
+              var orderedData = params.sorting() ?
+                    $filter('orderBy')(filteredData, params.orderBy()) :
+                    filteredData;
+              params.total(orderedData.length);
+              $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
             });
           }
         }

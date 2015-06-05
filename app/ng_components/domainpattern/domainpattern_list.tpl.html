@@ -4,35 +4,39 @@
       {{ 'DOMAIN_PATTERNS.BOX_LIST.TITLE' | translate }}
     </h3>
     <div class="pull-right box-tools">
-      <div class="btn-group">
-        <button class="btn btn-primary" type="button"
-                x-ui-sref="domainpattern.detail({formState: 'create'})">
-          <span>
-            <i class="fa fa-plus"></i>
-            {{ 'DOMAIN_PATTERNS.BOX_LIST.BUTTON_ADD' | translate }}
-          </span>
-        </button>
-      </div>
+      <a class="clear-btn blue" x-ui-sref="domainpattern.detail({formState: 'create'})">
+        <i class="fa fa-plus-circle fa-lg" tooltip="{{'COMMON.BASIC_FORM.BUTTON_ADD' | translate}}"></i>
+      </a>
+      <button class="clear-btn pink" x-ng-click="isCollapsed = !isCollapsed" x-ng-class="{'active': isCollapsed}">
+        <i class="fa fa-info-circle fa-lg
+        "></i>
+      </button>
     </div>
   </div>
   <div class="box-body">
+    <div class="description" collapse="!isCollapsed">
+      <x-ls-help content="getTemplate()"></x-ls-help>
+    </div>
     <div class="table-responsive">
       <table class="table table-striped table-hover"
              x-ng-table="tableParams">
         <tbody>
-          <tr x-ng-repeat="domainPattern in $data"
-              x-ui-sref="domainpattern.detail({id: domainPattern.uuid, formState: 'edit'})">
+          <tr x-ng-repeat="domainPattern in $data">
             <td data-title="'DOMAIN_PATTERNS.BOX_LIST.TABLE.HEADER_IDENTIFIER' | translate"
                 sortable="'label'">
-              <span>
-                {{domainPattern.label}}
-              </span>
+              <a x-ui-sref="domainpattern.detail({id: domainPattern.uuid, formState: 'edit'})">
+                <span>
+                  {{domainPattern.label}}
+                </span>
+              </a>
             </td>
             <td data-title="'DOMAIN_PATTERNS.BOX_LIST.TABLE.HEADER_DESCRIPTION' | translate"
                 sortable="'description'">
-              <span>
-                {{domainPattern.description}}
-              </span>
+              <a x-ui-sref="domainpattern.detail({id: domainPattern.uuid, formState: 'edit'})">
+                <span>
+                  {{domainPattern.description}}
+                </span>
+              </a>
             </td>
           </tr>
         </tbody>

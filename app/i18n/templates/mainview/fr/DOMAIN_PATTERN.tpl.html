@@ -1,0 +1,12 @@
+<div>
+	<p><strong>Modèles de domaine</strong></p>
+	<p>Après avoir <a x-ui-sref="ldapconnection.list">créer une connexion à un annuaire de type LDAP</a>, il est nécessaire de créer un modèle de domaine.<br/><br/>
+	Ce modèle vous permettra de définir la correspondance entre les champs prénom, nom et email de {{ 'COMMON.NAME' | translate }}, et les attributs de votre annuaire.
+	{{ 'COMMON.NAME' | translate }} nécessite 4 requêtes différentes pour fonctionner correctement :</p>
+	<ul>
+		<li><strong>requête LQL <i>(Ldap Query Language)</i> d'authentification :</strong> requête permettant de retrouver un utilisateur dans l'annuaire lors de la phase d'authenfication à partir de l'identifiant qu'il a saisi (couriel)</li>
+		<li><strong>requête LQL <i>(Ldap Query Language)</i> utilisateur :</strong> requête permettant de retrouver un utilisateur dans l'annuaire lors des recherche pour consultation, édition, partage, ...</li>
+		<li><strong>requête LQL <i>(Ldap Query Language)</i> d'autocomplétion sur tous les attributs :</strong> permet l'autocomplétion d'un utilisateur à partir du motif saisi</li>
+		<li><strong>requête LQL <i>(Ldap Query Language)</i> d'autocomplétion sur le nom et prénom :</strong> permet l'autocomplétion d'un utilisateur à partir d'un couple de motif : nom-prénom ou prénom-nom</li>
+	</ul>
+</div>

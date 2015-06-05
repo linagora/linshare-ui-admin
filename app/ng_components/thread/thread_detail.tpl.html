@@ -4,15 +4,11 @@
       {{ 'THREADS.BOX_FORM.TITLE' | translate }}
     </h3>
     <div class="pull-right box-tools">
-      <div class="btn-group">
-        <button class="btn btn-primary pull-right" type="button"
-                x-ng-click="cancel()">
-          <span>
-            <i class="fa fa-list"></i>
-            {{ 'THREADS.BOX_FORM.BUTTON_LIST' | translate }}
-          </span>
-        </button>
-      </div>
+      <button class="btn btn-maroon btn-sm"
+              tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}"
+              x-ng-click="cancel()">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
   </div>
   <form class="form" name="threadForm" novalidate
@@ -28,47 +24,16 @@
           <input id="name" name="name" type="text" class="form-control" required
                  x-ng-model="thread.name">
         </div>
-      </div>
-      <div class="box-footer">
-        <!-- Validation -->
-        <div class="control-group">
-          <div class="controls">
-            <button id="delete" name="delete" type="button" class="btn btn-danger"
-                    x-ng-click="remove()">
-              {{ 'THREADS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
-            </button>
-            <button type="button" id="reset" name="reset" class="btn btn-warning"
-                    x-ng-click="reset()">
-              {{ 'THREADS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-            </button>
-            <button type="submit" id="submit" name="submit" class="btn btn-success">
-              {{ 'THREADS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </form>
-</div>
-
-<!-- USER LIST -->
-
-<script type="text/ng-template" id="user_representation">
-  <a>
-    <span bind-html-unsafe="match.model.firstName | typeaheadHighlight:query"></span>&nbsp;
-    <span bind-html-unsafe="match.model.lastName | typeaheadHighlight:query"></span>&nbsp;&lt;
-    <span bind-html-unsafe="match.model.mail | typeaheadHighlight:query"></span>&gt;
-  </a>
-</script>
-
-<div class="box box-primary">
-  <div class="box-header">
-    <h3 class="box-title">
-      {{ 'THREADS.BOX_MEMBERS_LIST.TITLE' | translate }}
-    </h3>
-  </div>
-  <div class="box-body">
-    <div class="form-group">
+        <div class="section-fieldset">
+          <h4 class="ng-binding">
+              {{ 'THREADS.BOX_MEMBERS_LIST.TITLE' | translate }}
+            </i>
+          </h4>
+          <div class="clearfix"></div>
+          <p class="ng-binding">
+            {{ 'THREADS.BOX_MEMBERS_LIST.DESCRIPTION' | translate }}
+          </p>
+          <div class="form-group">
       <div class="input-append">
         <input type="text" class="form-control"
                placeholder="{{ 'THREADS.BOX_MEMBERS_LIST.PLACEHOLDER_ADD_MEMBER' | translate }}"
@@ -88,7 +53,7 @@
       <div class="table-responsive">
         <table class="table"
                x-ng-table="tableParams">
-          <tr x-ng-repeat="threadMember in $data"
+          <tr x-ng-repeat="threadMember in $data" class="not-linked"
               x-ng-click="edit(threadMember)">
             <td data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_FIRST_NAME' | translate"
                 sortable="'firstName'">
@@ -120,17 +85,17 @@
             </td>
             <td class="col-sm-2"
                 data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ACTIONS' | translate">
-              <button class="btn btn-danger"
+              <button class="btn btn-danger" type="button"
                       x-ng-show="confirm === undefined"
                       x-ng-click="confirm = $index">
                 {{'THREADS.BOX_MEMBERS_LIST.TABLE.BUTTON_DELETE_MEMBER' | translate}}
               </button>
-              <button class="btn"
+              <button class="btn" type="button"
                       x-ng-show="confirm === $index"
                       x-ng-click="confirm = undefined">
                 {{'THREADS.BOX_MEMBERS_LIST.TABLE.BUTTON_DELETE_MEMBER_NO' | translate}}
               </button>
-              <button class="btn btn-danger"
+              <button class="btn btn-danger" type="button"
                       x-ng-show="confirm === $index"
                       x-ng-click="deleteMember(threadMember)">
                 {{'THREADS.BOX_MEMBERS_LIST.TABLE.BUTTON_DELETE_MEMBER_YES' | translate}}
@@ -140,5 +105,34 @@
         </table>
       </div>
     </div>
-  </div>
+      <div class="box-footer">
+        <!-- Validation -->
+        <div class="control-group">
+          <div class="controls">
+            <button id="delete" name="delete" type="button" class="btn btn-danger"
+                    x-ng-click="remove()">
+              {{ 'THREADS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+            </button>
+            <button type="button" id="reset" name="reset" class="btn btn-warning"
+                    x-ng-click="reset()">
+              {{ 'THREADS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+            </button>
+            <button type="submit" id="submit" name="submit" class="btn btn-success">
+              {{ 'THREADS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
 </div>
+
+<!-- USER LIST -->
+
+<script type="text/ng-template" id="user_representation">
+  <a>
+    <span bind-html-unsafe="match.model.firstName | typeaheadHighlight:query"></span>&nbsp;
+    <span bind-html-unsafe="match.model.lastName | typeaheadHighlight:query"></span>&nbsp;&lt;
+    <span bind-html-unsafe="match.model.mail | typeaheadHighlight:query"></span>&gt;
+  </a>
+</script>
