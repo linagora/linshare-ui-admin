@@ -54,13 +54,9 @@ angular.module('linshareAdminApp')
           $state.reinit();
         });
       };
-      var getTemplate = function () {
-        return '/i18n/templates/' + $translate.use() + '/WELCOME_MESSAGE.tpl.html';
+      $scope.getTemplate = function () {
+        return 'WELCOME_MESSAGE';
       };
-      $rootScope.$on('$translateChangeSuccess', function() {
-        $scope.welcomeMessageTpl  = getTemplate();
-      });
-      $scope.welcomeMessageTpl  = getTemplate();
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
         count: 10,      // count per page
