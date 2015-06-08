@@ -21,6 +21,7 @@ l_output="linshare-ui-admin-${l_version}.tar.bz2"
 l_hash="linshare-ui-admin-${l_version}.sha256sum"
 l_git_uuid=$(git log -n 1 --format=oneline|cut -d' ' -f1)
 l_dist=linshare-ui-admin-${l_version}
+l_date=$(date "+%Y%m%d%H%M%S")
 
 
 echo "INFO: Cleaning ..."
@@ -37,11 +38,11 @@ fi
 echo "INFO: Packaging..."
 if [ "${l_mode}" == "dev" ] ; then
   l_dist="linshare-ui-admin-${l_version}-${l_git_uuid}"
-  l_output="linshare-ui-admin-${l_version}-${l_git_uuid}.tar.bz2"
-  l_hash="linshare-ui-admin-${l_version}-${l_git_uuid}.sha256sum"
+  l_output="linshare-ui-admin-${l_version}-${l_date}-${l_git_uuid}.tar.bz2"
+  l_hash="linshare-ui-admin-${l_version}-${l_date}-${l_git_uuid}.sha256sum"
 elif [ "${l_mode}" == "dev-nomin" ] ; then
-  l_dist="linshare-ui-admin-${l_version}-nomin-${l_git_uuid}"
-  l_output="linshare-ui-admin-${l_version}-nomin-${l_git_uuid}.tar.bz2"
+  l_dist="linshare-ui-admin-${l_version}-nomin-${l_date}-${l_git_uuid}"
+  l_output="linshare-ui-admin-${l_version}-nomin-${l_date}-${l_git_uuid}.tar.bz2"
   l_hash="linshare-ui-admin-${l_version}-nomin-${l_git_uuid}.sha256sum"
 elif [ "${l_mode}" == "prod-nomin" ] ; then
   l_dist="linshare-ui-admin-${l_version}-nomin"
