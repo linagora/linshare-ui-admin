@@ -45,6 +45,10 @@ $orange: #f0ad4e;
 }
 
 body {
+  background-color: transparent;
+  .wrapper {
+    margin-bottom: 80px;
+  }
   .header {
     .logo {
       background-color: #0372b3;

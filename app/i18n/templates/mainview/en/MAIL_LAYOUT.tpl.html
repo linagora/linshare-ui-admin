@@ -4,16 +4,20 @@
 		Cette vue vous permet de créer des modèles de strucutre de courriel. Il vous faudra créer un modèle HTML & Text. Un modèle de structure vous permet d'organiser la disposition des différentes parties <i>(salutation, message, logo, footer)</i> au sein d'un courriel.</p>
 	<ul>
 		<li><strong>${mailSubject}</strong> Titre / Sujet du courriel</li>
-		<li><strong>${image}</strong> Image, logo, entête du courriel</li>
-		<li><strong>${personalMessage}</strong> Message personnel qui est ajouté au message de base <strong>${body}</strong>.</li>
-		<li><strong>${greetings}</strong> Message ---</li>
+		<li><strong>${image}</strong> Logo de LinShare, qui peut être modifié grâce au fichier de configuration<i>(Si vous possédez la lience)</i></li>
+		<li><strong>${personalMessage}</strong> Message personnel qui est ajouté au message par défaut <strong>${body}</strong></li>
+		<li><strong>${greetings}</strong> Message de salutation</li>
 		<li><strong>${body}</strong> Correspond au contenu que vous saisissez dans la vue 'contenu de courriel'</li>
 		<li><strong>${footer}</strong> Correspond au contenu que vous saisissez dans la vue 'Pied de courriel'</li>
 	</ul>
-	<p>Dans la vue 'Configuration de courriel' vous pourrez créer des modèles de courriel en choisissant pour :</p>
+	<p>Dans la vue <a x-ui-sref="mailconfig.list({domainId: domain})">'Configuration de courriel'</a> vous pourrez créer des modèles de courriel en choisissant pour :</p>
 	<ol>
 		<li><strong>Structure de courriel HTML / Text</strong> le template créé ici en version HTML & Text</li>
-		<li><strong>Pied de courriel</strong> le pied de courriel qui sera ajouté à la variable <strong>${footer}</strong></li>
-		<li><strong>Contenu de courriel</strong> les contenus de courriel <i>(en version EN et FR)</i> qui seront ajoutés à la variable <strong>${body}</strong></li>
+		<li><strong>'Pied de courriel'</strong> le pied de courriel qui sera ajouté à la variable <strong>${footer}</strong></li>
+		<li><strong>'Contenu de courriel'</strong> les contenus de courriel <i>(en version EN et FR)</i> qui seront ajoutés à la variable <strong>${body}</strong></li>
 	</ol>
 </div>
+
+<li><strong><a x-ui-sref="maillayout.list({domainId: domain})">'Structure de courriel'</a></strong> permet de créer des modèles de structure de courriel, des mises en pages différentes</li>
+		<li><strong><a x-ui-sref="mailfooter.list({domainId: domain})">'Pied de courriel'</a></strong> pour la mise en page du pied de courriel</li>
+		<li><strong><a x-ui-sref="mailcontent.list({domainId: domain})">'Contenu de courriel'</a></strong> pour gérer le contenu des notifications envoyées automatiquement aux utilisateurs de l'application</li>

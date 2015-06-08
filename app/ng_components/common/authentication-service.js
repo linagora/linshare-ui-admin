@@ -8,7 +8,7 @@ angular.module('linshareAdminApp')
     function($route, $cookies, $q, $log, Restangular, authService, Notification) {
       var deferred = $q.defer();
       this.waitingForResponse = false;
-      
+
       var self = this;
 
       // Do at least one authentication request

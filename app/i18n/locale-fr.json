@@ -50,7 +50,7 @@
       "LABEL_EMAIL": "Email",
       "LABEL_PASSWORD": "Mot de passe",
       "BAD_CREDENTIALS": "Identifiant incorrect",
-      "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      "BUTTON_SUBMIT": "Connexion"
     },
     "TAB": {
       "DOMAINS": "Domaines",
@@ -344,9 +344,9 @@
   },
 
   "DASHBOARD": {
-    "TITLE": "Panneau de controle",
+    "TITLE": "Panneau de contrôle",
     "SUB_TITLE": "",
-    "DESCRIPTION": "Bienvenu sur votre dashboard LinShare.",
+    "DESCRIPTION": "Bienvenu sur votre panneau de contrôle LinShare.",
     "MORE_INFO": "Plus d'informations",
     "MANAGE_USERS_TITLE": "Gestion des utilisateurs",
     "MANAGE_USERS_SUB_TITLE": "Configuration des utilisateurs",

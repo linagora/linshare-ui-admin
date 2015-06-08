@@ -2,9 +2,10 @@
 	<p><strong>Configuration de courriel</strong></p>
 	<p>Cette vue vous permet de créer des structures de courriel pour vos domaines. À partir des informations saisies dans les vues :</p>
 	<ul>
-		<li><strong>'Structure de courriel'</strong> permet de créer des modèles de structure de courriel, des mises en pages différentes</li>
-		<li><strong>'Pied de courriel'</strong> pour la mise en page du pied de courriel</li>
-		<li><strong>'Contenu de courriel'</strong> pour gérer le contenu des notifications envoyées automatiquement aux utilisateurs de l'application</li>
+		<li><strong><a x-ui-sref="maillayout.list({domainId: domain})">'Structure de courriel'</a></strong> permet de créer des modèles de structure de courriel, des mises en pages différentes</li>
+		<li><strong><a x-ui-sref="mailfooter.list({domainId: domain})">'Pied de courriel'</a></strong> pour la mise en page du pied de courriel</li>
+		<li><strong><a x-ui-sref="mailcontent.list({domainId: domain})">'Contenu de courriel'</a></strong> pour gérer le contenu des notifications envoyées automatiquement aux utilisateurs de l'application</li>
 	</ul>
-	<p>Après avoir paramétré vos différentes structures de courriel, dans la vue 'Configuration des domaines' lors de la création / édition d'un de vos domaines vous pourrez, dans la vue choisir une configuration de courriel.</p>
+	<p>Après avoir paramétré vos différents modèles de structure de courriel vous pourrez, dans la vue <a x-ui-sref="domain.detail({domainId: domain})">'Configuration des domaines'</a>
+		 (lors de la création / édition d'un de vos domaines), choisir une configuration de courriel.</p>
 </div>

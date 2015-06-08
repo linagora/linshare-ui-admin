@@ -50,7 +50,7 @@
       "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
       "LABEL_PASSWORD": "Password",
       "BAD_CREDENTIALS": "Bad credentials",
-      "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      "BUTTON_SUBMIT": "Connection"
     },
     "TAB": {
       "DOMAINS": "Domains",

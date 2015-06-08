@@ -14,6 +14,9 @@ angular.module('linshareAdminApp')
           $scope._domain = null;
       });
 
+      $scope.getTemplate = function () {
+        return 'WELCOME_MESSAGE';
+      };
       $scope.add = function(welcomeMessage) {
         var modalInstance = $modal.open({
           controller: 'welcomeMessageModalCtrl',
