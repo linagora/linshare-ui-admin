@@ -226,7 +226,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'ng_components/{,*/}*.html'],
+          src: ['*.html', 'ng_components/{,*/}*.html', 'i18n/templates/*/*/*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -260,6 +260,7 @@ module.exports = function (grunt) {
             '*.json',
             'scripts/config.js',
             'i18n/{,*/}*.{js,json}',
+            'i18n/templates/*/*/*.html',
             'ng_components/{,**/}*.html',
             'images/{,*/}*.{webp,png}',
             'styles/AdminLTE/fonts/*',
