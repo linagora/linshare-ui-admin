@@ -806,7 +806,7 @@
         "PARAMETER_DESCRIPTION": ""
       },
       "UPLOAD_REQUEST_ENABLE_TEMPLATE": {
-        "NAME": "Deposit Invitation Templates",
+        "NAME": "Upload request templates",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
