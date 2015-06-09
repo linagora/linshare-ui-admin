@@ -74,10 +74,12 @@
               <br>
               <select name="rule1" class="form-control" required
                       x-ng-model="rule.field"
-                      x-ng-options="f as 'COMMON.ENUM.UPLOAD_PROPOSITION_RULE_TYPE.' + f | translate for f in fieldTypes | orderBy:'toString()'" />
+                      x-ng-options="f as 'COMMON.ENUM.UPLOAD_PROPOSITION_RULE_TYPE.' + f | translate for f in fieldTypes | orderBy:'toString()'" >
+              </select>
               <select name="rule2" class="form-control" required
                       x-ng-model="rule.operator"
-                      x-ng-options="o as 'COMMON.ENUM.UPLOAD_PROPOSITION_OPERATOR_TYPE.' + o | translate for o in operatorTypes | orderBy:'toString()'" />
+                      x-ng-options="o as 'COMMON.ENUM.UPLOAD_PROPOSITION_OPERATOR_TYPE.' + o | translate for o in operatorTypes | orderBy:'toString()'">
+              </select>
               <div class="form-group">
                 <input type="text" class="form-control" required
                        x-ng-model="rule.value">
@@ -99,9 +101,11 @@
           </label>
           <select name="action" id="action" class="form-control" required
                   x-ng-model="filter.uploadPropositionActions[0].action"
-                  x-ng-options="a as 'COMMON.ENUM.UPLOAD_PROPOSITION_ACTION_TYPE.' + a | translate for a in actionTypes | orderBy:'toString()'" />
+                  x-ng-options="a as 'COMMON.ENUM.UPLOAD_PROPOSITION_ACTION_TYPE.' + a | translate for a in actionTypes | orderBy:'toString()'">
+          </select>
         </div>
       </div>
+      <div class="clearfix"></div>
       <div class="box-footer">
         <!-- Validation -->
         <button id="delete" name="delete" type="button" class="btn btn-danger"
