@@ -788,6 +788,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('mailconfig.detail', {
         url: '/:domainId/detail/:id?language',
         views: {
+          'tree': domainTreeView,
           'detail': {
             templateUrl: 'ng_components/mailconfig/mailconfig_detail.tpl.html',
             controller: 'MailConfigDetailCtrl',
@@ -811,6 +812,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('mailconfig.mailcontentlang', {
         url: '/:domainId/mailcontentlang/:mailConfigId/:id',
         views: {
+          'tree': domainTreeView,
           'mailcontentlang': {
             templateUrl: 'ng_components/mailcontent/mailcontentlang_detail.tpl.html',
             controller: 'MailContentLangDetailCtrl',
