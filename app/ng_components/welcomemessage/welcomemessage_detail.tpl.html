@@ -101,7 +101,7 @@
               </label>
               <div class="input-group">
                 <div class="input-group-addon">
-                  <img src="/images/flag/{{key}}.svg" style="width:30px;" alt="{{ 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + key | translate }}" />
+                  <div class="flag {{key}}"></div>
                 </div>
                 <input type="text" class="form-control" x-ng-model="welcomeMessage.welcomeMessagesEntries[key]" value="msg" />
               </div><!-- /.input group -->
@@ -191,7 +191,7 @@
               </label>
               <div class="input-group">
                 <div class="input-group-addon">
-                  <img src="/images/flag/{{key}}.svg" style="width:30px;" alt="{{ 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + key | translate }}" />
+                  <div class="flag {{key}}"></div>
                 </div>
                 <input type="text" class="form-control" x-ng-model="welcomeMessage.welcomeMessagesEntries[key]" value="msg" disabled/>
               </div><!-- /.input group -->

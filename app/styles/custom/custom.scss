@@ -40,6 +40,28 @@ $orange: #f0ad4e;
     margin-right: 10px;
   }
 }
+.flag {
+  background-size: 100%;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 20px;
+}
+.CREOLE {
+  background-image: url('/images/flag/CREOLE.svg');
+}
+.DUTCH {
+  background-image: url('/images/flag/DUTCH.svg');
+}
+.ENGLISH {
+  background-image: url('/images/flag/ENGLISH.svg');
+}
+.FRENCH {
+  background-image: url('/images/flag/FRENCH.svg');
+}
+.VIETNAMESE {
+  background-image: url('/images/flag/VIETNAMESE.svg');
+}
 .boldOption {
   font-weight:bold;
 }
