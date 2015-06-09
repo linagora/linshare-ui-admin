@@ -173,8 +173,9 @@ module.exports = function (grunt) {
             '*.json',
             'scripts/config.js',
             'i18n/{,*/}*.{js,json}',
+            'i18n/templates/*/*/*.html',
             'ng_components/{,**/}*.html',
-            'images/{,*/}*.{webp,png}',
+            'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             'styles/AdminLTE/fonts/*',
             'styles/linshare/fonts/{,*/}*'
           ]
