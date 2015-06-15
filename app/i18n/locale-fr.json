@@ -995,10 +995,10 @@
       "GUESTS": {
         "NAME": "Invités",
         "USE_EXTENDED_DESCRIPTION" : "1",
-        "DESCRIPTION": "Les invités autorisés vous permettront de créer des comptes invités et des domaines invités.",
+        "DESCRIPTION": "Les invités vous permettront de créer des comptes invités. Attention les domaines invités doivent être créés au préalable.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "Une fois activée, vous pourrez créer des comptes et des domaines invités",
+        "ACTIVATION_POLICY": "Une fois activée, et le domaine invité créé, vos utilisateurs pourront alors créer des comptes invités.",
         "CONFIGURATION_POLICY": "",
         "DELEGATION_POLICY": "",
         "PARAMETER_NAME": "Paramètres",
@@ -1007,14 +1007,14 @@
       "GUESTS__EXPIRATION": {
         "NAME": "Expiration des comptes invités",
         "USE_EXTENDED_DESCRIPTION" : "1",
-        "DESCRIPTION": "Les comptes invités sont soumis à une date limite. Vous devez configurer un délai d’expiration pour ces derniers. La fonctionnalité « Invités autorisés » doit être activée pour l'invitation de dépôt.",
+        "DESCRIPTION": "Les comptes invités sont toujours soumis à une date d'expiration. Vous devez configurer un délai d’expiration pour ces derniers. Vous pouvez également autoriser les utilisateurs internes à personnaliser cette date d'expiration.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "En activant l'expiration des comptes invités vous pourrez choisir un délai d'expiration.",
         "CONFIGURATION_POLICY": "",
-        "DELEGATION_POLICY": "La délégation permettra à l'utilisateur lors de l'invitation d'un utilisateur externe de choisir un délai d'expiration pour le compte de l'invité.",
+        "DELEGATION_POLICY": "Cette politique vous permet de déléguer à l'utilisateur interne le droit de personnaliser la date d'expiration du compte invité lors de la création.",
         "PARAMETER_NAME": "Délai d'expiration du compte invité",
-        "PARAMETER_DESCRIPTION": ""
+        "PARAMETER_DESCRIPTION": "Cette valeur est la valeur par défaut ainsi que la valeur maximale."
       },
       "GUESTS__CAN_UPLOAD": {
         "NAME": "Envoi de fichiers",
