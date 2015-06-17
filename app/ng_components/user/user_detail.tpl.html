@@ -125,27 +125,6 @@
             </div>
           </div>
 
-          <!-- Restricted - Contact list -->
-          <div x-ng-if="user.restricted">
-            <div class="form-group"
-                 x-ng-repeat="contact in user.restrictedContacts">
-              <label for="contacts"
-                     x-ng-show="$first">
-                {{ 'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED_CONTACT_LIST' | translate }}
-              </label>
-              <div class="controls">
-                <div class="input-append">
-                  <input type="text" class="form-control" name="contacts"
-                         x-ng-model="contact" />
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-danger"
-                            x-ng-click="removeContact(user, $index)">
-                      <i class="icon-white icon-trash"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="form-group">
               <label for="contact">
                 {{ 'MANAGE_USERS.BOX_FORM.BUTTON_ADD_CONTACT' | translate }}
@@ -155,11 +134,11 @@
                   <input type="text" class="form-control" name="contact"
                          x-ng-model="selectedContact"
                          x-typeahead-min-length="3"
-                         x-typeahead-on-select="addContact(user, selectedContact)"
+                         x-typeahead-on-select="addContact(user, selectedContact.originalElement)"
                          x-typeahead-wait-ms="30"
                          x-typeahead-loading="searchingContact"
                          x-typeahead-input-formatter="angular.noop"
-                         x-typeahead="u as userRepresentation(u) for u in users($viewValue) | filter:$viewValue | limitTo:3" />
+                         x-typeahead="u as userRepresentation(u) for u in searchGuestRestrictedContacts($viewValue) | filter:$viewValue | limitTo:3"/>
                   <span class="add-on">
                     <i class="icon icon-plus"></i>
                   </span>
@@ -170,6 +149,26 @@
               </div>
             </div>
           </div>
+          <!-- Restricted - Contact list -->
+          <div x-ng-if="user.restricted">
+            <div class="form-group">
+              <label for="contacts"
+                     x-ng-show="user.restrictedContacts.length > 0">
+                {{ 'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED_CONTACT_LIST' | translate }}
+              </label>
+
+              <div class="controls">
+                <ul class="list-inline">
+                  <li style="border: 1px solid #AAA;" tooltip={{userRepresentation(contact)}}
+                      x-ng-repeat="contact in user.restrictedContacts">{{contact.lastName}}&nbsp;{{contact.firstName}}
+                    <span style="cursor: pointer;">
+                        <i class="glyphicon glyphicon-remove" style="color:#FF7162;"
+                           x-ng-click="removeContact(user, $index)"></i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
           <!-- Comment -->
           <div class="form-group">

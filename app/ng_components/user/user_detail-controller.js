@@ -20,9 +20,22 @@ angular.module('linshareAdminApp')
           user.restrictedContacts.splice(index, 1);
         };
         $scope.addContact = function(user, contact) {
-          if (!_.contains(user.restrictedContacts, contact.mail)) {
-            user.restrictedContacts.push(contact.mail);
+          var exists = false;
+          angular.forEach(user.restrictedContacts, function(elem) {
+            if(elem.mail == contact.mail && elem.domain == contact.domain){
+              exists = true;
+              $log.info('The contact ' + contact.mail + ' has already been added to that guest\'s restricted contacts');
+            }
+          });
+          if (!exists) {
+            user.restrictedContacts.push(contact);
           }
+        };
+        $scope.userRepresentation = function (u) {
+          return u.firstName.concat(" ", u.lastName, " ", u.mail, " ", u.domain);
+        };
+        $scope.searchGuestRestrictedContacts = function (pattern) {
+          return User.autocomplete(pattern);
         };
         $scope.cancel = function() {
           $state.go('user.list');
