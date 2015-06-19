@@ -159,6 +159,7 @@
     x-ng-if="!isRootDomain()">
   <div class="col-md-12">
     <button class="btn btn-danger" type="button"
+            x-ng-show="showResetToParent()"
             x-ng-click="resetToParent()">
       {{ 'FUNCTIONALITIES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
     </button>

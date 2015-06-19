@@ -33,6 +33,9 @@ angular.module('linshareAdminApp')
       $scope.showParameters = function() {
         return $scope.functionality.parentAllowParametersUpdate;
       };
+      $scope.showResetToParent = function() {
+        return ($scope.showParameters() || $scope.showDelegation() || $scope.showConfiguration() || $scope.showActivation());
+      };
       $scope.disableStatus = function(policyType) {
         if (policyType) {
           return policyType.policy !== 'ALLOWED';
