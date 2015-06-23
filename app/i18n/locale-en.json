@@ -1293,7 +1293,7 @@
       "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true" : "The recipient can delete files",
       "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false" : "The transmitter will not postpone the expiry date",
       "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true" : "The transmitter will postpone the expiry date",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false" : "L'accès Access to the invitation will not be protected by a password",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false" : "The Access to the invitation will not be protected by a password",
       "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true" : "Access to the invitation will be protected by a password",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false" : "An invitation will be created per recipient",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true" : "All recipients share the conditions of use of the invitation",
