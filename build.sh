@@ -53,6 +53,7 @@ fi
 mv -v dist ${l_dist}
 if [ "${l_mode}" == "dev" ] || [ "${l_mode}" == "dev-nomin" ] ; then
   sed -i -e 's/debug: true/debug: false/g' ${l_dist}/scripts/config.js
+  sed -i -e 's/version.*$/version": "'${l_version}-${l_git_uuid}'",/g' ${l_dist}/about.json
 fi
 
 tar cjf ${l_output} ${l_dist}
