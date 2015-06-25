@@ -1,12 +1,12 @@
  <script type="text/ng-template" id="ng-table/filters/active.html">
-    <input type="checkbox"  x-ng-checked="check.bool" x-ng-click="selectAll()" />
-    {{ 'COMMON.BASIC_FORM.' + check.label | translate }}
+    <input type="checkbox"  x-ng-checked="check.bool" x-ng-click="selectAll()" x-ng-show="!edit" />
+    <span x-ng-show="!edit">{{ 'COMMON.BASIC_FORM.' + check.label | translate }}</span>
     </br>
     {{ 'COMMON.BASIC_FORM.LABEL_FILTER' | translate }}
     <select ng-model="params.filter()[name]" name="filter-active" style="font-family: 'FontAwesome', 'Helvetica';width: 50%;margin-top: 10px;">
       <option value="">&#xf068; {{ 'COMMON.BASIC_FORM.LABEL_ALL' | translate }}</option>
-      <option x-ng-value="true">&#xf058; {{ 'WELCOME_MESSAGES.BOX_FORM.TABLE_ACTIVE' | translate }}</option>
-      <option x-ng-value="false">&#xf057; {{ 'WELCOME_MESSAGES.BOX_FORM.TABLE_INACTIVE' | translate }}</option>
+      <option value="true">&#xf058; {{ 'WELCOME_MESSAGES.BOX_FORM.TABLE_ACTIVE' | translate }}</option>
+      <option value="false">&#xf057; {{ 'WELCOME_MESSAGES.BOX_FORM.TABLE_INACTIVE' | translate }}</option>
     </select>
 </script>
 <script type="text/ng-template" id="ng-table/filters/text.html">
