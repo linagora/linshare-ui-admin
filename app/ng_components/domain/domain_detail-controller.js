@@ -2,11 +2,14 @@
 
 angular.module('linshareAdminApp')
   .controller('DomainDetailCtrl',
-    ['$rootScope', '$scope', '$log', '$modal', '$state', '$translate', 'Notification', 'selectOptions', 'currentDomain', 'authenticatedUser', 'Domain', 'DomainPolicy',
-    function($rootScope, $scope, $log, $modal, $state, $translate, Notification, selectOptions, currentDomain, authenticatedUser, Domain, DomainPolicy) {
+    ['$rootScope', '$scope', '$log', '$modal', '$state', '$translate', 'Notification', 'selectOptions', 'currentDomain', 'authenticatedUser', 'Domain', 'DomainPolicy', '_allWelcomeMessages',
+    function($rootScope, $scope, $log, $modal, $state, $translate, Notification, selectOptions, currentDomain, authenticatedUser, Domain, DomainPolicy, _allWelcomeMessages) {
       if (currentDomain) {
         $scope.ldapConnections = selectOptions.ldapConnectionIds;
-        $scope.welcomeMessages = selectOptions.welcomemessagesIds;
+        // To sort by 'name' with UnderscoreJs you'll need to convert the values in the same case
+        $scope.welcomeMessages = _.sortBy(_allWelcomeMessages, function(welcomeMessage){
+          return angular.lowercase(welcomeMessage.name);
+        });
         $scope.domainPatterns = selectOptions.domainPatternIds;
         $scope.domainPolicies = [];
         angular.forEach(selectOptions.domainPolicyIds, function(value, key) {
@@ -34,6 +37,9 @@ angular.module('linshareAdminApp')
           currentDomain = Domain.createSample(currentDomain.identifier, $state.params.domainType);
         }
         $scope.domain = currentDomain;
+        if (_.findIndex($scope.welcomeMessages, {uuid: $scope.domain.currentWelcomeMessages.uuid}) == -1){
+          $scope.welcomeMessages[$scope.domain.currentWelcomeMessages.uuid] = $scope.domain.currentWelcomeMessages.name;
+        }
         $scope.isSuperAdmin = authenticatedUser.role === 'SUPERADMIN';
         $scope.isRootDomain = currentDomain.type === 'ROOTDOMAIN';
         $scope.disableProvider = ($scope.isRootDomain || currentDomain.providers.length != 0);

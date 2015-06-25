@@ -492,10 +492,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             templateUrl: 'ng_components/domain/domain_detail.tpl.html',
             controller: 'DomainDetailCtrl',
             resolve: {
-              selectOptions: function(_allWelcomeMessages, _allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs, _allMimePolicies,  _enumRole, _enumLanguage, _enumSupportedLanguage) {
+              selectOptions: function(_allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs, _allMimePolicies,  _enumRole, _enumLanguage, _enumSupportedLanguage) {
 
                 return {
-                  welcomemessagesIds: _.object(_.pluck(_allWelcomeMessages, 'uuid'), _.pluck(_allWelcomeMessages, 'name')),
                   ldapConnectionIds: _.object(_.pluck(_allLdapConnections, 'uuid'), _.pluck(_allLdapConnections, 'label')),
                   domainPatternIds: _.object(_.pluck(_allDomainPatterns, 'uuid'), _.pluck(_allDomainPatterns, 'label')),
                   domainPolicyIds: _.pluck(_allDomainPolicies, 'identifier'),
@@ -513,8 +512,10 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                   return Domain.get($stateParams.domainId);
                 }
               },
-              _allWelcomeMessages: function(WelcomeMessage) {
-                return WelcomeMessage.getAll();
+              _allWelcomeMessages: function(WelcomeMessage, $stateParams) {
+                if ($stateParams.domainId) {
+                  return WelcomeMessage.getAll($stateParams.domainId, true);
+                }
               },
               _allLdapConnections: function(LdapConnection) {
                 return LdapConnection.getAll();

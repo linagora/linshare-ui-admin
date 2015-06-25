@@ -7,9 +7,10 @@ angular.module('linshareAdminApp')
       // var self = this;
       // Public API here
       return {
-        getAll: function(_domainId) {
+        getAll: function(_domainId, parent) {
           $log.debug('WelcomeMessages:getAll');
-          return Restangular.all('welcome_messages').getList({domainId: _domainId});
+          parent = parent || false;
+          return Restangular.all('welcome_messages').getList({domainId: _domainId, parent: parent});
         },
         get: function(id) {
           $log.debug('WelcomeMessages:get');

@@ -133,10 +133,10 @@
         <select id="currentWelcomeMessages" name="currentWelcomeMessages" class="form-control" required
                 x-ng-model="domain.currentWelcomeMessages.uuid">
           <option
-            x-ng-repeat="(key, val) in welcomeMessages"
-            x-ng-selected="domain.currentWelcomeMessages.uuid == key"
-            value="{{key}}">
-            {{val}}
+            x-ng-repeat="welcomemessage in welcomeMessages"
+            x-ng-selected="domain.currentWelcomeMessages.uuid == welcomemessage.uuid"
+            value="{{welcomemessage.uuid}}">
+            {{welcomemessage.name}} <i>({{welcomemessage.myDomain.identifier}})</i>
           </option>
         </select>
       </div>
