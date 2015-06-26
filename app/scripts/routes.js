@@ -284,18 +284,20 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           restrictedGuestStatus: function(_funcRestrictedGuest) {
             return _funcRestrictedGuest.activationPolicy.policy !== 'ALLOWED';
           },
-          selectOptions: function(_enumRole, _enumLanguage) {
+          selectOptions: function(_enumRole, _enumLanguage, _enumMailLanguage) {
             return {
               userRoles: _.remove(_enumRole, function(role) {
                 return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' && role !== 'UPLOAD_PROPOSITION';
               }),
-              selectEnumLanguage: _enumLanguage
+              selectEnumLanguage: _enumLanguage,
+              selectMailLanguage: _enumMailLanguage
             };
           },
           _funcAccountExpiration: funcAccountExpiration,
           _funcRestrictedGuest: funcRestrictedGuest,
           _enumRole: enumRole,
-          _enumLanguage: enumLanguage
+          _enumLanguage: enumLanguage,
+          _enumMailLanguage: enumMailLanguage
         },
         templateUrl: 'ng_components/user/user_detail.tpl.html',
         controller: 'UserDetailCtrl'
@@ -537,8 +539,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 }
               },
               _enumRole: enumRole,
-              _enumLanguage: enumMailLanguage,
-              _enumSupportedLanguage: enumLanguage
+              _enumLanguage: enumLanguage,
+              _enumSupportedLanguage: enumMailLanguage
             }
           }
         }

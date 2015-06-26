@@ -10,6 +10,7 @@ angular.module('linshareAdminApp')
         $scope.limit = maxExpiryDate;
         $scope.restrictedDisabled = restrictedGuestStatus;
         $scope.selectEnumLanguage = selectOptions.selectEnumLanguage;
+        $scope.selectMailLanguage = selectOptions.selectMailLanguage;
 
         $scope.open = function($event) {
           $event.preventDefault();

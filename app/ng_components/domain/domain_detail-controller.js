@@ -37,9 +37,6 @@ angular.module('linshareAdminApp')
           currentDomain = Domain.createSample(currentDomain.identifier, $state.params.domainType);
         }
         $scope.domain = currentDomain;
-        if (_.findIndex($scope.welcomeMessages, {uuid: $scope.domain.currentWelcomeMessages.uuid}) == -1){
-          $scope.welcomeMessages[$scope.domain.currentWelcomeMessages.uuid] = $scope.domain.currentWelcomeMessages.name;
-        }
         $scope.isSuperAdmin = authenticatedUser.role === 'SUPERADMIN';
         $scope.isRootDomain = currentDomain.type === 'ROOTDOMAIN';
         $scope.disableProvider = ($scope.isRootDomain || currentDomain.providers.length != 0);

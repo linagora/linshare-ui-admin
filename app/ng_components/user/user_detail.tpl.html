@@ -83,7 +83,7 @@
           <div class="controls">
             <select name="locale" id="locale" class="form-control"
                     x-ng-model="user.locale"
-                    x-ng-options="locale as 'COMMON.ENUM.LANGUAGE.' + locale | translate for locale in selectEnumLanguage">
+                    x-ng-options="locale as 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + locale | translate for locale in selectEnumLanguage">
             </select>
           </div>
         </div>
@@ -95,7 +95,7 @@
           <div class="controls">
             <select name="externalMailLocale" id="externalMailLocale" class="form-control"
                     x-ng-model="user.externalMailLocale"
-                    x-ng-options="locale as 'COMMON.ENUM.LANGUAGE.' + locale | translate for locale in selectEnumLanguage">
+                    x-ng-options="locale as 'COMMON.ENUM.LANGUAGE.' + locale | translate for locale in selectMailLanguage">
             </select>
           </div>
         </div>
