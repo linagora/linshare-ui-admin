@@ -108,7 +108,8 @@
         "13014": "Cet identifiant existe déjà pour un modèle de domaine.",
         "13017": "Cette connexion LDAP ne peut pas être supprimée, elle est utilisée par un domaine",
         "13018": "Ce modèle de domaine ne peut pas être supprimé, il est utilisé par un domaine",
-        "14000": "Functionality entity out of date",
+        "14000": "La fonctionnalité n'a pas été trouvé. Elle n'est peut être pas présente dans le domaine séléctionné",
+        "14004": "La fonctionnalité n'a pas été trouvé. Elle n'est peut être pas présente dans le domaine séléctionné",
         "15000": "Relay host désactivé",
         "15666": "XSS filter scan echec",
         "16000": "Annuaire introuvable",
@@ -435,7 +436,7 @@
   },
 
   "LDAP_CONNECTIONS": {
-    "TITLE": "Gérer les connexions LDAP",
+    "TITLE": "Gestion des connexions LDAP",
     "BOX_LIST": {
       "TITLE": "Liste des connexions LDAP",
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
@@ -586,7 +587,7 @@
   },
 
   "DOMAIN_ORDER": {
-    "TITLE": "Modifié l'ordre de connexion aux domaines",
+    "TITLE": "Modifier l'ordre des connexions aux domaines",
     "BOX_LIST": {
       "TITLE": "Ordre de présentation des domaines lors de l'authentification",
       "TABLE": {
@@ -1777,7 +1778,7 @@
     }
   },
   "UPLOAD_PROPOSITION_FILTER": {
-    "TITLE": "Filtre de demande d'invitation de partage",
+    "TITLE": "Filtres de demande d'invitation de partage",
     "BOX_FORM": {
       "TITLE": "Formulaire de filtre",
       "BUTTON_LIST": "Liste des filtres",
