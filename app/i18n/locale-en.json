@@ -1026,7 +1026,7 @@
         "PARAMETER_DESCRIPTION": ""
       },
       "GUESTS__EXPIRATION": {
-        "NAME": "Account expiration",
+        "NAME": "Expiration",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
@@ -1038,7 +1038,7 @@
         "PARAMETER_DESCRIPTION": ""
       },
       "GUESTS__CAN_UPLOAD": {
-        "NAME": "Guest can upload",
+        "NAME": "Upload right",
         "USE_EXTENDED_DESCRIPTION" : "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
@@ -1050,9 +1050,9 @@
         "PARAMETER_DESCRIPTION": ""
       },
       "GUESTS__RESTRICTED": {
-        "NAME": "Restricted guest",
-        "USE_EXTENDED_DESCRIPTION" : "0",
-        "DESCRIPTION": "",
+        "NAME": "Contacts restriction",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "You can restrict guests to share only with a restricted and personnal list of emails. By default, the guest will be restricted to his owner.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "",
@@ -1062,9 +1062,9 @@
         "PARAMETER_DESCRIPTION": ""
       },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
-        "NAME": "Authorize the extension of the expiration date of the guests",
-        "USE_EXTENDED_DESCRIPTION" : "0",
-        "DESCRIPTION": "",
+        "NAME": "Postpone guest expiry date",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Allow internal users to edit and postpone the expiry date of a guest",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "",
@@ -1279,10 +1279,10 @@
       }
     },
     "PARAMETERS": {
-      "GUESTS__RESTRICTED__BOOLEAN_false" : "The guest will not be restricted when being created.",
-      "GUESTS__RESTRICTED__BOOLEAN_true" : "The guest will be restricted by default when being created.",
-      "GUESTS__CAN_UPLOAD__BOOLEAN_false" : "The guest will not have the deposit rights by default.",
-      "GUESTS__CAN_UPLOAD__BOOLEAN_true" : "The guest will have the deposit rights by default.",
+      "GUESTS__RESTRICTED__BOOLEAN_false" : "The guest will not be restricted.",
+      "GUESTS__RESTRICTED__BOOLEAN_true" : "The guest will be restricted to a list of emails.",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_false" : "The guest will not have the deposit right by default.",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_true" : "The guest will have the deposit right by default.",
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_false" : "The user can not extend the expiration date of a guest.",
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_true" : "The user can extend the expiration date of a guest.",
       "ANONYMOUS_URL__BOOLEAN_false" : "The anonymous shares will not be secured by a password when created.",

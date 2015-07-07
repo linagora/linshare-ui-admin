@@ -1032,9 +1032,9 @@
         "PARAMETER_DESCRIPTION": ""
       },
       "GUESTS__RESTRICTED": {
-        "NAME": "Restreindre les contacts invités",
+        "NAME": "Restriction de contacts",
         "USE_EXTENDED_DESCRIPTION" : "1",
-        "DESCRIPTION": "Vous pouvez restreindre les invités a leur créateur, ceci implique que seul son créateur pourra partager des fichiers avec l'invité. Chaque utilisateur devra invité l'utilisateur externe afin de partager des documents.",
+        "DESCRIPTION": "Vous pouvez restreindre les invités à partager avec une liste restreinte de contacts. Cette liste est personnelle, par défault elle est initialisé avec l'adresse de courriel du créateur de l'invité",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "En activant la restriction des contacts invités, lors de la création vous pourrez choisir la mention 'obligatoire' pour restreindre le nouvel invité.",
@@ -1254,14 +1254,14 @@
       }
     },
     "PARAMETERS": {
-      "GUESTS__RESTRICTED__BOOLEAN_false" : "L'utilisateur ne sera pas restreint à son créateur par défaut dans le formulaire de création.",
-      "GUESTS__RESTRICTED__BOOLEAN_true" : "L'utilisateur sera restreint à son créateur par défaut dans le formulaire de création.",
-      "GUESTS__CAN_UPLOAD__BOOLEAN_false" : "L'utilisateur n'aura pas les droits de dépôt par défaut dans le formulaire de création.",
-      "GUESTS__CAN_UPLOAD__BOOLEAN_true" : "L'utilisateur aura les droits de dépôt par défaut dans le formulaire de création.",
+      "GUESTS__RESTRICTED__BOOLEAN_false" : "L'utilisateur ne sera pas restreint.",
+      "GUESTS__RESTRICTED__BOOLEAN_true" : "L'utilisateur sera restreint à communiquer avec une liste de contacts.",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_false" : "L'utilisateur n'aura pas le droit de dépôt par défaut (formulaire de création).",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_true" : "L'utilisateur aura le droit de dépôt par défaut (formulaire de création).",
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_false" : "L'utilisateur ne pourra pas prolonger la date d'expiration d'un invité.",
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_true" : "L'utilisateur pourra prolonger la date d'expiration d'un invité.",
-      "ANONYMOUS_URL__BOOLEAN_false" : "Les partages anonymes ne seront pas sécurisés par un mot de passe lors de leur création.",
-      "ANONYMOUS_URL__BOOLEAN_true" : "Les partages anonymes seront sécurisés par un mot de passe lors de leur création.",
+      "ANONYMOUS_URL__BOOLEAN_false" : "Les partages anonymes ne seront pas sécurisés par un mot de passe.",
+      "ANONYMOUS_URL__BOOLEAN_true" : "Les partages anonymes seront sécurisés par un mot de passe.",
       "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_false" : "Le document ne sera pas supprimé lors de l'expiration du dernier partage.",
       "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_true" : "Le document sera supprimé lors de l'expiration du dernier partage.",
       "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_false" : "Le destinataire ne pourra pas clôturer l'invitation de dépôt.",
