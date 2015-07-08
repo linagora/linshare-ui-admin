@@ -640,7 +640,7 @@
     "NO_DATA": "No information available",
     "BOX_LIST": {
       "TABLE": {
-        "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_FORM.LABEL_STATUS",
+        "HEADER_STATUS": "State",
         "HEADER_NAME": "Functionality name"
       }
     },
@@ -661,7 +661,8 @@
       "VIEW_SIMPLE": "Simple",
       "VIEW_ADVANCED": "Advanced",
       "FORM_ACTIONS": {
-        "BUTTON_RESET": "Reset to parent value"
+        "BUTTON_RESET": "Reset to parent value",
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
       }
     },
     "DETAILS": {

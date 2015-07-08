@@ -641,12 +641,12 @@
   "FUNCTIONALITIES": {
     "TITLE": "Gestion des fonctionnalités",
     "MORE": "En savoir plus",
-    "LESS": "fermer",
+    "LESS": "Fermer",
     "HELP": "Cliquer pour avoir plus d'informations",
-    "NO_DATA": "Pas d'informations disponible",
+    "NO_DATA": "Aucune information disponible",
     "BOX_LIST": {
       "TABLE": {
-        "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_FORM.LABEL_STATUS",
+        "HEADER_STATUS": "Etat",
         "HEADER_NAME": "Nom de la fonctionnalité"
       }
     },
@@ -667,7 +667,8 @@
       "VIEW_SIMPLE": "Simple",
       "VIEW_ADVANCED": "Avancé",
       "FORM_ACTIONS": {
-        "BUTTON_RESET": "Réinitialiser à la valeur parente"
+        "BUTTON_RESET": "Réinitialiser à la valeur parente",
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
       }
     },
     "DETAILS": {
