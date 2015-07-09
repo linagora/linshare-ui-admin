@@ -152,7 +152,15 @@ body {
 .txtalign-left {
   text-align: left;
 }
-
+.skin-black .motto {
+  width: 100%;
+  text-align: left;
+}
+.navbar-title {
+  .motto{
+    text-align: center;
+  }
+}
 .skin-black .navbar {
   background-color: $blue;
 }

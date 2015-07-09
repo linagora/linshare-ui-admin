@@ -6,12 +6,13 @@ angular.module('linshareAdminApp').directive('lsNavbar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$rootScope', '$scope', '$log', '$translate', 'tmhDynamicLocale', 'Authentication',
-        function($rootScope, $scope, $log, $translate, tmhDynamicLocale, Authentication) {
+      controller: ['$rootScope', '$scope', '$log', '$translate', 'tmhDynamicLocale', 'Authentication', 'lsAppConfig',
+        function($rootScope, $scope, $log, $translate, tmhDynamicLocale, Authentication, lsAppConfig) {
           Authentication.getCurrentUser().then(function(user) {
             $scope.userLogged = user;
             $scope.isSuperAdmin = Authentication.isSuperAdmin(user);
           });
+          $scope.license = lsAppConfig.license;
           $scope.setLanguage = function(value) {
             $translate.use(value);
           };

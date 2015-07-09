@@ -1,8 +1,11 @@
-<div class="navbar-left">
-  <span class="motto">Libre &amp; free</span>
+<div class="col-md-2">
+  <span class="motto" x-ng-show="license">Libre &amp; free</span>
 </div>
-<div class="navbar-right">
-  <ul class="nav navbar-nav">
+<div class="col-md-8 navbar-title">
+  <span class="motto">{{ 'COMMON.TITLE' | translate }}</span>
+</div>
+<div class="col-md-2">
+  <ul class="nav navbar-nav navbar-right">
     <li class="">
       <a x-ui-sref="dashboard" class="dropdown-toggle">
         <i class="fa fa-home"></i>

@@ -1,5 +1,6 @@
 {
   "COMMON": {
+  "TITLE": "Interface d'administration LinShare",
   "NAME": "LinShare",
     "BASIC_FORM": {
       "TITLE_CREATION": "Création",

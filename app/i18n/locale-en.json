@@ -1,6 +1,7 @@
 {
   "COMMON": {
     "NAME": "LinShare",
+    "TITLE": "LinShare administration interface",
     "BASIC_FORM": {
       "TITLE_CREATION": "Creation",
       "LABEL_IDENTIFIER": "Identifier",
