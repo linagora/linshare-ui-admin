@@ -6,7 +6,7 @@
     Cette fonctionnalité permet à un utilisateur de protéger un fichier par un mot de passe.
 	</p>
 </div>
-<div collapse="!functionality.collapse.showDsec">
+<div collapse="!isCollapse">
 	<p>
     Les opérations de chiffrement et de déchiffrement sont réalisées sur le serveur, sans pré-requis de la part du poste client.
     Une applet et des clients lourds sont disponibles pour réaliser ces traitements sur le poste du client.
@@ -37,4 +37,4 @@
 	</p>
   </br>
 </div>
-<i class="fa fa-fw btn-description pull-right" ng-click="functionality.collapse.showDsec = !functionality.collapse.showDsec" ng-class="{'fa-plus': !functionality.collapse.showDsec, 'fa-minus': functionality.collapse.showDsec}"></i>
+<i class="fa fa-fw btn-description pull-right" ng-click="seeContent()" ng-class="{'fa-plus': !isCollapse, 'fa-minus': isCollapse}" tooltip="{{'FUNCTIONALITIES.' + contentStatus | translate}}"></i>

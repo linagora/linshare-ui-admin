@@ -16,8 +16,10 @@
             <a x-ui-sref="functionality.detail({id: functionality.identifier, domainId: functionality.domain, view: view})">
               <span>
                 <i class="fa fa-check-circle" style="color: green"
+                tooltip="{{ 'COMMON.BASIC_FORM.LABEL_ACTIVE' | translate }}"
                  x-ng-show="isActivated(functionality)"></i>
                 <i class="fa fa-times-circle" style="color: red"
+                  tooltip="{{ 'COMMON.BASIC_FORM.LABEL_INACTIVE' | translate }}"
                  x-ng-show="!isActivated(functionality)"></i>
               </span>
             </a>

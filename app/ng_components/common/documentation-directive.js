@@ -10,8 +10,10 @@ angular.module('linshareAdminApp')
     var linker = function (scope) {
 
       scope.isCollapse  = false;
-      scope.collapse = function(){
+      scope.contentStatus  = 'CST_MORE';
+      scope.seeContent  = function (){
         scope.isCollapse = !scope.isCollapse;
+        scope.contentStatus = (scope.isCollapse) ? 'CST_LESS' : 'CST_MORE';
       };
       scope.template    = getTemplate(scope.functionalityDetail.identifier);
       scope.extendedTemplate = '0';

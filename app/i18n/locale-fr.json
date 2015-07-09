@@ -1,6 +1,6 @@
 {
   "COMMON": {
-  "TITLE": "Interface d'administration LinShare",
+  "TITLE": "Interface d'administration de LinShare",
   "NAME": "LinShare",
     "BASIC_FORM": {
       "TITLE_CREATION": "Création",
@@ -20,7 +20,7 @@
       "BUTTON_LIST": "Liste",
       "BUTTON_CANCEL": "Annuler",
       "BUTTON_DELETE": "Supprimer",
-      "BUTTON_CLOSE": "Fermer",
+      "BUTTON_CLOSE": "Retour à la liste",
       "BUTTON_RESET": "Réinitialiser",
       "BUTTON_CREATE": "Créer",
       "BUTTON_ADD": "Ajouter",
@@ -641,8 +641,8 @@
 
   "FUNCTIONALITIES": {
     "TITLE": "Gestion des fonctionnalités",
-    "MORE": "En savoir plus",
-    "LESS": "Fermer",
+    "CST_MORE": "Plus de détails",
+    "CST_LESS": "Moins de détails",
     "HELP": "Cliquer pour avoir plus d'informations",
     "NO_DATA": "Aucune information disponible",
     "BOX_LIST": {
@@ -657,6 +657,7 @@
       "LEGEND_CONFIGURATION_POLICY": "Politique de configuration",
       "LEGEND_DELEGATION_POLICY": "Politique de délégation",
       "LEGEND_PARAMETERS": "Paramètres",
+      "LEGEND_ENABLE_NOTVISIBLE": "Attention, présence d'un paramétrage non visible dans la vue avancée.",
       "LEGEND_ENABLE": "Attention, ce boutton changera vos parametres avancés",
       "RADIO_FORBIDDEN": "Interdit",
       "RADIO_ALLOWED": "Autorisé",

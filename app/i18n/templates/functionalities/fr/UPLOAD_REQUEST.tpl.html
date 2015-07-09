@@ -2,7 +2,7 @@
 <p>
 Une invitation de dépôt est l'ouverture temporaire et réglementée pour un utilisateur externe, de déposer des fichiers dans l'espace personnel d'un utilisateur interne au système.
 </p>
-<div collapse="!functionality.collapse.showDsec">
+<div collapse="!isCollapse">
 <p>
   Déroulement fonctionnel d'une invitation de dépôt :
 <p>
@@ -14,4 +14,4 @@ Une invitation de dépôt est l'ouverture temporaire et réglementée pour un ut
 <li>L'invitation de dépôt se termine lorsque sa date d'expiration est atteinte (à 0H00), ou par une action manuelle de l'émetteur ou du destinataire, selon la configuration de l'invitation.</li>
 </ol>
 </div>
-<i class="fa fa-fw btn-description pull-right" ng-click="functionality.collapse.showDsec = !functionality.collapse.showDsec" ng-class="{'fa-plus': !functionality.collapse.showDsec, 'fa-minus': functionality.collapse.showDsec}"></i>
+<i class="fa fa-fw btn-description pull-right" ng-click="seeContent()" ng-class="{'fa-plus': !isCollapse, 'fa-minus': isCollapse}" tooltip="{{'FUNCTIONALITIES.' + contentStatus | translate}}"></i>

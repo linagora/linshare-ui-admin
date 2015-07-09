@@ -20,7 +20,7 @@
       "BUTTON_LIST": "List",
       "BUTTON_CANCEL": "Cancel",
       "BUTTON_DELETE": "Delete",
-      "BUTTON_CLOSE": "Close",
+      "BUTTON_CLOSE": "Go to the list",
       "BUTTON_RESET": "Reset",
       "BUTTON_CREATE": "Create",
       "BUTTON_ADD": "Add",
@@ -635,8 +635,8 @@
 
   "FUNCTIONALITIES": {
     "TITLE": "Functionality management",
-    "MORE": "More",
-    "LESS": "Less",
+    "CST_MORE": "More informations",
+    "CST_LESS": "Less informations",
     "HELP": "Click to show some help",
     "NO_DATA": "No information available",
     "BOX_LIST": {
@@ -651,6 +651,7 @@
       "LEGEND_CONFIGURATION_POLICY": "Configuration policy",
       "LEGEND_DELEGATION_POLICY": "Delegation policy",
       "LEGEND_PARAMETERS": "Parameters",
+      "LEGEND_ENABLE_NOTVISIBLE": "Warning some hidden parameters defined in the advanced view.",
       "LEGEND_ENABLE": "Warning, this button will be change your advanced parameters",
       "RADIO_FORBIDDEN": "Forbidden",
       "RADIO_ALLOWED": "Allowed",
@@ -669,9 +670,9 @@
     "DETAILS": {
       "UPLOAD_REQUEST": {
         "NAME": "Upload request",
-        "USE_EXTENDED_DESCRIPTION" : "2",
-        "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec commodo quam, nec pulvinar tellus.  Nam nec commodo quam, nec pulvinar tellus. Morbi pulvinar venenatis mauris eu faucibus. Morbi elementum, libero sit amet interdum venenatis, ante libero rutrum metus, id finibus ligula dui ac orci.",
-        "ADVANCED_DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec commodo quam, nec pulvinar tellus. Morbi pulvinar venenatis mauris eu faucibus. Morbi elementum, libero sit amet interdum venenatis, ante libero rutrum metus, id finibus ligula dui ac orci. Donec id risus lacus. Donec dignissim convallis consequat. Vivamus sed rutrum velit. Integer magna nulla, sodales vitae finibus egestas, aliquam sit amet libero. Sed eget elementum massa. Ut nec vestibulum mi, at egestas ante. Mauris finibus vulputate ante vitae tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "USE_EXTENDED_DESCRIPTION" : "3",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "",
         "DELEGATION_POLICY": "",

@@ -15,7 +15,6 @@ $orange: #f0ad4e;
 .grey {
   color: $darkGrey;
 }
-
 .boldOption {
   font-weight:bold;
 }
@@ -30,10 +29,6 @@ $orange: #f0ad4e;
   margin-top: 10px;
   i.fa-info {
     color: $lightBlack;
-    cursor: pointer;
-    &:hover, &:active {
-      color: $darkGrey;
-    }
   }
   i.fa-info.pull-left {
     line-height: 23px;
@@ -157,7 +152,11 @@ body {
   text-align: left;
 }
 .navbar-title {
-  .motto{
+  h3 {
+    font-size: 22px;
+    line-height: 50px;
+    color: #F9F9F9;
+    margin: 0px;
     text-align: center;
   }
 }
@@ -369,9 +368,7 @@ a.clear-btn, button.clear-btn {
 }
 
 #functionality_details {
-  // position: fixed;
-  // width: 55%;
-  top: 0px;
+  top: 20px;
   .fa-times {
     color: $red;
   }
@@ -426,6 +423,10 @@ a.clear-btn, button.clear-btn {
     .description {
       margin-bottom: 10px;
       margin-top: 0px;
+    }
+    .warning-enable {
+      color: $pink;
+      margin-bottom: 20px;
     }
   }
   #functionality_description {

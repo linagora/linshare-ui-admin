@@ -10,7 +10,7 @@
 		L'émetteur est notifié dans le cas où le destinataire clôture l'invitation.
 	</p>
 </div>
-<div collapse="!functionality.collapse.showDsec">
+<div collapse="!isCollapse">
 	<ul>
 		<li>Statut de l'invitation : en attente d'activation</li>
 		<li>Interface utilisateur : liste des invitations de dépôt (IHM_0301)</li>
@@ -42,5 +42,6 @@
 	<li>liste des invitations de dépôt (IHM_0301)</li>
 	</ul>
 </li>
+</ul>
 </div>
-<i class="fa fa-fw btn-description pull-right" ng-click="functionality.collapse.showDsec = !functionality.collapse.showDsec" ng-class="{'fa-plus': !functionality.collapse.showDsec, 'fa-minus': functionality.collapse.showDsec}"></i>
+<i class="fa fa-fw btn-description pull-right" ng-click="seeContent()" ng-class="{'fa-plus': !isCollapse, 'fa-minus': isCollapse}" tooltip="{{'FUNCTIONALITIES.' + contentStatus | translate}}"></i>

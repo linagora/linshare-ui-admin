@@ -12,7 +12,7 @@ angular.module('linshareAdminApp')
         $scope.childrenFunctionality = childrenFunctionality;
         $scope.domain = currentDomain;
 
-        var bodyHeight = ($window.innerHeight - 250);
+        var bodyHeight = ($window.innerHeight - 270);
         $scope.height = ( bodyHeight > 400 ) ? bodyHeight : 400 ;
     }]
   );
