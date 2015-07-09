@@ -5,7 +5,14 @@ angular.module('linshareAdminApp')
     ['$rootScope', '$scope', '$log', '$modal', '$state', '$translate', 'Notification', 'selectOptions', 'currentDomain', 'authenticatedUser', 'Domain', 'DomainPolicy', '_allWelcomeMessages',
     function($rootScope, $scope, $log, $modal, $state, $translate, Notification, selectOptions, currentDomain, authenticatedUser, Domain, DomainPolicy, _allWelcomeMessages) {
       if (currentDomain) {
+        $scope.state = $state.params.formState;
         $scope.ldapConnections = selectOptions.ldapConnectionIds;
+        $scope.domainPolicy = false;
+        $scope.mailConfigs = selectOptions.mailConfigs;
+        $scope.mimePolicies = selectOptions.mimePolicies;
+        $scope.userRoles = selectOptions.userRoles;
+        $scope.languages = selectOptions.languages;
+        $scope.supportedLanguages = selectOptions.supportedLanguages;
         // To sort by 'name' with UnderscoreJs you'll need to convert the values in the same case
         $scope.welcomeMessages = _.sortBy(_allWelcomeMessages, function(welcomeMessage){
           return angular.lowercase(welcomeMessage.name);
@@ -15,25 +22,18 @@ angular.module('linshareAdminApp')
         angular.forEach(selectOptions.domainPolicyIds, function(value, key) {
           this.push({value: value, name: value});
         }, $scope.domainPolicies);
-        $scope.domainPolicies.splice(0, 0, {value:'cb621f5f-e5cd-42e7-b704-1f5b46fe50da', name: 'SELECT_OPTION_POLICY'});
-        $translate('MANAGE_DOMAINS.CREATE_FORM.SELECT_OPTION_POLICY')
-          .then(function (translatedValue) {
-              $scope.domainPolicies[0].name = translatedValue;
-        });
-        $rootScope.$on('$translateChangeSuccess', function() {
+        if ($scope.state === 'create') {
+          $scope.domainPolicies.splice(0, 0, {value:'cb621f5f-e5cd-42e7-b704-1f5b46fe50da', name: 'SELECT_OPTION_POLICY'});
           $translate('MANAGE_DOMAINS.CREATE_FORM.SELECT_OPTION_POLICY')
             .then(function (translatedValue) {
                 $scope.domainPolicies[0].name = translatedValue;
           });
-        });
-        $scope.domainPolicy = false;
-        $scope.mailConfigs = selectOptions.mailConfigs;
-        $scope.mimePolicies = selectOptions.mimePolicies;
-        $scope.userRoles = selectOptions.userRoles;
-        $scope.languages = selectOptions.languages;
-        $scope.supportedLanguages = selectOptions.supportedLanguages;
-        $scope.state = $state.params.formState;
-        if ($scope.state === 'create') {
+          $rootScope.$on('$translateChangeSuccess', function() {
+            $translate('MANAGE_DOMAINS.CREATE_FORM.SELECT_OPTION_POLICY')
+              .then(function (translatedValue) {
+                  $scope.domainPolicies[0].name = translatedValue;
+            });
+          });
           currentDomain = Domain.createSample(currentDomain.identifier, $state.params.domainType);
         }
         $scope.domain = currentDomain;
