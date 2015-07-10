@@ -1,6 +1,6 @@
 <div id="functionality_renderer_simple" class="col-md-12">
   <div class="row"  x-ng-if="!showActivation() && functionality.configurationPolicy.policy != 'ALLOWED'">
-    <div class="col-md-10 warning-enable">
+    <div class="col-md-10 warning-enable" x-ng-if="showParameters()">
       {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_ENABLE_NOTVISIBLE' | translate }}
     </div>
   </div>
@@ -57,6 +57,7 @@
 </div>
 </form>
 <div class="clearfix"></div>
+</div>
 </div>
 <div class="form-group" x-ng-if="showParameters()">
   <form>
@@ -168,7 +169,6 @@ x-ng-if="!isRootDomain()">
   x-ng-click="resetToParent()">
   {{ 'FUNCTIONALITIES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
 </button>
-</div>
 </div>
 </div>
 </div>
