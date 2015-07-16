@@ -38,7 +38,7 @@
               sortable="'mailContentType'">
             <a x-ui-sref="mailcontent.detail({id: mailContent.uuid, domainId: mailContent.domain, language: filters.language})">
               <span>
-                {{ 'COMMON.ENUM.MAIL_CONTENT_TYPE.' + mailContent.mailContentType | translate }}
+                {{ mailContent.mailContentType }}
               </span>
             </a>
           </td>
