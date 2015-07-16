@@ -1,5 +1,7 @@
 angular.module('linshareAdminApp').constant('lsAppConfig', {
   backendURL: 'linshare',
-  license: true, // true / false to show / hide the lincense footer
+  logoURL: undefined,
+  // The licence cannot be disabled without Linagora consent
+  license: true, // true to show / false to hide the license footer
   debug: true
 });
