@@ -219,7 +219,12 @@ module.exports = function (grunt) {
       dist: {
         options: {
           collapseWhitespace: true,
-          collapseBooleanAttributes: true,
+          // It's used to minimized attribute value
+          // For example : <input disabled="disabled">, we can simply write—<input disabled>
+          // More info : http://perfectionkills.com/experimenting-with-html-minifier/#collapse_boolean_attributes
+          // It's changed to false in order to resolve the sorting table issue after grunt build
+          // More info : https://github.com/esvit/ng-table/issues/230
+          collapseBooleanAttributes: false,
           removeCommentsFromCDATA: true,
           removeOptionalTags: true
         },

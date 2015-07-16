@@ -46,8 +46,11 @@ angular.module('linshareAdminApp')
             $scope.criteria.targetMails = undefined;
           }
           Audit.query($scope.criteria).then(function(logs) {
+            var filteredData = params.filter() ?
+                        $filter('filter')(logs, params.filter()) : logs;
+
             var orderedData = params.sorting() ?
-                                $filter('orderBy')(logs, params.orderBy()) :
+                                $filter('orderBy')(filteredData, params.orderBy()) :
                                 logs;
             params.total(orderedData.length);
             $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));

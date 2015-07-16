@@ -157,7 +157,7 @@
     <div class="row">
       <div class="col-md-12">
         <table class="table table-striped"
-               x-ng-table="tableParams">
+               x-ng-table="tableParams" show-filter="true">
           <tr x-ng-repeat="result in $data" class="not-linked">
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_DATE' | translate"
                 sortable="'actionDate'">
@@ -168,11 +168,11 @@
               {{ 'COMMON.ENUM.LOG_ACTION.' + result.logAction | translate }}
             </td>
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_ACTOR_EMAIL' | translate"
-                sortable="'actorMail'">
+                sortable="'actorMail'" filter="{ 'actorMail': 'text' }">
               {{ result.actorMail }}
             </td>
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_TARGET_EMAIL' | translate"
-                sortable="'targetMail'">
+                sortable="'targetMail'" filter="{ 'targetMail': 'text' }">
               {{ result.targetMail }}
             </td>
             <td data-title="'AUDIT.BOX_FORM.TABLE.HEADER_FILE_NAME' | translate"
