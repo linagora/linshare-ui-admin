@@ -27,7 +27,8 @@
       "BUTTON_EDIT": "Edit",
       "BUTTON_SHOW": "Show",
       "BUTTON_DUPLICATE": "Duplicate",
-      "BUTTON_SUBMIT": "Save"
+      "BUTTON_SUBMIT": "Save",
+      "BUTTON_SEARCH": "Search"
     },
     "BASIC_CONFIRMATION_FORM": {
       "TITLE": "Confirmation",

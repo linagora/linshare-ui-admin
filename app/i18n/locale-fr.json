@@ -27,7 +27,8 @@
       "BUTTON_EDIT": "Modifier",
       "BUTTON_SHOW": "Aperçu",
       "BUTTON_DUPLICATE": "Dupliquer",
-      "BUTTON_SUBMIT": "Sauvegarder"
+      "BUTTON_SUBMIT": "Sauvegarder",
+      "BUTTON_SEARCH": "Rechercher"
     },
     "BASIC_CONFIRMATION_FORM": {
       "TITLE": "Confirmation",
@@ -354,7 +355,7 @@
       "UPLOAD_PROPOSITION_ACTION_TYPE": {
         "ACCEPT": "Accepter l'invitation",
         "MANUAL": "Ne rien faire (traitement manuel par le destinataire)",
-        "REJECT": "Rejecter l'invitation"
+        "REJECT": "Rejeter l'invitation"
       }
     }
   },
