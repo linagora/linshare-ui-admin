@@ -1157,12 +1157,12 @@
         "PARAMETER_DESCRIPTION": ""
       },
       "UPDATE_FILE": {
-        "NAME": "Dépôt de fichier",
-        "USE_EXTENDED_DESCRIPTION" : "0",
-        "DESCRIPTION": "",
+        "NAME": "Mise à jour de fichier",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette fonctionnalité vous permet d'autoriser la mise à jour d'un fichier. L'intérêt premier est la mise à jour d'un fichier déjà partagé. Les destinataires recevront une notification pour les avertir que le document précédemment partagé a été mis à jour.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "En activant le dépôt de fichiers les utilisateurs pourront envoyer des fichiers.",
+        "ACTIVATION_POLICY": "",
         "CONFIGURATION_POLICY": "",
         "DELEGATION_POLICY": "",
         "PARAMETER_NAME": "Paramètres",

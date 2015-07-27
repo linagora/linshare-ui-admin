@@ -109,7 +109,9 @@
               <div class="col-sm-6">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="{{ 'AUDIT.BOX_FORM.DATE.PLACEHOLDER_FROM' | translate }}"
-                         datepicker-popup="medium"
+                         datepicker-popup="dd-MMMM-yyyy"
+                         ng-readonly="true"
+                         date-disabled="disabled(date, mode)"
                          show-button-bar="false"
                          is-open="opened.from"
                          max-date="criteria.afterDate"
@@ -125,7 +127,9 @@
               <div class="col-sm-6">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="{{ 'AUDIT.BOX_FORM.DATE.PLACEHOLDER_TO' | translate }}"
-                         datepicker-popup="medium"
+                         datepicker-popup="dd-MMMM-yyyy"
+                         ng-readonly="true"
+                         date-disabled="disabled(date, mode)"
                          show-button-bar="false"
                          is-open="opened.to"
                          min-date="criteria.beforeDate"
