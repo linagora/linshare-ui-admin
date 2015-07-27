@@ -1,6 +1,21 @@
+$pink: #D70075;
+$darkPink: #ca195a;
+$blue: #0372B3;
+$darkBlue: #015A8F;
+$red: #EE0037;
+$green: #00A114;
+$beige: #F4F4F4;
+$black: #444;
+$lightBlack: #555;
+$grey: #ddd;
+$darkGrey: #999;
+$lightGrey: #EFEFEF;
+$orange: #f0ad4e;
+
 /* Override skin-black by skin-black for navbar */
 .skin-black .navbar {
-  background-color: #3c8dbc;
+  // background-color: #3c8dbc;
+  background-color: $blue;
 }
 .skin-black .navbar .nav a {
   color: rgba(255, 255, 255, 0.8);

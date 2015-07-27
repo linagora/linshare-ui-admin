@@ -13,7 +13,7 @@ $lightGrey: #EFEFEF;
 $orange: #f0ad4e;
 
 .grey {
-  color: $darkGrey;
+  color: #999;
 }
 .boldOption {
   font-weight:bold;
@@ -23,7 +23,7 @@ $orange: #f0ad4e;
 */
 @mixin legend {
   font-size: 16px;
-  font-weight: bold;
+font-weight: bold;
   text-align: left;
   color: $black;
   margin-top: 10px;
@@ -127,10 +127,6 @@ body {
   }
 }
 
-.content {
-  margin-bottom: 0px;
-}
-
 .top-buffer {
   margin-top: 20px;
 }
@@ -159,9 +155,6 @@ body {
     margin: 0px;
     text-align: center;
   }
-}
-.skin-black .navbar {
-  background-color: $blue;
 }
 .active {
   color: $darkBlue;
@@ -284,11 +277,6 @@ a.clear-btn, button.clear-btn {
   }
 }
 
-#tree {
-  top: 140px;
-  position: fixed;
-  width: 26%;
-}
 .box-title {
   h3 {
     margin: 0px;
@@ -297,6 +285,14 @@ a.clear-btn, button.clear-btn {
   small.label {
     font-size: 12px;
     margin-left: 20px;
+  }
+}
+.box .box-body {
+  overflow-y: auto;
+  overflow-x: auto;
+  height: 90%;
+  .box-footer {
+    padding: 10px 0px !important;
   }
 }
 .box .box-header h3 + .fa {
@@ -368,7 +364,6 @@ a.clear-btn, button.clear-btn {
 }
 
 #functionality_details {
-  top: 20px;
   .fa-times {
     color: $red;
   }
@@ -466,12 +461,6 @@ a.clear-btn, button.clear-btn {
       background: $red;
     }
   }
-}
-.footer {
-  z-index: -10;
-  text-align: right;
-  font-size: 14px;
-  padding-right: 10px;
 }
 .product-version {
   color: #ccc;

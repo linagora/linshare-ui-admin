@@ -2,10 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('DomainTreeCtrl',
-  ['$scope', '$log', '$state', 'treeType', 'rootDomain', 'Authentication',
-    function ($scope, $log, $state, treeType, rootDomain, Authentication) {
+  ['$scope', '$log', '$state', 'treeType', 'treeTitle', 'rootDomain', 'Authentication',
+    function ($scope, $log, $state, treeType, treeTitle, rootDomain, Authentication) {
       $scope.root = [rootDomain];
       $scope.state = treeType;
+      $scope.title = treeTitle;
       Authentication.getCurrentUser().then(function(user) {
         $scope.adminDomain = user.domain;
       });

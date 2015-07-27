@@ -17,6 +17,7 @@
       "LABEL_UNSELECT": "Unselect all",
       "LABEL_SELECT": "Select all",
       "LABEL_FILTER": "Filter by",
+      "LABEL_EDITION": "Edition of",
       "BUTTON_LIST": "List",
       "BUTTON_CANCEL": "Cancel",
       "BUTTON_DELETE": "Delete",

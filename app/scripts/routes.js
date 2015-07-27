@@ -81,6 +81,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/functionality',
         templateUrl: 'ng_components/functionality/functionality.html',
         resolve: {
+          treeTitle: function () {
+            return 'COMMON.TAB.FUNCTIONALITIES';
+          },
           treeType: function() {
             return 'read';
           },
@@ -139,6 +142,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/mimepolicy',
         templateUrl: 'ng_components/mimepolicy/mimepolicy.html',
         resolve: {
+          treeTitle: function () {
+            return 'COMMON.TAB.MIME_POLICIES';
+          },
           treeType: function() {
             return 'read';
           },
@@ -189,6 +195,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/welcomemessage',
         templateUrl: 'ng_components/welcomemessage/welcomemessage.html',
         resolve: {
+          treeTitle: function () {
+            return 'COMMON.TAB.WELCOME_MESSAGES';
+          },
           treeType: function() {
             return 'read';
           },
@@ -475,6 +484,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         abstract: true,
         templateUrl: 'ng_components/domain/domain.html',
         resolve: {
+          treeTitle: function () {
+            return 'COMMON.TAB.MANAGE_DOMAINS';
+          },
           treeType: function() {
             return 'edit';
           }
@@ -604,6 +616,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/maillayout',
         templateUrl: 'ng_components/maillayout/maillayout.html',
         resolve: {
+          treeTitle: function () {
+            return 'COMMON.TAB.MAIL_LAYOUT';
+          },
           treeType: function() {
             return 'read';
           },
@@ -659,6 +674,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/mailcontent',
         templateUrl: 'ng_components/mailcontent/mailcontent.html',
         resolve: {
+          treeTitle: function () {
+            return 'COMMON.TAB.MAIL_CONTENT';
+          },
           treeType: function() {
             return 'read';
           },
@@ -710,6 +728,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/mailfooter',
         templateUrl: 'ng_components/mailfooter/mailfooter.html',
         resolve: {
+          treeTitle: function () {
+            return 'COMMON.TAB.MAIL_FOOTER';
+          },
           treeType: function() {
             return 'read';
           },
@@ -761,6 +782,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/mailconfig',
         templateUrl: 'ng_components/mailconfig/mailconfig.html',
         resolve: {
+          treeTitle: function () {
+            return 'COMMON.TAB.MAIL_CONFIG';
+          },
           treeType: function() {
             return 'read';
           },

@@ -89,21 +89,21 @@
             {{ 'MAIL_CONTENT.BOX_FORM.LABEL_VISIBLE' | translate }}
           </span>
         </div>
-      </div>
-      <div class="box-footer">
-        <!-- Validation -->
-        <button type="button" id="delete" name="delete" class="btn btn-danger"
-                x-ng-click="remove()">
-          {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
-        </button>
-        <button type="button" id="reset" name="reset" class="btn btn-warning"
-                x-ng-click="reset()">
-          {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-        </button>
-        <button type="submit" id="submit" name="submit" class="btn btn-success"
-                x-ng-click="update()">
-          {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
-        </button>
+        <div class="box-footer">
+          <!-- Validation -->
+          <button type="button" id="delete" name="delete" class="btn btn-danger"
+                  x-ng-click="remove()">
+            {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+          </button>
+          <button type="button" id="reset" name="reset" class="btn btn-warning"
+                  x-ng-click="reset()">
+            {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+          </button>
+          <button type="submit" id="submit" name="submit" class="btn btn-success"
+                  x-ng-click="update()">
+            {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+          </button>
+        </div>
       </div>
     </fieldset>
   </form>

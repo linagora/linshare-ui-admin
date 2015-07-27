@@ -65,9 +65,7 @@ angular.module('linshareAdminApp')
       $scope.submit = function(creation) {
         $scope.policyIsCreate = typeof creation !== 'undefined' ? creation : false;
         if ($scope.state === 'edit') {
-          Domain.update($scope.domain).then(function() {
-            $scope.cancel();
-          });
+          Domain.update($scope.domain);
         } else if ($scope.state === 'create') {
           if ($scope.domain.policy.identifier == "cb621f5f-e5cd-42e7-b704-1f5b46fe50da"){
             var id = $scope.domain.identifier + "-policy"

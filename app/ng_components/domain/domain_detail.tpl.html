@@ -1,40 +1,32 @@
 <div class="box box-primary" x-ng-if="state">
   <div class="box-header">
-    <div class="box-title">
-      <!-- Legend -->
-      <div x-ng-if="state === 'create'">
-        <div x-ng-switch="domain.type">
-          <h3 class="box-title"
-            x-ng-switch-when="TOPDOMAIN">
-              {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.TOP_DOMAIN' | translate:domain }}
-          </h3>
-          <h3 class="box-title"
-              x-ng-switch-when="SUBDOMAIN">
-              {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.SUB_DOMAIN' | translate:domain }}
-          </h3>
-          <h3 class="box-title"
-              x-ng-switch-when="GUESTDOMAIN">
-              {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.GUEST_DOMAIN' | translate:domain }}
-          </h3>
-        </div>
-      </div>
-      <div x-ng-if="state === 'edit'">
-        <h3>
-          {{ 'MANAGE_DOMAINS.BOX_FORM.TITLE' | translate }}
+    <!-- Legend -->
+    <div x-ng-if="state === 'create'">
+      <div x-ng-switch="domain.type">
+        <h3 class="box-title"
+          x-ng-switch-when="TOPDOMAIN">
+            {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.TOP_DOMAIN' | translate:domain }}
+        </h3>
+        <h3 class="box-title"
+            x-ng-switch-when="SUBDOMAIN">
+            {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.SUB_DOMAIN' | translate:domain }}
+        </h3>
+        <h3 class="box-title"
+            x-ng-switch-when="GUESTDOMAIN">
+            {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.GUEST_DOMAIN' | translate:domain }}
         </h3>
       </div>
     </div>
-    <div class="pull-right box-tools">
-      <button class="btn btn-primary btn-sm"
-              x-ng-click="cancel()">
-        <i class="fa fa-times"></i>
-      </button>
+    <div x-ng-if="state === 'edit'">
+      <h3 class="box-title">
+        {{domain.identifier}}
+      </h3>
     </div>
   </div>
-  <form name="domainForm" class="form" role="form"
+  <div class="box-body">
+    <form name="domainForm" class="form" role="form"
         x-ls-form-submit="submit()"
         x-ls-form-attempt>
-    <div class="box-body">
       <div x-ng-if="state === 'create'">
         <!-- Identifier -->
         <div class="form-group"
@@ -258,27 +250,26 @@
           </div>
         </div>
       </div>
-
     </div>
-    <div class="box-footer">
-      <!-- Validation -->
-      <div class="form-group">
-        <div class="controls">
-          <button id="delete" name="delete" type="button" class="btn btn-danger"
-                  x-ng-click="remove()"
-                  x-ng-if="state==='edit'"
-                  x-ng-hide="isRootDomain">
-            {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
-          </button>
-          <button type="button" id="reset" name="reset" class="btn btn-warning"
-                  x-ng-click="reset()">
-            {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-          </button>
-          <button type="submit" id="submit" name="submit" class="btn btn-success">
-            {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
-          </button>
-        </div>
+  </div>
+  <div class="box-footer">
+    <!-- Validation -->
+    <div class="form-group">
+      <div class="controls">
+        <button id="delete" name="delete" type="button" class="btn btn-danger"
+                x-ng-click="remove()"
+                x-ng-if="state==='edit'"
+                x-ng-hide="isRootDomain">
+          {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+        </button>
+        <button type="button" id="reset" name="reset" class="btn btn-warning"
+                x-ng-click="reset()">
+          {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+        </button>
+        <button type="submit" id="submit" name="submit" class="btn btn-success">
+          {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+        </button>
       </div>
     </div>
-  </form>
-</div>
+  </div>
+</form>

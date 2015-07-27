@@ -133,23 +133,23 @@
             </accordion-group>
         </accordion>
       </div>
-      <div class="clearfix"></div>
-      <div class="box-footer">
-        <!-- Validation -->
-        <div class="form-group">
-          <div class="controls">
-            <a class="btn btn-info"
-                x-ui-sref="welcomemessage.list({domainId: welcomeMessage.myDomain.identifier})">
-              {{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}
-            </a>
-            <button type="button" id="reset" name="reset" class="btn btn-warning"
-                x-ng-click="reset()">
-              {{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-            </button>
-            <button type="submit" id="submit" name="submit" class="btn btn-success">
-              {{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
-            </button>
-          </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="box-footer">
+      <!-- Validation -->
+      <div class="form-group">
+        <div class="controls">
+          <a class="btn btn-info"
+              x-ui-sref="welcomemessage.list({domainId: welcomeMessage.myDomain.identifier})">
+            {{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}
+          </a>
+          <button type="button" id="reset" name="reset" class="btn btn-warning"
+              x-ng-click="reset()">
+            {{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+          </button>
+          <button type="submit" id="submit" name="submit" class="btn btn-success">
+            {{ 'WELCOME_MESSAGES.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+          </button>
         </div>
       </div>
     </div>
