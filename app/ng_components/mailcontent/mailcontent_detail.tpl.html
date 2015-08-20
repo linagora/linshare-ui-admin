@@ -1,19 +1,19 @@
 <div class="box box-primary">
+  <!-- Header - Begin -->
   <div class="box-header">
-    <h3 class="box-title">
-      {{domain.label}}
-    </h3>
+    <h3 class="box-title">{{domain.label}}</h3>
     <div class="pull-right box-tools">
       <button class="btn btn-maroon btn-sm"
-              tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}"
-              x-ng-click="cancel()">
+          tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}"
+          x-ng-click="cancel()">
         <i class="fa fa-bars"></i>
       </button>
     </div>
   </div>
+  <!-- Header - End -->
   <form class="form" name="mailContentForm" role="form" novalidate
-        x-ls-form-submit="update()"
-        x-ls-form-attempt>
+      x-ls-form-submit="update()"
+      x-ls-form-attempt>
     <fieldset>
       <div class="box-body">
         <!-- Content type -->
@@ -33,8 +33,8 @@
             {{ 'MAIL_CONTENT.BOX_FORM.LABEL_NAME' | translate }}
           </label>
           <input id="name" name="name" type="text" class="form-control"
-                 required
-                 x-ng-model="mailContent.name">
+              required
+              x-ng-model="mailContent.name" />
         </div>
         <!-- Subject -->
         <div class="form-group">
@@ -42,7 +42,7 @@
             {{ 'MAIL_CONTENT.BOX_FORM.LABEL_SUBJECT' | translate }}
           </label>
           <input id="subject" name="subject" type="text" class="form-control"
-                 x-ng-model="mailContent.subject">
+              x-ng-model="mailContent.subject">
         </div>
         <!-- Alternative Subject -->
         <div ng-show="mailContent.enableAS == true" class="form-group">
@@ -50,7 +50,7 @@
             {{ 'MAIL_CONTENT.BOX_FORM.LABEL_ALTERNATIVE_SUBJECT' | translate }}
           </label>
           <input id="alternativesubject" name="alternativesubject" type="text" class="form-control"
-                 required x-ng-model="mailContent.alternativeSubject">
+              required x-ng-model="mailContent.alternativeSubject">
         </div>
         <!-- Greetings -->
         <div class="form-group">
@@ -58,7 +58,7 @@
             {{ 'MAIL_CONTENT.BOX_FORM.LABEL_GREETINGS' | translate }}
           </label>
           <input id="greetings" name="greetings" type="text" class="form-control"
-                 x-ng-model="mailContent.greetings">
+              x-ng-model="mailContent.greetings">
         </div>
         <!-- Body -->
         <div class="form-group">
@@ -66,14 +66,14 @@
             {{ 'MAIL_CONTENT.BOX_FORM.LABEL_BODY' | translate }}
           </label>
           <textarea id="body" name="body" type="text" class="form-control" rows="5"
-                 x-ng-model="mailContent.body">
+              x-ng-model="mailContent.body">
           </textarea>
         </div>
         <!-- Plain text -->
         <div class="input-group">
           <span class="input-group-addon">
             <input id="plaintext" name="plaintext" type="checkbox"
-                   x-ng-model="mailContent.plaintext">
+                x-ng-model="mailContent.plaintext">
           </span>
           <span class="form-control">
             {{ 'MAIL_CONTENT.BOX_FORM.LABEL_PLAINTEXT' | translate }}
@@ -83,27 +83,27 @@
         <div class="input-group">
           <span class="input-group-addon">
             <input id="visible" name="visible" type="checkbox"
-                   x-ng-model="mailContent.visible">
+                x-ng-model="mailContent.visible">
           </span>
           <span class="form-control">
             {{ 'MAIL_CONTENT.BOX_FORM.LABEL_VISIBLE' | translate }}
           </span>
         </div>
-        <div class="box-footer">
-          <!-- Validation -->
-          <button type="button" id="delete" name="delete" class="btn btn-danger"
-                  x-ng-click="remove()">
-            {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
-          </button>
-          <button type="button" id="reset" name="reset" class="btn btn-warning"
-                  x-ng-click="reset()">
-            {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-          </button>
-          <button type="submit" id="submit" name="submit" class="btn btn-success"
-                  x-ng-click="update()">
-            {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
-          </button>
-        </div>
+      </div>
+      <div class="box-footer">
+        <!-- Validation -->
+        <button type="button" id="delete" name="delete" class="btn btn-danger"
+            x-ng-click="remove()">
+          {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+        </button>
+        <button type="button" id="reset" name="reset" class="btn btn-warning"
+            x-ng-click="reset()">
+          {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+        </button>
+        <button type="submit" id="submit" name="submit" class="btn btn-success"
+            x-ng-click="update()">
+          {{ 'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+        </button>
       </div>
     </fieldset>
   </form>

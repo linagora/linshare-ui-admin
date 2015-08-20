@@ -25,23 +25,26 @@
       </h3>
     </div>
   </div>
+
   <div class="box-body">
     <form name="domainForm" class="form" role="form"
-          x-ls-form-submit="submit()"
-          x-ls-form-attempt>
+        x-ls-form-submit="submit()"
+        x-ls-form-attempt>
+
       <div x-ng-if="state === 'create'">
         <!-- Identifier -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.identifier.$invalid &&
-               (domainForm.identifier.$dirty || ls.domainForm.attempted)}">
+            x-ng-class="{'has-error': domainForm.identifier.$invalid &&
+              (domainForm.identifier.$dirty || ls.domainForm.attempted)}">
           <label for="identifier">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_IDENTIFIER' | translate }}
           </label>
           <input id="identifier" name="identifier" type="text" class="form-control" required
-                 x-ng-model="domain.identifier"
-                 x-ng-pattern="/^[a-zA-Z0-9_]{4,}$/">
+              x-ng-model="domain.identifier"
+              x-ng-pattern="/^[a-zA-Z0-9_]{4,}$/">
         </div>
       </div>
+
       <div x-ng-if="state === 'edit'">
         <!-- Identifier -->
         <label for="identifier">
@@ -49,88 +52,88 @@
         </label>
 
         <div class="form-group">
-          <p class="form-control-static">
-            {{domain.identifier}}
-          </p>
+          <p class="form-control-static">{{domain.identifier}}</p>
         </div>
       </div>
+
       <div x-ng-show="isSuperAdmin">
         <!-- Name -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.name.$invalid &&
-               (domainForm.name.$dirty || ls.domainForm.attempted)}">
+            x-ng-class="{'has-error': domainForm.name.$invalid &&
+              (domainForm.name.$dirty || ls.domainForm.attempted)}">
           <label for="name">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_NAME' | translate }}
           </label>
           <input id="name" name="name" type="text" class="form-control" required
-                 x-ng-model="domain.label">
+              x-ng-model="domain.label">
         </div>
+
         <!-- Description -->
         <div class="form-group">
           <label for="description">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_DESCRIPTION' | translate }}
           </label>
           <textarea id="description" name="description" class="form-control" required
-                    x-ng-model="domain.description">
+              x-ng-model="domain.description">
           </textarea>
         </div>
 
         <!-- Locale -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.language.$invalid &&
-               (domainForm.language.$dirty || ls.domainForm.attempted)}"
-             x-ng-hide="isRootDomain">
+            x-ng-class="{'has-error': domainForm.language.$invalid &&
+              (domainForm.language.$dirty || ls.domainForm.attempted)}"
+            x-ng-hide="isRootDomain">
           <label for="language">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE_MAIL' | translate }}
           </label>
           <select id="externalMailLocale" name="externalMailLocale" class="form-control" required
-                  x-ng-model="domain.externalMailLocale"
-                  x-ng-options="l as 'COMMON.ENUM.LANGUAGE.' + l | translate for l in supportedLanguages">
+              x-ng-model="domain.externalMailLocale"
+              x-ng-options="l as 'COMMON.ENUM.LANGUAGE.' + l | translate for l in supportedLanguages">
           </select>
         </div>
 
         <!-- externalMailLocale -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.externalMailLocale.$invalid &&
-               (domainForm.externalMailLocale.$dirty || ls.domainForm.attempted)}"
-             x-ng-hide="isRootDomain">
+            x-ng-class="{'has-error': domainForm.externalMailLocale.$invalid &&
+              (domainForm.externalMailLocale.$dirty || ls.domainForm.attempted)}"
+            x-ng-hide="isRootDomain">
           <label for="externalMailLocale">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE' | translate }}
           </label>
           <select id="language" name="language" class="form-control" required
-                  x-ng-model="domain.language"
-                  x-ng-options="l as 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + l | translate for l in languages">
+              x-ng-model="domain.language"
+              x-ng-options="l as 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + l | translate for l in languages">
           </select>
         </div>
 
         <!-- mailConfig -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.mailConfig.$invalid &&
-             (domainForm.mailConfig.$dirty || ls.domainForm.attempted)}"
-             x-ng-hide="isRootDomain">
+            x-ng-class="{'has-error': domainForm.mailConfig.$invalid &&
+              (domainForm.mailConfig.$dirty || ls.domainForm.attempted)}"
+            x-ng-hide="isRootDomain">
           <label for="mailConfig">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_MAIL_CONFIG' | translate }}
           </label>
           <select id="mailConfig" name="mailConfig" class="form-control" required
-                  x-ng-model="domain.mailConfigUuid"
-                  x-ng-options="m.uuid as m.name for m in mailConfigs">
+              x-ng-model="domain.mailConfigUuid"
+              x-ng-options="m.uuid as m.name for m in mailConfigs">
           </select>
         </div>
 
         <!-- welcomeMessages -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.currentWelcomeMessages.$invalid &&
+            x-ng-class="{'has-error': domainForm.currentWelcomeMessages.$invalid &&
              (domainForm.currentWelcomeMessages.$dirty || ls.domainForm.attempted)}"
-             x-ng-hide="isRootDomain">
+            x-ng-hide="isRootDomain">
           <label for="currentWelcomeMessages">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_WELCOME_MESSAGES' | translate }}
           </label>
           <select id="currentWelcomeMessages" name="currentWelcomeMessages" class="form-control" required
-                  x-ng-model="domain.currentWelcomeMessages.uuid">
+              x-ng-model="domain.currentWelcomeMessages.uuid">
             <option
-              x-ng-repeat="welcomemessage in welcomeMessages"
-              x-ng-selected="domain.currentWelcomeMessages.uuid == welcomemessage.uuid"
-              value="{{welcomemessage.uuid}}">
+                x-ng-repeat="welcomemessage in welcomeMessages"
+                x-ng-selected="domain.currentWelcomeMessages.uuid == welcomemessage.uuid"
+                value="{{welcomemessage.uuid}}">
               {{welcomemessage.name}} <i>({{welcomemessage.myDomain.identifier}})</i>
             </option>
           </select>
@@ -138,15 +141,15 @@
 
         <!-- mimePolicy -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.mimePolicy.$invalid &&
+            x-ng-class="{'has-error': domainForm.mimePolicy.$invalid &&
              (domainForm.mimePolicy.$dirty || ls.domainForm.attempted)}"
-             x-ng-hide="isRootDomain">
+            x-ng-hide="isRootDomain">
           <label for="mimePolicy">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_MIME_POLICY' | translate }}
           </label>
           <select id="mimePolicy" name="mimePolicy" class="form-control" required
-                  x-ng-model="domain.mimePolicyUuid"
-                  x-ng-options="m.uuid as m.name for m in mimePolicies">
+              x-ng-model="domain.mimePolicyUuid"
+              x-ng-options="m.uuid as m.name for m in mimePolicies">
           </select>
         </div>
 
@@ -154,127 +157,132 @@
           <div x-ng-hide="isRootDomain">
             <!-- User role -->
             <div class="form-group"
-                 x-ng-show="domain.type!='GUESTDOMAIN'"
-                 x-ng-class="{'has-error': domainForm.userRole.$invalid &&
+                x-ng-show="domain.type!='GUESTDOMAIN'"
+                x-ng-class="{'has-error': domainForm.userRole.$invalid &&
                  (domainForm.userRole.$dirty || ls.domainForm.attempted)}">
               <label for="userRole">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_USER_ROLE' | translate }}
               </label>
               <select id="userRole" name="userRole" class="form-control" required
-                      x-ng-model="domain.userRole"
-                      x-ng-options="u as 'COMMON.ENUM.ROLE.' + u | translate for u in userRoles track by u">
+                  x-ng-model="domain.userRole"
+                  x-ng-options="u as 'COMMON.ENUM.ROLE.' + u | translate for u in userRoles track by u">
               </select>
             </div>
 
             <!-- Policy -->
             <div class="form-group"
-                 x-ng-class="{'has-error': domainForm.policy.$invalid &&
+                x-ng-class="{'has-error': domainForm.policy.$invalid &&
                  (domainForm.policy.$dirty || ls.domainForm.attempted)}">
               <label for="policy">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_POLICY' | translate }}
               </label>
               <select id="policy" name="policy" class="form-control" required
-                      x-ng-model="domain.policy.identifier">
+                  x-ng-model="domain.policy.identifier">
                 <option
-                  x-ng-repeat="(key, policy) in domainPolicies"
-                  x-ng-selected="{{domain.policy.identifier == policy.name}}"
-                  x-ng-class="{'boldOption': policy.name == 'DefaultDomainPolicy' || policy.value == 'cb621f5f-e5cd-42e7-b704-1f5b46fe50da'}"
-                  value="{{policy.value}}">
+                    x-ng-repeat="(key, policy) in domainPolicies"
+                    x-ng-selected="{{domain.policy.identifier == policy.name}}"
+                    x-ng-class="{'boldOption': policy.name == 'DefaultDomainPolicy' || policy.value == 'cb621f5f-e5cd-42e7-b704-1f5b46fe50da'}"
+                    value="{{policy.value}}">
                   {{policy.name}}
                 </option>
               </select>
             </div>
           </div>
 
-
           <div class="form-group"
-               x-ng-show="domain.type!='GUESTDOMAIN'">
+              x-ng-show="domain.type!='GUESTDOMAIN'">
             <button type="button" class="btn"
-                    x-ng-disabled="disableProvider"
-                    x-ng-hide="isRootDomain"
-                    x-ng-click="addProvider()">
+                x-ng-disabled="disableProvider"
+                x-ng-hide="isRootDomain"
+                x-ng-click="addProvider()">
               <i class="fa fa-plus"></i> {{ 'MANAGE_DOMAINS.BOX_FORM.BUTTON_ADD_PROVIDER' | translate }}
             </button>
           </div>
+
           <!-- Provider Form -->
           <div class="well" style="max-width: 600px; margin: 0 auto 10px;"
-               x-ng-repeat="provider in domain.providers">
+              x-ng-repeat="provider in domain.providers">
             <button type="button" class="close"
-                    x-ng-click="deleteProvider()">
+                x-ng-click="deleteProvider()">
               &times;
             </button>
             <h4>
               {{ 'MANAGE_DOMAINS.BOX_FORM.TITLE_PROVIDER' | translate }}
             </h4>
+
             <!-- LDAP Connection -->
             <div class="form-group"
-                 x-ng-class="{'has-error': domainEditForm.ldapConnection.$invalid &&
-                 (domainEditForm.ldapConnection.$dirty || ls.domainEditForm.attempted)}">
+                x-ng-class="{'has-error': domainEditForm.ldapConnection.$invalid &&
+                  (domainEditForm.ldapConnection.$dirty || ls.domainEditForm.attempted)}">
               <label for="ldapConnection">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LDAP_CONNECTION' | translate }}
               </label>
               <select id="ldapConnection" name="ldapConnection" class="form-control" required
-                      x-ng-model="provider.ldapConnectionUuid">
+                  x-ng-model="provider.ldapConnectionUuid">
                 <option
-                  x-ng-repeat="(key, val) in ldapConnections"
-                  x-ng-selected="{{provider.ldapConnectionUuid == key}}"
-                  value="{{key}}">
+                    x-ng-repeat="(key, val) in ldapConnections"
+                    x-ng-selected="{{provider.ldapConnectionUuid == key}}"
+                    value="{{key}}">
                   {{val}}
                 </option>
               </select>
             </div>
+
             <!-- Domain Pattern -->
             <div class="form-group"
-                 x-ng-class="{'has-error': domainEditForm.domainPattern.$invalid &&
-                 (domainEditForm.domainPattern.$dirty || ls.domainEditForm.attempted)}">
+                x-ng-class="{'has-error': domainEditForm.domainPattern.$invalid &&
+                  (domainEditForm.domainPattern.$dirty || ls.domainEditForm.attempted)}">
               <label for="domainPattern">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_DOMAIN_PATTERN' | translate }}
               </label>
+
               <!-- x-ng-options="d for d in domainPatterns" -->
               <select id="domainPattern" name="domainPattern" class="form-control" required
-                      x-ng-model="provider.userLdapPatternUuid">
+                  x-ng-model="provider.userLdapPatternUuid">
                 <option
-                  x-ng-repeat="(key, val) in domainPatterns"
-                  x-ng-selected="{{provider.userLdapPatternUuid == key}}"
-                  value="{{key}}">
+                    x-ng-repeat="(key, val) in domainPatterns"
+                    x-ng-selected="{{provider.userLdapPatternUuid == key}}"
+                    value="{{key}}">
                   {{val}}
                 </option>
               </select>
             </div>
+
             <!-- Base Dn -->
             <div class="form-group"
-                 x-ng-class="{'has-error': domainEditForm.baseDn.$invalid &&
-                 (domainEditForm.baseDn.$dirty || ls.domainEditForm.attempted)}">
+                x-ng-class="{'has-error': domainEditForm.baseDn.$invalid &&
+                  (domainEditForm.baseDn.$dirty || ls.domainEditForm.attempted)}">
               <label for="baseDn">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_BASE_DN' | translate }}
               </label>
               <input id="baseDn" name="baseDn" type="text" class="form-control" required
-                     x-ng-model="provider.baseDn">
+                  x-ng-model="provider.baseDn">
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="box-footer">
-        <!-- Validation -->
-        <div class="form-group">
-          <div class="controls">
-            <button id="delete" name="delete" type="button" class="btn btn-danger"
-                    x-ng-click="remove()"
-                    x-ng-if="state==='edit'"
-                    x-ng-hide="isRootDomain">
-              {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
-            </button>
-            <button type="button" id="reset" name="reset" class="btn btn-warning"
-                    x-ng-click="reset()">
-              {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-            </button>
-            <button type="submit" id="submit" name="submit" class="btn btn-success">
-              {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
-            </button>
-          </div>
         </div>
       </div>
-    </form>
-  </div>
+    </div>
+
+    <div class="box-footer">
+      <!-- Validation -->
+      <div class="form-group">
+        <div class="controls">
+          <button id="delete" name="delete" type="button" class="btn btn-danger"
+              x-ng-click="remove()"
+              x-ng-if="state==='edit'"
+              x-ng-hide="isRootDomain">
+            {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+          </button>
+          <button type="button" id="reset" name="reset" class="btn btn-warning"
+              x-ng-click="reset()">
+            {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+          </button>
+          <button type="submit" id="submit" name="submit" class="btn btn-success">
+            {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

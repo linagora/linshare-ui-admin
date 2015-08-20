@@ -1503,7 +1503,10 @@
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
         "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
+        "HEADER_VISIBLE": "Visibility",
         "HEADER_ACTIONS": "Actions",
+        "PRIVATE": "Private",
+        "PUBLIC": "Public",
         "TABLE_ACTIONS" : {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_DELETE_YES": "Yes",
@@ -1530,6 +1533,7 @@
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_VISIBLE": "Visible",
+      "LEGEND_VISIBLE": "This field allows subdomains to see this configuration.",
       "LABEL_MAIL_CONTENT_LANG": "Mail contents",
       "LABEL_MAIL_FOOTER_LANG": "Mail footer",
       "LABEL_MAIL_LAYOUT_TEXT": "Mail layout text",

@@ -15,6 +15,12 @@ $orange: #f0ad4e;
 .grey {
   color: #999;
 }
+.green {
+  color: $green;
+}
+.red {
+  color: $red;
+}
 .boldOption {
   font-weight:bold;
 }
@@ -469,7 +475,8 @@ a.clear-btn, button.clear-btn {
   bottom: 6%;
   text-align: center;
   font-size: 12px;
-}.table {
+}
+.table {
   thead {
     th {
       text-align: left;
@@ -498,6 +505,11 @@ a.clear-btn, button.clear-btn {
         a.btn {
           display: inline-block;
           padding: 6px 12px;
+        }
+        &:last-child {
+          .pull-right {
+            line-height: 31px;
+          }
         }
       }
       &:hover {

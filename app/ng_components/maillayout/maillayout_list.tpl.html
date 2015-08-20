@@ -1,53 +1,55 @@
 <div class="box box-primary">
+  <!-- Header - Begin -->
   <div class="box-header">
-    <h3 class="box-title">
-      {{domain.label}}
-    </h3>
+    <h3 class="box-title">{{domain.label}}</h3>
     <div class="pull-right box-tools">
       <button class="clear-btn blue" x-ng-click="add()">
         <i class="fa fa-plus-circle fa-lg" tooltip="{{'COMMON.BASIC_FORM.BUTTON_ADD' | translate}}"></i>
       </button>
-      <button class="clear-btn pink" x-ng-click="isCollapsed = !isCollapsed" x-ng-class="{'active': isCollapsed}">
-        <i class="fa fa-info-circle fa-lg
-        "></i>
+      <button class="clear-btn pink"
+        x-ng-click="isCollapsed = !isCollapsed"
+        x-ng-class="{'active': isCollapsed}">
+          <i class="fa fa-info-circle fa-lg"></i>
       </button>
     </div>
   </div>
+  <!-- Header - End -->
   <div class="box-body">
+    <!-- Documentation - Begin -->
     <div class="description" collapse="!isCollapsed">
       <x-ls-help content="getTemplate()"></x-ls-help>
     </div>
+    <!-- Documentation - End -->
     <div class="table-responsive">
       <table class="table table-striped table-hover"
-             x-ng-table="tableParams">
+          x-ng-table="tableParams">
         <tr x-ng-repeat="mailLayout in $data">
           <td style="cursor: pointer"
-              data-title="'MAIL_LAYOUT.BOX_LIST.TABLE.HEADER_NAME' | translate">
+              data-title="'MAIL_LAYOUT.BOX_LIST.TABLE.HEADER_NAME' | translate"
+              sortable="'name'">
             <a x-ui-sref="maillayout.detail({id: mailLayout.uuid, domainId: mailLayout.domain})">
-              <span>
-                {{mailLayout.name}}
-              </span>
+              <span>{{mailLayout.name}}</span>
             </a>
           </td>
           <td style="cursor: pointer"
-              data-title="'MAIL_LAYOUT.BOX_LIST.TABLE.HEADER_ACTIONS' | translate">
+              data-title="'MAIL_LAYOUT.BOX_LIST.TABLE.HEADER_ACTIONS' | translate" width="100">
             <div class="pull-right">
               <div tooltip="{{ 'MAIL_LAYOUT.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_DELETE' | translate }}" style="display: inline-block;">
                 <button class="clear-btn error" type="button"
-                        x-ng-show="confirm === undefined"
-                        x-ng-click="confirm = mailLayout">
+                    x-ng-show="confirm === undefined"
+                    x-ng-click="confirm = mailLayout">
                   <i class="fa fa-trash-o"></i>
                 </button>
                 <button class="clear-btn blue" type="button"
-                        style="text-decoration: underline;"
-                        x-ng-show="confirm === mailLayout"
-                        x-ng-click="confirm = undefined">
+                    style="text-decoration: underline;"
+                    x-ng-show="confirm === mailLayout"
+                    x-ng-click="confirm = undefined">
                   {{ 'MAIL_LAYOUT.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_DELETE_NO' | translate }}
                 </button>
                 <button class="clear-btn error" type="button"
-                        style="text-decoration: underline;"
-                        x-ng-show="confirm === mailLayout"
-                        x-ng-click="delete(mailLayout)">
+                    style="text-decoration: underline;"
+                    x-ng-show="confirm === mailLayout"
+                    x-ng-click="delete(mailLayout)">
                   {{ 'MAIL_LAYOUT.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_DELETE_YES' | translate }}
                 </button>
               </div>
