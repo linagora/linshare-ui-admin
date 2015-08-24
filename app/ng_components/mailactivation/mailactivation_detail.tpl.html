@@ -11,22 +11,22 @@
       x-ng-class="{in: iconSaved}">
     </i>
     <div class="pull-right box-tools">
-      <div class="btn-group">
+      <div class="btn-group view-selector">
         <a type="button" class="btn"
-          x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: mailActivation.identifier, view: 'simple'})"
-          x-ng-class="{'btn-success': view == 'simple', 'btn-grey': view == 'advanced'}">
-          {{ 'MAIL_ACTIVATION.BOX_FORM.VIEW_SIMPLE' | translate }}
+            x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: mailActivation.identifier, view: 'simple'})"
+            x-ng-class="{'btn-success': view == 'simple', 'btn-grey': view == 'advanced'}">
+          {{ 'FUNCTIONALITIES.BOX_FORM.VIEW_SIMPLE' | translate }}
         </a>
         <a class="btn"
-          x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: mailActivation.identifier, view: 'advanced'})"
-          x-ng-class="{'btn-success': view == 'advanced', 'btn-grey': view == 'simple'}">
-          {{ 'MAIL_ACTIVATION.BOX_FORM.VIEW_ADVANCED' | translate }}
+            x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: mailActivation.identifier, view: 'advanced'})"
+            x-ng-class="{'btn-success': view == 'advanced', 'btn-grey': view == 'simple'}">
+          {{ 'FUNCTIONALITIES.BOX_FORM.VIEW_ADVANCED' | translate }}
         </a>
       </div>
-      <a class="btn btn-maroon list"
+      <a class="list btn-back"
           x-ui-sref="mailactivation.list({domainId: mailActivation.domain, view: view})"
           tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
-        <i class="fa fa-bars"></i>
+        <i class="fa fa-2x fa-list pink"></i>
       </a>
     </div>
   </div>

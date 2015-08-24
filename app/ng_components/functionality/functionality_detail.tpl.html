@@ -1,68 +1,73 @@
 <div class="box box-primary" id="functionality_details">
   <div class="box-header">
     <h3 class="box-title">
-      <i class="fa pull-left" x-ng-class="{'fa-check': functionality.activationPolicy.status, 'fa-times': !functionality.activationPolicy.status}"></i>
+      <i class="fa pull-left"
+         x-ng-class="{'fa-check': functionality.activationPolicy.status,
+                      'fa-times': !functionality.activationPolicy.status}"></i>
       {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
     </h3>
-    <i class="fa fa-save fade"
-      x-ng-class="{in: iconSaved}">
-    </i>
+    <i class="fa fa-save fade" x-ng-class="{in: iconSaved}"></i>
     <div class="pull-right box-tools">
       <div class="btn-group view-selector">
         <a type="button" class="btn"
-          x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'simple'})"
-          x-ng-class="{'btn-success': view == 'simple', 'btn-grey': view == 'advanced'}">
+           x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'simple'})"
+           x-ng-class="{'btn-success': view == 'simple', 'btn-grey': view == 'advanced'}">
           {{ 'FUNCTIONALITIES.BOX_FORM.VIEW_SIMPLE' | translate }}
         </a>
         <a class="btn"
-          x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'advanced'})"
-          x-ng-class="{'btn-success': view == 'advanced', 'btn-grey': view == 'simple'}">
+           x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'advanced'})"
+           x-ng-class="{'btn-success': view == 'advanced', 'btn-grey': view == 'simple'}">
           {{ 'FUNCTIONALITIES.BOX_FORM.VIEW_ADVANCED' | translate }}
         </a>
       </div>
       <a class="list"
-          x-ui-sref="functionality.detail({domainId: functionality.domain, id: prevFunctionalities, view: 'simple'})"
-          x-ng-class="{disabled: !prevFunctionalities}"
-          tooltip="{{'FUNCTIONALITIES.BOX_FORM.LEGEND_PREVIOUS' | translate}}">
+         x-ui-sref="functionality.detail({domainId: functionality.domain, id: prevFunctionalities, view: 'simple'})"
+         x-ng-class="{disabled: !prevFunctionalities}"
+         tooltip="{{'FUNCTIONALITIES.BOX_FORM.LEGEND_PREVIOUS' | translate}}">
         <i class="fa fa-lg fa-arrow-up"
-            x-ng-class="{grey: !prevFunctionalities, darkBlue: prevFunctionalities}">
+           x-ng-class="{grey: !prevFunctionalities, darkBlue: prevFunctionalities}">
         </i>
       </a>
       <a class="list"
-          x-ui-sref="functionality.detail({domainId: functionality.domain, id: nextFunctionalities, view: 'simple'})"
-          x-ng-class="{disabled: !nextFunctionalities}"
-          tooltip="{{'FUNCTIONALITIES.BOX_FORM.LEGEND_NEXT' | translate}}">
+         x-ui-sref="functionality.detail({domainId: functionality.domain, id: nextFunctionalities, view: 'simple'})"
+         x-ng-class="{disabled: !nextFunctionalities}"
+         tooltip="{{'FUNCTIONALITIES.BOX_FORM.LEGEND_NEXT' | translate}}">
         <i class="fa fa-lg fa-arrow-down"
-            x-ng-class="{grey: !nextFunctionalities, blue: nextFunctionalities}">
+           x-ng-class="{grey: !nextFunctionalities, blue: nextFunctionalities}">
         </i>
       </a>
       <a class="list btn-back"
-          x-ui-sref="functionality.list({domainId: functionality.domain, view: view})"
-          tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
+         x-ui-sref="functionality.list({domainId: functionality.domain, view: view})"
+         tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
         <i class="fa fa-2x fa-list pink"></i>
       </a>
     </div>
   </div>
   <div class="box-body box-tree-domain">
+    <!-- Parent functionality - Begin -->
     <div class="functionality-parent">
-        <ls-doc func="functionality" x-doc-type="'FUNCTIONALITIES'"></ls-doc>
-        <ls-functionality-display></ls-functionality-display>
-        <div class="clearfix"></div>
+      <ls-doc func="functionality" x-doc-type="'FUNCTIONALITIES'"></ls-doc>
+      <ls-functionality-display></ls-functionality-display>
+      <div class="clearfix"></div>
     </div>
+    <!-- Parent functionality - End -->
+    <!-- Children functionalities - Begin -->
     <div class="functionality-children">
       <accordion id="accordion">
         <accordion-group
-            x-ng-repeat="functionality in childrenFunctionality track by $index"
-            is-open="isOpen">
+          x-ng-repeat="functionality in childrenFunctionality track by $index"
+          is-open="isOpen">
           <accordion-heading x-ng-class="{'activ': isOpen, 'no': !isOpen}">
-          {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
-          <i class="fa pull-right" x-ng-class="{'fa-check': functionality.activationPolicy.status, 'fa-times': !functionality.activationPolicy.status}"></i>
+            {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
+            <i class="fa pull-right"
+               x-ng-class="{'fa-check': functionality.activationPolicy.status,
+                            'fa-times': !functionality.activationPolicy.status}"></i>
           </accordion-heading>
-            <ls-doc func="functionality" x-doc-type="'FUNCTIONALITIES'"></ls-doc>
-            <ls-functionality-display>
-            </ls-functionality-display>
-          </accordion-group>
+          <ls-doc func="functionality" x-doc-type="'FUNCTIONALITIES'"></ls-doc>
+          <ls-functionality-display></ls-functionality-display>
+        </accordion-group>
       </accordion>
     </div>
+    <!-- Children functionalities - End -->
   </div>
 </div>

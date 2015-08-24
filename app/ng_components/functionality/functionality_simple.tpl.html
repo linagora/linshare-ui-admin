@@ -1,26 +1,30 @@
 <div id="functionality_renderer_simple" class="col-md-12">
-  <div class="row"  x-ng-if="!showActivation() && functionality.configurationPolicy.policy != 'ALLOWED'">
+  <div class="row"
+       x-ng-if="!showActivation() || functionality.configurationPolicy.policy != 'ALLOWED'">
     <div class="col-md-10 warning-enable" x-ng-if="showParameters()">
       {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_ENABLE_NOTVISIBLE' | translate }}
     </div>
   </div>
+  <!-- Activation Policy - Begin -->
   <div class="row" x-ng-if="showActivation()">
     <div class="form-group">
       <form>
         <div class="col-md-10 legend"
-        title="{{translations.ACTIVATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
-        x-ng-click="isCollapseActivation = !isCollapseActivation"
-        x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY != ''}">
+             title="{{translations.ACTIVATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+             x-ng-click="isCollapseActivation = !isCollapseActivation"
+             x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY != ''}">
           {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_ENABLE' | translate }}
           <i class="fa fa-info pull-left"></i>
         </div>
+
         <div class="col-md-2">
           <toggle-switch
-          ng-change="changeStatusFunctionality()"
-          ng-model="functionality.activationPolicy.status"
-          class="pull-right">
+            ng-change="changeStatusFunctionality()"
+            ng-model="functionality.activationPolicy.status"
+            class="pull-right">
           </toggle-switch>
         </div>
+
         <div class="col-md-12 description">
           <p collapse="!isCollapseActivation" x-ng-show="translations.ACTIVATION_POLICY">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.ACTIVATION_POLICY' | translate }}
@@ -33,142 +37,145 @@
       <div class="clearfix"></div>
     </div>
   </div>
-<div class="row" x-ng-if="showDelegation()">
-  <div class="form-group">
-  <form>
-    <div class="col-md-10 legend"
-    title="{{translations.DELEGATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
-    x-ng-click="isCollapseDelegation = !isCollapseDelegation"
-    x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY != ''}">
-    {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_DELEGATION_POLICY' | translate }}
-    <i class="fa fa-info pull-left"></i>
-  </div>
-  <div class="col-md-2">
-    <toggle-switch
-    class="pull-right"
-    ng-change="changeDelegationFunctionality()"
-    ng-model="functionality.delegationPolicy.status">
-  </toggle-switch>
-</div>
-<div class="col-md-12 description">
-  <p collapse="!isCollapseDelegation" x-ng-show="translations.DELEGATION_POLICY">
-    {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.DELEGATION_POLICY' | translate }}
-  </p>
-</div>
-</form>
-<div class="clearfix"></div>
-</div>
-</div>
-<div class="form-group" x-ng-if="showParameters()">
-  <form>
-    <div class="col-md-10 legend"
-    title="{{translations.PARAMETER_DESCRIPTION ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
-    x-ng-click="isCollapseParameter = !isCollapseParameter"
-    x-ng-class="{'cursor-pointer': translations.PARAMETER_DESCRIPTION != ''}">
-    {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_NAME' | translate }}
-    <i class="fa fa-info pull-left"></i>
-  </div>
-  <div class="col-md-12 description">
-    <p collapse="!isCollapseParameter" x-ng-show="translations.PARAMETER_DESCRIPTION">
-      {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_DESCRIPTION' | translate }}
-    </p>
-  </div>
-  <div x-ng-repeat="parameter in functionality.parameters">
-    <div x-ng-switch="parameter.type">
-      <div x-ng-switch-when="INTEGER">
-        <div class="form-group col-md-10">
-          <!-- <label class="control-label" for="$index"></label> -->
-          <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
-          x-ng-model="parameter.integer"
-          x-ng-change="updateWithTimeout()">
+  <!-- Activation Policy - End -->
+  <!-- Delegation Policy - Begin -->
+  <div class="row" x-ng-if="showDelegation()">
+    <div class="form-group">
+      <form>
+        <div class="col-md-10 legend"
+             title="{{translations.DELEGATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+             x-ng-click="isCollapseDelegation = !isCollapseDelegation"
+             x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY != ''}">
+          {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_DELEGATION_POLICY' | translate }}
+          <i class="fa fa-info pull-left"></i>
         </div>
-      </div>
-      <div x-ng-switch-when="UNIT_TIME">
-        <div class="form-group col-md-10">
-          <!-- <label class="control-label" for="$index"></label> -->
-          <div class="form-inline row">
-            <div class="form-group col-sm-5">
-              <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
-              x-ng-model="parameter.integer"
-              x-ng-change="updateWithTimeout()">
+
+        <div class="col-md-2">
+          <toggle-switch
+            class="pull-right"
+            ng-change="changeDelegationFunctionality()"
+            ng-model="functionality.delegationPolicy.status">
+          </toggle-switch>
+        </div>
+
+        <div class="col-md-12 description">
+          <p collapse="!isCollapseDelegation" x-ng-show="translations.DELEGATION_POLICY">
+            {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.DELEGATION_POLICY' | translate }}
+          </p>
+        </div>
+      </form>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- Delegation Policy - End -->
+  <!-- Parameters - Begin -->
+  <div class="row" x-ng-if="showParameters()">
+    <div class="form-group">
+      <form>
+        <div class="col-md-10 legend"
+             title="{{translations.PARAMETER_DESCRIPTION ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+             x-ng-click="isCollapseParameter = !isCollapseParameter"
+             x-ng-class="{'cursor-pointer': translations.PARAMETER_DESCRIPTION != ''}">
+          {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_NAME' | translate }}
+          <i class="fa fa-info pull-left"></i>
+        </div>
+        <div class="col-md-12 description">
+          <p collapse="!isCollapseParameter" x-ng-show="translations.PARAMETER_DESCRIPTION">
+            {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_DESCRIPTION' | translate }}
+          </p>
+        </div>
+        <div x-ng-repeat="parameter in functionality.parameters">
+          <div x-ng-switch="parameter.type">
+            <div x-ng-switch-when="INTEGER">
+              <div class="form-group col-md-10">
+                <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
+                       x-ng-model="parameter.integer"
+                       x-ng-change="updateWithTimeout()"/>
+              </div>
             </div>
-            <div class="form-group col-sm-5">
-              <select class="form-control"
-              x-ng-model="parameter.string"
-              x-ng-change="update()"
-              x-ng-options="option as 'COMMON.ENUM.UNIT_TIME.' + option | translate for option in parameter.select">
-            </select>
+            <div x-ng-switch-when="UNIT_TIME">
+              <div class="form-group col-md-10">
+                <div class="form-inline row">
+                  <div class="form-group col-sm-5">
+                    <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
+                           x-ng-model="parameter.integer"
+                           x-ng-change="updateWithTimeout()"/>
+                  </div>
+                  <div class="form-group col-sm-5">
+                    <select class="form-control"
+                            x-ng-model="parameter.string"
+                            x-ng-change="update()"
+                            x-ng-options="option as 'COMMON.ENUM.UNIT_TIME.' + option | translate for option in parameter.select">
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div x-ng-switch-when="UNIT_SIZE">
+              <div class="form-group col-md-10">
+                <div class="form-inline row">
+                  <div class="form-group col-sm-5">
+                    <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
+                           x-ng-model="parameter.integer"
+                           x-ng-change="updateWithTimeout()"/>
+                  </div>
+                  <div class="form-group col-sm-5">
+                    <select class="form-control"
+                            x-ng-model="parameter.string"
+                            x-ng-change="update()"
+                            x-ng-options="option as 'COMMON.ENUM.UNIT_SIZE.' + option | translate for option in parameter.select">
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div x-ng-switch-when="STRING">
+              <div class="form-group col-md-10">
+                <input name="$index" type="text" class="form-control" required
+                       x-ng-model="parameter.string"
+                       x-ng-change="updateWithTimeout()"
+                       x-ng-minLength="1"/>
+              </div>
+            </div>
+            <div x-ng-switch-when="BOOLEAN">
+              <br>
+              <br>
+              <div class="form-group col-md-10">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <input name="$index" type="checkbox"
+                           x-ng-model="parameter.bool"
+                           x-ng-change="updateWithTimeout()"/>
+                  </span>
+                  <span class="form-control">
+                    {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type + '_' + parameter.bool | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div x-ng-switch-when="ENUM_LANG">
+              <div class="form-group col-md-10">
+                <select class="form-control"
+                        x-ng-model="parameter.string"
+                        x-ng-change="updateWithTimeout()"
+                        x-ng-options="option as 'COMMON.ENUM.ENUM_LANG.' + option | translate for option in parameter.select">
+                </select>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div x-ng-switch-when="UNIT_SIZE">
-      <div class="form-group col-md-10">
-        <!-- <label class="control-label" for="$index"></label> -->
-        <div class="form-inline row">
-          <div class="form-group col-sm-5">
-            <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
-            x-ng-model="parameter.integer"
-            x-ng-change="updateWithTimeout()">
-          </div>
-          <div class="form-group col-sm-5">
-            <select class="form-control"
-            x-ng-model="parameter.string"
-            x-ng-change="update()"
-            x-ng-options="option as 'COMMON.ENUM.UNIT_SIZE.' + option | translate for option in parameter.select">
-          </select>
-        </div>
-      </div>
+      </form>
+      <div class="clearfix"></div>
     </div>
   </div>
-  <div x-ng-switch-when="STRING">
-    <div class="form-group col-md-10">
-      <!-- <label class="control-label" for="$index"></label> -->
-      <input name="$index" type="text" class="form-control" required
-      x-ng-model="parameter.string"
-      x-ng-change="updateWithTimeout()"
-      x-ng-minLength="1">
+  <!-- Parameters - End -->
+  <div class="form-group pull-right" x-ng-if="!isRootDomain()">
+    <div class="col-md-12">
+      <button class="btn btn-danger" type="button"
+              x-ng-show="showResetToParent()"
+              x-ng-click="resetToParent()">
+        {{ 'FUNCTIONALITIES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+      </button>
     </div>
   </div>
-  <div x-ng-switch-when="BOOLEAN">
-    <br>
-    <br>
-    <div class="form-group col-md-10">
-      <div class="input-group">
-        <span class="input-group-addon">
-          <input name="$index" type="checkbox"
-          x-ng-model="parameter.bool"
-          x-ng-change="updateWithTimeout()">
-        </span>
-        <span class="form-control">
-          {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type + '_' + parameter.bool | translate }}
-        </span>
-      </div>
-    </div>
-  </div>
-  <div x-ng-switch-when="ENUM_LANG">
-    <div class="form-group col-md-10">
-      <!-- <label class="control-label" for="$index"></label> -->
-      <select class="form-control"
-      x-ng-model="parameter.string"
-      x-ng-change="updateWithTimeout()"
-      x-ng-options="option as 'COMMON.ENUM.ENUM_LANG.' + option | translate for option in parameter.select">
-    </select>
-  </div>
-</div>
-</div>
-</div>
-</form>
-<div class="clearfix"></div>
-</div>
-<div class="form-group pull-right"
-x-ng-if="!isRootDomain()">
-<div class="col-md-12">
-  <button class="btn btn-danger" type="button"
-  x-ng-show="showResetToParent()"
-  x-ng-click="resetToParent()">
-  {{ 'FUNCTIONALITIES.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
-</button>
-</div>
-</div>
 </div>

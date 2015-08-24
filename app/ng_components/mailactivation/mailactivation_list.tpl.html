@@ -12,7 +12,7 @@
         <tr x-ng-repeat="mailActivation in $data">
           <td class="col-md-1"
               data-title="'MAIL_ACTIVATION.BOX_LIST.TABLE.HEADER_STATUS' | translate"
-              sortable="'activationPolicy.status'">
+              sortable="'enable'">
             <a
               x-ui-sref="mailactivation.detail({id: mailActivation.identifier, domainId: mailActivation.domain, view: view})">
               <span>
@@ -28,7 +28,7 @@
           <td style="cursor: pointer"
               data-title="'MAIL_ACTIVATION.BOX_LIST.TABLE.HEADER_NAME' | translate"
               filter="{'identifier': 'text'}"
-              sortable="'name'">
+              sortable="'identifier'">
             <a
               x-ui-sref="mailactivation.detail({id: mailActivation.identifier, domainId: mailActivation.domain, view: view})">
              <span>

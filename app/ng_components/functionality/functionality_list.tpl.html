@@ -1,8 +1,6 @@
 <div class="box box-primary">
   <div class="box-header">
-    <h3 class="box-title">
-      {{domain.label}}
-    </h3>
+    <h3 class="box-title">{{domain.label}}</h3>
   </div>
   <div class="box-body">
     {{functionalitiesList}}
@@ -17,11 +15,11 @@
             <a x-ui-sref="functionality.detail({id: functionality.identifier, domainId: functionality.domain, view: view})">
               <span>
                 <i class="fa fa-check-circle" style="color: green"
-                tooltip="{{ 'COMMON.BASIC_FORM.LABEL_ACTIVE' | translate }}"
-                 x-ng-show="isActivated(functionality)"></i>
+                   tooltip="{{ 'COMMON.BASIC_FORM.LABEL_ACTIVE' | translate }}"
+                   x-ng-show="isActivated(functionality)"></i>
                 <i class="fa fa-times-circle" style="color: red"
-                  tooltip="{{ 'COMMON.BASIC_FORM.LABEL_INACTIVE' | translate }}"
-                 x-ng-show="!isActivated(functionality)"></i>
+                   tooltip="{{ 'COMMON.BASIC_FORM.LABEL_INACTIVE' | translate }}"
+                   x-ng-show="!isActivated(functionality)"></i>
               </span>
             </a>
           </td>
