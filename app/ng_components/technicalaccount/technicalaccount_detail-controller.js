@@ -64,9 +64,6 @@ angular.module('linshareAdminApp')
           }
         );
       };
-      $scope.cancel = function() {
-        $state.go('technicalaccount.list');
-      };
       $scope.reset = function() {
         $state.reinit();
       };

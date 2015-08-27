@@ -6,6 +6,7 @@ angular.module('linshareAdminApp')
     function($scope, $log, $modal, $state, MailContent, currentDomain, currentMailContent) {
       $scope.mailContent = currentMailContent;
       $scope.domain = currentDomain;
+      $scope.language = $state.params.language;
 
       $scope.remove = function() {
         var modalInstance = $modal.open({
@@ -31,9 +32,6 @@ angular.module('linshareAdminApp')
         MailContent.update($scope.mailContent).then(function() {
           $scope.cancel();
         });
-      };
-      $scope.cancel = function() {
-        $state.go('mailcontent.list', {domainId: $state.params.domainId, language: $state.params.language});
       };
       $scope.reset = function() {
         $state.reinit();

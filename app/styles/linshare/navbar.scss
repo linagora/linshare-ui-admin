@@ -12,6 +12,10 @@ $darkGrey: #999;
 $lightGrey: #EFEFEF;
 $orange: #f0ad4e;
 
+body > .header .navbar {
+  height: 60px;
+}
+
 /* Override skin-black by skin-black for navbar */
 .skin-black .navbar {
   // background-color: #3c8dbc;
@@ -50,7 +54,7 @@ $orange: #f0ad4e;
 .skin-black .motto {
   float: left;
   font-size: 20px;
-  line-height: 50px;
+  line-height: 60px;
   text-align: center;
   padding: 0 10px;
   width: 130px;
@@ -66,7 +70,22 @@ $orange: #f0ad4e;
   width: 220px;
   font-family: "Kaushan Script",cursive;
   font-weight: 500;
-  height: 50px;
+  height: 60px;
   display: block;
   background-color: #0372b3;
+}
+div.navbar-button {
+  i {
+    display: block;
+    line-height: 30px;
+  }
+}
+.navbar-title {
+  h3 {
+    font-size: 22px;
+    line-height: 60px;
+    color: #F9F9F9;
+    margin: 0px;
+    text-align: center;
+  }
 }

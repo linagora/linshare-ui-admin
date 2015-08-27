@@ -23,12 +23,13 @@ angular.module('linshareAdminApp')
       };
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
-        count: 10,      // count per page
+        count: 50,      // count per page
         sorting: {
           localizedName: 'asc'
         }
       }, {
         debugMode: false,
+        counts: [],
         total: 0, // length of data
         getData: function($defer, params) {
           var displayableFuncs = _.where(functionalities, {'displayable': true});
@@ -46,16 +47,12 @@ angular.module('linshareAdminApp')
               }
             );
             deferred.promise.then(function(data) {
-              var orderedData = params.sorting() ?
-                        $filter('orderBy')(data, params.orderBy()) :
-                        data;
+              var orderedData = params.sorting() ? $filter('orderBy')(data, params.orderBy()) : data;
               params.total(orderedData.length);
               $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
             });
           } else {
-            var orderedData = params.sorting() ?
-                      $filter('orderBy')(displayableFuncs, params.orderBy()) :
-                      directive;
+            var orderedData = params.sorting() ? $filter('orderBy')(displayableFuncs, params.orderBy()) : displayableFuncs;
             params.total(orderedData.length);
             $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
           }

@@ -17,11 +17,11 @@
           {{ 'MAIL_CONFIG.BOX_FORM.HEADER.LANGUAGE.FRENCH' | translate }}
         </label>
       </div>
-      <button class="btn btn-maroon btn-sm"
-          tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}"
-          x-ng-click="cancel()">
-        <i class="fa fa-bars"></i>
-      </button>
+      <a class="list btn-back"
+         x-ui-sref="mailconfig.list({domainId: domain.identifier})"
+         tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
+        <i class="fa fa-2x fa-list pink"></i>
+      </a>
     </div>
   </div>
   <!-- Header - End -->

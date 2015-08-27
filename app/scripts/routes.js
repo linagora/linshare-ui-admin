@@ -119,9 +119,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             templateUrl: 'ng_components/functionality/functionality_detail.tpl.html',
             controller: 'FunctionalityDetailCtrl',
             resolve: {
-              currentDomain: function(Domain, $stateParams) {
-                return Domain.get($stateParams.domainId);
-              },
               currentFunctionality: function(Functionality, $stateParams) {
                 return Functionality.get($stateParams.domainId, $stateParams.id).then(function(functionalities) {
                   return functionalities;
@@ -130,6 +127,11 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               childrenFunctionality: function(Functionality, $stateParams) {
                 return Functionality.getAll($stateParams.domainId, $stateParams.id).then(function(functionalities) {
                   return functionalities;
+                });
+              },
+              listFunctionalities: function(Functionality, $stateParams) {
+                return Functionality.getAll($stateParams.domainId, null).then(function(functionalities) {
+                  return _.pluck(functionalities, 'identifier');
                 });
               }
             }

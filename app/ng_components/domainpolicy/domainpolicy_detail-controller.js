@@ -51,9 +51,6 @@ angular.module('linshareAdminApp')
           $log.error('Invalid state');
         }
       };
-      $scope.cancel = function() {
-        $state.go('domainpolicy.list');
-      };
       $scope.reset = function() {
         $state.reinit();
       };

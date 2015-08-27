@@ -18,6 +18,18 @@ $orange: #f0ad4e;
 .green {
   color: $green;
 }
+.pink {
+  color: $pink;
+}
+.darkPink {
+  color: $darkPink;
+}
+.blue {
+  color: $blue;
+}
+.darkBlue {
+  color: $darkBlue;
+}
 .red {
   color: $red;
 }
@@ -62,9 +74,6 @@ font-weight: bold;
 }
 .VIETNAMESE {
   background-image: url('/images/flag/VIETNAMESE.svg');
-}
-.boldOption {
-  font-weight:bold;
 }
 
 body {
@@ -153,15 +162,6 @@ body {
   width: 100%;
   text-align: left;
 }
-.navbar-title {
-  h3 {
-    font-size: 22px;
-    line-height: 50px;
-    color: #F9F9F9;
-    margin: 0px;
-    text-align: center;
-  }
-}
 .active {
   color: $darkBlue;
 }
@@ -229,18 +229,6 @@ body {
     background-color: $darkBlue;
   }
 }
-
-.right-side > .content-header.header-fixed {
-  position: fixed;
-  h1 > small {
-      display: inherit;
-  }
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .btn.btn-cancel {
   background-color: $pink;
   color: white;
@@ -282,7 +270,41 @@ a.clear-btn, button.clear-btn {
     color: $orange;
   }
 }
+.btn-back {
+  i {
+    vertical-align: -27%;
+  }
+}
+.list {
+    margin: 0 8px;
+}
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
 
+
+.right-side > .content-header.header-fixed {
+  position: fixed;
+  h1 > small {
+      display: inherit;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.box .box-header > .box-tools {
+  padding: 10px 10px 5px 5px;
+  .fa-lg {
+    vertical-align: -35%;
+  }
+  small.label {
+    font-size: 12px;
+    margin-left: 20px;
+  }
+}
 .box-title {
   h3 {
     margin: 0px;
@@ -370,6 +392,15 @@ a.clear-btn, button.clear-btn {
 }
 
 #functionality_details {
+  .box-header {
+    z-index: 2;
+  }
+  .box-body {
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 670px;
+  }
   .fa-times {
     color: $red;
   }
@@ -385,14 +416,8 @@ a.clear-btn, button.clear-btn {
     box-shadow: 0px 1px 9px rgba(255, 255, 255, 1);
     top: 47px;
   }
-  .box-header {
-    z-index: 2;
-  }
-  .box-body {
-    padding: 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 670px;
+  .view-selector {
+    margin-right: 30px;
   }
   #functionality_renderer {
     margin: 30px 0px;
@@ -446,6 +471,7 @@ a.clear-btn, button.clear-btn {
       bottom: 0;
       right: 10px;
       cursor: pointer;
+      margin-right: 10px;
     }
   }
   .functionality-parent {

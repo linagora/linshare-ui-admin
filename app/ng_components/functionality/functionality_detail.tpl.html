@@ -8,7 +8,7 @@
       x-ng-class="{in: iconSaved}">
     </i>
     <div class="pull-right box-tools">
-      <div class="btn-group">
+      <div class="btn-group view-selector">
         <a type="button" class="btn"
           x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'simple'})"
           x-ng-class="{'btn-success': view == 'simple', 'btn-grey': view == 'advanced'}">
@@ -20,14 +20,30 @@
           {{ 'FUNCTIONALITIES.BOX_FORM.VIEW_ADVANCED' | translate }}
         </a>
       </div>
-      <a class="btn btn-maroon list"
+      <a class="list"
+          x-ui-sref="functionality.detail({domainId: functionality.domain, id: prevFunctionalities, view: 'simple'})"
+          x-ng-class="{disabled: !prevFunctionalities}"
+          tooltip="{{'FUNCTIONALITIES.BOX_FORM.LEGEND_PREVIOUS' | translate}}">
+        <i class="fa fa-lg fa-arrow-up"
+            x-ng-class="{grey: !prevFunctionalities, darkBlue: prevFunctionalities}">
+        </i>
+      </a>
+      <a class="list"
+          x-ui-sref="functionality.detail({domainId: functionality.domain, id: nextFunctionalities, view: 'simple'})"
+          x-ng-class="{disabled: !nextFunctionalities}"
+          tooltip="{{'FUNCTIONALITIES.BOX_FORM.LEGEND_NEXT' | translate}}">
+        <i class="fa fa-lg fa-arrow-down"
+            x-ng-class="{grey: !nextFunctionalities, blue: nextFunctionalities}">
+        </i>
+      </a>
+      <a class="list btn-back"
           x-ui-sref="functionality.list({domainId: functionality.domain, view: view})"
           tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
-        <i class="fa fa-bars"></i>
+        <i class="fa fa-2x fa-list pink"></i>
       </a>
     </div>
   </div>
-  <div class="box-body">
+  <div class="box-body box-tree-domain">
     <div class="functionality-parent">
         <x-ls-doc func="functionality"></x-ls-doc>
         <ls-functionality-display></ls-functionality-display>
@@ -48,7 +64,5 @@
           </accordion-group>
       </accordion>
     </div>
-  </div>
-  <div class="box-footer">
   </div>
 </div>

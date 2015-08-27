@@ -38,9 +38,6 @@ angular.module('linshareAdminApp')
         $scope.searchGuestRestrictedContacts = function (pattern) {
           return User.autocomplete(pattern);
         };
-        $scope.cancel = function() {
-          $state.go('user.list');
-        };
         $scope.reset = function() {
           $state.reinit();
         };

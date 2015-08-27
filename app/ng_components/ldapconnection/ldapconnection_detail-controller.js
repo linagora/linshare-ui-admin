@@ -44,9 +44,6 @@ angular.module('linshareAdminApp')
           $log.error('Invalid state');
         }
       };
-      $scope.cancel = function() {
-        $state.go('ldapconnection.list');
-      };
       $scope.reset = function() {
         $state.reinit();
       };

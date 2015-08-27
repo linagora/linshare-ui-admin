@@ -14,9 +14,6 @@ angular.module('linshareAdminApp')
       $scope.reset = function() {
         $state.reinit();
       };
-      $scope.cancel = function() {
-        $state.go('mailinglist.list');
-      };
       $scope.submit = function(mail) {
         MailingList.update(mail).then(function() {
           $scope.cancel();

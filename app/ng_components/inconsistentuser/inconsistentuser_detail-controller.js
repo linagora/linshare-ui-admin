@@ -7,9 +7,6 @@ angular.module('linshareAdminApp')
       $scope.allDomains = allDomains;
       $scope.user = currentUser;
 
-      $scope.cancel = function() {
-        $state.go('inconsistentuser.list'); 
-      };
       $scope.delete = function(user) {
         var modalInstance = $modal.open({
           templateUrl: 'ng_components/common/confirm_modal.tpl.html',

@@ -670,6 +670,8 @@
       "LABEL_DISABLE": "Désactiver la fonctionnalité",
       "VIEW_SIMPLE": "Simple",
       "VIEW_ADVANCED": "Avancé",
+      "LEGEND_NEXT": "Suivant",
+      "LEGEND_PREVIOUS": "Précédent",
       "FORM_ACTIONS": {
         "BUTTON_RESET": "Réinitialiser à la valeur parente",
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"

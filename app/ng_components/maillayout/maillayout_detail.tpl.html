@@ -3,11 +3,11 @@
   <div class="box-header">
     <h3 class="box-title">{{domain.label}}</h3>
     <div class="pull-right box-tools">
-      <button class="btn btn-maroon btn-sm"
-          tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}"
-          x-ng-click="cancel()">
-        <i class="fa fa-bars"></i>
-      </button>
+      <a class="list btn-back"
+         x-ui-sref="maillayout.list({domainId: domain.identifier})"
+         tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
+        <i class="fa fa-2x fa-list pink"></i>
+      </a>
     </div>
   </div>
   <!-- Header - End -->

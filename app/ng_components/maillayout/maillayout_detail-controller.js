@@ -32,9 +32,6 @@ angular.module('linshareAdminApp')
           $scope.cancel();
         });
       };
-      $scope.cancel = function() {
-        $state.go('maillayout.list', {domainId: $state.params.domainId});
-      };
       $scope.reset = function() {
         $state.reinit();
       };
