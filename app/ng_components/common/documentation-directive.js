@@ -18,7 +18,7 @@ angular.module('linshareAdminApp')
       scope.template    = getTemplate(scope.functionalityDetail.identifier);
       scope.extendedTemplate = '0';
 
-      var functionality = 'FUNCTIONALITIES.DETAILS.' + scope.functionalityDetail.identifier + '.USE_EXTENDED_DESCRIPTION';
+      var functionality = scope.docType + '.DETAILS.' + scope.functionalityDetail.identifier + '.USE_EXTENDED_DESCRIPTION';
 
       $translate(functionality).then(function (translations) {
         scope.extendedTemplate = translations;
@@ -35,7 +35,8 @@ angular.module('linshareAdminApp')
       restrict: 'E',
       link: linker,
       scope: {
-        functionalityDetail: '=func'
+        functionalityDetail: '=func',
+        docType: '=docType'
       },
       templateUrl: 'ng_components/common/documentation.tpl.html'
     }

@@ -74,6 +74,7 @@
       "MAIL_FOOTER": "Pied de courriel",
       "MAIL_CONTENT": "Contenu de courriel",
       "MAIL_CONFIG": "Configuration de courriel",
+      "MAIL_ACTIVATION": "Activation des notifications",
       "USERS": "Utilisateurs",
       "MANAGE_USERS": "Configuration des utilisateurs",
       "INCONSISTENT_USERS": "Utilisateurs incohérents",
@@ -201,25 +202,25 @@
         "ANTIVIRUS_SCAN_FAILED": "Scan antivirus échoué"
       },
       "MAIL_CONTENT_TYPE": {
-        "ANONYMOUS_DOWNLOAD": "Téléchargement anonyme",
-        "REGISTERED_DOWNLOAD": "Téléchargement enregistré",
-        "NEW_GUEST": "Nouvel invité",
+        "ANONYMOUS_DOWNLOAD": "Téléchargement par un utilisateur anonyme",
+        "REGISTERED_DOWNLOAD": "Téléchargement par un utilisateur enregistré",
+        "NEW_GUEST": "Création d'invité",
         "RESET_PASSWORD": "Réinitialisation de mot de passe",
         "SHARED_DOC_UPDATED": "Partage mis à jour",
         "SHARED_DOC_DELETED": "Partage supprimé",
-        "SHARED_DOC_UPCOMING_OUTDATED": "Partage prochainement expiré",
-        "DOC_UPCOMING_OUTDATED": "Document prochainement expiré",
+        "SHARED_DOC_UPCOMING_OUTDATED": "Alerte sur l'expiration prochaine d'un partage",
+        "DOC_UPCOMING_OUTDATED": "Alerte sur l'expiration prochaine d'un document",
         "NEW_SHARING": "Nouveau partage",
-        "NEW_SHARING_PROTECTED": "Nouveau partage protégé",
+        "NEW_SHARING_PROTECTED": "Nouveau partage créé et protégé un mot de passe (URL anonymes)",
         "NEW_SHARING_CYPHERED": "Nouveau partage chiffré",
-        "NEW_SHARING_CYPHERED_PROTECTED": "Nouveau partage ciffré et protégé",
+        "NEW_SHARING_CYPHERED_PROTECTED": "Nouveau partage chiffré et protégé par mot de passe",
         "UPLOAD_PROPOSITION_CREATED": "Notification de création d'une demande de dépôt",
         "UPLOAD_REQUEST_CREATED": "Notification de création d'une invitation de dépôt",
         "UPLOAD_PROPOSITION_REJECTED": "Notification de rejet d'une demande de dépôt",
         "UPLOAD_REQUEST_AUTO_FILTER": "Filtre de la demande de dépôt",
-        "UPLOAD_REQUEST_ACKNOWLEDGMENT": "Accusé de réception de l'invitation de dépôt",
-        "UPLOAD_REQUEST_ACTIVATED": "Notification d'activation d'une invitation de dépôt",
-        "UPLOAD_REQUEST_CLOSED_BY_OWNER": "Notification de clôture d'une invitation de dépôt par le propriétaire",
+        "UPLOAD_REQUEST_ACKNOWLEDGEMENT": "Accusé de réception de l'invitation de dépôt",
+        "UPLOAD_REQUEST_ACTIVATED": "Notification après activation d'une invitation de dépôt",
+        "UPLOAD_REQUEST_CLOSED_BY_OWNER": "Notification de clôture d'une invitation de dépôt par son émetteur",
         "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Notification de clôture d'une invitation de dépôt par le destinataire",
         "UPLOAD_REQUEST_DELETED_BY_OWNER": "Notification de suppression d'une invitation de dépôt par le propriétaire",
         "UPLOAD_REQUEST_NO_SPACE_LEFT": "Espace Disque insuffisant lors du dépôt pour une invitation de dépôt",
@@ -229,8 +230,8 @@
         "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": "Avertissement d'une future expiration d'une invitation de dépôt (émetteur)",
         "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": "Notification d'expiration d'une invitation de dépôt (destinataire)",
         "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": "Notification d'expiration d'une invitation de dépôt (émetteur)",
-        "SHARE_CREATION_ACKNOWLEDGMENT_FOR_OWNER": "Accusé de réception de création de partage pour l'émetteur",
-        "SHARE_CREATION_ACKNOWLEDGMENT_WITH_SPECIAL_MESSAGE_FOR_OWNER": "Accusé de réception de création de partage pour l'émetteur avec sujet personnalisé",
+        "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": "Accusé de réception de création d'un partage pour l'émetteur",
+        "SHARE_CREATION_ACKNOWLEDGEMENT_WITH_SPECIAL_MESSAGE_FOR_OWNER": "Accusé de réception de création de partage pour l'émetteur avec sujet personnalisé",
         "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": "Notification de suppression d'un fichier par l'utilisateur externe"
       },
       "ROLE": {
@@ -521,6 +522,7 @@
       "PARAGRAPH": "Vous êtes sur le point de supprimer ce domaine, cette procédure est irréversible et va détruire tout les utilisateurs associés. Souhaitez-vous continuer ?"
     }
   },
+
   "WELCOME_MESSAGES": {
     "TITLE": "Gestion de vos messages d'accueil",
     "MODAL_FORM": {
@@ -638,6 +640,160 @@
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer cette politique de domaine, cette procédure est irréversible. Souhaitez-vous continuer ?"
+    }
+  },
+
+  "MAIL_ACTIVATION": {
+    "BOX_LIST": {
+      "TABLE": {
+        "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS",
+        "HEADER_NAME": "Type de notification",
+        "HEADER_DESCRIPTION": "Description"
+      }
+    },
+    "BOX_FORM": {
+      "LABEL_ENABLE": "Activer cette notification",
+      "VIEW_SIMPLE": "Simple",
+      "VIEW_ADVANCED": "Avancé",
+      "LEGEND_ACTIVATION_POLICY": "Politique d'activation",
+      "LEGEND_CONFIGURATION_POLICY": "Politique de configuration",
+      "LEGEND_DELEGATION_POLICY": "Politique de délégation",
+      "LEGEND_PARAMETERS": "Paramètres",
+      "RADIO_FORBIDDEN": "Interdit",
+      "RADIO_ALLOWED": "Autorisé",
+      "RADIO_MANDATORY": "Obligatoire",
+      "LABEL_STATUS": "Activer",
+      "FORM_ACTIONS": {
+        "BUTTON_RESET": "Réinitialiser à la valeur parente",
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+      }
+    },
+    "DETAILS": {
+      "_COMMENT:NAME_OF_THE_MAIL_ACTIVATION": {
+        "NAME": "This is the name of the mail activation in french or english",
+        "USE_EXTENDED_DESCRIPTION": "0 if there is no description for the notification, 1 to show just the description, 2 to show the description and the advanced description, 3 to load an external template ",
+        "DESCRIPTION": "The description of the mail activation type ",
+        "ADVANCED_DESCRIPTION": "advanced description of the mail activation"
+      },
+      "ANONYMOUS_DOWNLOAD": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ANONYMOUS_DOWNLOAD",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'un partage afin de l'avertir de chaque téléchargement par un utilisateur externe."
+      },
+      "REGISTERED_DOWNLOAD": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.REGISTERED_DOWNLOAD",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'un partage afin de l'avertir lorsque un utilisateur interne ou invité télécharge celui-ci."
+      },
+      "NEW_GUEST": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_GUEST",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée lors de la création d'un utilisateur invité afin de lui communiquer ses identifiants de connexion."
+      },
+      "RESET_PASSWORD": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.RESET_PASSWORD",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée lors de la réinitialisation du mot de passe d'un compte invité."
+      },
+      "SHARED_DOC_UPDATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPDATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire d'un partage lorsque l'émetteur met à jour le document partagé."
+      },
+      "SHARED_DOC_DELETED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_DELETED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire d'un partage lorsque l'émetteur supprime le document partagé."
+      },
+      "SHARED_DOC_UPCOMING_OUTDATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPCOMING_OUTDATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un document lorsque le document est proche de sa date d'expiration."
+      },
+      "NEW_SHARING": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_SHARING",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée lorsque un utilisateur interne ou invité partage un document."
+      },
+      "UPLOAD_PROPOSITION_CREATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_CREATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité lorsque un utilisateur externe crée une demande d'invitation de dépôt."
+      },
+      "UPLOAD_PROPOSITION_REJECTED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_REJECTED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe lorsque sa demande d'invitation de dépôt a été rejetée par le système ou par le destinataire."
+      },
+      "UPLOAD_REQUEST_ACTIVATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe lorsqu'une invitation de dépôt précédemment créée est activée."
+      },
+      "UPLOAD_REQUEST_CREATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe lorsqu'une invitation de dépôt est créée."
+      },
+      "UPLOAD_REQUEST_ACKNOWLEDGEMENT": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACKNOWLEDGEMENT",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité lorsqu'un utilisateur externe dépose un fichier au sein d'une invitation de dépôt."
+      },
+      "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir que son invitation de dépôt est sur le point d'expirer."
+      },
+      "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe afin de l'avertir que son invitation de dépôt est sur le point d'expirer."
+      },
+      "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_EXPIRY",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir que son invitation de dépôt a expiré."
+      },
+      "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe afin de l'avertir que son invitation de dépôt a expiré."
+      },
+      "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe afin de l'avertir de la clotûre de l'invitation de dépôt par l'émetteur."
+      },
+      "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir de la clotûre de l'invitation de dépôt par le destinataire."
+      },
+      "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_SENDER",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'une invitation de dépôt lorsque le destinataire supprime un fichier précédemment déposé."
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à tout utilisateur créant un partage avec l'option 'Accusé de partage' activée. La notification contiendra une synthèse du partage."
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Alerte de non téléchargement.",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Cette notification est envoyée à tout utilisateur créant un partage avec l'option 'Accusé de non téléchargement' activée. La notification contiendra une synthèse des documents partagés et téléchargés."
+      },
+      "ANONYMOUS_URL__NOTIFICATION" : {
+        "NAME": "Notification de téléchargement",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": " La notification de téléchargement d'un document via les urls anonymes sera envoyée à chaque téléchargement, ou seulement au premier téléchargement."
+      }
+    },
+    "PARAMETERS": {
+      "BOOLEAN_false": "Cette notification est désactivée.",
+      "BOOLEAN_true": "Cette notification est activée."
     }
   },
 
@@ -1258,6 +1414,42 @@
         "DELEGATION_POLICY": "",
         "PARAMETER_NAME": "Paramètres",
         "PARAMETER_DESCRIPTION": ""
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Alerte de non téléchargement",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "En activant cette fonctionalité, les utilisateurs auront la possibilité de demander une alerte de non téléchargement de fichiers lors d'un partage. L'alerte est envoyée si au moins un document du partage n'a pas du tout été téléchargé.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Paramètres",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION" : {
+        "NAME": "Alerte de non téléchargement - Nombre de jours avant notification",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Ceci représente le nombre de jours que vous paramétrez avant de recevoir l'alerte.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Valeur par défaut dans l'interface utilisateur",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "ANONYMOUS_URL__NOTIFICATION" : {
+        "NAME": "Notification de téléchargement",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": " La notification de téléchargement d'un document via les urls anonymes sera envoyée à chaque téléchargement, ou seulement au premier téléchargement.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Valeur par défaut dans l'interface utilisateur",
+        "PARAMETER_DESCRIPTION": ""
       }
     },
     "PARAMETERS": {
@@ -1282,7 +1474,11 @@
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false" : "Une invitation sera créée par destinataire.",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true" : "L'ensemble des destinataires se partageront les conditions d'utilisation de l'invitation.",
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false" : "Aucun accusé de partage sera envoyé.",
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true" : "Un accusé de partage sera envoyé à l'émetteur du partage."
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true" : "Un accusé de partage sera envoyé à l'émetteur du partage.",
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_false": "L'alerte de non téléchargement est désactivée",
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_true": "L'alerte de non téléchargement est activée",
+      "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Envoi au premier téléchargement uniquement.",
+      "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Envoi à chaque téléchargement."
     }
   },
 
@@ -1547,7 +1743,6 @@
     }
   },
 
-
   "MANAGE_USERS": {
     "TITLE": "Gestion des utilisateurs",
     "BOX_LIST": {
@@ -1755,6 +1950,7 @@
       }
     }
   },
+
   "UPLOAD_REQUEST": {
     "TITLE": "Invitation de dépôt",
     "BOX_FORM": {
@@ -1788,6 +1984,7 @@
       }
     }
   },
+
   "UPLOAD_PROPOSITION_FILTER": {
     "TITLE": "Filtres de demande d'invitation de partage",
     "BOX_FORM": {
@@ -1816,6 +2013,7 @@
       }
     }
   },
+
   "TECHNICAL_ACCOUNT": {
     "TITLE": "Comptes techniques",
     "BOX_FORM": {

@@ -45,7 +45,7 @@
   </div>
   <div class="box-body box-tree-domain">
     <div class="functionality-parent">
-        <x-ls-doc func="functionality"></x-ls-doc>
+        <ls-doc func="functionality" x-doc-type="'FUNCTIONALITIES'"></ls-doc>
         <ls-functionality-display></ls-functionality-display>
         <div class="clearfix"></div>
     </div>
@@ -58,7 +58,7 @@
           {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
           <i class="fa pull-right" x-ng-class="{'fa-check': functionality.activationPolicy.status, 'fa-times': !functionality.activationPolicy.status}"></i>
           </accordion-heading>
-            <x-ls-doc func="functionality"></x-ls-doc>
+            <ls-doc func="functionality" x-doc-type="'FUNCTIONALITIES'"></ls-doc>
             <ls-functionality-display>
             </ls-functionality-display>
           </accordion-group>

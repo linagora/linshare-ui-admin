@@ -139,6 +139,59 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         }
       })
 
+      .state('mailactivation', {
+        abstract: true,
+        url: '/mailactivation',
+        templateUrl: 'ng_components/mailactivation/mailactivation.html',
+        resolve: {
+          treeTitle: function () {
+            return 'COMMON.TAB.MAIL_ACTIVATION';
+          },
+          treeType: function() {
+            return 'read';
+          },
+          authenticatedUser: authenticatedUser
+        },
+        controller: function($scope, $state) {
+          $scope.$state = $state;
+        }
+      })
+      .state('mailactivation.list', {
+        url: '/:domainId/list?view',
+        views: {
+          'tree': domainTreeView,
+          'list': {
+            templateUrl: 'ng_components/mailactivation/mailactivation_list.tpl.html',
+            controller: 'MailActivationListCtrl',
+            resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                return Domain.get($stateParams.domainId);
+              },
+              mailActivations: function(MailActivation, currentDomain) {
+                return MailActivation.getAll(currentDomain.identifier, null);
+              }
+            }
+          }
+        }
+      })
+      .state('mailactivation.detail', {
+        url: '/:domainId/detail/:id?view&f',
+        views: {
+          'tree': domainTreeView,
+          'detail': {
+            templateUrl: 'ng_components/mailactivation/mailactivation_detail.tpl.html',
+            controller: 'MailActivationDetailCtrl',
+            resolve: {
+              currentMailActivation: function(MailActivation, $stateParams) {
+                return MailActivation.get($stateParams.domainId, $stateParams.id).then(function(mailActivations) {
+                  return mailActivations;
+                });
+              }
+            }
+          }
+        }
+      })
+
       .state('mimepolicy', {
         abstract: true,
         url: '/mimepolicy',

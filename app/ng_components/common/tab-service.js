@@ -66,6 +66,13 @@ angular.module('linshareAdminApp')
             children_sref: [
               'mailconfig.detail'
             ]
+          }, {
+            name: 'COMMON.TAB.MAIL_ACTIVATION',
+            superAdminOnly: false,
+            sref: 'mailactivation.list',
+            children_sref: [
+              'mailactivation.detail'
+            ]
           }
         ]
       };

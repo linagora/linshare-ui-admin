@@ -1,0 +1,94 @@
+<div id="functionality_renderer_simple" class="col-md-12">
+  <div class="row"  x-ng-if="!showActivation() && mailActivation.configurationPolicy.policy != 'ALLOWED'">
+    <div class="col-md-10 warning-enable" x-ng-if="showParameters()">
+      {{ 'MAIL_ACTIVATION.BOX_FORM.LEGEND_ENABLE_NOTVISIBLE' | translate }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+    </div>
+    <form>
+      <div class="col-md-10 legend"
+           title="{{translations.ACTIVATION_POLICY ? 'MAIL_ACTIVATION.HELP' : 'MAIL_ACTIVATION.NO_DATA' | translate}}"
+           x-ng-click="isCollapseActivation = !isCollapseActivation"
+           x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY != ''}">
+        {{ 'MAIL_ACTIVATION.BOX_FORM.LABEL_ENABLE' | translate }}
+        <i class="fa fa-info pull-left"></i>
+      </div>
+      <div class="col-md-2">
+        <toggle-switch
+          ng-change="changeStatusMailActivation()"
+          ng-model="mailActivation.enable"
+          class="pull-right">
+        </toggle-switch>
+      </div>
+    </form>
+    <div class="clearfix"></div>
+  </div>
+  <div class="row" x-ng-if="showActivation()">
+    <div class="form-group">
+      <form>
+        <div class="col-md-10 legend"
+             title="{{translations.ACTIVATION_POLICY ? 'MAIL_ACTIVATION.HELP' : 'MAIL_ACTIVATION.NO_DATA' | translate}}"
+             x-ng-click="isCollapseActivation = !isCollapseActivation"
+             x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY != ''}">
+          {{ 'MAIL_ACTIVATION.BOX_FORM.LABEL_ENABLE' | translate }}
+          <i class="fa fa-info pull-left"></i>
+        </div>
+        <div class="col-md-2">
+          <toggle-switch
+            ng-change="changeStatusMailActivation()"
+            ng-model="mailActivation.activationPolicy.status"
+            class="pull-right">
+          </toggle-switch>
+        </div>
+        <div class="col-md-12 description">
+          <p collapse="!isCollapseActivation" x-ng-show="translations.ACTIVATION_POLICY">
+            {{ 'MAIL_ACTIVATION.DETAILS.' + mailActivation.identifier + '.ACTIVATION_POLICY' | translate }}
+          </p>
+
+          <p class="pull-right warning" x-ng-if="mailActivation.activationPolicy.policy != 'ALLOWED'">
+            {{'MAIL_ACTIVATION.BOX_FORM.LEGEND_ENABLE' | translate }}
+          </p>
+        </div>
+      </form>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="row" x-ng-if="showDelegation()">
+    <div class="form-group">
+      <form>
+        <div class="col-md-10 legend"
+             title="{{translations.DELEGATION_POLICY ? 'MAIL_ACTIVATION.HELP' : 'MAIL_ACTIVATION.NO_DATA' | translate}}"
+             x-ng-click="isCollapseDelegation = !isCollapseDelegation"
+             x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY != ''}">
+          {{ 'MAIL_ACTIVATION.BOX_FORM.LEGEND_DELEGATION_POLICY' | translate }}
+          <i class="fa fa-info pull-left"></i>
+        </div>
+        <div class="col-md-2">
+          <toggle-switch
+            class="pull-right"
+            ng-change="changeDelegationMailActivation()"
+            ng-model="mailActivation.delegationPolicy.status">
+          </toggle-switch>
+        </div>
+        <div class="col-md-12 description">
+          <p collapse="!isCollapseDelegation" x-ng-show="translations.DELEGATION_POLICY">
+            {{ 'MAIL_ACTIVATION.DETAILS.' + mailActivation.identifier + '.DELEGATION_POLICY' | translate }}
+          </p>
+        </div>
+      </form>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="form-group pull-right"
+       x-ng-if="!isRootDomain()">
+    <div class="col-md-12">
+      <button class="btn btn-danger" type="button"
+              x-ng-show="showResetToParent()"
+              x-ng-click="resetToParent()">
+        {{ 'MAIL_ACTIVATION.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

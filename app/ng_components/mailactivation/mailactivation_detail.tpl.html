@@ -1,0 +1,42 @@
+<div class="box box-primary" id="functionality_details">
+  <div class="box-header">
+    <h3 class="box-title">
+      <i class="fa pull-left"
+         x-ng-class="{'fa-check': mailActivation.activationPolicy.status,
+                      'fa-times': !mailActivation.activationPolicy.status}">
+      </i>
+      {{ 'MAIL_ACTIVATION.DETAILS.' + mailActivation.identifier + '.NAME' | translate }}
+    </h3>
+    <i class="fa fa-save fade"
+      x-ng-class="{in: iconSaved}">
+    </i>
+    <div class="pull-right box-tools">
+      <div class="btn-group">
+        <a type="button" class="btn"
+          x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: mailActivation.identifier, view: 'simple'})"
+          x-ng-class="{'btn-success': view == 'simple', 'btn-grey': view == 'advanced'}">
+          {{ 'MAIL_ACTIVATION.BOX_FORM.VIEW_SIMPLE' | translate }}
+        </a>
+        <a class="btn"
+          x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: mailActivation.identifier, view: 'advanced'})"
+          x-ng-class="{'btn-success': view == 'advanced', 'btn-grey': view == 'simple'}">
+          {{ 'MAIL_ACTIVATION.BOX_FORM.VIEW_ADVANCED' | translate }}
+        </a>
+      </div>
+      <a class="btn btn-maroon list"
+          x-ui-sref="mailactivation.list({domainId: mailActivation.domain, view: view})"
+          tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+  <div class="box-body">
+    <div class="functionality-parent">
+        <ls-doc func="mailActivation" x-doc-type="'MAIL_ACTIVATION'"></ls-doc>
+        <ls-mail-activation-display></ls-mail-activation-display>
+        <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="box-footer">
+  </div>
+</div>

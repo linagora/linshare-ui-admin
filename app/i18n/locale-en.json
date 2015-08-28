@@ -74,6 +74,7 @@
       "MAIL_FOOTER": "Mail footer",
       "MAIL_CONTENT": "Mail content",
       "MAIL_CONFIG": "Mail configuration",
+      "MAIL_ACTIVATION": "Mail activation",
       "USERS": "Users",
       "MANAGE_USERS": "Manage users",
       "INCONSISTENT_USERS": "Inconsistent users",
@@ -210,7 +211,7 @@
         "UPLOAD_REQUEST_CREATED": "Creation of an upload request",
         "UPLOAD_PROPOSITION_REJECTED": "Notification for a reject of an upload proposition",
         "UPLOAD_REQUEST_AUTO_FILTER": "Upload proposition filter",
-        "UPLOAD_REQUEST_ACKNOWLEDGMENT": "Upload request acknowledgment",
+        "UPLOAD_REQUEST_ACKNOWLEDGEMENT": "Upload request acknowledgement",
         "UPLOAD_REQUEST_ACTIVATED": "Notification for the activation of an upload request",
         "UPLOAD_REQUEST_CLOSED_BY_OWNER": "Upload request has been closed by the owner",
         "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Upload request has been closed by the recipient",
@@ -222,9 +223,10 @@
         "UPLOAD_REQUEST_UPDATED": "The upload request has been updated",
         "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": "Warning notification sent to the recipient before the upload request expiry",
         "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY":"Warning notification sent to the owner before the upload request expiry",
-        "SHARE_CREATION_ACKNOWLEDGMENT_FOR_OWNER": "Sharing creative receipt for the issuer",
-        "SHARE_CREATION_ACKNOWLEDGMENT_WITH_SPECIAL_MESSAGE_FOR_OWNER": "Sharing creative receipt for transmitter with personalized subject",
-        "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": "Notification of deleting a file from the external user"
+        "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": "Acknowledgement of share creation",
+        "SHARE_CREATION_ACKNOWLEDGEMENT_WITH_SPECIAL_MESSAGE_FOR_OWNER": "Acknowledgement of share creation sent to the owner with customized subject.",
+        "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": "Notification of deleting a document from the external user",
+        "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": "Undownloaded shared documents alert"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -632,6 +634,162 @@
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this policy, this procedure is irreversible. Do you want to proceed?"
+    }
+  },
+
+  "MAIL_ACTIVATION":{
+    "BOX_LIST": {
+      "TABLE": {
+        "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS",
+        "HEADER_DESCRIPTION": "Legend",
+        "HEADER_NAME": "Mail activation type"
+      }
+    },
+    "BOX_FORM": {
+      "LABEL_ENABLE": "Enable this notification",
+      "VIEW_SIMPLE": "Simple",
+      "VIEW_ADVANCED": "Advanced",
+      "LEGEND_ACTIVATION_POLICY": "Activation policy",
+      "LEGEND_CONFIGURATION_POLICY": "Configuration policy",
+      "LEGEND_DELEGATION_POLICY": "Delegation policy",
+      "LEGEND_PARAMETERS": "Parameters",
+      "RADIO_FORBIDDEN": "Forbidden",
+      "RADIO_ALLOWED": "Allowed",
+      "RADIO_MANDATORY": "Mandatory",
+      "LABEL_SAVED": "Saved",
+      "LABEL_STATUS": "Enable",
+      "LABEL_DISABLE": "Disable this notification",
+      "FORM_ACTIONS": {
+        "BUTTON_RESET": "Reset to parent value",
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+      }
+    },
+    "DETAILS": {
+      "_COMMENT:NAME_OF_THE_MAIL_ACTIVATION": {
+        "NAME": "This is the name of the mail activation in french or english",
+        "USE_EXTENDED_DESCRIPTION": "0 if there is no description for the notification, 1 to show just the description, 2 to show the description and the advanced description, 3 to load an external template ",
+        "DESCRIPTION": "The description of the mail activation type ",
+        "ADVANCED_DESCRIPTION": "advanced description of the mail activation"
+      },
+      "ANONYMOUS_DOWNLOAD": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ANONYMOUS_DOWNLOAD",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to warn the share owner when an external user downloads a shared document."
+      },
+      "REGISTERED_DOWNLOAD": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.REGISTERED_DOWNLOAD",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the share owner when a internal user or a guest downloads the received shared documents."
+      },
+      "NEW_GUEST": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_GUEST",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent when a new guest is created, it contains his credentials."
+      },
+      "RESET_PASSWORD": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.RESET_PASSWORD",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent when a guest passord is reseted."
+      },
+      "SHARED_DOC_UPDATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPDATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to share recipients when a shared document is updated by the share owner."
+      },
+      "SHARED_DOC_DELETED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_DELETED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to share recipients when a shared document is deleted by the share owner."
+      },
+      "SHARED_DOC_UPCOMING_OUTDATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPCOMING_OUTDATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to share recipients when a shared document is about to expire."
+      },
+      "NEW_SHARING": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_SHARING",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to all recipients (internal users, guests or external users) when a user shares a document."
+      },
+      "UPLOAD_PROPOSITION_CREATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_CREATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to an internal user or a guest when a external user creates an upload proposition."
+      },
+      "UPLOAD_PROPOSITION_REJECTED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_REJECTED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to an external user when its upload proposition is rejected by the system or by the upload proposition recipient."
+      },
+      "UPLOAD_REQUEST_ACTIVATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to an external user when an upload request, previously created, is enabled."
+      },
+      "UPLOAD_REQUEST_CREATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to an external user when an upload request is created."
+      },
+      "UPLOAD_REQUEST_ACKNOWLEDGEMENT": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACKNOWLEDGEMENT",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to an internal user or a guest when an external user uploads a file into an upload request."
+      },
+      "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the owner of an upload request before the expiration of the upload request."
+      },
+      "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the recipient of an upload request before the expiration of the upload request."
+      },
+      "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_EXPIRY",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the owner of an upload request when the upload request expires."
+      },
+      "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the recipient of an upload request when the upload request expires."
+      },
+      "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the external user when the upload request owner is closed."
+      },
+      "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the internal user or guest when the upload request is closed by the recipient."
+      },
+      "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_SENDER",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the owner of an upload request when the recipient deletes documents he has already uploaded."
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the user who is creating a share with the option 'Acknowledgement of share creation' enabled. It contains the resume of the share."
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UNDOWNLOADED_SHARED_DOCUMENTS_ALERT",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This notification is sent to the user who is creating a share with the option 'Undownloaded shared document alert' enabled. It contains the resume of downloaded shares."
+      },
+      "ANONYMOUS_URL__NOTIFICATION" : {
+        "NAME": "Anonymous download notification",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Anonymous download notification will be sent for every download or only for the first."
+      }
+    },
+    "PARAMETERS": {
+      "BOOLEAN_false": "This notification is disabled.",
+      "BOOLEAN_true": "This notification has been enabled."
     }
   },
 
@@ -1281,7 +1439,43 @@
         "ACTIVATION_POLICY": "",
         "CONFIGURATION_POLICY": "",
         "DELEGATION_POLICY": "",
-        "PARAMETER_NAME": "Paramètres",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Undownloaded shared document alert",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "By enabling this functionality, users will have the opportunity to get notified when a document has not been downloaded following a share. That notification is sent if at least one document of the share has not been downloaded at all.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "Allow user to modify the default value for activation checkbox in share from",
+        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION" : {
+        "NAME": "Undownloaded shared document alert - Days before the alert",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "This is the default number of worked days (weekend are excluded) between now and the the alert notification.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Default activation checkbox value in share form",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "ANONYMOUS_URL__NOTIFICATION" : {
+        "NAME": "Anonymous download notification",
+        "USE_EXTENDED_DESCRIPTION" : "1",
+        "DESCRIPTION": "Anonymous download notification will be sent for every download or only for the first.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "Default parameters",
         "PARAMETER_DESCRIPTION": ""
       }
     },
@@ -1306,8 +1500,12 @@
       "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true" : "The access to the invitation will be protected by a password.",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false" : "An invitation will be created per recipient.",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true" : "All recipients share the conditions of use of the invitation.",
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false" : "No acknowledgment will be sent to the issuer of the share.",
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true" : "An acknowledgement will be sent to the issuer of the share."
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false" : "No acknowledgement will be sent to the issuer of the share.",
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true" : "An acknowledgement will be sent to the issuer of the share.",
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_false": "The undownloaded shared document alert is deactivated",
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_true": "The undownloaded shared document alert is activated",
+      "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Notification will be sent for the first download only.",
+      "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Notification will be sent for every download."
     }
   },
 
@@ -1572,7 +1770,6 @@
     }
   },
 
-
   "MANAGE_USERS": {
     "TITLE": "Manage users",
     "BOX_LIST": {
@@ -1780,6 +1977,7 @@
       }
     }
   },
+
   "UPLOAD_REQUEST": {
     "TITLE": "Upload request",
     "BOX_FORM": {
@@ -1813,6 +2011,7 @@
       }
     }
   },
+
   "UPLOAD_PROPOSITION_FILTER": {
     "TITLE": "Upload proposition filter",
     "BOX_FORM": {
@@ -1843,6 +2042,7 @@
       }
     }
   },
+
   "TECHNICAL_ACCOUNT": {
     "TITLE": "Technical accounts",
     "BOX_FORM": {

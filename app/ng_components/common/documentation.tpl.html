@@ -6,10 +6,10 @@
       </div>
       <div x-ng-if="extendedTemplate == '1' || extendedTemplate == '2'">
         <p>
-          {{ 'FUNCTIONALITIES.DETAILS.' + functionalityDetail.identifier + '.DESCRIPTION' | translate }}
+          {{ docType + '.DETAILS.' + functionalityDetail.identifier + '.DESCRIPTION' | translate }}
         </p>
         <p collapse="!isCollapse">
-          {{ 'FUNCTIONALITIES.DETAILS.' + functionalityDetail.identifier + '.ADVANCED_DESCRIPTION' | translate }}
+          {{ docType + '.DETAILS.'  + functionalityDetail.identifier + '.ADVANCED_DESCRIPTION' | translate }}
         </p>
         <i class="fa fa-fw btn-description pull-right" ng-click="collapse()" ng-class="{'fa-plus': !isCollapse, 'fa-minus': isCollapse}" x-ng-if="extendedTemplate == '2'"></i>
         </div>
