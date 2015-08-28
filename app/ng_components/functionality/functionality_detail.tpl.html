@@ -1,54 +1,57 @@
 <div class="box box-primary" id="functionality_details">
   <div class="box-header">
     <h3 class="box-title">
-      <i class="fa pull-left" x-ng-class="{'fa-check': functionality.activationPolicy.status, 'fa-times': !functionality.activationPolicy.status}"></i>
+      <i class="fa pull-left"
+         x-ng-class="{'fa-check': functionality.activationPolicy.status, 'fa-times': !functionality.activationPolicy.status}"></i>
       {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
     </h3>
-    <i class="fa fa-save fade"
-      x-ng-class="{in: iconSaved}">
-    </i>
+    <i class="fa fa-save fade" x-ng-class="{in: iconSaved}"></i>
+
     <div class="pull-right box-tools">
       <div class="btn-group">
         <a type="button" class="btn"
-          x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'simple'})"
-          x-ng-class="{'btn-success': view == 'simple', 'btn-grey': view == 'advanced'}">
+           x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'simple'})"
+           x-ng-class="{'btn-success': view == 'simple', 'btn-grey': view == 'advanced'}">
           {{ 'FUNCTIONALITIES.BOX_FORM.VIEW_SIMPLE' | translate }}
         </a>
         <a class="btn"
-          x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'advanced'})"
-          x-ng-class="{'btn-success': view == 'advanced', 'btn-grey': view == 'simple'}">
+           x-ui-sref="functionality.detail({domainId: functionality.domain, id: functionality.identifier, view: 'advanced'})"
+           x-ng-class="{'btn-success': view == 'advanced', 'btn-grey': view == 'simple'}">
           {{ 'FUNCTIONALITIES.BOX_FORM.VIEW_ADVANCED' | translate }}
         </a>
       </div>
       <a class="btn btn-maroon list"
-          x-ui-sref="functionality.list({domainId: functionality.domain, view: view})"
-          tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
+         x-ui-sref="functionality.list({domainId: functionality.domain, view: view})"
+         tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
         <i class="fa fa-bars"></i>
       </a>
     </div>
   </div>
   <div class="box-body">
+    <!-- Parent functionality - Begin -->
     <div class="functionality-parent">
-        <x-ls-doc func="functionality"></x-ls-doc>
-        <ls-functionality-display></ls-functionality-display>
-        <div class="clearfix"></div>
+      <x-ls-doc func="functionality"></x-ls-doc>
+      <ls-functionality-display></ls-functionality-display>
+      <div class="clearfix"></div>
     </div>
+    <!-- Parent functionality - End -->
+    <!-- Children functionalities - Begin -->
     <div class="functionality-children">
       <accordion id="accordion">
         <accordion-group
-            x-ng-repeat="functionality in childrenFunctionality track by $index"
-            is-open="isOpen">
+          x-ng-repeat="functionality in childrenFunctionality track by $index"
+          is-open="isOpen">
           <accordion-heading x-ng-class="{'activ': isOpen, 'no': !isOpen}">
-          {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
-          <i class="fa pull-right" x-ng-class="{'fa-check': functionality.activationPolicy.status, 'fa-times': !functionality.activationPolicy.status}"></i>
+            {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.NAME' | translate }}
+            <i class="fa pull-right"
+               x-ng-class="{'fa-check': functionality.activationPolicy.status, 'fa-times': !functionality.activationPolicy.status}"></i>
           </accordion-heading>
-            <x-ls-doc func="functionality"></x-ls-doc>
-            <ls-functionality-display>
-            </ls-functionality-display>
-          </accordion-group>
+          <x-ls-doc func="functionality"></x-ls-doc>
+          <ls-functionality-display></ls-functionality-display>
+        </accordion-group>
       </accordion>
     </div>
+    <!-- Children functionalities - End -->
   </div>
-  <div class="box-footer">
-  </div>
+  <div class="box-footer"></div>
 </div>

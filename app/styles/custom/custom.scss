@@ -23,7 +23,7 @@ $orange: #f0ad4e;
 */
 @mixin legend {
   font-size: 16px;
-font-weight: bold;
+  font-weight: bold;
   text-align: left;
   color: $black;
   margin-top: 10px;
@@ -389,9 +389,9 @@ a.clear-btn, button.clear-btn {
     height: 670px;
   }
   #functionality_renderer {
-    margin: 30px 0px;
     .legend {
       @include legend;
+      margin-bottom: 5px;
     }
     .description {
       font-size: 14px;
@@ -408,7 +408,8 @@ a.clear-btn, button.clear-btn {
         }
     }
     .row {
-      margin-top: 20px;
+      margin-top: 10px;
+      margin-bottom: 15px;
     }
   }
   #functionality_renderer_simple {

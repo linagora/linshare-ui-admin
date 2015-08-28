@@ -1,16 +1,21 @@
-<div id="functionality_renderer" class="col-md-12">
+<div id="functionality_renderer" class="col-md-12"
+     x-ng-if="showActivation() || showConfiguration() || showDelegation()">
+  <!-- Activation and Configuration Policy - Begin -->
   <div class="row">
+    <!-- Activation Policy - Begin -->
     <div class="col-md-6" x-ng-if="showActivation()">
       <form>
         <fieldset>
           <legend class="legend"
-                title="{{translations.ACTIVATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
-                x-ng-click="isCollapseActivation = !isCollapseActivation"
-                x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY != ''}">
-              {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_ACTIVATION_POLICY' | translate }}
-              <i class="fa fa-info pull-right"></i>
+                  title="{{translations.ACTIVATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+                  x-ng-click="isCollapseActivation = !isCollapseActivation"
+                  x-ng-class="{'cursor-pointer': translations.ACTIVATION_POLICY != ''}">
+            {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_ACTIVATION_POLICY' | translate }}
+            <i class="fa fa-info pull-right"></i>
           </legend>
-          <div class="description" collapse="!isCollapseActivation" x-ng-show="translations.ACTIVATION_POLICY">
+          <div class="description"
+               collapse="!isCollapseActivation"
+               x-ng-show="translations.ACTIVATION_POLICY">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.ACTIVATION_POLICY' | translate }}
           </div>
           <div class="col-sm-offset-1 col-sm-12">
@@ -18,7 +23,7 @@
               <label>
                 <input type="radio" name="activationRadios" id="activationRadios2" value="MANDATORY"
                        x-ng-model="functionality.activationPolicy.policy"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_MANDATORY' | translate }}
               </label>
             </div>
@@ -27,7 +32,7 @@
                 <input type="radio" name="activationRadios" id="activationRadios1" value="ALLOWED"
                        x-ng-model="functionality.activationPolicy.policy"
                        x-ng-click="checkPolicyType(functionality.activationPolicy)"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_ALLOWED' | translate }}
               </label>
             </div>
@@ -35,7 +40,7 @@
               <label>
                 <input type="radio" name="activationRadios" id="activationRadios0" value="FORBIDDEN"
                        x-ng-model="functionality.activationPolicy.policy"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_FORBIDDEN' | translate }}
               </label>
             </div>
@@ -46,7 +51,7 @@
                 <input type="checkbox"
                        x-ng-disabled="disableStatus(functionality.activationPolicy)"
                        x-ng-model="functionality.activationPolicy.status"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_STATUS' | translate }}
               </label>
             </div>
@@ -54,17 +59,21 @@
         </fieldset>
       </form>
     </div>
+    <!-- Activation Policy - End -->
+    <!-- Configuration Policy - Begin -->
     <div class="col-md-6" x-ng-show="showConfiguration()">
       <form>
         <fieldset>
           <legend class="legend"
-                title="{{translations.CONFIGURATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
-                ng-click="isCollapseConfiguration = !isCollapseConfiguration"
-                x-ng-class="{'cursor-pointer': translations.CONFIGURATION_POLICY != ''}">
+                  title="{{translations.CONFIGURATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+                  ng-click="isCollapseConfiguration = !isCollapseConfiguration"
+                  x-ng-class="{'cursor-pointer': translations.CONFIGURATION_POLICY != ''}">
             {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_CONFIGURATION_POLICY' | translate }}
             <i class="fa fa-info pull-right"></i>
           </legend>
-          <div class="description" collapse="!isCollapseConfiguration" x-ng-show="translations.CONFIGURATION_POLICY">
+          <div class="description"
+               collapse="!isCollapseConfiguration"
+               x-ng-show="translations.CONFIGURATION_POLICY">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.CONFIGURATION_POLICY' | translate }}
           </div>
           <div class="col-sm-offset-1 col-sm-12">
@@ -72,7 +81,7 @@
               <label>
                 <input type="radio" name="configurationRadios" id="configurationRadios2" value="MANDATORY"
                        x-ng-model="functionality.configurationPolicy.policy"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_MANDATORY' | translate }}
               </label>
             </div>
@@ -81,7 +90,7 @@
                 <input type="radio" name="configurationRadios" id="configurationRadios1" value="ALLOWED"
                        x-ng-model="functionality.configurationPolicy.policy"
                        x-ng-click="checkPolicyType(functionality.configurationPolicy)"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_ALLOWED' | translate }}
               </label>
             </div>
@@ -89,7 +98,7 @@
               <label>
                 <input type="radio" name="configurationRadios" id="configurationRadios0" value="FORBIDDEN"
                        x-ng-model="functionality.configurationPolicy.policy"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_FORBIDDEN' | translate }}
               </label>
             </div>
@@ -100,7 +109,7 @@
                 <input type="checkbox"
                        x-ng-disabled="disableStatus(functionality.configurationPolicy)"
                        x-ng-model="functionality.configurationPolicy.status"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_STATUS' | translate }}
               </label>
             </div>
@@ -108,20 +117,25 @@
         </fieldset>
       </form>
     </div>
+    <!-- Configuration Policy - End -->
   </div>
+  <!-- Activation and Configuration Policy - End -->
+  <!-- Delegation Policy and Parameters - Begin -->
   <div class="row">
-    <div class="col-md-6"
-         x-ng-show="showDelegation()">
+    <!-- Delegation Policy - Begin -->
+    <div class="col-md-6" x-ng-show="showDelegation()">
       <form>
         <fieldset>
           <legend class="legend"
-                title="{{translations.DELEGATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
-                ng-click="isCollapseDelegation = !isCollapseDelegation"
-                x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY != ''}">
+                  title="{{translations.DELEGATION_POLICY ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+                  ng-click="isCollapseDelegation = !isCollapseDelegation"
+                  x-ng-class="{'cursor-pointer': translations.DELEGATION_POLICY != ''}">
             {{ 'FUNCTIONALITIES.BOX_FORM.LEGEND_DELEGATION_POLICY' | translate }}
             <i class="fa fa-info pull-right"></i>
           </legend>
-          <div class="description" collapse="!isCollapseDelegation" x-ng-show="translations.DELEGATION_POLICY">
+          <div class="description"
+               collapse="!isCollapseDelegation"
+               x-ng-show="translations.DELEGATION_POLICY">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.DELEGATION_POLICY' | translate }}
           </div>
           <div class="col-sm-offset-1 col-sm-12">
@@ -129,7 +143,7 @@
               <label>
                 <input type="radio" name="delegationRadios" id="delegationRadios2" value="MANDATORY"
                        x-ng-model="functionality.delegationPolicy.policy"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_MANDATORY' | translate }}
               </label>
             </div>
@@ -138,7 +152,7 @@
                 <input type="radio" name="delegationRadios" id="delegationRadios1" value="ALLOWED"
                        x-ng-model="functionality.delegationPolicy.policy"
                        x-ng-click="checkPolicyType(functionality.delegationPolicy)"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_ALLOWED' | translate }}
               </label>
             </div>
@@ -146,7 +160,7 @@
               <label>
                 <input type="radio" name="delegationRadios" id="delegationRadios0" value="FORBIDDEN"
                        x-ng-model="functionality.delegationPolicy.policy"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.RADIO_FORBIDDEN' | translate }}
               </label>
             </div>
@@ -157,7 +171,7 @@
                 <input type="checkbox"
                        x-ng-disabled="disableStatus(functionality.delegationPolicy)"
                        x-ng-model="functionality.delegationPolicy.status"
-                       x-ng-change="update()">
+                       x-ng-change="update()"/>
                 {{ 'FUNCTIONALITIES.BOX_FORM.LABEL_STATUS' | translate }}
               </label>
             </div>
@@ -165,18 +179,20 @@
         </fieldset>
       </form>
     </div>
-    <div class="col-md-6"
-         x-ng-if="showParameters()">
+    <!-- Parameters End -->
+    <div class="col-md-6" x-ng-if="showParameters()">
       <form>
         <fieldset>
           <legend class="legend"
-                title="{{translations.PARAMETER_DESCRIPTION ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
-                x-ng-click="isCollapseParameter = !isCollapseParameter"
-                x-ng-class="{'cursor-pointer': translations.PARAMETER_DESCRIPTION != ''}">
+                  title="{{translations.PARAMETER_DESCRIPTION ? 'FUNCTIONALITIES.HELP' : 'FUNCTIONALITIES.NO_DATA' | translate}}"
+                  x-ng-click="isCollapseParameter = !isCollapseParameter"
+                  x-ng-class="{'cursor-pointer': translations.PARAMETER_DESCRIPTION != ''}">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_NAME' | translate }}
             <i class="fa fa-info pull-right"></i>
           </legend>
-          <div class="description" collapse="!isCollapseParameter" x-ng-show="translations.PARAMETER_DESCRIPTION">
+          <div class="description"
+               collapse="!isCollapseParameter"
+               x-ng-show="translations.PARAMETER_DESCRIPTION">
             {{ 'FUNCTIONALITIES.DETAILS.' + functionality.identifier + '.PARAMETER_DESCRIPTION' | translate }}
           </div>
           <div x-ng-repeat="parameter in functionality.parameters">
@@ -185,17 +201,16 @@
                 <div class="form-group">
                   <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
                          x-ng-model="parameter.integer"
-                         x-ng-change="updateWithTimeout()">
+                         x-ng-change="updateWithTimeout()"/>
                 </div>
               </div>
               <div x-ng-switch-when="UNIT_TIME">
                 <div class="form-group">
-
                   <div class="form-inline row">
                     <div class="form-group col-sm-5">
                       <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
                              x-ng-model="parameter.integer"
-                             x-ng-change="updateWithTimeout()">
+                             x-ng-change="updateWithTimeout()"/>
                     </div>
                     <div class="form-group col-sm-5">
                       <select class="form-control"
@@ -209,12 +224,11 @@
               </div>
               <div x-ng-switch-when="UNIT_SIZE">
                 <div class="form-group">
-
                   <div class="form-inline row">
                     <div class="form-group col-sm-5">
                       <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
                              x-ng-model="parameter.integer"
-                             x-ng-change="updateWithTimeout()">
+                             x-ng-change="updateWithTimeout()"/>
                     </div>
                     <div class="form-group col-sm-5">
                       <select class="form-control"
@@ -231,20 +245,20 @@
                   <input name="$index" type="text" class="form-control" required
                          x-ng-model="parameter.string"
                          x-ng-change="updateWithTimeout()"
-                         x-ng-minLength="1">
+                         x-ng-minLength="1"/>
                 </div>
               </div>
               <div x-ng-switch-when="BOOLEAN">
                 <div class="form-group">
                   <div class="input-group">
-          <span class="input-group-addon">
-            <input name="$index" type="checkbox"
-                   x-ng-model="parameter.bool"
-                   x-ng-change="updateWithTimeout()">
-          </span>
-          <span class="form-control">
-            {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type + '_' + parameter.bool | translate }}
-          </span>
+                    <span class="input-group-addon">
+                      <input name="$index" type="checkbox"
+                             x-ng-model="parameter.bool"
+                             x-ng-change="updateWithTimeout()"/>
+                    </span>
+                    <span class="form-control">
+                      {{ 'FUNCTIONALITIES.PARAMETERS.' + functionality.identifier + "__" + parameter.type + '_' + parameter.bool | translate }}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -262,9 +276,9 @@
         </fieldset>
       </form>
     </div>
+    <!-- Parameters - End -->
   </div>
-  <div class="form-group pull-right"
-       x-ng-if="!isRootDomain()">
+  <div class="form-group pull-right" x-ng-if="!isRootDomain()">
     <div class="col-md-12">
       <button class="btn btn-danger" type="button"
               x-ng-show="showResetToParent()"
