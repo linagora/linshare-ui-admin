@@ -132,6 +132,7 @@
         "20000": "A error has occured, please contact your @:COMMON.NAME administrator",
         "20001": "Webservice unauthorized",
         "20003": "Webservice not found",
+        "28405": "You can not update a restricted guest without a list of contacts",
         "29000": "The technical account does not exist",
         "36001": "This welcome message already exist",
         "36003": "You are not allowed to use this welcome message",

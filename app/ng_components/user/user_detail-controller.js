@@ -45,8 +45,11 @@ angular.module('linshareAdminApp')
           $state.reinit();
         };
         $scope.submit = function(user) {
+          if (!$scope.user.restricted) {
+            $scope.user.restrictedContacts = [];
+          }
           User.update($scope.user).then(function() {
-            $scope.cancel();
+            $state.go('user.detail', {uuid: $scope.user.uuid});
           });
         };
         $scope.isGuest = function() {
