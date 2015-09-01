@@ -1457,7 +1457,7 @@
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION" : {
         "NAME": "Undownloaded shared document alert - Days before the alert",
         "USE_EXTENDED_DESCRIPTION" : "1",
-        "DESCRIPTION": "This is the default number of worked days (weekend are excluded) between now and the the alert notification.",
+        "DESCRIPTION": "This is the default number of worked days (weekend are excluded) between now and the alert notification.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "",

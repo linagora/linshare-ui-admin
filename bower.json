@@ -1,6 +1,6 @@
 {
   "name": "linshare-ui-admin",
-  "version": "2.3.3",
+  "version": "2.4.0",
   "dependencies": {
     "angular": "1.2.16",
     "angular-bootstrap": "0.11.2",
