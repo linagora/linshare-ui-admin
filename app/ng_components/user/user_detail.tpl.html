@@ -16,245 +16,244 @@
         x-ls-form-attempt>
     <div class="box-body">
       <div class="row">
-      <!-- EDITABLE FIELDS -->
-      <div class="col-sm-6">
-        <!-- Upload -->
-        <div class="input-group">
-          <span class="input-group-addon">
-            <input id="canUpload" name="canUpload" type="checkbox"
-                   x-ng-model="user.canUpload">
-          </span>
-          <span class="form-control">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_CAN_UPLOAD' | translate }}
-          </span>
-        </div>
-
-        <!-- User role -->
-        <div class="form-group"
-             x-ng-if="!isGuest()"
-             x-ng-class="{error: userForm.role.$invalid &&
-               (userForm.role.$dirty || ls.userForm.attempted)}">
-          <label for="role">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_ROLE' | translate }}
-          </label>
-          <div class="controls">
-            <select id="role" name="role" class="form-control" required
-                    x-ng-model="user.role"
-                    x-ng-options="'COMMON.ENUM.ROLE.' + r | translate for r in userRolesSimple">
-            </select>
+        <!-- EDITABLE FIELDS -->
+        <div class="col-sm-6">
+          <!-- Upload -->
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input id="canUpload" name="canUpload" type="checkbox"
+                     x-ng-model="user.canUpload">
+            </span>
+            <span class="form-control">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_CAN_UPLOAD' | translate }}
+            </span>
           </div>
-        </div>
-          <!-- First name -->
+
+          <!-- User role -->
           <div class="form-group"
-               x-ng-class="{error: userForm.firstName.$invalid &&
-                 (userForm.firstName.$dirty || ls.userForm.attempted)}">
-            <label for="firstName">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_FIRST_NAME' | translate }}
+               x-ng-if="!isGuest()"
+               x-ng-class="{error: userForm.role.$invalid &&
+                 (userForm.role.$dirty || ls.userForm.attempted)}">
+            <label for="role">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_ROLE' | translate }}
             </label>
             <div class="controls">
-              <input id="firstName" name="firstName" type="text" class="form-control" required
-                     x-ng-model="user.firstName">
+              <select id="role" name="role" class="form-control" required
+                      x-ng-model="user.role"
+                      x-ng-options="'COMMON.ENUM.ROLE.' + r | translate for r in userRolesSimple">
+              </select>
             </div>
           </div>
-
-          <!-- Last name -->
-          <div class="form-group"
-               x-ng-class="{error: userForm.lastName.$invalid &&
-                 (userForm.lastName.$dirty || ls.userForm.attempted)}">
-            <label for="lastName">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_LAST_NAME' | translate }}
-            </label>
-            <div class="controls">
-              <input id="lastName" name="lastName" type="text" class="form-control" required
-                     x-ng-model="user.lastName">
-            </div>
-          </div>
-        <!-- Language -->
-        <div class="form-group">
-          <label for="locale">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_LANGUAGE' | translate }}
-          </label>
-          <div class="controls">
-            <select name="locale" id="locale" class="form-control"
-                    x-ng-model="user.locale"
-                    x-ng-options="locale as 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + locale | translate for locale in selectEnumLanguage">
-            </select>
-          </div>
-        </div>
-        <!-- External Mail Locale -->
-        <div class="form-group">
-          <label for="externalMailLocale">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_MAIL_LANGUAGE' | translate }}
-          </label>
-          <div class="controls">
-            <select name="externalMailLocale" id="externalMailLocale" class="form-control"
-                    x-ng-model="user.externalMailLocale"
-                    x-ng-options="locale as 'COMMON.ENUM.LANGUAGE.' + locale | translate for locale in selectMailLanguage">
-            </select>
-          </div>
-        </div>
-
-        <!-- GUEST -->
-        <div x-ng-if="isGuest()">
-
-          <!-- Email -->
-          <div class="form-group">
-            <label for="mail">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_EMAIL' | translate }}
-            </label>
-            <div class="controls">
-              <input id="mail" name="mail" type="email" class="form-control" required
-                     x-ng-model="user.mail">
-            </div>
-          </div>
-          <!-- Restricted -->
-          <div class="form-group">
-            <label for="restricted">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED' | translate }}
-            </label>
-            <div class="controls">
-              <input id="restricted" name="restricted" type="checkbox" class="checkbox"
-                     x-ng-model="user.restricted"
-                     x-ng-disabled="restrictedDisable()">
-            </div>
-          </div>
-
-            <div class="form-group">
-              <label for="contact">
-                {{ 'MANAGE_USERS.BOX_FORM.BUTTON_ADD_CONTACT' | translate }}
+            <!-- First name -->
+            <div class="form-group"
+                 x-ng-class="{error: userForm.firstName.$invalid &&
+                   (userForm.firstName.$dirty || ls.userForm.attempted)}">
+              <label for="firstName">
+                {{ 'MANAGE_USERS.BOX_FORM.LABEL_FIRST_NAME' | translate }}
               </label>
               <div class="controls">
-                <div class="input-append">
-                  <input type="text" class="form-control" name="contact"
-                         x-ng-model="selectedContact"
-                         x-typeahead-min-length="3"
-                         x-typeahead-on-select="addContact(user, selectedContact.originalElement)"
-                         x-typeahead-wait-ms="30"
-                         x-typeahead-loading="searchingContact"
-                         x-typeahead-input-formatter="angular.noop"
-                         x-typeahead="u as userRepresentation(u) for u in searchGuestRestrictedContacts($viewValue) | filter:$viewValue | limitTo:3"/>
-                  <span class="add-on">
-                    <i class="icon icon-plus"></i>
-                  </span>
+                <input id="firstName" name="firstName" type="text" class="form-control" required
+                       x-ng-model="user.firstName">
+              </div>
+            </div>
+
+            <!-- Last name -->
+            <div class="form-group"
+                 x-ng-class="{error: userForm.lastName.$invalid &&
+                   (userForm.lastName.$dirty || ls.userForm.attempted)}">
+              <label for="lastName">
+                {{ 'MANAGE_USERS.BOX_FORM.LABEL_LAST_NAME' | translate }}
+              </label>
+              <div class="controls">
+                <input id="lastName" name="lastName" type="text" class="form-control" required
+                       x-ng-model="user.lastName">
+              </div>
+            </div>
+          <!-- Language -->
+          <div class="form-group">
+            <label for="locale">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_LANGUAGE' | translate }}
+            </label>
+            <div class="controls">
+              <select name="locale" id="locale" class="form-control"
+                      x-ng-model="user.locale"
+                      x-ng-options="locale as 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + locale | translate for locale in selectEnumLanguage">
+              </select>
+            </div>
+          </div>
+          <!-- External Mail Locale -->
+          <div class="form-group">
+            <label for="externalMailLocale">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_MAIL_LANGUAGE' | translate }}
+            </label>
+            <div class="controls">
+              <select name="externalMailLocale" id="externalMailLocale" class="form-control"
+                      x-ng-model="user.externalMailLocale"
+                      x-ng-options="locale as 'COMMON.ENUM.LANGUAGE.' + locale | translate for locale in selectMailLanguage">
+              </select>
+            </div>
+          </div>
+
+          <!-- GUEST -->
+          <div x-ng-if="isGuest()">
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="mail">
+                {{ 'MANAGE_USERS.BOX_FORM.LABEL_EMAIL' | translate }}
+              </label>
+              <div class="controls">
+                <input id="mail" name="mail" type="email" class="form-control" required
+                       x-ng-model="user.mail">
+              </div>
+            </div>
+            <!-- Restricted -->
+            <div class="form-group">
+              <label for="restricted">
+                {{ 'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED' | translate }}
+              </label>
+              <div class="controls">
+                <input id="restricted" name="restricted" type="checkbox" class="checkbox"
+                       x-ng-model="user.restricted"
+                       x-ng-disabled="restrictedDisable()">
+              </div>
+            </div>
+
+            <!-- Restricted - Contact list -->
+            <div x-ng-if="user.restricted">
+              <div class="form-group">
+                <label for="contact">
+                  {{ 'MANAGE_USERS.BOX_FORM.BUTTON_ADD_CONTACT' | translate }}
+                </label>
+                <div class="controls">
+                  <div class="input-append">
+                    <input type="text" class="form-control" name="contact" autocomplete="off"
+                           x-ng-model="selectedContact"
+                           x-typeahead-min-length="3"
+                           x-typeahead-on-select="addContact(user, selectedContact.originalElement)"
+                           x-typeahead-wait-ms="30"
+                           x-typeahead-loading="searchingContact"
+                           x-typeahead-input-formatter="angular.noop"
+                           x-typeahead="u as userRepresentation(u) for u in searchGuestRestrictedContacts($viewValue) | filter:$viewValue | limitTo:3"/>
+                    <span class="add-on">
+                      <i class="icon icon-plus"></i>
+                    </span>
+                  </div>
                 </div>
                 <div class="spinner"
                      x-ng-show="searchingContact">
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- Restricted - Contact list -->
-          <div x-ng-if="user.restricted">
-            <div class="form-group">
-              <label for="contacts"
-                     x-ng-show="user.restrictedContacts.length > 0">
-                {{ 'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED_CONTACT_LIST' | translate }}
-              </label>
+              <div class="form-group">
+                <label for="contacts"
+                       x-ng-show="user.restrictedContacts.length > 0">
+                  {{ 'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED_CONTACT_LIST' | translate }}
+                </label>
 
-              <div class="controls">
-                <ul class="list-inline">
-                  <li style="border: 1px solid #AAA;" tooltip={{userRepresentation(contact)}}
-                      x-ng-repeat="contact in user.restrictedContacts">{{contact.lastName}}&nbsp;{{contact.firstName}}
-                    <span style="cursor: pointer;">
-                        <i class="glyphicon glyphicon-remove" style="color:#FF7162;"
-                           x-ng-click="removeContact(user, $index)"></i>
-                    </span>
-                  </li>
-                </ul>
+                <div class="controls">
+                  <ul class="list-inline">
+                    <li style="border: 1px solid #AAA;" tooltip={{userRepresentation(contact)}}
+                        x-ng-repeat="contact in user.restrictedContacts">{{contact.lastName}}&nbsp;{{contact.firstName}}
+                      <span style="cursor: pointer;">
+                          <i class="glyphicon glyphicon-remove" style="color:#FF7162;"
+                             x-ng-click="removeContact(user, $index)"></i>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Comment -->
+              <div class="form-group">
+                <label for="comment">
+                  {{ 'MANAGE_USERS.BOX_FORM.LABEL_COMMENT' | translate }}
+                </label>
+                <div class="controls">
+                  <textarea id="comment" name="comment" class="form-control"
+                            x-ng-model="user.comment">
+                  </textarea>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
 
-          <!-- Comment -->
+        <!-- UNEDITABLE FIELDS -->
+        <div class="well col-sm-6">
+          <!-- Account type -->
           <div class="form-group">
-            <label for="comment">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_COMMENT' | translate }}
+            <label for="status">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_STATUS' | translate }}
             </label>
             <div class="controls">
-              <textarea id="comment" name="comment" class="form-control"
-                        x-ng-model="user.comment">
-              </textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- UNEDITABLE FIELDS -->
-      <div class="well col-sm-6">
-        <!-- Account type -->
-        <div class="form-group">
-          <label for="status">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_STATUS' | translate }}
-          </label>
-          <div class="controls">
-            <span name="status" class="form-control-static">
-              {{ isGuest() ? 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_GUEST' : 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_INTERNAL' | translate }}
-            </span>
-          </div>
-        </div>
-        <!-- Creation date -->
-        <div class="form-group">
-          <label for="creationDate">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_CREATION_DATE' | translate }}
-          </label>
-          <div class="controls">
-            <span name="creationDate" class="form-control-static">
-              {{user.creationDate | date:'medium'}}
-            </span>
-          </div>
-        </div>
-
-        <!-- Modification date -->
-        <div class="form-group">
-          <label for="modificationDate">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_MODIFICATION_DATE' | translate }}
-          </label>
-          <div class="controls">
-            <span name="modificationDate" class="form-control-static">
-              {{user.modificationDate | date:'medium'}}
-            </span>
-          </div>
-        </div>
-
-        <!-- Expiration date -->
-        <div class="form-group" x-ng-if="isGuest()">
-          <label for="expirationDate">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_EXPIRY_DATE' | translate }}
-          </label>
-          <div class="controls">
-            <span name="expirationDate" class="form-control-static">
-              {{user.expirationDate | date: 'medium'}}
-            </span>
-          </div>
-        </div>
-
-        <!-- Owner  -->
-        <div class="form-group"
-             x-ng-if="isGuest()">
-          <label for="owner">
-            {{ 'MANAGE_USERS.BOX_FORM.LABEL_OWNER' | translate }}
-          </label>
-          <div class="controls">
-            <span name="owner" class="form-control-static">
-              {{user.owner.mail}}
-            </span>
-          </div>
-        </div>
-        <!-- INTERNAL -->
-        <div x-ng-if="isGuest()">
-
-          <!-- Domain -->
-          <div class="form-group">
-            <label for="domain">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_DOMAIN' | translate }}
-            </label>
-            <div class="controls">
-              <span name="domain" class="form-control-static">
-                {{user.domain}}
+              <span name="status" class="form-control-static">
+                {{ isGuest() ? 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_GUEST' : 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_INTERNAL' | translate }}
               </span>
             </div>
           </div>
+          <!-- Creation date -->
+          <div class="form-group">
+            <label for="creationDate">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_CREATION_DATE' | translate }}
+            </label>
+            <div class="controls">
+              <span name="creationDate" class="form-control-static">
+                {{user.creationDate | date:'medium'}}
+              </span>
+            </div>
+          </div>
+
+          <!-- Modification date -->
+          <div class="form-group">
+            <label for="modificationDate">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_MODIFICATION_DATE' | translate }}
+            </label>
+            <div class="controls">
+              <span name="modificationDate" class="form-control-static">
+                {{user.modificationDate | date:'medium'}}
+              </span>
+            </div>
+          </div>
+
+          <!-- Expiration date -->
+          <div class="form-group" x-ng-if="isGuest()">
+            <label for="expirationDate">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_EXPIRY_DATE' | translate }}
+            </label>
+            <div class="controls">
+              <span name="expirationDate" class="form-control-static">
+                {{user.expirationDate | date: 'medium'}}
+              </span>
+            </div>
+          </div>
+
+          <!-- Owner  -->
+          <div class="form-group"
+               x-ng-if="isGuest()">
+            <label for="owner">
+              {{ 'MANAGE_USERS.BOX_FORM.LABEL_OWNER' | translate }}
+            </label>
+            <div class="controls">
+              <span name="owner" class="form-control-static">
+                {{user.owner.mail}}
+              </span>
+            </div>
+          </div>
+          <!-- INTERNAL -->
+          <div x-ng-if="isGuest()">
+
+            <!-- Domain -->
+            <div class="form-group">
+              <label for="domain">
+                {{ 'MANAGE_USERS.BOX_FORM.LABEL_DOMAIN' | translate }}
+              </label>
+              <div class="controls">
+                <span name="domain" class="form-control-static">
+                  {{user.domain}}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
       </div>
     </div>
     <div class="box-footer">

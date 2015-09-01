@@ -133,6 +133,7 @@
         "20000": "Une erreur c'est produite, veuillez contacter votre administrateur LinShare",
         "20001": "Webservice défendu",
         "20003": "Webservice introuvable",
+        "28405": "Vous ne pouvez pas restreindre un invité avec une liste de contacts vide",
         "29000": "Le compte technique n'existe pas",
         "36001": "Ce message d'accueil existe déjà",
         "36003": "Vous n'êtes pas autoriser à utiliser ce message d'accueil",
