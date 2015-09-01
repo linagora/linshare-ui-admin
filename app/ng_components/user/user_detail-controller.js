@@ -45,9 +45,7 @@ angular.module('linshareAdminApp')
           if (!$scope.user.restricted) {
             $scope.user.restrictedContacts = [];
           }
-          User.update($scope.user).then(function() {
-            $state.go('user.detail', {uuid: $scope.user.uuid});
-          });
+          User.update($scope.user);
         };
         $scope.isGuest = function() {
           return $scope.user.accountType == 'GUEST';
@@ -65,7 +63,7 @@ angular.module('linshareAdminApp')
           modalInstance.result.then(
             function validate() {
               User.remove($scope.user).then(function() {
-                $scope.cancel();
+                $state.go('user.list');
               });
             }, function cancel() {
               $log.debug('Deletion modal dismissed');

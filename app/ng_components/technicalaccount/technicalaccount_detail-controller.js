@@ -30,12 +30,10 @@ angular.module('linshareAdminApp')
       };
       $scope.submit = function() {
         if ($scope.state === 'edit') {
-          TechnicalAccount.update($scope.account).then(function() {
-            $scope.cancel();
-          });
+          TechnicalAccount.update($scope.account);
         } else if ($scope.state === 'create') {
           TechnicalAccount.add($scope.account).then(function() {
-            $scope.cancel();
+            $state.go('technicalaccount.list');
           });
         } else {
           $log.error('Invalid state');
@@ -57,7 +55,7 @@ angular.module('linshareAdminApp')
         modalInstance.result.then(
           function validate() {
             TechnicalAccount.remove($scope.account).then(function() {
-              $scope.cancel();
+              $state.go('technicalaccount.list');
             });
           }, function cancel() {
             $log.debug('Deletion modal dismissed');

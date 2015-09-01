@@ -9,12 +9,10 @@ angular.module('linshareAdminApp')
 
       $scope.submit = function() {
         if ($scope.state === 'edit') {
-          LdapConnection.update($scope.ldapConnection).then(function() {
-            $scope.cancel();
-          });
+          LdapConnection.update($scope.ldapConnection);
         } else if ($scope.state === 'create') {
           LdapConnection.add($scope.ldapConnection).then(function() {
-              $scope.cancel();
+              $state.go('ldapconnection.list');
           });
         } else {
           $log.error('Invalid state');
@@ -34,7 +32,7 @@ angular.module('linshareAdminApp')
           modalInstance.result.then(
             function validate() {
               LdapConnection.remove($scope.ldapConnection).then(function() {
-                $scope.cancel();
+                $state.go('ldapconnection.list');
               });
             }, function cancel() {
               $log.debug('Deletion modal dismissed');

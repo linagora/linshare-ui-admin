@@ -18,12 +18,10 @@ angular.module('linshareAdminApp')
 
       $scope.submit = function() {
         if ($scope.state === 'edit') {
-          DomainPattern.update($scope.domainPattern).then(function() {
-            $scope.cancel();
-          });
+          DomainPattern.update($scope.domainPattern);
         } else if ($scope.state === 'create') {
           DomainPattern.add($scope.domainPattern).then(function() {
-            $scope.cancel();
+            $state.go('domainpattern.list');
           });
         } else {
           $log.error('Invalid state');
@@ -43,7 +41,7 @@ angular.module('linshareAdminApp')
           modalInstance.result.then(
             function validate() {
               DomainPattern.remove($scope.domainPattern).then(function() {
-                $scope.cancel();
+                $state.go('domainpattern.list');
               });
             }, function cancel() {
               $log.debug('Deletion modal dismissed');

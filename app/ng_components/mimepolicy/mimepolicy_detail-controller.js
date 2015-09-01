@@ -20,7 +20,7 @@ angular.module('linshareAdminApp')
         modalInstance.result.then(
           function validate() {
             MimePolicy.remove($scope.mimePolicy).then(function() {
-                $scope.cancel();
+              $state.go('mimepolicy.list');
             });
           }, function cancel() {
             $log.debug('Deletion modal dismissed');
@@ -34,9 +34,7 @@ angular.module('linshareAdminApp')
         }, 800);
       };
       $scope.update = function() {
-        MimePolicy.update($scope.mimePolicy).then(function() {
-          $scope.cancel();
-        });
+        MimePolicy.update($scope.mimePolicy);
       };
       $scope.updateMimeType = function(mimeType) {
         MimeType.update(mimeType).then(function() {

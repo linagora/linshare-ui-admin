@@ -133,8 +133,11 @@
         "20000": "A error has occured, please contact your @:COMMON.NAME administrator",
         "20001": "Webservice unauthorized",
         "20003": "Webservice not found",
+        "26000": "Group not found",
         "28405": "You can not update a restricted guest without a list of contacts",
         "29000": "The technical account does not exist",
+        "30000": "Mime policy not found",
+        "35004": "Upload proposition filtering not found",
         "36001": "This welcome message already exist",
         "36003": "You are not allowed to use this welcome message",
         "36004": "Welcome message not found",
@@ -1875,6 +1878,7 @@
     },
     "BOX_MEMBERS_LIST": {
       "TITLE": "Members list",
+      "DESCRIPTION": "You can add members to the group using the search box below. You can search by name, surname and email, you can simply select the member.",
       "PLACEHOLDER_ADD_MEMBER": "Add member",
       "TABLE": {
         "HEADER_FIRST_NAME": "First name",
@@ -2075,6 +2079,9 @@
       "TABLE" : {
         "HEADER_NAME": "Name"
       }
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "You are about to delete this technical account, this procedure is irreversible. Do you want to proceed?"
     }
   }
 }

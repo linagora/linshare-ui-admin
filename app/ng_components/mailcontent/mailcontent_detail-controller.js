@@ -21,7 +21,7 @@ angular.module('linshareAdminApp')
         modalInstance.result.then(
           function validate() {
             MailContent.remove($scope.mailContent).then(function() {
-              $scope.cancel();
+              $state.go('mailcontent.list', {domainId: $scope.domain.label, language: $scope.language});
             });
           }, function cancel() {
             $log.debug('Deletion modal dismissed');
@@ -29,9 +29,7 @@ angular.module('linshareAdminApp')
         );
       };
       $scope.update = function() {
-        MailContent.update($scope.mailContent).then(function() {
-          $scope.cancel();
-        });
+        MailContent.update($scope.mailContent);
       };
       $scope.reset = function() {
         $state.reinit();

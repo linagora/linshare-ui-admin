@@ -11,16 +11,14 @@ angular.module('linshareAdminApp')
       };
       $scope.remove = function() {
         Thread.remove($scope.thread).then(function() {
-          $scope.cancel();
+          $state.go('thread.list');
         });
       };
       $scope.reset = function() {
         $state.reinit();
       };
       $scope.submit = function() {
-        Thread.update($scope.thread).then(function() {
-          $scope.cancel();
-        });
+        Thread.update($scope.thread);
       };
       $scope.addMember = function(member) {
         ThreadMember.add($scope.thread, member).then(function() {

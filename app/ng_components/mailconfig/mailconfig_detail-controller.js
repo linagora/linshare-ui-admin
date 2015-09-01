@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('MailConfigDetailCtrl',
-    ['$scope', '$filter', '$log', '$modal',  '$state', 'ngTableParams', 'MailConfig', 'currentDomain', 'currentMailConfig', 'mailLayouts', 'mailFooterLangs',
-    function($scope, $filter, $log, $modal, $state, ngTableParams, MailConfig, currentDomain, currentMailConfig, mailLayouts, mailFooterLangs) {
+    ['$scope', '$filter', '$log', '$modal',  '$state', 'ngTableParams', 'MailConfig', 'MailFooterLang', 'currentDomain', 'currentMailConfig', 'mailLayouts', 'mailFooterLangs',
+    function($scope, $filter, $log, $modal, $state, ngTableParams, MailConfig, MailFooterLang, currentDomain, currentMailConfig, mailLayouts, mailFooterLangs) {
       $scope.domain = currentDomain;
       $scope.mailConfig = currentMailConfig;
       $scope.mailLayouts = mailLayouts;
@@ -22,7 +22,7 @@ angular.module('linshareAdminApp')
         modalInstance.result.then(
           function validate() {
             MailConfig.remove($scope.mailConfig).then(function() {
-              $scope.cancel();
+              $state.go('mailconfig.list', {domainId: $scope.domain.label});
             });
           }, function cancel() {
             $log.debug('Deletion modal dismissed');
@@ -32,7 +32,7 @@ angular.module('linshareAdminApp')
       $scope.update = function(redirect) {
         MailConfig.update($scope.mailConfig).then(function() {
           if (redirect) {
-            $scope.cancel();
+            $state.go('mailconfig.list', {domainId: $scope.domain.label});
           }
         });
       };

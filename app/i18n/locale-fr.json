@@ -133,8 +133,11 @@
         "20000": "Une erreur c'est produite, veuillez contacter votre administrateur LinShare",
         "20001": "Webservice défendu",
         "20003": "Webservice introuvable",
+        "26000": "Groupe introuvable",
         "28405": "Vous ne pouvez pas restreindre un invité avec une liste de contacts vide",
         "29000": "Le compte technique n'existe pas",
+        "30000": "Règles de type MIME introuvable",
+        "35004": "Filtrage des demandes d'invitation de dépôt introuvable",
         "36001": "Ce message d'accueil existe déjà",
         "36003": "Vous n'êtes pas autoriser à utiliser ce message d'accueil",
         "36004": "Ce message d'accueil n'existe pas",
@@ -2046,6 +2049,9 @@
       "TABLE" : {
         "HEADER_NAME": "Nom"
       }
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Vous êtes sur le point de supprimer ce compte technique, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   }
 }
