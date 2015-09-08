@@ -340,13 +340,15 @@ a.disabled {
 .box.box-primary {
   border-top: solid 2px $pink;
   border-top-color: $pink;
-  // top: 50px;
   .box-header {
     min-height: 55px;
     border-bottom: solid 1px #ccc;
     background-color: $beige;
     color: $blue;
     padding: 5px 0px;
+    .view-selector {
+      margin-right: 30px;
+    }
   }
   .btn.btn-primary {
     background-color: #fff;
@@ -584,4 +586,8 @@ a.list-group-item-success:hover {
 
 #availableActions {
   height: 180px;
+}
+.dropdown-menu > li > a:hover {
+    background-color: #0372b3;
+    color: #f9f9f9;
 }

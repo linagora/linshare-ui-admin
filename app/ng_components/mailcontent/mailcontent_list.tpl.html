@@ -3,23 +3,23 @@
   <div class="box-header">
     <h3 class="box-title">{{ domain.label }}</h3>
     <div class="pull-right box-tools">
+      <span class="dropdown list view-selector">
+        <a href="#" class="dropdown-toggle grey">
+          {{ 'MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.' + filters.language | translate }}
+          <i class="fa fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu pull-right">
+          <li x-ng-repeat="(key, value) in languages"
+              x-ng-class="{disabled: filters.language == value}">
+            <a x-ng-click="filters.language = value">
+              {{ 'MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.' + value | translate }}
+            </a>
+          </li>
+        </ul>
+      </span>
       <button class="clear-btn blue" x-ng-click="add()">
         <i class="fa fa-plus-circle fa-lg" tooltip="{{'COMMON.BASIC_FORM.BUTTON_ADD' | translate}}"></i>
       </button>
-
-      <div class="btn-group">
-        <label class="btn btn-info"
-            x-ng-model="filters.language"
-            x-btn-radio="'ENGLISH'">
-          {{ 'MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.ENGLISH' | translate }}
-        </label>
-        <label class="btn btn-info"
-            x-ng-model="filters.language"
-            x-btn-radio="'FRENCH'">
-          {{ 'MAIL_CONTENT.BOX_LIST.HEADER.LANGUAGE.FRENCH' | translate }}
-        </label>
-      </div>
-
       <button class="clear-btn pink"
           x-ng-click="isCollapsed = !isCollapsed"
           x-ng-class="{'active': isCollapsed}">

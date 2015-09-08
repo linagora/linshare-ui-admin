@@ -759,7 +759,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               },
               mailContents: function(MailContent, currentDomain) {
                 return MailContent.getAll(currentDomain.identifier, true);
-              }
+              },
+              MailLanguage: enumMailLanguage
             }
           }
         }
@@ -813,7 +814,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               },
               mailFooters: function(MailFooter, currentDomain) {
                 return MailFooter.getAll(currentDomain.identifier, true);
-              }
+              },
+              MailLanguage: enumMailLanguage
             }
           }
         }
@@ -891,7 +893,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               },
               currentMailConfig: function(MailConfig, $stateParams) {
                 return MailConfig.get($stateParams.domainId, $stateParams.id);
-              }
+              },
+              MailLanguage: enumMailLanguage
             }
           }
         }

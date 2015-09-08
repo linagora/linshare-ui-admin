@@ -2,12 +2,13 @@
 
 angular.module('linshareAdminApp')
   .controller('MailConfigDetailCtrl',
-    ['$scope', '$filter', '$log', '$modal',  '$state', 'ngTableParams', 'MailConfig', 'MailFooterLang', 'currentDomain', 'currentMailConfig', 'mailLayouts', 'mailFooterLangs',
-    function($scope, $filter, $log, $modal, $state, ngTableParams, MailConfig, MailFooterLang, currentDomain, currentMailConfig, mailLayouts, mailFooterLangs) {
+    ['$scope', '$filter', '$log', '$modal',  '$state', 'ngTableParams', 'MailConfig', 'MailFooterLang', 'currentDomain', 'currentMailConfig', 'mailLayouts', 'mailFooterLangs', 'MailLanguage',
+    function($scope, $filter, $log, $modal, $state, ngTableParams, MailConfig, MailFooterLang, currentDomain, currentMailConfig, mailLayouts, mailFooterLangs, MailLanguage) {
       $scope.domain = currentDomain;
       $scope.mailConfig = currentMailConfig;
       $scope.mailLayouts = mailLayouts;
       $scope.mailFooterLangs = mailFooterLangs;
+      $scope.languages = MailLanguage;
 
       $scope.remove = function() {
         var modalInstance = $modal.open({

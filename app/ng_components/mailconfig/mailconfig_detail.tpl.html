@@ -5,18 +5,20 @@
       {{ domain.label }}
     </h3>
     <div class="pull-right box-tools">
-      <div class="btn-group">
-        <label class="btn btn-info"
-            x-ng-model="filters.language"
-            x-btn-radio="'ENGLISH'">
-          {{ 'MAIL_CONFIG.BOX_FORM.HEADER.LANGUAGE.ENGLISH' | translate }}
-        </label>
-        <label class="btn btn-info"
-            x-ng-model="filters.language"
-            x-btn-radio="'FRENCH'">
-          {{ 'MAIL_CONFIG.BOX_FORM.HEADER.LANGUAGE.FRENCH' | translate }}
-        </label>
-      </div>
+      <span class="dropdown list view-selector">
+        <a href="#" class="dropdown-toggle grey">
+          {{ 'MAIL_CONFIG.BOX_FORM.HEADER.LANGUAGE.' + filters.language | translate }}
+          <i class="fa fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu pull-right">
+          <li x-ng-repeat="(key, value) in languages"
+              x-ng-class="{disabled: filters.language == value}">
+            <a x-ng-click="filters.language = value">
+              {{ 'MAIL_CONFIG.BOX_FORM.HEADER.LANGUAGE.' + value | translate }}
+            </a>
+          </li>
+        </ul>
+      </span>
       <a class="list btn-back"
          x-ui-sref="mailconfig.list({domainId: domain.identifier})"
          tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">

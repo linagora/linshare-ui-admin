@@ -2,9 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('MailContentListCtrl',
-            ['$scope', '$filter', '$log', '$modal', '$state', '$translate', 'ngTableParams', 'MailContent', 'mailContents', 'currentDomain', 'Languages',
-    function($scope, $filter, $log, $modal, $state, $translate, ngTableParams, MailContent, mailContents, currentDomain, Languages) {
+    ['$scope', '$filter', '$modal', '$state', 'ngTableParams', 'MailContent', 'mailContents', 'currentDomain', 'Languages', 'MailLanguage',
+    function($scope, $filter, $modal, $state, ngTableParams, MailContent, mailContents, currentDomain, Languages, MailLanguage) {
       $scope.domain = currentDomain;
+      $scope.languages = MailLanguage;
+
       $scope.getTemplate = function () {
         return 'MAIL_CONTENT';
       };
