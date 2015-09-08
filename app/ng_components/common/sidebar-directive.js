@@ -8,15 +8,33 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
       scope: false,
       controller: ['$rootScope', '$scope', '$log', '$state', 'Authentication', 'Tab', 'Languages', '$http',
         function($rootScope, $scope, $log, $state, Authentication, Tab, Languages, $http) {
+          var setActiveSection = function(link, value) {
+            $scope.linkActive = link;
+            value.isopen = true;
+          };
+          var compareCurrentStateToTab = function(currentState) {
+            angular.forEach($scope.tabs, function(value) {
+              angular.forEach(value.links, function(link) {
+                if (currentState == link.sref) {
+                  setActiveSection(link.sref, value);
+                } else if (link.children_sref) {
+                  angular.forEach(link.children_sref, function(subLink) {
+                    if (currentState == link.sref || currentState == subLink)
+                      setActiveSection(link.sref, value);
+                  });
+                }
+              })
+            });
+          };
           Authentication.getCurrentUser().then(function(user) {
             $scope.tabs = Tab.getAvailableTabs(user);
             $scope.linkActive = false;
             $scope.userDomain = user.domain;
             $rootScope.$on('$stateChangeStart',function(event, toState, toParams){
-              $scope.compareCurrentStateToTab(toState.name);
+              compareCurrentStateToTab(toState.name);
             });
             if ($scope.linkActive == false){
-              $scope.compareCurrentStateToTab($state.next.name);
+              compareCurrentStateToTab($state.next.name);
             }
           });
           Authentication.version().then(function(version){
@@ -33,27 +51,6 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
             })
           });
           $scope.language = Languages.getCurrentLang().filter;
-          $scope.compareCurrentStateToTab = function(currentState) {
-            angular.forEach($scope.tabs, function(value) {
-              angular.forEach(value.links, function(link) {
-
-                if (currentState == link.sref) {
-                  $scope.setActiveSection(link.sref, value);
-
-                } else if (link.children_sref) {
-
-                  angular.forEach(link.children_sref, function(subLink) {
-                    if (currentState == link.sref || currentState == subLink)
-                      $scope.setActiveSection(link.sref, value);
-                  });
-                }
-              })
-            });
-          };
-          $scope.setActiveSection = function(link, value) {
-            $scope.linkActive = link;
-            value.isopen = true;
-          };
         }
       ],
       templateUrl: 'ng_components/common/sidebar.tpl.html',
