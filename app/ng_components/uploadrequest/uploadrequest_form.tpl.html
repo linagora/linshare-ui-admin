@@ -119,11 +119,11 @@
             </td>
             <td data-title="'UPLOAD_REQUEST.BOX_FORM.TABLE_HISTORY.HEADER_MAX_FILE_COUNT' | translate"
                 sortable="'maxFileCount'">
-              {{ result.maxFileCount }}
+              <span x-ng-if="result.maxFileCount">{{ result.maxFileCount }}</span>
             </td>
             <td data-title="'UPLOAD_REQUEST.BOX_FORM.TABLE_HISTORY.HEADER_MAX_FILE_SIZE' | translate"
                 sortable="'maxFileSize'">
-              {{ humanFileSize(result.maxFileSize) }}
+              <span x-ng-if="result.maxFileSize">{{ humanFileSize(result.maxFileSize) }}</span>
             </td>
             <td data-title="'UPLOAD_REQUEST.BOX_FORM.TABLE_HISTORY.HEADER_CAN_DELETE' | translate"
                 sortable="'canDelete'">
