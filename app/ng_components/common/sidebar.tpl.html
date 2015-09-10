@@ -31,7 +31,7 @@
 <accordion class="sidebar-menu">
   <accordion-group class="treeview"
       x-is-open="tab.isopen"
-      x-ng-repeat="tab in tabs | filter:search">
+      x-ng-repeat="tab in tabs | translateSearchFilter:search">
     <accordion-heading>
       <i id="{{tab.name.replace('COMMON.TAB.', 'MENU-')}}" class="fa"
          x-ng-class="tab.icon">
@@ -44,7 +44,7 @@
       </i>
     </accordion-heading>
     <ul class="treeview-menu">
-      <li x-ng-repeat="link in tab.links | filter:search">
+      <li x-ng-repeat="link in tab.links">
         <a id="{{link.name.replace('COMMON.TAB.', 'MENU-')}}" x-ng-class="{'active': link.sref==linkActive}"
            x-ui-sref="{{link.sref}}({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})"
            style="margin-left: 10px;">

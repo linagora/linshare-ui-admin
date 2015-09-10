@@ -6,8 +6,8 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$rootScope', '$scope', '$log', '$state', '$translate', 'Authentication', 'Tab', 'Languages', '$compile', '$http', '$templateCache',
-        function($rootScope, $scope, $log, $state, $translate, Authentication, Tab, Languages, $compile, $http, $templateCache) {
+      controller: ['$rootScope', '$scope', '$log', '$state', 'Authentication', 'Tab', 'Languages', '$http',
+        function($rootScope, $scope, $log, $state, Authentication, Tab, Languages, $http) {
           Authentication.getCurrentUser().then(function(user) {
             $scope.tabs = Tab.getAvailableTabs(user);
             $scope.linkActive = false;
