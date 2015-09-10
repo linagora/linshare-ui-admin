@@ -18,11 +18,12 @@ angular.module('linshareAdminApp')
         debugMode: false,
         total: 0, // length of data
         getData: function($defer, params) {
-          allInconsistents = params.sorting() ?
+          var orderedData = params.sorting() ?
                               $filter('orderBy')(allInconsistents, params.orderBy()) :
                               allInconsistents;
-          params.total(allInconsistents.length);
-          $defer.resolve(allInconsistents.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+          orderedData = $filter('filter')(orderedData, params.filter());
+          params.total(orderedData.length);
+          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
         }
       });
     }]
