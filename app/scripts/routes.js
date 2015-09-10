@@ -186,6 +186,11 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailActivation.get($stateParams.domainId, $stateParams.id).then(function(mailActivations) {
                   return mailActivations;
                 });
+              },
+              listMailActivation: function(MailActivation, $stateParams) {
+                return MailActivation.getAll($stateParams.domainId, null).then(function(mailActivation) {
+                  return _.pluck(mailActivation, 'identifier');
+                });
               }
             }
           }

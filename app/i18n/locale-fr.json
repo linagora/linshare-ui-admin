@@ -667,6 +667,8 @@
       "RADIO_ALLOWED": "Autorisé",
       "RADIO_MANDATORY": "Obligatoire",
       "LABEL_STATUS": "Activer",
+      "LEGEND_NEXT": "Suivant",
+      "LEGEND_PREVIOUS": "Précédent",
       "FORM_ACTIONS": {
         "BUTTON_RESET": "Réinitialiser à la valeur parente",
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"

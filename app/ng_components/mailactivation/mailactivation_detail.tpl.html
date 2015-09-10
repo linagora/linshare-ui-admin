@@ -15,14 +15,30 @@
         <a type="button" class="btn"
             x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: mailActivation.identifier, view: 'simple'})"
             x-ng-class="{'btn-success': view == 'simple', 'btn-grey': view == 'advanced'}">
-          {{ 'FUNCTIONALITIES.BOX_FORM.VIEW_SIMPLE' | translate }}
+          {{ 'MAIL_ACTIVATION.BOX_FORM.VIEW_SIMPLE' | translate }}
         </a>
         <a class="btn"
             x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: mailActivation.identifier, view: 'advanced'})"
             x-ng-class="{'btn-success': view == 'advanced', 'btn-grey': view == 'simple'}">
-          {{ 'FUNCTIONALITIES.BOX_FORM.VIEW_ADVANCED' | translate }}
+          {{ 'MAIL_ACTIVATION.BOX_FORM.VIEW_ADVANCED' | translate }}
         </a>
       </div>
+      <a class="list"
+         x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: prevElem, view: 'simple'})"
+         x-ng-class="{disabled: !prevElem}"
+         tooltip="{{'MAIL_ACTIVATION.BOX_FORM.LEGEND_PREVIOUS' | translate}}">
+        <i class="fa fa-lg fa-arrow-up"
+           x-ng-class="{grey: !prevElem, darkBlue: prevElem}">
+        </i>
+      </a>
+      <a class="list"
+         x-ui-sref="mailactivation.detail({domainId: mailActivation.domain, id: nextElem, view: 'simple'})"
+         x-ng-class="{disabled: !nextElem}"
+         tooltip="{{'MAIL_ACTIVATION.BOX_FORM.LEGEND_NEXT' | translate}}">
+        <i class="fa fa-lg fa-arrow-down"
+           x-ng-class="{grey: !nextElem, blue: nextElem}">
+        </i>
+      </a>
       <a class="list btn-back"
           x-ui-sref="mailactivation.list({domainId: mailActivation.domain, view: view})"
           tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">

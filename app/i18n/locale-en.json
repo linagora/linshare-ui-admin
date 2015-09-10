@@ -663,6 +663,8 @@
       "LABEL_SAVED": "Saved",
       "LABEL_STATUS": "Enable",
       "LABEL_DISABLE": "Disable this notification",
+      "LEGEND_NEXT": "Next",
+      "LEGEND_PREVIOUS": "Previous",
       "FORM_ACTIONS": {
         "BUTTON_RESET": "Reset to parent value",
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
