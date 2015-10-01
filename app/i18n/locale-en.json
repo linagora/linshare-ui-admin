@@ -94,7 +94,8 @@
       },
       "ERROR": {
         "500": "Internal Server Error",
-        "503": "Service Unavailable.",
+        "502": "The service is currently unavailable (HTTP code 502).",
+        "503": "The service is currently unavailable (HTTP code 503).",
         "1000": "A error has occured, please contact your @:COMMON.NAME administrator",
         "2000": "The supplied password is invalid",
         "4000": "Invalid identifier",
