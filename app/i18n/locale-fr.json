@@ -93,7 +93,8 @@
       },
       "ERROR": {
         "500": "Erreur interne du serveur",
-        "503": "Serveur indisponible.",
+        "502": "Le service est actuellement indisponible (code http 502).",
+        "503": "Le service est actuellement indisponible (code http 503).",
         "1000": "Une erreur c'est produite, veuillez contacter votre administrateur LinShare",
         "2000": "Le mot de passe fourni est invalide",
         "4000": "Id invalide",
