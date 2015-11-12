@@ -50,7 +50,7 @@ elif [ "${l_mode}" == "prod-nomin" ] ; then
 fi
 
 mv -v dist ${l_dist}
-if [ "${l_mode}" == "dev" ] || [ "${l_mode}" == "dev-nomin" ] ; then
+if [ "${l_mode}" == "prod" ] || [ "${l_mode}" == "prod-nomin" ] ; then
   sed -i -e 's/debug: true/debug: false/g' ${l_dist}/scripts/config.js
 fi
 
