@@ -1,74 +1,104 @@
-<div class="box box-primary">
-  <div class="box-header">
-    <h3 class="box-title">
-      {{ 'MANAGE_USERS.BOX_LIST.TITLE' | translate }}
-    </h3>
+<tabset justified="true" class="box box-primary">
+  <tab heading="{{ 'MANAGE_USERS.BOX_LIST.TITLE' | translate }}" class="" style="cursor: pointer; font-size: 20px">
     <div class="pull-right box-tools">
       <button class="clear-btn pink" x-ng-click="isCollapsed = !isCollapsed" x-ng-class="{'active': isCollapsed}">
         <i class="fa fa-info-circle fa-lg
         "></i>
       </button>
     </div>
-  </div>
-  <div class="box-body">
-    <div class="description" collapse="!isCollapsed">
-      <x-ls-help content="getTemplate()"></x-ls-help>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-striped table-hover"
-             x-ng-table="tableParams"
-             show-filter="true">
-        <tr x-ng-repeat="user in $data" ls-user-global>
-          <td style="cursor: pointer"
-              data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_FIRST_NAME' | translate"
-              filter="{ 'firstName': 'text' }"
-              sortable="'firstName'">
-            <a x-ui-sref="user.detail({uuid: user.uuid})">
+
+    <div class="box-body">
+      <div class="description" collapse="!isCollapsed">
+        <x-ls-help content="getTemplate()"></x-ls-help>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover"
+               x-ng-table="tableParams"
+               show-filter="true">
+          <tr x-ng-repeat="user in $data" ls-user-global>
+            <td style="cursor: pointer"
+                data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_FIRST_NAME' | translate"
+                filter="{ 'firstName': 'text' }"
+                sortable="'firstName'">
+              <a x-ui-sref="user.detail({uuid: user.uuid})">
               <span>
                 {{user.firstName}}
               </span>
-            </a>
-          </td>
-          <td style="cursor: pointer"
-              data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_LAST_NAME' | translate"
-              filter="{ 'lastName': 'text' }"
-              sortable="'lastName'">
-            <a x-ui-sref="user.detail({uuid: user.uuid})">
+              </a>
+            </td>
+            <td style="cursor: pointer"
+                data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_LAST_NAME' | translate"
+                filter="{ 'lastName': 'text' }"
+                sortable="'lastName'">
+              <a x-ui-sref="user.detail({uuid: user.uuid})">
               <span>
                 {{user.lastName}}
               </span>
-            </a>
-          </td>
-          <td style="cursor: pointer"
-              data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_EMAIL' | translate"
-              filter="{ 'mail': 'text' }"
-              sortable="'mail'">
-            <a x-ui-sref="user.detail({uuid: user.uuid})">
+              </a>
+            </td>
+            <td style="cursor: pointer"
+                data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_EMAIL' | translate"
+                filter="{ 'mail': 'text' }"
+                sortable="'mail'">
+              <a x-ui-sref="user.detail({uuid: user.uuid})">
               <span>
                 {{user.mail}}
               </span>
-            </a>
-          </td>
-          <td style="cursor: pointer"
-              data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_DOMAIN' | translate"
-              sortable="'domain'">
-            <a x-ui-sref="user.detail({uuid: user.uuid})">
+              </a>
+            </td>
+            <td style="cursor: pointer"
+                data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_DOMAIN' | translate"
+                sortable="'domain'">
+              <a x-ui-sref="user.detail({uuid: user.uuid})">
               <span>
                 {{user.domain}}
               </span>
-            </a>
-          </td>
-          <td style="cursor: pointer"
-              data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_ROLE' | translate"
-              sortable="'role'">
-            <a x-ui-sref="user.detail({uuid: user.uuid})">
+              </a>
+            </td>
+            <td style="cursor: pointer"
+                data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_ROLE' | translate"
+                sortable="'role'">
+              <a x-ui-sref="user.detail({uuid: user.uuid})">
               <span>
                 {{user.role}}
               </span>
-            </a>
-          </td>
-        </tr>
-      </table>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
-  </div>
-</div>
+  </tab>
+  <tab ng-if="isSuperAdmin" heading="{{'MANAGE_USERS.BOX_TAB_OTHERS.TAB_TITLE' | translate}}" class="" style="cursor: pointer; font-size: 20px">
+    <form role="form" id="csvfile">
+      <div class="box-body">
+        <h4>{{'MANAGE_USERS.BOX_TAB_OTHERS.EMAIL_MIGRATION_TITLE' | translate}}</h4><br />
+        <div class="form-group col-md-6">
+          <label for="csvDelimiter">{{'MANAGE_USERS.BOX_TAB_OTHERS.SELECT_DELIMITER' | translate}}</label>
+          <select name="csvDelimiter" id="csvDelimiter" class="form-control" ng-model="csvFieldDelimiter">
+            <option value=";">;</option>
+            <option value=",">,</option>
+            <option value=":">:</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fileInputCsv">{{'MANAGE_USERS.BOX_TAB_OTHERS.SELECT_FILE' | translate}}</label>
+          <input type="file" id="fileInputCsv" required>
+          <p class="help-block">{{'MANAGE_USERS.BOX_TAB_OTHERS.SELECT_FILE_HELP' | translate}}</p>
+        </div>
+        <br />
+        <div class="box-footer">
+          <button class="btn btn-primary" type="submit" ng-click="sendFile(csvFieldDelimiter)">{{'MANAGE_USERS.BOX_TAB_OTHERS.BUTTON_SUBMIT' | translate}}</button>
+        </div>
+      </div>
+      <div ng-if="migStateSuccess == true">
+        {{'MANAGE_USERS.BOX_TAB_OTHERS.STATE_TOTAL' | translate}} : {{migState.total}}<br />
+        {{'MANAGE_USERS.BOX_TAB_OTHERS.STATE_UPDATED' | translate}} : {{migState.updated}}<br />
+        {{'MANAGE_USERS.BOX_TAB_OTHERS.STATE_NOTUPDATED' | translate}} : {{migState.notUpdated}}<br />
+        {{'MANAGE_USERS.BOX_TAB_OTHERS.STATE_SKIPPED' | translate}} : {{migState.skipped}}<br />
+      </div>
+
+    </form>
+  </tab>
+</tabset>

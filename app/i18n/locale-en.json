@@ -90,7 +90,8 @@
       "SUCCESS": {
         "CREATE": "Creation succeed",
         "UPDATE": "Update succeed",
-        "DELETE": "Deletion succeed"
+        "DELETE": "Deletion succeed",
+        "MIGRATION_SUCCEED": "Migration succeeded"
       },
       "ERROR": {
         "500": "Internal Server Error",
@@ -142,7 +143,8 @@
         "36001": "This welcome message already exist",
         "36003": "You are not allowed to use this welcome message",
         "36004": "Welcome message not found",
-        "36005": "You try to update the welcome message with unsupported languages"
+        "36005": "You try to update the welcome message with unsupported languages",
+        "MIGRATION_FAILED": "Migration failed"
       }
     },
     "ENUM": {
@@ -1818,6 +1820,18 @@
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
+    },
+    "BOX_TAB_OTHERS": {
+      "TAB_TITLE": "Others",
+      "EMAIL_MIGRATION_TITLE": "Users email modification",
+      "BUTTON_SUBMIT": "Submit",
+      "SELECT_DELIMITER": "Field Delimiter",
+      "SELECT_FILE": "File",
+      "SELECT_FILE_HELP": "Select the csv file containing the former and current users's emails",
+      "STATE_TOTAL": "Total of processed users",
+      "STATE_UPDATED": "Updated users",
+      "STATE_NOTUPDATED": "Not updated users",
+      "STATE_SKIPPED": "Not processed users"
     }
   },
 

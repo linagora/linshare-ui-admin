@@ -323,7 +323,10 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('user.list', {
         url: '/list',
         templateUrl: 'ng_components/user/user_list.tpl.html',
-        controller: 'UserListCtrl'
+        controller: 'UserListCtrl',
+        resolve: {
+          authenticatedUser: authenticatedUser
+        }
       })
       .state('user.detail', {
         url: '/:uuid',

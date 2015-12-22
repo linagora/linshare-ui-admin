@@ -90,7 +90,8 @@
       "SUCCESS": {
         "CREATE": "Creation réussie",
         "UPDATE": "Mise à jour réussie",
-        "DELETE": "Suppression réussie"
+        "DELETE": "Suppression réussie",
+        "MIGRATION_SUCCEED": "Migration réussie"
       },
       "ERROR": {
         "500": "Erreur interne du serveur",
@@ -142,7 +143,8 @@
         "36001": "Ce message d'accueil existe déjà",
         "36003": "Vous n'êtes pas autoriser à utiliser ce message d'accueil",
         "36004": "Ce message d'accueil n'existe pas",
-        "36005": "Vous tentez de mettre à jour le message d'accueil avec des langues non supportés"
+        "36005": "Vous tentez de mettre à jour le message d'accueil avec des langues non supportés",
+        "MIGRATION_FAILED": "Echec de la migration"
       }
     },
     "ENUM": {
@@ -1791,6 +1793,18 @@
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"
+    },
+    "BOX_TAB_OTHERS": {
+      "TAB_TITLE": "Autres",
+      "EMAIL_MIGRATION_TITLE": "Migration des adresses emails des utilisateurs",
+      "BUTTON_SUBMIT": "Envoyer",
+      "SELECT_DELIMITER": "Séparateur de champs",
+      "SELECT_FILE": "Fichier",
+      "SELECT_FILE_HELP": "Sélectionner le fichier csv contenant les anciens et les nouveaux emails des utilisateurs",
+      "STATE_TOTAL": "Total des utilisateurs traités",
+      "STATE_UPDATED": "Utilisateurs mis à jours",
+      "STATE_NOTUPDATED": "Utilisateurs non mis à jours",
+      "STATE_SKIPPED": "Utilisateurs non traités"
     }
   },
 
