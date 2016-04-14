@@ -29,7 +29,7 @@ angular.module('linshareAdminApp')
       $scope.autocompleteUsers = function(pattern) {
         return User.autocomplete(pattern).then(function(users) {
           // Remove existing members
-          angular.forEach($scope.tableParams.data, function(threadMember) {
+          angular.forEach($scope.threadMembers, function(threadMember) {
             angular.forEach(users, function(user, key) {
               if (user.domain === threadMember.userDomainId
                     && user.mail === threadMember.userMail) {
@@ -48,6 +48,17 @@ angular.module('linshareAdminApp')
           $scope.reloadList();
         });
       };
+
+      $scope.$watch('userToAdd', function(n) {
+        if($scope.tableParams.filter()['firstName']) {
+          $scope.tableParams.filter()['firstName'] = '';
+        }
+        if($scope.tableParams.filter()['lastName']) {
+          $scope.tableParams.filter()['lastName'] = '';
+        }
+        $scope.reloadList();
+      });
+
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
         count: 10,      // count per page
@@ -59,9 +70,11 @@ angular.module('linshareAdminApp')
         total: 0, // length of data
         getData: function($defer, params) {
           ThreadMember.getAll($scope.thread).then(function(threadMembers) {
+            $scope.threadMembers = threadMembers;
+            var filteredData = $filter('filter')(threadMembers, $scope.userToAdd);
+            filteredData = $filter('filter')(filteredData, params.filter());
             var orderedData = params.sorting() ?
-                                $filter('orderBy')(threadMembers, params.orderBy()) :
-                                threadMembers;
+                                $filter('orderBy')(filteredData, params.orderBy()) : filteredData;
             params.total(orderedData.length);
             $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
           });

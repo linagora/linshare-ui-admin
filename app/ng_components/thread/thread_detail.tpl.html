@@ -51,23 +51,25 @@
           <div class="form-group">
             <div class="table-responsive">
               <table class="table"
-                  x-ng-table="tableParams">
+                  x-ng-table="tableParams" show-filter="true">
                 <tr x-ng-repeat="threadMember in $data" class="not-linked"
                     x-ng-click="edit(threadMember)">
                   <td data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_FIRST_NAME' | translate"
+                      filter="{ 'firstName': 'text'}"
                       sortable="'firstName'">
                     <span>
                       {{threadMember.firstName}}
                     </span>
                   </td>
                   <td data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_LAST_NAME' | translate"
+                      filter="{ 'lastName': 'text'}"
                       sortable="'lastName'">
                     <span>
                       {{threadMember.lastName}}
                     </span>
                   </td>
                   <td class="col-sm-1"
-                      data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_READ_ONLY' | translate" 
+                      data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_READ_ONLY' | translate"
                       sortable="'readonly'">
                     <input type="checkbox"
                         x-ng-model="threadMember.readonly"
@@ -76,7 +78,7 @@
                         x-ng-change="updateMember(threadMember)" />
                   </td>
                   <td class="col-sm-1"
-                      data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ADMIN' | translate" 
+                      data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ADMIN' | translate"
                       sortable="'admin'">
                     <input type="checkbox"
                         x-ng-model="threadMember.admin"
