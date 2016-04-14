@@ -21,6 +21,8 @@ angular.module('linshareAdminApp')
         Thread.update($scope.thread);
       };
       $scope.addMember = function(member) {
+        member.admin = $scope.userDefaultAdmin;
+        member.readonly = $scope.userDefaultReadOnly;
         ThreadMember.add($scope.thread, member).then(function() {
           $scope.reloadList();
           $scope.userToAdd = undefined;

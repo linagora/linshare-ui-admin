@@ -32,22 +32,31 @@
           <p class="ng-binding">
             {{ 'THREADS.BOX_MEMBERS_LIST.DESCRIPTION' | translate }}
           </p>
-          <div class="form-group">
-            <div class="input-append">
-              <input type="text" class="form-control"
-                  placeholder="{{ 'THREADS.BOX_MEMBERS_LIST.PLACEHOLDER_ADD_MEMBER' | translate }}"
-                  x-ng-model="userToAdd"
-                  x-typeahead-min-length="3"
-                  x-typeahead-wait-ms="30"
-                  x-typeahead-loading="searching"
-                  x-typeahead-on-select="addMember(userToAdd)"
-                  x-typeahead="u for u in autocompleteUsers($viewValue) | filter:$viewValue"
-                  x-typeahead-template-url="user_representation"/>
+
+          <div class="row form-inline">
+            <div class="form-group col-md-8 col-lg-9">
+              <div class="input-append">
+                <input type="text" class="form-control"
+                       placeholder="{{ 'THREADS.BOX_MEMBERS_LIST.PLACEHOLDER_ADD_MEMBER' | translate }}"
+                       x-ng-model="userToAdd"
+                       x-typeahead-min-length="3"
+                       x-typeahead-wait-ms="30"
+                       x-typeahead-loading="searching"
+                       x-typeahead-on-select="addMember(userToAdd)"
+                       x-typeahead="u for u in autocompleteUsers($viewValue) | filter:$viewValue"
+                       x-typeahead-template-url="user_representation"/>
               <span class="add-on">
                 <i class="icon icon-plus"></i>
               </span>
+              </div>
             </div>
-          </div>
+            <label class="checkbox-inline">{{"THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ADMIN" | translate}}
+              <input type="checkbox" ng-model="userDefaultAdmin" value="userDefaultAdmin">
+            </label>
+            <label class="checkbox-inline">{{"THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_READ_ONLY" | translate}}
+              <input type="checkbox" ng-model="userDefaultReadOnly" value="userDefaultReadOnly">
+            </label>
+          </div><br />
           <div class="form-group">
             <div class="table-responsive">
               <table class="table"

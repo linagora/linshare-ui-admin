@@ -8,7 +8,9 @@ angular.module('linshareAdminApp')
           'threadUuid': thread.uuid,
           'userUuid': user.uuid,
           'userMail': user.mail,
-          'userDomainId': user.domain
+          'userDomainId': user.domain,
+          'readonly': user.readonly,
+          'admin': user.admin
         };
       };
 
