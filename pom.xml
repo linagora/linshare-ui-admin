@@ -38,15 +38,33 @@
           </execution>
         </executions>
       </plugin>
-      <!-- maven-jar-plugin -->
+
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.6</version>
-        <configuration>
-          <skipIfEmpty>true</skipIfEmpty>
-        </configuration>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <inherited>false</inherited> <!-- only execute these in the parent -->
+          <executions>
+              <execution>
+                  <id>git submodule update</id>
+                  <phase>initialize</phase>
+                  <configuration>
+                      <executable>git</executable>
+                      <arguments>
+                          <argument>submodule</argument>
+                          <argument>update</argument>
+                          <argument>--init</argument>
+                          <argument>--recursive</argument>
+                      </arguments>
+                  </configuration>
+                  <goals>
+                      <goal>exec</goal>
+                  </goals>
+              </execution>
+          </executions>
       </plugin>
+
+
+
       <!-- maven-assembly-plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -54,7 +72,7 @@
         <version>2.6</version>
         <configuration>
           <descriptor>src/assembly/bin.xml</descriptor>
-          <finalName>linshare-ui-admin-${project.version}</finalName>
+          <finalName>${project.artifactId}</finalName>
           <appendAssemblyId>false</appendAssemblyId>
         </configuration>
         <executions>
@@ -66,6 +84,15 @@
           </execution>
         </executions>
       </plugin>
+      <!-- maven-jar-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <skipIfEmpty>true</skipIfEmpty>
+        </configuration>
+      </plugin>
       <!-- maven-release-plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -73,8 +100,8 @@
         <version>2.5.3</version>
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
-          <preparationGoals>validate -Prelease</preparationGoals>
-          <completionGoals>validate -Prelease</completionGoals>
+          <preparationGoals>validate -Pprepare-release</preparationGoals>
+          <completionGoals>validate -Pprepare-release</completionGoals>
         </configuration>
       </plugin>
       <!--maven-install-plugin -->
@@ -175,8 +202,31 @@
         </plugins>
       </build>
     </profile>
+
     <profile>
-      <id>release</id>
+      <id>dev</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+              <finalName>${project.artifactId}-${project.version}</finalName>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+
+    <!-- This profile is specific because it is used by maven-release-plugin to
+         add an extra behaviour at pre commit phase.
+         It can be trigger using mvn validate -Pprepare-release
+         This profile will update bower.json and package.json version field
+         according to the pom project.version. The these files will be committed. -->
+    <profile>
+      <id>prepare-release</id>
       <build>
         <plugins>
           <plugin>
@@ -292,6 +342,91 @@
         </plugins>
       </build>
     </profile>
+
+    <profile>
+      <id>update-version</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.google.code.maven-replacer-plugin</groupId>
+            <artifactId>replacer</artifactId>
+            <version>1.5.3</version>
+            <executions>
+              <execution>
+                <id>package.json</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>replace</goal>
+                </goals>
+                <configuration>
+                  <file>package.json</file>
+                  <replacements>
+                    <replacement>
+                      <token>"version": ".*",</token>
+                      <value>"version": "${project.version}",</value>
+                    </replacement>
+                  </replacements>
+                </configuration>
+              </execution>
+              <execution>
+                <id>bower.json</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>replace</goal>
+                </goals>
+                <configuration>
+                  <file>bower.json</file>
+                  <replacements>
+                    <replacement>
+                      <token>"version": ".*",</token>
+                      <value>"version": "${project.version}",</value>
+                    </replacement>
+                  </replacements>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>hard-clean</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>3.0.0</version>
+            <executions>
+              <execution>
+                <id>clean-dev-dependencies</id>
+                <phase>clean</phase>
+                <goals>
+                  <goal>clean</goal>
+                </goals>
+                <configuration>
+                  <filesets>
+                    <fileset>
+                      <directory>node</directory>
+                    </fileset>
+                    <fileset>
+                      <directory>node_modules</directory>
+                    </fileset>
+                    <fileset>
+                      <directory>vendors</directory>
+                    </fileset>
+                    <fileset>
+                        <directory>app/bower_components</directory>
+                    </fileset>
+                  </filesets>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
   </profiles>
   <scm>
     <connection>scm:git:git://github.com/linagora/linshare-ui-admin.git</connection>
