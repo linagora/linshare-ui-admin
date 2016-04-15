@@ -61,9 +61,27 @@ Pour lancer l'application en mode production, la commande est:
 
    grunt serve:dist
 
-Pour packager l'application en mode production, la commande est:
+Pour packager l'application, la commande est:
 
    grunt build
+
+## change current version
+mvn versions:set -DnewVersion=0.1.0-SNAPSHOT && mvn validate -Pupdate-version
+git commit
+
+## Packaging
+mvn package
+
+## Deploy snapshot
+mvn deploy
+
+## Pour packager l'application en mode production, la commande est:
+mvn -Dresume=false release:prepare release:perform
+
+## Hard clean
+mvn -Phard-clean
+
+
 
 ## JavaScript
 Quelques cours sur Javascript
