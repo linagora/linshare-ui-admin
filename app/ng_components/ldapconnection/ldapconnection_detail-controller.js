@@ -10,6 +10,7 @@ angular.module('linshareAdminApp')
       $scope.submit = function() {
         if ($scope.state === 'edit') {
           LdapConnection.update($scope.ldapConnection);
+          $state.go('ldapconnection.list');
         } else if ($scope.state === 'create') {
           LdapConnection.add($scope.ldapConnection).then(function() {
               $state.go('ldapconnection.list');

@@ -19,6 +19,7 @@ angular.module('linshareAdminApp')
       $scope.submit = function() {
         if ($scope.state === 'edit') {
           DomainPattern.update($scope.domainPattern);
+          $state.go('domainpattern.list');
         } else if ($scope.state === 'create') {
           DomainPattern.add($scope.domainPattern).then(function() {
             $state.go('domainpattern.list');
