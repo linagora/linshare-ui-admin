@@ -15,12 +15,12 @@
         <table class="table table-striped table-hover"
                x-ng-table="tableParams"
                show-filter="true">
-          <tr x-ng-repeat="user in $data" ls-user-global>
+          <tr x-ng-repeat="user in $data" ng-click="showUserDetail(user)">
             <td style="cursor: pointer"
                 data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_FIRST_NAME' | translate"
                 filter="{ 'firstName': 'text' }"
                 sortable="'firstName'">
-              <a x-ui-sref="user.detail({uuid: user.uuid})">
+              <a href="">
               <span>
                 {{user.firstName}}
               </span>
@@ -30,7 +30,7 @@
                 data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_LAST_NAME' | translate"
                 filter="{ 'lastName': 'text' }"
                 sortable="'lastName'">
-              <a x-ui-sref="user.detail({uuid: user.uuid})">
+              <a href="">
               <span>
                 {{user.lastName}}
               </span>
@@ -40,7 +40,7 @@
                 data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_EMAIL' | translate"
                 filter="{ 'mail': 'text' }"
                 sortable="'mail'">
-              <a x-ui-sref="user.detail({uuid: user.uuid})">
+              <a href="">
               <span>
                 {{user.mail}}
               </span>
@@ -49,7 +49,7 @@
             <td style="cursor: pointer"
                 data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_DOMAIN' | translate"
                 sortable="'domain'">
-              <a x-ui-sref="user.detail({uuid: user.uuid})">
+              <a href="">
               <span>
                 {{user.domain}}
               </span>
@@ -58,7 +58,7 @@
             <td style="cursor: pointer"
                 data-title="'MANAGE_USERS.BOX_LIST.TABLE.HEADER_ROLE' | translate"
                 sortable="'role'">
-              <a x-ui-sref="user.detail({uuid: user.uuid})">
+              <a href="">
               <span>
                 {{user.role}}
               </span>

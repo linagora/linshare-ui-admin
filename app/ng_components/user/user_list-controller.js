@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('UserListCtrl',
-     ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'User', 'authenticatedUser',
-      function ($scope, $filter, $log, $translate, ngTableParams, User, authenticatedUser) {
+     ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'User', 'authenticatedUser', '$state', 'Restangular', '$modal',
+      function ($scope, $filter, $log, $translate, ngTableParams, User, authenticatedUser, $state, Restangular, $modal) {
         $scope.isCollapsed = true;
         $scope.getTemplate = function () {
           return 'USER';
@@ -29,6 +29,37 @@ angular.module('linshareAdminApp')
           }, function(error) {
             $scope.migState = error;
           });
+        };
+
+        $scope.showUserDetail = function(user) {
+          User.exist(user.uuid).then(function(success) {
+            if (success) {
+              $state.go('user.detail', {uuid: user.uuid});
+            } else {
+              confirmCreateUserProfile(user);
+            }
+          });
+        };
+
+        var confirmCreateUserProfile = function(user) {
+          var modalInstance = $modal.open({
+            templateUrl: 'ng_components/common/confirm_modal.tpl.html',
+            controller: 'ConfirmDialogCtrl',
+            resolve: {
+              content: function() {
+                return 'MANAGE_USERS.CONFIRM_CREATE_PROFILE_FORM.PARAGRAPH';
+              }
+            }
+          });
+          modalInstance.result.then(
+            function validate() {
+              Restangular.all('users').post(user).then(function(user) {
+                $state.go('user.detail', {uuid: user.uuid});
+              });
+            }, function cancel() {
+              $log.debug('Deletion modal dismissed');
+            }
+          );
         };
 
         $scope.tableParams = new ngTableParams({
@@ -60,13 +91,4 @@ angular.module('linshareAdminApp')
         });
       }
     ]
-  )
-  .directive('lsUserGlobal', function($rootScope){
-    return {
-      link: function(scope, elm) {
-        elm.bind('click', function(){
-          $rootScope.SelectedUserInManageUser = scope.user;
-        });
-      }
-    }
-  });
+  );

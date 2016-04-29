@@ -331,9 +331,49 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('user.detail', {
         url: '/:uuid',
         resolve: {
+          currentUser: function(User, $stateParams) {
+            return User.get($stateParams.uuid);
+          },
+          maxExpiryDate: userMaxExpiryDate,
+          restrictedGuestStatus: userRestrictedGuestStatus,
+          selectOptions: userSelectOptions,
+          _funcAccountExpiration: funcAccountExpiration,
+          _funcRestrictedGuest: funcRestrictedGuest,
+          _enumRole: enumRole,
+          _enumLanguage: enumLanguage,
+          _enumMailLanguage: enumMailLanguage
+        },
+        templateUrl: 'ng_components/user/user_detail.tpl.html',
+        controller: 'UserDetailCtrl'
+      })
+
+      .state('inconsistentuser', {
+        abstract: true,
+        url: '/inconsistentuser',
+        templateUrl: 'ng_components/inconsistentuser/inconsistentuser.html',
+        resolve: {
+          allInconsistents: function(User) {
+            return User.getAllInconsistent();
+          }
+        }
+      })
+      .state('inconsistentuser.list', {
+        url: '/find',
+        templateUrl: 'ng_components/inconsistentuser/inconsistentuser_menutab.tpl.html'
+      })
+      .state('inconsistentuser.list.search', {
+        url: '/search',
+        templateUrl: 'ng_components/inconsistentuser/inconsistentuser_search.tpl.html',
+        controller: 'InconsistentUserListCtrl'
+      })
+      .state('inconsistentuser.list.search.detail', {
+        url: '/:uuid',
+        templateUrl: 'ng_components/user/user_detail.tpl.html',
+        controller: 'UserDetailCtrl',
+        resolve: {
           currentUser: function(User, $stateParams, $rootScope, Restangular) {
-            return User.exist($stateParams.uuid).then(function(success){
-              if(success === true){
+            return User.exist($stateParams.uuid).then(function(success) {
+              if (success === true) {
                 return User.get($stateParams.uuid);
               }
               else {
@@ -370,9 +410,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           _enumRole: enumRole,
           _enumLanguage: enumLanguage,
           _enumMailLanguage: enumMailLanguage
-        },
-        templateUrl: 'ng_components/user/user_detail.tpl.html',
-        controller: 'UserDetailCtrl'
+        }
       })
 
       .state('inconsistentuser', {

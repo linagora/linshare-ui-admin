@@ -1821,6 +1821,18 @@
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
     },
+    "CONFIRM_CREATE_PROFILE_FORM": {
+      "PARAGRAPH": "This user does not have a Linshare profile. Would you like to create it now ?"
+    },
+    "MODALS": {
+      "CHANGE_DOMAIN": {
+        "TITLE": "Migration of Users' domain",
+        "CURRENT_DOMAIN": "Current domain",
+        "NEW_DOMAIN": "New domain",
+        "BUTTON_CANCEL": "Cancel",
+        "BUTTON_SUBMIT": "Apply"
+      }
+    },
     "BOX_TAB_OTHERS": {
       "TAB_TITLE": "Others",
       "EMAIL_MIGRATION_TITLE": "Users email modification",

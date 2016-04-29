@@ -1794,6 +1794,18 @@
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"
     },
+    "CONFIRM_CREATE_PROFILE_FORM": {
+      "PARAGRAPH": "Cet utilisateur n'a pas encore de profile dans LinShare. Voulez-vous le créer maintenant ?"
+    },
+    "MODALS": {
+      "CHANGE_DOMAIN": {
+        "TITLE": "Changement du domaine des utilisateurs",
+        "CURRENT_DOMAIN": "Domain actuel",
+        "NEW_DOMAIN": "Nouveau domaine",
+        "BUTTON_CANCEL": "Annuler",
+        "BUTTON_SUBMIT": "Appliquer"
+      }
+    },
     "BOX_TAB_OTHERS": {
       "TAB_TITLE": "Autres",
       "EMAIL_MIGRATION_TITLE": "Migration des adresses emails des utilisateurs",
