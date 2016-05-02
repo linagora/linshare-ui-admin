@@ -129,9 +129,11 @@ angular.module('linshareAdminApp')
           }, {
             name: 'COMMON.TAB.INCONSISTENT_USERS',
             superAdminOnly: true,
-            sref: 'inconsistentuser.list',
+            sref: 'inconsistentuser.search',
             children_sref: [
-              'inconsistentuser.detail'
+              'inconsistentuser.search.detail',
+              'inconsistentuser.list.all',
+              'inconsistentuser.list.detail'
             ]
           }, {
             name: 'COMMON.TAB.THREADS',

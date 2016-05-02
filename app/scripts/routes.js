@@ -7,12 +7,12 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
 
     var funcAccountExpiration = function(currentUser, Functionality) {
       if (currentUser) {
-        return Functionality.get(currentUser.domain , 'GUESTS__EXPIRATION');
+        return Functionality.get(currentUser.domain, 'GUESTS__EXPIRATION');
       }
     };
     var funcRestrictedGuest = function(currentUser, Functionality) {
       if (currentUser) {
-        return Functionality.get(currentUser.domain , 'GUESTS__RESTRICTED');
+        return Functionality.get(currentUser.domain, 'GUESTS__RESTRICTED');
       }
     };
 
@@ -65,6 +65,33 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       }
     };
 
+    //User detail common resolve
+    var userMaxExpiryDate = function(_funcAccountExpiration) {
+      var date = new Date();
+      var delta = _funcAccountExpiration.parameters[0].integer;
+      if (_funcAccountExpiration.parameters.string === 'DAY') {
+        date.setDay(date.getDay() + delta);
+      } else if (_funcAccountExpiration.parameters.string === 'WEEK') {
+        date.setWeek(date.getWeek() + delta);
+      } else {
+        date.setMonth(date.getMonth() + delta);
+      }
+      return date;
+    };
+    var userRestrictedGuestStatus = function(_funcRestrictedGuest) {
+      return _funcRestrictedGuest.activationPolicy.policy !== 'ALLOWED';
+    };
+
+    var userSelectOptions = function(_enumRole, _enumLanguage, _enumMailLanguage) {
+      return {
+        userRoles: _.remove(_enumRole, function(role) {
+          return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' && role !== 'UPLOAD_PROPOSITION';
+        }),
+        selectEnumLanguage: _enumLanguage,
+        selectMailLanguage: _enumMailLanguage
+      };
+    };
+
     $stateProvider
       .state('dashboard', {
         url: '/dashboard',
@@ -72,7 +99,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         controller: 'DashbordCtrl',
         resolve: {
           authenticatedUser: authenticatedUser
-        },
+        }
       })
 
 
@@ -81,7 +108,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/functionality',
         templateUrl: 'ng_components/functionality/functionality.html',
         resolve: {
-          treeTitle: function () {
+          treeTitle: function() {
             return 'COMMON.TAB.FUNCTIONALITIES';
           },
           treeType: function() {
@@ -144,7 +171,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/mailactivation',
         templateUrl: 'ng_components/mailactivation/mailactivation.html',
         resolve: {
-          treeTitle: function () {
+          treeTitle: function() {
             return 'COMMON.TAB.MAIL_ACTIVATION';
           },
           treeType: function() {
@@ -202,7 +229,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/mimepolicy',
         templateUrl: 'ng_components/mimepolicy/mimepolicy.html',
         resolve: {
-          treeTitle: function () {
+          treeTitle: function() {
             return 'COMMON.TAB.MIME_POLICIES';
           },
           treeType: function() {
@@ -243,7 +270,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return Domain.get($stateParams.domainId);
               },
               currentMimePolicy: function($stateParams, MimePolicy) {
-                 return MimePolicy.get($stateParams.id, true);
+                return MimePolicy.get($stateParams.id, true);
               }
             }
           }
@@ -255,7 +282,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/welcomemessage',
         templateUrl: 'ng_components/welcomemessage/welcomemessage.html',
         resolve: {
-          treeTitle: function () {
+          treeTitle: function() {
             return 'COMMON.TAB.WELCOME_MESSAGES';
           },
           treeType: function() {
@@ -350,61 +377,24 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       .state('inconsistentuser', {
         abstract: true,
         url: '/inconsistentuser',
-        templateUrl: 'ng_components/inconsistentuser/inconsistentuser.html',
-        resolve: {
-          allInconsistents: function(User) {
-            return User.getAllInconsistent();
-          }
-        }
+        templateUrl: 'ng_components/inconsistentuser/inconsistentuser.html'
       })
-      .state('inconsistentuser.list', {
-        url: '/find',
-        templateUrl: 'ng_components/inconsistentuser/inconsistentuser_menutab.tpl.html'
-      })
-      .state('inconsistentuser.list.search', {
+      .state('inconsistentuser.search', {
         url: '/search',
         templateUrl: 'ng_components/inconsistentuser/inconsistentuser_search.tpl.html',
-        controller: 'InconsistentUserListCtrl'
+        controller: 'InconsistentUserSearchListCtrl'
       })
-      .state('inconsistentuser.list.search.detail', {
+      .state('inconsistentuser.search.detail', {
         url: '/:uuid',
         templateUrl: 'ng_components/user/user_detail.tpl.html',
         controller: 'UserDetailCtrl',
         resolve: {
-          currentUser: function(User, $stateParams, $rootScope, Restangular) {
-            return User.exist($stateParams.uuid).then(function(success) {
-              if (success === true) {
-                return User.get($stateParams.uuid);
-              }
-              else {
-                return Restangular.all('users').post($rootScope.SelectedUserInManageUser);
-              }
-            });
+          currentUser: function(User, $stateParams) {
+            return User.get($stateParams.uuid);
           },
-          maxExpiryDate: function(_funcAccountExpiration) {
-            var date = new Date();
-            var delta = _funcAccountExpiration.parameters[0].integer;
-            if (_funcAccountExpiration.parameters.string === 'DAY') {
-              date.setDay(date.getDay() + delta);
-            } else if (_funcAccountExpiration.parameters.string === 'WEEK') {
-              date.setWeek(date.getWeek() + delta);
-            } else {
-              date.setMonth(date.getMonth() + delta);
-            }
-            return date;
-          },
-          restrictedGuestStatus: function(_funcRestrictedGuest) {
-            return _funcRestrictedGuest.activationPolicy.policy !== 'ALLOWED';
-          },
-          selectOptions: function(_enumRole, _enumLanguage, _enumMailLanguage) {
-            return {
-              userRoles: _.remove(_enumRole, function(role) {
-                return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' && role !== 'UPLOAD_PROPOSITION';
-              }),
-              selectEnumLanguage: _enumLanguage,
-              selectMailLanguage: _enumMailLanguage
-            };
-          },
+          maxExpiryDate: userMaxExpiryDate,
+          restrictedGuestStatus: userRestrictedGuestStatus,
+          selectOptions: userSelectOptions,
           _funcAccountExpiration: funcAccountExpiration,
           _funcRestrictedGuest: funcRestrictedGuest,
           _enumRole: enumRole,
@@ -412,34 +402,38 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           _enumMailLanguage: enumMailLanguage
         }
       })
-
-      .state('inconsistentuser', {
+      .state('inconsistentuser.list', {
         abstract: true,
-        url: '/inconsistentuser',
-        templateUrl: 'ng_components/inconsistentuser/inconsistentuser.html',
+        url: '/list',
         resolve: {
           allInconsistents: function(User) {
             return User.getAllInconsistent();
           }
-        }
+        },
+        template: '<div ui-view></div>'
       })
-      .state('inconsistentuser.list', {
-        url: '/list',
+      .state('inconsistentuser.list.all', {
+        url: '/all',
         templateUrl: 'ng_components/inconsistentuser/inconsistentuser_list.tpl.html',
-        controller: 'InconsistentUserListCtrl'
+        controller: 'InconsistentUserAllListCtrl'
       })
-      .state('inconsistentuser.detail', {
+      .state('inconsistentuser.list.detail', {
         url: '/:uuid',
+        templateUrl: 'ng_components/user/user_detail.tpl.html',
+        controller: 'UserDetailCtrl',
         resolve: {
           currentUser: function(allInconsistents, $stateParams) {
             return _.find(allInconsistents, {uuid: $stateParams.uuid});
           },
-          allDomains: function(Domain) {
-            return Domain.getAll();
-          }
-        },
-        templateUrl: 'ng_components/inconsistentuser/inconsistentuser_detail.tpl.html',
-        controller: 'InconsistentUserDetailCtrl'
+          maxExpiryDate: userMaxExpiryDate,
+          restrictedGuestStatus: userRestrictedGuestStatus,
+          selectOptions: userSelectOptions,
+          _funcAccountExpiration: funcAccountExpiration,
+          _funcRestrictedGuest: funcRestrictedGuest,
+          _enumRole: enumRole,
+          _enumLanguage: enumLanguage,
+          _enumMailLanguage: enumMailLanguage
+        }
       })
 
       .state('thread', {
@@ -585,7 +579,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         abstract: true,
         templateUrl: 'ng_components/domain/domain.html',
         resolve: {
-          treeTitle: function () {
+          treeTitle: function() {
             return 'COMMON.TAB.MANAGE_DOMAINS';
           },
           treeType: function() {
@@ -601,13 +595,13 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         resolve: {
           authenticatedUser: authenticatedUser
         },
-        views : {
+        views: {
           'tree': domainTreeView,
           'detail': {
             templateUrl: 'ng_components/domain/domain_detail.tpl.html',
             controller: 'DomainDetailCtrl',
             resolve: {
-              selectOptions: function(_allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs, _allMimePolicies,  _enumRole, _enumLanguage, _enumSupportedLanguage) {
+              selectOptions: function(_allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs, _allMimePolicies, _enumRole, _enumLanguage, _enumSupportedLanguage) {
 
                 return {
                   ldapConnectionIds: _.object(_.pluck(_allLdapConnections, 'uuid'), _.pluck(_allLdapConnections, 'label')),
@@ -658,21 +652,21 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-     .state('domainorder', {
-       abstract: true,
+      .state('domainorder', {
+        abstract: true,
         url: '/domainorder',
         templateUrl: 'ng_components/domainorder/domain_order.html'
-     })
-     .state('domainorder.order', {
-       url: '/order',
-       templateUrl: 'ng_components/domainorder/domain_order.tpl.html',
-       controller: 'DomainOrderCtrl',
-       resolve: {
-         domains: function(Domain) {
-           return Domain.getAll();
-         }
-       }
-     })
+      })
+      .state('domainorder.order', {
+        url: '/order',
+        templateUrl: 'ng_components/domainorder/domain_order.tpl.html',
+        controller: 'DomainOrderCtrl',
+        resolve: {
+          domains: function(Domain) {
+            return Domain.getAll();
+          }
+        }
+      })
 
       .state('domainpolicy', {
         abstract: true,
@@ -717,7 +711,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/maillayout',
         templateUrl: 'ng_components/maillayout/maillayout.html',
         resolve: {
-          treeTitle: function () {
+          treeTitle: function() {
             return 'COMMON.TAB.MAIL_LAYOUT';
           },
           treeType: function() {
@@ -775,7 +769,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/mailcontent',
         templateUrl: 'ng_components/mailcontent/mailcontent.html',
         resolve: {
-          treeTitle: function () {
+          treeTitle: function() {
             return 'COMMON.TAB.MAIL_CONTENT';
           },
           treeType: function() {
@@ -830,7 +824,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/mailfooter',
         templateUrl: 'ng_components/mailfooter/mailfooter.html',
         resolve: {
-          treeTitle: function () {
+          treeTitle: function() {
             return 'COMMON.TAB.MAIL_FOOTER';
           },
           treeType: function() {
@@ -885,7 +879,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         url: '/mailconfig',
         templateUrl: 'ng_components/mailconfig/mailconfig.html',
         resolve: {
-          treeTitle: function () {
+          treeTitle: function() {
             return 'COMMON.TAB.MAIL_CONFIG';
           },
           treeType: function() {
@@ -1052,5 +1046,5 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           uploadRequestStatus: enumUploadRequestStatus
         }
       });
-    }
+  }
 ]);

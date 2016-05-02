@@ -5,7 +5,7 @@
     </h3>
     <div class="pull-right box-tools">
       <a class="list btn-back"
-          x-ui-sref="inconsistentuser.list"
+          x-ui-sref="inconsistentuser.list.all"
           tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
         <i class="fa fa-2x fa-list pink"></i>
       </a>
@@ -101,6 +101,9 @@
           <button type="button" id="delete" name="delete" class="btn btn-danger"
                   x-ng-click="delete(user)">
             {{ 'INCONSISTENT_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+          </button>
+          <button type="button" class="btn btn-warning" ui-sref="inconsistentuser.list.all">
+            {{ 'INCONSISTENT_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate }}
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">
             {{ 'INCONSISTENT_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}

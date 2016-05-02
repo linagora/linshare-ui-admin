@@ -1,11 +1,12 @@
 <div class="box box-primary">
-  <div class="box-header">
+  <div class="box-header"
+       ng-show="routerState.current.name === 'user.detail' || routerState.current.name === 'inconsistentuser.list.detail'">
     <h3 class="box-title">
       {{ user.firstName }}&nbsp;{{ user.lastName }}&nbsp;&lt;{{ user.mail }}&gt;
     </h3>
     <div class="pull-right box-tools">
       <a class="list btn-back"
-         x-ui-sref="user.list"
+         x-ui-sref="{{goBackListBack}}"
          tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
         <i class="fa fa-2x fa-list pink"></i>
       </a>
@@ -239,8 +240,7 @@
             </div>
           </div>
           <!-- INTERNAL -->
-          <div x-ng-if="isGuest()">
-
+          <div>
             <!-- Domain -->
             <div class="form-group">
               <label for="domain">
@@ -270,6 +270,11 @@
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">
             {{ 'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+          </button>
+          <button ng-hide="routerState.current.name ==='user.detail'"
+                  type="button" id="chyangedomain" name="changedomain" class="btn btn-info"
+                  x-ng-click="changeDomain(user)">
+            {{ 'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_CHANGEDOMAIN' | translate }}
           </button>
         </div>
       </div>

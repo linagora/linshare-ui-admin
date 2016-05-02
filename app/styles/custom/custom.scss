@@ -591,3 +591,12 @@ a.list-group-item-success:hover {
     background-color: #0372b3;
     color: #f9f9f9;
 }
+
+.active.lstabs-border {
+  border-top: solid 2px #00a65a;
+}
+
+.lstabs-border {
+  cursor: pointer;
+  font-size: 18px;
+}

@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <button type="button" class="close" x-ng-click="cancel()" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+  <h3 class="modal-title">
+    {{'MANAGE_USERS.MODALS.CHANGE_DOMAIN.TITLE' | translate}}
+  </h3>
+</div>
+<form class="form" name="userChangeDomainForm" role="form" novalidate
+      x-ls-form-submit="submitDomain(selectedUsers, domain)"
+      x-ls-form-attempt>
+  <fieldset>
+    <div class="modal-body">
+
+
+      <!-- Domain -->
+      <div class="form-group"
+           x-ng-class="{'has-error': userChangeDomainForm.domain.$invalid &&
+            (userChangeDomainForm.domain.$dirty || ls.userChangeDomainForm.attempted)}">
+        <label for="domain">
+          {{ 'MANAGE_USERS.MODALS.CHANGE_DOMAIN.NEW_DOMAIN' | translate }}
+        </label>
+        <select id="domain" name="domain" class="form-control" required
+                x-ng-model="domain"
+                x-ng-options="domain.identifier as domain.label for domain in allDomains | orderBy:'label'">
+        </select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default pull-left"
+              x-ng-click="cancel()">
+        {{ 'MANAGE_USERS.MODALS.CHANGE_DOMAIN.BUTTON_CANCEL' | translate }}
+      </button>
+
+      <button type="submit" class="btn btn-success">
+        {{ 'MANAGE_USERS.MODALS.CHANGE_DOMAIN.BUTTON_SUBMIT' | translate }}
+      </button>
+    </div>
+  </fieldset>
+</form>

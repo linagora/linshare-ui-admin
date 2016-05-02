@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('UserDetailCtrl',
-     ['$scope', '$modal', '$state',  '$log', 'User', 'selectOptions', 'currentUser', 'maxExpiryDate', 'restrictedGuestStatus',
-      function ($scope, $modal, $state, $log, User, selectOptions, currentUser, maxExpiryDate, restrictedGuestStatus) {
+     ['$scope', '$modal', '$state',  '$log', 'User', 'selectOptions', 'currentUser', 'maxExpiryDate', 'restrictedGuestStatus', '$rootScope',
+      function ($scope, $modal, $state, $log, User, selectOptions, currentUser, maxExpiryDate, restrictedGuestStatus, $rootScope) {
         $scope.userRoles = selectOptions.userRoles;
         $scope.userRolesSimple = ['SIMPLE', 'ADMIN'];
         $scope.user = currentUser;
@@ -50,6 +50,16 @@ angular.module('linshareAdminApp')
         $scope.isGuest = function() {
           return $scope.user.accountType == 'GUEST';
         };
+
+        //To get the previous State to redirect to.
+        if ($rootScope.routerState.current.name === 'user.detail') {
+          $scope.goBackListBack = 'user.list';
+        } else if ($rootScope.routerState.current.name === 'inconsistentuser.list.detail') {
+          $scope.goBackListBack = 'inconsistentuser.list.all';
+        } else {
+          $scope.goBackListBack = 'inconsistentuser.search';
+        }
+
         $scope.delete = function(user) {
           var modalInstance = $modal.open({
             templateUrl: 'ng_components/common/confirm_modal.tpl.html',
@@ -63,13 +73,36 @@ angular.module('linshareAdminApp')
           modalInstance.result.then(
             function validate() {
               User.remove($scope.user).then(function() {
-                $state.go('user.list');
+                $scope.$parent.dataUpTodate = false;
+                $state.go($scope.goBackListBack);
               });
             }, function cancel() {
               $log.debug('Deletion modal dismissed');
             }
           );
         };
+
+        $scope.changeDomain = function(selectedUsers) {
+          var modalInstance = $modal.open({
+            templateUrl: 'ng_components/user/user_changedomain_modal.tpl.html',
+            controller: 'ChangeDomainModalCtrl',
+            resolve: {
+              allDomains: function(Domain) {
+                return Domain.getAll();
+              },
+              selectedUsers: function() {
+                return selectedUsers;
+              }
+            }
+          });
+          modalInstance.result.then(
+            function validate() {
+              $scope.$parent.dataUpTodate = false;
+            }, function cancel() {
+              $log.debug('Deletion modal dismissed');
+            }
+          );
+        }
       }
     ]
   );

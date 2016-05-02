@@ -1,5 +1,5 @@
-<tabset justified="true" class="box box-primary">
-  <tab heading="{{ 'MANAGE_USERS.BOX_LIST.TITLE' | translate }}" class="" style="cursor: pointer; font-size: 20px">
+<tabset justified="true" class="">
+  <tab heading="{{ 'MANAGE_USERS.BOX_LIST.TITLE' | translate }}" class="lstabs-border">
     <div class="pull-right box-tools">
       <button class="clear-btn pink" x-ng-click="isCollapsed = !isCollapsed" x-ng-class="{'active': isCollapsed}">
         <i class="fa fa-info-circle fa-lg
@@ -69,7 +69,7 @@
       </div>
     </div>
   </tab>
-  <tab ng-if="isSuperAdmin" heading="{{'MANAGE_USERS.BOX_TAB_OTHERS.TAB_TITLE' | translate}}" class="" style="cursor: pointer; font-size: 20px">
+  <tab ng-if="isSuperAdmin" heading="{{'MANAGE_USERS.BOX_TAB_OTHERS.TAB_TITLE' | translate}}" class="lstabs-border">
     <form role="form" id="csvfile">
       <div class="box-body">
         <h4>{{'MANAGE_USERS.BOX_TAB_OTHERS.EMAIL_MIGRATION_TITLE' | translate}}</h4><br />

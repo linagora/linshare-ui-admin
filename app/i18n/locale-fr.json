@@ -99,6 +99,8 @@
         "503": "Le service est actuellement indisponible (code http 503).",
         "1000": "Une erreur c'est produite, veuillez contacter votre administrateur LinShare",
         "2000": "Le mot de passe fourni est invalide",
+        "2200": "L'utilisateur n'existe pas ou a été supprimé",
+        "2209": "Echec de la migration: utilisateur déja présent dans le domaine cible",
         "4000": "Id invalide",
         "13000": "Ce domaine est déjà présent",
         "13001": "Ce domaine est introuvable",
@@ -1788,14 +1790,16 @@
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+        "BUTTON_CHANGEDOMAIN": "Migrer",
+        "BUTTON_CHANGEDOMAIN_LABEL": "Migrer vers un autre domaine"
       }
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"
     },
     "CONFIRM_CREATE_PROFILE_FORM": {
-      "PARAGRAPH": "Cet utilisateur n'a pas encore de profile dans LinShare. Voulez-vous le créer maintenant ?"
+      "PARAGRAPH": "Cet utilisateur n'a pas encore de profile dans LinShare. Voulez-vous lui créer un profile dans la base de données ?"
     },
     "MODALS": {
       "CHANGE_DOMAIN": {
@@ -1832,7 +1836,8 @@
       "LABEL_DOMAIN": "Domaine courant",
       "FORM_ACTIONS": {
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
       }
     },
     "BOX_LIST": {
@@ -1842,8 +1847,27 @@
         "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
         "HEADER_EMAIL": "Courriel",
         "HEADER_DOMAIN": "Domaine",
-        "HEADER_ROLE": "Rôle"
-      }
+        "HEADER_ROLE": "Rôle",
+        "HEADER_CHECKBOX": "Sélection"
+      },
+      "MULTIPLE_UPDATE": "Actions multiples"
+    },
+    "SCRUTINY": {
+      "TITLE": "Diagnostic utilisateur",
+      "SEARCH_LEGEND": "Rechercher tous les comptes d'une personne avec son courriel",
+      "PLACEHOLDER": "Courriel",
+      "DOMAIN_HEADER": "NOM DU DOMAINE",
+      "DOMAIN_HEADER_LABEL": "List des domaines",
+      "LDAP_HEADER": "LDAP",
+      "LDAP_HEADER_LABEL": "Utilisateur présent dans le LDAP",
+      "DATABASE_HEADER": "BASE DE DONNÉES",
+      "DATABASE_HEADER_LABEL": "Utilisateur présent dans la base de données",
+      "GUEST_HEADER": "INVITÉ",
+      "GUEST_HEADER_LABEL": "L'utilisateur est un invité",
+      "NOT_FOUND_MESSAGE": "Aucun résultat pour: ",
+      "CURRENT_USER_FOUND": "Résultat pour: ",
+      "WARNING_OUT_OF_DATE_REFRESH": "Les données affichées ne sont plus à jour",
+      "REFRESH": "Actualiser"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"

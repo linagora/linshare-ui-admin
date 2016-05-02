@@ -9,7 +9,15 @@
 <section class="content">
   <div class="row">
     <section class="col-lg-12">
-      <div x-ui-view></div>
+      <ul class="nav nav-tabs nav-justified">
+        <li role="presentation" ui-sref-active="active" class="lstabs-border">
+          <a ui-sref="inconsistentuser.search">{{ 'INCONSISTENT_USERS.SCRUTINY.TITLE' | translate }}</a>
+        </li>
+        <li role="presentation" ui-sref-active="active" class="lstabs-border">
+          <a ui-sref="inconsistentuser.list.all">{{ 'INCONSISTENT_USERS.BOX_LIST.TITLE' | translate }}</a>
+        </li>
+      </ul>
+      <div ui-view></div>
     </section>
   </div>
 </section>

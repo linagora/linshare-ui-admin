@@ -99,6 +99,8 @@
         "503": "The service is currently unavailable (HTTP code 503).",
         "1000": "A error has occured, please contact your @:COMMON.NAME administrator",
         "2000": "The supplied password is invalid",
+        "2200": "This user does not exit or has been deleted",
+        "2209": "Migration echec: user already exists in the targeted domain",
         "4000": "Invalid identifier",
         "13000": "Domain id already exist",
         "13001": "Domain id not found",
@@ -1815,14 +1817,16 @@
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+        "BUTTON_CHANGEDOMAIN": "Migrate",
+        "BUTTON_CHANGEDOMAIN_LABEL": "Migrate to another domain"
       }
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
     },
     "CONFIRM_CREATE_PROFILE_FORM": {
-      "PARAGRAPH": "This user does not have a Linshare profile. Would you like to create it now ?"
+      "PARAGRAPH": "This user does not have a Linshare profile. Would you like to create it in the database ?"
     },
     "MODALS": {
       "CHANGE_DOMAIN": {
@@ -1859,7 +1863,8 @@
       "LABEL_DOMAIN": "Current domain",
       "FORM_ACTIONS": {
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
       }
     },
     "BOX_LIST": {
@@ -1869,8 +1874,27 @@
         "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
         "HEADER_EMAIL": "Email",
         "HEADER_DOMAIN": "Domain",
-        "HEADER_ROLE": "Role"
-      }
+        "HEADER_ROLE": "Role",
+        "HEADER_CHECKBOX": "Select"
+      },
+      "MULTIPLE_UPDATE": "Multiple actions"
+    },
+    "SCRUTINY": {
+      "TITLE": "User diagnostic",
+      "SEARCH_LEGEND": "Find a person's accounts by giving his email address",
+      "PLACEHOLDER": "Email",
+      "DOMAIN_HEADER": "DOMAIN NAME",
+      "DOMAIN_HEADER_LABEL": "List of DOMAINS",
+      "LDAP_HEADER": "LDAP",
+      "LDAP_HEADER_LABEL": "Presence of the user in the LDAP",
+      "DATABASE_HEADER": "DATABASE",
+      "DATABASE_HEADER_LABEL": "Presence of the user in the database",
+      "GUEST_HEADER": "GUEST",
+      "GUEST_HEADER_LABEL": "Whether the user is a guest",
+      "NOT_FOUND_MESSAGE": "No result for: ",
+      "CURRENT_USER_FOUND": "Search result for : ",
+      "WARNING_OUT_OF_DATE_REFRESH": "The displayed data are no longer uptodate",
+      "REFRESH": "Refresh"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"

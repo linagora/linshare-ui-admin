@@ -34,9 +34,24 @@ angular.module('linshareAdminApp')
           $log.debug('User:getAllInconsistent');
           return Restangular.all('users').all('inconsistent').getList();
         },
+        getInconsistencyStatus: function(mail) {
+          $log.debug('User:getInconsistencyStatus');
+          return Restangular.all('users').all('inconsistent/check').customPOST(mail);
+        },
+        autocompleteInconsistent: function(pattern) {
+          $log.debug('User:autocompleteInconsistent');
+          var userSearchDto = {mail: pattern};
+          return Restangular.all('users').all('inconsistent/autocomplete').customPOST(userSearchDto);
+        },
         update: function(user) {
           $log.debug('User:update');
           return user.put().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
+        },
+        updateInconsistent: function(user) {
+          $log.debug('User:update User with Inconsistent EndPoint');
+          return Restangular.all('users').all('inconsistent').customPUT(user).then(function() {
             Notification.addSuccess('UPDATE');
           });
         },
