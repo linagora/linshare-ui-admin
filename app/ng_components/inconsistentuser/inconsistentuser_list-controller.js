@@ -92,8 +92,9 @@ angular.module('linshareAdminApp')
         modalInstance.result.then(
           function validate() {
             angular.forEach(selectedUsers, function(user, index) {
-              user.isSelected =  false;
-              User.remove(_.omit(user, 'isSelected')).then(function() {
+              delete user.isSelected;
+              User.remove(user).then(function() {
+                user.isSelected =  false;
                 removeElementFromCollection(allInconsistents, user);
                 selectedUsers.splice(index, 1);
                 $scope.tableParams.reload();
