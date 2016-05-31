@@ -10,7 +10,7 @@ angular.module('linshareAdminApp')
         $scope.domainPolicy = false;
         $scope.mailConfigs = selectOptions.mailConfigs;
         $scope.mimePolicies = selectOptions.mimePolicies;
-        $scope.userRoles = selectOptions.userRoles;
+        $scope.userRoles = ['SIMPLE', 'ADMIN'];
         $scope.languages = selectOptions.languages;
         $scope.supportedLanguages = selectOptions.supportedLanguages;
         // To sort by 'name' with UnderscoreJs you'll need to convert the values in the same case

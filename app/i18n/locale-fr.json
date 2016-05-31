@@ -244,7 +244,7 @@
         "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": "Notification de suppression d'un fichier par l'utilisateur externe"
       },
       "ROLE": {
-        "SIMPLE": "Interne",
+        "SIMPLE": "Simple",
         "ADMIN": "Administrateur",
         "SUPERADMIN": "Super administrateur",
         "SYSTEM": "Système",
