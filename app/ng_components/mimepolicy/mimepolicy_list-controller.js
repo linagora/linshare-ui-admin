@@ -35,7 +35,7 @@ angular.module('linshareAdminApp')
                     filteredData;
           params.total(orderedData.length);
           $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-          $scope.isCollapsed = (orderedData.length == 0) ? true : false;
+          $scope.isCollapsed = orderedData.length === 0;
         }
       });
     }]

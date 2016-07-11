@@ -510,9 +510,9 @@
     "CREATE_FORM": {
       "SELECT_OPTION_POLICY": "Automatic creation",
       "TITLE": {
-        "TOP_DOMAIN": "Create a new top domain in {{parent}}",
-        "SUB_DOMAIN": "Create a new sub domain in {{parent}}",
-        "GUEST_DOMAIN": "Create a new guest domain in {{parent}}"
+        "TOP_DOMAIN": "Create a new top domain in {{label}}",
+        "SUB_DOMAIN": "Create a new sub domain in {{label}}",
+        "GUEST_DOMAIN": "Create a new guest domain in {{label}}"
       }
     },
     "CONFIRM_CANCEL": {

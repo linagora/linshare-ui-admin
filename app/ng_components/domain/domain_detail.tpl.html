@@ -5,23 +5,23 @@
       <div x-ng-switch="domain.type">
         <h3 class="box-title"
             x-ng-switch-when="TOPDOMAIN">
-          {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.TOP_DOMAIN' | translate:domain }}
+          {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.TOP_DOMAIN' | translate:parentDomain }} ({{parentDomain.parent}})
         </h3>
 
         <h3 class="box-title"
             x-ng-switch-when="SUBDOMAIN">
-          {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.SUB_DOMAIN' | translate:domain }}
+          {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.SUB_DOMAIN' | translate:parentDomain }} ({{parentDomain.parent}})
         </h3>
 
         <h3 class="box-title"
             x-ng-switch-when="GUESTDOMAIN">
-          {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.GUEST_DOMAIN' | translate:domain }}
+          {{ 'MANAGE_DOMAINS.CREATE_FORM.TITLE.GUEST_DOMAIN' | translate:parentDomain }} ({{parentDomain.parent}})
         </h3>
       </div>
     </div>
     <div x-ng-if="state === 'edit'">
       <h3 class="box-title">
-        {{domain.identifier}}
+        {{domain.label}} ({{domain.identifier}})
       </h3>
     </div>
   </div>
@@ -30,31 +30,6 @@
     <form name="domainForm" class="form" role="form"
           x-ls-form-submit="submit()"
           x-ls-form-attempt>
-
-      <div x-ng-if="state === 'create'">
-        <!-- Identifier -->
-        <div class="form-group"
-             x-ng-class="{'has-error': domainForm.identifier.$invalid &&
-              (domainForm.identifier.$dirty || ls.domainForm.attempted)}">
-          <label for="identifier">
-            {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_IDENTIFIER' | translate }}
-          </label>
-          <input id="identifier" name="identifier" type="text" class="form-control" required
-                 x-ng-model="domain.identifier"
-                 x-ng-pattern="/^[a-zA-Z0-9_]{4,}$/">
-        </div>
-      </div>
-
-      <div x-ng-if="state === 'edit'">
-        <!-- Identifier -->
-        <label for="identifier">
-          {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_IDENTIFIER' | translate }}
-        </label>
-
-        <div class="form-group">
-          <p class="form-control-static">{{domain.identifier}}</p>
-        </div>
-      </div>
 
       <div x-ng-show="isSuperAdmin">
         <!-- Name -->
@@ -134,7 +109,7 @@
               x-ng-repeat="welcomemessage in welcomeMessages"
               x-ng-selected="domain.currentWelcomeMessages.uuid == welcomemessage.uuid"
               value="{{welcomemessage.uuid}}">
-              {{welcomemessage.name}} <i>({{welcomemessage.myDomain.identifier}})</i>
+              {{welcomemessage.name}} <i>({{welcomemessage.myDomain.label}})</i>
             </option>
           </select>
         </div>

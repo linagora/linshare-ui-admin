@@ -34,7 +34,9 @@ angular.module('linshareAdminApp')
                   $scope.domainPolicies[0].name = translatedValue;
             });
           });
+          var parentLabel = currentDomain.label;
           currentDomain = Domain.createSample(currentDomain.identifier, $state.params.domainType);
+          $scope.parentDomain = angular.extend({label: parentLabel}, currentDomain);
         }
         $scope.domain = currentDomain;
         $scope.isSuperAdmin = authenticatedUser.role === 'SUPERADMIN';

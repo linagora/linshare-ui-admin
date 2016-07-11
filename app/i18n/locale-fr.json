@@ -516,9 +516,9 @@
     "CREATE_FORM": {
       "SELECT_OPTION_POLICY": "Création automatique",
       "TITLE": {
-        "TOP_DOMAIN": "Créer un top domaine dans {{parent}}",
-        "SUB_DOMAIN": "Créer un sub domaine dans {{parent}}",
-        "GUEST_DOMAIN": "Créer un guest domaine dans {{parent}}"
+        "TOP_DOMAIN": "Créer un top domaine dans {{label}}",
+        "SUB_DOMAIN": "Créer un sub domaine dans {{label}}",
+        "GUEST_DOMAIN": "Créer un guest domaine dans {{label}}"
       }
     },
     "CONFIRM_CANCEL": {
