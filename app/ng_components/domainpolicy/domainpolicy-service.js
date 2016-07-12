@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('DomainPolicy', ['$rootScope', '$log', 'Restangular', 'Notification',
-    function ($rootScope, $log, Restangular, Notification) {
+  .factory('DomainPolicy', ['$rootScope', '$log', 'Restangular', 'Notification', '$q',
+    function ($rootScope, $log, Restangular, Notification, $q) {
       //var self = this;
+      var deferred = $q.defer();
 
       // Public API here
       return {
@@ -30,10 +31,12 @@ angular.module('linshareAdminApp')
         add: function(domainPolicy) {
           $log.debug('DomainPolicy:add');
           var notification = Notification.getNotification(domainPolicy);
-          return Restangular.all('domain_policies').post(domainPolicy).then(function() {
+          Restangular.all('domain_policies').post(domainPolicy).then(function(policy) {
             if (notification == true)
               Notification.addSuccess('CREATE');
+            deferred.resolve(policy.plain());
           });
+          return deferred.promise;
         },
         update: function(domainPolicy) {
           $log.debug('DomainPolicy:update');

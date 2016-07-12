@@ -116,6 +116,7 @@
         "13014": "Cet identifiant existe déjà pour un modèle de domaine.",
         "13017": "Cette connexion LDAP ne peut pas être supprimée, elle est utilisée par un domaine",
         "13018": "Ce modèle de domaine ne peut pas être supprimé, il est utilisé par un domaine",
+        "13019": "Le domain que vous essayez de supprimer contient des règles de communication entre domaines. Supprimer ces règles en premier!",
         "14000": "La fonctionnalité n'a pas été trouvé. Elle n'est peut être pas présente dans le domaine séléctionné",
         "14004": "La fonctionnalité n'a pas été trouvé. Elle n'est peut être pas présente dans le domaine séléctionné",
         "15000": "Le relais de messagerie n'a pas activé le transfert de domaine",

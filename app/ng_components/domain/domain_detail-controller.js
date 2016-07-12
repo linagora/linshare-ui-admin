@@ -19,21 +19,10 @@ angular.module('linshareAdminApp')
         });
         $scope.domainPatterns = selectOptions.domainPatternIds;
         $scope.domainPolicies = [];
-        angular.forEach(selectOptions.domainPolicyIds, function(value, key) {
-          this.push({value: value, name: value});
+        angular.forEach(selectOptions.domainPolicies, function(domainPolicy) {
+          this.push({identifier: domainPolicy.identifier, label: domainPolicy.label});
         }, $scope.domainPolicies);
         if ($scope.state === 'create') {
-          $scope.domainPolicies.splice(0, 0, {value:'cb621f5f-e5cd-42e7-b704-1f5b46fe50da', name: 'SELECT_OPTION_POLICY'});
-          $translate('MANAGE_DOMAINS.CREATE_FORM.SELECT_OPTION_POLICY')
-            .then(function (translatedValue) {
-                $scope.domainPolicies[0].name = translatedValue;
-          });
-          $rootScope.$on('$translateChangeSuccess', function() {
-            $translate('MANAGE_DOMAINS.CREATE_FORM.SELECT_OPTION_POLICY')
-              .then(function (translatedValue) {
-                  $scope.domainPolicies[0].name = translatedValue;
-            });
-          });
           var parentLabel = currentDomain.label;
           currentDomain = Domain.createSample(currentDomain.identifier, $state.params.domainType);
           $scope.parentDomain = angular.extend({label: parentLabel}, currentDomain);
@@ -63,56 +52,52 @@ angular.module('linshareAdminApp')
         } else {
           $log.error('Try to delete an non existing provider');
         }
-      }
-      $scope.submit = function(creation) {
-        $scope.policyIsCreate = typeof creation !== 'undefined' ? creation : false;
+      };
+
+      var createPolicy = function(label) {
+        $scope.domainPolicy = {
+          notification: false,
+          label: label,
+          accessPolicy: {
+            rules: [{type: 'DENY_ALL'}]
+          }
+        };
+        return DomainPolicy.add($scope.domainPolicy);
+      };
+
+      var addDomainWithPolicy = function(domain) {
+        Domain.add(domain).then(function(newDomain) {
+          $scope.domain.identifier = newDomain.identifier;
+          DomainPolicy.get($scope.domain.policy.identifier).then(function(policy){
+            policy.notification = false;
+            policy.accessPolicy.rules.unshift({
+              type: "ALLOW",
+              domain: $scope.domain
+            });
+            DomainPolicy.update(policy).then(function() {
+              $state.go("domain.detail", {domainId: $scope.domain.identifier, formState: 'edit'});
+            });
+          });
+          $state.go("domain.detail", {domainId: $scope.domain.identifier, formState: 'edit'});
+        });
+      };
+
+      $scope.submit = function() {
         if ($scope.state === 'edit') {
           Domain.update($scope.domain);
         } else if ($scope.state === 'create') {
-          if ($scope.domain.policy.identifier == "cb621f5f-e5cd-42e7-b704-1f5b46fe50da"){
-            var id = $scope.domain.identifier + "-policy"
-            $scope.domain.policy.identifier = id;
-            $scope.createPolicy(id);
-            return ;
+          if ($scope.domain.policy.identifier === 'create_new_policy') {
+            createPolicy($scope.domain.label).then(function(newPolicy) {
+              delete newPolicy.originalElement;
+              $scope.domain.policy = newPolicy;
+              addDomainWithPolicy($scope.domain);
+            });
+          } else {
+            addDomainWithPolicy($scope.domain);
           }
-          Domain.add($scope.domain).then(function() {
-            if ($scope.policyIsCreate)
-            {
-              DomainPolicy.get($scope.domainPolicy.identifier).then(function(policy){
-                policy.notification = false;
-                policy.accessPolicy.rules.unshift({
-                  type: "ALLOW",
-                  domain: $scope.domain
-                });
-                DomainPolicy.update(policy).then(function() {
-                  $state.go("domain.detail", {domainId: $scope.domain.identifier, formState: 'edit'});
-                });
-              });
-            }
-            $state.go("domain.detail", {domainId: $scope.domain.identifier, formState: 'edit'});
-          });
-        } else {
-          $log.error('Invalid state');
         }
       };
-      $scope.createPolicy = function(id){
-        $scope.domainPolicy = {};
-        $scope.domainPolicy.notification = false;
-        $scope.domainPolicy.identifier = id;
-        $scope.domainPolicy.accessPolicy = {
-          'rules': []
-        };
-        $scope.domainPolicy.accessPolicy.rules.push({type: "DENY_ALL"});
-        DomainPolicy.exist($scope.domainPolicy.identifier).then(function(res) {
-          if (res == false){
-            DomainPolicy.add($scope.domainPolicy).then(function() {
-              $scope.submit(true);
-            });
-          }else{
-            Notification.addError({errCode : '13009'});
-          }
-        });
-      };
+
       $scope.issetDomainPolicy = function(identifier){
         DomainPolicy.exist(identifier).then(function(res) {
           return res;
@@ -149,4 +134,4 @@ angular.module('linshareAdminApp')
         $state.go('domain.detail', {domainId: null, formState: null, domainType: null}, {reload: true});
       };
     }]
-  )
+  );

@@ -4,7 +4,7 @@
       {{ 'DOMAIN_POLICIES.BOX_FORM.TITLE_CREATION' | translate }}
     </h3>
     <h3 class="box-title" x-ng-if="state === 'edit'">
-      {{domainPolicy.identifier}}
+      {{domainPolicy.label}} ({{domainPolicy.identifier}})
     </h3>
     <div class="pull-right box-tools">
       <a class="list btn-back"
@@ -24,11 +24,11 @@
           <div class="form-group"
                x-ng-class="{'has-error': domainPolicyForm.identifier.$invalid &&
                 (domainPolicyForm.identifier.$dirty || ls.domainPolicyForm.attempted)}">
-            <label for="identifier">
+            <label for="label">
               {{ 'DOMAIN_POLICIES.BOX_FORM.LABEL_IDENTIFIER' | translate }}
             </label>
-            <input id="identifier" name="identifier" class="form-control" type="text" required
-                   x-ng-model="domainPolicy.identifier">
+            <input id="label" name="label" class="form-control" type="text" required
+                   x-ng-model="domainPolicy.label">
           </div>
         </div>
         <!-- Description -->

@@ -116,6 +116,7 @@
         "13014": "This new domain pattern identifier already exists.",
         "13017": "This LDAP connection can't be deleted, it is used by a domain",
         "13018": "This Domain pattern can't be deleted, it is used by a domain",
+        "13019": "The domain your are trying to delete is linked to one or more domain access rules. Delete the rules first!",
         "14000": "The functionality was not found. It may not be present in the selected domain.",
         "14004": "The functionality was not found. It may not be present in the selected domain.",
         "15000": "Relay host not enable",

@@ -606,7 +606,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return {
                   ldapConnectionIds: _.object(_.pluck(_allLdapConnections, 'uuid'), _.pluck(_allLdapConnections, 'label')),
                   domainPatternIds: _.object(_.pluck(_allDomainPatterns, 'uuid'), _.pluck(_allDomainPatterns, 'label')),
-                  domainPolicyIds: _.pluck(_allDomainPolicies, 'identifier'),
+                  domainPolicies: _allDomainPolicies,
                   mailConfigs: _allMailConfigs,
                   mimePolicies: _allMimePolicies,
                   userRoles: _.remove(_enumRole, function(role) {

@@ -41,8 +41,11 @@ angular.module('linshareAdminApp')
         },
         add: function(domain) {
           $log.debug('Domain:add');
-          return Restangular.all('domains').post(domain).then(function() {
+          return Restangular.all('domains').post(domain).then(function(newDomain) {
+            var deferred = $q.defer();
+            deferred.resolve(newDomain);
             Notification.addSuccess('CREATE');
+            return deferred.promise;
           });
         },
         update: function(domain, notify) {

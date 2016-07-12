@@ -139,7 +139,7 @@
                 <tr x-ng-repeat="domain in $data" x-ng-class="{'success': domain.active}" x-ng-click="changeItem(domain)" class="not-linked">
                   <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_IDENTIFIER' | translate"
                       sortable="'identifier'" filter="{ 'identifier': 'text' }">
-                    <strong>{{domain.identifier}}</strong>, {{domain.label}}
+                    <strong>{{domain.label}}</strong>, {{domain.identifier}}
                   </td>
                   <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_ACTIVE' | translate"
                       sortable="'active'" width="200" filter="{'active': 'active' }"style="text-align: center;">
@@ -236,7 +236,7 @@
                 <tr x-ng-repeat="domain in $data  | filter: search" x-ng-class="{'success': domain.active}" class="not-linked">
                   <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_IDENTIFIER' | translate"
                       sortable="'identifier'" filter="{ 'identifier': 'text' }">
-                    <strong>{{domain.identifier}}</strong>, {{domain.label}}
+                    <strong>{{domain.label}}</strong>, {{domain.identifier}}
                   </td>
                   <td data-title="'WELCOME_MESSAGES.BOX_FORM.TABLE_ACTIVE' | translate"
                       sortable="'active'" width="200" filter="{'active': 'active' }"style="text-align: center;">
