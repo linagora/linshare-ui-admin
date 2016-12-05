@@ -2,9 +2,10 @@
 
 angular.module('linshareAdminApp')
   .controller('WelcomeMessageListCtrl',
-    ['$rootScope', '$state', '$scope', '$filter', '$translate', '$modal', 'ngTableParams', 'Domain', 'WelcomeMessage', 'welcomesMessages', 'rootDomain', 'authenticatedUser',
-    function($rootScope, $state, $scope, $filter, $translate, $modal, ngTableParams, Domain, WelcomeMessage, welcomesMessages, rootDomain, authenticatedUser) {
+    ['$state', '$scope', '$filter', '$translate', '$modal', 'ngTableParams', 'Domain', 'WelcomeMessage', 'welcomesMessages', 'authenticatedUser', 'currentDomain',
+    function($state, $scope, $filter, $translate, $modal, ngTableParams, Domain, WelcomeMessage, welcomesMessages, authenticatedUser, currentDomain) {
       $scope.domain = $state.params.domainId;
+      $scope.currentDomain = currentDomain;
       $scope.user = authenticatedUser;
       Domain.getAll().then(function(domains) {
         $scope.isMyDomain = (_.findWhere(domains, {'identifier': $scope.domain})) ? true : false;
@@ -83,4 +84,3 @@ angular.module('linshareAdminApp')
       });
     }]
   );
-

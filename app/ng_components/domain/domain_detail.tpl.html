@@ -62,6 +62,7 @@
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE_MAIL' | translate }}
           </label>
           <select id="externalMailLocale" name="externalMailLocale" class="form-control" required
+                  x-ng-init="domain.externalMailLocale = 'ENGLISH'"
                   x-ng-model="domain.externalMailLocale"
                   x-ng-options="l as 'COMMON.ENUM.LANGUAGE.' + l | translate for l in supportedLanguages">
           </select>
@@ -76,6 +77,7 @@
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE' | translate }}
           </label>
           <select id="language" name="language" class="form-control" required
+                  x-ng-init="domain.language = 'ENGLISH'"
                   x-ng-model="domain.language"
                   x-ng-options="l as 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + l | translate for l in languages">
           </select>
@@ -86,13 +88,30 @@
              x-ng-class="{'has-error': domainForm.mailConfig.$invalid &&
               (domainForm.mailConfig.$dirty || ls.domainForm.attempted)}"
              x-ng-hide="isRootDomain">
+          <a class="clear-btn blue" x-ng-click="mailConfig = !mailConfig" x-ng-class="{'active': mailConfig}">
+            <i class="fa fa-info-circle fa-lg"></i>
+          </a>
           <label for="mailConfig">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_MAIL_CONFIG' | translate }}
           </label>
-          <select id="mailConfig" name="mailConfig" class="form-control" required
-                  x-ng-model="domain.mailConfigUuid"
-                  x-ng-options="m.uuid as m.name for m in mailConfigs">
-          </select>
+          <div class="description" collapse="!mailConfig">
+            <x-ls-help content="'my-domain/MAIL_CONFIG'"></x-ls-help>
+          </div>
+          <div class= "form-mydomain">
+            <select id="mailConfig" name="mailConfig" class="form-control" required
+                    x-ng-init="domain.mailConfigUuid = domain.mailConfigUuid || '946b190d-4c95-485f-bfe6-d288a2de1edd'"
+                    x-ng-model="domain.mailConfigUuid"
+                    x-ng-options="m.uuid as m.name for m in mailConfigs"
+                    x-ng-selected="domain.mailConfigUuid.uuid === mailConfigUuid.uuid">
+            </select>
+            <div class="box-tools-domain-manage">
+              <a class="list btn-back"
+                  x-ui-sref="mailconfig.list({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})"
+                  tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
+                <i class="fa fa-2x fa-list"></i>
+              </a>
+            </div>
+          </div>
         </div>
 
         <!-- welcomeMessages -->
@@ -100,18 +119,34 @@
              x-ng-class="{'has-error': domainForm.currentWelcomeMessages.$invalid &&
              (domainForm.currentWelcomeMessages.$dirty || ls.domainForm.attempted)}"
              x-ng-hide="isRootDomain">
+          <a class="clear-btn blue" x-ng-click="welcomeMess = !welcomeMess" x-ng-class="{'active': welcomeMess}">
+            <i class="fa fa-info-circle fa-lg"></i>
+          </a>
           <label for="currentWelcomeMessages">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_WELCOME_MESSAGES' | translate }}
           </label>
-          <select id="currentWelcomeMessages" name="currentWelcomeMessages" class="form-control" required
-                  x-ng-model="domain.currentWelcomeMessages.uuid">
-            <option
-              x-ng-repeat="welcomemessage in welcomeMessages"
-              x-ng-selected="domain.currentWelcomeMessages.uuid == welcomemessage.uuid"
-              value="{{welcomemessage.uuid}}">
-              {{welcomemessage.name}} <i>({{welcomemessage.myDomain.label}})</i>
-            </option>
-          </select>
+          <div class="description" collapse="!welcomeMess">
+            <x-ls-help content="'my-domain/WELCOME_MESS'"></x-ls-help>
+          </div>
+          <div class= "form-mydomain">
+            <select id="currentWelcomeMessages" name="currentWelcomeMessages" class="form-control" required
+                    x-ng-init="domain.currentWelcomeMessages.uuid = domain.currentWelcomeMessages.uuid || '4bc57114-c8c9-11e4-a859-37b5db95d856'"
+                    x-ng-model="domain.currentWelcomeMessages.uuid">
+              <option
+                x-ng-repeat="welcomeMessage in welcomeMessages"
+                x-ng-selected="domain.currentWelcomeMessages.uuid === welcomeMessage.uuid"
+                value="{{welcomeMessage.uuid}}">
+                {{welcomeMessage.name}} <i>({{welcomeMessage.myDomain.label}})</i>
+              </option>
+            </select>
+            <div class="box-tools-domain-manage">
+              <a class="list btn-back"
+                  x-ui-sref="welcomemessage.list({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})"
+                  tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
+                <i class="fa fa-2x fa-list"></i>
+              </a>
+            </div>
+          </div>
         </div>
 
         <!-- mimePolicy -->
@@ -119,13 +154,30 @@
              x-ng-class="{'has-error': domainForm.mimePolicy.$invalid &&
              (domainForm.mimePolicy.$dirty || ls.domainForm.attempted)}"
              x-ng-hide="isRootDomain">
+          <a class="clear-btn blue" x-ng-click="mimePolicy = !mimePolicy" x-ng-class="{'active': mimePolicy}">
+            <i class="fa fa-info-circle fa-lg"></i>
+          </a>
           <label for="mimePolicy">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_MIME_POLICY' | translate }}
           </label>
-          <select id="mimePolicy" name="mimePolicy" class="form-control" required
-                  x-ng-model="domain.mimePolicyUuid"
-                  x-ng-options="m.uuid as m.name for m in mimePolicies">
-          </select>
+          <div class="description" collapse="!mimePolicy">
+            <x-ls-help content="'my-domain/MIME_POLICY'"></x-ls-help>
+          </div>
+          <div class= "form-mydomain">
+            <select id="mimePolicy" name="mimePolicy" class="form-control mydomain" required
+                    x-ng-init="domain.mimePolicyUuid = domain.mimePolicyUuid || '3d6d8800-e0f7-11e3-8ec0-080027c0eef0'"
+                    x-ng-model="domain.mimePolicyUuid"
+                    x-ng-options="m.uuid as m.name for m in mimePolicies"
+                    x-ng-selected="domain.mimePolicyUuid.uuid === mimePolicyUuid.uuid">
+            </select>
+            <div class="box-tools-domain-manage">
+              <a class="list btn-back"
+                  x-ui-sref="mimepolicy.list({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})"
+                  tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
+                <i class="fa fa-2x fa-list"></i>
+              </a>
+            </div>
+          </div>
         </div>
 
         <div x-ng-show="isSuperAdmin">
@@ -139,8 +191,10 @@
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_USER_ROLE' | translate }}
               </label>
               <select id="userRole" name="userRole" class="form-control" required
+                      x-ng-init = "domain.userRole = 'SIMPLE'"
                       x-ng-model="domain.userRole"
-                      x-ng-options="u as 'COMMON.ENUM.ROLE.' + u | translate for u in userRoles track by u">
+                      x-ng-options="u as 'COMMON.ENUM.ROLE.' + u | translate for u in userRoles track by u"
+                      x-ng-selected="domain.userRole.uuid === userRole.uuid">
               </select>
             </div>
 
@@ -148,22 +202,37 @@
             <div class="form-group"
                  x-ng-class="{'has-error': domainForm.policy.$invalid &&
                  (domainForm.policy.$dirty || ls.domainForm.attempted)}">
+              <a class="clear-btn blue" x-ng-click="policy = !policy" x-ng-class="{'active': policy}">
+                <i class="fa fa-info-circle fa-lg"></i>
+              </a>
               <label for="policy">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_POLICY' | translate }}
               </label>
-              <select id="policy" name="policy" class="form-control" required
-                      x-ng-model="domain.policy.identifier">
-                <option
-                  x-ng-repeat="policy in domainPolicies"
-                  x-ng-selected="domain.policy.identifier == policy.identifier"
-                  x-ng-class="{'boldOption': policy.label == 'DefaultDomainPolicy'}"
-                  value="{{policy.identifier}}">
-                  {{policy.label}}
-                </option>
-                <option ng-if="state === 'create'" class="boldOption"
-                        value="create_new_policy">{{'MANAGE_DOMAINS.CREATE_FORM.SELECT_OPTION_POLICY' | translate }}
-                </option>
-              </select>
+              <div class="description" collapse="!policy">
+                <x-ls-help content="'my-domain/INTER_DOMAIN'"></x-ls-help>
+              </div>
+              <div class= "form-mydomain">
+                <select id="policy" name="policy" class="form-control" required
+                        x-ng-init="domain.policy.identifier = domain.policy.identifier || 'DefaultDomainPolicy'"
+                        x-ng-model="domain.policy.identifier">
+                  <option
+                    x-ng-repeat="policy in domainPolicies"
+                    x-ng-class="{'boldOption': policy.label == 'DefaultDomainPolicy'}"
+                    value="{{policy.identifier}}">
+                    {{policy.label}}
+                  </option>
+                  <option ng-if="state === 'create'" class="boldOption"
+                          value="create_new_policy">{{'MANAGE_DOMAINS.CREATE_FORM.SELECT_OPTION_POLICY' | translate }}
+                  </option>
+                </select>
+                <div class="box-tools-domain-manage">
+                  <a class="list btn-back"
+                      x-ui-sref="domainpolicy.list({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})"
+                      tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
+                    <i class="fa fa-2x fa-list"></i>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -195,16 +264,23 @@
               <label for="ldapConnection">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LDAP_CONNECTION' | translate }}
               </label>
-              <select id="ldapConnection" name="ldapConnection" class="form-control" required
-                      x-ng-model="provider.ldapConnectionUuid">
-                <option
-                  x-ng-repeat="(key, val) in ldapConnections"
-                  x-ng-selected="provider.ldapConnectionUuid == key"
-                  value="{{key}}">
-                  {{val}}
-                </option>
-              </select>
+              <div class= "form-mydomain">
+                <select id="ldapConnection" name="ldapConnection" class="form-control" required
+                    x-ng-model="provider.ldapConnectionUuid">
+                    <option
+                      x-ng-repeat="(key, val) in ldapConnections"
+                      x-ng-selected="provider.ldapConnections === key"
+                      value="{{key}}">
+                        {{val}}
+                    </option>
+                </select>
+              <div class="box-tools-domain-manage">
+                <a class="clear-btn blue" x-ui-sref="ldapconnection.detail({formState: 'create'})">
+                  <i class="fa fa-plus-circle fa-lg" tooltip="{{'COMMON.BASIC_FORM.BUTTON_ADD' | translate}}"></i>
+                </a>
+              </div>
             </div>
+          </div>
 
             <!-- Domain Pattern -->
             <div class="form-group"
@@ -213,29 +289,44 @@
               <label for="domainPattern">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_DOMAIN_PATTERN' | translate }}
               </label>
-
               <!-- x-ng-options="d for d in domainPatterns" -->
-              <select id="domainPattern" name="domainPattern" class="form-control" required
-                      x-ng-model="provider.userLdapPatternUuid">
-                <option
-                  x-ng-repeat="(key, val) in domainPatterns"
-                  x-ng-selected="provider.userLdapPatternUuid == key"
-                  value="{{key}}">
-                  {{val}}
-                </option>
-              </select>
+              <div class= "form-mydomain">
+                <select id="domainPattern" name="domainPattern" class="form-control" required
+                        x-ng-model="provider.userLdapPatternUuid">
+                  <option
+                    x-ng-repeat="(key, val) in domainPatterns"
+                    x-ng-selected="provider.ldapConnectionUuid === key"
+                    value="{{key}}">
+                    {{val}}
+                  </option>
+                </select>
+                <div class="box-tools-domain-manage">
+                  <a class="clear-btn blue" x-ui-sref="domainpattern.detail({formState: 'create'})">
+                    <i class="fa fa-plus-circle fa-lg" tooltip="{{'COMMON.BASIC_FORM.BUTTON_ADD' | translate}}"></i>
+                  </a>
+                </div>
+              </div>
             </div>
 
             <!-- Base Dn -->
             <div class="form-group"
                  x-ng-class="{'has-error': domainEditForm.baseDn.$invalid &&
                   (domainEditForm.baseDn.$dirty || ls.domainEditForm.attempted)}">
+              <a class="clear-btn blue" x-ng-click="isCollapsed = !isCollapsed" x-ng-class="{'active': isCollapsed}">
+                <i class="fa fa-info-circle fa-lg"></i>
+              </a>
               <label for="baseDn">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_BASE_DN' | translate }}
               </label>
+              <div class="description" collapse="!isCollapsed">
+                <x-ls-help content="'my-domain/BASE_DN'"></x-ls-help>
+              </div>
               <input id="baseDn" name="baseDn" type="text" class="form-control" required
                      x-ng-model="provider.baseDn">
             </div>
+            <a x-ui-sref="inconsistentuser.search({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})">
+              <i>{{'MANAGE_DOMAINS.BOX_FORM.SEARCH_USER_ACCOUNT'| translate}}</i>
+            </a>
           </div>
 
         </div>

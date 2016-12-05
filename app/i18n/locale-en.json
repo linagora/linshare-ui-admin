@@ -376,7 +376,9 @@
     "MANAGE_DOMAINS_TITLE": "Domains",
     "MANAGE_DOMAINS_SUB_TITLE": "Manage domains",
     "AUDIT_TITLE": "History",
-    "AUDIT_SUB_TITLE": "Audit the application"
+    "AUDIT_SUB_TITLE": "Audit the application",
+    "PARAMETERS_TITLE":"Parameters",
+    "PARAMETERS_SUB_TITLE": "Functionalities"
   },
 
   "CHANGE_PASSWORD": {
@@ -501,6 +503,7 @@
       "LABEL_LDAP_CONNECTION": "LDAP connection",
       "LABEL_DOMAIN_PATTERN": "Domain pattern",
       "LABEL_BASE_DN": "Base dn",
+      "SEARCH_USER_ACCOUNT":"Search for a user to test your settings, don't forget to save before testing",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",

@@ -38,5 +38,3 @@ angular.module('linshareAdminApp')
       });
     }]
   );
-
-

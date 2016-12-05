@@ -139,4 +139,3 @@ angular.module('linshareAdminApp')
       });
     }]
   );
-

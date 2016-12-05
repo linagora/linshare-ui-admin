@@ -2,10 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('MimePolicyDetailCtrl',
-    ['$scope', '$filter', '$timeout', '$log', '$modal', '$state', 'ngTableParams', 'MimePolicy', 'MimeType', 'currentMimePolicy',
-    function($scope, $filter, $timeout, $log, $modal, $state, ngTableParams, MimePolicy, MimeType, currentMimePolicy) {
+    ['$scope', '$filter', '$timeout', '$log', '$modal', '$state', 'ngTableParams', 'MimePolicy', 'MimeType', 'currentMimePolicy', 'currentDomain',
+    function($scope, $filter, $timeout, $log, $modal, $state, ngTableParams, MimePolicy, MimeType, currentMimePolicy, currentDomain) {
       $scope.mimePolicy = currentMimePolicy;
       $scope.iconSaved = false;
+      $scope.domain = currentDomain;
 
       $scope.remove = function() {
         var modalInstance = $modal.open({

@@ -34,7 +34,7 @@
           <select id="domain" name="domain" class="form-control" required
                   x-ng-model="domain"
                   x-ng-change="reloadModels(lang, domain, mailContentType)"
-                  x-ng-options="d.identifier for d in domains | orderBy:'identifier'">
+                  x-ng-options="d.identifier as d.label for d in domains | orderBy:'identifier'">
           </select>
         </div>
         <!-- Content type -->

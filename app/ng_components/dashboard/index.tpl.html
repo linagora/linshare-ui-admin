@@ -11,7 +11,6 @@
     <section class="col-md-6">
       <div class="col-md-12">
         <p>{{'DASHBOARD.DESCRIPTION' | translate}}</p>
-        <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
               <a x-ui-sref="user.list">
@@ -30,7 +29,6 @@
         </div>
       </div>
       <div class="col-md-12">
-        <!-- small box -->
         <div class="small-box bg-red">
           <div class="inner">
             <a x-ui-sref="domain.detail({domainId: userDomain})">
@@ -49,7 +47,6 @@
         </div>
       </div>
       <div class="col-md-12">
-        <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
             <a x-ui-sref="audit.form">
@@ -59,10 +56,28 @@
           </div>
           <div class="icon">
             <a x-ui-sref="audit.form">
-              <i class="fa fa-gears"></i>
+              <i class="fa fa-archive"></i>
             </a>
           </div>
           <a x-ui-sref="audit.form"
+              class="small-box-footer">
+              {{'DASHBOARD.MORE_INFO' | translate}} <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="small-box bg-blue">
+          <div class="inner">
+            <a x-ui-sref="functionality.list({domainId: userDomain, view: 'simple'})">
+              <h3>{{'DASHBOARD.PARAMETERS_TITLE' | translate }}</h3>
+              <p>{{'DASHBOARD.PARAMETERS_SUB_TITLE' | translate }}</p>
+            </a>
+          </div>
+          <div class="icon">
+            <a x-ui-sref="functionality.list({domainId: userDomain, view: 'simple'})">
+              <i class="fa fa-gears"></i>
+            </a>
+          </div>
+          <a x-ui-sref="functionality.list({domainId: userDomain, view: 'simple'})"
               class="small-box-footer">
               {{'DASHBOARD.MORE_INFO' | translate}} <i class="fa fa-arrow-circle-right"></i></a>
         </div>

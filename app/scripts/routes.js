@@ -301,6 +301,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             templateUrl: 'ng_components/domain/domain_tree.tpl.html',
             controller: 'DomainTreeCtrl',
             resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                return Domain.get($stateParams.domainId);
+              },
               rootDomain: function(Domain, authenticatedUser) {
                 return Domain.getDomainTree(authenticatedUser.domain, true);
               }
@@ -310,6 +313,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             templateUrl: 'ng_components/welcomemessage/welcomemessage_list.tpl.html',
             controller: 'WelcomeMessageListCtrl',
             resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                return Domain.get($stateParams.domainId);
+              },
               welcomesMessages: function(WelcomeMessage, $stateParams) {
                 return WelcomeMessage.getAll($stateParams.domainId);
               },
@@ -328,6 +334,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             templateUrl: 'ng_components/welcomemessage/welcomemessage_detail.tpl.html',
             controller: 'WelcomeMessageDetailCtrl',
             resolve: {
+              currentDomain: function(Domain, $stateParams) {
+                return Domain.get($stateParams.domainId);
+              },
               currentWelcomesMessage: function(WelcomeMessage, $stateParams) {
                 if ($stateParams.id) {
                   return WelcomeMessage.get($stateParams.id);

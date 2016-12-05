@@ -24,7 +24,7 @@
           </strong>
             {{ 'WELCOME_MESSAGES.EDIT_FORM.MIDDLE_TITLE' | translate }}
           <strong>
-             '{{welcomeMessage.myDomain.identifier}}'
+             '{{welcomeMessage.myDomain.label}}'
           </strong>
         </h3>
         <h3 x-ng-if="!isParent() || edit">
@@ -34,7 +34,7 @@
           </strong>
            {{ 'WELCOME_MESSAGES.SHOW_FORM.MIDDLE_TITLE' | translate }}
             <strong>
-              '{{welcomeMessage.myDomain.identifier}}'
+              '{{welcomeMessage.myDomain.label}}'
             </strong>
         </h3>
         <small x-ng-if="!isParent() || edit" class="label label-danger">
