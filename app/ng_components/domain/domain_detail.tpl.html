@@ -116,25 +116,25 @@
 
         <!-- welcomeMessages -->
         <div class="form-group"
-             x-ng-class="{'has-error': domainForm.currentWelcomeMessages.$invalid &&
-             (domainForm.currentWelcomeMessages.$dirty || ls.domainForm.attempted)}"
+             x-ng-class="{'has-error': domainForm.currentWelcomeMessage.$invalid &&
+             (domainForm.currentWelcomeMessage.$dirty || ls.domainForm.attempted)}"
              x-ng-hide="isRootDomain">
           <a class="clear-btn blue" x-ng-click="welcomeMess = !welcomeMess" x-ng-class="{'active': welcomeMess}">
             <i class="fa fa-info-circle fa-lg"></i>
           </a>
-          <label for="currentWelcomeMessages">
+          <label for="currentWelcomeMessage">
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_WELCOME_MESSAGES' | translate }}
           </label>
           <div class="description" collapse="!welcomeMess">
             <x-ls-help content="'my-domain/WELCOME_MESS'"></x-ls-help>
           </div>
           <div class= "form-mydomain">
-            <select id="currentWelcomeMessages" name="currentWelcomeMessages" class="form-control" required
-                    x-ng-init="domain.currentWelcomeMessages.uuid = domain.currentWelcomeMessages.uuid || '4bc57114-c8c9-11e4-a859-37b5db95d856'"
-                    x-ng-model="domain.currentWelcomeMessages.uuid">
+            <select id="currentWelcomeMessage" name="currentWelcomeMessage" class="form-control" required
+                    x-ng-init="domain.currentWelcomeMessage.uuid = domain.currentWelcomeMessage.uuid || '4bc57114-c8c9-11e4-a859-37b5db95d856'"
+                    x-ng-model="domain.currentWelcomeMessage.uuid">
               <option
                 x-ng-repeat="welcomeMessage in welcomeMessages"
-                x-ng-selected="domain.currentWelcomeMessages.uuid === welcomeMessage.uuid"
+                x-ng-selected="domain.currentWelcomeMessage.uuid === welcomeMessage.uuid"
                 value="{{welcomeMessage.uuid}}">
                 {{welcomeMessage.name}} <i>({{welcomeMessage.myDomain.label}})</i>
               </option>
