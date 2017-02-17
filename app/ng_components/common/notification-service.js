@@ -29,6 +29,13 @@ angular.module('linshareAdminApp')
           $rootScope.$broadcast('pushAlert', newAlert);
         }
       },
+      addNotification: function(msg) {
+        $log.debug('Notification:addNotification');
+        var newAlert = {};
+        newAlert.type = 'success';
+        newAlert.msg = msg;
+        $rootScope.$broadcast('pushAlert', newAlert);
+      },
       getNotification: function(action){
         var notif = true;
         if ('notification' in action && !action.notification)
