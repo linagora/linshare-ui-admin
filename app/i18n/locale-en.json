@@ -1799,36 +1799,36 @@
       }
     },
     "BOX_FORM": {
-      "LABEL_STATUS": "Status",
-      "LABEL_STATUS_GUEST": "Guest",
-      "LABEL_STATUS_INTERNAL": "Internal",
-      "LABEL_RESTRICTED": "Restricted",
-      "LABEL_RESTRICTED_CONTACT_LIST": "Restricted contact list",
-      "LABEL_CREATION_DATE": "Creation date",
-      "LABEL_MODIFICATION_DATE": "Modification date",
-      "LABEL_EXPIRY_DATE": "Expiry date",
-      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
-      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
-      "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
-      "LABEL_ROLE": "Role",
-      "LABEL_LANGUAGE": "Default language of the site",
-      "LABEL_MANAGE_QUOTA": "Manage user personal space quota",
-      "LABEL_QUOTA": "User's personal space allocated quota",
-      "LABEL_MAX_FILE_SIZE": "User's max upload file size in Personal space",
-      "LABEL_MAIL_LANGUAGE": "Notification's language",
-      "LABEL_DOMAIN": "Domain",
-      "LABEL_CAN_UPLOAD": "Upload permission",
-      "LABEL_COMMENT": "Comment",
-      "LABEL_OWNER": "Owner",
       "BUTTON_ADD_CONTACT": "Add contact",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_CHANGEDOMAIN": "Migrate",
+        "BUTTON_CHANGEDOMAIN_LABEL": "Migrate to another domain",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
-        "BUTTON_CHANGEDOMAIN": "Migrate",
-        "BUTTON_CHANGEDOMAIN_LABEL": "Migrate to another domain"
-      }
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      },
+      "LABEL_CAN_UPLOAD": "Upload permission",
+      "LABEL_COMMENT": "Comment",
+      "LABEL_CREATION_DATE": "Creation date",
+      "LABEL_DOMAIN": "Domain",
+      "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
+      "LABEL_EXPIRY_DATE": "Expiry date",
+      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+      "LABEL_LANGUAGE": "Default language of the site",
+      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+      "LABEL_MAIL_LANGUAGE": "Notification's language",
+      "LABEL_MANAGE_QUOTA": "Manage user personal space quota",
+      "LABEL_MAX_FILE_SIZE": "User's max upload file size in Personal Space",
+      "LABEL_MODIFICATION_DATE": "Modification date",
+      "LABEL_OWNER": "Owner",
+      "LABEL_QUOTA": "User's personal space allocated quota",
+      "LABEL_RESTRICTED": "Restricted",
+      "LABEL_RESTRICTED_CONTACT_LIST": "Restricted contact list",
+      "LABEL_ROLE": "Role",
+      "LABEL_STATUS": "Status",
+      "LABEL_STATUS_GUEST": "Guest",
+      "LABEL_STATUS_INTERNAL": "Internal"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
@@ -2168,13 +2168,13 @@
         "ERROR": "Error ",
         "ERROR_MAX_VALUE": "The value should be below or equal to: ",
         "ERROR_QUOTA_EXCEEDED": "Quota exceeded, free up storage space or allocate more quota for the",
-        "HINT_ASSIGNED_QUOTA": "assigned quota",
         "HINT_ALLREADY_USED": "allready used",
+        "HINT_ASSIGNED_QUOTA": "assigned quota",
         "HINT_MAX_QUOTA": "Value can not exceed the personal spaces quota",
         "HINT_UNLINK_TOOLTIP": "Override default value"
       },
       "MAINTENANCE_MODE": "Maintenance mode",
-      "MAINTENANCE_MODE_TOOLTIP": "Shut down the uploads",
+      "MAINTENANCE_MODE_TOOLTIP": "Shut down uploads",
       "SPACES_LABEL": {
         "CURRENT_DOMAIN": "current domain",
         "PERSONALS_SPACES": "Personal Spaces",
@@ -2182,27 +2182,26 @@
         "SUB_DOMAINS": "subdomains"
       },
       "SUBDOMAINS_DEFAULT_SETTINGS": {
-        "LABEL_PERSONAL_SPACES_QUOTA": "Allocated quota for all Personal spaces",
         "LABEL_PERSONAL_SPACE_MAX_FILE_SIZE": "Default Personal Spaces max file size",
-        "LABEL_WORKGROUP_QUOTA": "Default total Sharedspaces allocated quota",
-        "LABEL_WORKGROUP_MAX_FILE_SIZE": "Default Sharedspace max file size",
+        "LABEL_PERSONAL_SPACES_QUOTA": "Allocated quota for all Personal spaces",
         "LABEL_SUBDOMAINS_QUOTA": "Quota (per subdomain)",
+        "LABEL_WORKGROUP_MAX_FILE_SIZE": "Default Sharedspace max file size",
+        "LABEL_WORKGROUP_QUOTA": "Default total Sharedspaces allocated quota",
         "LABEL_USER_PERSONAL_SPACES_QUOTA": "Default Personal Space allocated quota (per user)",
         "MAIN_SECTION_TITLE": "Subdomains default allocation settings",
         "SUB_SECTION_PERSONAL_SPACES_QUOTA": "Personal Spaces quota",
-        "SUB_SECTION_WORKGROUP_QUOTA": "Sharedspace quota",
-        "SUB_SECTION_SUBDOMAINS_QUOTA": "Subdomains quota"
+        "SUB_SECTION_SUBDOMAINS_QUOTA": "Subdomains quota",
+        "SUB_SECTION_WORKGROUP_QUOTA": "Sharedspace quota"
       },
       "USED_SPACE": {
         "LABEL_QUOTA": "Quota",
-        "MAIN_SECTION_TITLE": "Used Space for",
+        "MAIN_SECTION_TITLE": "Used space for",
         "SUB_SECTION_DOMAIN_QUOTA": "Current domain quota"
       }
     },
     "INFO_QUOTA": "Set up the quota size of your spaces within your domains",
     "NOTIFICATION": {
       "UPDATE": "Quota of the domain and his respective containers have been successfully updated"
-    },
-    "TITLE": ""
+    }
   }
 }

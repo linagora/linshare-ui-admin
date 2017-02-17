@@ -1772,36 +1772,36 @@
       }
     },
     "BOX_FORM": {
-      "LABEL_STATUS": "Statut",
-      "LABEL_STATUS_GUEST": "Invité",
-      "LABEL_STATUS_INTERNAL": "Interne",
-      "LABEL_RESTRICTED": "Restreint",
-      "LABEL_RESTRICTED_CONTACT_LIST": "Liste des contacts restreints",
-      "LABEL_CREATION_DATE": "Date de création",
-      "LABEL_MODIFICATION_DATE": "Date de modification",
-      "LABEL_EXPIRY_DATE": "Date d'expiration",
-      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
-      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
-      "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
-      "LABEL_ROLE": "Rôle",
-      "LABEL_LANGUAGE": "Langue d'affichage par défaut du site",
-      "LABEL_MANAGE_QUOTA": "Gestion du quota de l'espace personnel de l'utilisateur",
-      "LABEL_QUOTA": "Quota de l'espace personnel de l'utilisateur",
-      "LABEL_MAX_FILE_SIZE": "Taille de fichier max déposable dans l'espace personnel",
-      "LABEL_MAIL_LANGUAGE": "Langue des courriels",
-      "LABEL_DOMAIN": "Domaine",
-      "LABEL_CAN_UPLOAD": "Permission de dépôt",
-      "LABEL_COMMENT": "Commentaire",
-      "LABEL_OWNER": "Propriétaire",
       "BUTTON_ADD_CONTACT": "Ajouter un contact",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_CHANGEDOMAIN": "Migrer",
+        "BUTTON_CHANGEDOMAIN_LABEL": "Migrer vers un autre domaine",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
-        "BUTTON_CHANGEDOMAIN": "Migrer",
-        "BUTTON_CHANGEDOMAIN_LABEL": "Migrer vers un autre domaine"
-      }
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      },
+      "LABEL_CAN_UPLOAD": "Permission de dépôt",
+      "LABEL_COMMENT": "Commentaire",
+      "LABEL_CREATION_DATE": "Date de création",
+      "LABEL_DOMAIN": "Domaine",
+      "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
+      "LABEL_EXPIRY_DATE": "Date d'expiration",
+      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+      "LABEL_LANGUAGE": "Langue d'affichage par défaut du site",
+      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+      "LABEL_MAIL_LANGUAGE": "Langue des courriels",
+      "LABEL_MANAGE_QUOTA": "Gestion du quota de l'espace personnel de l'utilisateur",
+      "LABEL_MAX_FILE_SIZE": "Taille de fichier max déposable dans l'espace personnel",
+      "LABEL_MODIFICATION_DATE": "Date de modification",
+      "LABEL_OWNER": "Propriétaire",
+      "LABEL_QUOTA": "Quota de l'espace personnel de l'utilisateur",
+      "LABEL_RESTRICTED": "Restreint",
+      "LABEL_RESTRICTED_CONTACT_LIST": "Liste des contacts restreints",
+      "LABEL_ROLE": "Rôle",
+      "LABEL_STATUS": "Statut",
+      "LABEL_STATUS_GUEST": "Invité",
+      "LABEL_STATUS_INTERNAL": "Interne"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"
@@ -2138,41 +2138,40 @@
         "ERROR": "Erreur",
         "ERROR_MAX_VALUE": "La valeur doit être inférieur ou égal à : ",
         "ERROR_QUOTA_EXCEEDED": "Espace insuffisant, liberez ou allouez plus d'espace de stockage pour ",
-        "HINT_ASSIGNED_QUOTA": "quota affecter",
         "HINT_ALLREADY_USED": "utilisé",
+        "HINT_ASSIGNED_QUOTA": "quota affecté",
         "HINT_MAX_QUOTA": "La valeur ne peut exceder celle du quota",
         "HINT_UNLINK_TOOLTIP": "Surcharger la valeur par défaut"
       },
       "MAINTENANCE_MODE": "Mode maintenance",
       "MAINTENANCE_MODE_TOOLTIP": "Désactiver les dépots",
       "SPACES_LABEL": {
-        "CURRENT_DOMAIN": "le domaine courrant",
+        "CURRENT_DOMAIN": "le domaine courant",
         "PERSONALS_SPACES": "les Espaces Personnels",
         "WORKGROUP": "l'Espace Commun",
         "SUB_DOMAINS": "les sous-domaines"
       },
       "SUBDOMAINS_DEFAULT_SETTINGS": {
-        "LABEL_PERSONAL_SPACES_QUOTA": "Valeur des quotas de tous les Espaces Personnels",
         "LABEL_PERSONAL_SPACE_MAX_FILE_SIZE": "Taille max d'un fichier dans les Espaces Personnels",
-        "LABEL_WORKGROUP_QUOTA": "Quota total alloué pour l'Espace Commun",
-        "LABEL_WORKGROUP_MAX_FILE_SIZE": "Taille max d'un fichier dans l'Espace Commun",
+        "LABEL_PERSONAL_SPACES_QUOTA": "Valeur des quotas de tous les Espaces Personnels",
         "LABEL_SUBDOMAINS_QUOTA": "Quota (par sous-domaine)",
+        "LABEL_WORKGROUP_MAX_FILE_SIZE": "Taille max d'un fichier dans l'Espace Commun",
+        "LABEL_WORKGROUP_QUOTA": "Quota total alloué pour l'Espace Commun",
         "LABEL_USER_PERSONAL_SPACES_QUOTA": "Valeur par défaut d'un Espace Personnel",
         "MAIN_SECTION_TITLE": "Paramétrages des quotas des sous-domaines",
         "SUB_SECTION_PERSONAL_SPACES_QUOTA": "Quotas des Espaces Personnels",
-        "SUB_SECTION_WORKGROUP_QUOTA": "Quotas des Espaces Communs",
-        "SUB_SECTION_SUBDOMAINS_QUOTA": "Quotas des sous-domaines"
+        "SUB_SECTION_SUBDOMAINS_QUOTA": "Quotas des sous-domaines",
+        "SUB_SECTION_WORKGROUP_QUOTA": "Quotas des Espaces Communs"
       },
       "USED_SPACE": {
         "LABEL_QUOTA": "Quota",
         "MAIN_SECTION_TITLE": "Espace utilisé pour",
-        "SUB_SECTION_DOMAIN_QUOTA": "Quota du domaine courrant"
+        "SUB_SECTION_DOMAIN_QUOTA": "Quota du domaine courant"
       }
     },
     "INFO_QUOTA": "Définissez les tailles de quota pour les espaces de vos domaines",
     "NOTIFICATION": {
       "UPDATE": "Les quotas du domaine et de ces containers respectifs ont correctement été mis à jour"
-    },
-    "TITLE": ""
+    }
   }
 }
