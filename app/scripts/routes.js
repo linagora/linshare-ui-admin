@@ -64,6 +64,18 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         }
       }
     };
+    var domainQuotaTreeView = {
+      templateUrl: 'ng_components/quota/quota_tree.tpl.html',
+      controller: 'DomainQuotaTreeController',
+      resolve: {
+        rootDomain: function(Domain, authenticatedUser) {
+          return Domain.getDomainTree(authenticatedUser.domain);
+        },
+        domainsQuota: function($window, quotaRestService) {
+          return quotaRestService.getListDomain();
+        }
+      }
+    };
 
     //User detail common resolve
     var userMaxExpiryDate = function(_funcAccountExpiration) {
@@ -101,8 +113,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           authenticatedUser: authenticatedUser
         }
       })
-
-
       .state('functionality', {
         abstract: true,
         url: '/functionality',
@@ -165,7 +175,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('mailactivation', {
         abstract: true,
         url: '/mailactivation',
@@ -223,7 +232,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('mimepolicy', {
         abstract: true,
         url: '/mimepolicy',
@@ -276,7 +284,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('welcomemessage', {
         abstract: true,
         url: '/welcomemessage',
@@ -350,7 +357,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('user', {
         abstract: true,
         url: '/user',
@@ -382,7 +388,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         templateUrl: 'ng_components/user/user_detail.tpl.html',
         controller: 'UserDetailCtrl'
       })
-
       .state('inconsistentuser', {
         abstract: true,
         url: '/inconsistentuser',
@@ -432,7 +437,9 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
         controller: 'UserDetailCtrl',
         resolve: {
           currentUser: function(allInconsistents, $stateParams) {
-            return _.find(allInconsistents, {uuid: $stateParams.uuid});
+            return _.find(allInconsistents, {
+              uuid: $stateParams.uuid
+            });
           },
           maxExpiryDate: userMaxExpiryDate,
           restrictedGuestStatus: userRestrictedGuestStatus,
@@ -444,7 +451,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           _enumMailLanguage: enumMailLanguage
         }
       })
-
       .state('thread', {
         abstract: true,
         url: '/group',
@@ -468,7 +474,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('mailinglist', {
         abstract: true,
         url: '/mailinglist',
@@ -496,7 +501,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('audit', {
         abstract: true,
         templateUrl: 'ng_components/audit/audit.html'
@@ -523,7 +527,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('ldapconnection', {
         abstract: true,
         url: '/ldapconnection',
@@ -551,7 +554,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('domainpattern', {
         abstract: true,
         url: '/domainpattern',
@@ -582,7 +584,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('domain', {
         url: '/domain',
         abstract: true,
@@ -676,7 +677,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('domainpolicy', {
         abstract: true,
         url: '/domainpolicy',
@@ -714,7 +714,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           _enumDomainAccessRuleTypes: enumDomainAccessRuleTypes
         }
       })
-
       .state('maillayout', {
         abstract: true,
         url: '/maillayout',
@@ -772,7 +771,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('mailcontent', {
         abstract: true,
         url: '/mailcontent',
@@ -827,7 +825,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('mailfooter', {
         abstract: true,
         url: '/mailfooter',
@@ -882,7 +879,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('mailconfig', {
         abstract: true,
         url: '/mailconfig',
@@ -961,13 +957,44 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           }
         }
       })
-
       .state('password', {
         url: '/password',
         templateUrl: 'ng_components/password/password.html',
         controller: 'PasswordCtrl'
       })
-
+      .state('quota', {
+        url: '/quota',
+        abstract: true,
+        templateUrl: 'ng_components/quota/quota.html',
+        resolve: {
+          treeTitle: function() {
+            return 'COMMON.TAB.MANAGE_QUOTA';
+          },
+          treeType: function() {
+            return 'edit';
+          }
+        },
+        controller: function($scope, $state) {
+          $scope.$state = $state;
+        }
+      })
+      .state('quota.detail', {
+        url: '/detail/:domainId?formState&domainType',
+        resolve: {
+          authenticatedUser: authenticatedUser,
+          domainDto: function($stateParams, Domain) {
+            return Domain.get($stateParams.domainId);
+          }
+        },
+        views: {
+          'tree': domainQuotaTreeView,
+          'detail': {
+            templateUrl: 'ng_components/quota/quota_detail.tpl.html',
+            controller: 'QuotaDetailController',
+            controllerAs: 'quotaVm'
+          }
+        }
+      })
       .state('uploadpropositionfilter', {
         abstract: true,
         url: '/uploadpropositionfilter',
@@ -1007,7 +1034,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           _enumUploadPropositionMatchTypes: enumUploadPropositionMatchTypes
         }
       })
-
       .state('technicalaccount', {
         abstract: true,
         url: '/technicalaccount',
@@ -1041,7 +1067,6 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           _enumTechnicalAccountPermissionTypes: enumTechnicalAccountPermissionTypes
         }
       })
-
       .state('uploadrequest', {
         url: '/uploadrequest',
         abstract: true,

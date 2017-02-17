@@ -33,6 +33,9 @@ angular.module('linshareAdminApp')
             children_sref: [
               'domainpolicy.detail'
             ]
+          }, {
+            name: 'COMMON.TAB.MANAGE_QUOTA',
+            sref: 'quota.detail'
           }
         ]
       };

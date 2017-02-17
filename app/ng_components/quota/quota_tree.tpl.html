@@ -1,0 +1,36 @@
+<script type="text/ng-template" id="tree_item_renderer">
+  <div class="btn-group" is-open="isopen" x-ng-class="{'domain-quota-error': isDomainQuotaInError(domain)}">
+    <button id="{{domain.identifier}}" class="btn"
+            x-ng-class="{'btn-parent-active': isParent(domain) && $state.params.domainId === domain.identifier,
+                        'btn-info': $state.params.domainId === domain.identifier,
+                        'btn-default': $state.params.domainId !== domain.identifier,
+                        'btn-parent': isParent(domain)}"
+            x-ui-sref="{domainId: domain.identifier, formState: 'edit', domainType: null, view: view}">
+      {{domain.label | truncate:20}}
+      {{view}}
+    </button>
+  </div>
+  <span x-ng-if="isDomainQuotaInError(domain)"><i class="fa fa-exclamation-circle fa-lg"></i></span>
+  <ul>
+    <li class="parent_li branch" x-ng-repeat="domain in domain.children | orderBy:'label'"
+        x-ng-include="'tree_item_renderer'">
+    </li>
+  </ul>
+</script>
+
+<div class="box box-primary" id="tree">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{title | translate}}
+    </h3>
+  </div>
+  <div class="box-body box-tree-domain">
+    <div class="tree">
+      <ul>
+        <li class="branch" x-ng-repeat="domain in root" x-ng-include="'tree_item_renderer'"></li>
+      </ul>
+    </div>
+  </div>
+  <ul>
+  </ul>
+</div>

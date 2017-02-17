@@ -1,9 +1,9 @@
 $pink: #D70075;
-$darkPink: #ca195a;
+$darkPink: #9c0039;
 $blue: #0372B3;
 $darkBlue: #015A8F;
 $red: #EE0037;
-$green: #00A114;
+$green: #00a65a;
 $beige: #F4F4F4;
 $black: #444;
 $lightBlack: #555;
@@ -11,7 +11,8 @@ $grey: #ddd;
 $darkGrey: #999;
 $lightGrey: #EFEFEF;
 $orange: #f0ad4e;
-
+$lightRedAlert: #f20000;
+$redAlert: #bb0505;
 .grey {
   color: #999;
 }
@@ -74,6 +75,26 @@ $orange: #f0ad4e;
 }
 .VIETNAMESE {
   background-image: url('/images/flag/VIETNAMESE.svg');
+}
+
+/* *****************
+  Common helper classes
+  ******************/
+
+.uppercase {
+  text-transform: uppercase;
+}
+.border-grey {
+  border-bottom: solid 1px #d5d5d5;
+}
+.clear {
+  clear : both;
+}
+.no-padding {
+  padding : 0;
+}
+.m-0 {
+  margin: 0;
 }
 
 body {
@@ -151,6 +172,9 @@ body {
 .description {
   color : $darkGrey;
   margin: 20px 0px 30px 0;
+}
+.header-description{
+  color : $lightBlack;
 }
 .txtalign-right {
   text-align: right;
@@ -245,6 +269,7 @@ a.clear-btn, button.clear-btn {
   display: inline;
   cursor: pointer;
   font-size: 14px;
+  outline : none;
   &.success {
     color: $green;
   }
@@ -321,6 +346,28 @@ a.disabled {
   height: 90%;
   .box-footer {
     padding: 10px 0px !important;
+  }
+  .domain-quota-error {
+    + span:hover {
+      background: none;
+      border: none;
+    }
+    .btn, + span i {
+      border-color: $lightRedAlert;
+      color: white;
+      &.btn-default, &.btn-info{
+        background-color: $redAlert;
+        &:hover {
+          background-color:#950404 !important;
+          border-color: #950404 !important;
+        }
+      }
+      &.fa-exclamation-circle {
+        color: $redAlert;
+        margin-top: 10px;
+        margin-left: 15px;
+      }
+    }
   }
 }
 .box .box-header h3 + .fa {
@@ -567,7 +614,6 @@ a.disabled {
 a.list-group-item-success:hover {
   color: #3c763d;
   background-color: #d0e9c6;
-  // cursor: pointer;
 }
 
 .btn.btn-parent {
@@ -583,7 +629,6 @@ a.list-group-item-success:hover {
     background-color: #6C6C6C !important;
   }
 }
-
 #availableActions {
   height: 180px;
 }
@@ -610,3 +655,283 @@ a.list-group-item-success:hover {
 .box-tools-domain-manage{
   margin-left: 10px;
 }
+
+ .clearfix-after:after {
+  display: table;
+  content: " ";
+}
+
+/* *****************
+  Manage Quota
+  ******************/
+
+/* upper form in accordion*/
+
+.card-form-ctn {
+  display: flex;
+  align-items: center;
+  .form-top-actions {
+    flex: 0 0 auto;
+  }
+  .breadcrumb-quota-ctn{
+    flex: 1 1 85%;
+    i{
+      margin-top: 2px;
+    }
+    .breadcrumb-quota {
+      a{
+        color : #333333;
+        cursor: pointer;
+      }
+      a:last-of-type {
+        color : #0372B3;
+        cursor: default;
+      }
+    }
+  }
+}
+
+.accordion-header-form {
+  padding: 0;
+  margin-top: 2em;
+  h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.17em;
+    font-weight: bold;
+  }
+}
+.accordion-form-content.form-inline {
+
+  > section , > div{
+    min-width: 450px;
+  }
+  .form-group {
+    > span {
+      min-width: 118px;
+    }
+  }
+  .col-xs-6-5 {
+    width: 65%;
+  }
+
+  label {
+    font-weight: normal;
+    span {
+      display: block;
+      font-size: 0.85em;
+      color: #6e6e6e;
+    }
+  }
+   input {
+    width: 75px !important;
+    height: 20px;
+    display: inline-block;
+    padding: 0 0 0 5px;
+    float : left;
+  }
+  .form-control[disabled] {
+    color: #9b9b9b;
+  }
+  .form-group {
+    margin-bottom: 0.6em;
+  }
+  a.link-ctn {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    &:hover i {
+      color : #79a1c1;
+    }
+  }
+  .link-icon{
+    position: absolute;
+    transform: rotate(-45deg) translate(-4px, 0px);
+    margin-left: 10px;
+    color: #6387a4;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 250ms ease-out opacity;
+    opacity:0;
+    &.show-link {
+      opacity : 1;
+    }
+  }
+  .input-unit {
+    font-size : 0.75em;
+    display: inline-block;
+    height: 20px;
+    float: left;
+    .caret {
+      margin-left:2px;
+    }
+    .unit-dropdown.btn, select{
+      padding: 0;
+      margin-left: 0;
+      background-color: #fff;
+      color: #a69ba8;
+      border: 1px solid #cccccc;
+      border-radius: 0;
+      height: 20px;
+      width: 37px;
+      font-size: 1em;
+      line-height: 13px;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    select {
+      box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.09);
+    }
+    .btn-group {
+      vertical-align: top;
+      .btn-dropdown{
+        height: 20px;
+        border-left: none;
+      }
+
+    }
+    .dropdown-menu {
+      position: relative;
+      min-width: 38px;
+      margin: 0;
+      border-radius: 0;
+      margin-top: -1px;
+      font-size: 1.1em;
+      padding: 0;
+      font-size: 1.1em;
+      padding: 0;
+      margin-top: 17px;
+      margin-left: -57px;
+      cursor: pointer;
+
+    }
+  }
+}
+
+.manage-quota-accordion {
+  .error-panel{
+    padding: 1em;
+    border: dotted 1px $lightRedAlert;
+    margin-bottom: 2em;
+    color: $redAlert;
+  }
+ .alert-panel {
+   padding: 0 1em;
+   border: dotted 1px #f28300;
+   margin-bottom: 2em;
+   color: #ce6c09;
+   height: 0;
+   opacity: 0;
+   transition: height ease-in-out 250ms,opacity ease-in-out 200ms, padding ease-in-out 250ms;
+   &.show-fade-id{
+     height:auto;
+     opacity :1;
+     padding: 1em;
+   }
+  }
+  .panel-heading {
+    cursor: pointer;
+    background-color: $blue;
+    padding: 12px 15px;
+  }
+  a.accordion-toggle {
+    color: #fff;
+    &:hover{
+      color: #fff;
+    }
+  }
+}
+
+.maintenance-switch-ctn {
+  height: 25px;
+  margin-top: -5px;
+}
+
+.maintenance-label {
+  font-size: 0.9em;
+  color: $darkGrey;
+}
+
+.has-error-quota {
+  input{
+    color: $redAlert;
+  }
+  .form-control {
+    border-color: $redAlert !important;
+  }
+  > .help-block {
+    clear: both;
+    font-size: 0.9em;
+    &.pull-right{
+      margin-top: 0;
+      margin-right: 14px;
+      margin-bottom: 10px;
+    }
+    color: $redAlert;
+  }
+}
+
+/* *****************
+  Toggle switch UI element
+  ******************/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 37px;
+  height: 18px;
+  margin-bottom: 0;
+  line-height: 27px;
+  transform: translateY(5px);
+  margin-left: 4px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #00a65a;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/****  end of slide toggle UI ****/

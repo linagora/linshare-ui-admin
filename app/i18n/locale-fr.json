@@ -84,7 +84,8 @@
       "HISTORY": "Historique",
       "UPLOAD_REQUEST": "Invitation de dépôt",
       "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt",
-      "AUDIT": "Audit"
+      "AUDIT": "Audit",
+      "MANAGE_QUOTA": "Configuration du quota des domaines"
     },
     "NOTIFICATION": {
       "SUCCESS": {
@@ -979,7 +980,7 @@
         "CONFIGURATION_POLICY": "En activant la configuration vous autorisez l'administrateur à modifier les Paramètres par défaut.",
         "DELEGATION_POLICY": "En activant la délégation l'utilisateur pourra prolonger la date d'expiration des invitations de dépôt.",
         "PARAMETER_NAME": "Prolongation",
-        "PARAMETER_DESCRIPTION": "Par défaut, l'édition de la date d'expiration ne peut dépasser la date d'activation de l'invitation, plus la durée maximale fixée par l'administrateur. La prolongation permet l'édition de la date d'expiration de l'invitation. La nouvelle date d'expiration est limitée par la date actuelle ajoutée à la durée maximale avant expiration. Note : en éditant régulièrement la date d'expiration pour la prolonger, l'utilisateur peut virtuellement prolonger l'invitation sans limite dans le temps. Valeur défaut : inactif."
+        "PARAMETER_DESCRIPTION": "Par défaut, l'édition de la date d'expiration ne peut dépasser la date d'activation de l'invitation, plus la durée maximale fixée par l'administrateur. La prolongation permet l'édition de la date d'expiration de l'invitation. La nouvelle date d'expiration est limitée par la date actuelle ajoutée à la durée  avant expiration. Note : en éditant régulièrement la date d'expiration pour la prolonger, l'utilisateur peut virtuellement prolonger l'invitation sans limite dans le temps. Valeur défaut : inactif."
       },
       "UPLOAD_REQUEST__CAN_DELETE": {
         "NAME": "Droit de suppression de fichiers pour le destinataire",
@@ -2110,5 +2111,62 @@
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer ce compte technique, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
+  },
+  "MANAGE_QUOTA": {
+    "BOX_FORM": {
+      "CONTAINER_ALLOCATION": {
+        "LABEL_PERSONAL_SPACE_MAX_FILE_SIZE": "Taille max d'un fichier dans les Espaces Personnels",
+        "LABEL_PERSONAL_SPACE_QUOTA": "Total des quotas des Espaces Personnels",
+        "LABEL_WORKGROUP_QUOTA": "Quota total de l'Espace Commun",
+        "LABEL_WORKGROUP_MAX_FILE_SIZE": "Taille max d'un fichier dans l'Espace Commun",
+        "LABEL_USER_PERSONAL_SPACE_QUOTA_LINK": "Définir le quota pour un utilisateur",
+        "LABEL_USERS_PERSONAL_SPACE_QUOTA": "Quota d'un Espace Personel (par utilisateur)",
+        "MAIN_SECTION_TITLE": "Quota des espaces pour",
+        "SUB_SECTION_PERSONAL_SPACES_QUOTA": "Quotas des Espaces Personnels",
+        "SUB_SECTION_WORKGROUP_QUOTA": "Quota de l'Espace Commun"
+      },
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      },
+      "HINT_LABELS": {
+        "ALERT_MAINTENANCE_MODE": "Le mode maintenance est activé, par conséquent aucun dépot ne peut être effectué dans",
+        "ERROR": "Erreur",
+        "ERROR_MAX_VALUE": "La valeur doit être inférieur ou égal à : ",
+        "ERROR_QUOTA_EXCEEDED": "Espace insuffisant, liberez ou allouez plus d'espace de stockage pour ",
+        "HINT_ASSIGNED_QUOTA": "quota affecter",
+        "HINT_ALLREADY_USED": "utilisé",
+        "HINT_MAX_QUOTA": "La valeur ne peut exceder celle du quota",
+        "HINT_UNLINK_TOOLTIP": "Surcharger la valeur par défaut"
+      },
+      "MAINTENANCE_MODE": "Mode maintenance",
+      "MAINTENANCE_MODE_TOOLTIP": "Désactiver les dépots",
+      "SPACES_LABEL": {
+        "CURRENT_DOMAIN": "le domaine courrant",
+        "PERSONALS_SPACES": "les Espaces Personnels",
+        "WORKGROUP": "l'Espace Commun",
+        "SUB_DOMAINS": "les sous-domaines"
+      },
+      "SUBDOMAINS_DEFAULT_SETTINGS": {
+        "LABEL_PERSONAL_SPACES_QUOTA": "Valeur des quotas de tous les Espaces Personnels",
+        "LABEL_PERSONAL_SPACE_MAX_FILE_SIZE": "Taille max d'un fichier dans les Espaces Personnels",
+        "LABEL_WORKGROUP_QUOTA": "Quota total alloué pour l'Espace Commun",
+        "LABEL_WORKGROUP_MAX_FILE_SIZE": "Taille max d'un fichier dans l'Espace Commun",
+        "LABEL_SUBDOMAINS_QUOTA": "Quota (par sous-domaine)",
+        "LABEL_USER_PERSONAL_SPACES_QUOTA": "Valeur par défaut d'un Espace Personnel",
+        "MAIN_SECTION_TITLE": "Paramétrages des quotas des sous-domaines",
+        "SUB_SECTION_PERSONAL_SPACES_QUOTA": "Quotas des Espaces Personnels",
+        "SUB_SECTION_WORKGROUP_QUOTA": "Quotas des Espaces Communs",
+        "SUB_SECTION_SUBDOMAINS_QUOTA": "Quotas des sous-domaines"
+      },
+      "USED_SPACE": {
+        "LABEL_QUOTA": "Quota",
+        "MAIN_SECTION_TITLE": "Espace utilisé pour",
+        "SUB_SECTION_DOMAIN_QUOTA": "Quota du domaine courrant"
+      }
+    },
+    "INFO_QUOTA": "Définissez les tailles de quota pour les espaces de vos domaines",
+    "TITLE": ""
   }
 }

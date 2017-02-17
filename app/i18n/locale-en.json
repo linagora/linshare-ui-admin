@@ -84,7 +84,8 @@
       "HISTORY": "History",
       "UPLOAD_REQUEST": "Upload request",
       "UPLOAD_PROPOSITION_FILTER": "Upload proposition filtering",
-      "AUDIT": "Audit"
+      "AUDIT": "Audit",
+      "MANAGE_QUOTA": "Manage domains quota"
     },
     "NOTIFICATION": {
       "SUCCESS": {
@@ -2140,5 +2141,62 @@
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this technical account, this procedure is irreversible. Do you want to proceed?"
     }
+  },
+  "MANAGE_QUOTA": {
+    "BOX_FORM": {
+      "CONTAINER_ALLOCATION": {
+        "LABEL_PERSONAL_SPACE_MAX_FILE_SIZE": "Personal Spaces max file size",
+        "LABEL_PERSONAL_SPACE_QUOTA": "Total Personal Spaces allocated quota",
+        "LABEL_WORKGROUP_QUOTA": "Total Sharedspace allocated quota",
+        "LABEL_WORKGROUP_MAX_FILE_SIZE": "Sharedspace max file size",
+        "LABEL_USER_PERSONAL_SPACE_QUOTA_LINK": "Allocate quota for a specific user account",
+        "LABEL_USERS_PERSONAL_SPACE_QUOTA": "Personal Spaces allocated quota (per user)",
+        "MAIN_SECTION_TITLE": "Container's allocation for",
+        "SUB_SECTION_PERSONAL_SPACES_QUOTA": "Personal Spaces quota",
+        "SUB_SECTION_WORKGROUP_QUOTA": "Sharedspace quota"
+      },
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      },
+      "HINT_LABELS": {
+        "ALERT_MAINTENANCE_MODE": "Maintenace mode is activated, thereby preventing any uploads to be made within the",
+        "ERROR": "Error ",
+        "ERROR_MAX_VALUE": "The value should be below or equal to: ",
+        "ERROR_QUOTA_EXCEEDED": "Quota exceeded, free up storage space or allocate more quota for the",
+        "HINT_ASSIGNED_QUOTA": "assigned quota",
+        "HINT_ALLREADY_USED": "allready used",
+        "HINT_MAX_QUOTA": "Value can not exceed the personal spaces quota",
+        "HINT_UNLINK_TOOLTIP": "Override default value"
+      },
+      "MAINTENANCE_MODE": "Maintenance mode",
+      "MAINTENANCE_MODE_TOOLTIP": "Shut down the uploads",
+      "SPACES_LABEL": {
+        "CURRENT_DOMAIN": "current domain",
+        "PERSONALS_SPACES": "Personal Spaces",
+        "WORKGROUP": "Sharedspace",
+        "SUB_DOMAINS": "subdomains"
+      },
+      "SUBDOMAINS_DEFAULT_SETTINGS": {
+        "LABEL_PERSONAL_SPACES_QUOTA": "Allocated quota for all Personal spaces",
+        "LABEL_PERSONAL_SPACE_MAX_FILE_SIZE": "Default Personal Spaces max file size",
+        "LABEL_WORKGROUP_QUOTA": "Default total Sharedspaces allocated quota",
+        "LABEL_WORKGROUP_MAX_FILE_SIZE": "Default Sharedspace max file size",
+        "LABEL_SUBDOMAINS_QUOTA": "Quota (per subdomain)",
+        "LABEL_USER_PERSONAL_SPACES_QUOTA": "Default Personal Space allocated quota (per user)",
+        "MAIN_SECTION_TITLE": "Subdomains default allocation settings",
+        "SUB_SECTION_PERSONAL_SPACES_QUOTA": "Personal Spaces quota",
+        "SUB_SECTION_WORKGROUP_QUOTA": "Sharedspace quota",
+        "SUB_SECTION_SUBDOMAINS_QUOTA": "Subdomains quota"
+      },
+      "USED_SPACE": {
+        "LABEL_QUOTA": "Quota",
+        "MAIN_SECTION_TITLE": "Used Space for",
+        "SUB_SECTION_DOMAIN_QUOTA": "Current domain quota"
+      }
+    },
+    "INFO_QUOTA": "Set up the quota size of your spaces within your domains",
+    "TITLE": ""
   }
 }
