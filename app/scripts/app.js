@@ -17,7 +17,8 @@ angular.module('linshareAdminApp', [
     'tmh.dynamicLocale',
     'restangular',
     'checklist-model',
-    'toggle-switch'
+    'toggle-switch',
+    'lsDropdownApp'
 ])
 
 // Register work which needs to be performed on module loading
