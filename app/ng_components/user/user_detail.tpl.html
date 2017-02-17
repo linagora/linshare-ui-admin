@@ -1,8 +1,8 @@
 <div class="box box-primary">
   <div class="box-header"
-       ng-show="routerState.current.name === 'user.detail' || routerState.current.name === 'inconsistentuser.list.detail'">
+       x-ng-show="routerState.current.name === 'user.detail' || routerState.current.name === 'inconsistentuser.list.detail'">
     <h3 class="box-title">
-      {{ user.firstName }}&nbsp;{{ user.lastName }}&nbsp;&lt;{{ user.mail }}&gt;
+      {{user.firstName}}&nbsp;{{user.lastName}}&nbsp;&lt;{{user.mail}}&gt;
     </h3>
     <div class="pull-right box-tools">
       <a class="list btn-back"
@@ -26,7 +26,7 @@
                      x-ng-model="user.canUpload">
             </span>
             <span class="form-control">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_CAN_UPLOAD' | translate }}
+              {{'MANAGE_USERS.BOX_FORM.LABEL_CAN_UPLOAD' | translate}}
             </span>
           </div>
 
@@ -36,7 +36,7 @@
                x-ng-class="{error: userForm.role.$invalid &&
                  (userForm.role.$dirty || ls.userForm.attempted)}">
             <label for="role">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_ROLE' | translate }}
+              {{'MANAGE_USERS.BOX_FORM.LABEL_ROLE' | translate}}
             </label>
             <div class="controls">
               <select id="role" name="role" class="form-control" required
@@ -50,7 +50,7 @@
                  x-ng-class="{error: userForm.firstName.$invalid &&
                    (userForm.firstName.$dirty || ls.userForm.attempted)}">
               <label for="firstName">
-                {{ 'MANAGE_USERS.BOX_FORM.LABEL_FIRST_NAME' | translate }}
+                {{'MANAGE_USERS.BOX_FORM.LABEL_FIRST_NAME' | translate}}
               </label>
               <div class="controls">
                 <input id="firstName" name="firstName" type="text" class="form-control" required
@@ -63,7 +63,7 @@
                  x-ng-class="{error: userForm.lastName.$invalid &&
                    (userForm.lastName.$dirty || ls.userForm.attempted)}">
               <label for="lastName">
-                {{ 'MANAGE_USERS.BOX_FORM.LABEL_LAST_NAME' | translate }}
+                {{'MANAGE_USERS.BOX_FORM.LABEL_LAST_NAME' | translate}}
               </label>
               <div class="controls">
                 <input id="lastName" name="lastName" type="text" class="form-control" required
@@ -73,7 +73,7 @@
           <!-- Language -->
           <div class="form-group">
             <label for="locale">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_LANGUAGE' | translate }}
+              {{'MANAGE_USERS.BOX_FORM.LABEL_LANGUAGE' | translate}}
             </label>
             <div class="controls">
               <select name="locale" id="locale" class="form-control"
@@ -85,7 +85,7 @@
           <!-- External Mail Locale -->
           <div class="form-group">
             <label for="externalMailLocale">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_MAIL_LANGUAGE' | translate }}
+              {{'MANAGE_USERS.BOX_FORM.LABEL_MAIL_LANGUAGE' | translate}}
             </label>
             <div class="controls">
               <select name="externalMailLocale" id="externalMailLocale" class="form-control"
@@ -101,7 +101,7 @@
             <!-- Email -->
             <div class="form-group">
               <label for="mail">
-                {{ 'MANAGE_USERS.BOX_FORM.LABEL_EMAIL' | translate }}
+                {{'MANAGE_USERS.BOX_FORM.LABEL_EMAIL' | translate}}
               </label>
               <div class="controls">
                 <input id="mail" name="mail" type="email" class="form-control" required
@@ -111,7 +111,7 @@
             <!-- Restricted -->
             <div class="form-group">
               <label for="restricted">
-                {{ 'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED' | translate }}
+                {{'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED' | translate}}
               </label>
               <div class="controls">
                 <input id="restricted" name="restricted" type="checkbox" class="checkbox"
@@ -124,7 +124,7 @@
             <div x-ng-if="user.restricted">
               <div class="form-group">
                 <label for="contact">
-                  {{ 'MANAGE_USERS.BOX_FORM.BUTTON_ADD_CONTACT' | translate }}
+                  {{'MANAGE_USERS.BOX_FORM.BUTTON_ADD_CONTACT' | translate}}
                 </label>
                 <div class="controls">
                   <div class="input-append">
@@ -148,7 +148,7 @@
               <div class="form-group">
                 <label for="contacts"
                        x-ng-show="user.restrictedContacts.length > 0">
-                  {{ 'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED_CONTACT_LIST' | translate }}
+                  {{'MANAGE_USERS.BOX_FORM.LABEL_RESTRICTED_CONTACT_LIST' | translate}}
                 </label>
 
                 <div class="controls">
@@ -166,7 +166,7 @@
               <!-- Comment -->
               <div class="form-group">
                 <label for="comment">
-                  {{ 'MANAGE_USERS.BOX_FORM.LABEL_COMMENT' | translate }}
+                  {{'MANAGE_USERS.BOX_FORM.LABEL_COMMENT' | translate}}
                 </label>
                 <div class="controls">
                   <textarea id="comment" name="comment" class="form-control"
@@ -183,18 +183,18 @@
           <!-- Account type -->
           <div class="form-group">
             <label for="status">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_STATUS' | translate }}
+              {{'MANAGE_USERS.BOX_FORM.LABEL_STATUS' | translate}}
             </label>
             <div class="controls">
               <span name="status" class="form-control-static">
-                {{ isGuest() ? 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_GUEST' : 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_INTERNAL' | translate }}
+                {{isGuest() ? 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_GUEST' : 'MANAGE_USERS.BOX_FORM.LABEL_STATUS_INTERNAL' | translate}}
               </span>
             </div>
           </div>
           <!-- Creation date -->
           <div class="form-group">
             <label for="creationDate">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_CREATION_DATE' | translate }}
+              {{'MANAGE_USERS.BOX_FORM.LABEL_CREATION_DATE' | translate}}
             </label>
             <div class="controls">
               <span name="creationDate" class="form-control-static">
@@ -206,7 +206,7 @@
           <!-- Modification date -->
           <div class="form-group">
             <label for="modificationDate">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_MODIFICATION_DATE' | translate }}
+              {{'MANAGE_USERS.BOX_FORM.LABEL_MODIFICATION_DATE' | translate}}
             </label>
             <div class="controls">
               <span name="modificationDate" class="form-control-static">
@@ -218,7 +218,7 @@
           <!-- Expiration date -->
           <div class="form-group" x-ng-if="isGuest()">
             <label for="expirationDate">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_EXPIRY_DATE' | translate }}
+              {{'MANAGE_USERS.BOX_FORM.LABEL_EXPIRY_DATE' | translate}}
             </label>
             <div class="controls">
               <span name="expirationDate" class="form-control-static">
@@ -231,7 +231,7 @@
           <div class="form-group"
                x-ng-if="isGuest()">
             <label for="owner">
-              {{ 'MANAGE_USERS.BOX_FORM.LABEL_OWNER' | translate }}
+              {{'MANAGE_USERS.BOX_FORM.LABEL_OWNER' | translate}}
             </label>
             <div class="controls">
               <span name="owner" class="form-control-static">
@@ -244,7 +244,7 @@
             <!-- Domain -->
             <div class="form-group">
               <label for="domain">
-                {{ 'MANAGE_USERS.BOX_FORM.LABEL_DOMAIN' | translate }}
+                {{'MANAGE_USERS.BOX_FORM.LABEL_DOMAIN' | translate}}
               </label>
               <div class="controls">
                 <span name="domain" class="form-control-static">
@@ -262,19 +262,120 @@
         <div class="controls">
           <button type="button" id="delete" name="delete" class="btn btn-danger"
                   x-ng-click="delete(user)">
-            {{ 'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
+            {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate}}
           </button>
           <button type="button" id="reset" name="reset" class="btn btn-warning"
                   x-ng-click="reset()">
-            {{ 'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
+            {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate}}
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">
-            {{ 'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate }}
+            {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate}}
           </button>
           <button ng-hide="routerState.current.name ==='user.detail'"
                   type="button" id="chyangedomain" name="changedomain" class="btn btn-info"
                   x-ng-click="changeDomain(user)">
-            {{ 'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_CHANGEDOMAIN' | translate }}
+            {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_CHANGEDOMAIN' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="box box-primary">
+  <div class="box-header"
+       x-ng-show="routerState.current.name === 'user.detail' ||
+                routerState.current.name === 'inconsistentuser.list.detail'">
+    <h3 class="box-title">
+      {{'MANAGE_USERS.BOX_FORM.LABEL_MANAGE_QUOTA' | translate}}
+    </h3>
+  </div>
+  <form class="form" name="userQuotaForm"
+        x-ls-form-submit="submitQuota(userQuotaForm)"
+        x-ls-form-attempt>
+    <div class="box-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="quota">
+              {{'MANAGE_USERS.BOX_FORM.LABEL_QUOTA' | translate}}
+            </label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="quota"
+                     name="quota"
+                     x-ng-model="userQuotaDto.getAccountsQuota"
+                     x-ng-change="userQuotaDto.setAccountsQuota(userQuotaForm.quota.$viewValue, userQuotaForm)"
+                     x-ng-disabled="!userQuotaDto.quotaOverride">
+              <span class="input-group-btn">
+                <span class="input-unit" x-ls-dropdown x-value="unit.accounts.quota"
+                      x-list="unit.value"
+                      x-action="unit.accounts.quota = unit; formRender(userQuotaForm)">
+                </span>
+                <a class="link-ctn"
+                   tooltip-placement="bottom"
+                   tooltip-popup-delay='1250'
+                   tooltip-append-to-body="true"
+                   tooltip="{{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' | translate}}"
+                   x-ng-click="userQuotaDto.quotaOverride = !userQuotaDto.quotaOverride">
+                  <i class="fa fa-link link-icon" x-ng-class="{'show-link' : !userQuotaDto.quotaOverride}"></i>
+                  <i class="fa fa-chain-broken link-icon"
+                     x-ng-class="{'show-link' : userQuotaDto.quotaOverride}"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+          <div class="form-group"
+               x-ng-class="{'has-error-quota': userQuotaForm.maxFileSize.$error.unitMax}">
+            <label for="maxFileSize">
+              {{'MANAGE_USERS.BOX_FORM.LABEL_MAX_FILE_SIZE' | translate}}
+            </label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="maxFileSize"
+                     name="maxFileSize"
+                     x-ng-model="userQuotaDto.getAccountsMaxFileSize"
+                     x-ng-change="userQuotaDto.setAccountsMaxFileSize(
+                                    userQuotaForm.maxFileSize.$viewValue, userQuotaForm)"
+                     x-ng-disabled="!userQuotaDto.maxFileSizeOverride"
+                     x-unit="unit.accounts.maxFileSize"
+                     x-unit-max="userQuotaDto.quota">
+              <span class="input-group-btn">
+                <span class="input-unit" x-ls-dropdown x-value="unit.accounts.maxFileSize"
+                      x-list="unit.value"
+                      x-action="unit.accounts.maxFileSize = unit; formRender(userQuotaForm)">
+                </span>
+                <a class="link-ctn"
+                   tooltip-placement="bottom"
+                   tooltip-popup-delay='1250'
+                   tooltip-append-to-body="true"
+                   tooltip="{{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' | translate}}"
+                   x-ng-click="userQuotaDto.maxFileSizeOverride = !userQuotaDto.maxFileSizeOverride">
+                  <i class="fa fa-link link-icon"i
+                     x-ng-class="{'show-link' : !userQuotaDto.maxFileSizeOverride}"></i>
+                  <i class="fa fa-chain-broken link-icon"
+                     x-ng-class="{'show-link' : userQuotaDto.maxFileSizeOverride}"></i>
+                </a>
+              </span>
+            </div>
+            <div class="help-block" ng-show="userQuotaForm.maxFileSize.$error.unitMax">
+              {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
+              {{userQuotaDto.quota | readableSize:quotaVm.unit.accounts.quota:true}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-footer">
+      <div class="form-group">
+        <div class="controls">
+          <button id="delete" name="reset" type="button" class="btn btn-danger"
+                  x-ng-click="setParentDefault(userQuotaForm)">
+            {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate}}
+          </button>
+          <button type="button" id="cancel" name="cancel" class="btn btn-warning"
+                  x-ng-click="resetQuota(userQuotaForm)">
+            {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate}}
+          </button>
+          <button type="submit" id="submit" name="submit" class="btn btn-success">
+            {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_SUBMIT' | translate}}
           </button>
         </div>
       </div>

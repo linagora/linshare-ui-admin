@@ -662,6 +662,46 @@ a.list-group-item-success:hover {
 }
 
 /* *****************
+  Manage Quota User
+  ******************/
+.form-group {
+  .input-group {
+    .input-group-btn {
+      .input-unit {
+        font-size : 0.75em;
+        display: inline-block;
+        .btn-dropdown{
+          height: 34px;
+          border-left: none;
+        }
+      }
+      a.link-ctn {
+        position: relative;
+        display: inline-block;
+        width: 36px;
+        height: 15px;
+        &:hover i {
+          color : #79a1c1;
+        }
+      }
+      .link-icon{
+        position: absolute;
+        transform: rotate(-45deg) translate(-4px, 0px);
+        margin-left: 10px;
+        color: #6387a4;
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: 250ms ease-out opacity;
+        opacity:0;
+        &.show-link {
+          opacity : 1;
+        }
+      }
+    }
+  }
+}
+
+/* *****************
   Manage Quota
   ******************/
 

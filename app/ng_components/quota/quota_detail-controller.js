@@ -164,7 +164,7 @@
      * @memberOf linshareAdminApp.QuotaDetailController
      */
     function hasSubdomain() {
-      if (quotaVm.domainDto.type === domainType.top || quotaVm.domainDto.type === domainType.root) {
+      if (quotaVm.domainDto.type === domainType.top ||  quotaVm.domainDto.type === domainType.root) {
         return true;
       }
       return false;

@@ -1812,6 +1812,9 @@
       "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
       "LABEL_ROLE": "Role",
       "LABEL_LANGUAGE": "Default language of the site",
+      "LABEL_MANAGE_QUOTA": "Manage user personal space quota",
+      "LABEL_QUOTA": "User's personal space allocated quota",
+      "LABEL_MAX_FILE_SIZE": "User's max upload file size in Personal space",
       "LABEL_MAIL_LANGUAGE": "Notification's language",
       "LABEL_DOMAIN": "Domain",
       "LABEL_CAN_UPLOAD": "Upload permission",
@@ -2197,6 +2200,9 @@
       }
     },
     "INFO_QUOTA": "Set up the quota size of your spaces within your domains",
+    "NOTIFICATION": {
+      "UPDATE": "Quota of the domain and his respective containers have been successfully updated"
+    },
     "TITLE": ""
   }
 }

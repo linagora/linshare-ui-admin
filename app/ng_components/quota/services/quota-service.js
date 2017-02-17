@@ -9,20 +9,21 @@
     .module('linshareAdminApp')
     .factory('quotaRestService', quotaRestService);
 
-  quotaRestService.$inject = ['$log', 'Restangular'];
+  quotaRestService.$inject = ['$log', 'Restangular', 'Notification'];
 
   /**
    * @namespace quotaRestService
    * @desc Service to interract with Quota Object by REST
    * @memberOf linshareAdminApp
    */
-  function quotaRestService($log, Restangular) {
+  function quotaRestService($log, Restangular, Notification) {
 
     var
       restParam = {
         domains: 'accounts',
         containers: 'containers',
-        domains: 'domains'
+        domains: 'domains',
+        accounts: 'accounts'
       },
       restUrl = 'quotas',
       service = {
@@ -34,7 +35,7 @@
         getListDomain: getListDomain,
         updateAccount: updateAccount,
         updateContainer: updateContainer,
-        updateDomain: updateDomain
+        updateDomain: updateDomain,
       }
 
     return service;
@@ -78,7 +79,7 @@
     }
 
     /**
-     * @name getList
+     * @name getListAccount
      * @desc Get list of Quota object of all account
      * @returns {Promise} server response
      * @memberOf linshareAdminApp.quotaRestService
@@ -89,7 +90,7 @@
     }
 
     /**
-     * @name getList
+     * @name getListContainer
      * @desc Get list of Quota object of all container
      * @returns {Promise} server response
      * @memberOf linshareAdminApp.quotaRestService
@@ -100,7 +101,7 @@
     }
 
     /**
-     * @name getList
+     * @name getListDomain
      * @desc Get list of Quota object of all domain
      * @returns {Promise} server response
      * @memberOf linshareAdminApp.quotaRestService
@@ -109,9 +110,10 @@
       $log.debug('quotaRestService : getListDomain');
       return Restangular.one(restUrl, restParam.domains).getList();
     }
+
     /**
      * @name updateAccount
-     * @desc Uodate Quota object of a account
+     * @desc Update Quota object of a account
      * @param {Object} accountQuotaDto - Account Quota object
      * @returns {Promise} server response
      * @memberOf linshareAdminApp.quotaRestService
@@ -127,14 +129,15 @@
 
     /**
      * @name updateContainer
-     * @desc Uodate Quota object of a container
+     * @desc Update Quota object of a container
      * @param {Object} containerQuotaDto - Container Quota object
      * @returns {Promise} server response
      * @memberOf linshareAdminApp.quotaRestService
      */
     function updateContainer(containerQuotaDto) {
       $log.debug('quotaRestService : updateContainer', containerQuotaDto);
-      return Restangular.all(restUrl).one(restParam.containers, containerQuotaDto.uuid).customPUT(containerQuotaDto)
+      return Restangular.all(restUrl).one(restParam.containers, containerQuotaDto.uuid)
+        .customPUT(containerQuotaDto)
         .then(function(data) {
           Notification.addSuccess('UPDATE');
           return data;
@@ -143,7 +146,7 @@
 
     /**
      * @name updateDomain
-     * @desc Uodate Quota object of a domain
+     * @desc Update Quota object of a domain
      * @param {Object} domainQuotaDto - Domain Quota object
      * @returns {Promise} server response
      * @memberOf linshareAdminApp.quotaRestService

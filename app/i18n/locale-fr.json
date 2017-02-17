@@ -1785,6 +1785,9 @@
       "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
       "LABEL_ROLE": "Rôle",
       "LABEL_LANGUAGE": "Langue d'affichage par défaut du site",
+      "LABEL_MANAGE_QUOTA": "Gestion du quota de l'espace personnel de l'utilisateur",
+      "LABEL_QUOTA": "Quota de l'espace personnel de l'utilisateur",
+      "LABEL_MAX_FILE_SIZE": "Taille de fichier max déposable dans l'espace personnel",
       "LABEL_MAIL_LANGUAGE": "Langue des courriels",
       "LABEL_DOMAIN": "Domaine",
       "LABEL_CAN_UPLOAD": "Permission de dépôt",
@@ -2167,6 +2170,9 @@
       }
     },
     "INFO_QUOTA": "Définissez les tailles de quota pour les espaces de vos domaines",
+    "NOTIFICATION": {
+      "UPDATE": "Les quotas du domaine et de ces containers respectifs ont correctement été mis à jour"
+    },
     "TITLE": ""
   }
 }
