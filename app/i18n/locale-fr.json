@@ -697,120 +697,85 @@
         "DESCRIPTION": "The description of the mail activation type ",
         "ADVANCED_DESCRIPTION": "advanced description of the mail activation"
       },
-      "ANONYMOUS_DOWNLOAD": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ANONYMOUS_DOWNLOAD",
+      "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.FILE_WARN_OWNER_BEFORE_FILE_EXPIRY",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'un partage afin de l'avertir de chaque téléchargement par un utilisateur externe."
+        "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un document pour l'avertir que ce document arrive à expiration et sera prochainement supprimé par le système"
       },
-      "REGISTERED_DOWNLOAD": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.REGISTERED_DOWNLOAD",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'un partage afin de l'avertir lorsque un utilisateur interne ou invité télécharge celui-ci."
-      },
-      "NEW_GUEST": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_GUEST",
+      "GUEST_ACCOUNT_NEW_CREATION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_NEW_CREATION",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lors de la création d'un utilisateur invité afin de lui communiquer ses identifiants de connexion."
       },
-      "RESET_PASSWORD": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.RESET_PASSWORD",
+      "GUEST_ACCOUNT_RESET_PASSWORD_LINK": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_LINK",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lors de la réinitialisation du mot de passe d'un compte invité."
       },
-      "SHARED_DOC_UPDATED": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPDATED",
+      "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée au destinataire d'un partage lorsque l'émetteur met à jour le document partagé."
+        "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'un partage afin de l'avertir de chaque téléchargement par un utilisateur externe."
       },
-      "SHARED_DOC_DELETED": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_DELETED",
+      "SHARE_FILE_DOWNLOAD_USERS": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'un partage afin de l'avertir lorsque un utilisateur interne ou invité télécharge celui-ci."
+      },
+      "SHARE_FILE_SHARE_DELETED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_SHARE_DELETED",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée au destinataire d'un partage lorsque l'émetteur supprime le document partagé."
       },
-      "SHARED_DOC_UPCOMING_OUTDATED": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPCOMING_OUTDATED",
+      "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un document lorsque le document est proche de sa date d'expiration."
+        "DESCRIPTION": "Cette notification est envoyée à tout utilisateur créant un partage avec l'option 'Accusé de partage' activée. La notification contiendra une synthèse du partage."
       },
-      "NEW_SHARING": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_SHARING",
+      "SHARE_NEW_SHARE_FOR_RECIPIENT": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_FOR_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lorsque un utilisateur interne ou invité partage un document."
       },
-      "UPLOAD_PROPOSITION_CREATED": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_CREATED",
+      "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_BEFORE_EXPIRY",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité lorsque un utilisateur externe crée une demande d'invitation de dépôt."
+        "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un document lorsque le document est proche de sa date d'expiration."
       },
-      "UPLOAD_PROPOSITION_REJECTED": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_REJECTED",
+      "SHARE_WARN_UNDOWNLOADED_FILESHARES": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_UNDOWNLOADED_FILESHARES",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe lorsque sa demande d'invitation de dépôt a été rejetée par le système ou par le destinataire."
-      },
-      "UPLOAD_REQUEST_ACTIVATED": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe lorsqu'une invitation de dépôt précédemment créée est activée."
-      },
-      "UPLOAD_REQUEST_CREATED": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe lorsqu'une invitation de dépôt est créée."
-      },
-      "UPLOAD_REQUEST_ACKNOWLEDGEMENT": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACKNOWLEDGEMENT",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité lorsqu'un utilisateur externe dépose un fichier au sein d'une invitation de dépôt."
-      },
-      "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir que son invitation de dépôt est sur le point d'expirer."
-      },
-      "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe afin de l'avertir que son invitation de dépôt est sur le point d'expirer."
-      },
-      "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir que son invitation de dépôt a expiré."
-      },
-      "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe afin de l'avertir que son invitation de dépôt a expiré."
-      },
-      "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe afin de l'avertir de la clotûre de l'invitation de dépôt par l'émetteur."
+        "DESCRIPTION": "Cette notification est envoyée à tout utilisateur créant un partage avec l'option 'Accusé de non téléchargement' activée. La notification contiendra une synthèse des documents partagés et téléchargés."
       },
       "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir de la clotûre de l'invitation de dépôt par le destinataire."
       },
-      "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_SENDER",
+      "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'une invitation de dépôt lorsque le destinataire supprime un fichier précédemment déposé."
       },
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER",
+      "UPLOAD_REQUEST_UNAVAILABLE_SPACE": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UNAVAILABLE_SPACE",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à tout utilisateur créant un partage avec l'option 'Accusé de partage' activée. La notification contiendra une synthèse du partage."
+        "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'une invitation de dépôt lorsque le destinataire ne peux déposer de fichier du à un espace insuffisant sur l'Espace Personnel de l'émetteur."
       },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
-        "NAME": "Alerte de non téléchargement.",
+      "UPLOAD_REQUEST_UPLOADED_FILE": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPLOADED_FILE",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à tout utilisateur créant un partage avec l'option 'Accusé de non téléchargement' activée. La notification contiendra une synthèse des documents partagés et téléchargés."
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité lorsqu'un utilisateur externe dépose un fichier au sein d'une invitation de dépôt."
       },
-      "ANONYMOUS_URL__NOTIFICATION": {
-        "NAME": "Notification de téléchargement",
+      "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_BEFORE_EXPIRY",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": " La notification de téléchargement d'un document via les urls anonymes sera envoyée à chaque téléchargement, ou seulement au premier téléchargement."
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir qu'une invitation de dépôt est sur le point d'expirer."
+      },
+      "UPLOAD_REQUEST_WARN_EXPIRY": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_EXPIRY",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir qu'une invitation de dépôt a expiré."
       }
     },
     "PARAMETERS": {
