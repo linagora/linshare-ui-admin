@@ -1,7 +1,7 @@
 {
   "COMMON": {
-  "TITLE": "Interface d'administration de LinShare",
-  "NAME": "LinShare",
+    "TITLE": "Interface d'administration de LinShare",
+    "NAME": "LinShare",
     "BASIC_FORM": {
       "TITLE_CREATION": "Création",
       "LABEL_IDENTIFIER": "Identifiant",
@@ -42,7 +42,7 @@
       "LANGUAGE": {
         "SWITCH_TITLE": "Langue",
         "ENGLISH": "Anglais",
-        "FRENCH":  "Français"
+        "FRENCH": "Français"
       }
     },
     "SIDEBAR": {
@@ -125,17 +125,23 @@
         "16000": "Annuaire introuvable",
         "16666": "Cette configuration de courriel ne peut pas être supprimé, elle est utilisé par un domaine",
         "16667": "Configuration de courriel introuvable",
+        "16668": "La configuration de couriel ne peut être créée",
         "17000": "Action défendue",
         "17666": "Ce contenu de courriel ne peut pas être supprimé, il est utilisé par une configuration de courriel",
         "17667": "Contenu de courriel introuvable",
         "17668": "Le modèle de notification associé à la langue courante n'a pas été trouvé",
         "17669": "Le modèle de notification associé à la langue courante existe déjà",
+        "17670": "Le modèle de contenu de courriel ne peut être créé",
+        "17671": "Le modèle de contenu de courriel associé a la langue courante ne peut être créé",
         "18666": "Ce pied de courriel ne peut pas être supprimé, il est utilisé par une configuration de courriel",
         "18667": "Pied de courriel introuvable",
         "18668": "Le modèle de pied de courriel associé à la langue courante n'a pas été trouvé",
         "18669": "Le modèle de pied de courriel associé à la langue courante existe déjà",
+        "18670": "Le modèle de pied de courriel ne peut être créé",
+        "18671": "Le modèle de pied de courriel associé a la langue courante ne peut être créé",
         "19666": "Cette structure de courriel ne peut pas être supprimé, elle est utilisé par une configuration de courriel",
         "19667": "Structure de courriel introuvable",
+        "19668": "La structure de courriel ne peut créée",
         "20000": "Une erreur est survenue, veuillez contacter votre administrateur LinShare",
         "20001": "Webservice défendu",
         "20003": "Webservice introuvable",
@@ -148,6 +154,13 @@
         "36003": "Vous n'êtes pas autoriser à utiliser ce message d'accueil",
         "36004": "Ce message d'accueil n'existe pas",
         "36005": "Vous tentez de mettre à jour le message d'accueil avec des langues non supportés",
+        "48000": "Le modèle ne peut être evalué à cause d'erreur",
+        "48001": "Le modèle ne peut être evalué à cause d'une exception de saise",
+        "48002": "Le modèle ne peut être evalué à cause d'une exception d'évaluation de texte",
+        "48003": "Le modèle ne peut être evalué à cause d'une exception du à une propriété",
+        "48004": "Le modèle ne peut être evalué à cause d'une exception de traitement",
+        "48005": "Le modèle ne peut être evalué à cause d'une exception du à un contexte invalide",
+        "48006": "Le modèle est manquant",
         "MIGRATION_FAILED": "Echec de la migration"
       }
     },
@@ -321,7 +334,7 @@
         "LISTS_GET": "Détail d'une liste de diffusion",
         "LISTS_CREATE": "Créer une liste de diffusion",
         "LISTS_UPDATE": "Mettre à jour une liste de diffusion",
-        "LISTS_DELETE" : "Supprimer une liste de diffusion"
+        "LISTS_DELETE": "Supprimer une liste de diffusion"
       },
       "UNIT_SIZE": {
         "KILO": "Kilooctet",
@@ -384,7 +397,7 @@
     "MANAGE_DOMAINS_SUB_TITLE": "Gérer les domaines",
     "AUDIT_TITLE": "Historique",
     "AUDIT_SUB_TITLE": "Audit de l'application",
-    "PARAMETERS_TITLE":"Paramètres",
+    "PARAMETERS_TITLE": "Paramètres",
     "PARAMETERS_SUB_TITLE": "Fonctionnalités"
   },
 
@@ -510,7 +523,7 @@
       "LABEL_LDAP_CONNECTION": "Connexion LDAP",
       "LABEL_DOMAIN_PATTERN": "Modèles de domaine",
       "LABEL_BASE_DN": "Base dn",
-      "SEARCH_USER_ACCOUNT":"Rechercher un utilisateur pour tester votre paramétrage, n'oubliez pas de sauvegarder avant de tester",
+      "SEARCH_USER_ACCOUNT": "Rechercher un utilisateur pour tester votre paramétrage, n'oubliez pas de sauvegarder avant de tester",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
@@ -693,117 +706,117 @@
       },
       "ANONYMOUS_DOWNLOAD": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ANONYMOUS_DOWNLOAD",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'un partage afin de l'avertir de chaque téléchargement par un utilisateur externe."
       },
       "REGISTERED_DOWNLOAD": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.REGISTERED_DOWNLOAD",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'un partage afin de l'avertir lorsque un utilisateur interne ou invité télécharge celui-ci."
       },
       "NEW_GUEST": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_GUEST",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lors de la création d'un utilisateur invité afin de lui communiquer ses identifiants de connexion."
       },
       "RESET_PASSWORD": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.RESET_PASSWORD",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lors de la réinitialisation du mot de passe d'un compte invité."
       },
       "SHARED_DOC_UPDATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPDATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée au destinataire d'un partage lorsque l'émetteur met à jour le document partagé."
       },
       "SHARED_DOC_DELETED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_DELETED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée au destinataire d'un partage lorsque l'émetteur supprime le document partagé."
       },
       "SHARED_DOC_UPCOMING_OUTDATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPCOMING_OUTDATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un document lorsque le document est proche de sa date d'expiration."
       },
       "NEW_SHARING": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_SHARING",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lorsque un utilisateur interne ou invité partage un document."
       },
       "UPLOAD_PROPOSITION_CREATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_CREATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité lorsque un utilisateur externe crée une demande d'invitation de dépôt."
       },
       "UPLOAD_PROPOSITION_REJECTED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_REJECTED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe lorsque sa demande d'invitation de dépôt a été rejetée par le système ou par le destinataire."
       },
       "UPLOAD_REQUEST_ACTIVATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe lorsqu'une invitation de dépôt précédemment créée est activée."
       },
       "UPLOAD_REQUEST_CREATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe lorsqu'une invitation de dépôt est créée."
       },
       "UPLOAD_REQUEST_ACKNOWLEDGEMENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACKNOWLEDGEMENT",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité lorsqu'un utilisateur externe dépose un fichier au sein d'une invitation de dépôt."
       },
       "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir que son invitation de dépôt est sur le point d'expirer."
       },
       "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe afin de l'avertir que son invitation de dépôt est sur le point d'expirer."
       },
       "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir que son invitation de dépôt a expiré."
       },
       "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe afin de l'avertir que son invitation de dépôt a expiré."
       },
       "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur externe afin de l'avertir de la clotûre de l'invitation de dépôt par l'émetteur."
       },
       "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir de la clotûre de l'invitation de dépôt par le destinataire."
       },
       "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_SENDER",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à l'émetteur d'une invitation de dépôt lorsque le destinataire supprime un fichier précédemment déposé."
       },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à tout utilisateur créant un partage avec l'option 'Accusé de partage' activée. La notification contiendra une synthèse du partage."
       },
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
         "NAME": "Alerte de non téléchargement.",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à tout utilisateur créant un partage avec l'option 'Accusé de non téléchargement' activée. La notification contiendra une synthèse des documents partagés et téléchargés."
       },
-      "ANONYMOUS_URL__NOTIFICATION" : {
+      "ANONYMOUS_URL__NOTIFICATION": {
         "NAME": "Notification de téléchargement",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": " La notification de téléchargement d'un document via les urls anonymes sera envoyée à chaque téléchargement, ou seulement au premier téléchargement."
       }
     },
@@ -852,7 +865,7 @@
     "DETAILS": {
       "UPLOAD_REQUEST": {
         "NAME": "Invitation de dépôt",
-        "USE_EXTENDED_DESCRIPTION" : "3",
+        "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "Une invitation de dépôt est l'ouverture temporaire et réglementée de la possibilité, pour un utilisateur externe au système LinShare, de procéder au téléversement de fichiers dans l'espace personnel d'un utilisateur interne au système.",
         "ADVANCED_DESCRIPTION": "Un utilisateur interne à LinShare souhaitant qu'un utilisateur externe lui dépose des fichiers dans son espace personnel, procède selon le principe suivant :\n\nL'utilisateur interne, qui est l'émetteur de l'invitation, créé une invitation de dépôt en utilisant l'application.\nIl peut notamment, lors de cette création, modifier les conditions d'utilisation de l'invitation de dépôt en changeant le paramétrage par défaut dans la limite des possibilités que lui a octroyées l'administrateur.\n\nLe système notifie l'utilisateur externe, c'est à dire le destinataire de l'invitation.\nCette notification est un courriel disposant d'un lien HTTPS unique pointant vers une interface de dépôt LinShare et indiquant ses conditions d'utilisation.\nCette interface permet au(x) destinataire(s) de déposer un ou plusieurs documents à l'attention de l'émetteur. \n\nL'invitation de dépôt est close lorsque sa date d'expiration est atteinte (à 0H00), ou par une action manuelle de l'émetteur ou du destinataire, selon la configuration de l'invitation.",
         "USER_OVERRIDE": "",
@@ -864,7 +877,7 @@
       },
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
         "NAME": "Langue d'émission des courriels",
-        "USE_EXTENDED_DESCRIPTION" : "2",
+        "USE_EXTENDED_DESCRIPTION": "2",
         "DESCRIPTION": "Configurer La langue par défaut des notifications envoyé par le système.",
         "ADVANCED_DESCRIPTION": "Par exemple lors de l'activation d'une invitation de dépôt, l'utilisateur recevera un courriel prés-définis dans la langue choisis par défaut.",
         "USER_OVERRIDE": "",
@@ -876,7 +889,7 @@
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Délais avant activation",
-        "USE_EXTENDED_DESCRIPTION" : "2",
+        "USE_EXTENDED_DESCRIPTION": "2",
         "DESCRIPTION": "Le délais avant activation permet de calculer la date d'activation au plus tôt à partir de sa date de création. L'utilisateur invité pourra accéder au dépôt de fichier à partir de cette date. La date d'activation d'une invitation est donc le résultat du délais avant activation, ajoutée à la date de création.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -888,7 +901,7 @@
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
         "NAME": "Délais avant expiration",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "La délais avant expiration est utilisée pour calculer la date d'expiration de l'invitation à partir de sa date d'activation. L'expiration d'une invitation intervient à minuit le lendemain de la date d'expiration.\n\nExemple : une expiration instanciée pour le 3 janvier prend effet le 4 janvier à minuit.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -900,7 +913,7 @@
       },
       "UPLOAD_REQUEST__GROUPED_MODE": {
         "NAME": "Mode groupé",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Autorise l'envoi d'une invitation pour tous les destinataires. Dans le cas contraire, une invitation est envoyée par destinataire. Le paramétrage de l'invitation impacte donc chaque destinataire indépendamment dans le cadre d'une invitation non groupée.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -912,7 +925,7 @@
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
         "NAME": "Nombre maximum de fichiers",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Le nombre maximum de fichiers permet de limiter nombre de fichiers à déposer dans le dépôt dans la limite de la taille du dépôt.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -924,7 +937,7 @@
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
         "NAME": "Taille maximale d'un fichier",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Limiter la taille des fichiers envoyé par les utilisateurs dans le dépôt.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -936,7 +949,7 @@
       },
       "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
         "NAME": "Taille maximale du dépôt",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "La taille maximale du dépôt limites les utilisateurs à ajouter des fichiers jusqu'a la taille limite définis du dépôt.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -948,7 +961,7 @@
       },
       "UPLOAD_REQUEST__SECURED_URL": {
         "NAME": "Sécurisation des URLs",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Une fois activée, les URLS seront protégés par un mot de passe. Le mot de passe est généré par le serveur et envoyé par courriel séparé au(x) destinataire(s).",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -960,7 +973,7 @@
       },
       "UPLOAD_REQUEST__CAN_CLOSE": {
         "NAME": "Droit de clôture",
-        "USE_EXTENDED_DESCRIPTION" : "3",
+        "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -972,7 +985,7 @@
       },
       "UPLOAD_REQUEST__PROLONGATION": {
         "NAME": "Prolongation",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "La prolongation vous permet d'autoriser l'utilistateur à prolonger/repousser la date d'expiration lors l'édition d'une invitation de dépôt. Par défaut l'émetteur ne peut qu'éditer la date entre la date de création + la dure d'expiration fixé par l'admin",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -984,7 +997,7 @@
       },
       "UPLOAD_REQUEST__CAN_DELETE": {
         "NAME": "Droit de suppression de fichiers pour le destinataire",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Le destinataire d'une invitation de dépôt pourra supprimer des fichiers selon le paramétrage de l'invitation.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -996,7 +1009,7 @@
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
         "NAME": "Délais avant notification d'expiration",
-        "USE_EXTENDED_DESCRIPTION" : "2",
+        "USE_EXTENDED_DESCRIPTION": "2",
         "DESCRIPTION": "Cette notification permet d'indiquer à l'émetteur et au destinataire que l'invitation est sur le point d'expirer. La durée qui sépare la date d'envoi de la notification et la date d'expiration de l'invitation est configurable.",
         "ADVANCED_DESCRIPTION": "Les destinataires reçoivent un courriel contenant les conditions d'utilisation et les fichiers déjà déposés.  L'émetteur reçoit une synthèse des fichiers déposés par tous les destinataires de l'invitation.",
         "USER_OVERRIDE": "",
@@ -1008,7 +1021,7 @@
       },
       "UPLOAD_REQUEST_ENABLE_TEMPLATE": {
         "NAME": "Modèles d'invitation de dépôt",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette fonctionnalité permet d'autoriser l'utilisateur à créer des modèles d'invitation de dépôt",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1020,7 +1033,7 @@
       },
       "QUOTA_USER": {
         "NAME": "Quota utilisateur",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Le quota utilisateur est un espace de stockage attribué à chaque utilisateur. Si le quota global est activé en même temps que le quota utilisateur, seul le quota global sera pris en compte. L’activation de cette fonctionnalité permet également de régler la configuration de la taille de ce quota.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1032,7 +1045,7 @@
       },
       "MIME_TYPE": {
         "NAME": "Type MIME",
-        "USE_EXTENDED_DESCRIPTION" : "3",
+        "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "Cette fonctionnalité vous permet de paramétrer les filtres par type MIME. Autoriser ou interdire le dépôt de fichiers d’un type donné, (e.g. interdire le dépôt de fichiers vidéos (MPEG, etc.))",
         "ADVANCED_DESCRIPTION": "Pour être effective la fonctionnalité devra être activée, vous pourrez ensuite vous rendre depuis le menu de navigation, à la rubrique « Paramètres > Règles de type MIME » ;",
         "USER_OVERRIDE": "",
@@ -1044,7 +1057,7 @@
       },
       "FILESIZE_MAX": {
         "NAME": "Taille de fichier maximum",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Vous avez la possibilité de limiter la taille maximale des fichiers. En activant la fonctionnalité vous pourrez définir cette taille maximal, les fichiers dépassant ce seuil seront rejetés.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1056,7 +1069,7 @@
       },
       "QUOTA_GLOBAL": {
         "NAME": "Quota global",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "En activant le quota global, l’espace alloué au domaine est partagé par tous les utilisateurs du domaine. Si le quota global est activé en même temps que le quota utilisateur, seul le quota global sera pris en compte.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1068,7 +1081,7 @@
       },
       "TIME_STAMPING": {
         "NAME": "Horodatage",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "En activant cette fonctionnalité, lors du dépôt d’un fichier celui-ci sera horodater. l'horodatage permet d'engregistrer dans les journaux d'événements (ou historiques) la date et l'heure à laquelle est survenu le dépôt de fichier.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1080,7 +1093,7 @@
       },
       "ANTIVIRUS": {
         "NAME": "Antivirus",
-        "USE_EXTENDED_DESCRIPTION" : "3",
+        "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1092,7 +1105,7 @@
       },
       "SIGNATURE": {
         "NAME": "Signature",
-        "USE_EXTENDED_DESCRIPTION" : "3",
+        "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1104,7 +1117,7 @@
       },
       "ENCIPHERMENT": {
         "NAME": "Chiffrement",
-        "USE_EXTENDED_DESCRIPTION" : "3",
+        "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "Le chiffrement de fichier vous offre la possibilité rendre la compréhension d'un document impossible à toute personne qui n'a pas le mot de passe de déchiffrement.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1116,7 +1129,7 @@
       },
       "FILE_EXPIRATION": {
         "NAME": "Expiration de fichier",
-        "USE_EXTENDED_DESCRIPTION" : "3",
+        "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "L'activation de la possibilité de configurer le délai d’expiration des fichiers, au-delà duquel ce fichier sera supprimé de l’espace de l’utilisateur. Nécessite que la clé « Expiration des fichiers » soit activée dans les politiques d’activation.",
         "USER_OVERRIDE": "",
@@ -1128,7 +1141,7 @@
       },
       "SHARE_EXPIRATION": {
         "NAME": "Expiration de partage",
-        "USE_EXTENDED_DESCRIPTION" : "3",
+        "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1140,7 +1153,7 @@
       },
       "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
         "NAME": "Suppression des fichiers lors de l'expiration des partages",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Lorsque le dernier partage associé à un document sera supprimé, le document sera automatiquement supprimé.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1152,7 +1165,7 @@
       },
       "CUSTOM_LOGO": {
         "NAME": "Logo personnalisé",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Vous avez la possibilité d’afficher un logo personnalisé sur l’interface web de LinShare, ainsi qu’un logo par domaine. L’adresse URL spécifiée pour le domaine racine est utilisée comme ressource par défaut lorsqu’aucun utilisateur n’est connecté.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1164,7 +1177,7 @@
       },
       "CUSTOM_LOGO__LINK": {
         "NAME": "Ajouter un lien au logo LinShare",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Avec cette fonctionnalité vous pourrez ajouter un lien au logo LinShare. Il est conseillé de fournir l'adresse de votre LinShare.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1176,7 +1189,7 @@
       },
       "GUESTS": {
         "NAME": "Invités",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "En activant cette fonctionnalité vous permettrez aux utilisateurs interne de créer des comptes temporaires pour vos invités. Ils pourront télécharger les documents et en déposer (si vous activez 'L'envoi de fichiers' pour les invités).",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1188,7 +1201,7 @@
       },
       "GUESTS__EXPIRATION": {
         "NAME": "Expiration des comptes invités",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Les comptes invités sont toujours soumis à une date d'expiration. Vous devez configurer un délai d’expiration pour ces derniers. Vous pouvez également autoriser les utilisateurs internes à personnaliser cette date d'expiration.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1200,7 +1213,7 @@
       },
       "GUESTS__CAN_UPLOAD": {
         "NAME": "Envoi de fichiers",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "L'envoi de fichiers vous permet d'autoriser aux invités de déposer des fichiers. La modification de cette fonctionnalité n'est prise en compte que pour les comptes utilisateurs créés après la modification.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1212,7 +1225,7 @@
       },
       "GUESTS__RESTRICTED": {
         "NAME": "Restriction de contacts",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Vous pouvez restreindre les invités à partager avec une liste restreinte de contacts. Cette liste est personnelle, par défault elle est initialisé avec l'adresse de courriel du créateur de l'invité",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1224,7 +1237,7 @@
       },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
         "NAME": "Autoriser la prolongation de la date d'expiration des invités",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette fonctionnalité permet d'autoriser les utilisateurs à modifier la date d'expiration d'un invité, de repousser indéfiniment sa date d'expiration lors de l'édition.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1236,7 +1249,7 @@
       },
       "COMPLETION": {
         "NAME": "Complétion",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "La complétion permet le complètement automatique de la saisie au clavier, c'est-à-dire l'aide à la saisie d'informations dans un champ lié à une source de données. Vous pouvez activer la fonctionnalité et configurer le seuil de complétion, soit le nombre de caractères à partir duquel cette auto-complétion est réalisée.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1248,7 +1261,7 @@
       },
       "ANONYMOUS_URL": {
         "NAME": "URL anonymes",
-        "USE_EXTENDED_DESCRIPTION" : "2",
+        "USE_EXTENDED_DESCRIPTION": "2",
         "DESCRIPTION": "Les URLs anonymes permettent de partager un fichier vers un utilisateur anonyme (une personne possédant une adresse de courriel) qui ne possède pas de compte dans l’application LinShare (interne ou invité).",
         "ADVANCED_DESCRIPTION": "L’activation de cette fonctionnalité vous permet de protéger les partages anonymes par mot de passe lors d’un partage vers un utilisateur anonyme. Cette protection est forcée si la valeur est mise à « Obligatoire ». Il est également possible de laisser le choix à l’utilisateur quant à son utilisation tout en spécifiant une valeur par défaut en choisissant « Autorisé ».",
         "USER_OVERRIDE": "",
@@ -1260,7 +1273,7 @@
       },
       "TAB_USER": {
         "NAME": "Onglet 'Utilisateur'",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Pour avoir accès à la rubrique 'Utilisateur' il vous suffis d'activer cette fonctionnalité, si la fonctionnalité 'Invités autorisés' est activé vous pourrez ajouter des invités grace a cet onglet.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1272,7 +1285,7 @@
       },
       "TAB_AUDIT": {
         "NAME": "Onglet 'Audit'",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "L'Audit vous permet de consulter les journaux d’événements de l’application. Depuis la rubrique 'Historique' de votre administration vous accederez à l'audit et vous pourrez rechercher des évèvements (e.g: dépôt de fichier)",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1284,7 +1297,7 @@
       },
       "TAB_HELP": {
         "NAME": "Onglet 'Aide'",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Dans la rubrique 'Aide' de LinShare vous trouverez des manuels d'utilisation pour l'interface utilisateur et administration, ainsi que les informations du support.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1296,7 +1309,7 @@
       },
       "TAB_THREAD": {
         "NAME": "Onglet 'Thread'",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "La rubrique 'Thread' permet de gérer les threads de tous les domaines et sous-domaines. Via l'interface d'administration vous pourrez y gérer les groupes, dans l'interface utilisateur vous pourrez gérer les documents partagés.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1308,7 +1321,7 @@
       },
       "TAB_THREAD__CREATE_PERMISSION": {
         "NAME": "Autoriser la création de groupe",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "En activant la création de groupe, les utilisateurs pourront créer des groupes et y ajouter des utilisateurs. Cette fonctionnalité sera administrable via l'onglet 'Thread', veillez à ce que la fonctionnalité 'Onglet Thread' soit activé.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1320,7 +1333,7 @@
       },
       "TAB_LIST": {
         "NAME": "Onglet 'Listes'",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "La rubrique 'Listes' permet de gérer les listes de diffusion. Une liste de diffusion est une utilisation spécifique du courrier électronique qui permet le publipostage d'informations aux utilisateurs qui y sont inscrits. Celle-ci est gérée par un logiciel adéquat installé sur un serveur.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1332,7 +1345,7 @@
       },
       "UPDATE_FILE": {
         "NAME": "Mise à jour de fichier",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette fonctionnalité vous permet d'autoriser la mise à jour d'un fichier. L'intérêt premier est la mise à jour d'un fichier déjà partagé. Les destinataires recevront une notification pour les avertir que le document précédemment partagé a été mis à jour.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1344,7 +1357,7 @@
       },
       "DOMAIN": {
         "NAME": "Domaine",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Configuration des paramètres généraux du domaine",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1356,7 +1369,7 @@
       },
       "DOMAIN__MAIL": {
         "NAME": "Adresse de courriel du domaine",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1368,7 +1381,7 @@
       },
       "DOMAIN__NOTIFICATION_URL": {
         "NAME": "URL de base pour les notifications par courriel",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette fonctionnalité vous permet de définir l’URL de base pour les notifications par courriel. Avant la version 1.3.0 de LinShare ce paramétrage était réalisé dans le fichier de configuration de LinShare et était donc global à l’application.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1380,12 +1393,12 @@
       },
       "UPLOAD_PROPOSITION": {
         "NAME": "Demande d'invitation de dépôt",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": ""
       },
       "LINK_LOGO": {
         "NAME": "Ajouter un lien au logo LinShare",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Avec cette fonctionnalité vous pourrez ajouter un lien au logo LinShare. Il est conseillé de fournir l'adresse de votre Linshare.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1397,7 +1410,7 @@
       },
       "INTERNAL_CAN_UPLOAD": {
         "NAME": "Envoi de fichiers",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "L'envoi de fichier permet aux utilisateurs interne le téléversement de fichiers.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1409,7 +1422,7 @@
       },
       "INTERNAL_CAN_CREATE_GUESTS": {
         "NAME": "Droit de créer un invité",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1421,7 +1434,7 @@
       },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
         "NAME": "Accusé de partage",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Lors d'un partage, l'émetteur peut recevoir un récapitulatif des documents et destinataires de son partage via un accusé de partage.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1433,7 +1446,7 @@
       },
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
         "NAME": "Alerte de non téléchargement",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "En activant cette fonctionalité, les utilisateurs auront la possibilité de demander une alerte de non téléchargement de fichiers lors d'un partage. L'alerte est envoyée si au moins un document du partage n'a pas du tout été téléchargé.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1443,9 +1456,9 @@
         "PARAMETER_NAME": "Paramètres",
         "PARAMETER_DESCRIPTION": ""
       },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION" : {
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
         "NAME": "Alerte de non téléchargement - Nombre de jours avant notification",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Ceci représente le nombre de jours que vous paramétrez avant de recevoir l'alerte.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1455,9 +1468,9 @@
         "PARAMETER_NAME": "Valeur par défaut dans l'interface utilisateur",
         "PARAMETER_DESCRIPTION": ""
       },
-      "ANONYMOUS_URL__NOTIFICATION" : {
+      "ANONYMOUS_URL__NOTIFICATION": {
         "NAME": "Notification de téléchargement",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": " La notification de téléchargement d'un document via les urls anonymes sera envoyée à chaque téléchargement, ou seulement au premier téléchargement.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1469,28 +1482,28 @@
       }
     },
     "PARAMETERS": {
-      "GUESTS__RESTRICTED__BOOLEAN_false" : "L'utilisateur ne sera pas restreint.",
-      "GUESTS__RESTRICTED__BOOLEAN_true" : "L'utilisateur sera restreint à communiquer avec une liste de contacts.",
-      "GUESTS__CAN_UPLOAD__BOOLEAN_false" : "L'utilisateur n'aura pas le droit de dépôt par défaut (formulaire de création).",
-      "GUESTS__CAN_UPLOAD__BOOLEAN_true" : "L'utilisateur aura le droit de dépôt par défaut (formulaire de création).",
-      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_false" : "L'utilisateur ne pourra pas prolonger la date d'expiration d'un invité.",
-      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_true" : "L'utilisateur pourra prolonger la date d'expiration d'un invité.",
-      "ANONYMOUS_URL__BOOLEAN_false" : "Les partages anonymes ne seront pas sécurisés par un mot de passe.",
-      "ANONYMOUS_URL__BOOLEAN_true" : "Les partages anonymes seront sécurisés par un mot de passe.",
-      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_false" : "Le document ne sera pas supprimé lors de l'expiration du dernier partage.",
-      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_true" : "Le document sera supprimé lors de l'expiration du dernier partage.",
-      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_false" : "Le destinataire ne pourra pas clôturer l'invitation de dépôt.",
-      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_true" : "Le destinataire pourra clôturer l'invitation de dépôt.",
-      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_false" : "Le destinataire ne pourra pas supprimer les fichiers.",
-      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true" : "Le destinataire pourra supprimer les fichiers.",
-      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false" : "L'émetteur ne pourra pas repousser la date d'expiration.",
-      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true" : "L'émetteur pourra repousser la date d'expiration.",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false" : "L'accès à l'invitation ne sera pas protégé par un mot de passe.",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true" : "L'accès à l'invitation sera protégé par un mot de passe.",
-      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false" : "Une invitation sera créée par destinataire.",
-      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true" : "L'ensemble des destinataires se partageront les conditions d'utilisation de l'invitation.",
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false" : "Aucun accusé de partage sera envoyé.",
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true" : "Un accusé de partage sera envoyé à l'émetteur du partage.",
+      "GUESTS__RESTRICTED__BOOLEAN_false": "L'utilisateur ne sera pas restreint.",
+      "GUESTS__RESTRICTED__BOOLEAN_true": "L'utilisateur sera restreint à communiquer avec une liste de contacts.",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_false": "L'utilisateur n'aura pas le droit de dépôt par défaut (formulaire de création).",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_true": "L'utilisateur aura le droit de dépôt par défaut (formulaire de création).",
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_false": "L'utilisateur ne pourra pas prolonger la date d'expiration d'un invité.",
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_true": "L'utilisateur pourra prolonger la date d'expiration d'un invité.",
+      "ANONYMOUS_URL__BOOLEAN_false": "Les partages anonymes ne seront pas sécurisés par un mot de passe.",
+      "ANONYMOUS_URL__BOOLEAN_true": "Les partages anonymes seront sécurisés par un mot de passe.",
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_false": "Le document ne sera pas supprimé lors de l'expiration du dernier partage.",
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_true": "Le document sera supprimé lors de l'expiration du dernier partage.",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_false": "Le destinataire ne pourra pas clôturer l'invitation de dépôt.",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_true": "Le destinataire pourra clôturer l'invitation de dépôt.",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_false": "Le destinataire ne pourra pas supprimer les fichiers.",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true": "Le destinataire pourra supprimer les fichiers.",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false": "L'émetteur ne pourra pas repousser la date d'expiration.",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true": "L'émetteur pourra repousser la date d'expiration.",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false": "L'accès à l'invitation ne sera pas protégé par un mot de passe.",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true": "L'accès à l'invitation sera protégé par un mot de passe.",
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false": "Une invitation sera créée par destinataire.",
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true": "L'ensemble des destinataires se partageront les conditions d'utilisation de l'invitation.",
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false": "Aucun accusé de partage sera envoyé.",
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true": "Un accusé de partage sera envoyé à l'émetteur du partage.",
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_false": "L'alerte de non téléchargement est désactivée",
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_true": "L'alerte de non téléchargement est activée",
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Envoi au premier téléchargement uniquement.",
@@ -1547,7 +1560,7 @@
       "TABLE": {
         "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
         "HEADER_ACTIONS": "Actions",
-        "TABLE_ACTIONS" : {
+        "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_DELETE_YES": "Oui",
           "BUTTON_DELETE_NO": "Non"
@@ -1594,7 +1607,7 @@
       "TABLE": {
         "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
         "HEADER_ACTIONS": "Actions",
-        "TABLE_ACTIONS" : {
+        "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_DELETE_YES": "Oui",
           "BUTTON_DELETE_NO": "Non"
@@ -1643,7 +1656,7 @@
         "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
         "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
         "HEADER_ACTIONS": "Actions",
-        "TABLE_ACTIONS" : {
+        "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_DELETE_YES": "Oui",
           "BUTTON_DELETE_NO": "Non"
@@ -1696,7 +1709,7 @@
         "HEADER_ACTIONS": "Actions",
         "PRIVATE": "Privée",
         "PUBLIC": "Public",
-        "TABLE_ACTIONS" : {
+        "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_DELETE_YES": "Oui",
           "BUTTON_DELETE_NO": "Non"
@@ -1850,7 +1863,7 @@
     },
     "BOX_LIST": {
       "TITLE": "Liste des utilisateurs incohérents",
-      "TABLE" : {
+      "TABLE": {
         "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
         "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
         "HEADER_EMAIL": "Courriel",
@@ -2071,7 +2084,7 @@
     "BOX_LIST": {
       "TITLE": "Liste des filtres",
       "BUTTON_ADD": "Créer un filtre",
-      "TABLE" : {
+      "TABLE": {
         "HEADER_ACTIONS": "Actions",
         "HEADER_NAME": "Nom",
         "HEADER_STATUS": "Statut"
@@ -2107,7 +2120,7 @@
     "BOX_LIST": {
       "TITLE": "Liste des comptes",
       "BUTTON_ADD": "Créer un compte",
-      "TABLE" : {
+      "TABLE": {
         "HEADER_NAME": "Nom"
       }
     },

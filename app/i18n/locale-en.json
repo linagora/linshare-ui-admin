@@ -42,7 +42,7 @@
       "LANGUAGE": {
         "SWITCH_TITLE": "Language",
         "ENGLISH": "English",
-        "FRENCH":  "French"
+        "FRENCH": "French"
       }
     },
     "SIDEBAR": {
@@ -125,17 +125,23 @@
         "16000": "Directory unavailable",
         "16666": "This mail configuration can't be deleted, it is used by a domain",
         "16667": "Mail configuration not found",
+        "16668": "The mail config model cannot be created",
         "17000": "Unauthorized action",
         "17666": "This mail content can't be deleted, it is used by a mail configuration",
         "17667": "Mail content not found",
         "17668": "The mail content model associated with the current language was not found",
         "17669": "The mail content model associated with the current language exists",
+        "17670": "The mail content model cannot be created",
+        "17671": "The mail content model associated with the current language cannot be created",
         "18666": "This mail footer can't be deleted, it is used by a mail configuration",
         "18667": "Mail footer not found",
         "18668": "The mail footer model associated with the current language was not found",
         "18669": "The mail footer model associated with the current language exists",
+        "18670": "The mail footer model cannot be created",
+        "18671": "The mail footer model associated with the current language cannot be created",
         "19666": "This mail layout can't be deleted, it is used by a mail configuration",
         "19667": "Mail layout not found",
+        "19668": "The mail layout model cannot be created",
         "20000": "A error has occured, please contact your @:COMMON.NAME administrator",
         "20001": "Webservice unauthorized",
         "20003": "Webservice not found",
@@ -148,6 +154,13 @@
         "36003": "You are not allowed to use this welcome message",
         "36004": "Welcome message not found",
         "36005": "You try to update the welcome message with unsupported languages",
+        "48000": "The template cannot be parsed due to some error",
+        "48001": "The template cannot be parsed due to an input exception",
+        "48002": "The template cannot be parsed due to a text parse exception",
+        "48003": "The template cannot be parsed due to a property exception",
+        "48004": "The template cannot be parsed due to a processing exception",
+        "48005": "The template cannot be parsed due to an invalid context exception",
+        "48006": "The template is missing",
         "MIGRATION_FAILED": "Migration failed"
       }
     },
@@ -233,7 +246,7 @@
         "UPLOAD_REQUEST_REMINDER": "A reminder for the upload request",
         "UPLOAD_REQUEST_UPDATED": "The upload request has been updated",
         "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": "Warning notification sent to the recipient before the upload request expiry",
-        "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY":"Warning notification sent to the owner before the upload request expiry",
+        "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": "Warning notification sent to the owner before the upload request expiry",
         "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": "Acknowledgement of share creation",
         "SHARE_CREATION_ACKNOWLEDGEMENT_WITH_SPECIAL_MESSAGE_FOR_OWNER": "Acknowledgement of share creation sent to the owner with customized subject.",
         "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": "Notification of deleting a document from the external user",
@@ -378,7 +391,7 @@
     "MANAGE_DOMAINS_SUB_TITLE": "Manage domains",
     "AUDIT_TITLE": "History",
     "AUDIT_SUB_TITLE": "Audit the application",
-    "PARAMETERS_TITLE":"Parameters",
+    "PARAMETERS_TITLE": "Parameters",
     "PARAMETERS_SUB_TITLE": "Functionalities"
   },
 
@@ -504,7 +517,7 @@
       "LABEL_LDAP_CONNECTION": "LDAP connection",
       "LABEL_DOMAIN_PATTERN": "Domain pattern",
       "LABEL_BASE_DN": "Base dn",
-      "SEARCH_USER_ACCOUNT":"Search for a user to test your settings, don't forget to save before testing",
+      "SEARCH_USER_ACCOUNT": "Search for a user to test your settings, don't forget to save before testing",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
@@ -651,7 +664,7 @@
     }
   },
 
-  "MAIL_ACTIVATION":{
+  "MAIL_ACTIVATION": {
     "BOX_LIST": {
       "TABLE": {
         "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS",
@@ -689,117 +702,117 @@
       },
       "ANONYMOUS_DOWNLOAD": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ANONYMOUS_DOWNLOAD",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to warn the share owner when an external user downloads a shared document."
       },
       "REGISTERED_DOWNLOAD": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.REGISTERED_DOWNLOAD",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the share owner when a internal user or a guest downloads the received shared documents."
       },
       "NEW_GUEST": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_GUEST",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent when a new guest is created, it contains his credentials."
       },
       "RESET_PASSWORD": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.RESET_PASSWORD",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent when a guest passord is reseted."
       },
       "SHARED_DOC_UPDATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPDATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to share recipients when a shared document is updated by the share owner."
       },
       "SHARED_DOC_DELETED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_DELETED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to share recipients when a shared document is deleted by the share owner."
       },
       "SHARED_DOC_UPCOMING_OUTDATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARED_DOC_UPCOMING_OUTDATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to share recipients when a shared document is about to expire."
       },
       "NEW_SHARING": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.NEW_SHARING",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to all recipients (internal users, guests or external users) when a user shares a document."
       },
       "UPLOAD_PROPOSITION_CREATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_CREATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to an internal user or a guest when a external user creates an upload proposition."
       },
       "UPLOAD_PROPOSITION_REJECTED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_PROPOSITION_REJECTED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to an external user when its upload proposition is rejected by the system or by the upload proposition recipient."
       },
       "UPLOAD_REQUEST_ACTIVATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to an external user when an upload request, previously created, is enabled."
       },
       "UPLOAD_REQUEST_CREATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to an external user when an upload request is created."
       },
       "UPLOAD_REQUEST_ACKNOWLEDGEMENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACKNOWLEDGEMENT",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to an internal user or a guest when an external user uploads a file into an upload request."
       },
       "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the owner of an upload request before the expiration of the upload request."
       },
       "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the recipient of an upload request before the expiration of the upload request."
       },
       "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_OWNER_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the owner of an upload request when the upload request expires."
       },
       "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the recipient of an upload request when the upload request expires."
       },
       "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the external user when the upload request owner is closed."
       },
       "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the internal user or guest when the upload request is closed by the recipient."
       },
       "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_SENDER",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the owner of an upload request when the recipient deletes documents he has already uploaded."
       },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the user who is creating a share with the option 'Acknowledgement of share creation' enabled. It contains the resume of the share."
       },
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UNDOWNLOADED_SHARED_DOCUMENTS_ALERT",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the user who is creating a share with the option 'Undownloaded shared document alert' enabled. It contains the resume of downloaded shares."
       },
-      "ANONYMOUS_URL__NOTIFICATION" : {
+      "ANONYMOUS_URL__NOTIFICATION": {
         "NAME": "Anonymous download notification",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Anonymous download notification will be sent for every download or only for the first."
       }
     },
@@ -848,7 +861,7 @@
     "DETAILS": {
       "UPLOAD_REQUEST": {
         "NAME": "Upload request",
-        "USE_EXTENDED_DESCRIPTION" : "3",
+        "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -860,7 +873,7 @@
       },
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
         "NAME": "Upload request - Notification language",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -872,7 +885,7 @@
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Upload request - Delay before activation",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -884,7 +897,7 @@
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
         "NAME": "Upload request - Delay before expiration",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -896,7 +909,7 @@
       },
       "UPLOAD_REQUEST__GROUPED_MODE": {
         "NAME": "Upload request - Grouped mode",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -908,7 +921,7 @@
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
         "NAME": "Upload request - Maximum file count",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -920,7 +933,7 @@
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
         "NAME": "Upload request - Maximum file size",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -932,7 +945,7 @@
       },
       "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
         "NAME": "Upload request - Maximum deposit size",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -944,7 +957,7 @@
       },
       "UPLOAD_REQUEST__SECURED_URL": {
         "NAME": "Upload request - Secured URL",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -956,7 +969,7 @@
       },
       "UPLOAD_REQUEST__CAN_CLOSE": {
         "NAME": "Upload request - Closure right",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "lalalala",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -968,7 +981,7 @@
       },
       "UPLOAD_REQUEST__PROLONGATION": {
         "NAME": "Upload request - Prolongation",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -980,7 +993,7 @@
       },
       "UPLOAD_REQUEST__CAN_DELETE": {
         "NAME": "Upload request - Recipient delete right",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "sdffdsdd",
         "ADVANCED_DESCRIPTION": "sdffds",
         "USER_OVERRIDE": "",
@@ -992,7 +1005,7 @@
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
         "NAME": "Upload request - Delay before notification",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1004,7 +1017,7 @@
       },
       "UPLOAD_REQUEST_ENABLE_TEMPLATE": {
         "NAME": "Upload request templates",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1016,7 +1029,7 @@
       },
       "QUOTA_USER": {
         "NAME": "Quota user",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1028,7 +1041,7 @@
       },
       "MIME_TYPE": {
         "NAME": "Mime type",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1040,7 +1053,7 @@
       },
       "FILESIZE_MAX": {
         "NAME": "Max file size",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1052,7 +1065,7 @@
       },
       "QUOTA_GLOBAL": {
         "NAME": "Quota global",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1064,7 +1077,7 @@
       },
       "TIME_STAMPING": {
         "NAME": "Time stamping",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1076,7 +1089,7 @@
       },
       "ANTIVIRUS": {
         "NAME": "Antivirus",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1088,7 +1101,7 @@
       },
       "SIGNATURE": {
         "NAME": "Signature",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1100,7 +1113,7 @@
       },
       "ENCIPHERMENT": {
         "NAME": "Encipherment",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1112,7 +1125,7 @@
       },
       "FILE_EXPIRATION": {
         "NAME": "File expiration",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1124,7 +1137,7 @@
       },
       "SHARE_EXPIRATION": {
         "NAME": "Share expiration",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1136,7 +1149,7 @@
       },
       "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
         "NAME": "Deleting files on expiration shares",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1148,7 +1161,7 @@
       },
       "CUSTOM_LOGO": {
         "NAME": "Custom logo",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1160,7 +1173,7 @@
       },
       "CUSTOM_LOGO__LINK": {
         "NAME": "Link logo",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1172,7 +1185,7 @@
       },
       "COMPLETION": {
         "NAME": "Completion",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1184,7 +1197,7 @@
       },
       "ANONYMOUS_URL": {
         "NAME": "Anonymous URL",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1196,7 +1209,7 @@
       },
       "GUESTS": {
         "NAME": "Guests",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1208,7 +1221,7 @@
       },
       "GUESTS__EXPIRATION": {
         "NAME": "Expiration",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1220,7 +1233,7 @@
       },
       "GUESTS__CAN_UPLOAD": {
         "NAME": "Upload right",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1232,7 +1245,7 @@
       },
       "GUESTS__RESTRICTED": {
         "NAME": "Contacts restriction",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "You can restrict guests to share only with a restricted and personnal list of emails. By default, the guest will be restricted to his owner.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1244,7 +1257,7 @@
       },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
         "NAME": "Postpone guest expiry date",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Allow internal users to edit and postpone the expiry date of a guest",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1256,7 +1269,7 @@
       },
       "TAB_USER": {
         "NAME": "Tab User",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1268,7 +1281,7 @@
       },
       "TAB_AUDIT": {
         "NAME": "Tab Audit",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1280,7 +1293,7 @@
       },
       "TAB_HELP": {
         "NAME": "Tab help",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1292,7 +1305,7 @@
       },
       "TAB_THREAD": {
         "NAME": "Tab Group",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1304,7 +1317,7 @@
       },
       "TAB_THREAD__CREATE_PERMISSION": {
         "NAME": "Create thread permission",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1316,7 +1329,7 @@
       },
       "TAB_LIST": {
         "NAME": "Tab List",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1328,7 +1341,7 @@
       },
       "SHARE_NOTIFICATION_BEFORE_EXPIRATION": {
         "NAME": "Share notification before expiry date",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1340,7 +1353,7 @@
       },
       "THREAD_PERMISSION": {
         "NAME": "Group permission",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1352,7 +1365,7 @@
       },
       "UPDATE_FILE": {
         "NAME": "Update file",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1364,7 +1377,7 @@
       },
       "DOMAIN": {
         "NAME": "Domain",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1376,7 +1389,7 @@
       },
       "DOMAIN__MAIL": {
         "NAME": "Domain mail",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1388,7 +1401,7 @@
       },
       "DOMAIN__NOTIFICATION_URL": {
         "NAME": "Notification URL",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1400,7 +1413,7 @@
       },
       "UPLOAD_PROPOSITION_FILTER": {
         "NAME": "Filtering on upload proposition",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1412,7 +1425,7 @@
       },
       "UPLOAD_PROPOSITION": {
         "NAME": "Upload proposition",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1424,7 +1437,7 @@
       },
       "INTERNAL_CAN_UPLOAD": {
         "NAME": "Internal can upload",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1436,7 +1449,7 @@
       },
       "INTERNAL_CAN_CREATE_GUESTS": {
         "NAME": "Can create guest",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1448,7 +1461,7 @@
       },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
         "NAME": "Acknowledgement of share creation",
-        "USE_EXTENDED_DESCRIPTION" : "0",
+        "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1460,7 +1473,7 @@
       },
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
         "NAME": "Undownloaded shared document alert",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "By enabling this functionality, users will have the opportunity to get notified when a document has not been downloaded following a share. That notification is sent if at least one document of the share has not been downloaded at all.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1470,9 +1483,9 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION" : {
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
         "NAME": "Undownloaded shared document alert - Days before the alert",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This is the default number of worked days (weekend are excluded) between now and the alert notification.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1482,9 +1495,9 @@
         "PARAMETER_NAME": "Default activation checkbox value in share form",
         "PARAMETER_DESCRIPTION": ""
       },
-      "ANONYMOUS_URL__NOTIFICATION" : {
+      "ANONYMOUS_URL__NOTIFICATION": {
         "NAME": "Anonymous download notification",
-        "USE_EXTENDED_DESCRIPTION" : "1",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Anonymous download notification will be sent for every download or only for the first.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1496,28 +1509,28 @@
       }
     },
     "PARAMETERS": {
-      "GUESTS__RESTRICTED__BOOLEAN_false" : "The guest will not be restricted.",
-      "GUESTS__RESTRICTED__BOOLEAN_true" : "The guest will be restricted to a list of emails.",
-      "GUESTS__CAN_UPLOAD__BOOLEAN_false" : "The guest will not have the deposit right by default.",
-      "GUESTS__CAN_UPLOAD__BOOLEAN_true" : "The guest will have the deposit right by default.",
-      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_false" : "The user can not extend the expiration date of a guest.",
-      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_true" : "The user can extend the expiration date of a guest.",
-      "ANONYMOUS_URL__BOOLEAN_false" : "The anonymous shares will not be secured by a password when created.",
-      "ANONYMOUS_URL__BOOLEAN_true" : "The anonymous shares will be secured by a password when created.",
-      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_false" : "The document will not be removed at the expiration of the last share.",
-      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_true" : "The document will be removed at the expiration of the last share.",
-      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_false" : "The recipient can not close the upload request.",
-      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_true" : "The recipient can close the upload request.",
-      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_false" : "The recipient can not delete files.",
-      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true" : "The recipient can delete files.",
-      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false" : "The sender will not postpone the expiry date.",
-      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true" : "The sender will postpone the expiry date.",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false" : "The access to the invitation will not be protected by a password.",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true" : "The access to the invitation will be protected by a password.",
-      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false" : "An invitation will be created per recipient.",
-      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true" : "All recipients share the conditions of use of the invitation.",
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false" : "No acknowledgement will be sent to the issuer of the share.",
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true" : "An acknowledgement will be sent to the issuer of the share.",
+      "GUESTS__RESTRICTED__BOOLEAN_false": "The guest will not be restricted.",
+      "GUESTS__RESTRICTED__BOOLEAN_true": "The guest will be restricted to a list of emails.",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_false": "The guest will not have the deposit right by default.",
+      "GUESTS__CAN_UPLOAD__BOOLEAN_true": "The guest will have the deposit right by default.",
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_false": "The user can not extend the expiration date of a guest.",
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_true": "The user can extend the expiration date of a guest.",
+      "ANONYMOUS_URL__BOOLEAN_false": "The anonymous shares will not be secured by a password when created.",
+      "ANONYMOUS_URL__BOOLEAN_true": "The anonymous shares will be secured by a password when created.",
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_false": "The document will not be removed at the expiration of the last share.",
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_true": "The document will be removed at the expiration of the last share.",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_false": "The recipient can not close the upload request.",
+      "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_true": "The recipient can close the upload request.",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_false": "The recipient can not delete files.",
+      "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true": "The recipient can delete files.",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false": "The sender will not postpone the expiry date.",
+      "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true": "The sender will postpone the expiry date.",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false": "The access to the invitation will not be protected by a password.",
+      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true": "The access to the invitation will be protected by a password.",
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false": "An invitation will be created per recipient.",
+      "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true": "All recipients share the conditions of use of the invitation.",
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false": "No acknowledgement will be sent to the issuer of the share.",
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true": "An acknowledgement will be sent to the issuer of the share.",
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_false": "The undownloaded shared document alert is deactivated",
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_true": "The undownloaded shared document alert is activated",
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Notification will be sent for the first download only.",
@@ -1574,7 +1587,7 @@
       "TABLE": {
         "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
         "HEADER_ACTIONS": "Actions",
-        "TABLE_ACTIONS" : {
+        "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_DELETE_YES": "Yes",
           "BUTTON_DELETE_NO": "No"
@@ -1621,7 +1634,7 @@
       "TABLE": {
         "HEADER_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
         "HEADER_ACTIONS": "Actions",
-        "TABLE_ACTIONS" : {
+        "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_DELETE_YES": "Yes",
           "BUTTON_DELETE_NO": "No"
@@ -1670,7 +1683,7 @@
         "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
         "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
         "HEADER_ACTIONS": "Actions",
-        "TABLE_ACTIONS" : {
+        "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_DELETE_YES": "Yes",
           "BUTTON_DELETE_NO": "No"
@@ -1723,7 +1736,7 @@
         "HEADER_ACTIONS": "Actions",
         "PRIVATE": "Private",
         "PUBLIC": "Public",
-        "TABLE_ACTIONS" : {
+        "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_DELETE_YES": "Yes",
           "BUTTON_DELETE_NO": "No"
@@ -1877,7 +1890,7 @@
     },
     "BOX_LIST": {
       "TITLE": "Inconsistent users list",
-      "TABLE" : {
+      "TABLE": {
         "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
         "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
         "HEADER_EMAIL": "Email",
@@ -2101,7 +2114,7 @@
     "BOX_LIST": {
       "TITLE": "Filters list",
       "BUTTON_ADD": "Create filter",
-      "TABLE" : {
+      "TABLE": {
         "HEADER_ACTIONS": "Actions",
         "HEADER_NAME": "Name",
         "HEADER_STATUS": "Status"
@@ -2137,7 +2150,7 @@
     "BOX_LIST": {
       "TITLE": "Account list",
       "BUTTON_ADD": "Create a technical account",
-      "TABLE" : {
+      "TABLE": {
         "HEADER_NAME": "Name"
       }
     },
