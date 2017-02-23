@@ -9,6 +9,7 @@
       "LABEL_EMAIL": "Courriel",
       "LABEL_FIRST_NAME": "Prénom",
       "LABEL_LAST_NAME": "Nom",
+      "LABEL_LEGEND": "Légende",
       "LABEL_NAME": "Nom",
       "LABEL_ACTIVE": "Actif",
       "LABEL_INACTIVE": "Inactif",
@@ -231,37 +232,21 @@
         "ANTIVIRUS_SCAN_FAILED": "Scan antivirus échoué"
       },
       "MAIL_CONTENT_TYPE": {
-        "ANONYMOUS_DOWNLOAD": "Téléchargement par un utilisateur anonyme",
-        "REGISTERED_DOWNLOAD": "Téléchargement par un utilisateur enregistré",
-        "NEW_GUEST": "Création d'invité",
-        "RESET_PASSWORD": "Réinitialisation de mot de passe",
-        "SHARED_DOC_UPDATED": "Partage mis à jour",
-        "SHARED_DOC_DELETED": "Partage supprimé",
-        "SHARED_DOC_UPCOMING_OUTDATED": "Alerte sur l'expiration prochaine d'un partage",
-        "DOC_UPCOMING_OUTDATED": "Alerte sur l'expiration prochaine d'un document",
-        "NEW_SHARING": "Nouveau partage",
-        "NEW_SHARING_PROTECTED": "Nouveau partage créé et protégé un mot de passe (URL anonymes)",
-        "NEW_SHARING_CYPHERED": "Nouveau partage chiffré",
-        "NEW_SHARING_CYPHERED_PROTECTED": "Nouveau partage chiffré et protégé par mot de passe",
-        "UPLOAD_PROPOSITION_CREATED": "Notification de création d'une demande de dépôt",
-        "UPLOAD_REQUEST_CREATED": "Notification de création d'une invitation de dépôt",
-        "UPLOAD_PROPOSITION_REJECTED": "Notification de rejet d'une demande de dépôt",
-        "UPLOAD_REQUEST_AUTO_FILTER": "Filtre de la demande de dépôt",
-        "UPLOAD_REQUEST_ACKNOWLEDGEMENT": "Accusé de réception de l'invitation de dépôt",
-        "UPLOAD_REQUEST_ACTIVATED": "Notification après activation d'une invitation de dépôt",
-        "UPLOAD_REQUEST_CLOSED_BY_OWNER": "Notification de clôture d'une invitation de dépôt par son émetteur",
-        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Notification de clôture d'une invitation de dépôt par le destinataire",
-        "UPLOAD_REQUEST_DELETED_BY_OWNER": "Notification de suppression d'une invitation de dépôt par le propriétaire",
-        "UPLOAD_REQUEST_NO_SPACE_LEFT": "Espace Disque insuffisant lors du dépôt pour une invitation de dépôt",
-        "UPLOAD_REQUEST_REMINDER": "Notification de rappel des conditions d'utilisation d'une invitation de dépôt",
-        "UPLOAD_REQUEST_UPDATED": "Notification de mise à jour des conditions d'utilisation d'une invitation de dépôt",
-        "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": "Avertissement d'une future expiration d'une invitation de dépôt (destinataire)",
-        "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": "Avertissement d'une future expiration d'une invitation de dépôt (émetteur)",
-        "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": "Notification d'expiration d'une invitation de dépôt (destinataire)",
-        "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": "Notification d'expiration d'une invitation de dépôt (émetteur)",
-        "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": "Accusé de réception de création d'un partage pour l'émetteur",
-        "SHARE_CREATION_ACKNOWLEDGEMENT_WITH_SPECIAL_MESSAGE_FOR_OWNER": "Accusé de réception de création de partage pour l'émetteur avec sujet personnalisé",
-        "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": "Notification de suppression d'un fichier par l'utilisateur externe"
+        "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "Futur suppression de fichier pour cause d'expiration",
+        "GUEST_ACCOUNT_NEW_CREATION": "Un nouvel invité reçoit le lien d'activation de son compte invité",
+        "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "Un invité reçoit le lien de réinitialisation de son mot de passe",
+        "SHARE_FILE_DOWNLOAD": "Un destinataire a téléchargé le fichier partagé",
+        "SHARE_FILE_SHARE_DELETED": "L'émetteur a supprimé le partage de son fichier",
+        "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "L' émetteur reçoit un résumé de son partage",
+        "SHARE_NEW_SHARE_FOR_RECIPIENT": "Un destinataire reçoit un lien de partage de fichier.",
+        "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": "Le partage d'un fichier de l'émetteur va bientôt expirer",
+        "SHARE_WARN_UNDOWNLOADED_FILESHARES": "Rappel de non-téléchargement de fichiers",
+        "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "???",
+        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Un destinataire a clôturé l'invitation de dépot du créateur",
+        "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "Un destinataire n'a pas pu déposé un fichier par manque d’espace",
+        "UPLOAD_REQUEST_UPLOADED_FILE": "Un destinataire a déposé un fichier dans une invitation de dépot",
+        "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "Une invitation de dépot sera prochainement clôturé",
+        "UPLOAD_REQUEST_WARN_EXPIRY": "Une invitation de dépot a été clôturé"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -1748,12 +1733,17 @@
     },
     "MODAL_FORM": {
       "TITLE": "Création",
+      "LABEL_MODEL": "Model",
+      "LABEL_DOMAIN": "Domain",
       "LABEL_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
       "LABEL_VISIBLE": "@:MAIL_CONFIG.BOX_FORM.LABEL_VISIBLE",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
       }
+    },
+    "SHOW_FORM": {
+      "LABEL": "Lecture seule"
     },
     "BOX_FORM": {
       "HEADER": {
@@ -1766,15 +1756,19 @@
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_VISIBLE": "Visible",
       "LEGEND_VISIBLE": "Ce champ permet aux sous-domaines de voir cette configuration de courriel.",
+      "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
       "LABEL_MAIL_CONTENT_LANG": "Contenus de courriel",
       "LABEL_MAIL_FOOTER_LANG": "Pied de courriel",
-      "LABEL_MAIL_LAYOUT_TEXT": "Disposition de courriel texte",
-      "LABEL_MAIL_LAYOUT_HTML": "Disposition de courriel HTML",
+      "LABEL_MAIL_LAYOUT": "Disposition de courriel",
       "TABLE": {
+        "HEADER_MAIL_LANGUAGE": "Mail Language",
         "HEADER_MAIL_CONTENT_NAME": "Mail content name",
-        "HEADER_MAIL_CONTENT_TYPE": "Mail content type"
+        "HEADER_MAIL_CONTENT_LEGEND": "@:COMMON.BASIC_FORM.LABEL_LEGEND",
+        "HEADER_MAIL_CONTENT_TYPE": "Mail content type",
+        "HEADER_MAIL_FOOTER_NAME": "Mail footer name"
       },
       "FORM_ACTIONS": {
+        "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
@@ -1794,8 +1788,20 @@
       }
     },
     "BOX_FOOTER_LANG": {
+      "FORM_ACTIONS": {
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      },
+      "HEADER": {
+        "LANGUAGE": {
+          "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+          "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+        }
+      },
+      "LABEL_FOOTER": "Pied",
       "LABEL_LANGUAGE": "Langue",
-      "LABEL_FOOTER": "Pied"
+      "LABEL_MAIL_FOOTER_SELECTOR": "Selection du pied de courriel",
+      "LABEL_MAIL_FOOTER_TITLE": "Pied de courriel"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer cette configuration de courriel, cette procédure est irréversible. Souhaitez-vous continuer ?"

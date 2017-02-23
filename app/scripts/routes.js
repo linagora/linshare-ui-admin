@@ -953,8 +953,14 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               currentDomain: function(Domain, $stateParams) {
                 return Domain.get($stateParams.domainId);
               },
-              currentMailConfig: function(MailConfig, $stateParams) {
-                return MailConfig.get($stateParams.domainId, $stateParams.id);
+              currentMailConfig: function(MailConfig,currentDomain, $state, $stateParams) {
+                return MailConfig.get($stateParams.domainId, $stateParams.id).then(function(data) {
+                  if (data.domain === currentDomain.identifier) {
+                    return data;
+                  } else {
+                    $state.go('mailconfig.list', {domainId: currentDomain.identifier});
+                  }
+                });
               },
               MailLanguage: enumMailLanguage
             }
@@ -974,6 +980,24 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               },
               mailContents: function(MailConfig, currentMailContentLang, $stateParams) {
                 return MailConfig.getAllMailContents($stateParams.mailConfigId, currentMailContentLang.language, currentMailContentLang.mailContentType);
+              }
+            }
+          }
+        }
+      })
+      .state('mailconfig.mailfooterlang', {
+        url: '/:domainId/mailfooterlang/:mailConfigId/:id',
+        views: {
+          'tree': domainTreeView,
+          'mailfooterlang': {
+            templateUrl: 'ng_components/mailfooter/mailfooterlang_detail.tpl.html',
+            controller: 'MailFooterLangDetailCtrl',
+            resolve: {
+              currentMailFooterLang: function(MailFooterLang, $stateParams) {
+                return MailFooterLang.get($stateParams.id);
+              },
+              mailFooters: function(MailConfig, currentMailFooterLang, $stateParams) {
+                return MailConfig.getAllMailFooters($stateParams.mailConfigId, currentMailFooterLang.language);
               }
             }
           }

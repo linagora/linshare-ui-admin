@@ -9,6 +9,7 @@
       "LABEL_EMAIL": "Mail",
       "LABEL_FIRST_NAME": "First name",
       "LABEL_LAST_NAME": "Last name",
+      "LABEL_LEGEND": "Legend",
       "LABEL_NAME": "Name",
       "LABEL_ACTIVE": "Active",
       "LABEL_INACTIVE": "Inactive",
@@ -224,38 +225,21 @@
         "ANTIVIRUS_SCAN_FAILED": "Antivirus scan failed"
       },
       "MAIL_CONTENT_TYPE": {
-        "ANONYMOUS_DOWNLOAD": "Anonymous download",
-        "REGISTERED_DOWNLOAD": "Registered download",
-        "NEW_GUEST": "New guest",
-        "RESET_PASSWORD": "Reset password",
-        "SHARED_DOC_UPDATED": "Shared document updated",
-        "SHARED_DOC_DELETED": "Shared document deleted",
-        "SHARED_DOC_UPCOMING_OUTDATED": "Shared document upcoming outdated",
-        "DOC_UPCOMING_OUTDATED": "Document upcoming outdated",
-        "NEW_SHARING": "New sharing",
-        "NEW_SHARING_PROTECTED": "New sharing protected",
-        "NEW_SHARING_CYPHERED": "New sharing cyphered",
-        "NEW_SHARING_CYPHERED_PROTECTED": "New sharing cyphered protected",
-        "UPLOAD_PROPOSITION_CREATED": "Creation of an upload proposition",
-        "UPLOAD_REQUEST_CREATED": "Creation of an upload request",
-        "UPLOAD_PROPOSITION_REJECTED": "Notification for a reject of an upload proposition",
-        "UPLOAD_REQUEST_AUTO_FILTER": "Upload proposition filter",
-        "UPLOAD_REQUEST_ACKNOWLEDGEMENT": "Upload request acknowledgement",
-        "UPLOAD_REQUEST_ACTIVATED": "Notification for the activation of an upload request",
-        "UPLOAD_REQUEST_CLOSED_BY_OWNER": "Upload request has been closed by the owner",
-        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Upload request has been closed by the recipient",
-        "UPLOAD_REQUEST_DELETED_BY_OWNER": "Upload request deleted by the owner",
-        "UPLOAD_REQUEST_NO_SPACE_LEFT": "No space left for this upload request",
-        "UPLOAD_REQUEST_WARN_RECIPIENT_EXPIRY": "Warning sent to the recipient for the upload request expiry",
-        "UPLOAD_REQUEST_WARN_OWNER_EXPIRY": "Warning notification to the owner for the upload request expiry",
-        "UPLOAD_REQUEST_REMINDER": "A reminder for the upload request",
-        "UPLOAD_REQUEST_UPDATED": "The upload request has been updated",
-        "UPLOAD_REQUEST_WARN_RECIPIENT_BEFORE_EXPIRY": "Warning notification sent to the recipient before the upload request expiry",
-        "UPLOAD_REQUEST_WARN_OWNER_BEFORE_EXPIRY": "Warning notification sent to the owner before the upload request expiry",
-        "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": "Acknowledgement of share creation",
-        "SHARE_CREATION_ACKNOWLEDGEMENT_WITH_SPECIAL_MESSAGE_FOR_OWNER": "Acknowledgement of share creation sent to the owner with customized subject.",
-        "UPLOAD_REQUEST_FILE_DELETED_BY_SENDER": "Notification of deleting a document from the external user",
-        "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": "Undownloaded shared documents alert"
+        "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "A file is about to be deleted since it will reach its expiry date",
+        "GUEST_ACCOUNT_NEW_CREATION": "A new guest receives an activation link for his account",
+        "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "A guest receives a reset link for his password",
+        "SHARE_FILE_DOWNLOAD": "A recipient has downloaded the shared file",
+        "SHARE_FILE_SHARE_DELETED": "The sender of the fileshare has deleted his fileshare",
+        "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "The sender receives a recap of his fileshares",
+        "SHARE_NEW_SHARE_FOR_RECIPIENT": "A recipient receives a fileshare link",
+        "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": "The fileshare of the sender is about to expire",
+        "SHARE_WARN_UNDOWNLOADED_FILESHARES": "Undownloaded fileshare reminder",
+        "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "???",
+        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "A recipient has closed the upload request of the creator",
+        "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "A recipient could not upload his file due to insufficient space",
+        "UPLOAD_REQUEST_UPLOADED_FILE": "A recipient has uploaded a file within the upload request depot",
+        "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "An upload request depot is about to be closed",
+        "UPLOAD_REQUEST_WARN_EXPIRY": "An upload request depot has been closed"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -1765,7 +1749,7 @@
     "BOX_LIST": {
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
+        "HEADER_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
         "HEADER_VISIBLE": "Visibility",
         "HEADER_ACTIONS": "Actions",
         "PRIVATE": "Private",
@@ -1780,11 +1764,16 @@
     "MODAL_FORM": {
       "TITLE": "Creation",
       "LABEL_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
+      "LABEL_MODEL": "Model",
+      "LABEL_DOMAIN": "Domain",
       "LABEL_VISIBLE": "@:MAIL_CONFIG.BOX_FORM.LABEL_VISIBLE",
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
       }
+    },
+    "SHOW_FORM": {
+      "LABEL": "Read only"
     },
     "BOX_FORM": {
       "HEADER": {
@@ -1797,15 +1786,19 @@
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_VISIBLE": "Visible",
       "LEGEND_VISIBLE": "This field allows subdomains to see this configuration.",
+      "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
       "LABEL_MAIL_CONTENT_LANG": "Mail contents",
       "LABEL_MAIL_FOOTER_LANG": "Mail footer",
-      "LABEL_MAIL_LAYOUT_TEXT": "Mail layout text",
-      "LABEL_MAIL_LAYOUT_HTML": "Mail layout HTML",
+      "LABEL_MAIL_LAYOUT": "Mail layout",
       "TABLE": {
+        "HEADER_MAIL_LANGUAGE": "Mail Language",
         "HEADER_MAIL_CONTENT_NAME": "Mail content name",
-        "HEADER_MAIL_CONTENT_TYPE": "Mail content type"
+        "HEADER_MAIL_CONTENT_LEGEND": "@:COMMON.BASIC_FORM.LABEL_LEGEND",
+        "HEADER_MAIL_CONTENT_TYPE": "Mail content type",
+        "HEADER_MAIL_FOOTER_NAME": "Mail footer name"
       },
       "FORM_ACTIONS": {
+        "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
@@ -1825,8 +1818,20 @@
       }
     },
     "BOX_FOOTER_LANG": {
+      "FORM_ACTIONS": {
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      },
+      "HEADER": {
+        "LANGUAGE": {
+          "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+          "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+        }
+      },
+      "LABEL_FOOTER": "Footer",
       "LABEL_LANGUAGE": "Language",
-      "LABEL_FOOTER": "Footer"
+      "LABEL_MAIL_FOOTER_SELECTOR": "Select the mail footer",
+      "LABEL_MAIL_FOOTER_TITLE": "Mail footer"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this mail config, this procedure is irreversible. Do you want to proceed?"

@@ -30,8 +30,10 @@ angular.module('linshareAdminApp')
         total: 0, // length of data
         getData: function($defer, params) {
           var orderedData = params.sorting() ?
-                    $filter('orderBy')(mailConfigs, params.orderBy()) :
-                    mailConfigs;
+                $filter('orderBy')(mailConfigs, params.orderBy()) :
+                mailConfigs;
+          orderedData = params.filter ?
+                $filter('filter')(orderedData, params.filter()) : orderedData;
           params.total(orderedData.length);
           $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
         }
