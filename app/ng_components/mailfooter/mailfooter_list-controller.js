@@ -2,10 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('MailFooterListCtrl',
-    ['$scope', '$filter', '$log', '$modal', '$state', '$translate', 'ngTableParams', 'MailFooter', 'mailFooters', 'currentDomain', 'Languages', 'MailLanguage',
-    function($scope, $filter, $log, $modal, $state, $translate, ngTableParams, MailFooter, mailFooters, currentDomain, Languages, MailLanguage) {
+    ['$filter', '$log', '$modal', '$scope', '$state', '$translate', 'currentDomain', 'ngTableParams', 'MailFooter',
+      'mailFooters',
+    function($filter, $log, $modal, $scope, $state, $translate, currentDomain, ngTableParams, MailFooter,
+      mailFooters) {
       $scope.domain = currentDomain;
-      $scope.languages = MailLanguage;
 
       $scope.getTemplate = function () {
         return 'MAIL_FOOTER';
@@ -21,31 +22,21 @@ angular.module('linshareAdminApp')
           $state.reinit();
         });
       };
-      $scope.filters = {
-        language: Languages.langCmp($state.params.language).filter
-      };
-      $scope.$watch('filters.language',
-        function(newValue) {
-          $state.go('.', {domainId: $state.params.domainId, language: newValue});
-        }
-      );
       $scope.tableParams = new ngTableParams({
         page: 1,        // show first page
         count: 10,      // count per page
-        filter: $scope.filters,
         sorting: {
-          name: 'asc'
+          description: 'asc'
         }
       }, {
         debugMode: false,
         total: 0, // length of data
         getData: function($defer, params) {
-          var filteredData = params.filter() ?
-                    $filter('filter')(mailFooters, params.filter()) :
-                    mailFooters;
           var orderedData = params.sorting() ?
-                    $filter('orderBy')(filteredData, params.orderBy()) :
-                    filteredData;
+              $filter('orderBy')(mailFooters, params.orderBy()) :
+              mailFooters;
+          orderedData = params.filter ?
+              $filter('filter')(orderedData, params.filter()) : orderedData;
           params.total(orderedData.length);
           $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
         }

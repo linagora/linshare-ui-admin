@@ -8,13 +8,13 @@
       x-ls-form-attempt>
   <fieldset>
     <div class="modal-body">
-      <!-- Name -->
+      <!-- Description -->
       <div class="form-group">
-        <label for="name">
+        <label for="description">
           {{ 'MAIL_FOOTER.MODAL_FORM.LABEL_NAME' | translate }}
         </label>
-        <input id="name" name="name" type="text" class="form-control" required
-               x-ng-model="mailFooter.name">
+        <input id="description" name="description" type="text" class="form-control" required
+               x-ng-model="mailFooter.description">
       </div>
       <!-- Model -->
       <fieldset>
@@ -26,31 +26,17 @@
              x-ng-class="{'has-error': mailFooterForm.domain.$invalid &&
               (mailFooterForm.domain.$dirty || ls.mailFooterForm.attempted)}">
           <label for="domain">
-            {{ 'MAIL_FOOTER.MODAL_FORM.LABEL_DOMAIN' | translate }}
+            {{ 'MAIL_FOOTER.MODAL_FORM.LABEL_TARGET_DOMAIN' | translate }}
           </label>
           <select id="domain" name="domain" class="form-control" required
                   x-ng-model="domain"
                   x-ng-change="reloadModels(lang, domain)"
-                  x-ng-options="d.identifier as d.label for d in domains | orderBy:'identifier'">
-          </select>
-        </div>
-        <!-- Language -->
-        <div class="form-group"
-             x-ng-show="domain"
-             x-ng-class="{'has-error': mailFooterForm.lang.$invalid &&
-              (mailFooterForm.lang.$dirty || ls.mailFooterForm.attempted)}">
-          <label for="lang">
-            {{ 'MAIL_FOOTER.MODAL_FORM.LABEL_LANGUAGE' | translate }}
-          </label>
-          <select id="lang" name="lang" class="form-control" required
-                  x-ng-model="lang"
-                  x-ng-change="reloadModels(lang, domain)"
-                  x-ng-options="'MAIL_FOOTER.BOX_LIST.HEADER.LANGUAGE.' + l | translate for l in ['ENGLISH', 'FRENCH']">
+                  x-ng-options="d.label for d in domains | orderBy:'identifier'">
           </select>
         </div>
         <!-- Model -->
         <div class="form-group"
-             x-ng-show="isDefined(domain) && isDefined(lang)"
+             x-ng-show="isDefined(domain)"
              x-ng-class="{'has-error': mailFooterForm.model.$invalid &&
               (mailFooterForm.model.$dirty || ls.mailFooterForm.attempted)}">
           <label for="model">
@@ -58,7 +44,7 @@
           </label>
           <select id="model" name="model" class="form-control" required
                   x-ng-model="model"
-                  x-ng-options="m.name for m in models | filter:{language: lang} | orderBy:'name'">
+                  x-ng-options="m.description for m in models | filter:{language: lang} | orderBy:'uuid'">
           </select>
         </div>
       </fieldset>

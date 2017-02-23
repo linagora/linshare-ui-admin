@@ -2,30 +2,35 @@
 
 angular.module('linshareAdminApp')
   .controller('mailFooterModalCtrl',
-    ['$scope', '$log', '$translate', '$state', '$modalInstance', 'Domain', 'MailFooter',
-      function ($scope, $log, $translate, $state, $modalInstance, Domain, MailFooter) {
+    ['$modalInstance', '$log', '$scope', '$state', 'Domain', 'MailFooter',
+      function ($modalInstance, $log, $scope, $state, Domain, MailFooter) {
         Domain.getAll().then(function(domains) {
           $scope.domains = domains;
+          if (!_.isUndefined($scope.domainUuid)) {
+            $scope.domain = _.find($scope.domains, {identifier: $scope.domainUuid});
+          }
         });
         $scope.isDefined = function(x) {
-          return angular.isDefined(x);
+          return !_.isUndefined(x);
         };
         $scope.reloadModels = function(lang, domain) {
-          if (angular.isDefined(domain) &&
-              angular.isDefined(lang)) {
-            MailFooter.getAll(domain.identifier, false).then(function(models) {
+          if (!_.isUndefined($scope.domain)) {
+            MailFooter.getAll($scope.domain.identifier, false).then(function(models) {
               $scope.models = models;
+              if (!_.isUndefined($scope.modelUuid)) {
+                $scope.model = _.find($scope.models, {uuid: $scope.modelUuid});
+              }
             });
           }
         };
         $scope.create = function (model) {
           var originalModel = model.originalElement;
-          delete originalModel.name;
-          angular.extend($scope.mailFooter, originalModel);
+          delete originalModel.description;
+          _.extend($scope.mailFooter, originalModel);
           delete $scope.mailFooter.uuid;
           delete $scope.mailFooter.creationDate;
           delete $scope.mailFooter.modificationDate;
-          $scope.mailFooter.domain = $state.params.domainId;
+          $scope.mailFooter.domain = $scope.domain.identifier;
           MailFooter.add($scope.mailFooter).then(function() {
             $modalInstance.close();
             $scope.reset();
@@ -39,7 +44,9 @@ angular.module('linshareAdminApp')
         $scope.reset = function() {
           $scope.mailFooter = {};
         };
-        $scope.reset();
+        if (!_.isUndefined($scope.domain)) {
+          $scope.reloadModels();
+        }
       }
     ]
   );

@@ -878,8 +878,14 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               currentDomain: function(Domain, $stateParams) {
                 return Domain.get($stateParams.domainId);
               },
-              currentMailFooter: function(MailFooter, $stateParams) {
-                return MailFooter.get($stateParams.domainId, $stateParams.id);
+              currentMailFooter: function(MailFooter, currentDomain, $state, $stateParams) {
+                return MailFooter.get($stateParams.domainId, $stateParams.id).then(function(data) {
+                  if (data.domain === currentDomain.identifier) {
+                    return data;
+                  } else {
+                    $state.go('mailfooter.list', {domainId: currentDomain.identifier});
+                  }
+                });
               }
             }
           }
