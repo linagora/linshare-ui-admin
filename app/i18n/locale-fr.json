@@ -23,6 +23,8 @@
       "BUTTON_COPY": "Copier",
       "BUTTON_DELETE": "Supprimer",
       "BUTTON_CLOSE": "Retour à la liste",
+      "BUTTON_RENDER": "Prévisualiser",
+      "BUTTON_RENDER_LIVE": "Prévisualiser (live)",
       "BUTTON_RESET": "Réinitialiser",
       "BUTTON_CREATE": "Créer",
       "BUTTON_ADD": "Ajouter",
@@ -1666,7 +1668,8 @@
       },
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
+        "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "HEADER_LEGEND": "@:COMMON.BASIC_FORM.LABEL_LEGEND",
         "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
         "HEADER_ACTIONS": "Actions",
         "TABLE_ACTIONS": {
@@ -1684,13 +1687,24 @@
       "LABEL_SUBJECT": "Sujet",
       "LABEL_ALTERNATIVE_SUBJECT": "Sujet alternatif",
       "LABEL_GREETINGS": "Salutations",
+      "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
       "LABEL_BODY": "Corps",
+      "LABEL_CONTENT_CONTEXT": {
+        "0": "Défaut"
+      },
+      "LABEL_CONTEXT": "Variables de context",
+      "LABEL_FRENCH": "Français",
+      "LABEL_ENGLISH": "Anglais",
+      "LABEL_NORENDER": "Pas de visualiastion",
       "LABEL_PLAINTEXT": "Texte brut",
       "LABEL_VISIBLE": "Visible",
       "LABEL_IS_AS_USED_false": "Activer le sujet alternatif",
       "LABEL_IS_AS_USED_true": "Désactiver le sujet alternatif",
       "FORM_ACTIONS": {
+        "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RENDER": "@:COMMON.BASIC_FORM.BUTTON_RENDER",
+        "BUTTON_RENDER_LIVE": "@:COMMON.BASIC_FORM.BUTTON_RENDER_LIVE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       }
@@ -1709,6 +1723,9 @@
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
       }
+    },
+    "SHOW_FORM": {
+      "LABEL": "Lecture seule"
     }
   },
 

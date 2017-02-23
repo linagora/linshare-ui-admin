@@ -23,6 +23,8 @@
       "BUTTON_COPY": "Copy",
       "BUTTON_DELETE": "Delete",
       "BUTTON_CLOSE": "Go to the list",
+      "BUTTON_RENDER": "Preview",
+      "BUTTON_RENDER_LIVE": "Preview (live)",
       "BUTTON_RESET": "Reset",
       "BUTTON_CREATE": "Create",
       "BUTTON_ADD": "Add",
@@ -1697,7 +1699,8 @@
       },
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
+        "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "HEADER_LEGEND": "@:COMMON.BASIC_FORM.LABEL_LEGEND",
         "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
         "HEADER_ACTIONS": "Actions",
         "TABLE_ACTIONS": {
@@ -1716,12 +1719,23 @@
       "LABEL_ALTERNATIVE_SUBJECT": "Alternative Subject",
       "LABEL_GREETINGS": "Greetings",
       "LABEL_BODY": "Body",
+      "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
+      "LABEL_CONTENT_CONTEXT": {
+        "0": "Default"
+      },
+      "LABEL_CONTEXT": "Context variables",
+      "LABEL_FRENCH": "French",
+      "LABEL_ENGLISH": "English",
+      "LABEL_NORENDER": "No preview",
       "LABEL_PLAINTEXT": "Plain text",
       "LABEL_VISIBLE": "Visible",
       "LABEL_IS_AS_USED_false": "Enable the alternative subject",
       "LABEL_IS_AS_USED_true": "Disable the alternative subject",
       "FORM_ACTIONS": {
+        "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RENDER": "@:COMMON.BASIC_FORM.BUTTON_RENDER",
+        "BUTTON_RENDER_LIVE": "@:COMMON.BASIC_FORM.BUTTON_RENDER_LIVE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       }
@@ -1740,6 +1754,9 @@
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
       }
+    },
+    "SHOW_FORM": {
+      "LABEL": "Read only"
     }
   },
 
