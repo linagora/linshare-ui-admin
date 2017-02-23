@@ -396,6 +396,13 @@ a.disabled {
     .view-selector {
       margin-right: 30px;
     }
+    small.label {
+      margin-left: 10px;
+      line-height: 4;
+      i.fa {
+        margin-right: 0.25em;
+      }
+    }
   }
   .btn.btn-primary {
     background-color: #fff;

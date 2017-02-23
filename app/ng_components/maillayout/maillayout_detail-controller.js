@@ -2,11 +2,37 @@
 
 angular.module('linshareAdminApp')
   .controller('MailLayoutDetailCtrl',
-    ['$scope', '$log', '$modal', '$state', 'MailLayout', 'currentDomain', 'currentMailLayout',
-    function($scope, $log, $modal, $state, MailLayout, currentDomain, currentMailLayout) {
+    ['$log', '$modal', '$scope', '$state', '$translate', 'currentDomain', 'currentMailLayout', 'MailLayout',
+      'Notification',
+    function($log, $modal, $scope, $state, $translate, currentDomain, currentMailLayout, MailLayout, Notification) {
       $scope.mailLayout = currentMailLayout;
       $scope.domain = currentDomain;
-
+      $scope.copy = copy;
+      /**
+       * @name copy
+       * @desc Copy a mail content
+       * @memberOf linshareAdminApp.MailLayoutDetailCtrl
+       */
+      function copy() {
+        var copyMessage, copyText;
+        $translate('MAIL_LAYOUT.BOX_FORM.TEXT_COPY').then(function(data) {
+          copyText = data + ' ';
+          var modalScope = $scope.$new();
+          modalScope.mailLayout = {};
+          modalScope.mailLayout.description = copyText + $scope.mailLayout.description;
+          modalScope.domainUuid = currentDomain.identifier;
+          modalScope.modelUuid = currentMailLayout.uuid;
+          var modalInstance = $modal.open({
+            controller: 'mailLayoutModalCtrl',
+            templateUrl: 'ng_components/maillayout/maillayout_modal.tpl.html',
+            scope: modalScope
+          });
+          modalInstance.result.then(function() {
+          }).catch(function() {});
+        }).catch (function(error) {
+          Notification.addError(error);
+        });
+      }
       $scope.remove = function() {
         var modalInstance = $modal.open({
           templateUrl: 'ng_components/common/confirm_modal.tpl.html',

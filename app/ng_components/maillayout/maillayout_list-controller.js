@@ -23,15 +23,17 @@ angular.module('linshareAdminApp')
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {
-          name: 'asc'
+          description: 'asc'
         }
       }, {
         debugMode: false,
         total: 0, // length of data
         getData: function($defer, params) {
           var orderedData = params.sorting() ?
-                    $filter('orderBy')(mailLayouts, params.orderBy()) :
-                    mailLayouts;
+              $filter('orderBy')(mailLayouts, params.orderBy()) :
+              mailLayouts;
+          orderedData = params.filter ?
+              $filter('filter')(orderedData, params.filter()) : orderedData;
           params.total(orderedData.length);
           $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
         }

@@ -6,25 +6,31 @@ angular.module('linshareAdminApp')
       function ($scope, $log, $state, $modalInstance, Domain, MailLayout) {
         Domain.getAll().then(function(domains) {
           $scope.domains = domains;
+          if (!_.isUndefined($scope.domainUuid)) {
+            $scope.domain = _.find($scope.domains, {identifier: $scope.domainUuid});
+          }
         });
         $scope.isDefined = function(x) {
-          return angular.isDefined(x);
+          return !_.isUndefined(x);
         };
         $scope.reloadModels = function(domain) {
-          if (angular.isDefined(domain)) {
-            MailLayout.getAll(Domain.getId(domain), false).then(function(models) {
+          if (!_.isUndefined($scope.domain)) {
+            MailLayout.getAll(Domain.getId($scope.domain), false).then(function(models) {
               $scope.models = models;
+              if (!_.isUndefined($scope.modelUuid)) {
+                $scope.model = _.find($scope.models, {uuid: $scope.modelUuid});
+              }
             });
           }
         };
         $scope.create = function (model) {
           var originalModel = model.originalElement;
-          delete originalModel.name;
+          delete originalModel.description;
           angular.extend($scope.mailLayout, originalModel);
           delete $scope.mailLayout.uuid;
           delete $scope.mailLayout.creationDate;
           delete $scope.mailLayout.modificationDate;
-          $scope.mailLayout.domain = $state.params.domainId;
+          $scope.mailLayout.domain = $scope.domain.identifier;
           MailLayout.add($scope.mailLayout).then(function() {
             $modalInstance.close();
             $scope.reset();
@@ -38,7 +44,9 @@ angular.module('linshareAdminApp')
         $scope.reset = function() {
           $scope.mailLayout = {};
         };
-        $scope.reset();
+        if (!_.isUndefined($scope.domain)) {
+          $scope.reloadModels();
+        }
       }
     ]
   );

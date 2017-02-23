@@ -20,6 +20,7 @@
       "LABEL_EDITION": "Edition of",
       "BUTTON_LIST": "List",
       "BUTTON_CANCEL": "Cancel",
+      "BUTTON_COPY": "Copy",
       "BUTTON_DELETE": "Delete",
       "BUTTON_CLOSE": "Go to the list",
       "BUTTON_RESET": "Reset",
@@ -29,7 +30,8 @@
       "BUTTON_SHOW": "Show",
       "BUTTON_DUPLICATE": "Duplicate",
       "BUTTON_SUBMIT": "Save",
-      "BUTTON_SEARCH": "Search"
+      "BUTTON_SEARCH": "Search",
+      "TEXT_COPY": "Copy of "
     },
     "BASIC_CONFIRMATION_FORM": {
       "TITLE": "Confirmation",
@@ -89,6 +91,7 @@
     },
     "NOTIFICATION": {
       "SUCCESS": {
+        "COPY": "Copy succeed",
         "CREATE": "Creation succeed",
         "UPDATE": "Update succeed",
         "DELETE": "Deletion succeed",
@@ -1585,7 +1588,7 @@
     "BOX_LIST": {
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
+        "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
         "HEADER_ACTIONS": "Actions",
         "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
@@ -1598,9 +1601,13 @@
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_LAYOUT": "Layout",
+      "LABEL_FRENCH": "French",
+      "LABEL_ENGLISH": "English",
+      "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
       "LABEL_PLAINTEXT": "Plain text",
       "LABEL_VISIBLE": "Visible",
       "FORM_ACTIONS": {
+        "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
@@ -1618,6 +1625,9 @@
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
       }
+    },
+    "SHOW_FORM": {
+      "LABEL": "Read only"
     }
   },
 

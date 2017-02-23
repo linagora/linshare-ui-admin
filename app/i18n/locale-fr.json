@@ -20,6 +20,7 @@
       "LABEL_EDITION": "Édition de",
       "BUTTON_LIST": "Liste",
       "BUTTON_CANCEL": "Annuler",
+      "BUTTON_COPY": "Copier",
       "BUTTON_DELETE": "Supprimer",
       "BUTTON_CLOSE": "Retour à la liste",
       "BUTTON_RESET": "Réinitialiser",
@@ -29,7 +30,8 @@
       "BUTTON_SHOW": "Aperçu",
       "BUTTON_DUPLICATE": "Dupliquer",
       "BUTTON_SUBMIT": "Sauvegarder",
-      "BUTTON_SEARCH": "Rechercher"
+      "BUTTON_SEARCH": "Rechercher",
+      "TEXT_COPY": "Copie de "
     },
     "BASIC_CONFIRMATION_FORM": {
       "TITLE": "Confirmation",
@@ -89,6 +91,7 @@
     },
     "NOTIFICATION": {
       "SUCCESS": {
+        "COPY": "Copie réussie",
         "CREATE": "Creation réussie",
         "UPDATE": "Mise à jour réussie",
         "DELETE": "Suppression réussie",
@@ -1558,7 +1561,7 @@
     "BOX_LIST": {
       "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
       "TABLE": {
-        "HEADER_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
+        "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
         "HEADER_ACTIONS": "Actions",
         "TABLE_ACTIONS": {
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
@@ -1572,8 +1575,10 @@
       "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
       "LABEL_LAYOUT": "Dispositions",
       "LABEL_PLAINTEXT": "Texte brut",
+      "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
       "LABEL_VISIBLE": "Visible",
       "FORM_ACTIONS": {
+        "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
@@ -1591,6 +1596,9 @@
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
       }
+    },
+    "SHOW_FORM": {
+      "LABEL": "Lecture seule"
     }
   },
 
