@@ -821,6 +821,19 @@
       }
     },
     "DETAILS": {
+      "CONTACTS_LIST": {
+        "NAME": "Liste de contacts"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Droit de création",
+        "PARAMETER_NAME": "Paramètre"
+      },
+      "WORK_GROUP": {
+        "NAME": "Groupe de Travail"
+      },
+      "WORK_GROUP__CREATION_RIGHT": {
+        "NAME": "Droit de création"
+      },
       "UPLOAD_REQUEST": {
         "NAME": "Invitation de dépôt",
         "USE_EXTENDED_DESCRIPTION": "3",
@@ -1229,6 +1242,10 @@
         "PARAMETER_NAME": "Protection par mot de passe",
         "PARAMETER_DESCRIPTION": ""
       },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "URL de notification courriel",
+        "PARAMETER_NAME": "URL linshare ui user"
+      },
       "TAB_USER": {
         "NAME": "Onglet 'Utilisateur'",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -1440,6 +1457,8 @@
       }
     },
     "PARAMETERS": {
+      "CONTACTS_LIST__CREATION_RIGHT__BOOLEAN_false": "L'utilisateur n'aura pas le droit de créer une liste de contacts",
+      "CONTACTS_LIST__CREATION_RIGHT__BOOLEAN_true": "L'utilisateur aura le droit de créer une liste de contacts",
       "GUESTS__RESTRICTED__BOOLEAN_false": "L'utilisateur ne sera pas restreint.",
       "GUESTS__RESTRICTED__BOOLEAN_true": "L'utilisateur sera restreint à communiquer avec une liste de contacts.",
       "GUESTS__CAN_UPLOAD__BOOLEAN_false": "L'utilisateur n'aura pas le droit de dépôt par défaut (formulaire de création).",

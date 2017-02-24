@@ -816,6 +816,19 @@
       }
     },
     "DETAILS": {
+      "CONTACTS_LIST": {
+        "NAME": "Contacts list"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Creation right",
+        "PARAMETER_NAME": "Parameters"
+      },
+      "WORK_GROUP": {
+        "NAME": "Workgroup"
+      },
+      "WORK_GROUP__CREATION_RIGHT": {
+        "NAME": "Creation right"
+      },
       "UPLOAD_REQUEST": {
         "NAME": "Upload request",
         "USE_EXTENDED_DESCRIPTION": "3",
@@ -1164,6 +1177,10 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "Email notification URL",
+        "PARAMETER_NAME": "Linshare ui user URL"
+      },
       "GUESTS": {
         "NAME": "Guests",
         "USE_EXTENDED_DESCRIPTION": "0",
@@ -1466,6 +1483,8 @@
       }
     },
     "PARAMETERS": {
+      "CONTACTS_LIST__CREATION_RIGHT__BOOLEAN_false": "The user cannot create a contact list",
+      "CONTACTS_LIST__CREATION_RIGHT__BOOLEAN_true": "The user can create a contact list",
       "GUESTS__RESTRICTED__BOOLEAN_false": "The guest will not be restricted.",
       "GUESTS__RESTRICTED__BOOLEAN_true": "The guest will be restricted to a list of emails.",
       "GUESTS__CAN_UPLOAD__BOOLEAN_false": "The guest will not have the deposit right by default.",
