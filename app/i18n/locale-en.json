@@ -150,6 +150,7 @@
         "19666": "This mail layout can't be deleted, it is used by a mail configuration",
         "19667": "Mail layout not found",
         "19668": "The mail layout model cannot be created",
+        "19669": "You do not have the right to remove copyright footer.",
         "20000": "A error has occured, please contact your @:COMMON.NAME administrator",
         "20001": "Webservice unauthorized",
         "20003": "Webservice not found",
