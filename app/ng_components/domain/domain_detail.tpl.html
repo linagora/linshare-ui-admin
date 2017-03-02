@@ -62,7 +62,7 @@
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE_MAIL' | translate }}
           </label>
           <select id="externalMailLocale" name="externalMailLocale" class="form-control" required
-                  x-ng-init="domain.externalMailLocale = 'ENGLISH'"
+                  x-ng-init="domain.externalMailLocale = domain.externalMailLocale || 'ENGLISH'"
                   x-ng-model="domain.externalMailLocale"
                   x-ng-options="l as 'COMMON.ENUM.LANGUAGE.' + l | translate for l in supportedLanguages">
           </select>
@@ -77,7 +77,7 @@
             {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LANGUAGE' | translate }}
           </label>
           <select id="language" name="language" class="form-control" required
-                  x-ng-init="domain.language = 'ENGLISH'"
+                  x-ng-init="domain.language = domain.language || 'ENGLISH'"
                   x-ng-model="domain.language"
                   x-ng-options="l as 'COMMON.ENUM.SUPPORTED_LANGUAGE.' + l | translate for l in languages">
           </select>
@@ -191,7 +191,7 @@
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_USER_ROLE' | translate }}
               </label>
               <select id="userRole" name="userRole" class="form-control" required
-                      x-ng-init = "domain.userRole = 'SIMPLE'"
+                      x-ng-init = "domain.userRole = domain.userRole || 'SIMPLE'"
                       x-ng-model="domain.userRole"
                       x-ng-options="u as 'COMMON.ENUM.ROLE.' + u | translate for u in userRoles track by u"
                       x-ng-selected="domain.userRole.uuid === userRole.uuid">
@@ -269,7 +269,7 @@
                     x-ng-model="provider.ldapConnectionUuid">
                     <option
                       x-ng-repeat="(key, val) in ldapConnections"
-                      x-ng-selected="provider.ldapConnections === key"
+                      x-ng-selected="provider.ldapConnectionUuid === key"
                       value="{{key}}">
                         {{val}}
                     </option>
@@ -295,7 +295,7 @@
                         x-ng-model="provider.userLdapPatternUuid">
                   <option
                     x-ng-repeat="(key, val) in domainPatterns"
-                    x-ng-selected="provider.ldapConnectionUuid === key"
+                    x-ng-selected="provider.userLdapPatternUuid === key"
                     value="{{key}}">
                     {{val}}
                   </option>
