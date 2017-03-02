@@ -105,8 +105,16 @@ body {
   .header {
     .logo {
       background-color: #0372b3;
+      background-image: url('/images/linshare-logo-white.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 3px;
+      margin-left: -10px;
       &:hover {
         background-color: #0372b3;
+        background-image: url('/images/linshare-logo-white.png');
+        background-repeat: no-repeat;
+        background-position: center;
       }
       img {
         margin-top: -5px;
