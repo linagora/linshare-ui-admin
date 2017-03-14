@@ -120,7 +120,8 @@
                 <div class="input-group-addon">
                   <div class="flag {{key}}"></div>
                 </div>
-                <input type="text" class="form-control" x-ng-model="welcomeMessage.welcomeMessagesEntries[key]" value="msg" />
+                <textarea rows="4" class="form-control" x-ng-model="welcomeMessage.welcomeMessagesEntries[key]"
+                          value="msg"></textarea>
               </div>
             </div>
           </accordion-group>
@@ -217,7 +218,8 @@
                 <div class="input-group-addon">
                   <div class="flag {{key}}"></div>
                 </div>
-                <input type="text" class="form-control" x-ng-model="welcomeMessage.welcomeMessagesEntries[key]" value="msg" disabled />
+                <textarea rows="4" class="form-control" x-ng-model="welcomeMessage.welcomeMessagesEntries[key]"
+                          value="msg" disabled></textarea>
               </div>
             </div>
           </accordion-group>

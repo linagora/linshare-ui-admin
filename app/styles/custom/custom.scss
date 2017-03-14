@@ -990,3 +990,9 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 /****  end of slide toggle UI ****/
+
+
+/* limit the textarea width*/
+#accordion textarea {
+  resize: vertical;
+}
