@@ -217,6 +217,7 @@
                         x-ng-model="domain.policy.identifier">
                   <option
                     x-ng-repeat="policy in domainPolicies"
+                    data-ng-selected="domain.policy.identifier === policy.identifier"
                     x-ng-class="{'boldOption': policy.label == 'DefaultDomainPolicy'}"
                     value="{{policy.identifier}}">
                     {{policy.label}}
