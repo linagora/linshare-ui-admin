@@ -26,7 +26,7 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
       return Enum.getOptions('language');
     };
     var enumLogAction = function(Enum) {
-      return Enum.getOptions('log_action');
+      return Enum.getOptions('log_action_v1');
     };
     var enumDomainAccessRuleTypes = function(Enum) {
       return Enum.getOptions('domain_access_rule_type');
