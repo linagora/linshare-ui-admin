@@ -1099,8 +1099,8 @@
         "PARAMETER_NAME": "Paramètres",
         "PARAMETER_DESCRIPTION": ""
       },
-      "FILE_EXPIRATION": {
-        "NAME": "Expiration de fichier",
+      "DOCUMENT_EXPIRATION": {
+        "NAME": "Expiration de document",
         "USE_EXTENDED_DESCRIPTION": "3",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "L'activation de la possibilité de configurer le délai d’expiration des fichiers, au-delà duquel ce fichier sera supprimé de l’espace de l’utilisateur. Nécessite que la clé « Expiration des fichiers » soit activée dans les politiques d’activation.",

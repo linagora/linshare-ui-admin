@@ -1094,8 +1094,8 @@
         "PARAMETER_NAME": "Parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "FILE_EXPIRATION": {
-        "NAME": "File expiration",
+      "DOCUMENT_EXPIRATION": {
+        "NAME": "Document expiration",
         "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",

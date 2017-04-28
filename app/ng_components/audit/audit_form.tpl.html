@@ -146,8 +146,8 @@
             <div class="form-group">
               <label></label> <!-- Bootstrap Hack -->
               <select id="availableActions" multiple class="form-control"
-                      x-ng-model="criteria.logActions"
-                      x-ng-options="action as 'COMMON.ENUM.LOG_ACTION.' + action | translate for action in allActions | orderBy:'toString()'">
+                      data-ng-model="criteria.logActions"
+                      data-ng-options="action as 'COMMON.ENUM.LOG_ACTION_V1.' + action | translate for action in allActions | orderBy:'toString()'">
               </select>
             </div>
           </div>
