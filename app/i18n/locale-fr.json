@@ -199,9 +199,10 @@
         "CREOLE": "Créole",
         "VIETNAMESE": "Vietnamien"
       },
-      "LOG_ACTION": {
+      "LOG_ACTION_V1": {
         "FILE_UPLOAD": "Dépôt de fichier",
         "FILE_SHARE": "Partage de fichier",
+        "FILE_SHARE_WITH_ALERT_FOR_USD": "Partage de fichier créé avec l'Alerte de Non-Téléchargement activée",
         "FILE_EXPIRE": "Expiration de fichier",
         "FILE_DELETE": "Suppression de fichier",
         "FILE_UPDATE": "Mise à jour de fichier",
@@ -212,6 +213,8 @@
         "SHARE_DOWNLOADED": "Partage téléchargé",
         "SHARE_COPY": "Copie de partage",
         "SHARE_DELETE": "Suppression de partage",
+        "SHARE_WITH_USD_DOWNLOADED": "Tous les documents du partage ont bien été téléchargés",
+        "SHARE_WITH_USD_NOT_DOWNLOADED": "Vous avez été informé par courriel qu'au moins un des fichiers du partage n'a pas été téléchargé",
         "ANONYMOUS_SHARE_DOWNLOAD": "Téléchargement de partage anonyme",
         "THREAD_CREATE": "Création de groupe",
         "THREAD_DELETE": "Suppression de groupe",
@@ -228,11 +231,18 @@
         "USER_AUTH": "Authentification d'un utilisateur",
         "USER_AUTH_FAILED": "Authentification échouée d'un utilisateur",
         "USER_UPDATE": "Mise à jour d'un utilisateur",
+        "USER_PURGE": "Purge d'un utilisateur",
         "FILE_SIGN": "Signature d'un fichier",
         "FILE_ENCRYPT": "Chiffrement d'un fichier",
         "FILE_DECRYPT": "Déchiffrement d'un fichier",
         "FILE_WITH_VIRUS": "Fichier vérolé",
-        "ANTIVIRUS_SCAN_FAILED": "Scan antivirus échoué"
+        "ANTIVIRUS_SCAN_FAILED": "Scan antivirus échoué",
+        "LIST_CREATE": "Création de liste",
+        "LIST_DELETE": "Suppression de liste",
+        "LIST_UPDATE": "Modification de liste",
+        "LIST_ADD_CONTACT": "Ajout d'un contact dans la liste",
+        "LIST_DELETE_CONTACT": "Suppresion d'un contact de la liste",
+        "LIST_UPDATE_CONTACT": "Modification d'un contact de la liste"
       },
       "MAIL_CONTENT_TYPE": {
         "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "Futur suppression de fichier pour cause d'expiration",

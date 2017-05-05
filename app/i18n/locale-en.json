@@ -192,9 +192,10 @@
         "CREOLE": "Creole",
         "VIETNAMESE": "Vietnamese"
       },
-      "LOG_ACTION": {
+      "LOG_ACTION_V1": {
         "FILE_UPLOAD": "File upload",
         "FILE_SHARE": "File share",
+        "FILE_SHARE_WITH_ALERT_FOR_USD": "File share sent with the Undownloaded Fileshare Alert activated",
         "FILE_EXPIRE": "File expire",
         "FILE_DELETE": "File delete",
         "FILE_UPDATE": "File update",
@@ -205,6 +206,8 @@
         "SHARE_DOWNLOADED": "Share downloaded",
         "SHARE_COPY": "Share copy",
         "SHARE_DELETE": "Share delete",
+        "SHARE_WITH_USD_DOWNLOADED": "All the files within the share have been downloaded",
+        "SHARE_WITH_USD_NOT_DOWNLOADED": "You have been notified by email that at least one file remains undowloaded",
         "ANONYMOUS_SHARE_DOWNLOAD": "Anonymous share download",
         "THREAD_CREATE": "Group created",
         "THREAD_DELETE": "Group deleted",
@@ -221,11 +224,18 @@
         "USER_AUTH": "User authentication",
         "USER_AUTH_FAILED": "User authentication failed",
         "USER_UPDATE": "User update",
+        "USER_PURGE": "User purge",
         "FILE_SIGN": "File sign",
         "FILE_ENCRYPT": "File encrypt",
         "FILE_DECRYPT": "File decrypt",
         "FILE_WITH_VIRUS": "File with virus",
-        "ANTIVIRUS_SCAN_FAILED": "Antivirus scan failed"
+        "ANTIVIRUS_SCAN_FAILED": "Antivirus scan failed",
+        "LIST_CREATE": "List created",
+        "LIST_DELETE": "List deleted",
+        "LIST_UPDATE": "List updated",
+        "LIST_ADD_CONTACT": "Contact added to the list",
+        "LIST_DELETE_CONTACT": "Contact deleted from the list",
+        "LIST_UPDATE_CONTACT": "Contact updated"
       },
       "MAIL_CONTENT_TYPE": {
         "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "A file is about to be deleted since it will reach its expiry date",
