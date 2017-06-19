@@ -99,14 +99,14 @@ angular.module('linshareAdminApp')
             children_sref: [
               'mimepolicy.detail'
             ]
-          }, {
+          },/* {
             name: 'COMMON.TAB.UPLOAD_PROPOSITION_FILTER',
             superAdminOnly: true,
             sref: 'uploadpropositionfilter.list',
             children_sref: [
               'uploadpropositionfilter.detail',
             ]
-          }, {
+          },*/ {
             name: 'COMMON.TAB.WELCOME_MESSAGES',
             superAdminOnly: false,
             sref: 'welcomemessage.list',
@@ -172,11 +172,11 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.AUDIT',
             superAdminOnly: false,
             sref: 'audit.form'
-          }, {
+          }/*, {
             name: 'COMMON.TAB.UPLOAD_REQUEST',
             superAdminOnly: true,
             sref: 'uploadrequest.form'
-          }
+          }*/
         ]
       };
 
