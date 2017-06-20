@@ -1,0 +1,96 @@
+<section class="content ng-scope">
+  <div class="row">
+    <section class="col-md-12">
+      <div class="box box-primary">
+        <!-- Header - Begin -->
+        <div class="box-header">
+          <h3 class="box-title" translate>UPGRADE_TASKS.TITLE</h3>
+          <i class="fa fa-info-circle fa-lg pull-right" data-ng-class="{'active': isCollapsed}"
+             data-ng-click="isCollapsed = !isCollapsed">
+          </i>
+          <button class="clear-btn blue pull-right" data-ng-click="upgradeTasksVm.tableParams.reload()"
+            style="padding:10px;">
+            <i class="fa fa-refresh fa-lg pull-right"></i>
+          </button>
+        </div>
+        <!-- Header - End -->
+        <div class="box-body">
+          <!-- Documentation - Begin -->
+          <div class="description" collapse="!isCollapsed">
+            <x-ls-help content="upgradeTasksVm.getHelp()"></x-ls-help>
+          </div>
+          <!-- Documentation - End -->
+          <div class="table-responsive">
+            <table class="table table-striped table-hover"
+                   data-ng-table="upgradeTasksVm.tableParams">
+              <tr data-ng-repeat="upgradeTask in $data">
+                <td data-title="'UPGRADE_TASKS.BOX_LIST.TABLE.HEADER.IDENTIFIER' | translate">
+                  <a data-ng-attr-ui-sref="{{upgradeTask.canShowConsole() ?
+                      'upgradetasks.asynctasks.list({upgradeTasksId: upgradeTask.identifier})' : '.'}}">
+                    {{upgradeTask.identifier}}
+                  </a>
+                </td>
+                <td data-title="'UPGRADE_TASKS.BOX_LIST.TABLE.HEADER.DESCRIPTION' | translate">
+                  <a data-ng-attr-ui-sref="{{upgradeTask.canShowConsole() ?
+                      'upgradetasks.asynctasks.list({upgradeTasksId: upgradeTask.identifier})' : '.'}}" translate>
+                    UPGRADE_TASKS.TASKS.{{upgradeTask.identifier}}
+                  </a>
+                </td>
+                <td data-title="'UPGRADE_TASKS.BOX_LIST.TABLE.HEADER.CRITICALITY' | translate">
+                  <a data-ng-attr-ui-sref="{{upgradeTask.canShowConsole() ?
+                      'upgradetasks.asynctasks.list({upgradeTasksId: upgradeTask.identifier})' : '.'}}" translate>
+                    UPGRADE_TASKS.CRITICALITY.{{upgradeTask.priority}}
+                  </a>
+                </td>
+                <td data-title="'UPGRADE_TASKS.BOX_LIST.TABLE.HEADER.STATUS' | translate">
+                  <a data-ng-attr-ui-sref="{{upgradeTask.canShowConsole() ?
+                      'upgradetasks.asynctasks.list({upgradeTasksId: upgradeTask.identifier})' : '.'}}" translate>
+                    UPGRADE_TASKS.STATUS.{{upgradeTask.status}}
+                  </a>
+                </td>
+                <td data-title="'UPGRADE_TASKS.BOX_LIST.TABLE.HEADER.MODIFICATION_DATE' | translate">
+                  <a data-ng-attr-ui-sref="{{upgradeTask.canShowConsole() ?
+                      'upgradetasks.asynctasks.list({upgradeTasksId: upgradeTask.identifier})' : '.'}}">
+                    {{upgradeTask.modificationDate}}
+                  </a>
+                </td>
+                <td data-title="'UPGRADE_TASKS.BOX_LIST.TABLE.HEADER.ACTIONS' | translate"
+                    class="actions" >
+                  <span tooltip="{{'UPGRADE_TASKS.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_EXECUTE' | translate}}">
+                    <button class="clear-btn black" type="button" data-ng-if="!upgradeTask.canRetry()"
+                            data-ng-click="upgradeTask.execute()" data-ng-disabled="!upgradeTask.canExecute()"
+                            data-ng-class="{'disabled': !upgradeTask.canExecute()}">
+                      <i class="fa fa-magic fa-lg"></i>
+                    </button>
+                  </span>
+                  <span tooltip="{{'UPGRADE_TASKS.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_RETRY' | translate}}">
+                    <button class="clear-btn black" type="button" data-ng-if="upgradeTask.canRetry()"
+                        data-ng-click="upgradeTask.execute()">
+                      <i class="fa fa-refresh fa-lg"></i>
+                    </button>
+                  </span>
+                  <span tooltip="{{'UPGRADE_TASKS.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_PREVIOUS' | translate}}">
+                    <button class="clear-btn black"
+                       ui-sref="upgradetasks.asynctasks.list({upgradeTasksId: upgradeTask.identifier})"
+                       data-ng-disabled="!upgradeTask.canShowConsole()"
+                        data-ng-class="{'disabled': !upgradeTask.canShowConsole()}">
+                      <i class="fa fa-tasks fa-lg"></i>
+                    </button>
+                  </span>
+                  <span tooltip="{{'UPGRADE_TASKS.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_CONSOLE' | translate}}">
+                    <button class="clear-btn black" type="button"
+                        data-ng-click="upgradeTask.showConsole()"
+                        data-ng-disabled="!upgradeTask.canShowConsole()"
+                        data-ng-class="{'disabled': !upgradeTask.canShowConsole()}">
+                      <i class="fa fa-terminal fa-lg"></i>
+                    </button>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

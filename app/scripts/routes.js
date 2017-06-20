@@ -1113,6 +1113,44 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
           _enumTechnicalAccountPermissionTypes: enumTechnicalAccountPermissionTypes
         }
       })
+      .state('upgradetasks', {
+        url: '/upgradetasks',
+        abstract: true,
+        template: '<div ui-view></div>'
+      })
+      .state('upgradetasks.list', {
+        url: '/list',
+        templateUrl: 'ng_components/upgradetasks/views/upgradetasks.html',
+        controller: 'UpgradeTasksController',
+        controllerAs: 'upgradeTasksVm',
+      })
+      .state('upgradetasks.asynctasks', {
+        url: '/:upgradeTasksId/asynctasks',
+        abstract: true,
+        template: '<div ui-view></div>',
+        resolve: {
+          upgradeTask: function($stateParams, upgradeTasksRestService) {
+            return upgradeTasksRestService.get($stateParams.upgradeTasksId);
+          },
+        }
+      })
+      .state('upgradetasks.asynctasks.list', {
+        url: '/list',
+        templateUrl: 'ng_components/upgradetasks/views/asynctasks.html',
+        controller: 'AsyncTasksController',
+        controllerAs: 'asyncTasksVm',
+      })
+      .state('upgradetasks.asynctasks.details', {
+        url: '/:asyncTasksUuid',
+        templateUrl: 'ng_components/upgradetasks/views/asynctasks.details.html',
+        controller: 'AsyncTasksDetailsController',
+        controllerAs: 'asyncTaskVm',
+        resolve: {
+          asyncTask: function($stateParams, upgradeTasksRestService) {
+            return upgradeTasksRestService.getTask($stateParams.upgradeTasksId, $stateParams.asyncTasksUuid);
+          }
+        }
+      })
       .state('uploadrequest', {
         url: '/uploadrequest',
         abstract: true,

@@ -1,0 +1,56 @@
+<section class="content ng-scope">
+  <div class="row">
+    <section class="col-md-12">
+      <div class="box box-primary">
+        <!-- Header - Begin -->
+        <div class="box-header">
+          <h3 class="box-title">
+            {{asyncTaskVm.upgradeTask.identifier}}:
+            <span translate>UPGRADE_TASKS.TASKS.{{asyncTaskVm.upgradeTask.identifier}}</span>
+          </h3>
+          <i class="fa fa-info-circle fa-lg pull-right" data-ng-class="{'active': isCollapsed}"
+              data-ng-click="isCollapsed = !isCollapsed">
+         </i>
+          <button class="clear-btn blue pull-right" x-ng-click="asyncTaskVm.createRefresher()"
+            style="padding:10px;">
+            <i class="fa fa-refresh fa-lg pull-right"></i>
+          </button>
+          <button class="clear-btn blue pull-right" x-ng-click="asyncTaskVm.$window.history.back()"
+                  style="padding:10px;">
+            <i class="fa fa-arrow-circle-left fa-lg pull-right"></i>
+          </button>
+        </div>
+        <!-- Header - End -->
+        <div class="box-body">
+          <!-- Documentation - Begin -->
+          <div class="description" collapse="!isCollapsed">
+            <x-ls-help content="asyncTaskVm.getHelp()"></x-ls-help>
+          </div>
+          <!-- Documentation - End -->
+          <div class="filter">
+            <span translate>ASYNC_TASKS.BOX_LIST.FILTER.LABEL</span> :
+            <div class="filter-switch pull-right"
+                 data-ng-repeat="value in asyncTaskVm.log.values track by $index">
+              <span>{{value}} : </span>
+              <label class="switch">
+                <input type="checkbox"
+                       data-ng-model="asyncTaskVm.log.selected[value]"
+                       data-ng-click="asyncTaskVm.log.selected[value] = !asyncTaskVm.log.selected[value];
+                         asyncTaskVm.filterLog()">
+                <div class="slider round"></div>
+              </label>
+            </div>
+          </div>
+          <div class="console" scroll-glue>
+            <div class="console-line" data-ng-repeat="line in asyncTaskVm.console.show track by $index">
+              <kbd>
+                <span class="console-date">{{line.creationDate}}</span> &nbsp
+                <span class="console-criticality">{{line.criticity}}</span>: {{line.message}}
+              </kbd>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

@@ -92,7 +92,8 @@
       "UPLOAD_REQUEST": "Invitation de dépôt",
       "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt",
       "AUDIT": "Audit",
-      "MANAGE_QUOTA": "Configuration du quota des domaines"
+      "MANAGE_QUOTA": "Configuration du quota des domaines",
+      "UPGRADES_TASKS": "Tâches de mise à jour"
     },
     "NOTIFICATION": {
       "SUCCESS": {
@@ -163,6 +164,8 @@
         "36003": "Vous n'êtes pas autoriser à utiliser ce message d'accueil",
         "36004": "Ce message d'accueil n'existe pas",
         "36005": "Vous tentez de mettre à jour le message d'accueil avec des langues non supportés",
+        "40404": "La tâche de mise à jour que vous tentez d'accéder est introuvable",
+        "40403": "Vous ne possédez pas les droits nécessaire pour mettre à jour la tâche de migration",
         "48000": "Le modèle ne peut être evalué à cause d'erreur",
         "48001": "Le modèle ne peut être evalué à cause d'une exception de saise",
         "48002": "Le modèle ne peut être evalué à cause d'une exception d'évaluation de texte",
@@ -2223,6 +2226,87 @@
     "INFO_QUOTA": "Définissez les tailles de quota pour les espaces de vos domaines",
     "NOTIFICATION": {
       "UPDATE": "Les quotas du domaine et de ces containers respectifs ont correctement été mis à jour"
+    }
+  },
+  "UPGRADE_TASKS": {
+    "ALERT": {
+      "ERROR": "Des tâches de migrations obligatoires n'ont pas encore été exectuées",
+      "WARNING": "Des tâches de migrations requises n'ont pas encore été exectuées"
+    },
+    "BOX_LIST": {
+      "TABLE": {
+        "HEADER": {
+          "ACTIONS": "Actions",
+          "DESCRIPTION": "Description",
+          "IDENTIFIER": "Identifiant",
+          "MODIFICATION_DATE": "Date de modification",
+          "CRITICALITY": "Criticité",
+          "STATUS": "Status"
+        },
+        "TABLE_ACTIONS": {
+          "BUTTON_CONSOLE": "Voir la console",
+          "BUTTON_EXECUTE": "Executer la tâche de mise à jour",
+          "BUTTON_PREVIOUS": "Voir les executions précèdentes",
+          "BUTTON_RETRY": "Réexécuter la tâche de mise à jour"
+        }
+      }
+    },
+    "CRITICALITY": {
+      "MANDATORY": "Obligatoire",
+      "REQUIRED": "Requis"
+    },
+    "MODAL": {
+      "BUTTONS": {
+        "OK": "Réexécuter (forcer)",
+        "CANCEL": "Annuler"
+      },
+      "TEXT": "La tâche selectionné {STATUS, select, SUCCESS{à été terminé avec succèe} PENDING{attend d'être executée} PROCESSING{est en cours de traitement} FAILED{a échoué} other{est dans l'état {STATUS}}}. Souhaites-vous éxecuter de nouveau la tâche ?",
+      "TITLE": "Réexécution forcer de tache"
+    },
+    "STATUS": {
+      "FAILED": "Échec",
+      "NEW": "Nouvelle",
+      "PENDING": "En attente",
+      "PROCESSING": "En traitement",
+      "SUCCESS": "Succès"
+    },
+    "TASKS": {
+      "UPGRADE_2_0_ACCOUNT_QUOTA": "Initialisation des structures de quota pour tous les types de comptes existants (utilisateurs et groupe de travail)",
+      "UPGRADE_2_0_CLEANUP_OLD_ACCOUNT": "Supprime l'ancienne structure de quota pour tous les types de comptes existants",
+      "UPGRADE_2_0_THREAD_TO_WORKGROUP": "Generation de la nouvelle architecture des groupe de travail",
+      "UPGRADE_2_0_DOMAIN_POLICIES_UUID": "Generation des uuid pour les règles de domaine à la place des identifier/label",
+      "UPGRADE_2_0_DOMAIN_UUID": "Generation des uuid pour les domaines à la place des identifier/label",
+      "UPGRADE_2_0_DOMAIN_QUOTA_SUBDOMAINS": "Initialisation des structure de quota (quota domaine et quota conteneur) pour tous les sous-domaines",
+      "UPGRADE_2_0_DOMAIN_QUOTA_TOPDOMAINS": "Initialisation des structure de quota (quota domaine et quota conteneur) pour tous les top-domaines",
+      "UPGRADE_2_0_SHA256SUM": "Compute sha256sum pour tous les document conservés (cette valeur peut être indéfinie)",
+      "UPGRADE_2_0_UPGRADE_STORAGE": "Migration des fichiers de l'ancien espace de stockage",
+      "UPGRADE_2_0_CLEANUP_EXPIRED_GUEST": "Supprime les comptes invités expirés",
+      "UPGRADE_2_0_CLEANUP_EXPIRED_ACCOUNT": "Supprime les comptes internes expirés",
+      "UPGRADE_2_0_PURGE_ACCOUNT": "Supprime les données des comptes (internes et invités)"
+    },
+    "TITLE": "Tâches de mise à jour"
+  },
+  "ASYNC_TASKS": {
+    "BOX_LIST": {
+      "FILTER": {
+        "LABEL": "Filtrer par niveau de log "
+      },
+      "TABLE": {
+        "HEADER": {
+          "ACTIONS": "Actions",
+          "CREATION_DATE": "Date de création",
+          "DURATION": "Durée",
+          "MODIFICATION_DATE": "Date de modification",
+          "STATUS": "Status"
+        },
+        "TABLE_ACTIONS": {
+          "BUTTON_CONSOLE": "Voir la console"
+        }
+      }
+    },
+    "TITLE": {
+      "PLURAL": "Tâches asynchrones",
+      "SINGULAR": "Tâche asynchrone"
     }
   }
 }

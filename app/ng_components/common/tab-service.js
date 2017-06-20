@@ -36,6 +36,9 @@ angular.module('linshareAdminApp')
           }, {
             name: 'COMMON.TAB.MANAGE_QUOTA',
             sref: 'quota.detail'
+          }, {
+            name: 'COMMON.TAB.UPGRADES_TASKS',
+            sref: 'upgradetasks.list'
           }
         ]
       };

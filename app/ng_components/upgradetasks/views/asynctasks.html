@@ -1,0 +1,82 @@
+<section class="content ng-scope">
+  <div class="row">
+    <section class="col-md-12">
+      <div class="box box-primary">
+        <!-- Header - Begin -->
+        <div class="box-header">
+          <h3 class="box-title">
+            {{asyncTasksVm.upgradeTask.identifier}}:
+            <span translate>UPGRADE_TASKS.TASKS.{{asyncTasksVm.upgradeTask.identifier}}</span>
+          </h3>
+          <i class="fa fa-info-circle fa-lg pull-right" x-ng-class="{'active': isCollapsed}"
+              data-ng-click="isCollapsed = !isCollapsed">
+          </i>
+          <button class="clear-btn blue pull-right" x-ng-click="asyncTasksVm.tableParams.reload()"
+            style="padding:10px;">
+            <i class="fa fa-refresh fa-lg pull-right"></i>
+          </button>
+          <button class="clear-btn blue pull-right" x-ng-click="asyncTasksVm.$window.history.back()"
+            style="padding:10px;">
+            <i class="fa fa-arrow-circle-left fa-lg pull-right"></i>
+          </button>
+        </div>
+        <!-- Header - End -->
+        <div class="box-body">
+          <!-- Documentation - Begin -->
+          <div class="description" collapse="!isCollapsed">
+            <x-ls-help content="asyncTasksVm.getHelp()"></x-ls-help>
+          </div>
+          <!-- Documentation - End -->
+          <div class="table-responsive">
+            <table class="table table-striped table-hover"
+                   data-ng-table="asyncTasksVm.tableParams">
+              <tr data-ng-repeat="asyncTask in $data">
+                <td data-title="'ASYNC_TASKS.BOX_LIST.TABLE.HEADER.STATUS' | translate">
+                  <a translate data-ng-attr-ui-sref="upgradetasks.asynctasks.details({
+                       upgradeTasksId: asyncTasksVm.upgradeTask.identifier,
+                       asyncTasksUuid: asyncTask.uuid
+                     })">
+                    UPGRADE_TASKS.STATUS.{{asyncTask.status}}
+                  </a>
+                </td>
+                <td data-title="'ASYNC_TASKS.BOX_LIST.TABLE.HEADER.CREATION_DATE' | translate">
+                  <a data-ng-attr-ui-sref="upgradetasks.asynctasks.details({
+                       upgradeTasksId: asyncTasksVm.upgradeTask.identifier,
+                       asyncTasksUuid: asyncTask.uuid
+                     })">
+                    {{asyncTask.creationDate}}
+                  </a>
+                </td>
+                <td data-title="'ASYNC_TASKS.BOX_LIST.TABLE.HEADER.MODIFICATION_DATE' | translate">
+                  <a data-ng-attr-ui-sref="upgradetasks.asynctasks.details({
+                       upgradeTasksId: asyncTasksVm.upgradeTask.identifier,
+                       asyncTasksUuid: asyncTask.uuid
+                     })">
+                    {{asyncTask.modificationDate | date:'medium'}}
+                  </a>
+                </td>
+                <td data-title="'ASYNC_TASKS.BOX_LIST.TABLE.HEADER.DURATION' | translate">
+                  <a tooltip="{{asyncTask.getDuration()}}" data-ng-attr-ui-sref="upgradetasks.asynctasks.details({
+                       upgradeTasksId: asyncTasksVm.upgradeTask.identifier,
+                       asyncTasksUuid: asyncTask.uuid
+                     })">
+                    {{asyncTask.getDuration(true)}}
+                  </a>
+                </td>
+                <td data-title="'ASYNC_TASKS.BOX_LIST.TABLE.HEADER.ACTIONS' | translate"
+                    class="actions">
+                  <span tooltip="{{'ASYNC_TASKS.BOX_LIST.TABLE.TABLE_ACTIONS.BUTTON_CONSOLE' | translate}}">
+                    <button class="clear-btn black" type="button"
+                        data-ng-click="asyncTask.showConsole()">
+                      <i class="fa fa-terminal fa-lg"></i>
+                    </button>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

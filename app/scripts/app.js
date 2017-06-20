@@ -18,7 +18,9 @@ angular.module('linshareAdminApp', [
     'restangular',
     'checklist-model',
     'toggle-switch',
-    'lsDropdownApp'
+    'lsDropdownApp',
+    'angularMoment',
+    'luegg.directives'
 ])
 
 // Register work which needs to be performed on module loading

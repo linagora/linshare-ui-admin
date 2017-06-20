@@ -89,3 +89,21 @@ div.navbar-button {
     text-align: center;
   }
 }
+
+/** blink class **/
+.blink {
+  animation: blinker 1s linear infinite;
+  &.mandatory {
+    i {
+      color: #f56954;
+    }
+  }
+  &.required {
+    i {
+      color: #f39c12;
+    }
+  }
+}
+@keyframes blinker {
+  50% { opacity: 0; }
+}

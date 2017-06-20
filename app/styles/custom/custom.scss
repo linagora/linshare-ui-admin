@@ -25,6 +25,10 @@ $redAlert: #bb0505;
 .darkPink {
   color: $darkPink;
 }
+.black {
+  background-color: $black;
+  color: white;
+}
 .blue {
   color: $blue;
 }
@@ -283,6 +287,17 @@ a.clear-btn, button.clear-btn {
   }
   &.error {
     color: $red;
+  }
+  &.black {
+    background-color: $black;
+    color: white;
+    &.disabled {
+      cursor: not-allowed;
+      color: $lightBlack;
+    }
+    &:hover {
+      color: $darkGrey;
+    }
   }
   &.blue {
     color: $blue;
@@ -583,6 +598,13 @@ a.disabled {
             padding: 0px 6px;
             line-height: 30px;
           }
+          .clear-btn {
+              margin-right: 4px;
+          }
+        }
+        span {
+          padding-top: 8px;
+          display: inline-block;
         }
         a {
           padding: 8px;
@@ -591,6 +613,22 @@ a.disabled {
           width: 100%;
           &:hover {
             color: #000;
+          }
+          &.clear-btn {
+            padding: 2px 6px;
+            display: inline;
+            margin-top:150px;
+            margin-left: -3px;
+            &.black {
+              color: white;
+              &.disabled {
+                cursor: not-allowed;
+                color: $lightBlack;
+              }
+              &:hover {
+                color: $darkGrey;
+              }
+            }
           }
         }
         a.btn {
@@ -995,4 +1033,30 @@ input:checked + .slider:before {
 /* limit the textarea width*/
 #accordion textarea {
   resize: vertical;
+}
+
+
+/*** CONSOLE VIEW ***/
+.filter {
+  margin-bottom: 10px;
+  .filter-switch {
+    margin-left: 10px;
+  }
+}
+.console {
+  height: 600px;
+  overflow: auto;
+  border-radius: 3px;
+  background-color: $black;
+  .console-line {
+    color: $lightGrey;
+    kbd {
+      .console-date {
+        color: $darkGrey;
+      }
+      .console-criticality {
+        color: $orange;
+      }
+    }
+  }
 }

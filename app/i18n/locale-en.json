@@ -92,7 +92,8 @@
       "UPLOAD_REQUEST": "Upload request",
       "UPLOAD_PROPOSITION_FILTER": "Upload proposition filtering",
       "AUDIT": "Audit",
-      "MANAGE_QUOTA": "Manage domains quota"
+      "MANAGE_QUOTA": "Manage domains quota",
+      "UPGRADES_TASKS": "Upgrades tasks"
     },
     "NOTIFICATION": {
       "SUCCESS": {
@@ -163,6 +164,8 @@
         "36003": "You are not allowed to use this welcome message",
         "36004": "Welcome message not found",
         "36005": "You try to update the welcome message with unsupported languages",
+        "40404": "The upgrade task you are trying to access has not been found",
+        "40403": "You don't have the required rights to update this upgrade task",
         "48000": "The template cannot be parsed due to some error",
         "48001": "The template cannot be parsed due to an input exception",
         "48002": "The template cannot be parsed due to a text parse exception",
@@ -2256,6 +2259,87 @@
     "INFO_QUOTA": "Set up the quota size of your spaces within your domains",
     "NOTIFICATION": {
       "UPDATE": "Quota of the domain and his respective containers have been successfully updated"
+    }
+  },
+  "UPGRADE_TASKS": {
+    "ALERT": {
+      "ERROR": "Some mandatory upgrade tasks have not been executed yet",
+      "WARNING": "Some required upgrade tasks have not been executed yet"
+    },
+    "BOX_LIST": {
+      "TABLE": {
+        "HEADER": {
+          "ACTIONS": "Actions",
+          "DESCRIPTION": "Description",
+          "IDENTIFIER": "Identifier",
+          "MODIFICATION_DATE": "Modification date",
+          "CRITICALITY": "Criticality",
+          "STATUS": "Status"
+        },
+        "TABLE_ACTIONS": {
+          "BUTTON_CONSOLE": "Show console",
+          "BUTTON_EXECUTE": "Execute upgrade task",
+          "BUTTON_PREVIOUS": "Show previous execution",
+          "BUTTON_RETRY": "Retry upgrade task"
+        }
+      }
+    },
+    "CRITICALITY": {
+      "MANDATORY": "Mandatory",
+      "REQUIRED": "Required"
+    },
+    "MODAL": {
+      "BUTTONS": {
+        "OK": "Force retry",
+        "CANCEL": "Cancel"
+      },
+      "TEXT": "The selected task {STATUS, select, SUCCESS{has been successfuly completed} PENDING{is waiting to be executed} PROCESSING{is being processed} FAILED{has failed to complete} other{is in the following status {STATUS}}}. Do you wish to execute the task again ?",
+      "TITLE": "Force task retry"
+    },
+    "STATUS": {
+      "FAILED": "Failed",
+      "NEW": "New",
+      "PENDING": "Pending",
+      "PROCESSING": "Processing",
+      "SUCCESS": "Success"
+    },
+    "TASKS": {
+      "UPGRADE_2_0_ACCOUNT_QUOTA": "Initialization quota structure for all existing accounts (users and workgroups)",
+      "UPGRADE_2_0_CLEANUP_OLD_ACCOUNT": "Cleanup old quota structure for all existing accounts",
+      "UPGRADE_2_0_THREAD_TO_WORKGROUP": "Generation of the new workgroup architecture",
+      "UPGRADE_2_0_DOMAIN_POLICIES_UUID": "Uuid generation for domains policies instead of identifier/label",
+      "UPGRADE_2_0_DOMAIN_UUID": "Uuid generation for domains instead of identifier/label",
+      "UPGRADE_2_0_DOMAIN_QUOTA_SUBDOMAINS": "Initialization quota structure (domain quota and container quota) for all sub-domains",
+      "UPGRADE_2_0_DOMAIN_QUOTA_TOPDOMAINS": "Initialization quota structure (domain quota and container quota) for all top-domains",
+      "UPGRADE_2_0_SHA256SUM": "Compute sha256sum for all stored document (this value may be undefined)",
+      "UPGRADE_2_0_UPGRADE_STORAGE": "Migrate old storage space files",
+      "UPGRADE_2_0_CLEANUP_EXPIRED_GUEST": "Cleanup expired guest account",
+      "UPGRADE_2_0_CLEANUP_EXPIRED_ACCOUNT": "Cleanup expired internal account",
+      "UPGRADE_2_0_PURGE_ACCOUNT": "Purge account data (internal & guest)"
+    },
+    "TITLE": "Upgrade Tasks"
+  },
+  "ASYNC_TASKS": {
+    "BOX_LIST": {
+      "FILTER": {
+        "LABEL": "Filter by log level"
+      },
+      "TABLE": {
+        "HEADER": {
+          "ACTIONS": "Actions",
+          "CREATION_DATE": "Creation date",
+          "DURATION": "Duration",
+          "MODIFICATION_DATE": "Modification date",
+          "STATUS": "Status"
+        },
+        "TABLE_ACTIONS": {
+          "BUTTON_CONSOLE": "Show console"
+        }
+      }
+    },
+    "TITLE": {
+      "PLURAL": "Asynchronous tasks",
+      "SINGULAR": "Asynchronous task"
     }
   }
 }

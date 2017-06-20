@@ -6,6 +6,12 @@
 </div>
 <div class="col-md-2 navbar-button">
   <ul class="nav navbar-nav navbar-right">
+    <li class="blink" data-ng-show="upgradeTasks.hasSome()"
+        data-ng-class="upgradeTasks.getCriticality()">
+      <a ui-sref="upgradetasks.list" class="dropdown-toggle">
+        <i class="fa fa-lg fa-warning"></i>
+      </a>
+    </li>
     <li class="">
       <a x-ui-sref="dashboard" class="dropdown-toggle">
         <i class="fa fa-lg fa-home"></i>
