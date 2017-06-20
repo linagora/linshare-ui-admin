@@ -24,8 +24,10 @@ angular.module('linshareAdminApp', [
 ])
 
 // Register work which needs to be performed on module loading
-.config(['$provide', '$logProvider', '$translateProvider', 'RestangularProvider', 'uiSelectConfig', 'cfpLoadingBarProvider', 'tmhDynamicLocaleProvider', 'lsAppConfig',
-  function($provide, $logProvider, $translateProvider, RestangularProvider, uiSelectConfig, cfpLoadingBarProvider, tmhDynamicLocaleProvider, lsAppConfig) {
+.config(['$provide', '$logProvider', '$translateProvider', 'RestangularProvider', 'uiSelectConfig',
+  'cfpLoadingBarProvider', 'tmhDynamicLocaleProvider', 'lsAppConfig',
+  function($provide, $logProvider, $translateProvider, RestangularProvider, uiSelectConfig, cfpLoadingBarProvider,
+    tmhDynamicLocaleProvider, lsAppConfig) {
     var debug = document.cookie.linshareDebug || lsAppConfig.debug;
     $logProvider.debugEnabled(debug);
 
@@ -110,7 +112,8 @@ angular.module('linshareAdminApp', [
     );
     if (lsAppConfig.debug) {
       $rootScope.$on('$stateChangeStart',function(event, toState, toParams){
-        $log.debug('$stateChangeStart to '+toState.to+'- fired when the transition begins. toState,toParams : \n',toState, toParams);
+        $log.debug('$stateChangeStart to '+toState.to+'- fired when the transition begins. toState,toParams : \n',
+          toState, toParams);
       });
       $rootScope.$on('$stateChangeError',function(event, toState, toParams, fromState, fromParams){
         $log.debug('$stateChangeError - fired when an error occurs during transition.');

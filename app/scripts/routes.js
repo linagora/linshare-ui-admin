@@ -611,16 +611,19 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
             templateUrl: 'ng_components/domain/domain_detail.tpl.html',
             controller: 'DomainDetailCtrl',
             resolve: {
-              selectOptions: function(_allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs, _allMimePolicies, _enumRole, _enumLanguage, _enumSupportedLanguage) {
-
+              selectOptions: function(_allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs,
+                _allMimePolicies, _enumRole, _enumLanguage, _enumSupportedLanguage) {
                 return {
-                  ldapConnectionIds: _.object(_.pluck(_allLdapConnections, 'uuid'), _.pluck(_allLdapConnections, 'label')),
-                  domainPatternIds: _.object(_.pluck(_allDomainPatterns, 'uuid'), _.pluck(_allDomainPatterns, 'label')),
+                  ldapConnectionIds: _.object(_.pluck(_allLdapConnections, 'uuid'),
+                    _.pluck(_allLdapConnections, 'label')),
+                  domainPatternIds: _.object(_.pluck(_allDomainPatterns, 'uuid'),
+                    _.pluck(_allDomainPatterns, 'label')),
                   domainPolicies: _allDomainPolicies,
                   mailConfigs: _allMailConfigs,
                   mimePolicies: _allMimePolicies,
                   userRoles: _.remove(_enumRole, function(role) {
-                    return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' && role !== 'UPLOAD_PROPOSITION';
+                    return role !== 'SYSTEM' && role !== 'SUPERADMIN' && role !== 'DELEGATION' &&
+                      role !== 'UPLOAD_PROPOSITION';
                   }),
                   languages: _enumLanguage,
                   supportedLanguages: _enumSupportedLanguage
@@ -979,7 +982,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
                 return MailContentLang.get($stateParams.id);
               },
               mailContents: function(MailConfig, currentMailContentLang, $stateParams) {
-                return MailConfig.getAllMailContents($stateParams.mailConfigId, currentMailContentLang.language, currentMailContentLang.mailContentType);
+                return MailConfig.getAllMailContents($stateParams.mailConfigId, currentMailContentLang.language,
+                  currentMailContentLang.mailContentType);
               }
             }
           }
@@ -1066,7 +1070,8 @@ angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider
               return UploadPropositionFilter.get($stateParams.id);
             }
           },
-          selectOptions: function(_enumUploadPropositionFieldTypes, _enumUploadPropositionOperatorTypes, _enumUploadPropositionActionTypes, _enumUploadPropositionMatchTypes) {
+          selectOptions: function(_enumUploadPropositionFieldTypes, _enumUploadPropositionOperatorTypes,
+            _enumUploadPropositionActionTypes, _enumUploadPropositionMatchTypes) {
             return {
               fieldTypes: _enumUploadPropositionFieldTypes,
               operatorTypes: _enumUploadPropositionOperatorTypes,
