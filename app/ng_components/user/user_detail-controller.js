@@ -2,10 +2,12 @@
 
 angular.module('linshareAdminApp')
   .controller('UserDetailCtrl',
-     ['$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', 'currentUser', 'maxExpiryDate',
-       'quotaRestService', 'restrictedGuestStatus', 'selectOptions', 'unitService', 'User',
-      function ($filter, $log, $modal, $rootScope, $scope, $state, $timeout, currentUser, maxExpiryDate,
-       quotaRestService, restrictedGuestStatus, selectOptions, unitService, User) {
+    ['$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', 'currentUser',
+     'lsAppConfig', 'maxExpiryDate', 'quotaRestService', 'restrictedGuestStatus', 'selectOptions',
+     'unitService', 'User',
+    function ($filter, $log, $modal, $rootScope, $scope, $state, $timeout, currentUser, lsAppConfig,
+              maxExpiryDate, quotaRestService, restrictedGuestStatus, selectOptions, unitService, User) {
+        $scope.lsAppConfig = lsAppConfig;
         $scope.userRoles = selectOptions.userRoles;
         $scope.userRolesSimple = ['SIMPLE', 'ADMIN'];
         $scope.user = currentUser;

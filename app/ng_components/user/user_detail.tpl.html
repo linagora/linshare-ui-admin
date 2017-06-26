@@ -273,7 +273,7 @@
           </button>
           <button ng-hide="routerState.current.name ==='user.detail'"
                   type="button" id="chyangedomain" name="changedomain" class="btn btn-info"
-                  x-ng-click="changeDomain(user)">
+                  data-ng-disabled="lsAppConfig.productionMode" data-ng-click="changeDomain(user)">
             {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_CHANGEDOMAIN' | translate}}
           </button>
         </div>

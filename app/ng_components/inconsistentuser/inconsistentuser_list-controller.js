@@ -2,8 +2,10 @@
 
 angular.module('linshareAdminApp')
   .controller('InconsistentUserAllListCtrl',
-    ['$scope', '$filter', '$log', 'ngTableParams', 'allInconsistents', 'User', '$q', '$modal',
-    function($scope, $filter, $log, ngTableParams, allInconsistents, User, $q, $modal) {
+    ['$scope', '$filter', '$log', 'ngTableParams', 'allInconsistents', 'lsAppConfig', 'User', '$q',
+     '$modal',
+    function($scope, $filter, $log, ngTableParams, allInconsistents, lsAppConfig, User, $q, $modal) {
+      $scope.lsAppConfig = lsAppConfig;
       $scope.isCollapsed = false;
       $scope.getTemplate = function () {
         return 'INCONSISTENT_USER';
