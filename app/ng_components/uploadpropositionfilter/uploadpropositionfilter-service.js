@@ -2,7 +2,7 @@
 
 angular.module('linshareAdminApp')
   .factory('UploadPropositionFilter', ['$log', 'Notification', 'Restangular',
-    function ($log, Notification, Restangular) {
+    function($log, Notification, Restangular) {
       //var self = this;
 
       // Public API here

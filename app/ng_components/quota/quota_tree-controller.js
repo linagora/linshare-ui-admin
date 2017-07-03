@@ -9,7 +9,7 @@
     .module('linshareAdminApp')
     .controller('DomainQuotaTreeController', DomainQuotaTreeController);
 
-  DomainQuotaTreeController.$inject = ['$log', '$scope', '$state', 'Authentication', 'domainsQuota', 'rootDomain',
+  DomainQuotaTreeController.$inject = ['_', '$log', '$scope', '$state', 'Authentication', 'domainsQuota', 'rootDomain',
     'treeTitle', 'treeType'
   ];
 
@@ -18,7 +18,7 @@
    * @desc Application domain quota tree system controller
    * @memberOf linshareAdminApp
    */
-  function DomainQuotaTreeController($log, $scope, $state, Authentication, domainsQuota, rootDomain,
+  function DomainQuotaTreeController(_, $log, $scope, $state, Authentication, domainsQuota, rootDomain,
     treeTitle, treeType) {
 
     $scope.domainsQuota = domainsQuota;
@@ -64,13 +64,13 @@
     //TODO [TOFILL]
     function findDeep(domain, attrs) {
       var match = function(attrValue, attrs) {
-        for (var key in attrs) {
+        _.forEach(attrs, function(value, key) {
           if (!_.isUndefined(attrValue)) {
             if (attrs[key] !== attrValue[key]) {
               return false;
             }
           }
-        }
+        });
         return true;
       };
       var traverse = function(domain, attrs) {
@@ -88,9 +88,9 @@
           }
         });
         return result;
-      }
+      };
       return traverse(domain, attrs);
-    };
+    }
 
     /**
      * @name hasGuestDomain
@@ -105,7 +105,7 @@
           'type': 'GUESTDOMAIN'
         })
       );
-    };
+    }
 
     /**
      * @name isDomainQuotaInError
@@ -131,6 +131,6 @@
       return !_.isEmpty(findDeep(domain.children, {
         'identifier': $scope.adminDomain
       }));
-    };
+    }
   }
 })();

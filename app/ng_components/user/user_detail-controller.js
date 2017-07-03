@@ -2,10 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('UserDetailCtrl',
-    ['$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', 'currentUser',
+    ['_', '$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', 'currentUser',
      'lsAppConfig', 'maxExpiryDate', 'quotaRestService', 'restrictedGuestStatus', 'selectOptions',
      'unitService', 'User',
-    function ($filter, $log, $modal, $rootScope, $scope, $state, $timeout, currentUser, lsAppConfig,
+    /* jshint maxparams: false */
+    function(_, $filter, $log, $modal, $rootScope, $scope, $state, $timeout, currentUser, lsAppConfig,
               maxExpiryDate, quotaRestService, restrictedGuestStatus, selectOptions, unitService, User) {
         $scope.lsAppConfig = lsAppConfig;
         $scope.userRoles = selectOptions.userRoles;
@@ -19,7 +20,9 @@ angular.module('linshareAdminApp')
             maxFileSize: undefined,
             usedSpace: undefined,
           },
-          value: unitService.units
+          value: _.map(unitService.units, function(unit) {
+            return unit.value;
+          })
         };
         $scope.formParser = formParser;
         $scope.formRender = formRender;
@@ -47,7 +50,7 @@ angular.module('linshareAdminApp')
         $scope.addContact = function(user, contact) {
           var exists = false;
           angular.forEach(user.restrictedContacts, function(elem) {
-            if(elem.mail == contact.mail && elem.domain == contact.domain){
+            if(elem.mail === contact.mail && elem.domain === contact.domain){
               exists = true;
               $log.info('The contact ' + contact.mail + ' has already been added to that guest\'s restricted contacts');
             }
@@ -56,23 +59,23 @@ angular.module('linshareAdminApp')
             user.restrictedContacts.push(contact);
           }
         };
-        $scope.userRepresentation = function (u) {
-          return u.firstName.concat(" ", u.lastName, " ", u.mail, " ", u.domain);
+        $scope.userRepresentation = function(u) {
+          return u.firstName.concat(' ', u.lastName, ' ', u.mail, ' ', u.domain);
         };
-        $scope.searchGuestRestrictedContacts = function (pattern) {
+        $scope.searchGuestRestrictedContacts = function(pattern) {
           return User.autocomplete(pattern);
         };
         $scope.reset = function() {
           $state.reinit();
         };
-        $scope.submit = function(user) {
+        $scope.submit = function() {
           if (!$scope.user.restricted) {
             $scope.user.restrictedContacts = [];
           }
           User.update($scope.user);
         };
         $scope.isGuest = function() {
-          return $scope.user.accountType == 'GUEST';
+          return $scope.user.accountType === 'GUEST';
         };
 
         //To get the previous State to redirect to.
@@ -84,7 +87,7 @@ angular.module('linshareAdminApp')
           $scope.goBackListBack = 'inconsistentuser.search';
         }
 
-        $scope.delete = function(user) {
+        $scope.delete = function() {
           var modalInstance = $modal.open({
             templateUrl: 'ng_components/common/confirm_modal.tpl.html',
             controller: 'ConfirmDialogCtrl',
@@ -126,7 +129,7 @@ angular.module('linshareAdminApp')
               $log.debug('Deletion modal dismissed');
             }
           );
-        }
+        };
 
         /**
          * @name capitalize
@@ -154,9 +157,9 @@ angular.module('linshareAdminApp')
                 $timeout(function() {
                   parser(elm.$viewValue);
                 }, 0);
-              })
+              });
             }
-          })
+          });
         }
         /**
          * @name formRender
@@ -170,7 +173,7 @@ angular.module('linshareAdminApp')
             if (!_.isUndefined(elm.$render)) {
               elm.$render();
             }
-          })
+          });
         }
 
         /**
@@ -189,7 +192,8 @@ angular.module('linshareAdminApp')
         /**
          * @name setModelGetSet
          * @desc For each model containing property name referenced as keys in $scope.unit:
-         *       Add a get and set function to take unit conversion into account while updating or requestion those values
+         *       Add a get and set function to take unit conversion into account while updating or
+         *       requesting those values
          *       Also set the unit to be used, depending on the original object property value
          * @example
          *          domainQuotaDto.quota = 1000,
@@ -214,25 +218,26 @@ angular.module('linshareAdminApp')
           });
           _.forEach(Object.keys($scope.unit[keyName]), function(propertyKey) {
             //TODO - KLE: Test to be removed once the back fill the missing fields in DTO
-            $scope.unit[keyName][propertyKey] = (_.isUndefined(data[propertyKey]) ||  data[propertyKey] === null) ? 'GB' : $scope.unitService.find(data[propertyKey]);
+            $scope.unit[keyName][propertyKey] = (_.isUndefined(data[propertyKey]) ||
+              data[propertyKey] === null) ? 'GB' : $scope.unitService.find(data[propertyKey]);
             data['get' + capitalize(keyName) + capitalize(propertyKey)] = function get() {
               return $filter('readableSize')(data[propertyKey], $scope.unit[keyName][propertyKey], false);
             };
             data['set' + capitalize(keyName) + capitalize(propertyKey)] = function set(newValue, form) {
               data[propertyKey] = $scope.unitService.toByte(newValue, $scope.unit[keyName][propertyKey]);
-              $scope.formParser(form)
+              $scope.formParser(form);
               //Need to reset the get function because on update of model, the function is replaced by the value
               data['get' + capitalize(keyName) + capitalize(propertyKey)] = function get() {
                 return $filter('readableSize')(data[propertyKey], $scope.unit[keyName][propertyKey], false);
               };
-            }
+            };
           });
           data.isExceeded = function isExceeded() {
             var initDto = _.find($scope.cloned, function(dto) {
-              return dto.uuid === data.uuid
+              return dto.uuid === data.uuid;
             });
             return initDto.usedSpace >= initDto.quota;
-          }
+          };
         }
 
         /**
@@ -251,7 +256,7 @@ angular.module('linshareAdminApp')
             }
           });
         }
-    
+
         /**
          * @name setParentDefault
          * @desc Reset domain quota to parent default value
@@ -259,7 +264,7 @@ angular.module('linshareAdminApp')
          * @memberOf linshareAdminApp.UserDetailCtrl
          */
         function setParentDefault(form) {
-          setMatchingProperties($scope.userQuotaDto, 'Override', false)
+          setMatchingProperties($scope.userQuotaDto, 'Override', false);
           $scope.submitQuota(form);
         }
 

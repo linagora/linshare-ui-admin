@@ -2,7 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('DomainPolicyDetailCtrl',
-    ['$scope', '$filter', '$modal', '$log', '$state', 'ngTableParams', 'DomainPolicy', 'selectOptions', 'currentDomainPolicy',
+    ['$scope', '$filter', '$modal', '$log', '$state', 'ngTableParams', 'DomainPolicy', 'selectOptions',
+      'currentDomainPolicy',
     function($scope, $filter, $modal, $log, $state, ngTableParams, DomainPolicy, selectOptions, currentDomainPolicy) {
       $scope.allDomains = selectOptions.domains;
       $scope.allRuleTypes = selectOptions.domainAccessRuleTypes;
@@ -71,10 +72,10 @@ angular.module('linshareAdminApp')
         rules[x] = rules.splice(y, 1, rules[x])[0];
         $scope.reloadList();
       };
-      $scope.reloadList = function () {
+      $scope.reloadList = function() {
         $scope.tableParams.reload();
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10      // count per page
       }, {

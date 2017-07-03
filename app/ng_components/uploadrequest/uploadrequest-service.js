@@ -2,7 +2,7 @@
 
 angular.module('linshareAdminApp')
   .factory('UploadRequest', ['$log', 'Restangular',
-    function ($log, Restangular) {
+    function($log, Restangular) {
       // var self = this;
 
       // Public API here

@@ -2,7 +2,7 @@
 
 angular.module('linshareAdminApp')
   .factory('DomainPattern', ['$q', '$log', 'Restangular', 'Notification',
-    function ($q, $log, Restangular, Notification) {
+    function($q, $log, Restangular, Notification) {
       //var self = this;
 
       // Public API here

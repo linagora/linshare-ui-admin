@@ -16,7 +16,11 @@ angular.module('linshareAdminApp')
         $state.reinit();
       };
       $scope.cancel = function() {
-        $state.go("mailconfig.detail", {id: $state.params.mailConfigId, language: $scope.mailContentLang.language, domainId: $state.params.domainId});
+        $state.go('mailconfig.detail', {
+          id: $state.params.mailConfigId,
+          language: $scope.mailContentLang.language,
+          domainId: $state.params.domainId
+        });
       };
     }]
   );

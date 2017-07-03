@@ -4,8 +4,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Authentication',
-    ['$route', '$cookies', '$q', '$log', 'Restangular', 'authService', 'Notification',
-    function($route, $cookies, $q, $log, Restangular, authService, Notification) {
+    ['$route', '$cookies', '$q', '$log', 'Base64', 'Restangular', 'authService', 'Notification',
+    function($route, $cookies, $q, $log, Base64, Restangular, authService, Notification) {
       var deferred = $q.defer();
       this.waitingForResponse = false;
 
@@ -62,7 +62,7 @@ angular.module('linshareAdminApp')
           Restangular.all('authentication').one('logout').get().then(function() {
             delete $cookies.JSESSIONID;
             // Reload authentication modal
-            Restangular.all('authentication').customGET('authorized').then(function() {
+            Restangular.all('authentication').customGET('authorized').then(function(user) {
                 deferred.resolve(user);
             });
           });

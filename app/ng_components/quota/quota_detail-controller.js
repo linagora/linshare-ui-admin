@@ -9,7 +9,7 @@
     .module('linshareAdminApp')
     .controller('QuotaDetailController', QuotaDetailController);
 
-  QuotaDetailController.$inject = ['$filter', '$q', '$scope', '$timeout', 'authenticatedUser', 'domainDto',
+  QuotaDetailController.$inject = ['_', '$filter', '$q', '$scope', '$timeout', 'authenticatedUser', 'domainDto',
     'Notification', 'quotaRestService', 'unitService'
   ];
 
@@ -18,7 +18,7 @@
    * @desc Application quota management system controller
    * @memberOf linshareAdminApp
    */
-  function QuotaDetailController($filter, $q, $scope, $timeout, authenticatedUser, domainDto, Notification,
+  function QuotaDetailController(_, $filter, $q, $scope, $timeout, authenticatedUser, domainDto, Notification,
     quotaRestService, unitService) {
     /* jshint validthis: true */
     var quotaVm = this;
@@ -63,9 +63,8 @@
         maxFileSize: undefined,
         quota: undefined,
         usedSpace: undefined
-      },
-      value: unitService.units
-    }
+      }
+    };
     quotaVm.unitService = unitService;
     quotaVm.update = update;
 
@@ -79,13 +78,16 @@
      * @memberOf linshareAdminApp.QuotaDetailController
      */
     function activate() {
+      quotaVm.unit.value = _.map(unitService.units, function(unit) {
+        return unit.value;
+      });
       quotaRestService.getDomain(domainDto.quota).then(function(domainData) {
         initDto(domainData);
         _.forEach(quotaVm.domainQuotaDto.containerUuids, function(containerUuid) {
           quotaRestService.getContainer(containerUuid).then(function(containerData) {
             initDto(containerData);
-          })
-        })
+          });
+        });
       });
     }
 
@@ -115,9 +117,9 @@
             $timeout(function() {
               parser(elm.$viewValue);
             }, 0);
-          })
+          });
         }
-      })
+      });
     }
     /**
      * @name formRender
@@ -131,7 +133,7 @@
         if (!_.isUndefined(elm.$render)) {
           elm.$render();
         }
-      })
+      });
     }
 
     /**
@@ -155,7 +157,7 @@
      */
     function getTemplate() {
       return 'QUOTA_DETAILS';
-    };
+    }
 
     /**
      * @name hasSubdomain
@@ -164,7 +166,7 @@
      * @memberOf linshareAdminApp.QuotaDetailController
      */
     function hasSubdomain() {
-      if (quotaVm.domainDto.type === domainType.top ||  quotaVm.domainDto.type === domainType.root) {
+      if (quotaVm.domainDto.type === domainType.top || quotaVm.domainDto.type === domainType.root) {
         return true;
       }
       return false;
@@ -273,7 +275,8 @@
       });
       _.forEach(Object.keys(quotaVm.unit[keyName]), function(propertyKey) {
         //TODO - KLE: Test to be removed once the back fill the missing fields in DTO
-        quotaVm.unit[keyName][propertyKey] = (_.isUndefined(data[propertyKey]) ||  data[propertyKey] === null) ? 'GB' : quotaVm.unitService.find(data[propertyKey]);
+        quotaVm.unit[keyName][propertyKey] = (_.isUndefined(data[propertyKey]) ||
+           data[propertyKey] === null) ? 'GB' : quotaVm.unitService.find(data[propertyKey]);
         data['get' + capitalize(keyName) + capitalize(propertyKey)] = function get() {
           return $filter('readableSize')(data[propertyKey], quotaVm.unit[keyName][propertyKey], false);
         };
@@ -284,14 +287,14 @@
           data['get' + capitalize(keyName) + capitalize(propertyKey)] = function get() {
             return $filter('readableSize')(data[propertyKey], quotaVm.unit[keyName][propertyKey], false);
           };
-        }
+        };
       });
       data.isExceeded = function isExceeded() {
         var initDto = _.find(quotaVm.cloned, function(dto) {
-          return dto.uuid === data.uuid
+          return dto.uuid === data.uuid;
         });
         return initDto.usedSpace >= initDto.quota;
-      }
+      };
     }
 
     /**
@@ -318,10 +321,10 @@
      * @memberOf linshareAdminApp.QuotaDetailController
      */
     function setParentDefault(form) {
-      setMatchingProperties(quotaVm.domainQuotaDto, 'Override', false)
-      setMatchingProperties(quotaVm.userQuotaDto, 'Override', false)
-      setMatchingProperties(quotaVm.workgroupQuotaDto, 'Override', false)
-      quotaVm.update();
+      setMatchingProperties(quotaVm.domainQuotaDto, 'Override', false);
+      setMatchingProperties(quotaVm.userQuotaDto, 'Override', false);
+      setMatchingProperties(quotaVm.workgroupQuotaDto, 'Override', false);
+      quotaVm.update(form);
     }
 
     /**

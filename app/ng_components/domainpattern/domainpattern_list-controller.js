@@ -4,10 +4,10 @@ angular.module('linshareAdminApp')
   .controller('DomainPatternListCtrl',
     ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'domainPatterns',
     function($scope, $filter, $log, $translate, ngTableParams, domainPatterns) {
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'DOMAIN_PATTERN';
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

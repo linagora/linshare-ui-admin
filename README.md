@@ -3,7 +3,7 @@
 ## Prérequis
 
 Récupérer le projet __linshare-ui-admin__ depuis le dépôt
-    
+
 Installer nodesjs et npm
 
     curl http://nodejs.org/dist/node-latest.tar.gz -o node-latest.tar.gz
@@ -12,27 +12,27 @@ Installer nodesjs et npm
     ./configure
     make
     sudo make install
-    
+
 Installer compass
 
-    gem install compass 
+    gem install compass
     Si vous avez une erreur, désinstaller sass et réessayer l'installation. Sinon faites apt-get install ruby-compass
-    
+
 
 ## Installation de l'application
 
 
-#### Installer les modules définis dans le fichier package.json en local 
+#### Installer les modules définis dans le fichier package.json en local
     npm install
 
 #### Mettre des alias pour les modules installés en local
 Rajoutez ces lignes dans le fichier .bashrc:
-    
+
     alias bower='./node_modules/.bin/bower'
     alias grunt='./node_modules/.bin/grunt'
-    
+
 #### Checker les modules npm à mettre à jour
-    npm outdated 
+    npm outdated
 
 #### Mettre à jour nodejs
     sudo npm cache clean -f
@@ -40,7 +40,7 @@ Rajoutez ces lignes dans le fichier .bashrc:
     sudo n stable
 
 #### Mettre à jour npm & ses modules
-    sudo npm update 
+    sudo npm update
 
 ## Procédure de mise à jour
 Pour vérifier si des mises à jour sont présentes:
@@ -92,7 +92,7 @@ Quelques cours sur Javascript
 
 
 ## AngularJS
-Avant de commencer à développer, veuillez lire les pages suivantes 
+Avant de commencer à développer, veuillez lire les pages suivantes
 pour connaitre AngularJS et les bonnes pratiques:
 
 * [http://docs.angularjs.org/misc/faq](http://docs.angularjs.org/misc/faq)
@@ -219,11 +219,11 @@ Utiliser le paquet npm "json-diff" pour comparer les fichiers de langue
 
 ### Utilisation du logger
 Nous avons wrapper le logger AngularJS dans un service pour pouvoir
-gérer des niveaux de logs. 
+gérer des niveaux de logs.
 Le niveau de logs est précisé dans les préférences de l'application
-puis est stocké dans un cookie pour pourvoir à terme modifier le niveau de log 
+puis est stocké dans un cookie pour pourvoir à terme modifier le niveau de log
 à la volée.
-Niveaux de log: 
+Niveaux de log:
 - TRACE (defaut)
 - DEBUG
 - INFO
@@ -234,9 +234,9 @@ Niveaux de log:
 ### Remarques
 * Le rootScope: Il ne doit pas être pollué et est reservé à une utilisation
 très spécifique (internationalization, userLogged). Son utilisation
-revient à instancier des variables globales à l'application 
+revient à instancier des variables globales à l'application
 (comme chacun le sait c'est une mauvaise pratique de programmation)
-* Attention aux appels Restangular dans les directives. 
+* Attention aux appels Restangular dans les directives.
 Les appels de resource seront dupliqués a chaque duplication de la directive
 
 ### Notes de controles
@@ -245,7 +245,7 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 * Vérifier l'unicité avant création
 * Vérifier que les droits sont respectés
 #### Sur le client
-* Mettre le champs datepicker required dans le userEditForm 
+* Mettre le champs datepicker required dans le userEditForm
 
 ### Pour la suite
 * [http://stackoverflow.com/questions/21455045/angularjs-http-cors-and-http-authentication](http://stackoverflow.com/questions/21455045/angularjs-http-cors-and-http-authentication)
@@ -270,11 +270,11 @@ Les appels de resource seront dupliqués a chaque duplication de la directive
 * Faire une batterie de test
 * Voir si la structure d'angular seed n'evolue pas
 * Gestion des tests et des builds
-* Hackaton ? Verifier toutes les secu webservices 
+* Hackaton ? Verifier toutes les secu webservices
 * Faire un audit de code ?
 * Mettre a jour / Corriger les REST-URL.md
 * Verifier la mise a jour de modules / node/ bower etc ...
 * Vérifier les messages d'alertes / succes
 * Trouver un moyen de savoir dans quelle section on est (breadcrumb ?)
-* Responsive design 
+* Responsive design
 * Logger les erreurs cote server [http://www.bennadel.com/blog/2542-Logging-Client-Side-Errors-With-AngularJS-And-Stacktrace-js.htm](http://www.bennadel.com/blog/2542-Logging-Client-Side-Errors-With-AngularJS-And-Stacktrace-js.htm)

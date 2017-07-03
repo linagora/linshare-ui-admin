@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp')
   .controller('PasswordCtrl',
     ['$scope', '$location', '$log', 'Authentication', 'Password',
-      function ($scope, $location, $log, Authentication, Password) {
+      function($scope, $location, $log, Authentication, Password) {
         $scope.newPwdRetyped = '';
         $scope.password = {
           'oldPwd' : '',
@@ -15,7 +15,7 @@ angular.module('linshareAdminApp')
         $scope.strengthScore = function(password) {
           return Password.strengthScore(password);
         };
-        $scope.redirectToHome = function () {
+        $scope.redirectToHome = function() {
           $location.path('/');
         };
         $scope.submit = function() {

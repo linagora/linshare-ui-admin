@@ -4,10 +4,10 @@ angular.module('linshareAdminApp')
   .controller('DomainPolicyListCtrl',
     ['$scope', '$filter', '$log', 'ngTableParams', 'domainPolicies',
     function($scope, $filter, $log, ngTableParams, domainPolicies) {
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'DOMAIN_POLICY';
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

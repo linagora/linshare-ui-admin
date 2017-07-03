@@ -2,7 +2,7 @@
 
 angular.module('linshareAdminApp')
   .factory('TechnicalAccount', ['$log', 'Notification', 'Restangular',
-    function ($log, Notification, Restangular) {
+    function($log, Notification, Restangular) {
       //var self = this;
 
       // Public API here
@@ -29,9 +29,10 @@ angular.module('linshareAdminApp')
         },
         changePassword: function(accountId, password) {
           $log.debug('TechnicalAccount:changePassword');
-          return Restangular.all('technical_accounts').all(accountId).all('change_password').post(password).then(function() {
-            Notification.addSuccess('UPDATE');
-          });
+          return Restangular.all('technical_accounts').all(accountId).all('change_password').post(password)
+            .then(function() {
+              Notification.addSuccess('UPDATE');
+            });
         },
         remove: function(account) {
           $log.debug('TechnicalAccount:remove');

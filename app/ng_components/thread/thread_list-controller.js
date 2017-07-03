@@ -5,7 +5,7 @@ angular.module('linshareAdminApp')
     ['$scope', '$filter', '$log', '$state', '$location', '$translate', 'ngTableParams', 'Thread',
     function($scope, $filter, $log, $state, $location, $translate, ngTableParams, Thread) {
       $scope.isCollapsed = true;
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'THREADS';
       };
       var canRequest = false;
@@ -18,7 +18,7 @@ angular.module('linshareAdminApp')
         canRequest = true;
         $scope.tableParams.reload();
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

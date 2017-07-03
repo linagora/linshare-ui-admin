@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('MailActivation',
     ['$log', 'Restangular',
-    function ($log, Restangular) {
+    function($log, Restangular) {
       //var self = this;
 
       // Public API here

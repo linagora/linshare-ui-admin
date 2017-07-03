@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('MailFooterLang',
     ['$log', 'Notification', 'Restangular',
-    function ($log, Notification, Restangular) {
+    function($log, Notification, Restangular) {
       //var self = this;
 
       // Public API here

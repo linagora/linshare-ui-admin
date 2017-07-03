@@ -2,8 +2,10 @@
 
 angular.module('linshareAdminApp')
   .controller('welcomeMessageModalCtrl',
-    ['$scope', '$state', '$modalInstance', '$filter', 'Domain', 'WelcomeMessage', '_welcomeMessage', '_adminDomain',  '_domain',
-      function ($scope, $state, $modalInstance, $filter, Domain, WelcomeMessage, _welcomeMessage, _adminDomain, _domain) {
+    ['_', '$scope', '$state', '$modalInstance', '$filter', 'Domain', 'WelcomeMessage', '_welcomeMessage',
+      '_adminDomain',  '_domain',
+      function(_, $scope, $state, $modalInstance, $filter, Domain, WelcomeMessage, _welcomeMessage,
+        _adminDomain, _domain) {
         $scope.welcomeMessage = {};
         $scope.redirect = true;
         $scope.domain = _domain;
@@ -19,7 +21,7 @@ angular.module('linshareAdminApp')
         $scope.isDefined = function(x) {
           return angular.isDefined(x);
         };
-        $scope.create = function () {
+        $scope.create = function() {
           $scope.welcomeMessage.uuid = _welcomeMessage.uuid;
           $scope.welcomeMessage.myDomain = {};
           $scope.welcomeMessage.myDomain.identifier = $scope.domain.identifier;
@@ -28,11 +30,12 @@ angular.module('linshareAdminApp')
             $modalInstance.close();
             $scope.reset();
             $state.reinit();
-            if ($scope.redirect == true)
-              $state.go("welcomemessage.detail", {id: welcomeMessage.uuid, state: 'edit'});
+            if ($scope.redirect) {
+              $state.go('welcomemessage.detail', {id: welcomeMessage.uuid, state: 'edit'});
+            }
           });
         };
-        $scope.cancel = function () {
+        $scope.cancel = function() {
           $modalInstance.dismiss('cancel');
           $scope.reset();
         };

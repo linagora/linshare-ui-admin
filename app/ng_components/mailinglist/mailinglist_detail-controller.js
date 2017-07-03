@@ -24,9 +24,8 @@ angular.module('linshareAdminApp')
           // Remove existing contacts
           angular.forEach($scope.tableParams.data, function(contact) {
             angular.forEach(users, function(user, key) {
-              if (user.firstName === contact.firstName
-                    && user.lastName === contact.lastName
-                    && user.mail === contact.mail) {
+              if (user.firstName === contact.firstName && user.lastName === contact.lastName &&
+                user.mail === contact.mail) {
                 users.splice(key, 1);
               }
             });
@@ -56,10 +55,10 @@ angular.module('linshareAdminApp')
           $scope.reloadList();
         });
       };
-      $scope.reloadList = function () {
+      $scope.reloadList = function() {
         $scope.tableParams.reload();
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

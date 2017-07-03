@@ -9,7 +9,7 @@
     .module('linshareAdminApp')
     .directive('unitMax', unitMax);
 
-  unitMax.$inject = ['unitService'];
+  unitMax.$inject = ['_', 'unitService'];
 
   /**
    * @namespace unitMax
@@ -23,7 +23,7 @@
    *                 x-unit-max="50">
    * @memberOf linshareAdminApp
    */
-  function unitMax(unitService) {
+  function unitMax(_, unitService) {
     var directive = {
       restrict: 'A',
       require: 'ngModel',
@@ -38,20 +38,20 @@
 
     ////////////
 
-    /** 
-     *  @name linkFn 
-     *  @desc link function of the directive
-     *  @param {Object} scope - Angular scope object of the directive
-     *  @param {Object} elm - jqLite-wrapped element that this directive matches
-     *  @param {Object} attrs - Normalized attribute names and their corresponding attribute values
-     *  @param {Object} modelController - Directive's required controller instance(s)
-     *  @memberOf linshareAdminApp.unitMax
+    /**
+     * @name linkFn
+     * @desc link function of the directive
+     * @param {Object} scope - Angular scope object of the directive
+     * @param {Object} elm - jqLite-wrapped element that this directive matches
+     * @param {Object} attrs - Normalized attribute names and their corresponding attribute values
+     * @param {Object} modelController - Directive's required controller instance(s)
+     * @memberOf linshareAdminApp.unitMax
      */
     function linkFn(scope, element, attrs, modelController) {
       function validUnit(val) {
         var value;
         if (_.isFunction(val)) {
-          value = val()
+          value = val();
         } else {
           if (isNaN(val)) {
             modelController.$setValidity('unitMax', false);
@@ -66,7 +66,7 @@
           modelController.$setValidity('unitMax', true);
           return value;
         }
-      };
+      }
       modelController.$parsers.unshift(validUnit);
     }
   }

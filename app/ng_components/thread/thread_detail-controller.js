@@ -2,11 +2,12 @@
 
 angular.module('linshareAdminApp')
   .controller('ThreadDetailCtrl',
-    ['$rootScope', '$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User', 'currentThread',
+    ['$rootScope', '$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
+      'currentThread',
     function($rootScope, $scope, $filter, $log, $state, ngTableParams, Thread, ThreadMember, User, currentThread) {
       $scope.thread = currentThread;
       $scope.search = $state.params.search;
-      $scope.reloadList = function () {
+      $scope.reloadList = function() {
         $scope.tableParams.reload();
       };
       $scope.remove = function() {
@@ -33,8 +34,8 @@ angular.module('linshareAdminApp')
           // Remove existing members
           angular.forEach($scope.threadMembers, function(threadMember) {
             angular.forEach(users, function(user, key) {
-              if (user.domain === threadMember.userDomainId
-                    && user.mail === threadMember.userMail) {
+              if (user.domain === threadMember.userDomainId &&
+                user.mail === threadMember.userMail) {
                 users.splice(key, 1);
               }
             });
@@ -51,7 +52,7 @@ angular.module('linshareAdminApp')
         });
       };
 
-      $scope.$watch('userToAdd', function(n) {
+      $scope.$watch('userToAdd', function() {
         if($scope.tableParams.filter()['firstName']) {
           $scope.tableParams.filter()['firstName'] = '';
         }
@@ -61,7 +62,7 @@ angular.module('linshareAdminApp')
         $scope.reloadList();
       });
 
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

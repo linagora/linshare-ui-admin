@@ -5,7 +5,7 @@ angular.module('linshareAdminApp')
     ['$scope', '$filter', '$log', '$modal', '$translate', 'ngTableParams', 'currentDomain', 'mimePolicies',
     function($scope, $filter, $log, $modal, $translate, ngTableParams, currentDomain, mimePolicies) {
       $scope.domain = currentDomain;
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'MIME_TYPE';
       };
       $scope.add = function() {
@@ -13,11 +13,11 @@ angular.module('linshareAdminApp')
           controller: 'mimePolicyModalCtrl',
           templateUrl: 'ng_components/mimepolicy/mimepolicy_modal.tpl.html'
         });
-        modalInstance.result.then(function () {
+        modalInstance.result.then(function() {
           $scope.tableParams.reload();
         });
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

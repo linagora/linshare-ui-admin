@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .filter('translateSearchFilter', function($translate, $filter){
+  .filter('translateSearchFilter', function(_, $translate, $filter){
     return function(input, param){
       if(!param){
           return input;
@@ -13,7 +13,7 @@ angular.module('linshareAdminApp')
           var translatedSection = $filter('lowercase')($filter('translate')(section.name));
           var translatedMenu = $filter('lowercase')($filter('translate')(menu.name));
           if ((translatedMenu.match(searchVal) || translatedSection.match(searchVal)) &&
-              _.where(result, {'name': section.name}).length == 0) {
+              _.where(result, {'name': section.name}).length === 0) {
             result.push(section);
           }
         });

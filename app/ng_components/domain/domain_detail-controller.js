@@ -2,8 +2,12 @@
 
 angular.module('linshareAdminApp')
   .controller('DomainDetailCtrl',
-    ['$rootScope', '$scope', '$log', '$modal', '$state', '$translate', 'Notification', 'selectOptions', 'currentDomain', 'authenticatedUser', 'Domain', 'DomainPolicy', '_allWelcomeMessages',
-    function($rootScope, $scope, $log, $modal, $state, $translate, Notification, selectOptions, currentDomain, authenticatedUser, Domain, DomainPolicy, _allWelcomeMessages) {
+    ['_', '$rootScope', '$scope', '$log', '$modal', '$state', '$translate', 'Notification', 'selectOptions',
+      'currentDomain', 'authenticatedUser', 'Domain', 'DomainPolicy', '_allWelcomeMessages',
+    // TODO: Should dispatch some function to other service or controller
+    /* jshint maxparams: false */
+    function(_, $rootScope, $scope, $log, $modal, $state, $translate, Notification, selectOptions, currentDomain,
+      authenticatedUser, Domain, DomainPolicy, _allWelcomeMessages) {
       if (currentDomain) {
         $scope.state = $state.params.formState;
         $scope.ldapConnections = selectOptions.ldapConnectionIds;
@@ -30,7 +34,7 @@ angular.module('linshareAdminApp')
         $scope.domain = currentDomain;
         $scope.isSuperAdmin = authenticatedUser.role === 'SUPERADMIN';
         $scope.isRootDomain = currentDomain.type === 'ROOTDOMAIN';
-        $scope.disableProvider = ($scope.isRootDomain || currentDomain.providers.length != 0);
+        $scope.disableProvider = ($scope.isRootDomain || currentDomain.providers.length !== 0);
       }
 
       $scope.addProvider = function() {
@@ -71,14 +75,14 @@ angular.module('linshareAdminApp')
           DomainPolicy.get($scope.domain.policy.identifier).then(function(policy){
             policy.notification = false;
             policy.accessPolicy.rules.unshift({
-              type: "ALLOW",
+              type: 'ALLOW',
               domain: $scope.domain
             });
             DomainPolicy.update(policy).then(function() {
-              $state.go("domain.detail", {domainId: $scope.domain.identifier, formState: 'edit'});
+              $state.go('domain.detail', {domainId: $scope.domain.identifier, formState: 'edit'});
             });
           });
-          $state.go("domain.detail", {domainId: $scope.domain.identifier, formState: 'edit'});
+          $state.go('domain.detail', {domainId: $scope.domain.identifier, formState: 'edit'});
         });
       };
 
@@ -101,7 +105,7 @@ angular.module('linshareAdminApp')
       $scope.issetDomainPolicy = function(identifier){
         DomainPolicy.exist(identifier).then(function(res) {
           return res;
-        })
+        });
       };
       $scope.remove = function() {
         if ($scope.state === 'edit') {

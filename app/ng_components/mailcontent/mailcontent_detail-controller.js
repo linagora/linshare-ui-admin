@@ -9,8 +9,8 @@
     .module('linshareAdminApp')
     .controller('MailContentDetailCtrl', MailContentDetailCtrl);
 
-  MailContentDetailCtrl.$injet = ['$log', '$modal', '$sce', '$scope', '$state', '$translate',
-    'currentDomain', 'currentMailContent', 'mailConfigs', 'mailContentRestService', 'mailLanguage'
+  MailContentDetailCtrl.$injet = ['_', '$log', '$modal', '$sce', '$scope', '$state', '$translate',
+    'currentDomain', 'currentMailContent', 'mailConfigs', 'mailContentRestService', 'mailLanguage', 'Notification'
   ];
 
   /**
@@ -18,8 +18,10 @@
    * @desc Controller of MailContentDetail
    * @memberOf linshareAdminApp
    */
-  function MailContentDetailCtrl($log, $modal, $sce, $scope, $state, $translate, currentDomain,
-    currentMailContent, mailConfigs, mailContentRestService, mailLanguage) {
+  // TODO: Should dispatch some function to other service or controller
+  /* jshint maxparams: false */
+  function MailContentDetailCtrl(_, $log, $modal, $sce, $scope, $state, $translate, currentDomain,
+    currentMailContent, mailConfigs, mailContentRestService, mailLanguage, Notification) {
 
     $scope.capitalize = capitalize;
     $scope.copy = copy;
@@ -77,7 +79,7 @@
      * @memberOf linshareAdminApp.MailContentDetailCtrl
      */
     function copy() {
-      var copyMessage, copyText;
+      var copyText;
       $translate('MAIL_CONTENT.BOX_FORM.TEXT_COPY').then(function(data) {
         copyText = data + ' ';
         var modalScope = $scope.$new();
@@ -120,7 +122,7 @@
           $log.debug('Deletion modal dismissed');
         }
       );
-    };
+    }
 
     /**
      * @name render
@@ -142,7 +144,7 @@
     //TODO [TOFILL]
     function reset() {
       $state.reinit();
-    };
+    }
 
     /**
      * @name selectConfig
@@ -167,6 +169,6 @@
     //TODO [TOFILL]
     function update() {
       mailContentRestService.update($scope.mailContent);
-    };
+    }
   }
 })();

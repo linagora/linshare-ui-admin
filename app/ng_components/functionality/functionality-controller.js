@@ -4,12 +4,13 @@ angular.module('linshareAdminApp')
   .controller('FunctionalityCtrl',
     ['$scope', '$state', '$timeout', '$translate', 'Functionality',
     function($scope, $state, $timeout, $translate, Functionality) {
-      var timeoutId = undefined;
-      var setIcon = function (value) {
-        if ($scope.functionality.parentIdentifier == null)
+      var timeoutId;
+      var setIcon = function(value) {
+        if ($scope.functionality.parentIdentifier === null) {
           $scope.iconSaved = value;
-        else
+        } else {
           $scope.$parent.$parent.$parent.iconSaved = value;
+        }
       };
       $scope.displayIconSaved = function() {
         setIcon(true);
@@ -22,19 +23,19 @@ angular.module('linshareAdminApp')
         return $scope.functionality.activationPolicy.parentAllowUpdate;
       };
       $scope.showConfiguration = function() {
-        return $scope.functionality.activationPolicy.policy != 'FORBIDDEN'
-                && $scope.functionality.configurationPolicy.parentAllowUpdate;
+        return $scope.functionality.activationPolicy.policy !== 'FORBIDDEN' &&
+          $scope.functionality.configurationPolicy.parentAllowUpdate;
       };
       $scope.showDelegation = function() {
-        return $scope.functionality.activationPolicy.policy != 'FORBIDDEN'
-                && $scope.functionality.delegationPolicy
-                && $scope.functionality.delegationPolicy.parentAllowUpdate;
+        return $scope.functionality.activationPolicy.policy !== 'FORBIDDEN' &&
+          $scope.functionality.delegationPolicy && $scope.functionality.delegationPolicy.parentAllowUpdate;
       };
       $scope.showParameters = function() {
         return $scope.functionality.parentAllowParametersUpdate;
       };
       $scope.showResetToParent = function() {
-        return ($scope.showParameters() || $scope.showDelegation() || $scope.showConfiguration() || $scope.showActivation());
+        return ($scope.showParameters() || $scope.showDelegation() || $scope.showConfiguration() ||
+          $scope.showActivation());
       };
       $scope.disableStatus = function(policyType) {
         if (policyType) {
@@ -81,36 +82,21 @@ angular.module('linshareAdminApp')
         });
       };
 
-      $scope.checkPolicyType = function (policyType) {
+      $scope.checkPolicyType = function(policyType) {
         policyType.status = policyType.defaultStatus;
       };
 
-      var setStatusFunctionality = function(functionality, value) {
-        functionality.activationPolicy.policy = 'ALLOWED';
-        functionality.activationPolicy.status = value;
-        return functionality;
-      };
-
       // FUNCTION TO SIMPLE VIEW
-      var checkStatusFunctionality = function(value){
-        $scope.functionality.activationPolicy.policy = 'ALLOWED';
-
-        if ($scope.showActivation($scope.functionality))
-          $scope.functionality.activationPolicy.status = value;
-
-        if ($scope.showConfiguration($scope.functionality))
-          $scope.functionality.activationPolicy.status = true;
-      };
       $scope.changeStatusFunctionality = function(){
         $scope.functionality.activationPolicy.policy = 'ALLOWED';
         updateFunctionality($scope.functionality);
       };
       $scope.changeDelegationFunctionality = function(){
-        if ($scope.functionality.delegationPolicy.status == true)
+        if ($scope.functionality.delegationPolicy.status) {
           $scope.functionality.delegationPolicy.status = true;
-        else
+        } else {
           $scope.functionality.delegationPolicy.status = false;
-
+        }
         $scope.functionality.delegationPolicy.policy = 'ALLOWED';
         updateFunctionality($scope.functionality);
       };

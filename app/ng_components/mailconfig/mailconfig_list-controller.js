@@ -2,24 +2,25 @@
 
 angular.module('linshareAdminApp')
   .controller('MailConfigListCtrl',
-    ['$scope', '$state', '$filter', '$log', '$modal', '$translate', 'ngTableParams', 'MailConfig', 'mailConfigs', 'currentDomain',
+    ['$scope', '$state', '$filter', '$log', '$modal', '$translate', 'ngTableParams', 'MailConfig',
+      'mailConfigs', 'currentDomain',
     function($scope, $state, $filter, $log, $modal, $translate, ngTableParams, MailConfig, mailConfigs, currentDomain) {
       $scope.domain = currentDomain;
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'MAIL_CONFIG';
       };
-      $scope.delete = function (_mailConfig) {
+      $scope.delete = function(_mailConfig) {
         MailConfig.remove(_mailConfig).then(function() {
           $state.reinit();
         });
       };
       $scope.add = function() {
-        var modalInstance = $modal.open({
+        $modal.open({
           controller: 'mailConfigModalCtrl',
           templateUrl: 'ng_components/mailconfig/mailconfig_modal.tpl.html'
         });
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

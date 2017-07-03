@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('WelcomeMessage',
     ['$q', '$log', 'Notification', 'Restangular',
-    function ($q, $log, Notification, Restangular) {
+    function($q, $log, Notification, Restangular) {
       // var self = this;
       // Public API here
       return {

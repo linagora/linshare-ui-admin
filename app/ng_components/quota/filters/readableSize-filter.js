@@ -2,14 +2,14 @@
  * readableSize Filter
  * @namespace linshareAdminApp
  */
-(function()  {
+(function() {
   'use strict';
 
   angular
     .module('linshareAdminApp')
     .filter('readableSize', readableSize);
 
-  readableSize.$inject = ['unitService'];
+  readableSize.$inject = ['_', 'unitService'];
 
   /**
    * @namespace readableSize
@@ -17,7 +17,7 @@
    * @example {{ myVm.myValue | readableSize}}
    * @memberOf linshareAdminApp
    */
-  function readableSize(unitService) {
+  function readableSize(_, unitService) {
     /**
      * @name getReadableSize
      * @desc Convert a bit number to a defined unit in Byte
@@ -29,6 +29,6 @@
      */
     return function getReadableSize(value, unit, showUnit) {
       return _.isUndefined(value) ? 0 : unitService.byteTo(value, unit, showUnit);
-    }
-  };
+    };
+  }
 })();

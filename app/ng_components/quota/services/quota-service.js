@@ -20,10 +20,9 @@
 
     var
       restParam = {
-        domains: 'accounts',
+        accounts: 'accounts',
         containers: 'containers',
         domains: 'domains',
-        accounts: 'accounts'
       },
       restUrl = 'quotas',
       service = {
@@ -36,7 +35,7 @@
         updateAccount: updateAccount,
         updateContainer: updateContainer,
         updateDomain: updateDomain,
-      }
+      };
 
     return service;
 

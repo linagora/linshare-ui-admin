@@ -6,8 +6,8 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$rootScope', '$scope', '$log', '$state', 'Authentication', 'Tab', 'Languages', '$http',
-        function($rootScope, $scope, $log, $state, Authentication, Tab, Languages, $http) {
+      controller: ['_', '$rootScope', '$scope', '$log', '$state', 'Authentication', 'Tab', 'Languages', '$http',
+        function(_, $rootScope, $scope, $log, $state, Authentication, Tab, Languages, $http) {
           var setActiveSection = function(link, value) {
             $scope.linkActive = link;
             value.isopen = true;
@@ -15,25 +15,26 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
           var compareCurrentStateToTab = function(currentState) {
             angular.forEach($scope.tabs, function(value) {
               angular.forEach(value.links, function(link) {
-                if (currentState == link.sref) {
+                if (currentState === link.sref) {
                   setActiveSection(link.sref, value);
-                } else if (link.children_sref) {
-                  angular.forEach(link.children_sref, function(subLink) {
-                    if (currentState == link.sref || currentState == subLink)
+                } else if (link.childrenSref) {
+                  angular.forEach(link.childrenSref, function(subLink) {
+                    if (currentState === link.sref || currentState === subLink) {
                       setActiveSection(link.sref, value);
+                    }
                   });
                 }
-              })
+              });
             });
           };
           Authentication.getCurrentUser().then(function(user) {
             $scope.tabs = Tab.getAvailableTabs(user);
             $scope.linkActive = false;
             $scope.userDomain = user.domain;
-            $rootScope.$on('$stateChangeStart',function(event, toState, toParams){
+            $rootScope.$on('$stateChangeStart',function(event, toState){
               compareCurrentStateToTab(toState.name);
             });
-            if ($scope.linkActive == false){
+            if ($scope.linkActive === false){
               compareCurrentStateToTab($state.next.name);
             }
           });
@@ -41,14 +42,14 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
             $scope.coreVersion = version;
           });
           $scope.productVersion = 'dev';
-          $http.get('/about.json').success(function (data) {
+          $http.get('/about.json').success(function(data) {
             $scope.productVersion = data.version;
           });
           $scope.$watch('search', function(newValue) {
             var inSearch = !_.isEmpty(newValue);
             angular.forEach($scope.tabs, function(value) {
               value.isopen = inSearch;
-            })
+            });
           });
           $scope.language = Languages.getCurrentLang().filter;
         }

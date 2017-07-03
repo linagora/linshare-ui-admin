@@ -2,16 +2,16 @@
 
 angular.module('linshareAdminApp')
   .controller('MailActivationListCtrl',
-  ['$scope', '$filter', '$q', '$translate', '$state', 'ngTableParams', 'mailActivations', 'currentDomain',
-    function ($scope, $filter, $q, $translate, $state, ngTableParams, mailActivations, currentDomain) {
+  ['_', '$scope', '$filter', '$q', '$translate', '$state', 'ngTableParams', 'mailActivations', 'currentDomain',
+    function(_, $scope, $filter, $q, $translate, $state, ngTableParams, mailActivations, currentDomain) {
       $scope.domain = currentDomain;
       $scope.view = $state.params.view;
 
-      $scope.isActivated = function (mailActivation) {
+      $scope.isActivated = function(mailActivation) {
         return mailActivation.enable;
       };
 
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 30,      // count per page
         sorting: {
@@ -32,14 +32,14 @@ angular.module('linshareAdminApp')
           if (!_.isEmpty(nameFilter)) {
             var ids = _.pluck(orderedData, 'identifier');
             var mapIdentifierAndTranslationKey = _.map(ids, function(id) {
-              return 'MAIL_ACTIVATION.DETAILS.' + id + '.NAME'
+              return 'MAIL_ACTIVATION.DETAILS.' + id + '.NAME';
             });
             $translate(mapIdentifierAndTranslationKey).then(
               function(translations) {
                 deferred.resolve(_.filter(orderedData, function(f) {
                   return translations['MAIL_ACTIVATION.DETAILS.' + f.identifier + '.NAME']
                       .toLowerCase()
-                      .indexOf(nameFilter.toLowerCase()) != -1;
+                      .indexOf(nameFilter.toLowerCase()) !== -1;
                 }));
               }
             );
@@ -48,7 +48,9 @@ angular.module('linshareAdminApp')
                 $filter('orderBy')(data, params.orderBy()) :
                 data;
               params.total(legendFilteredData.length);
-              $defer.resolve(legendFilteredData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+              $defer.resolve(legendFilteredData.slice(
+                (params.page() - 1) * params.count(), params.page() * params.count()
+              ));
             });
           } else {
             params.total(orderedData.length);

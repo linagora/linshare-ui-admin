@@ -9,12 +9,13 @@
     .module('linshareAdminApp')
     .controller('UpgradeTasksController', UpgradeTasksController);
 
-  UpgradeTasksController.$inject = ['$filter', '$modal', '$q', '$scope', '$state', '$timeout', 'moment', 'ngTableParams',
-    'upgradeTasksConstants', 'upgradeTasksRestService'
+  UpgradeTasksController.$inject = ['_', '$filter', '$modal', '$q', '$scope', '$state', '$timeout', 'moment',
+    'ngTableParams', 'upgradeTasksConstants', 'upgradeTasksRestService'
   ];
 
-  function UpgradeTasksController($filter, $modal, $q, $scope, $state, $timeout, moment, ngTableParams, upgradeTasksConstants,
-    upgradeTasksRestService) {
+  /* jshint maxparams: false */
+  function UpgradeTasksController(_, $filter, $modal, $q, $scope, $state, $timeout, moment, ngTableParams,
+    upgradeTasksConstants, upgradeTasksRestService) {
     var upgradeTasksVm = this;
 
     upgradeTasksVm.getHelp = getHelp;
@@ -54,7 +55,7 @@
     function loadTable() {
       var deferred = $q.defer();
       deferred.resolve(
-        new ngTableParams({
+        new ngTableParams({ /* jshint ignore: line */
           page: 1,
           count: 25,
           sorting: {

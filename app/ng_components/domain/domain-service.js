@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Domain',
-    ['$q', '$log', 'Notification', 'Restangular',
-    function ($q, $log, Notification, Restangular) {
+    ['_','$q', '$log', 'Notification', 'Restangular',
+    function(_, $q, $log, Notification, Restangular) {
       // var self = this;
 
       /**
@@ -64,7 +64,7 @@ angular.module('linshareAdminApp')
             Notification.addSuccess('DELETE');
           });
         },
-        createSample: function (parentId, type) {
+        createSample: function(parentId, type) {
           var sample = {};
           sample.parent = parentId;
           sample.type = type;

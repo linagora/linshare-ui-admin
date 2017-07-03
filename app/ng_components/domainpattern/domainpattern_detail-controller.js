@@ -57,7 +57,7 @@ angular.module('linshareAdminApp')
       };
       function loadModel() {
         $scope.domainPattern = DomainPattern.copyFromModel($scope.modelSelector);
-      };
+      }
     }]
   );
 

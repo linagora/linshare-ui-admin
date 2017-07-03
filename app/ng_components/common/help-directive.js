@@ -2,23 +2,24 @@
 
 angular.module('linshareAdminApp').directive('lsHelp', ['$rootScope', '$translate', 'Authentication',
   function($rootScope, $translate, Authentication) {
-    var getTemplate = function (content) {
-      return '/i18n/templates/mainview/' + $translate.use() + '/' + content + '.tpl.html';
-    };
-
-    var getDomain = function () {
+    function getDomain() {
       return Authentication.getCurrentUser();
-    };
+    }
 
-    var linker = function(scope, element, attrs) {
+    function getTemplate(content) {
+      return '/i18n/templates/mainview/' + $translate.use() + '/' + content + '.tpl.html';
+    }
+
+    function linker(scope) {
       scope.template = getTemplate(scope.content);
-      getDomain().then(function (user) {
+      getDomain().then(function(user) {
         scope.domain = user.domain;
       });
-      $rootScope.$on('$translateChangeSuccess', function () {
+      $rootScope.$on('$translateChangeSuccess', function() {
         scope.template = getTemplate(scope.content);
       });
     }
+
     return {
       restrict: 'E',
       scope: {

@@ -2,7 +2,7 @@
 
 angular.module('linshareAdminApp')
   .factory('User', ['$q', '$log', 'Restangular', 'Notification', '$http',
-    function ($q, $log, Restangular, Notification, $http) {
+    function($q, $log, Restangular, Notification, $http) {
       // var self = this;
 
       // Public API here
@@ -77,7 +77,7 @@ angular.module('linshareAdminApp')
             var dfd = $q.defer();
             dfd.resolve(error);
             return dfd.promise;
-          })
+          });
         }
       };
     }

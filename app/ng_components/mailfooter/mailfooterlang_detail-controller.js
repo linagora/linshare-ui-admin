@@ -30,12 +30,12 @@
      * @memberOf linshareAdminApp.MaillFooterLangDetailCtrl
      */
     function cancel() {
-      $state.go("mailconfig.detail", {
+      $state.go('mailconfig.detail', {
         id: $state.params.mailConfigId,
         language: $scope.mailFooterLang.language,
         domainId: $state.params.domainId
       });
-    };
+    }
 
     /**
      * @name reset
@@ -44,7 +44,7 @@
      */
     function reset() {
       $state.reinit();
-    };
+    }
 
     /**
      * @name update
@@ -55,6 +55,6 @@
       MailFooterLang.update($scope.mailFooterLang).then(function() {
         $scope.cancel();
       });
-    };
+    }
   }
 })();

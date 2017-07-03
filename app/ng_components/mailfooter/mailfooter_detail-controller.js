@@ -2,7 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('MailFooterDetailCtrl',
-    ['$log', '$modal', '$scope', '$state', '$translate', 'currentDomain', 'currentMailFooter', 'MailFooter', 'Notification',
+    ['$log', '$modal', '$scope', '$state', '$translate', 'currentDomain', 'currentMailFooter', 'MailFooter',
+      'Notification',
     function($log, $modal, $scope, $state, $translate, currentDomain, currentMailFooter, MailFooter, Notification) {
       $scope.mailFooter = currentMailFooter;
       $scope.domain = currentDomain;
@@ -13,7 +14,7 @@ angular.module('linshareAdminApp')
        * @memberOf linshareAdminApp.MailFooterDetailCtrl
        */
       function copy() {
-        var copyMessage, copyText;
+        var copyText;
         $translate('MAIL_FOOTER.BOX_FORM.TEXT_COPY').then(function(data) {
           copyText = data + ' ';
           var modalScope = $scope.$new();

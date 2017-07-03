@@ -2,8 +2,7 @@
 
 angular.module('linshareAdminApp')
   .factory('LdapConnection', ['$log', 'Restangular', 'Notification',
-    function ($log, Restangular, Notification) {
-      var self = this;
+    function($log, Restangular, Notification) {
 
       // Public API here
       return {

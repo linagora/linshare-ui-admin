@@ -11,8 +11,9 @@ angular.module('linshareAdminApp').directive('lsFormSubmit', ['$parse',
         var fn = $parse(attributes.lsFormSubmit);
         formElement.bind('submit', function(event) {
           // if form is not valid cancel it.
-          if (!formController.$valid) return false;
-
+          if (!formController.$valid) {
+            return false;
+          }
           scope.$apply(function() {
             fn(scope, {
               $event: event

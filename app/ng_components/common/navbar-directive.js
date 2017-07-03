@@ -6,9 +6,10 @@ angular.module('linshareAdminApp').directive('lsNavbar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['$q', '$rootScope', '$scope', '$log', '$translate', 'tmhDynamicLocale', 'Authentication',
+      controller: ['_', '$q', '$rootScope', '$scope', '$log', '$translate', 'tmhDynamicLocale', 'Authentication',
         'lsAppConfig', 'upgradeTasksConstants', 'upgradeTasksRestService',
-        function($q, $rootScope, $scope, $log, $translate, tmhDynamicLocale, Authentication, lsAppConfig,
+        /* jshint maxparams: false */
+        function(_, $q, $rootScope, $scope, $log, $translate, tmhDynamicLocale, Authentication, lsAppConfig,
           upgradeTasksConstants, upgradeTasksRestService) {
           Authentication.getCurrentUser().then(function(user) {
             $scope.userLogged = user;

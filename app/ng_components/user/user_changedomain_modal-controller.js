@@ -6,14 +6,14 @@
 
 angular.module('linshareAdminApp')
   .controller('ChangeDomainModalCtrl',
-  ['$scope', '$log', '$modalInstance', 'allDomains', 'User', 'selectedUsers',
-    function ($scope, $log, $modalInstance, allDomains, User, selectedUsers) {
+  ['_', '$scope', '$log', '$modalInstance', 'allDomains', 'User', 'selectedUsers',
+    function(_, $scope, $log, $modalInstance, allDomains, User, selectedUsers) {
       $scope.allDomains = allDomains;
-      $scope.validate = function () {
+      $scope.validate = function() {
         $modalInstance.close();
       };
 
-      $scope.cancel = function () {
+      $scope.cancel = function() {
         $modalInstance.dismiss('cancel');
       };
       if(!angular.isArray(selectedUsers)) {
@@ -29,11 +29,12 @@ angular.module('linshareAdminApp')
           }
           User.updateInconsistent(_.omit(user, 'isSelected')).then(function() {
             selectedUsers.splice(index, 1);
-            if (selectedUsers.length === 0) $modalInstance.close();
+            if (selectedUsers.length === 0) {
+              $modalInstance.close();
+            }
           });
         });
-
-      }
+      };
     }
   ]
 );

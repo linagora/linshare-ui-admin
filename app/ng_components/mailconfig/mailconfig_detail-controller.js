@@ -2,9 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('MailConfigDetailCtrl',
-    ['$filter', '$log', '$modal', '$scope', '$state', '$translate', 'currentDomain', 'currentMailConfig',
+    ['_', '$filter', '$log', '$modal', '$scope', '$state', '$translate', 'currentDomain', 'currentMailConfig',
       'MailConfig', 'MailFooterLang', 'mailFooterLangs', 'mailLayouts', 'ngTableParams', 'Notification',
-    function($filter, $log, $modal, $scope, $state, $translate, currentDomain, currentMailConfig, MailConfig,
+    // TODO: Should dispatch some function to other service or controller
+    /* jshint maxparams: false */
+    function(_, $filter, $log, $modal, $scope, $state, $translate, currentDomain, currentMailConfig, MailConfig,
              MailFooterLang, mailFooterLangs, mailLayouts, ngTableParams, Notification) {
       $scope.domain = currentDomain;
       $scope.mailConfig = currentMailConfig;
@@ -33,7 +35,7 @@ angular.module('linshareAdminApp')
        * @memberOf linshareAdminApp.MailConfigDetailCtrl
        */
       function copy() {
-        var copyMessage, copyText;
+        var copyText;
         $translate('MAIL_FOOTER.BOX_FORM.TEXT_COPY').then(function(data) {
           copyText = data + ' ';
           var modalScope = $scope.$new();
@@ -41,7 +43,7 @@ angular.module('linshareAdminApp')
           modalScope.mailConfig.name = copyText + $scope.mailConfig.name;
           modalScope.domainUuid = currentDomain.identifier;
           modalScope.modelUuid = currentMailConfig.uuid;
-          var modalInstance = $modal.open({
+          $modal.open({
             controller: 'mailConfigModalCtrl',
             templateUrl: 'ng_components/mailconfig/mailconfig_modal.tpl.html',
             scope: modalScope
@@ -50,7 +52,7 @@ angular.module('linshareAdminApp')
           Notification.addError(error);
         });
       }
-  
+
       /**
        * @name removeMailContentTypeTranslation
        * @desc Remove the propertie mailContentTypeTranslated of MailContent
@@ -98,17 +100,17 @@ angular.module('linshareAdminApp')
         $state.go('mailconfig.detail', {domainId: $state.params.domainId, contentLangId: mailContentLang.uuid});
       };
       $scope.updateMailFooterLang = function(mailFooterLang) {
-        MailFooterLang.update(mailFooterLang)
+        MailFooterLang.update(mailFooterLang);
       };
-      $scope.tableFooterParams = new ngTableParams({
-        page: 1,        
-        count: 10,      
+      $scope.tableFooterParams = new ngTableParams({ /* jshint ignore: line */
+        page: 1,
+        count: 10,
         sorting: {
           language: 'asc'
         }
       }, {
         debugMode: false,
-        total: 0, 
+        total: 0,
         getData: function($defer, params) {
           var orderedData = params.sorting() ?
                   $filter('orderBy')(_.values($scope.mailConfig.mailFooterLangs), params.orderBy()) :
@@ -121,7 +123,7 @@ angular.module('linshareAdminApp')
       });
 
       addMailContentTypeTranslation();
-      $scope.tableContentParams = new ngTableParams({
+      $scope.tableContentParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

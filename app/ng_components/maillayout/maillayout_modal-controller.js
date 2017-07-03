@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('mailLayoutModalCtrl',
-    ['$scope', '$log', '$state', '$modalInstance', 'Domain', 'MailLayout',
-      function ($scope, $log, $state, $modalInstance, Domain, MailLayout) {
+    ['_', '$scope', '$log', '$state', '$modalInstance', 'Domain', 'MailLayout',
+      function(_, $scope, $log, $state, $modalInstance, Domain, MailLayout) {
         Domain.getAll().then(function(domains) {
           $scope.domains = domains;
           if (!_.isUndefined($scope.domainUuid)) {
@@ -13,7 +13,7 @@ angular.module('linshareAdminApp')
         $scope.isDefined = function(x) {
           return !_.isUndefined(x);
         };
-        $scope.reloadModels = function(domain) {
+        $scope.reloadModels = function() {
           if (!_.isUndefined($scope.domain)) {
             MailLayout.getAll(Domain.getId($scope.domain), false).then(function(models) {
               $scope.models = models;
@@ -23,7 +23,7 @@ angular.module('linshareAdminApp')
             });
           }
         };
-        $scope.create = function (model) {
+        $scope.create = function(model) {
           var originalModel = model.originalElement;
           delete originalModel.description;
           angular.extend($scope.mailLayout, originalModel);
@@ -37,7 +37,7 @@ angular.module('linshareAdminApp')
             $state.reinit();
           });
         };
-        $scope.cancel = function () {
+        $scope.cancel = function() {
           $modalInstance.dismiss('cancel');
           $scope.reset();
         };

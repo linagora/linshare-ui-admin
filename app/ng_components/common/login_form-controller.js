@@ -5,7 +5,7 @@ var LoginModalInstanceCtrl =
   '$timeout',
   '$modalInstance',
   'Authentication',
-  function ($scope, $timeout, $modalInstance, Authentication) {
+  function($scope, $timeout, $modalInstance, Authentication) {
     // Need this variable to store modal inputs
     // because of Javascript's prototypical inheritance
     $scope.input = {};

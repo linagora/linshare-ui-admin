@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Tab',
-    ['$log', 'Authentication',
-    function($log, Authentication) {
+    ['_', '$log', 'Authentication',
+    function(_, $log, Authentication) {
       var domains = {
         name: 'COMMON.TAB.DOMAINS',
         icon: 'fa-cloud',
@@ -12,13 +12,13 @@ angular.module('linshareAdminApp')
           {
             name: 'COMMON.TAB.LDAP_CONNECTIONS',
             sref: 'ldapconnection.list',
-            children_sref: [
+            childrenSref: [
               'ldapconnection.detail'
             ]
           }, {
             name: 'COMMON.TAB.DOMAIN_PATTERNS',
             sref: 'domainpattern.list',
-            children_sref: [
+            childrenSref: [
               'domainpattern.detail'
             ]
           }, {
@@ -30,7 +30,7 @@ angular.module('linshareAdminApp')
           }, {
             name: 'COMMON.TAB.DOMAIN_POLICIES',
             sref: 'domainpolicy.list',
-            children_sref: [
+            childrenSref: [
               'domainpolicy.detail'
             ]
           }, {
@@ -51,32 +51,32 @@ angular.module('linshareAdminApp')
           {
             name: 'COMMON.TAB.MAIL_LAYOUT',
             sref: 'maillayout.list',
-            children_sref: [
+            childrenSref: [
               'maillayout.detail'
             ]
           }, {
             name: 'COMMON.TAB.MAIL_FOOTER',
             sref: 'mailfooter.list',
-            children_sref: [
+            childrenSref: [
               'mailfooter.detail'
             ]
           }, {
             name: 'COMMON.TAB.MAIL_CONTENT',
             sref: 'mailcontent.list',
-            children_sref: [
+            childrenSref: [
               'mailcontent.detail'
             ]
           }, {
             name: 'COMMON.TAB.MAIL_CONFIG',
             sref: 'mailconfig.list',
-            children_sref: [
+            childrenSref: [
               'mailconfig.detail'
             ]
           }, {
             name: 'COMMON.TAB.MAIL_ACTIVATION',
             superAdminOnly: false,
             sref: 'mailactivation.list',
-            children_sref: [
+            childrenSref: [
               'mailactivation.detail'
             ]
           }
@@ -92,28 +92,28 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.FUNCTIONALITIES',
             superAdminOnly: false,
             sref: 'functionality.list',
-            children_sref: [
+            childrenSref: [
               'functionality.detail'
             ]
           }, {
             name: 'COMMON.TAB.MIME_POLICIES',
             superAdminOnly: true,
             sref: 'mimepolicy.list',
-            children_sref: [
+            childrenSref: [
               'mimepolicy.detail'
             ]
           },/* {
             name: 'COMMON.TAB.UPLOAD_PROPOSITION_FILTER',
             superAdminOnly: true,
             sref: 'uploadpropositionfilter.list',
-            children_sref: [
+            childrenSref: [
               'uploadpropositionfilter.detail',
             ]
           },*/ {
             name: 'COMMON.TAB.WELCOME_MESSAGES',
             superAdminOnly: false,
             sref: 'welcomemessage.list',
-            children_sref: [
+            childrenSref: [
               'welcomemessage.detail',
             ]
           }
@@ -129,14 +129,14 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.MANAGE_USERS',
             superAdminOnly: false,
             sref: 'user.list',
-            children_sref: [
+            childrenSref: [
               'user.detail'
             ]
           }, {
             name: 'COMMON.TAB.INCONSISTENT_USERS',
             superAdminOnly: true,
             sref: 'inconsistentuser.search',
-            children_sref: [
+            childrenSref: [
               'inconsistentuser.search.detail',
               'inconsistentuser.list.all',
               'inconsistentuser.list.detail'
@@ -145,21 +145,21 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.THREADS',
             superAdminOnly: true,
             sref: 'thread.list',
-            children_sref: [
+            childrenSref: [
               'thread.detail'
             ]
           }, {
             name: 'COMMON.TAB.MAILING_LISTS',
             superAdminOnly: true,
             sref: 'mailinglist.list',
-            children_sref: [
+            childrenSref: [
               'mailinglist.detail'
             ]
           }, {
             name: 'COMMON.TAB.TECHNICAL_ACCOUNT',
             superAdminOnly: true,
             sref: 'technicalaccount.list',
-            children_sref: [
+            childrenSref: [
               'technicalaccount.detail'
             ]
           }

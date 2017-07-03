@@ -4,7 +4,7 @@ angular.module('linshareAdminApp')
   .controller('UploadPropositionFilterListCtrl',
     ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'UploadPropositionFilter', 'uploadPropositionFilters',
     function($scope, $filter, $log, $translate, ngTableParams, UploadPropositionFilter, uploadPropositionFilters) {
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'UPLOAD_PROPOSITION_FILTERING';
       };
       $scope.swap = function(x, y, data) {
@@ -16,10 +16,10 @@ angular.module('linshareAdminApp')
           });
         });
       };
-      $scope.reloadList = function () {
+      $scope.reloadList = function() {
         $scope.tableParams.reload();
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {
@@ -33,8 +33,10 @@ angular.module('linshareAdminApp')
                               $filter('orderBy')(uploadPropositionFilters, params.orderBy()) :
                               uploadPropositionFilters;
           params.total(orderedData.length);
-          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-          $scope.isCollapsed = (orderedData.length == 0) ? true : false;
+          $defer.resolve(orderedData.slice(
+            (params.page() - 1) * params.count(), params.page() * params.count()
+          ));
+          $scope.isCollapsed = (orderedData.length === 0) ? true : false;
         }
       });
     }]

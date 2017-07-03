@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('linshareAdminApp').directive('lsFooter',
-	function(lsAppConfig, $rootScope, $translate, $compile, $http, $templateCache) {
-		var getTemplate = function () {
+	function(lsAppConfig, $rootScope, $translate) {
+		var getTemplate = function() {
       if (lsAppConfig.license) {
         return 'ng_components/common/footer_' + $translate.use() + '.tpl.html';
       }
 	  };
-    var linker = function (scope, element) {
+    var linker = function(scope) {
 			scope.template = getTemplate();
-			$rootScope.$on('$translateChangeSuccess', function () {
+			$rootScope.$on('$translateChangeSuccess', function() {
         scope.template = getTemplate();
       });
 		};

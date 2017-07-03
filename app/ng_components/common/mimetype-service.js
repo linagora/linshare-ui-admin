@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('MimeType',
     ['$log', 'Notification', 'Restangular',
-    function ($log, Notification, Restangular) {
+    function($log, Notification, Restangular) {
       // Public API here
       return {
         update: function(mimeType) {

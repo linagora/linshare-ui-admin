@@ -6,7 +6,7 @@
 Quelques articles :
 - http://jcalcote.wordpress.com/2008/10/16/put-or-post-the-rest-of-the-story/
 - http://restcookbook.com/HTTP%20Methods/put-vs-post/
-- http://www.artima.com/lejava/articles/why_put_and_delete.html 
+- http://www.artima.com/lejava/articles/why_put_and_delete.html
 
 
 ## Authentification
@@ -20,13 +20,13 @@ GET     shares                  - liste des partages
 GET     shares/{uuid}           - les informations sur un partage
 POST    shares                  - créer un/des partage(s)
 POST    shares/{uuid}/import    - importer un document d’un partage (recopie dans l’espace personnel)
-DELETE  shares                  - supprimer un partage 
+DELETE  shares                  - supprimer un partage
 
 
 ## Documents
 
-GET     documents                         - liste des documents 
-GET     documents/{uuid}                  - les informations sur un document 
+GET     documents                         - liste des documents
+GET     documents/{uuid}                  - les informations sur un document
 GET     documents/{uuid}/thumbnail        - le thumbnail du document
 GET     documents/{uuid}/download         - télécharger un document
 POST    documents                         - créer un nouveau document (documentEntry)
@@ -47,22 +47,22 @@ DELETE  users                             - supprimer un compte
 
 ## Threads
 
-GET     threads                           - liste des threads 
+GET     threads                           - liste des threads
 GET     threads/{uuid}                    - les informations sur un thread
 GET     threads/{uuid}/entries            - liste les thread entries un thread
 GET     threads/{uuid}/members            - liste des membres d’un thread
 POST    threads                           - créer un thread
 POST    threads/{uuid}/entries            - créer une thread entry
 POST    threads/{uuid}/members            - créer un thread member
-PUT     threads                           - modifier un thread 
+PUT     threads                           - modifier un thread
 DELETE  threads                           - supprimer un thread
 
 
-## Thread entries 
+## Thread entries
 
 GET     thread_entries/{uuid}             - les informations sur une thread entry
 PUT     thread_entries                    - modifier une thread entry (nom & commentaire)
-DELETE  thread_entries                    - supprimer une thread entry 
+DELETE  thread_entries                    - supprimer une thread entry
 
 
 ## Thread members
@@ -135,10 +135,10 @@ PUT     admin/functionnalities/{uuid}/activation        - modifier une politique
 
 ### Threads
 
-GET     admin/threads                           - liste des threads 
+GET     admin/threads                           - liste des threads
 GET     admin/threads/{uuid}                    - les informations sur un thread
 GET     admin/threads/{uuid}/members            - liste des membres d’un thread
-PUT     admin/threads                           - modifier un thread 
+PUT     admin/threads                           - modifier un thread
 DELETE  admin/threads                           - supprimer un thread
 
 

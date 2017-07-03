@@ -22,7 +22,7 @@
       restrict: 'C',
       templateUrl: 'ng_components/common/logo.tpl.html',
       link: linkFn
-    }
+    };
 
     return directive;
 
@@ -38,6 +38,6 @@
       if (!lsAppConfig.license && lsAppConfig.logoURL) {
         scope.customLogo = true;
       }
-    };
+    }
   }
 })();

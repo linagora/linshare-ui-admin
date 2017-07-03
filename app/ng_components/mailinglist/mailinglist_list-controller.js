@@ -5,10 +5,10 @@ angular.module('linshareAdminApp')
     ['$scope', '$filter', '$log', 'ngTableParams', 'mailingLists',
     function($scope, $filter, $log, ngTableParams, mailingLists) {
       $scope.isCollapsed = true;
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'MAILINGLIST';
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

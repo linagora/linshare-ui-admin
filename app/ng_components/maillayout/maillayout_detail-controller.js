@@ -14,7 +14,7 @@ angular.module('linshareAdminApp')
        * @memberOf linshareAdminApp.MailLayoutDetailCtrl
        */
       function copy() {
-        var copyMessage, copyText;
+        var copyText;
         $translate('MAIL_LAYOUT.BOX_FORM.TEXT_COPY').then(function(data) {
           copyText = data + ' ';
           var modalScope = $scope.$new();

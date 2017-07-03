@@ -2,7 +2,7 @@
 
 angular.module('linshareAdminApp')
   .factory('MailingList', ['$log', 'Restangular', 'Notification',
-    function ($log, Restangular, Notification) {
+    function($log, Restangular, Notification) {
       //var self = this;
 
       // Public API here

@@ -9,11 +9,11 @@
     .module('linshareAdminApp')
     .controller('AsyncTasksController', AsyncTasksController);
 
-  AsyncTasksController.$inject = ['$filter', '$q', '$state', '$window', 'moment', 'ngTableParams',
+  AsyncTasksController.$inject = ['_', '$filter', '$q', '$state', '$window', 'moment', 'ngTableParams',
     'upgradeTask', 'upgradeTasksRestService'
   ];
 
-  function AsyncTasksController($filter, $q, $state, $window, moment, ngTableParams, upgradeTask,
+  function AsyncTasksController(_, $filter, $q, $state, $window, moment, ngTableParams, upgradeTask,
     upgradeTasksRestService) {
     var asyncTasksVm = this;
 
@@ -55,7 +55,7 @@
     function loadTable() {
       var deferred = $q.defer();
       deferred.resolve(
-        new ngTableParams({
+        new ngTableParams({ /* jshint ignore: line */
           page: 1,
           count: 10,
           sorting: {

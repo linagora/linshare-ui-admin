@@ -14,7 +14,7 @@ angular.module('linshareAdminApp')
         $scope.filter.uploadPropositionRules = [];
         $scope.filter.uploadPropositionActions = [];
         $scope.filter.uploadPropositionActions[0] = {};
-        $scope.filter.match = 'TRUE'
+        $scope.filter.match = 'TRUE';
       }
 
       $scope.addRule = function() {
@@ -24,19 +24,18 @@ angular.module('linshareAdminApp')
         $scope.filter.uploadPropositionRules.splice(index, 1);
       };
       $scope.submit = function() {
-        //$scope.filters.uploadPropositionRules = _.filter($scope.filters.uploadPropositionRules, function(obj) { return obj != {} ; });
         if ($scope.state === 'create') {
-          UploadPropositionFilter.add($scope.filter).then(function () {
+          UploadPropositionFilter.add($scope.filter).then(function() {
             $scope.cancel();
           });
         } else {
-          UploadPropositionFilter.update($scope.filter).then(function () {
+          UploadPropositionFilter.update($scope.filter).then(function() {
             $scope.cancel();
           });
         }
       };
       $scope.remove = function() {
-        if ($scope.state != 'edit') {
+        if ($scope.state !== 'edit') {
           $log.error('Invalid state');
         }
         UploadPropositionFilter.remove($scope.filter).then(function() {

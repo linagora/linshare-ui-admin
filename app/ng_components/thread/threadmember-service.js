@@ -2,7 +2,7 @@
 
 angular.module('linshareAdminApp')
   .factory('ThreadMember', ['$log', 'Restangular',
-    function ($log, Restangular) {
+    function($log, Restangular) {
       var getThreadMemberDto = function(thread, user) {
         return {
           'threadUuid': thread.uuid,

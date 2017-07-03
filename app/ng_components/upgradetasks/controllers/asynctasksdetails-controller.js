@@ -9,11 +9,11 @@
     .module('linshareAdminApp')
     .controller('AsyncTasksDetailsController', AsyncTasksDetailsController);
 
-  AsyncTasksDetailsController.$inject = ['$scope', '$window', 'asyncTask', 'moment', 'upgradeTask',
+  AsyncTasksDetailsController.$inject = ['_', '$scope', '$window', 'asyncTask', 'moment', 'upgradeTask',
     'upgradeTasksConstants', 'upgradeTasksRestService'
   ];
 
-  function AsyncTasksDetailsController($scope, $window, asyncTask, moment, upgradeTask, upgradeTasksConstants,
+  function AsyncTasksDetailsController(_, $scope, $window, asyncTask, moment, upgradeTask, upgradeTasksConstants,
     upgradeTasksRestService) {
     var asyncTaskVm = this;
 

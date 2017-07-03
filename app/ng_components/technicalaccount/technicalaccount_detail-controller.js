@@ -24,7 +24,7 @@ angular.module('linshareAdminApp')
       };
       $scope.match = function(a, b) {
         return Password.match(a, b);
-      }
+      };
       $scope.changePassword = function() {
         TechnicalAccount.changePassword($scope.account.uuid, $scope.password);
       };
@@ -40,7 +40,7 @@ angular.module('linshareAdminApp')
         }
       };
       $scope.remove = function() {
-        if ($scope.state != 'edit') {
+        if ($scope.state !== 'edit') {
           $log.error('Invalid state');
         }
         var modalInstance = $modal.open({

@@ -32,14 +32,6 @@ angular.module('linshareAdminApp')
         return u.firstName.concat(' ', u.lastName, ' ', u.mail, ' ', u.domain);
       };
       $scope.dataUpTodate = true;
-      $scope.showUserDetail = function(user) {
-        $scope.currentDetailState = user.uuid;
-        if (user.database) {
-          $state.go('inconsistentuser.search.detail', {uuid: user.uuid});
-        } else {
-          createUserProfile(user);
-        }
-      };
 
       var createUserProfile = function(user) {
         var modalInstance = $modal.open({
@@ -62,5 +54,14 @@ angular.module('linshareAdminApp')
             $log.debug('Deletion modal dismissed');
           }
         );
+      };
+
+      $scope.showUserDetail = function(user) {
+        $scope.currentDetailState = user.uuid;
+        if (user.database) {
+          $state.go('inconsistentuser.search.detail', {uuid: user.uuid});
+        } else {
+          createUserProfile(user);
+        }
       };
     }]);

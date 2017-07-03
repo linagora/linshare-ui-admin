@@ -2,13 +2,16 @@
 
 angular.module('linshareAdminApp')
   .controller('UserListCtrl',
-     ['$scope', '$filter', '$log', '$translate', 'ngTableParams', 'User', 'authenticatedUser', '$state', 'Restangular', '$modal',
-      function ($scope, $filter, $log, $translate, ngTableParams, User, authenticatedUser, $state, Restangular, $modal) {
+     ['_', '$scope', '$filter', '$log', '$translate', 'ngTableParams', 'User', 'authenticatedUser', '$state',
+       'Restangular', '$modal',
+       /* jshint maxparams: false */
+      function(_, $scope, $filter, $log, $translate, ngTableParams, User, authenticatedUser, $state,
+        Restangular, $modal) {
         $scope.isCollapsed = true;
-        $scope.getTemplate = function () {
+        $scope.getTemplate = function() {
           return 'USER';
         };
-        $scope.reloadList = function () {
+        $scope.reloadList = function() {
           $scope.tableParams.reload();
         };
         $scope.isSuperAdmin = authenticatedUser.role === 'SUPERADMIN';
@@ -16,7 +19,7 @@ angular.module('linshareAdminApp')
         $scope.sendFile = function(selector) {
           $scope.migStateSuccess = false;
           var csvFile = document.getElementById('fileInputCsv');
-          if(selector == undefined) {
+          if(selector === undefined) {
             selector = ';';
           }
           var formData = new FormData();
@@ -28,16 +31,6 @@ angular.module('linshareAdminApp')
             $scope.migStateSuccess = true;
           }, function(error) {
             $scope.migState = error;
-          });
-        };
-
-        $scope.showUserDetail = function(user) {
-          User.exist(user.uuid).then(function(success) {
-            if (success) {
-              $state.go('user.detail', {uuid: user.uuid});
-            } else {
-              confirmCreateUserProfile(user);
-            }
           });
         };
 
@@ -62,7 +55,17 @@ angular.module('linshareAdminApp')
           );
         };
 
-        $scope.tableParams = new ngTableParams({
+        $scope.showUserDetail = function(user) {
+          User.exist(user.uuid).then(function(success) {
+            if (success) {
+              $state.go('user.detail', {uuid: user.uuid});
+            } else {
+              confirmCreateUserProfile(user);
+            }
+          });
+        };
+
+        $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
           page: 1,        // show first page
           count: 10,      // count per page
           sorting: {

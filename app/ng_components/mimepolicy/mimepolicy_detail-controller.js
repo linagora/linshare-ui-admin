@@ -2,8 +2,12 @@
 
 angular.module('linshareAdminApp')
   .controller('MimePolicyDetailCtrl',
-    ['$scope', '$filter', '$timeout', '$log', '$modal', '$state', 'ngTableParams', 'MimePolicy', 'MimeType', 'currentMimePolicy', 'currentDomain',
-    function($scope, $filter, $timeout, $log, $modal, $state, ngTableParams, MimePolicy, MimeType, currentMimePolicy, currentDomain) {
+    ['$scope', '$filter', '$timeout', '$log', '$modal', '$state', 'ngTableParams', 'MimePolicy', 'MimeType',
+      'currentMimePolicy', 'currentDomain',
+    // TODO: Should dispatch some function to other service or controller
+    /* jshint maxparams: false */
+    function($scope, $filter, $timeout, $log, $modal, $state, ngTableParams, MimePolicy, MimeType,
+      currentMimePolicy, currentDomain) {
       $scope.mimePolicy = currentMimePolicy;
       $scope.iconSaved = false;
       $scope.domain = currentDomain;
@@ -57,7 +61,7 @@ angular.module('linshareAdminApp')
       $scope.reset = function() {
         $state.reinit();
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {
@@ -79,4 +83,4 @@ angular.module('linshareAdminApp')
         $scope: { $data: {}, $emit: function() {} }
       });
     }]
-  )
+  );

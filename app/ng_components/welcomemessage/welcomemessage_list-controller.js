@@ -2,24 +2,29 @@
 
 angular.module('linshareAdminApp')
   .controller('WelcomeMessageListCtrl',
-    ['$state', '$scope', '$filter', '$translate', '$modal', 'ngTableParams', 'Domain', 'WelcomeMessage', 'welcomesMessages', 'authenticatedUser', 'currentDomain',
-    function($state, $scope, $filter, $translate, $modal, ngTableParams, Domain, WelcomeMessage, welcomesMessages, authenticatedUser, currentDomain) {
+    ['_', '$state', '$scope', '$filter', '$translate', '$modal', 'ngTableParams', 'Domain', 'WelcomeMessage',
+      'welcomesMessages', 'authenticatedUser', 'currentDomain',
+    // TODO: Should dispatch some function to other service or controller
+    /* jshint maxparams: false */
+    function(_, $state, $scope, $filter, $translate, $modal, ngTableParams, Domain, WelcomeMessage,
+      welcomesMessages, authenticatedUser, currentDomain) {
       $scope.domain = $state.params.domainId;
       $scope.currentDomain = currentDomain;
       $scope.user = authenticatedUser;
       Domain.getAll().then(function(domains) {
         $scope.isMyDomain = (_.findWhere(domains, {'identifier': $scope.domain})) ? true : false;
-        if ($scope.isMyDomain || $scope.user.accountType == 'ROOT')
+        if ($scope.isMyDomain || $scope.user.accountType === 'ROOT') {
           $scope._domain = Domain.get($scope.domain);
-        else
+        } else {
           $scope._domain = null;
+        }
       });
 
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'WELCOME_MESSAGE';
       };
       $scope.add = function(welcomeMessage) {
-        var modalInstance = $modal.open({
+        $modal.open({
           controller: 'welcomeMessageModalCtrl',
           templateUrl: 'ng_components/welcomemessage/welcomemessage_modal.tpl.html',
           resolve: {
@@ -36,7 +41,7 @@ angular.module('linshareAdminApp')
         });
       };
       $scope.new = function() {
-        var modalInstance = $modal.open({
+        $modal.open({
           controller: 'welcomeMessageModalCtrl',
           templateUrl: 'ng_components/welcomemessage/welcomemessage_modal.tpl.html',
           resolve: {
@@ -53,15 +58,15 @@ angular.module('linshareAdminApp')
           }
         });
       };
-      $scope.delete = function (_welcomeMessage) {
+      $scope.delete = function(_welcomeMessage) {
         WelcomeMessage.remove(_welcomeMessage).then(function() {
           $state.reinit();
         });
       };
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'WELCOME_MESSAGE';
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

@@ -7,7 +7,7 @@ angular.module('linshareAdminApp')
       $scope.allDomains = allDomains;
       $scope.user = currentUser;
 
-      $scope.delete = function(user) {
+      $scope.delete = function() {
         var modalInstance = $modal.open({
           templateUrl: 'ng_components/common/confirm_modal.tpl.html',
           controller: 'ConfirmDialogCtrl',

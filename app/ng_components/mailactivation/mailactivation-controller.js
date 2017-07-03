@@ -4,12 +4,13 @@ angular.module('linshareAdminApp')
   .controller('MailActivationCtrl',
     ['$scope', '$state', '$timeout', 'MailActivation',
     function($scope, $state, $timeout, MailActivation) {
-      var timeoutId = undefined;
-      var setIcon = function (value) {
-        if ($scope.mailActivation.parentIdentifier == null)
+      var timeoutId;
+      var setIcon = function(value) {
+        if ($scope.mailActivation.parentIdentifier == null) {
           $scope.iconSaved = value;
-        else
+        } else {
           $scope.$parent.$parent.$parent.iconSaved = value;
+        }
       };
       $scope.displayIconSaved = function() {
         setIcon(true);
@@ -22,13 +23,12 @@ angular.module('linshareAdminApp')
         return $scope.mailActivation.activationPolicy.parentAllowUpdate;
       };
       $scope.showConfiguration = function() {
-        return $scope.mailActivation.activationPolicy.policy != 'FORBIDDEN'
-                && $scope.mailActivation.configurationPolicy.parentAllowUpdate;
+        return $scope.mailActivation.activationPolicy.policy !== 'FORBIDDEN' &&
+          $scope.mailActivation.configurationPolicy.parentAllowUpdate;
       };
       $scope.showDelegation = function() {
-        return $scope.mailActivation.activationPolicy.policy != 'FORBIDDEN'
-                && $scope.mailActivation.delegationPolicy
-                && $scope.mailActivation.delegationPolicy.parentAllowUpdate;
+        return $scope.mailActivation.activationPolicy.policy !== 'FORBIDDEN' &&
+          $scope.mailActivation.delegationPolicy && $scope.mailActivation.delegationPolicy.parentAllowUpdate;
       };
 
       $scope.showResetToParent = function() {
@@ -79,7 +79,7 @@ angular.module('linshareAdminApp')
         });
       };
 
-      $scope.checkPolicyType = function (policyType) {
+      $scope.checkPolicyType = function(policyType) {
         policyType.status = policyType.defaultStatus;
       };
 
@@ -88,10 +88,11 @@ angular.module('linshareAdminApp')
         updateMailActivation($scope.mailActivation);
       };
       $scope.changeDelegationMailActivation = function(){
-        if ($scope.mailActivation.delegationPolicy.status == true)
+        if ($scope.mailActivation.delegationPolicy.status) {
           $scope.mailActivation.delegationPolicy.status = true;
-        else
+        } else {
           $scope.mailActivation.delegationPolicy.status = false;
+        }
 
         $scope.mailActivation.delegationPolicy.policy = 'ALLOWED';
         updateMailActivation($scope.mailActivation);

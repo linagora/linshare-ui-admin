@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .controller('DomainTreeCtrl',
-  ['$scope', '$log', '$state', 'treeType', 'treeTitle', 'rootDomain', 'Authentication',
-    function ($scope, $log, $state, treeType, treeTitle, rootDomain, Authentication) {
+  ['_', '$scope', '$log', '$state', 'treeType', 'treeTitle', 'rootDomain', 'Authentication',
+    function(_, $scope, $log, $state, treeType, treeTitle, rootDomain, Authentication) {
       $scope.root = [rootDomain];
       $scope.state = treeType;
       $scope.title = treeTitle;
@@ -13,20 +13,20 @@ angular.module('linshareAdminApp')
       var findDeep = function(domain, attrs) {
 
         var match = function(attrValue, attrs) {
-          for (var key in attrs) {
+          _.forEach(attrs, function(value, key) {
             if(!_.isUndefined(attrValue)) {
               if (attrs[key] !== attrValue[key]) {
                 return false;
               }
             }
-          }
+          });
           return true;
         };
 
         var traverse = function(domain, attrs) {
           var result;
 
-          _.forEach(domain, function (attr) {
+          _.forEach(domain, function(attr) {
             if (attr && match(attr, attrs)) {
               result = attr;
               return false;
@@ -41,30 +41,30 @@ angular.module('linshareAdminApp')
             }
           });
           return result;
-        }
+        };
 
         return traverse(domain, attrs);
 
       };
-      $scope.isParent = function (domain) {
+      $scope.isParent = function(domain) {
         return !_.isEmpty(findDeep(domain.children, {'identifier': $scope.adminDomain}));
       };
-      $scope.hasGuestDomain = function (topDomain) {
+      $scope.hasGuestDomain = function(topDomain) {
         return !_.isEmpty(
           _.find(topDomain.children, {'type': 'GUESTDOMAIN'})
         );
       };
-      $scope.canAddChildDomain = function (domain) {
+      $scope.canAddChildDomain = function(domain) {
         return $scope.state === 'edit' &&
           (domain.type === 'TOPDOMAIN' || domain.type === 'ROOTDOMAIN');
       };
-      $scope.canAddTopDomain = function (domain) {
+      $scope.canAddTopDomain = function(domain) {
         return domain.type === 'ROOTDOMAIN';
       };
-      $scope.canAddSubDomain = function (domain) {
+      $scope.canAddSubDomain = function(domain) {
         return domain.type === 'TOPDOMAIN';
       };
-      $scope.canAddGuestDomain = function (domain) {
+      $scope.canAddGuestDomain = function(domain) {
         return (domain.type === 'TOPDOMAIN' &&
           _.isEmpty(
             _.find(domain.children, {'type': 'GUESTDOMAIN'})

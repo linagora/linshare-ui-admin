@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('DomainPolicy', ['$rootScope', '$log', 'Restangular', 'Notification', '$q',
-    function ($rootScope, $log, Restangular, Notification, $q) {
+  .factory('DomainPolicy', ['_','$rootScope', '$log', 'Restangular', 'Notification', '$q',
+    function(_, $rootScope, $log, Restangular, Notification, $q) {
       //var self = this;
       var deferred = $q.defer();
 
@@ -14,8 +14,7 @@ angular.module('linshareAdminApp')
         },
         get: function(id) {
           $log.debug('DomainPolicy:get');
-          if (angular.isObject(id))
-          {
+          if (_.isObject(id)) {
             return Restangular.one('domain_policies', id.id).get().then(
               function(success){
                 return success;
@@ -24,16 +23,17 @@ angular.module('linshareAdminApp')
                 return data.status;
               }
             );
-          }
-          else
+          } else {
             return Restangular.one('domain_policies', id).get();
+          }
         },
         add: function(domainPolicy) {
           $log.debug('DomainPolicy:add');
           var notification = Notification.getNotification(domainPolicy);
           Restangular.all('domain_policies').post(domainPolicy).then(function(policy) {
-            if (notification == true)
+            if (notification) {
               Notification.addSuccess('CREATE');
+            }
             deferred.resolve(policy.plain());
           });
           return deferred.promise;
@@ -42,8 +42,9 @@ angular.module('linshareAdminApp')
           $log.debug('DomainPolicy:update');
           var notification = Notification.getNotification(domainPolicy);
           return domainPolicy.put().then(function() {
-            if (notification == true)
+            if (notification) {
               Notification.addSuccess('UPDATE');
+            }
           });
         },
         exist: function(domainIdentifier) {

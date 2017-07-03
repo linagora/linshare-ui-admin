@@ -8,21 +8,21 @@ angular.module('linshareAdminApp')
       mailFooters) {
       $scope.domain = currentDomain;
 
-      $scope.getTemplate = function () {
+      $scope.getTemplate = function() {
         return 'MAIL_FOOTER';
       };
       $scope.add = function() {
-        var modalInstance = $modal.open({
+        $modal.open({
           controller: 'mailFooterModalCtrl',
           templateUrl: 'ng_components/mailfooter/mailfooter_modal.tpl.html'
         });
       };
-      $scope.delete = function (_mailFooter) {
+      $scope.delete = function(_mailFooter) {
         MailFooter.remove(_mailFooter).then(function() {
           $state.reinit();
         });
       };
-      $scope.tableParams = new ngTableParams({
+      $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
         count: 10,      // count per page
         sorting: {

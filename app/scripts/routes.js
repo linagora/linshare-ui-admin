@@ -1,8 +1,7 @@
 'use strict';
 
-//jshint ignore: start
-angular.module('linshareAdminApp').config(['$stateProvider', '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
+angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterProvider',
+  function(_, $stateProvider, $urlRouterProvider) {
     //  For any unmatched url, redirect
     $urlRouterProvider.otherwise('/dashboard');
 

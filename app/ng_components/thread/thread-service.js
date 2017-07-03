@@ -2,15 +2,16 @@
 
 angular.module('linshareAdminApp')
   .factory('Thread', ['$q', '$log', 'Restangular', 'Notification',
-    function ($q, $log, Restangular, Notification) {
+    function($q, $log, Restangular, Notification) {
       //var self = this;
 
       // Public API here
       return {
         getAll: function(pattern) {
           $log.debug('Thread:getAll');
-          if (pattern == null)
+          if (pattern == null) {
             return Restangular.all('threads').getList();
+          }
           return Restangular.all('threads').getList({pattern:pattern});
         },
         get: function(id) {
