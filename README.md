@@ -4,21 +4,33 @@
 
 Récupérer le projet __linshare-ui-admin__ depuis le dépôt
 
-Installer nodesjs et npm
+Some dependencies are required:
+> From the web
+  - [RubyGems](https://rubygems.org/pages/download/)
+  - [Nodejs](https://nodejs.org/en/download/) which include [Npm](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm)
+  - [HTML Tidy](http://binaries.html-tidy.org/)
+  - [Hunspell](https://github.com/hunspell/hunspell)
+> From Npm
+  - [Jshint](http://jshint.com/install/)
+> From Gem
+  - [Ruby-compass](http://compass-style.org/install/)
+  - [Overcommit](https://github.com/brigade/overcommit#installation)
+  - [Scss_lint](https://github.com/brigade/scss-lint#installation)
 
-    curl http://nodejs.org/dist/node-latest.tar.gz -o node-latest.tar.gz
-    tar xvf node-latest.tar.gz
-    cd node-v0.XX.XX
-    ./configure
-    make
-    sudo make install
+Most of the dependencies are also available by your OS packet manager
 
-Installer compass
+  For Ubuntu:
+  ```bash
+  sudo apt-get install nodejs nodejs-legacy npm ruby-compaas hunspell
+  npm install jshint
+  gem install overcommit scss_lint
 
-    gem install compass
-    Si vous avez une erreur, désinstaller sass et réessayer l'installation. Sinon faites apt-get install ruby-compass
-
-
+  sudo apt-get install -y cmake xsltproc
+  wget <LATEST URL from http://binaries.html-tidy.org, linux 64-bit DEB>
+  sudo apt-get -y autoremove tidy
+  sudo dpkg -i tidy-*.*.*-64bit.deb
+  rm tidy-*.deb
+  ```
 ## Installation de l'application
 
 
