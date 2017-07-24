@@ -92,6 +92,7 @@
       "UPLOAD_REQUEST": "Invitation de dépôt",
       "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt",
       "AUDIT": "Audit",
+      "AUDIT_V2": "Audit V2",
       "MANAGE_QUOTA": "Configuration du quota des domaines",
       "UPGRADES_TASKS": "Tâches de mise à jour"
     },
@@ -136,6 +137,7 @@
         "16667": "Configuration de courriel introuvable",
         "16668": "La configuration de couriel ne peut être créée",
         "17000": "Action défendue",
+        "17400": "Les paramètres envoyés au serveur sont incorrects",
         "17666": "Ce contenu de courriel ne peut pas être supprimé, il est utilisé par une configuration de courriel",
         "17667": "Contenu de courriel introuvable",
         "17668": "Le modèle de notification associé à la langue courante n'a pas été trouvé",
@@ -392,7 +394,6 @@
       }
     }
   },
-
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",
     "SUB_TITLE": "",
@@ -407,7 +408,6 @@
     "PARAMETERS_TITLE": "Paramètres",
     "PARAMETERS_SUB_TITLE": "Fonctionnalités"
   },
-
   "CHANGE_PASSWORD": {
     "TITLE": "Modifier le mot de passe",
     "BOX_FORM": {
@@ -422,7 +422,6 @@
       }
     }
   },
-
   "DOMAIN_PATTERNS": {
     "TITLE": "Gérer les modèles de domaine",
     "BOX_LIST": {
@@ -471,7 +470,6 @@
       "PARAGRAPH": "Vous êtes sur le point de supprimer ce modèle de domaine, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
-
   "LDAP_CONNECTIONS": {
     "TITLE": "Gestion des connexions LDAP",
     "BOX_LIST": {
@@ -501,7 +499,6 @@
       "PARAGRAPH": "Vous êtes sur le point de supprimer cette connexion LDAP, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
-
   "MANAGE_DOMAINS": {
     "TITLE": "Gérer les domaines",
     "BOX_TREE": {
@@ -556,7 +553,6 @@
       "PARAGRAPH": "Vous êtes sur le point de supprimer ce domaine, cette procédure est irréversible et va détruire tout les utilisateurs associés. Souhaitez-vous continuer ?"
     }
   },
-
   "WELCOME_MESSAGES": {
     "TITLE": "Gestion de vos messages d'accueil",
     "MODAL_FORM": {
@@ -624,7 +620,6 @@
     },
     "CONFIRM_DELETE_FORM": "Vous êtes sur le point de supprimer ce message d'accueil, cette procédure est irréversible. Souhaitez-vous continuer ?"
   },
-
   "DOMAIN_ORDER": {
     "TITLE": "Modifier l'ordre des connexions aux domaines",
     "BOX_LIST": {
@@ -636,7 +631,6 @@
       }
     }
   },
-
   "DOMAIN_POLICIES": {
     "TITLE": "Gestion des politiques de domaine",
     "BOX_LIST": {
@@ -676,7 +670,6 @@
       "PARAGRAPH": "Vous êtes sur le point de supprimer cette politique de domaine, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
-
   "MAIL_ACTIVATION": {
     "BOX_LIST": {
       "TABLE": {
@@ -797,7 +790,6 @@
       "BOOLEAN_true": "Cette notification est activée."
     }
   },
-
   "FUNCTIONALITIES": {
     "TITLE": "Gestion des fonctionnalités",
     "CST_MORE": "Plus de détails",
@@ -1501,7 +1493,6 @@
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Envoi à chaque téléchargement."
     }
   },
-
   "MIME_POLICIES": {
     "TITLE": "Règles de type MIME",
     "BOX_LIST": {
@@ -1543,7 +1534,6 @@
       }
     }
   },
-
   "MAIL_LAYOUT": {
     "TITLE": "Dispositions de courriel",
     "BOX_LIST": {
@@ -1590,7 +1580,6 @@
       "LABEL": "Lecture seule"
     }
   },
-
   "MAIL_FOOTER": {
     "TITLE": "Pied de courriel",
     "BOX_LIST": {
@@ -1644,7 +1633,6 @@
       "LABEL": "Lecture seule"
     }
   },
-
   "MAIL_CONTENT": {
     "TITLE": "Contenu de courriel",
     "BOX_LIST": {
@@ -1717,7 +1705,6 @@
       "LABEL": "Lecture seule"
     }
   },
-
   "MAIL_CONFIG": {
     "TITLE": "Configuration de courriel",
     "BOX_LIST": {
@@ -1812,7 +1799,6 @@
       "PARAGRAPH": "Vous êtes sur le point de supprimer cette configuration de courriel, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
-
   "MANAGE_USERS": {
     "TITLE": "Gestion des utilisateurs",
     "BOX_LIST": {
@@ -1885,7 +1871,6 @@
       "STATE_SKIPPED": "Utilisateurs non traités"
     }
   },
-
   "INCONSISTENT_USERS": {
     "TITLE": "",
     "BOX_FORM": {
@@ -1935,7 +1920,6 @@
       "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"
     }
   },
-
   "THREADS": {
     "TITLE": "Gestion des groupes",
     "BOX_LIST": {
@@ -1982,7 +1966,6 @@
       "PARAGRAPH": "Vous êtes sur le point de supprimer ce groupe et tout son contenu, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
-
   "MAILING_LISTS": {
     "TITLE": "Gestion des listes de diffusion",
     "LABEL_PUBLIC": "Publique",
@@ -2028,7 +2011,6 @@
       "PARAGRAPH": "Vous êtes sur le point de supprimer cette liste de diffusion, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
-
   "AUDIT": {
     "TITLE": "Audit de l'application",
     "BOX_FORM": {
@@ -2069,7 +2051,6 @@
       }
     }
   },
-
   "UPLOAD_REQUEST": {
     "TITLE": "Invitation de dépôt",
     "BOX_FORM": {
@@ -2103,7 +2084,6 @@
       }
     }
   },
-
   "UPLOAD_PROPOSITION_FILTER": {
     "TITLE": "Filtres de demande d'invitation de partage",
     "BOX_FORM": {
@@ -2132,7 +2112,6 @@
       }
     }
   },
-
   "TECHNICAL_ACCOUNT": {
     "TITLE": "Comptes techniques",
     "BOX_FORM": {

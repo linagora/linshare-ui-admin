@@ -1,0 +1,123 @@
+<section class="content-header">
+  <h1>
+    <span translate>AUDIT_V2</span>
+    <small translate>AUDIT.TITLE</small>
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <section class="col-lg-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <h3 class="box-title" translate>AUDIT_V2</h3>
+        </div>
+        <div class="box-body">
+          <div class="well">
+            <div class="col-sm-4 p-l-0">
+              <div class="date-picker input-group dp-blue" data-ng-class="{'is-opened': beginDateOpened}">
+          <span class="input-group-addon">
+            <i class="fa fa-calendar ma-icon"></i>
+          </span>
+                <div class="fg-line" data-ng-class="{'fg-toggled': beginDateOpened}">
+                  <input
+                    data-ng-click="beginDateOpened = true"
+                    type="text"
+                    class="form-control"
+                    datepicker-popup="{{auditVm.dateFormat}}"
+                    show-weeks="false"
+                    is-open="beginDateOpened"
+                    max-date="auditVm.endDate"
+                    datepicker-options="dateOptions"
+                    data-ng-required="true"
+                    close-text="Close"
+                    placeholder="{{'TOOLBAR.FILTER_BEGINNING_DATE' | translate}}"
+                    data-ng-model="auditVm.beginDate" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="date-picker input-group dp-blue" data-ng-class="{'is-opened': endDateOpened}">
+          <span class="input-group-addon">
+            <i class="fa fa-calendar-o ma-icon"></i>
+          </span>
+                <div class="fg-line" data-ng-class="{'fg-toggled': endDateOpened}">
+                  <input
+                    data-ng-click="endDateOpened = true"
+                    type="text"
+                    class="form-control"
+                    datepicker-popup="{{auditVm.dateFormat}}"
+                    show-weeks="false"
+                    is-open="endDateOpened"
+                    min-date="auditVm.beginDate"
+                    max-date="auditVm.maxDate"
+                    datepicker-options="dateOptions"
+                    data-ng-required="true"
+                    close-text="Close"
+                    placeholder="{{'TOOLBAR.FILTER_ENDING_DATE' | translate}}"
+                    data-ng-model="auditVm.endDate" />
+                </div>
+              </div>
+            </div>
+            <button data-ng-click="auditVm.findAuditActionsByDate()" class="btn btn-success">
+                <span translate>TOOLBAR.SEARCH</span>
+              </button>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-striped"
+                     data-ng-table="auditVm.tableParams" show-filter="true">
+                <tr data-ng-repeat="auditAction in $data" class="not-linked">
+                  <td
+                    data-title="'TABLE_HEADER.ACTOR' | translate"
+                    filter="{authorName :'text'}"
+                    sortable="'authorName'"
+                    class="truncate"
+                    translate>
+                    {{auditAction.authorName}}
+                  </td>
+                  <td
+                    data-title="'TABLE_HEADER.ACTION' | translate"
+                    filter="{translatedAction :'text'}"
+                    sortable="'translatedAction'"
+                    class="truncate">
+                    {{auditAction.translatedAction}}
+                  </td>
+                  <td
+                    data-title="'TABLE_HEADER.RESOURCE_TYPE' | translate"
+                    filter="{translatedType :'text'}"
+                    sortable="'translatedType'"
+                    class="truncate">
+                    {{auditAction.translatedType}}
+                  </td>
+                  <td
+                    data-title="'TABLE_HEADER.RESOURCE_NAME' | translate"
+                    filter="{resourceName: 'text'}"
+                    sortable="'resourceName'"
+                    class="truncate">
+                    {{auditAction.resourceName}}
+                  </td>
+                  <td
+                    data-title="'TABLE_HEADER.RECIPIENT' | translate"
+                    filter="{shareRecipient: 'text'}"
+                    sortable="'shareRecipient'"
+                    class="truncate">
+                    {{auditAction.shareRecipient}}
+                  </td>
+                  <td
+                    data-title="'TABLE_HEADER.DATE' | translate"
+                    sortable="'creationDate'">
+                <span class="truncate">{{auditAction.creationDate | relativeTime}}</span>
+                  </td>
+                  <td data-title="'TABLE_HEADER.DETAIL' | translate" class="center">
+                    <div audit-details="{{auditAction}}"></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

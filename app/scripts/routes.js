@@ -527,6 +527,12 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
           }
         }
       })
+      .state('auditv2', {
+        url: '/auditv2',
+        templateUrl: 'ng_components/auditv2/views/auditList.html',
+        controller: 'AuditController',
+        controllerAs: 'auditVm'
+      })
       .state('ldapconnection', {
         abstract: true,
         url: '/ldapconnection',

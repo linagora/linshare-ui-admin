@@ -175,6 +175,11 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.AUDIT',
             superAdminOnly: false,
             sref: 'audit.form'
+          },
+          {
+            name: 'COMMON.TAB.AUDIT_V2',
+            superAdminOnly: true,
+            sref: 'auditv2'
           }/*, {
             name: 'COMMON.TAB.UPLOAD_REQUEST',
             superAdminOnly: true,

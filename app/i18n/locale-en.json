@@ -92,6 +92,7 @@
       "UPLOAD_REQUEST": "Upload request",
       "UPLOAD_PROPOSITION_FILTER": "Upload proposition filtering",
       "AUDIT": "Audit",
+      "AUDIT_V2": "Audit V2",
       "MANAGE_QUOTA": "Manage domains quota",
       "UPGRADES_TASKS": "Upgrades tasks"
     },
@@ -136,6 +137,7 @@
         "16667": "Mail configuration not found",
         "16668": "The mail config model cannot be created",
         "17000": "Unauthorized action",
+        "17400": "The parameters sent to the server are invalid",
         "17666": "This mail content can't be deleted, it is used by a mail configuration",
         "17667": "Mail content not found",
         "17668": "The mail content model associated with the current language was not found",
@@ -385,7 +387,6 @@
       }
     }
   },
-
   "DASHBOARD": {
     "TITLE": "Dashboard",
     "SUB_TITLE": "Control panel",
@@ -400,7 +401,6 @@
     "PARAMETERS_TITLE": "Parameters",
     "PARAMETERS_SUB_TITLE": "Functionalities"
   },
-
   "CHANGE_PASSWORD": {
     "TITLE": "Change your password",
     "BOX_FORM": {
@@ -415,7 +415,6 @@
       }
     }
   },
-
   "DOMAIN_PATTERNS": {
     "TITLE": "Manage your domain patterns",
     "BOX_LIST": {
@@ -464,7 +463,6 @@
       "PARAGRAPH": "You are about to delete this domain pattern, this procedure is irreversible. Do you want to proceed?"
     }
   },
-
   "LDAP_CONNECTIONS": {
     "TITLE": "Manage your LDAP connections",
     "BOX_LIST": {
@@ -494,7 +492,6 @@
       "PARAGRAPH": "You are about to delete this LDAP connection, this procedure is irreversible. Do you want to proceed?"
     }
   },
-
   "MANAGE_DOMAINS": {
     "TITLE": "Manage your domains",
     "BOX_TREE": {
@@ -549,7 +546,6 @@
       "PARAGRAPH": "You are about to delete this domain, this procedure is irreversible and destroy all associated users. Do you want to proceed?"
     }
   },
-
   "WELCOME_MESSAGES": {
     "TITLE": "Edit your welcome messages",
     "MODAL_FORM": {
@@ -617,7 +613,6 @@
     },
     "CONFIRM_DELETE_FORM": "You are about to delete this welcome message, this procedure is irreversible. Do you want to proceed?"
   },
-
   "DOMAIN_ORDER": {
     "TITLE": "Change your domain connection order",
     "BOX_LIST": {
@@ -629,7 +624,6 @@
       }
     }
   },
-
   "DOMAIN_POLICIES": {
     "TITLE": "Policies management",
     "BOX_LIST": {
@@ -669,7 +663,6 @@
       "PARAGRAPH": "You are about to delete this policy, this procedure is irreversible. Do you want to proceed?"
     }
   },
-
   "MAIL_ACTIVATION": {
     "BOX_LIST": {
       "TABLE": {
@@ -792,7 +785,6 @@
       "BOOLEAN_true": "This notification has been enabled."
     }
   },
-
   "FUNCTIONALITIES": {
     "TITLE": "Functionality management",
     "CST_MORE": "More informations",
@@ -1527,7 +1519,6 @@
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Notification will be sent for every download."
     }
   },
-
   "MIME_POLICIES": {
     "TITLE": "Mime policies",
     "BOX_LIST": {
@@ -1569,7 +1560,6 @@
       }
     }
   },
-
   "MAIL_LAYOUT": {
     "TITLE": "Mail layout",
     "BOX_LIST": {
@@ -1618,7 +1608,6 @@
       "LABEL": "Read only"
     }
   },
-
   "MAIL_FOOTER": {
     "TITLE": "Mail footer",
     "BOX_LIST": {
@@ -1674,7 +1663,6 @@
       "LABEL": "Read only"
     }
   },
-
   "MAIL_CONTENT": {
     "TITLE": "Mail content",
     "BOX_LIST": {
@@ -1747,7 +1735,6 @@
       "LABEL": "Read only"
     }
   },
-
   "MAIL_CONFIG": {
     "TITLE": "Mail config",
     "BOX_LIST": {
@@ -1842,7 +1829,6 @@
       "PARAGRAPH": "You are about to delete this mail config, this procedure is irreversible. Do you want to proceed?"
     }
   },
-
   "MANAGE_USERS": {
     "TITLE": "Manage users",
     "BOX_LIST": {
@@ -1915,7 +1901,6 @@
       "STATE_SKIPPED": "Not processed users"
     }
   },
-
   "INCONSISTENT_USERS": {
     "TITLE": "",
     "BOX_FORM": {
@@ -1965,7 +1950,6 @@
       "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
     }
   },
-
   "THREADS": {
     "TITLE": "Groups management",
     "BOX_LIST": {
@@ -2013,7 +1997,6 @@
       "PARAGRAPH": "You are about to delete this group and all his content, this procedure is irreversible. Do you want to proceed?"
     }
   },
-
   "MAILING_LISTS": {
     "TITLE": "Manage your mailing lists",
     "LABEL_PUBLIC": "Public",
@@ -2059,7 +2042,6 @@
       "PARAGRAPH": "You are about to delete this group and all his content, this procedure is irreversible. Do you want to proceed?"
     }
   },
-
   "AUDIT": {
     "TITLE": "Audit the application",
     "BOX_FORM": {
@@ -2100,7 +2082,6 @@
       }
     }
   },
-
   "UPLOAD_REQUEST": {
     "TITLE": "Upload request",
     "BOX_FORM": {
@@ -2134,7 +2115,6 @@
       }
     }
   },
-
   "UPLOAD_PROPOSITION_FILTER": {
     "TITLE": "Upload proposition filter",
     "BOX_FORM": {
@@ -2165,7 +2145,6 @@
       }
     }
   },
-
   "TECHNICAL_ACCOUNT": {
     "TITLE": "Technical accounts",
     "BOX_FORM": {
