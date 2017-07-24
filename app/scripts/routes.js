@@ -506,7 +506,7 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
         templateUrl: 'ng_components/audit/audit.html'
       })
       .state('audit.form', {
-        url: '/audit',
+        url: '/auditv1',
         views: {
           'form': {
             templateUrl: 'ng_components/audit/audit_form.tpl.html',
@@ -528,7 +528,7 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
         }
       })
       .state('auditv2', {
-        url: '/auditv2',
+        url: '/audit',
         templateUrl: 'ng_components/auditv2/views/auditList.html',
         controller: 'AuditController',
         controllerAs: 'auditVm'

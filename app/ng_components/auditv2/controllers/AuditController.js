@@ -45,8 +45,6 @@
       $translatePartialLoader.addPart('audit');
       $translate.refresh();
 
-      auditVm.titleKey = lsAppConfig.auditV1hidden ? 'COMMON.TAB.AUDIT' : 'COMMON.TAB.AUDIT_V2';
-
       auditVm.dateFormat = $translate.use() === 'fr' ? FR_DATE_FORMAT : EN_DATE_FORMAT;
       auditVm.beginDate.setDate(auditVm.beginDate.getDate() - 7);
 
