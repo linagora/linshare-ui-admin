@@ -82,7 +82,7 @@
      * @memberOf linshareAdminApp.AuditController
      */
     function launchTableParamsInitiation() {
-      auditVm.tableParams = new ngTableParams({
+      auditVm.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,
         count: 25,
         sorting: {
@@ -92,7 +92,8 @@
         debugMode: false,
         total: 0,
         getData: function($defer, params) {
-          var orderedData = params.sorting() ? $filter('orderBy')(auditVm.itemsList, params.orderBy()) : auditVm.itemsList;
+          var orderedData = params.sorting() ? $filter('orderBy')(auditVm.itemsList, params.orderBy()) :
+            auditVm.itemsList;
           orderedData = params.filter ? $filter('filter')(orderedData, params.filter()) : orderedData;
           params.total(orderedData.length);
           $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
