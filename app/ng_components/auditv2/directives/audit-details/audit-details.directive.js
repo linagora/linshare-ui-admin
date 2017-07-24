@@ -12,7 +12,7 @@
   /**
    * @namespace auditDetails
    * @desc Popover with details of one audit action
-   * @example <div audit-details-popover="{{auditActionObject}}"></div>
+   * @example <div audit-details="{{auditActionObject}}"></div>
    * @memberOf linshareAdminApp
    */
   function auditDetails() {
@@ -38,7 +38,7 @@
         return element[0].querySelector('.btn-group').className;
       }, function(className) {
         if (dropdownList[0].parentElement.nodeName !== 'BODY') {
-          attachToBody(dropdownList);
+          attachToBody(dropdownList, element);
         }
         if (className.indexOf('open') !== -1) {
           dropdownList.addClass('ls-dropdown-open');
@@ -49,19 +49,20 @@
         }
       });
 
-      function attachToBody(dropdownList) {
+      function attachToBody(dropdownList, element) {
         var position = dropdownList.offset();
         if (position.top !== 0 && position.left !== 0) {
           dropdownList.detach();
           angular.element('body').append(dropdownList);
           dropdownList.css({
-            top: position.top + 'px',
-            left: position.left + 'px',
+            top: element.offset().top + 'px',
+            left: element.offset().left + 'px',
             width: '300px',
             paddingLeft: '10px',
             paddingRight: '10px',
             paddingBottom: '15px',
             marginLeft: '-250px',
+            marginTop: '30px',
             display: 'block'
           });
         }

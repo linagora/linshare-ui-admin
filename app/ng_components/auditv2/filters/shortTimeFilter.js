@@ -18,8 +18,7 @@
    * @memberOf linshareAdminApp
    */
   function shortTimeFilter($translate, moment) {
-    var local = $translate.use().substring(0, $translate.use().indexOf('-'));
-    moment.locale(local);
+    moment.locale($translate.use());
 
     /**
      * @namespace shortTimeToShow

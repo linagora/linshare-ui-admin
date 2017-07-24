@@ -18,9 +18,7 @@
    * @memberOf linshareAdminApp
    */
   function relativeTimeFilter($translate, moment) {
-    // TODO : service where to set moment lang
-    var local = $translate.use().substring(0, $translate.use().indexOf('-'));
-    moment.locale(local);
+    moment.locale($translate.use());
 
     /**
      * @namespace relativeTimeToShow

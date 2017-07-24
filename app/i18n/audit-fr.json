@@ -155,7 +155,7 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
           },
           "VIEWER": {
-            "SENTENCE": "",
+            "SENTENCE": "{{authorName}} a déposé un nouveau fichier : {{resourceName}} dans son Espace Personnel.",
             "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
           }
         },
@@ -446,8 +446,10 @@
       "CONTACTS_LISTS": "Liste de Contact",
       "CONTACTS_LISTS_CONTACTS": "Contact",
       "DOCUMENT_ENTRY": "Espace Personnel",
+      "FUNCTIONALITY": "Fonctionnalité",
       "GUEST": "Compte Invité",
       "SHARE_ENTRY": "Partage",
+      "USER": "Utilisateur",
       "WORKGROUP": "Groupe de Travail",
       "WORKGROUP_DOCUMENT": "Groupe de Travail - Fichier",
       "WORKGROUP_FOLDER": "Groupe de Travail - Dossier",

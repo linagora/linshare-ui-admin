@@ -27,10 +27,7 @@
       EN_DATE_FORMAT = lsAppConfig.dateFormat.en,
       FR_DATE_FORMAT = lsAppConfig.dateFormat.fr;
 
-    auditVm.beginDate = new Date();
-    auditVm.endDate = new Date();
     auditVm.findAuditActionsByDate = findAuditActionsByDate;
-    auditVm.maxDate = new Date();
 
     activate();
 
@@ -45,6 +42,9 @@
       $translatePartialLoader.addPart('audit');
       $translate.refresh();
 
+      auditVm.beginDate = new Date();
+      auditVm.endDate = new Date();
+      auditVm.maxDate = new Date();
       auditVm.dateFormat = $translate.use() === 'fr' ? FR_DATE_FORMAT : EN_DATE_FORMAT;
       auditVm.beginDate.setDate(auditVm.beginDate.getDate() - 7);
 
