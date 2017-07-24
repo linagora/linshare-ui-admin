@@ -55,3 +55,34 @@
     font-size: 0.9em;
   }
 }
+
+.audit-dropdown {
+  z-index: 2;
+  margin-top: 2px;
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background-clip: padding-box;
+  list-style: none;
+  padding: 0;
+  opacity: 0;
+  font-size: 0.85em;
+  min-width: auto;
+  pointer-events: none;
+  cursor: pointer;
+  transition-delay: 200ms;
+  transition: opacity 50ms ease-out;
+  &.audit-dropdown-open {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 500ms ease-out;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    margin-left: -250px;
+    margin-top: 30px;
+    display: block;
+  }
+}
