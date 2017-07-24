@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Tab',
-    ['_', '$log', 'Authentication',
-    function(_, $log, Authentication) {
+    ['_', '$log', 'Authentication', 'lsAppConfig',
+    function(_, $log, Authentication, lsAppConfig) {
       var domains = {
         name: 'COMMON.TAB.DOMAINS',
         icon: 'fa-cloud',
@@ -172,12 +172,7 @@ angular.module('linshareAdminApp')
         superAdminOnly: false,
         links: [
           {
-            name: 'COMMON.TAB.AUDIT',
-            superAdminOnly: false,
-            sref: 'audit.form'
-          },
-          {
-            name: 'COMMON.TAB.AUDIT_V2',
+            name: lsAppConfig.auditV1hidden ? 'COMMON.TAB.AUDIT' : 'COMMON.TAB.AUDIT_V2',
             superAdminOnly: true,
             sref: 'auditv2'
           }/*, {
@@ -187,6 +182,14 @@ angular.module('linshareAdminApp')
           }*/
         ]
       };
+
+      if(!lsAppConfig.auditV1hidden) {
+        history.links.unshift({
+          name: 'COMMON.TAB.AUDIT',
+          superAdminOnly: false,
+          sref: 'audit.form'
+        });
+      }
 
       this.tabs = [parameters, users, history, domains, mails];
 

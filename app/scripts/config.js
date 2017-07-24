@@ -5,6 +5,7 @@ angular.module('linshareAdminApp').constant('lsAppConfig', {
     superadmin: 'SUPERADMIN',
     system: 'SYSTEM'
   },
+  auditV1hidden: false,
   backendURL: 'linshare/webservice/rest/admin',
   dateFormat: {
     en: 'MM/dd/yyyy',
