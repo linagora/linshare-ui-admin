@@ -16,6 +16,7 @@
     "angular-translate-interpolation-messageformat": "0.3.0",
     "angular-translate-handler-log": "0.3.0",
     "angular-translate-storage-cookie": "2.2.0",
+    "angular-translate-loader-partial": "2.2.0",
     "angular-ui-select": "0.2.2",
     "angular-moment": "0.10.3",
     "autofill-event": "1.0.0",

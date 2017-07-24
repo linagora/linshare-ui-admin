@@ -24,20 +24,22 @@ angular.module('linshareAdminApp', [
 ])
 
 // Register work which needs to be performed on module loading
-.config(['$provide', '$logProvider', '$translateProvider', 'RestangularProvider', 'uiSelectConfig',
+.config(['$provide', '$logProvider', '$translateProvider', '$translatePartialLoaderProvider', 'RestangularProvider', 'uiSelectConfig',
   'cfpLoadingBarProvider', 'tmhDynamicLocaleProvider', 'lsAppConfig',
-  function($provide, $logProvider, $translateProvider, RestangularProvider, uiSelectConfig, cfpLoadingBarProvider,
+  function($provide, $logProvider, $translateProvider, $translatePartialLoaderProvider, RestangularProvider, uiSelectConfig, cfpLoadingBarProvider,
     tmhDynamicLocaleProvider, lsAppConfig) {
     var debug = document.cookie.linshareDebug || lsAppConfig.debug;
     $logProvider.debugEnabled(debug);
 
-    $translateProvider.useStaticFilesLoader({
-      prefix: 'i18n/locale-',
-      suffix: '.json'
-    });
+    $translateProvider.useLoader('$translatePartialLoader', {urlTemplate: 'i18n/{part}-{lang}.json'});
+
+    $translatePartialLoaderProvider.addPart('locale');
+
     $translateProvider.preferredLanguage('en');
     $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
-    $translateProvider.useMissingTranslationHandlerLog();
+    if(debug) {
+      $translateProvider.useMissingTranslationHandlerLog();
+    }
     $translateProvider.useCookieStorage();
     // $translateProvider.useMissingTranslationHandler('myCustomHandlerFactory');
 
