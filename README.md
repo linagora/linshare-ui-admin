@@ -33,6 +33,20 @@ Most of the dependencies are also available by your OS packet manager
       rm tidy-*.deb
   ```
 
+## Cloning the repository
+
+```bash
+# For a full clone with submodule
+git clone --recursive
+
+# Or after simple clone, to get submodule
+git submodule update --init
+
+# Activate git hook with overcommit
+cd <path to repo>
+overcommit
+```
+
 ## Application install
 
 ```bash
