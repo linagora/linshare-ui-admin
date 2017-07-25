@@ -2,36 +2,34 @@
 
 angular.module('linshareAdminApp')
   .controller('UserDetailCtrl',
-    ['_', '$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', 'currentUser',
-     'lsAppConfig', 'maxExpiryDate', 'quotaRestService', 'quotaUtilsService', 'restrictedGuestStatus', 'selectOptions',
-     'unitService', 'User',
-    /* jshint maxparams: false */
-    function(_, $filter, $log, $modal, $rootScope, $scope, $state, $timeout, currentUser, lsAppConfig,
-             maxExpiryDate, quotaRestService, quotaUtilsService, restrictedGuestStatus, selectOptions,
-             unitService, User) {
+              ['_', '$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', 'currentUser',
+               'graphService', 'lsAppConfig', 'maxExpiryDate', 'quotaRestService', 'quotaUtilsService',
+               'restrictedGuestStatus', 'selectOptions', 'unitService', 'User',
+               /* jshint maxparams: false */
+               function(_, $filter, $log, $modal, $rootScope, $scope, $state, $timeout, currentUser, graphService,
+                        lsAppConfig, maxExpiryDate, quotaRestService, quotaUtilsService, restrictedGuestStatus,
+                        selectOptions, unitService, User) {
         $scope.lsAppConfig = lsAppConfig;
         $scope.userRoles = selectOptions.userRoles;
         $scope.userRolesSimple = ['SIMPLE', 'ADMIN'];
         $scope.user = currentUser;
 
         //For quota management
-        $scope.unit = {
-          accounts: {
-            quota: undefined,
-            maxFileSize: undefined,
-            usedSpace: undefined
-          },
-          value: _.map(unitService.units, function(unit) {
-            return unit.value;
-          })
-        };
+        $scope.unit = quotaUtilsService.unit;
+        $scope.unit.value = _.map(unitService.units, function(unit) {
+          return unit.value;
+        });
+        $scope.buildGraph = buildGraph;
         $scope.formRender = quotaUtilsService.formRender;
+        $scope.manageOverride = manageOverride;
         $scope.resetQuota = resetQuota;
         $scope.setParentDefault = setParentDefault;
         $scope.submitQuota = submitQuota;
         $scope.unitService = unitService;
         quotaRestService.getAccount($scope.user.quotaUuid).then(function(userData) {
           initDto(userData);
+          $scope.graph = buildGraph();
+          $scope.isGraphReady = true;
         });
 
         $scope.limit = maxExpiryDate;
@@ -131,18 +129,70 @@ angular.module('linshareAdminApp')
           );
         };
 
-        /**
-         * @name initDto
-         * @desc Initialise DTO element by cloning them and adding get/set
-         * @param {Object} data - Server response data
-         * @memberOf linshareAdminApp.UserDetailCtrl
-         */
-        function initDto(data) {
-          $scope.userQuotaDto = data;
-          $scope.userQuotaDtoCloned = _.cloneDeep(data);
-          $scope.unitCloned = _.cloneDeep($scope.unit);
-          setModelGetSet(data);
-        }
+      /**
+       * @name buildGraph
+       * @desc Build quota graph
+       * @returns {Object} A graph object
+       * @memberOf linshareAdminApp.UserDetailCtrl
+       */
+      function buildGraph() {
+        return {
+          colors: [graphService.colors.blue, graphService.colors.blueStripes],
+          ruler: {
+            max : {
+              display: $scope.userQuotaDto.getQuota(true),
+              real: $scope.userQuotaDto.getQuota()
+            }
+          },
+          containers: [
+            {
+              legend: 'MANAGE_QUOTA.BOX_FORM.GRAPH.LEGEND.SPACE.USED',
+              value: {
+                display: $scope.userQuotaDto.getUsedSpace(true),
+                real: $scope.userQuotaDto.usedSpace
+              }
+            }, {
+              legend: 'MANAGE_QUOTA.BOX_FORM.GRAPH.LEGEND.QUOTA.REMAINING',
+              value: {
+                display: $scope.userQuotaDto.getRemaining(true),
+                real: $scope.userQuotaDto.remaining
+              }
+              //dynamic: {
+              //  tooltip: 'MANAGE_QUOTA.BOX_FORM.GRAPH.TOOLTIP.CLICK.DEFAULT'
+              //},
+            }]
+        };
+      }
+
+      /**
+       * @name initDto
+       * @desc Initialise DTO element by cloning them and adding get/set
+       * @param {Object} data - Server response data
+       * @memberOf linshareAdminApp.UserDetailCtrl
+       */
+      function initDto(data) {
+        $scope.userQuotaDto = data;
+        $scope.userQuotaDtoCloned = _.cloneDeep(data);
+        $scope.unitCloned = _.cloneDeep($scope.unit);
+        setModelGetSet(data);
+      }
+
+      /**
+       * @name manageOverride
+       * @desc Invert bool value of override and set default value if true
+       * @param {DOM Object} form - The form containing the element to be reset
+       * @param {Object} element - Dto object triggering override
+       * @param {string} property - Name of the property to be overridden
+       * @memberOf linshareAdminApp.UserDetailCtrl
+       */
+      function manageOverride(form, element, property) {
+        quotaUtilsService.manageOverride(element, element, property);
+        $scope.formRender(form).then(function(form) {
+          if (!form.$invalid) {
+            $scope.buildGraph();
+          }
+        });
+      }
 
       /**
        * @name setModelGetSet
@@ -167,90 +217,135 @@ angular.module('linshareAdminApp')
         var keyName = _.find(Object.keys($scope.unit), function(key) {
           if (key === data.route) {
             return true;
-          } else {
+          } else if (data.type) {
             return data.type.toLowerCase().replace('_', '') === key;
           }
+          return '';
         });
         _.forEach(Object.keys($scope.unit[keyName]), function(propertyKey) {
           //TODO - KLE: Test to be removed once the back fill the missing fields in DTO
           $scope.unit[keyName][propertyKey] = (_.isUndefined(data[propertyKey]) || data[propertyKey] === null) ?
             'GB' : $scope.unitService.find(data[propertyKey]);
-          data['get' + quotaUtilsService.capitalize(keyName) + quotaUtilsService.capitalize(propertyKey)] =
-            function get() {
-              return $filter('readableSize')(data[propertyKey], $scope.unit[keyName][propertyKey], false);
+          data['get' + quotaUtilsService.capitalize(propertyKey)] =
+            function get(withUnit) {
+              return $filter('readableSize')(data[propertyKey], $scope.unit[keyName][propertyKey], withUnit);
             };
-          data['set' + quotaUtilsService.capitalize(keyName) + quotaUtilsService.capitalize(propertyKey)] =
+          data['set' + quotaUtilsService.capitalize(propertyKey)] =
             function set(newValue, form) {
               data[propertyKey] = $scope.unitService.toByte(newValue, $scope.unit[keyName][propertyKey]);
               //Need to reset the get function because on update of model, the function is replaced by the value
-              data['get' + quotaUtilsService.capitalize(keyName) + quotaUtilsService.capitalize(propertyKey)] =
-                function get() {
-                  return $filter('readableSize')(data[propertyKey], $scope.unit[keyName][propertyKey], false);
+              data['get' + quotaUtilsService.capitalize(propertyKey)] =
+                function get(withUnit) {
+                  return $filter('readableSize')(data[propertyKey], $scope.unit[keyName][propertyKey], withUnit);
                 };
               $scope.formRender(form);
             };
+
+          /**
+           * @name updateGraph
+           * @desc Determine the graph to rebuild if no error in the form
+           * @param {DOM Object} form - Form to evaluate
+           * @memberOf linshareAdminApp.UserDetailCtrl.setModelGetSet
+           */
+          data.updateGraph = function udpateGraph(form) {
+            $scope.formRender(form).then(function(form) {
+              if (!form.$invalid) {
+                $scope.graph = buildGraph();
+              }
+            });
+          };
         });
+
+        /**
+         * @name isExceeded
+         * @desc Determine if the current object quota has been exceeded
+         * @memberOf linshareAdminApp.UserDetailCtrl.setModelGetSet
+         */
         data.isExceeded = function isExceeded() {
           var initDto = _.find($scope.cloned, function(dto) {
             return dto.uuid === data.uuid;
           });
           return initDto.usedSpace >= initDto.quota;
         };
+
+        data.remaining = data.quota - data.usedSpace;
+
+        /**
+         * @name getRemaining
+         * @desc Retrieve the remaining quota of the current object
+         * @param {boolean} [withUnit] - Determine if the unit shall also be returned with the value
+         * @return  {number|string} The remaining quota
+         * @memberOf linshareAdminApp.UserDetailCtrl.setModelGetSet
+         */
+        data.getRemaining = function get(withUnit) {
+          withUnit = withUnit || false;
+          data.remaining = data.quota - data.usedSpace;
+          var unit = $scope.unitService.find(data.remaining);
+          return $filter('readableSize')(data.remaining, unit, withUnit);
+        };
+
+        data.unallocated = data.defaultQuota - data.quota;
+        data.unallocated = data.unallocated > 0 ? data.unallocated : 0;
+
+        /**
+         * @name getUnallocated
+         * @desc Retrieve the unallocated quota of the current object
+         * @param {boolean} [withUnit] - Determine if the unit shall also be returned with the value
+         * @return {number|string} The unallocated quota
+         * @memberOf linshareAdminApp.UserDetailCtrl.setModelGetSet
+         */
+        data.getUnallocated = function get(withUnit) {
+          withUnit = withUnit || false;
+          data.unallocated = data.defaultQuota - data.quota;
+          data.unallocated = data.unallocated > 0 ? data.unallocated : 0;
+          var unit = $scope.unitService.find(data.unallocated);
+          return $filter('readableSize')(data.unallocated, unit, withUnit);
+        };
       }
 
-        /**
-         * @name setMatchingProperties
-         * @desc Set multiple property value at once base on the key name
-         * @param {Object} obj - Object where to find the properties
-         * @param {string} keyToFind - Key name, or part of it, to be found
-         * @param {*} val - Value to be setted
-         * @memberOf linshareAdminApp.UserDetailCtrl
-         */
-        //TODO - KLE: To be put in a util module
-        function setMatchingProperties(obj, keyToFind, val) {
-          _.forOwn(obj, function(value, key) {
-            if (key.indexOf(keyToFind) !== -1) {
-              obj[key] = val;
-            }
-          });
-        }
+      /**
+       * @name setParentDefault
+       * @desc Reset domain quota to parent default value
+       * @param {DOM Object} form - The form containing the element to be reset
+       * @memberOf linshareAdminApp.UserDetailCtrl
+       */
+      function setParentDefault(form) {
+        quotaUtilsService.setMatchingProperties($scope.userQuotaDto, 'Override', false);
+        $scope.userQuotaDto.quota = $scope.userQuotaDto.defaultQuota;
+        $scope.userQuotaDto.maxFileSize = $scope.userQuotaDto.defaultMaxFileSize;
+        $scope.submitQuota(form);
+      }
 
-        /**
-         * @name setParentDefault
-         * @desc Reset domain quota to parent default value
-         * @param {DOM Object} form - The form containing the element to be reset
-         * @memberOf linshareAdminApp.UserDetailCtrl
-         */
-        function setParentDefault(form) {
-          setMatchingProperties($scope.userQuotaDto, 'Override', false);
-          $scope.submitQuota(form);
-        }
-
-        /**
-         * @name submitQuota
-         * @desc Update the user quota
-         * @param {DOM Object} form - The form containing the element to be reset
-         * @memberOf linshareAdminApp.UserDetailCtrl
-         */
-        function submitQuota(form) {
-          quotaRestService.updateAccount($scope.userQuotaDto).then(function(userData) {
+      /**
+       * @name submitQuota
+       * @desc Update the user quota
+       * @param {DOM Object} form - The form containing the element to be reset
+       * @memberOf linshareAdminApp.UserDetailCtrl
+       */
+      function submitQuota(form) {
+        quotaRestService.updateAccount(_.omit($scope.userQuotaDto, ['remaining', 'unallocated']))
+          .then(function(userData) {
             initDto(userData);
             $scope.formRender(form);
+          }).then(function() {
+              $scope.graph = buildGraph();
           });
-        }
+      }
 
-        /**
-         * @name resetQuota
-         * @desc Reset quota form to initial state
-         * @param {DOM Object} form - The form containing the element to be reset
-         * @memberOf linshareAdminApp.UserDetailCtrl
-         */
-        function resetQuota(form) {
-          $scope.userQuotaDto = _.cloneDeep($scope.userQuotaDtoCloned);
-          $scope.unit = _.cloneDeep($scope.unitCloned);
-          setModelGetSet($scope.userQuotaDto);
-          $scope.formRender(form);
-        }
+      /**
+       * @name resetQuota
+       * @desc Reset quota form to initial state
+       * @param {DOM Object} form - The form containing the element to be reset
+       * @memberOf linshareAdminApp.UserDetailCtrl
+       */
+      function resetQuota(form) {
+        $scope.userQuotaDto = _.cloneDeep($scope.userQuotaDtoCloned);
+        $scope.unit = _.cloneDeep($scope.unitCloned);
+        setModelGetSet($scope.userQuotaDto);
+        $scope.formRender(form).then(function() {
+          $scope.graph = buildGraph();
+        });
+      }
       }
     ]
   );

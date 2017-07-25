@@ -1080,6 +1080,10 @@ input:checked + .slider:before {
 /******************
   Manage Quota graph
 ******************/
+.quota-graph {
+  margin-left: 1em;
+  margin-right: 1em;
+}
 @import '../../ng_components/quota/directives/lsgraph/colors';
 @import '../../ng_components/quota/directives/lsgraph/styles';
 @import '../../ng_components/quota/directives/lsgraph/graph-label/styles';

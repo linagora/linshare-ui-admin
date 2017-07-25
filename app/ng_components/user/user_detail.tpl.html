@@ -283,80 +283,91 @@
 </div>
 <div class="box box-primary">
   <div class="box-header"
-       x-ng-show="routerState.current.name === 'user.detail' ||
+       data-ng-show="routerState.current.name === 'user.detail' ||
                 routerState.current.name === 'inconsistentuser.list.detail'">
     <h3 class="box-title">
       {{'MANAGE_USERS.BOX_FORM.LABEL_MANAGE_QUOTA' | translate}}
     </h3>
   </div>
+  <section class="quota-graph" data-ls-graph="graph" data-ng-if="isGraphReady"></section>
   <form class="form" name="userQuotaForm"
-        x-ls-form-submit="submitQuota(userQuotaForm)"
-        x-ls-form-attempt>
+        data-ls-form-submit="submitQuota(userQuotaForm)"
+        data-ls-form-attempt>
     <div class="box-body">
       <div class="row">
         <div class="col-sm-6">
-          <div class="form-group">
+          <div class="form-group"
+               data-ng-class="{'has-error-quota': userQuotaForm.quota.$error.unitMax}">
             <label for="quota">
               {{'MANAGE_USERS.BOX_FORM.LABEL_QUOTA' | translate}}
             </label>
             <div class="input-group">
               <input type="text" class="form-control" id="quota"
                      name="quota"
-                     x-ng-model="userQuotaDto.getAccountsQuota"
-                     x-ng-change="userQuotaDto.setAccountsQuota(userQuotaForm.quota.$viewValue, userQuotaForm)"
-                     x-ng-disabled="!userQuotaDto.quotaOverride">
+                     data-ng-model="userQuotaDto.getQuota"
+                     data-ng-change="userQuotaDto.setQuota(userQuotaForm.quota.$viewValue, userQuotaForm)"
+                     data-ng-blur="userQuotaDto.updateGraph(userQuotaForm)"
+                     data-ng-disabled="!userQuotaDto.quotaOverride">
               <span class="input-group-btn">
-                <span class="input-unit" x-ls-dropdown x-value="unit.accounts.quota"
-                      x-list="unit.value"
-                      x-action="unit.accounts.quota = unit; formRender(userQuotaForm)">
+                <span class="input-unit" data-ls-dropdown data-value="unit.accounts.quota"
+                      data-list="unit.value"
+                      data-action="unit.accounts.quota = unit; formRender(userQuotaForm)">
                 </span>
                 <a class="link-ctn"
                    tooltip-placement="bottom"
                    tooltip-popup-delay='1250'
                    tooltip-append-to-body="true"
-                   tooltip="{{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' | translate}}"
-                   x-ng-click="userQuotaDto.quotaOverride = !userQuotaDto.quotaOverride">
-                  <i class="fa fa-link link-icon" x-ng-class="{'show-link' : !userQuotaDto.quotaOverride}"></i>
-                  <i class="fa fa-chain-broken link-icon"
-                     x-ng-class="{'show-link' : userQuotaDto.quotaOverride}"></i>
+                   tooltip="{{userQuotaDto.quotaOverride ?
+                          'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
+                          'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
+                          translate:'{value:userQuotaDto.getDefaultQuota(true)}'}}"
+                   data-ng-click="manageOverride(userQuotaForm, userQuotaDto, 'quota')">
+                  <i class="fa link-icon show-link"
+                     data-ng-class="{'fa-link' : !userQuotaDto.quotaOverride,
+                            'fa-chain-broken' : userQuotaDto.quotaOverride}">
+                  </i>
                 </a>
               </span>
             </div>
           </div>
           <div class="form-group"
-               x-ng-class="{'has-error-quota': userQuotaForm.maxFileSize.$error.unitMax}">
+               data-ng-class="{'has-error-quota': userQuotaForm.maxFileSize.$error.unitMax}">
             <label for="maxFileSize">
               {{'MANAGE_USERS.BOX_FORM.LABEL_MAX_FILE_SIZE' | translate}}
             </label>
             <div class="input-group">
               <input type="text" class="form-control" id="maxFileSize"
                      name="maxFileSize"
-                     x-ng-model="userQuotaDto.getAccountsMaxFileSize"
-                     x-ng-change="userQuotaDto.setAccountsMaxFileSize(
+                     data-ng-model="userQuotaDto.getMaxFileSize"
+                     data-ng-change="userQuotaDto.setMaxFileSize(
                                     userQuotaForm.maxFileSize.$viewValue, userQuotaForm)"
-                     x-ng-disabled="!userQuotaDto.maxFileSizeOverride"
-                     x-unit="unit.accounts.maxFileSize"
-                     x-unit-max="userQuotaDto.quota">
+                     data-ng-blur="userQuotaDto.updateGraph(userQuotaForm)"
+                     data-ng-disabled="!userQuotaDto.maxFileSizeOverride"
+                     data-unit="unit.accounts.maxFileSize"
+                     data-unit-max="userQuotaDto.quota">
               <span class="input-group-btn">
-                <span class="input-unit" x-ls-dropdown x-value="unit.accounts.maxFileSize"
-                      x-list="unit.value"
-                      x-action="unit.accounts.maxFileSize = unit; formRender(userQuotaForm)">
+                <span class="input-unit" data-ls-dropdown data-value="unit.accounts.maxFileSize"
+                      data-list="unit.value"
+                      data-action="unit.accounts.maxFileSize = unit; formRender(userQuotaForm)">
                 </span>
                 <a class="link-ctn"
                    tooltip-placement="bottom"
                    tooltip-popup-delay='1250'
                    tooltip-append-to-body="true"
-                   tooltip="{{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' | translate}}"
-                   x-ng-click="userQuotaDto.maxFileSizeOverride = !userQuotaDto.maxFileSizeOverride">
-                  <i class="fa fa-link link-icon"i
-                     x-ng-class="{'show-link' : !userQuotaDto.maxFileSizeOverride}"></i>
-                  <i class="fa fa-chain-broken link-icon"
-                     x-ng-class="{'show-link' : userQuotaDto.maxFileSizeOverride}"></i>
+                   tooltip="{{userQuotaDto.maxFileSizeOverride ?
+                          'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
+                          'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
+                          translate:'{value:userQuotaDto.getDefaultMaxFileSize(true)}'}}"
+                   data-ng-click="manageOverride(userQuotaForm, userQuotaDto, 'maxFileSize')">
+                  <i class="fa link-icon show-link"
+                     data-ng-class="{'fa-link' : !userQuotaDto.maxFileSizeOverride,
+                            'fa-chain-broken' : userQuotaDto.maxFileSizeOverride}">
+                  </i>
                 </a>
               </span>
             </div>
             <div class="help-block" ng-show="userQuotaForm.maxFileSize.$error.unitMax">
-              {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
+              {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
               {{userQuotaDto.quota | readableSize:quotaVm.unit.accounts.quota:true}}
             </div>
           </div>
@@ -367,11 +378,11 @@
       <div class="form-group">
         <div class="controls">
           <button id="delete" name="reset" type="button" class="btn btn-danger"
-                  x-ng-click="setParentDefault(userQuotaForm)">
+                  data-ng-click="setParentDefault(userQuotaForm)">
             {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate}}
           </button>
           <button type="button" id="cancel" name="cancel" class="btn btn-warning"
-                  x-ng-click="resetQuota(userQuotaForm)">
+                  data-ng-click="resetQuota(userQuotaForm)">
             {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_CANCEL' | translate}}
           </button>
           <button type="submit" id="submit" name="submit" class="btn btn-success">

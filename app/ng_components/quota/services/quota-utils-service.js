@@ -26,6 +26,13 @@
         guest: 'GUESTDOMAIN'
       },
       unit = {
+        accounts: {
+          defaultQuota: undefined,
+          defaultMaxFileSize: undefined,
+          quota: undefined,
+          maxFileSize: undefined,
+          usedSpace: undefined
+        },
         domains: {
           defaultQuota: undefined,
           quota: undefined,

@@ -19,6 +19,7 @@
    function graphService(_) {
      var colors = {
        blue: 'blue',
+       blueStripes: 'blue-stripes',
        green: 'green',
        greenStripes: 'green-stripes',
        grey: 'grey',
