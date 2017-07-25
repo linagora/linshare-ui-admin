@@ -1,0 +1,17 @@
+<section class="quota-ctn-graph">
+  <div data-ng-if="graph.legends" graph-legends="graph.legends"></div>
+  <div class="enclosed-ctn-graph">
+    <div class="outer-border-graph"></div>
+    <p data-ng-repeat="label in graph.labels" data-ng-if="!label.disabled" graph-label="label"></p>
+
+    <div data-ng-if="graph.limit" graph-limit="graph.limit"></div>
+
+    <div data-ng-if="graph.ruler" graph-ruler="graph.ruler"></div>
+
+    <div data-ng-repeat="container in graph.containers"
+         graph-container="container" data-ng-if="!container.disabled">
+    </div>
+
+    <div ng-repeat="chain in graph.chains" data-ng-if="chain.position && !chain.disabled" graph-chain="chain"></div>
+  </div>
+</section>

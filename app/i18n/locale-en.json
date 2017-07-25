@@ -2199,6 +2199,48 @@
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       },
+      "GRAPH": {
+        "LEGEND": {
+          "QUOTA": {
+            "DOMAIN": "Current domain allocated quota",
+            "DISTRIBUTION": "Current domain allocated quota distribution{{value ? ': ' + value : ''}}",
+            "MAX": "Max allowed quota",
+            "OVER": "Over-allocation limit",
+            "PERSONAL_SPACE": "Personal Space allocated quota{{value ? ': ' + value : ''}}",
+            "REMAINING": "Remaining quota{{value ? ': ' + value : ''}}",
+            "SHARED_SPACE": "Sharedspace allocated quota{{value ? ': ' + value : ''}}",
+            "UNALLOCATED": "Unallocated quota",
+            "UNASSIGNED": "Unassigned quota"
+          },
+          "SMALL": {
+            "PERSONAL_SPACE": "P.S.",
+            "SHARED_SPACE": "S.S."
+          },
+          "SPACE": {
+            "DOMAIN": "Current domain used space{{value ? ': ' + value : ''}}",
+            "REMAINING": "Remaining space{{value ? ': ' + value : ''}}",
+            "SUBDOMAIN": "Sub-domains used space{{value ? ': ' + value : ''}}",
+            "UNALLOCATED": "Unallocated space{{value ? ': ' + value : ''}}",
+            "USED": "Used space{{value ? ': ' + value : ''}}"
+          }
+        },
+        "TITLE": {
+          "VIRTUAL": "Containers virtual allocation"
+        },
+        "TOOLTIP": {
+          "RESET": "@:MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP",
+          "UNLINK": "@:MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP",
+          "CLICK": {
+            "DEFAULT": "Click to override default value",
+            "PERSONAL_SPACE": "Click to override the Personal space default value",
+            "SHARED_SPACE": "Click to override the Sharedspace default value"
+          },
+          "USED": {
+            "PERSONAL_SPACE": "Personal Space : {{value}} used",
+            "SHARED_SPACE": "Sharedspace : {{value}} used"
+          }
+        }
+      },
       "HINT_LABELS": {
         "ALERT_MAINTENANCE_MODE": "Maintenance mode is activated, thereby preventing any uploads to be made within the",
         "ERROR": "Error ",
@@ -2207,6 +2249,7 @@
         "HINT_ALLREADY_USED": "allready used",
         "HINT_ASSIGNED_QUOTA": "assigned quota",
         "HINT_MAX_QUOTA": "Value can not exceed the personal spaces quota",
+        "HINT_RESET_TOOLTIP": "Reset to default value: {{value}}",
         "HINT_UNLINK_TOOLTIP": "Override default value"
       },
       "MAINTENANCE_MODE": "Maintenance mode",

@@ -2166,6 +2166,48 @@
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       },
+      "GRAPH": {
+        "LEGEND": {
+          "QUOTA": {
+            "DOMAIN": "Quota alloué pour le domaine courant",
+            "DISTRIBUTION": "Distribution du quota alloué pour le domaine courant{{value ? ' : ' + value : ''}}",
+            "MAX": "Quota max autorisé",
+            "OVER": "Limite de sur-allocation",
+            "PERSONAL_SPACE": "Quota alloué pour l'Espace Personnel{{value ? ' : ' + value : ''}}",
+            "REMAINING": "Quota restant{{value ? ' : ' + value : ''}}",
+            "SHARED_SPACE": "Quota alloué pour l'Espace Commun{{value ? ' : ' + value : ''}}",
+            "UNALLOCATED": "Quota non-alloué",
+            "UNASSIGNED": "Quota non-assigné"
+          },
+          "SMALL": {
+            "PERSONAL_SPACE": "E.P.",
+            "SHARED_SPACE": "E.C."
+          },
+          "SPACE": {
+            "DOMAIN": "Espace utilisé par le domaine courrant{{value ? ' : ' + value : ''}}",
+            "REMAINING": "Espace restant{{value ? ' : ' + value : ''}}",
+            "SUBDOMAIN": "Espace utilisé par les sous-domaines{{value ? ' : ' + value : ''}}",
+            "UNALLOCATED": "Espace non alloué{{value ? ' : ' + value : ''}}",
+            "USED": "Espace utilisé{{value ? ' : ' + value : ''}}"
+          }
+        },
+        "TITLE": {
+          "VIRTUAL": "Allocation virtuel des conteners"
+        },
+        "TOOLTIP": {
+          "RESET": "@:MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP",
+          "UNLINK": "@:MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP",
+          "CLICK": {
+            "DEFAULT": "Cliquer pour surcharger la valeur par défaut",
+            "PERSONAL_SPACE": "Cliquer pour surcharger la valeur par défaut de l'Espace Personnel",
+            "SHARED_SPACE": "Cliquer pour surcharger la valeur par défaut de l'Espace Commun"
+          },
+          "USED": {
+            "PERSONAL_SPACE": "Espace Personnel : {{value}} utilisé",
+            "SHARED_SPACE": "Espace Commun : {{value}} utilisé"
+          }
+        }
+      },
       "HINT_LABELS": {
         "ALERT_MAINTENANCE_MODE": "Le mode maintenance est activé, par conséquent aucun dépot ne peut être effectué dans",
         "ERROR": "Erreur",
@@ -2174,6 +2216,7 @@
         "HINT_ALLREADY_USED": "utilisé",
         "HINT_ASSIGNED_QUOTA": "quota affecté",
         "HINT_MAX_QUOTA": "La valeur ne peut exceder celle du quota",
+        "HINT_RESET_TOOLTIP": "Réinitialiser à la valeur par défaut : {{value}}",
         "HINT_UNLINK_TOOLTIP": "Surcharger la valeur par défaut"
       },
       "MAINTENANCE_MODE": "Mode maintenance",

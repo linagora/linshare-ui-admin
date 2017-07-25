@@ -1040,6 +1040,41 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
           authenticatedUser: authenticatedUser,
           domainDto: function($stateParams, Domain) {
             return Domain.get($stateParams.domainId);
+          },
+          domainQuotaDto: function(domainDto, quotaRestService) {
+            return quotaRestService.getDomain(domainDto.quota);
+          },
+          parentDomainDto: function(Domain, domainQuotaDto) {
+            return domainQuotaDto.parentDomain ? Domain.get(domainQuotaDto.parentDomain.identifier) : null;
+          },
+          parentDomainQuotaDto: function(parentDomainDto, quotaRestService) {
+            if (_.isNull(parentDomainDto)) {
+              return null;
+            }
+            return quotaRestService.getDomain(parentDomainDto.quota).then(function(data) {
+              data.route = 'parent' + data.route;
+              return data;
+            });
+          },
+          parentContainersQuotaDto: function($q, parentDomainQuotaDto, quotaRestService) {
+            if (_.isNull(parentDomainQuotaDto)) {
+              return null;
+            }
+
+            return $q.all(_.map(parentDomainQuotaDto.containerUuids, function(parentContainerQuotaUuid) {
+              return quotaRestService.getContainer(parentContainerQuotaUuid).then(function(data) {
+                data.route = 'parent' + data.type.toLowerCase().replace('_','');
+                return data;
+              });
+
+            })).then(function(parentContainersQuotaDto) {
+              return {
+                user : parentContainersQuotaDto[0].type === 'USER' ?
+                  parentContainersQuotaDto[0] : parentContainersQuotaDto[1],
+                workgroup : parentContainersQuotaDto[0].type === 'WORK_GROUP' ?
+                  parentContainersQuotaDto[0] : parentContainersQuotaDto[1]
+              };
+            });
           }
         },
         views: {

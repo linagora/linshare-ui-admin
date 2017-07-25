@@ -20,7 +20,8 @@ angular.module('linshareAdminApp', [
     'toggle-switch',
     'lsDropdownApp',
     'angularMoment',
-    'luegg.directives'
+    'luegg.directives',
+    'graphApp'
 ])
 
 // Register work which needs to be performed on module loading

@@ -13,6 +13,7 @@ $lightGrey: #EFEFEF;
 $orange: #f0ad4e;
 $lightRedAlert: #f20000;
 $redAlert: #bb0505;
+
 .grey {
   color: #999;
 }
@@ -40,6 +41,9 @@ $redAlert: #bb0505;
 }
 .boldOption {
   font-weight:bold;
+}
+.m-t-20 {
+  margin-top: 20px;
 }
 /*
 ** FONT CUSTOMIZATION
@@ -963,6 +967,19 @@ a.list-group-item-success:hover {
     }
     color: $redAlert;
   }
+  &.fa {
+    background-color: $redAlert;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    position: relative;
+  }
+  &.fa:before {
+    display: block;
+    top: -1px;
+    position: absolute;
+    font-size: 1.2em
+  }
 }
 
 /* *****************
@@ -1035,7 +1052,6 @@ input:checked + .slider:before {
   resize: vertical;
 }
 
-
 /*** CONSOLE VIEW ***/
 .filter {
   margin-bottom: 10px;
@@ -1060,3 +1076,15 @@ input:checked + .slider:before {
     }
   }
 }
+
+/******************
+  Manage Quota graph
+******************/
+@import '../../ng_components/quota/directives/lsgraph/colors';
+@import '../../ng_components/quota/directives/lsgraph/styles';
+@import '../../ng_components/quota/directives/lsgraph/graph-label/styles';
+@import '../../ng_components/quota/directives/lsgraph/graph-ruler/styles';
+@import '../../ng_components/quota/directives/lsgraph/graph-legends/styles';
+@import '../../ng_components/quota/directives/lsgraph/graph-chain/styles';
+@import '../../ng_components/quota/directives/lsgraph/graph-container/styles';
+@import '../../ng_components/quota/directives/lsgraph/graph-limit/styles';

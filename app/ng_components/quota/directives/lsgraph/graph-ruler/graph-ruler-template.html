@@ -1,0 +1,14 @@
+<div class="ruler-ctn">
+  <div class="ruler-items">
+    <div data-ng-repeat="value in ruler.measure track by $index" class="ruler-elem" data-ng-class="'ruler-' + $index">
+      <div class="ruler-elem-height"></div>
+      <span class="ruler-text">{{value}}</span>
+    </div>
+    <div class="ruler-elem ruler-max" data-ng-if="!ruler.disabled && ruler.max">
+      <div class="ruler-elem-height" data-ng-class="ruler.max.colors.main"></div>
+      <span class="ruler-text" data-ng-class="ruler.max.colors.label">
+        {{ruler.max.display}}
+      </span>
+    </div>
+  </div>
+</div>

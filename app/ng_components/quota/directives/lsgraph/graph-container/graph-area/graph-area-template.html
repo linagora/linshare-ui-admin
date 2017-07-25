@@ -1,0 +1,10 @@
+<div data-ng-show="area.display" >
+  <div class="inner-sub-ctn"
+       tooltip-placement="bottom"
+       tooltip-popup-delay="750"
+       tooltip-append-to-body="true"
+       tooltip="{{area.tooltip | translate:'{value: area.value.display}'}}">
+    <p translate>{{area.label}}</p>
+    <p class="quota-value">{{area.value.display}}</p>
+  </div>
+</div>

@@ -3,11 +3,12 @@
 angular.module('linshareAdminApp')
   .controller('UserDetailCtrl',
     ['_', '$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', 'currentUser',
-     'lsAppConfig', 'maxExpiryDate', 'quotaRestService', 'restrictedGuestStatus', 'selectOptions',
+     'lsAppConfig', 'maxExpiryDate', 'quotaRestService', 'quotaUtilsService', 'restrictedGuestStatus', 'selectOptions',
      'unitService', 'User',
     /* jshint maxparams: false */
     function(_, $filter, $log, $modal, $rootScope, $scope, $state, $timeout, currentUser, lsAppConfig,
-              maxExpiryDate, quotaRestService, restrictedGuestStatus, selectOptions, unitService, User) {
+             maxExpiryDate, quotaRestService, quotaUtilsService, restrictedGuestStatus, selectOptions,
+             unitService, User) {
         $scope.lsAppConfig = lsAppConfig;
         $scope.userRoles = selectOptions.userRoles;
         $scope.userRolesSimple = ['SIMPLE', 'ADMIN'];
@@ -18,14 +19,13 @@ angular.module('linshareAdminApp')
           accounts: {
             quota: undefined,
             maxFileSize: undefined,
-            usedSpace: undefined,
+            usedSpace: undefined
           },
           value: _.map(unitService.units, function(unit) {
             return unit.value;
           })
         };
-        $scope.formParser = formParser;
-        $scope.formRender = formRender;
+        $scope.formRender = quotaUtilsService.formRender;
         $scope.resetQuota = resetQuota;
         $scope.setParentDefault = setParentDefault;
         $scope.submitQuota = submitQuota;
@@ -132,51 +132,6 @@ angular.module('linshareAdminApp')
         };
 
         /**
-         * @name capitalize
-         * @desc Set the first letter of a string in upperCase
-         * @param {string} value - Value to be capitalized
-         * @returns {String} the value capitalize
-         * @memberOf linshareAdminApp.UserDetailCtrl
-         */
-        //TODO - KLE : to be put in a util module
-        function capitalize(value) {
-          return value.charAt(0).toUpperCase() + value.substr(1);
-        }
-
-        /**
-         * @name formParser
-         * @desc Force parsers of element present in form
-         * @param {DOM Object} form - The form containing the element to be parsed
-         * @memberOf linshareAdminApp.UserDetailCtrl
-         */
-        //TODO - KLE : to be put in a util module
-        function formParser(form) {
-          _.forEach(form, function(elm) {
-            if (!_.isUndefined(elm.$parsers)) {
-              _.forEach(elm.$parsers, function(parser) {
-                $timeout(function() {
-                  parser(elm.$viewValue);
-                }, 0);
-              });
-            }
-          });
-        }
-        /**
-         * @name formRender
-         * @desc Force render of element present in form
-         * @param {DOM Object} form - The form containing the element to be rendered
-         * @memberOf linshareAdminApp.UserDetailCtrl
-         */
-        //TODO - KLE : to be put in a util module
-        function formRender(form) {
-          _.forEach(form, function(elm) {
-            if (!_.isUndefined(elm.$render)) {
-              elm.$render();
-            }
-          });
-        }
-
-        /**
          * @name initDto
          * @desc Initialise DTO element by cloning them and adding get/set
          * @param {Object} data - Server response data
@@ -189,56 +144,59 @@ angular.module('linshareAdminApp')
           setModelGetSet(data);
         }
 
-        /**
-         * @name setModelGetSet
-         * @desc For each model containing property name referenced as keys in $scope.unit:
-         *       Add a get and set function to take unit conversion into account while updating or
-         *       requesting those values
-         *       Also set the unit to be used, depending on the original object property value
-         * @example
-         *          domainQuotaDto.quota = 1000,
-         *          domainQuotaDto.getDomainsQuota = function() {
-         *            $filter('readableSize')(domainQuotaDto.quota.original, unit.domain.quota, false)
-         *          }
-         *          domainQuotaDto.setDomainsQuota = function(newValue, form) {
-         *            unitService.toByte(newValue, unit.domain.quota)
-         *            $scope.formParser(form);
-         *          }
-         * @param {Object} data - Data used to find unit
-         * @memberOf linshareAdminApp.UserDetailCtrl
-         */
-        //TODO: Need to update angular to 1.3 avoid this awful trick and use ng-model-options="{ getterSetter: true }"
-        function setModelGetSet(data) {
-          var keyName = _.find(Object.keys($scope.unit), function(key) {
-            if (key === data.route) {
-              return true;
-            } else {
-              return data.type.toLowerCase().replace('_', '') === key;
-            }
-          });
-          _.forEach(Object.keys($scope.unit[keyName]), function(propertyKey) {
-            //TODO - KLE: Test to be removed once the back fill the missing fields in DTO
-            $scope.unit[keyName][propertyKey] = (_.isUndefined(data[propertyKey]) ||
-              data[propertyKey] === null) ? 'GB' : $scope.unitService.find(data[propertyKey]);
-            data['get' + capitalize(keyName) + capitalize(propertyKey)] = function get() {
+      /**
+       * @name setModelGetSet
+       * @desc For each model containing property name referenced as keys in $scope.unit:
+       *       Add a get and set function to take unit conversion into account while updating or
+       *       requesting those values
+       *       Also set the unit to be used, depending on the original object property value
+       * @example
+       *          domainQuotaDto.quota = 1000,
+       *          domainQuotaDto.getDomainsQuota = function() {
+       *            $filter('readableSize')(domainQuotaDto.quota.original, unit.domain.quota, false)
+       *          }
+       *          domainQuotaDto.setDomainsQuota = function(newValue, form) {
+       *            unitService.toByte(newValue, unit.domain.quota)
+       *            $scope.formRender(form);
+       *          }
+       * @param {Object} data - Data used to find unit
+       * @memberOf linshareAdminApp.UserDetailCtrl
+       */
+      //TODO: Need to update angular to 1.3 avoid this awful trick and use ng-model-options="{ getterSetter: true }"
+      function setModelGetSet(data) {
+        var keyName = _.find(Object.keys($scope.unit), function(key) {
+          if (key === data.route) {
+            return true;
+          } else {
+            return data.type.toLowerCase().replace('_', '') === key;
+          }
+        });
+        _.forEach(Object.keys($scope.unit[keyName]), function(propertyKey) {
+          //TODO - KLE: Test to be removed once the back fill the missing fields in DTO
+          $scope.unit[keyName][propertyKey] = (_.isUndefined(data[propertyKey]) || data[propertyKey] === null) ?
+            'GB' : $scope.unitService.find(data[propertyKey]);
+          data['get' + quotaUtilsService.capitalize(keyName) + quotaUtilsService.capitalize(propertyKey)] =
+            function get() {
               return $filter('readableSize')(data[propertyKey], $scope.unit[keyName][propertyKey], false);
             };
-            data['set' + capitalize(keyName) + capitalize(propertyKey)] = function set(newValue, form) {
+          data['set' + quotaUtilsService.capitalize(keyName) + quotaUtilsService.capitalize(propertyKey)] =
+            function set(newValue, form) {
               data[propertyKey] = $scope.unitService.toByte(newValue, $scope.unit[keyName][propertyKey]);
-              $scope.formParser(form);
               //Need to reset the get function because on update of model, the function is replaced by the value
-              data['get' + capitalize(keyName) + capitalize(propertyKey)] = function get() {
-                return $filter('readableSize')(data[propertyKey], $scope.unit[keyName][propertyKey], false);
-              };
+              data['get' + quotaUtilsService.capitalize(keyName) + quotaUtilsService.capitalize(propertyKey)] =
+                function get() {
+                  return $filter('readableSize')(data[propertyKey], $scope.unit[keyName][propertyKey], false);
+                };
+              $scope.formRender(form);
             };
+        });
+        data.isExceeded = function isExceeded() {
+          var initDto = _.find($scope.cloned, function(dto) {
+            return dto.uuid === data.uuid;
           });
-          data.isExceeded = function isExceeded() {
-            var initDto = _.find($scope.cloned, function(dto) {
-              return dto.uuid === data.uuid;
-            });
-            return initDto.usedSpace >= initDto.quota;
-          };
-        }
+          return initDto.usedSpace >= initDto.quota;
+        };
+      }
 
         /**
          * @name setMatchingProperties
@@ -277,7 +235,6 @@ angular.module('linshareAdminApp')
         function submitQuota(form) {
           quotaRestService.updateAccount($scope.userQuotaDto).then(function(userData) {
             initDto(userData);
-            $scope.formParser(form);
             $scope.formRender(form);
           });
         }
@@ -292,7 +249,6 @@ angular.module('linshareAdminApp')
           $scope.userQuotaDto = _.cloneDeep($scope.userQuotaDtoCloned);
           $scope.unit = _.cloneDeep($scope.unitCloned);
           setModelGetSet($scope.userQuotaDto);
-          $scope.formParser(form);
           $scope.formRender(form);
         }
       }

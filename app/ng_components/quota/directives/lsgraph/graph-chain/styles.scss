@@ -1,0 +1,40 @@
+/* CHAIN */
+.un-parent-ctn {
+  position: absolute;
+  bottom: -3px;
+  left: 700px;
+  a {
+    display: inline-block;
+    width: 25px;
+    height: 0;
+    margin-left: -12px;
+    position: absolute;
+    top: -4px;
+  }
+  i.link-icon {
+    margin-left: 11px;
+    font-size: 0.9em;
+    position: absolute;
+    transform: rotate(-45deg) translate(-5px, 0px);
+    cursor: pointer;
+    transition: 250ms ease-out opacity;
+    opacity: 1;
+    &.show-link {
+      opacity: 1;
+    }
+  }
+  > div {
+    position: relative;
+    .ref-locked-parent {
+      width: 2px;
+      height: 6px;
+      position: absolute;
+      left: 1px;
+      bottom: -2px;
+      transform: translateX(-50%);
+    }
+  }
+  > p {
+    margin: 0;
+  }
+}

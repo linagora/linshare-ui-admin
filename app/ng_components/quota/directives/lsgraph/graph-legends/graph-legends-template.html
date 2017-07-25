@@ -1,0 +1,6 @@
+<div class="legend-schemes">
+  <div class="legend-ctn"  data-ng-repeat="legend in legends" data-ng-if="!legend.disabled">
+    <div class="ref-legend" data-ng-class="legend.colors.legend"></div>
+    <p translate translate-values="legend.param">{{legend.value}}</p>
+  </div>
+</div>
