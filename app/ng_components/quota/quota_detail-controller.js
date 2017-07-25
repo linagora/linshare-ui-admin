@@ -221,8 +221,11 @@
      */
     function manageOverride(form, element, parent, property) {
       quotaUtilsService.manageOverride(element, parent, property);
-      buildGraphUpdate(element.type ? element.type : element.route);
-      quotaVm.formRender(form);
+      quotaVm.formRender(form).then(function(form) {
+        if (!form.$invalid) {
+          buildGraphUpdate(element.type ? element.type : element.route);
+        }
+      });
     }
 
     /**
@@ -239,7 +242,9 @@
       setModelGetSet(quotaVm.domainQuotaDto);
       setModelGetSet(quotaVm.userQuotaDto);
       setModelGetSet(quotaVm.workgroupQuotaDto);
-      quotaVm.formRender(form);
+      quotaVm.formRender(form).then(function() {
+        quotaVm.graph = buildGraph();
+      });
     }
 
     /**

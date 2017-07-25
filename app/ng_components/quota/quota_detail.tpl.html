@@ -429,7 +429,7 @@
                     <input type="text" class="form-control" id="domainWorkgroupMaxFileSize"
                            name="domainWorkgroupMaxFileSize"
                            data-ng-model="quotaVm.workgroupQuotaDto.getMaxFileSize"
-                           data-ng-change="workgroupQuotaDto.setMaxFileSize(
+                           data-ng-change="quotaVm.workgroupQuotaDto.setMaxFileSize(
                                           quotaForm.domainWorkgroupMaxFileSize.$viewValue, quotaForm)"
                            data-ng-blur="quotaVm.workgroupQuotaDto.updateGraph(quotaForm)"
                            data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.workgroupQuotaDto.maxFileSizeOverride)"
