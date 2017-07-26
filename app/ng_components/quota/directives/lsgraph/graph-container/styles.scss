@@ -45,7 +45,7 @@
       z-index: 999;
     }
     &:hover {
-      cursor: url(../images/scale-arrows.png), auto;
+      cursor: url('/images/scale-arrows.png'), auto;
       > div {
         border-right-color: #4e4444;
       }

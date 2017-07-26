@@ -1,9 +1,9 @@
 $graphBlue: #678ec3;
 .graph-color-blue-stripes-main {
-  background: url(../images/domain-stripes.png) repeat white;
+  background: url('/images/domain-stripes.png') repeat white;
 }
 .graph-color-blue-stripes-legend {
-  background: url(../images/domain-stripes-small.png) repeat white;
+  background: url('/images/domain-stripes-small.png') repeat white;
 }
 .graph-color-blue-label {
   color: $graphBlue !important;
@@ -18,10 +18,10 @@ $graphBlue: #678ec3;
 
 $graphGreen: #4e925a;
 .graph-color-green-stripes-main {
-  background: url(../images/stripes.png) repeat white;
+  background: url('/images/stripes.png') repeat white;
 }
 .graph-color-green-stripes-legend {
-  background: url(../images/stripes-ss-small.png) repeat white;
+  background: url('/images/stripes-ss-small.png') repeat white;
 }
 .graph-color-green-label {
   color: $graphGreen !important;
@@ -62,10 +62,10 @@ $graphOrange: #e26b00;
 
 $graphPurple: #584e92;
 .graph-color-purple-stripes-main {
-  background: url(../images/stripes-ps.png) repeat white;
+  background: url('/images/stripes-ps.png') repeat white;
 }
 .graph-color-purple-stripes-legend {
-  background: url(../images/stripes-ps-small.png) repeat white;
+  background: url('/images/stripes-ps-small.png') repeat white;
 }
 .graph-color-purple-label {
   color: $graphPurple !important;
