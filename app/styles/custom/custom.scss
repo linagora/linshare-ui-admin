@@ -970,15 +970,15 @@ a.list-group-item-success:hover {
   &.fa {
     background-color: $redAlert;
     border-radius: 50%;
-    width: 1em;
-    height: 1em;
+    width: 0.75em;
+    height: 0.75em;
     position: relative;
   }
   &.fa:before {
     display: block;
     top: -1px;
     position: absolute;
-    font-size: 1.2em
+    font-size: 1em;
   }
 }
 

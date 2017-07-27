@@ -298,10 +298,10 @@
           //}
         });
         _.assign(graph.containers[2],{
-          legend: 'MANAGE_QUOTA.BOX_FORM.GRAPH.LEGEND.QUOTA.UNASSIGNED',
-          value: {
-            real: domainQuotaDto.defaultQuota * 2 - (userQuotaDto.defaultQuota + workgroupQuotaDto.defaultQuota)
-          }
+          legend: 'MANAGE_QUOTA.BOX_FORM.GRAPH.LEGEND.QUOTA.UNASSIGNED'
+        });
+        _.assign(graph.containers[2].value, {
+          real: domainQuotaDto.defaultQuota * 2 - (userQuotaDto.defaultQuota + workgroupQuotaDto.defaultQuota)
         });
         _.assign(graph, {
           chains: [
