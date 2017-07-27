@@ -41,6 +41,16 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
           }
         },
+        "EXPIRATION": {
+          "AUTHOR": {
+            "SENTENCE": "Your file share : {{resourceName}} intended for {{userVarious}} has expired.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}}'s file share : {{resourceName}} intended for {{userVarious}} has expired.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
         "READ": {
           "VIEWER": {
             "SENTENCE": "{{authorName}} has viewed your file share sent the {{dateVarious}}.",
@@ -159,6 +169,16 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
           }
         },
+        "COPY": {
+          "AUTHOR": {
+            "SENTENCE": "You have transferred the file : {{resourceName}} into your Personal Space.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has transferred the file : {{resourceName}} into his Personal Space.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+          }
+        },
         "DELETE": {
           "AUTHOR": {
             "SENTENCE": "You have deleted the file : {{resourceName}} from your Personal Space.",
@@ -177,6 +197,26 @@
           "VIEWER": {
             "SENTENCE": "",
             "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+          }
+        },
+        "EXPIRATION": {
+          "AUTHOR": {
+            "SENTENCE": "Your document : {{resourceName}} has been removed from your Personal Space since the file has expired.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}}'s document : {{resourceName}} has been removed from the Personal Space since the file has expired.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "INCONSISTENCY": {
+          "AUTHOR": {
+            "SENTENCE": "Your document : {{resourceName}} has been removed from your Personal Space because the file could not be found.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{userVarious}}'s document : {{resourceName}} has been removed from the Personal Space because the file could not be found.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           }
         },
         "UPDATE": {
@@ -211,6 +251,16 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           }
         },
+        "EXPIRATION": {
+          "AUTHOR": {
+            "SENTENCE": "The Guest Account of : {{userVarious}} has expired.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}}'s Guest Account : {{userVarious}} has expired.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
         "UPDATE": {
           "AUTHOR": {
             "SENTENCE": "You have edited the Guest Account of : {{userVarious}}.",
@@ -233,6 +283,16 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
           }
         },
+        "COPY": {
+          "AUTHOR": {
+            "SENTENCE": "The file share : {{resourceName}} from {{userVarious}} has been removed from the Received Shares since you have transferred the file into your Personal Space.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+          },
+          "VIEWER": {
+            "SENTENCE": "The file share : {{resourceName}} has been removed from the Received Shares since {{authorName}} has transferred the file into the Personal Space.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+          }
+        },
         "DELETE": {
           "AUTHOR": {
             "SENTENCE": "You have deleted the file share : {{resourceName}}, intended for {{userVarious}}.",
@@ -251,6 +311,16 @@
           "VIEWER": {
             "SENTENCE": "{{authorName}} has downloaded your file share : {{resourceName}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+          }
+        },
+        "EXPIRATION": {
+          "AUTHOR": {
+            "SENTENCE": "Your file share : {{resourceName}} intended for {{userVarious}} has expired.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}}'s file share : {{resourceName}} intended for {{userVarious}} has expired.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           }
         },
         "UPDATE": {
@@ -305,6 +375,16 @@
           "VIEWER": {
             "SENTENCE": "{{authorName}} has uploaded a new file : {{resourceName}} into the Workgroup {{resourceNameVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+          }
+        },
+        "COPY": {
+          "AUTHOR": {
+            "SENTENCE": "You have copied the file : {{resourceName}} into the Workgroup {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has copied the file : {{resourceName}} into the Workgroup {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
           }
         },
         "DELETE": {
@@ -408,6 +488,7 @@
       "CAN_UPLOAD": "Can upload",
       "EXPIRATION_DATE": "Expiration date",
       "FIRST_NAME": "First name",
+      "FOLDER": "Folder",
       "LAST_NAME": "Last name",
       "MAIL": "Mail",
       "NAME": "Name",
@@ -435,6 +516,7 @@
       "READ": "Read",
       "RECEIVE_SHARE": "Received share",
       "SUCCESS": "Login success",
+      "TRANSFER": "Transfer",
       "UPDATE": "Update",
       "UPLOAD": "File upload",
       "VIEWED": "Viewed"

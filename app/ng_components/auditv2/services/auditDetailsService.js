@@ -28,6 +28,7 @@
         FAILURE: 'FAILURE',
         READ: 'READ',
         RECEIVE_SHARE: 'RECEIVE_SHARE',
+        TRANSFER: 'TRANSFER',
         SUCCESS: 'SUCCESS',
         UPDATE: 'UPDATE',
         UPLOAD: 'UPLOAD',
@@ -76,12 +77,13 @@
         'lastName': 'LAST_NAME',
         'mail': 'NAME',
         'restricted': 'RESTRICTED',
-        'right': 'RIGHT'
+        'right': 'RIGHT',
+        'folder': 'FOLDER'
       },
       UPDATE_FIELDS_KEYS_PREFIX = 'DETAILS_POPUP.UPDATED_FIELDS.',
       UPDATE_FIELDS_RIGHTS_KEYS_PREFIX = 'DETAILS_POPUP.UPDATED_FIELDS_RIGHTS.',
       UPDATE_FIELDS_TO_CHECK = ['canCreateGuest', 'canUpload', 'expirationDate', 'firstName', 'identifier', 'lastName',
-        'mail', 'name', 'restricted'];
+        'mail', 'name', 'restricted', 'folder'];
 
     var
       authorMe,
@@ -287,9 +289,17 @@
      * @memberOf linshareAdminApp.auditDetailsService
      */
     function setSentenceKey(auditAction, key) {
+      var action = auditAction.action;
+      if (!_.isUndefined(auditAction.cause)) {
+        if(auditAction.cause !== 'UNDEFINED') {
+          action = auditAction.cause;
+        } else {
+          auditAction.cause = ACTIONS_KEY.DELETE;
+        }
+      }
       return SENTENCES_KEYS_PREFIX + '.' +
         auditAction.type + '.' +
-        auditAction.action + '.' +
+        action + '.' +
         auditAction.authorReference +
         key;
     }
@@ -373,6 +383,7 @@
           delete updatedValues.name;
         }
         setUpdatedValuesGuestExpirationDate(auditAction, updatedValues);
+        setUpdatedValuesWorkgroupDocument(auditAction, updatedValues);
         setUpdatedValuesWorkgroupMember(auditAction, updatedValues);
       }
       return updatedValues;
@@ -420,6 +431,27 @@
             newValue: $filter('shortTime')(newDate),
             oldValueFull: $filter('calendarTime')(oldDate),
             newValueFull: $filter('calendarTime')(newDate)
+          };
+        }
+      }
+    }
+
+    /**
+     * @name setUpdatedValuesWorkgroupDocument
+     * @desc Set workgroup document update audit values
+     * @param {Object} auditAction - One audit action
+     * @param {Object} updatedValues - Object to fill with updated values
+     * @memberOf linshareAdminApp.auditDetailsService
+     */
+    function setUpdatedValuesWorkgroupDocument(auditAction, updatedValues) {
+      if (auditAction.type === TYPES_KEY.WORKGROUP_DOCUMENT) {
+        var oldFolder = auditAction.resource.treePath[auditAction.resource.treePath.length - 1];
+        var newFolder = auditAction.resourceUpdated.treePath[auditAction.resourceUpdated.treePath.length - 1];
+        if (oldFolder.uuid !== newFolder.uuid) {
+          updatedValues.right = {
+            keyName: UPDATE_FIELDS_KEYS_PREFIX + UPDATE_FIELDS_KEY.folder,
+            oldValue: oldFolder.name,
+            newValue: newFolder.name
           };
         }
       }

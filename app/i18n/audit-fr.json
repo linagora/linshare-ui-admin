@@ -41,6 +41,16 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
           }
         },
+        "EXPIRATION": {
+          "AUTHOR": {
+            "SENTENCE": "Votre partage : {{resourceName}} destiné à {{userVarious}} a expiré.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "Le partage : {{resourceName}} de {{authorName}} destiné à {{userVarious}} a expiré.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
         "READ": {
           "ADMIN": {
             "SENTENCE": "{{authorName}} a consulté le partage du : {{dateVarious}}, émis par {{userVarious}}.",
@@ -159,6 +169,16 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
           }
         },
+        "COPY": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez transféré le fichier : {{resourceName}} dans votre Espace Personnel.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a transféré le fichier : {{resourceName}} dans son Espace Personnel.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+          }
+        },
         "DELETE": {
           "AUTHOR": {
             "SENTENCE": "Vous avez supprimé le fichier : {{resourceName}} de votre Espace Personnel.",
@@ -177,6 +197,26 @@
           "VIEWER": {
             "SENTENCE": "",
             "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+          }
+        },
+        "EXPIRATION": {
+          "AUTHOR": {
+            "SENTENCE": "Le document : {{resourceName}} a été supprimé de votre Espace Personnel car il a expiré.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "Le document : {{resourceName}}, de {{authorName}} a été supprimé de son Espace Personnel car il a expiré.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "INCONSISTENCY": {
+          "AUTHOR": {
+            "SENTENCE": "Le document : {{resourceName}} a été supprimé de votre Espace Personnel car il est introuvable sur le serveur.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "Le document : {{resourceName}}, de {{authorName}} a été supprimé de son Espace Personnel car il est introuvable sur le serveur.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           }
         },
         "UPDATE": {
@@ -211,6 +251,16 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           }
         },
+        "EXPIRATION": {
+          "AUTHOR": {
+            "SENTENCE": "Le Compte Invité : {{userVarious}} a expiré.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "Le Compte Invité : {{userVarious}} de {{authorName}} a expiré.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
         "UPDATE": {
           "AUTHOR": {
             "SENTENCE": "Vous avez modifié le Compte Invité de : {{userVarious}}.",
@@ -233,6 +283,16 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
           }
         },
+        "COPY": {
+          "AUTHOR": {
+            "SENTENCE": "Le partage : {{resourceName}} a été supprimé, car vous avez transféré le fichier de {{userVarious}} dans votre Espace Personnel.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a transféré le fichier : {{resourceName}} dans son Espace Personnel.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+          }
+        },
         "DELETE": {
           "AUTHOR": {
             "SENTENCE": "Vous avez supprimé le partage du fichier : {{resourceName}}, destiné à {{userVarious}}.",
@@ -251,6 +311,16 @@
           "VIEWER": {
             "SENTENCE": "{{authorName}} a téléchargé votre partage : {{resourceName}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+          }
+        },
+        "EXPIRATION": {
+          "AUTHOR": {
+            "SENTENCE": "Votre partage : {{resourceName}} destiné à {{userVarious}} a expiré.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "Le partage : {{resourceName}} de {{authorName}} destiné à {{userVarious}} a expiré.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           }
         },
         "UPDATE": {
@@ -305,6 +375,16 @@
           "VIEWER": {
             "SENTENCE": "{{authorName}} a déposé un nouveau fichier : {{resourceName}} dans le Groupe de Travail {{resourceNameVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+          }
+        },
+        "COPY": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez copié le fichier : {{resourceName}} dans le Groupe de Travail {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a copié le fichier : {{resourceName}} dans le Groupe de Travail {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
           }
         },
         "DELETE": {
@@ -408,6 +488,7 @@
       "CAN_UPLOAD": "Dépôt de fichiers",
       "EXPIRATION_DATE": "Date d'expiration",
       "FIRST_NAME": "Prénom",
+      "FOLDER": "Dossier",
       "LAST_NAME": "Nom",
       "MAIL": "Mail",
       "NAME": "Nom",
@@ -435,6 +516,7 @@
       "READ": "Consultation",
       "RECEIVE_SHARE": "Partage reçu",
       "SUCCESS": "Connexion réussie",
+      "TRANSFER": "Transfert",
       "UPDATE": "Edition",
       "UPLOAD": "Dépôt de fichier",
       "VIEWED": "Vu"
