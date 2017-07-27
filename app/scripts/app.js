@@ -21,7 +21,8 @@ angular.module('linshareAdminApp', [
     'lsDropdownApp',
     'angularMoment',
     'luegg.directives',
-    'graphApp'
+    'graphApp',
+    'pasvaz.bindonce'
 ])
 
 // Register work which needs to be performed on module loading

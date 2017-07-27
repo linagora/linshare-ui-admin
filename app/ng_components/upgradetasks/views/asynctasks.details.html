@@ -31,7 +31,7 @@
             <span translate>ASYNC_TASKS.BOX_LIST.FILTER.LABEL</span> :
             <div class="filter-switch pull-right"
                  data-ng-repeat="value in asyncTaskVm.log.values track by $index">
-              <span>{{value}} : </span>
+              <span data-ng-model="value">{{value}}: </span>
               <label class="switch">
                 <input type="checkbox"
                        data-ng-model="asyncTaskVm.log.selected[value]"
@@ -42,10 +42,10 @@
             </div>
           </div>
           <div class="console" scroll-glue>
-            <div class="console-line" data-ng-repeat="line in asyncTaskVm.console.show track by $index">
+            <div class="console-line" bindonce data-ng-repeat="line in asyncTaskVm.console.show track by $index">
               <kbd>
-                <span class="console-date">{{line.creationDate}}</span> &nbsp
-                <span class="console-criticality">{{line.criticity}}</span>: {{line.message}}
+                <span class="console-date" data-bo-bind="line.creationDate"></span> &nbsp
+                <span class="console-criticality" data-bo-bind="line.criticity"></span>: <span data-bo-bind="line.message"></span>
               </kbd>
             </div>
           </div>

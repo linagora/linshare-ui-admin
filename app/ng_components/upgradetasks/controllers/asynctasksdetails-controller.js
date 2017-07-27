@@ -48,7 +48,7 @@
         values: Object.values(upgradeTasksConstants.log)
       };
 
-      asyncTaskVm.timer = 1000;
+      asyncTaskVm.timer = 5000;
       createRefresher();
 
       $scope.$on('$destroy', function() {
