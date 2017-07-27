@@ -340,7 +340,8 @@
             <button id="delete" name="delete" type="button" class="btn btn-danger"
                     x-ng-click="remove()"
                     x-ng-if="state==='edit'"
-                    x-ng-hide="isRootDomain">
+                    x-ng-hide="isRootDomain"
+                    data-ng-disabled="lsAppConfig.productionMode">
               {{ 'MANAGE_DOMAINS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
             </button>
             <button type="button" id="reset" name="reset" class="btn btn-warning"
