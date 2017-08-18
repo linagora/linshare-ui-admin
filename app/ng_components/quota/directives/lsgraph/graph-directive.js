@@ -9,7 +9,7 @@
     .module('graphApp')
     .directive('lsGraph', lsGraph);
 
-  lsGraph.$inject = ['_', 'graphService'];
+  lsGraph.$inject = ['_', '$translate', 'graphService'];
 
   /**
    * @namespace lsGraph
@@ -17,7 +17,7 @@
    * @example <section data-ls-graph="graph" data-ng-if="isGraphReady"></section>
    * @memberOf graphApp
    */
-  function lsGraph(_, graphService) {
+  function lsGraph(_, $translate, graphService) {
     var directive = {
       restrict: 'A',
       templateUrl: 'ng_components/quota/directives/lsgraph/graph-template.html',
@@ -59,13 +59,13 @@
         }
 
         calculus(graph);
+        manageRuler(graph);
         manageColors(graph);
         manageContainers(graph);
         manageChain(graph);
         manageLabels(graph);
         manageLegends(graph);
         manageLimit(graph);
-        manageRuler(graph);
       });
 
       /**
@@ -77,7 +77,6 @@
        */
       function calculus(graph) {
         var containers = graph.containers;
-
         graph.sum =  _.reduce(containers, function(sum, container) {
           if (container.disabled) {
             return sum;
@@ -124,6 +123,7 @@
        */
       function manageContainers(graph) {
         var containers = graph.containers;
+        var widthSum = 0;
 
         _.forEach(containers, function(container, index) {
           container.colors = graphService.manageColorsOverride(container);
@@ -139,9 +139,24 @@
           container.width = 0;
           if (!container.disabled && container.sum > 0 ) {
             container.width = container.sum / graph.sum * 100;
-            container.width -= container.width === 100 ? 0.3 : 0;
+            container.width -= container.width >= 100 ? 0.07 * graph.containers.length : 0;
+            widthSum += container.width;
             container.display = container.width > 3;
+
+            if (container.areas) {
+              _.forEach(container.areas, function(area, index) {
+                area.colors = graphService.manageColorsOverride(area);
+                area.value = graphService.normalize(area.value);
+                area.width = area.value.real === 0 ? 0 : area.value.real / container.sum * 100;
+                area.display = container.display && area.width > 3;
+                container.display = !area.display ? false : container.display;
+                area.colors.main = area.colors.main || '';
+                area.colors.main += index > 0 ? ' border-left-white' : '';
+              });
+            }
           }
+
+          graph.alert = widthSum > 100;
         });
 
         var containersVisible = _.filter(containers, {display: true});
@@ -234,6 +249,10 @@
       function manageLegends(graph) {
         graph.legends = [];
         _.forEach(graph.containers, function(container, index) {
+          if (!container.legend) {
+            return;
+          }
+
           container.legend = {
             value: container.legend,
             colors: container.colors,
@@ -244,6 +263,16 @@
           container.legend.colors = {
             legend: container.legend.colors.legend || graph.colors[index] + '-legend'
           };
+
+          if (container.areas) {
+            container.legend.colors.main = 'hint';
+            container.legend.tooltip = '';
+            _.forEach(container.areas, function(area, index) {
+              $translate(area.tooltip, {value: area.value.display}).then(function(translation) {
+                container.legend.tooltip += translation + (index === container.areas.length - 1 ? '' : ' / ');
+              });
+            });
+          }
 
           graph.legends.push(container.legend);
         });
@@ -273,11 +302,18 @@
        * @memberOf graphApp.lsGraph
        */
       function manageRuler(graph) {
+        if (!graph.ruler) {
+          return;
+        }
+
+        var ruler = graph.ruler;
         if (graph.ruler.max) {
-          graph.ruler.max.colors = graphService.manageColorsOverride(graph.ruler.max);
-          graph.ruler.max.colors.main = graph.ruler.max.colors.main ||
+          ruler.max = graphService.normalize(ruler.max);
+          graph.sum = ruler.max.real;
+          ruler.max.colors = graphService.manageColorsOverride(ruler.max);
+          ruler.max.colors.main = ruler.max.colors.main ||
             graph.colors[0].replace('-stripes', '') + '-main';
-          graph.ruler.max.colors.label = graph.ruler.max.colors.label ||
+          ruler.max.colors.label = ruler.max.colors.label ||
             graph.colors[0].replace('-stripes', '') + '-label';
         }
       }

@@ -174,6 +174,7 @@
       switch (data.route) {
       case 'domains':
         quotaVm.domainQuotaDto = data;
+        quotaVm.domainQuotaDto._parent = quotaVm.parentDomainQuotaDto;
         quotaVm.cloned.domainQuotaDto = _.cloneDeep(data);
         quotaVm.cloned.unit = _.cloneDeep(quotaVm.unit);
         setModelGetSet(quotaVm.domainQuotaDto);
@@ -182,12 +183,16 @@
         switch (data.type) {
         case 'USER':
           quotaVm.userQuotaDto = data;
+          quotaVm.userQuotaDto._parent = quotaVm.parentContainersQuotaDto ?
+            quotaVm.parentContainersQuotaDto.user : null;
           quotaVm.cloned.userQuotaDto = _.cloneDeep(data);
           quotaVm.cloned.unit.user = _.cloneDeep(quotaVm.unit.user);
           setModelGetSet(quotaVm.userQuotaDto);
           break;
         case 'WORK_GROUP':
           quotaVm.workgroupQuotaDto = data;
+          quotaVm.workgroupQuotaDto._parent = quotaVm.parentContainersQuotaDto ?
+            quotaVm.parentContainersQuotaDto.workgroup : null;
           quotaVm.cloned.workgroupQuotaDto = _.cloneDeep(data);
           quotaVm.cloned.unit.workgroup = _.cloneDeep(quotaVm.unit.workgroup);
           setModelGetSet(quotaVm.workgroupQuotaDto);
@@ -236,8 +241,13 @@
      */
     function reset(form) {
       quotaVm.domainQuotaDto = _.cloneDeep(quotaVm.cloned.domainQuotaDto);
+      quotaVm.domainQuotaDto._parent = quotaVm.parentDomainQuotaDto;
       quotaVm.userQuotaDto = _.cloneDeep(quotaVm.cloned.userQuotaDto);
+      quotaVm.userQuotaDto._parent = quotaVm.parentContainersQuotaDto ?
+        quotaVm.parentContainersQuotaDto.user : null;
       quotaVm.workgroupQuotaDto = _.cloneDeep(quotaVm.cloned.workgroupQuotaDto);
+      quotaVm.workgroupQuotaDto._parent = quotaVm.parentContainersQuotaDto ?
+        quotaVm.parentContainersQuotaDto.workgroup : null;
       quotaVm.unit = _.cloneDeep(quotaVm.cloned.unit);
       setModelGetSet(quotaVm.domainQuotaDto);
       setModelGetSet(quotaVm.userQuotaDto);
@@ -333,18 +343,21 @@
          */
         data.getRemaining = function get(withUnit) {
           withUnit = withUnit || false;
-          data.remaining =
-                data.quota - (data.usedSpace +
-                              _.has(data, 'currentValueForSubdomains') ? data.currentValueForSubdomains : 0);
+          data.remaining = data.quota;
+          data.remaining -= _.has(data, 'currentValueForSubdomains') ?
+            (data.usedSpace + data.currentValueForSubdomains) : data.usedSpace;
           var unit = quotaVm.unitService.find(data.remaining);
           return $filter('readableSize')(data.remaining, unit, withUnit);
         };
       }
 
-      if (_.has(data, 'quota') && _.has(data, 'defaultQuota')) {
-        data.unallocated = _.has(data, 'currentValueForSubdomains') ?
-          data.defaultQuota - data.quota : quotaVm.domainQuotaDto.quota - data.quota;
-        data.unallocated = data.unallocated > 0 ? data.unallocated : 0;
+
+      if (_.has(data, 'quota')) {
+        data.unallocated = domainQuotaDto.quota - data.quota;
+        if (data._parent) {
+          data.unallocated = data._parent.defaultQuota > domainQuotaDto.quota ?
+            data._parent.defaultQuota - data.quota : data.unallocated;
+        }
 
         /**
          * @name getUnallocated
@@ -355,9 +368,11 @@
          */
         data.getUnallocated = function get(withUnit) {
           withUnit = withUnit || false;
-          data.unallocated = _.has(data, 'currentValueForSubdomains') ?
-            data.defaultQuota - data.quota : quotaVm.domainQuotaDto.quota - data.quota;
-          data.unallocated = data.unallocated > 0 ? data.unallocated : 0;
+          data.unallocated = domainQuotaDto.quota - data.quota;
+          if (data._parent) {
+            data.unallocated = data._parent.defaultQuota > domainQuotaDto.quota ?
+              data._parent.defaultQuota - data.quota : data.unallocated;
+          }
           var unit = quotaVm.unitService.find(data.unallocated);
           return $filter('readableSize')(data.unallocated, unit, withUnit);
         };
@@ -390,12 +405,12 @@
      * @memberOf linshareAdminApp.QuotaDetailController
      */
     function update(form) {
-      quotaRestService.updateDomain(_.omit(quotaVm.domainQuotaDto, ['remaining', 'unallocated']))
+      quotaRestService.updateDomain(_.omit(quotaVm.domainQuotaDto, ['_parent', 'remaining', 'unallocated']))
         .then(function(domainData) {
           initDto(domainData);
           return $q.all([
-            quotaRestService.updateContainer(_.omit(quotaVm.userQuotaDto, ['remaining', 'unallocated'])),
-            quotaRestService.updateContainer(_.omit(quotaVm.workgroupQuotaDto, ['remaining', 'unallocated']))
+            quotaRestService.updateContainer(_.omit(quotaVm.userQuotaDto, ['_parent', 'remaining', 'unallocated'])),
+            quotaRestService.updateContainer(_.omit(quotaVm.workgroupQuotaDto, ['_parent', 'remaining', 'unallocated']))
           ]);
         }).then(function(containersData) {
           Notification.addNotification('MANAGE_QUOTA.NOTIFICATION.UPDATE');

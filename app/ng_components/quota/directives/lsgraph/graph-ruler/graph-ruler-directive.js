@@ -9,7 +9,7 @@
     .module('graphApp')
     .directive('graphRuler', graphRuler);
 
-  graphRuler.$inject = ['_', 'graphService'];
+  graphRuler.$inject = ['_'];
 
   /**
    * @namespace graphRuler
@@ -17,7 +17,7 @@
    * @example <div data-ng-if="graph.ruler" graph-ruler="graph.ruler"></div>
    * @memberOf graphApp
    */
-  function graphRuler(_, graphService) {
+  function graphRuler(_) {
     var directive = {
       restrict: 'A',
       templateUrl: 'ng_components/quota/directives/lsgraph/graph-ruler/graph-ruler-template.html',
@@ -49,9 +49,11 @@
         var ruler = scope.ruler;
 
         if (ruler.max) {
-          ruler.max = graphService.normalize(ruler.max);
-          ruler.min = ruler.min || 0;
-          ruler.measure = setMeasures(ruler.min, ruler.max.real);
+          var
+            max = ruler.max.display.replace(/[^\d.-]/g, ''),
+            min = ruler.min || 0;
+
+          ruler.measure = setMeasures(min, max);
         }
       });
 

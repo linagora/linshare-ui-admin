@@ -41,7 +41,7 @@
             <span>
               {{'MANAGE_QUOTA.BOX_FORM.USED_SPACE.MAIN_SECTION_TITLE' | translate}} {{quotaVm.domainDto.label}}
             </span>
-            <i class="fa fa-exclamation-circle has-error-quota" data-ng-show="quotaForm.domainQuota.$error.unitMax"></i>
+            <i class="fa fa-exclamation-circle has-error-quota" data-ng-show="quotaForm.domainQuota.$error.unitMax || quotaVm.graph.domain.alert"></i>
             <i class="fa pull-right"
                data-ng-class="{'fa-angle-down': usedSpace.isopen, 'fa-angle-left': !usedSpace.isopen}">
             </i>
@@ -71,6 +71,12 @@
             <div class="alert-panel" role="alert" data-ng-class="{'show-fade-id' : quotaVm.domainQuotaDto.maintenance}">
               <span class="fa fa-exclamation-circle"></span>
               {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ALERT_MAINTENANCE_MODE' | translate}}
+              {{'MANAGE_QUOTA.BOX_FORM.SPACES_LABEL.CURRENT_DOMAIN' | translate}}.
+            </div>
+            <div class="error-panel" role="alert" data-ng-show="quotaVm.graph.domain.alert">
+              <span class="fa fa-exclamation-circle"></span>
+              <span class="sr-only">{{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR' | translate}} :</span>
+              {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_QUOTA' | translate}}
               {{'MANAGE_QUOTA.BOX_FORM.SPACES_LABEL.CURRENT_DOMAIN' | translate}}.
             </div>
             <div class="error-panel" role="alert" data-ng-show="quotaVm.domainQuotaDto.isExceeded()">
@@ -159,7 +165,8 @@
                       quotaForm.domainUserQuotaPerUser.$error.unitMax ||
                       quotaForm.domainUserMaxFileSize.$error.unitMax ||
                       quotaForm.domainWorkgroupQuota.$error.unitMax ||
-                      quotaForm.domainWorkgroupMaxFileSize.$error.unitMax">
+                      quotaForm.domainWorkgroupMaxFileSize.$error.unitMax ||
+                      quotaVm.graph.personalSpace.alert || quotaVm.graph.sharedSpace.alert">
             </i>
             <i class="fa pull-right"
                data-ng-class="{'fa-angle-down': ctnAllocation.isopen, 'fa-angle-left': !ctnAllocation.isopen}">
@@ -187,6 +194,12 @@
             <div class="alert-panel" role="alert" data-ng-class="{'show-fade-id' : quotaVm.userQuotaDto.maintenance}">
               <span class="fa fa-exclamation-circle"></span>
               {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ALERT_MAINTENANCE_MODE' | translate}}
+              {{'MANAGE_QUOTA.BOX_FORM.SPACES_LABEL.PERSONALS_SPACES' | translate}}.
+            </div>
+            <div class="error-panel" role="alert" data-ng-show="quotaVm.graph.personalSpace.alert">
+              <span class="fa fa-exclamation-circle"></span>
+              <span class="sr-only">{{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR' | translate}} :</span>
+              {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_QUOTA' | translate}}
               {{'MANAGE_QUOTA.BOX_FORM.SPACES_LABEL.PERSONALS_SPACES' | translate}}.
             </div>
             <div class="error-panel" role="alert" data-ng-show="quotaVm.userQuotaDto.isExceeded()">
@@ -359,6 +372,12 @@
               {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ALERT_MAINTENANCE_MODE' | translate}}
               {{'MANAGE_QUOTA.BOX_FORM.SPACES_LABEL.WORKGROUP' | translate}}.
             </div>
+            <div class="error-panel" role="alert" data-ng-show="quotaVm.graph.sharedSpace.alert">
+              <span class="fa fa-exclamation-circle"></span>
+              <span class="sr-only">{{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR' | translate}} :</span>
+              {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_QUOTA' | translate}}
+              {{'MANAGE_QUOTA.BOX_FORM.SPACES_LABEL.WORKGROUP' | translate}}.
+            </div>
             <div class="error-panel" role="alert" data-ng-show="quotaVm.workgroup.isExceeded()">
               <span class="fa fa-exclamation-circle"></span>
               <span class="sr-only">{{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR' | translate}} :</span>
@@ -487,7 +506,8 @@
                       quotaForm.subdomainsUserQuotaPerUser.$error.unitMax ||
                       quotaForm.subdomainsUserMaxFileSize.$error.unitMax ||
                       quotaForm.subdomainsWorkgroupQuota.$error.unitMax ||
-                      quotaForm.subdomainsWorkgroupMaxFileSize.$error.unitMax">
+                      quotaForm.subdomainsWorkgroupMaxFileSize.$error.unitMax ||
+                      quotaVm.graph.subdomain.alert">
             </i>
             <i class="fa pull-right" data-ng-class="{'fa-angle-down': subdomainAllocation.isopen, 'fa-angle-left': !subdomainAllocation.isopen}">
             </i>
@@ -498,6 +518,12 @@
                    data-ls-graph="quotaVm.graph.subdomain" data-ng-if="quotaVm.isGraphReady">
           </section>
 
+            <div class="error-panel" role="alert" data-ng-show="quotaVm.graph.subdomain.alert">
+              <span class="fa fa-exclamation-circle"></span>
+              <span class="sr-only">{{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR' | translate}} :</span>
+              {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_QUOTA' | translate}}
+              {{'MANAGE_QUOTA.BOX_FORM.SPACES_LABEL.SUB_DOMAINS' | translate}}.
+            </div>
           <div class="col-xs-12 no-padding clearfix">
             <div class="accordion-header-form clearfix-after col-xs-12 no-padding border-grey">
               <h3 class="pull-left uppercase">
@@ -520,7 +546,7 @@
                            data-ng-blur="quotaVm.domainQuotaDto.updateGraph(quotaForm)"
                            data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.domainQuotaDto.defaultQuotaOverride)"
                            x-unit="quotaVm.unit.domains.defaultQuota"
-                           x-unit-max="quotaVm.parentDomainQuotaDto.defaultQuota">
+                           x-unit-max="quotaVm.parentDomainQuotaDto.defaultQuota || quotaVm.domainQuotaDto.quota">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.domains.defaultQuota"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.domains.defaultQuota = unit; quotaVm.formRender(quotaForm)">
@@ -542,8 +568,9 @@
                     </a>
                   </span>
                   <div class="pull-right help-block" data-ng-show="quotaForm.subdomainsQuota.$error.unitMax">
-                    {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
-                    {{quotaVm.parentDomainQuotaDto.defaultQuota | readableSize:quotaVm.unit.parentdomains.defaultQuota:true}}
+                    {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
+                    {{(quotaVm.parentDomainQuotaDto.defaultQuota || quotaVm.domainQuotaDto.quota)
+                    | readableSize:quotaVm.unit.parentdomains.defaultQuota:true}}
                   </div>
                 </div>
               </section>

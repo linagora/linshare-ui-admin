@@ -49,7 +49,7 @@
             display: quotaUtilsService.isRootDomain(domainQuotaDto) ?
               domainQuotaDto.getQuota(true) : parentDomainQuotaDto.getDefaultQuota(true),
             real: quotaUtilsService.isRootDomain(domainQuotaDto) ?
-              domainQuotaDto.getQuota() : parentDomainQuotaDto.getDefaultQuota()
+              domainQuotaDto.quota : parentDomainQuotaDto.defaultQuota
           },
           disabled: quotaUtilsService.isRootDomain(domainQuotaDto)
         },
@@ -148,7 +148,7 @@
         ruler: {
           max : {
             display: domainQuotaDto.getQuota(true),
-            real: domainQuotaDto.getQuota()
+            real: domainQuotaDto.quota
           }
         },
         containers: [
@@ -179,7 +179,7 @@
           }],
         chains: {
           value: element.quotaOverride,
-          position: element.defaultQuota,
+          position: parent.defaultQuota,
           tooltip: {
             enable: 'MANAGE_QUOTA.BOX_FORM.GRAPH.TOOLTIP.RESET',
             disable: 'MANAGE_QUOTA.BOX_FORM.GRAPH.TOOLTIP.UNLINK',
@@ -212,7 +212,7 @@
           max : {
             colors: graphService.colors.orange,
             display: domainQuotaDto.getQuota() * 2 + quotaUtilsService.unit.domains.quota,
-            real: domainQuotaDto.getQuota() * 2
+            real: domainQuotaDto.quota * 2
           }
         },
         limit : {
@@ -274,7 +274,7 @@
       } else {
         _.assign(graph.ruler.max, {
           display: domainQuotaDto.getDefaultQuota() * 2 + quotaUtilsService.unit.domains.defaultQuota,
-          real: domainQuotaDto.getDefaultQuota() * 2
+          real: domainQuotaDto.defaultQuota * 2
         });
         _.assign(graph.limit, {
           value: domainQuotaDto.getDefaultQuota(true)

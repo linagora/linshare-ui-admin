@@ -2217,7 +2217,7 @@
             "SHARED_SPACE": "S.S."
           },
           "SPACE": {
-            "DOMAIN": "Current domain used space{{value ? ': ' + value : ''}}",
+            "DOMAIN": "Current domain used space{{value ? ': ' + value + ' (P.S. + S.S.)': ''}}",
             "REMAINING": "Remaining space{{value ? ': ' + value : ''}}",
             "SUBDOMAIN": "Sub-domains used space{{value ? ': ' + value : ''}}",
             "UNALLOCATED": "Unallocated space{{value ? ': ' + value : ''}}",
@@ -2245,7 +2245,8 @@
         "ALERT_MAINTENANCE_MODE": "Maintenance mode is activated, thereby preventing any uploads to be made within the",
         "ERROR": "Error ",
         "ERROR_MAX_VALUE": "The value should be below or equal to: ",
-        "ERROR_QUOTA_EXCEEDED": "Quota exceeded, free up storage space or allocate more quota for the",
+        "ERROR_QUOTA": "An assigned quota is in error, check your parameters for the ",
+        "ERROR_QUOTA_EXCEEDED": "Quota exceeded, free up storage space or allocate more quota for the ",
         "HINT_ALLREADY_USED": "allready used",
         "HINT_ASSIGNED_QUOTA": "assigned quota",
         "HINT_MAX_QUOTA": "Value can not exceed the personal spaces quota",

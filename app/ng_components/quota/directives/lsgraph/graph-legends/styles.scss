@@ -1,11 +1,15 @@
 /* LEGEND */
 .legend-schemes {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 20px;
   .legend-ctn {
     flex: 0 0 auto;
     display: flex;
     margin-right: 17px;
+    &.hint {
+      cursor: pointer;
+    }
     > div {
       width: 15px;
       height: 15px;

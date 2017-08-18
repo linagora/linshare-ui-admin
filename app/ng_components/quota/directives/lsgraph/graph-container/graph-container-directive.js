@@ -9,7 +9,7 @@
     .module('graphApp')
     .directive('graphContainer', graphContainer);
 
-  graphContainer.$inject = ['_', 'graphService'];
+  graphContainer.$inject = ['_'];
 
   /**
    * @namespace graphContainer
@@ -19,7 +19,7 @@
    *          </div>
    * @memberOf graphApp
    */
-  function graphContainer(_, graphService) {
+  function graphContainer(_) {
     var directive = {
       restrict: 'A',
       templateUrl: 'ng_components/quota/directives/lsgraph/graph-container/graph-container-template.html',
@@ -70,14 +70,6 @@
 
       if (container.areas) {
         container.colors.main += ' main-ctn-current-domain';
-        _.forEach(container.areas, function(area, index) {
-          area.colors = graphService.manageColorsOverride(area);
-          area.value = graphService.normalize(area.value);
-          area.width = area.value.real === 0 ? 0 : area.value.real / container.sum * 100;
-          area.display = container.display;
-          area.colors.main = area.colors.main || '';
-          area.colors.main = index > 0 ? ' border-left-white' : '';
-        });
       }
     }
   }
