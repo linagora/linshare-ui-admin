@@ -1,5 +1,5 @@
 <div class="alert-box">
-  <div x-ng-repeat="alert in alerts">
+  <div x-ng-repeat="alert in alerts track by $index">
     <alert type="{{ alert.type }}"
            x-close="closeAlert($index)"
            x-index="$index"
