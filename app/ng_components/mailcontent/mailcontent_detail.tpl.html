@@ -38,7 +38,7 @@
               {{'MAIL_CONTENT.BOX_FORM.LABEL_NAME' | translate}}
             </label>
             <textarea id="description" name="description" type="text" class="form-control" required
-                   x-ng-model="mailContent.description" x-ng-disabled="mailContent.readonly"/>
+                   x-ng-model="mailContent.description" x-ng-disabled="mailContent.readonly">
             </textarea>
           </div>
           <!-- Subject -->
@@ -103,13 +103,13 @@
                 <section>
                   <ul>
                     <li x-ng-repeat="var in mailContentContextSelected.variables">
-                      {{var.name}}: {{var.type}}
+                      <b>{{var.name}} (</b>{{var.type}}) : {{var.stringValue}}
                       <ul>
                         <li x-ng-repeat="var2 in var.variables">
-                          {{var2.name}}: {{var2.type}}
+                          <b>{{var2.name}} (</b>{{var2.type}}) : {{var2.stringValue}}
                           <ul>
                             <li x-ng-repeat="var3 in var2.variables">
-                              {{var3.name}}: {{var3.type}}
+                              <b>{{var3.name}} (</b>{{var3.type}}) : {{var3.stringValue}}
                             </li>
                           </ul>
                         </li>
