@@ -246,19 +246,25 @@
         "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "A file is about to be deleted since it will reach its expiry date",
         "GUEST_ACCOUNT_NEW_CREATION": "A new guest receives an activation link for his account",
         "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "A guest receives a reset link for his password",
+        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "A guest's account will expire soon",
         "SHARE_FILE_DOWNLOAD": "A recipient has downloaded the file share",
         "SHARE_FILE_SHARE_DELETED": "A sender has deleted his file share",
         "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "The sender receives a recap of his file shares",
         "SHARE_NEW_SHARE_FOR_RECIPIENT": "A recipient receives a file share link",
         "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": "The file share of the sender is about to expire",
         "SHARE_WARN_UNDOWNLOADED_FILESHARES": "Undownloaded file share reminder",
+        "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": "A share will expire soon without being downloaded",
+        "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": "The share has expired and was deleted by the system",
         "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "The owner has closed the upload request",
         "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "A recipient has closed the upload request of the creator",
         "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": "A recepient has deleted a file within the upload request depot",
         "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "A recipient could not upload his file due to insufficient space",
         "UPLOAD_REQUEST_UPLOADED_FILE": "A recipient has uploaded a file within the upload request depot",
         "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "An upload request depot is about to be closed",
-        "UPLOAD_REQUEST_WARN_EXPIRY": "An upload request depot has been closed"
+        "UPLOAD_REQUEST_WARN_EXPIRY": "An upload request depot has been closed",
+        "WORKGROUP_WARN_NEW_MEMBER": "A user has been added to the workgroup",
+        "WORKGROUP_WARN_UPDATED_MEMBER": "The rights of a member on the workGroup has been updated",
+        "WORKGROUP_WARN_DELETED_MEMBER": "A member was removed from the workGroup"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -712,7 +718,12 @@
       "GUEST_ACCOUNT_RESET_PASSWORD_LINK": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_LINK",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This notification is sent when a guest passord is reseted."
+        "DESCRIPTION": "This notification is sent when a guest password is reset."
+      },
+      "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the guest's creator, when a guest account is about to expire."
       },
       "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
@@ -749,6 +760,16 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the user who is creating a share with the option 'Undownloaded shared document alert' enabled. It contains the resume of downloaded shares."
       },
+      "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the share owner when his share will expire soon without being downloaded by the recipient."
+      },
+      "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the share recipient when the share has been expired and deleted by the system."
+      },
       "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -778,7 +799,23 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_EXPIRY",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the owner or recipient of an upload request when the upload request expires."
-      }
+      },
+      "WORKGROUP_WARN_NEW_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to a new workgroup member."
+      },
+      "WORKGROUP_WARN_UPDATED_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_UPDATED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to a workgroup member when his right was updated."
+      },
+      "WORKGROUP_WARN_DELETED_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to a workgroup member, when he was removed from a workgroup."
+      },
+
     },
     "PARAMETERS": {
       "BOOLEAN_false": "This notification is disabled.",

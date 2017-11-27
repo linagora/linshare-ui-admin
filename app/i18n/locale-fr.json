@@ -253,19 +253,25 @@
         "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "Futur suppression de fichier pour cause d'expiration",
         "GUEST_ACCOUNT_NEW_CREATION": "Un nouvel invité reçoit le lien d'activation de son compte invité",
         "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "Un invité reçoit le lien de réinitialisation de son mot de passe",
+        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "Envoi d'un courriel d'avertissement au créateur d'un invité pour l'avertir de l'expiration prochaine de celui-ci.",
         "SHARE_FILE_DOWNLOAD": "Un destinataire a téléchargé le fichier partagé",
         "SHARE_FILE_SHARE_DELETED": "L'émetteur a supprimé le partage de son fichier",
         "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "L'émetteur reçoit un résumé de son partage",
         "SHARE_NEW_SHARE_FOR_RECIPIENT": "Un destinataire reçoit un lien de partage de fichier",
         "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": "Le partage d'un fichier de l'émetteur va bientôt expirer",
         "SHARE_WARN_UNDOWNLOADED_FILESHARES": "Rappel de non-téléchargement de fichiers",
+        "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": "Rappel envoyé à l'émetteur d'un partage lors de son expiration si le partage n'a pas été téléchargé.",
+        "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": "Rappel envoyé au destinataire d'un partage lors de son expiration.",
         "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "Le créateur à clôt l'invitation de dépôt",
         "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Un destinataire a clôturé l'invitation de dépôt du créateur",
         "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": "Un destinataire a supprimé un fichier dans une invitation de dépôt",
         "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "Un destinataire n'a pas pu déposé un fichier par manque d’espace",
         "UPLOAD_REQUEST_UPLOADED_FILE": "Un destinataire a déposé un fichier dans une invitation de dépôt",
         "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "Une invitation de dépôt sera prochainement clôturée",
-        "UPLOAD_REQUEST_WARN_EXPIRY": "Une invitation de dépôt a été clôturée"
+        "UPLOAD_REQUEST_WARN_EXPIRY": "Une invitation de dépôt a été clôturée",
+        "WORKGROUP_WARN_NEW_MEMBER": "Notification d'ajout d'un nouveau membre d'un groupe de travail",
+        "WORKGROUP_WARN_UPDATED_MEMBER": "Notification de modification d'un membre d'un groupe de travail",
+        "WORKGROUP_WARN_DELETED_MEMBER": "Notification de suppression d'un membre d'un groupe de travail"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -719,6 +725,11 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lors de la réinitialisation du mot de passe d'un compte invité."
       },
+      "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un invité pour l'avertir que le compte de celui-ci arrive à expiration prochainement."
+      },
       "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -754,6 +765,16 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à tout utilisateur créant un partage avec l'option 'Accusé de non téléchargement' activée. La notification contiendra une synthèse des documents partagés et téléchargés."
       },
+      "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un partage lorsque le partage de celui-ci est proche de sa date d'expiration sans avoir été télécharger par le destinataire."
+      },
+      "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire d'un partage de document, pour l'avertir que le partage a expiré et a été supprimé par le système"
+      },
       "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -783,6 +804,21 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_EXPIRY",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir qu'une invitation de dépôt a expiré."
+      },
+      "WORKGROUP_WARN_NEW_MEMBER":{
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée aux nouveaux membres d'un groupe de travail."
+      },
+      "WORKGROUP_WARN_UPDATED_MEMBER":{
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_UPDATED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée lors d'une mise à jour des droits d'un memebre du groupe de travail."
+      },
+      "WORKGROUP_WARN_DELETED_MEMBER":{
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée aux membres retirés du groupe de travail."
       }
     },
     "PARAMETERS": {
