@@ -253,8 +253,8 @@
         "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "Futur suppression de fichier pour cause d'expiration",
         "GUEST_ACCOUNT_NEW_CREATION": "Un nouvel invité reçoit le lien d'activation de son compte invité",
         "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "Un invité reçoit le lien de réinitialisation de son mot de passe",
-        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "Envoi d'un courriel d'avertissement au créateur d'un invité pour l'avertir de l'expiration prochaine de celui-ci.",
         "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "Envoi d'un courriel d'avertissement à l'invité pour l'avertir que son mot de passe a été changé.",
+        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "Envoi d'un courriel d'avertissement au créateur d'un invité pour l'avertir de l'expiration prochaine de celui-ci.",
         "SHARE_FILE_DOWNLOAD": "Un destinataire a téléchargé le fichier partagé",
         "SHARE_FILE_SHARE_DELETED": "L'émetteur a supprimé le partage de son fichier",
         "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "L'émetteur reçoit un résumé de son partage",
@@ -726,15 +726,15 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lors de la réinitialisation du mot de passe d'un compte invité."
       },
-      "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un invité pour l'avertir que le compte de celui-ci arrive à expiration prochainement."
-      },
       "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée à l'invité pour l'avertir que le mot de passe de son compte a été modifié."
+      },
+      "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un invité pour l'avertir que le compte de celui-ci arrive à expiration prochainement."
       },
       "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
@@ -2347,7 +2347,11 @@
       "UPGRADE_2_0_UPGRADE_STORAGE": "Migration des fichiers de l'ancien espace de stockage",
       "UPGRADE_2_0_CLEANUP_EXPIRED_GUEST": "Supprime les comptes invités expirés",
       "UPGRADE_2_0_CLEANUP_EXPIRED_ACCOUNT": "Supprime les comptes internes expirés",
-      "UPGRADE_2_0_PURGE_ACCOUNT": "Supprime les données des comptes (internes et invités)"
+      "UPGRADE_2_0_PURGE_ACCOUNT": "Supprime les données des comptes (internes et invités)",
+
+      "UPGRADE_2_1_DOCUMENT_GARBAGE_COLLECTOR" : "Ajouter tous les documents UUID dans DocumentGarbageCollector",
+      "UPGRADE_2_1_COMPUTE_USED_SPACE_FOR_WORGROUPS" : "Calcule tout l'espace utilisé pour chaque groupe de travail",
+      "UPGRADE_2_1_REMOVE_ALL_THREAD_ENTRIES" : "Supprime tout les thread entries"
     },
     "TITLE": "Tâches de mise à jour"
   },

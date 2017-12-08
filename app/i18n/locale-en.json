@@ -246,8 +246,8 @@
         "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "A file is about to be deleted since it will reach its expiry date",
         "GUEST_ACCOUNT_NEW_CREATION": "A new guest receives an activation link for his account",
         "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "A guest receives a reset link for his password",
-        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "A guest's account will expire soon",
         "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "A guest account password was modified",
+        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "A guest's account will expire soon",
         "SHARE_FILE_DOWNLOAD": "A recipient has downloaded the file share",
         "SHARE_FILE_SHARE_DELETED": "A sender has deleted his file share",
         "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "The sender receives a recap of his file shares",
@@ -721,15 +721,15 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent when a guest password is reset."
       },
-      "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This notification is sent to the guest's creator, when a guest account is about to expire."
-      },
       "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the guest, when his password was modified."
+      },
+      "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the guest's creator, when a guest account is about to expire."
       },
       "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
@@ -2381,7 +2381,11 @@
       "UPGRADE_2_0_UPGRADE_STORAGE": "Migrate old storage space files",
       "UPGRADE_2_0_CLEANUP_EXPIRED_GUEST": "Cleanup expired guest account",
       "UPGRADE_2_0_CLEANUP_EXPIRED_ACCOUNT": "Cleanup expired internal account",
-      "UPGRADE_2_0_PURGE_ACCOUNT": "Purge account data (internal & guest)"
+      "UPGRADE_2_0_PURGE_ACCOUNT": "Purge account data (internal & guest)",
+
+      "UPGRADE_2_1_DOCUMENT_GARBAGE_COLLECTOR" : "Add all documents UUID in DocumentGarbageCollector",
+      "UPGRADE_2_1_COMPUTE_USED_SPACE_FOR_WORGROUPS" : "Compute all used space for every workgroups",
+      "UPGRADE_2_1_REMOVE_ALL_THREAD_ENTRIES" : "Remove all thread entries"
     },
     "TITLE": "Upgrade Tasks"
   },
