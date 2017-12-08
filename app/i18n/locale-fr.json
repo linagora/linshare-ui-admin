@@ -254,6 +254,7 @@
         "GUEST_ACCOUNT_NEW_CREATION": "Un nouvel invité reçoit le lien d'activation de son compte invité",
         "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "Un invité reçoit le lien de réinitialisation de son mot de passe",
         "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "Envoi d'un courriel d'avertissement au créateur d'un invité pour l'avertir de l'expiration prochaine de celui-ci.",
+        "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "Envoi d'un courriel d'avertissement à l'invité pour l'avertir que son mot de passe a été changé.",
         "SHARE_FILE_DOWNLOAD": "Un destinataire a téléchargé le fichier partagé",
         "SHARE_FILE_SHARE_DELETED": "L'émetteur a supprimé le partage de son fichier",
         "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "L'émetteur reçoit un résumé de son partage",
@@ -729,6 +730,11 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée au propriétaire d'un invité pour l'avertir que le compte de celui-ci arrive à expiration prochainement."
+      },
+      "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée à l'invité pour l'avertir que le mot de passe de son compte a été modifié."
       },
       "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",

@@ -247,6 +247,7 @@
         "GUEST_ACCOUNT_NEW_CREATION": "A new guest receives an activation link for his account",
         "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "A guest receives a reset link for his password",
         "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "A guest's account will expire soon",
+        "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "A guest account password was modified",
         "SHARE_FILE_DOWNLOAD": "A recipient has downloaded the file share",
         "SHARE_FILE_SHARE_DELETED": "A sender has deleted his file share",
         "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "The sender receives a recap of his file shares",
@@ -724,6 +725,11 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the guest's creator, when a guest account is about to expire."
+      },
+      "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the guest, when his password was modified."
       },
       "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
