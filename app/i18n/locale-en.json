@@ -2385,7 +2385,10 @@
 
       "UPGRADE_2_1_DOCUMENT_GARBAGE_COLLECTOR" : "Add all documents UUID in DocumentGarbageCollector",
       "UPGRADE_2_1_COMPUTE_USED_SPACE_FOR_WORGROUPS" : "Compute all used space for every workgroups",
-      "UPGRADE_2_1_REMOVE_ALL_THREAD_ENTRIES" : "Remove all thread entries"
+      "UPGRADE_2_1_REMOVE_ALL_THREAD_ENTRIES" : "Removal of all useless data related to old threads/groups in LinShare 1.x.",
+      "UPGRADE_2_1_COMPUTE_CURRENT_VALUE_FOR_DOMAINS" : "Compute used space by each domain",
+      "UPGRADE_2_1_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA" : "Compute used space by sub-domains for top-domains and root-domain"
+
     },
     "TITLE": "Upgrade Tasks"
   },
