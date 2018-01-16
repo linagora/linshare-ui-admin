@@ -2294,7 +2294,8 @@
         "HINT_ASSIGNED_QUOTA": "assigned quota",
         "HINT_MAX_QUOTA": "Value can not exceed the personal spaces quota",
         "HINT_RESET_TOOLTIP": "Reset to default value: {{value}}",
-        "HINT_UNLINK_TOOLTIP": "Override default value"
+        "HINT_UNLINK_TOOLTIP": "Override default value",
+        "WARNING_MAX_VALUE": "The value is exceeding the default template value equal to: "
       },
       "MAINTENANCE_MODE": "Maintenance mode",
       "MAINTENANCE_MODE_TOOLTIP": "Shut down uploads",

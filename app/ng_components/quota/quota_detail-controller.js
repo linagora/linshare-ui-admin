@@ -260,7 +260,7 @@
     /**
      * @name setModelGetSet
      * @desc For each model containing property name referenced as keys in quotaVm.unit:
-     *       Add a get and set function to take unit conversion into account while updating or requestion those values
+     *       Add a get and set function to take unit conversion into account while updating or requesting those values
      *       Also set the unit to be used, depending on the original object property value
      * @example
      *          domainQuotaDto.quota = 1000,
@@ -301,6 +301,9 @@
             return $filter('readableSize')(data[propertyKey], quotaVm.unit[keyName][propertyKey], withUnit);
           };
           quotaVm.formRender(form);
+          if (data.getDefaultQuota) {
+            data.isInWarning = data.getQuota() > data.getDefaultQuota();
+          }
         };
 
         /**
@@ -405,15 +408,33 @@
      * @memberOf linshareAdminApp.QuotaDetailController
      */
     function update(form) {
-      quotaRestService.updateDomain(_.omit(quotaVm.domainQuotaDto, ['_parent', 'remaining', 'unallocated']))
+      var elementToOmit = [
+        '_parent',
+        'isInWarning',
+        'remaining',
+        'unallocated'
+      ];
+
+      quotaRestService
+        .updateDomain(_.omit(
+          quotaVm.domainQuotaDto,
+          elementToOmit
+        ))
         .then(function(domainData) {
           initDto(domainData);
           return $q.all([
-            quotaRestService.updateContainer(_.omit(quotaVm.userQuotaDto, ['_parent', 'remaining', 'unallocated'])),
-            quotaRestService.updateContainer(_.omit(quotaVm.workgroupQuotaDto, ['_parent', 'remaining', 'unallocated']))
+            quotaRestService.updateContainer(_.omit(
+              quotaVm.userQuotaDto,
+              elementToOmit
+            )),
+            quotaRestService.updateContainer(_.omit(
+              quotaVm.workgroupQuotaDto,
+              elementToOmit
+            ))
           ]);
         }).then(function(containersData) {
           Notification.addNotification('MANAGE_QUOTA.NOTIFICATION.UPDATE');
+
           _.forEach(containersData, function(containerData) {
             initDto(containerData);
             quotaVm.formRender(form);

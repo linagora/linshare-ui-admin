@@ -40,6 +40,7 @@
           usedSpace: undefined
         },
         parentdomains: {
+          quota: undefined,
           defaultQuota: undefined
         },
         parentuser: {

@@ -2260,7 +2260,8 @@
         "HINT_ASSIGNED_QUOTA": "quota affecté",
         "HINT_MAX_QUOTA": "La valeur ne peut exceder celle du quota",
         "HINT_RESET_TOOLTIP": "Réinitialiser à la valeur par défaut : {{value}}",
-        "HINT_UNLINK_TOOLTIP": "Surcharger la valeur par défaut"
+        "HINT_UNLINK_TOOLTIP": "Surcharger la valeur par défaut",
+        "WARNING_MAX_VALUE": "La valeur dépasse celle définie par le modéle par défault, étant de : "
       },
       "MAINTENANCE_MODE": "Mode maintenance",
       "MAINTENANCE_MODE_TOOLTIP": "Désactiver les dépots",
