@@ -41,7 +41,17 @@
             <span>
               {{'MANAGE_QUOTA.BOX_FORM.USED_SPACE.MAIN_SECTION_TITLE' | translate}} {{quotaVm.domainDto.label}}
             </span>
-            <i class="fa fa-exclamation-circle has-error-quota" data-ng-show="quotaForm.domainQuota.$error.unitMax || quotaVm.graph.domain.alert"></i>
+            <i
+              class="fa fa-exclamation-circle quota-status has-error-quota"
+              data-ng-class="{
+              'has-error-quota':quotaForm.domainQuota.$error.unitMax || quotaVm.graph.domain.alert,
+              'has-warning-quota':quotaVm.domainQuotaDto.isInWarning && !quotaForm.domainQuota.$error.unitMax,
+              }"
+              data-ng-show="quotaForm.domainQuota.$error.unitMax ||
+              quotaVm.graph.domain.alert ||
+              quotaVm.domainQuotaDto.isInWarning"
+            >
+            </i>
             <i class="fa pull-right"
                data-ng-class="{'fa-angle-down': usedSpace.isopen, 'fa-angle-left': !usedSpace.isopen}">
             </i>
@@ -87,8 +97,13 @@
             </div>
             <div class="accordion-form-content form-inline clear">
               <section class="col-xs-6-5 no-padding">
-                <div class="form-group col-xs-12 no-padding"
-                     data-ng-class="{'has-error-quota': quotaForm.domainQuota.$error.unitMax}">
+                <div
+                  class="form-group col-xs-12 no-padding quota-status"
+                  data-ng-class="{
+                  'has-error-quota': quotaForm.domainQuota.$error.unitMax,
+                  'has-warning-quota': quotaVm.domainQuotaDto.isInWarning && !quotaForm.domainQuota.$error.unitMax
+                  }"
+                >
                   <label for="domainQuota" class="pull-left">
                   {{'MANAGE_QUOTA.BOX_FORM.USED_SPACE.LABEL_QUOTA' | translate}} :
                    <span>
@@ -120,8 +135,8 @@
                                           quotaForm.domainQuota.$viewValue, quotaForm)"
                            data-ng-blur="quotaVm.domainQuotaDto.updateGraph(quotaForm)"
                            data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.domainQuotaDto.quotaOverride)"
-                           x-unit="quotaVm.unit.domains.quota"
-                           x-unit-max="quotaVm.parentDomainQuotaDto.defaultQuota"
+                           x-unit="quotaVm.unit.parentdomains.quota"
+                           x-unit-max="quotaVm.parentDomainQuotaDto.quota"
                            data-ng-if="!quotaVm.isRootDomain(quotaVm.domainQuotaDto)">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.domains.quota"
                           x-list="quotaVm.unit.value"
@@ -144,10 +159,18 @@
                       </i>
                     </a>
                   </span>
+                  <div
+                    class="pull-right help-block"
+                    data-ng-show="quotaVm.domainQuotaDto.isInWarning && !quotaForm.domainQuota.$error.unitMax"
+                    data-ng-if="!quotaVm.isRootDomain(quotaVm.domainQuotaDto)"
+                  >
+                    {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.WARNING_MAX_VALUE' | translate}}
+                    {{quotaVm.parentDomainQuotaDto.defaultQuota | readableSize:quotaVm.unit.parentdomains.defaultQuota:true}}
+                  </div>
                   <div class="pull-right help-block" data-ng-show="quotaForm.domainQuota.$error.unitMax"
                        data-ng-if="!quotaVm.isRootDomain(quotaVm.domainQuotaDto)">
                     {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
-                    {{quotaVm.parentDomainQuotaDto.defaultQuota | readableSize:quotaVm.unit.parentdomains.defaultQuota:true}}
+                    {{quotaVm.parentDomainQuotaDto.quota | readableSize:quotaVm.unit.parentdomains.quota:true}}
                   </div>
                 </div>
               </section>
@@ -160,7 +183,7 @@
               {{'MANAGE_QUOTA.BOX_FORM.CONTAINER_ALLOCATION.MAIN_SECTION_TITLE' | translate}}
               {{quotaVm.domainDto.label}}
             </span>
-            <i class="fa fa-exclamation-circle has-error-quota"
+            <i class="fa fa-exclamation-circle quota-status has-error-quota"
                data-ng-show="quotaForm.domainUserQuota.$error.unitMax ||
                       quotaForm.domainUserQuotaPerUser.$error.unitMax ||
                       quotaForm.domainUserMaxFileSize.$error.unitMax ||
@@ -210,7 +233,7 @@
             </div>
             <div class="accordion-form-content form-inline clear">
               <section class="col-xs-6-5 no-padding">
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.domainUserQuota.$error.unitMax}">
                   <label for="domainUserQuota" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.CONTAINER_ALLOCATION.LABEL_PERSONAL_SPACE_QUOTA' | translate}} :
@@ -261,7 +284,7 @@
                     {{quotaVm.domainQuotaDto.quota | readableSize:quotaVm.unit.domains.quota:true}}
                   </div>
                 </div>
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.domainUserQuotaPerUser.$error.unitMax}">
                   <label for="domainUserQuotaPerUser" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.CONTAINER_ALLOCATION.LABEL_USERS_PERSONAL_SPACE_QUOTA' | translate}} :
@@ -301,7 +324,7 @@
                     {{quotaVm.userQuotaDto.quota | readableSize:quotaVm.unit.user.quota:true}}
                   </div>
                 </div>
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.domainUserMaxFileSize.$error.unitMax}">
                   <label for="domainUserMaxFileSize" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.CONTAINER_ALLOCATION.LABEL_PERSONAL_SPACE_MAX_FILE_SIZE' | translate}} :
@@ -386,7 +409,7 @@
             </div>
             <div class="accordion-form-content form-inline clear">
               <section class="col-xs-6-5 no-padding">
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.domainWorkgroupQuota.$error.unitMax}">
                   <label for="domainWorkgroupQuota" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.CONTAINER_ALLOCATION.LABEL_WORKGROUP_QUOTA' | translate}} :
@@ -439,7 +462,7 @@
                     {{quotaVm.domainQuotaDto.quota | readableSize:quotaVm.unit.domains.quota:true}}
                   </div>
                 </div>
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.domainWorkgroupMaxFileSize.$error.unitMax}">
                   <label for="domainWorkgroupMaxFileSize" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.CONTAINER_ALLOCATION.LABEL_WORKGROUP_MAX_FILE_SIZE' | translate}} :
@@ -501,7 +524,7 @@
                          data-ng-if="quotaVm.hasSubdomain(quotaVm.domainQuotaDto)">
           <accordion-heading>
             <span>{{'MANAGE_QUOTA.BOX_FORM.SUBDOMAINS_DEFAULT_SETTINGS.MAIN_SECTION_TITLE' | translate}}</span>
-            <i class="fa fa-exclamation-circle has-error-quota"
+            <i class="fa fa-exclamation-circle quota-status has-error-quota"
                data-ng-show="quotaForm.subdomainsQuota.$error.unitMax ||
                       quotaForm.subdomainsUserQuotaPerUser.$error.unitMax ||
                       quotaForm.subdomainsUserMaxFileSize.$error.unitMax ||
@@ -533,7 +556,7 @@
             <div class="clear">&nbsp</div>
             <div class="accordion-form-content form-inline clear">
               <section class="col-xs-6-5 no-padding">
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.subdomainsQuota.$error.unitMax}">
                   <label for="subdomainsQuota" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.SUBDOMAINS_DEFAULT_SETTINGS.LABEL_SUBDOMAINS_QUOTA' | translate}} :
@@ -583,7 +606,7 @@
             <div class="clear">&nbsp</div>
             <div class="accordion-form-content form-inline clear">
               <section class="col-xs-6-5 no-padding">
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.subdomainsUserQuota.$error.unitMax}">
                   <label for="subdomainsUserQuota" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.SUBDOMAINS_DEFAULT_SETTINGS.LABEL_PERSONAL_SPACES_QUOTA' | translate}} :
@@ -623,7 +646,7 @@
                     {{quotaVm.domainQuotaDto.defaultQuota | readableSize:quotaVm.unit.domains.defaultQuota:true}}
                   </div>
                 </div>
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.subdomainsUserQuotaPerUser.$error.unitMax}">
                   <label for="subdomainsUserQuotaPerUser" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.SUBDOMAINS_DEFAULT_SETTINGS.LABEL_USER_PERSONAL_SPACES_QUOTA' |
@@ -665,7 +688,7 @@
                     {{quotaVm.userQuotaDto.defaultQuota | readableSize:quotaVm.unit.user.defaultQuota:true}}
                   </div>
                 </div>
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.subdomainsUserMaxFileSize.$error.unitMax}">
                   <label for="subdomainsUserMaxFileSize" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.SUBDOMAINS_DEFAULT_SETTINGS.LABEL_PERSONAL_SPACE_MAX_FILE_SIZE' |
@@ -719,7 +742,7 @@
             <div class="clear">&nbsp</div>
             <div class="accordion-form-content form-inline clear">
               <section class="col-xs-6-5 no-padding">
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.subdomainsWorkgroupQuota.$error.unitMax}">
                   <label for="subdomainsWorkgroupQuota" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.SUBDOMAINS_DEFAULT_SETTINGS.LABEL_WORKGROUP_QUOTA' | translate}} :
@@ -760,7 +783,7 @@
                     {{quotaVm.domainQuotaDto.defaultQuota | readableSize:quotaVm.unit.domains.defaultQuota:true}}
                   </div>
                 </div>
-                <div class="form-group col-xs-12 no-padding"
+                <div class="form-group col-xs-12 no-padding quota-status"
                      data-ng-class="{'has-error-quota': quotaForm.subdomainsWorkgroupMaxFileSize.$error.unitMax}">
                   <label for="subdomainsWorkgroupMaxFileSize" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.SUBDOMAINS_DEFAULT_SETTINGS.LABEL_WORKGROUP_MAX_FILE_SIZE' | translate}} :
