@@ -820,8 +820,7 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to a workgroup member, when he was removed from a workgroup."
-      },
-
+      }
     },
     "PARAMETERS": {
       "BOOLEAN_false": "This notification is disabled.",
