@@ -184,7 +184,7 @@ angular.module('linshareAdminApp')
       };
 
       if(!lsAppConfig.auditV1hidden) {
-        history.links.unshift({
+        history.links.push({
           name: 'COMMON.TAB.AUDIT_V1',
           superAdminOnly: false,
           sref: 'audit.form'

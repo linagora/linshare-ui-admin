@@ -5,7 +5,7 @@ angular.module('linshareAdminApp').constant('lsAppConfig', {
     superadmin: 'SUPERADMIN',
     system: 'SYSTEM'
   },
-  auditV1hidden: false,
+  auditV1hidden: true, // To hide Audit V1 from left menu, turn it to false
   backendURL: 'linshare/webservice/rest/admin',
   dateFormat: {
     en: 'MM/dd/yyyy',
