@@ -104,6 +104,55 @@
                   'has-warning-quota': quotaVm.domainQuotaDto.isInWarning && !quotaForm.domainQuota.$error.unitMax
                   }"
                 >
+                  <label
+                    class="pull-left"
+                    for="domainQuota"
+                  >
+                    <i 
+                      class="fa fa-info-circle fa-lg"
+                      tooltip-placement="bottom"
+                      tooltip-popup-delay='1250'
+                      tooltip-append-to-body="true"
+                      tooltip="{{'MANAGE_QUOTA.BOX_FORM.DOMAIN_SHARED_QUOTA.DESCRIPTION' | translate}}"
+                    >
+                    </i>
+                    {{'MANAGE_QUOTA.BOX_FORM.DOMAIN_SHARED_QUOTA.LABEL' | translate}} :
+                  </label>
+                  <span class="pull-right">
+                    <label
+                      class="switch"
+                      data-ng-class="{'btn-disabled': !quotaVm.domainQuotaDto.domainSharedOverride
+                      && !quotaVm.isRootDomain(quotaVm.domainQuotaDto)}"
+                    >
+                      <input
+                        type="checkbox"
+                        data-ng-model="quotaVm.domainQuotaDto.domainShared"
+                        data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.domainQuotaDto.domainSharedOverride)"
+                        data-ng-change="quotaVm.formRender(quotaForm)"
+                      >
+                      <div class="slider round"></div>
+                    </label>
+                    <a 
+                      class="link-ctn pull-right"
+                      data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)"
+                      data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.domainQuotaDto,
+                        quotaVm.parentDomainQuotaDto, 'domainShared')"
+                    >
+                      <i
+                        class="fa link-icon show-link"
+                        data-ng-class="{'fa-link' : !quotaVm.domainQuotaDto.domainSharedOverride,
+                          'fa-chain-broken' : quotaVm.domainQuotaDto.domainSharedOverride}"
+                      >
+                      </i>
+                    </a>
+                  </span>
+                </div>
+              </section>
+            </div>
+            <div class="accordion-form-content form-inline clear">
+              <section class="col-xs-6-5 no-padding">
+                <div class="form-group col-xs-12 no-padding"
+                     data-ng-class="{'has-error-quota': quotaForm.domainQuota.$error.unitMax}">
                   <label for="domainQuota" class="pull-left">
                   {{'MANAGE_QUOTA.BOX_FORM.USED_SPACE.LABEL_QUOTA' | translate}} :
                    <span>
@@ -256,23 +305,29 @@
                             data-ng-change="quotaVm.userQuotaDto.setQuota(
                                            quotaForm.domainUserQuota.$viewValue, quotaForm)"
                             data-ng-blur="quotaVm.userQuotaDto.updateGraph(quotaForm)"
-                            data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.quotaOverride)"
+                            data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.quotaOverride,
+                              quotaVm.domainQuotaDto.domainShared)"
                             x-unit="quotaVm.unit.user.quota"
-                            x-unit-max="quotaVm.domainQuotaDto.quota">
+                            data-ng-attr-data-unit-max="!quotaVm.domainQuotaDto.domainShared ?
+                              quotaVm.domainQuotaDto.quota : undefined">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.user.quota"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.user.quota = unit; quotaVm.formRender(quotaForm)">
                     </span>
-                    <a class="link-ctn"
-                       tooltip-placement="bottom"
-                       tooltip-popup-delay='1250'
-                       tooltip-append-to-body="true"
-                       tooltip="{{quotaVm.userQuotaDto.quotaOverride ?
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
-                              translate:'{value:quotaVm.parentContainersQuotaDto.user.getDefaultQuota(true)}'}}"
-                       data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.userQuotaDto, quotaVm.parentContainersQuotaDto.user, 'quota')"
-                       data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)">
+                    <a
+                      class="link-ctn"
+                      data-ng-class="{'btn-disabled': quotaVm.domainQuotaDto.domainShared}"
+                      tooltip-placement="bottom"
+                      tooltip-popup-delay='1250'
+                      tooltip-append-to-body="true"
+                      tooltip="{{quotaVm.userQuotaDto.quotaOverride ?
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
+                        translate:'{value:quotaVm.parentContainersQuotaDto.user.getDefaultQuota(true)}'}}"
+                      data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.userQuotaDto,
+                        quotaVm.parentContainersQuotaDto.user, 'quota')"
+                      data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)"
+                    >
                       <i class="fa link-icon show-link"
                          data-ng-class="{'fa-link' : !quotaVm.userQuotaDto.quotaOverride,
                                 'fa-chain-broken' : quotaVm.userQuotaDto.quotaOverride}">
@@ -296,23 +351,29 @@
                            data-ng-change="quotaVm.userQuotaDto.setAccountQuota(
                                           quotaForm.domainUserQuotaPerUser.$viewValue, quotaForm)"
                            data-ng-blur="quotaVm.userQuotaDto.updateGraph(quotaForm)"
-                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.accountQuotaOverride)"
+                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.accountQuotaOverride,
+                            quotaVm.domainQuotaDto.domainShared)"
                            x-unit="quotaVm.unit.user.accountQuota"
-                           x-unit-max="quotaVm.userQuotaDto.quota">
+                           data-ng-attr-data-unit-max="!quotaVm.domainQuotaDto.domainShared ?
+                            quotaVm.userQuotaDto.quota : undefined">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.user.accountQuota"
                         x-list="quotaVm.unit.value"
                         x-action="quotaVm.unit.user.accountQuota = unit; quotaVm.formRender(quotaForm)">
                     </span>
-                    <a class="link-ctn"
-                       tooltip-placement="bottom"
-                       tooltip-popup-delay='1250'
-                       tooltip-append-to-body="true"
-                       tooltip="{{quotaVm.userQuotaDto.accountQuotaOverride ?
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
-                              translate:'{value:quotaVm.parentContainersQuotaDto.user.getDefaultAccountQuota(true)}'}}"
-                       data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.userQuotaDto, quotaVm.parentContainersQuotaDto.user, 'accountQuota')"
-                       data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)">
+                    <a
+                      class="link-ctn"
+                      data-ng-class="{'btn-disabled': quotaVm.domainQuotaDto.domainShared}"
+                      tooltip-placement="bottom"
+                      tooltip-popup-delay='1250'
+                      tooltip-append-to-body="true"
+                      tooltip="{{quotaVm.userQuotaDto.accountQuotaOverride ?
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
+                        translate:'{value:quotaVm.parentContainersQuotaDto.user.getDefaultAccountQuota(true)}'}}"
+                      data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.userQuotaDto,
+                        quotaVm.parentContainersQuotaDto.user, 'accountQuota')"
+                      data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)"
+                    >
                       <i class="fa link-icon show-link"
                          data-ng-class="{'fa-link' : !quotaVm.userQuotaDto.accountQuotaOverride,
                                 'fa-chain-broken' : quotaVm.userQuotaDto.accountQuotaOverride}">
@@ -337,7 +398,8 @@
                            data-ng-blur="quotaVm.userQuotaDto.updateGraph(quotaForm)"
                            data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.maxFileSizeOverride)"
                            x-unit="quotaVm.unit.user.maxFileSize"
-                           x-unit-max="quotaVm.userQuotaDto.accountQuota">
+                           data-ng-attr-data-unit-max="!quotaVm.domainQuotaDto.domainShared ?
+                            quotaVm.userQuotaDto.accountQuota : quotaVm.domainQuotaDto.quota">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.user.maxFileSize"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.user.maxFileSize = unit; quotaVm.formRender(quotaForm)">
@@ -360,7 +422,12 @@
                   </span>
                   <div class="pull-right help-block" data-ng-show="quotaForm.domainUserMaxFileSize.$error.unitMax">
                     {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
-                    {{quotaVm.userQuotaDto.accountQuota | readableSize:quotaVm.unit.user.accountQuota:true}}
+                    <span data-ng-if="!quotaVm.domainQuotaDto.domainShared">
+                      {{quotaVm.userQuotaDto.accountQuota | readableSize:quotaVm.unit.user.accountQuota:true}}
+                    </span>
+                    <span data-ng-if="quotaVm.domainQuotaDto.domainShared">
+                      {{quotaVm.domainQuotaDto.quota | readableSize:quotaVm.unit.domains.quota:true}}
+                    </span>
                   </div>
                 </div>
                 <div class="form-group col-xs-12 no-padding">
@@ -433,24 +500,29 @@
                            data-ng-change="quotaVm.workgroupQuotaDto.setQuota(
                                           quotaForm.domainWorkgroupQuota.$viewValue, quotaForm)"
                            data-ng-blur="quotaVm.workgroupQuotaDto.updateGraph(quotaForm)"
-                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.workgroupQuotaDto.quotaOverride)"
+                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.workgroupQuotaDto.quotaOverride,
+                            quotaVm.domainQuotaDto.domainShared)"
                            x-unit="quotaVm.unit.workgroup.quota"
-                           x-unit-max="quotaVm.domainQuotaDto.quota">
+                           data-ng-attr-data-unit-max="!quotaVm.domainQuotaDto.domainShared ?
+                              quotaVm.domainQuotaDto.quota : undefined">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.workgroup.quota"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.workgroup.quota = unit; quotaVm.formRender(quotaForm)">
                     </span>
-                    <a class="link-ctn"
-                       tooltip-placement="bottom"
-                       tooltip-popup-delay='1250'
-                       tooltip-append-to-body="true"
-                       tooltip="{{quotaVm.workgroupQuotaDto.quotaOverride ?
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
-                              translate:'{value:quotaVm.parentContainersQuotaDto.workgroup.getDefaultQuota(true)}'}}"
-                       data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.workgroupQuotaDto,
-                              quotaVm.parentContainersQuotaDto.workgroup, 'quota')"
-                       data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)">
+                    <a
+                      class="link-ctn"
+                      data-ng-class="{'btn-disabled': quotaVm.domainQuotaDto.domainShared}"
+                      tooltip-placement="bottom"
+                      tooltip-popup-delay='1250'
+                      tooltip-append-to-body="true"
+                      tooltip="{{quotaVm.workgroupQuotaDto.quotaOverride ?
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
+                        translate:'{value:quotaVm.parentContainersQuotaDto.workgroup.getDefaultQuota(true)}'}}"
+                      data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.workgroupQuotaDto,
+                        quotaVm.parentContainersQuotaDto.workgroup, 'quota')"
+                      data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)"
+                    >
                       <i class="fa link-icon show-link"
                          data-ng-class="{'fa-link' : !quotaVm.workgroupQuotaDto.quotaOverride,
                                 'fa-chain-broken' : quotaVm.workgroupQuotaDto.quotaOverride}">
@@ -476,7 +548,8 @@
                            data-ng-blur="quotaVm.workgroupQuotaDto.updateGraph(quotaForm)"
                            data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.workgroupQuotaDto.maxFileSizeOverride)"
                            x-unit="quotaVm.unit.workgroup.maxFileSize"
-                           x-unit-max="quotaVm.workgroupQuotaDto.quota">
+                           data-ng-attr-data-unit-max="!quotaVm.domainQuotaDto.domainShared ?
+                              quotaVm.workgroupQuotaDto.quota : quotaVm.domainQuotaDto.quota">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.workgroup.maxFileSize"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.workgroup.maxFileSize = unit; quotaVm.formRender(quotaForm)">
@@ -499,7 +572,12 @@
                   </span>
                   <div class="pull-right help-block" data-ng-show="quotaForm.domainWorkgroupMaxFileSize.$error.unitMax">
                     {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
-                    {{quotaVm.workgroupQuotaDto.quota | readableSize:quotaVm.unit.workgroup.quota:true}}
+                    <span data-ng-if="!quotaVm.domainQuotaDto.domainShared">
+                      {{quotaVm.workgroupQuotaDto.quota | readableSize:quotaVm.unit.workgroup.quota:true}}
+                    </span>
+                    <span data-ng-if="quotaVm.domainQuotaDto.domainShared">
+                      {{quotaVm.domainQuotaDto.quota | readableSize:quotaVm.unit.domains.quota:true}}
+                    </span>
                   </div>
                 </div>
               </section>
@@ -556,7 +634,54 @@
             <div class="clear">&nbsp</div>
             <div class="accordion-form-content form-inline clear">
               <section class="col-xs-6-5 no-padding">
-                <div class="form-group col-xs-12 no-padding quota-status"
+                <div class="form-group col-xs-12 no-padding quota-status">
+                  <label
+                    class="pull-left"
+                    for="subdomainsQuota"
+                  >
+                    <i 
+                      class="fa fa-info-circle fa-lg"
+                      tooltip-placement="bottom"
+                      tooltip-popup-delay='1250'
+                      tooltip-append-to-body="true"
+                      tooltip="{{'MANAGE_QUOTA.BOX_FORM.DOMAIN_SHARED_QUOTA.DESCRIPTION' | translate}}"
+                    >
+                    </i>
+                    {{'MANAGE_QUOTA.BOX_FORM.DOMAIN_SHARED_QUOTA.LABEL' | translate}} :
+                  </label>
+                  <span class="pull-right">
+                    <label
+                      class="switch"
+                      data-ng-class="{'btn-disabled': !quotaVm.domainQuotaDto.defaultDomainSharedOverride
+                      && !quotaVm.isRootDomain(quotaVm.domainQuotaDto)}"
+                    >
+                      <input
+                        type="checkbox"
+                        data-ng-model="quotaVm.domainQuotaDto.defaultDomainShared"
+                        data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.domainQuotaDto.defaultDomainSharedOverride)"
+                        data-ng-change="quotaVm.formRender(quotaForm)"
+                      >
+                      <div class="slider round"></div>
+                    </label>
+                    <a 
+                      class="link-ctn pull-right"
+                      data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)"
+                      data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.domainQuotaDto, quotaVm.parentDomainQuotaDto, 'defaultDomainShared')"
+                    >
+                      <i
+                        class="fa link-icon show-link"
+                        data-ng-class="{'fa-link' : !quotaVm.domainQuotaDto.defaultDomainSharedOverride,
+                          'fa-chain-broken' : quotaVm.domainQuotaDto.defaultDomainSharedOverride}"
+                      >
+                      </i>
+                    </a>
+                  </span>
+                </div>
+              </section>
+            </div>
+            <div class="accordion-form-content form-inline clear">
+              <section class="col-xs-6-5 no-padding">
+                <div class="form-group col-xs-12 no-padding"
                      data-ng-class="{'has-error-quota': quotaForm.subdomainsQuota.$error.unitMax}">
                   <label for="subdomainsQuota" class="pull-left">
                     {{'MANAGE_QUOTA.BOX_FORM.SUBDOMAINS_DEFAULT_SETTINGS.LABEL_SUBDOMAINS_QUOTA' | translate}} :
@@ -617,24 +742,29 @@
                            data-ng-change="quotaVm.userQuotaDto.setDefaultQuota(
                                           quotaForm.subdomainsUserQuota.$viewValue, quotaForm)"
                            data-ng-blur="quotaVm.userQuotaDto.updateGraph(quotaForm)"
-                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.defaultQuotaOverride)"
+                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.defaultQuotaOverride,
+                            quotaVm.domainQuotaDto.defaultDomainShared)"
                            x-unit="quotaVm.unit.user.defaultQuota"
-                           x-unit-max="quotaVm.domainQuotaDto.defaultQuota">
+                           data-ng-attr-data-unit-max="quotaVm.domainQuotaDto.defaultDomainShared ?
+                            undefined : quotaVm.domainQuotaDto.defaultQuota">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.user.defaultQuota"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.user.defaultQuota = unit; quotaVm.formRender(quotaForm)">
                     </span>
-                    <a class="link-ctn"
-                       tooltip-placement="bottom"
-                       tooltip-popup-delay='1250'
-                       tooltip-append-to-body="true"
-                       tooltip="{{quotaVm.userQuotaDto.defaultQuotaOverride ?
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
-                              translate:'{value:quotaVm.parentContainersQuotaDto.user.getDefaultQuota(true)}'}}"
-                       data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.userQuotaDto,
-                              quotaVm.parentContainersQuotaDto.user, 'defaultQuota')"
-                       data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)">
+                    <a
+                      class="link-ctn"
+                      data-ng-class="{'btn-disabled': quotaVm.domainQuotaDto.defaultDomainShared}"
+                      tooltip-placement="bottom"
+                      tooltip-popup-delay='1250'
+                      tooltip-append-to-body="true"
+                      tooltip="{{quotaVm.userQuotaDto.defaultQuotaOverride ?
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
+                        translate:'{value:quotaVm.parentContainersQuotaDto.user.getDefaultQuota(true)}'}}"
+                      data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.userQuotaDto,
+                        quotaVm.parentContainersQuotaDto.user, 'defaultQuota')"
+                      data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)"
+                    >
                       <i class="fa link-icon show-link"
                          data-ng-class="{'fa-link' : !quotaVm.userQuotaDto.defaultQuotaOverride,
                                 'fa-chain-broken' : quotaVm.userQuotaDto.defaultQuotaOverride}">
@@ -660,23 +790,29 @@
                            data-ng-change="quotaVm.userQuotaDto.setDefaultAccountQuota(
                                           quotaForm.subdomainsUserQuotaPerUser.$viewValue, quotaForm)"
                            data-ng-blur="quotaVm.userQuotaDto.updateGraph(quotaForm)"
-                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.defaultAccountQuotaOverride)"
+                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.defaultAccountQuotaOverride,
+                            quotaVm.domainQuotaDto.defaultDomainShared)"
                            x-unit="quotaVm.unit.user.defaultAccountQuota"
-                           x-unit-max="quotaVm.userQuotaDto.defaultQuota">
+                           data-ng-attr-data-unit-max="quotaVm.domainQuotaDto.defaultDomainShared ?
+                            undefined : quotaVm.userQuotaDto.defaultQuota">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.user.defaultAccountQuota"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.user.defaultAccountQuota = unit; quotaVm.formRender(quotaForm)">
                     </span>
-                    <a class="link-ctn"
-                       tooltip-placement="bottom"
-                       tooltip-popup-delay='1250'
-                       tooltip-append-to-body="true"
-                       tooltip="{{quotaVm.userQuotaDto.defaultAccountQuotaOverride ?
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
-                              translate:'{value:quotaVm.parentContainersQuotaDto.user.getDefaultAccountQuota(true)}'}}"
-                       data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.userQuotaDto, quotaVm.parentContainersQuotaDto.user, 'defaultAccountQuota')"
-                       data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)">
+                    <a
+                      class="link-ctn"
+                      data-ng-class="{'btn-disabled': quotaVm.domainQuotaDto.defaultDomainShared}"
+                      tooltip-placement="bottom"
+                      tooltip-popup-delay='1250'
+                      tooltip-append-to-body="true"
+                      tooltip="{{quotaVm.userQuotaDto.defaultAccountQuotaOverride ?
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
+                        translate:'{value:quotaVm.parentContainersQuotaDto.user.getDefaultAccountQuota(true)}'}}"
+                      data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.userQuotaDto,
+                        quotaVm.parentContainersQuotaDto.user, 'defaultAccountQuota')"
+                      data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)"
+                    >
                       <i class="fa link-icon show-link"
                          data-ng-class="{'fa-link' : !quotaVm.userQuotaDto.defaultAccountQuotaOverride,
                                 'fa-chain-broken' : quotaVm.userQuotaDto.defaultAccountQuotaOverride}">
@@ -704,7 +840,8 @@
                            data-ng-blur="quotaVm.userQuotaDto.updateGraph(quotaForm)"
                            data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.userQuotaDto.defaultMaxFileSizeOverride)"
                            x-unit="quotaVm.unit.user.defaultMaxFileSize"
-                           x-unit-max="quotaVm.userQuotaDto.defaultAccountQuota">
+                           data-ng-attr-data-unit-max="quotaVm.domainQuotaDto.defaultDomainShared ?
+                            quotaVm.domainQuotaDto.defaultQuota : quotaVm.userQuotaDto.defaultAccountQuota">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.user.defaultMaxFileSize"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.user.defaultMaxFileSize = unit; quotaVm.formRender(quotaForm)">
@@ -728,8 +865,12 @@
                   </span>
                   <div class="pull-right help-block" data-ng-show="quotaForm.subdomainsUserMaxFileSize.$error.unitMax">
                     {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
-                    {{quotaVm.userQuotaDto.defaultAccountQuota |
-                        readableSize:quotaVm.unit.user.defaultAccountQuota:true}}
+                    <span data-ng-if="!quotaVm.domainQuotaDto.defaultDomainShared">
+                      {{quotaVm.userQuotaDto.defaultAccountQuota | readableSize:quotaVm.unit.user.defaultAccountQuota:true}}
+                    </span>
+                    <span data-ng-if="quotaVm.domainQuotaDto.defaultDomainShared">
+                      {{quotaVm.domainQuotaDto.defaultQuota | readableSize:quotaVm.unit.domains.defaultQuota:true}}
+                    </span>
                   </div>
                 </div>
               </section>
@@ -754,24 +895,29 @@
                            data-ng-change="quotaVm.workgroupQuotaDto.setDefaultQuota(
                                           quotaForm.subdomainsWorkgroupQuota.$viewValue, quotaForm)"
                            data-ng-blur="quotaVm.workgroupQuotaDto.updateGraph(quotaForm)"
-                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.workgroupQuotaDto.defaultQuotaOverride)"
+                           data-ng-disabled="quotaVm.isInputDisabled(!quotaVm.workgroupQuotaDto.defaultQuotaOverride,
+                            quotaVm.domainQuotaDto.defaultDomainShared)"
                            x-unit="quotaVm.unit.workgroup.defaultQuota"
-                           x-unit-max="quotaVm.domainQuotaDto.defaultQuota">
+                           data-ng-attr-data-unit-max="quotaVm.domainQuotaDto.defaultDomainShared ?
+                            undefined : quotaVm.domainQuotaDto.defaultQuota">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.workgroup.defaultQuota"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.workgroup.defaultQuota = unit; quotaVm.formRender(quotaForm)">
                     </span>
-                    <a class="link-ctn"
-                       tooltip-placement="bottom"
-                       tooltip-popup-delay='1250'
-                       tooltip-append-to-body="true"
-                       tooltip="{{quotaVm.workgroupQuotaDto.defaultQuotaOverride ?
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
-                              'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
-                              translate:'{value:quotaVm.parentContainersQuotaDto.workgroup.getDefaultQuota(true)}'}}"
-                       data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.workgroupQuotaDto,
-                              quotaVm.parentContainersQuotaDto.workgroup, 'defaultQuota')"
-                       data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)">
+                    <a
+                      class="link-ctn"
+                      data-ng-class="{'btn-disabled': quotaVm.domainQuotaDto.defaultDomainShared}"
+                      tooltip-placement="bottom"
+                      tooltip-popup-delay='1250'
+                      tooltip-append-to-body="true"
+                      tooltip="{{quotaVm.workgroupQuotaDto.defaultQuotaOverride ?
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP' :
+                        'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP' |
+                        translate:'{value:quotaVm.parentContainersQuotaDto.workgroup.getDefaultQuota(true)}'}}"
+                      data-ng-click="quotaVm.manageOverride(quotaForm, quotaVm.workgroupQuotaDto,
+                        quotaVm.parentContainersQuotaDto.workgroup, 'defaultQuota')"
+                      data-ng-hide="quotaVm.isRootDomain(quotaVm.domainQuotaDto)"
+                    >
                       <i class="fa link-icon show-link"
                          data-ng-class="{'fa-link' : !quotaVm.workgroupQuotaDto.defaultQuotaOverride,
                                 'fa-chain-broken' : quotaVm.workgroupQuotaDto.defaultQuotaOverride}">
@@ -798,7 +944,8 @@
                            data-ng-disabled="quotaVm.isInputDisabled(
                                             !quotaVm.workgroupQuotaDto.defaultMaxFileSizeOverride)"
                            x-unit="quotaVm.unit.workgroup.defaultMaxFileSize"
-                           x-unit-max="quotaVm.workgroupQuotaDto.defaultQuota">
+                           data-ng-attr-data-unit-max="quotaVm.domainQuotaDto.defaultDomainShared ?
+                            quotaVm.domainQuotaDto.defaultQuota : quotaVm.workgroupQuotaDto.defaultQuota">
                     <span class="input-unit" x-ls-dropdown x-value="quotaVm.unit.workgroup.defaultMaxFileSize"
                           x-list="quotaVm.unit.value"
                           x-action="quotaVm.unit.workgroup.defaultMaxFileSize = unit; quotaVm.formRender(quotaForm)">
@@ -823,7 +970,12 @@
                   <div class="pull-right help-block"
                        data-ng-show="quotaForm.subdomainsWorkgroupMaxFileSize.$error.unitMax">
                     {{'MANAGE_QUOTA.BOX_FORM.HINT_LABELS.ERROR_MAX_VALUE' | translate}}
-                    {{quotaVm.workgroupQuotaDto.defaultQuota | readableSize:quotaVm.unit.workgroup.defaultQuota:true}}
+                    <span data-ng-if="!quotaVm.domainQuotaDto.defaultDomainShared">
+                      {{quotaVm.workgroupQuotaDto.defaultQuota | readableSize:quotaVm.unit.workgroup.defaultQuota:true}}
+                    </span>
+                    <span data-ng-if="quotaVm.domainQuotaDto.defaultDomainShared">
+                      {{quotaVm.domainQuotaDto.defaultQuota | readableSize:quotaVm.unit.domains.defaultQuota:true}}
+                    </span>
                   </div>
                 </div>
               </section>

@@ -200,7 +200,9 @@
       if (!element[bool]) {
         unit[element.type ? element.type.toLowerCase().replace('_','') : element.route][property] =
           unit[parent.route][defaultPropertyName];
-        element[setter](parent[getter]());
+        if(parent[getter]) {
+          element[setter](parent[getter]());
+        }
       }
     }
 
