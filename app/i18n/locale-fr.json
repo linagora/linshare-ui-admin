@@ -1491,6 +1491,17 @@
         "PARAMETER_NAME": "Valeur par défaut dans l'interface utilisateur",
         "PARAMETER_DESCRIPTION": ""
       },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "URL anonymes - forcer le partage en anonyme",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "En activant cette fonctionnalité, l'utilisateur peut choisir de partager uniquement avec les URLs anonymes. Dans ce cas, les utilisateurs internes ne recevront plus le partage dans leur Partage Reçus.",
+        "PARAMETER_NAME": "Valeur par défaut dans l'interface utilisateur"
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "NAME": "Cacher le menu de l'Espace Commun",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "En activant cette fonctionnalité, les utilisateurs internes n'auront plus l'accès à leur Espace Partage Reçus."
+      },
       "ANONYMOUS_URL__NOTIFICATION": {
         "NAME": "Notification de téléchargement",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -1532,7 +1543,8 @@
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_false": "L'alerte de non téléchargement est désactivée",
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_true": "L'alerte de non téléchargement est activée",
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Envoi au premier téléchargement uniquement.",
-      "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Envoi à chaque téléchargement."
+      "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Envoi à chaque téléchargement.",
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Partage anonyme vers tous les utilisateurs(internes et invités)."
     }
   },
   "MIME_POLICIES": {
