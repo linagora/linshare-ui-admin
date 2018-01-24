@@ -1544,7 +1544,8 @@
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_true": "L'alerte de non téléchargement est activée",
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Envoi au premier téléchargement uniquement.",
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Envoi à chaque téléchargement.",
-      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Partage anonyme vers tous les utilisateurs(internes et invités)."
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Partage anonyme avec tous les utilisateurs(internes et invités).",
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Partage anonyme uniquement avec les utilisateurs anonymes"
     }
   },
   "MIME_POLICIES": {

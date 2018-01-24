@@ -1570,7 +1570,8 @@
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_true": "The undownloaded shared document alert is activated",
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Notification will be sent for the first download only.",
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Notification will be sent for every download.",
-      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Anonymous Sharing with all users(internal and guests)"
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Anonymous Sharing with all users(internal and guests)",
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Anonymous Sharing with only anonymous users"
     }
   },
   "MIME_POLICIES": {
