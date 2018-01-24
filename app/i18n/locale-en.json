@@ -1215,14 +1215,14 @@
       },
       "ANONYMOUS_URL": {
         "NAME": "Anonymous URL",
-        "USE_EXTENDED_DESCRIPTION": "0",
-        "DESCRIPTION": "",
-        "ADVANCED_DESCRIPTION": "",
+        "USE_EXTENDED_DESCRIPTION": "2",
+        "DESCRIPTION": "The functionality enables users to share documents with anonymous users (internal/external) through email. Those users does not have a Linshare account.",
+        "ADVANCED_DESCRIPTION": "Enabling this functionality allows you to protect the anonymous share with a password. This protection is forced if the value is set to 'Required'. It is also possible to leave the choice to the user by specifying a default value 'allowed'",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "",
-        "DELEGATION_POLICY": "",
+        "ACTIVATION_POLICY": "Once activated, the user can share a file with an anonymous user.",
+        "DELEGATION_POLICY": "By enabling delegation you leave the choice to the user to use it with specifying a default value.",
         "CONFIGURATION_POLICY": "",
-        "PARAMETER_NAME": "Parameters",
+        "PARAMETER_NAME": "Protection by password",
         "PARAMETER_DESCRIPTION": ""
       },
       "ANONYMOUS_URL__NOTIFICATION_URL": {
@@ -1517,6 +1517,17 @@
         "PARAMETER_NAME": "Default activation checkbox value in share form",
         "PARAMETER_DESCRIPTION": ""
       },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "Anonymous URL - force anonymous sharing process",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "By Enabling this functionality, the user can choose to share documents only with Anonymous Url. In this case, the internal users will not see the shared document in the Received Share Menu",
+        "PARAMETER_NAME": "Default activation checkbox value in share form"
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "NAME": "Hide Received Share menu",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "By Enabling this functionality, internal users will not have the access to the Received Share menu"
+      },
       "ANONYMOUS_URL__NOTIFICATION": {
         "NAME": "Anonymous download notification",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -1558,7 +1569,8 @@
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_false": "The undownloaded shared document alert is deactivated",
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_true": "The undownloaded shared document alert is activated",
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Notification will be sent for the first download only.",
-      "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Notification will be sent for every download."
+      "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Notification will be sent for every download.",
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Anonymous Sharing with all users(internal and guests)"
     }
   },
   "MIME_POLICIES": {
