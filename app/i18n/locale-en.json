@@ -2249,6 +2249,10 @@
         "SUB_SECTION_PERSONAL_SPACES_QUOTA": "Personal Spaces quota",
         "SUB_SECTION_WORKGROUP_QUOTA": "Sharedspace quota"
       },
+      "DOMAIN_SHARED_QUOTA": {
+        "DESCRIPTION": "Activation of this mode exempt from setting each container's quota of this domain (Personal Space and Shared Space). The user will see global consumption of all users of the domain.",
+        "LABEL": "Activate Domain shared Quota"
+      },
       "FORM_ACTIONS": {
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",

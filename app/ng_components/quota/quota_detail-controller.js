@@ -205,13 +205,19 @@
      * @name isInputDisabled
      * @desc Determine if the input shall be disabled
      * @param {String} name - desc
+     * @param {boolean} isDomainSharedActivated - Is Domain shared activated
      * @returns {String} if there is one
      * @memberOf linshareAdminApp.QuotaDetailController
      */
-    function isInputDisabled(linked) {
-      if (quotaVm.isRootDomain(quotaVm.domainQuotaDto)) {
+    function isInputDisabled(linked, isDomainSharedActivated) {
+      if (!linked && isDomainSharedActivated) {
+        return true;
+      }
+
+      if (quotaVm.isRootDomain(quotaVm.domainQuotaDto) && !isDomainSharedActivated) {
         return false;
       }
+      
       return linked;
     }
 
@@ -265,7 +271,7 @@
      * @example
      *          domainQuotaDto.quota = 1000,
      *          domainQuotaDto.getQuota = function() {
-     *            $filter('readableSize')(domainQuotaDto.quota.original, unit.domain.quota, false);
+     *            $filter('readableSize')(domainQuotaDto.quota, unit.domain.quota, false);
      *          }
      *          domainQuotaDto.setQuota = function(newValue, form) {
      *            unitService.toByte(newValue, unit.domain.quota);

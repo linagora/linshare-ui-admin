@@ -347,6 +347,16 @@ a.disabled {
   cursor: pointer;
 }
 
+.accordion-form-content.form-inline .btn-disabled {
+  pointer-events: none;
+  .link-icon {
+    color: rgba(128, 128, 128, 0.5);
+  }
+  .slider {
+    opacity: 0.5;
+  }
+}
+
 .box .box-header > .box-tools {
   padding: 10px 10px 5px 5px;
   .fa-lg {
@@ -826,6 +836,9 @@ a.list-group-item-success:hover {
     display: inline-block;
     padding: 0 0 0 5px;
     float : left;
+  }
+  input[type="checkbox"] {
+    display: none;
   }
   .form-control[disabled] {
     color: #9b9b9b;
