@@ -1524,7 +1524,7 @@
         "PARAMETER_NAME": "Default activation checkbox value in share form"
       },
       "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
-        "NAME": "Hide Received Share menu",
+        "NAME": "Hide Received Shares menu",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "By Enabling this functionality, internal users will not have the access to the Received Share menu"
       },
