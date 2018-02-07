@@ -1498,7 +1498,7 @@
         "PARAMETER_NAME": "Valeur par défaut dans l'interface utilisateur"
       },
       "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
-        "NAME": "Cacher le menu de l'Espace Commun",
+        "NAME": "Cacher le menu Partages Reçus",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "En activant cette fonctionnalité, les utilisateurs internes n'auront plus l'accès à leur Espace Partage Reçus."
       },
