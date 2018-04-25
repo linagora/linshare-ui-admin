@@ -1,9 +1,29 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .controller('TechnicalAccountDetailCtrl',
-    ['$scope', '$state', '$modal', '$log', 'Password', 'TechnicalAccount', 'currentTechnicalAccount', 'selectOptions',
-    function($scope, $state, $modal, $log, Password, TechnicalAccount, currentTechnicalAccount, selectOptions) {
+  .controller('TechnicalAccountDetailCtrl', [
+    '$log', 
+    '$modal',
+    '$scope',
+    '$state',
+    'Password',
+    'TechnicalAccount', 
+    'currentTechnicalAccount',
+    'lsAppConfig',
+    'selectOptions',
+    function(
+      $log,
+      $modal, 
+      $scope,
+      $state,
+      Password, 
+      TechnicalAccount, 
+      currentTechnicalAccount,
+      lsAppConfig,
+      selectOptions
+    ) { 
+      getRoles();
+
       $scope.state = $state.params.formState;
       $scope.account = currentTechnicalAccount || {};
       $scope.permissionTypes = selectOptions.permissionTypes;
@@ -65,6 +85,18 @@ angular.module('linshareAdminApp')
       $scope.reset = function() {
         $state.reinit();
       };
+      
+      function getRoles() {
+        var initialRoles = ['DELEGATION', 'UPLOAD_PROPOSITION'];
+
+        TechnicalAccount.getHeaders().then(function(headers) {
+          if (headers['x-linshare-safe-mode']) {
+            initialRoles.push('SAFE');
+          }
+
+          $scope.rolesList = initialRoles;
+        });
+      }
     }]
   );
 

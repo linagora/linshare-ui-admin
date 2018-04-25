@@ -65,7 +65,7 @@
             </label>
             <select class="form-control" name="role" required
                    x-ng-model="account.role"
-                   x-ng-options="r as 'COMMON.ENUM.ROLE.' + r | translate for r in ['DELEGATION', 'UPLOAD_PROPOSITION']">
+                   x-ng-options="r as 'COMMON.ENUM.ROLE.' + r | translate for r in rolesList">
             </select>
           </div>
           <div x-ng-if="state==='create'">
