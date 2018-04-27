@@ -11,6 +11,7 @@ angular.module('linshareAdminApp').constant('lsAppConfig', {
     en: 'MM/dd/yyyy',
     fr: 'dd/MM/yyyy'
   },
+  enableSafeDetails: false,
   logoURL: undefined,
   // The licence cannot be disabled without Linagora consent
   license: true, // true to show / false to hide the license footer

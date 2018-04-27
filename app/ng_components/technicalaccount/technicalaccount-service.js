@@ -15,6 +15,16 @@ angular.module('linshareAdminApp')
           $log.debug('TechnicalAccount:get');
           return Restangular.one('technical_accounts', id).get();
         },
+        getHeaders: function() {
+          $log.debug('AuthenticationRestService : logout');
+          var rest = Restangular.withConfig(function(RestangularConfigurer) {
+            RestangularConfigurer.setFullResponse(true);
+          });
+
+          return rest.all('authentication').one('authorized').options().then(function(response) {
+            return response.headers();
+          });
+        },
         add: function(account) {
           $log.debug('TechnicalAccount:add');
           return Restangular.all('technical_accounts').post(account).then(function() {
