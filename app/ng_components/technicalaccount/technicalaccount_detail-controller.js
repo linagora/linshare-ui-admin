@@ -90,7 +90,9 @@ angular.module('linshareAdminApp')
         var initialRoles = ['DELEGATION', 'UPLOAD_PROPOSITION'];
 
         TechnicalAccount.getHeaders().then(function(headers) {
-          if (headers['x-linshare-safe-mode']) {
+          var linshareSafeModeCastedToBoolean = Boolean(headers['x-linshare-safe-mode']);
+
+          if (linshareSafeModeCastedToBoolean) {
             initialRoles.push('SAFE');
           }
 
