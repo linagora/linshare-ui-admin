@@ -1518,6 +1518,30 @@
         "DELEGATION_POLICY": "",
         "PARAMETER_NAME": "Valeur par défaut dans l'interface utilisateur",
         "PARAMETER_DESCRIPTION": ""
+      },
+      "JWT_LONG_TIME_TOKEN": {
+        "NAME": "Jeton JWT permanent",
+        "USE_EXTENDED_DESCRIPTION": "2",
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer, utiliser et supprimer les jetons JWT permanents",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "Une fois activée, les utilisateurs pourront s'authentifier à l'aide d'un jeton permanent. La création et la manipulation seront pilotées par d'autres paramètres.",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "Une fois activée, l'administrateur pourra créer des jetons pour les utilisateurs du domaine.",
+        "PARAMETER_NAME": "",
+        "PARAMETER_DESCRIPTION": ""
+      },
+      "JWT_LONG_TIME_TOKEN__FOR_USER": {
+        "NAME": "Jeton JWT permanent pour les utilisateurs",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs de contrôler l'utilisation des jetons JWT permanents",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "Une fois activée, l'utilisateur pourra voir et supprimer ses jetons. La création sera pilotée par le paramètre de délégation.",
+        "DELEGATION_POLICY": "Une fois activée, l'utilisateur pourra créer ses propres jetons d'authentification.",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "",
+        "PARAMETER_DESCRIPTION": ""
       }
     },
     "PARAMETERS": {
