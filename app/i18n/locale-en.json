@@ -68,6 +68,7 @@
       "DOMAINS": "Domains",
       "LDAP_CONNECTIONS": "LDAP connections",
       "DOMAIN_PATTERNS": "Domain patterns",
+      "GROUP_PATTERNS": "Group patterns",
       "MANAGE_DOMAINS": "Manage domains",
       "DOMAIN_ORDER": "Domain order",
       "DOMAIN_POLICIES": "Inter-domains communication rules",
@@ -475,6 +476,49 @@
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this domain pattern, this procedure is irreversible. Do you want to proceed?"
+    }
+  },
+  "GROUP_PATTERNS": {
+    "TITLE": "Manage your group patterns",
+    "BOX_LIST": {
+      "TITLE": "Group patterns list",
+      "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+      "TABLE": {
+        "HEADER_IDENTIFIER": "Label",
+        "HEADER_DESCRIPTION": "@:GROUP_PATTERNS.BOX_FORM.LABEL_DESCRIPTION"
+      }
+    },
+    "BOX_FORM": {
+      "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
+      "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+      "LABEL_MODEL_SELECTOR": "Model selector",
+      "LABEL_IDENTIFIER": "Label",
+      "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+      "SEARCH_ALL_GROUPS_QUERY": "Search all group query",
+      "HELP_SEARCH_ALL_GROUPS_QUERY": "LDAP query to search all group",
+      "SEARCH_GROUP_QUERY": "Search group query",
+      "HELP_SEARCH_GROUP_QUERY": "LDAP query to search a group",
+      "FIND_MEMBER_QUERY": "Find member query",
+      "HELP_FIND_MEMBER_QUERY": "LDAP query to find a member",
+      "LABEL_ATTRIBUTES": "Attributes",
+      "MEMBER_MAIL": "Member email",
+      "MEMBER_FIRST_NAME": "Member first name",
+      "MEMBER_LAST_NAME": "Member last name",
+      "GROUP_PREFIX": "Group prefix",
+      "GROUP_NAME": "Group name",
+      "GROUP_DN": "Group DN",
+      "GROUP_MEMBER": "Group member",
+      "LABEL_SEARCH_PAGE_SIZE": "Search page size",
+      "HELP_SEARCH_PAGE_SIZE": "Maximum result per page in search",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "You are about to delete this group pattern, this procedure is irreversible. Do you want to proceed?"
     }
   },
   "LDAP_CONNECTIONS": {

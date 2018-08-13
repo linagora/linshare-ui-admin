@@ -22,6 +22,12 @@ angular.module('linshareAdminApp')
               'domainpattern.detail'
             ]
           }, {
+            name: 'COMMON.TAB.GROUP_PATTERNS',
+            sref: 'grouppattern.list',
+            childrenSref: [
+              'grouppattern.detail'
+            ]
+          }, {
             name: 'COMMON.TAB.MANAGE_DOMAINS',
             sref: 'domain.detail'
           }, {

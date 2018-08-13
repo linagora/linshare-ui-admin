@@ -68,6 +68,7 @@
       "DOMAINS": "Domaines",
       "LDAP_CONNECTIONS": "Connexions LDAP",
       "DOMAIN_PATTERNS": "Modèles de domaine",
+      "GROUP_PATTERNS": "Modèles de groupe",
       "MANAGE_DOMAINS": "Configuration des domaines",
       "DOMAIN_ORDER": "Ordre des domaines",
       "DOMAIN_POLICIES": "Règles de communication inter-domaines",
@@ -482,6 +483,49 @@
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer ce modèle de domaine, cette procédure est irréversible. Souhaitez-vous continuer ?"
+    }
+  },
+  "GROUP_PATTERNS": {
+    "TITLE": "Gérer les modèles de groupe",
+    "BOX_LIST": {
+      "TITLE": "Liste des modèles de groupe",
+      "BUTTON_ADD": "Ajouter",
+      "TABLE": {
+        "HEADER_IDENTIFIER": "Label",
+        "HEADER_DESCRIPTION": "@:GROUP_PATTERNS.BOX_FORM.LABEL_DESCRIPTION"
+      }
+    },
+    "BOX_FORM": {
+      "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
+      "BUTTON_LIST": "Liste",
+      "LABEL_MODEL_SELECTOR": "Sélecteur de modèle",
+      "LABEL_IDENTIFIER": "Label",
+      "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+      "SEARCH_ALL_GROUPS_QUERY": "Recherche de tous les groupes",
+      "HELP_SEARCH_ALL_GROUPS_QUERY": "Requête LDAP pour rechercher tous les groupes",
+      "SEARCH_GROUP_QUERY": "Recherche d'un groupe",
+      "HELP_SEARCH_GROUP_QUERY": "Requête LDAP pour rechercher un groupe",
+      "FIND_MEMBER_QUERY": "Trouver un membre",
+      "HELP_FIND_MEMBER_QUERY": "Requête LDAP pour trouver un membre",
+      "LABEL_ATTRIBUTES": "Attributs",
+      "MEMBER_MAIL": "Email du membre",
+      "MEMBER_FIRST_NAME": "Nom du membre",
+      "MEMBER_LAST_NAME": "Prénom du membre",
+      "GROUP_PREFIX": "Prefix du groupe",
+      "GROUP_NAME": "Nom du groupe",
+      "GROUP_DN": "DN du groupe",
+      "GROUP_MEMBER": "Membre du groupe",
+      "LABEL_SEARCH_PAGE_SIZE": "Taille de page de recherche",
+      "HELP_SEARCH_PAGE_SIZE": "Résultats maximum par page dans une recherche",
+      "FORM_ACTIONS": {
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+      }
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Vous êtes sur le point de supprimer ce modèle de groupe, cette procédure est irréversible. Souhaitez-vous continuer ?"
     }
   },
   "LDAP_CONNECTIONS": {

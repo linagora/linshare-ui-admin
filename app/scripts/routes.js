@@ -560,6 +560,36 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
           }
         }
       })
+      .state('grouppattern', {
+        abstract: true,
+        url: '/grouppattern',
+        templateUrl: 'ng_components/grouppattern/grouppattern.html'
+      })
+      .state('grouppattern.list', {
+        url: '/list',
+        templateUrl: 'ng_components/grouppattern/grouppattern_list.tpl.html',
+        controller: 'GroupPatternListCtrl',
+        resolve: {
+          groupPatterns: function(GroupPattern) {
+            return GroupPattern.getAll();
+          }
+        }
+      })
+      .state('grouppattern.detail', {
+        url: '/:id?formState',
+        templateUrl: 'ng_components/grouppattern/grouppattern_detail.tpl.html',
+        controller: 'GroupPatternDetailCtrl',
+        resolve: {
+          currentGroupPattern: function($stateParams, GroupPattern) {
+            if ($stateParams.id) {
+              return GroupPattern.get($stateParams.id);
+            }
+          },
+          models: function(GroupPattern) {
+            return GroupPattern.getAllModels();
+          }
+        }
+      })
       .state('domainpattern', {
         abstract: true,
         url: '/domainpattern',
