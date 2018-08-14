@@ -58,7 +58,7 @@ angular.module('linshareAdminApp').directive('lsNavbar', [
             },
             hasSome: function() {
               return _.some($scope.upgradeTasks.list, {
-                status: $scope.upgradeTasks.status.NEW
+                status: !$scope.upgradeTasks.status.SUCCESS
               });
             },
             status: upgradeTasksConstants.status
