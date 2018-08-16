@@ -272,7 +272,9 @@
         "UPLOAD_REQUEST_WARN_EXPIRY": "Une invitation de dépôt a été clôturée",
         "WORKGROUP_WARN_NEW_MEMBER": "Notification d'ajout d'un nouveau membre d'un groupe de travail",
         "WORKGROUP_WARN_UPDATED_MEMBER": "Notification de modification d'un membre d'un groupe de travail",
-        "WORKGROUP_WARN_DELETED_MEMBER": "Notification de suppression d'un membre d'un groupe de travail"
+        "WORKGROUP_WARN_DELETED_MEMBER": "Notification de suppression d'un membre d'un groupe de travail",
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "L'utilisateur reçoit une notification lorsqu'un administrateur crée un jeton d'accès permanent (JWT) à son compte",
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "L'utilisateur reçoit une notification lorsqu'un administrateur supprime un jeton d'accès permanent (JWT) à son compte"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -830,6 +832,16 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée aux membres retirés du groupe de travail."
+      },
+      "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne lorsqu'un administrateur crée un jeton d'accès permanent (JWT) à son compte."
+      },
+      "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne lorsqu'un administrateur supprime un jeton d'accès permanent (JWT) à son compte."
       }
     },
     "PARAMETERS": {
