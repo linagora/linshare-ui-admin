@@ -272,6 +272,38 @@
           }
         }
       },
+      "JWT_PERMANENT_TOKEN": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have created the permanent access token : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has created the permanent access token : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          }
+        },
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "You have deleted the permanent access token : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has deleted the permanent access token : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have updated the permanent access token : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has updated the permanent access token : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        }
+      },
       "SHARE_ENTRY": {
         "CREATE": {
           "AUTHOR": {
@@ -535,7 +567,8 @@
       "WORKGROUP": "Workgroup",
       "WORKGROUP_DOCUMENT": "Workgroup file",
       "WORKGROUP_FOLDER": "Workgroup folder",
-      "WORKGROUP_MEMBER": "Workgroup member"
+      "WORKGROUP_MEMBER": "Workgroup member",
+      "JWT_PERMANENT_TOKEN": "Permanent access token (JWT)"
     }
   },
   "TABLE_HEADER": {

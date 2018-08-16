@@ -257,6 +257,8 @@
           setFullName(auditAction.resource.user);
       } else if (auditAction.resource.firstName) {
         resourceName = (auditAction.resource.uuid === loggedUserUuid) ? authorMe : setFullName(auditAction.resource);
+      } else if(auditAction.resource.label) {
+        resourceName = auditAction.resource.label;
       } else {
         resourceName = auditAction.resource.name;
       }

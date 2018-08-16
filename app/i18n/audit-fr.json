@@ -272,6 +272,38 @@
           }
         }
       },
+      "JWT_PERMANENT_TOKEN": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez créé le jeton d'accès permanent : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authUserName}} a créé le jeton d'accès permanent : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          }
+        },
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé le jeton d'accès permanent : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authUserName}} a supprimé le jeton d'accès permanent : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez modifié le jeton d'accès permanent : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authUserName}} a modifié le jeton d'accès permanent : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        }
+      },
       "SHARE_ENTRY": {
         "CREATE": {
           "AUTHOR": {
@@ -535,7 +567,8 @@
       "WORKGROUP": "Groupe de Travail",
       "WORKGROUP_DOCUMENT": "Groupe de Travail - Fichier",
       "WORKGROUP_FOLDER": "Groupe de Travail - Dossier",
-      "WORKGROUP_MEMBER": "Groupe de Travail - Membre"
+      "WORKGROUP_MEMBER": "Groupe de Travail - Membre",
+      "JWT_PERMANENT_TOKEN": "Jeton d'accès permanent (JWT)"
     }
   },
   "TABLE_HEADER": {

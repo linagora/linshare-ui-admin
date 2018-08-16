@@ -1519,7 +1519,7 @@
         "PARAMETER_NAME": "Valeur par défaut dans l'interface utilisateur",
         "PARAMETER_DESCRIPTION": ""
       },
-      "JWT_LONG_TIME_TOKEN": {
+      "JWT_PERMANENT_TOKEN": {
         "NAME": "Jeton JWT permanent",
         "USE_EXTENDED_DESCRIPTION": "2",
         "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer, utiliser et supprimer les jetons JWT permanents",
@@ -1531,7 +1531,7 @@
         "PARAMETER_NAME": "",
         "PARAMETER_DESCRIPTION": ""
       },
-      "JWT_LONG_TIME_TOKEN__FOR_USER": {
+      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
         "NAME": "Jeton JWT permanent pour les utilisateurs",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs de contrôler l'utilisation des jetons JWT permanents",

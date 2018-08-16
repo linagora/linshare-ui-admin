@@ -1545,25 +1545,25 @@
         "PARAMETER_NAME": "Default parameters",
         "PARAMETER_DESCRIPTION": ""
       },
-      "JWT_LONG_TIME_TOKEN": {
+      "JWT_PERMANENT_TOKEN": {
         "NAME": "JWT permanent token",
         "USE_EXTENDED_DESCRIPTION": "2",
-        "DESCRIPTION": "This functionality alows users and administrators to create, use and delete JWT permanent tokens",
+        "DESCRIPTION": "This functionality allows users and administrators to create, use and delete JWT permanent tokens",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "Once activated, users will be able to authenticate using a permanent token. Creation and manipulation will be controlled by other parameters.",
+        "ACTIVATION_POLICY": "Once activated, users will be able to authenticate using a permanent token. Creation and manipulation will be handled by the delegation policy.",
         "DELEGATION_POLICY": "",
-        "CONFIGURATION_POLICY": "Once enabled, the administrator will be able to create tokens for domain users.",
+        "CONFIGURATION_POLICY": "Once enabled, the administrator will be able to create JWT permanent tokens for a user account.",
         "PARAMETER_NAME": "",
         "PARAMETER_DESCRIPTION": ""
       },
-      "JWT_LONG_TIME_TOKEN__FOR_USER": {
+      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
         "NAME": "JWT permanent token for user",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This functionality allows users to control the use of JWT permanent tokens",
+        "DESCRIPTION": "This functionality allows users to manage their JWT permanent tokens",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "Once activated, the user will be able to view and delete his tokens. The creation will be controled by the delegation parameter.",
+        "ACTIVATION_POLICY": "Once activated, the user will be able to view and delete his tokens. The creation will be handled by the delegation parameter.",
         "DELEGATION_POLICY": "Once activated, the user will be able to create his own authentication tokens.",
         "CONFIGURATION_POLICY": "",
         "PARAMETER_NAME": "",
