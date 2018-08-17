@@ -1,0 +1,10 @@
+image: docker-registry.linagora.com:5000/linshare-snapshots/linshare-build-helper:latest
+stages:
+  - build
+
+build:
+  stage: build
+  tags:
+    - docker
+  script:
+    - mvn clean test
