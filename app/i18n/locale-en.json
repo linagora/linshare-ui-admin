@@ -828,7 +828,6 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to a workgroup member, when he was removed from a workgroup."
       },
-      },
       "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
         "USE_EXTENDED_DESCRIPTION": "1",
