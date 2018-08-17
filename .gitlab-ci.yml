@@ -1,10 +1,14 @@
-image: docker-registry.linagora.com:5000/linshare-snapshots/linshare-build-helper:latest
 stages:
   - build
 
-build:
-  stage: build
+.curl-tpl: &curl-tpl
+  variables:
+    GIT_STRATEGY: none
   tags:
-    - docker
+    - curl
+
+build:
+  <<: *curl-tpl
+  stage: build
   script:
-    - mvn clean test
+    - echo skip
