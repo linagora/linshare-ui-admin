@@ -563,30 +563,32 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
       .state('grouppattern', {
         abstract: true,
         url: '/grouppattern',
-        templateUrl: 'ng_components/grouppattern/grouppattern.html'
+        templateUrl: 'ng_components/grouppattern/views/groupPattern.html'
       })
       .state('grouppattern.list', {
         url: '/list',
-        templateUrl: 'ng_components/grouppattern/grouppattern_list.tpl.html',
-        controller: 'GroupPatternListCtrl',
+        templateUrl: 'ng_components/grouppattern/views/groupPatternList.html',
+        controller: 'GroupPatternListController',
+        controllerAs: 'groupPatternListVm',
         resolve: {
-          groupPatterns: function(GroupPattern) {
-            return GroupPattern.getAll();
+          groupPatterns: function(groupPatternService) {
+            return groupPatternService.getAll();
           }
         }
       })
       .state('grouppattern.detail', {
         url: '/:id?formState',
-        templateUrl: 'ng_components/grouppattern/grouppattern_detail.tpl.html',
-        controller: 'GroupPatternDetailCtrl',
+        templateUrl: 'ng_components/grouppattern/views/groupPatternDetail.html',
+        controller: 'GroupPatternDetailController',
+        controllerAs: 'groupPatternDetailVm',
         resolve: {
-          currentGroupPattern: function($stateParams, GroupPattern) {
+          currentGroupPattern: function($stateParams, groupPatternService) {
             if ($stateParams.id) {
-              return GroupPattern.get($stateParams.id);
+              return groupPatternService.get($stateParams.id);
             }
           },
-          models: function(GroupPattern) {
-            return GroupPattern.getAllModels();
+          models: function(groupPatternService) {
+            return groupPatternService.getAllModels();
           }
         }
       })

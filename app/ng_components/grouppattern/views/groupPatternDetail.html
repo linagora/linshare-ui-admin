@@ -1,10 +1,10 @@
 <div class="box box-primary">
   <div class="box-header">
-    <h3 class="box-title" x-ng-if="state === 'create'">
+    <h3 class="box-title" x-ng-if="groupPatternDetailVm.state === 'create'">
       {{ 'GROUP_PATTERNS.BOX_FORM.TITLE_CREATION' | translate }}
     </h3>
-    <h3 class="box-title" x-ng-if="state === 'edit'">
-      {{groupPattern.label}}
+    <h3 class="box-title" x-ng-if="groupPatternDetailVm.state === 'edit'">
+      {{groupPatternDetailVm.groupPattern.label}}
     </h3>
     <div class="pull-right box-tools">
       <a class="list btn-back" x-ui-sref="grouppattern.list" tooltip="{{'COMMON.BASIC_FORM.BUTTON_CLOSE' | translate}}">
@@ -12,34 +12,35 @@
       </a>
     </div>
   </div>
-  <form class="form" name="groupPatternForm" role="form" novalidate x-ls-form-submit="submit()" x-ls-form-attempt>
+  <form class="form" name="groupPatternForm" role="form" novalidate x-ls-form-submit="groupPatternDetailVm.submit()" x-ls-form-attempt>
     <fieldset>
       <div class="box-body">
-        <div class="row">
-          <div class="form-group col-sm-5" x-ng-show="state==='create'">
+        <div class="row" x-ng-if="groupPatternDetailVm.models.length > 1">
+          <div class="form-group col-sm-5" x-ng-show="groupPatternDetailVm.state === 'create'">
             <label for="modelSelector">
               {{ 'GROUP_PATTERNS.BOX_FORM.LABEL_MODEL_SELECTOR' | translate }}
             </label>
-            <select id="modelSelector" class="form-control" x-ng-model="modelSelector" x-ng-options="model as model.label for model in models | orderBy:'label'">
+            <select id="modelSelector" class="form-control" x-ng-model="groupPatternDetailVm.modelSelector"
+              x-ng-options="model as model.label for model in groupPatternDetailVm.models | orderBy:'label'">
             </select>
           </div>
         </div>
         <div class="row">
           <div class="col-md-7">
-            <div x-ng-if="state === 'create'">
+            <div x-ng-if="groupPatternDetailVm.state === 'create'">
               <div class="form-group" x-ng-class="{'has-error': groupPatternForm.label.$invalid &&
                     (groupPatternForm.label.$dirty || ls.groupPatternForm.attempted)}">
                 <label for="label">
                   {{ 'GROUP_PATTERNS.BOX_FORM.LABEL_IDENTIFIER' | translate }}
                 </label>
-                <input id="label" name="label" class="form-control" type="text" required x-ng-model="groupPattern.label">
+                <input id="label" name="label" class="form-control" type="text" required x-ng-model="groupPatternDetailVm.groupPattern.label">
               </div>
             </div>
             <div class="form-group">
               <label for="description">
                 {{ 'GROUP_PATTERNS.BOX_FORM.LABEL_DESCRIPTION' | translate }}
               </label>
-              <textarea id="description" name="description" class="form-control" x-ng-model="groupPattern.description">
+              <textarea id="description" name="description" class="form-control" x-ng-model="groupPatternDetailVm.groupPattern.description">
               </textarea>
             </div>
             <div class="form-group" x-ng-class="{'has-error': groupPatternForm.searchAllGroupsQuery.$invalid &&
@@ -47,7 +48,7 @@
               <label for="searchAllGroupsQuery">
                 {{ 'GROUP_PATTERNS.BOX_FORM.SEARCH_ALL_GROUPS_QUERY' | translate }}
               </label>
-              <textarea id="searchAllGroupsQuery" name="searchAllGroupsQuery" class="form-control" required x-ng-model="groupPattern.searchAllGroupsQuery">
+              <textarea id="searchAllGroupsQuery" name="searchAllGroupsQuery" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.searchAllGroupsQuery">
               </textarea>
               <p class="help-block">
                 {{ 'GROUP_PATTERNS.BOX_FORM.HELP_SEARCH_ALL_GROUPS_QUERY' | translate }}
@@ -58,7 +59,7 @@
               <label for="searchGroupQuery ">
                 {{ 'GROUP_PATTERNS.BOX_FORM.SEARCH_GROUP_QUERY' | translate }}
               </label>
-              <textarea id="searchGroupQuery " name="searchGroupQuery " class="form-control" required x-ng-model="groupPattern.searchGroupQuery ">
+              <textarea id="searchGroupQuery " name="searchGroupQuery " class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.searchGroupQuery ">
               </textarea>
               <p class="help-block">
                 {{ 'GROUP_PATTERNS.BOX_FORM.HELP_SEARCH_GROUP_QUERY' | translate }}
@@ -69,14 +70,13 @@
               <label for="findMemberQuery ">
                 {{ 'GROUP_PATTERNS.BOX_FORM.FIND_MEMBER_QUERY' | translate }}
               </label>
-              <textarea id="findMemberQuery" name="findMemberQuery" class="form-control" required x-ng-model="groupPattern.findMemberQuery">
+              <textarea id="findMemberQuery" name="findMemberQuery" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.findMemberQuery">
               </textarea>
               <p class="help-block">
                 {{ 'GROUP_PATTERNS.BOX_FORM.HELP_FIND_MEMBER_QUERY' | translate }}
               </p>
             </div>
           </div>
-
           <div class="col-md-5">
             <div class="well">
               <h4>
@@ -87,60 +87,49 @@
                 <label for="memberMail">
                   {{ 'GROUP_PATTERNS.BOX_FORM.MEMBER_MAIL' | translate }}
                 </label>
-                <input id="memberMail" name="memberMail" type="text" class="form-control" required x-ng-model="groupPattern.memberMail">
+                <input id="memberMail" name="memberMail" type="text" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.memberMail">
               </div>
               <div class="form-group" x-ng-class="{'has-error': groupPatternForm.memberFirstName.$invalid &&
                      (groupPatternForm.memberFirstName.$dirty || ls.groupPatternForm.attempted)}">
                 <label for="memberFirstName">
                   {{ 'GROUP_PATTERNS.BOX_FORM.MEMBER_FIRST_NAME' | translate }}
                 </label>
-                <input id="memberFirstName" name="memberFirstName" type="text" class="form-control" required x-ng-model="groupPattern.memberFirstName">
+                <input id="memberFirstName" name="memberFirstName" type="text" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.memberFirstName">
               </div>
               <div class="form-group" x-ng-class="{'has-error': groupPatternForm.memberLastName.$invalid &&
                      (groupPatternForm.memberLastName.$dirty || ls.groupPatternForm.attempted)}">
                 <label for="memberLastName">
                   {{ 'GROUP_PATTERNS.BOX_FORM.MEMBER_LAST_NAME' | translate }}
                 </label>
-                <input id="memberLastName" name="memberLastName" type="text" class="form-control" required x-ng-model="groupPattern.memberLastName">
+                <input id="memberLastName" name="memberLastName" type="text" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.memberLastName">
               </div>
-
-
               <div class="form-group" x-ng-class="{'has-error': groupPatternForm.groupPrefix.$invalid &&
                      (groupPatternForm.groupPrefix.$dirty || ls.groupPatternForm.attempted)}">
                 <label for="groupPrefix">
                   {{ 'GROUP_PATTERNS.BOX_FORM.GROUP_PREFIX' | translate }}
                 </label>
-                <input id="groupPrefix" name="groupPrefix" type="text" class="form-control" required x-ng-model="groupPattern.groupPrefix">
+                <input id="groupPrefix" name="groupPrefix" type="text" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.groupPrefix">
               </div>
               <div class="form-group" x-ng-class="{'has-error': groupPatternForm.groupName.$invalid &&
                      (groupPatternForm.groupName.$dirty || ls.groupPatternForm.attempted)}">
                 <label for="groupName">
                   {{ 'GROUP_PATTERNS.BOX_FORM.GROUP_NAME' | translate }}
                 </label>
-                <input id="groupName" name="groupName" type="text" class="form-control" required x-ng-model="groupPattern.groupName">
-              </div>
-              <div class="form-group" x-ng-class="{'has-error': groupPatternForm.groupDN.$invalid &&
-                     (groupPatternForm.groupDN.$dirty || ls.groupPatternForm.attempted)}">
-                <label for="groupDN">
-                  {{ 'GROUP_PATTERNS.BOX_FORM.GROUP_DN' | translate }}
-                </label>
-                <input id="groupDN" name="groupDN" type="text" class="form-control" required x-ng-model="groupPattern.groupDN">
+                <input id="groupName" name="groupName" type="text" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.groupName">
               </div>
               <div class="form-group" x-ng-class="{'has-error': groupPatternForm.groupMember.$invalid &&
                      (groupPatternForm.groupMember.$dirty || ls.groupPatternForm.attempted)}">
                 <label for="groupMember">
                   {{ 'GROUP_PATTERNS.BOX_FORM.GROUP_MEMBER' | translate }}
                 </label>
-                <input id="groupMember" name="groupMember" type="text" class="form-control" required x-ng-model="groupPattern.groupMember">
+                <input id="groupMember" name="groupMember" type="text" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.groupMember">
               </div>
-
-
               <div class="form-group" x-ng-class="{'has-error': groupPatternForm.searchPageSize.$invalid &&
                      (groupPatternForm.searchPageSize.$dirty || ls.groupPatternForm.attempted)}">
                 <label for="searchPageSize">
                   {{ 'GROUP_PATTERNS.BOX_FORM.LABEL_SEARCH_PAGE_SIZE' | translate }}
                 </label>
-                <input id="searchPageSize" name="searchPageSize" type="text" class="form-control" required x-ng-model="groupPattern.searchPageSize">
+                <input id="searchPageSize" name="searchPageSize" type="text" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.searchPageSize">
                 <p class="help-block">
                   {{ 'GROUP_PATTERNS.BOX_FORM.HELP_SEARCH_PAGE_SIZE' | translate }}
                 </p>
@@ -150,10 +139,10 @@
         </div>
       </div>
       <div class="box-footer">
-        <button id="delete" name="delete" type="button" class="btn btn-danger" x-ng-show="state==='edit'" x-ng-click="remove()">
+        <button id="delete" name="delete" type="button" class="btn btn-danger" x-ng-show="groupPatternDetailVm.state==='edit'" x-ng-click="groupPatternDetailVm.remove()">
           {{ 'GROUP_PATTERNS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate }}
         </button>
-        <button type="button" id="reset" name="reset" class="btn btn-warning" x-ng-click="reset()">
+        <button type="button" id="reset" name="reset" class="btn btn-warning" x-ng-click="groupPatternDetailVm.reset()">
           {{ 'GROUP_PATTERNS.BOX_FORM.FORM_ACTIONS.BUTTON_RESET' | translate }}
         </button>
         <button type="submit" id="submit" name="submit" class="btn btn-success">

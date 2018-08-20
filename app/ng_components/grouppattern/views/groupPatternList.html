@@ -15,10 +15,10 @@
   </div>
   <div class="box-body">
     <div class="description" collapse="!isCollapsed">
-      <x-ls-help content="getTemplate()"></x-ls-help>
+      <x-ls-help content="groupPatternListVm.getTemplate()"></x-ls-help>
     </div>
     <div class="table-responsive">
-      <table class="table table-striped table-hover" x-ng-table="tableParams">
+      <table class="table table-striped table-hover" x-ng-table="groupPatternListVm.tableParams">
         <tbody>
           <tr x-ng-repeat="groupPattern in $data">
             <td data-title="'GROUP_PATTERNS.BOX_LIST.TABLE.HEADER_IDENTIFIER' | translate" sortable="'label'">
