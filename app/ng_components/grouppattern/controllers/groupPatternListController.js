@@ -52,7 +52,7 @@
    * @memberOf linshareAdminApp.GroupPatternDetailController
    */
     function launchTableParamsInitiation() {
-      groupPatternListVm.tableParams = new ngTableParams(
+      groupPatternListVm.tableParams = new ngTableParams( /* jshint ignore: line */
         {
           page: 1,
           count: 10,
