@@ -243,7 +243,7 @@
                     x-ng-disabled="disableProvider"
                     x-ng-hide="isRootDomain"
                     x-ng-click="addProvider()">
-              <i class="fa fa-plus"></i> {{ 'MANAGE_DOMAINS.BOX_FORM.BUTTON_ADD_PROVIDER' | translate }}
+              <i class="fa fa-plus"></i> {{ 'MANAGE_DOMAINS.BOX_FORM.BUTTON_ADD_USER_PROVIDER' | translate }}
             </button>
           </div>
 
@@ -327,6 +327,110 @@
             </div>
             <a x-ui-sref="inconsistentuser.search({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})">
               <i>{{'MANAGE_DOMAINS.BOX_FORM.SEARCH_USER_ACCOUNT'| translate}}</i>
+            </a>
+          </div>
+
+          <div class="form-group" x-ng-show="domain.type!='GUESTDOMAIN'">
+            <button type="button" class="btn" x-ng-disabled="disableGroupProvider" x-ng-hide="isRootDomain" x-ng-click="addGroupProvider()">
+              <i class="fa fa-plus"></i> {{ 'MANAGE_DOMAINS.BOX_FORM.BUTTON_ADD_GROUP_PROVIDER' | translate }}
+            </button>
+          </div>
+          
+          <!-- Group Provider Form -->
+          <div class="well group-provider-form" x-ng-repeat="groupProvider in domain.groupProviders">
+            <button type="button" class="close" x-ng-click="deleteGroupProvider()">
+              &times;
+            </button>
+            <h4>
+              {{ 'MANAGE_DOMAINS.BOX_FORM.TITLE_GROUP_PROVIDER' | translate }}
+            </h4>
+          
+            <!-- LDAP Connection -->
+            <div class="form-group">
+              <label for="ldapConnection">
+                {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LDAP_CONNECTION' | translate }}
+              </label>
+              <div class="form-mydomain">
+                <select 
+                  id="connection"
+                  name="connection"
+                  class="form-control"
+                  required
+                  x-ng-model="domain.groupProviders[0].connection"
+                >
+                  <option
+                    x-ng-repeat="connection in allLdapConnections | orderBy: 'label'"
+                    value="{{connection}}"
+                    x-ng-selected="connection.uuid === domain.groupProviders[0].connection.uuid"
+                  >
+                    {{connection.label}}
+                  </option>
+                </select>   
+                <div class="box-tools-domain-manage">
+                  <a class="clear-btn blue" x-ui-sref="ldapconnection.detail({formState: 'create'})">
+                    <i class="fa fa-plus-circle fa-lg" tooltip="{{'COMMON.BASIC_FORM.BUTTON_ADD' | translate}}"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Domain Pattern -->
+            <div class="form-group">
+              <label for="groupPattern">
+                {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_GROUP_PATTERN' | translate }}
+              </label>
+              <div class="form-mydomain">
+                <select 
+                  id="pattern"
+                  name="pattern"
+                  class="form-control"
+                  required
+                  x-ng-model="domain.groupProviders[0].pattern"
+                >
+                  <option
+                    x-ng-repeat="pattern in groupPatterns | orderBy: 'label'"
+                    value="{{pattern}}"
+                    x-ng-selected="pattern.uuid === domain.groupProviders[0].pattern.uuid"
+                  >
+                    {{pattern.label}}
+                  </option>
+                </select>
+                <div class="box-tools-domain-manage">
+                  <a class="clear-btn blue" x-ui-sref="grouppattern.detail({formState: 'create'})">
+                    <i class="fa fa-plus-circle fa-lg" tooltip="{{'COMMON.BASIC_FORM.BUTTON_ADD' | translate}}"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          
+            <!-- Base Dn -->
+            <div class="form-group" x-ng-class="{'has-error': domainEditForm.baseDn.$invalid &&
+                       (domainEditForm.baseDn.$dirty || ls.domainEditForm.attempted)}">
+              <a class="clear-btn blue" x-ng-click="isCollapsed = !isCollapsed" x-ng-class="{'active': isCollapsed}">
+                <i class="fa fa-info-circle fa-lg"></i>
+              </a>
+              <label for="baseDn">
+                {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_BASE_DN' | translate }}
+              </label>
+              <div class="description" collapse="!isCollapsed">
+                <x-ls-help content="'my-domain/BASE_DN'"></x-ls-help>
+              </div>
+              <input id="baseDn" name="baseDn" type="text" class="form-control" required x-ng-model="groupProvider.baseDn">
+            </div>
+            <div class="form-group">
+              <label for="automaticUserCreation">
+                <input id="automaticUserCreation" name="automaticUserCreation" type="checkbox" x-ng-model="groupProvider.automaticUserCreation"/>
+                {{'MANAGE_DOMAINS.BOX_FORM.LABEL_AUTOMATIC_USER_CREATION' | translate}}
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="forceCreation">
+                <input id="forceCreation" name="forceCreation" type="checkbox" x-ng-model="groupProvider.forceCreation"/>
+                {{'MANAGE_DOMAINS.BOX_FORM.LABEL_FORCE_CREATION' | translate}}
+              </label>
+            </div>
+            <a x-ui-sref="inconsistentuser.search({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})">
+              <i>{{'MANAGE_DOMAINS.BOX_FORM.SEARCH_GROUP'| translate}}</i>
             </a>
           </div>
 

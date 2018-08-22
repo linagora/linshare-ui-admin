@@ -1112,6 +1112,11 @@ input:checked + .slider:before {
   }
 }
 
+.group-provider-form {
+  max-width: 600px;
+  margin: 0 auto 10px;
+}
+
 /******************
   Manage Quota graph
 ******************/

@@ -3,11 +3,12 @@
 angular.module('linshareAdminApp')
   .controller('DomainDetailCtrl',
     ['_', '$rootScope', '$scope', '$log', '$modal', '$state', '$translate', 'Notification', 'selectOptions',
-      'currentDomain', 'authenticatedUser', 'Domain', 'DomainPolicy', '_allWelcomeMessages',
+      'currentDomain', 'authenticatedUser', 'Domain', 'DomainPolicy', '_allWelcomeMessages', 'groupPatterns',
+      '_allLdapConnections',
     // TODO: Should dispatch some function to other service or controller
     /* jshint maxparams: false */
     function(_, $rootScope, $scope, $log, $modal, $state, $translate, Notification, selectOptions, currentDomain,
-      authenticatedUser, Domain, DomainPolicy, _allWelcomeMessages) {
+      authenticatedUser, Domain, DomainPolicy, _allWelcomeMessages, groupPatterns, _allLdapConnections) {
       if (currentDomain) {
         $scope.state = $state.params.formState;
         $scope.ldapConnections = selectOptions.ldapConnectionIds;
@@ -35,8 +36,56 @@ angular.module('linshareAdminApp')
         $scope.isSuperAdmin = authenticatedUser.role === 'SUPERADMIN';
         $scope.isRootDomain = currentDomain.type === 'ROOTDOMAIN';
         $scope.disableProvider = ($scope.isRootDomain || currentDomain.providers.length !== 0);
+        $scope.disableGroupProvider = ($scope.isRootDomain ||
+          (currentDomain.groupProviders && currentDomain.groupProviders.length !== 0));
+        $scope.groupPatterns = _.map(groupPatterns.plain(), function(groupPattern) {
+          return {
+            uuid: groupPattern.uuid,
+            label: groupPattern.label
+          };
+        });
+        $scope.allLdapConnections = _.map(_allLdapConnections.plain(), function(ldapConnection) {
+          return {
+            uuid: ldapConnection.uuid,
+            label: ldapConnection.label
+          };
+        });
       }
+      $scope.addGroupProvider = addGroupProvider;
+      $scope.deleteGroupProvider = deleteGroupProvider;
 
+      /**
+       * @name addGroupProvider
+       * @desc Initialize and add group provider to domain object
+       * @memberOf linshareAdminApp.DomainDetailCtrl
+       */
+      function addGroupProvider() {
+        if (!$scope.disableGroupProvider) {
+          $scope.domain.groupProviders = [{
+            baseDn: '',
+            automaticUserCreation: false,
+            forceCreation: false
+          }];
+          $scope.disableGroupProvider = true;
+        } else {
+          $log.error('DomainDetailCtrl.addGroupProvider - Try to add more than one groups provider');
+        }
+      }
+      
+      /**
+       * @name deleteGroupProvider
+       * @desc Remove group provider from domain object
+       * @memberOf linshareAdminApp.DomainDetailCtrl
+       */
+      function deleteGroupProvider() {
+        if ($scope.disableGroupProvider) {
+          $scope.domain.groupProviders.pop();
+          $scope.disableGroupProvider = false;
+        } else {
+          $log.error('DomainDetailCtrl.deleteGroupProvider - Try to delete an non existing groups provider');
+        }
+      }
+      
       $scope.addProvider = function() {
         if (!$scope.disableProvider) {
           $scope.domain.providers.push({
@@ -57,7 +106,7 @@ angular.module('linshareAdminApp')
           $log.error('Try to delete an non existing provider');
         }
       };
-
+   
       var createPolicy = function(label) {
         $scope.domainPolicy = {
           notification: false,
@@ -88,6 +137,16 @@ angular.module('linshareAdminApp')
 
       $scope.submit = function() {
         if ($scope.state === 'edit') {
+          if($scope.domain.groupProviders[0]) {
+            if(typeof $scope.domain.groupProviders[0].connection === 'string') {
+              $scope.domain.groupProviders[0].connection = JSON.parse($scope.domain.groupProviders[0].connection);
+            }
+  
+            if(typeof $scope.domain.groupProviders[0].pattern === 'string') {
+              $scope.domain.groupProviders[0].pattern = JSON.parse($scope.domain.groupProviders[0].pattern);
+            }
+          }
+
           Domain.update($scope.domain);
         } else if ($scope.state === 'create') {
           if ($scope.domain.policy.identifier === 'create_new_policy') {

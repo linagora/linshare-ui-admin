@@ -649,6 +649,9 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
             templateUrl: 'ng_components/domain/domain_detail.tpl.html',
             controller: 'DomainDetailCtrl',
             resolve: {
+              groupPatterns: function(groupPatternService) {
+                return groupPatternService.getAll();
+              },
               selectOptions: function(_allLdapConnections, _allDomainPatterns, _allDomainPolicies, _allMailConfigs,
                 _allMimePolicies, _enumRole, _enumLanguage, _enumSupportedLanguage) {
                 return {
