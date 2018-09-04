@@ -4,6 +4,7 @@ angular.module('linshareAdminApp')
   .controller('ThreadDetailCtrl', [
     '_', '$rootScope', '$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
     'currentThread',
+    /* jshint maxparams: false */
     function(
       _, $rootScope, $scope, $filter, $log, $state, ngTableParams, Thread, ThreadMember, User, currentThread
     ) {
