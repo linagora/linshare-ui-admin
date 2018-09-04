@@ -46,7 +46,7 @@ angular.module('linshareAdminApp')
           });
           modalInstance.result.then(
             function validate() {
-              Restangular.all('users').post(user).then(function(user) {
+              User.createUser(user).then(function(user) {
                 $state.go('user.detail', {uuid: user.uuid});
               });
             }, function cancel() {

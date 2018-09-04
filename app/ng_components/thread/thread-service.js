@@ -3,20 +3,20 @@
 angular.module('linshareAdminApp')
   .factory('Thread', ['$q', '$log', 'Restangular', 'Notification',
     function($q, $log, Restangular, Notification) {
-      //var self = this;
+      var restUrl = 'shared_space_nodes';
 
       // Public API here
       return {
         getAll: function(pattern) {
           $log.debug('Thread:getAll');
           if (pattern == null) {
-            return Restangular.all('threads').getList();
+            return Restangular.all(restUrl).getList();
           }
-          return Restangular.all('threads').getList({pattern:pattern});
+          return Restangular.all(restUrl).getList({pattern:pattern});
         },
         get: function(id) {
           $log.debug('Thread:get');
-          return Restangular.one('threads', id).get();
+          return Restangular.one(restUrl, id).get();q
         },
         update: function(thread) {
           $log.debug('Thread:update');

@@ -50,12 +50,20 @@
               </span>
               </div>
             </div>
-            <label class="checkbox-inline">{{"THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ADMIN" | translate}}
-              <input type="checkbox" ng-model="userDefaultAdmin" value="userDefaultAdmin">
-            </label>
-            <label class="checkbox-inline">{{"THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_READ_ONLY" | translate}}
-              <input type="checkbox" ng-model="userDefaultReadOnly" value="userDefaultReadOnly">
-            </label>
+            <select
+              x-ng-model="selectedRole"
+              id="role"
+              name="role"
+              class="form-control"
+            >
+              <option
+                ng-repeat="role in roles"
+                value="{{role}}"
+                ng-selected="role.uuid === selectedRole.uuid"
+              >
+                {{'THREADS.BOX_MEMBERS_LIST.ROLES' + '.' + role.name | translate}}
+              </option>
+            </select>
           </div><br />
           <div class="form-group">
             <div class="table-responsive">
@@ -78,20 +86,22 @@
                     </span>
                   </td>
                   <td class="col-sm-1"
-                      data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_READ_ONLY' | translate"
-                      sortable="'readonly'">
-                    <input type="checkbox"
-                        x-ng-model="threadMember.readonly"
-                        x-ng-disabled="threadMember.admin"
-                        x-ng-checked="!threadMember.admin && threadMember.readonly"
-                        x-ng-change="updateMember(threadMember)" />
-                  </td>
-                  <td class="col-sm-1"
-                      data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ADMIN' | translate"
-                      sortable="'admin'">
-                    <input type="checkbox"
-                        x-ng-model="threadMember.admin"
-                        x-ng-change="updateMember(threadMember)" />
+                      data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ADMIN' | translate">
+                    <select
+                      ng-change="updateMember(threadMember)"
+                      x-ng-model="threadMember.role"
+                      id="role"
+                      name="role"
+                      class="form-control"
+                    >
+                      <option
+                        ng-repeat="role in roles"
+                        value="{{role}}"
+                        ng-selected="role.uuid === threadMember.role.uuid"
+                      >
+                        {{'THREADS.BOX_MEMBERS_LIST.ROLES' + '.' + role.name | translate}}
+                      </option>
+                    </select>
                   </td>
                   <td class="col-sm-2"
                       data-title="'THREADS.BOX_MEMBERS_LIST.TABLE.HEADER_ACTIONS' | translate">

@@ -11,6 +11,11 @@ angular.module('linshareAdminApp')
           $log.debug('User:autocomplete');
           return Restangular.all('users').one('autocomplete', pattern).get();
         },
+        createUser: function(userDto) {
+          $log.debug('User:createUser');
+
+          return Restangular.all('users').post(userDto);
+        },
         search: function(userSearchDto) {
           $log.debug('User:search');
           return Restangular.all('users').customPOST(userSearchDto, 'search').then(function(users) {

@@ -5,6 +5,36 @@ angular.module('linshareAdminApp')
     ['$rootScope', '$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
       'currentThread',
     function($rootScope, $scope, $filter, $log, $state, ngTableParams, Thread, ThreadMember, User, currentThread) {
+      activate();
+
+      ////////////
+
+      /**
+       * @name activate
+       * @desc Activation function of the controller, launch at every instantiation
+       * @memberOf linshareAdminApp.ThreadDetailCtrl
+       */
+      function activate () {
+        getRolesList();
+      }
+      
+      /**
+       * @name getRolesList
+       * @desc Get roles list from server
+       * @memberOf linshareAdminApp.ThreadDetailCtrl
+       */
+      function getRolesList() {
+        ThreadMember.getRoles().then(function(roles) {
+          $scope.roles = _.map(roles.plain(), function(role) {
+            return {
+              uuid: role.uuid,
+              name: role.name
+            };
+          });
+          $scope.selectedRole = $scope.roles[0];
+        });
+      }
+      
       $scope.thread = currentThread;
       $scope.search = $state.params.search;
       $scope.reloadList = function() {
@@ -22,8 +52,9 @@ angular.module('linshareAdminApp')
         Thread.update($scope.thread);
       };
       $scope.addMember = function(member) {
-        member.admin = $scope.userDefaultAdmin;
-        member.readonly = $scope.userDefaultReadOnly;
+        (typeof $scope.selectedRole === 'string') ?
+          member.role = JSON.parse($scope.selectedRole) : member.role = $scope.selectedRole;
+
         ThreadMember.add($scope.thread, member).then(function() {
           $scope.reloadList();
           $scope.userToAdd = undefined;
@@ -44,6 +75,9 @@ angular.module('linshareAdminApp')
         });
       };
       $scope.updateMember = function(member) {
+        if(typeof member.role === 'string') {
+          member.role = JSON.parse(member.role);
+        }
         ThreadMember.update(member);
       };
       $scope.deleteMember = function(member) {
