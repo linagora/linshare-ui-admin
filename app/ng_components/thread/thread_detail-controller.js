@@ -2,9 +2,9 @@
 
 angular.module('linshareAdminApp')
   .controller('ThreadDetailCtrl',
-    ['$rootScope', '$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
-      'currentThread',
-    function($rootScope, $scope, $filter, $log, $state, ngTableParams, Thread, ThreadMember, User, currentThread) {
+              ['_', '$rootScope', '$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
+               'currentThread',
+               function(_, $rootScope, $scope, $filter, $log, $state, ngTableParams, Thread, ThreadMember, User, currentThread) {
       activate();
 
       ////////////
@@ -17,7 +17,7 @@ angular.module('linshareAdminApp')
       function activate () {
         getRolesList();
       }
-      
+
       /**
        * @name getRolesList
        * @desc Get roles list from server
@@ -34,7 +34,7 @@ angular.module('linshareAdminApp')
           $scope.selectedRole = $scope.roles[0];
         });
       }
-      
+
       $scope.thread = currentThread;
       $scope.search = $state.params.search;
       $scope.reloadList = function() {
@@ -52,8 +52,8 @@ angular.module('linshareAdminApp')
         Thread.update($scope.thread);
       };
       $scope.addMember = function(member) {
-        (typeof $scope.selectedRole === 'string') ?
-          member.role = JSON.parse($scope.selectedRole) : member.role = $scope.selectedRole;
+        member.role = (typeof $scope.selectedRole === 'string') ?
+          JSON.parse($scope.selectedRole) : member.role = $scope.selectedRole;
 
         ThreadMember.add($scope.thread, member).then(function() {
           $scope.reloadList();
@@ -119,4 +119,3 @@ angular.module('linshareAdminApp')
       });
     }]
   );
-

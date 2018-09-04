@@ -16,7 +16,7 @@ angular.module('linshareAdminApp')
         },
         get: function(id) {
           $log.debug('Thread:get');
-          return Restangular.one(restUrl, id).get();q
+          return Restangular.one(restUrl, id).get();
         },
         update: function(thread) {
           $log.debug('Thread:update');

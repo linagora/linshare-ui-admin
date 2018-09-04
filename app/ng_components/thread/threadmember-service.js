@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('ThreadMember', ['$log', 'Restangular', 'User',
-    function ($log, Restangular, User) {
+  .factory('ThreadMember', ['_', '$log', 'Restangular', 'User',
+      function (_, $log, Restangular, User) {
       var restUrl = 'shared_space_members';
 
       function mapServerDataToClientData(member) {
@@ -85,7 +85,7 @@ angular.module('linshareAdminApp')
                 lastName: createdUser.lastName
               }
             };
-  
+
             return Restangular.all(restUrl).post(threadMember);
           });
         },
@@ -117,4 +117,3 @@ angular.module('linshareAdminApp')
     }
   ]
   );
-
