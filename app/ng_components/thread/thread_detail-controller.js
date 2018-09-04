@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .controller('ThreadDetailCtrl',
-              ['_', '$rootScope', '$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
-               'currentThread',
-               function(_, $rootScope, $scope, $filter, $log, $state, ngTableParams, Thread, ThreadMember, User, currentThread) {
+  .controller('ThreadDetailCtrl', [
+    '_', '$rootScope', '$scope', '$filter', '$log', '$state', 'ngTableParams', 'Thread', 'ThreadMember', 'User',
+    'currentThread',
+    function(
+      _, $rootScope, $scope, $filter, $log, $state, ngTableParams, Thread, ThreadMember, User, currentThread
+    ) {
       activate();
 
       ////////////
