@@ -108,7 +108,7 @@
                 <label for="groupPrefix">
                   {{ 'GROUP_PATTERNS.BOX_FORM.GROUP_PREFIX' | translate }}
                 </label>
-                <input id="groupPrefix" name="groupPrefix" type="text" class="form-control" required x-ng-model="groupPatternDetailVm.groupPattern.groupPrefix">
+                <input id="groupPrefix" name="groupPrefix" type="text" class="form-control" x-ng-model="groupPatternDetailVm.groupPattern.groupPrefix">
               </div>
               <div class="form-group" x-ng-class="{'has-error': groupPatternForm.groupName.$invalid &&
                      (groupPatternForm.groupName.$dirty || ls.groupPatternForm.attempted)}">
