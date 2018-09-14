@@ -136,17 +136,17 @@ angular.module('linshareAdminApp')
       };
 
       $scope.submit = function() {
-        if ($scope.state === 'edit') {
-          if($scope.domain.groupProviders[0]) {
-            if(typeof $scope.domain.groupProviders[0].connection === 'string') {
-              $scope.domain.groupProviders[0].connection = JSON.parse($scope.domain.groupProviders[0].connection);
-            }
-  
-            if(typeof $scope.domain.groupProviders[0].pattern === 'string') {
-              $scope.domain.groupProviders[0].pattern = JSON.parse($scope.domain.groupProviders[0].pattern);
-            }
+        if($scope.domain.groupProviders[0]) {
+          if(typeof $scope.domain.groupProviders[0].connection === 'string') {
+            $scope.domain.groupProviders[0].connection = JSON.parse($scope.domain.groupProviders[0].connection);
           }
 
+          if(typeof $scope.domain.groupProviders[0].pattern === 'string') {
+            $scope.domain.groupProviders[0].pattern = JSON.parse($scope.domain.groupProviders[0].pattern);
+          }
+        }
+
+        if ($scope.state === 'edit') {
           Domain.update($scope.domain);
         } else if ($scope.state === 'create') {
           if ($scope.domain.policy.identifier === 'create_new_policy') {
