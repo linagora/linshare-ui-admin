@@ -1,0 +1,22 @@
+stages:
+  - build
+
+.curl-tpl: &curl-tpl
+  variables:
+    GIT_STRATEGY: none
+  tags:
+    - curl
+
+check:
+  image: docker-registry.linagora.com:5000/linshare-snapshots/linshare-build-helper:latest
+  stage: build
+  tags:
+      - docker
+  script:
+    - check_author.py check "${GITLAB_USER_EMAIL}" "${GITLAB_USER_NAME}" --no-accents
+
+build:
+  <<: *curl-tpl
+  stage: build
+  script:
+    - echo skip
