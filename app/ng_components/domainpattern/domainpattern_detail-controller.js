@@ -4,6 +4,10 @@ angular.module('linshareAdminApp')
   .controller('DomainPatternDetailCtrl',
     ['$scope', '$state', '$modal', '$log', 'DomainPattern', 'models', 'currentDomainPattern',
     function($scope, $state, $modal, $log, DomainPattern, models, currentDomainPattern) {
+      if (!currentDomainPattern) {
+        $state.go('domainpattern.list');
+      }
+
       $scope.state = $state.params.formState;
       $scope.domainPattern = currentDomainPattern || {};
       if ($scope.state === 'create') {
@@ -60,4 +64,3 @@ angular.module('linshareAdminApp')
       }
     }]
   );
-

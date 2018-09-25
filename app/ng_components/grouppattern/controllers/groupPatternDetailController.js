@@ -53,6 +53,10 @@
      * @memberOf linshareAdminApp.GroupPatternDetailController
      */
     function activate() {
+      if (!currentGroupPattern) {
+        $state.go('grouppattern.list');
+      }
+
       if (groupPatternDetailVm.state === 'create') {
         var emptyModel = groupPatternService.getEmptyModel();
         groupPatternDetailVm.models = models;

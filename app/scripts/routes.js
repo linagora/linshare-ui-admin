@@ -582,10 +582,15 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
         controller: 'GroupPatternDetailController',
         controllerAs: 'groupPatternDetailVm',
         resolve: {
-          currentGroupPattern: function($stateParams, groupPatternService) {
-            if ($stateParams.id) {
-              return groupPatternService.get($stateParams.id);
-            }
+          currentGroupPattern: function($state, $stateParams, groupPatternService) {
+            return $stateParams.id && groupPatternService
+              .get($stateParams.id)
+              .then(function(currentGroupPattern) {
+                return currentGroupPattern;
+              })
+              .catch(function(erro) {
+                $state.go('grouppattern.list');
+              });
           },
           models: function(groupPatternService) {
             return groupPatternService.getAllModels();
@@ -612,10 +617,15 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
         templateUrl: 'ng_components/domainpattern/domainpattern_detail.tpl.html',
         controller: 'DomainPatternDetailCtrl',
         resolve: {
-          currentDomainPattern: function($stateParams, DomainPattern) {
-            if ($stateParams.id) {
-              return DomainPattern.get($stateParams.id);
-            }
+          currentDomainPattern: function($stateParams, DomainPattern, $state) {
+            return $stateParams.id && DomainPattern
+              .get($stateParams.id)
+              .then(function(currentDomainPattern) {
+                return currentDomainPattern;
+              })
+              .catch(function(erro) {
+                $state.go('domainpattern.list');
+              });
           },
           models: function(DomainPattern) {
             return DomainPattern.getAllModels();
