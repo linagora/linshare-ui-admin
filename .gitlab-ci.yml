@@ -16,7 +16,6 @@ check:
     - check_author.py check "${GITLAB_USER_EMAIL}" "${GITLAB_USER_NAME}" --no-accents
 
 build:
-build:
   <<: *curl-tpl
   stage: build
   script:
