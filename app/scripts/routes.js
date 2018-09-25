@@ -588,7 +588,7 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
               .then(function(currentGroupPattern) {
                 return currentGroupPattern;
               })
-              .catch(function(erro) {
+              .catch(function() {
                 $state.go('grouppattern.list');
               });
           },
@@ -623,7 +623,7 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
               .then(function(currentDomainPattern) {
                 return currentDomainPattern;
               })
-              .catch(function(erro) {
+              .catch(function() {
                 $state.go('domainpattern.list');
               });
           },
