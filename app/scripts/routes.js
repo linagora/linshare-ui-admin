@@ -583,14 +583,16 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
         controllerAs: 'groupPatternDetailVm',
         resolve: {
           currentGroupPattern: function($state, $stateParams, groupPatternService) {
-            return $stateParams.id && groupPatternService
+            return $stateParams.id ?
+              $stateParams.id !== '' && groupPatternService
               .get($stateParams.id)
               .then(function(currentGroupPattern) {
                 return currentGroupPattern;
               })
               .catch(function() {
                 $state.go('grouppattern.list');
-              });
+              }) :
+            {};
           },
           models: function(groupPatternService) {
             return groupPatternService.getAllModels();
@@ -618,14 +620,16 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
         controller: 'DomainPatternDetailCtrl',
         resolve: {
           currentDomainPattern: function($stateParams, DomainPattern, $state) {
-            return $stateParams.id && DomainPattern
+            return  $stateParams.id ?
+              $stateParams.id !== '' && DomainPattern
               .get($stateParams.id)
               .then(function(currentDomainPattern) {
                 return currentDomainPattern;
               })
               .catch(function() {
                 $state.go('domainpattern.list');
-              });
+              }) :
+            {};
           },
           models: function(DomainPattern) {
             return DomainPattern.getAllModels();
