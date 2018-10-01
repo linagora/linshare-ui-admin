@@ -63,15 +63,14 @@ angular.module('linshareAdminApp')
         if (!$scope.disableGroupProvider) {
           $scope.domain.groupProviders = [{
             baseDn: '',
-            automaticUserCreation: false,
-            forceCreation: false
+            searchInOtherDomains: false
           }];
           $scope.disableGroupProvider = true;
         } else {
           $log.error('DomainDetailCtrl.addGroupProvider - Try to add more than one groups provider');
         }
       }
-      
+
       /**
        * @name deleteGroupProvider
        * @desc Remove group provider from domain object
@@ -136,7 +135,7 @@ angular.module('linshareAdminApp')
       };
 
       $scope.submit = function() {
-        if($scope.domain.groupProviders[0]) {
+        if($scope.domain.groupProviders && $scope.domain.groupProviders[0]) {
           if(typeof $scope.domain.groupProviders[0].connection === 'string') {
             $scope.domain.groupProviders[0].connection = JSON.parse($scope.domain.groupProviders[0].connection);
           }
