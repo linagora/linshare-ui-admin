@@ -230,6 +230,70 @@
           }
         }
       },
+      "DRIVE": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez créé un nouveau DRIVE : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a créé un nouveau DRIVE : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          }
+        },
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé le DRIVE : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a supprimé le DRIVE : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez modifié le DRIVE : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a modifié le DRIVE : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        }
+      },
+      "DRIVE_MEMBER": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez ajouté un nouveau membre : {{resourceName}} au DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a ajouté un nouveau membre : {{resourceName}} au DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          }
+        },
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé le membre : {{resourceName}} du DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a supprimé le membre : {{resourceName}} du DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez modifié le membre : {{resourceName}} du DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a modifié le membre : {{resourceName}} du DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        }
+      },
       "GUEST": {
         "CREATE": {
           "AUTHOR": {
@@ -564,6 +628,8 @@
       "GUEST": "Compte Invité",
       "SHARE_ENTRY": "Partage",
       "USER": "Utilisateur",
+      "DRIVE" : "Drive",
+      "DRIVE_MEMBER" : "Drive - Member",
       "WORKGROUP": "Groupe de Travail",
       "WORKGROUP_DOCUMENT": "Groupe de Travail - Fichier",
       "WORKGROUP_FOLDER": "Groupe de Travail - Dossier",
