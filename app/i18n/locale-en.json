@@ -944,6 +944,18 @@
       "WORK_GROUP__CREATION_RIGHT": {
         "NAME": "Creation right"
       },
+      "DRIVE__CAN_CREATE": {
+       "NAME": "DRIVE creation right",
+       "USE_EXTENDED_DESCRIPTION": "0",
+       "DESCRIPTION": "This functionality allows users and administrators to manage DRIVES",
+       "ADVANCED_DESCRIPTION": "",
+       "USER_OVERRIDE": "",
+       "ACTIVATION_POLICY": "",
+       "DELEGATION_POLICY": "",
+       "CONFIGURATION_POLICY": "",
+       "PARAMETER_NAME": "",
+       "PARAMETER_DESCRIPTION": ""
+      },
       "UPLOAD_REQUEST": {
         "NAME": "Upload request",
         "USE_EXTENDED_DESCRIPTION": "3",
