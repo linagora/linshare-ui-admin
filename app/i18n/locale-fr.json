@@ -949,10 +949,22 @@
       "WORK_GROUP__CREATION_RIGHT": {
         "NAME": "Droit de création"
       },
-      "DRIVE__CAN_CREATE": {
+      "WORK_GROUP__DRIVE_CAN_CREATE": {
       "NAME": "Droit de création d'un DRIVE",
       "USE_EXTENDED_DESCRIPTION": "0",
-      "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de gérer les DRIVES",
+      "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer les DRIVES",
+      "ADVANCED_DESCRIPTION": "",
+      "USER_OVERRIDE": "",
+      "ACTIVATION_POLICY": ".",
+      "DELEGATION_POLICY": "",
+      "CONFIGURATION_POLICY": "",
+      "PARAMETER_NAME": "",
+      "PARAMETER_DESCRIPTION": ""
+      },
+      "WORK_GROUP__FILE_EDITION": {
+      "NAME": "Droit de modification d'un fichier",
+      "USE_EXTENDED_DESCRIPTION": "0",
+      "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de modifier les fichiers",
       "ADVANCED_DESCRIPTION": "",
       "USER_OVERRIDE": "",
       "ACTIVATION_POLICY": ".",
