@@ -65,7 +65,8 @@
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install",
     "test": "grunt test",
-    "start": "grunt serve"
+    "start": "grunt serve",
+    "build": "grunt build"
   },
   "engines": {
     "node": ">=0.10.0"
