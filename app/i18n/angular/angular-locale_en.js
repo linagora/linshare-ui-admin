@@ -1,34 +1,34 @@
-'use strict';
+'использовать строго';
 angular.module('ngLocale', [], ['$provide', function($provide) {
-  var PLURAL_CATEGORY = {ZERO: 'zero', ONE: 'one', TWO: 'two', FEW: 'few', MANY: 'many', OTHER: 'other'};
+  var PLURAL_CATEGORY = {ZERO: 'ноль', ONE: 'один', TWO: 'два', FEW: 'несколько', MANY: 'mмного', OTHER: 'другие'};
   $provide.value('$locale', {
     'DATETIME_FORMATS': {
       'AMPMS': [
         'AM',
         'PM'
       ],
-      'DAY': [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
+      'Дни': [
+        'Воскресенье',
+        'Понедельник',
+        'Вторник',
+        'Среда',
+        'Четверг',
+        'Пятница',
+        'Суббота'
       ],
-      'MONTH': [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
+      'Месяцы': [
+        'Январь',
+        'Февраль',
+        'Март',
+        'Апрель',
+        'Май',
+        'Июнь',
+        'Июль',
+        'Август',
+        'Сентябрь',
+        'Октябрь',
+        'Ноябрь',
+        'Декабрь'
       ],
       'SHORTDAY': [
         'Sun',

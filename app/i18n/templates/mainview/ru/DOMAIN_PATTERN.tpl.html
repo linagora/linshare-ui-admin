@@ -1,0 +1,12 @@
+<div>
+	<p><strong>Модели домена</strong></p>
+	<p>После <a x-ui-sref="ldapconnection.list"> создайте подключения к каталогу LDAP</a>, необходимо создать модель домена.<br><br>
+		Этот шаблон позволит вам определить соответствие между полями имени, фамилии и электронной почты {{'COMMON.NAME' | translate}} и атрибуты вашего каталога.
+	{{ 'COMMON.NAME' | translate }} требует 4 разных запросов для правильной работы :</p>
+	<ul>
+		<li><strong>запрос LQL <i>(Ldap Query Language)</i> идентификации :</strong> запросить найти пользователя в каталоге на этапе аутентификации из введенного им идентификатора (по электронной почте)</li>
+		<li><strong>запрос LQL <i>(Ldap Query Language)</i> пользователь :</strong> запрос, чтобы найти пользователя в каталоге при поиске консультаций, редактирования, совместного использования, ...</li>
+		<li><strong>запрос LQL <i>(Ldap Query Language)</i> автозаполнение по всем атрибутам :</strong> permet l'autocomplétion d'un utilisateur à partir du motif saisi</li>
+		<li><strong>запрос LQL <i>(Ldap Query Language)</i> d'autocomplétion sur le nom et prénom :</strong> позволяет автозавершение пользователя из введенного шаблона</li>
+	</ul>
+</div>

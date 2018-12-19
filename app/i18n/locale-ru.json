@@ -1,0 +1,2533 @@
+{
+    "COMMON": {
+      "NAME": "LinShare",
+      "TITLE": "LinShare интерфейс администратора",
+      "BASIC_FORM": {
+        "BUTTON_ADD": "Добавить",
+        "BUTTON_CANCEL": "Отмена",
+        "BUTTON_CLOSE": "К списку",
+        "BUTTON_COPY": "Копировать",
+        "BUTTON_CREATE": "Создать",
+        "BUTTON_DELETE": "Удалить",
+        "BUTTON_DUPLICATE": "Дублировать",
+        "BUTTON_EDIT": "Изменить",
+        "BUTTON_LIST": "Список",
+        "BUTTON_RENDER": "Превью",
+        "BUTTON_RENDER_LIVE": "Превью (live)",
+        "BUTTON_RESET": "Отмена",
+        "BUTTON_SEARCH": "Поиск",
+        "BUTTON_SHOW": "Показать",
+        "BUTTON_SUBMIT": "Сохранить",
+        "LABEL_ACTIVE": "Активный",
+        "LABEL_ALL": "Все",
+        "LABEL_DESCRIPTION": "Описание",
+        "LABEL_EDITION": "Издание",
+        "LABEL_EMAIL": "E-mail",
+        "LABEL_FILTER": "Фильтровать по",
+        "LABEL_FIRST_NAME": "Имя",
+        "LABEL_IDENTIFIER": "Идентификатор",
+        "LABEL_INACTIVE": "Неактивный",
+        "LABEL_LAST_NAME": "Фамилия",
+        "LABEL_LEGEND": "Легенда",
+        "LABEL_MODIFICATION_DATE": "Обновлено",
+        "LABEL_NAME": "Название",
+        "LABEL_NONE": "Нет",
+        "LABEL_SELECT": "Выбрать всё",
+        "LABEL_TARGET_DOMAIN": "Целевой домен",
+        "LABEL_UNSELECT": "Отменить выбор",
+        "TEXT_COPY": "Копия ",
+        "TITLE_CREATION": "Создание"
+      },
+      "BASIC_CONFIRMATION_FORM": {
+        "TITLE": "Подтверждение",
+        "BUTTON_YES": "Да",
+        "BUTTON_NO": "Нет"
+      },
+      "NAVBAR": {
+        "LOGOUT": "Выйти",
+        "CHANGE_PASSWORD": "Поменять пароль",
+        "LANGUAGE": {
+          "SWITCH_TITLE": "Язык",
+          "ENGLISH": "Английский",
+          "FRENCH": "Французский",
+          "RUSSIAN": "TRANSLATE ME !!!!"
+        }
+      },
+      "SIDEBAR": {
+        "PLACEHOLDER_SEARCH": "Поиск ...",
+        "PRODUCT_VERSION": "Версия продукта",
+        "CORE_VERSION": "Основная версия"
+      },
+      "LOGIN_FORM": {
+        "TITLE": "Войти",
+        "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
+        "LABEL_PASSWORD": "Пароль",
+        "BAD_CREDENTIALS": "Неверные учетные данные",
+        "BUTTON_SUBMIT": "Подключение"
+      },
+      "TAB": {
+        "DOMAINS": "Домены",
+        "LDAP_CONNECTIONS": "Соединения LDAP",
+        "DOMAIN_PATTERNS": "Модели доменов",
+        "GROUP_PATTERNS": "Модели рабочих групп",
+        "MANAGE_DOMAINS": "Управление доменами",
+        "DOMAIN_ORDER": "Заказ домена",
+        "DOMAIN_POLICIES": "Правила обмена между доменами",
+        "PARAMETERS": "Настройки",
+        "FUNCTIONALITIES": "Функциональность",
+        "WELCOME_MESSAGES": "Приветственные сообщения",
+        "MIME_POLICIES": "Правила типа Mime",
+        "CONFIGURATION_POLICIES": "Правила конфигурации",
+        "MAILS": "E-mails",
+        "MAIL_LAYOUT": "Рассылка почты",
+        "MAIL_FOOTER": "Mail footer",
+        "MAIL_CONTENT": "Содержимое почты",
+        "MAIL_CONFIG": "Конфигурация почты",
+        "MAIL_ACTIVATION": "Активация почты",
+        "USERS": "Пользователи",
+        "MANAGE_USERS": "Управление пользователями",
+        "INCONSISTENT_USERS": "Непоследовательные пользователи",
+        "TECHNICAL_ACCOUNT": "Технические аккаунты",
+        "THREADS": "Рабочие группы",
+        "MAILING_LISTS": "Список адресатов",
+        "HISTORY": "История",
+        "UPLOAD_REQUEST": "Запрос на отправку",
+        "UPLOAD_PROPOSITION_FILTER": "Загрузить фильтрацию предложений",
+        "AUDIT": "Audit",
+        "AUDIT_V1": "Audit V1",
+        "MANAGE_QUOTA": "Управление квотами доменов",
+        "UPGRADES_TASKS": "Модернизация задач"
+      },
+      "NOTIFICATION": {
+        "SUCCESS": {
+          "COPY": "Копирование удалось",
+          "CREATE": "Создание удалось",
+          "UPDATE": "Обновление удалось",
+          "DELETE": "Удаление удалось",
+          "MIGRATION_SUCCEED": "Перемещение удалось"
+        },
+        "ERROR": {
+          "500": "Внутренняя ошибка сервера",
+          "502": "Служба в настоящее время недоступна (код HTTP 502).",
+          "503": "Служба в настоящее время недоступна (код HTTP 503).",
+          "1000": "Произошла ошибка, пожалуйста, свяжитесь с вашим @:COMMON.NAME администратором",
+          "2000": "Недопустимый пароль",
+          "2200": "Этот пользователь не существует или был удален",
+          "2209": "Перемещение не удалось: пользователь уже существует в целевом домене",
+          "4000": "Неверный идентификатор",
+          "62003": "Участник уже существует",
+          "13000": "Идентификатор домена уже существует",
+          "13001": "Идентификатор домена не найден",
+          "13002": "Недопустимый тип домена",
+          "13003": "Политика домена не найдена",
+          "13004": "Соединение LDAP не найдено",
+          "13005": "Не найден доменный образец",
+          "13006": "DN базы домена не найден",
+          "13007": "Домен еще не существует",
+          "13008": "Домен не существует",
+          "13009": "Правило междоменной связи уже существует.",
+          "13020": "Политики домена имеют тот же идентификатор, что и это поле.",
+          "13014": "Этот новый идентификатор шаблона домена уже существует.",
+          "13017": "Это соединение LDAP не может быть удалено, оно используется доменом",
+          "13018": "Этот шаблон домена нельзя удалить, он используется доменом",
+          "13019": "Домен, который вы пытаетесь удалить, связан с одним или несколькими правилами доступа к домену. Сначала удалите правила!",
+          "14000": "Функциональность не найдена. Он может отсутствовать в выбранном домене.",
+          "14004": "Функциональность не найдена. Он может отсутствовать в выбранном домене.",
+          "15000": "Узел хоста не включен",
+          "15666": "Ошибка сканирования фильтра XSS",
+          "16000": "Каталог недоступен",
+          "16666": "Эта конфигурация почты не может быть удалена, она используется доменом",
+          "16667": "Конфигурация почты не найдена",
+          "16668": "Невозможно создать конфигурацию почты",
+          "17000": "Неразрешенное действие",
+          "17400": "Настройки отправленные на сервер, неверные.",
+          "17666": "Этот почтовый контент не может быть удален, он используется конфигурацией почты",
+          "17667": "Содержимое почты не найдено",
+          "17668": "Модель нижнего колонтитула почты, связанная с текущим языком, не была найдена",
+          "17669": "Модель нижнего колонтитула почты, связанная с текущим языком, существует",
+          "17670": "Модель содержимого почты не может быть создана",
+          "17671": "Модель нижнего колонтитула почты, связанная с текущим языком, не может быть создана",
+          "18666": "Этот нижний колонтитул не может быть удален, он используется в конфигурации почты",
+          "18667": "Почтовый нижний колонтитул не найден",
+          "18668": "Модель нижнего колонтитула почты, связанная с текущим языком, не была найдена",
+          "18669": "Модель нижнего колонтитула почты, связанная с текущим языком, существует",
+          "18670": "Модель нижнего колонтитула почты не может быть создана",
+          "18671": "Модель нижнего колонтитула почты, связанная с текущим языком, не может быть создана",
+          "19666": "Это расположение почты не может быть удалено, оно используется почтовой конфигурацией",
+          "19667": "Расположение почты не найдено",
+          "19668": "Модель шаблона почты не может быть создана",
+          "19669": "Вы не имеете права удалять нижний колонтитул.",
+          "20000": "Произошла ошибка, обратитесь к администратору @: COMMON.NAME.",
+          "20001": "Неавторизованный веб-сервис",
+          "20003": "Webservice не найден",
+          "26000": "Группа не найдена",
+          "28405": "Вы не можете обновить ограниченного гостя без списка контактов",
+          "29000": "Технического аккаунта не существует",
+          "30000": "Правила типа MIME не найдены",
+          "35004": "Загрузка фильтра предложений не найдена",
+          "36001": "Это приветственное сообщение уже существует",
+          "36003": "Вам не разрешено использовать это приветственное сообщение",
+          "36004": "Приветственное сообщение не найдено",
+          "36005": "Вы пытаетесь обновить приветственное сообщение с неподдерживаемых языков",
+          "40404": "Задача обновления, которую вы пытаетесь получить, не найдена",
+          "40403": "У вас нет необходимых прав для обновления этой задачи обновления",
+          "48000": "Шаблон не может быть проанализирован из-за некоторой ошибки",
+          "48001": "Шаблон не может быть проанализирован из-за an исключения ввода",
+          "48002": "Шаблон не может быть проанализирован из-за исключения синтаксического анализа",
+          "48003": "Шаблон не может быть проанализирован из-за исключения свойства",
+          "48004": "Шаблон не может быть проанализирован из-за исключения обработки",
+          "48005": "Шаблон не может быть проанализирован из-за недопустимое исключение контекста",
+          "48006": "Шаблон отсутствует",
+          "MIGRATION_FAILED": "Ошибка миграции"
+        }
+      },
+      "ENUM": {
+        "DOMAIN_ACCESS_RULE_TYPE": {
+          "ALLOW_ALL": "Разрешить все",
+          "DENY_ALL": "Запретить все",
+          "ALLOW": "Разрешить",
+          "DENY": "Запретить"
+        },
+        "LANGUAGE": {
+          "FRENCH": "Французский",
+          "DUTCH": "Голландский",
+          "ENGLISH": "Английский"
+        },
+        "SUPPORTED_LANGUAGE": {
+          "FRENCH": "Французский",
+          "DUTCH": "Голландский",
+          "ENGLISH": "Английский",
+          "CREOLE": "Креольский",
+          "VIETNAMESE": "Вьетнамский"
+        },
+        "LOG_ACTION_V1": {
+          "FILE_UPLOAD": "Файл загружен",
+          "FILE_SHARE": "Файл отправлен",
+          "FILE_SHARE_WITH_ALERT_FOR_USD": "Общий доступ к файлу, отправленный с включенным предупреждением о перезагрузке файлов",
+          "FILE_EXPIRE": "Файл истек",
+          "FILE_DELETE": "Файл удален",
+          "FILE_UPDATE": "Файл обновлен",
+          "FILE_INCONSISTENCY": "Несоответствие файлов",
+          "SHARE_RECEIVED": "Общая папка получена",
+          "SHARE_EXPIRE": "Общая папка истелка",
+          "SHARE_DOWNLOAD": "Рассылка скачана",
+          "SHARE_DOWNLOADED": "Общая папка загружена",
+          "SHARE_COPY": "Общая папка скопирована",
+          "SHARE_DELETE": "Общая папка удалена",
+          "SHARE_WITH_USD_DOWNLOADED": "Все файлы в общей папке загружены",
+          "SHARE_WITH_USD_NOT_DOWNLOADED": "Вы получили уведомление по электронной почте, что по крайней мере один файл остается незагруженным",
+          "ANONYMOUS_SHARE_DOWNLOAD": "Секретная рассылка скачана",
+          "THREAD_CREATE": "Рабочая группа создана",
+          "THREAD_DELETE": "Рабочая группа удалена",
+          "THREAD_RENAME": "Рабочая группа переименована",
+          "THREAD_ADD_MEMBER": "Участник рабоччей группы добавлен",
+          "THREAD_REMOVE_MEMBER": "Участник рабочей группы удален",
+          "THREAD_UPLOAD_ENTRY": "Запись в рабочей группе загружена",
+          "THREAD_DOWNLOAD_ENTRY": "Запись рабочей группы загружена",
+          "THREAD_REMOVE_ENTRY": "Запись рабочей группы удалена",
+          "THREAD_REMOVE_INCONSISTENCY_ENTRY": "Запись несогласованности удалена из рабочей группы",
+          "USER_CREATE": "Польователь создан",
+          "USER_DELETE": "Пользователь удален",
+          "USER_EXPIRE": "Пользователь истек",
+          "USER_AUTH": "Пользовательская аутентификация",
+          "USER_AUTH_FAILED": "Аутентификация пользователя не удалась",
+          "USER_UPDATE": "Пользователь обновлен",
+          "USER_PURGE": "Очистка пользователя",
+          "FILE_SIGN": "Значок файла",
+          "FILE_ENCRYPT": "Шифрование файла",
+          "FILE_DECRYPT": "Дешифрование файла",
+          "FILE_WITH_VIRUS": "Файл с вирусом",
+          "ANTIVIRUS_SCAN_FAILED": "Сбой антивирусного сканирования",
+          "LIST_CREATE": "Список создан",
+          "LIST_DELETE": "Список удален",
+          "LIST_UPDATE": "Список обновлен",
+          "LIST_ADD_CONTACT": "Контакт добавлен в список",
+          "LIST_DELETE_CONTACT": "Контакт удален из списка",
+          "LIST_UPDATE_CONTACT": "Контакт обновлен"
+        },
+        "MAIL_CONTENT_TYPE": {
+          "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "Файл будет удален, так как он достигнет даты его истечения",
+          "GUEST_ACCOUNT_NEW_CREATION": "Новый гость получает ссылку активации для своей учетной записи",
+          "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "Гость получает ссылку для сброса пароля",
+          "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "Изменен пароль учетной записи гостя",
+          "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "Учетная запись гостя скоро истечет",
+          "SHARE_FILE_DOWNLOAD": "Получатель загрузил рассылку файла",
+          "SHARE_FILE_SHARE_DELETED": "Отправитель удалил свой файловый ресурс",
+          "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "Отправитель получает сводку своих файловых рассылок",
+          "SHARE_NEW_SHARE_FOR_RECIPIENT": "Получатель получает ссылку на общий доступ к файлам",
+          "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": "Рассылка файла отправителя истекает",
+          "SHARE_WARN_UNDOWNLOADED_FILESHARES": "Незагруженное напоминание об общем файле",
+          "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": "Рассылка скоро истечет, будучи незагруженной",
+          "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": "Срок действия рассылки истек и был удален системой",
+          "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "Владелец закрыл запрос на загрузку",
+          "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Получатель закрыл запрос на загрузку создателя",
+          "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": "Получатель удалил файл в общем доступе",
+          "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "Получатель не смог загрузить свой файл из-за недостаточного пространства",
+          "UPLOAD_REQUEST_UPLOADED_FILE": "Получатель загрузил файл в общем доступе",
+          "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "Рассылка запросов на загрузку будет закрыта",
+          "UPLOAD_REQUEST_WARN_EXPIRY": "Рассылка запросов на загрузку была закрыта",
+          "WORKGROUP_WARN_NEW_MEMBER": "Пользователь был добавлен в рабочую группу",
+          "WORKGROUP_WARN_UPDATED_MEMBER": "Права пользователся в рабочей группе быле обновлены",
+          "WORKGROUP_WARN_DELETED_MEMBER": "Пользователь был удален из рабочей группы",
+          "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "Пользователь получает уведомление, когда администратор создает постоянный токен доступа (ПЖД) для его аккаунта",
+          "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "Пользователь получает уведомление, когда администратор удаляет постоянный токен доступа (ПЖД) для его аккаунта"
+        },
+        "ROLE": {
+          "SIMPLE": "Простой",
+          "ADMIN": "Администратор",
+          "SUPERADMIN": "Супер администратор",
+          "SYSTEM": "Система",
+          "DELEGATION": "Делегация",
+          "UPLOAD_PROPOSITION": "Загрузить предложение",
+          "SAFE": "Безопасный"
+        },
+        "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {
+          "ANONYMOUS_SHARE_ENTRIES_CREATE": "Создать анонимный url",
+          "ANONYMOUS_SHARE_ENTRIES_DELETE": "Удалить анонимный url",
+          "ANONYMOUS_SHARE_ENTRIES_DOWNLOAD": "Загрузить анонимный url",
+          "ANONYMOUS_SHARE_ENTRIES_GET": "Получить анонимный url",
+          "ANONYMOUS_SHARE_ENTRIES_LIST": "Список анонимных URL-адресов",
+          "ANONYMOUS_SHARE_ENTRIES_UPDATE": "Обновить анонимный url",
+          "ANONYMOUS_SHARE_ENTRIES_DOWNLOAD_THUMBNAIL": "Загрузить иконку анонимного url",
+          "DOCUMENT_ENTRIES_CREATE": "Создать документ",
+          "DOCUMENT_ENTRIES_UPDATE": "Обновить документ",
+          "DOCUMENT_ENTRIES_DELETE": "Удалить документ",
+          "DOCUMENT_ENTRIES_GET": "Получить документ",
+          "DOCUMENT_ENTRIES_LIST": "Список документов",
+          "DOCUMENT_ENTRIES_DOWNLOAD": "Загрузить документ",
+          "DOCUMENT_ENTRIES_DOWNLOAD_THUMBNAIL": "Загрузить иконку документа",
+          "SAFE_DETAIL_CREATE": "Создать безопасную деталь",
+          "SAFE_DETAIL_DELETE": "Удалить безопасную деталь",
+          "SAFE_DETAIL_GET": "Получить безопасную деталь",
+          "SAFE_DETAIL_LIST": "Список всех безопасных деталей",
+          "SHARE_ENTRIES_CREATE": "Создать рассылку",
+          "SHARE_ENTRIES_DELETE": "Удалить рассылку",
+          "SHARE_ENTRIES_DOWNLOAD": "Загрузить рассылку",
+          "SHARE_ENTRIES_DOWNLOAD_THUMBNAIL": "Загрузить иконку записи",
+          "SHARE_ENTRIES_GET": "Получить рассылку",
+          "SHARE_ENTRIES_LIST": "Список рассылок",
+          "SHARE_ENTRIES_UPDATE": "Обновить рассылку",
+          "THREAD_ENTRIES_CREATE": "Создать вход в рабочую группу",
+          "THREAD_ENTRIES_DELETE": "Удалить вход в рабочую группу",
+          "THREAD_ENTRIES_DOWNLOAD": "Загрузить вход в рабочую группу",
+          "THREAD_ENTRIES_DOWNLOAD_THUMBNAIL": "Скачать иконку входа в рабочую группу",
+          "THREAD_ENTRIES_GET": "Получить вход в рабочую группу",
+          "THREAD_ENTRIES_LIST": "Список входов в рабочую группу",
+          "THREAD_ENTRIES_UPDATE": "Обновить вход в рабочую группу",
+          "THREAD_MEMBERS_CREATE": "Создать участника рабочей группы",
+          "THREAD_MEMBERS_DELETE": "Удалить участника рабочей группы",
+          "THREAD_MEMBERS_GET": "Получить участника рабочей группы",
+          "THREAD_MEMBERS_LIST": "Список участников рабочей группы",
+          "THREAD_MEMBERS_UPDATE": "Обновить участника рабочей группы",
+          "GUESTS_LIST": "Список гостей",
+          "GUESTS_GET": "Получить гостя",
+          "GUESTS_CREATE": "Создать гостя",
+          "GUESTS_UPDATE": "Обновить гостя",
+          "GUESTS_DELETE": "Удалить гостя",
+          "DOCUMENTS_LIST": "Список документов",
+          "DOCUMENTS_GET": "Получить документ",
+          "DOCUMENTS_CREATE": "Создать документ",
+          "DOCUMENTS_UPDATE": "Обновить документ",
+          "DOCUMENTS_DELETE": "Удалить документ",
+          "SHARES_LIST": "Список рассылок",
+          "SHARES_GET": "Получить рассылку",
+          "SHARES_CREATE": "Создать рассылку",
+          "SHARES_UPDATE": "Обновить рассылку",
+          "SHARES_DELETE": "Удалить рассылку",
+          "RECEIVED_SHARES_LIST": "Список полученных рассылок",
+          "RECEIVED_SHARES_GET": "Получить полученную рассылку",
+          "RECEIVED_SHARES_CREATE": "Создать полученную рассылку",
+          "RECEIVED_SHARES_UPDATE": "Обновить полученную рассылку",
+          "RECEIVED_SHARES_DELETE": "Удалить полученную рассылку",
+          "THREADS_LIST": "Список рабочих групп",
+          "THREADS_GET": "Получить рабочую группу",
+          "THREADS_CREATE": "Создать рабочую группу",
+          "THREADS_UPDATE": "Обновить рабочую группу",
+          "THREADS_DELETE": "Удалить рабочую группу",
+          "THREADS_MEMBER_LIST": "Список участников рабочей группы",
+          "THREADS_MEMBER_GET": "Получить участника рабочей группы",
+          "THREADS_MEMBER_CREATE": "Создать участника рабочей группы",
+          "THREADS_MEMBER_UPDATE": "Обновить участника рабочей группы",
+          "THREADS_MEMBER_DELETE": "Удалить участника рабочей группы",
+          "LISTS_LIST": "Перечислить списки рассылки",
+          "LISTS_GET": "Получить список рассылки",
+          "LISTS_CREATE": "Создать список рассылки",
+          "LISTS_UPDATE": "Обновить список рассылки",
+          "LISTS_DELETE": "Удалить список рассылки"
+        },
+        "UNIT_SIZE": {
+          "KILO": "Килобайт",
+          "MEGA": "Мегабайт",
+          "GIGA": "Гигабайт"
+        },
+        "UNIT_TIME": {
+          "DAY": "День",
+          "WEEK": "Неделя",
+          "MONTH": "Месяц"
+        },
+        "ENUM_LANG": {
+          "fr": "Французский",
+          "en": "Английский",
+          "nl": "Голландский"
+        },
+        "UPLOAD_REQUEST_STATUS": {
+          "STATUS_ENABLED": "Статус включен",
+          "STATUS_DELETED": "Статус удалён",
+          "STATUS_CREATED": "Статус создан",
+          "STATUS_CLOSED": "Статус закрыт",
+          "STATUS_CANCELED": "Статус отменен",
+          "STATUS_ARCHIVED": "Статус архивирован"
+        },
+        "UPLOAD_PROPOSITION_MATCH_TYPE": {
+          "ALL": "Все правила",
+          "ANY": "Минимум одно правило",
+          "TRUE": "Без правил"
+        },
+        "UPLOAD_PROPOSITION_RULE_TYPE": {
+          "SENDER_EMAIL": "Почтовый адрес отправителя",
+          "RECIPIENT_EMAIL": "Почтовый адрес получателя",
+          "RECIPIENT_DOMAIN": "Домен получателя",
+          "SUBJECT": "Тема"
+        },
+        "UPLOAD_PROPOSITION_OPERATOR_TYPE": {
+          "CONTAIN": "Содержимое",
+          "DO_NOT_CONTAIN": "Не содержат",
+          "EQUAL": "Равный",
+          "DO_NOT_EQUAL": "Не равный",
+          "BEGIN_WITH": "Начинается с",
+          "END_WITH": "Кончается с"
+        },
+        "UPLOAD_PROPOSITION_ACTION_TYPE": {
+          "ACCEPT": "Принять предложение",
+          "MANUAL": "Ничего не делать (ручное действие получателя)",
+          "REJECT": "Отклонить предложение"
+        }
+      }
+    },
+    "DASHBOARD": {
+      "TITLE": "Приборная панель",
+      "SUB_TITLE": "Панель управления",
+      "DESCRIPTION": "Добро пожаловать на панель инструментов LinShare",
+      "MORE_INFO": "Больше информации",
+      "MANAGE_USERS_TITLE": "Пользователи",
+      "MANAGE_USERS_SUB_TITLE": "Управление пользователями",
+      "MANAGE_DOMAINS_TITLE": "Домены",
+      "MANAGE_DOMAINS_SUB_TITLE": "Управление доменами",
+      "AUDIT_TITLE": "История",
+      "AUDIT_SUB_TITLE": "Приложение Audit",
+      "PARAMETERS_TITLE": "Параметры",
+      "PARAMETERS_SUB_TITLE": "Функциональности"
+    },
+    "CHANGE_PASSWORD": {
+      "TITLE": "Изменить пароль",
+      "BOX_FORM": {
+        "LABEL_PASSWORD": {
+          "OLD": "Старый пароль",
+          "NEW": "Новый пароль",
+          "NEW_RETYPED": "Введите повторно новый пароль"
+        },
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      }
+    },
+    "DOMAIN_PATTERNS": {
+      "TITLE": "Управление шаблонами домена",
+      "BOX_LIST": {
+        "TITLE": "Список шаблонов доменов",
+        "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+        "TABLE": {
+          "HEADER_IDENTIFIER": "Название",
+          "HEADER_DESCRIPTION": "@:DOMAIN_PATTERNS.BOX_FORM.LABEL_DESCRIPTION"
+        }
+      },
+      "BOX_FORM": {
+        "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_MODEL_SELECTOR": "Селектор моделей",
+        "LABEL_IDENTIFIER": "Название",
+        "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "LABEL_AUTHENTICATION": "Команда аутентификации",
+        "HELP_AUTHENTICATION": "Команда LDAP для аутентификации",
+        "LABEL_SEARCH_USER": "Поиск команды пользователя",
+        "HELP_SEARCH_USER": "Команда LDAP для поиска пользователя",
+        "LABEL_AUTOCOMPLETE_ALL": "Команда Autocomplete для всех атрибутов",
+        "HELP_AUTOCOMPLETE_ALL": "Команда LDAP для автозаполнения пользователя, используя все атрибуты, такие как почта, имя и фамилия",
+        "LABEL_AUTOCOMPLETE_PARTIAL": "Команда Autocomplete по имени и фамилии",
+        "HELP_AUTOCOMPLETE_PARTIAL": "Команда LDAP для автозаполнения пользователя, используя атрибуты, такие как, имя и фамилия",
+        "LABEL_ATTRIBUTES": "Атрибуты",
+        "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
+        "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+        "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+        "LABEL_UUID": "Уникальный идентификатор пользователя",
+        "LABEL_SEARCH_PAGE_SIZE": "Размер страницы поиска",
+        "HELP_SEARCH_PAGE_SIZE": "Максимальный результат на страницу в поиске",
+        "LABEL_SEARCH_SIZE_LIMIT": "Ограничение поиска",
+        "HELP_SEARCH_SIZE_LIMIT": "Предел максимального результата",
+        "LABEL_COMPLETION_PAGE_SIZE": "Размер последней страницы",
+        "HELP_COMPLETION_PAGE_SIZE": "Максимальный результат на страницу в завершении",
+        "LABEL_COMPLETION_SIZE_LIMIT": "Предел завершения",
+        "HELP_COMPLETION_SIZE_LIMIT": "Предел максимального результата завершения",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить этот шаблон домена, эта процедура необратима. Вы хотите продолжить?"
+      }
+    },
+    "GROUP_PATTERNS": {
+      "TITLE": "Управление шаблонами рабочей группы",
+      "BOX_LIST": {
+        "TITLE": "Список шаблонов рабочих групп",
+        "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+        "TABLE": {
+          "HEADER_IDENTIFIER": "Этикетка",
+          "HEADER_DESCRIPTION": "@:GROUP_PATTERNS.BOX_FORM.LABEL_DESCRIPTION"
+        }
+      },
+      "BOX_FORM": {
+        "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_MODEL_SELECTOR": "Селектор моделей",
+        "LABEL_IDENTIFIER": "Этикетка",
+        "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "SEARCH_ALL_GROUPS_QUERY": "Поиск всех запросов рабочей группы",
+        "HELP_SEARCH_ALL_GROUPS_QUERY": "Запрос LDAP для поиска всех рабочих групп",
+        "SEARCH_GROUP_QUERY": "Запрос рабочей группы поиска",
+        "HELP_SEARCH_GROUP_QUERY": "Запрос LDAP для поиска рабочей группы",
+        "FIND_MEMBER_QUERY": "Поиск участника",
+        "HELP_FIND_MEMBER_QUERY": "Запрос LDAP для поиска участника",
+        "LABEL_ATTRIBUTES": "Атрибуты",
+        "MEMBER_MAIL": "Электронная почта участника",
+        "MEMBER_FIRST_NAME": "Имя участника",
+        "MEMBER_LAST_NAME": "Фамилия участника",
+        "GROUP_PREFIX": "Префикс рабочей группы",
+        "GROUP_NAME": "Название рабочей группы",
+        "GROUP_DN": "Рабочая группа DN",
+        "GROUP_MEMBER": "Участник рабочей группы",
+        "LABEL_SEARCH_PAGE_SIZE": "Размер страницы поиска",
+        "HELP_SEARCH_PAGE_SIZE": "Максимальный результат на страницу в поиске",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить этот групповой шаблон, эта процедура необратима. Вы хотите продолжить?"
+      }
+    },
+    "LDAP_CONNECTIONS": {
+      "TITLE": "Управление соединениями LDAP",
+      "BOX_LIST": {
+        "TITLE": "Список соединений LDAP",
+        "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+        "TABLE": {
+          "HEADER_IDENTIFIER": "@:LDAP_CONNECTIONS.BOX_FORM.LABEL_IDENTIFIER",
+          "HEADER_PROVIDER_URL": "@:LDAP_CONNECTIONS.BOX_FORM.LABEL_PROVIDER_URL"
+        }
+      },
+      "BOX_FORM": {
+        "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_IDENTIFIER": "Имя",
+        "LABEL_PROVIDER_URL": "URL-адрес поставщика",
+        "HELP_PROVIDER_URL": "eg: [ldap|ldaps]://my.ldap.lng:[389|636]",
+        "LABEL_USER_DN": "Пользователь LDAP dn",
+        "LABEL_PASSWORD": "Пароль LDAP",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить это соединение LDAP, эта процедура необратима. Вы хотите продолжить?"
+      }
+    },
+    "MANAGE_DOMAINS": {
+      "TITLE": "Управление доменами",
+      "BOX_TREE": {
+        "TITLE": "Дерево доменов",
+        "BUTTON_ADD": {
+          "TOP_DOMAIN": "Добавить домен",
+          "SUB_DOMAIN": "Добавить дополнительный домен",
+          "GUEST_DOMAIN": "Добавить гостевой домен"
+        }
+      },
+      "BOX_FORM": {
+        "TITLE": "Изменить домен",
+        "LABEL_IDENTIFIER": "Идентификатор",
+        "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+        "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "LABEL_LANGUAGE_MAIL": "Язык почты по умолчанию",
+        "LABEL_LANGUAGE": "Язык по умолчанию",
+        "LABEL_NOTIFICATION_LANGUAGE": "Язык уведомлений",
+        "LABEL_MAIL_CONFIG": "Конфигурация почты",
+        "LABEL_WELCOME_MESSAGES": "Конфигурация приветственных сообщений",
+        "LABEL_MIME_POLICY": "Мим-политика",
+        "LABEL_USER_ROLE": "Роль пользователя",
+        "LABEL_POLICY": "Правила обмена между доменами",
+        "BUTTON_ADD_USER_PROVIDER": "Добавить пользователя",
+        "BUTTON_ADD_GROUP_PROVIDER": "Добавить провайдера рабочей группы",
+        "TITLE_PROVIDER": "Провайдер",
+        "TITLE_GROUP_PROVIDER": "Поставщик рабочей группы",
+        "LABEL_LDAP_CONNECTION": "Соединение LDAP",
+        "LABEL_DOMAIN_PATTERN": "Модель домена",
+        "LABEL_GROUP_PATTERN": "Модель рабочей группы",
+        "LABEL_SEARCH_IN_OTHER_DOMAIN": "Поиск пользователей в других доменах",
+        "LABEL_BASE_DN": "База dn",
+        "SEARCH_USER_ACCOUNT": "Найдите пользователя для проверки ваших настроек, не забудьте сохранить перед тестированием",
+        "SEARCH_GROUP": "Поиск рабочей группы для проверки ваших настроек, не забудьте сохранить перед тестированием",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "CREATE_FORM": {
+        "SELECT_OPTION_POLICY": "Автоматическое создание",
+        "TITLE": {
+          "TOP_DOMAIN": "Создайте новый верхний домен в {{label}}",
+          "SUB_DOMAIN": "Создайте новый дополнительный домен в {{label}}",
+          "GUEST_DOMAIN": "Создайте новый гостевой домен в {{label}}"
+        }
+      },
+      "CONFIRM_CANCEL": {
+        "TITLE": "@:COMMON.BASIC_CONFIRMATION_FORM.TITLE",
+        "PARAGRAPH": "Любые несохраненные изменения будут потеряны. Желаете ли вы продолжить?",
+        "BUTTON_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
+        "BUTTON_NO": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO"
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить этот домен, эта процедура необратима и уничтожит всех связанных пользователей. Вы хотите продолжить?"
+      }
+    },
+    "WELCOME_MESSAGES": {
+      "TITLE": "Изменить ваше приветственное сообщение",
+      "MODAL_FORM": {
+        "TITLE": "Дублируйте приветственное сообщение",
+        "INFOMATION": "Приветствие по умолчанию с приложением будет дублировано, чтобы разрешить создание нового приветственного сообщения, пожалуйста, введите имя нового приветственного сообщения",
+        "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+        "LABEL_DOMAIN": "Копировать в этом домене",
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+        "BUTTON_CREATE": "@:COMMON.BASIC_FORM.BUTTON_CREATE",
+        "BUTTON_CONTINUE": "Создание и продолжение"
+      },
+      "BOX_LIST": {
+        "TITLE": "Список приветственных сообщений",
+        "TABLE": {
+          "HEADER_ACTIONS": "Действия",
+          "HEADER_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+          "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+          "HEADER_MODIFICATION_DATE": "@:THREADS.BOX_FORM.LABEL_MODIFICATION_DATE",
+          "TABLE_ACTIONS": {
+            "BUTTON_DUPLICATE": "Создайте новый элемент с помощью этого",
+            "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+            "BUTTON_EDIT": "@:COMMON.BASIC_FORM.BUTTON_EDIT",
+            "BUTTON_SHOW": "@:COMMON.BASIC_FORM.BUTTON_SHOW",
+            "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+            "BUTTON_DELETE_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
+            "BUTTON_DELETE_NO": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO"
+          }
+        }
+      },
+      "BOX_FORM": {
+        "TITLE_GENERAL": "Общая конфигурация",
+        "DESCRIPTION_GENERAL_EDIT": "Пожалуйста, введите имя и описание приветственного сообщения",
+        "TITLE_LANGUAGE_EDIT": "Редактировать приветственные сообщения",
+        "TITLE_LANGUAGE_SHOW": "Приветственные сообщения",
+        "DESCRIPTION_LANGUAGE": "Вы должны установить все поля.",
+        "TITLE_DOMAIN_EDIT": "Изменить связанный домен",
+        "TITLE_DOMAIN_SHOW": "Связанный домен",
+        "DESCRIPTION_DOMAIN_EDIT": "Выберите домены, наследующие это приветственное сообщение. Если ни один домен не выбран, они наследуют приветственное сообщение по умолчанию.",
+        "DESCRIPTION_DOMAIN_SHOW": "Найдите под связанными доменами сообщение приветствия. Если домен не выбран, домены наследуют приветственное сообщение по умолчанию.",
+        "LABEL_MESSAGES_ENTRIES": "Приветственное сообщение",
+        "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+        "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "LABEL_DOMAIN": "Связанные модели",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_DUPLICATE": "Создайте новый элемент с помощью этого",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        },
+        "TABLE_ACTIVE": "@:COMMON.BASIC_FORM.LABEL_ACTIVE",
+        "TABLE_INACTIVE": "@:COMMON.BASIC_FORM.LABEL_INACTIVE",
+        "TABLE_ALL": "@:COMMON.BASIC_FORM.LABEL_ALL",
+        "TABLE_FILTER_IDENTIFIER": "Искать по ",
+        "TABLE_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER"
+      },
+      "SHOW_FORM": {
+        "START_TITLE": "Показать ",
+        "LABEL": "Только для чтения",
+        "MIDDLE_TITLE": " в "
+      },
+      "EDIT_FORM": {
+        "START_TITLE": "Изменить ",
+        "MIDDLE_TITLE": " в "
+      },
+      "CONFIRM_DELETE_FORM": "Вы собираетесь удалить это приветственное сообщение, эта процедура необратима. Вы хотите продолжить?"
+    },
+    "DOMAIN_ORDER": {
+      "TITLE": "Изменение порядка подключения домена",
+      "BOX_LIST": {
+        "TITLE": "Порядок проверки подлинности домена",
+        "TABLE": {
+          "HEADER_ACTIONS": "действия",
+          "HEADER_IDENTIFIER": "Идентификатор",
+          "HEADER_NAME": "Имя"
+        }
+      }
+    },
+    "DOMAIN_POLICIES": {
+      "TITLE": "Управление политиками",
+      "BOX_LIST": {
+        "TITLE": "Список политик домена",
+        "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+        "TABLE": {
+          "HEADER_IDENTIFIER": "@:DOMAIN_POLICIES.BOX_FORM.LABEL_IDENTIFIER",
+          "HEADER_DESCRIPTION": "@:DOMAIN_POLICIES.BOX_FORM.LABEL_DESCRIPTION"
+        }
+      },
+      "BOX_FORM": {
+        "TITLE_CREATION": "@:COMMON.BASIC_FORM.TITLE_CREATION",
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+        "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "LABEL_RULES": "Правила",
+        "LABEL_RULE_TYPES": "Тип правила",
+        "LABEL_DOMAINS": "Домены",
+        "BUTTON_ADD_RULE": "Добавить правило",
+        "TABLE": {
+          "HEADER_POSITION": "Позиция",
+          "HEADER_DOMAIN": "Домен",
+          "HEADER_TYPE": "Тип",
+          "HEADER_ACTIONS": "Действие",
+          "BUTTON_DELETE_RULE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_RULE_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
+          "BUTTON_DELETE_RULE_NO": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO"
+        },
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить эту политику, эта процедура необратима. Вы хотите продолжить?"
+      }
+    },
+    "MAIL_ACTIVATION": {
+      "BOX_LIST": {
+        "TABLE": {
+          "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS",
+          "HEADER_DESCRIPTION": "Легенда",
+          "HEADER_NAME": "Тип активации почты"
+        }
+      },
+      "BOX_FORM": {
+        "LABEL_ENABLE": "Включить это уведомление",
+        "VIEW_SIMPLE": "просто",
+        "VIEW_ADVANCED": "продвинутый",
+        "LEGEND_ACTIVATION_POLICY": "Политика активации",
+        "LEGEND_CONFIGURATION_POLICY": "Политика настройки",
+        "LEGEND_DELEGATION_POLICY": "Политика представительства",
+        "LEGEND_PARAMETERS": "Параметры",
+        "RADIO_FORBIDDEN": "запрещено",
+        "RADIO_ALLOWED": "Разрешено",
+        "RADIO_MANDATORY": "Обязательный",
+        "LABEL_SAVED": "Сохраненный",
+        "LABEL_STATUS": "включить",
+        "LABEL_DISABLE": "Отключить это уведомление",
+        "LEGEND_NEXT": "следующий",
+        "LEGEND_PREVIOUS": "предыдущий",
+        "FORM_ACTIONS": {
+          "BUTTON_RESET": "Сбросить родительское значение",
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+        }
+      },
+      "DETAILS": {
+        "_COMMENT:NAME_OF_THE_MAIL_ACTIVATION": {
+          "NAME": "Это имя активации почты на французском или английском языках",
+          "USE_EXTENDED_DESCRIPTION": "0, если нет описания для уведомления, 1, чтобы показать только описание, 2, чтобы показать описание и расширенное описание, 3 загрузить внешний шаблон ",
+          "DESCRIPTION": "Описание типа активации почты",
+          "ADVANCED_DESCRIPTION": "расширенное описание активации почты"
+        },
+        "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.FILE_WARN_OWNER_BEFORE_FILE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу файла до истечения срока его действия и удаления."
+        },
+        "GUEST_ACCOUNT_NEW_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_NEW_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при создании нового гостя, оно содержит его учетные данные."
+        },
+        "GUEST_ACCOUNT_RESET_PASSWORD_LINK": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_LINK",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при сбрасывании пароля гостя."
+        },
+        "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется гостю, когда его пароль был изменен."
+        },
+        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется создателю гостя, когда истечет срок действия гостевой учетной записи."
+        },
+        "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, чтобы предупредить владельца совместного доступа, когда внешний пользователь загружает общий документ."
+        },
+        "SHARE_FILE_DOWNLOAD_USERS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу совместного доступа, когда внутренний пользователь или гость загружает полученные общие документы."
+        },
+        "SHARE_FILE_SHARE_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_SHARE_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется для совместного использования получателей при удалении общего документа владельцем рассылки."
+        },
+        "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется пользователю, который создает общий ресурс, с включенной опцией «Подтверждение создания совместного доступа». Он содержит резюме доли."
+        },
+        "SHARE_NEW_SHARE_FOR_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_FOR_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется всем получателям (внутренним пользователям, гостям или внешним пользователям), когда пользователь разделяет документ."
+        },
+        "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется для совместного использования получателей при истечении срока действия общего документа."
+        },
+        "SHARE_WARN_UNDOWNLOADED_FILESHARES": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_UNDOWNLOADED_FILESHARES",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется пользователю, который создает общий ресурс, с включенной опцией «Undownloaded shared document alert». Он содержит резюме загруженных акций."
+        },
+        "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу рассылки, когда его доля истекает в ближайшее время, не будучи загруженным получателем."
+        },
+        "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется получателю общего доступа, когда ресурс истек и удаляется системой."
+        },
+        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется внутреннему пользователю или гостю, когда получатель получает запрос на загрузку."
+        },
+        "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу запроса на загрузку, когда получатель удаляет документы, которые он уже загрузил."
+        },
+        "UPLOAD_REQUEST_UNAVAILABLE_SPACE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UNAVAILABLE_SPACE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу запроса на отправку, когда получатель не может завершить загрузку из-за недостаточного места владельца в своем Личном пространстве."
+        },
+        "UPLOAD_REQUEST_UPLOADED_FILE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPLOADED_FILE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется внутреннему пользователю или гостю, когда внешний пользователь загружает файл в запрос на загрузку."
+        },
+        "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу или получателю запроса на загрузку до истечения срока действия запроса на загрузку."
+        },
+        "UPLOAD_REQUEST_WARN_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу или получателю запроса на загрузку по истечении срока действия запроса на загрузку."
+        },
+        "WORKGROUP_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется новому члену рабочей группы"
+        },
+        "WORKGROUP_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется члену рабочей группы, когда его право было обновлено."
+        },
+        "WORKGROUP_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется члену рабочей группы, когда он был удален из рабочей группы."
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется пользователю, когда администратор создает постоянный токен доступа (ПЖД) для своей учетной записи."
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется пользователю, когда администратор удаляет постоянный токен доступа (ПЖД) для своей учетной записи."
+        }
+      },
+      "PARAMETERS": {
+        "BOOLEAN_false": "Это уведомление отключено.",
+        "BOOLEAN_true": "Это уведомление включено."
+      }
+    },
+    "FUNCTIONALITIES": {
+      "TITLE": "Управление функциональностью",
+      "CST_MORE": "Дополнительная информация",
+      "CST_LESS": "Меньше информации",
+      "HELP": "Нажмите, чтобы показать справку",
+      "NO_DATA": "Нет доступной информации",
+      "BOX_LIST": {
+        "TABLE": {
+          "HEADER_STATUS": "Статус",
+          "HEADER_NAME": "Название функции"
+        }
+      },
+      "BOX_FORM": {
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LEGEND_ACTIVATION_POLICY": "Политика активации",
+        "LEGEND_CONFIGURATION_POLICY": "Политика настройки",
+        "LEGEND_DELEGATION_POLICY": "Политика представительства",
+        "LEGEND_PARAMETERS": "параметры",
+        "LEGEND_ENABLE_NOTVISIBLE": "Предупреждение: в этом представлении есть некоторые скрытые параметры. Дополнительную информацию см. В расширенном виде.",
+        "LEGEND_ENABLE": "Предупреждение. При изменении этого поля вы измените дополнительные настройки.",
+        "RADIO_FORBIDDEN": "запрещено",
+        "RADIO_ALLOWED": "Позволено",
+        "RADIO_MANDATORY": "Обязательный",
+        "LABEL_SAVED": "Сохраненный",
+        "LABEL_STATUS": "включить",
+        "LABEL_ENABLE": "Включить функциональность",
+        "LABEL_DISABLE": "Отключить функциональность",
+        "VIEW_SIMPLE": "просто",
+        "VIEW_ADVANCED": "продвинутый",
+        "LEGEND_NEXT": "следующий",
+        "LEGEND_PREVIOUS": "предыдущий",
+        "FORM_ACTIONS": {
+          "BUTTON_RESET": "Сбросить родительское значение",
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+        }
+      },
+      "DETAILS": {
+        "CONTACTS_LIST": {
+          "NAME": "Список контактов"
+        },
+        "CONTACTS_LIST__CREATION_RIGHT": {
+          "NAME": "Право право создания",
+          "PARAMETER_NAME": "параметры"
+        },
+        "WORK_GROUP": {
+          "NAME": "Рабочая группа"
+        },
+        "WORK_GROUP__CREATION_RIGHT": {
+          "NAME": "Право право создания"
+        },
+        "UPLOAD_REQUEST": {
+          "NAME": "Запрос на отправку",
+          "USE_EXTENDED_DESCRIPTION": "3",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+          "NAME": "Запрос на отправку - Язык уведомлений",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+          "NAME": "Запрос на отправку - Задержка перед активацией",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+          "NAME": "Запрос на отправку - Задержка до истечения срока действия",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__GROUPED_MODE": {
+          "NAME": "Запрос на отправку - Групповой режим",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+          "NAME": "Запрос на отправку - Максимальное количество файлов",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+          "NAME": "Запрос на отправку - Максимальный размер файла",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+          "NAME": "Запрос на отправку - Максимальный размер депозита",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__SECURED_URL": {
+          "NAME": "Запрос на отправку - Защищенный URL",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__CAN_CLOSE": {
+          "NAME": "Запрос на отправку - Закрытие справа",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "люлюлю",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__PROLONGATION": {
+          "NAME": "Запрос на отправку - пролонгация",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__CAN_DELETE": {
+          "NAME": "Запрос на отправку - Право на удаление получателя",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "sdffdsdd",
+          "ADVANCED_DESCRIPTION": "sdffds",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+          "NAME": "Запрос на отправку - Задержка перед уведомлением",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_REQUEST_ENABLE_TEMPLATE": {
+          "NAME": "Запрос на отправку шаблоны",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "PARAMETER_NAME": "",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "QUOTA_USER": {
+          "NAME": "Пользователь квоты",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "MIME_TYPE": {
+          "NAME": "Mime type",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "FILESIZE_MAX": {
+          "NAME": "Максимальный размер файла",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "QUOTA_GLOBAL": {
+          "NAME": "Квота глобальная",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "TIME_STAMPING": {
+          "NAME": "Время тиснения",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "ANTIVIRUS": {
+          "NAME": "Антивирус",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "SIGNATURE": {
+          "NAME": "Подпись",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "ENCIPHERMENT": {
+          "NAME": "Шифрование",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "DOCUMENT_EXPIRATION": {
+          "NAME": "Срок действия документа",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "SHARE_EXPIRATION": {
+          "NAME": "Завершение рассылки",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+          "NAME": "Удаление файлов на ресурсах истечения срока действия",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "CUSTOM_LOGO": {
+          "NAME": "Пользовательский логотип",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "CUSTOM_LOGO__LINK": {
+          "NAME": "Логотип ссылки",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "COMPLETION": {
+          "NAME": "Завершение",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "ANONYMOUS_URL": {
+          "NAME": "Секретный URL",
+          "USE_EXTENDED_DESCRIPTION": "2",
+          "DESCRIPTION": "Функциональность позволяет пользователям обмениваться документами с анонимными пользователями (внутренними / внешними) по электронной почте. У этих пользователей нет учетной записи Linshare.",
+          "ADVANCED_DESCRIPTION": "Включение этой функции позволяет защитить анонимный ресурс паролем. Это принудительное действие, если значение установлено на «Обязательно». Также можно оставить выбор пользователю, указав значение по умолчанию «разрешено»,",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "После активации пользователь может совместно использовать файл с анонимным пользователем.",
+          "DELEGATION_POLICY": "Предоставляя делегацию, вы оставляете выбор пользователю, чтобы использовать его с указанием значения по умолчанию.",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Защита паролем",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "ANONYMOUS_URL__NOTIFICATION_URL": {
+          "NAME": "URL-адрес электронной почты",
+          "PARAMETER_NAME": "URL-адрес пользователя Linshare ui"
+        },
+        "GUESTS": {
+          "NAME": "Гости",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "GUESTS__EXPIRATION": {
+          "NAME": "истечение",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "GUESTS__CAN_UPLOAD": {
+          "NAME": "Загрузить порядок",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "GUESTS__RESTRICTED": {
+          "NAME": "Ограничение контактов",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Вы можете ограничить доступ гостей только ограниченным личным списком писем. По умолчанию гость будет ограничен его владельцем.",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+          "NAME": "Отсрочить дату истечения срока действия гостя",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Разрешить внутренним пользователям редактировать и откладывать дату истечения срока действия гостя",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "TAB_USER": {
+          "NAME": "Пользователь вкладки",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "TAB_AUDIT": {
+          "NAME": "Вкладка Audit",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "TAB_HELP": {
+          "NAME": "Вкладка помощи",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "TAB_THREAD": {
+          "NAME": "Вкладка рабочей группы",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "TAB_THREAD__CREATE_PERMISSION": {
+          "NAME": "Создать разрешение рабочей группы",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "TAB_LIST": {
+          "NAME": "Список вкладок",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "SHARE_NOTIFICATION_BEFORE_EXPIRATION": {
+          "NAME": "Предоставлять уведомление до истечения срока действия",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "THREAD_PERMISSION": {
+          "NAME": "Разрешение рабочей группы",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPDATE_FILE": {
+          "NAME": "Обновить файл",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "DOMAIN": {
+          "NAME": "Домен",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "DOMAIN__MAIL": {
+          "NAME": "Доменная почта",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "DOMAIN__NOTIFICATION_URL": {
+          "NAME": "Уведомления URL",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_PROPOSITION_FILTER": {
+          "NAME": "Фильтрация на загрузках",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UPLOAD_PROPOSITION": {
+          "NAME": "Загрузить предложение",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "INTERNAL_CAN_UPLOAD": {
+          "NAME": "Внутренняя загрузка",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "INTERNAL_CAN_CREATE_GUESTS": {
+          "NAME": "Может создать гостя",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+          "NAME": "Подтверждение создания рассылки",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+          "NAME": "Уведомление о незагруженном файле",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Включив эту функцию, пользователи получат возможность получать уведомления, в случае если документ не будет загружен с общего доступа. Это уведомление отправляется, если хотя бы один документ из этой рассылки не был загружен вообще.",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "DELEGATION_POLICY": "Разрешить пользователю изменять значение по умолчанию для активации в разделе share",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+          "NAME": "Предупреждение о несанкционированном совместном документе - За несколько дней до предупреждения",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это количество рабочих дней по умолчанию (выходные дни исключаются), а теперь и уведомление о предупреждении.",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "PARAMETER_NAME": "Значение флажка активации по умолчанию в форме долевого участия",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+          "NAME": "Анонимный URL - принудительный анонимный процесс обмена",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Включив эту функцию, пользователь может выбрать общий доступ к документам только с анонимным адресом. В этом случае внутренние пользователи не будут видеть общий документ в меню «Передача общего доступа»",
+          "PARAMETER_NAME": "Значение флажка активации по умолчанию в форме долевого участия"
+        },
+        "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+          "NAME": "Меню «Скрыть полученные пакеты»",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Включив эту функцию, внутренние пользователи не будут иметь доступ к меню «Получено»"
+        },
+        "ANONYMOUS_URL__NOTIFICATION": {
+          "NAME": "Анонимное уведомление для загрузки",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Анонимное уведомление о загрузке будет отправлено для каждой загрузки или только для первого.",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "PARAMETER_NAME": "Параметры по умолчанию",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "JWT_PERMANENT_TOKEN": {
+          "NAME": "Постоянный токен",
+          "USE_EXTENDED_DESCRIPTION": "2",
+          "DESCRIPTION": "Эта функция позволяет пользователям и администраторам создавать, использовать и удалять постоянные токены",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "После активации пользователи смогут аутентифицироваться с использованием постоянного токена. Политика создания и манипуляции будет осуществляться политикой делегации.",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "После включения администратор сможет создавать постоянные токены для учетной записи пользователя.",
+          "PARAMETER_NAME": "",
+          "PARAMETER_DESCRIPTION": ""
+        },
+        "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
+          "NAME": "постоянный токен для пользователя",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Эта функция позволяет пользователям управлять своими постоянными токенами",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "",
+          "ACTIVATION_POLICY": "После активации пользователь сможет просматривать и удалять свои жетоны. Создание будет обрабатываться параметром делегирования.",
+          "DELEGATION_POLICY": "После активации пользователь сможет создать свои собственные токены аутентификации.",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "",
+          "PARAMETER_DESCRIPTION": ""
+        }
+      },
+      "PARAMETERS": {
+        "CONTACTS_LIST__CREATION_RIGHT__BOOLEAN_false": "Пользователь не может создать список контактов",
+        "CONTACTS_LIST__CREATION_RIGHT__BOOLEAN_true": "Пользователь может создать список контактов",
+        "GUESTS__RESTRICTED__BOOLEAN_false": "Гость не будет ограничен.",
+        "GUESTS__RESTRICTED__BOOLEAN_true": "Гость будет ограничен списком писем.",
+        "GUESTS__CAN_UPLOAD__BOOLEAN_false": "По умолчанию у гостя не будет права на взнос по умолчанию.",
+        "GUESTS__CAN_UPLOAD__BOOLEAN_true": "У гостя будет право на взнос по умолчанию.",
+        "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_false": "Пользователь не может продлить срок действия гостя.",
+        "GUESTS__EXPIRATION_ALLOW_PROLONGATION__BOOLEAN_true": "Пользователь может продлить срок действия гостя.",
+        "ANONYMOUS_URL__BOOLEAN_false": "Анонимные рассылки не будут защищены паролем при его создании.",
+        "ANONYMOUS_URL__BOOLEAN_true": "Анонимные рассылки будут защищены паролем при его создании.",
+        "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_false": "Документ не будет удален по истечении последней рассылки.",
+        "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION__BOOLEAN_true": "Документ будет удален по истечении последней рассылки.",
+        "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_false": "Получатель не может закрыть запрос на отправку.",
+        "UPLOAD_REQUEST__CAN_CLOSE__BOOLEAN_true": "Получатель может закрыть запрос на отправку.",
+        "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_false": "Получатель не может удалять файлы.",
+        "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true": "Получатель может удалять файлы.",
+        "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false": "Отправитель не откладывает дату истечения срока действия.",
+        "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true": "Отправитель отложит дату истечения срока действия.",
+        "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false": "Доступ к приглашению не будет защищен паролем.",
+        "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true": "Доступ к приглашению будет защищен паролем.",
+        "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false": "Приглашение будет создано для каждого получателя.",
+        "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true": "Все получатели разделяют условия использования приглашения.",
+        "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false": "Эмитенту рассылки не будет отправлено подтверждение.",
+        "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_true": "Признание будет отправлено эмитенту рассылки.",
+        "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_false": "Предупреждение об отключенном общем документе деактивировано",
+        "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__BOOLEAN_true": "Подключено уведомление об отключенном общем документе",
+        "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Уведомление будет отправлено только для первой загрузки.",
+        "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Уведомление будет отправлено для каждой загрузки.",
+        "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Анонимный доступ со всеми пользователями (внутренними и гостями)",
+        "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Анонимный доступ с анонимными пользователями"
+      }
+    },
+    "MIME_POLICIES": {
+      "TITLE": "Mime политики",
+      "BOX_LIST": {
+        "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+        "TABLE": {
+          "HEADER_NAME": "@:MIME_POLICIES.BOX_FORM.LABEL_NAME"
+        }
+      },
+      "BOX_FORM": {
+        "HEADER": {
+          "ENABLE_ALL": "Включить все",
+          "DISABLE_ALL": "Отключить все"
+        },
+        "TITLE_MIME_TYPES": "Изменить тип Mime",
+        "IN": "в",
+        "DESCRIPTION": "Select all MIME types that you want to allow.",
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+        "TABLE": {
+          "HEADER_STATUS": "Статус",
+          "HEADER_EXTENSIONS": "расширения",
+          "HEADER_MIME_TYPE": "Mime тип"
+        },
+        "FORM_ACTIONS": {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить эту конфигурацию mime, эта процедура необратима. Вы хотите продолжить?"
+      },
+      "MODAL_FORM": {
+        "TITLE": "Создание",
+        "LABEL_NAME": "@:MIME_POLICIES.BOX_FORM.LABEL_NAME",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+        }
+      }
+    },
+    "MAIL_LAYOUT": {
+      "TITLE": "layout почты",
+      "BOX_LIST": {
+        "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+        "TABLE": {
+          "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+          "HEADER_ACTIONS": "Действия",
+          "TABLE_ACTIONS": {
+            "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+            "BUTTON_DELETE_YES": "Да",
+            "BUTTON_DELETE_NO": "Нет"
+          }
+        }
+      },
+      "BOX_FORM": {
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+        "LABEL_LAYOUT": "Layout",
+        "LABEL_FRENCH": "Французский",
+        "LABEL_ENGLISH": "Английский",
+        "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
+        "LABEL_PLAINTEXT": "Простой текст",
+        "LABEL_VISIBLE": "видимый",
+        "FORM_ACTIONS": {
+          "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить этот Layout почты, эта процедура необратима. Вы хотите продолжить?"
+      },
+      "MODAL_FORM": {
+        "TITLE": "Создание",
+        "LABEL_NAME": "@:MAIL_LAYOUT.BOX_FORM.LABEL_NAME",
+        "LABEL_MODEL": "Модель",
+        "LABEL_DOMAIN": "Домен",
+        "LABEL_TARGET_DOMAIN": "@:COMMON.BASIC_FORM.LABEL_TARGET_DOMAIN",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+        }
+      },
+      "SHOW_FORM": {
+        "LABEL": "Просто читать"
+      }
+    },
+    "MAIL_FOOTER": {
+      "TITLE": "Нижний колонтитул почты",
+      "BOX_LIST": {
+        "HEADER": {
+          "LANGUAGE": {
+            "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+            "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+          }
+        },
+        "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+        "TABLE": {
+          "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+          "HEADER_ACTIONS": "действия",
+          "TABLE_ACTIONS": {
+            "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+            "BUTTON_DELETE_YES": "Да",
+            "BUTTON_DELETE_NO": "Нет"
+          }
+        }
+      },
+      "BOX_FORM": {
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+        "LABEL_FOOTER": "нижний колонтитул",
+        "LABEL_FRENCH": "Французский",
+        "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
+        "LABEL_ENGLISH": "Английский",
+        "LABEL_PLAINTEXT": "Простой текст",
+        "LABEL_VISIBLE": "Видимый",
+        "FORM_ACTIONS": {
+          "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить этот нижний колонтитул почты, эта процедура необратима. Вы хотите продолжить?"
+      },
+      "MODAL_FORM": {
+        "TITLE": "Создание",
+        "LABEL_NAME": "@:MAIL_FOOTER.BOX_FORM.LABEL_NAME",
+        "LABEL_LANGUAGE": "Язык",
+        "LABEL_MODEL": "Модель",
+        "LABEL_DOMAIN": "Домен",
+        "LABEL_TARGET_DOMAIN": "@:COMMON.BASIC_FORM.LABEL_TARGET_DOMAIN",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+        }
+      },
+      "SHOW_FORM": {
+        "LABEL": "Просто читать"
+      }
+    },
+    "MAIL_CONTENT": {
+      "TITLE": "Содержимое почты",
+      "BOX_LIST": {
+        "HEADER": {
+          "LANGUAGE": {
+            "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+            "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+          }
+        },
+        "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+        "TABLE": {
+          "HEADER_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+          "HEADER_LEGEND": "@:COMMON.BASIC_FORM.LABEL_LEGEND",
+          "HEADER_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
+          "HEADER_ACTIONS": "Действия",
+          "TABLE_ACTIONS": {
+            "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+            "BUTTON_DELETE_YES": "Да",
+            "BUTTON_DELETE_NO": "Нет"
+          }
+        }
+      },
+      "BOX_FORM": {
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+        "LABEL_LANGUAGE": "Язык",
+        "LABEL_CONTENT_TYPE": "Тип содержимого",
+        "LABEL_SUBJECT": "Сюжет",
+        "LABEL_ALTERNATIVE_SUBJECT": "Alternative Subject",
+        "LABEL_GREETINGS": "Приветствие",
+        "LABEL_BODY": "Тело",
+        "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
+        "LABEL_CONTENT_CONTEXT": {
+          "0": "По умолчанию"
+        },
+        "LABEL_CONTEXT": "Контекстные переменные",
+        "LABEL_FRENCH": "Французский",
+        "LABEL_ENGLISH": "Английский",
+        "LABEL_NORENDER": "Нет предварительного просмотра",
+        "LABEL_PLAINTEXT": "Простой текст",
+        "LABEL_VISIBLE": "Видимый",
+        "LABEL_IS_AS_USED_false": "Включить альтернативный объект",
+        "LABEL_IS_AS_USED_true": "Отключить альтернативный объект",
+        "FORM_ACTIONS": {
+          "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RENDER": "@:COMMON.BASIC_FORM.BUTTON_RENDER",
+          "BUTTON_RENDER_LIVE": "@:COMMON.BASIC_FORM.BUTTON_RENDER_LIVE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить этот почтовый контент, эта процедура необратима. Вы хотите продолжить?"
+      },
+      "MODAL_FORM": {
+        "TITLE": "Создание",
+        "LABEL_NAME": "@:MAIL_CONTENT.BOX_FORM.LABEL_NAME",
+        "LABEL_LANGUAGE": "@:MAIL_CONTENT.BOX_FORM.LABEL_LANGUAGE",
+        "LABEL_CONTENT_TYPE": "@:MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_TYPE",
+        "LABEL_MODEL": "Модель",
+        "LABEL_DOMAIN": "Домен",
+        "LABEL_TARGET_DOMAIN": "@:COMMON.BASIC_FORM.LABEL_TARGET_DOMAIN",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+        }
+      },
+      "SHOW_FORM": {
+        "LABEL": "Просто читать"
+      }
+    },
+    "MAIL_CONFIG": {
+      "TITLE": "Конфигурация почты",
+      "BOX_LIST": {
+        "BUTTON_ADD": "@:COMMON.BASIC_FORM.BUTTON_ADD",
+        "TABLE": {
+          "HEADER_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+          "HEADER_VISIBLE": "Видимость",
+          "HEADER_ACTIONS": "Действия",
+          "PRIVATE": "Приватный",
+          "PUBLIC": "Публчиный",
+          "TABLE_ACTIONS": {
+            "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+            "BUTTON_DELETE_YES": "Да",
+            "BUTTON_DELETE_NO": "Нет"
+          }
+        }
+      },
+      "MODAL_FORM": {
+        "TITLE": "Создание",
+        "LABEL_NAME": "@:MAIL_CONFIG.BOX_FORM.LABEL_NAME",
+        "LABEL_MODEL": "Модель",
+        "LABEL_DOMAIN": "Домен",
+        "LABEL_TARGET_DOMAIN": "@:COMMON.BASIC_FORM.LABEL_TARGET_DOMAIN",
+        "LABEL_VISIBLE": "@:MAIL_CONFIG.BOX_FORM.LABEL_VISIBLE",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_CREATE"
+        }
+      },
+      "SHOW_FORM": {
+        "LABEL": "Просто читать"
+      },
+      "BOX_FORM": {
+        "HEADER": {
+          "LANGUAGE": {
+            "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+            "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+          }
+        },
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+        "LABEL_VISIBLE": "Видимый",
+        "LEGEND_VISIBLE": "Это поле позволяет подобным доменам видеть эту конфигурацию.",
+        "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
+        "LABEL_MAIL_CONTENT_LANG": "Содержимое почты",
+        "LABEL_MAIL_FOOTER_LANG": "Нижний колонтитул почты",
+        "LABEL_MAIL_LAYOUT": "layout почты",
+        "TABLE": {
+          "HEADER_MAIL_LANGUAGE": "Почтовый язык",
+          "HEADER_MAIL_CONTENT_NAME": "Название содержимого почты",
+          "HEADER_MAIL_CONTENT_LEGEND": "@:COMMON.BASIC_FORM.LABEL_LEGEND",
+          "HEADER_MAIL_CONTENT_TYPE": "Тип содержимого почты",
+          "HEADER_MAIL_FOOTER_NAME": "Тип содержимого почты Имя нижнего колонтитула"
+        },
+        "FORM_ACTIONS": {
+          "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "BOX_CONTENT_LANG": {
+        "HEADER": {
+          "LANGUAGE": {
+            "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+            "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+          }
+        },
+        "LABEL_MAIL_CONTENT_SELECTOR": "Выберите почтовый контент",
+        "FORM_ACTIONS": {
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "BOX_FOOTER_LANG": {
+        "FORM_ACTIONS": {
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        },
+        "HEADER": {
+          "LANGUAGE": {
+            "ENGLISH": "@:COMMON.NAVBAR.LANGUAGE.ENGLISH",
+            "FRENCH": "@:COMMON.NAVBAR.LANGUAGE.FRENCH"
+          }
+        },
+        "LABEL_FOOTER": "Нижний колонтитул",
+        "LABEL_LANGUAGE": "Язык",
+        "LABEL_MAIL_FOOTER_SELECTOR": "Выберите нижний колонтитул",
+        "LABEL_MAIL_FOOTER_TITLE": "Нижний колонтитул почты"
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить эту конфигурацию почты, эта процедура необратима. Вы хотите продолжить?"
+      }
+    },
+    "MANAGE_USERS": {
+      "TITLE": "Управление пользователями",
+      "BOX_LIST": {
+        "TITLE": "Список пользователей",
+        "TABLE": {
+          "HEADER_FIRST_NAME": "@:MANAGE_USERS.BOX_FORM.LABEL_FIRST_NAME",
+          "HEADER_LAST_NAME": "@:MANAGE_USERS.BOX_FORM.LABEL_LAST_NAME",
+          "HEADER_EMAIL": "@:MANAGE_USERS.BOX_FORM.LABEL_EMAIL",
+          "HEADER_DOMAIN": "@:MANAGE_USERS.BOX_FORM.LABEL_DOMAIN",
+          "HEADER_ROLE": "@:MANAGE_USERS.BOX_FORM.LABEL_ROLE"
+        }
+      },
+      "BOX_FORM": {
+        "BUTTON_ADD_CONTACT": "Добавить контакт",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_CHANGEDOMAIN": "Переместить",
+          "BUTTON_CHANGEDOMAIN_LABEL": "Переместить в другой домен",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        },
+        "LABEL_CAN_UPLOAD": "Разрешение на загрузку",
+        "LABEL_COMMENT": "Коментарий",
+        "LABEL_CREATION_DATE": "Дата создания",
+        "LABEL_DOMAIN": "Домен",
+        "LABEL_EMAIL": "@:COMMON.BASIC_FORM.LABEL_EMAIL",
+        "LABEL_EXPIRY_DATE": "Срок действия",
+        "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+        "LABEL_LANGUAGE": "Язык по умолчанию для сайта",
+        "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+        "LABEL_MAIL_LANGUAGE": "Язык уведомлений",
+        "LABEL_MANAGE_QUOTA": "Управление квотой личного пространства пользователя",
+        "LABEL_MAX_FILE_SIZE": "Максимальный размер загружаемого файла пользователя в личном пространстве",
+        "LABEL_MODIFICATION_DATE": "Дата модификации",
+        "LABEL_OWNER": "Владелец",
+        "LABEL_QUOTA": "Выделенная квота пользователя",
+        "LABEL_RESTRICTED": "ограниченный",
+        "LABEL_RESTRICTED_CONTACT_LIST": "Список заблокированных контактов",
+        "LABEL_ROLE": "Роль",
+        "LABEL_STATUS": "Статус",
+        "LABEL_STATUS_GUEST": "Гость",
+        "LABEL_STATUS_INTERNAL": "внутренний"
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить этого пользователя, эта процедура необратима и уничтожит весь его документ. Вы хотите продолжить?"
+      },
+      "CONFIRM_CREATE_PROFILE_FORM": {
+        "PARAGRAPH": "У этого пользователя нет профиля Linshare. Вы хотите создать его в базе данных?"
+      },
+      "MODALS": {
+        "CHANGE_DOMAIN": {
+          "TITLE": "Миграция домена пользователей",
+          "CURRENT_DOMAIN": "Текущий домен",
+          "NEW_DOMAIN": "Новый домен",
+          "BUTTON_CANCEL": "отменить",
+          "BUTTON_SUBMIT": "Применять"
+        }
+      },
+      "BOX_TAB_OTHERS": {
+        "TAB_TITLE": "Другие",
+        "EMAIL_MIGRATION_TITLE": "Изменение электронной почты пользователей",
+        "BUTTON_SUBMIT": "Подать",
+        "SELECT_DELIMITER": "Разделитель файлов",
+        "SELECT_FILE": "Файл",
+        "SELECT_FILE_HELP": "Выберите файл csv, содержащий предыдущие и текущие электронные письма пользователей",
+        "STATE_TOTAL": "Общее количество обработанных пользователей",
+        "STATE_UPDATED": "Обновленные пользователи",
+        "STATE_NOTUPDATED": "Не обновленные пользователи",
+        "STATE_SKIPPED": "Необработанные пользователи"
+      }
+    },
+    "INCONSISTENT_USERS": {
+      "TITLE": "",
+      "BOX_FORM": {
+        "LABEL_TARGET_DOMAIN": "Целевой домен",
+        "LABEL_STATUS": "Статус",
+        "LABEL_CREATION_DATE": "Дата создания",
+        "LABEL_MODIFICATION_DATE": "Дата модификации",
+        "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+        "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+        "LABEL_DOMAIN": "Текущий домен",
+        "FORM_ACTIONS": {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+        }
+      },
+      "BOX_LIST": {
+        "TITLE": "Список непоследовательных пользователей",
+        "TABLE": {
+          "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
+          "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
+          "HEADER_EMAIL": "E-mail",
+          "HEADER_DOMAIN": "Домен",
+          "HEADER_ROLE": "Роль",
+          "HEADER_CHECKBOX": "Выбрать"
+        },
+        "MULTIPLE_UPDATE": "Несколько действий"
+      },
+      "SCRUTINY": {
+        "TITLE": "Пользовательская диагностика",
+        "SEARCH_LEGEND": "Найдите учетные записи пользователя, указав адрес электронной почты",
+        "PLACEHOLDER": "Почта",
+        "DOMAIN_HEADER": "ДОМЕННОЕ ИМЯ",
+        "DOMAIN_HEADER_LABEL": "Список доменов",
+        "LDAP_HEADER": "LDAP",
+        "LDAP_HEADER_LABEL": "Наличие пользователя в LDAP",
+        "DATABASE_HEADER": "DATABASE",
+        "DATABASE_HEADER_LABEL": "Наличие пользователя в базе данных",
+        "GUEST_HEADER": "ГОСТЬ",
+        "GUEST_HEADER_LABEL": "Является ли пользователь гостем",
+        "NOT_FOUND_MESSAGE": "Нет результата для: ",
+        "CURRENT_USER_FOUND": "Результат поиска для : ",
+        "WARNING_OUT_OF_DATE_REFRESH": "Отображаемые данные больше не обновляются",
+        "REFRESH": "Обновить"
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить этого пользователя, эта процедура необратима и уничтожит весь его документ. Вы хотите продолжить?"
+      }
+    },
+    "THREADS": {
+      "TITLE": "Управление рабочими группами",
+      "BOX_LIST": {
+        "TITLE": "Список рабочих групп",
+        "TABLE": {
+          "HEADER_NAME": "@:THREADS.BOX_FORM.LABEL_NAME",
+          "HEADER_MODIFICATION_DATE": "@:THREADS.BOX_FORM.LABEL_MODIFICATION_DATE"
+        }
+      },
+      "SEARCH": {
+        "INFO": "Поиск рабочих групп осуществляется через строку поиска. Чтобы показать список всех рабочих групп, оставьте строку поиска пустой и сделайте запрос.",
+        "SERVER": "Поиск рабочих групп с сервера",
+        "FIELDS": "Имя рабочей группы, имя или фамилия пользователя",
+        "CLIENT": "Отфильтровать результат по имени рабочей группы"
+      },
+      "BOX_FORM": {
+        "TITLE": "Изменить группу",
+        "DESCRIPTION": "Вы можете добавить участников в группу, используя окно поиска ниже. Вы можете искать по фамилии, имени и электронной почте, вам просто нужно выбрать участника..",
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_NAME": "@:COMMON.BASIC_FORM.LABEL_NAME",
+        "LABEL_MODIFICATION_DATE": "Дата модификации",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "BOX_MEMBERS_LIST": {
+        "TITLE": "Список участников",
+        "DESCRIPTION": "Вы можете добавить участников в группу, используя окно поиска ниже. Вы можете искать по имени, фамилии и электронной почте, вы можете просто выбрать участника.",
+        "PLACEHOLDER_ADD_MEMBER": "Добавить участника",
+        "TABLE": {
+          "HEADER_FIRST_NAME": "Имя",
+          "HEADER_LAST_NAME": "Фамилия",
+          "HEADER_READ_ONLY": "Просто читать",
+          "HEADER_ADMIN": "Администратор",
+          "HEADER_ACTIONS": "Действия",
+          "BUTTON_DELETE_MEMBER": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_MEMBER_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
+          "BUTTON_DELETE_MEMBER_NO": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO"
+        },
+        "ROLES": {
+          "ADMIN": "Администратор",
+          "CONTRIBUTOR": "Помощник",
+          "WRITER": "Писатель",
+          "READER": "Читатель"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить эту группу и весь контент, эта процедура необратима. Вы хотите продолжить?"
+      }
+    },
+    "MAILING_LISTS": {
+      "TITLE": "Управление списками рассылки",
+      "LABEL_PUBLIC": "Публличнчй",
+      "LABEL_PRIVATE": "Приватный",
+      "BOX_LIST": {
+        "TITLE": "Списки рассылки",
+        "TABLE": {
+          "HEADER_IDENTIFIER": "@:MAILING_LISTS.BOX_FORM.LABEL_IDENTIFIER",
+          "HEADER_IS_PUBLIC": "@:MAILING_LISTS.BOX_FORM.LABEL_IS_PUBLIC"
+        }
+      },
+      "BOX_FORM": {
+        "TITLE": "Изменить группу",
+        "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
+        "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
+        "LABEL_IS_PUBLIC": "Статус",
+        "LABEL_OWNER": "Владелец",
+        "LABEL_DESCRIPTION": "@:COMMON.BASIC_FORM.LABEL_DESCRIPTION",
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "BOX_CONTACTS_LIST": {
+        "TITLE": "Список контактов",
+        "PLACEHOLDER_EMAIL": "@:MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_EMAIL",
+        "PLACEHOLDER_FIRST_NAME": "@:MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_FIRST_NAME",
+        "PLACEHOLDER_LAST_NAME": "@:MAILING_LISTS.BOX_CONTACTS_LIST.TABLE.HEADER_LAST_NAME",
+        "BUTTON_ADD_CONTACT": "Добавить контакт",
+        "TABLE": {
+          "HEADER_EMAIL": "Почта",
+          "HEADER_FIRST_NAME": "Имя",
+          "HEADER_LAST_NAME": "Фамилия",
+          "HEADER_ACTIONS": "Действие",
+          "BUTTON_DELETE_CONTACT": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_DELETE_CONTACT_YES": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_YES",
+          "BUTTON_DELETE_CONTACT_NO": "@:COMMON.BASIC_CONFIRMATION_FORM.BUTTON_NO"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить эту группу и весь контент, эта процедура необратима. Вы хотите продолжить?"
+      }
+    },
+    "AUDIT": {
+      "TITLE": "Приложение Audit",
+      "BOX_FORM": {
+        "ACTOR": {
+          "LEGEND": "Актор",
+          "LABEL_EMAIL": "Адрес электронной почты актера",
+          "LABEL_FIRST_NAME": "Имя актора",
+          "LABEL_LAST_NAME": "Фамилия актора",
+          "LABEL_DOMAIN": "Акторский домен"
+        },
+        "TARGET": {
+          "LEGEND": "Цель",
+          "LABEL_EMAIL": "Целевой адрес электронной почты",
+          "LABEL_FIRST_NAME": "Имя цели",
+          "LABEL_LAST_NAME": "Фамилия цели",
+          "LABEL_DOMAIN": "Целевой домен"
+        },
+        "FILE": {
+          "LEGEND": "Файл",
+          "LABEL_NAME": "Имя файла",
+          "LABEL_EXTENSION": "Расширение файла"
+        },
+        "DATE": {
+          "LEGEND": "Действия",
+          "PLACEHOLDER_FROM": "От",
+          "PLACEHOLDER_TO": "Кому"
+        },
+        "TABLE": {
+          "HEADER_DATE": "Дата",
+          "HEADER_ACTION": "Действие",
+          "HEADER_ACTOR_EMAIL": "@:AUDIT.BOX_FORM.ACTOR.LABEL_EMAIL",
+          "HEADER_TARGET_EMAIL": "@:AUDIT.BOX_FORM.TARGET.LABEL_EMAIL",
+          "HEADER_FILE_NAME": "@:AUDIT.BOX_FORM.FILE.LABEL_NAME",
+          "HEADER_EXPIRY_DATE": "Срок действия"
+        },
+        "FORM_ACTIONS": {
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      }
+    },
+    "UPLOAD_REQUEST": {
+      "TITLE": "Запрос на отправку",
+      "BOX_FORM": {
+        "STATUS": {
+          "LEGEND": "Статус"
+        },
+        "DATE": {
+          "LEGEND": "Действия",
+          "PLACEHOLDER_FROM": "От",
+          "PLACEHOLDER_TO": "Ком"
+        },
+        "TABLE": {
+          "HEADER_CREATION_DATE": "Дата создания",
+          "HEADER_OWNER": "Владелец",
+          "HEADER_SUBJECT": "Сюжет",
+          "HEADER_STATUS": "Статус"
+        },
+        "TABLE_HISTORY": {
+          "TITLE": "История",
+          "HEADER_MODIFICATION_DATE": "Дата изменения",
+          "HEADER_STATUS": "Статус",
+          "HEADER_MAX_DEPOSIT_SIZE": "Максимальный размер депозита",
+          "HEADER_MAX_FILE_COUNT": "Максимальное количество файлов",
+          "HEADER_MAX_FILE_SIZE": "Максимальный размер файла ",
+          "HEADER_CAN_DELETE": "Можно удалить",
+          "HEADER_CAN_CLOSE": "Можно закрыть",
+          "HEADER_SECURED": "Защищен"
+        },
+        "FORM_ACTIONS": {
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      }
+    },
+    "UPLOAD_PROPOSITION_FILTER": {
+      "TITLE": "Загрузить фильтр предложений",
+      "BOX_FORM": {
+        "TITLE": "Форма фильтра",
+        "BUTTON_LIST": "Список фильтров",
+        "BUTTON_ADD_RULE": "Добавить правило",
+        "LABEL_NAME": "Имя",
+        "LABEL_STATUS": "Статус",
+        "LABEL_ENABLED": "Включено",
+        "LABEL_DISABLED": "Отключено",
+        "LABEL_RULES": "Правила соответствия",
+        "LABEL_MATCH_ALL": "Соответствие всем правилам",
+        "LABEL_MATCH_ONE": "Сопоставьте хотя бы одно правило",
+        "LABEL_ACTION": "Действие",
+        "FORM_ACTIONS": {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "BOX_LIST": {
+        "TITLE": "Список фильтров",
+        "BUTTON_ADD": "Создать фильтр",
+        "TABLE": {
+          "HEADER_ACTIONS": "Действия",
+          "HEADER_NAME": "Имя",
+          "HEADER_STATUS": "Статус"
+        }
+      }
+    },
+    "TECHNICAL_ACCOUNT": {
+      "TITLE": "Технические аккаунты",
+      "BOX_FORM": {
+        "TITLE": "Технический аккаунт",
+        "TITLE_PASSWORD": "Поменять пароль",
+        "BUTTON_LIST": "Список аккаунтов",
+        "LABEL_NAME": "Имя",
+        "LABEL_MAIL": "E-mail",
+        "LABEL_ROLE": "Роль",
+        "LABEL_PERMISSIONS": "Разрешения",
+        "LABEL_UUID": "Логин",
+        "LABEL_STATUS": "Статус",
+        "LABEL_ENABLED": "Включен",
+        "LABEL_DISABLED": "Отключен",
+        "LABEL_CREATION_DATE": "Дата создания",
+        "LABEL_MODIFICATION_DATE": "Дата изменения",
+        "LABEL_OLD_PWD": "Старый пароль",
+        "LABEL_NEW_PWD": "Новый пароль",
+        "LABEL_NEW_PWD_RETYPED": "Подтвердить новый пароль",
+        "FORM_ACTIONS": {
+          "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        }
+      },
+      "BOX_LIST": {
+        "TITLE": "Список аккаунтов",
+        "BUTTON_ADD": "Создать технической учетной записи",
+        "TABLE": {
+          "HEADER_NAME": "Имя"
+        }
+      },
+      "CONFIRM_DELETE_FORM": {
+        "PARAGRAPH": "Вы собираетесь удалить эту техническую учетную запись, эта процедура необратима. Вы хотите продолжить?"
+      }
+    },
+    "MANAGE_QUOTA": {
+      "BOX_FORM": {
+        "CONTAINER_ALLOCATION": {
+          "LABEL_PERSONAL_SPACE_MAX_FILE_SIZE": "Максимальный размер файла личных пространств",
+          "LABEL_PERSONAL_SPACE_QUOTA": "Общее количество выделенных личных мест",
+          "LABEL_WORKGROUP_QUOTA": "Общая выделенная квота общего доступа",
+          "LABEL_WORKGROUP_MAX_FILE_SIZE": "Максимальный размер файла Sharedspace",
+          "LABEL_USER_PERSONAL_SPACE_QUOTA_LINK": "Выделить квоту для определенной учетной записи пользователя",
+          "LABEL_USERS_PERSONAL_SPACE_QUOTA": "Распределение выделенных личных мест (для каждого пользователя)",
+          "MAIN_SECTION_TITLE": "Выделение контейнера для",
+          "SUB_SECTION_PERSONAL_SPACES_QUOTA": "Квоты личных пространств",
+          "SUB_SECTION_WORKGROUP_QUOTA": "Квота общего доступа"
+        },
+        "DOMAIN_SHARED_QUOTA": {
+          "DESCRIPTION": "Активация этого режима освобождается от установки квоты каждого контейнера этого домена (личное пространство и совместное пространство). Пользователь увидит глобальное потребление всех пользователей домена.",
+          "LABEL": "Активировать общую квоту домена"
+        },
+        "FORM_ACTIONS": {
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL",
+          "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        },
+        "GRAPH": {
+          "LEGEND": {
+            "QUOTA": {
+              "DOMAIN": "Текущая распределенная квота домена",
+              "DISTRIBUTION": "Распределенное распределение квот текущего домена{{value ? ': ' + value : ''}}",
+              "MAX": "Максимальная допустимая квота",
+              "OVER": "Предел превышения",
+              "PERSONAL_SPACE": "Выделенная квота на личное пространство{{value ? ': ' + value : ''}}",
+              "REMAINING": "Остальная квота{{value ? ': ' + value : ''}}",
+              "SHARED_SPACE": "Распределенная квота на выделенное пространство{{value ? ': ' + value : ''}}",
+              "UNALLOCATED": "Нераспределенная квота",
+              "UNASSIGNED": "Нераспределенная квота"
+            },
+            "SMALL": {
+              "PERSONAL_SPACE": "P.S.",
+              "SHARED_SPACE": "S.S."
+            },
+            "SPACE": {
+              "DOMAIN": "Текущая область используемого пространства{{value ? ': ' + value + ' (P.S. + S.S.)': ''}}",
+              "REMAINING": "Оставшееся пространство{{value ? ': ' + value : ''}}",
+              "SUBDOMAIN": "Поддомены использовали пространство{{value ? ': ' + value : ''}}",
+              "UNALLOCATED": "Нераспределенные пространство{{value ? ': ' + value : ''}}",
+              "USED": "Используемое пространство{{value ? ': ' + value : ''}}"
+            }
+          },
+          "TITLE": {
+            "VIRTUAL": "Виртуальное размещение контейнеров"
+          },
+          "TOOLTIP": {
+            "RESET": "@:MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_RESET_TOOLTIP",
+            "UNLINK": "@:MANAGE_QUOTA.BOX_FORM.HINT_LABELS.HINT_UNLINK_TOOLTIP",
+            "CLICK": {
+              "DEFAULT": "Нажмите, чтобы переопределить значение по умолчанию",
+              "PERSONAL_SPACE": "Нажмите, чтобы переопределить значение по умолчанию для личного пространства",
+              "SHARED_SPACE": "Нажмите, чтобы переопределить значение Sharedspace по умолчанию"
+            },
+            "USED": {
+              "PERSONAL_SPACE": "Личное пространство : {{value}} используется",
+              "SHARED_SPACE": "Общее пространство : {{value}} используется"
+            }
+          }
+        },
+        "HINT_LABELS": {
+          "ALERT_MAINTENANCE_MODE": "Режим обслуживания активирован, тем самым остановив любые закачки",
+          "ERROR": "Ошибка ",
+          "ERROR_MAX_VALUE": "Значение должно быть ниже или равно: ",
+          "ERROR_QUOTA": "Назначенная квота ошибочна, проверьте свои параметры",
+          "ERROR_QUOTA_EXCEEDED": "Превышение квоты, освобождение места для хранения или выделение большей квоты for the ",
+          "HINT_ALLREADY_USED": "уже использован",
+          "HINT_ASSIGNED_QUOTA": "Назначенная квота",
+          "HINT_MAX_QUOTA": "Значение не может превышать квоту личных мест",
+          "HINT_RESET_TOOLTIP": "Сбросить значение по умолчанию: {{value}}",
+          "HINT_UNLINK_TOOLTIP": "Переопределить значение по умолчанию",
+          "WARNING_MAX_VALUE": "Значение превышает значение шаблона по умолчанию, равное: "
+        },
+        "MAINTENANCE_MODE": "Режим технического обслуживания",
+        "MAINTENANCE_MODE_TOOLTIP": "Выключение загрузки",
+        "SPACES_LABEL": {
+          "CURRENT_DOMAIN": "текущий домен",
+          "PERSONALS_SPACES": "Моё пространство",
+          "WORKGROUP": "Общий доступ",
+          "SUB_DOMAINS": "субдомены"
+        },
+        "SUBDOMAINS_DEFAULT_SETTINGS": {
+          "LABEL_PERSONAL_SPACE_MAX_FILE_SIZE": "Максимальный размер файла личных данных по умолчанию",
+          "LABEL_PERSONAL_SPACES_QUOTA": "Выделенная квота для всех личных мест",
+          "LABEL_SUBDOMAINS_QUOTA": "Квота (на поддомен)",
+          "LABEL_WORKGROUP_MAX_FILE_SIZE": "Максимальный размер файла Sharedspace по умолчанию",
+          "LABEL_WORKGROUP_QUOTA": "По умолчанию общая сумма Sharedspaces, выделенная квотой",
+          "LABEL_USER_PERSONAL_SPACES_QUOTA": "Выделенная квота по умолчанию для личного пространства (для каждого пользователя)",
+          "MAIN_SECTION_TITLE": "Настройки распределения по умолчанию субдоменов",
+          "SUB_SECTION_PERSONAL_SPACES_QUOTA": "Квоты личных пространств",
+          "SUB_SECTION_SUBDOMAINS_QUOTA": "Квота субдоменов",
+          "SUB_SECTION_WORKGROUP_QUOTA": "Квота общего доступа"
+        },
+        "USED_SPACE": {
+          "LABEL_QUOTA": "Квота",
+          "MAIN_SECTION_TITLE": "Используемое пространство для",
+          "SUB_SECTION_DOMAIN_QUOTA": "текущий домен"
+        }
+      },
+      "INFO_QUOTA": "Настройте размер квоты ваших мест внутри ваших доменов",
+      "NOTIFICATION": {
+        "UPDATE": "Квота домена и его соответствующие контейнеры были успешно обновлены"
+      }
+    },
+    "UPGRADE_TASKS": {
+      "ALERT": {
+        "ERROR": "Некоторые обязательные задачи обновления еще не выполнены",
+        "WARNING": "Некоторые требуемые задачи обновления еще не выполнены"
+      },
+      "BOX_LIST": {
+        "TABLE": {
+          "HEADER": {
+            "ACTIONS": "Действия",
+            "DESCRIPTION": "Описание",
+            "IDENTIFIER": "Идентификатор",
+            "MODIFICATION_DATE": "Дата модификации",
+            "CRITICALITY": "критичность",
+            "STATUS": "Статус"
+          },
+          "TABLE_ACTIONS": {
+            "BUTTON_CONSOLE": "Показать консоль",
+            "BUTTON_EXECUTE": "Выполнение задачи обновления",
+            "BUTTON_PREVIOUS": "Показать предыдущее исполнение",
+            "BUTTON_RETRY": "Задайте задачу обновления"
+          }
+        }
+      },
+      "CRITICALITY": {
+        "MANDATORY": "Обязательный",
+        "REQUIRED": "необходимые"
+      },
+      "MODAL": {
+        "BUTTONS": {
+          "OK": "Повторить попытку",
+          "CANCEL": "Отмена"
+        },
+        "TEXT": "Выбранная задача {STATUS, select, SUCCESS {успешно завершена} PENDING {ждет выполнения} ПРОЦЕССА {обрабатывается} FAILED {не удалось завершить} другое {находится в следующем состоянии {STATUS}}}. Вы хотите выполнить задачу снова?",
+        "TITLE": "Повторная попытка задания задачи"
+      },
+      "STATUS": {
+        "FAILED": "Не удалось",
+        "NEW": "новый",
+        "PENDING": "в ожидании",
+        "PROCESSING": "обработка",
+        "SUCCESS": "успех" 
+      },
+      "TASKS": {
+        "UPGRADE_2_0_ACCOUNT_QUOTA": "Структура квоты инициализации для всех существующих учетных записей (пользователей и рабочих групп)",
+        "UPGRADE_2_0_CLEANUP_OLD_ACCOUNT": "Очистка старой структуры квот для всех существующих учетных записей",
+        "UPGRADE_2_0_THREAD_TO_WORKGROUP": "Создание новой архитектуры рабочей группы",
+        "UPGRADE_2_0_DOMAIN_POLICIES_UUID": "Генерация Uuid для политик доменов вместо идентификатора / метки",
+        "UPGRADE_2_0_DOMAIN_UUID": "Генерация Uuid для доменов вместо идентификатора / метки",
+        "UPGRADE_2_0_DOMAIN_QUOTA_SUBDOMAINS": "Структура квоты инициализации (квота домена и квота контейнера) для всех поддоменов",
+        "UPGRADE_2_0_DOMAIN_QUOTA_TOPDOMAINS": "Структура квоты инициализации (квота домена и квота контейнера) для всех верхних доменов",
+        "UPGRADE_2_0_SHA256SUM": "Вычислить sha256sum для всего сохраненного документа (это значение может быть неопределенным)",
+        "UPGRADE_2_0_UPGRADE_STORAGE": "Перенос файлов старого хранилища",
+        "UPGRADE_2_0_CLEANUP_EXPIRED_GUEST": "Учетная запись с истекшим сроком действия",
+        "UPGRADE_2_0_CLEANUP_EXPIRED_ACCOUNT": "Очистка внутренней учетной записи",
+        "UPGRADE_2_0_PURGE_ACCOUNT": "Данные учетной записи очистки (внутренний и гостевой)",
+
+        "UPGRADE_2_1_DOCUMENT_GARBAGE_COLLECTOR" : "Добавить все документы UUID в DocumentGarbageCollector",
+        "UPGRADE_2_1_COMPUTE_USED_SPACE_FOR_WORGROUPS" : "Вычислить все используемые пространства для каждой рабочей группы",
+        "UPGRADE_2_1_REMOVE_ALL_THREAD_ENTRIES" : "Удаление всех бесполезных данных, связанных со старыми потоками / группами в LinShare 1.x.",
+        "UPGRADE_2_1_COMPUTE_CURRENT_VALUE_FOR_DOMAINS" : "Вычислить используемое пространство по каждому домену",
+        "UPGRADE_2_1_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA" : "Вычислить использованное пространство субдоменами для доменов верхнего уровня и корневого домена"
+
+      },
+      "TITLE": "Обновить задачи"
+    },
+    "ASYNC_TASKS": {
+      "BOX_LIST": {
+        "FILTER": {
+          "LABEL": "Фильтровать по уровню журнала"
+        },
+        "TABLE": {
+          "HEADER": {
+            "ACTIONS": "Действия",
+            "CREATION_DATE": "Дата создания",
+            "DURATION": "продолжительность",
+            "MODIFICATION_DATE": "Дата модификации",
+            "STATUS": "Статус"
+          },
+          "TABLE_ACTIONS": {
+            "BUTTON_CONSOLE": "Показать консоль"
+          }
+        }
+      },
+      "TITLE": {
+        "PLURAL": "Асинхронные задачи",
+        "SINGULAR": "Асинхронная задача"
+      }
+    }
+  }

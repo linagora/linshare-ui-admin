@@ -34,6 +34,11 @@
             {{ 'COMMON.NAVBAR.LANGUAGE.FRENCH' | translate }}
           </a>
         </li>
+        <li x-ng-class="{disabled: isCurrentLang('ru')}">
+          <a x-ng-click="setLanguage('ru');isopen=false;">
+            {{ 'COMMON.NAVBAR.LANGUAGE.RUSSIAN' | translate }}
+          </a>
+        </li>
       </ul>
     </li>
     <li class="dropdown user user-menu">
