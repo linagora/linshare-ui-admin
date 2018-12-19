@@ -8,6 +8,12 @@
 
   angular
     .module('linshareAdminApp')
+    .config(['$translatePartialLoaderProvider', function($translatePartialLoaderProvider) {
+      $translatePartialLoaderProvider.addPart('audit');
+    }])
+    .run(['$translate', function($translate) {
+      $translate.refresh();
+    }])
     .controller('AuditController', AuditController);
 
   AuditController.$inject = ['_', '$filter', '$scope', '$translate', '$translatePartialLoader', 'auditDetailsService',
@@ -39,8 +45,6 @@
      * @memberOf linshareAdminApp.AuditController
      */
     function activate() {
-      $translatePartialLoader.addPart('audit');
-      $translate.refresh();
 
       auditVm.beginDate = new Date();
       auditVm.endDate = new Date();

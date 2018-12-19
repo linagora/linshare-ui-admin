@@ -7,6 +7,12 @@
 
   angular
     .module('linshareAdminApp')
+    .config(['$translatePartialLoaderProvider', function($translatePartialLoaderProvider) {
+      $translatePartialLoaderProvider.addPart('audit');
+    }])
+    .run(['$translate', function($translate) {
+      $translate.refresh();
+    }])
     .directive('auditDetails', auditDetails);
 
   /**

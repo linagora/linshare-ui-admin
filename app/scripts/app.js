@@ -36,6 +36,7 @@ angular.module('linshareAdminApp', [
     $translateProvider.useLoader('$translatePartialLoader', {urlTemplate: 'i18n/{part}-{lang}.json'});
 
     $translatePartialLoaderProvider.addPart('locale');
+    $translatePartialLoaderProvider.addPart('audit');
 
     $translateProvider.preferredLanguage('en');
     $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
@@ -97,8 +98,8 @@ angular.module('linshareAdminApp', [
 }])
 
 // Register work which should be performed when the injector is done loading all modules
-.run(['$rootScope', '$state', '$log', 'Restangular', 'Notification', 'lsAppConfig',
-  function($rootScope, $state, $log, Restangular, Notification, lsAppConfig) {
+.run(['$rootScope', '$state', '$log', 'Restangular', 'Notification', 'lsAppConfig', '$translate',
+  function($rootScope, $state, $log, Restangular, Notification, lsAppConfig, $translate) {
     Restangular.setErrorInterceptor(function(response, deferred) {
         if (response.config.method === 'HEAD' && response.status === 404) {
           deferred.resolve(false);
@@ -140,5 +141,9 @@ angular.module('linshareAdminApp', [
       });
     }
     $rootScope.routerState = $state;
+
+    $rootScope.$on('$translatePartialLoaderStructureChanged', function() {
+      $translate.refresh($translate.use());
+    });
   }
 ]);

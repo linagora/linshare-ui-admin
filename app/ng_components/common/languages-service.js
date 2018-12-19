@@ -5,7 +5,8 @@ angular.module('linshareAdminApp')
   function(_, $log, $translate, Enum, Notification) {
     var languages = {
       'fr': 'FRENCH',
-      'en': 'ENGLISH'
+      'en': 'ENGLISH',
+      'ru': 'RUSSIAN'
     };
 
     return {
