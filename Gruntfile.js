@@ -8,6 +8,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+  const sass = require('node-sass');
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -42,9 +43,9 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
-      compass: {
+      sass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server']
+        tasks: ['sass']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -99,7 +100,10 @@ module.exports = function (grunt) {
     jshint: {
       options: {
         jshintrc: '.jshintrc',
-        reporterOutput: ''
+        reporterOutput: '',
+        ignores: [
+          '<%= yeoman.app %>/i18n/angular/*.js'
+        ]
       },
       all: [
         'Gruntfile.js',
@@ -139,31 +143,17 @@ module.exports = function (grunt) {
     },
 
     // Compiles Sass to CSS and generates necessary files if requested
-    compass: {
+    sass: {
       options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
-        imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: ['<%= yeoman.app %>/styles/AdminLTE/fonts', '<%= yeoman.app %>/styles/linshare/fonts'],
-        importPath: '<%= yeoman.app %>/bower_components',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
-        relativeAssets: false,
-        assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'
+        implementation: sass,
+        includePaths: [
+          '<%= yeoman.app %>/bower_components'
+	]
       },
       dist: {
-        options: {
-          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
-        }
-      },
-      server: {
-        options: {
-          debugInfo: true
-        }
+        files: {
+	  '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+	}
       }
     },
 
@@ -355,7 +345,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'bowerInstall',
-      'compass:server',
+      'sass',
       'connect:livereload',
       'watch'
     ]);
@@ -369,7 +359,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'jshint:test',
-    'compass',
+    'sass',
     'connect:test',
     'karma'
   ]);
@@ -380,7 +370,7 @@ module.exports = function (grunt) {
     'jshint:all',
     'bowerInstall',
     'useminPrepare',
-    'compass:dist',
+    'sass',
     'concat',
     'ngAnnotate',
     'copy:dist',
