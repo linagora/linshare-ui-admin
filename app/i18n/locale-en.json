@@ -968,6 +968,18 @@
        "PARAMETER_NAME": "",
        "PARAMETER_DESCRIPTION": ""
       },
+       "WORK_GROUP__FILE_VERSIONING": {
+       "NAME": "File versioning right",
+       "USE_EXTENDED_DESCRIPTION": "0",
+       "DESCRIPTION": "This functionality allows users and administrators to create versions from files in a workGroup",
+       "ADVANCED_DESCRIPTION": "",
+       "USER_OVERRIDE": "",
+       "ACTIVATION_POLICY": "",
+       "DELEGATION_POLICY": "",
+       "CONFIGURATION_POLICY": "",
+       "PARAMETER_NAME": "",
+       "PARAMETER_DESCRIPTION": ""
+      },
       "UPLOAD_REQUEST": {
         "NAME": "Upload request",
         "USE_EXTENDED_DESCRIPTION": "3",

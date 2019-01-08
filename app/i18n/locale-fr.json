@@ -973,6 +973,18 @@
       "PARAMETER_NAME": "",
       "PARAMETER_DESCRIPTION": ""
       },
+       "WORK_GROUP__FILE_VERSIONING": {
+       "NAME": "Droit de création des versions de fichiers",
+       "USE_EXTENDED_DESCRIPTION": "0",
+       "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer des versions de fichiers dans un group de travail",
+       "ADVANCED_DESCRIPTION": "",
+       "USER_OVERRIDE": "",
+       "ACTIVATION_POLICY": "",
+       "DELEGATION_POLICY": "",
+       "CONFIGURATION_POLICY": "",
+       "PARAMETER_NAME": "",
+       "PARAMETER_DESCRIPTION": ""
+      },
       "UPLOAD_REQUEST": {
         "NAME": "Invitation de dépôt",
         "USE_EXTENDED_DESCRIPTION": "3",
