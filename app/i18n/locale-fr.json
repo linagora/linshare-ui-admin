@@ -2502,10 +2502,19 @@
       "UPGRADE_2_0_PURGE_ACCOUNT": "Supprime les données des comptes (internes et invités)",
 
       "UPGRADE_2_1_DOCUMENT_GARBAGE_COLLECTOR" : "Ajouter tous les documents UUID dans DocumentGarbageCollector",
-      "UPGRADE_2_1_COMPUTE_USED_SPACE_FOR_WORGROUPS" : "Calcule tout l'espace utilisé pour chaque groupe de travail",
+      "UPGRADE_2_1_COMPUTE_USED_SPACE_FOR_WORGROUPS" : "Calcul de tout l'espace utilisé pour chaque groupe de travail",
       "UPGRADE_2_1_REMOVE_ALL_THREAD_ENTRIES" : "Suppression des données inutiles relatives aux anciens groupes LinShare 1.x.",
-      "UPGRADE_2_1_COMPUTE_CURRENT_VALUE_FOR_DOMAINS" : "Calcule de l'espace utilisé par chaque domaine",
-      "UPGRADE_2_1_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA" : "Calcule de l'espace utilisé par les sub-domains pour les top-domains et le root-domain"
+      "UPGRADE_2_1_COMPUTE_CURRENT_VALUE_FOR_DOMAINS" : "Calcul de l'espace utilisé par chaque domaine",
+      "UPGRADE_2_1_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA" : "Calcul de l'espace utilisé par les sub-domains pour les top-domains et le root-domain",
+      "UPGRADE_2_1_ADD_ALL_NEW_MIME_TYPE" : "Ajout de nouveaux types de média supportés.",
+
+      "UPGRADE_2_2_MIGRATE_UPLOAD_PROPOSITION_FILTER_TO_MONGO_DATABASE":"Migration des filtres des demandes de dépot de fichiers vers une nouvelle structure dans la base de données MongoDB.",
+      "UPGRADE_2_2_MIGRATE_UPLOAD_PROPOSITION_TO_MONGO_DATABASE":"Migration des demandes de dépot de fichier vers une nouvelle structure dans la base de données MongoDB.",
+      "UPGRADE_2_2_MIGRATE_UPLOAD_REQUEST_HISTORY_TO_MONGO_AUDIT":"Migration de l'ancien historique des invitations de dépots dans le nouvel audit.",
+      "UPGRADE_2_2_MIGRATE_THREAD_AND_THREAD_MEMBERS_TO_MONGO_DATABASE":"Migration des groupes de travail et de leurs membres vers la nouvelle structure dans la base de données MongoDB",
+      "UPGRADE_2_2_GENERATE_BASIC_STATISTICS_FROM_AUDIT_LOG_ENTRIES":"Génération des statistiques à partir des traces de l'audit (traitement rétro-actif).",
+      "UPGRADE_2_2_MIGRATE_WORKGROUP_AUDIT_TO_SHARED_SPACE_AUDIT":"Migration de l'audit des espaces de travail vers nouvelle structure dans la base de données MongoDB.",
+      "UPGRADE_2_2_MIGRATE_WORKGROUP_MEMBER_AUDIT_TO_SHARED_SPACE_MEMBER_AUDIT":"Migration de l'audit des membres des espaces de travail dans une nouvelle structure dans la base de données MongoDB."
     },
     "TITLE": "Tâches de mise à jour"
   },
