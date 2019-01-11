@@ -100,7 +100,10 @@ module.exports = function (grunt) {
     jshint: {
       options: {
         jshintrc: '.jshintrc',
-        reporterOutput: ''
+        reporterOutput: '',
+        ignores: [
+          '<%= yeoman.app %>/i18n/angular/*.js'
+        ]
       },
       all: [
         'Gruntfile.js',
