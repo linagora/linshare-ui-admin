@@ -7,13 +7,20 @@ stages:
   tags:
     - curl
 
-check:
-  image: docker-registry.linagora.com:5000/linshare-snapshots/linshare-build-helper:latest
+check_author:
+  image: docker-registry.linagora.com:5000/lgs-releases/gitlab-integrity-checks:latest
   stage: build
+  variables:
+    GIT_DEPTH: "1"
   tags:
-      - docker
+    - ultralight
   script:
-    - check_author.py check "${GITLAB_USER_EMAIL}" "${GITLAB_USER_NAME}" --no-accents
+    - check_author.py check "$GITLAB_USER_EMAIL" "$GITLAB_USER_NAME" --no-accents
+  except:
+    refs:
+      - master@linagora/lgs/linshare/products/linshare-ui-admin
+      - tags@linagora/lgs/linshare/products/linshare-ui-admin
+      - /^release-.*/@linagora/lgs/linshare/products/linshare-ui-admin
 
 build:
   <<: *curl-tpl
