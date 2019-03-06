@@ -198,7 +198,8 @@
         "DUTCH": "Néerlandais",
         "ENGLISH": "Anglais",
         "CREOLE": "Créole",
-        "VIETNAMESE": "Vietnamien"
+        "VIETNAMESE": "Vietnamien",
+        "RUSSIAN": "Russe"
       },
       "FLAG_LANGUAGE": {
         "FRENCH": "Français",
@@ -1854,6 +1855,7 @@
       "LABEL_CONTEXT": "Variables de contexte",
       "LABEL_FRENCH": "Français",
       "LABEL_ENGLISH": "Anglais",
+      "LABEL_RUSSIAN": "Russe",
       "LABEL_NORENDER": "Pas de visualisation",
       "LABEL_PLAINTEXT": "Texte brut",
       "LABEL_VISIBLE": "Visible",

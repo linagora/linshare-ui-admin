@@ -198,7 +198,8 @@
         "DUTCH": "Dutch",
         "ENGLISH": "English",
         "CREOLE": "Creole",
-        "VIETNAMESE": "Vietnamese"
+        "VIETNAMESE": "Vietnamese",
+        "RUSSIAN": "Russian"
       },
       "LOG_ACTION_V1": {
         "FILE_UPLOAD": "File upload",
@@ -1884,6 +1885,7 @@
       "LABEL_CONTEXT": "Context variables",
       "LABEL_FRENCH": "French",
       "LABEL_ENGLISH": "English",
+      "LABEL_RUSSIAN": "Russian",
       "LABEL_NORENDER": "No preview",
       "LABEL_PLAINTEXT": "Plain text",
       "LABEL_VISIBLE": "Visible",
