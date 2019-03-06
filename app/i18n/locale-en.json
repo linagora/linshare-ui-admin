@@ -1880,17 +1880,19 @@
       "LABEL_BODY": "Body",
       "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
       "LABEL_CONTENT_CONTEXT": {
-        "0": "Default"
+        "0": "Default scenario",
+        "1": "Extra scenario "
       },
       "LABEL_CONTEXT": "Context variables",
       "LABEL_FRENCH": "French",
       "LABEL_ENGLISH": "English",
       "LABEL_RUSSIAN": "Russian",
-      "LABEL_NORENDER": "No preview",
+      "LABEL_NORENDER": "No preview, please click 'Preview' button",
       "LABEL_PLAINTEXT": "Plain text",
       "LABEL_VISIBLE": "Visible",
       "LABEL_IS_AS_USED_false": "Enable the alternative subject",
       "LABEL_IS_AS_USED_true": "Disable the alternative subject",
+      "SUBJECT": "Subject: ",
       "FORM_ACTIONS": {
         "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",

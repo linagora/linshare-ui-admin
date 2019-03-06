@@ -1850,17 +1850,19 @@
       "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
       "LABEL_BODY": "Corps",
       "LABEL_CONTENT_CONTEXT": {
-        "0": "Défaut"
+        "0": "Scénario défaut",
+        "1": "Scénario extra "
       },
       "LABEL_CONTEXT": "Variables de contexte",
       "LABEL_FRENCH": "Français",
       "LABEL_ENGLISH": "Anglais",
       "LABEL_RUSSIAN": "Russe",
-      "LABEL_NORENDER": "Pas de visualisation",
+      "LABEL_NORENDER": "Pas de visualisation, cliquer sur le bouton 'Prévisualiser'",
       "LABEL_PLAINTEXT": "Texte brut",
       "LABEL_VISIBLE": "Visible",
       "LABEL_IS_AS_USED_false": "Activer le sujet alternatif",
       "LABEL_IS_AS_USED_true": "Désactiver le sujet alternatif",
+      "SUBJECT": "Sujet : ",
       "FORM_ACTIONS": {
         "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",

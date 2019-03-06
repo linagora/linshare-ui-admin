@@ -1845,16 +1845,18 @@
         "LABEL_BODY": "Тело",
         "TEXT_COPY": "@:COMMON.BASIC_FORM.TEXT_COPY",
         "LABEL_CONTENT_CONTEXT": {
-          "0": "По умолчанию"
+          "0": "По умолчанию",
+          "1": "TRANSLATE ME!"
         },
         "LABEL_CONTEXT": "Контекстные переменные",
         "LABEL_FRENCH": "Французский",
         "LABEL_ENGLISH": "Английский",
-        "LABEL_NORENDER": "Нет предварительного просмотра",
+        "LABEL_NORENDER": "TRANSLATE ME!",
         "LABEL_PLAINTEXT": "Простой текст",
         "LABEL_VISIBLE": "Видимый",
         "LABEL_IS_AS_USED_false": "Включить альтернативный объект",
         "LABEL_IS_AS_USED_true": "Отключить альтернативный объект",
+        "SUBJECT": "TRANSLATE ME!",
         "FORM_ACTIONS": {
           "BUTTON_COPY": "@:COMMON.BASIC_FORM.BUTTON_COPY",
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",

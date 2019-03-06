@@ -62,13 +62,23 @@
               <button type="button" id="mail-content-var" name="mail-content-var" class="btn btn-default dropdown-toggle"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 {{'MAIL_CONTENT.BOX_FORM.LABEL_CONTEXT' | translate}}:
-                {{'MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_CONTEXT.' +  mailContentContextSelected.index | translate}}
+                <span data-ng-show="mailContentContextSelected.index === 0">
+                  {{'MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_CONTEXT.0' | translate}}
+                </span>
+                <span data-ng-show="mailContentContextSelected.index > 0">
+                  {{'MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_CONTEXT.1' | translate}} {{mailContentContextSelected.index}}
+                </span>
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="mail-config">
                 <li x-ng-repeat="context in mailContentContext">
                   <a x-ng-click="selectContext(context)">
-                    {{'MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_CONTEXT.' +  context.index | translate}}
+                    <span data-ng-show="context.index === 0">
+                      {{'MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_CONTEXT.0' | translate}}
+                    </span>
+                    <span data-ng-show="context.index > 0">
+                      {{'MAIL_CONTENT.BOX_FORM.LABEL_CONTENT_CONTEXT.1' | translate}} {{context.index}}
+                    </span>
                     <span ng-show="context  === mailContentContextSelected" class="pull-right glyphicon glyphicon-ok"
                           aria-hidden="true">
                     </span>
@@ -94,11 +104,13 @@
               </ul>
             </div>
             <accordion class="sidebar-menu" x-close-others>
-              <accordion-group x-is-open="renderShow[lang]" x-ng-init="renderShow[lang] = false">
+              <accordion-group x-is-open="isContextAccordionOpen" x-ng-init="isContextAccordionOpen = false" class="cursor-pointer">
                 <accordion-heading>
                   {{'MAIL_CONTENT.BOX_FORM.LABEL_CONTEXT' | translate}}
-                  <i class="fa pull-right"
-                     x-ng-class="{'fa-angle-down': renderShow[lang], 'fa-angle-left': renderShow[lang]}"></i>
+                  <i
+                    class="fa pull-right"
+                    x-ng-class="{'fa-angle-up': isContextAccordionOpen, 'fa-angle-down': !isContextAccordionOpen}">
+                  </i>
                 </accordion-heading>
                 <section>
                   <ul>
@@ -120,43 +132,41 @@
               </accordion-group>
             </accordion>
           </div>
-          <div class="form-group" x-ng-repeat="lang in mailLanguage">
-            <label for="{{'messages-' + lang.toLowerCase()}}">
-              {{'MAIL_CONTENT.BOX_FORM.LABEL_' + lang | translate}}
-            </label>
-            <textarea id="{{'messages-' + lang.toLowerCase()}}" name="{{'messages-' + lang.toLowerCase()}}"
-                      type="text" class="form-control" rows="5"
-                      x-ng-model="mailContent['messages' + capitalize(lang)]" x-ng-disabled="mailContent.readonly">
-            </textarea>
-            <button type="button" id="render-default" name="render-default" class="btn btn-primary"
-                    x-ng-click="render(false, lang)">
-              {{'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_RENDER' | translate}} - {{lang}}
-            </button>
-            <button type="button" id="live-render-default" name="live-render-default" class="btn btn-secondary"
-                    x-ng-click="render(true, lang)">
-              {{'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_RENDER_LIVE' | translate}} - {{lang}}
-            </button>
-            <accordion class="sidebar-menu" x-close-others>
-              <accordion-group x-is-open="renderShow[lang]" x-ng-init="renderShow[lang] = false">
-                <accordion-heading>
-                  <span x-ng-show="mailRendered.lang === lang">{{mailRendered.data.subject}}</span>
-                  <span x-ng-show="mailRendered.lang !== lang">
-                    {{'MAIL_CONTENT.BOX_FORM.LABEL_NORENDER' | translate}}
-                  </span>
-                  <i class="fa pull-right"
-                     x-ng-class="{'fa-angle-down': renderShow[lang], 'fa-angle-left': renderShow[lang]}">
-                  </i>
-                </accordion-heading>
-                <section>
-                  <div class="" x-ng-show="mailRendered.lang === lang">
-                    <div id="{{'render-' + lang.toLowerCase()}}" name="{{'render-' + lang.toLowerCase()}}"
-                         x-ng-model="mailRendered.data.content" x-ng-bind-html="mailRendered.processed">
+
+          <div class="form-group">
+            <tabset>
+              <tab heading="{{lang}}" x-ng-repeat="lang in mailLanguage" class="cursor-pointer">
+                <textarea id="{{'messages-' + lang.toLowerCase()}}" name="{{'messages-' + lang.toLowerCase()}}"
+                  type="text" class="form-control" rows="5"
+                  x-ng-model="mailContent['messages' + capitalize(lang)]" x-ng-disabled="mailContent.readonly">
+                </textarea>
+                <button type="button" id="render-default" name="render-default" class="btn btn-primary"
+                  x-ng-click="render(false, lang)">
+                  {{'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_RENDER' | translate}}
+                </button>
+                <button type="button" id="live-render-default" name="live-render-default" class="btn btn-secondary"
+                  x-ng-click="render(true, lang)">
+                  {{'MAIL_CONTENT.BOX_FORM.FORM_ACTIONS.BUTTON_RENDER_LIVE' | translate}}
+                </button>
+              </tab>
+            </tabset>
+            <blockquote>
+              <div x-ng-show="!mailRendered.lang">
+                {{'MAIL_CONTENT.BOX_FORM.LABEL_NORENDER' | translate}}
+              </div>
+              <div x-ng-show="mailRendered.lang">
+                <h1>{{'MAIL_CONTENT.BOX_FORM.SUBJECT' | translate}}{{mailRendered.data.subject}}</h1>
+                <div>
+                  <div>
+                    <div
+                      x-ng-model="mailRendered.data.content" x-ng-bind-html="mailRendered.processed">
                     </div>
                   </div>
-                </section>
-              </accordion-group>
-            </accordion>
+                </div>
+              </div>
+            </blockquote>
           </div>
+
           <!-- Visible -->
           <div class="input-group">
             <span class="input-group-addon">
