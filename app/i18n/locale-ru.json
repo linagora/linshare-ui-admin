@@ -48,9 +48,9 @@
         "CHANGE_PASSWORD": "Поменять пароль",
         "LANGUAGE": {
           "SWITCH_TITLE": "Язык",
-          "ENGLISH": "Английский",
-          "FRENCH": "Французский",
-          "RUSSIAN": "TRANSLATE ME !!!!"
+          "ENGLISH": "English",
+          "FRENCH": "Français",
+          "RUSSIAN": "Русский"
         }
       },
       "SIDEBAR": {
