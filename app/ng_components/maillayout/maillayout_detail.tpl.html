@@ -39,24 +39,21 @@
                 x-ng-model="mailLayout.layout">
             </textarea>
           </div>
-          <!-- French -->
+
           <div class="form-group">
-            <label for="layout">
-              {{'MAIL_LAYOUT.BOX_FORM.LABEL_FRENCH' | translate}}
-            </label>
-            <textarea id="messagesFrench" name="messagesFrench" type="text" class="form-control" rows="5"
-                x-ng-model="mailLayout.messagesFrench">
-            </textarea>
+            <tabset>
+              <tab heading="{{lang}}" x-ng-repeat="lang in mailLanguage" class="cursor-pointer">
+                <textarea
+                  id="{{'messages' + capitalize(lang)}}"
+                  name="{{'messages' + capitalize(lang)}}"
+                  type="text" class="form-control" rows="5"
+                  x-ng-model="mailLayout['messages' + capitalize(lang)]"
+                  x-ng-disabled="mailLayout.readonly">
+                </textarea>
+              </tab>
+            </tabset>
           </div>
-          <!-- English -->
-          <div class="form-group">
-            <label for="messagesEnglish">
-              {{'MAIL_LAYOUT.BOX_FORM.LABEL_ENGLISH' | translate}}
-            </label>
-            <textarea id="messagesEnglish" name="messagesEnglish" type="text" class="form-control" rows="5"
-                x-ng-model="mailLayout.messagesEnglish">
-            </textarea>
-          </div>
+
           <!-- Visible -->
           <div class="input-group">
             <span class="input-group-addon">
