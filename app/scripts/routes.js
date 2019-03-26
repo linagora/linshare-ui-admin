@@ -947,6 +947,7 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
               currentDomain: function(Domain, $stateParams) {
                 return Domain.get($stateParams.domainId);
               },
+              mailLanguage: enumMailLanguage,
               currentMailFooter: function(MailFooter, currentDomain, $state, $stateParams) {
                 return MailFooter.get($stateParams.domainId, $stateParams.id).then(function(data) {
                   if (data.domain === currentDomain.identifier) {
