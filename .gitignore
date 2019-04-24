@@ -7,3 +7,4 @@ dist
 target
 target-grunt
 .idea
+package-lock.json

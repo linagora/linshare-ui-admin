@@ -309,7 +309,6 @@
         var ruler = graph.ruler;
         if (graph.ruler.max) {
           ruler.max = graphService.normalize(ruler.max);
-          graph.sum = ruler.max.real;
           ruler.max.colors = graphService.manageColorsOverride(ruler.max);
           ruler.max.colors.main = ruler.max.colors.main ||
             graph.colors[0].replace('-stripes', '') + '-main';
