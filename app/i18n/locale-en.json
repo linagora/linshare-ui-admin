@@ -2048,6 +2048,7 @@
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       },
       "LABEL_CAN_UPLOAD": "Upload permission",
+      "LABEL_CAN_CREATE_GUEST": "Guest creation permission",
       "LABEL_COMMENT": "Comment",
       "LABEL_CREATION_DATE": "Creation date",
       "LABEL_DOMAIN": "Domain",

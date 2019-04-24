@@ -2012,6 +2012,7 @@
           "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
         },
         "LABEL_CAN_UPLOAD": "Разрешение на загрузку",
+        "LABEL_CAN_CREATE_GUEST": "Разрешение на создание нового гостя",
         "LABEL_COMMENT": "Коментарий",
         "LABEL_CREATION_DATE": "Дата создания",
         "LABEL_DOMAIN": "Домен",

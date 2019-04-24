@@ -29,6 +29,16 @@
               {{'MANAGE_USERS.BOX_FORM.LABEL_CAN_UPLOAD' | translate}}
             </span>
           </div>
+          <!-- can create guest -->
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input id="canCreateGuest" name="canCreateGuest" type="checkbox"
+                x-ng-model="user.canCreateGuest">
+            </span>
+            <span class="form-control">
+              {{'MANAGE_USERS.BOX_FORM.LABEL_CAN_CREATE_GUEST' | translate}}
+            </span>
+          </div>
 
           <!-- User role -->
           <div class="form-group"

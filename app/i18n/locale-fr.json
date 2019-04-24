@@ -2018,6 +2018,7 @@
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
       },
       "LABEL_CAN_UPLOAD": "Permission de dépôt",
+      "LABEL_CAN_CREATE_GUEST": "Permission de création d'invité",
       "LABEL_COMMENT": "Commentaire",
       "LABEL_CREATION_DATE": "Date de création",
       "LABEL_DOMAIN": "Domaine",
