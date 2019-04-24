@@ -147,6 +147,7 @@
       auditAction.updatedValues = setUpdatedValues(auditAction);
       auditAction.translatedAction = setTranslatedVar(auditAction.action, 'ACTION.');
       auditAction.translatedType = setTranslatedVar(auditAction.type, 'TYPE.');
+      auditAction.fileSize = setFileSize(auditAction);
     }
 
     /**
@@ -522,6 +523,17 @@
         userVarious = auditAction.recipientMail;
       }
       return userVarious;
+    }
+
+    /**
+     * @name setFileSize
+     * @desc Set file size audit value
+     * @param {Object} auditAction - One audit action
+     * @returns {Number} File size
+     * @memberOf LinShare.audit.auditDetailsService
+     */
+    function setFileSize(auditAction) {
+      return (auditAction.resource.size) ? auditAction.resource.size : null;
     }
   }
 })();
