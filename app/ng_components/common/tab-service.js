@@ -7,44 +7,64 @@ angular.module('linshareAdminApp')
       var domains = {
         name: 'COMMON.TAB.DOMAINS',
         icon: 'fa-cloud',
-        superAdminOnly: true,
+        superAdminOnly: false,
         links: [
           {
+            name: 'COMMON.TAB.MANAGE_DOMAINS',
+            sref: 'domain.detail',
+            superAdminOnly: true
+          }, {
+              name: 'COMMON.TAB.DOMAIN_POLICIES',
+              sref: 'domainpolicy.list',
+              superAdminOnly: true,
+              childrenSref: [
+                'domainpolicy.detail'
+              ]
+          }, {
+            name: 'COMMON.TAB.FUNCTIONALITIES',
+            superAdminOnly: false,
+            sref: 'functionality.list',
+            childrenSref: [
+              'functionality.detail'
+            ]
+          }, {
             name: 'COMMON.TAB.LDAP_CONNECTIONS',
             sref: 'ldapconnection.list',
+            superAdminOnly: true,
             childrenSref: [
               'ldapconnection.detail'
             ]
           }, {
             name: 'COMMON.TAB.DOMAIN_PATTERNS',
             sref: 'domainpattern.list',
+            superAdminOnly: true,
             childrenSref: [
               'domainpattern.detail'
             ]
           }, {
             name: 'COMMON.TAB.GROUP_PATTERNS',
             sref: 'grouppattern.list',
+            superAdminOnly: true,
             childrenSref: [
               'grouppattern.detail'
             ]
           }, {
-            name: 'COMMON.TAB.MANAGE_DOMAINS',
-            sref: 'domain.detail'
-          }, {
-          //   name: 'COMMON.TAB.DOMAIN_ORDER',
-          //   sref: 'domainorder.order'
-          // }, {
-            name: 'COMMON.TAB.DOMAIN_POLICIES',
-            sref: 'domainpolicy.list',
+            name: 'COMMON.TAB.MIME_POLICIES',
+            superAdminOnly: false,
+            sref: 'mimepolicy.list',
             childrenSref: [
-              'domainpolicy.detail'
+              'mimepolicy.detail'
+            ]
+          }, {
+            name: 'COMMON.TAB.WELCOME_MESSAGES',
+            superAdminOnly: false,
+            sref: 'welcomemessage.list',
+            childrenSref: [
+              'welcomemessage.detail',
             ]
           }, {
             name: 'COMMON.TAB.MANAGE_QUOTA',
             sref: 'quota.detail'
-          }, {
-            name: 'COMMON.TAB.UPGRADES_TASKS',
-            sref: 'upgradetasks.list'
           }
         ]
       };
@@ -55,6 +75,12 @@ angular.module('linshareAdminApp')
         superAdminOnly: true,
         links: [
           {
+            name: 'COMMON.TAB.MAIL_CONFIG',
+            sref: 'mailconfig.list',
+            childrenSref: [
+              'mailconfig.detail'
+            ]
+          }, {
             name: 'COMMON.TAB.MAIL_LAYOUT',
             sref: 'maillayout.list',
             childrenSref: [
@@ -73,54 +99,10 @@ angular.module('linshareAdminApp')
               'mailcontent.detail'
             ]
           }, {
-            name: 'COMMON.TAB.MAIL_CONFIG',
-            sref: 'mailconfig.list',
-            childrenSref: [
-              'mailconfig.detail'
-            ]
-          }, {
             name: 'COMMON.TAB.MAIL_ACTIVATION',
-            superAdminOnly: false,
             sref: 'mailactivation.list',
             childrenSref: [
               'mailactivation.detail'
-            ]
-          }
-        ]
-      };
-
-      var parameters = {
-        name: 'COMMON.TAB.PARAMETERS',
-        icon: 'fa-gears',
-        superAdminOnly: false,
-        links: [
-          {
-            name: 'COMMON.TAB.FUNCTIONALITIES',
-            superAdminOnly: false,
-            sref: 'functionality.list',
-            childrenSref: [
-              'functionality.detail'
-            ]
-          }, {
-            name: 'COMMON.TAB.MIME_POLICIES',
-            superAdminOnly: true,
-            sref: 'mimepolicy.list',
-            childrenSref: [
-              'mimepolicy.detail'
-            ]
-          },/* {
-            name: 'COMMON.TAB.UPLOAD_PROPOSITION_FILTER',
-            superAdminOnly: true,
-            sref: 'uploadpropositionfilter.list',
-            childrenSref: [
-              'uploadpropositionfilter.detail',
-            ]
-          },*/ {
-            name: 'COMMON.TAB.WELCOME_MESSAGES',
-            superAdminOnly: false,
-            sref: 'welcomemessage.list',
-            childrenSref: [
-              'welcomemessage.detail',
             ]
           }
         ]
@@ -148,20 +130,6 @@ angular.module('linshareAdminApp')
               'inconsistentuser.list.detail'
             ]
           }, {
-            name: 'COMMON.TAB.THREADS',
-            superAdminOnly: true,
-            sref: 'thread.list',
-            childrenSref: [
-              'thread.detail'
-            ]
-          }, {
-            name: 'COMMON.TAB.MAILING_LISTS',
-            superAdminOnly: true,
-            sref: 'mailinglist.list',
-            childrenSref: [
-              'mailinglist.detail'
-            ]
-          }, {
             name: 'COMMON.TAB.TECHNICAL_ACCOUNT',
             superAdminOnly: true,
             sref: 'technicalaccount.list',
@@ -179,13 +147,9 @@ angular.module('linshareAdminApp')
         links: [
           {
             name: 'COMMON.TAB.AUDIT',
-            superAdminOnly: true,
+            superAdminOnly: false,
             sref: 'auditv2'
-          }/*, {
-            name: 'COMMON.TAB.UPLOAD_REQUEST',
-            superAdminOnly: true,
-            sref: 'uploadrequest.form'
-          }*/
+          }
         ]
       };
 
@@ -197,7 +161,49 @@ angular.module('linshareAdminApp')
         });
       }
 
-      this.tabs = [parameters, users, history, domains, mails];
+      var upgradeTasks = {
+        name: 'COMMON.TAB.UPGRADES_TASKS',
+        icon: 'fa-arrow-up',
+        superAdminOnly: true,
+        links: [
+          {
+            name: 'COMMON.TAB.UPGRADES_TASKS',
+            sref: 'upgradetasks.list'
+          }
+        ]
+      };
+
+      var workgroups = {
+        name: 'COMMON.TAB.THREADS',
+        icon: 'fa-folder-open',
+        superAdminOnly: true,
+        childrenSref: [
+          'thread.detail'
+        ],
+        links: [
+          {
+            name: 'COMMON.TAB.THREADS',
+            sref: 'thread.list',
+          }
+        ]
+      };
+
+      var contactsList = {
+        name: 'COMMON.TAB.MAILING_LISTS',
+        icon: 'fa-list-ul',
+        superAdminOnly: true,
+        childrenSref: [
+          'mailinglist.detail'
+        ],
+        links: [
+          {
+            name: 'COMMON.TAB.MAILING_LISTS',
+            sref: 'mailinglist.list',
+          }
+        ]
+      }
+
+      this.tabs = [domains, users, workgroups, contactsList, history, mails, upgradeTasks];
 
       var self = this;
 

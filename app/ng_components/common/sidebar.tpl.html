@@ -33,18 +33,33 @@
       x-is-open="tab.isopen"
       x-ng-repeat="tab in tabs | translateSearchFilter:search">
     <accordion-heading>
-      <i id="{{tab.name.replace('COMMON.TAB.', 'MENU-')}}" class="fa"
-         x-ng-class="tab.icon">
+      <i
+        id="{{tab.name.replace('COMMON.TAB.', 'MENU-')}}" 
+        class="fa"
+        x-ng-class="tab.icon"
+      >
       </i>
-      <span>
+      <span ng-if="tab.links.length !== 1">
+          &nbsp;{{tab.name | translate}}
+      </span>
+      <span
+        ng-if="tab.links.length == 1"
+        x-ui-sref="{{tab.links[0].sref}}({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})"
+        ng-class="{'uniqLink': tab.links.length == 1, 'linkActive': tab.links[0].sref==linkActive}"
+      >
         &nbsp;{{tab.name | translate}}
       </span>
-      <i class="fa pull-right"
+      <i 
+        x-ng-if="tab.links.length !== 1"
+        class="fa pull-right"
         x-ng-class="{'fa-angle-down': tab.isopen, 'fa-angle-left': !tab.isopen}">
       </i>
     </accordion-heading>
     <ul class="treeview-menu">
-      <li x-ng-repeat="link in tab.links">
+      <li 
+        x-ng-if="tab.links.length !== 1" 
+        x-ng-repeat="link in tab.links"
+      >
         <a id="{{link.name.replace('COMMON.TAB.', 'MENU-')}}" x-ng-class="{'active': link.sref==linkActive}"
            x-ui-sref="{{link.sref}}({domainId: userDomain, language: language, view: 'simple', formState: 'edit'})"
            style="margin-left: 10px;">
