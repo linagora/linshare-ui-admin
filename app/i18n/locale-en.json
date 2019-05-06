@@ -191,7 +191,8 @@
       "LANGUAGE": {
         "FRENCH": "French",
         "DUTCH": "Dutch",
-        "ENGLISH": "English"
+        "ENGLISH": "English",
+        "RUSSIAN": "Russian"
       },
       "SUPPORTED_LANGUAGE": {
         "FRENCH": "French",

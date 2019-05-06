@@ -191,7 +191,8 @@
         "LANGUAGE": {
           "FRENCH": "Французский",
           "DUTCH": "Голландский",
-          "ENGLISH": "Английский"
+          "ENGLISH": "Английский",
+          "RUSSIAN": "усский"
         },
         "SUPPORTED_LANGUAGE": {
           "FRENCH": "Французский",
@@ -199,7 +200,7 @@
           "ENGLISH": "Английский",
           "CREOLE": "Креольский",
           "VIETNAMESE": "Вьетнамский",
-          "RUSSIAN": "TRANSLATE ME!"
+          "RUSSIAN": "усский"
         },
         "LOG_ACTION_V1": {
           "FILE_UPLOAD": "Файл загружен",
