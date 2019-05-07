@@ -44,7 +44,7 @@
                        upgradeTasksId: asyncTasksVm.upgradeTask.identifier,
                        asyncTasksUuid: asyncTask.uuid
                      })">
-                    {{asyncTask.creationDate}}
+                    {{asyncTask.creationDate | date:'medium'}}
                   </a>
                 </td>
                 <td data-title="'ASYNC_TASKS.BOX_LIST.TABLE.HEADER.MODIFICATION_DATE' | translate">

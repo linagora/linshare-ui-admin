@@ -51,7 +51,7 @@
                 <td data-title="'UPGRADE_TASKS.BOX_LIST.TABLE.HEADER.MODIFICATION_DATE' | translate">
                   <a data-ng-attr-ui-sref="{{upgradeTask.canShowConsole() ?
                       'upgradetasks.asynctasks.list({upgradeTasksId: upgradeTask.identifier})' : '.'}}">
-                    {{upgradeTask.modificationDate}}
+                    {{upgradeTask.modificationDate | date:'medium'}}
                   </a>
                 </td>
                 <td data-title="'UPGRADE_TASKS.BOX_LIST.TABLE.HEADER.ACTIONS' | translate"
