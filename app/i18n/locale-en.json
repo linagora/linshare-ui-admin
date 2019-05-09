@@ -2452,6 +2452,8 @@
       "HINT_LABELS": {
         "ALERT_MAINTENANCE_MODE": "Maintenance mode is activated, thereby preventing any uploads to be made within the",
         "ERROR": "Error ",
+        "DEFAULT_SUBDOMAINS_QUOTA": "Default subdomains quota: ",
+        "MAX_DOMAIN_QUOTA": "Max domain quota: ",
         "ERROR_MAX_VALUE": "The value should be below or equal to: ",
         "ERROR_QUOTA": "An assigned quota is in error, check your parameters for the ",
         "ERROR_QUOTA_EXCEEDED": "Quota exceeded, free up storage space or allocate more quota for the ",

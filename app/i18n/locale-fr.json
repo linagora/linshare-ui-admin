@@ -2419,6 +2419,8 @@
       "HINT_LABELS": {
         "ALERT_MAINTENANCE_MODE": "Le mode maintenance est activé, par conséquent aucun dépot ne peut être effectué dans",
         "ERROR": "Erreur",
+        "DEFAULT_SUBDOMAINS_QUOTA": "Quota des sous-domaines par défaut: ",
+        "MAX_DOMAIN_QUOTA": "Quota de domaine max: ",
         "ERROR_MAX_VALUE": "La valeur doit être inférieur ou égal à : ",
         "ERROR_QUOTA": "Un quota est en erreur, vérifiez vos paramètres pour ",
         "ERROR_QUOTA_EXCEEDED": "Espace insuffisant, liberez ou allouez plus d'espace de stockage pour ",

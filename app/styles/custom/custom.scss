@@ -833,6 +833,13 @@ a.list-group-item-success:hover {
       color: #6e6e6e;
     }
   }
+  .quota-max {
+    display: flex;
+    flex-direction: column;
+    .quota-max-error {
+      color: red;
+    }
+  }
    input {
     width: 75px !important;
     height: 20px;
