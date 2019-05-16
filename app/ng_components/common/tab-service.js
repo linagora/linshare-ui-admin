@@ -201,7 +201,7 @@ angular.module('linshareAdminApp')
             sref: 'mailinglist.list',
           }
         ]
-      }
+      };
 
       this.tabs = [domains, users, workgroups, contactsList, history, mails, upgradeTasks];
 
