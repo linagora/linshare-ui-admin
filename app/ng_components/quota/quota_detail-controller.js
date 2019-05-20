@@ -73,7 +73,7 @@
           initDto(containerData);
         });
       })).then(function(){
-        quotaVm.graph =  buildGraph();
+        quotaVm.graph = buildGraph();
         quotaVm.isGraphReady = true;
       });
     }

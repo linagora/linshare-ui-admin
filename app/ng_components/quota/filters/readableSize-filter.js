@@ -28,10 +28,16 @@
      * @memberOf linshareAdminApp.readableSize
      */
     return function getReadableSize(value, unit, showUnit) {
+      if (_.isUndefined(value)) {
+        return 0;
+      }
+
       var unitToUse = unit;
+
       if (!unit && showUnit) {
         unitToUse = unitService.find(value);
       }
+
       return _.isUndefined(value) ? 0 : unitService.byteTo(value, unitToUse, showUnit);
     };
   }
