@@ -50,7 +50,7 @@ angular.module('linshareAdminApp')
         getAll: function (thread) {
           $log.debug('ThreadMember:getAll');
           return Restangular
-            .one('shared_space_nodes', thread.uuid)
+            .one('shared_spaces', thread.uuid)
             .all('members')
             .getList()
             .then(function (members) {

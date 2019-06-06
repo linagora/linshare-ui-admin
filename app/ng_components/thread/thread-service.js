@@ -3,7 +3,7 @@
 angular.module('linshareAdminApp')
   .factory('Thread', ['$q', '$log', 'Restangular', 'Notification',
     function($q, $log, Restangular, Notification) {
-      var restUrl = 'shared_space_nodes';
+      var restUrl = 'shared_spaces';
 
       // Public API here
       return {
