@@ -9,25 +9,7 @@
 <section class="content" id="dashboard">
   <div class="row">
     <section class="col-md-6">
-      <div class="col-md-12">
-        <p>{{'DASHBOARD.DESCRIPTION' | translate}}</p>
-        <div class="small-box bg-yellow">
-            <div class="inner">
-              <a x-ui-sref="user.list">
-                <h3>{{'DASHBOARD.MANAGE_USERS_TITLE' | translate}}</h3>
-                <p>{{'DASHBOARD.MANAGE_USERS_SUB_TITLE' | translate}}</p>
-              </a>
-            </div>
-            <div class="icon">
-              <a x-ui-sref="user.list">
-                <i class="fa fa-users"></i>
-              </a>
-            </div>
-          <a x-ui-sref="user.list"
-              class="small-box-footer">
-              {{'DASHBOARD.MORE_INFO' | translate}} <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
+      <p>{{'DASHBOARD.DESCRIPTION' | translate}}</p>
       <div class="col-md-12">
         <div class="small-box bg-red">
           <div class="inner">
@@ -47,6 +29,24 @@
         </div>
       </div>
       <div class="col-md-12">
+        <div class="small-box bg-yellow">
+          <div class="inner">
+            <a x-ui-sref="user.list">
+              <h3>{{'DASHBOARD.MANAGE_USERS_TITLE' | translate}}</h3>
+              <p>{{'DASHBOARD.MANAGE_USERS_SUB_TITLE' | translate}}</p>
+            </a>
+          </div>
+          <div class="icon">
+            <a x-ui-sref="user.list">
+              <i class="fa fa-users"></i>
+            </a>
+          </div>
+          <a x-ui-sref="user.list"
+            class="small-box-footer">
+            {{'DASHBOARD.MORE_INFO' | translate}} <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-12">
         <div class="small-box bg-green">
           <div class="inner">
             <a data-ui-sref="auditv2">
@@ -60,24 +60,6 @@
             </a>
           </div>
           <a data-ui-sref="auditv2"
-              class="small-box-footer">
-              {{'DASHBOARD.MORE_INFO' | translate}} <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="small-box bg-blue">
-          <div class="inner">
-            <a x-ui-sref="functionality.list({domainId: userDomain, view: 'simple'})">
-              <h3>{{'DASHBOARD.PARAMETERS_TITLE' | translate }}</h3>
-              <p>{{'DASHBOARD.PARAMETERS_SUB_TITLE' | translate }}</p>
-            </a>
-          </div>
-          <div class="icon">
-            <a x-ui-sref="functionality.list({domainId: userDomain, view: 'simple'})">
-              <i class="fa fa-gears"></i>
-            </a>
-          </div>
-          <a x-ui-sref="functionality.list({domainId: userDomain, view: 'simple'})"
               class="small-box-footer">
               {{'DASHBOARD.MORE_INFO' | translate}} <i class="fa fa-arrow-circle-right"></i></a>
         </div>
