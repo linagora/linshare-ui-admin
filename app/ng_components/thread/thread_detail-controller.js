@@ -60,7 +60,8 @@ angular.module('linshareAdminApp')
 
         ThreadMember.add($scope.thread, member).then(function() {
           $scope.reloadList();
-          $scope.userToAdd = undefined;
+        }).finally(function(){
+          $scope.userToAdd = '';
         });
       };
       $scope.autocompleteUsers = function(pattern) {
@@ -82,22 +83,13 @@ angular.module('linshareAdminApp')
           member.role = JSON.parse(member.role);
         }
         ThreadMember.update(member);
+        $scope.reloadList();
       };
       $scope.deleteMember = function(member) {
         ThreadMember.remove(member).then(function() {
           $scope.reloadList();
         });
       };
-
-      $scope.$watch('userToAdd', function() {
-        if($scope.tableParams.filter()['firstName']) {
-          $scope.tableParams.filter()['firstName'] = '';
-        }
-        if($scope.tableParams.filter()['lastName']) {
-          $scope.tableParams.filter()['lastName'] = '';
-        }
-        $scope.reloadList();
-      });
 
       $scope.tableParams = new ngTableParams({ /* jshint ignore: line */
         page: 1,        // show first page
