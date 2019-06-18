@@ -956,6 +956,21 @@
         "WORK_GROUP__CREATION_RIGHT": {
           "NAME": "Право право создания"
         },
+        "WORK_GROUP__FILE_VERSIONING": {
+          "NAME": "TRANSLATE ME "
+        },
+        "WORK_GROUP__DOWNLOAD_ARCHIVE": {
+          "NAME": "TRANSLATE ME",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "TRANSLATE ME",
+          "ADVANCED_DESCRIPTION": "TRANSLATE ME",
+          "USER_OVERRIDE": "TRANSLATE ME",
+          "ACTIVATION_POLICY": "TRANSLATE ME",
+          "DELEGATION_POLICY": "TRANSLATE ME",
+          "CONFIGURATION_POLICY": "TRANSLATE ME",
+          "PARAMETER_NAME": "TRANSLATE ME",
+          "PARAMETER_DESCRIPTION": "TRANSLATE ME"
+        },
         "UPLOAD_REQUEST": {
           "NAME": "Запрос на отправку",
           "USE_EXTENDED_DESCRIPTION": "3",
@@ -1674,7 +1689,9 @@
         "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Уведомление будет отправлено только для первой загрузки.",
         "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Уведомление будет отправлено для каждой загрузки.",
         "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Анонимный доступ со всеми пользователями (внутренними и гостями)",
-        "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Анонимный доступ с анонимными пользователями"
+        "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Анонимный доступ с анонимными пользователями",
+        "WORK_GROUP__FILE_VERSIONING__BOOLEAN_false": "TRANSLATE ME",
+        "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "TRANSLATE ME."
       }
     },
     "MIME_POLICIES": {

@@ -983,14 +983,26 @@
        "WORK_GROUP__FILE_VERSIONING": {
        "NAME": "File versioning right",
        "USE_EXTENDED_DESCRIPTION": "0",
-       "DESCRIPTION": "This functionality allows users and administrators to create versions from files in a workGroup",
+       "DESCRIPTION": "If enable, it will let users to create and manage versions of a document in a workgroup",
        "ADVANCED_DESCRIPTION": "",
        "USER_OVERRIDE": "",
        "ACTIVATION_POLICY": "",
        "DELEGATION_POLICY": "",
        "CONFIGURATION_POLICY": "",
-       "PARAMETER_NAME": "",
+       "PARAMETER_NAME": "Default versioning status",
        "PARAMETER_DESCRIPTION": ""
+      },
+      "WORK_GROUP__DOWNLOAD_ARCHIVE": {
+        "NAME": "Archive download right",
+        "USE_EXTENDED_DESCRIPTION": "0",
+        "DESCRIPTION": "This functionality allows users and administrators to download a directory in zip format.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Max size",
+        "PARAMETER_DESCRIPTION": "This parameter contains the maximal size of the archive to download, it can be edited relating to need, (manage with precaution)."
       },
       "UPLOAD_REQUEST": {
         "NAME": "Upload request",
@@ -1710,7 +1722,9 @@
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_false": "Notification will be sent for the first download only.",
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Notification will be sent for every download.",
       "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Anonymous Sharing with all users(internal and guests)",
-      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Anonymous Sharing with only anonymous users"
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Anonymous Sharing with only anonymous users",
+      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_false": "Versioning will be disable by default when creating a new workgroup.",
+      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "Versioning will be enable by default when creating a new workgroup."
     }
   },
   "MIME_POLICIES": {
