@@ -994,11 +994,11 @@
        "ACTIVATION_POLICY": "",
        "DELEGATION_POLICY": "",
        "CONFIGURATION_POLICY": "",
-       "PARAMETER_NAME": "",
+       "PARAMETER_NAME": "Status par défaut",
        "PARAMETER_DESCRIPTION": ""
       },
       "WORK_GROUP__DOWNLOAD_ARCHIVE": {
-        "NAME": "Droits de téléchargment de dossier",
+        "NAME": "Droit de téléchargment d'un dossier",
         "USE_EXTENDED_DESCRIPTION": "0",
         "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de télécharger un dossier sous format zip.",
         "ADVANCED_DESCRIPTION": "",
@@ -1007,7 +1007,7 @@
         "DELEGATION_POLICY": "",
         "CONFIGURATION_POLICY": "",
         "PARAMETER_NAME": "Taille Maxi",
-        "PARAMETER_DESCRIPTION": "Ce paramètre définit la taille maximale du dossier à télécharger, il pourra être édité selon le besoin (à éditer avec précaution) "
+        "PARAMETER_DESCRIPTION": "Ce paramètre définit la taille maximale du dossier à télécharger, il pourra être édité selon le besoin (à éditer avec précaution)."
       },
       "UPLOAD_REQUEST": {
         "NAME": "Invitation de dépôt",
@@ -1697,8 +1697,8 @@
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Envoi à chaque téléchargement.",
       "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Partage anonyme avec tous les utilisateurs(internes et invités).",
       "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Partage anonyme uniquement avec les utilisateurs anonymes",
-      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_false": "La gestion des versions sera désactivée par défault lors de la création d'un groupe de travail.",
-      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "Le gestion des versions sera activée par défault lors de la création d'un groupe de travail."
+      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_false": "La gestion des versions sera désactivée par défaut lors de la création d'un groupe de travail.",
+      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "La gestion des versions sera activée par défaut lors de la création d'un groupe de travail."
     }
   },
   "MIME_POLICIES": {
