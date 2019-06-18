@@ -632,6 +632,7 @@
         "DRIVE_MEMBER" : "Drive - Участник",
         "WORKGROUP": "Рабочая группа",
         "WORKGROUP_DOCUMENT": "Файл рабочей группы",
+        "WORKGROUP_DOCUMENT_REVISION": "Файл рабочей группы (версию)",
         "WORKGROUP_FOLDER": "Папка рабочей группы",
         "WORKGROUP_MEMBER": "Участник рабочей группы",
         "JWT_PERMANENT_TOKEN": "Постоянный токен доступа"
