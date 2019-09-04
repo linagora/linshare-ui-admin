@@ -1,6 +1,6 @@
 {
   "name": "linshare-ui-admin",
-  "version": "3.3.1-SNAPSHOT",
+  "version": "3.3.1",
   "description": "Admin interface for linshare",
   "keywords": [
     "linshare",
