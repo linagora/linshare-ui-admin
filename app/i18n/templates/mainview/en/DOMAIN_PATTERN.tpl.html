@@ -1,12 +1,22 @@
 <div>
-	<p><strong>Modèles de domaine</strong></p>
-	<p>Après avoir <a x-ui-sref="ldapconnection.list">créer une connexion à un annuaire de type LDAP</a>, il est nécessaire de créer un modèle de domaine.<br/><br/>
-	Ce modèle vous permettra de définir la correspondance entre les champs prénom, nom et email de {{ 'COMMON.NAME' | translate }}, et les attributs de votre annuaire.
-	{{ 'COMMON.NAME' | translate }} nécessite 4 requêtes différentes pour fonctionner correctement :</p>
-	<ul>
-		<li><strong>requête LQL <i>(Ldap Query Language)</i> d'authentification :</strong> requête permettant de retrouver un utilisateur dans l'annuaire lors de la phase d'authenfication à partir de l'identifiant qu'il a saisi (couriel)</li>
-		<li><strong>requête LQL <i>(Ldap Query Language)</i> utilisateur :</strong> requête permettant de retrouver un utilisateur dans l'annuaire lors des recherche pour consultation, édition, partage, ...</li>
-		<li><strong>requête LQL <i>(Ldap Query Language)</i> d'autocomplétion sur tous les attributs :</strong> permet l'autocomplétion d'un utilisateur à partir du motif saisi</li>
-		<li><strong>requête LQL <i>(Ldap Query Language)</i> d'autocomplétion sur le nom et prénom :</strong> permet l'autocomplétion d'un utilisateur à partir d'un couple de motif : nom-prénom ou prénom-nom</li>
-	</ul>
+  <p><strong>Domains pattern</strong></p>
+  <p>After <a x-ui-sref="ldapconnection.list">creating a connection to an LDAP directory</a>, it is necessary to create
+    a domain pattern.<br/><br/>
+    This pattern will allows you to define the correspondence between the firstname, lastname and email fields of
+    {{'COMMON.NAME' | translate}}, and the attributes of your directory.
+    {{ 'COMMON.NAME' | translate }} requires 4 different queries to work properly:</p>
+  <ul>
+    <li><strong>query LQL <i>(Ldap Query Language)</i> of authentication :</strong> query to find
+      a user in the directory during the authentication phase from the identifier he has entered (email).
+    </li>
+    <li><strong>query LQL <i>(Ldap Query Language)</i> user :</strong> query to find a
+      user in the directory when searching for consultation, editing, sharing, ...
+    </li>
+    <li><strong>query LQL <i>(Ldap Query Language)</i>autocomplete on all attributes:</strong> allows
+      autocomplete a user from the entered pattern
+    </li>
+    <li><strong>query LQL <i>(Ldap Query Language)</i> autocomplete on firstname and lastname :</strong> allows
+      autocomplete of a user from a couple of pattern: lastname-firstname or firstname-lastname
+    </li>
+  </ul>
 </div>
