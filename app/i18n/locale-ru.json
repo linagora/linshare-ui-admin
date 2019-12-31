@@ -281,7 +281,10 @@
           "WORKGROUP_WARN_UPDATED_MEMBER": "Права пользователся в рабочей группе быле обновлены",
           "WORKGROUP_WARN_DELETED_MEMBER": "Пользователь был удален из рабочей группы",
           "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "Пользователь получает уведомление, когда администратор создает постоянный токен доступа (ПЖД) для его аккаунта",
-          "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "Пользователь получает уведомление, когда администратор удаляет постоянный токен доступа (ПЖД) для его аккаунта"
+          "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "Пользователь получает уведомление, когда администратор удаляет постоянный токен доступа (ПЖД) для его аккаунта",
+          "DRIVE_WARN_DELETED_MEMBER": "A member was removed from the DRIVE",
+          "DRIVE_WARN_NEW_MEMBER": "A user has been added to the DRIVE",
+          "DRIVE_WARN_UPDATED_MEMBER":"The rights of a member on the DRIVE has been updated"
         },
         "ROLE": {
           "SIMPLE": "Простой",
@@ -899,6 +902,21 @@
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED",
           "USE_EXTENDED_DESCRIPTION": "1",
           "DESCRIPTION": "Это уведомление отправляется пользователю, когда администратор удаляет постоянный токен доступа (ПЖД) для своей учетной записи."
+        },
+        "DRIVE_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This notification is sent to a DRIVE member is deleted."
+        },
+        "DRIVE_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This notification is sent when the new member is added to the DRIVE."
+        },
+        "DRIVE_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This notification is sent to a DRIVE member when his right was updated."
         }
       },
       "PARAMETERS": {
@@ -2176,7 +2194,10 @@
           "ADMIN": "Администратор",
           "CONTRIBUTOR": "Помощник",
           "WRITER": "Писатель",
-          "READER": "Читатель"
+          "READER": "Читатель",
+          "DRIVE_ADMIN": "Administrator of the DRIVE",
+          "DRIVE_WRITER": "Writer in the DRIVE",
+          "DRIVE_READER": "Reader in the DRIVE"
         }
       },
       "CONFIRM_DELETE_FORM": {

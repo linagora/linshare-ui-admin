@@ -281,7 +281,10 @@
         "WORKGROUP_WARN_UPDATED_MEMBER": "The rights of a member on the workGroup has been updated",
         "WORKGROUP_WARN_DELETED_MEMBER": "A member was removed from the workGroup",
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "A user receives a notification when an administrator creates a permanent access token (JWT) for his account",
-        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "A user receives a notification when an administrator deletes a permanent access token (JWT) for his account"
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "A user receives a notification when an administrator deletes a permanent access token (JWT) for his account",
+        "DRIVE_WARN_DELETED_MEMBER": "A member was removed from the DRIVE",
+        "DRIVE_WARN_NEW_MEMBER": "A user has been added to the DRIVE",
+        "DRIVE_WARN_UPDATED_MEMBER":"The rights of a member on the DRIVE has been updated"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -967,6 +970,21 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to a user when an administrator deletes a permanent access token (JWT) for his account."
+      },
+      "DRIVE_WARN_DELETED_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_DELETED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to a DRIVE member is deleted."
+      },
+      "DRIVE_WARN_NEW_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_NEW_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent when the new member is added to the DRIVE."
+      },
+      "DRIVE_WARN_UPDATED_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_UPDATED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to a DRIVE member when his right was updated."
       }
     },
     "PARAMETERS": {
@@ -2277,7 +2295,10 @@
         "ADMIN": "Administrator",
         "CONTRIBUTOR": "Contributor",
         "WRITER": "Writer",
-        "READER": "Reader"
+        "READER": "Reader",
+        "DRIVE_ADMIN": "Administrator of the DRIVE",
+        "DRIVE_WRITER": "Writer in the DRIVE",
+        "DRIVE_READER": "Reader in the DRIVE"
       }
     },
     "CONFIRM_DELETE_FORM": {
