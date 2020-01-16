@@ -23,8 +23,7 @@
         <button title="{{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_CHANGEDOMAIN_LABEL' | translate}}"
                 class="btn btn-primary margin" type="button"
                 ng-class="{disabled: selectedInconsistent.length === 0}"
-                ng-click="changeDomain(selectedInconsistent)"
-                data-ng-disabled="lsAppConfig.productionMode">
+                ng-click="changeDomain(selectedInconsistent)">
           {{"MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_CHANGEDOMAIN" | translate}}
         </button>
         <button title="{{'INCONSISTENT_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE' | translate}}"
