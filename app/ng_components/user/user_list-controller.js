@@ -47,7 +47,7 @@ angular.module('linshareAdminApp')
           modalInstance.result.then(
             function validate() {
               User.createUser(user).then(function(user) {
-                $state.go('user.detail', {uuid: user.uuid});
+                $state.go('user.detail', {uuid: user.uuid, accountType: user.accountType});
               });
             }, function cancel() {
               $log.debug('Deletion modal dismissed');
@@ -58,7 +58,7 @@ angular.module('linshareAdminApp')
         $scope.showUserDetail = function(user) {
           User.exist(user.uuid).then(function(success) {
             if (success) {
-              $state.go('user.detail', {uuid: user.uuid});
+              $state.go('user.detail', {uuid: user.uuid, accountType: user.accountType});
             } else {
               confirmCreateUserProfile(user);
             }

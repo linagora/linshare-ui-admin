@@ -5,14 +5,14 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
     //  For any unmatched url, redirect
     $urlRouterProvider.otherwise('/dashboard');
 
-    var funcAccountExpiration = function(currentUser, Functionality) {
-      if (currentUser) {
-        return Functionality.get(currentUser.domain, 'GUESTS__EXPIRATION');
+    var funcAccountExpiration = function(currentDomainForFunctionality, Functionality) {
+      if (currentDomainForFunctionality) {
+        return Functionality.get(currentDomainForFunctionality, 'GUESTS__EXPIRATION');
       }
     };
-    var funcRestrictedGuest = function(currentUser, Functionality) {
-      if (currentUser) {
-        return Functionality.get(currentUser.domain, 'GUESTS__RESTRICTED');
+    var funcRestrictedGuest = function(currentDomainForFunctionality, Functionality) {
+      if (currentDomainForFunctionality) {
+        return Functionality.get(currentDomainForFunctionality, 'GUESTS__RESTRICTED');
       }
     };
 
@@ -52,6 +52,20 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
 
     var authenticatedUser = function(Authentication) {
       return Authentication.getCurrentUser();
+    };
+
+    var isGuest = function(accountType) {
+      return accountType === 'GUEST';
+    };
+
+    var currentDomainForFunctionality = function(currentUser, Guest, $stateParams) {
+      if (isGuest($stateParams.accountType)) {
+        return Guest.get($stateParams.uuid).then(function(guest) {
+          return guest.owner.domain;
+        });
+      } else {
+        return currentUser.domain;
+      }
     };
 
     // Common views
@@ -371,11 +385,12 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
         }
       })
       .state('user.detail', {
-        url: '/:uuid',
+        url: '/:uuid/:accountType? ',
         resolve: {
           currentUser: function(User, $stateParams) {
             return User.get($stateParams.uuid);
           },
+          currentDomainForFunctionality: currentDomainForFunctionality,
           maxExpiryDate: userMaxExpiryDate,
           restrictedGuestStatus: userRestrictedGuestStatus,
           selectOptions: userSelectOptions,
@@ -399,13 +414,14 @@ angular.module('linshareAdminApp').config(['_', '$stateProvider', '$urlRouterPro
         controller: 'InconsistentUserSearchListCtrl'
       })
       .state('inconsistentuser.search.detail', {
-        url: '/:uuid',
+        url: '/:uuid/:accountType?',
         templateUrl: 'ng_components/user/user_detail.tpl.html',
         controller: 'UserDetailCtrl',
         resolve: {
           currentUser: function(User, $stateParams) {
             return User.get($stateParams.uuid);
           },
+          currentDomainForFunctionality: currentDomainForFunctionality,
           maxExpiryDate: userMaxExpiryDate,
           restrictedGuestStatus: userRestrictedGuestStatus,
           selectOptions: userSelectOptions,
