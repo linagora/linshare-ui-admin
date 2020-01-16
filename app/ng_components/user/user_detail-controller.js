@@ -113,7 +113,9 @@ angular.module('linshareAdminApp')
             controller: 'ChangeDomainModalCtrl',
             resolve: {
               allDomains: function(Domain) {
-                return Domain.getAll();
+                return Domain.getAll().then(function(allDomains) {
+                  return allDomains.filter(isUnassignableDomain);
+                });
               },
               selectedUsers: function() {
                 return selectedUsers;
@@ -346,6 +348,13 @@ angular.module('linshareAdminApp')
           $scope.graph = buildGraph();
         });
       }
+
+      function isUnassignableDomain(domain) {
+        if (domain.type !== 'ROOTDOMAIN' && domain.type !== 'GUESTDOMAIN') {
+          return domain;
+        }
+      }
+
       }
     ]
   );
