@@ -33,6 +33,10 @@ angular.module('linshareAdminApp')
       };
       $scope.dataUpTodate = true;
 
+      var getAccountType = function(user) {
+        return user.guest ? 'GUEST' : 'INTERNAL';
+      };
+
       var createUserProfile = function(user) {
         var modalInstance = $modal.open({
           templateUrl: 'ng_components/common/confirm_modal.tpl.html',
@@ -48,7 +52,7 @@ angular.module('linshareAdminApp')
             var userDto = {uuid: user.uuid, mail: user.userMail, domain: user.identifier};
             Restangular.all('users').post(userDto).then(function(user) {
               $scope.dataUpTodate = false;
-              $state.go('inconsistentuser.search.detail', {uuid: user.uuid});
+              $state.go('inconsistentuser.search.detail', {uuid: user.uuid, accountType: getAccountType(user)});
             });
           }, function cancel() {
             $log.debug('Deletion modal dismissed');
@@ -59,7 +63,7 @@ angular.module('linshareAdminApp')
       $scope.showUserDetail = function(user) {
         $scope.currentDetailState = user.uuid;
         if (user.database) {
-          $state.go('inconsistentuser.search.detail', {uuid: user.uuid});
+          $state.go('inconsistentuser.search.detail', {uuid: user.uuid, accountType: getAccountType(user)});
         } else {
           createUserProfile(user);
         }
