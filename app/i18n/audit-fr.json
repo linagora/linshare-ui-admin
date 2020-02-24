@@ -635,7 +635,9 @@
       "WORKGROUP_DOCUMENT_REVISION": "Groupe de Travail - Fichier (version)",
       "WORKGROUP_FOLDER": "Groupe de Travail - Dossier",
       "WORKGROUP_MEMBER": "Groupe de Travail - Membre",
-      "JWT_PERMANENT_TOKEN": "Jeton d'accès permanent (JWT)"
+      "JWT_PERMANENT_TOKEN": "Jeton d'accès permanent (JWT)",
+      "DOMAIN":"Domaine",
+      "DOMAIN_PATTERN":"Modèle de domaine"
     }
   },
   "TABLE_HEADER": {

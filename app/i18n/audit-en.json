@@ -635,8 +635,10 @@
       "WORKGROUP_DOCUMENT_REVISION": "Workgroup file (version)",
       "WORKGROUP_FOLDER": "Workgroup folder",
       "WORKGROUP_MEMBER": "Workgroup member",
-      "JWT_PERMANENT_TOKEN": "Permanent access token (JWT)"
-    }
+      "JWT_PERMANENT_TOKEN": "Permanent access token (JWT)",
+      "DOMAIN":"Domain",
+      "DOMAIN_PATTERN":"Domain pattern"
+      }
   },
   "TABLE_HEADER": {
     "ACTION": "Action",
