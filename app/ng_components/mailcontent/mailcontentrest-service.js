@@ -47,11 +47,12 @@
      * @returns {Promise} server response
      * @memberOf linshareAdminApp.mailUtilRestService
      */
-    function build(mailContentId, lang, context) {
+    function build(mailContentId, mailConfigId, lang, context) {
       $log.debug('mailContentRestService:build');
       return Restangular.all(restUrl).one(mailContentId, restParam.build).get({
         language: lang,
-        flavor: context
+        flavor: context,
+        mailConfig: mailConfigId
       });
     }
 
@@ -64,11 +65,12 @@
      * @returns {Promise} server response
      * @memberOf linshareAdminApp.mailUtilRestService
      */
-    function buildLive(mailContentDto, lang, context) {
+    function buildLive(mailContentDto, mailConfigId, lang, context) {
       $log.debug('mailContentRestService:buildLive');
       return Restangular.all(restUrl + '/' + restParam.build).post(mailContentDto, {
         language: lang,
-        flavor: context
+        flavor: context,
+        mailConfig: mailConfigId
       });
     }
 

@@ -132,8 +132,18 @@
      */
     function render(live, lang) {
       var fnCall = live ?
-        mailContentRestService.buildLive($scope.mailContent, lang, $scope.mailContentContextSelected.index) :
-        mailContentRestService.build($scope.mailContent.uuid, lang, $scope.mailContentContextSelected.index);
+        mailContentRestService.buildLive(
+          $scope.mailContent,
+          $scope.mailConfigSelected.uuid,
+          lang,
+          $scope.mailContentContextSelected.index
+        ) :
+        mailContentRestService.build(
+          $scope.mailContent.uuid,
+          $scope.mailConfigSelected.uuid,
+          lang,
+          $scope.mailContentContextSelected.index
+        );
       fnCall.then(function(data) {
         $scope.mailRendered.data = data;
         $scope.mailRendered.lang = lang;
