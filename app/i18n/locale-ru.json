@@ -803,6 +803,16 @@
           "USE_EXTENDED_DESCRIPTION": "1",
           "DESCRIPTION": "Это уведомление отправляется создателю гостя, когда истечет срок действия гостевой учетной записи."
         },
+        "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": {
+         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0",
+         "USE_EXTENDED_DESCRIPTION": "1",
+         "DESCRIPTION": "This notification is sent to guests to reset their passwords due to security enhancement."
+        },
+        "SHARE_ANONYMOUS_RESET_PASSWORD": {
+         "NAME": "@:COMMON.ENUM.SHARE_ANONYMOUS_RESET_PASSWORD",
+         "USE_EXTENDED_DESCRIPTION": "1",
+         "DESCRIPTION": "This notification is sent when a new password is generated for an existing anonymous sharing."
+        },
         "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
           "USE_EXTENDED_DESCRIPTION": "1",

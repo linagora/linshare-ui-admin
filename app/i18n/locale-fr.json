@@ -866,6 +866,16 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lorsque un utilisateur interne ou invité partage un document."
       },
+      "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée aux comptes invités pour changer leurs mots de passe suite à une mise à jour de sécurité."
+      },
+      "SHARE_ANONYMOUS_RESET_PASSWORD": {
+        "NAME": "@:COMMON.ENUM.SHARE_ANONYMOUS_RESET_PASSWORD",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyé lors de la génération d'un mot de passe pour un partage anonyme existant."
+      },
       "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_BEFORE_EXPIRY",
         "USE_EXTENDED_DESCRIPTION": "1",
