@@ -30,7 +30,7 @@
             </span>
           </div>
           <!-- can create guest -->
-          <div class="input-group">
+          <div class="input-group" x-ng-if="!isGuest()">
             <span class="input-group-addon">
               <input id="canCreateGuest" name="canCreateGuest" type="checkbox"
                 x-ng-model="user.canCreateGuest">
