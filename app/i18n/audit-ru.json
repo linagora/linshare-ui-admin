@@ -334,6 +334,16 @@
               "SENTENCE": "{{authorName}} изменил гостевой аккаунт {{userVarious}}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
+          },
+          "CHANGE_PASSWORD": {
+            "AUTHOR": {
+              "SENTENCE": "You have changed your account's password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} has changed his account's password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
           }
         },
         "USER": {

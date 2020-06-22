@@ -334,6 +334,16 @@
             "SENTENCE": "{{authorName}} a modifié le Compte Invité de : {{userVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
           }
+         },
+        "CHANGE_PASSWORD": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez modifié le mot de passe de votre compte.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a modifié son mot de passe.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
         }
       },
       "USER": {
