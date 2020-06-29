@@ -336,6 +336,28 @@
           }
         }
       },
+      "USER": {
+        "SECOND_FACTOR_SHARED_KEY_CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "You enabled Second Factor authentication (shared key created): {{userVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has enabled Second Factor authentication (shared key created): {{userVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        },
+        "SECOND_FACTOR_SHARED_KEY_DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "You disabled Second Factor authentication (shared key removed): {{userVarious}}",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has disabled Second Factor authentication (shared key removed): {{userVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        }
+      },
       "JWT_PERMANENT_TOKEN": {
         "CREATE": {
           "AUTHOR": {
