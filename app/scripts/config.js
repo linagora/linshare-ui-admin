@@ -6,7 +6,7 @@ angular.module('linshareAdminApp').constant('lsAppConfig', {
     system: 'SYSTEM'
   },
   auditV1hidden: true, // To hide Audit V1 from left menu, turn it to false
-  backendURL: 'linshare/webservice/rest/admin',
+  backendURL: 'linshare/webservice/rest/admin/v4',
   dateFormat: {
     en: 'MM/dd/yyyy',
     fr: 'dd/MM/yyyy'
