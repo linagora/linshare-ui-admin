@@ -2092,8 +2092,12 @@
         "BUTTON_CHANGEDOMAIN_LABEL": "Migrer vers un autre domaine",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+        "BUTTON_DELETE_2FA_KEY": "Supprimer la clé partagée de la double authentification"
       },
+      "LABEL_2FA_KEY_STATUS": "Statut:",
+      "LABEL_2FA_KEY_STATUS_ENABLED": "Activé",
+      "LABEL_2FA_KEY_STATUS_DISABLED": "Désactivé",
       "LABEL_CAN_UPLOAD": "Permission de dépôt",
       "LABEL_CAN_CREATE_GUEST": "Permission de création d'invité",
       "LABEL_COMMENT": "Commentaire",
@@ -2106,6 +2110,7 @@
       "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
       "LABEL_MAIL_LANGUAGE": "Langue des courriels",
       "LABEL_MANAGE_QUOTA": "Gestion du quota de l'espace personnel de l'utilisateur",
+      "LABEL_MANAGE_2FA_KEY": "Gestion de clé partagée pour la double authentification",
       "LABEL_MAX_FILE_SIZE": "Taille de fichier max déposable dans l'espace personnel",
       "LABEL_MODIFICATION_DATE": "Date de modification",
       "LABEL_OWNER": "Propriétaire",
@@ -2122,6 +2127,9 @@
     },
     "CONFIRM_CREATE_PROFILE_FORM": {
       "PARAGRAPH": "Cet utilisateur n'a pas encore de profile dans LinShare. Voulez-vous lui créer un profile dans la base de données ?"
+    },
+    "CONFIRM_DELETE_2FA_KEY": {
+      "PARAGRAPH": "Vous êtes sur le point de supprimer votre clé partagée, Attention! cette action est irréversible"
     },
     "MODALS": {
       "CHANGE_DOMAIN": {

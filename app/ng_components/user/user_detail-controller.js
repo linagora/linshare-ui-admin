@@ -2,11 +2,11 @@
 
 angular.module('linshareAdminApp')
   .controller('UserDetailCtrl',
-              ['_', '$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', 'currentUser',
+              ['_', '$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', '$translate', 'currentUser',
                'graphService', 'lsAppConfig', 'maxExpiryDate', 'quotaRestService', 'quotaUtilsService',
                'restrictedGuestStatus', 'selectOptions', 'unitService', 'User',
                /* jshint maxparams: false */
-               function(_, $filter, $log, $modal, $rootScope, $scope, $state, $timeout, currentUser, graphService,
+               function(_, $filter, $log, $modal, $rootScope, $scope, $state, $timeout, $translate, currentUser, graphService,
                         lsAppConfig, maxExpiryDate, quotaRestService, quotaUtilsService, restrictedGuestStatus,
                         selectOptions, unitService, User) {
         $scope.lsAppConfig = lsAppConfig;
@@ -125,6 +125,44 @@ angular.module('linshareAdminApp')
           modalInstance.result.then(
             function validate() {
               $scope.$parent.dataUpTodate = false;
+            }, function cancel() {
+              $log.debug('Deletion modal dismissed');
+            }
+          );
+        };
+
+        User.get2FAStatus(currentUser.uuid).then(function(isEnabled) {
+          $scope.user2FAStatus = isEnabled;
+          $scope.user2FAStatusClasses = isEnabled ? 'badge badge-active' : 'badge badge-secondary';
+
+          var status = isEnabled ?
+            'MANAGE_USERS.BOX_FORM.LABEL_2FA_KEY_STATUS_ENABLED' :
+            'MANAGE_USERS.BOX_FORM.LABEL_2FA_KEY_STATUS_DISABLED';
+
+          $translate(status).then(function(translatedStatus) {
+            return $scope.user2FAStatusText = translatedStatus;
+          })
+        });
+
+        $scope.delete2FAKey = function(userUuid) {
+          var modalInstance = $modal.open({
+            templateUrl: 'ng_components/common/confirm_modal.tpl.html',
+            controller: 'ConfirmDialogCtrl',
+            resolve: {
+              content: function() {
+                return 'MANAGE_USERS.CONFIRM_DELETE_2FA_KEY.PARAGRAPH';
+              }
+            }
+          });
+          modalInstance.result.then(
+            function validate() {
+              User.delete2FAKey(userUuid).then(function() {
+                $scope.user2FAStatus = false;
+                $scope.user2FAStatusClasses = 'badge badge-secondary';
+                $translate('MANAGE_USERS.BOX_FORM.LABEL_2FA_KEY_STATUS_DISABLED').then(function(translatedStatus) {
+                  return $scope.user2FAStatusText = translatedStatus;
+                })
+              })
             }, function cancel() {
               $log.debug('Deletion modal dismissed');
             }

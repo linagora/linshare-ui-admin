@@ -403,3 +403,27 @@
     </div>
   </form>
 </div>
+<div class="box box-primary">
+  <div class="box-header"
+       data-ng-show="routerState.current.name === 'user.detail' ||
+                routerState.current.name === 'inconsistentuser.list.detail'">
+    <h3 class="box-title" translate>
+      {{ 'MANAGE_USERS.BOX_FORM.LABEL_MANAGE_2FA_KEY' }}
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="m-t-20">
+      <label translate>{{ 'MANAGE_USERS.BOX_FORM.LABEL_2FA_KEY_STATUS' }}</label>
+      <span class="{{ user2FAStatusClasses }}">{{ user2FAStatusText }}</span>
+    </div>
+    <button
+      type="button"
+      class="btn btn-danger m-t-20"
+      x-ng-click="delete2FAKey(user.uuid)"
+      data-ng-if="user2FAStatus"
+      translate
+    >
+      {{ 'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_DELETE_2FA_KEY' }}
+    </button>
+  </div>
+</div>

@@ -2056,8 +2056,12 @@
           "BUTTON_CHANGEDOMAIN_LABEL": "Переместить в другой домен",
           "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
           "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
-          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+          "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+          "BUTTON_DELETE_2FA_KEY": "Удалить код двухфакторной аутентификации"
         },
+        "LABEL_2FA_KEY_STATUS": "Статус:",
+        "LABEL_2FA_KEY_STATUS_ENABLED": "Включен",
+        "LABEL_2FA_KEY_STATUS_DISABLED": "Отключено",
         "LABEL_CAN_UPLOAD": "Разрешение на загрузку",
         "LABEL_CAN_CREATE_GUEST": "Разрешение на создание нового гостя",
         "LABEL_COMMENT": "Коментарий",
@@ -2070,6 +2074,7 @@
         "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
         "LABEL_MAIL_LANGUAGE": "Язык уведомлений",
         "LABEL_MANAGE_QUOTA": "Управление квотой личного пространства пользователя",
+        "LABEL_MANAGE_2FA_KEY": "Управление кодом двухфакторной аутентификации пользователя",
         "LABEL_MAX_FILE_SIZE": "Максимальный размер загружаемого файла пользователя в личном пространстве",
         "LABEL_MODIFICATION_DATE": "Дата модификации",
         "LABEL_OWNER": "Владелец",
@@ -2086,6 +2091,9 @@
       },
       "CONFIRM_CREATE_PROFILE_FORM": {
         "PARAGRAPH": "У этого пользователя нет профиля Linshare. Вы хотите создать его в базе данных?"
+      },
+      "CONFIRM_DELETE_2FA_KEY": {
+        "PARAGRAPH": "Вы хотите удалить код код двухфакторной аутентификации, это действие не может быть отменено. Вы хотите продолжить?"
       },
       "MODALS": {
         "CHANGE_DOMAIN": {

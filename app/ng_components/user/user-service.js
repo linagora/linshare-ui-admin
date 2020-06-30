@@ -83,6 +83,20 @@ angular.module('linshareAdminApp')
             dfd.resolve(error);
             return dfd.promise;
           });
+        },
+        get2FAStatus: function(userUuid) {
+          $log.debug('User:get2FAStatus', userUuid);
+
+          return Restangular.one('users', userUuid).one('2fa', userUuid).get().then(function(res) {
+            return res.enabled;
+          });
+        },
+        delete2FAKey: function(userUuid) {
+          $log.debug('User:delete2FAKey', userUuid);
+
+          return Restangular.one('users', userUuid).one('2fa', userUuid).remove().then(function() {
+            Notification.addSuccess('UPDATE');
+          });
         }
       };
     }

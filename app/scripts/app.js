@@ -81,6 +81,15 @@ angular.module('linshareAdminApp', [
       return element;
     });
 
+    // This config fixes auto-add payload on DELETE method
+    // Ref: https://github.com/mgonto/restangular/issues/193
+    RestangularProvider.addRequestInterceptor(function(elem, operation) {
+      if (operation === 'remove') {
+         return null;
+      }
+      return elem;
+    });
+
     uiSelectConfig.theme = 'bootstrap';
     cfpLoadingBarProvider.includeSpinner = false;
 

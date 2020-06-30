@@ -2157,8 +2157,12 @@
         "BUTTON_CHANGEDOMAIN_LABEL": "Migrate to another domain",
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT"
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+        "BUTTON_DELETE_2FA_KEY": "Delete second factor authentication key"
       },
+      "LABEL_2FA_KEY_STATUS": "Status:",
+      "LABEL_2FA_KEY_STATUS_ENABLED": "Enabled",
+      "LABEL_2FA_KEY_STATUS_DISABLED": "Disabled",
       "LABEL_CAN_UPLOAD": "Upload permission",
       "LABEL_CAN_CREATE_GUEST": "Guest creation permission",
       "LABEL_COMMENT": "Comment",
@@ -2171,6 +2175,7 @@
       "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
       "LABEL_MAIL_LANGUAGE": "Notification's language",
       "LABEL_MANAGE_QUOTA": "Manage user personal space quota",
+      "LABEL_MANAGE_2FA_KEY": "Manage user second factor authentication key",
       "LABEL_MAX_FILE_SIZE": "User's max upload file size in Personal Space",
       "LABEL_MODIFICATION_DATE": "Modification date",
       "LABEL_OWNER": "Owner",
@@ -2187,6 +2192,9 @@
     },
     "CONFIRM_CREATE_PROFILE_FORM": {
       "PARAGRAPH": "This user does not have a Linshare profile. Would you like to create it in the database ?"
+    },
+    "CONFIRM_DELETE_2FA_KEY": {
+      "PARAGRAPH": "You are about to delete 2FA key, the action can not be undone. Are you sure?"
     },
     "MODALS": {
       "CHANGE_DOMAIN": {
