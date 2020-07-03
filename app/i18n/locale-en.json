@@ -1786,6 +1786,12 @@
         "CONFIGURATION_POLICY": "",
         "PARAMETER_NAME": "",
         "PARAMETER_DESCRIPTION": ""
+      },
+      "SECOND_FACTOR_AUTHENTICATION": {
+        "NAME": "Second factor authentication",
+        "PARAMETER_NAME": "Parameters",
+        "USE_EXTENDED_DESCRIPTION": "2",
+        "DESCRIPTION": "The functionality manages second factor authentication feature. Any changes of this page will have impact on all users of LinShare"
       }
     },
     "PARAMETERS": {
@@ -1819,8 +1825,10 @@
       "ANONYMOUS_URL__NOTIFICATION__BOOLEAN_true": "Notification will be sent for every download.",
       "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Anonymous Sharing with all users(internal and guests)",
       "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Anonymous Sharing with only anonymous users",
-      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_false": "Versioning will be disable by default when creating a new workgroup.",
-      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "Versioning will be enable by default when creating a new workgroup."
+      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_false": "Versioning will be disabled by default when creating a new workgroup.",
+      "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "Versioning will be enabled by default when creating a new workgroup.",
+      "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_true": "The second factor authentication will be required for all users",
+      "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_false": "The second factor authentication can be enabled by users (optional)"
     }
   },
   "MIME_POLICIES": {

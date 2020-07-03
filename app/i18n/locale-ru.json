@@ -1685,6 +1685,12 @@
           "CONFIGURATION_POLICY": "",
           "PARAMETER_NAME": "",
           "PARAMETER_DESCRIPTION": ""
+        },
+        "SECOND_FACTOR_AUTHENTICATION": {
+          "NAME": "Двухфакторная аутентификация",
+          "PARAMETER_NAME": "Параметры",
+          "USE_EXTENDED_DESCRIPTION": "2",
+          "DESCRIPTION": "Управление двухфакторной аутентификацией доступно в настройках. Любые изменения повлияют на всех пользователей LinShare."
         }
       },
       "PARAMETERS": {
@@ -1719,7 +1725,9 @@
         "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_true": "Анонимный доступ со всеми пользователями (внутренними и гостями)",
         "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING__BOOLEAN_false": "Анонимный доступ с анонимными пользователями",
         "WORK_GROUP__FILE_VERSIONING__BOOLEAN_false": "TRANSLATE ME",
-        "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "TRANSLATE ME."
+        "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "TRANSLATE ME.",
+        "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_true": "Двухфакторная аутентификация необходима для всех пользователей",
+        "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_false": "Двухфакторная аутентификация опциональна для всех пользователей"
       }
     },
     "MIME_POLICIES": {
