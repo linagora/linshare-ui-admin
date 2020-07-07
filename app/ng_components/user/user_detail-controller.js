@@ -2,13 +2,13 @@
 
 angular.module('linshareAdminApp')
   .controller('UserDetailCtrl',
-              ['_', '$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', '$translate', 'currentUser',
+              ['_', '$filter', '$log', '$modal', '$rootScope', '$scope', '$state', '$timeout', '$translate',
                'graphService', 'lsAppConfig', 'maxExpiryDate', 'quotaRestService', 'quotaUtilsService',
-               'restrictedGuestStatus', 'selectOptions', 'unitService', 'User',
-               /* jshint maxparams: false */
-               function(_, $filter, $log, $modal, $rootScope, $scope, $state, $timeout, $translate, currentUser, graphService,
+               'restrictedGuestStatus', 'selectOptions', 'unitService', 'User', 'currentUser',
+               /* jshint maxparams: false, maxstatements: false*/
+               function(_, $filter, $log, $modal, $rootScope, $scope, $state, $timeout, $translate, graphService,
                         lsAppConfig, maxExpiryDate, quotaRestService, quotaUtilsService, restrictedGuestStatus,
-                        selectOptions, unitService, User) {
+                        selectOptions, unitService, User, currentUser) {
         $scope.lsAppConfig = lsAppConfig;
         $scope.userRoles = selectOptions.userRoles;
         $scope.userRolesSimple = ['SIMPLE', 'ADMIN'];
@@ -140,8 +140,8 @@ angular.module('linshareAdminApp')
             'MANAGE_USERS.BOX_FORM.LABEL_2FA_KEY_STATUS_DISABLED';
 
           $translate(status).then(function(translatedStatus) {
-            return $scope.user2FAStatusText = translatedStatus;
-          })
+            $scope.user2FAStatusText = translatedStatus;
+          });
         });
 
         $scope.delete2FAKey = function(userUuid) {
@@ -160,9 +160,9 @@ angular.module('linshareAdminApp')
                 $scope.user2FAStatus = false;
                 $scope.user2FAStatusClasses = 'badge badge-secondary';
                 $translate('MANAGE_USERS.BOX_FORM.LABEL_2FA_KEY_STATUS_DISABLED').then(function(translatedStatus) {
-                  return $scope.user2FAStatusText = translatedStatus;
-                })
-              })
+                  $scope.user2FAStatusText = translatedStatus;
+                });
+              });
             }, function cancel() {
               $log.debug('Deletion modal dismissed');
             }
