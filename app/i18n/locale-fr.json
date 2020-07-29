@@ -2101,8 +2101,10 @@
         "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
         "BUTTON_RESET": "@:COMMON.BASIC_FORM.BUTTON_RESET",
         "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
-        "BUTTON_DELETE_2FA_KEY": "Supprimer la clé partagée de la double authentification"
+        "BUTTON_DELETE_2FA_KEY": "Supprimer la clé partagée de la double authentification",
+        "BUTTON_UNLOCK": "Déverrouiller"
       },
+      "ALERT_LOCKED_USER": "Cet utilisateur est verrouillé en raison de nombreuses tentatives de connexion échouées",
       "LABEL_2FA_KEY_STATUS": "Statut:",
       "LABEL_2FA_KEY_STATUS_ENABLED": "Activé",
       "LABEL_2FA_KEY_STATUS_DISABLED": "Désactivé",

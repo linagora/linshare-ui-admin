@@ -107,6 +107,17 @@ $redAlert: #bb0505;
 .m-0 {
   margin: 0;
 }
+.m-l-0 {
+  margin-left: 0;
+}
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-vertical-center {
+  display: flex;
+  align-items: center;
+}
 
 body {
   background-color: transparent;

@@ -18,7 +18,16 @@
     <div class="box-body">
       <div class="row">
         <!-- EDITABLE FIELDS -->
+
         <div class="col-sm-6">
+          <div ng-if="user.locked" class="alert alert-warning m-l-0 flex-space-between flex-vertical-center">
+            {{'MANAGE_USERS.BOX_FORM.ALERT_LOCKED_USER' | translate}}
+            <button type="button" id="unlock" name="unlock" class="btn btn-warning"
+                    x-ng-click="unlock()">
+              {{'MANAGE_USERS.BOX_FORM.FORM_ACTIONS.BUTTON_UNLOCK' | translate}}
+            </button>
+          </div>
+
           <!-- Upload -->
           <div class="input-group">
             <span class="input-group-addon">

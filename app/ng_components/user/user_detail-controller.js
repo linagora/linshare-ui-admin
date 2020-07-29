@@ -75,6 +75,11 @@ angular.module('linshareAdminApp')
         $scope.isGuest = function() {
           return $scope.user.accountType === 'GUEST';
         };
+        $scope.unlock = function() {
+          $scope.user.locked = false;
+
+          User.update($scope.user);
+        };
 
         //To get the previous State to redirect to.
         if ($rootScope.routerState.current.name === 'user.detail') {
