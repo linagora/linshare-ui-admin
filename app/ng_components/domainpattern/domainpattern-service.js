@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('DomainPattern', ['$q', '$log', 'Restangular', 'Notification',
-    function($q, $log, Restangular, Notification) {
+  .factory('DomainPattern', ['$q', '$log', '$http', 'lsAppConfig', 'Restangular', 'Notification',
+    function($q, $log, $http, lsAppConfig, Restangular, Notification) {
       //var self = this;
 
       // Public API here
@@ -29,7 +29,15 @@ angular.module('linshareAdminApp')
         },
         remove: function(domainPattern) {
           $log.debug('DomainPattern:remove');
-          return domainPattern.remove().then(function() {
+
+          return $http({
+            method: 'DELETE',
+            url: `${lsAppConfig.backendURL}/domain_patterns`,
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            data: Restangular.stripRestangular(domainPattern).originalElement
+          }).then(function() {
             Notification.addSuccess('DELETE');
           });
         },
