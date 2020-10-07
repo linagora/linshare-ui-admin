@@ -32,7 +32,7 @@ angular.module('linshareAdminApp')
 
           return $http({
             method: 'DELETE',
-            url: `${lsAppConfig.backendURL}/domain_patterns`,
+            url: lsAppConfig.backendURL + '/domain_patterns',
             headers: {
               'Content-Type': 'application/json'
             },
