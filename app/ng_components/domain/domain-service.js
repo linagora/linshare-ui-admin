@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Domain',
-    ['_','$q', '$log', 'Notification', 'Restangular',
-    function(_, $q, $log, Notification, Restangular) {
+    ['_', '$q', '$log', 'customDeleteService', 'Notification', 'Restangular',
+    function(_, $q, $log, customDeleteService, Notification, Restangular) {
       // var self = this;
 
       /**
@@ -60,7 +60,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(domain) {
           $log.debug('Domain:remove');
-          return domain.remove().then(function() {
+          return customDeleteService.remove('domains', domain).then(function() {
             Notification.addSuccess('DELETE');
           });
         },
