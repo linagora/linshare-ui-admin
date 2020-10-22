@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('Functionality',
-    ['$log', 'Restangular',
-    function($log, Restangular) {
+    ['$log', 'Restangular', 'customDeleteService',
+    function($log, Restangular, customDeleteService) {
       //var self = this;
 
       // Public API here
@@ -22,7 +22,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(functionality) {
           $log.debug('Functionality:remove');
-          return functionality.remove();
+          return customDeleteService.remove('functionalities', functionality);
         }
       };
     }
