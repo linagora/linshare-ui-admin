@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('LdapConnection', ['$log', 'Restangular', 'Notification',
-    function($log, Restangular, Notification) {
+  .factory('LdapConnection', ['$log', 'Restangular', 'Notification', 'customDeleteService',
+    function($log, Restangular, Notification, customDeleteService) {
 
       // Public API here
       return {
@@ -28,7 +28,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(ldapConnection) {
           $log.debug('LdapConnection:remove');
-          return ldapConnection.remove().then(function() {
+          return customDeleteService.remove('ldap_connections',ldapConnection).then(function() {
               Notification.addSuccess('DELETE');
           });
         }
