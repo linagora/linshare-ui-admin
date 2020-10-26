@@ -426,11 +426,6 @@
         "UPLOAD_REQUEST_ENTRIES_UPDATE": "Update upload request entries",
         "UPLOAD_REQUEST_ENTRIES_DOWNLOAD": "Download upload request entries",
         "UPLOAD_REQUEST_ENTRIES_DOWNLOAD_THUMBNAIL": "Download upload request entries for thumbnail",
-        "UPLOAD_REQUEST_TEMPLATE_CREATE": "Create upload request template",
-        "UPLOAD_REQUEST_TEMPLATE_DELETE": "Delete upload request template",
-        "UPLOAD_REQUEST_TEMPLATE_GET": "Get upload request template",
-        "UPLOAD_REQUEST_TEMPLATE_UPDATE": "Update upload request template",
-        "UPLOAD_REQUEST_TEMPLATE_LIST": "List upload request templates",
         "UPLOAD_REQUEST_URL_CREATE": "Create upload request url",
         "UPLOAD_REQUEST_URL_DELETE": "Delete upload request url",
         "UPLOAD_REQUEST_URL_GET": "Get upload request url",
@@ -1148,18 +1143,6 @@
         "PARAMETER_NAME": "Delay before expiration",
         "PARAMETER_DESCRIPTION": "Choose the value of the delay. Adviced values: 7 days - available units: day / week / month"
       },
-      "UPLOAD_REQUEST__GROUPED_MODE": {
-        "NAME": "Upload request - Grouped mode",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": " Allow creating an upload reqeust in grouped mode, meaning that all recipents will receive one upload request where they can upload documents.If this functionality is not activated, every recipient recieve a separate upload request.",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "Once enabled, this functionality allows issuers to create an upload request for several recipients at the same time.",
-        "CONFIGURATION_POLICY": "Allow an administrator to change the default value parameter.",
-        "DELEGATION_POLICY": "Once enabled, issuer can enable/disable the grouped mode.",
-        "PARAMETER_NAME": "Manage grouped mode",
-        "PARAMETER_DESCRIPTION": "Default value: Enabled"
-      },
       "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
         "NAME": "Upload request - maximum file count",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -1220,18 +1203,6 @@
         "PARAMETER_NAME": "Closure right",
         "PARAMETER_DESCRIPTION": "Default value at upload request creation."
       },
-      "UPLOAD_REQUEST__PROLONGATION": {
-        "NAME": "Upload request - Prolongation",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Prolongation gives your right to allow users to extend expiry date. By default, the issuer can only change the expiry date to a date between creation and expiry duration defined by the administrator.",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "By enabling Prolongation you allow users to extends Upload Request expiry date.",
-        "CONFIGURATION_POLICY": "By enabling configuration you allow administrator to edit default configuration.",
-        "DELEGATION_POLICY": "By enabling delegation, issuer can extend Upload Requests expiry date.",
-        "PARAMETER_NAME": "Prolongation",
-        "PARAMETER_DESCRIPTION": "By default, expiry date should be before the result of activation date plus the maximal duration defined by the administrator. Note: user can extend expiray date limitless."
-      },
       "UPLOAD_REQUEST__CAN_DELETE": {
         "NAME": "Upload request - Recipient delete right",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -1253,7 +1224,7 @@
         "ACTIVATION_POLICY": "Once enabled, notification will be sent before the expiration.",
         "CONFIGURATION_POLICY": "By enabling configuration you allow an administrator to edit default configuration.",
         "DELEGATION_POLICY": "Allow issuer to enable sending notification before upload request expiration.",
-        "PARAMETER_NAME": "Delay before expiration",
+        "PARAMETER_NAME": "Delay before notification",
         "PARAMETER_DESCRIPTION": ""
       },
       "QUOTA_USER": {

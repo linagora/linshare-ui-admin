@@ -1088,20 +1088,20 @@
         "DESCRIPTION": "Configurer La langue par défaut des notifications envoyé par le système.",
         "ADVANCED_DESCRIPTION": "Par exemple lors de l'activation d'une invitation de dépôt, l'utilisateur recevera un courriel prés-définis dans la langue choisis par défaut.",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "",
+        "ACTIVATION_POLICY": "Activer le paramétrage de la langue utilisée pour les mails de notification",
         "CONFIGURATION_POLICY": "Autoriser l'utilisateur à changer la langue des notifications.",
         "DELEGATION_POLICY": "Autoriser l'administrateur à éditer la configuration de langue initialement choisis.",
         "PARAMETER_NAME": "Langue",
-        "PARAMETER_DESCRIPTION": "Choisir une langue par défaut. Valeur initial : en"
+        "PARAMETER_DESCRIPTION": "Choisir une langue par défaut. Valeur par defaut : en"
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Délais avant activation",
-        "USE_EXTENDED_DESCRIPTION": "2",
-        "DESCRIPTION": "Le délais avant activation permet de calculer la date d'activation au plus tôt à partir de sa date de création. L'utilisateur invité pourra accéder au dépôt de fichier à partir de cette date. La date d'activation d'une invitation est donc le résultat du délais avant activation, ajoutée à la date de création.",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Le délai entre la date de création de l'invitation de dépôt et sa date d'activation (la demande de téléchargement est disponible et les utilisateurs peuvent télécharger des documents)",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "En activant la fonctionnalité l'utilisateur pour choisir un délais avant l'activation du dépôt. Les invités accederont au dépôt au terme de la date choisis.",
-        "CONFIGURATION_POLICY": "Autoriser ou non l'administrateur à changer la durée initialement définis.",
+        "ACTIVATION_POLICY": "En activant la fonctionnalité l'utilisateur peux choisir un délais avant l'activation du dépôt. Les invités accederont au dépôt au terme de la date choisis.",
+        "CONFIGURATION_POLICY": "Autoriser ou non l'administrateur d'un domain à changer la durée initialement définis.",
         "DELEGATION_POLICY": "Une fois activée, les utilisateurs pourront éditer la date par défaut d'activation.",
         "PARAMETER_NAME": "Durée minimale avant activation",
         "PARAMETER_DESCRIPTION": "Choisir la durée pour activer votre invitation après la création. Valeur conseillé: 0 jour - Unité disponible : jour / semaine / mois"
@@ -1116,39 +1116,27 @@
         "CONFIGURATION_POLICY": "Permettre à l'administrateur de modifié la durée d'expiration par défaut.",
         "DELEGATION_POLICY": "Autoriser l'utilisateur à choisir une date d'expritation au dépôt.",
         "PARAMETER_NAME": "Durée maximale avant expiration",
-        "PARAMETER_DESCRIPTION": "Choisir la durée d'expiration d'une invitation. Valeur conseillé : 7 jours - Unité disponible : jour / semaine / mois"
-      },
-      "UPLOAD_REQUEST__GROUPED_MODE": {
-        "NAME": "Mode groupé",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Autorise l'envoi d'une invitation pour tous les destinataires. Dans le cas contraire, une invitation est envoyée par destinataire. Le paramétrage de l'invitation impacte donc chaque destinataire indépendamment dans le cadre d'une invitation non groupée.",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "Autoriser ou non les utilisateurs a envoyer une invitation de dépôts à plusieurs utilisateurs en même temps.",
-        "CONFIGURATION_POLICY": "L'utilisateur pourra envoyer des invitations de dépôt a un ou plusieurs utilisateurs en même temps.",
-        "DELEGATION_POLICY": "Pemettre à l'administrateur de changer le paramétre initialement définis.",
-        "PARAMETER_NAME": "Mode groupée",
-        "PARAMETER_DESCRIPTION": "Valeur par défaut : actif"
+        "PARAMETER_DESCRIPTION": "Choisir la durée pour l'expiration d'une invitation. Valeur conseillé : 7 jours - Unité disponible : jour / semaine / mois"
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
         "NAME": "Nombre maximum de fichiers",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Le nombre maximum de fichiers permet de limiter nombre de fichiers à déposer dans le dépôt dans la limite de la taille du dépôt.",
+        "DESCRIPTION": "Le nombre maximum de fichiers permet de limiter le nombre de fichiers à déposer dans le dépôt dans la limite de la taille du dépôt.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "En activant vous limiterez l'envoi de fichiers dans le dépôt.",
-        "CONFIGURATION_POLICY": "En activant vous permeterez à l'administrateur de changer le paramétrage par défaut.",
-        "DELEGATION_POLICY": "En activant vous permeterez à l'utilisateur de choisir le nombre de fichier maximum possible à envoyer.",
+        "ACTIVATION_POLICY": "Une fois activée, il est possible de définir un nombre maximal de fichiers à déposer.",
+        "CONFIGURATION_POLICY": "Permettre ou non à l'administrateur de changer le paramétrage par défaut.",
+        "DELEGATION_POLICY": "Une Une fois activée vous permeterez à l'expiditeur de l'invitation de choisir le nombre de fichier maximum possible à déposer.",
         "PARAMETER_NAME": "Nombre de fichiers maximum par invitation",
         "PARAMETER_DESCRIPTION": "Valeur conseillé: 3"
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
         "NAME": "Taille maximale d'un fichier",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Limiter la taille des fichiers envoyé par les utilisateurs dans le dépôt.",
+        "DESCRIPTION": "Limiter la taille des fichiers deposés par les utilisateurs dans le dépôt.",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "Les fichiers auront une limite de poid une fois activé.",
+        "ACTIVATION_POLICY": "Les fichiers auront une limite de taille une fois activée.",
         "CONFIGURATION_POLICY": "Autoriser les administrateurs des sous-domaines à configurer la fonctionnalité.",
         "DELEGATION_POLICY": "Autoriser l'utilisateur à choisir une limite pour la taille de fichier.",
         "PARAMETER_NAME": "Taille maximale d'un fichier",
@@ -1169,7 +1157,7 @@
       "UPLOAD_REQUEST__SECURED_URL": {
         "NAME": "Sécurisation des URLs",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Une fois activée, les URLS seront protégés par un mot de passe. Le mot de passe est généré par le serveur et envoyé par courriel séparé au(x) destinataire(s).",
+        "DESCRIPTION": "Une fois activée, les URLS seront protégés par un mot de passe. Le mot de passe est généré par le serveur est envoyé par courriel séparé au(x) destinataire(s).",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "Une fois activée, l'utilisateur pourra protéger les urls par un mot de passe.",
@@ -1180,7 +1168,7 @@
       },
       "UPLOAD_REQUEST__CAN_CLOSE": {
         "NAME": "Droit de clôture",
-        "USE_EXTENDED_DESCRIPTION": "3",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
@@ -1190,18 +1178,6 @@
         "PARAMETER_NAME": "Droit de clôture",
         "PARAMETER_DESCRIPTION": "Valeur par défaut du paramétre 'droit de clôture' lors de la création d'une nouvelle invitation de dépôt."
       },
-      "UPLOAD_REQUEST__PROLONGATION": {
-        "NAME": "Prolongation",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "La prolongation vous permet d'autoriser l'utilistateur à prolonger/repousser la date d'expiration lors l'édition d'une invitation de dépôt. Par défaut l'émetteur ne peut qu'éditer la date entre la date de création + la dure d'expiration fixé par l'admin",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "En activant la Prolongation vous permeterez aux utilisateurs de prolonger la date d'expiration des invitations de dépôt.",
-        "CONFIGURATION_POLICY": "En activant la configuration vous autorisez l'administrateur à modifier les Paramètres par défaut.",
-        "DELEGATION_POLICY": "En activant la délégation l'utilisateur pourra prolonger la date d'expiration des invitations de dépôt.",
-        "PARAMETER_NAME": "Prolongation",
-        "PARAMETER_DESCRIPTION": "Par défaut, l'édition de la date d'expiration ne peut dépasser la date d'activation de l'invitation, plus la durée maximale fixée par l'administrateur. La prolongation permet l'édition de la date d'expiration de l'invitation. La nouvelle date d'expiration est limitée par la date actuelle ajoutée à la durée  avant expiration. Note : en éditant régulièrement la date d'expiration pour la prolonger, l'utilisateur peut virtuellement prolonger l'invitation sans limite dans le temps. Valeur défaut : inactif."
-      },
       "UPLOAD_REQUEST__CAN_DELETE": {
         "NAME": "Droit de suppression de fichiers pour le destinataire",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -1210,32 +1186,20 @@
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "Autoriser ou non les invités a supprimer des fichiers dans le dépôt.",
         "CONFIGURATION_POLICY": "L'administrateur pourra modifier les paramètres par défaut pour ses utilisateurs.",
-        "DELEGATION_POLICY": "Permettre à l'utilisateur d'activer ou non la suppression de fichiers à ses invités.",
+        "DELEGATION_POLICY": "Permettre à l'utilisateur (expéditeur de l'invitation) d'autoriser ou non la suppression de fichiers par les invités.",
         "PARAMETER_NAME": "Droit de suppression",
         "PARAMETER_DESCRIPTION": ""
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
         "NAME": "Délais avant notification d'expiration",
-        "USE_EXTENDED_DESCRIPTION": "2",
+        "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification permet d'indiquer à l'émetteur et au destinataire que l'invitation est sur le point d'expirer. La durée qui sépare la date d'envoi de la notification et la date d'expiration de l'invitation est configurable.",
         "ADVANCED_DESCRIPTION": "Les destinataires reçoivent un courriel contenant les conditions d'utilisation et les fichiers déjà déposés.  L'émetteur reçoit une synthèse des fichiers déposés par tous les destinataires de l'invitation.",
         "USER_OVERRIDE": "",
         "ACTIVATION_POLICY": "Activer ou non l'envoi de notification avant l'expiration du dépôt.",
         "CONFIGURATION_POLICY": "Une fois activée, l'administrateur pourra choisir une nouvelle date par défaut.",
         "DELEGATION_POLICY": "Permettre ou non à l'utilisatateur d'activer l'envoi de cette notification avant que son dépôt n'expire.",
-        "PARAMETER_NAME": "Durée avant la date d'expiration",
-        "PARAMETER_DESCRIPTION": ""
-      },
-      "UPLOAD_REQUEST_ENABLE_TEMPLATE": {
-        "NAME": "Modèles d'invitation de dépôt",
-        "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette fonctionnalité permet d'autoriser l'utilisateur à créer des modèles d'invitation de dépôt",
-        "ADVANCED_DESCRIPTION": "",
-        "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "",
-        "CONFIGURATION_POLICY": "",
-        "DELEGATION_POLICY": "",
-        "PARAMETER_NAME": "",
+        "PARAMETER_NAME": "Durée avant la date de notification",
         "PARAMETER_DESCRIPTION": ""
       },
       "QUOTA_USER": {

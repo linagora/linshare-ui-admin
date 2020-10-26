@@ -1047,18 +1047,6 @@
           "PARAMETER_NAME": "Параметры",
           "PARAMETER_DESCRIPTION": ""
         },
-        "UPLOAD_REQUEST__GROUPED_MODE": {
-          "NAME": "Запрос на отправку - Групповой режим",
-          "USE_EXTENDED_DESCRIPTION": "0",
-          "DESCRIPTION": "",
-          "ADVANCED_DESCRIPTION": "",
-          "USER_OVERRIDE": "",
-          "ACTIVATION_POLICY": "",
-          "DELEGATION_POLICY": "",
-          "CONFIGURATION_POLICY": "",
-          "PARAMETER_NAME": "Параметры",
-          "PARAMETER_DESCRIPTION": ""
-        },
         "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
           "NAME": "Запрос на отправку - Максимальное количество файлов",
           "USE_EXTENDED_DESCRIPTION": "0",
@@ -1119,18 +1107,6 @@
           "PARAMETER_NAME": "Параметры",
           "PARAMETER_DESCRIPTION": ""
         },
-        "UPLOAD_REQUEST__PROLONGATION": {
-          "NAME": "Запрос на отправку - пролонгация",
-          "USE_EXTENDED_DESCRIPTION": "0",
-          "DESCRIPTION": "",
-          "ADVANCED_DESCRIPTION": "",
-          "USER_OVERRIDE": "",
-          "ACTIVATION_POLICY": "",
-          "DELEGATION_POLICY": "",
-          "CONFIGURATION_POLICY": "",
-          "PARAMETER_NAME": "Параметры",
-          "PARAMETER_DESCRIPTION": ""
-        },
         "UPLOAD_REQUEST__CAN_DELETE": {
           "NAME": "Запрос на отправку - Право на удаление получателя",
           "USE_EXTENDED_DESCRIPTION": "0",
@@ -1153,18 +1129,6 @@
           "DELEGATION_POLICY": "",
           "CONFIGURATION_POLICY": "",
           "PARAMETER_NAME": "Параметры",
-          "PARAMETER_DESCRIPTION": ""
-        },
-        "UPLOAD_REQUEST_ENABLE_TEMPLATE": {
-          "NAME": "Запрос на отправку шаблоны",
-          "USE_EXTENDED_DESCRIPTION": "0",
-          "DESCRIPTION": "",
-          "ADVANCED_DESCRIPTION": "",
-          "USER_OVERRIDE": "",
-          "ACTIVATION_POLICY": "",
-          "CONFIGURATION_POLICY": "",
-          "DELEGATION_POLICY": "",
-          "PARAMETER_NAME": "",
           "PARAMETER_DESCRIPTION": ""
         },
         "QUOTA_USER": {
