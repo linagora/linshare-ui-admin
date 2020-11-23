@@ -1028,6 +1028,9 @@
       "VIEW_ADVANCED": "Advanced",
       "LEGEND_NEXT": "Next",
       "LEGEND_PREVIOUS": "Previous",
+      "DEFAULT_VALUE": "Default value",
+      "MAX_VALUE": "Max value",
+      "UNLIMITED": "Unlimited",
       "FORM_ACTIONS": {
         "BUTTON_RESET": "Reset to parent value",
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"

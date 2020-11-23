@@ -100,5 +100,10 @@ angular.module('linshareAdminApp')
         $scope.functionality.delegationPolicy.policy = 'ALLOWED';
         updateFunctionality($scope.functionality);
       };
+
+      $scope.resetMaxValues = function(parameter, isUnlimited) {
+        parameter.maxInteger = isUnlimited ? -1 : parameter.integer;
+        parameter.maxString = isUnlimited ? parameter.maxString : parameter.string;
+      };
     }]
   );

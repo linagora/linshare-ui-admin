@@ -196,20 +196,30 @@
             <div x-ng-switch="parameter.type">
               <div x-ng-switch-when="INTEGER">
                 <div class="form-group">
+                  <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.DEFAULT_VALUE</label>
                   <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
                          x-ng-model="parameter.integer"
+                         x-ng-change="updateWithTimeout()"/>
+                </div>
+                <div class="form-group">
+                  <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.MAX_VALUE</label>
+                  <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
+                         x-ng-model="parameter.maxInteger"
                          x-ng-change="updateWithTimeout()"/>
                 </div>
               </div>
               <div x-ng-switch-when="UNIT_TIME">
                 <div class="form-group">
                   <div class="form-inline row">
-                    <div class="form-group col-sm-5">
+                    <div class="col-sm-2 col-md-12">
+                      <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.DEFAULT_VALUE</label>
+                    </div>
+                    <div class="form-group col-sm-4 col-md-7">
                       <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
                              x-ng-model="parameter.integer"
                              x-ng-change="updateWithTimeout()"/>
                     </div>
-                    <div class="form-group col-sm-5">
+                    <div class="form-group col-sm-3 col-md-5">
                       <select class="form-control"
                               x-ng-model="parameter.string"
                               x-ng-change="update()"
@@ -218,21 +228,112 @@
                     </div>
                   </div>
                 </div>
+                <div class="form-group">
+                  <div class="form-inline row">
+                    <div class="col-sm-2 col-md-12">
+                      <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.MAX_VALUE</label>
+                    </div>
+                    <div class="form-group col-sm-4 col-md-7">
+                      <input
+                        name="$index"
+                        type="number"
+                        class="form-control"
+                        min="0"
+                        max="2147483647"
+                        ng-disabled="isUnlimited"
+                        ng-model="parameter.maxInteger"
+                        ng-change="updateWithTimeout()"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-sm-3 col-md-5">
+                      <select
+                        class="form-control"
+                        ng-change="update()"
+                        ng-disabled="isUnlimited"
+                        ng-model="parameter.maxString"
+                        ng-options="option as 'COMMON.ENUM.UNIT_TIME.' + option | translate for option in parameter.select"
+                      ></select>
+                    </div>
+                    <div class="md-m-t-15 col-sm-3 col-md-3" ng-init="isUnlimited = parameter.maxInteger === -1">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <input
+                            name="$index"
+                            type="checkbox"
+                            ng-model="isUnlimited"
+                            ng-change="resetMaxValues(parameter, isUnlimited); updateWithTimeout();"
+                          />
+                        </span>
+                        <span class="form-control" translate>
+                          FUNCTIONALITIES.BOX_FORM.UNLIMITED
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div x-ng-switch-when="UNIT_SIZE">
                 <div class="form-group">
                   <div class="form-inline row">
-                    <div class="form-group col-sm-5">
+                    <div class="col-sm-2 col-md-12">
+                      <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.DEFAULT_VALUE</label>
+                    </div>
+                    <div class="form-group col-sm-4 col-md-7">
                       <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
                              x-ng-model="parameter.integer"
                              x-ng-change="updateWithTimeout()"/>
                     </div>
-                    <div class="form-group col-sm-5">
+                    <div class="form-group col-sm-3 col-md-5">
                       <select class="form-control"
                               x-ng-model="parameter.string"
                               x-ng-change="update()"
                               x-ng-options="option as 'COMMON.ENUM.UNIT_SIZE.' + option | translate for option in parameter.select">
                       </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-inline row">
+                    <div class="col-sm-2 col-md-12">
+                      <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.MAX_VALUE</label>
+                    </div>
+                    <div class="form-group col-sm-4 col-md-7">
+                      <input
+                        name="$index"
+                        type="number"
+                        class="form-control"
+                        min="0"
+                        max="2147483647"
+                        ng-disabled="isUnlimited"
+                        ng-model="parameter.maxInteger"
+                        ng-change="updateWithTimeout()"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-sm-3 col-md-5">
+                      <select
+                        class="form-control"
+                        ng-model="parameter.maxString"
+                        ng-change="update()"
+                        ng-disabled='isUnlimited'
+                        ng-options="option as 'COMMON.ENUM.UNIT_SIZE.' + option | translate for option in parameter.select"
+                      ></select>
+                    </div>
+                    <div class="md-m-t-15 col-sm-3 col-md-3" ng-init="isUnlimited = parameter.maxInteger === -1">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <input
+                            name="$index"
+                            type="checkbox"
+                            ng-model="isUnlimited"
+                            ng-change="resetMaxValues(parameter, isUnlimited); updateWithTimeout();"
+                          />
+                        </span>
+                        <span class="form-control" translate>
+                          FUNCTIONALITIES.BOX_FORM.UNLIMITED
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>

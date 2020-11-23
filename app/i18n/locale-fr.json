@@ -1003,6 +1003,9 @@
       "VIEW_ADVANCED": "Avancé",
       "LEGEND_NEXT": "Suivant",
       "LEGEND_PREVIOUS": "Précédent",
+      "DEFAULT_VALUE": "Valeur par défaut",
+      "MAX_VALUE": "Valeur max",
+      "UNLIMITED": "Illimité",
       "FORM_ACTIONS": {
         "BUTTON_RESET": "Réinitialiser à la valeur parente",
         "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"

@@ -965,6 +965,9 @@
         "VIEW_ADVANCED": "продвинутый",
         "LEGEND_NEXT": "следующий",
         "LEGEND_PREVIOUS": "предыдущий",
+        "DEFAULT_VALUE": "Значение по умолчанию",
+        "MAX_VALUE": "Максимальное значение",
+        "UNLIMITED": "неограниченный",
         "FORM_ACTIONS": {
           "BUTTON_RESET": "Сбросить родительское значение",
           "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"

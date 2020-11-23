@@ -110,6 +110,11 @@ $redAlert: #bb0505;
 .m-l-0 {
   margin-left: 0;
 }
+.md-m-t-15 {
+  @media (min-width: 992px) {
+    margin-top: 15px;
+  }
+}
 .flex-space-between {
   display: flex;
   justify-content: space-between;
