@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.linagora.linshare</groupId>
+  <artifactId>linshare-ui-admin</artifactId>
+  <version>4.1.0-SNAPSHOT</version>
+  <name>linshare-ui-admin</name>
+  <url>http://linshare.org</url>
+  <build>
+    <plugins>
+      <!-- maven-clean-plugin -->
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>.tmp</directory>
+            </fileset>
+            <fileset>
+              <directory>dist</directory>
+            </fileset>
+          </filesets>
+        </configuration>
+        <executions>
+          <execution>
+            <id>auto-clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- maven-assembly-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <descriptor>maven/assembly/bin.xml</descriptor>
+          <finalName>${project.artifactId}</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- maven-release-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+          <preparationGoals>validate -Pprepare-release</preparationGoals>
+          <completionGoals>validate -Pprepare-release</completionGoals>
+        </configuration>
+      </plugin>
+      <!--maven-install-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.5.2</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <!--maven-deploy-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.2</version>
+        <configuration>
+            <skip>false</skip>
+        </configuration>
+      </plugin>
+      <!-- frontend-maven-plugin -->
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>0.0.27</version>
+
+        <executions>
+          <execution>
+            <id>install node and npm</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <configuration>
+              <nodeVersion>v12.20.0</nodeVersion>
+              <npmVersion>6.14.8</npmVersion>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>npm install</id>
+            <phase>initialize</phase>
+            <goals>
+                <goal>npm</goal>
+            </goals>
+            <!-- Optional configuration which provides for running
+                 any npm command -->
+            <configuration>
+                <arguments>install</arguments>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>npm run build</id>
+            <phase>compile</phase>
+            <goals>
+                <goal>npm</goal>
+            </goals>
+            <configuration>
+                <arguments>run build</arguments>
+            </configuration>
+          </execution>
+
+        </executions>
+
+      </plugin>
+
+      <!-- buildnumber-maven-plugin (compute timestamp, build number, ...)-->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>create</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <doCheck>false</doCheck>
+          <doUpdate>false</doUpdate>
+          <buildNumberPropertyName>sources.version</buildNumberPropertyName>
+          <timestampPropertyName>build.timestamp</timestampPropertyName>
+          <timestampFormat>{0,date,yyyy-MM-dd HH:mm}</timestampFormat>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.2</version>
+        <executions>
+          <execution>
+            <id>copy-version-properties</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>dist</outputDirectory>
+              <resources>
+                <resource>
+                  <filtering>true</filtering>
+                  <directory>maven/main/resources</directory>
+                  <includes>
+                    <include>version.properties</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+
+    <resources>
+      <resource>
+        <filtering>false</filtering>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>version.properties</exclude>
+        </excludes>
+      </resource>
+    </resources>
+
+  </build>
+
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+              <finalName>${project.artifactId}-${project.version}</finalName>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+
+    <!-- This profile is specific because it is used by maven-release-plugin to
+         add an extra behaviour at pre commit phase.
+         It can be trigger using mvn validate -Pprepare-release
+         This profile will update package.json version field
+         according to the pom project.version. The these files will be committed. -->
+    <profile>
+      <id>prepare-release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.google.code.maven-replacer-plugin</groupId>
+            <artifactId>replacer</artifactId>
+            <version>1.5.3</version>
+            <executions>
+              <execution>
+                <id>package.json</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>replace</goal>
+                </goals>
+                <configuration>
+                  <file>package.json</file>
+                  <replacements>
+                    <replacement>
+                      <token>"version": ".*",</token>
+                      <value>"version": "${project.version}",</value>
+                    </replacement>
+                  </replacements>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-scm-plugin</artifactId>
+            <version>1.9.4</version>
+            <executions>
+              <execution>
+                <id>package.json</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>add</goal>
+                  <goal>checkin</goal>
+                </goals>
+                <configuration>
+                  <includes>package.json</includes>
+                  <message>[maven-release-plugin] prepare version for package.json</message>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>update-version</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.google.code.maven-replacer-plugin</groupId>
+            <artifactId>replacer</artifactId>
+            <version>1.5.3</version>
+            <executions>
+              <execution>
+                <id>package.json</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>replace</goal>
+                </goals>
+                <configuration>
+                  <file>package.json</file>
+                  <replacements>
+                    <replacement>
+                      <token>"version": ".*",</token>
+                      <value>"version": "${project.version}",</value>
+                    </replacement>
+                  </replacements>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>hard-clean</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>3.0.0</version>
+            <executions>
+              <execution>
+                <id>clean-dev-dependencies</id>
+                <phase>clean</phase>
+                <goals>
+                  <goal>clean</goal>
+                </goals>
+                <configuration>
+                  <filesets>
+                    <fileset>
+                      <directory>node</directory>
+                    </fileset>
+                    <fileset>
+                      <directory>node_modules</directory>
+                    </fileset>
+                  </filesets>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+  </profiles>
+  <scm>
+    <connection>scm:git:git://github.com/linagora/linshare-ui-admin.git</connection>
+    <developerConnection>scm:git:ssh://git@ci.linagora.com:7999/linagora/lgs/linshare/products/linshare-ui-admin.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>http://github.com/linagora/linshare-ui-admin/tree/master/</url>
+  </scm>
+  <distributionManagement>
+    <repository>
+      <id>Linagora-LinShare-Releases</id>
+      <name>Linagora LinShare Releases</name>
+      <url>https://nexus.linagora.com/content/repositories/linshare-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>Linagora-LinShare-Snapshots</id>
+      <name>Linagora LinShare Snapshots</name>
+      <url>https://nexus.linagora.com/content/repositories/linshare-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.build.timestamp.format>yyyy.MM.dd-HH.mm.ss</maven.build.timestamp.format>
+  </properties>
+</project>

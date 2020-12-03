@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<assembly>
+  <id>archive</id>
+  <formats>
+    <format>tar.bz2</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory>dist</directory>
+      <outputDirectory>.</outputDirectory>
+    </fileSet>
+  </fileSets>
+</assembly>
