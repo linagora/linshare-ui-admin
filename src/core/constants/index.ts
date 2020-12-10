@@ -6,3 +6,5 @@ export const CONFIG = {
     }
   }
 };
+
+export * from './languages';

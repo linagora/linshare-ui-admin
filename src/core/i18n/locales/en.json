@@ -1,0 +1,39 @@
+{
+  "HEADER": {
+    "UPLOAD_REQUEST": "Upload request",
+    "LOGO_ALT": "Linshare logo"
+  },
+  "FOOTER": {
+    "CONTENT": "You are using the Open Source and free version of {linshare}, powered by {linagora} 2009–2020. Contribute to LinShare R&D by subscribing to an Enterprise offer."
+  },
+  "NAVIGATOR": {
+    "DOMAINS": "Domains",
+    "FUNCTIONALITIES": "Functionalities",
+    "MANAGE_DOMAINS": "Manage domains",
+    "USERS": "Users",
+    "MANAGE_USERS": "Manage users",
+    "INCONSISTENT_USERS": "Inconsistent users",
+    "TECHNICAL_ACCOUNTS": "Technical accounts",
+    "WORKGROUPS": "Workgroups",
+    "MAILING_LISTS": "Mailing lists",
+    "HISTORY": "History",
+    "MAILS": "Mails",
+    "MAIL_CONFIGURATION": "Mail configuration",
+    "MAIL_LAYOUT": "Mail layout",
+    "MAIL_FOOTER": "Mail footer",
+    "MAIL_CONTENT": "Mail content",
+    "MAIL_ACTIVATION": "Mail activation",
+    "UPGRADE_TASKS": "Upgrade tasks",
+    "SEARCH": "Search"
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
+    "SUBTITLE": "Welcome to your LinShare admin dashboard",
+    "DOMAINS": "Domains",
+    "MANAGE_DOMAINS": "Manage domains",
+    "USERS": "Users",
+    "MANAGE_USERS": "Manage users",
+    "HISTORY": "History",
+    "AUDIT_THE_APPLICATION": "Audit the application"
+  }
+}

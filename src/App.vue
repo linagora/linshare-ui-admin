@@ -1,26 +1,30 @@
 <template>
-  <router-view/>
+  <component :is="currentRoute.meta.layout || 'div'">
+    <router-view />
+  </component>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang='ts'>
+import { defineComponent } from 'vue';
+import { useRouter } from 'vue-router';
 
-#nav {
-  padding: 30px;
-}
+export default defineComponent({
+  name: 'App',
+  setup () {
+    const { currentRoute } = useRouter();
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    return {
+      currentRoute
+    };
+  }
+});
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+</script>
+
+<style lang='less'>
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 </style>

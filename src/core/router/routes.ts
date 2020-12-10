@@ -1,13 +1,8 @@
+import { RouteRecordRaw } from 'vue-router';
 import { LoginRoutes } from '@/modules/auth/router';
+import { DashboardRoutes } from '@/modules/dashboard/router';
 
 export default [
-  {
-    path: '/',
-    name: 'Home',
-    component: () => import('@/core/views/About.vue'),
-    meta: {
-      requiresAuth: true
-    }
-  },
-  ...LoginRoutes
-];
+  ...LoginRoutes,
+  ...DashboardRoutes
+] as Array<RouteRecordRaw>;
