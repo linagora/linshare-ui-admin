@@ -19,122 +19,40 @@
       </a-input>
     </div>
     <a-menu
-      :default-selected-keys="['1']"
+      :default-selected-keys="[]"
       mode="inline"
       class="ls-sidebar-menu"
       @click="handleClick"
       theme="dark"
     >
-      <a-sub-menu key="domain" @titleClick="titleClick">
-        <template v-slot:title>
-          <span>
-            <cloud-outlined />
-            <span>{{ $t('NAVIGATOR.DOMAINS') }}</span>
-          </span>
-        </template>
-        <a-menu-item key="manage-domains">
-          {{ $t('NAVIGATOR.MANAGE_DOMAINS') }}
-        </a-menu-item>
-        <a-menu-item key="functionalities">
-          {{ $t('NAVIGATOR.FUNCTIONALITIES') }}
-        </a-menu-item>
-      </a-sub-menu>
-      <a-sub-menu key="user" @titleClick="titleClick">
-        <template v-slot:title>
-          <span>
-            <team-outlined />
-            <span>{{ $t('NAVIGATOR.USERS') }}</span>
-          </span>
-        </template>
-        <a-menu-item key="manage-users">
-          {{ $t('NAVIGATOR.MANAGE_USERS') }}
-        </a-menu-item>
-        <a-menu-item key="inconsisten-users">
-          {{ $t('NAVIGATOR.INCONSISTENT_USERS')}}
-        </a-menu-item>
-        <a-menu-item key="technical-accounts">
-          {{ $t('NAVIGATOR.TECHNICAL_ACCOUNTS')}}
-        </a-menu-item>
-      </a-sub-menu>
-      <a-menu-item key="workgroup">
-        <span>
-          <folder-open-outlined />
-          <span>{{ $t('NAVIGATOR.WORKGROUPS') }}</span>
-        </span>
-      </a-menu-item>
-      <a-menu-item key="mailing-list">
-        <span>
-          <unordered-list-outlined />
-          <span>{{ $t('NAVIGATOR.MAILING_LISTS') }}</span>
-        </span>
-      </a-menu-item>
-      <a-menu-item key="history">
-        <span>
-          <clock-circle-outlined />
-          <span>{{ $t('NAVIGATOR.HISTORY') }}</span>
-        </span>
-      </a-menu-item>
-      <a-sub-menu key="mails">
-        <template v-slot:title>
-          <span>
-            <mail-outlined />
-            <span>{{ $t('NAVIGATOR.MAILS') }}</span>
-          </span>
-        </template>
-        <a-menu-item key="mail-configuration">
-          {{ $t('NAVIGATOR.MAIL_CONFIGURATION')}}
-        </a-menu-item>
-        <a-menu-item key="mail-layout">
-          {{ $t('NAVIGATOR.MAIL_LAYOUT') }}
-        </a-menu-item>
-        <a-menu-item key="mail-footer">
-          {{ $t('NAVIGATOR.MAIL_FOOTER') }}
-        </a-menu-item>
-        <a-menu-item key="mail-content">
-          {{ $t('NAVIGATOR.MAIL_CONTENT') }}
-        </a-menu-item>
-        <a-menu-item key="mail-activation">
-          {{ $t('NAVIGATOR.MAIL_ACTIVATION') }}
-        </a-menu-item>
-      </a-sub-menu>
-      <a-menu-item key="upgrade-tasks">
-        <span>
-          <clock-circle-outlined />
-          <span>{{ $t('NAVIGATOR.UPGRADE_TASKS') }}</span>
-        </span>
-      </a-menu-item>
+      <MenuItemRecursive v-for="item in menuTree" :key="item.key" :item="item" />
     </a-menu>
   </div>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from 'vue';
-import { CloudOutlined, TeamOutlined, FolderOpenOutlined, UnorderedListOutlined, ClockCircleOutlined, MailOutlined, SearchOutlined } from '@ant-design/icons-vue';
+import { SearchOutlined } from '@ant-design/icons-vue';
+import { menuTree } from '@/core/helper';
+import MenuItemRecursive from '@/core/components/MenuItemRecursive.vue';
 
 export default defineComponent({
   name: 'Sidebar',
   components: {
-    CloudOutlined,
-    TeamOutlined,
-    FolderOpenOutlined,
-    UnorderedListOutlined,
-    ClockCircleOutlined,
-    MailOutlined,
-    SearchOutlined
+    SearchOutlined,
+    MenuItemRecursive
   },
   data () {
     return {
       current: [],
       openKeys: [],
-      search: ''
+      search: '',
+      menuTree
     };
   },
   methods: {
     handleClick (e: Event) {
       console.log('click', e);
-    },
-    titleClick (e: Event) {
-      console.log('titleClick', e);
     },
     onSearch () {
       console.log('search', this.search);
