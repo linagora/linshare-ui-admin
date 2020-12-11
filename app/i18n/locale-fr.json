@@ -1016,23 +1016,23 @@
         "NAME": "Droit de création",
         "PARAMETER_NAME": "Paramètre"
       },
+      "DRIVE": {
+        "NAME": "Drive - EXPERIMENTAL",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette fonctionalité est en mode expérimental, les interfaces graphiques n'ont pas encore été réalisées",
+        "ADVANCED_DESCRIPTION": ""
+      },
+      "DRIVE__CREATION_RIGHT": {
+        "NAME": "Drive - Creation right",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer les DRIVES",
+        "ADVANCED_DESCRIPTION": ""
+      },
       "WORK_GROUP": {
         "NAME": "Groupe de Travail"
       },
       "WORK_GROUP__CREATION_RIGHT": {
         "NAME": "Droit de création"
-      },
-      "WORK_GROUP__DRIVE_CAN_CREATE": {
-      "NAME": "Droit de création d'un DRIVE",
-      "USE_EXTENDED_DESCRIPTION": "0",
-      "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer les DRIVES",
-      "ADVANCED_DESCRIPTION": "",
-      "USER_OVERRIDE": "",
-      "ACTIVATION_POLICY": ".",
-      "DELEGATION_POLICY": "",
-      "CONFIGURATION_POLICY": "",
-      "PARAMETER_NAME": "",
-      "PARAMETER_DESCRIPTION": ""
       },
       "WORK_GROUP__FILE_EDITION": {
       "NAME": "Droit de modification d'un fichier",
