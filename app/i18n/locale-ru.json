@@ -981,6 +981,18 @@
           "NAME": "Право право создания",
           "PARAMETER_NAME": "параметры"
         },
+        "DRIVE": {
+          "NAME": "Drive - EXPERIMENTAL",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This functionality is experimental, feature is not implemented on UI",
+          "ADVANCED_DESCRIPTION": ""
+        },
+        "DRIVE__CREATION_RIGHT": {
+          "NAME": "Drive - Creation right",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This functionality allows users and administrators to create DRIVES",
+          "ADVANCED_DESCRIPTION": ""
+        },
         "WORK_GROUP": {
           "NAME": "Рабочая группа"
         },
