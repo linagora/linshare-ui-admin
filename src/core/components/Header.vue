@@ -4,7 +4,7 @@
       <li class="hidden-sm-and-down logo">
         <router-link :to="{ name: 'dashboard' }">
           <img
-            src="../../assets/images/linshare-logo-white.png"
+            src="@/assets/images/linshare-logo-white.png"
             :alt="$t('HEADER.LOGO_ALT')"
           >
         </router-link>
@@ -74,6 +74,7 @@ export default defineComponent({
     .header-right-side-container {
       display: flex;
       align-items: center;
+
       .upload-bar-container {
         margin-right: 20px;
       }

@@ -4,7 +4,7 @@
     "LOGO_ALT": "Linshare logo"
   },
   "FOOTER": {
-    "CONTENT": "You are using the Open Source and free version of {linshare}, powered by {linagora} 2009–2020. Contribute to LinShare R&D by subscribing to an Enterprise offer."
+    "COPYRIGHT": "You are using the Open Source and free version of LinShare™, powered by Linagora © 2009–2019. Contribute to LinShare R&D by subscribing to an Enterprise offer."
   },
   "NAVIGATOR": {
     "DOMAINS": "Domains",

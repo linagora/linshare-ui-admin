@@ -7,8 +7,19 @@ import {
   MailOutlined,
   UpCircleOutlined
 } from '@ant-design/icons-vue';
+import { FunctionalComponent } from 'vue';
+import { PERMISSIONS } from '@/core/constants';
 
-export const menuTree = [
+export interface MenuItem {
+  name: string;
+  key: string;
+  icon?: FunctionalComponent | string;
+  permission?: string;
+  path?: string;
+  items?: MenuItem[];
+}
+
+export const menuTree: MenuItem[] = [
   {
     name: 'NAVIGATOR.DOMAINS',
     key: 'domain',
@@ -123,6 +134,53 @@ export const menuTree = [
   }
 ];
 
-export const checkPermission = () => {
-  return true;
+export const buildPermissions = (role: string) => {
+  switch (role) {
+    case 'SUPERADMIN':
+      return [
+        PERMISSIONS.DOMAINS.VIEW,
+        PERMISSIONS.DOMAINS.MANAGE_DOMAINS,
+        PERMISSIONS.DOMAINS.FUNCTIONALITIES,
+        PERMISSIONS.USERS.VIEW,
+        PERMISSIONS.USERS.MANAGE_USERS,
+        PERMISSIONS.USERS.INCONSISTENT_USERS,
+        PERMISSIONS.USERS.TECHNICAL_ACCOUNTS,
+        PERMISSIONS.WORKGROUPS.VIEW,
+        PERMISSIONS.MAILING_LISTS.VIEW,
+        PERMISSIONS.HISTORY.VIEW,
+        PERMISSIONS.MAILS.VIEW,
+        PERMISSIONS.MAILS.CONFIGURATION,
+        PERMISSIONS.MAILS.LAYOUT,
+        PERMISSIONS.MAILS.FOOTER,
+        PERMISSIONS.MAILS.CONTENT,
+        PERMISSIONS.MAILS.ACTIVATION,
+        PERMISSIONS.UPGRADE_TASKS.VIEW
+      ];
+    case 'ADMIN':
+      return [
+        PERMISSIONS.DOMAINS.VIEW,
+        PERMISSIONS.DOMAINS.MANAGE_DOMAINS,
+        PERMISSIONS.DOMAINS.FUNCTIONALITIES,
+        PERMISSIONS.USERS.VIEW,
+        PERMISSIONS.USERS.MANAGE_USERS,
+        PERMISSIONS.USERS.INCONSISTENT_USERS,
+        PERMISSIONS.USERS.TECHNICAL_ACCOUNTS,
+        PERMISSIONS.WORKGROUPS.VIEW,
+        PERMISSIONS.MAILING_LISTS.VIEW,
+        PERMISSIONS.HISTORY.VIEW,
+        PERMISSIONS.MAILS.VIEW,
+        PERMISSIONS.MAILS.CONFIGURATION,
+        PERMISSIONS.MAILS.LAYOUT,
+        PERMISSIONS.MAILS.FOOTER,
+        PERMISSIONS.MAILS.CONTENT,
+        PERMISSIONS.MAILS.ACTIVATION,
+        PERMISSIONS.UPGRADE_TASKS.VIEW
+      ];
+    default:
+      return [];
+  }
+};
+
+export const havePermission = (role: string, permission: string) => {
+  return buildPermissions(role).includes(permission);
 };

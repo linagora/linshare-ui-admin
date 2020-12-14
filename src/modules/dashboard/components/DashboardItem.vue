@@ -5,7 +5,7 @@
       <h3 class="dashboard-item__subtitle">{{ subTitle }}</h3>
     </div>
     <div class="dashboard-item__image-container">
-      <img :src="getImgUrl(img)" />
+      <slot name="image"/>
     </div>
   </a-card>
 </template>
@@ -28,17 +28,12 @@ export default defineComponent({
       type: String,
       default: ''
     }
-  },
-  methods: {
-    getImgUrl (entity: string) {
-      return require(`../../../assets/images/${entity}.png`);
-    }
   }
 });
 </script>
 
 <style lang='less'>
-  @import '@/core/styles/variables';
+  @import '@/assets/styles/variables';
 
   .dashboard-item {
     cursor: pointer;

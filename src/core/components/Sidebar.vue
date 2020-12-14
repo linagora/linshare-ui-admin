@@ -2,7 +2,7 @@
   <div class="sidebar">
     <div class="logo-container">
       <img
-        src="../../assets/images/linshare-logo-white.png"
+        src="@/assets/images/linshare-logo-white.png"
         :alt="$t('HEADER.LOGO_ALT')"
       >
     </div>
@@ -10,7 +10,6 @@
       <a-input
         v-model="search"
         :placeholder="$t('NAVIGATOR.SEARCH')"
-        @search="onSearch"
         class="sidebar-search-input"
       >
         <template #prefix>
@@ -20,18 +19,17 @@
     </div>
     <a-menu
       :default-selected-keys="[]"
+      :openKeys="menu.openKeys"
       mode="inline"
       class="ls-sidebar-menu"
-      @click="handleClick"
-      theme="dark"
     >
-      <MenuItemRecursive v-for="item in menuTree" :key="item.key" :item="item" />
+      <MenuItemRecursive @subMenuClick="subMenuClick" v-for="item in menuTree" :key="item.key" :item="item" />
     </a-menu>
   </div>
 </template>
 
 <script lang='ts'>
-import { defineComponent } from 'vue';
+import { defineComponent, reactive } from 'vue';
 import { SearchOutlined } from '@ant-design/icons-vue';
 import { menuTree } from '@/core/helper';
 import MenuItemRecursive from '@/core/components/MenuItemRecursive.vue';
@@ -42,27 +40,32 @@ export default defineComponent({
     SearchOutlined,
     MenuItemRecursive
   },
-  data () {
-    return {
-      current: [],
-      openKeys: [],
-      search: '',
-      menuTree
-    };
-  },
-  methods: {
-    handleClick (e: Event) {
-      console.log('click', e);
-    },
-    onSearch () {
-      console.log('search', this.search);
+  setup () {
+    const menu = reactive({
+      openKeys: [] as string[]
+    });
+    const search = '';
+
+    function subMenuClick (e: { key: string }) {
+      if (menu.openKeys.includes(e.key)) {
+        menu.openKeys = menu.openKeys.filter(key => key !== e.key);
+      } else {
+        menu.openKeys = [...menu.openKeys, e.key];
+      }
     }
+
+    return {
+      menu,
+      search,
+      menuTree,
+      subMenuClick
+    };
   }
 });
 </script>
 
 <style lang="less">
-  @import '@/core/styles/variables';
+  @import '@/assets/styles/variables';
   .sidebar {
     overflow: auto;
     height: 100vh;
@@ -106,6 +109,10 @@ export default defineComponent({
 
         .ant-menu-submenu-arrow {
           color: @white;
+          &::before,
+          &::after {
+            background-image: none;
+          }
         }
 
         .ant-menu-sub {
@@ -133,6 +140,14 @@ export default defineComponent({
         background: @light-blue;
         span {
           color: @white;
+        }
+        .ant-menu-submenu-arrow {
+          color: @white;
+          &::before,
+          &::after {
+            background: #fff;
+            background-image: none;
+          }
         }
       }
     }

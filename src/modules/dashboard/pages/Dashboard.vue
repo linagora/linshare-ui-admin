@@ -7,22 +7,31 @@
         <DashboardItem
           :cardTitle="$t('DASHBOARD.DOMAINS')"
           :subTitle="$t('DASHBOARD.MANAGE_DOMAINS')"
-          img="domain"
-        />
+        >
+          <template #image>
+            <img src="@/assets/images/domain.png" />
+          </template>
+        </DashboardItem>
       </a-col>
       <a-col class="dashboard-item-container__column" :xs="24" :lg="12" :xl="8">
         <DashboardItem
           :cardTitle="$t('DASHBOARD.USERS')"
           :subTitle="$t('DASHBOARD.MANAGE_USERS')"
-          img="user"
-        />
+        >
+          <template #image>
+            <img src="@/assets/images/user.png" />
+          </template>
+        </DashboardItem>
       </a-col>
       <a-col class="dashboard-item-container__column" :xs="24" :lg="12" :xl="8">
         <DashboardItem
           :cardTitle="$t('DASHBOARD.HISTORY')"
           :subTitle="$t('DASHBOARD.AUDIT_THE_APPLICATION')"
-          img="history"
-        />
+        >
+          <template #image>
+            <img src="@/assets/images/history.png" />
+          </template>
+        </DashboardItem>
       </a-col>
     </a-row>
   </div>
@@ -40,8 +49,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang='less'>
-  @import '@/core/styles/variables';
+<style lang='less' scoped>
+  @import '@/assets/styles/variables';
 
   .dashboard {
     padding: 0px 30px;

@@ -37,19 +37,19 @@ export default defineComponent({
 </script>
 
 <style lang='less'>
-  .ls-admin-layout {
-    .ant-layout-footer {
-      background: #fff;
-    }
-    .app-content {
-      padding: 20px;
-      background: #fff;
-    }
-    .ls-app-sider {
+.ls-admin-layout {
+  .ant-layout-footer {
+    background: #fff;
+  }
+  .app-content {
+    padding: 20px;
+    background: #fff;
+  }
+  .ls-app-sider {
+    background: #0372B3;
+    .ant-layout-sider-zero-width-trigger {
       background: #0372B3;
-      .ant-layout-sider-zero-width-trigger {
-        background: #0372B3;
-      }
     }
   }
+}
 </style>
