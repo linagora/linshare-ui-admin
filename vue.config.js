@@ -2,6 +2,7 @@ const LINSHARE_BACKEND_URL = process.env.LINSHARE_BACKEND_URL || 'http://localho
 
 module.exports = {
   devServer: {
+    port: 20082,
     proxy: {
       '/linshare/webservice/': {
         target: LINSHARE_BACKEND_URL,
