@@ -1,9 +1,13 @@
-import Home from '../views/Home.vue';
+import { LoginRoutes } from '@/modules/auth/router';
 
 export default [
   {
     path: '/',
     name: 'Home',
-    component: Home
-  }
+    component: () => import('@/core/views/About.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  ...LoginRoutes
 ];
