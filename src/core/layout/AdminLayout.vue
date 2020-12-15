@@ -9,6 +9,7 @@
     </a-layout-sider>
     <a-layout>
       <a-layout-content class="app-content">
+        <Profile/>
         <LanguageSelector />
         <slot />
       </a-layout-content>
@@ -21,6 +22,7 @@
 
 <script lang='ts'>
 import LanguageSelector from '@/core/components/LanguageSelector.vue';
+import Profile from '@/core/components/Profile.vue';
 import Footer from '@/core/components/Footer.vue';
 import Sidebar from '@/core/components/Sidebar.vue';
 import { defineComponent } from 'vue';
@@ -29,6 +31,7 @@ export default defineComponent({
   name: 'AdminLayout',
   components: {
     LanguageSelector,
+    Profile,
     Footer,
     Sidebar
   }

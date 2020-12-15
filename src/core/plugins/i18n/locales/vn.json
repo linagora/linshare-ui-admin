@@ -1,9 +1,15 @@
 {
   "HEADER": {
     "UPLOAD_REQUEST": "Yêu cầu tải lên",
-    "LOGO_ALT": "Logo Linshare"
+    "LOGO_ALT": "Logo Linshare",
+    "PROFILE": {
+      "LOGOUT": "Đăng xuất"
+    }
   },
   "FOOTER": {
     "CONTENT": "Bạn đang sử dụng phiên bản miễn phí và mã nguồn mở của LinShare™, được cung cấp bởi Linagora © 2009-2019. Hãy đóng góp vào LinShare R&D bằng cách đăng ký gói Enterprise."
+  },
+  "ERROR": {
+    "UNEXPECTED_ERROR": "Đã xảy ra lỗi không mong muốn!"
   }
 }

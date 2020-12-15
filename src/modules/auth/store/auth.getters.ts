@@ -4,7 +4,8 @@ import RootState from '@/core/store/RootState';
 
 const getters: GetterTree<AuthState, RootState> = {
   getLoggedUser: state => state.loggedUser,
-  getLoggedUserRole: state => state.loggedUser?.role
+  getLoggedUserRole: state => state.loggedUser?.role,
+  getLoggedUserFirstName: state => state.loggedUser?.firstName
 };
 
 export default getters;

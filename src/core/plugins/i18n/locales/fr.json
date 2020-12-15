@@ -1,9 +1,15 @@
 {
   "HEADER": {
     "UPLOAD_REQUEST": "Invitation de dépôt",
-    "LOGO_ALT": "Logo Linshare"
+    "LOGO_ALT": "Logo Linshare",
+    "PROFILE": {
+      "LOGOUT": "Déconnexion"
+    }
   },
   "FOOTER": {
     "COPYRIGHT": "Vous utilisez la version libre et gratuite de LinShare™, développé par Linagora © 2009–2020. Contribuez à la R&D du produit en souscrivant à une offre entreprise."
+  },
+  "ERROR": {
+    "UNEXPECTED_ERROR": "Une erreur inattendue est survenue!"
   }
 }

@@ -10,6 +10,10 @@ class AuthAPIClient extends AdminAPIClient {
   async getAuthorizedUser (config?: AxiosRequestConfig): Promise<User> {
     return await this.transport.get('authorized', config);
   };
+
+  async logOut (config?: AxiosRequestConfig): Promise<null> {
+    return await this.transport.get('logout', config);
+  };
 }
 
 export default new AuthAPIClient();

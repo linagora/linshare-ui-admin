@@ -14,6 +14,11 @@ const actions: ActionTree<AuthState, RootState> = {
 
       throw error;
     }
+  },
+  async logoutUser ({ commit }, config?: object) {
+    await AuthAPIClient.logOut(config);
+
+    commit('setLoggedUser', null);
   }
 };
 
