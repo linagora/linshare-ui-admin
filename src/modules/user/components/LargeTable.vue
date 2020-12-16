@@ -5,6 +5,7 @@
       :row-key="record => record.uuid"
       :data-source="data"
       :pagination="{pageSize: pageSize}"
+      :locale="{emptyText: $t('USERS.MANAGE_USERS.NO_DATA')}"
     />
   </div>
 </template>
@@ -12,6 +13,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import User from '@/modules/user/type/User';
+import { useI18n } from 'vue-i18n';
 
 export default defineComponent({
   name: 'LargeTable',
@@ -26,37 +28,38 @@ export default defineComponent({
     }
   },
   async setup () {
+    const { t } = useI18n();
     function sortFunction (a: string, b: string) {
       return a && b ? a.localeCompare(b) : (a || b);
     }
 
     const columns = [
       {
-        title: 'First Name',
+        title: t('USERS.MANAGE_USERS.FIRST_NAME'),
         dataIndex: 'firstName',
         sorter: (a: User, b: User) => sortFunction(a.firstName, b.firstName),
         width: '20%'
       },
       {
-        title: 'Last Name',
+        title: t('USERS.MANAGE_USERS.LAST_NAME'),
         dataIndex: 'lastName',
         sorter: (a: User, b: User) => sortFunction(a.lastName, b.lastName),
         width: '20%'
       },
       {
-        title: 'Email',
+        title: t('USERS.MANAGE_USERS.EMAIL'),
         dataIndex: 'mail',
         sorter: (a: User, b: User) => sortFunction(a.mail, b.mail),
         width: '25%'
       },
       {
-        title: 'Domain',
+        title: t('USERS.MANAGE_USERS.DOMAIN'),
         dataIndex: 'domain',
         sorter: (a: User, b: User) => sortFunction(a.domain, b.domain),
         width: '20%'
       },
       {
-        title: 'Role',
+        title: t('USERS.MANAGE_USERS.ROLE'),
         dataIndex: 'role',
         sorter: (a: User, b: User) => sortFunction(a.role, b.role),
         width: '15%'

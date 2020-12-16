@@ -45,7 +45,22 @@
   "USERS": {
     "MANAGE_USERS": {
       "TITLE": "Manage users",
-      "SUBTITLE": "User list"
+      "SUBTITLE": "User list",
+      "DESCRIPTION": "This view allows you to find different domain's users. You can change roles, firstname, lastname and default languages, as well as upload permissions",
+      "SEARCH_GUIDE": "You should enter an user information (ex: email) in the search field.",
+      "OPERATION": "Operation",
+      "NAVIGATE_GUIDE": "Click on the user to access to his profile.",
+      "FIRST_NAME": "First name",
+      "LAST_NAME": "Last name",
+      "EMAIL": "Email",
+      "DOMAIN": "Domain",
+      "ROLE": "Role",
+      "SEARCH": "Search",
+      "NO_DATA": "No matching records found"
     }
+  },
+  "ERRORS": {
+    "FORBIDDEN": "You do not have permission to access this resource.",
+    "COMMON_MESSAGE": "Something went wrong. Please try again later!"
   }
 }

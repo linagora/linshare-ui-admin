@@ -2,16 +2,16 @@
   <div class="search-form">
     <a-row type="flex" :gutter="30" class="search-form__row">
       <a-col :lg="7" :sm="12" :xs="24">
-        <a-input placeholder="First Name" v-model:value="firstName" />
+        <a-input :placeholder="$t('USERS.MANAGE_USERS.FIRST_NAME')" v-model:value="firstName" />
       </a-col>
       <a-col :lg="7" :sm="12" :xs="24">
-        <a-input placeholder="Last Name" v-model:value="lastName" />
+        <a-input :placeholder="$t('USERS.MANAGE_USERS.LAST_NAME')" v-model:value="lastName" />
       </a-col>
       <a-col :lg="7" :sm="12" :xs="24">
-        <a-input placeholder="Mail" v-model:value="mail" />
+        <a-input :placeholder="$t('USERS.MANAGE_USERS.EMAIL')" v-model:value="mail" />
       </a-col>
       <a-col :lg="3" :sm="12" :xs="24" class="xs-horizontal-center">
-        <a-button type="primary" htmlType="submit" @click="submitSearch()">Search</a-button>
+        <a-button type="primary" htmlType="submit" @click="submitSearch()">{{ $t('USERS.MANAGE_USERS.SEARCH') }}</a-button>
       </a-col>
     </a-row>
   </div>

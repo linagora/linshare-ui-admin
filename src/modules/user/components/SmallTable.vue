@@ -26,9 +26,7 @@ export default defineComponent({
   },
   setup (props) {
     const page = ref(1);
-    const items = computed(() => {
-      return props.data.slice((page.value - 1) * props.pageSize, page.value * props.pageSize);
-    });
+    const items = computed(() => props.data.slice((page.value - 1) * props.pageSize, page.value * props.pageSize));
 
     return {
       page,

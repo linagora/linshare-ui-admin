@@ -11,10 +11,10 @@
       >
         <template #description>
           <div>
-            <div>This view allows you to find different domain's users. You can change roles, firstname, lastname and default languages, as well as upload permissions</div>
-            <div class='alert-message-in-description'>Operation</div>
-            <div>You should enter an user information (ex: email) in the search field.</div>
-            <div>Click on the user to access to his profile.</div>
+            <div>{{ $t('USERS.MANAGE_USERS.DESCRIPTION') }}</div>
+            <div class='alert-message-in-description'>{{ $t('USERS.MANAGE_USERS.OPERATION') }}</div>
+            <div>{{ $t('USERS.MANAGE_USERS.SEARCH_GUIDE') }}</div>
+            <div>{{ $t('USERS.MANAGE_USERS.NAVIGATE_GUIDE') }}</div>
           </div>
         </template>
       </a-alert>
@@ -37,6 +37,7 @@ import UserAPIClient, { FindUserPayload } from '@/modules/user/services/UserAPIC
 import LargeTable from '@/modules/user/components/LargeTable.vue';
 import SmallTable from '@/modules/user/components/SmallTable.vue';
 import SearchForm from '@/modules/user/components/SearchForm.vue';
+import { useI18n } from 'vue-i18n';
 
 export default defineComponent({
   name: 'ManageUsers',
@@ -57,7 +58,7 @@ export default defineComponent({
         data.list = users;
       } catch (error) {
         data.list = [];
-        message.error(error.message || 'Something went wrong. Please try again later!');
+        message.error(error.message || useI18n().t('ERRORS.COMMON_MESSAGE'));
       }
     }
 
