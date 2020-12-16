@@ -29,12 +29,12 @@ export const menuTree: MenuItem[] = [
       {
         name: 'NAVIGATOR.MANAGE_DOMAINS',
         key: 'manage-domains',
-        permission: 'DOMAINS.MANAGE_DOMAINS'
+        permission: PERMISSIONS.DOMAINS.MANAGE_DOMAINS
       },
       {
         name: 'NAVIGATOR.FUNCTIONALITIES',
         key: 'functionalities',
-        permission: 'DOMAINS.FUNCTIONALITIES'
+        permission: PERMISSIONS.DOMAINS.FUNCTIONALITIES
       }
     ]
   },
@@ -42,7 +42,7 @@ export const menuTree: MenuItem[] = [
     name: 'NAVIGATOR.USERS',
     key: 'user',
     icon: TeamOutlined,
-    permission: 'USERS.VIEW',
+    permission: PERMISSIONS.USERS.VIEW,
     items: [
       {
         name: 'NAVIGATOR.MANAGE_USERS',
@@ -53,12 +53,12 @@ export const menuTree: MenuItem[] = [
       {
         name: 'NAVIGATOR.INCONSISTENT_USERS',
         key: 'inconsistent-users',
-        permission: 'USERS.INCONSISTENT_USERS'
+        permission: PERMISSIONS.USERS.INCONSISTENT_USERS
       },
       {
         name: 'NAVIGATOR.TECHNICAL_ACCOUNTS',
         key: 'technical-accounts',
-        permission: 'USERS.TECHNICAL_ACCOUNTS'
+        permission: PERMISSIONS.USERS.TECHNICAL_ACCOUNTS
       }
     ]
   },
@@ -66,50 +66,50 @@ export const menuTree: MenuItem[] = [
     name: 'NAVIGATOR.WORKGROUPS',
     key: 'workgroups',
     icon: FolderOpenOutlined,
-    permission: 'WORKGROUPS.VIEW'
+    permission: PERMISSIONS.WORKGROUPS.VIEW
   },
   {
     name: 'NAVIGATOR.MAILING_LISTS',
     key: 'mailing-lists',
     icon: UnorderedListOutlined,
-    permission: 'MAILING_LISTS.VIEW'
+    permission: PERMISSIONS.MAILING_LISTS.VIEW
   },
   {
     name: 'NAVIGATOR.HISTORY',
     key: 'history',
     icon: ClockCircleOutlined,
-    permission: 'HISTORY.VIEW'
+    permission: PERMISSIONS.HISTORY.VIEW
   },
   {
     name: 'NAVIGATOR.MAILS',
     key: 'mails',
     icon: MailOutlined,
-    permission: 'MAILS.VIEW',
+    permission: PERMISSIONS.MAILS.VIEW,
     items: [
       {
         name: 'NAVIGATOR.MAIL_CONFIGURATION',
         key: 'mail-configuration',
-        permission: 'MAILS.CONFIGURATION'
+        permission: PERMISSIONS.MAILS.CONFIGURATION
       },
       {
         name: 'NAVIGATOR.MAIL_LAYOUT',
         key: 'mail-layout',
-        permission: 'MAILS.LAYOUT'
+        permission: PERMISSIONS.MAILS.LAYOUT
       },
       {
         name: 'NAVIGATOR.MAIL_FOOTER',
         key: 'mail-footer',
-        permission: 'MAILS.FOOTER'
+        permission: PERMISSIONS.MAILS.FOOTER
       },
       {
         name: 'NAVIGATOR.MAIL_CONTENT',
         key: 'mail-content',
-        permission: 'MAILS.CONTENT'
+        permission: PERMISSIONS.MAILS.CONTENT
       },
       {
         name: 'NAVIGATOR.MAIL_ACTIVATION',
         key: 'mail-activation',
-        permission: 'MAILS.ACTIVATION'
+        permission: PERMISSIONS.MAILS.ACTIVATION
       }
     ]
   },
@@ -117,7 +117,7 @@ export const menuTree: MenuItem[] = [
     name: 'NAVIGATOR.UPGRADE_TASKS',
     key: 'upgrade-tasks',
     icon: UpCircleOutlined,
-    permission: 'UPGRADE_TASKS.VIEW'
+    permission: PERMISSIONS.UPGRADE_TASKS.VIEW
   }
 ];
 
@@ -168,6 +168,8 @@ export const buildPermissions = (role: string) => {
   }
 };
 
-export const havePermission = (role: string, permission: string) => {
+export const havePermission = (role: string, permission?: string) => {
+  if (!permission) return true;
+
   return buildPermissions(role).includes(permission);
 };

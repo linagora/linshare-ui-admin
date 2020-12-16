@@ -1,5 +1,5 @@
 <template>
-  <component :is="currentRoute.meta.layout || 'div'">
+  <component :is="currentRoute.meta.layout || 'div'" :permission="currentRoute.meta.permission">
     <Suspense>
       <router-view />
     </Suspense>

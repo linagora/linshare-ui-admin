@@ -11,7 +11,8 @@
       <a-layout-content class="app-content">
         <Profile/>
         <LanguageSelector />
-        <slot />
+        <slot v-if="havePermission(role, permission)"/>
+        <Error v-else :statusCode="403" :message="$t('ERRORS.FORBIDDEN')"/>
       </a-layout-content>
       <a-layout-footer>
         <Footer />
@@ -25,7 +26,10 @@ import LanguageSelector from '@/core/components/LanguageSelector.vue';
 import Profile from '@/core/components/Profile.vue';
 import Footer from '@/core/components/Footer.vue';
 import Sidebar from '@/core/components/Sidebar.vue';
+import Error from '@/modules/error/pages/Error.vue';
 import { defineComponent } from 'vue';
+import { havePermission } from '@/core/helper';
+import store from '@/core/store';
 
 export default defineComponent({
   name: 'AdminLayout',
@@ -33,7 +37,22 @@ export default defineComponent({
     LanguageSelector,
     Profile,
     Footer,
-    Sidebar
+    Sidebar,
+    Error
+  },
+  props: {
+    permission: {
+      type: String,
+      default: null
+    }
+  },
+  setup () {
+    const role = store.getters['Auth/getLoggedUserRole'];
+
+    return {
+      role,
+      havePermission
+    };
   }
 });
 
