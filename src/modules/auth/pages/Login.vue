@@ -86,6 +86,7 @@ export default defineComponent({
 .login {
   background-color: #0372b3;
   height: 100vh;
+  text-align: center;
 
   .logo {
     padding-top: 60px;

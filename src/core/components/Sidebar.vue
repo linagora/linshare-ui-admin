@@ -128,10 +128,10 @@ export default defineComponent({
             color: @white;
           }
         }
+      }
 
-        .ant-menu .ant-menu-item-selected {
-          background: @light-blue;
-        }
+      .ant-menu-item.ant-menu-item-selected {
+        background-color: @light-blue;
       }
 
       .ant-menu-submenu-title:hover,

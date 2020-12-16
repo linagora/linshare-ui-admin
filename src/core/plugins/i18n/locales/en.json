@@ -41,5 +41,11 @@
   },
   "ERROR": {
     "UNEXPECTED_ERROR": "An unexpected error happened!"
+  },
+  "USERS": {
+    "MANAGE_USERS": {
+      "TITLE": "Manage users",
+      "SUBTITLE": "User list"
+    }
   }
 }

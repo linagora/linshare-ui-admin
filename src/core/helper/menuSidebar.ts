@@ -29,13 +29,11 @@ export const menuTree: MenuItem[] = [
       {
         name: 'NAVIGATOR.MANAGE_DOMAINS',
         key: 'manage-domains',
-        path: '/domains/manage-domains',
         permission: 'DOMAINS.MANAGE_DOMAINS'
       },
       {
         name: 'NAVIGATOR.FUNCTIONALITIES',
         key: 'functionalities',
-        path: '/domains/functionalities',
         permission: 'DOMAINS.FUNCTIONALITIES'
       }
     ]
@@ -49,19 +47,17 @@ export const menuTree: MenuItem[] = [
       {
         name: 'NAVIGATOR.MANAGE_USERS',
         key: 'manage-users',
-        path: '/users/manage-users',
-        permission: 'USERS.MANAGE_USERS'
+        path: '/users/manage',
+        permission: PERMISSIONS.USERS.MANAGE_USERS
       },
       {
         name: 'NAVIGATOR.INCONSISTENT_USERS',
         key: 'inconsistent-users',
-        path: '/users/inconsistent-users',
         permission: 'USERS.INCONSISTENT_USERS'
       },
       {
         name: 'NAVIGATOR.TECHNICAL_ACCOUNTS',
         key: 'technical-accounts',
-        path: '/users/technical-accounts',
         permission: 'USERS.TECHNICAL_ACCOUNTS'
       }
     ]
@@ -70,21 +66,18 @@ export const menuTree: MenuItem[] = [
     name: 'NAVIGATOR.WORKGROUPS',
     key: 'workgroups',
     icon: FolderOpenOutlined,
-    path: '/workgroups',
     permission: 'WORKGROUPS.VIEW'
   },
   {
     name: 'NAVIGATOR.MAILING_LISTS',
     key: 'mailing-lists',
     icon: UnorderedListOutlined,
-    path: '/mailing-lists',
     permission: 'MAILING_LISTS.VIEW'
   },
   {
     name: 'NAVIGATOR.HISTORY',
     key: 'history',
     icon: ClockCircleOutlined,
-    path: '/history',
     permission: 'HISTORY.VIEW'
   },
   {
@@ -96,31 +89,26 @@ export const menuTree: MenuItem[] = [
       {
         name: 'NAVIGATOR.MAIL_CONFIGURATION',
         key: 'mail-configuration',
-        path: '/mail/configuration',
         permission: 'MAILS.CONFIGURATION'
       },
       {
         name: 'NAVIGATOR.MAIL_LAYOUT',
         key: 'mail-layout',
-        path: '/mail/layout',
         permission: 'MAILS.LAYOUT'
       },
       {
         name: 'NAVIGATOR.MAIL_FOOTER',
         key: 'mail-footer',
-        path: '/mail/footer',
         permission: 'MAILS.FOOTER'
       },
       {
         name: 'NAVIGATOR.MAIL_CONTENT',
         key: 'mail-content',
-        path: '/mail/content',
         permission: 'MAILS.CONTENT'
       },
       {
         name: 'NAVIGATOR.MAIL_ACTIVATION',
         key: 'mail-activation',
-        path: '/mail/activation',
         permission: 'MAILS.ACTIVATION'
       }
     ]
@@ -129,8 +117,7 @@ export const menuTree: MenuItem[] = [
     name: 'NAVIGATOR.UPGRADE_TASKS',
     key: 'upgrade-tasks',
     icon: UpCircleOutlined,
-    permission: 'UPGRADE_TASKS.VIEW',
-    path: 'upgrade-tasks'
+    permission: 'UPGRADE_TASKS.VIEW'
   }
 ];
 

@@ -10,8 +10,10 @@ import {
   Input,
   Menu,
   Layout,
+  Pagination,
   Row,
-  Select
+  Select,
+  Table
 } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
@@ -27,8 +29,10 @@ function useAntdComponents (vueApp: App): App {
     .use(Input)
     .use(Menu)
     .use(Layout)
+    .use(Pagination)
     .use(Row)
-    .use(Select);
+    .use(Select)
+    .use(Table);
 }
 
 export default useAntdComponents;

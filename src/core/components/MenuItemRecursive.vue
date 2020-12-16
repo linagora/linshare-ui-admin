@@ -9,12 +9,17 @@
       </template>
       <MenuItemRecursive v-for="i in item.items" :key="i.key" :item="i" />
     </a-sub-menu>
-    <a-menu-item :key="item.key" v-else>
-      <span>
-        <component :is="item.icon" />
-        <span>{{ $t(item.name) }}</span>
-      </span>
-    </a-menu-item>
+    <router-link
+      v-else
+      :to="item.path ? item.path : ''"
+    >
+      <a-menu-item :key="item.key">
+        <span>
+          <component :is="item.icon" />
+          <span>{{ $t(item.name) }}</span>
+        </span>
+      </a-menu-item>
+    </router-link>
   </div>
 </template>
 
