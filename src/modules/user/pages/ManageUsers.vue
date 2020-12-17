@@ -31,13 +31,15 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
+import store from '@/core/store';
 import User from '@/modules/user/type/User';
+import Domain from '@/modules/domain/type/Domain';
 import UserAPIClient, { FindUserPayload } from '@/modules/user/services/UserAPIClient';
 import LargeTable from '@/modules/user/components/LargeTable.vue';
 import SmallTable from '@/modules/user/components/SmallTable.vue';
 import SearchForm from '@/modules/user/components/SearchForm.vue';
-import { useI18n } from 'vue-i18n';
 
 export default defineComponent({
   name: 'ManageUsers',
@@ -46,16 +48,23 @@ export default defineComponent({
     SmallTable,
     SearchForm
   },
-  setup () {
+  async setup () {
+    await store.dispatch('Domain/fetchDomains');
+
     const data = reactive({
-      list: [] as User[]
+      list: [] as User[],
+      domains: store.getters['Domain/getDomains']
     });
     const pageSize = 5;
 
     async function fetchUsers (payload: FindUserPayload, config?: object) {
       try {
         const users = await UserAPIClient.getUsers(payload, config);
-        data.list = users;
+        data.list = users.map(user => {
+          const domain = data.domains.find((item: Domain) => item.identifier === user.domain);
+          user.domain = domain ? domain.label : user.domain;
+          return user;
+        });
       } catch (error) {
         data.list = [];
         message.error(error.message || useI18n().t('ERRORS.COMMON_MESSAGE'));

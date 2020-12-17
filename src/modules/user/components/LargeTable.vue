@@ -38,19 +38,19 @@ export default defineComponent({
         title: t('USERS.MANAGE_USERS.FIRST_NAME'),
         dataIndex: 'firstName',
         sorter: (a: User, b: User) => sortFunction(a.firstName, b.firstName),
-        width: '20%'
+        width: '15%'
       },
       {
         title: t('USERS.MANAGE_USERS.LAST_NAME'),
         dataIndex: 'lastName',
         sorter: (a: User, b: User) => sortFunction(a.lastName, b.lastName),
-        width: '20%'
+        width: '15%'
       },
       {
         title: t('USERS.MANAGE_USERS.EMAIL'),
         dataIndex: 'mail',
         sorter: (a: User, b: User) => sortFunction(a.mail, b.mail),
-        width: '25%'
+        width: '20%'
       },
       {
         title: t('USERS.MANAGE_USERS.DOMAIN'),
@@ -62,6 +62,12 @@ export default defineComponent({
         title: t('USERS.MANAGE_USERS.ROLE'),
         dataIndex: 'role',
         sorter: (a: User, b: User) => sortFunction(a.role, b.role),
+        width: '15%'
+      },
+      {
+        title: t('USERS.MANAGE_USERS.ACCOUNT_TYPE'),
+        dataIndex: 'accountType',
+        sorter: (a: User, b: User) => sortFunction(a.accountType, b.accountType),
         width: '15%'
       }
     ];

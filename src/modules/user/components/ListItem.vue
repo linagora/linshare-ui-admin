@@ -20,6 +20,10 @@
             <div class="info-block__title">{{ $t('USERS.MANAGE_USERS.ROLE') }}</div>
             <div class="info-block__value"> {{ data.role }}</div>
           </div>
+          <div class="info-block">
+            <div class="info-block__title">{{ $t('USERS.MANAGE_USERS.ACCOUNT_TYPE') }}</div>
+            <div class="info-block__value"> {{ data.accountType }}</div>
+          </div>
         </a-col>
         <a-col :xs="0" :sm="8">
           <div class="info-block">
