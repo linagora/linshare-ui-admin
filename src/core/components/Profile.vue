@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-dropdown trigger="['click']">
+    <a-dropdown :trigger="['click']">
       <a-avatar shape="circle" size="50" class="profile-avatar">
         <span>{{ firstName[0] }}</span>
       </a-avatar>
