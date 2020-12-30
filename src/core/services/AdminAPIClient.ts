@@ -22,7 +22,7 @@ export default abstract class AdminAPIClient {
 
   private handleAuthError = (error: AxiosError) => {
     if (error.response?.status === 401) {
-      router.push('login');
+      router.push('/login');
     }
 
     throw error;

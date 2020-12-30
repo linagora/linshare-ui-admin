@@ -17,7 +17,6 @@
 
 <script lang="ts">
 import router from '@/core/router';
-import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
