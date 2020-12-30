@@ -49,8 +49,6 @@ export default defineComponent({
 
 <style lang='less' scoped>
   .search-form {
-    margin-top: 30px;
-
     &__row {
 
       .ant-col {

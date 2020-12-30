@@ -1,24 +1,17 @@
 <template>
   <div class="manage-users">
-    <h1 class="title">{{ $t('USERS.MANAGE_USERS.TITLE')}}</h1>
-    <h3 class="subtitle">{{ $t('USERS.MANAGE_USERS.SUBTITLE') }}</h3>
-    <div>
-      <a-alert
-        message="Users"
-        type="info"
-        class="alert-message"
-        closable
-      >
-        <template #description>
-          <div>
-            <div>{{ $t('USERS.MANAGE_USERS.DESCRIPTION') }}</div>
-            <div class='alert-message-in-description'>{{ $t('USERS.MANAGE_USERS.OPERATION') }}</div>
-            <div>{{ $t('USERS.MANAGE_USERS.SEARCH_GUIDE') }}</div>
-            <div>{{ $t('USERS.MANAGE_USERS.NAVIGATE_GUIDE') }}</div>
-          </div>
-        </template>
-      </a-alert>
-    </div>
+    <PageTitle
+      :title="$t('USERS.MANAGE_USERS.TITLE')"
+      :subtitle="$t('USERS.MANAGE_USERS.SUBTITLE')"
+    >
+      <template #helperContent>
+        <div class='alert-message-in-description'>{{ $t('NAVIGATOR.USERS') }}</div>
+        <div>{{ $t('USERS.MANAGE_USERS.DESCRIPTION') }}</div>
+        <div class='alert-message-in-description'>{{ $t('USERS.MANAGE_USERS.OPERATION') }}</div>
+        <div>{{ $t('USERS.MANAGE_USERS.SEARCH_GUIDE') }}</div>
+        <div>{{ $t('USERS.MANAGE_USERS.NAVIGATE_GUIDE') }}</div>
+      </template>
+    </PageTitle>
 
     <SearchForm @search="fetchUsers"/>
 
@@ -37,6 +30,7 @@ import store from '@/core/store';
 import User from '@/modules/user/type/User';
 import Domain from '@/modules/domain/type/Domain';
 import UserAPIClient, { FindUserPayload } from '@/modules/user/services/UserAPIClient';
+import PageTitle from '@/core/components/PageTitle.vue';
 import LargeTable from '@/modules/user/components/LargeTable.vue';
 import SmallTable from '@/modules/user/components/SmallTable.vue';
 import SearchForm from '@/modules/user/components/SearchForm.vue';
@@ -46,7 +40,8 @@ export default defineComponent({
   components: {
     LargeTable,
     SmallTable,
-    SearchForm
+    SearchForm,
+    PageTitle
   },
   async setup () {
     await store.dispatch('Domain/fetchDomains');
@@ -84,21 +79,8 @@ export default defineComponent({
   @import '@/assets/styles/variables';
 
   .manage-users {
-    padding: 0px 30px;
-
-    .title {
-      font-weight: 600;
-      font-size: 24px;
-      color: #1B4157;
-    }
-
-    .subtitle {
-      font-weight: 400;
-      color: #999;
-    }
-
-    .alert-message {
-      margin-top: 30px;
+    .users-list {
+      margin-top: 40px;
     }
 
     .alert-message-in-description {
@@ -107,10 +89,6 @@ export default defineComponent({
       margin-bottom: 4px;
       color: rgba(0, 0, 0, 0.85);
       font-size: 16px;
-    }
-
-    .users-list {
-      margin-top: 40px;
     }
   }
 </style>
