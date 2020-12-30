@@ -40,7 +40,8 @@
     "AUDIT_THE_APPLICATION": "Audit the application"
   },
   "ERROR": {
-    "UNEXPECTED_ERROR": "An unexpected error happened!"
+    "UNEXPECTED_ERROR": "An unexpected error happened!",
+    "INVALID_LOGIN_CREDENTIALS": "Invalid login credentials"
   },
   "USERS": {
     "MANAGE_USERS": {
@@ -63,5 +64,11 @@
   "ERRORS": {
     "FORBIDDEN": "You do not have permission to access this resource.",
     "COMMON_MESSAGE": "Something went wrong. Please try again later!"
+  },
+  "AUTH": {
+    "SECOND_FACTOR_AUTHENTICATION": "2nd Factor Authentication",
+    "ENTER_OTP_DIGITS": "Input the 6-digit code from your FreeOTP app:",
+    "LOGIN_TO_ADMIN": "Login to Admin",
+    "LOGIN": "Login"
   }
 }

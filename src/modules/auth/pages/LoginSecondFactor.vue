@@ -3,22 +3,12 @@
     <a-col :xs="20" :md="10" :lg="8" :xl="6">
       <img class="logo" src="@/assets/linshare-icon.png">
       <a-card>
-        <h2>{{ $t('AUTH.LOGIN_TO_ADMIN') }}</h2>
-        <a-form layout="vertical" :model="credentials" @submit="logIn">
+        <h2>{{ $t('AUTH.SECOND_FACTOR_AUTHENTICATION') }}</h2>
+        <p>{{ $t('AUTH.ENTER_OTP_DIGITS') }}</p>
+        <a-form layout="vertical" :model="credentials" @submit="logInWithOtp">
           <a-alert v-if="error" :message="error" type="error" />
           <a-form-item>
-            <a-input placeholder="Email" v-model:value="credentials.email">
-              <template #prefix>
-                <user-outlined />
-              </template>
-            </a-input>
-          </a-form-item>
-          <a-form-item>
-            <a-input-password placeholder="Password" v-model:value="credentials.password">
-              <template #prefix>
-                <lock-outlined />
-              </template>
-            </a-input-password>
+            <OtpInput :value='otp' @input="changeOtp"/>
           </a-form-item>
           <a-button
             type="primary"
@@ -35,42 +25,57 @@
 
 <script lang="ts">
 import router from '@/core/router';
-import { defineComponent, ref, reactive } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
 
 import Copyright from '@/core/components/Copyright.vue';
-import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
+import OtpInput from '@/core/components/OtpInput.vue';
+
+interface LoginSecondFactorProps {
+  email: string;
+  password: string;
+}
 
 export default defineComponent({
   name: 'Login',
   components: {
-    LockOutlined,
-    UserOutlined,
-    Copyright
+    Copyright,
+    OtpInput
   },
-  setup () {
+  props: {
+    email: {
+      type: String,
+      default: ''
+    },
+    password: {
+      type: String,
+      default: ''
+    }
+  },
+  setup (props: LoginSecondFactorProps) {
     const store = useStore();
     const error = ref('');
-    const credentials = reactive({
-      email: '',
-      password: ''
-    });
+    const otp = ref('');
 
-    async function logIn () {
+    function changeOtp (value: string) {
+      otp.value = value;
+    }
+
+    async function logInWithOtp () {
       try {
         await store.dispatch('Auth/fetchLoggedUser', {
           auth: {
-            username: credentials.email,
-            password: credentials.password
+            username: props.email,
+            password: props.password
+          },
+          headers: {
+            'x-linShare-2fa-pin': otp.value
           }
         });
 
         router.push('/');
       } catch (e) {
-        if (e.response && e.response && e.response.headers['x-linshare-auth-error-code'] === '1002') {
-          return router.push({ name: 'login2fa', params: { ...credentials } });
-        }
         error.value = e.response.status === 401
           ? useI18n().t('ERRORS.INVALID_LOGIN_CREDENTIALS')
           : useI18n().t('ERRORS.COMMON_MESSAGE');
@@ -78,9 +83,9 @@ export default defineComponent({
     }
 
     return {
-      credentials,
       error,
-      logIn
+      changeOtp,
+      logInWithOtp
     };
   }
 });
@@ -111,6 +116,10 @@ export default defineComponent({
   h2 {
     color: #1B4157;
     font-weight: 600;
+  }
+
+  p {
+    color: #333;
   }
 }
 </style>
