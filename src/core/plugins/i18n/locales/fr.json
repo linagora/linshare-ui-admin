@@ -1,6 +1,5 @@
 {
   "HEADER": {
-    "UPLOAD_REQUEST": "Invitation de dépôt",
     "LOGO_ALT": "Logo Linshare",
     "PROFILE": {
       "LOGOUT": "Déconnexion"
@@ -9,7 +8,66 @@
   "FOOTER": {
     "COPYRIGHT": "Vous utilisez la version libre et gratuite de LinShare™, développé par Linagora © 2009–2020. Contribuez à la R&D du produit en souscrivant à une offre entreprise."
   },
+  "NAVIGATOR": {
+    "DOMAINS": "Domaines",
+    "FUNCTIONALITIES": "Fonctionnalités",
+    "MANAGE_DOMAINS": "Configuration des domaines",
+    "USERS": "Utilisateurs",
+    "MANAGE_USERS": "Configuration des utilisateurs",
+    "INCONSISTENT_USERS": "Utilisateurs incohérents",
+    "TECHNICAL_ACCOUNTS": "Comptes techniques",
+    "WORKGROUPS": "l'Espace Commun",
+    "MAILING_LISTS": "Listes de diffusion",
+    "HISTORY": "Historique",
+    "MAILS": "Courriels",
+    "MAIL_CONFIGURATION": "Configuration de courriel",
+    "MAIL_LAYOUT": "Structure de courriel",
+    "MAIL_FOOTER": "Pied de courriel",
+    "MAIL_CONTENT": "Contenu de courriel",
+    "MAIL_ACTIVATION": "Activation des notifications",
+    "UPGRADE_TASKS": "Tâches de mise à jour",
+    "SEARCH": "Rechercher"
+  },
+  "DASHBOARD": {
+    "TITLE": "Panneau de contrôle",
+    "SUBTITLE": "Bienvenu sur votre panneau de contrôle LinShare.",
+    "DOMAINS": "Configuration des domaines",
+    "MANAGE_DOMAINS": "Gérer les domaines",
+    "USERS": "Gestion des utilisateurs",
+    "MANAGE_USERS": "Configuration des utilisateurs",
+    "HISTORY": "Historique",
+    "AUDIT_THE_APPLICATION": "Audit de l'application"
+  },
   "ERROR": {
-    "UNEXPECTED_ERROR": "Une erreur inattendue est survenue!"
+    "UNEXPECTED_ERROR": "Une erreur inattendue est survenue!",
+    "INVALID_LOGIN_CREDENTIALS": "Identifiant incorrect"
+  },
+  "USERS": {
+    "MANAGE_USERS": {
+      "TITLE": "Configuration des utilisateurs",
+      "SUBTITLE": "Liste d'utilisateur",
+      "DESCRIPTION": "Cette vue vous permet de trouver les utilisateurs de différents domaines. Vous pouvez modifier les rôles, le prénom, le nom et les langues par défaut, ainsi que les autorisations de téléchargement",
+      "SEARCH_GUIDE": "Vous devez entrer une information utilisateur (ex: courriel) dans le champ de recherche.",
+      "OPERATION": "Opération",
+      "NAVIGATE_GUIDE": "Cliquez sur l'utilisateur pour accéder à son profil.",
+      "FIRST_NAME": "Prénom",
+      "LAST_NAME": "Nom",
+      "EMAIL": "Courriel",
+      "DOMAIN": "Domaine",
+      "ROLE": "Rôle",
+      "ACCOUNT_TYPE": "Type de compte",
+      "SEARCH": "Rechercher",
+      "NO_DATA": "Aucun enregistrements correspondants trouvés"
+    }
+  },
+  "ERRORS": {
+    "FORBIDDEN": "Vous n'êtes pas autorisé à accéder à cette ressource.",
+    "COMMON_MESSAGE": "Un problème est survenu. Veuillez réessayer plus tard!"
+  },
+  "AUTH": {
+    "SECOND_FACTOR_AUTHENTICATION": "Authentification double facteur",
+    "ENTER_OTP_DIGITS": "Saisissez le code à 6 chiffres de votre application FreeOTP:",
+    "LOGIN_TO_ADMIN": "Connectez-vous à l'administrateur",
+    "LOGIN": "Connexion"
   }
 }

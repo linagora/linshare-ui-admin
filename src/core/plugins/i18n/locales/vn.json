@@ -1,6 +1,5 @@
 {
   "HEADER": {
-    "UPLOAD_REQUEST": "Yêu cầu tải lên",
     "LOGO_ALT": "Logo Linshare",
     "PROFILE": {
       "LOGOUT": "Đăng xuất"
@@ -9,7 +8,66 @@
   "FOOTER": {
     "CONTENT": "Bạn đang sử dụng phiên bản miễn phí và mã nguồn mở của LinShare™, được cung cấp bởi Linagora © 2009-2019. Hãy đóng góp vào LinShare R&D bằng cách đăng ký gói Enterprise."
   },
+  "NAVIGATOR": {
+    "DOMAINS": "Miền",
+    "FUNCTIONALITIES": "Chức năng",
+    "MANAGE_DOMAINS": "Quản lí miền",
+    "USERS": "Người dùng",
+    "MANAGE_USERS": "Quản lí người dùng",
+    "INCONSISTENT_USERS": "Người dùng không nhất quán",
+    "TECHNICAL_ACCOUNTS": "Tài khoản kỹ thuật",
+    "WORKGROUPS": "Nhóm làm việc",
+    "MAILING_LISTS": "Danh sách gửi mail",
+    "HISTORY": "Lịch sử",
+    "MAILS": "Mails",
+    "MAIL_CONFIGURATION": "Cấu hình mail",
+    "MAIL_LAYOUT": "Bố trí mail",
+    "MAIL_FOOTER": "Chân trang mail",
+    "MAIL_CONTENT": "Nội dung mail",
+    "MAIL_ACTIVATION": "Kích hoạt mail",
+    "UPGRADE_TASKS": "Nâng cấp tác vụ",
+    "SEARCH": "Tìm kiếm"
+  },
+  "DASHBOARD": {
+    "TITLE": "Trang điều khiển",
+    "SUBTITLE": "Chào mừng đến với bảng điều khiển admin của LinShare",
+    "DOMAINS": "Miền",
+    "MANAGE_DOMAINS": "Quản lí miền",
+    "USERS": "Người dùng",
+    "MANAGE_USERS": "Quản lí người dùng",
+    "HISTORY": "Lịch sử",
+    "AUDIT_THE_APPLICATION": "Lịch sử thao tác"
+  },
   "ERROR": {
-    "UNEXPECTED_ERROR": "Đã xảy ra lỗi không mong muốn!"
+    "UNEXPECTED_ERROR": "Lỗi bất ngờ đã xảy ra!",
+    "INVALID_LOGIN_CREDENTIALS": "Sai thông tin đăng nhập"
+  },
+  "USERS": {
+    "MANAGE_USERS": {
+      "TITLE": "Quản lí người dùng",
+      "SUBTITLE": "Danh sách người dùng",
+      "DESCRIPTION": "Trang này cho phép bạn tìm kiếm những người dùng khác nhau trên những miền khác nhau. Bạn có thể thay đổi vai trò, tên, họ và ngôn ngữ mặc định cũng như quyền cho phép tải lên.",
+      "SEARCH_GUIDE": "Bạn có thể nhập một thông tin của người dùng (VD: email) vào ô tìm kiếm.",
+      "OPERATION": "Thao tác",
+      "NAVIGATE_GUIDE": "Nhấn vào người dùng để truy cập thông tin cá nhân",
+      "FIRST_NAME": "Tên",
+      "LAST_NAME": "Họ",
+      "EMAIL": "Email",
+      "DOMAIN": "Miền",
+      "ROLE": "Vai trò",
+      "ACCOUNT_TYPE": "Loại tài khoản",
+      "SEARCH": "Tìm kiếm",
+      "NO_DATA": "Không có kết quả phù hợp"
+    }
+  },
+  "ERRORS": {
+    "FORBIDDEN": "Bạn không có quyền truy cập tài nguyên này.",
+    "COMMON_MESSAGE": "Đã có lỗi xảy ra. Vui lòng thử lại sau!"
+  },
+  "AUTH": {
+    "SECOND_FACTOR_AUTHENTICATION": "Đăng nhập xác thực hai bước",
+    "ENTER_OTP_DIGITS": "Nhập mã 6 chữ số từ ứng dụng FreeOTP của bạn",
+    "LOGIN_TO_ADMIN": "Đăng nhập vào trang Admin",
+    "LOGIN": "Đăng nhập"
   }
 }
