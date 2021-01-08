@@ -3,8 +3,9 @@
     <a-layout-sider
       class="ls-app-sider"
       width="256"
-      breakpoint="md"
-      collapsed-width="0">
+      breakpoint="lg"
+      collapsed-width="0"
+    >
       <Sidebar />
     </a-layout-sider>
     <a-layout>
@@ -64,13 +65,20 @@ export default defineComponent({
     background: #fff;
   }
   .app-content {
-    padding: 20px;
+    padding: 20px 40px;
     background: #fff;
   }
   .ls-app-sider {
     background: #0372B3;
+    position: fixed;
+    z-index: 10;
+
     .ant-layout-sider-zero-width-trigger {
       background: #0372B3;
+    }
+
+    @media (min-width: 451px) {
+      position: relative;
     }
   }
 }
