@@ -10,4 +10,6 @@ export default interface User {
   domain: string;
   creationDate: number;
   modificationDate: number;
+  secondFAEnabled: boolean;
+  secondFARequired: boolean;
 }

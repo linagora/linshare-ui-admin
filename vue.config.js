@@ -1,6 +1,7 @@
 const LINSHARE_BACKEND_URL = process.env.LINSHARE_BACKEND_URL || 'http://localhost:28080';
 
 module.exports = {
+  runtimeCompiler: true,
   devServer: {
     port: 20082,
     proxy: {

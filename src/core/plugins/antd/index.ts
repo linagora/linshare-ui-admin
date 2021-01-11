@@ -2,6 +2,7 @@ import { App } from '@vue/runtime-core';
 import {
   Alert,
   Avatar,
+  Badge,
   Button,
   Card,
   Col,
@@ -9,8 +10,10 @@ import {
   Form,
   Input,
   Menu,
+  Modal,
   Layout,
   Pagination,
+  Popover,
   Row,
   Select,
   Table
@@ -21,6 +24,7 @@ function useAntdComponents (vueApp: App): App {
   return vueApp
     .use(Alert)
     .use(Avatar)
+    .use(Badge)
     .use(Button)
     .use(Card)
     .use(Col)
@@ -28,8 +32,10 @@ function useAntdComponents (vueApp: App): App {
     .use(Form)
     .use(Input)
     .use(Menu)
+    .use(Modal)
     .use(Layout)
     .use(Pagination)
+    .use(Popover)
     .use(Row)
     .use(Select)
     .use(Table);

@@ -1,6 +1,7 @@
 import { AxiosRequestConfig, AxiosError } from 'axios';
 import AdminAPIClient from '@/core/services/AdminAPIClient';
 import User from '@/modules/user/type/User';
+import SecondFactorAuthentication from '@/modules/auth/type/SecondFactorAuthentication';
 
 export interface AuthError extends AxiosError {
   code: string;
@@ -57,6 +58,18 @@ class AuthAPIClient extends AdminAPIClient {
   async logOut (config?: AxiosRequestConfig): Promise<null> {
     return await this.transport.get('logout', config);
   };
+
+  async get2FAStatus (uuid: string): Promise<SecondFactorAuthentication> {
+    return await this.transport.get(`2fa/${uuid}`);
+  }
+
+  async create2FAKey (): Promise<SecondFactorAuthentication> {
+    return await this.transport.post('2fa');
+  }
+
+  async remove2FAKey (uuid: string): Promise<SecondFactorAuthentication> {
+    return await this.transport.delete(`2fa/${uuid}`);
+  }
 }
 
 export default new AuthAPIClient();

@@ -23,14 +23,16 @@
 </template>
 
 <script lang='ts'>
+import { defineComponent } from 'vue';
+import { havePermission } from '@/core/helper';
+import store from '@/core/store';
+
 import LanguageSelector from '@/core/components/LanguageSelector.vue';
 import Profile from '@/core/components/Profile.vue';
 import Footer from '@/core/components/Footer.vue';
 import Sidebar from '@/core/components/Sidebar.vue';
 import Error from '@/modules/error/pages/Error.vue';
-import { defineComponent } from 'vue';
-import { havePermission } from '@/core/helper';
-import store from '@/core/store';
+import use2FARequiredCheck from '@/modules/auth/use/use2FARequiredCheck';
 
 export default defineComponent({
   name: 'AdminLayout',
@@ -48,6 +50,7 @@ export default defineComponent({
     }
   },
   setup () {
+    use2FARequiredCheck();
     const role = store.getters['Auth/getLoggedUserRole'];
 
     return {
@@ -56,7 +59,6 @@ export default defineComponent({
     };
   }
 });
-
 </script>
 
 <style lang='less'>

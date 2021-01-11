@@ -1,8 +1,16 @@
 {
+  "GENERAL": {
+    "ENABLED": "Activé",
+    "DISABLED": "Désactivé",
+    "CANCEL": "Annuler",
+    "DELETE": "Supprimer",
+    "DELETION": "Suppression"
+  },
   "HEADER": {
     "LOGO_ALT": "Logo Linshare",
     "PROFILE": {
-      "LOGOUT": "Déconnexion"
+      "LOGOUT": "Déconnexion",
+      "2FA": "Authentification double facteur"
     }
   },
   "FOOTER": {
@@ -70,5 +78,54 @@
     "ENTER_OTP_DIGITS": "Saisissez le code à 6 chiffres de votre application FreeOTP:",
     "LOGIN_TO_ADMIN": "Connectez-vous à l'administrateur",
     "LOGIN": "Connexion"
+  },
+  "2FA": {
+    "TITLE": "Authentification double facteur",
+    "KEY_CREATION": {
+      "HELPER": "Pour activer l'authentification double Facteur pour votre compte:",
+      "STEP_1": "Téléchargez et installez l'application d'authentification FreeOTP en scannant le code QR ou en suivant les liens:",
+      "STEP_2": "Générez une clé partagée et utilisez l'application FreeOTP pour scanner le code QR:",
+      "APP_STORE": "FreeOTP sur l'App Store",
+      "GOOGLE_PLAY": "FreeOTP sur Google Play",
+      "BUTTON": "Générer la clé partagée",
+      "CAN_NOT_SCAN": "NE PAS NUMÉRISER?",
+      "FORCE_CREATION_MODAL": {
+        "TITLE": "Authentification double facteur requise",
+        "MESSAGE": "Veuillez configurer l'authentification double facteur pour votre compte pour continuer.",
+        "OK_BUTTON": "Aller à la configuration"
+      },
+      "ALERT": {
+        "TITLE": "Authentification double facteur requise",
+        "MESSAGE": "L'authentification double facteur est requise pour votre compte. Veuillez activer l’authentification double facteur pour continuer."
+      },
+      "MESSAGE": {
+        "ERROR": "Échec de la création de la clé partagée"
+      }
+    },
+    "KEY_REMOVAL": {
+      "HELPER": "Supprimer la clé partagée pour désactiver l'authentification double facteur pour votre compte:",
+      "INFORMATION": "Clé partagée créée le {date}",
+      "BUTTON": "Supprimer la clé partagée",
+      "CONFIRMATION": "Vous êtes sur le point de supprimer la clé partagée! Attention, cette action ne peut pas être annulée.",
+      "ALERT": {
+        "TITLE": "Impossible de supprimer la clé partagée",
+        "MESSAGE": "La clé partagée ne peut pas être supprimée car l'authentification double facteur est requise pour votre compte. Veuillez contacter l'assistance pour plus d'informations."
+      },
+      "MESSAGE": {
+        "ERROR": "Échec de la suppression de la clé partagée"
+      }
+    },
+    "MANUAL_SETUP": {
+      "LABEL": "Vous ne pouvez pas scanner le QR code ?",
+      "STEP_1": "1. Dans l'application FreeOTP, sélectionnez Ajouter une clé.",
+      "STEP_2": "2. Entrez l'émetteur et le compte comme suit:",
+      "STEP_3": "3. Entrez la clé secrète comme suit:",
+      "STEP_4": "4. Assurez-vous que les champs ci-dessous sont configurés ainsi:",
+      "STEP_5": "5. Appuyez sur le bouton Ajouter pour terminer.",
+      "TYPE": "Type: ",
+      "DIGITS": "Chiffres: ",
+      "ALGORITHM": "Algorithme: ",
+      "INTERVAL": "Intervalle: "
+    }
   }
 }

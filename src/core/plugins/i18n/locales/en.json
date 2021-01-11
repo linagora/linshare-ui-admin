@@ -1,8 +1,16 @@
 {
+  "GENERAL": {
+    "ENABLED": "Enabled",
+    "DISABLED": "Disabled",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "DELETION": "Deletion"
+  },
   "HEADER": {
     "LOGO_ALT": "Linshare logo",
     "PROFILE": {
-      "LOGOUT": "Log out"
+      "LOGOUT": "Log out",
+      "2FA": "Second factor authentication"
     }
   },
   "FOOTER": {
@@ -70,5 +78,54 @@
     "ENTER_OTP_DIGITS": "Input the 6-digit code from your FreeOTP app:",
     "LOGIN_TO_ADMIN": "Login to Admin",
     "LOGIN": "Login"
+  },
+  "2FA": {
+    "TITLE": "Second Factor Authentication",
+    "KEY_CREATION": {
+      "HELPER": "To enable Second Factor Authentication for your account:",
+      "STEP_1": "Download and install the authentication app FreeOTP by scanning the QR code or following the links:",
+      "STEP_2": "Generate shared key and use FreeOTP app to scan the QR code:",
+      "APP_STORE": "FreeOTP on App Store",
+      "GOOGLE_PLAY": "FreeOTP on Google Play",
+      "BUTTON": "Generate Shared Key",
+      "CAN_NOT_SCAN": "CAN’T SCAN IT?",
+      "FORCE_CREATION_MODAL": {
+        "TITLE": "Second Factor Authentication required",
+        "MESSAGE": "Please set up Second Factor Authentication for your account to continue.",
+        "OK_BUTTON": "Go to Setup"
+      },
+      "ALERT": {
+        "TITLE": "Second Factor Authentication required",
+        "MESSAGE": "Second Factor Authentication is required for your account. Please enable Second Factor Authentication to continue."
+      },
+      "MESSAGE": {
+        "ERROR": "Failed to create shared key"
+      }
+    },
+    "KEY_REMOVAL": {
+      "HELPER": "Remove Shared Key to disable Second Factor Authentication for your account:",
+      "INFORMATION": "Shared key created on {date}",
+      "BUTTON": "Remove Shared Key",
+      "CONFIRMATION": "You are about to remove shared key ! Beware, this action cannot be undone.",
+      "ALERT": {
+        "TITLE": "Cannot delete Shared Key",
+        "MESSAGE": "Shared key cannot be removed because Second Factor Authentication is required for your account. Please contact support for more information."
+      },
+      "MESSAGE": {
+        "ERROR": "Failed to deleted shared key"
+      }
+    },
+    "MANUAL_SETUP": {
+      "LABEL": "Can't scan the barcode?",
+      "STEP_1": "1. In the FreeOTP app select Add key icon.",
+      "STEP_2": "2. Enter Issuer and Account as below:",
+      "STEP_3": "3. Enter the secret key as below:",
+      "STEP_4": "4. Make sure the below inputs are configured as:",
+      "STEP_5": "5. Tap Add button to finish.",
+      "TYPE": "Type: ",
+      "DIGITS": "Digits: ",
+      "ALGORITHM": "Algorithm: ",
+      "INTERVAL": "Interval: "
+    }
   }
 }

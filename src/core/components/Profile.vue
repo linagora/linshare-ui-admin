@@ -6,6 +6,11 @@
       </a-avatar>
       <template #overlay>
         <a-menu>
+          <a-menu-item v-if="isFeature2FAEnabled">
+            <router-link to="/second_factor_authentication">
+              {{ $t('HEADER.PROFILE.2FA') }}
+            </router-link>
+          </a-menu-item>
           <a-menu-item @click="logOut()">
             {{ $t('HEADER.PROFILE.LOGOUT') }}
           </a-menu-item>
@@ -17,6 +22,7 @@
 
 <script lang="ts">
 import router from '@/core/router';
+import { computed } from 'vue';
 import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
@@ -25,7 +31,6 @@ export default {
   setup () {
     const store = useStore();
     const { t } = useI18n();
-    const firstName = store.getters['Auth/getLoggedUserFirstName'];
 
     async function logOut () {
       try {
@@ -34,12 +39,13 @@ export default {
         message.error(t('HEADER.PROFILE.LOGOUT'));
       }
 
-      router.push('/login');
+      router.push({ name: 'login' });
     }
 
     return {
       logOut,
-      firstName
+      firstName: computed(() => store.getters['Auth/getLoggedUserFirstName']),
+      isFeature2FAEnabled: computed(() => store.getters['Auth/isFeature2FAEnabled'])
     };
   }
 };

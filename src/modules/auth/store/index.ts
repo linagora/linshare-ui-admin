@@ -4,7 +4,8 @@ import actions from './auth.actions';
 import mutations from './auth.mutations';
 
 const state: AuthState = {
-  loggedUser: null
+  loggedUser: null,
+  secondFA: null
 };
 
 export default {

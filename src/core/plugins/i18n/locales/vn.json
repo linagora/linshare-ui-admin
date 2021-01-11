@@ -1,8 +1,16 @@
 {
+  "GENERAL": {
+    "ENABLED": "Bật",
+    "DISABLED": "Tắt",
+    "CANCEL": "Hủy",
+    "DELETE": "Xóa",
+    "DELETION": "Xóa"
+  },
   "HEADER": {
     "LOGO_ALT": "Logo Linshare",
     "PROFILE": {
-      "LOGOUT": "Đăng xuất"
+      "LOGOUT": "Đăng xuất",
+      "2FA": "Cơ chế xác thực thứ hai"
     }
   },
   "FOOTER": {
@@ -70,5 +78,42 @@
     "ENTER_OTP_DIGITS": "Nhập mã 6 chữ số từ ứng dụng FreeOTP của bạn",
     "LOGIN_TO_ADMIN": "Đăng nhập vào trang Admin",
     "LOGIN": "Đăng nhập"
+  },
+  "2FA": {
+    "TITLE": "Yếu tố xác thực thứ hai",
+    "KEY_CREATION": {
+      "HELPER": "Để bật yếu tố xác thực thứ hai cho tài khoản của bạn:",
+      "STEP_1": "Tải xuống và cài đặt ứng dụng FreeOTP bằng cách quét mã QR hoặc vào các liên kết:",
+      "STEP_2": "Tạo khóa và sử dụng ứng dụng FreeOTP để quét mã QR:",
+      "APP_STORE": "FreeOTP trên App Store",
+      "GOOGLE_PLAY": "FreeOTP trên Google Play",
+      "BUTTON": "Tạo khóa",
+      "CAN_NOT_SCAN": "KHÔNG THỂ QUÉT ĐƯỢC?",
+      "FORCE_CREATION_MODAL": {
+        "TITLE": "Bắt buộc cầu hình yếu tố xác thực thứ hai",
+        "MESSAGE": "Vui lòng thiết lập yếu tố xác thực thứ hai cho tài khoản của bạn để tiếp tục.",
+        "OK_BUTTON": "Đến trang thiết lập"
+      },
+      "ALERT": {
+        "TITLE": "Yêu cầu yếu tố xác thực thứ hai",
+        "MESSAGE": "Yêu cầu yếu tố xác thực thứ hai cho tài khoản của bạn. Vui lòng bật yếu tố xác thực thứ hai để tiếp tục."
+      },
+      "MESSAGE": {
+        "ERROR": "Không tạo được khóa chia sẻ"
+      }
+    },
+    "KEY_REMOVAL": {
+      "HELPER": "Xóa khóa để tắt yếu tố xác thực thứ hai cho tài khoản của bạn:",
+      "INFORMATION": "Khóa được tạo vào {date}",
+      "BUTTON": "Xóa khóa chia sẻ",
+      "CONFIRMATION": "Bạn sắp xóa khóa chia sẻ! Lưu ý, không thể hoàn tác hành động này.",
+      "ALERT": {
+        "TITLE": "Không được xóa khóa",
+        "MESSAGE": "Không thể xóa khóa được chia sẻ vì Tài khoản của bạn cần phải có Xác thực yếu tố thứ hai. Vui lòng liên hệ với bộ phận hỗ trợ để biết thêm thông tin."
+      },
+      "MESSAGE": {
+        "ERROR": "Không thể xóa khóa"
+      }
+    }
   }
 }

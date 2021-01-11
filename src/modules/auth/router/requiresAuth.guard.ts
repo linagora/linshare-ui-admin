@@ -9,17 +9,17 @@ export const requiresAuthGuard = (router: Router) => {
       return next();
     }
 
-    if (store.getters['Auth/getLoggedUser']) {
+    if (store.getters['Auth/getLoggedUser'] && store.getters['Auth/getSecondFA']) {
       return next();
     }
 
     try {
       await store.dispatch('Auth/fetchLoggedUser');
+      await store.dispatch('Auth/fetchSecondFA');
+
       next();
     } catch (err) {
-      console.error('Error while getting user: ', err);
-
-      next('login');
+      next({ name: 'login' });
     }
   });
 };
