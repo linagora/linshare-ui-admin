@@ -114,6 +114,18 @@
       "MESSAGE": {
         "ERROR": "Không thể xóa khóa"
       }
+    },
+    "MANUAL_SETUP": {
+      "LABEL": "Nếu bạn không thể quét mã?",
+      "STEP_1": "1. Ở trong ứng dụng FreeOTP, chọn ký hiệu thêm khóa",
+      "STEP_2": "2. Nhập Bên xác thực và Tài khoản như sau:",
+      "STEP_3": "3. Nhập khóa bí mật như sau:",
+      "STEP_4": "4. Sử dụng các cấu hình:",
+      "STEP_5": "5. Nhấn nút Thêm để hoàn thành.",
+      "TYPE": "Loại: ",
+      "DIGITS": "Số: ",
+      "ALGORITHM": "Thuật toán: ",
+      "INTERVAL": "Thời gian: "
     }
   }
 }

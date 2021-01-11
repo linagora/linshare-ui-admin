@@ -10,7 +10,7 @@
     <span class="helper-text">{{ $t('2FA.KEY_REMOVAL.HELPER') }}</span>
 
     <div class="shared-key">
-      <small>{{ $t('2FA.KEY_REMOVAL.INFORMATION', { date:  formatDate(secondFA.creationDate, 'mediumDate', locale) }) }}</small>
+      <small>{{ $t('2FA.KEY_REMOVAL.INFORMATION', { date:  $d(secondFA.creationDate, 'mediumDate') }) }}</small>
     </div>
 
     <a-button
@@ -31,12 +31,11 @@ import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { Modal, message } from 'ant-design-vue';
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
-import { formatDate } from '@/core/utils/date';
 
 export default defineComponent({
   name: 'KeyRemoval',
   setup () {
-    const { locale, t } = useI18n();
+    const { t } = useI18n();
     const router = useRouter();
     const store = useStore();
 
@@ -61,9 +60,7 @@ export default defineComponent({
     }
 
     return {
-      locale,
       confirmRemoval,
-      formatDate,
       secondFA: computed(() => store.getters['Auth/getSecondFA'])
     };
   }

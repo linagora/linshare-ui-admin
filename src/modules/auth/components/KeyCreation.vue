@@ -45,7 +45,7 @@
     </a-button>
 
     <div class="shared-key">
-      <small v-if="secondFA.sharedKey">{{ $t('2FA.KEY_REMOVAL.INFORMATION', { date:  formatDate(secondFA.creationDate, 'mediumDate', locale) }) }}</small>
+      <small v-if="secondFA.sharedKey">{{ $t('2FA.KEY_REMOVAL.INFORMATION', { date:  $d(secondFA.creationDate, 'mediumDate') }) }}</small>
 
       <div class="qrcode-ctn">
         <qrcode-vue v-if="secondFA.sharedKey" :value="freeOtpUri" size="160" level="H"/>
@@ -61,7 +61,6 @@
 import { defineComponent, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useStore } from 'vuex';
-import { formatDate } from '@/core/utils/date';
 import { message } from 'ant-design-vue';
 import QrcodeVue from 'qrcode.vue';
 import OtpSetupHint from './OtpSetupHint.vue';
@@ -105,7 +104,6 @@ export default defineComponent({
       locale,
       otpConfigs,
       freeOtpUri,
-      formatDate,
       create2FAKey,
       secondFA,
       OTP_APP_INSTALL_LINKS

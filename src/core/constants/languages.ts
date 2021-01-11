@@ -12,8 +12,8 @@ export const LANGUAGES = {
     },
     {
       name: 'Tiếng Việt',
-      key: 'vn',
-      language: 'vn'
+      key: 'vi',
+      language: 'vi'
     },
     {
       name: 'Pусский',
@@ -22,5 +22,5 @@ export const LANGUAGES = {
     }
   ],
   DEFAULT: 'en',
-  SUPPORTED_LOCALES: ['en', 'fr', 'ru', 'vn']
+  SUPPORTED_LOCALES: ['en', 'fr', 'ru', 'vi']
 };
