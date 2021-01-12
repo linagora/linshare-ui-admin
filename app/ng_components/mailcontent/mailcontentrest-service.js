@@ -5,9 +5,9 @@
     .module('linshareAdminApp')
     .factory('mailContentRestService', mailContentRestService);
 
-  mailContentRestService.$inject = ['$log', 'Notification', 'Restangular'];
+  mailContentRestService.$inject = ['$log', 'Notification', 'Restangular', 'customDeleteService'];
 
-  function mailContentRestService($log, Notification, Restangular) {
+  function mailContentRestService($log, Notification, Restangular, customDeleteService) {
     //var self = this;
     var
       restUrl = 'mail_contents',
@@ -106,7 +106,7 @@
     //TODO [TOFILL]
     function remove(mailContent) {
       $log.debug('mailContentRestService:remove');
-      return mailContent.remove().then(function() {
+      return customDeleteService.remove('mail_contents', mailContent).then(function() {
         Notification.addSuccess('DELETE');
       });
     }

@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('WelcomeMessage',
-    ['$q', '$log', 'Notification', 'Restangular',
-    function($q, $log, Notification, Restangular) {
+    ['$q', '$log', 'Notification', 'Restangular', 'customDeleteService',
+    function($q, $log, Notification, Restangular, customDeleteService) {
       // var self = this;
       // Public API here
       return {
@@ -32,7 +32,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(welcomeMessage) {
           $log.debug('WelcomeMessages:remove');
-          return welcomeMessage.remove().then(function() {
+          return customDeleteService.remove('welcome_messages', welcomeMessage).then(function() {
             Notification.addSuccess('DELETE');
           });
         }

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('Thread', ['$q', '$log', 'Restangular', 'Notification',
-    function($q, $log, Restangular, Notification) {
+  .factory('Thread', ['$q', '$log', 'Restangular', 'Notification', 'customDeleteService',
+    function($q, $log, Restangular, Notification, customDeleteService) {
       var restUrl = 'shared_spaces';
 
       // Public API here
@@ -26,7 +26,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(thread) {
           $log.debug('Thread:remove');
-          return thread.remove().then(function() {
+          return customDeleteService.remove('shared_spaces', thread).then(function() {
             Notification.addSuccess('DELETE');
           });
         }

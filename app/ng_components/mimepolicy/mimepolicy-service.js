@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('MimePolicy',
-    ['$log', 'Notification', 'Restangular',
-    function($log, Notification, Restangular) {
+    ['$log', 'Notification', 'Restangular', 'customDeleteService',
+    function($log, Notification, Restangular, customDeleteService) {
       //var self = this;
 
       // Public API here
@@ -39,7 +39,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(mimePolicy) {
           $log.debug('MimePolicy:remove');
-          return mimePolicy.remove().then(function() {
+          return customDeleteService.remove('mime_policies', mimePolicy).then(function() {
             Notification.addSuccess('DELETE');
           });
         }

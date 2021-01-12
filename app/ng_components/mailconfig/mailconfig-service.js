@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('MailConfig',
-    ['$log', 'Notification', 'Restangular',
-    function($log, Notification, Restangular) {
+    ['$log', 'Notification', 'Restangular', 'customDeleteService',
+    function($log, Notification, Restangular, customDeleteService) {
       //var self = this;
 
       // Public API here
@@ -42,7 +42,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(mailConfig) {
           $log.debug('MailConfig:remove');
-          return mailConfig.remove().then(function() {
+          return customDeleteService.remove('mail_configs', mailConfig).then(function() {
             Notification.addSuccess('DELETE');
           });
         }

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('TechnicalAccount', ['$log', 'Notification', 'Restangular',
-    function($log, Notification, Restangular) {
+  .factory('TechnicalAccount', ['$log', 'Notification', 'Restangular', 'customDeleteService',
+    function($log, Notification, Restangular, customDeleteService) {
       //var self = this;
 
       // Public API here
@@ -46,7 +46,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(account) {
           $log.debug('TechnicalAccount:remove');
-          return account.remove().then(function() {
+          return customDeleteService.remove('technical_accounts', account).then(function() {
             Notification.addSuccess('DELETE');
           });
         }
