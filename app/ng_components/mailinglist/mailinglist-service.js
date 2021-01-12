@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('MailingList', ['$log', 'Restangular', 'Notification',
-    function($log, Restangular, Notification) {
+  .factory('MailingList', ['$log', 'Restangular', 'Notification', 'customDeleteService',
+    function($log, Restangular, Notification, customDeleteService) {
       //var self = this;
 
       // Public API here
@@ -23,7 +23,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(mail) {
           $log.debug('MailingList:remove');
-          return mail.remove().then(function() {
+          return customDeleteService.remove('lists', mail).then(function() {
             Notification.addSuccess('DELETE');
           });
         },

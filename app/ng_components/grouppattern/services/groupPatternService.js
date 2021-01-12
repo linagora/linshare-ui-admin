@@ -12,7 +12,8 @@
   groupPatternService.$inject = [
     '$log',
     'Notification',
-    'Restangular'
+    'Restangular',
+    'customDeleteService'
   ];
 
   /**
@@ -23,7 +24,8 @@
   function groupPatternService(
     $log,
     Notification,
-    Restangular
+    Restangular,
+    customDeleteService
   ) {
     var
       restUrl = 'group_patterns',
@@ -68,7 +70,7 @@
 
     function remove(groupPattern) {
       $log.debug('groupPatternService:remove');
-      return groupPattern.remove().then(function () {
+      return customDeleteService.remove('group_patterns', groupPattern).then(function() {
         Notification.addSuccess('DELETE');
       });
     }

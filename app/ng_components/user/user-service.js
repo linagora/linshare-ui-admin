@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('User', ['$q', '$log', 'Restangular', 'Notification', '$http',
-    function($q, $log, Restangular, Notification, $http) {
+  .factory('User', ['$q', '$log', 'Restangular', 'Notification', '$http', 'customDeleteService',
+    function($q, $log, Restangular, Notification, $http, customDeleteService) {
       // var self = this;
 
       // Public API here
@@ -62,7 +62,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(user) {
           $log.debug('User:remove');
-          return user.remove().then(function() {
+          return customDeleteService.remove('users', user).then(function() {
             Notification.addSuccess('DELETE');
           });
         },

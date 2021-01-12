@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('linshareAdminApp')
-  .factory('DomainPolicy', ['_','$rootScope', '$log', 'Restangular', 'Notification', '$q',
-    function(_, $rootScope, $log, Restangular, Notification, $q) {
+  .factory('DomainPolicy', ['_','$rootScope', '$log', 'Restangular', 'Notification', '$q', 'customDeleteService',
+    function(_, $rootScope, $log, Restangular, Notification, $q, customDeleteService) {
       //var self = this;
       var deferred = $q.defer();
 
@@ -53,7 +53,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(domainPolicy) {
           $log.debug('DomainPolicy:remove');
-          return domainPolicy.remove().then(function() {
+          return customDeleteService.remove('domain_policies', domainPolicy).then(function() {
             Notification.addSuccess('DELETE');
           });
         }

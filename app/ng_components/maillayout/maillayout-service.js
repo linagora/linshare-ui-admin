@@ -2,8 +2,8 @@
 
 angular.module('linshareAdminApp')
   .factory('MailLayout',
-    ['$log', 'Notification', 'Restangular',
-    function($log, Notification, Restangular) {
+    ['$log', 'Notification', 'Restangular', 'customDeleteService',
+    function($log, Notification, Restangular, customDeleteService) {
       //var self = this;
 
       // Public API here
@@ -31,7 +31,7 @@ angular.module('linshareAdminApp')
         },
         remove: function(mailLayout) {
           $log.debug('MailLayout:remove');
-          return mailLayout.remove().then(function() {
+          return customDeleteService.remove('mail_layouts', mailLayout).then(function() {
             Notification.addSuccess('DELETE');
           });
         }
