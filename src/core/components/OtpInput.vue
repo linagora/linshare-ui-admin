@@ -9,6 +9,7 @@
       :name="`otpInput${index}`"
       :ref="setItemRef"
       maxlength="1"
+      required
       @keyup="(event) => handleOnKeyUp(index, event)"
       @keydown="(event) => handleOnKeyDown(index, event)"
       @keypress="(event) => handleOnKeyPress(event)"
