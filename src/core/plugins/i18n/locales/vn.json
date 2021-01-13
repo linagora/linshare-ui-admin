@@ -38,10 +38,6 @@
     "HISTORY": "Lịch sử",
     "AUDIT_THE_APPLICATION": "Lịch sử thao tác"
   },
-  "ERROR": {
-    "UNEXPECTED_ERROR": "Lỗi bất ngờ đã xảy ra!",
-    "INVALID_LOGIN_CREDENTIALS": "Sai thông tin đăng nhập"
-  },
   "USERS": {
     "MANAGE_USERS": {
       "TITLE": "Quản lí người dùng",
@@ -62,7 +58,12 @@
   },
   "ERRORS": {
     "FORBIDDEN": "Bạn không có quyền truy cập tài nguyên này.",
-    "COMMON_MESSAGE": "Đã có lỗi xảy ra. Vui lòng thử lại sau!"
+    "COMMON_MESSAGE": "Đã có lỗi xảy ra. Vui lòng thử lại sau!",
+    "UNEXPECTED_ERROR": "Lỗi bất ngờ đã xảy ra!",
+    "INVALID_LOGIN_CREDENTIALS": "Sai thông tin đăng nhập",
+    "OTP_REQUIRED": "Yếu tố xác thực thứ hai bắt buộc",
+    "OTP_ERROR": "Mã xác thực không đúng hoặc đã hết hạn",
+    "ACCOUNT_LOCKED": "Tài khoản của bạn đã bị khóa vì đăng nhập thất bại"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "Đăng nhập xác thực hai bước",

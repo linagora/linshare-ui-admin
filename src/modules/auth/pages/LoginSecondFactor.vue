@@ -31,6 +31,7 @@ import { useI18n } from 'vue-i18n';
 
 import Copyright from '@/core/components/Copyright.vue';
 import OtpInput from '@/core/components/OtpInput.vue';
+import { AuthError } from '../services/AuthAPIClient';
 
 interface LoginSecondFactorProps {
   email: string;
@@ -55,11 +56,16 @@ export default defineComponent({
   },
   setup (props: LoginSecondFactorProps) {
     const store = useStore();
+    const { t } = useI18n();
     const error = ref('');
     const otp = ref('');
 
     function changeOtp (value: string) {
       otp.value = value;
+    }
+
+    function handleError (e: AuthError) {
+      error.value = t(e.message) || t('ERRORS.COMMON_MESSAGE');
     }
 
     async function logInWithOtp () {
@@ -76,9 +82,7 @@ export default defineComponent({
 
         router.push('/');
       } catch (e) {
-        error.value = e.response.status === 401
-          ? useI18n().t('ERRORS.INVALID_LOGIN_CREDENTIALS')
-          : useI18n().t('ERRORS.COMMON_MESSAGE');
+        handleError(e);
       }
     }
 

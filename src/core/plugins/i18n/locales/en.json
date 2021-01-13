@@ -38,10 +38,6 @@
     "HISTORY": "History",
     "AUDIT_THE_APPLICATION": "Audit the application"
   },
-  "ERROR": {
-    "UNEXPECTED_ERROR": "An unexpected error happened!",
-    "INVALID_LOGIN_CREDENTIALS": "Invalid login credentials"
-  },
   "USERS": {
     "MANAGE_USERS": {
       "TITLE": "Manage users",
@@ -62,7 +58,12 @@
   },
   "ERRORS": {
     "FORBIDDEN": "You do not have permission to access this resource.",
-    "COMMON_MESSAGE": "Something went wrong. Please try again later!"
+    "UNEXPECTED_ERROR": "An unexpected error happened!",
+    "COMMON_MESSAGE": "Something went wrong. Please try again later!",
+    "INVALID_LOGIN_CREDENTIALS": "Invalid login credentials",
+    "OTP_REQUIRED": "Second factor authentication required",
+    "OTP_ERROR": "OTP is wrong or expired",
+    "ACCOUNT_LOCKED": "Your account has been locked due to failed login attempts"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "2nd Factor Authentication",

@@ -41,6 +41,7 @@ import { useI18n } from 'vue-i18n';
 
 import Copyright from '@/core/components/Copyright.vue';
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
+import { AuthError } from '../services/AuthAPIClient';
 
 export default defineComponent({
   name: 'Login',
@@ -51,11 +52,20 @@ export default defineComponent({
   },
   setup () {
     const store = useStore();
+    const { t } = useI18n();
     const error = ref('');
     const credentials = reactive({
       email: '',
       password: ''
     });
+
+    function handleError (e: AuthError) {
+      if (e.isOTPRequiredError()) {
+        return router.push({ name: 'login2fa', params: { ...credentials } });
+      }
+
+      error.value = t(e.message) || t('ERRORS.COMMON_MESSAGE');
+    }
 
     async function logIn () {
       try {
@@ -68,12 +78,7 @@ export default defineComponent({
 
         router.push('/');
       } catch (e) {
-        if (e.response && e.response && e.response.headers['x-linshare-auth-error-code'] === '1002') {
-          return router.push({ name: 'login2fa', params: { ...credentials } });
-        }
-        error.value = e.response.status === 401
-          ? useI18n().t('ERRORS.INVALID_LOGIN_CREDENTIALS')
-          : useI18n().t('ERRORS.COMMON_MESSAGE');
+        handleError(e);
       }
     }
 

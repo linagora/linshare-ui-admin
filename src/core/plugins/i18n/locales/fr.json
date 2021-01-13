@@ -38,10 +38,6 @@
     "HISTORY": "Historique",
     "AUDIT_THE_APPLICATION": "Audit de l'application"
   },
-  "ERROR": {
-    "UNEXPECTED_ERROR": "Une erreur inattendue est survenue!",
-    "INVALID_LOGIN_CREDENTIALS": "Identifiant incorrect"
-  },
   "USERS": {
     "MANAGE_USERS": {
       "TITLE": "Configuration des utilisateurs",
@@ -62,7 +58,12 @@
   },
   "ERRORS": {
     "FORBIDDEN": "Vous n'êtes pas autorisé à accéder à cette ressource.",
-    "COMMON_MESSAGE": "Un problème est survenu. Veuillez réessayer plus tard!"
+    "UNEXPECTED_ERROR": "Une erreur inattendue est survenue!",
+    "INVALID_LOGIN_CREDENTIALS": "Identifiant incorrect",
+    "COMMON_MESSAGE": "Un problème est survenu. Veuillez réessayer plus tard!",
+    "OTP_REQUIRED": "l'activation de l'authentification double facteur est requise",
+    "OTP_ERROR": "le code OTP est invalide ou expiré",
+    "ACCOUNT_LOCKED": "Votre compte a été verouillé en raison de nombreuses tentatives infructueuses de connexion"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "Authentification double facteur",
