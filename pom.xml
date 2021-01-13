@@ -26,13 +26,6 @@
             <fileset>
               <directory>dist</directory>
             </fileset>
-            <fileset>
-              <directory>.</directory>
-              <includes>
-                <include>./package-lock.json</include>
-                <include>./node_modules/**</include>
-              </includes>
-            </fileset>
           </filesets>
         </configuration>
         <executions>
@@ -456,7 +449,6 @@
                   <filesets>
                     <fileset>
                       <directory>node</directory>
-                      <includes>**</includes>
                     </fileset>
                     <fileset>
                       <directory>node_modules</directory>
