@@ -4,7 +4,7 @@ import ru from './ru.json';
 import vn from './vn.json';
 
 export default {
-  'en-US': en,
+  en,
   fr,
   ru,
   vn

@@ -17,15 +17,18 @@
 <script lang='ts'>
 import { ref } from 'vue';
 import i18nService from '@/core/services/I18nService';
+import { useI18n } from 'vue-i18n';
 import { LANGUAGES } from '@/core/constants';
 
 export default {
   name: 'LanguageSelector',
   setup () {
+    const { locale } = useI18n();
     const selectedLanguage = ref(i18nService.getLocale());
 
     function onLanguageChanged (selectedLanguage: string) {
       i18nService.setLocale(selectedLanguage.toLowerCase());
+      locale.value = selectedLanguage.toLowerCase();
     }
 
     return {

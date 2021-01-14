@@ -1,5 +1,4 @@
 import { LANGUAGES } from '@/core/constants';
-import i18nPlugin from '@/core/plugins/i18n';
 
 /**
  * I18n service
@@ -27,7 +26,6 @@ class I18nService {
     }
 
     localStorage.setItem('locale', locale);
-    i18nPlugin.global.locale.value = locale;
   }
 
   getLocale (): string {
