@@ -23,6 +23,7 @@
           <a-button
             type="primary"
             html-type="submit"
+            :loading="loggingIn"
           >
             {{ $t('AUTH.LOGIN') }}
           </a-button>
@@ -54,6 +55,7 @@ export default defineComponent({
     const store = useStore();
     const { t } = useI18n();
     const error = ref('');
+    const loggingIn = ref(false);
     const credentials = reactive({
       email: '',
       password: ''
@@ -69,6 +71,7 @@ export default defineComponent({
 
     async function logIn () {
       try {
+        loggingIn.value = true;
         await store.dispatch('Auth/fetchLoggedUser', {
           auth: {
             username: credentials.email,
@@ -76,8 +79,10 @@ export default defineComponent({
           }
         });
 
+        loggingIn.value = false;
         router.push('/');
       } catch (e) {
+        loggingIn.value = false;
         handleError(e);
       }
     }
@@ -85,7 +90,8 @@ export default defineComponent({
     return {
       credentials,
       error,
-      logIn
+      logIn,
+      loggingIn
     };
   }
 });

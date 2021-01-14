@@ -13,6 +13,7 @@
           <a-button
             type="primary"
             html-type="submit"
+            :loading="submitting"
           >
             {{ $t('AUTH.LOGIN') }}
           </a-button>
@@ -58,6 +59,7 @@ export default defineComponent({
     const store = useStore();
     const { t } = useI18n();
     const error = ref('');
+    const submitting = ref(false);
     const otp = ref('');
 
     function changeOtp (value: string) {
@@ -70,6 +72,7 @@ export default defineComponent({
 
     async function logInWithOtp () {
       try {
+        submitting.value = true;
         await store.dispatch('Auth/fetchLoggedUser', {
           auth: {
             username: props.email,
@@ -80,8 +83,10 @@ export default defineComponent({
           }
         });
 
+        submitting.value = false;
         router.push('/');
       } catch (e) {
+        submitting.value = false;
         handleError(e);
       }
     }
@@ -89,7 +94,8 @@ export default defineComponent({
     return {
       error,
       changeOtp,
-      logInWithOtp
+      logInWithOtp,
+      submitting
     };
   }
 });
