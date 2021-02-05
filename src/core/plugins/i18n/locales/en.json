@@ -4,7 +4,17 @@
     "DISABLED": "Disabled",
     "CANCEL": "Cancel",
     "DELETE": "Delete",
-    "DELETION": "Deletion"
+    "DELETION": "Deletion",
+    "SAVE": "Save"
+  },
+  "LOCALE": {
+    "ENGLISH": "English",
+    "FRENCH": "French",
+    "RUSSIAN": "Russian"
+  },
+  "MESSAGES": {
+    "UPDATE_SUCCESS": "Updated successfully",
+    "DELETE_SUCCESS": "Deleted successfully"
   },
   "HEADER": {
     "LOGO_ALT": "Linshare logo",
@@ -62,6 +72,30 @@
       "ACCOUNT_TYPE": "Account type",
       "SEARCH": "Search",
       "NO_DATA": "No matching records found"
+    },
+    "DETAIL_USER": {
+      "CONFIRM_DELETE": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?",
+      "DELETE_USER": "Delete user",
+      "YES": "Yes",
+      "NO": "No",
+      "LOCKED_USER": "Locked user",
+      "LOCKED_USER_DESCRIPTION": "This user is locked due to failed login attempts",
+      "UNLOCK": "Unlock",
+      "USER_PROFILE": "User profile",
+      "PERSONAL_SPACE_QUOTA": "Personal space quota",
+      "UPLOAD_REQUEST": "Upload request",
+      "ENABLED": "Enabled",
+      "DISABLED": "Disabled",
+      "FIRST_NAME": "First name",
+      "LAST_NAME":"Last name",
+      "NOTIFICATION_LANGUAGE": "Notification language",
+      "ROLE": "Role",
+      "ENABLE_PERSONAL_SPACE": "Enable personal space",
+      "ALLOW_GUEST_CREATION": "Allow guest creation",
+      "ACCOUNT_TYPE": "Account type",
+      "CREATION_DATE": "Creation date",
+      "MODIFICATION_DATE": "Modification date",
+      "DOMAIN": "Domain"
     }
   },
   "ERRORS": {

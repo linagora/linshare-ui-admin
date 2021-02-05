@@ -4,7 +4,17 @@
     "DISABLED": "Tắt",
     "CANCEL": "Hủy",
     "DELETE": "Xóa",
-    "DELETION": "Xóa"
+    "DELETION": "Xóa",
+    "SAVE": "Lưu"
+  },
+  "LOCALE": {
+    "ENGLISH": "Tiếng Anh",
+    "FRENCH": "Tiếng Pháp",
+    "RUSSIAN": "Tiếng Nga"
+  },
+  "MESSAGES": {
+    "UPDATE_SUCCESS": "Cập nhật thành công",
+    "DELETE_SUCCESS": "Xóa thành công"
   },
   "HEADER": {
     "LOGO_ALT": "Logo Linshare",
@@ -62,6 +72,30 @@
       "ACCOUNT_TYPE": "Loại tài khoản",
       "SEARCH": "Tìm kiếm",
       "NO_DATA": "Không có kết quả phù hợp"
+    },
+    "DETAIL_USER": {
+      "CONFIRM_DELETE": "Bạn chuẩn bị xóa tài khoản này, hành động này không thể đảo ngược và sẽ xóa toàn bộ tài liệu của tài khoản. Bạn chắc chứ?",
+      "DELETE_USER": "Khóa người dùng",
+      "YES": "Có",
+      "NO": "Không",
+      "LOCKED_USER": "Người dùng bị khóa",
+      "LOCKED_USER_DESCRIPTION": "Người dùng này bị khóa vì đăng nhập không thành công nhiều lần",
+      "UNLOCK": "Mở khóa",
+      "USER_PROFILE": "Hồ sơ người dùng",
+      "PERSONAL_SPACE_QUOTA": "Không gian lưu trữ cá nhân",
+      "UPLOAD_REQUEST": "Yêu cầu tải lên",
+      "ENABLED": "Kích hoạt",
+      "DISABLED": "Vô hiệu hóa",
+      "FIRST_NAME": "Tên",
+      "LAST_NAME":"Họ",
+      "NOTIFICATION_LANGUAGE": "Ngôn ngữ thông báo",
+      "ROLE": "Vai trò",
+      "ENABLE_PERSONAL_SPACE": "Cho phép không gian lưu trữ riêng",
+      "ALLOW_GUEST_CREATION": "Cho phép tạo tài khoản khách",
+      "ACCOUNT_TYPE": "Loại tài khoản",
+      "CREATION_DATE": "Ngày tạo",
+      "MODIFICATION_DATE": "Ngày chỉnh sửa",
+      "DOMAIN": "Miền"
     }
   },
   "ERRORS": {

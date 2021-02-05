@@ -4,7 +4,17 @@
     "DISABLED": "Выключено",
     "CANCEL": "Отмена",
     "DELETE": "Удалить",
-    "DELETION": "Удаление"
+    "DELETION": "Удаление",
+    "SAVE": "хранить"
+  },
+  "LOCALE": {
+    "ENGLISH": "Английский",
+    "FRENCH": "Французский",
+    "RUSSIAN": "Русский"
+  },
+  "MESSAGES": {
+    "UPDATE_SUCCESS": "Обновление успешно",
+    "DELETE_SUCCESS": "Удалить успешно"
   },
   "HEADER": {
     "LOGO_ALT": "Логотип Linshare",
@@ -62,6 +72,30 @@
       "ACCOUNT_TYPE": "Тип аккаунта",
       "SEARCH": "Поиск",
       "NO_DATA": "Совпадающих записей не найдено"
+    },
+    "DETAIL_USER": {
+      "CONFIRM_DELETE": "Вы собираетесь удалить этого пользователя, эта процедура необратима и уничтожает весь его документ. Вы хотите продолжить?",
+      "DELETE_USER": "Удалить пользователя",
+      "YES": "да",
+      "NO": "Нет",
+      "LOCKED_USER": "Заблокированный пользователь",
+      "LOCKED_USER_DESCRIPTION": "Этот пользователь заблокирован из-за неудачных попыток входа в систему",
+      "UNLOCK": "Разблокировать",
+      "USER_PROFILE": "Профиль пользователя",
+      "PERSONAL_SPACE_QUOTA": "Квота личного пространства",
+      "UPLOAD_REQUEST": "Запрос на загрузку",
+      "ENABLED": "Включено",
+      "DISABLED": "инвалид",
+      "FIRST_NAME": "Имя",
+      "LAST_NAME":"Фамилия",
+      "NOTIFICATION_LANGUAGE": "Язык уведомлений",
+      "ROLE": "Роль",
+      "ENABLE_PERSONAL_SPACE": "Включить личное пространство",
+      "ALLOW_GUEST_CREATION": "Разрешить создание гостя",
+      "ACCOUNT_TYPE": "Тип аккаунта",
+      "CREATION_DATE": "Дата создания",
+      "MODIFICATION_DATE": "Дата модификации",
+      "DOMAIN": "Домен"
     }
   },
   "ERRORS": {

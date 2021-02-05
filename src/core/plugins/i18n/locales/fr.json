@@ -4,7 +4,17 @@
     "DISABLED": "Désactivé",
     "CANCEL": "Annuler",
     "DELETE": "Supprimer",
-    "DELETION": "Suppression"
+    "DELETION": "Suppression",
+    "SAVE": "Sauvegarder"
+  },
+  "LOCALE": {
+    "ENGLISH": "Anglais",
+    "FRENCH": "Français",
+    "RUSSIAN": "Russe"
+  },
+  "MESSAGES": {
+    "UPDATE_SUCCESS": "Mis à jour avec succès",
+    "DELETE_SUCCESS": "Supprimé avec succès"
   },
   "HEADER": {
     "LOGO_ALT": "Logo Linshare",
@@ -62,6 +72,30 @@
       "ACCOUNT_TYPE": "Type de compte",
       "SEARCH": "Rechercher",
       "NO_DATA": "Aucun enregistrements correspondants trouvés"
+    },
+    "DETAIL_USER": {
+      "CONFIRM_DELETE": "Vous êtes sur le point de supprimer ce modèle de domaine, cette procédure est irréversible. Souhaitez-vous continuer?",
+      "DELETE_USER": "Supprimer l'utilisateur",
+      "YES": "Oui",
+      "NO": "Non",
+      "LOCKED_USER": "Utilisateur verrouillé",
+      "LOCKED_USER_DESCRIPTION": "Cet utilisateur est verrouillé en raison de nombreuses tentatives de connexion échouées",
+      "UNLOCK": "Déverrouiller",
+      "USER_PROFILE": "Profil de l'utilisateur",
+      "PERSONAL_SPACE_QUOTA": "Quota d'espace personnel",
+      "UPLOAD_REQUEST": "Invitations de dépot",
+      "ENABLED": "Activé",
+      "DISABLED": "Désactivé",
+      "FIRST_NAME": "Prénom",
+      "LAST_NAME":"Nom",
+      "NOTIFICATION_LANGUAGE": "Language de Notification",
+      "ROLE": "Rôle utilisateur",
+      "ENABLE_PERSONAL_SPACE": "Activer l'espace personnel",
+      "ALLOW_GUEST_CREATION": "Autoriser la création d'invités",
+      "ACCOUNT_TYPE": "Type de compte",
+      "CREATION_DATE": "Date de création",
+      "MODIFICATION_DATE": "Date de modification",
+      "DOMAIN": "Domaine"
     }
   },
   "ERRORS": {
