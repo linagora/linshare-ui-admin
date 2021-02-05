@@ -6,12 +6,14 @@
       :data-source="data"
       :pagination="{pageSize: pageSize}"
       :locale="{emptyText: $t('USERS.MANAGE_USERS.NO_DATA')}"
+      :custom-row="customRow"
     />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import router from '@/core/router';
 import User from '@/modules/user/type/User';
 import { useI18n } from 'vue-i18n';
 
@@ -32,6 +34,16 @@ export default defineComponent({
     function sortFunction (a: string, b: string) {
       return a && b ? a.localeCompare(b) : (a || b);
     }
+
+    const goToUserDetail = (id: string) => {
+      return router.push({ name: 'UserDetail', params: { id } });
+    };
+
+    const customRow = (record: User) => {
+      return {
+        onClick: () => goToUserDetail(record.uuid)
+      };
+    };
 
     const columns = [
       {
@@ -73,16 +85,21 @@ export default defineComponent({
     ];
 
     return {
-      columns
+      columns,
+      customRow
     };
   }
 });
 </script>
 
-<style lang='less' scoped>
+<style lang='less'>
   .large-table {
     @media (max-width: 1068px) {
       display: none;
     };
+
+    .ant-table-row {
+      cursor: pointer;
+    }
   }
 </style>

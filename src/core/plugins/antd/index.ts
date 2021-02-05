@@ -5,6 +5,7 @@ import {
   Badge,
   Button,
   Card,
+  Checkbox,
   Col,
   Dropdown,
   Form,
@@ -13,10 +14,13 @@ import {
   Modal,
   Layout,
   Pagination,
+  Popconfirm,
   Popover,
   Row,
   Select,
-  Table
+  Table,
+  Tabs,
+  Tag
 } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
@@ -27,6 +31,7 @@ function useAntdComponents (vueApp: App): App {
     .use(Badge)
     .use(Button)
     .use(Card)
+    .use(Checkbox)
     .use(Col)
     .use(Dropdown)
     .use(Form)
@@ -36,9 +41,12 @@ function useAntdComponents (vueApp: App): App {
     .use(Layout)
     .use(Pagination)
     .use(Popover)
+    .use(Popconfirm)
     .use(Row)
     .use(Select)
-    .use(Table);
+    .use(Table)
+    .use(Tabs)
+    .use(Tag);
 }
 
 export default useAntdComponents;

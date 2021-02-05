@@ -25,5 +25,15 @@ export const UserRoutes: Array<RouteRecordRaw> = [
         }
       }
     ]
+  },
+  {
+    path: '/users/:id',
+    component: () => import('../pages/UserDetail.vue'),
+    name: 'UserDetail',
+    meta: {
+      requiresAuth: true,
+      layout: AdminLayout,
+      permission: PERMISSIONS.USERS.MANAGE_USERS
+    }
   }
 ];

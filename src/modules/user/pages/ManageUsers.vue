@@ -44,13 +44,14 @@ export default defineComponent({
     PageTitle
   },
   async setup () {
-    await store.dispatch('Domain/fetchDomains');
-
+    const { t } = useI18n();
     const data = reactive({
       list: [] as User[],
       domains: store.getters['Domain/getDomains']
     });
     const pageSize = 5;
+
+    await store.dispatch('Domain/fetchDomains');
 
     async function fetchUsers (payload: FindUserPayload, config?: object) {
       try {
@@ -62,7 +63,7 @@ export default defineComponent({
         });
       } catch (error) {
         data.list = [];
-        message.error(error.message || useI18n().t('ERRORS.COMMON_MESSAGE'));
+        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
       }
     }
 

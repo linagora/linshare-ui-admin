@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import Auth from '@/modules/auth/store';
 import Domain from '@/modules/domain/store';
+import User from '@/modules/user/store';
 import RootState from './RootState';
 
 export default createStore({
@@ -9,6 +10,7 @@ export default createStore({
   actions: {},
   modules: {
     Auth,
-    Domain
+    Domain,
+    User
   }
 });

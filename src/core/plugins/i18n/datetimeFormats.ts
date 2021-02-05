@@ -1,9 +1,18 @@
 export default {
-  'en-US': {
+  en: {
     mediumDate: {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
+    },
+    mediumDateTime: {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: false
     }
   },
   fr: {
@@ -11,6 +20,15 @@ export default {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
+    },
+    mediumDateTime: {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: false
     }
   },
   ru: {
@@ -18,6 +36,15 @@ export default {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
+    },
+    mediumDateTime: {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: false
     }
   },
   vi: {
@@ -25,6 +52,15 @@ export default {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
+    },
+    mediumDateTime: {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: false
     }
   }
 };
