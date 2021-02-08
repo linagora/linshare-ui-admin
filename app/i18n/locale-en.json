@@ -1182,17 +1182,17 @@
         "PARAMETER_NAME": "Maximum deposit size",
         "PARAMETER_DESCRIPTION": "Default value: 30 Mo."
       },
-      "UPLOAD_REQUEST__SECURED_URL": {
-        "NAME": "Upload request - Secured URL",
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Upload request - Protected by password URL",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This functionality allows to secure the shared access URL's by a generated password (which is sent by mail for each recipient).",
         "ADVANCED_DESCRIPTION": "",
         "USER_OVERRIDE": "",
-        "ACTIVATION_POLICY": "Once enabled, issuer will be able to secure URL's by a password.",
+        "ACTIVATION_POLICY": "Once enabled, issuer will be able to protect URL's by a password.",
         "CONFIGURATION_POLICY": "Allow an administrator to change default value parameter.",
         "DELEGATION_POLICY": "Once enabled, sub-domain's administrators can make changes.",
-        "PARAMETER_NAME": "Secure URLs",
-        "PARAMETER_DESCRIPTION": "Default value: not secured"
+        "PARAMETER_NAME": "Protected by password URLs",
+        "PARAMETER_DESCRIPTION": "Default value: not protected by password"
       },
       "UPLOAD_REQUEST__CAN_CLOSE": {
         "NAME": "Upload request - Closure right",
@@ -1775,8 +1775,8 @@
       "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true": "The recipient can delete files.",
       "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false": "The sender will not postpone the expiry date.",
       "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true": "The sender will postpone the expiry date.",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false": "The access to the invitation will not be protected by a password.",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true": "The access to the invitation will be protected by a password.",
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD__BOOLEAN_false": "The access to the invitation will not be protected by a password.",
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD__BOOLEAN_true": "The access to the invitation will be protected by a password.",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false": "An invitation will be created per recipient.",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true": "All recipients share the conditions of use of the invitation.",
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false": "No acknowledgement will be sent to the issuer of the share.",

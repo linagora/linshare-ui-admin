@@ -1157,8 +1157,8 @@
         "PARAMETER_NAME": "Taille maximale d'un dépôt",
         "PARAMETER_DESCRIPTION": "Valeur défaut : 50 Mo, exemple calculé sur la base du nombre de fichiers multipliés par la taille maximale d'un fichier."
       },
-      "UPLOAD_REQUEST__SECURED_URL": {
-        "NAME": "Sécurisation des URLs",
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Protection par mot de passe des URLs",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Une fois activée, les URLS seront protégés par un mot de passe. Le mot de passe est généré par le serveur est envoyé par courriel séparé au(x) destinataire(s).",
         "ADVANCED_DESCRIPTION": "",
@@ -1166,7 +1166,7 @@
         "ACTIVATION_POLICY": "Une fois activée, l'utilisateur pourra protéger les urls par un mot de passe.",
         "CONFIGURATION_POLICY": "",
         "DELEGATION_POLICY": "En activant la délégation vous permeterez aux administrateurs des sous-domaines de changer ",
-        "PARAMETER_NAME": "Sécurisation des URLs",
+        "PARAMETER_NAME": "Protection par mot de passe des URLs",
         "PARAMETER_DESCRIPTION": ""
       },
       "UPLOAD_REQUEST__CAN_CLOSE": {
@@ -1719,8 +1719,8 @@
       "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true": "Le destinataire pourra supprimer les fichiers.",
       "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false": "L'émetteur ne pourra pas repousser la date d'expiration.",
       "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true": "L'émetteur pourra repousser la date d'expiration.",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false": "L'accès à l'invitation ne sera pas protégé par un mot de passe.",
-      "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true": "L'accès à l'invitation sera protégé par un mot de passe.",
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD__BOOLEAN_false": "L'accès à l'invitation ne sera pas protégé par un mot de passe.",
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD__BOOLEAN_true": "L'accès à l'invitation sera protégé par un mot de passe.",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false": "Une invitation sera créée par destinataire.",
       "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true": "L'ensemble des destinataires se partageront les conditions d'utilisation de l'invitation.",
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false": "Aucun accusé de partage sera envoyé.",

@@ -1098,7 +1098,7 @@
           "PARAMETER_NAME": "Параметры",
           "PARAMETER_DESCRIPTION": ""
         },
-        "UPLOAD_REQUEST__SECURED_URL": {
+        "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
           "NAME": "Запрос на отправку - Защищенный URL",
           "USE_EXTENDED_DESCRIPTION": "0",
           "DESCRIPTION": "",
@@ -1691,8 +1691,8 @@
         "UPLOAD_REQUEST__CAN_DELETE__BOOLEAN_true": "Получатель может удалять файлы.",
         "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_false": "Отправитель не откладывает дату истечения срока действия.",
         "UPLOAD_REQUEST__PROLONGATION__BOOLEAN_true": "Отправитель отложит дату истечения срока действия.",
-        "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_false": "Доступ к приглашению не будет защищен паролем.",
-        "UPLOAD_REQUEST__SECURED_URL__BOOLEAN_true": "Доступ к приглашению будет защищен паролем.",
+        "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD__BOOLEAN_false": "Доступ к приглашению не будет защищен паролем.",
+        "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD__BOOLEAN_true": "Доступ к приглашению будет защищен паролем.",
         "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_false": "Приглашение будет создано для каждого получателя.",
         "UPLOAD_REQUEST__GROUPED_MODE__BOOLEAN_true": "Все получатели разделяют условия использования приглашения.",
         "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER__BOOLEAN_false": "Эмитенту рассылки не будет отправлено подтверждение.",
