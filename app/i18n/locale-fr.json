@@ -89,7 +89,7 @@
       "INCONSISTENT_USERS": "Utilisateurs incohérents",
       "TECHNICAL_ACCOUNT": "Comptes techniques",
       "THREADS": "Groupes de travail",
-      "MAILING_LISTS": "Listes de diffusion",
+      "MAILING_LISTS": "Listes de contacts",
       "HISTORY": "Historique",
       "UPLOAD_REQUEST": "Invitation de dépôt",
       "UPLOAD_PROPOSITION_FILTER": "Filtrage des demandes d'invitation de dépôt",
@@ -2235,18 +2235,18 @@
     }
   },
   "MAILING_LISTS": {
-    "TITLE": "Gestion des listes de diffusion",
+    "TITLE": "Gestion des listes de contacts",
     "LABEL_PUBLIC": "Publique",
     "LABEL_PRIVATE": "Privée",
     "BOX_LIST": {
-      "TITLE": "Listes de diffusion",
+      "TITLE": "Listes de contacts",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:MAILING_LISTS.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_IS_PUBLIC": "@:MAILING_LISTS.BOX_FORM.LABEL_IS_PUBLIC"
       }
     },
     "BOX_FORM": {
-      "TITLE": "Edition d'une liste de diffusion",
+      "TITLE": "Edition d'une liste de contacts",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
       "LABEL_IS_PUBLIC": "Visibilité",

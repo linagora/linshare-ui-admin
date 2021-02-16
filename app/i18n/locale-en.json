@@ -89,7 +89,7 @@
       "INCONSISTENT_USERS": "Inconsistent users",
       "TECHNICAL_ACCOUNT": "Technical accounts",
       "THREADS": "Workgroups",
-      "MAILING_LISTS": "Mailing lists",
+      "MAILING_LISTS": "Contacts Lists",
       "HISTORY": "History",
       "UPLOAD_REQUEST": "Upload request",
       "UPLOAD_PROPOSITION_FILTER": "Upload proposition filtering",
@@ -2296,18 +2296,18 @@
     }
   },
   "MAILING_LISTS": {
-    "TITLE": "Manage your mailing lists",
+    "TITLE": "Manage your contacts lists",
     "LABEL_PUBLIC": "Public",
     "LABEL_PRIVATE": "Private",
     "BOX_LIST": {
-      "TITLE": "Mailing lists",
+      "TITLE": "Contacts lists",
       "TABLE": {
         "HEADER_IDENTIFIER": "@:MAILING_LISTS.BOX_FORM.LABEL_IDENTIFIER",
         "HEADER_IS_PUBLIC": "@:MAILING_LISTS.BOX_FORM.LABEL_IS_PUBLIC"
       }
     },
     "BOX_FORM": {
-      "TITLE": "Edit group",
+      "TITLE": "Edit contacts list",
       "BUTTON_LIST": "@:COMMON.BASIC_FORM.BUTTON_LIST",
       "LABEL_IDENTIFIER": "@:COMMON.BASIC_FORM.LABEL_IDENTIFIER",
       "LABEL_IS_PUBLIC": "Visibility",
