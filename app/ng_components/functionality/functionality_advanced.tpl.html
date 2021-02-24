@@ -195,7 +195,7 @@
           <div x-ng-repeat="parameter in functionality.parameters">
             <div x-ng-switch="parameter.type">
               <div x-ng-switch-when="INTEGER">
-                <div class="form-group">
+                <div ng-if="parameter.defaultValueUsed" class="form-group">
                   <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.DEFAULT_VALUE</label>
                   <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
                          x-ng-model="parameter.integer"
@@ -209,7 +209,7 @@
                 </div>
               </div>
               <div x-ng-switch-when="UNIT_TIME">
-                <div class="form-group">
+                <div ng-if="parameter.defaultValueUsed" class="form-group">
                   <div class="form-inline row">
                     <div class="col-sm-2 col-md-12">
                       <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.DEFAULT_VALUE</label>
@@ -274,7 +274,7 @@
                 </div>
               </div>
               <div x-ng-switch-when="UNIT_SIZE">
-                <div class="form-group">
+                <div ng-if="parameter.defaultValueUsed" class="form-group">
                   <div class="form-inline row">
                     <div class="col-sm-2 col-md-12">
                       <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.DEFAULT_VALUE</label>
