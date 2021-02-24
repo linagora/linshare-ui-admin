@@ -201,7 +201,7 @@
                          x-ng-model="parameter.integer"
                          x-ng-change="updateWithTimeout()"/>
                 </div>
-                <div class="form-group">
+                <div ng-if="parameter.maxValueUsed" class="form-group">
                   <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.MAX_VALUE</label>
                   <input name="$index" type="number" class="form-control" min="0" max="2147483647" required
                          x-ng-model="parameter.maxInteger"
@@ -228,7 +228,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <div ng-if="parameter.maxValueUsed" class="form-group">
                   <div class="form-inline row">
                     <div class="col-sm-2 col-md-12">
                       <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.MAX_VALUE</label>
@@ -293,7 +293,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <div ng-if="parameter.maxValueUsed" class="form-group">
                   <div class="form-inline row">
                     <div class="col-sm-2 col-md-12">
                       <label for="$index" translate>FUNCTIONALITIES.BOX_FORM.MAX_VALUE</label>
