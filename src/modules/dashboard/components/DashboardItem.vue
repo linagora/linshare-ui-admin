@@ -1,5 +1,5 @@
 <template>
-  <a-card class="dashboard-item">
+  <a-card class="dashboard-item" @click="goToRoute">
     <div class="dashboard-item__title-container">
       <h1 class="dashboard-item__title">{{ cardTitle }}</h1>
       <h3 class="dashboard-item__subtitle">{{ subTitle }}</h3>
@@ -12,6 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import router from '@/core/router';
 
 export default defineComponent({
   name: 'DashboardItem',
@@ -27,7 +28,22 @@ export default defineComponent({
     img: {
       type: String,
       default: ''
+    },
+    routeName: {
+      type: String,
+      default: ''
     }
+  },
+  setup (props) {
+    function goToRoute () {
+      if (props.routeName) {
+        router.push({ name: props.routeName });
+      }
+    }
+
+    return {
+      goToRoute
+    };
   }
 });
 </script>

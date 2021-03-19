@@ -17,6 +17,7 @@
         <DashboardItem
           :cardTitle="$t('DASHBOARD.USERS')"
           :subTitle="$t('DASHBOARD.MANAGE_USERS')"
+          routeName="ManageUsers"
         >
           <template #image>
             <img src="@/assets/images/user.png" />
