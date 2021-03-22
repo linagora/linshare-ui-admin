@@ -32,7 +32,7 @@ import Profile from '@/core/components/Profile.vue';
 import Footer from '@/core/components/Footer.vue';
 import Sidebar from '@/core/components/Sidebar.vue';
 import Error from '@/modules/error/pages/Error.vue';
-import use2FARequiredCheck from '@/modules/auth/use/use2FARequiredCheck';
+import use2FARequiredCheck from '@/modules/auth/hooks/use2FARequiredCheck';
 
 export default defineComponent({
   name: 'AdminLayout',
