@@ -13,11 +13,11 @@ export default abstract class AdminAPIClient {
 
   constructor (baseURL: string, config: AxiosRequestConfig = {}, clientConfig: ClientConfig = {}) {
     this.clientConfig = {
-      ...clientConfig,
       ...{
         useAuthInterceptor: true,
         responseDataOnly: true
-      }
+      },
+      ...clientConfig
     };
     this.transport = axios.create({
       baseURL: `${window.location.origin}/${CONFIG.API.BASE_URL}/${baseURL}`,
@@ -32,11 +32,7 @@ export default abstract class AdminAPIClient {
   }
 
   private handleResponse = (response: AxiosResponse) => {
-    if (this.clientConfig.responseDataOnly) {
-      return response.data;
-    }
-
-    return response;
+    return this.clientConfig.responseDataOnly ? response.data : response;
   };
 
   private handleAuthError = (error: AxiosError) => {

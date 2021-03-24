@@ -1,6 +1,6 @@
 <template>
   <div class="list-item">
-    <a-card>
+    <a-card @click="goToUser">
       <a-row :gutter="20">
         <a-col :xs="8" :sm="6">
           <div class="info-block">
@@ -38,6 +38,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import router from '@/core/router';
 
 export default defineComponent({
   name: 'ListItem',
@@ -46,6 +47,13 @@ export default defineComponent({
       type: Object,
       default: () => ({})
     }
+  },
+  setup (props) {
+    function goToUser () {
+      router.push({ name: 'UserDetail', params: { id: props.data.uuid } });
+    }
+
+    return { goToUser };
   }
 });
 </script>

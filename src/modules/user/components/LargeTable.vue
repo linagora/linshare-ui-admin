@@ -3,90 +3,83 @@
     <a-table
       :columns="columns"
       :row-key="record => record.uuid"
-      :data-source="data"
-      :pagination="{pageSize: pageSize}"
+      :data-source="list"
+      :pagination="pagination"
       :locale="{emptyText: $t('USERS.MANAGE_USERS.NO_DATA')}"
       :custom-row="customRow"
+      :loading="loading"
+      @change="handleTableChange"
     />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import router from '@/core/router';
 import User from '@/modules/user/type/User';
 import { useI18n } from 'vue-i18n';
+import useUsersList from '@/modules/user/hooks/useUsersList';
 
 export default defineComponent({
   name: 'LargeTable',
-  props: {
-    data: {
-      type: Array,
-      default: () => []
-    },
-    pageSize: {
-      type: Number,
-      default: 5
-    }
-  },
   async setup () {
     const { t } = useI18n();
-    function sortFunction (a: string, b: string) {
-      return a && b ? a.localeCompare(b) : (a || b);
-    }
-
-    const goToUserDetail = (id: string) => {
-      return router.push({ name: 'UserDetail', params: { id } });
-    };
-
-    const customRow = (record: User) => {
-      return {
-        onClick: () => goToUserDetail(record.uuid)
-      };
-    };
-
-    const columns = [
+    const { loading, list, pagination, handleTableChange } = useUsersList();
+    const columns = computed(() => [
       {
         title: t('USERS.MANAGE_USERS.FIRST_NAME'),
         dataIndex: 'firstName',
-        sorter: (a: User, b: User) => sortFunction(a.firstName, b.firstName),
+        sorter: true,
         width: '15%'
       },
       {
         title: t('USERS.MANAGE_USERS.LAST_NAME'),
         dataIndex: 'lastName',
-        sorter: (a: User, b: User) => sortFunction(a.lastName, b.lastName),
+        sorter: true,
         width: '15%'
       },
       {
         title: t('USERS.MANAGE_USERS.EMAIL'),
         dataIndex: 'mail',
-        sorter: (a: User, b: User) => sortFunction(a.mail, b.mail),
+        sorter: true,
         width: '20%'
       },
       {
         title: t('USERS.MANAGE_USERS.DOMAIN'),
         dataIndex: 'domain',
-        sorter: (a: User, b: User) => sortFunction(a.domain, b.domain),
         width: '20%'
       },
       {
         title: t('USERS.MANAGE_USERS.ROLE'),
         dataIndex: 'role',
-        sorter: (a: User, b: User) => sortFunction(a.role, b.role),
+        sorter: true,
         width: '15%'
       },
       {
         title: t('USERS.MANAGE_USERS.ACCOUNT_TYPE'),
         dataIndex: 'accountType',
-        sorter: (a: User, b: User) => sortFunction(a.accountType, b.accountType),
+        sorter: true,
         width: '15%'
       }
-    ];
+    ]);
+
+    await handleTableChange(pagination);
+
+    function customRow (user: User) {
+      return {
+        onclick () {
+          router.push({ name: 'UserDetail', params: { id: user.uuid } });
+        }
+      };
+    }
 
     return {
+      loading,
+      list,
+      pagination,
       columns,
-      customRow
+      customRow,
+      handleTableChange
     };
   }
 });
