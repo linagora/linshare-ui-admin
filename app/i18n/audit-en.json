@@ -5,6 +5,7 @@
   "AUTHOR_ME": "Me",
   "AUTHOR_SUPERADMIN": "Super administrator",
   "AUTHOR_SYSTEM": "The system",
+  "UNKNOWN_AUTHOR": "Unknown author",
   "BREADCRUMB_TITLE_AUDIT": "Activity logs",
   "DETAILS_POPUP": {
     "BY": "by",
