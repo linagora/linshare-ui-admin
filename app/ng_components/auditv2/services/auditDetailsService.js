@@ -9,14 +9,14 @@
     .module('linshareAdminApp')
     .factory('auditDetailsService', auditDetailsService);
 
-  auditDetailsService.$inject = ['_', '$filter', 'lsAppConfig'];
+  auditDetailsService.$inject = ['_', '$filter', '$log', 'lsAppConfig'];
 
   /**
    * @namespace auditDetailsService
    * @desc Service to interact with Audit actions to generate all details
    * @memberOf linshareAdminApp
    */
-  function auditDetailsService(_, $filter, lsAppConfig) {
+  function auditDetailsService(_, $filter, $log, lsAppConfig) {
     const
       ACTIONS_KEY = {
         ADDITION: 'ADDITION',
@@ -89,6 +89,7 @@
       authorMe,
       authorSuperadmin,
       authorSystem,
+      unknownAuthor,
       disabled,
       enabled,
       service = {
@@ -112,6 +113,7 @@
       authorSystem = $filter('translate')('AUTHOR_SYSTEM');
       disabled = $filter('translate')('DISABLED');
       enabled = $filter('translate')('ENABLED');
+      unknownAuthor = $filter('translate')('UNKNOWN_AUTHOR');
       _.forEach(auditDetails, function(auditAction) {
         if (auditAction.resource) {
           generateDetails(loggedUserUuid, auditAction);
@@ -184,7 +186,17 @@
      * @memberOf linshareAdminApp.auditDetailsService
      */
     function setAuthorName(auditAction) {
-      return auditAction.isAuthor ? authorMe : setFullName(auditAction.actor);
+      if (auditAction.isAuthor) {
+        return authorMe;
+      }
+
+      if (!auditAction.actor) {
+        $log.error('There is no actor on auditAction: ', auditAction);
+
+        return unknownAuthor;
+      }
+
+      return setFullName(auditAction.actor);
     }
 
     /**
@@ -208,6 +220,7 @@
      */
     function setFullName(user) {
       var fullName;
+
       if (user.role === lsAppConfig.accountType.system) {
         fullName = authorSystem;
       } else if (user.role === lsAppConfig.accountType.superadmin) {
