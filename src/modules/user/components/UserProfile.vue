@@ -66,7 +66,7 @@
         </div>
         <div class="info-block">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.DOMAIN') }}</div>
-          <div class="info-block__value">{{ domain }}</div>
+          <div class="info-block__value">{{ data.domain }}</div>
         </div>
       </div>
     </a-col>
@@ -74,11 +74,10 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, computed, reactive, ref } from 'vue';
+import { defineComponent, computed, reactive } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import store from '@/core/store';
-import Domain from '@/modules/domain/type/Domain';
 
 export default defineComponent({
   name: 'UserProfile',
@@ -93,15 +92,6 @@ export default defineComponent({
       canUpload: true,
       canCreateGuest: true
     });
-    let domains = store.getters['Domain/getDomains'];
-
-    if (!domains || !domains.length) {
-      await store.dispatch('Domain/fetchDomains');
-      domains = store.getters['Domain/getDomains'];
-    }
-
-    const existingDomain = domains.find((item: Domain) => item.identifier === data.value.domain);
-    const domain = ref(existingDomain ? existingDomain.label : data.value.domain);
 
     async function updateUser () {
       try {
@@ -115,8 +105,7 @@ export default defineComponent({
     return {
       data,
       form,
-      updateUser,
-      domain
+      updateUser
     };
   }
 });
