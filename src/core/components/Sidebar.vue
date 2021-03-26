@@ -1,10 +1,12 @@
 <template>
   <div class="sidebar">
     <div class="logo-container">
-      <img
-        src="@/assets/images/linshare-logo-white.png"
-        :alt="$t('HEADER.LOGO_ALT')"
-      >
+      <router-link :to="{ name: 'dashboard' }">
+        <img
+          src="@/assets/images/linshare-logo-white.png"
+          :alt="$t('HEADER.LOGO_ALT')"
+        >
+      </router-link>
     </div>
     <div class="search-container">
       <a-input
