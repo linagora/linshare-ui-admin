@@ -6,6 +6,7 @@ export const LoginRoutes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'login',
+    props: true,
     component: () => import('../pages/Login.vue')
   },
   {

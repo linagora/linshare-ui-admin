@@ -51,7 +51,13 @@ export default defineComponent({
     UserOutlined,
     Copyright
   },
-  setup () {
+  props: {
+    redirect: {
+      type: String,
+      default: ''
+    }
+  },
+  setup (props) {
     const store = useStore();
     const { t } = useI18n();
     const error = ref('');
@@ -63,7 +69,7 @@ export default defineComponent({
 
     function handleError (e: AuthError) {
       if (e.isOTPRequiredError()) {
-        return router.push({ name: 'login2fa', params: { ...credentials } });
+        return router.push({ name: 'login2fa', params: { ...credentials, redirect: props.redirect } });
       }
 
       error.value = t(e.message) || t('ERRORS.COMMON_MESSAGE');
@@ -80,7 +86,7 @@ export default defineComponent({
         });
 
         loggingIn.value = false;
-        router.push('/');
+        router.push(props.redirect || '/');
       } catch (e) {
         loggingIn.value = false;
         handleError(e);

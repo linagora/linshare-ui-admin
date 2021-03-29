@@ -37,6 +37,7 @@ import { AuthError } from '../services/AuthAPIClient';
 interface LoginSecondFactorProps {
   email: string;
   password: string;
+  redirect: string;
 }
 
 export default defineComponent({
@@ -51,6 +52,10 @@ export default defineComponent({
       default: ''
     },
     password: {
+      type: String,
+      default: ''
+    },
+    redirect: {
       type: String,
       default: ''
     }
@@ -84,7 +89,7 @@ export default defineComponent({
         });
 
         submitting.value = false;
-        router.push('/');
+        router.push(props.redirect || '/');
       } catch (e) {
         submitting.value = false;
         handleError(e);

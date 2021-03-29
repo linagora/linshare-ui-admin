@@ -39,7 +39,7 @@ export default abstract class AdminAPIClient {
     const authError = new AuthError(error);
 
     if (authError.isCommonError() && this.clientConfig.useAuthInterceptor) {
-      router.push('/login');
+      router.push({ name: 'login', params: { redirect: router.currentRoute.value.fullPath } });
     }
 
     throw error;
