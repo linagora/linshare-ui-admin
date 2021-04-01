@@ -5,15 +5,21 @@ import { TableState, TableStateFilters } from 'ant-design-vue/es/table/interface
 
 import User from '@/modules/user/type/User';
 import UserAPIClient, { ListUsersOptions } from '@/modules/user/services/UserAPIClient';
+import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 
 type Pagination = TableState['pagination'];
+
+interface SortProps {
+  field: string;
+  order: string;
+}
 
 const list = ref<User[]>([]);
 const loading = ref(false);
 const pagination = reactive({
   total: 0,
   current: 1,
-  pageSize: 10
+  pageSize: DEFAULT_PAGE_SIZE
 });
 
 export default function useUsersList () {
@@ -40,7 +46,7 @@ export default function useUsersList () {
     }
   }
 
-  async function handleTableChange (pag: Pagination, filters?: TableStateFilters, sorter?: any) {
+  async function handleTableChange (pag: Pagination, filters?: TableStateFilters, sorter?: SortProps) {
     const options: ListUsersOptions = {};
 
     if (pag) {
