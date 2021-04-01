@@ -1,13 +1,7 @@
 <template>
   <div class="small-table">
     <ListItem v-for="item in list" :data="item" :key="item.uuid"/>
-    <a-pagination
-      v-show="list.length"
-      :total="pagination.total"
-      :current="pagination.current"
-      :pageSize="pagination.pageSize"
-      @change="handlePaginationChange"
-    />
+    <Pagination class="small-table__pagination" v-model="pagination" :isVisible="list.length" @change="handleTableChange"/>
   </div>
 </template>
 
@@ -15,21 +9,23 @@
 import { defineComponent } from 'vue';
 import ListItem from './ListItem.vue';
 import useUsersList from '@/modules/user/hooks/useUsersList';
+import Pagination from '@/core/components/Pagination.vue';
 
 export default defineComponent({
   name: 'SmallTable',
   components: {
-    ListItem
+    ListItem,
+    Pagination
   },
   async setup () {
-    const { list, pagination, handlePaginationChange } = useUsersList();
+    const { list, pagination, handleTableChange } = useUsersList();
 
-    await handlePaginationChange(pagination.current, pagination.pageSize);
+    await handleTableChange(pagination);
 
     return {
       list,
       pagination,
-      handlePaginationChange
+      handleTableChange
     };
   }
 });
@@ -40,6 +36,10 @@ export default defineComponent({
     display: none;
     @media (max-width: 1067px) {
       display: block;
+    }
+
+    &__pagination {
+      margin-top: 30px;
     }
   }
 </style>

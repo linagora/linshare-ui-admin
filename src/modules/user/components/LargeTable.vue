@@ -4,12 +4,13 @@
       :columns="columns"
       :row-key="record => record.uuid"
       :data-source="list"
-      :pagination="pagination"
       :locale="{emptyText: $t('USERS.MANAGE_USERS.NO_DATA')}"
+      :pagination="false"
       :custom-row="customRow"
       :loading="loading"
       @change="handleTableChange"
     />
+    <Pagination class="large-table__pagination" v-model="pagination" :isVisible="list.length" @change="handleTableChange"/>
   </div>
 </template>
 
@@ -19,9 +20,13 @@ import router from '@/core/router';
 import User from '@/modules/user/type/User';
 import { useI18n } from 'vue-i18n';
 import useUsersList from '@/modules/user/hooks/useUsersList';
+import Pagination from '@/core/components/Pagination.vue';
 
 export default defineComponent({
   name: 'LargeTable',
+  components: {
+    Pagination
+  },
   async setup () {
     const { t } = useI18n();
     const { loading, list, pagination, handleTableChange } = useUsersList();
@@ -90,6 +95,10 @@ export default defineComponent({
     @media (max-width: 1068px) {
       display: none;
     };
+
+    &__pagination {
+      margin-top: 30px;
+    }
 
     .ant-table-row {
       cursor: pointer;
