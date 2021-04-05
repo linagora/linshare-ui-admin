@@ -10,6 +10,7 @@
       <slot name="titlePostfix"/>
     </div>
     <h3 class="subtitle">{{ subtitle }}</h3>
+    <slot name="subTitlePostfix"/>
     <a-alert
       v-if="containHelper && showHelper"
       type="info"
@@ -87,6 +88,8 @@ export default defineComponent({
     }
 
     .subtitle {
+      display: inline-block;
+      margin-right: 15px;
       font-weight: 400;
       color: #999;
     }

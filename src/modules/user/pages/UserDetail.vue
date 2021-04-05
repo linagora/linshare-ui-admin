@@ -4,17 +4,19 @@
       :title="$t('USERS.MANAGE_USERS.TITLE')"
       :subtitle="`${data.firstName} ${data.lastName} <${data.mail}>`"
     >
+      <template #subTitlePostfix>
+        <div class="delete-user-container">
+          <a-popconfirm
+            :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
+            :ok-text="$t('USERS.DETAIL_USER.YES')"
+            :cancel-text="$t('USERS.DETAIL_USER.NO')"
+            @confirm="deleteUser"
+          >
+            <a-button>{{ $t('USERS.DETAIL_USER.DELETE_USER') }}</a-button>
+          </a-popconfirm>
+        </div>
+      </template>
     </PageTitle>
-    <div class="delete-user-container">
-      <a-popconfirm
-        :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
-        :ok-text="$t('USERS.DETAIL_USER.YES')"
-        :cancel-text="$t('USERS.DETAIL_USER.NO')"
-        @confirm="deleteUser"
-      >
-        <a-button>{{ $t('USERS.DETAIL_USER.DELETE_USER') }}</a-button>
-      </a-popconfirm>
-    </div>
 
     <a-alert
       v-if="data.locked"
@@ -157,16 +159,7 @@ export default defineComponent({
     }
 
     .delete-user-container {
-      @media (min-width: 575px) {
-        position: absolute;
-        right: 40px;
-        top: 60px;
-      }
-
-      @media (max-width: 574px) {
-        margin-top: -20px;
-        margin-bottom: 30px;
-      }
+      display: inline-block;
 
       .ant-btn {
         background: #1B4157;
