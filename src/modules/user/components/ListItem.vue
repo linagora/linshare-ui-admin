@@ -14,7 +14,7 @@
           </div>
           <div class="info-block visible-xs">
             <div class="info-block__title">{{ $t('USERS.MANAGE_USERS.DOMAIN') }}</div>
-            <div class="info-block__value">{{ data.domain }}</div>
+            <div class="info-block__value">{{ data.domain && data.domain.label }}</div>
           </div>
           <div class="info-block">
             <div class="info-block__title">{{ $t('USERS.MANAGE_USERS.ROLE') }}</div>

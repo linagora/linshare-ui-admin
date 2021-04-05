@@ -66,7 +66,7 @@
         </div>
         <div class="info-block">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.DOMAIN') }}</div>
-          <div class="info-block__value">{{ data.domain }}</div>
+          <div class="info-block__value">{{ data.domain && data.domain.label }}</div>
         </div>
       </div>
     </a-col>
