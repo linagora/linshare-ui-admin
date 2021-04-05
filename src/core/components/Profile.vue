@@ -5,7 +5,11 @@
         <span>{{ firstName[0] }}</span>
       </a-avatar>
       <template #overlay>
-        <a-menu>
+        <a-menu class="profile-menu">
+          <a-menu-item class="profile-info-ctn">
+            <div class="profile-name">{{ fullName }}</div>
+            <div class="profile-mail">{{ email }}</div>
+          </a-menu-item>
           <a-menu-item v-if="isFeature2FAEnabled">
             <router-link to="/second_factor_authentication">
               {{ $t('HEADER.PROFILE.2FA') }}
@@ -45,7 +49,9 @@ export default {
     return {
       logOut,
       firstName: computed(() => store.getters['Auth/getLoggedUserFirstName']),
-      isFeature2FAEnabled: computed(() => store.getters['Auth/isFeature2FAEnabled'])
+      isFeature2FAEnabled: computed(() => store.getters['Auth/isFeature2FAEnabled']),
+      fullName: computed(() => store.getters['Auth/getLoggedUserFullName']),
+      email: computed(() => store.getters['Auth/getLoggedUserEmail'])
     };
   }
 };
@@ -62,6 +68,26 @@ export default {
   .ant-dropdown-menu-item {
     &:hover {
       color: #0372b3;
+    }
+  }
+
+  .profile-menu {
+    .profile-info-ctn {
+      border-bottom: 1px solid #eee;
+      cursor: auto;
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: #fff;
+      }
+
+      .profile-name {
+        font-weight: 600;
+      }
+
+      .profile-mail {
+        color: #888;
+      }
     }
   }
 </style>

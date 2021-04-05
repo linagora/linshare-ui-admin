@@ -7,6 +7,8 @@ const getters: GetterTree<AuthState, RootState> = {
   getLoggedUserRole: state => state.loggedUser?.role,
   getLoggedUserUuid: state => state.loggedUser?.uuid,
   getLoggedUserFirstName: state => state.loggedUser?.firstName,
+  getLoggedUserFullName: state => `${state.loggedUser?.firstName || ''} ${state.loggedUser?.lastName || ''}`.trim(),
+  getLoggedUserEmail: state => state.loggedUser?.mail,
   is2FARequired: state => state.loggedUser?.secondFARequired,
   is2FAEnabled: state => state.loggedUser?.secondFAEnabled,
   isFeature2FAEnabled: state => state.loggedUser?.secondFAEnabled !== undefined && state.loggedUser?.secondFARequired !== undefined,
