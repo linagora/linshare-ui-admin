@@ -37,7 +37,7 @@
             {{ $t('USERS.DETAIL_USER.ENABLE_PERSONAL_SPACE')}}
           </a-checkbox>
         </div>
-        <div class="input-container">
+        <div class="input-container" v-if="data.accountType !== 'GUEST'">
           <a-checkbox v-model:checked="data.canCreateGuest">
             {{ $t('USERS.DETAIL_USER.ALLOW_GUEST_CREATION') }}
           </a-checkbox>
@@ -63,6 +63,14 @@
         <div class="info-block">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.MODIFICATION_DATE') }}</div>
           <div class="info-block__value">{{ $d(data.modificationDate, 'mediumDateTime') }}</div>
+        </div>
+        <div class="info-block" v-if="data.accountType === 'GUEST'">
+          <div class="info-block__title">{{ $t('USERS.DETAIL_USER.EXPIRATION_DATE') }}</div>
+          <div class="info-block__value">{{ $d(data.expirationDate, 'mediumDateTime') }}</div>
+        </div>
+        <div class="info-block" v-if="data.accountType === 'GUEST'">
+          <div class="info-block__title">{{ $t('USERS.DETAIL_USER.OWNER') }}</div>
+          <div class="info-block__value"></div>
         </div>
         <div class="info-block">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.DOMAIN') }}</div>
