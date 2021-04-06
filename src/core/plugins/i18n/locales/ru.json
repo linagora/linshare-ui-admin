@@ -14,7 +14,8 @@
   },
   "MESSAGES": {
     "UPDATE_SUCCESS": "Обновление успешно",
-    "DELETE_SUCCESS": "Удалить успешно"
+    "DELETE_SUCCESS": "Удалить успешно",
+    "PROCESSING": "Обработка..."
   },
   "HEADER": {
     "LOGO_ALT": "Логотип Linshare",
@@ -84,6 +85,7 @@
       "USER_PROFILE": "Профиль пользователя",
       "PERSONAL_SPACE_QUOTA": "Квота личного пространства",
       "UPLOAD_REQUEST": "Запрос на загрузку",
+      "RESTRICTED_CONTACT_LIST": "Список контактов с ограниченным доступом",
       "ENABLED": "Включено",
       "DISABLED": "инвалид",
       "FIRST_NAME": "Имя",
@@ -95,7 +97,11 @@
       "ACCOUNT_TYPE": "Тип аккаунта",
       "CREATION_DATE": "Дата создания",
       "MODIFICATION_DATE": "Дата модификации",
-      "DOMAIN": "Домен"
+      "EXPIRATION_DATE": "Срок действия",
+      "OWNER": "Владелец",
+      "DOMAIN": "Домен",
+      "ADD_CONTACT": "Добавить контакт",
+      "RESTRICTED_LIST": "Ограниченный список"
     }
   },
   "ERRORS": {

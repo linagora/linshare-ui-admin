@@ -7,7 +7,11 @@ export default interface User {
   role: string;
   mail: string;
   locale: string;
-  domain: string;
+  domain: {
+    label: string;
+    identifier: string;
+    type: string;
+  };
   creationDate: number;
   modificationDate: number;
   secondFAEnabled: boolean;

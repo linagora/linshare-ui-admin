@@ -14,7 +14,8 @@
   },
   "MESSAGES": {
     "UPDATE_SUCCESS": "Cập nhật thành công",
-    "DELETE_SUCCESS": "Xóa thành công"
+    "DELETE_SUCCESS": "Xóa thành công",
+    "PROCESSING": "Đang xử lí..."
   },
   "HEADER": {
     "LOGO_ALT": "Logo Linshare",
@@ -84,6 +85,7 @@
       "USER_PROFILE": "Hồ sơ người dùng",
       "PERSONAL_SPACE_QUOTA": "Không gian lưu trữ cá nhân",
       "UPLOAD_REQUEST": "Yêu cầu tải lên",
+      "RESTRICTED_CONTACT_LIST": "Danh sách liên lạc bị hạn chế",
       "ENABLED": "Kích hoạt",
       "DISABLED": "Vô hiệu hóa",
       "FIRST_NAME": "Tên",
@@ -95,7 +97,11 @@
       "ACCOUNT_TYPE": "Loại tài khoản",
       "CREATION_DATE": "Ngày tạo",
       "MODIFICATION_DATE": "Ngày chỉnh sửa",
-      "DOMAIN": "Miền"
+      "EXPIRATION_DATE": "Ngày hết hạn",
+      "OWNER": "Sở hữu bởi",
+      "DOMAIN": "Miền",
+      "ADD_CONTACT": "Thêm liên lạc",
+      "RESTRICTED_LIST": "Danh sách hạn chế"
     }
   },
   "ERRORS": {

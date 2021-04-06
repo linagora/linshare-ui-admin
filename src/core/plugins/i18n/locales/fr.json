@@ -14,7 +14,8 @@
   },
   "MESSAGES": {
     "UPDATE_SUCCESS": "Mis à jour avec succès",
-    "DELETE_SUCCESS": "Supprimé avec succès"
+    "DELETE_SUCCESS": "Supprimé avec succès",
+    "PROCESSING": "Traitement..."
   },
   "HEADER": {
     "LOGO_ALT": "Logo Linshare",
@@ -84,6 +85,7 @@
       "USER_PROFILE": "Profil de l'utilisateur",
       "PERSONAL_SPACE_QUOTA": "Quota d'espace personnel",
       "UPLOAD_REQUEST": "Invitations de dépot",
+      "RESTRICTED_CONTACT_LIST": "Liste restreinte de contacts",
       "ENABLED": "Activé",
       "DISABLED": "Désactivé",
       "FIRST_NAME": "Prénom",
@@ -95,7 +97,11 @@
       "ACCOUNT_TYPE": "Type de compte",
       "CREATION_DATE": "Date de création",
       "MODIFICATION_DATE": "Date de modification",
-      "DOMAIN": "Domaine"
+      "EXPIRATION_DATE": "Date d'expiration",
+      "OWNER": "Propriétaire",
+      "DOMAIN": "Domaine",
+      "ADD_CONTACT": "Ajouter le contact",
+      "RESTRICTED_LIST": "Liste restreinte de contacts"
     }
   },
   "ERRORS": {

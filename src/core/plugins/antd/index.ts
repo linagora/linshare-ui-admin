@@ -1,6 +1,7 @@
 import { App } from '@vue/runtime-core';
 import {
   Alert,
+  AutoComplete,
   Avatar,
   Badge,
   Button,
@@ -28,6 +29,7 @@ import 'ant-design-vue/dist/antd.css';
 function useAntdComponents (vueApp: App): App {
   return vueApp
     .use(Alert)
+    .use(AutoComplete)
     .use(Avatar)
     .use(Badge)
     .use(Button)

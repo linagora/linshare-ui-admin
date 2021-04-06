@@ -14,7 +14,8 @@
   },
   "MESSAGES": {
     "UPDATE_SUCCESS": "Updated successfully",
-    "DELETE_SUCCESS": "Deleted successfully"
+    "DELETE_SUCCESS": "Deleted successfully",
+    "PROCESSING": "Processing..."
   },
   "HEADER": {
     "LOGO_ALT": "Linshare logo",
@@ -84,6 +85,7 @@
       "USER_PROFILE": "User profile",
       "PERSONAL_SPACE_QUOTA": "Personal space quota",
       "UPLOAD_REQUEST": "Upload request",
+      "RESTRICTED_CONTACT_LIST": "Restricted contact list",
       "ENABLED": "Enabled",
       "DISABLED": "Disabled",
       "FIRST_NAME": "First name",
@@ -95,7 +97,11 @@
       "ACCOUNT_TYPE": "Account type",
       "CREATION_DATE": "Creation date",
       "MODIFICATION_DATE": "Modification date",
-      "DOMAIN": "Domain"
+      "EXPIRATION_DATE": "Expiry date",
+      "OWNER": "Owner",
+      "DOMAIN": "Domain",
+      "ADD_CONTACT": "Add contact",
+      "RESTRICTED_LIST": "Restricted list"
     }
   },
   "ERRORS": {
@@ -105,7 +111,8 @@
     "INVALID_LOGIN_CREDENTIALS": "Invalid login credentials",
     "OTP_REQUIRED": "Second factor authentication required",
     "OTP_ERROR": "OTP is wrong or expired",
-    "ACCOUNT_LOCKED": "Your account has been locked due to failed login attempts"
+    "ACCOUNT_LOCKED": "Your account has been locked due to failed login attempts",
+    "CONTACT_ALREADY_EXISTS": "Contact already exists"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "2nd Factor Authentication",
