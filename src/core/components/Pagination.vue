@@ -1,5 +1,14 @@
 <template>
   <div class="pagination-ctn">
+    <div class="pagination-selector-ctn">
+      <a-pagination
+        v-show="visible"
+        :total="pagination.total"
+        :current="pagination.current"
+        :pageSize="pagination.pageSize"
+        @change="handleChange"
+      />
+    </div>
     <div class="page-size-selector-ctn">
       <a-button
         v-for="(option, index) in pageSizeOptions"
@@ -9,15 +18,6 @@
       >
         {{option}}
       </a-button>
-    </div>
-    <div class="pagination-selector-ctn">
-      <a-pagination
-        v-show="visible"
-        :total="pagination.total"
-        :current="pagination.current"
-        :pageSize="pagination.pageSize"
-        @change="handleChange"
-      />
     </div>
   </div>
 </template>

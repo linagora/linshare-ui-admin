@@ -13,6 +13,7 @@ import {
   Menu,
   Modal,
   Layout,
+  List,
   Pagination,
   Popconfirm,
   Popover,
@@ -39,6 +40,7 @@ function useAntdComponents (vueApp: App): App {
     .use(Menu)
     .use(Modal)
     .use(Layout)
+    .use(List)
     .use(Pagination)
     .use(Popover)
     .use(Popconfirm)

@@ -1,89 +1,38 @@
 <template>
   <div class="large-table">
-    <a-table
-      :columns="columns"
-      :row-key="record => record.uuid"
+    <a-list
+      item-layout="horizontal"
       :data-source="list"
-      :locale="{emptyText: $t('USERS.MANAGE_USERS.NO_DATA')}"
-      :pagination="false"
-      :custom-row="customRow"
-      :loading="loading"
-      @change="handleTableChange"
-    />
+    >
+      <template #renderItem="{ item }">
+        <DesktopListItem :data="item" />
+      </template>
+    </a-list>
     <Pagination class="large-table__pagination" v-model="pagination" :isVisible="list.length" @change="handleTableChange"/>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
-import router from '@/core/router';
-import User from '@/modules/user/type/User';
-import { useI18n } from 'vue-i18n';
+import { defineComponent } from 'vue';
 import useUsersList from '@/modules/user/hooks/useUsersList';
 import Pagination from '@/core/components/Pagination.vue';
+import DesktopListItem from '@/modules/user/components/DesktopListItem.vue';
 
 export default defineComponent({
   name: 'LargeTable',
   components: {
-    Pagination
+    Pagination,
+    DesktopListItem
   },
   async setup () {
-    const { t } = useI18n();
     const { loading, list, pagination, handleTableChange } = useUsersList();
-    const columns = computed(() => [
-      {
-        title: t('USERS.MANAGE_USERS.FIRST_NAME'),
-        dataIndex: 'firstName',
-        sorter: true,
-        width: '15%'
-      },
-      {
-        title: t('USERS.MANAGE_USERS.LAST_NAME'),
-        dataIndex: 'lastName',
-        sorter: true,
-        width: '15%'
-      },
-      {
-        title: t('USERS.MANAGE_USERS.EMAIL'),
-        dataIndex: 'mail',
-        sorter: true,
-        width: '20%'
-      },
-      {
-        title: t('USERS.MANAGE_USERS.DOMAIN'),
-        dataIndex: 'domain',
-        width: '20%'
-      },
-      {
-        title: t('USERS.MANAGE_USERS.ROLE'),
-        dataIndex: 'role',
-        sorter: true,
-        width: '15%'
-      },
-      {
-        title: t('USERS.MANAGE_USERS.ACCOUNT_TYPE'),
-        dataIndex: 'accountType',
-        sorter: true,
-        width: '15%'
-      }
-    ]);
 
     await handleTableChange(pagination);
-
-    function customRow (user: User) {
-      return {
-        onclick () {
-          router.push({ name: 'UserDetail', params: { id: user.uuid } });
-        }
-      };
-    }
 
     return {
       loading,
       list,
       pagination,
-      columns,
-      customRow,
       handleTableChange
     };
   }
