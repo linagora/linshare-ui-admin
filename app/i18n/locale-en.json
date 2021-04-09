@@ -263,19 +263,19 @@
         "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": "A share will expire soon without being downloaded",
         "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": "The share has expired and was deleted by the system",
         "SHARE_ANONYMOUS_RESET_PASSWORD": "The password of the anonymous share was reset",
-        "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "The owner has closed the upload request",
+        "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "The issuer has closed the upload request",
         "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "A recipient has closed the upload request of the creator",
-        "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": "A recepient has deleted a file within the upload request depot",
-        "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": "A file was deleted by the owner of the Upload Request",
+        "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": "A recepient has deleted a file within the upload request",
+        "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": "A file was deleted by the issuer of the Upload Request",
         "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "A recipient could not upload his file due to insufficient space",
-        "UPLOAD_REQUEST_UPLOADED_FILE": "A recipient has uploaded a file within the upload request depot",
-        "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "An upload request depot is about to be closed",
-        "UPLOAD_REQUEST_WARN_EXPIRY": "An upload request depot has been closed",
-        "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER" : "An upload request has been activated for the owner",
+        "UPLOAD_REQUEST_UPLOADED_FILE": "A recipient has uploaded a file within the upload request",
+        "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "An upload request is about to be closed",
+        "UPLOAD_REQUEST_WARN_EXPIRY": "An upload request has been closed",
+        "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER" : "An upload request has been activated for the issuer",
         "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": "An upload request has been activated for the recipient",
-        "UPLOAD_REQUEST_CLOSED_BY_OWNER": "The upload request has been closed by the owner",
+        "UPLOAD_REQUEST_CLOSED_BY_OWNER": "The upload request has been closed by the issuer",
         "UPLOAD_REQUEST_CREATED": "An upload request has been created",
-        "UPLOAD_REQUEST_FILE_DELTED_BY_OWNER": "The upload request owner delete a file within the depot.",
+        "UPLOAD_REQUEST_FILE_DELTED_BY_OWNER": "The upload request issuer deletes a file within the upload request.",
         "UPLOAD_REQUEST_PASSWORD_RENEWAL": "The password of the upload request was renewed",
         "UPLOAD_REQUEST_PASSWORD_REMOVED": "The password of the upload request was deleted",
         "UPLOAD_REQUEST_REMINDER": "Remind the recipient of the upload request",
@@ -848,7 +848,7 @@
       "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.FILE_WARN_OWNER_BEFORE_FILE_EXPIRY",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This notification is sent to the owner of a file before the expiration and deletion by the system."
+        "DESCRIPTION": "This notification is sent to the issuer of a file before the expiration and deletion by the system."
       },
       "GUEST_ACCOUNT_NEW_CREATION": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_NEW_CREATION",
@@ -876,7 +876,7 @@
         "DESCRIPTION": "This notification is sent to guests to reset their passwords due to security enhancement."
       },
       "SHARE_ANONYMOUS_RESET_PASSWORD": {
-        "NAME": "@:COMMON.ENUM.SHARE_ANONYMOUS_RESET_PASSWORD",
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_ANONYMOUS_RESET_PASSWORD",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent when a new password is generated for an existing anonymous sharing."
       },
@@ -929,16 +929,52 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the internal user or guest when the upload request is closed by the recipient."
+      },"UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_OWNER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the internal user or guest when the upload request is activated."
+      },"UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the recipient when the upload request is activated."
+      },"UPLOAD_REQUEST_CLOSED_BY_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the recipient when the upload request is closed by the issuer."
+      },"UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_OWNER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the recipient when a file is deleted from the upload request by the issuer."
+      },"UPLOAD_REQUEST_CREATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the recipient when the upload request is created and not yet enabled."
+      },"UPLOAD_REQUEST_PASSWORD_RENEWAL": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_PASSWORD_RENEWAL",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the recipient to allow him to reset the upload request access password."
+      },"UPLOAD_REQUEST_RECIPIENT_REMOVED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_RECIPIENT_REMOVED",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the recipient when the issuer removes him from the upload request."
       },
       "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This notification is sent to the owner of an upload request when the recipient deletes documents he has already uploaded."
+        "DESCRIPTION": "This notification is sent to the issuer of an upload request when the recipient deletes files."
+      },"UPLOAD_REQUEST_REMINDER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_REMINDER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to remind the recipient to upload a files on the upload request before it expires."
+      },"UPLOAD_REQUEST_UPDATED_SETTINGS": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPDATED_SETTINGS",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to the recipient of an upload request when parameters of the upload request have been updated."
       },
       "UPLOAD_REQUEST_UNAVAILABLE_SPACE": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UNAVAILABLE_SPACE",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This notification is sent to the owner of an upload request when a recipient could not complete an upload due to the owner insufficient space in his Personal Space."
+        "DESCRIPTION": "This notification is sent to the issuer of an upload request when a recipient could not complete an upload due to the issuer insufficient space in his Personal Space."
       },
       "UPLOAD_REQUEST_UPLOADED_FILE": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPLOADED_FILE",
@@ -948,12 +984,12 @@
       "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_BEFORE_EXPIRY",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This notification is sent to the owner or recipient of an upload request before the expiration of the upload request."
+        "DESCRIPTION": "This notification is sent to the issuer or recipient of an upload request before the expiration of the upload request."
       },
       "UPLOAD_REQUEST_WARN_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_EXPIRY",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This notification is sent to the owner or recipient of an upload request when the upload request expires."
+        "DESCRIPTION": "This notification is sent to the issuer or recipient of an upload request when the upload request expires."
       },
       "WORKGROUP_WARN_NEW_MEMBER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_MEMBER",

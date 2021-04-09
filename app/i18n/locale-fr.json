@@ -273,7 +273,7 @@
         "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "Le créateur à clôt l'invitation de dépôt",
         "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Un destinataire a clôturé l'invitation de dépôt du créateur",
         "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": "Un destinataire a supprimé un fichier dans une invitation de dépôt",
-        "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": "Le propriétaire de l'invitation de dépôt a supprimé un fichier",
+        "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": "L'émetteur de l'invitation de dépôt a supprimé un fichier",
         "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "Un destinataire n'a pas pu déposé un fichier par manque d’espace",
         "UPLOAD_REQUEST_UPLOADED_FILE": "Un destinataire a déposé un fichier dans une invitation de dépôt",
         "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "Une invitation de dépôt sera prochainement clôturée",
@@ -876,9 +876,9 @@
         "DESCRIPTION": "Cette notification est envoyée aux comptes invités pour changer leurs mots de passe suite à une mise à jour de sécurité."
       },
       "SHARE_ANONYMOUS_RESET_PASSWORD": {
-        "NAME": "@:COMMON.ENUM.SHARE_ANONYMOUS_RESET_PASSWORD",
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE_SHARE_ANONYMOUS_RESET_PASSWORD",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyé lors de la génération d'un mot de passe pour un partage anonyme existant."
+        "DESCRIPTION": "Cette notification est envoyée lors de la génération d'un mot de passe pour un partage anonyme existant."
       },
       "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_BEFORE_EXPIRY",
@@ -899,11 +899,46 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée au destinataire d'un partage de document, pour l'avertir que le partage a expiré et a été supprimé par le système"
-      },
-      "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
+      },"UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette notification est envoyée à un utilisateur interne ou invité afin de l'avertir de la clotûre de l'invitation de dépôt par le destinataire."
+        "DESCRIPTION": "Cette notification est envoyée à l'émetteur après la clôture de l'invitation de dépôt."
+        },"UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_OWNER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée à l'émetteur suite à l'activation de l'invitation de dépôt."
+      },"UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire suite à l'activation de l'invitation de dépôt."
+      },"UPLOAD_REQUEST_CLOSED_BY_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire suite à la clôture de l'invitation de dépôt par l'émetteur."
+      },"UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_OWNER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire suite à la suppression d'un document de l'invitation de dépôt par l'émetteur."
+      },"UPLOAD_REQUEST_CREATED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire suite à la création d'une invitation de dépôt."
+      },"UPLOAD_REQUEST_PASSWORD_RENEWAL": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_PASSWORD_RENEWAL",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire pour lui permettre de réinitialiser le mot de passe de l'invitation de dépôt."
+      },"UPLOAD_REQUEST_RECIPIENT_REMOVED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_RECIPIENT_REMOVED",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire suite à sa suppréssion de l'invitation de dépôt de la part du émetteur."
+      },"UPLOAD_REQUEST_REMINDER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_REMINDER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire pour lui rapeller que des documents sont attendu sur l'invitation de dépôt."
+      },"UPLOAD_REQUEST_UPDATED_SETTINGS": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPDATED_SETTINGS",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée au destinataire suite à une mise à jour des paramètres de l'invitation de dépôt."
       },
       "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
