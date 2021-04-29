@@ -610,6 +610,62 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
+        },
+        "UPLOAD_REQUEST": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы создали запрос на загрузку с названием: {{resourceName}}",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} создал запрос на загрузку с именем: {{resourceName}}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы обновили запрос на загрузку: {{resourceName}}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} обновил запрос на загрузку: {{resourceName}}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "UPLOAD_REQUEST_URL": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "URL-адрес запроса загрузки был создан из запроса загрузки: {{resourceNameVarious}}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "URL-адрес запроса загрузки был создан из запроса загрузки: {{resourceNameVarious}}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          }
+        },
+        "UPLOAD_REQUEST_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Файл {{resourceName}} загружен.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "Файл {{resourceName}} загружен.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы удалили документ: {{resourceName}}",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} удалил документ: {{resourceName}}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
         }
       },
       "UPDATED_FIELDS": {
@@ -668,7 +724,11 @@
         "WORKGROUP_DOCUMENT_REVISION": "Файл рабочей группы (версию)",
         "WORKGROUP_FOLDER": "Папка рабочей группы",
         "WORKGROUP_MEMBER": "Участник рабочей группы",
-        "JWT_PERMANENT_TOKEN": "Постоянный токен доступа"
+        "JWT_PERMANENT_TOKEN": "Постоянный токен доступа",
+        "UPLOAD_REQUEST": "Запрос на загрузку",
+        "UPLOAD_REQUEST_URL": "URL запроса загрузки",
+        "UPLOAD_REQUEST_GROUP": "Группа запросов на загрузку",
+        "UPLOAD_REQUEST_ENTRY": "Запись запроса на загрузку"
       }
     },
     "TABLE_HEADER": {

@@ -273,6 +273,8 @@
         resourceName = (auditAction.resource.uuid === loggedUserUuid) ? authorMe : setFullName(auditAction.resource);
       } else if(auditAction.resource.label) {
         resourceName = auditAction.resource.label;
+      } else if(auditAction.resource.subject) {
+        resourceName = auditAction.resource.subject;
       } else {
         resourceName = auditAction.resource.name;
       }

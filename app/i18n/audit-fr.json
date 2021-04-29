@@ -610,6 +610,62 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
           }
         }
+      },
+      "UPLOAD_REQUEST": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "L'invitation de dépôt a été créée : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a créé une invitation de dépôt nommé: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez mis à jour l'invitation de dépôt : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} à mis à jour l'invitation de dépôt: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        }
+      },
+      "UPLOAD_REQUEST_URL": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "Un e-mail de demande de téléchargement a été envoyé à : {{resourceName}}",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          },
+          "VIEWER": {
+            "SENTENCE": "Un e-mail de demande de téléchargement a été envoyé à : {{resourceName}}",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          }
+        }
+      },
+      "UPLOAD_REQUEST_ENTRY": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "Le fichier {{resourceName}} a été déposé.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          },
+          "VIEWER": {
+            "SENTENCE": "Le fichier {{resourceName}} a été déposé.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          }
+        },
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé le fichier : {{resourceName}}",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a supprimé le document : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        }
       }
     },
     "UPDATED_FIELDS": {
@@ -670,7 +726,11 @@
       "WORKGROUP_MEMBER": "Groupe de Travail - Membre",
       "JWT_PERMANENT_TOKEN": "Jeton d'accès permanent (JWT)",
       "DOMAIN":"Domaine",
-      "DOMAIN_PATTERN":"Modèle de domaine"
+      "DOMAIN_PATTERN":"Modèle de domaine",
+      "UPLOAD_REQUEST": "Invitation de dépôt",
+      "UPLOAD_REQUEST_GROUP": "Invitation de dépôt - Paramétrage collectif",
+      "UPLOAD_REQUEST_URL": "Invitation de dépôt - Lien",
+      "UPLOAD_REQUEST_ENTRY": "Invitation de dépôt - Document"
     }
   },
   "TABLE_HEADER": {
