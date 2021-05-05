@@ -1059,9 +1059,9 @@
         "PARAMETER_NAME": "Paramètre"
       },
       "DRIVE": {
-        "NAME": "Drive - EXPERIMENTAL",
+        "NAME": "Drive",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette fonctionalité est en mode expérimental, les interfaces graphiques n'ont pas encore été réalisées",
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs de gérer les Drives. L'objectif principal des Drives est de regrouper des groupe de travail (workgroups) et de leur affecter des membres et rôles par défaut. Il est possible de faire le parallèle entre un Drive et une équipe, un groupe de travail et un projet de cette équipe.",
         "ADVANCED_DESCRIPTION": ""
       },
       "DRIVE__CREATION_RIGHT": {

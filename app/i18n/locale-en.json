@@ -1085,9 +1085,9 @@
         "PARAMETER_NAME": "Parameters"
       },
       "DRIVE": {
-        "NAME": "Drive - EXPERIMENTAL",
+        "NAME": "Drive",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This functionality is experimental, feature is not implemented on UI",
+        "DESCRIPTION": "This functionality allow users to manage Drives. The main goal of Drives is to gather workgroups together and to define default membership and roles for a bunch of users. You may see workgroups as projects and Drive as team, a team who handle theses projects.",
         "ADVANCED_DESCRIPTION": ""
       },
       "DRIVE__CREATION_RIGHT": {
