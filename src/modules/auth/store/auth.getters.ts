@@ -11,7 +11,6 @@ const getters: GetterTree<AuthState, RootState> = {
   getLoggedUserEmail: state => state.loggedUser?.mail,
   is2FARequired: state => state.loggedUser?.secondFARequired,
   is2FAEnabled: state => state.loggedUser?.secondFAEnabled,
-  isFeature2FAEnabled: state => state.loggedUser?.secondFAEnabled !== undefined && state.loggedUser?.secondFARequired !== undefined,
   getSecondFA: state => state.secondFA
 };
 

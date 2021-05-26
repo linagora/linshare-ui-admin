@@ -10,7 +10,7 @@
             <div class="profile-name">{{ fullName }}</div>
             <div class="profile-mail">{{ email }}</div>
           </a-menu-item>
-          <a-menu-item v-if="isFeature2FAEnabled">
+          <a-menu-item>
             <router-link to="/second_factor_authentication">
               {{ $t('HEADER.PROFILE.2FA') }}
             </router-link>
@@ -49,7 +49,6 @@ export default {
     return {
       logOut,
       firstName: computed(() => store.getters['Auth/getLoggedUserFirstName']),
-      isFeature2FAEnabled: computed(() => store.getters['Auth/isFeature2FAEnabled']),
       fullName: computed(() => store.getters['Auth/getLoggedUserFullName']),
       email: computed(() => store.getters['Auth/getLoggedUserEmail'])
     };
