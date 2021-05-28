@@ -6,7 +6,7 @@ export default interface User {
   canCreateGuest: boolean;
   role: string;
   mail: string;
-  locale: string;
+  externalMailLocale: string;
   domain: {
     label: string;
     identifier: string;

@@ -23,7 +23,7 @@
         </div>
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.NOTIFICATION_LANGUAGE') }}</label>
-          <a-select v-model:value="data.locale">
+          <a-select v-model:value="data.externalMailLocale">
             <a-select-option value="ENGLISH">
               {{ $t('LOCALE.ENGLISH') }}
             </a-select-option>
@@ -96,7 +96,7 @@ export default defineComponent({
       firstName: '',
       lastName: '',
       role: undefined,
-      locale: undefined,
+      externalMailLocale: undefined,
       canUpload: true,
       canCreateGuest: true
     });
