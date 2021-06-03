@@ -8,6 +8,8 @@ import {
   Card,
   Checkbox,
   Col,
+  ConfigProvider,
+  DatePicker,
   Dropdown,
   Form,
   Input,
@@ -35,7 +37,9 @@ function useAntdComponents (vueApp: App): App {
     .use(Button)
     .use(Card)
     .use(Checkbox)
+    .use(ConfigProvider)
     .use(Col)
+    .use(DatePicker)
     .use(Dropdown)
     .use(Form)
     .use(Input)

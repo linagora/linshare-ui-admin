@@ -4,15 +4,15 @@
       <a-form :model="form" @submit="updateUser()">
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.FIRST_NAME') }}</label>
-          <a-input v-model:value="data.firstName"></a-input>
+          <a-input v-model:value="form.firstName"></a-input>
         </div>
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.LAST_NAME')}}</label>
-          <a-input v-model:value="data.lastName"></a-input>
+          <a-input v-model:value="form.lastName"></a-input>
         </div>
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.ROLE') }}</label>
-          <a-select v-model:value="data.role">
+          <a-select v-model:value="form.role">
             <a-select-option value="SIMPLE">
               SIMPLE
             </a-select-option>
@@ -23,7 +23,7 @@
         </div>
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.NOTIFICATION_LANGUAGE') }}</label>
-          <a-select v-model:value="data.externalMailLocale">
+          <a-select v-model:value="form.externalMailLocale">
             <a-select-option value="ENGLISH">
               {{ $t('LOCALE.ENGLISH') }}
             </a-select-option>
@@ -32,13 +32,17 @@
             </a-select-option>
           </a-select>
         </div>
+        <div class="input-container" v-if="user.accountType === 'GUEST'">
+          <label>{{ $t('USERS.DETAIL_USER.EXPIRATION_DATE') }}</label>
+          <a-date-picker style="width: 100%" v-model:value="form.expirationDate" valueFormat="x" format="MMM DD, YYYY"/>
+        </div>
         <div class="input-container">
-          <a-checkbox v-model:checked="data.canUpload">
+          <a-checkbox v-model:checked="form.canUpload">
             {{ $t('USERS.DETAIL_USER.ENABLE_PERSONAL_SPACE')}}
           </a-checkbox>
         </div>
-        <div class="input-container" v-if="data.accountType !== 'GUEST'">
-          <a-checkbox v-model:checked="data.canCreateGuest">
+        <div class="input-container" v-if="user.accountType !== 'GUEST'">
+          <a-checkbox v-model:checked="form.canCreateGuest">
             {{ $t('USERS.DETAIL_USER.ALLOW_GUEST_CREATION') }}
           </a-checkbox>
         </div>
@@ -54,27 +58,23 @@
       <div class="info-block-container">
         <div class="info-block">
           <div class="info-block__title">{{ $t("USERS.DETAIL_USER.ACCOUNT_TYPE")}}</div>
-          <div class="info-block__value">{{ data.accountType }}</div>
+          <div class="info-block__value">{{ user.accountType }}</div>
         </div>
         <div class="info-block">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.CREATION_DATE')}}</div>
-          <div class="info-block__value">{{ $d(data.creationDate, 'mediumDateTime') }}</div>
+          <div class="info-block__value">{{ $d(user.creationDate, 'mediumDateTime') }}</div>
         </div>
         <div class="info-block">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.MODIFICATION_DATE') }}</div>
-          <div class="info-block__value">{{ $d(data.modificationDate, 'mediumDateTime') }}</div>
+          <div class="info-block__value">{{ $d(user.modificationDate, 'mediumDateTime') }}</div>
         </div>
-        <div class="info-block" v-if="data.accountType === 'GUEST'">
-          <div class="info-block__title">{{ $t('USERS.DETAIL_USER.EXPIRATION_DATE') }}</div>
-          <div class="info-block__value">{{ $d(data.expirationDate, 'mediumDateTime') }}</div>
-        </div>
-        <div class="info-block" v-if="data.accountType === 'GUEST'">
+        <div class="info-block" v-if="user.accountType === 'GUEST'">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.OWNER') }}</div>
           <div class="info-block__value"></div>
         </div>
         <div class="info-block">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.DOMAIN') }}</div>
-          <div class="info-block__value">{{ data.domain && data.domain.label }}</div>
+          <div class="info-block__value">{{ user.domain && user.domain.label }}</div>
         </div>
       </div>
     </a-col>
@@ -86,24 +86,30 @@ import { defineComponent, computed, reactive } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import store from '@/core/store';
+import User from '../type/User';
 
 export default defineComponent({
   name: 'UserProfile',
   async setup () {
-    const data = computed(() => store.getters['User/getUser']);
+    const user = computed<User>(() => store.getters['User/getUser']);
     const { t } = useI18n();
     const form = reactive({
-      firstName: '',
-      lastName: '',
-      role: undefined,
-      externalMailLocale: undefined,
-      canUpload: true,
-      canCreateGuest: true
+      firstName: user.value.firstName,
+      lastName: user.value.lastName,
+      role: user.value.role,
+      externalMailLocale: user.value.externalMailLocale,
+      canUpload: user.value.canUpload,
+      canCreateGuest: user.value.canCreateGuest,
+      expirationDate: user.value.expirationDate ? user.value.expirationDate.toString() : null
     });
 
     async function updateUser () {
       try {
-        await store.dispatch('User/updateUser', store.getters['User/getUser']);
+        await store.dispatch('User/updateUser', {
+          ...user.value,
+          ...form,
+          expirationDate: Number(form.expirationDate)
+        });
         message.success(t('MESSAGES.UPDATE_SUCCESS'));
       } catch (error) {
         message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
@@ -111,8 +117,8 @@ export default defineComponent({
     }
 
     return {
-      data,
       form,
+      user,
       updateUser
     };
   }
