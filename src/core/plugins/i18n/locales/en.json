@@ -98,7 +98,7 @@
       "CREATION_DATE": "Creation date",
       "MODIFICATION_DATE": "Modification date",
       "EXPIRATION_DATE": "Expiry date",
-      "OWNER": "Owner",
+      "AUTHOR": "Author",
       "DOMAIN": "Domain",
       "ADD_CONTACT": "Add contact",
       "RESTRICTED_LIST": "Restricted list"

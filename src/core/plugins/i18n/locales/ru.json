@@ -98,7 +98,7 @@
       "CREATION_DATE": "Дата создания",
       "MODIFICATION_DATE": "Дата модификации",
       "EXPIRATION_DATE": "Срок действия",
-      "OWNER": "Владелец",
+      "AUTHOR": "Автор",
       "DOMAIN": "Домен",
       "ADD_CONTACT": "Добавить контакт",
       "RESTRICTED_LIST": "Ограниченный список"

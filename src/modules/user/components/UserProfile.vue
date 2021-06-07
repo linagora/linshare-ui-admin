@@ -69,12 +69,12 @@
           <div class="info-block__value">{{ $d(user.modificationDate, 'mediumDateTime') }}</div>
         </div>
         <div class="info-block" v-if="user.accountType === 'GUEST'">
-          <div class="info-block__title">{{ $t('USERS.DETAIL_USER.OWNER') }}</div>
-          <div class="info-block__value"></div>
+          <div class="info-block__title">{{ $t('USERS.DETAIL_USER.AUTHOR') }}</div>
+          <div class="info-block__value">{{ user.author && user.author.name }}</div>
         </div>
         <div class="info-block">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.DOMAIN') }}</div>
-          <div class="info-block__value">{{ user.domain && user.domain.label }}</div>
+          <div class="info-block__value">{{ user.domain && user.domain.name }}</div>
         </div>
       </div>
     </a-col>
