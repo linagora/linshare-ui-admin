@@ -4,6 +4,7 @@ import {
   AutoComplete,
   Avatar,
   Badge,
+  Breadcrumb,
   Button,
   Card,
   Checkbox,
@@ -24,7 +25,8 @@ import {
   Select,
   Table,
   Tabs,
-  Tag
+  Tag,
+  Tree
 } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
@@ -34,6 +36,7 @@ function useAntdComponents (vueApp: App): App {
     .use(AutoComplete)
     .use(Avatar)
     .use(Badge)
+    .use(Breadcrumb)
     .use(Button)
     .use(Card)
     .use(Checkbox)
@@ -54,7 +57,8 @@ function useAntdComponents (vueApp: App): App {
     .use(Select)
     .use(Table)
     .use(Tabs)
-    .use(Tag);
+    .use(Tag)
+    .use(Tree);
 }
 
 export default useAntdComponents;

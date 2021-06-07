@@ -46,12 +46,15 @@ export default {
   .ant-select.ant-select-single.ant-select-show-arrow {
     &.ant-select-focused {
       .ant-select-selector {
+        background: #0372B3;
         box-shadow: none !important;
       }
     }
 
     .ant-select-selector {
       border: 0px;
+      background: #0372B3;
+      color: #fff;
 
       .ant-select-selection-item {
         display: flex;
@@ -61,10 +64,14 @@ export default {
         font-weight: 400;
         color: #333;
       }
+
+      .select-dropdown__symbol {
+        color: #fff;
+      }
     }
 
     .ant-select-arrow {
-      color: #0372B3;
+      color: #fff;
     }
   }
 }

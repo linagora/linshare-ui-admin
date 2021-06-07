@@ -1,11 +1,18 @@
 <template>
-  <a-layout class="ls-admin-layout full-height" theme='light'>
+  <a-layout class="ls-configuration-layout full-height" theme='light'>
     <a-layout-header class="ls-app-header">
       <Header />
     </a-layout-header>
     <a-layout-content class="app-content">
-      <slot v-if="havePermission(role, permission)"/>
-      <Error v-else :statusCode="403" :message="$t('ERRORS.FORBIDDEN')"/>
+      <a-row>
+        <a-col :xs="4">
+          <Domains />
+        </a-col>
+        <a-col :xs="20">
+          <slot v-if="havePermission(role, permission)"/>
+          <Error v-else :statusCode="403" :message="$t('ERRORS.FORBIDDEN')"/>
+        </a-col>
+      </a-row>
     </a-layout-content>
     <a-layout-footer>
       <Footer />
@@ -19,14 +26,16 @@ import { havePermission } from '@/core/helper';
 import store from '@/core/store';
 import Footer from '@/core/components/Footer.vue';
 import Header from '@/core/components/Header.vue';
+import Domains from '@/core/components/Domains.vue';
 import Error from '@/modules/error/pages/Error.vue';
 import use2FARequiredCheck from '@/modules/auth/hooks/use2FARequiredCheck';
 
 export default defineComponent({
-  name: 'AdminLayout',
+  name: 'ConfigurationLayout',
   components: {
     Header,
     Footer,
+    Domains,
     Error
   },
   props: {
@@ -49,7 +58,7 @@ export default defineComponent({
 
 <style lang='less'>
 @import '@/assets/styles/variables';
-.ls-admin-layout {
+.ls-configuration-layout {
   &.full-height {
     position: relative;
     padding-bottom: 103px;
