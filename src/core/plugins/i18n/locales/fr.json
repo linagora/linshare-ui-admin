@@ -28,6 +28,15 @@
     "COPYRIGHT": "Vous utilisez la version libre et gratuite de LinShare™, développé par Linagora © 2009–2020. Contribuez à la R&D du produit en souscrivant à une offre entreprise."
   },
   "NAVIGATOR": {
+    "CONFIGURATION": "Configuration",
+    "ADMINISTRATION": "Administration",
+    "ACTIVITIES": "Historique des activités",
+    "REPORTING": "Rapports",
+    "UPGRADES": "Tâches de mises à jour",
+    "MY_USERS": "Utilisaters",
+    "MY_DRIVES_WORKGROUPS": "Espaces partagés",
+    "MY_CONTACT_LIST": "Listes de contacts",
+    "LOGGERS": "Journaux",
     "DOMAINS": "Domaines",
     "FUNCTIONALITIES": "Fonctionnalités",
     "MANAGE_DOMAINS": "Configuration des domaines",

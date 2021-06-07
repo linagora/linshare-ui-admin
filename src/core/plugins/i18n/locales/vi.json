@@ -28,6 +28,15 @@
     "COPYRIGHT": "Bạn đang sử dụng phiên bản miễn phí và mã nguồn mở của LinShare™, được cung cấp bởi Linagora © 2009-2019. Hãy đóng góp vào LinShare R&D bằng cách đăng ký gói Enterprise."
   },
   "NAVIGATOR": {
+    "CONFIGURATION": "Cấu hình",
+    "ADMINISTRATION": "Quản lý",
+    "ACTIVITIES": "Hoạt động",
+    "REPORTING": "Báo cáo",
+    "UPGRADES": "Nâng cấp",
+    "MY_USERS": "Người dùng",
+    "MY_DRIVES_WORKGROUPS": "Ổ đĩa / Nhóm làm việc",
+    "MY_CONTACT_LIST": "Danh sách liên hệ",
+    "LOGGERS": "Nhật ký hoạt động",
     "DOMAINS": "Miền",
     "FUNCTIONALITIES": "Chức năng",
     "MANAGE_DOMAINS": "Quản lí miền",

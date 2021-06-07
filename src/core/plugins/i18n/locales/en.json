@@ -28,6 +28,15 @@
     "COPYRIGHT": "You are using the Open Source and free version of LinShare™, powered by Linagora © 2009–2019. Contribute to LinShare R&D by subscribing to an Enterprise offer."
   },
   "NAVIGATOR": {
+    "CONFIGURATION": "Configuration",
+    "ADMINISTRATION": "Administration",
+    "ACTIVITIES": "Activities",
+    "REPORTING": "Reporting",
+    "UPGRADES": "Upgrades",
+    "MY_USERS": "My Users",
+    "MY_DRIVES_WORKGROUPS": "My Drives / My Workgroups",
+    "MY_CONTACT_LIST": "My Contact List",
+    "LOGGERS": "Loggers",
     "DOMAINS": "Domains",
     "FUNCTIONALITIES": "Functionalities",
     "MANAGE_DOMAINS": "Manage domains",
