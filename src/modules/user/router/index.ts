@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-import AdminLayout from '@/core/layout/AdminLayout.vue';
+import AdministrationLayout from '@/core/layout/AdministrationLayout.vue';
 import { PERMISSIONS } from '@/core/constants';
 
 export const UserRoutes: Array<RouteRecordRaw> = [
@@ -10,8 +10,10 @@ export const UserRoutes: Array<RouteRecordRaw> = [
     component: () => import('../pages/ManageUsers.vue'),
     meta: {
       requiresAuth: true,
-      layout: AdminLayout,
-      permission: PERMISSIONS.USERS.VIEW
+      layout: AdministrationLayout,
+      permission: PERMISSIONS.USERS.VIEW,
+      parent: 'administration',
+      parentName: 'NAVIGATOR.ADMINISTRATION'
     },
     children: [
       {
@@ -20,8 +22,10 @@ export const UserRoutes: Array<RouteRecordRaw> = [
         name: 'ManageUsers',
         meta: {
           requiresAuth: true,
-          layout: AdminLayout,
-          permission: PERMISSIONS.USERS.MANAGE_USERS
+          layout: AdministrationLayout,
+          permission: PERMISSIONS.USERS.MANAGE_USERS,
+          parent: 'administration',
+          parentName: 'NAVIGATOR.ADMINISTRATION'
         }
       }
     ]
@@ -32,8 +36,10 @@ export const UserRoutes: Array<RouteRecordRaw> = [
     name: 'UserDetail',
     meta: {
       requiresAuth: true,
-      layout: AdminLayout,
-      permission: PERMISSIONS.USERS.MANAGE_USERS
+      layout: AdministrationLayout,
+      permission: PERMISSIONS.USERS.MANAGE_USERS,
+      parent: 'administration',
+      parentName: 'NAVIGATOR.ADMINISTRATION'
     }
   }
 ];

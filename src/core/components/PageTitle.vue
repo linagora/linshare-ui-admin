@@ -1,5 +1,11 @@
 <template>
   <div :class="['page-title', { 'no-subtitle': !subtitle }]">
+    <a-breadcrumb v-if="breadcrumbs && breadcrumbs.length" class="breadcrumb">
+      <a-breadcrumb-item v-for="breadcrumb in breadcrumbs" :key="breadcrumb.key">
+        <router-link :to="{name: breadcrumb.key}">{{$t(breadcrumb.label)}}</router-link>
+      </a-breadcrumb-item>
+      <a-breadcrumb-item>{{ title }}</a-breadcrumb-item>
+    </a-breadcrumb>
     <div class="title">
       <h1>{{ title }}</h1>
       <info-circle-filled
@@ -32,6 +38,7 @@ import { InfoCircleFilled } from '@ant-design/icons-vue';
 export interface PageTitleProps {
   title: string;
   subtitle: string;
+  breadcrumbs?: object;
 }
 
 export default defineComponent({
@@ -46,6 +53,10 @@ export default defineComponent({
     subtitle: {
       type: String,
       default: ''
+    },
+    breadcrumbs: {
+      type: Array,
+      default: () => []
     }
   },
   setup (props: PageTitleProps, { slots }: SetupContext) {
@@ -64,6 +75,10 @@ export default defineComponent({
 <style lang="less" scoped>
   .page-title {
     margin-bottom: 30px;
+
+    .breadcrumb {
+      margin-bottom: 20px;
+    }
 
     &.no-subtitle {
       margin-bottom: 55px;

@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import { requiresAuthGuard } from './requiresAuth.guard';
-import AdminLayout from '@/core/layout/AdminLayout.vue';
+import AdministrationLayout from '@/core/layout/AdministrationLayout.vue';
 
 export const LoginRoutes: Array<RouteRecordRaw> = [
   {
@@ -27,7 +27,7 @@ export const LoginRoutes: Array<RouteRecordRaw> = [
     component: () => import('../pages/ManageSecondFactorAuthentication.vue'),
     meta: {
       requiresAuth: true,
-      layout: AdminLayout
+      layout: AdministrationLayout
     }
   }
 ];

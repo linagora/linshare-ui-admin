@@ -23,7 +23,7 @@ import Error from '@/modules/error/pages/Error.vue';
 import use2FARequiredCheck from '@/modules/auth/hooks/use2FARequiredCheck';
 
 export default defineComponent({
-  name: 'AdminLayout',
+  name: 'AdministrationLayout',
   components: {
     Header,
     Footer,

@@ -3,6 +3,7 @@
     <PageTitle
       :title="$t('USERS.MANAGE_USERS.TITLE')"
       :subtitle="`${data.firstName} ${data.lastName} <${data.mail}>`"
+      :breadcrumbs="breadcrumbs"
     >
       <template #subTitlePostfix>
         <div class="delete-user-container">
@@ -81,8 +82,16 @@ export default defineComponent({
     RestrictedContacts
   },
   async setup () {
-    const id = useRoute().params.id;
+    const { params, meta } = useRoute();
+    const id = params.id;
     const { t } = useI18n();
+
+    const breadcrumbs = meta && meta.parent && meta.parentName
+      ? [{
+        key: meta.parent,
+        label: meta.parentName
+      }] : [];
+
     let data;
     try {
       await store.dispatch('User/fetchUser', id);
@@ -139,6 +148,7 @@ export default defineComponent({
 
     return {
       data,
+      breadcrumbs,
       deleteUser,
       confirmRemoveSharedKey,
       unlockUser

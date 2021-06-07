@@ -1,28 +1,32 @@
 <template>
-  <div class="administration">
-    <router-link to="/users/manage">
-      <div class="administration__menu-item">
-        <span>{{ $t("NAVIGATOR.MY_USERS")}}</span>
-        <RightOutlined />
+  <a-row>
+    <a-col :md="{span: 16, offset: 4}">
+      <div class="administration">
+        <router-link to="/users/manage">
+          <div class="administration__menu-item">
+            <span>{{ $t("NAVIGATOR.MY_USERS")}}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
+        <div class="administration__menu-item">
+          <span>{{ $t("NAVIGATOR.MY_DRIVES_WORKGROUPS")}}</span>
+          <RightOutlined />
+        </div>
+        <div class="administration__menu-item">
+          <span>{{ $t("NAVIGATOR.MY_CONTACT_LIST") }}</span>
+          <RightOutlined />
+        </div>
+        <div class="administration__menu-item">
+          <span>{{ $t("NAVIGATOR.INCONSISTENT_USERS") }}</span>
+          <RightOutlined />
+        </div>
+        <div class="administration__menu-item">
+          <span>{{ $t("NAVIGATOR.LOGGERS") }}</span>
+          <RightOutlined />
+        </div>
       </div>
-    </router-link>
-    <div class="administration__menu-item">
-      <span>{{ $t("NAVIGATOR.MY_DRIVES_WORKGROUPS")}}</span>
-      <RightOutlined />
-    </div>
-    <div class="administration__menu-item">
-      <span>{{ $t("NAVIGATOR.MY_CONTACT_LIST") }}</span>
-      <RightOutlined />
-    </div>
-    <div class="administration__menu-item">
-      <span>{{ $t("NAVIGATOR.INCONSISTENT_USERS") }}</span>
-      <RightOutlined />
-    </div>
-    <div class="administration__menu-item">
-      <span>{{ $t("NAVIGATOR.LOGGERS") }}</span>
-      <RightOutlined />
-    </div>
-  </div>
+    </a-col>
+  </a-row>
 </template>
 
 <script lang="ts">
@@ -41,6 +45,8 @@ export default defineComponent({
   @import '@/assets/styles/variables';
 
   .administration {
+    margin-top: 40px;
+
     &__menu-item {
       padding: 15px 0px;
       border-bottom: 1px solid #f0f0f0;
@@ -49,13 +55,13 @@ export default defineComponent({
       justify-content: space-between;
 
       span {
-        font-size: 18px;
+        font-size: 16px;
         color: #000;
       }
 
       .anticon {
         color: @light-blue;
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }

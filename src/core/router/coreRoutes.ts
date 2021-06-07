@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import ConfigurationLayout from '@/core/layout/ConfigurationLayout.vue';
-import AdminLayout from '@/core/layout/AdminLayout.vue';
+import AdministrationLayout from '@/core/layout/AdministrationLayout.vue';
 
 export const CoreRoutes: Array<RouteRecordRaw> = [
   {
@@ -18,7 +18,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
     component: () => import('../pages/Administration.vue'),
     meta: {
       requiresAuth: true,
-      layout: AdminLayout
+      layout: AdministrationLayout
     }
   }
 ];
