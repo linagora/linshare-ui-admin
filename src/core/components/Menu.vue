@@ -1,9 +1,9 @@
 <template>
-  <a-menu v-model:selectedKeys="current" mode="horizontal" class="app-menu app-menu-dark-blue" @click="navigateTo">
-    <a-menu-item key="configuration">
+  <a-menu v-model:selectedKeys="current" mode="horizontal" class="app-menu app-menu-dark-blue">
+    <a-menu-item key="configuration" @click="navigateTo('configuration')">
       {{ $t("NAVIGATOR.CONFIGURATION" )}}
     </a-menu-item>
-    <a-menu-item key="administration">
+    <a-menu-item key="administration" @click="navigateTo('administration')">
       {{ $t("NAVIGATOR.ADMINISTRATION" )}}
     </a-menu-item>
     <a-menu-item key="reporting">
@@ -21,21 +21,18 @@
 <script lang='ts'>
 import { defineComponent, computed } from 'vue';
 import router from '@/core/router';
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: 'Menu',
   setup () {
-    interface MenuEvent {
-      item?: object;
-      key?: string;
-      keyPath?: string;
-    }
+    const { meta, name } = useRoute();
 
-    const current = computed(() => [router.currentRoute.value.meta.parent || router.currentRoute.value.name]);
+    const current = computed(() => [meta.parent || name]);
 
-    function navigateTo (event: MenuEvent) {
-      if (event.key) {
-        router.push({ name: event.key });
+    function navigateTo (key: string) {
+      if (key) {
+        router.push({ name: key });
       }
     }
 
