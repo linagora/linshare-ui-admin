@@ -1,4 +1,6 @@
-export default {
+import { IntlDateTimeFormats } from 'vue-i18n';
+
+export const DATETIME_FORMATS: IntlDateTimeFormats = {
   en: {
     mediumDate: {
       year: 'numeric',
