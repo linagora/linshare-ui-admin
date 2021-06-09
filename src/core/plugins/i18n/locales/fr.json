@@ -5,7 +5,9 @@
     "CANCEL": "Annuler",
     "DELETE": "Supprimer",
     "DELETION": "Suppression",
-    "SAVE": "Sauvegarder"
+    "SAVE": "Sauvegarder",
+    "UPDATE_TIME_RELATIVE": "Modifié {time}",
+    "JUST_NOW": "il y a un instant"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -175,6 +177,16 @@
       "DIGITS": "Chiffres: ",
       "ALGORITHM": "Algorithme: ",
       "INTERVAL": "Intervalle: "
+    }
+  },
+  "SHARED_SPACES": {
+    "NODE_TYPE": {
+      "WORK_GROUP": "Groupe de travail",
+      "DRIVE": "Drive"
+    },
+    "MANAGE_SHARED_SPACES": {
+      "TITLE": "Drives et Groupes de travail",
+      "DESCRIPTION": "Un groupe de travail est un espace collaboratif contenant des utilisateurs internes ou invités. Un Drive permet de regrouper des groupes de travail (workgroups) et de leur affecter des membres et des rôles par défaut. A aucun moment, l'administrateur peut accéder ou administrer le contenu (fichiers ou dossiers) d'un groupe de travail. Les fichiers déposés dans un groupe appartiennent au groupe et non à l'utilisateur, ils n'ont donc aucun impact sur le quota utilisateur."
     }
   }
 }

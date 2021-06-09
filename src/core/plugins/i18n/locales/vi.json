@@ -5,7 +5,9 @@
     "CANCEL": "Hủy",
     "DELETE": "Xóa",
     "DELETION": "Xóa",
-    "SAVE": "Lưu"
+    "SAVE": "Lưu",
+    "UPDATE_TIME_RELATIVE": "Cập nhật {time}",
+    "JUST_NOW": "mới đây"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -175,6 +177,16 @@
       "DIGITS": "Số: ",
       "ALGORITHM": "Thuật toán: ",
       "INTERVAL": "Thời gian: "
+    }
+  },
+  "SHARED_SPACES": {
+    "NODE_TYPE": {
+      "WORK_GROUP": "Nhóm làm việc",
+      "DRIVE": "Ổ đĩa"
+    },
+    "MANAGE_SHARED_SPACES": {
+      "TITLE": "Ổ đĩa và Nhóm làm việc",
+      "DESCRIPTION": "Nhóm làm việc là một không gian cộng tác có chứa người dùng nội bộ hoặc khách. Một ổ đĩa chứa các nhóm làm việc với danh sách thành viên mặc định. Một nhóm làm việc có thể nằm trong một ổ đĩa hoặc độc lập. Chế độ xem này cho phép bạn quản lý các ổ đĩa, nhóm làm việc và các thành viên của họ. Quản trị viên LinShare không được phép truy cập nội dung nhóm làm việc (tệp hoặc thư mục). Các tệp được tải lên trong một nhóm làm việc thuộc sở hữu của nhóm làm việc, không phải cho người dùng. Do đó, chúng không ảnh hưởng đến giới hạn người dùng được sử dụng."
     }
   }
 }

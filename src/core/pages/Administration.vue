@@ -8,10 +8,12 @@
             <RightOutlined />
           </div>
         </router-link>
-        <div class="administration__menu-item">
-          <span>{{ $t("NAVIGATOR.MY_DRIVES_WORKGROUPS")}}</span>
-          <RightOutlined />
-        </div>
+        <router-link to="/sharedspaces">
+          <div class="administration__menu-item">
+            <span>{{ $t("NAVIGATOR.MY_DRIVES_WORKGROUPS")}}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
         <div class="administration__menu-item">
           <span>{{ $t("NAVIGATOR.MY_CONTACT_LIST") }}</span>
           <RightOutlined />
