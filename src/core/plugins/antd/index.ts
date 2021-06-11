@@ -19,6 +19,7 @@ import {
   Layout,
   List,
   Pagination,
+  Progress,
   Popconfirm,
   Popover,
   Row,
@@ -51,6 +52,7 @@ function useAntdComponents (vueApp: App): App {
     .use(Layout)
     .use(List)
     .use(Pagination)
+    .use(Progress)
     .use(Popover)
     .use(Popconfirm)
     .use(Row)

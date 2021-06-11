@@ -7,7 +7,11 @@
     "DELETION": "Xóa",
     "SAVE": "Lưu",
     "UPDATE_TIME_RELATIVE": "Cập nhật {time}",
-    "JUST_NOW": "mới đây"
+    "JUST_NOW": "mới đây",
+    "DEFAULT_VALUE": "Giá trị mặc định",
+    "CURRENT_VALUE": "Giá trị hiện tại",
+    "RESET": "Đặt lại",
+    "USE_DEFAULTS": "Dùng giá trị mặc định"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -187,6 +191,17 @@
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Ổ đĩa và Nhóm làm việc",
       "DESCRIPTION": "Nhóm làm việc là một không gian cộng tác có chứa người dùng nội bộ hoặc khách. Một ổ đĩa chứa các nhóm làm việc với danh sách thành viên mặc định. Một nhóm làm việc có thể nằm trong một ổ đĩa hoặc độc lập. Chế độ xem này cho phép bạn quản lý các ổ đĩa, nhóm làm việc và các thành viên của họ. Quản trị viên LinShare không được phép truy cập nội dung nhóm làm việc (tệp hoặc thư mục). Các tệp được tải lên trong một nhóm làm việc thuộc sở hữu của nhóm làm việc, không phải cho người dùng. Do đó, chúng không ảnh hưởng đến giới hạn người dùng được sử dụng."
+    }
+  },
+  "QUOTA": {
+    "USER_TAB": "Hạn ngạch Không gian Cá nhân",
+    "USED_SPACE": "Đã sử dụng {usedSpace} trên {computedQuota}",
+    "USER_QUOTA": "Hạn ngạch được sử dụng cho không gian cá nhân của người dùng",
+    "USER_MAX_FILE_SIZE": "Kích thước tệp tải lên tối đa của người dùng trong PersonalSpace",
+    "QUOTA": {
+      "QUOTA_LESS_THAN_FILE_SIZE": "Hạn ngạch bộ nhớ phải lớn hơn kích thước tệp tải lên tối đa",
+      "FILE_SIZE_LARGER_THAN_QUOTA": "Kích thước tệp tải lên tối đa phải nhỏ hơn hạn ngạch bộ nhớ",
+      "INVALID_FILE_SIZE": "Kích thước tệp tối đa không hợp lệ"
     }
   }
 }

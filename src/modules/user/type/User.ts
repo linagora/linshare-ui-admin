@@ -18,4 +18,5 @@ export default interface User {
   expirationDate: number;
   secondFAEnabled: boolean;
   secondFARequired: boolean;
+  quotaUuid: string;
 }

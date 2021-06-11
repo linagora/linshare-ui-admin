@@ -28,7 +28,7 @@
         <a-col :xs="0" :sm="8">
           <div class="info-block">
             <div class="info-block__title">{{ $t('USERS.MANAGE_USERS.DOMAIN') }}</div>
-            <div class="info-block__value">{{ data.domain }}</div>
+            <div class="info-block__value">{{ data.domain && data.domain.label }}</div>
           </div>
         </a-col>
       </a-row>

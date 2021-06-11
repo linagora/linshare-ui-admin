@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import AdminAPIClient from '@/core/services/AdminAPIClient';
 import User from '@/modules/user/type/User';
+import UserQuota from '@/modules/user/type/UserQuota';
 import RestrictedContact from '@/modules/user/type/RestrictedContact';
 
 export interface ListUsersOptions {
@@ -68,6 +69,14 @@ class UserAPIClient extends AdminAPIClient {
 
   async removeRestrictedContact (id: string, restrictedContactId: string): Promise<void> {
     await this.transport.delete(`${id}/restricted_contacts/${restrictedContactId}`);
+  }
+
+  async getUserQuota (id: string, quotaId: string): Promise<UserQuota> {
+    return (await this.transport.get(`${id}/quota/${quotaId}`)).data;
+  }
+
+  async updateUserQuota (id: string, quota: UserQuota): Promise<UserQuota> {
+    return (await this.transport.put(`${id}/quota/${quota.uuid}`, quota)).data;
   }
 }
 

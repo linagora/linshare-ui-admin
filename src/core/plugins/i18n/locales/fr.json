@@ -7,7 +7,11 @@
     "DELETION": "Suppression",
     "SAVE": "Sauvegarder",
     "UPDATE_TIME_RELATIVE": "Modifié {time}",
-    "JUST_NOW": "il y a un instant"
+    "JUST_NOW": "il y a un instant",
+    "DEFAULT_VALUE": "Valeur par défaut",
+    "CURRENT_VALUE": "Valeur actuelle",
+    "RESET": "Réinitialiser",
+    "USE_DEFAULTS": "Utiliser les valeurs par défaut"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -187,6 +191,17 @@
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Drives et Groupes de travail",
       "DESCRIPTION": "Un groupe de travail est un espace collaboratif contenant des utilisateurs internes ou invités. Un Drive permet de regrouper des groupes de travail (workgroups) et de leur affecter des membres et des rôles par défaut. A aucun moment, l'administrateur peut accéder ou administrer le contenu (fichiers ou dossiers) d'un groupe de travail. Les fichiers déposés dans un groupe appartiennent au groupe et non à l'utilisateur, ils n'ont donc aucun impact sur le quota utilisateur."
+    }
+  },
+  "QUOTA": {
+    "USER_TAB": "Quota d'espace personnel",
+    "USED_SPACE": "A utilisé {usedSpace} sur {computedQuota}",
+    "USER_QUOTA": "Quota alloué à l'espace personnel de l'utilisateur",
+    "USER_MAX_FILE_SIZE": "Taille maximale d'un fichier dans l'espace personnel",
+    "ERROR": {
+      "QUOTA_LESS_THAN_FILE_SIZE": "Le quota de stockage doit être supérieur à la taille maximale d'un fichier",
+      "FILE_SIZE_LARGER_THAN_QUOTA": "La taille maximale du fichier doit être inférieure au quota de stockage",
+      "INVALID_FILE_SIZE": "La taille maximale du fichier non valide"
     }
   }
 }

@@ -50,10 +50,11 @@
           <UserProfile />
         </a-tab-pane>
         <a-tab-pane key="2" :tab="$t('USERS.DETAIL_USER.PERSONAL_SPACE_QUOTA')">
+          <PersonalSpaceQuota />
         </a-tab-pane>
-        <a-tab-pane key="3" v-if="data.accountType !== 'GUEST'" :tab="$t('USERS.DETAIL_USER.UPLOAD_REQUEST')">
+        <a-tab-pane key="3" :tab="$t('USERS.DETAIL_USER.UPLOAD_REQUEST')">
         </a-tab-pane>
-        <a-tab-pane key="4" v-if="data.accountType === 'GUEST'" :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')">
+        <a-tab-pane key="4" :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')">
           <RestrictedContacts />
         </a-tab-pane>
       </a-tabs>
@@ -71,6 +72,7 @@ import store from '@/core/store';
 import PageTitle from '@/core/components/PageTitle.vue';
 import UserProfile from '@/modules/user/components/UserProfile.vue';
 import RestrictedContacts from '@/modules/user/components/RestrictedContacts.vue';
+import PersonalSpaceQuota from '@/modules/user/components/PersonalSpaceQuota.vue';
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import UserAPIClient from '../services/UserAPIClient';
 
@@ -78,6 +80,7 @@ export default defineComponent({
   name: 'UserDetail',
   components: {
     PageTitle,
+    PersonalSpaceQuota,
     UserProfile,
     RestrictedContacts
   },

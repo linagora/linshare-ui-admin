@@ -7,7 +7,11 @@
     "DELETION": "Deletion",
     "SAVE": "Save",
     "UPDATE_TIME_RELATIVE": "Updated {time}",
-    "JUST_NOW": "just now"
+    "JUST_NOW": "just now",
+    "DEFAULT_VALUE": "Default value",
+    "CURRENT_VALUE": "Current value",
+    "RESET": "Reset",
+    "USE_DEFAULTS": "Use defaults"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -188,6 +192,17 @@
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Drives and Workgroups",
       "DESCRIPTION": "A workgroup is a collaborating space that contains internal or guest users. A drive contains workgroups with the default member list. A workgroup can be inside a drive or standalone. This view allows you to manage drives, workgroups and their members. LinShare administrators are not allowed to access the workgroup content (files or folders). The uploaded files in a workgroup are owned by the workgroup, not to the user. Therefore, they do not affect the user allowed quota."
+    }
+  },
+  "QUOTA": {
+    "USER_TAB": "Personal Space Quota",
+    "USED_SPACE": "Used {usedSpace} over {computedQuota}",
+    "USER_QUOTA": "User's personal space allocated quota",
+    "USER_MAX_FILE_SIZE": "User's max upload file size in Personal Space",
+    "ERROR": {
+      "QUOTA_LESS_THAN_FILE_SIZE": "Storage quota must be larger than max file size",
+      "FILE_SIZE_LARGER_THAN_QUOTA": "Max file size must be smaller than storage quota",
+      "INVALID_FILE_SIZE": "Invalid max file size"
     }
   }
 }
