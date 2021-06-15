@@ -116,7 +116,20 @@
       "AUTHOR": "Author",
       "DOMAIN": "Domain",
       "ADD_CONTACT": "Add contact",
-      "RESTRICTED_LIST": "Restricted list"
+      "RESTRICTED_LIST": "Restricted list",
+      "GUEST_CREATION_RIGHTS": "Guest creation rights",
+      "UPLOAD_RIGHTS": "Upload rights",
+      "ROLE_SIMPLE": "Simple",
+      "ROLE_ADMIN": "Admin",
+      "ROLE_SUPERADMIN": "Super admin",
+      "TYPE_ROOT": "Root",
+      "TYPE_INTERNAL": "Internal",
+      "TYPE_GUEST": "Guest"
+    },
+    "TOKEN_INPUT": {
+      "ENTER_VALUE": "Enter value",
+      "SORT_BY": "Sort by",
+      "PLACEHOLDER": "Search or filter users"
     }
   },
   "ERRORS": {

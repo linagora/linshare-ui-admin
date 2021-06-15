@@ -116,7 +116,20 @@
       "AUTHOR": "Tạo bới",
       "DOMAIN": "Miền",
       "ADD_CONTACT": "Thêm liên lạc",
-      "RESTRICTED_LIST": "Danh sách hạn chế"
+      "RESTRICTED_LIST": "Danh sách hạn chế",
+      "GUEST_CREATION_RIGHTS": "Quyền tạo khách mời",
+      "UPLOAD_RIGHTS": "Quyền tải lên",
+      "ROLE_SIMPLE": "Cơ bản",
+      "ROLE_ADMIN": "Quản trị viên",
+      "ROLE_SUPERADMIN": "Quản trị viên cấp cao",
+      "TYPE_ROOT": "Gốc",
+      "TYPE_INTERNAL": "Nội bộ",
+      "TYPE_GUEST": "Khách"
+    },
+    "TOKEN_INPUT": {
+      "ENTER_VALUE": "Nhập thông tin tìm kiếm",
+      "SORT_BY": "Sắp xếp theo",
+      "PLACEHOLDER": "Tìm kiếm hoặc lọc người dùng"
     }
   },
   "ERRORS": {

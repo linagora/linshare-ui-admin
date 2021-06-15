@@ -116,7 +116,20 @@
       "AUHTOR": "Auteure",
       "DOMAIN": "Domaine",
       "ADD_CONTACT": "Ajouter le contact",
-      "RESTRICTED_LIST": "Liste restreinte de contacts"
+      "RESTRICTED_LIST": "Liste restreinte de contacts",
+      "GUEST_CREATION_RIGHTS": "Permission de création d'invité",
+      "UPLOAD_RIGHTS": "Permission de dépôt",
+      "ROLE_SIMPLE": "Simple",
+      "ROLE_ADMIN": "Admin",
+      "ROLE_SUPERADMIN": "Super admin",
+      "TYPE_ROOT": "Root",
+      "TYPE_INTERNAL": "Internal",
+      "TYPE_GUEST": "Guest"
+    },
+    "TOKEN_INPUT": {
+      "ENTER_VALUE": "Enter value",
+      "SORT_BY": "Sort by",
+      "PLACEHOLDER": "Search or filter users"
     }
   },
   "ERRORS": {

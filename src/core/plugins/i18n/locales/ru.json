@@ -116,7 +116,20 @@
       "AUTHOR": "Автор",
       "DOMAIN": "Домен",
       "ADD_CONTACT": "Добавить контакт",
-      "RESTRICTED_LIST": "Ограниченный список"
+      "RESTRICTED_LIST": "Ограниченный список",
+      "GUEST_CREATION_RIGHTS": "Права на создание гостя",
+      "UPLOAD_RIGHTS": "Права на загрузку",
+      "ROLE_SIMPLE": "Простой",
+      "ROLE_ADMIN": "Админ",
+      "ROLE_SUPERADMIN": "Супер админ",
+      "TYPE_ROOT": "Корень",
+      "TYPE_INTERNAL": "Внутренний",
+      "TYPE_GUEST": "Гость"
+    },
+    "TOKEN_INPUT": {
+      "ENTER_VALUE": "Введите значение",
+      "SORT_BY": "Сортировать по",
+      "PLACEHOLDER": "Искать или фильтровать пользователей"
     }
   },
   "ERRORS": {
