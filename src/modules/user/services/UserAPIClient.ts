@@ -20,6 +20,18 @@ export interface ListUsersOptions {
   size?: number;
 }
 
+export interface ListUserFilters {
+  domain?: string;
+  firstName?: string;
+  lastName?: string;
+  mail?: string;
+  role?: string;
+  type?: string;
+  restricted?: boolean;
+  canCreateGuest?: boolean;
+  canUpload?: boolean;
+}
+
 export interface UsersList {
   data: User[];
   total: number;

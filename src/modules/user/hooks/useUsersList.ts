@@ -1,10 +1,10 @@
 import { ref, reactive } from 'vue';
 import { message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
-import { TableState, TableStateFilters } from 'ant-design-vue/es/table/interface';
+import { TableState } from 'ant-design-vue/es/table/interface';
 
 import User from '@/modules/user/type/User';
-import UserAPIClient, { ListUsersOptions } from '@/modules/user/services/UserAPIClient';
+import UserAPIClient, { ListUsersOptions, ListUserFilters } from '@/modules/user/services/UserAPIClient';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 
 type Pagination = TableState['pagination'];
@@ -46,12 +46,24 @@ export default function useUsersList () {
     }
   }
 
-  async function handleTableChange (pag: Pagination, filters?: TableStateFilters, sorter?: SortProps) {
+  async function handleTableChange (pag: Pagination, filters?: ListUserFilters, sorter?: SortProps) {
     const options: ListUsersOptions = {};
 
     if (pag) {
       options.size = pag.pageSize;
       options.page = pag.current ? pag.current - 1 : 0;
+    }
+
+    if (filters) {
+      options.domain = filters.domain;
+      options.firstName = filters.firstName;
+      options.lastName = filters.lastName;
+      options.mail = filters.mail;
+      options.role = filters.role;
+      options.type = filters.type;
+      options.restricted = filters.restricted;
+      options.canUpload = filters.canUpload;
+      options.canCreateGuest = filters.canCreateGuest;
     }
 
     if (sorter) {
