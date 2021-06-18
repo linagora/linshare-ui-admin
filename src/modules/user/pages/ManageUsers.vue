@@ -99,20 +99,20 @@ export default defineComponent({
     const filterOptions = [
       {
         key: 'mail',
-        displayKey: 'USERS.MANAGE_USERS.EMAIL',
+        displayKey: computed(() => t('USERS.MANAGE_USERS.EMAIL', locale.value)),
         isDefaultToken: true
       },
       {
         key: 'firstName',
-        displayKey: 'USERS.DETAIL_USER.FIRST_NAME'
+        displayKey: computed(() => t('USERS.DETAIL_USER.FIRST_NAME', locale.value))
       },
       {
         key: 'lastName',
-        displayKey: 'USERS.DETAIL_USER.LAST_NAME'
+        displayKey: computed(() => t('USERS.DETAIL_USER.LAST_NAME', locale.value))
       },
       {
         key: 'role',
-        displayKey: 'USERS.DETAIL_USER.ROLE',
+        displayKey: computed(() => t('USERS.DETAIL_USER.ROLE', locale.value)),
         options: [
           {
             value: 'SIMPLE',
@@ -130,7 +130,7 @@ export default defineComponent({
       },
       {
         key: 'type',
-        displayKey: 'USERS.DETAIL_USER.ACCOUNT_TYPE',
+        displayKey: computed(() => t('USERS.DETAIL_USER.ACCOUNT_TYPE', locale.value)),
         options: [
           {
             value: 'ROOT',
@@ -148,7 +148,7 @@ export default defineComponent({
       },
       {
         key: 'canCreateGuest',
-        displayKey: 'USERS.DETAIL_USER.GUEST_CREATION_RIGHTS',
+        displayKey: computed(() => t('USERS.DETAIL_USER.GUEST_CREATION_RIGHTS', locale.value)),
         options: [
           {
             value: true,
@@ -162,7 +162,7 @@ export default defineComponent({
       },
       {
         key: 'canUpload',
-        displayKey: 'USERS.DETAIL_USER.UPLOAD_RIGHTS',
+        displayKey: computed(() => t('USERS.DETAIL_USER.UPLOAD_RIGHTS', locale.value)),
         options: [
           {
             value: true,
