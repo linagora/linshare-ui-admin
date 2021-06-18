@@ -83,6 +83,7 @@ export default function useSharedSpacesList () {
     list,
     loading,
     pagination,
-    handlePaginationChange
+    handlePaginationChange,
+    updateSharedSpacesList
   };
 };

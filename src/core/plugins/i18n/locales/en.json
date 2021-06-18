@@ -205,6 +205,12 @@
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Drives and Workgroups",
       "DESCRIPTION": "A workgroup is a collaborating space that contains internal or guest users. A drive contains workgroups with the default member list. A workgroup can be inside a drive or standalone. This view allows you to manage drives, workgroups and their members. LinShare administrators are not allowed to access the workgroup content (files or folders). The uploaded files in a workgroup are owned by the workgroup, not to the user. Therefore, they do not affect the user allowed quota."
+    },
+    "TOKEN_INPUT": {
+      "ACCOUNT": "Account",
+      "MODIFICATION_DATE": "Modification date",
+      "CREATION_DATE": "Creation date",
+      "TYPE": "Type"
     }
   },
   "QUOTA": {

@@ -3,8 +3,11 @@ import SharedSpace from '@/modules/shared-spaces/type/SharedSpace';
 
 export interface ListSharedSpaceOptions {
   account?: string;
+  nodeType?: string;
   page?: number;
   size?: number;
+  sortField?: string;
+  sortOrder?: string;
 }
 
 export interface SharedSpacesList {

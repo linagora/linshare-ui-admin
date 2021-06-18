@@ -4,7 +4,9 @@
       <SearchOutlined class="token-input__search-icon" />
       <div class="token-input__tokens-ctn">
         <div class="token-input__token-item" v-for="token in tokens" :key="token.key">
-          <span>{{$t(token.displayKey)}} : {{token.value && token.value.label}}</span>
+          <span>{{token.displayKey}} : &nbsp;</span>
+          <span v-if="!token.value || !token.value.optionComponent">{{token.value && token.value.label}}</span>
+          <component v-else :is="token.value.optionComponent" :data="token.value.data"></component>
           <CloseOutlined class="token-input__token-item__close-icon" @click="removeToken(token.key)" />
         </div>
       </div>
@@ -18,7 +20,10 @@
       >
         <template #dataSource>
           <a-select-option v-for="option in options" :key="option.value">
-            {{ $t(option.label) }}
+            <div v-if="!option.optionComponent">
+              {{ option.label }}
+            </div>
+            <component v-else :is="option.optionComponent" :data="option.data"></component>
           </a-select-option>
         </template>
          <a-input
@@ -49,8 +54,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, PropType, SetupContext, ref, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { defineComponent, PropType, SetupContext, ref, computed, Component } from 'vue';
 import { SearchOutlined, CloseOutlined, SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons-vue';
 
 interface FilterOption {
@@ -76,6 +80,8 @@ interface TokenInputProps {
 interface Option {
   value: string | boolean;
   label: string;
+  optionComponent?: Component;
+  data?: object;
 }
 
 interface Token {
@@ -120,7 +126,6 @@ export default defineComponent({
     }
   },
   setup (props: TokenInputProps, { emit }: SetupContext) {
-    const { t } = useI18n();
     const autocompleteValue = ref<string>('');
     const autocomplete = ref<CustomHTMLElement | null>(null);
     const tokens = ref([] as Token[]);
@@ -228,7 +233,7 @@ export default defineComponent({
         selectedOption.value.options = filteredOptions;
       } else {
         const filteredOptions = text ? initialOptions.filter(option => {
-          return t(option.label).toUpperCase().includes(text.toUpperCase());
+          return option.label.toUpperCase().includes(text.toUpperCase());
         }) : initialOptions;
 
         filterTypeOptions.value = filteredOptions;

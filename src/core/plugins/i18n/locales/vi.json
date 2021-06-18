@@ -204,6 +204,12 @@
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Ổ đĩa và Nhóm làm việc",
       "DESCRIPTION": "Nhóm làm việc là một không gian cộng tác có chứa người dùng nội bộ hoặc khách. Một ổ đĩa chứa các nhóm làm việc với danh sách thành viên mặc định. Một nhóm làm việc có thể nằm trong một ổ đĩa hoặc độc lập. Chế độ xem này cho phép bạn quản lý các ổ đĩa, nhóm làm việc và các thành viên của họ. Quản trị viên LinShare không được phép truy cập nội dung nhóm làm việc (tệp hoặc thư mục). Các tệp được tải lên trong một nhóm làm việc thuộc sở hữu của nhóm làm việc, không phải cho người dùng. Do đó, chúng không ảnh hưởng đến giới hạn người dùng được sử dụng."
+    },
+    "TOKEN_INPUT": {
+      "ACCOUNT": "Tài khoản",
+      "CREATION_DATE": "Ngày tạo",
+      "MODIFICATION_DATE": "Ngày sửa",
+      "TYPE": "Loại"
     }
   },
   "QUOTA": {
