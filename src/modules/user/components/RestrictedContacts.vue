@@ -14,7 +14,6 @@
             <a-select-option v-for="user in autoCompleteResults" :key="user.uuid" :value="user.mail">
               <div>
                 <UserOutlined class="restricted-contact-autocomplete-user-icon"/>
-                <!-- eslint-disable-next-line vue/no-parsing-error -->
                 <span class="restricted-contact-autocomplete-user-info">
                   <span>{{ getFullName(user) }}</span>
                   <span>&nbsp;</span>
@@ -36,16 +35,31 @@
             </a-tooltip>
           </div>
         </div>
-        <a-button class="restricted-contact__save" @click="onSave()">{{ $t('GENERAL.SAVE') }}</a-button>
+        <div class="restricted-contact__container">
+          <div class="restricted-contact__title">{{ $t('USERS.DETAIL_USER.COMMENT') }}</div>
+          <div class="restricted-contact__list">
+            <a-textarea
+              v-model:value="user.comment"
+              auto-size
+            />
+          </div>
+        </div>
+
+        <a-button
+          class="restricted-contact__save"
+          @click="onSave()"
+          :loading="saving"
+        >{{ $t('GENERAL.SAVE') }}</a-button>
       </a-col>
     </a-row>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
+import { useStore } from 'vuex';
 import UserAPIClient from '@/modules/user/services/UserAPIClient';
 import User from '@/modules/user/type/User';
 import RestrictedContact from '@/modules/user/type/RestrictedContact';
@@ -60,13 +74,15 @@ export default defineComponent({
   async setup () {
     const { t } = useI18n();
     const search = ref('');
+    const store = useStore();
     const autoCompleteResults = ref([] as User[]);
     const restrictedContacts = ref([] as RestrictedContact[]);
     const id = useRoute().params.id as string;
+    const user = computed<User>(() => store.getters['User/getUser']);
+    const saving = ref(false);
     let newRestrictedContacts = [] as RestrictedContact[];
     let removedRestrictedContacts = [] as RestrictedContact[];
     let _debounce: number | undefined;
-    let loading = false;
 
     function transformDto (contact: User) {
       return {
@@ -111,9 +127,7 @@ export default defineComponent({
         clearTimeout(_debounce);
       }
 
-      _debounce = setTimeout(() => {
-        searchUsers();
-      }, 500);
+      _debounce = setTimeout(searchUsers, 500);
     }
 
     async function onSelect (value: string) {
@@ -144,22 +158,22 @@ export default defineComponent({
     }
 
     async function onSave () {
-      try {
-        if (loading) {
-          return;
-        }
+      if (saving.value) {
+        return;
+      }
 
-        loading = true;
-        message.loading(t('MESSAGES.ACTION_IN_PROGRESS'));
+      try {
+        saving.value = true;
         const createRestrictedContactPromises = newRestrictedContacts.map((contact) => UserAPIClient.createRestrictedContact(id, contact));
         const removedRestrictedContactPromises = removedRestrictedContacts.map((contact) => UserAPIClient.removeRestrictedContact(id, contact.uuid));
 
         await Promise.all(createRestrictedContactPromises);
         await Promise.all(removedRestrictedContactPromises);
+        await store.dispatch('User/updateUser', { ...user.value });
 
         newRestrictedContacts = [];
         removedRestrictedContacts = [];
-        loading = false;
+        saving.value = false;
 
         message.success(t('MESSAGES.UPDATE_SUCCESS'));
       } catch (error) {
@@ -177,15 +191,17 @@ export default defineComponent({
     await fetchRestrictedContacts();
 
     return {
-      search,
-      searchUsers,
-      searchUsersDebounce,
       autoCompleteResults,
-      restrictedContacts,
       getFullName,
       onSelect,
       onRemove,
-      onSave
+      onSave,
+      saving,
+      search,
+      searchUsers,
+      searchUsersDebounce,
+      restrictedContacts,
+      user
     };
   }
 });

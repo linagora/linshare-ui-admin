@@ -124,7 +124,8 @@
       "ROLE_SUPERADMIN": "Super admin",
       "TYPE_ROOT": "Root",
       "TYPE_INTERNAL": "Internal",
-      "TYPE_GUEST": "Guest"
+      "TYPE_GUEST": "Guest",
+      "COMMENT": "Comment"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Enter value",

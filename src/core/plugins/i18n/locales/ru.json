@@ -124,7 +124,8 @@
       "ROLE_SUPERADMIN": "Супер админ",
       "TYPE_ROOT": "Корень",
       "TYPE_INTERNAL": "Внутренний",
-      "TYPE_GUEST": "Гость"
+      "TYPE_GUEST": "Гость",
+      "COMMENT": "Коментарий"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Введите значение",

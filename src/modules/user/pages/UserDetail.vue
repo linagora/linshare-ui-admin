@@ -54,7 +54,7 @@
         </a-tab-pane>
         <a-tab-pane key="3" :tab="$t('USERS.DETAIL_USER.UPLOAD_REQUEST')">
         </a-tab-pane>
-        <a-tab-pane key="4" :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')">
+        <a-tab-pane key="4" v-if="data.accountType === 'GUEST'" :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')">
           <RestrictedContacts />
         </a-tab-pane>
       </a-tabs>

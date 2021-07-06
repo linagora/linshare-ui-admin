@@ -124,7 +124,8 @@
       "ROLE_SUPERADMIN": "Quản trị viên cấp cao",
       "TYPE_ROOT": "Gốc",
       "TYPE_INTERNAL": "Nội bộ",
-      "TYPE_GUEST": "Khách"
+      "TYPE_GUEST": "Khách",
+      "COMMENT": "Nhận xét"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Nhập thông tin tìm kiếm",
