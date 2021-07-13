@@ -293,6 +293,16 @@
             "SENTENCE": "{{authorName}} a modifié le membre : {{resourceName}} du DRIVE {{resourceNameVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
           }
+        },
+        "DRIVE_DELETION": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé le DRIVE : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a supprimé le DRIVE : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
         }
       },
       "GUEST": {
@@ -608,6 +618,16 @@
           "VIEWER": {
             "SENTENCE": "{{authorName}} a modifié le membre : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        },
+        "WORKGROUP_DELETION": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé le Groupe de Travail : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a supprimé le Groupe de Travail : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           }
         }
       },

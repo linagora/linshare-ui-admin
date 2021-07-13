@@ -293,6 +293,16 @@
           "SENTENCE": "{{authorName}} has edited the member: {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
           "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
         }
+      },
+      "DRIVE_DELETION": {
+        "AUTHOR": {
+          "SENTENCE": "You have deleted the Drive : {{resourceNameVarious}}.",
+          "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+        },
+        "VIEWER": {
+          "SENTENCE": "{{authorName}} has deleted the Drive : {{resourceNameVarious}}.",
+          "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+        }
       }
     },
       "GUEST": {
@@ -608,6 +618,16 @@
           "VIEWER": {
             "SENTENCE": "{{authorName}} has edited the member : {{resourceName}} from the Workgroup {{resourceNameVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        },
+        "WORKGROUP_DELETION": {
+          "AUTHOR": {
+            "SENTENCE": "You have deleted the Workgroup : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has deleted the Workgroup : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           }
         }
       },

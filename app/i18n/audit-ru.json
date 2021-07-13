@@ -293,6 +293,16 @@
             "SENTENCE": "{{authorName}} изменил участника {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
           }
+        },
+        "DRIVE_DELETION": {
+          "AUTHOR": {
+            "SENTENCE": "вы удалили DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} удалил DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
         }
       },
         "GUEST": {
@@ -608,6 +618,16 @@
             "VIEWER": {
               "SENTENCE": "{{authorName}} изменил участника {{resourceName}} в рабочей группе {{resourceNameVarious}}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "WORKGROUP_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "Вы удалили рабочую группу {{resourceNameVarious}}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} удалил рабочую группу {{resourceNameVarious}}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
         },
