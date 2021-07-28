@@ -1,9 +1,9 @@
 <template>
   <a-menu v-model:selectedKeys="current" mode="horizontal" class="app-menu app-menu-dark-blue">
-    <a-menu-item key="configuration" @click="navigateTo('configuration')">
+    <a-menu-item key="configuration" @click="navigateTo('Configuration')">
       {{ $t("NAVIGATOR.CONFIGURATION" )}}
     </a-menu-item>
-    <a-menu-item key="administration" @click="navigateTo('administration')">
+    <a-menu-item key="administration" @click="navigateTo('Administration')">
       {{ $t("NAVIGATOR.ADMINISTRATION" )}}
     </a-menu-item>
     <a-menu-item key="reporting">
@@ -27,12 +27,11 @@ export default defineComponent({
   name: 'Menu',
   setup () {
     const { meta, name } = useRoute();
-
     const current = computed(() => [meta.parent || name]);
 
-    function navigateTo (key: string) {
-      if (key) {
-        router.push({ name: key });
+    function navigateTo (name: string) {
+      if (name) {
+        router.push({ name });
       }
     }
 

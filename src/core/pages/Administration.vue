@@ -2,13 +2,13 @@
   <a-row>
     <a-col :md="{span: 16, offset: 4}">
       <div class="administration">
-        <router-link to="/users/manage">
+        <router-link :to="{ name: 'UsersList' }">
           <div class="administration__menu-item">
             <span>{{ $t("NAVIGATOR.MY_USERS")}}</span>
             <RightOutlined />
           </div>
         </router-link>
-        <router-link to="/sharedspaces">
+        <router-link :to="{ name: 'SharedSpaces' }">
           <div class="administration__menu-item">
             <span>{{ $t("NAVIGATOR.MY_DRIVES_WORKGROUPS")}}</span>
             <RightOutlined />

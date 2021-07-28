@@ -5,7 +5,11 @@ import AdministrationLayout from '@/core/layout/AdministrationLayout.vue';
 export const CoreRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'configuration',
+    redirect: 'Configuration'
+  },
+  {
+    path: '/configuration',
+    name: 'Configuration',
     component: () => import('../pages/Configuration.vue'),
     meta: {
       requiresAuth: true,
@@ -14,7 +18,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
   },
   {
     path: '/administration',
-    name: 'administration',
+    name: 'Administration',
     component: () => import('../pages/Administration.vue'),
     meta: {
       requiresAuth: true,

@@ -5,30 +5,15 @@ import { PERMISSIONS } from '@/core/constants';
 export const UserRoutes: Array<RouteRecordRaw> = [
   {
     path: '/users',
-    redirect: '/users/manage',
-    name: 'Users',
+    name: 'UsersList',
     component: () => import('../pages/ManageUsers.vue'),
     meta: {
       requiresAuth: true,
       layout: AdministrationLayout,
       permission: PERMISSIONS.USERS.VIEW,
-      parent: 'administration',
+      parent: 'Administration',
       parentName: 'NAVIGATOR.ADMINISTRATION'
-    },
-    children: [
-      {
-        path: '/users/manage',
-        component: () => import('../pages/ManageUsers.vue'),
-        name: 'ManageUsers',
-        meta: {
-          requiresAuth: true,
-          layout: AdministrationLayout,
-          permission: PERMISSIONS.USERS.MANAGE_USERS,
-          parent: 'administration',
-          parentName: 'NAVIGATOR.ADMINISTRATION'
-        }
-      }
-    ]
+    }
   },
   {
     path: '/users/:id',
@@ -38,8 +23,8 @@ export const UserRoutes: Array<RouteRecordRaw> = [
       requiresAuth: true,
       layout: AdministrationLayout,
       permission: PERMISSIONS.USERS.MANAGE_USERS,
-      parent: 'administration',
-      parentName: 'NAVIGATOR.ADMINISTRATION'
+      parent: 'UsersList',
+      parentName: 'NAVIGATOR.MANAGE_USERS'
     }
   }
 ];

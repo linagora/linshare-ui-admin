@@ -3,7 +3,7 @@
   <div class="header">
     <div class="header__upper">
       <div class="header__left">
-        <router-link :to="{ name: 'configuration' }">
+        <router-link to="/">
           <img
             src="@/assets/images/linshare-logo-white.png"
             :alt="$t('HEADER.LOGO_ALT')"
