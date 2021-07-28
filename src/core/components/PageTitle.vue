@@ -1,5 +1,5 @@
 <template>
-  <div :class="['page-title', { 'no-subtitle': !subtitle }]">
+  <div class="page-title">
     <a-breadcrumb v-if="breadcrumbs && breadcrumbs.length" class="breadcrumb">
       <a-breadcrumb-item v-for="breadcrumb in breadcrumbs" :key="breadcrumb.key">
         <router-link :to="{name: breadcrumb.key}">{{$t(breadcrumb.label)}}</router-link>
@@ -21,8 +21,8 @@
       v-if="containHelper && showHelper"
       type="info"
       class="alert-message"
-      @close="showHelper = false"
       closable
+      :after-close="handleClosingHelper"
     >
       <template #description>
         <slot name="helperContent"/>
@@ -67,21 +67,26 @@ export default defineComponent({
       showHelper.value = !showHelper.value;
     }
 
-    return { containHelper, showHelper, toggleHelper };
+    function handleClosingHelper () {
+      showHelper.value = false;
+    }
+
+    return {
+      containHelper,
+      handleClosingHelper,
+      showHelper,
+      toggleHelper
+    };
   }
 });
 </script>
 
 <style lang="less" scoped>
   .page-title {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 
     .breadcrumb {
       margin-bottom: 20px;
-    }
-
-    &.no-subtitle {
-      margin-bottom: 55px;
     }
 
     .title {

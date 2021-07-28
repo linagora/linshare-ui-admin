@@ -191,7 +191,7 @@ export default defineComponent({
 
   .manage-users {
     .users-list {
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     .alert-message-in-description {
