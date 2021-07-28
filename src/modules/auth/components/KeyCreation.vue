@@ -1,10 +1,10 @@
 <template>
-  <a-alert v-if="!secondFA.enabled && secondFA.required" type="warning">
-    <template #description>
-      <h1>{{ $t('2FA.KEY_CREATION.ALERT.TITLE') }}</h1>
-      <span>{{ $t('2FA.KEY_CREATION.ALERT.MESSAGE') }}</span>
-    </template>
-  </a-alert>
+  <a-alert
+    v-if="!secondFA.enabled && secondFA.required"
+    type="warning"
+    :message="$t('2FA.KEY_CREATION.ALERT.TITLE')"
+    :description="$t('2FA.KEY_CREATION.ALERT.MESSAGE')"
+  />
 
   <div class="second-fa-management">
     <span class="helper-text">{{ $t('2FA.KEY_CREATION.HELPER') }}</span>
