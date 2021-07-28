@@ -149,7 +149,7 @@ export default defineComponent({
       defaultMaxFileSize: getReadableSize(userQuota.defaultMaxFileSize).getText(),
       defaultQuota: getReadableSize(userQuota.defaultQuota).getText(),
       computedQuota: computed(() => getReadableSize(userQuota.quota).getText()),
-      usedSpace: computed(() => getReadableSize(userQuota.usedSpace).getText()),
+      usedSpace: computed(() => getReadableSize(userQuota.realTimeUsedSpace).getText()),
       percentUsed: computed(() => Math.round(userQuota.realTimeUsedSpace / userQuota.quota * 100))
     };
   }
