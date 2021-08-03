@@ -21,7 +21,7 @@
 </template>
 
 <script lang='ts'>
-import { ref, reactive, watch, onMounted, SetupContext } from 'vue';
+import { defineComponent, ref, reactive, watch, onMounted } from 'vue';
 
 const BACKSPACE = 8;
 const LEFT_ARROW = 37;
@@ -38,18 +38,13 @@ interface CustomHTMLElement extends HTMLElement {
   select: () => void;
 }
 
-interface OtpInputProps {
-  size: number;
-  value: string;
-}
-
 interface Character {
   value: string;
   index: number;
   i?: number;
 }
 
-export default {
+export default defineComponent({
   name: 'OtpInput',
   props: {
     size: {
@@ -61,7 +56,7 @@ export default {
       default: ''
     }
   },
-  setup (props: OtpInputProps, { emit }: SetupContext) {
+  setup (props, { emit }) {
     const characters: Character[] = reactive([0, 1, 2, 3, 4, 5].map((index: number) => ({
       index,
       value: '',
@@ -193,7 +188,7 @@ export default {
       handleOnClick
     };
   }
-};
+});
 </script>
 
 <style lang='less' scoped>

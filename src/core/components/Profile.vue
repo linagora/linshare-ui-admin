@@ -26,12 +26,12 @@
 
 <script lang="ts">
 import router from '@/core/router';
-import { computed } from 'vue';
+import { computed, defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 
-export default {
+export default defineComponent({
   setup () {
     const store = useStore();
     const { t } = useI18n();
@@ -53,7 +53,7 @@ export default {
       email: computed(() => store.getters['Auth/getLoggedUserEmail'])
     };
   }
-};
+});
 </script>
 
 <style lang="less" scoped>

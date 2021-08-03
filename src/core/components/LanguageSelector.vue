@@ -15,12 +15,12 @@
 </template>
 
 <script lang='ts'>
-import { ref } from 'vue';
+import { ref, defineComponent } from 'vue';
 import i18nService from '@/core/services/I18nService';
 import { useI18n } from 'vue-i18n';
 import { LANGUAGES } from '@/core/constants';
 
-export default {
+export default defineComponent({
   name: 'LanguageSelector',
   setup () {
     const { locale } = useI18n();
@@ -37,8 +37,7 @@ export default {
       onLanguageChanged
     };
   }
-
-};
+});
 </script>
 
 <style lang="less">
