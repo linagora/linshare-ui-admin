@@ -16,6 +16,7 @@ export default interface User {
   creationDate: number;
   modificationDate: number;
   expirationDate: number;
+  secondFAUuid: string;
   secondFAEnabled: boolean;
   secondFARequired: boolean;
   quotaUuid: string;
