@@ -1,23 +1,26 @@
 export default interface User {
   uuid: string;
+  mail: string;
   firstName: string;
   lastName: string;
-  accountType: string;
   canUpload: boolean;
   canCreateGuest: boolean;
-  role: string;
-  mail: string;
   externalMailLocale: string;
-  domain: {
-    label: string;
-    identifier: string;
-    type: string;
-  };
   creationDate: number;
   modificationDate: number;
   expirationDate: number;
   secondFAUuid: string;
   secondFAEnabled: boolean;
-  secondFARequired: boolean;
   quotaUuid: string;
+  author: {
+    uuid: string,
+    email: string,
+    name: string
+  };
+  domain: {
+    name: string;
+    uuid: string;
+  };
+  accountType: 'INTERNAL' | 'GUEST' | 'TECHNICAL_ACCOUNT' | 'THREAD' | 'ROOT' | 'SYSTEM';
+  role: 'SIMPLE' | 'ADMIN' | 'SYSTEM' | 'SUPERADMIN' | 'DELEGATION' | 'UPLOAD_REQUEST' | 'SAFE' | 'ANONYMOUS';
 }

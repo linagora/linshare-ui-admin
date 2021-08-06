@@ -9,7 +9,6 @@ const getters: GetterTree<AuthState, RootState> = {
   getLoggedUserFirstName: state => state.loggedUser?.firstName,
   getLoggedUserFullName: state => `${state.loggedUser?.firstName || ''} ${state.loggedUser?.lastName || ''}`.trim(),
   getLoggedUserEmail: state => state.loggedUser?.mail,
-  is2FARequired: state => state.loggedUser?.secondFARequired,
   is2FAEnabled: state => state.loggedUser?.secondFAEnabled,
   getSecondFA: state => state.secondFA
 };

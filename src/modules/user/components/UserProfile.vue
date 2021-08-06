@@ -12,12 +12,15 @@
         </div>
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.ROLE') }}</label>
-          <a-select v-model:value="form.role">
+          <a-select :disabled="user.role === 'SUPERADMIN'" v-model:value="form.role">
             <a-select-option value="SIMPLE">
-              SIMPLE
+              {{ $t('USERS.DETAIL_USER.ROLE_SIMPLE') }}
             </a-select-option>
             <a-select-option value="ADMIN">
-              ADMIN
+              {{ $t('USERS.DETAIL_USER.ROLE_ADMIN') }}
+            </a-select-option>
+            <a-select-option disabled value="SUPERADMIN">
+              {{ $t('USERS.DETAIL_USER.ROLE_SUPERADMIN') }}
             </a-select-option>
           </a-select>
         </div>
@@ -74,7 +77,7 @@
         </div>
         <div class="info-block">
           <div class="info-block__title">{{ $t('USERS.DETAIL_USER.DOMAIN') }}</div>
-          <div class="info-block__value">{{ user.domain && user.domain.label }}</div>
+          <div class="info-block__value">{{ user.domain && user.domain.name }}</div>
         </div>
       </div>
     </a-col>
@@ -134,6 +137,10 @@ export default defineComponent({
       font-weight: 600;
       color: #333;
       margin-bottom: 10px;
+    }
+
+    .ant-select {
+      width: 100%;
     }
   }
 
