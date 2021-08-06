@@ -71,7 +71,7 @@ class UserAPIClient extends AdminAPIClient {
     return (await this.transport.delete(`${id}/2fa/${secondFAId}`)).data;
   }
 
-  async listRestrictedContacts (id: string, config?: AxiosRequestConfig): Promise<User[]> {
+  async listRestrictedContacts (id: string, config?: AxiosRequestConfig): Promise<RestrictedContact[]> {
     return (await this.transport.get(`${id}/restricted_contacts`, config)).data;
   }
 

@@ -4,8 +4,7 @@ export default interface RestrictedContact {
   lastName: string;
   mail: string;
   domain: {
-    label: string;
-    identifier: string;
-    type: string;
+    uuid: string;
+    name: string;
   };
 }
