@@ -1,30 +1,24 @@
 import { RouteRecordRaw } from 'vue-router';
-import AdministrationLayout from '@/core/layout/AdministrationLayout.vue';
-import { PERMISSIONS } from '@/core/constants';
 
 export const UserRoutes: Array<RouteRecordRaw> = [
   {
-    path: '/users',
     name: 'UsersList',
+    path: 'administration/users',
     component: () => import('../pages/ManageUsers.vue'),
     meta: {
-      requiresAuth: true,
-      layout: AdministrationLayout,
-      permission: PERMISSIONS.USERS.VIEW,
-      parent: 'Administration',
-      parentName: 'NAVIGATOR.ADMINISTRATION'
+      parentRoute: 'Administration',
+      label: 'NAVIGATOR.MANAGE_USERS',
+      requiresAuth: true
     }
   },
   {
-    path: '/users/:id',
-    component: () => import('../pages/UserDetail.vue'),
     name: 'UserDetail',
+    path: 'administration/users/:id',
+    component: () => import('../pages/UserDetail.vue'),
     meta: {
-      requiresAuth: true,
-      layout: AdministrationLayout,
-      permission: PERMISSIONS.USERS.MANAGE_USERS,
-      parent: 'UsersList',
-      parentName: 'NAVIGATOR.MANAGE_USERS'
+      parentRoute: 'UsersList',
+      label: 'NAVIGATOR.USER_DETAILS',
+      requiresAuth: true
     }
   }
 ];

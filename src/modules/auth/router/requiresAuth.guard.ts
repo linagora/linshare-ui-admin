@@ -19,7 +19,7 @@ export const requiresAuthGuard = (router: Router) => {
 
       next();
     } catch (err) {
-      next({ name: 'login' });
+      next({ name: 'Login' });
     }
   });
 };

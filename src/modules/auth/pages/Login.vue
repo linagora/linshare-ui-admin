@@ -69,7 +69,13 @@ export default defineComponent({
 
     function handleError (e: AuthError) {
       if (e.isOTPRequiredError()) {
-        return router.push({ name: 'login2fa', params: { ...credentials, redirect: props.redirect } });
+        return router.push({
+          name: 'LoginUsingSecondFactorAuthentication',
+          params: {
+            ...credentials,
+            redirect: props.redirect
+          }
+        });
       }
 
       error.value = t(e.message) || t('ERRORS.COMMON_MESSAGE');

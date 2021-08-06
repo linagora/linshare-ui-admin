@@ -21,8 +21,8 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
+import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import PageTitle from '@/core/components/PageTitle.vue';
 import SharedSpacesList from '@/modules/shared-spaces/components/SharedSpacesList.vue';
 import useSharedSpacesList from '@/modules/shared-spaces/hooks/useSharedSpacesList';
@@ -46,17 +46,13 @@ export default defineComponent({
     TokenInput
   },
   setup () {
-    const { meta } = useRoute();
     const { locale, t } = useI18n();
-    const breadcrumbs = meta && meta.parent && meta.parentName
-      ? [{
-        key: meta.parent,
-        label: meta.parentName
-      }] : [];
+    const { breadcrumbs } = useBreadcrumbs();
     const { updateSharedSpacesList } = useSharedSpacesList();
 
     const searchForAccounts = async function (mail: string) {
       const data = await UserAPIClient.listUsers({ mail });
+
       return (data && data.data && data.data.map(user => ({
         label: user.mail,
         value: user.uuid,

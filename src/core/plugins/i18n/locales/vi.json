@@ -40,7 +40,7 @@
     "REPORTING": "Báo cáo",
     "UPGRADES": "Nâng cấp",
     "MY_USERS": "Người dùng",
-    "MY_DRIVES_WORKGROUPS": "Ổ đĩa / Nhóm làm việc",
+    "MY_DRIVES_WORKGROUPS": "Ổ đĩa và Nhóm làm việc",
     "MY_CONTACT_LIST": "Danh sách liên hệ",
     "LOGGERS": "Nhật ký hoạt động",
     "DOMAINS": "Miền",
@@ -60,7 +60,8 @@
     "MAIL_CONTENT": "Nội dung mail",
     "MAIL_ACTIVATION": "Kích hoạt mail",
     "UPGRADE_TASKS": "Nâng cấp tác vụ",
-    "SEARCH": "Tìm kiếm"
+    "SEARCH": "Tìm kiếm",
+    "USER_DETAILS": "Chi tiết người dùng"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -90,6 +91,7 @@
       "NO_DATA": "Không có kết quả phù hợp"
     },
     "DETAIL_USER": {
+      "TITLE": "Quản lí người dùng",
       "CONFIRM_DELETE": "Bạn chuẩn bị xóa tài khoản này, hành động này không thể đảo ngược và sẽ xóa toàn bộ tài liệu của tài khoản. Bạn chắc chứ?",
       "DELETE_USER": "Khóa người dùng",
       "YES": "Có",

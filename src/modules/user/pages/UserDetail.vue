@@ -1,8 +1,8 @@
 <template>
   <div class="manage-users">
     <PageTitle
-      :title="$t('USERS.MANAGE_USERS.TITLE')"
-      :subtitle="`${data.firstName} ${data.lastName} <${data.mail}>`"
+      :title="$t('USERS.DETAIL_USER.TITLE')"
+      :subtitle="`${user.firstName} ${user.lastName} <${user.mail}>`"
       :breadcrumbs="breadcrumbs"
     >
       <template #subTitlePostfix>
@@ -20,7 +20,7 @@
     </PageTitle>
 
     <a-alert
-      v-if="data.locked"
+      v-if="user.locked"
       :message="$t('USERS.DETAIL_USER.LOCKED_USER')"
       type="warning"
     >
@@ -35,11 +35,11 @@
     <div class="second-factor-authentication">
       <div>
         <span>{{ $t('2FA.TITLE') }}</span>
-        <a-tag :color="data.secondFAEnabled ? 'green' : 'red'">
-          {{ data.secondFAEnabled ? $t('USERS.DETAIL_USER.ENABLED') : $t('USERS.DETAIL_USER.DISABLED') }}
+        <a-tag :color="user.secondFAEnabled ? 'green' : 'red'">
+          {{ user.secondFAEnabled ? $t('USERS.DETAIL_USER.ENABLED') : $t('USERS.DETAIL_USER.DISABLED') }}
         </a-tag>
       </div>
-      <a-button class="delete-shared-key-button" v-if='data.secondFAEnabled' @click="confirmRemoveSharedKey">
+      <a-button class="delete-shared-key-button" v-if='user.secondFAEnabled' @click="confirmRemoveSharedKey">
         {{ $t('2FA.KEY_REMOVAL.BUTTON')}}
       </a-button>
     </div>
@@ -54,7 +54,7 @@
         </a-tab-pane>
         <a-tab-pane key="3" :tab="$t('USERS.DETAIL_USER.UPLOAD_REQUEST')">
         </a-tab-pane>
-        <a-tab-pane key="4" v-if="data.accountType === 'GUEST'" :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')">
+        <a-tab-pane key="4" v-if="user.accountType === 'GUEST'" :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')">
           <RestrictedContacts />
         </a-tab-pane>
       </a-tabs>
@@ -69,12 +69,14 @@ import { useRoute } from 'vue-router';
 import { Modal, message } from 'ant-design-vue';
 import router from '@/core/router';
 import store from '@/core/store';
+import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import PageTitle from '@/core/components/PageTitle.vue';
 import UserProfile from '@/modules/user/components/UserProfile.vue';
 import RestrictedContacts from '@/modules/user/components/RestrictedContacts.vue';
 import PersonalSpaceQuota from '@/modules/user/components/PersonalSpaceQuota.vue';
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import UserAPIClient from '../services/UserAPIClient';
+import User from '../type/User';
 
 export default defineComponent({
   name: 'UserDetail',
@@ -85,20 +87,15 @@ export default defineComponent({
     RestrictedContacts
   },
   async setup () {
-    const { params, meta } = useRoute();
-    const id = params.id;
+    const { params } = useRoute();
     const { t } = useI18n();
 
-    const breadcrumbs = meta && meta.parent && meta.parentName
-      ? [{
-        key: meta.parent,
-        label: meta.parentName
-      }] : [];
+    const id = params.id;
+    const user = computed<User>(() => store.getters['User/getUser']);
+    const { breadcrumbs } = useBreadcrumbs();
 
-    let data;
     try {
       await store.dispatch('User/fetchUser', id);
-      data = computed(() => store.getters['User/getUser']);
     } catch (error) {
       message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
     }
@@ -150,7 +147,7 @@ export default defineComponent({
     }
 
     return {
-      data,
+      user,
       breadcrumbs,
       deleteUser,
       confirmRemoveSharedKey,

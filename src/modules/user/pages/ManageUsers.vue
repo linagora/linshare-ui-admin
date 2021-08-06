@@ -29,11 +29,11 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
+import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import PageTitle from '@/core/components/PageTitle.vue';
 import LargeTable from '@/modules/user/components/LargeTable.vue';
 import SmallTable from '@/modules/user/components/SmallTable.vue';
 import TokenInput, { Filter } from '@/core/components/TokenInput.vue';
-import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import useUsersList from '@/modules/user/hooks/useUsersList';
 
@@ -54,15 +54,9 @@ export default defineComponent({
     PageTitle
   },
   setup () {
-    const { meta } = useRoute();
     const { pagination, handleTableChange } = useUsersList();
     const { locale, t } = useI18n();
-
-    const breadcrumbs = meta && meta.parent && meta.parentName
-      ? [{
-        key: meta.parent,
-        label: meta.parentName
-      }] : [];
+    const { breadcrumbs } = useBreadcrumbs();
 
     const handleSubmit = async function (options: Options) {
       await handleTableChange(pagination, options.filters, options.sort);

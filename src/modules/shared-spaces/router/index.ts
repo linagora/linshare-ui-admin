@@ -1,18 +1,14 @@
 import { RouteRecordRaw } from 'vue-router';
-import { PERMISSIONS } from '@/core/constants';
-import AdministrationLayout from '@/core/layout/AdministrationLayout.vue';
 
 export const SharedSpacesRoutes: Array<RouteRecordRaw> = [
   {
-    path: '/sharedspaces',
-    name: 'SharedSpaces',
+    name: 'SharedSpacesList',
+    path: 'administration/sharedspaces',
     component: () => import('../pages/ManageSharedSpaces.vue'),
     meta: {
-      requiresAuth: true,
-      parent: 'Administration',
-      parentName: 'NAVIGATOR.ADMINISTRATION',
-      layout: AdministrationLayout,
-      permission: PERMISSIONS.WORKGROUPS.VIEW
+      parentRoute: 'Administration',
+      label: 'NAVIGATOR.MY_DRIVES_WORKGROUPS',
+      requiresAuth: true
     }
   }
 ];

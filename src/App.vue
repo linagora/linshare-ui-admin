@@ -1,27 +1,22 @@
 <template>
-  <component :is="currentRoute.meta.layout || 'div'" :permission="currentRoute.meta.permission">
-    <a-config-provider :locale="antdLocale">
-      <Suspense>
-        <router-view />
-      </Suspense>
-    </a-config-provider>
-  </component>
+  <a-config-provider :locale="antdLocale">
+    <Suspense>
+      <router-view />
+    </Suspense>
+  </a-config-provider>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from 'vue';
-import { useRouter } from 'vue-router';
 import useAntConfig from '@/core/hooks/useAntConfig';
 
 export default defineComponent({
   name: 'App',
   setup () {
-    const { currentRoute } = useRouter();
     const { antdLocale } = useAntConfig();
 
     return {
-      antdLocale,
-      currentRoute
+      antdLocale
     };
   }
 });

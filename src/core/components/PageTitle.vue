@@ -1,11 +1,17 @@
 <template>
   <div class="page-title">
-    <a-breadcrumb v-if="breadcrumbs && breadcrumbs.length" class="breadcrumb">
-      <a-breadcrumb-item v-for="breadcrumb in breadcrumbs" :key="breadcrumb.key">
-        <router-link :to="{name: breadcrumb.key}">{{$t(breadcrumb.label)}}</router-link>
-      </a-breadcrumb-item>
-      <a-breadcrumb-item>{{ title }}</a-breadcrumb-item>
+    <a-breadcrumb :routes="breadcrumbs">
+      <template #itemRender="{ route, routes }">
+        <span v-if="routes.indexOf(route) === routes.length - 1">
+          {{ $t(route.label) }}
+        </span>
+
+        <router-link v-else :to="route.path">
+          {{ $t(route.label) }}
+        </router-link>
+      </template>
     </a-breadcrumb>
+
     <div class="title">
       <h1>{{ title }}</h1>
       <info-circle-filled

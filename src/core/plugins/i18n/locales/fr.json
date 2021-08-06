@@ -60,7 +60,8 @@
     "MAIL_CONTENT": "Contenu de courriel",
     "MAIL_ACTIVATION": "Activation des notifications",
     "UPGRADE_TASKS": "Tâches de mise à jour",
-    "SEARCH": "Rechercher"
+    "SEARCH": "Rechercher",
+    "USER_DETAILS": "Détails de l'utilisateur"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",
@@ -90,6 +91,7 @@
       "NO_DATA": "Aucun enregistrements correspondants trouvés"
     },
     "DETAIL_USER": {
+      "TITLE": "Configuration de l'utilisateur",
       "CONFIRM_DELETE": "Vous êtes sur le point de supprimer ce modèle de domaine, cette procédure est irréversible. Souhaitez-vous continuer?",
       "DELETE_USER": "Supprimer l'utilisateur",
       "YES": "Oui",

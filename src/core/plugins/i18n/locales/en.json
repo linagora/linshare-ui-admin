@@ -40,7 +40,7 @@
     "REPORTING": "Reporting",
     "UPGRADES": "Upgrades",
     "MY_USERS": "My Users",
-    "MY_DRIVES_WORKGROUPS": "My Drives / My Workgroups",
+    "MY_DRIVES_WORKGROUPS": "My Drives and Workgroups",
     "MY_CONTACT_LIST": "My Contact List",
     "LOGGERS": "Loggers",
     "DOMAINS": "Domains",
@@ -60,7 +60,8 @@
     "MAIL_CONTENT": "Mail content",
     "MAIL_ACTIVATION": "Mail activation",
     "UPGRADE_TASKS": "Upgrade tasks",
-    "SEARCH": "Search"
+    "SEARCH": "Search",
+    "USER_DETAILS": "User details"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",
@@ -90,6 +91,7 @@
       "NO_DATA": "No matching records found"
     },
     "DETAIL_USER": {
+      "TITLE": "Manage user",
       "CONFIRM_DELETE": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?",
       "DELETE_USER": "Delete user",
       "YES": "Yes",
