@@ -4,7 +4,7 @@
       <a-row :gutter="20">
         <a-col :xs="8" :sm="6">
           <div class="info-block">
-            <div class="info-block__name">{{ data.firstName }} {{ data.lastName}}</div>
+            <div class="info-block__name">{{ displayInfo }}</div>
           </div>
         </a-col>
         <a-col :xs="16" :sm="10">
@@ -37,23 +37,30 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
+import useUser from '@/modules/user/hooks/useUser';
+import User from '@/modules/user/type/User';
 import router from '@/core/router';
 
 export default defineComponent({
   name: 'ListItem',
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<User>,
       default: () => ({})
     }
   },
   setup (props) {
+    const { displayInfo } = useUser(props.data);
+
     function goToUser () {
       router.push({ name: 'UserDetail', params: { id: props.data.uuid } });
     }
 
-    return { goToUser };
+    return {
+      displayInfo,
+      goToUser
+    };
   }
 });
 </script>
