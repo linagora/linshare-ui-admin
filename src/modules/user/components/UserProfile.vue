@@ -129,13 +129,13 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
+
   .input-container {
     margin: 20px 0px;
 
     label {
       display: inline-block;
       font-weight: 600;
-      color: #333;
       margin-bottom: 10px;
     }
 
@@ -162,11 +162,7 @@ export default defineComponent({
       }
 
       &__title {
-        color: #999;
-      }
-
-      &__value {
-        color: #333;
+        color: @text-color-secondary;
       }
     }
   }

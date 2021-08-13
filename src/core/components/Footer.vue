@@ -18,7 +18,6 @@ export default defineComponent({
 
 <style lang="less" scoped>
   .footer {
-    background-color: #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +25,7 @@ export default defineComponent({
     padding: 20px;
     font-size: 12px;
     line-height: 15px;
-    color: #A9A9A9;
+    color: @text-color-secondary;
 
     a {
       margin-left: 4px;

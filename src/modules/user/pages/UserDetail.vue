@@ -12,6 +12,7 @@
             :ok-text="$t('USERS.DETAIL_USER.YES')"
             :cancel-text="$t('USERS.DETAIL_USER.NO')"
             @confirm="deleteUser"
+            placement="bottom"
           >
             <a-button>{{ $t('USERS.DETAIL_USER.DELETE_USER') }}</a-button>
           </a-popconfirm>
@@ -158,32 +159,17 @@ export default defineComponent({
 </script>
 
 <style lang='less' scoped>
-  @import '@/assets/styles/variables';
-
   .manage-users {
     .user-detail {
       margin-top: 40px;
-    }
-
-    .alert-message-in-description {
-      display: block;
-      margin-top: 10px;
-      margin-bottom: 4px;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 16px;
     }
 
     .delete-user-container {
       display: inline-block;
 
       .ant-btn {
-        background: #1B4157;
-        color: #fff;
-        border-radius: 4px;
-        &:hover, &:focus {
-          outline: none !important;
-          border: 1px solid #1f4d67;
-        }
+        background: @primary-8;
+        color: @text-color-inverse;
       }
     }
 
@@ -194,13 +180,8 @@ export default defineComponent({
         top: 15px;
       }
 
-      background: #FFE58F;
-      color: #333;
-      border-radius: 4px;
-      &:hover, &:focus {
-        border: 1px solid #fbe392;
-        outline: none !important;
-      }
+      background: @warning-color;
+      color: @text-color;
     }
 
     .second-factor-authentication {
@@ -225,11 +206,7 @@ export default defineComponent({
       }
 
       .delete-shared-key-button {
-        background: #F2F5F7;
-        color: #333;
-        border-radius: 4px;
-        border: 0px;
-        font-weight: 600;
+        background: @background-color-base;
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="token-input">
-    <div class="token-input__white-box token-input__full-flex token-input__scrollable-x">
+    <div class="token-input__inner-box token-input__full-flex token-input__scrollable-x">
       <SearchOutlined class="token-input__search-icon" />
       <div class="token-input__tokens-ctn">
         <div class="token-input__token-item" v-for="token in tokens" :key="token.key">
@@ -34,7 +34,7 @@
         />
       </a-auto-complete>
     </div>
-    <div class="token-input__white-box token-input__sort-ctn">
+    <div class="token-input__inner-box token-input__sort-ctn">
       <a-select
         :bordered="false"
         v-model:value="sortField"
@@ -324,17 +324,16 @@ export default defineComponent({
 </script>
 
 <style lang="less">
-  @import '@/assets/styles/variables';
   .token-input {
     padding: 10px 20px;
-    background: #F2F5F7;
-    box-shadow: inset 0px -1px 0px #f0f0f0;
+    background: @token-input-outer-bg;
+    box-shadow: @token-input-shadow;
     display: flex;
 
-    &__white-box {
+    &__inner-box {
       display: flex;
       align-items: center;
-      background: #FFF;
+      background: @token-input-inner-bg;
       border-radius: 4px;
       padding: 10px;
     }
@@ -369,7 +368,7 @@ export default defineComponent({
     &__sort-order-icon {
       font-size: 20px;
       cursor: pointer;
-      color: @dark-blue;
+      color: @primary-color;
     }
 
     &__tokens-ctn {
@@ -378,15 +377,15 @@ export default defineComponent({
 
     &__search-icon {
       font-size: 18px;
-      color: #666;
+      color: @text-color-secondary;
       margin-right: 10px;
     }
 
     &__token-item {
-      background: #F2F5F7;
+      background: @token-item-bg;
       border-radius: 2px;
       padding: 4px;
-      box-shadow: 1px 1px 3px 2px #eaeaea;
+      box-shadow: @token-item-box-shadow;
       margin: 0px 10px;
       white-space: nowrap;
       transition: all 0.2s ease-in-out;
@@ -395,18 +394,18 @@ export default defineComponent({
 
       &__close-icon {
         margin-left: 10px;
-        color: #777;
+        color: @text-color-secondary;
         cursor: pointer;
         display: none;
 
         &:hover {
-          color: #000;
+          color: @text-color;
         }
       }
 
       &:hover {
-        background: #eaeaea;
-        box-shadow: 1px 1px 3px 2px #dcdcdc;
+        background: @token-item-hover-bg;
+        box-shadow: @token-item-shadow;
       }
 
       &:hover > &__close-icon {

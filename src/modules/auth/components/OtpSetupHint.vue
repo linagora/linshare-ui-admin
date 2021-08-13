@@ -89,73 +89,73 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.trigger-text {
-  color: #0372B3;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.otp-secret {
-  display: flex;
-  align-items: center;
-  width: 100%;
-
-  input {
-    flex: 1;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
+  .trigger-text {
+    color: @primary-5;
+    font-weight: 500;
+    font-size: 14px;
   }
 
-  button {
-    white-space: nowrap;
-    border-radius: 0;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-}
-
-.content {
-  color: #333333;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-
-  label {
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-
-  .step {
-    margin: 7px 0;
-  }
-
-  .issuer-account {
+  .otp-secret {
     display: flex;
-    background-color: #ffffff;
-    padding: 5px;
-    border-radius: 2px;
+    align-items: center;
+    width: 100%;
 
-    .text-fields {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-evenly;
-      width: 100%;
-      margin-left: 10px;
+    input {
+      flex: 1;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
 
-      span {
-        border-bottom: medium;
-        font-weight: 500;
-        width: 100%;
-        border-bottom: 1px solid #F2F2F2;
-      }
+    button {
+      white-space: nowrap;
+      border-radius: 0;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
     }
   }
 
-  .other-configs {
+  .content {
+    color: @text-color;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    color: #666666;
+
+    label {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .step {
+      margin: 7px 0;
+    }
+
+    .issuer-account {
+      display: flex;
+      background-color: @component-background;
+      padding: 5px;
+      border-radius: 2px;
+
+      .text-fields {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-left: 10px;
+
+        span {
+          border-bottom: medium;
+          font-weight: 500;
+          width: 100%;
+          border-bottom: 1px solid @border-color-base;
+        }
+      }
+    }
+
+    .other-configs {
+      display: flex;
+      flex-direction: column;
+      color: @text-color-medium;
+    }
   }
-}
 </style>

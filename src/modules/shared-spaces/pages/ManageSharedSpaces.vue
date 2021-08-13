@@ -4,7 +4,7 @@
     :breadcrumbs="breadcrumbs"
   >
     <template #helperContent>
-      <div class='alert-message-in-description'>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.TITLE') }}</div>
+      <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.TITLE') }}</div>
       <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.DESCRIPTION') }}</div>
     </template>
 

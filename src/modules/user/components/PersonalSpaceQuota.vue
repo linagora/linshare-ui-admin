@@ -165,58 +165,58 @@ export default defineComponent({
 </style>
 
 <style lang="less" scoped>
-.personal-space-quota {
-  &__row {
-    justify-content: center;
+  .personal-space-quota {
+    &__row {
+      justify-content: center;
 
-    .ant-col {
-      margin: 10px 0px;
+      .ant-col {
+        margin: 10px 0px;
+      }
+    }
+
+    &__status {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    &__field {
+      margin-top: 20px;
+    }
+
+    &__title {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    &__label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    &__action-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+
+      .reset {
+        background-color: @text-color-primary-heavy;
+        border-color: @text-color-primary-heavy;
+      }
+    }
+
+    &__default-value {
+      display: block;
+      margin-bottom: 5px;
+
+      .value {
+        margin-left: 5px;
+        border: 0px;
+        background: @background-color-base;
+        border-radius: 3px;
+        padding: 7px;
+        text-transform: uppercase;
+      }
     }
   }
-
-  &__status {
-    font-weight: 600;
-    font-size: 16px;
-  }
-
-  &__field {
-    margin-top: 20px;
-  }
-
-  &__title {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  &__label {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  &__action-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-
-    .reset {
-      background-color: #1B4157;
-      border-color: #1B4157;
-    }
-  }
-
-  &__default-value {
-    display: block;
-    margin-bottom: 5px;
-
-    .value {
-      margin-left: 5px;
-      border: 0px;
-      background: #F2F5F7;
-      border-radius: 3px;
-      padding: 7px;
-      text-transform: uppercase;
-    }
-  }
-}
 </style>

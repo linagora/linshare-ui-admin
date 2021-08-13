@@ -93,16 +93,17 @@ export default defineComponent({
         justify-content: center;
         padding: 0px;
         margin: 4px;
-        background-color: #F2F5F7;
-        color: #1B4157;
+        font-weight: 400;
+        background-color: @component-background;
+        color: @text-color-primary-heavy;
         border: 0px;
 
         &--active {
-          background-color: #CDEFFF;
+          background-color: @item-active-bg;
         }
 
         &:hover, &:focus {
-          background-color: #CDEFFF;
+          background-color: @item-active-bg;
           border: 0px;
           outline: none;
         }

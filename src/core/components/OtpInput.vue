@@ -206,8 +206,7 @@ export default defineComponent({
       outline: none;
       box-shadow: none;
       background: transparent;
-      border-color: #c6d2e7;
-      color: #535050;
+      border-color: @border-color-base;
       font-size: 20px;
       margin: 0 1.2%;
       width: 14.2%;

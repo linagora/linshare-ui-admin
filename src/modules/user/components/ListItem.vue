@@ -77,15 +77,10 @@ export default defineComponent({
       &__name {
         font-size: 14px;
         font-weight: 600;
-        color: #333;
       }
 
       &__title {
-        color: #999;
-      }
-
-      &__value {
-        color: #333;
+        color: @text-color-secondary;
       }
     }
 

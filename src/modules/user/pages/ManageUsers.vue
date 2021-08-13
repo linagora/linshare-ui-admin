@@ -181,8 +181,6 @@ export default defineComponent({
 </script>
 
 <style lang='less' scoped>
-  @import '@/assets/styles/variables';
-
   .manage-users {
     .users-list {
       margin-top: 30px;
@@ -192,7 +190,6 @@ export default defineComponent({
       display: block;
       margin-top: 10px;
       margin-bottom: 4px;
-      color: rgba(0, 0, 0, 0.85);
       font-size: 16px;
     }
   }

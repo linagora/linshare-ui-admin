@@ -26,7 +26,6 @@
     <a-alert
       v-if="containHelper && showHelper"
       type="info"
-      class="alert-message"
       closable
       :after-close="handleClosingHelper"
     >
@@ -105,11 +104,11 @@ export default defineComponent({
         margin-right: 5px;
         font-weight: 600;
         font-size: 24px;
-        color: #1B4157;
+        color: @text-color-primary-heavy;
       }
 
       .anticon {
-        color: #999;
+        color: @text-color-secondary;
       }
     }
 
@@ -117,11 +116,7 @@ export default defineComponent({
       display: inline-block;
       margin-right: 15px;
       font-weight: 400;
-      color: #999;
-    }
-
-    .alert-message {
-      margin-top: 30px;
+      color: @text-color-secondary;
     }
   }
 </style>

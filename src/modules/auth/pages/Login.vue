@@ -110,30 +110,30 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.login {
-  background-color: #0372b3;
-  height: 100vh;
-  text-align: center;
+  .login {
+    background-color: @primary-color;
+    height: 100vh;
+    text-align: center;
 
-  .logo {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
+    .logo {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
 
-  .ant-alert {
-    margin-bottom: 10px;
-  }
+    .ant-alert {
+      margin-bottom: 10px;
+    }
 
-  .copyright {
-    margin-top: 10px;
-    font-weight: 500;
-    size: 12px;
-    color: #CDEFFF;
-  }
+    .copyright {
+      margin-top: 10px;
+      font-weight: 500;
+      size: 12px;
+      color: @primary-1;
+    }
 
-  h2 {
-    color: #1B4157;
-    font-weight: 600;
+    h2 {
+      color: @text-color-primary-heavy;
+      font-weight: 600;
+    }
   }
-}
 </style>

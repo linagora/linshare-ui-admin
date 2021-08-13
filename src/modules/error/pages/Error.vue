@@ -28,7 +28,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  @import '@/assets/styles/variables';
   .error-page {
     background-color: @white;
     display: flex;
@@ -39,12 +38,10 @@ export default {
     height: 100%;
     &__big-title {
       text-align: center;
-      color: @dark-blue;
       font-size: 65px;
     }
     &__sub-title {
       text-align: center;
-      color: @dark-blue;
       font-size: 30px;
     }
   }

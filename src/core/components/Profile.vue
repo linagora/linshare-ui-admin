@@ -10,11 +10,11 @@
             <div class="profile-name">{{ fullName }}</div>
             <div class="profile-mail">{{ email }}</div>
           </a-menu-item>
-          <a-menu-item>
-            <router-link to="/second_factor_authentication">
+          <router-link to="/second_factor_authentication">
+            <a-menu-item>
               {{ $t('HEADER.PROFILE.2FA') }}
-            </router-link>
-          </a-menu-item>
+            </a-menu-item>
+          </router-link>
           <a-menu-item @click="logOut()">
             {{ $t('HEADER.PROFILE.LOGOUT') }}
           </a-menu-item>
@@ -60,32 +60,18 @@ export default defineComponent({
   .profile-avatar {
     float: right;
     cursor: pointer;
-    color: #0372b3;
-    background-color: #A7D2F8;
-  }
-
-  .ant-dropdown-menu-item {
-    &:hover {
-      color: #0372b3;
-    }
+    color: @primary-color;
+    background-color: @primary-1;
   }
 
   .profile-menu {
     .profile-info-ctn {
-      border-bottom: 1px solid #eee;
-      cursor: auto;
-      &:hover,
-      &:focus {
-        color: inherit;
-        background-color: #fff;
-      }
-
       .profile-name {
         font-weight: 600;
       }
 
       .profile-mail {
-        color: #888;
+        color: @text-color-secondary;
       }
     }
   }

@@ -44,8 +44,6 @@ export default defineComponent({
 </script>
 
 <style lang='less' scoped>
-  @import '@/assets/styles/variables';
-
   .administration {
     margin-top: 40px;
 
@@ -58,11 +56,11 @@ export default defineComponent({
 
       span {
         font-size: 16px;
-        color: #000;
+        color: @text-color;
       }
 
       .anticon {
-        color: @light-blue;
+        color: @primary-4;
         font-size: 14px;
       }
     }

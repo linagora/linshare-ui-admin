@@ -56,8 +56,8 @@ export default defineComponent({
 <style lang='less' scoped>
   .list-item {
     cursor: pointer;
-    border-bottom: 1px solid #EEE;
-    background: #FFF;
+    border-bottom: 1px solid @border-color-base;
+    background: @component-background;
 
     &__name {
       font-size: 16px;
@@ -67,21 +67,21 @@ export default defineComponent({
     &__domain {
       font-size: 15px;
       font-weight: 600;
-      color: #0372B3;
+      color: @primary-color;
       margin-left: 7px;
     }
 
     &__account-type {
       border: 0px;
-      background: #EDF9FF;
+      background: @primary-1;
       border-radius: 3px;
-      color: #0372B3;
+      color: @primary-color;
       padding: 7px;
     }
 
     &__profile-avatar {
-      background-color: #0372B3;
-      color: #FFF;
+      background-color: @primary-color;
+      color: @component-background;
     }
   }
 </style>

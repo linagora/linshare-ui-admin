@@ -1,7 +1,6 @@
 <template>
   <div class='language-selector'>
     <a-select
-      dropdownClassName="language-selector-dropdown-container"
       v-model:value="selectedLanguage"
       @select="onLanguageChanged"
     >
@@ -41,56 +40,25 @@ export default defineComponent({
 </script>
 
 <style lang="less">
-.language-selector {
-  .ant-select.ant-select-single.ant-select-show-arrow {
-    &.ant-select-focused {
+  .language-selector {
+    .ant-select.ant-select-single.ant-select-show-arrow {
       .ant-select-selector {
-        background: #0372B3;
-        box-shadow: none !important;
-      }
-    }
+        border: 0px;
+        background: @menu-bg;
+        color: @menu-item-color;
 
-    .ant-select-selector {
-      border: 0px;
-      background: #0372B3;
-      color: #fff;
-
-      .ant-select-selection-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 14px;
-        font-weight: 400;
-        color: #333;
+        .ant-select-selection-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+          font-weight: 400;
+        }
       }
 
-      .select-dropdown__symbol {
-        color: #fff;
+      .ant-select-arrow {
+        color: @menu-item-color;
       }
-    }
-
-    .ant-select-arrow {
-      color: #fff;
     }
   }
-}
-</style>
-
-<style lang='less' scoped>
-.language-selector {
-  float: right;
-
-  .select-dropdown {
-    display: flex;
-    align-items: center;
-
-    .select-dropdown__icon {
-      margin-right: 4px;
-    }
-
-    .select-dropdown__symbol {
-      line-height: 0.1;
-    }
-  }
-}
 </style>

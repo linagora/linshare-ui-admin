@@ -53,12 +53,12 @@ export default defineComponent({
 
 <style lang='less' scoped>
   .list-item {
-    border-bottom: 1px solid #EEE;
-    background: #FFF;
+    border-bottom: 1px solid @border-color-base;
+    background: @component-background;
 
     &__icon {
       width: 46px;
-      color: #0372B3;
+      color: @primary-color;
     }
 
     &__name {
@@ -69,15 +69,15 @@ export default defineComponent({
     &__parent {
       font-size: 15px;
       font-weight: 600;
-      color: #0372B3;
+      color: @primary-color;
       margin-left: 7px;
     }
 
     &__node-type {
       border: 0px;
-      background: #EDF9FF;
+      background: @primary-1;
       border-radius: 3px;
-      color: #0372B3;
+      color: @primary-color;
       padding: 7px;
       text-transform: uppercase;
     }

@@ -29,7 +29,7 @@ import {
   Tag,
   Tree
 } from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
+import '@/core/styles/variables.less';
 
 function useAntdComponents (vueApp: App): App {
   return vueApp

@@ -1,5 +1,5 @@
 <template>
-  <a-layout class="ls-admin-layout full-height" theme='light'>
+  <a-layout class="ls-admin-layout full-height">
     <a-layout-header class="ls-app-header">
       <Header />
     </a-layout-header>
@@ -31,7 +31,6 @@ export default defineComponent({
 </script>
 
 <style lang='less'>
-@import '@/assets/styles/variables';
 .ls-admin-layout {
   &.full-height {
     position: relative;
@@ -40,7 +39,6 @@ export default defineComponent({
   }
 
   .ant-layout-footer {
-    background: @white;
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -48,10 +46,8 @@ export default defineComponent({
   }
   .app-content {
     padding: 20px 40px;
-    background: @white;
   }
   .ls-app-header {
-    background: @dark-blue;
     height: auto;
   }
 }

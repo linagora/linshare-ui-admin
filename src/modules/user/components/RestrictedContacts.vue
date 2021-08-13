@@ -45,11 +45,15 @@
           </div>
         </div>
 
-        <a-button
-          class="restricted-contact__save"
-          @click="onSave()"
-          :loading="saving"
-        >{{ $t('GENERAL.SAVE') }}</a-button>
+        <div class="restricted-contact__save">
+          <a-button
+            type="primary"
+            @click="onSave()"
+            :loading="saving"
+          >
+            {{ $t('GENERAL.SAVE') }}
+          </a-button>
+        </div>
       </a-col>
     </a-row>
   </div>
@@ -229,17 +233,6 @@ export default defineComponent({
 
     &__save {
       margin-top: 10px;
-      background-color: #06B1FF;
-      font-weight: 600;
-      color: #fff;
-      border: 0px;
-      box-shadow: none;
-      outline: none;
-
-      &:hover, &:focus {
-        background-color: #2cbdff;
-        color: #fff;
-      }
     }
 
     &__container {
@@ -247,24 +240,28 @@ export default defineComponent({
     }
 
     &__title {
-      color: #999999;
+      color: @text-color-secondary;
       font-size: 13px;
       margin-bottom: 8px;
       text-transform: uppercase;
     }
 
     &__tag {
-      background: #FAFAFA;
-      border: 1px solid #F0F0F0;
+      background: @background-color-base;
+      border: 1px solid @border-color-base;
       padding: 10px;
       margin-right: 10px;
       margin-bottom: 10px;
       border-radius: 3px;
+
+      .anticon-close {
+        margin-left: 5px;
+      }
     }
   }
 
   .restricted-contact-autocomplete-user-icon {
-    color: #0372B3;
+    color: @primary-color;
     margin-right: 4px;
   }
 

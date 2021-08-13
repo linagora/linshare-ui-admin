@@ -16,10 +16,8 @@ module.exports = {
   css: {
     loaderOptions: {
       less: {
+        additionalData: '@import "@/core/styles/main.less";',
         lessOptions: {
-          modifyVars: {
-            'primary-color': '#0372B3'
-          },
           javascriptEnabled: true
         }
       }

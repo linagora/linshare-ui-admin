@@ -1,18 +1,18 @@
 <template>
-  <a-menu v-model:selectedKeys="current" mode="horizontal" class="app-menu app-menu-dark-blue">
+  <a-menu v-model:selectedKeys="current" mode="horizontal" class="navigation-menu">
     <a-menu-item key="configuration">
       {{ $t("NAVIGATOR.CONFIGURATION" )}}
     </a-menu-item>
     <a-menu-item key="administration" @click="navigateTo('Administration')">
       {{ $t("NAVIGATOR.ADMINISTRATION" )}}
     </a-menu-item>
-    <a-menu-item key="reporting">
+    <a-menu-item key="reporting" disabled>
       {{ $t("NAVIGATOR.REPORTING" )}}
     </a-menu-item>
-    <a-menu-item key="activities">
+    <a-menu-item key="activities" disabled>
       {{ $t("NAVIGATOR.ACTIVITIES" )}}
     </a-menu-item>
-    <a-menu-item key="upgrades">
+    <a-menu-item key="upgrades" disabled>
       {{ $t("NAVIGATOR.UPGRADES" )}}
     </a-menu-item>
   </a-menu>
@@ -44,23 +44,11 @@ export default defineComponent({
 </script>
 
 <style lang="less">
-  @import '@/assets/styles/variables';
-  .app-menu.app-menu-dark-blue {
-    background: @dark-blue;
-    border-bottom: 2px solid @dark-blue;
+  .ant-menu.ant-menu-horizontal.navigation-menu {
+    border-bottom: 2px solid @primary-color;
 
-    .ant-menu-item {
-      color: @light-white;
-      font-size: 17px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .ant-menu-item:hover,
-    .ant-menu-item:focus,
-    .ant-menu-item:active,
-    .ant-menu-item.ant-menu-item-selected {
-      color: @white;
-      border-bottom: 2px solid @white;
+    .ant-menu-item-disabled {
+      color: fade(@menu-highlight-color, 25%) !important;
     }
   }
 </style>
