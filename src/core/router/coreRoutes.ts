@@ -8,12 +8,29 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
   {
     name: 'Home',
     path: '/',
-    redirect: { name: 'Administration' },
+    redirect: { name: 'Configuration' },
     component: () => import('../pages/Home.vue'),
     meta: {
       requiresAuth: true
     },
     children: [
+      {
+        name: 'Configuration',
+        path: 'configuration',
+        redirect: { name: 'ConfigurationMain' },
+        component: () => import('../pages/Configuration.vue'),
+        meta: {
+          label: 'NAVIGATOR.CONFIGURATION',
+          requiresAuth: true
+        },
+        children: [
+          {
+            name: 'ConfigurationMain',
+            path: '',
+            component: () => import('../components/ConfigurationEntries.vue')
+          }
+        ]
+      },
       {
         name: 'Administration',
         path: 'administration',

@@ -1,6 +1,6 @@
 <template>
   <a-menu v-model:selectedKeys="current" mode="horizontal" class="navigation-menu">
-    <a-menu-item key="configuration">
+    <a-menu-item key="configuration" @click="navigateTo('ConfigurationMain')">
       {{ $t("NAVIGATOR.CONFIGURATION" )}}
     </a-menu-item>
     <a-menu-item key="administration" @click="navigateTo('Administration')">

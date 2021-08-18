@@ -1,11 +1,13 @@
 import Domain from '@/modules/domain/type/Domain';
-
+import DomainTreeNode from '@/modules/domain/type/DomainTreeNode';
 export interface DomainState {
-  domains: Domain[];
+  domainsTree: DomainTreeNode | {};
+  currentDomain: Domain | {};
 }
 
 const state: DomainState = {
-  domains: []
+  currentDomain: {},
+  domainsTree: {}
 };
 
 export default state;

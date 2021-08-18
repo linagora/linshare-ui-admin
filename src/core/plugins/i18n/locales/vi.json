@@ -61,7 +61,15 @@
     "MAIL_ACTIVATION": "Kích hoạt mail",
     "UPGRADE_TASKS": "Nâng cấp tác vụ",
     "SEARCH": "Tìm kiếm",
-    "USER_DETAILS": "Chi tiết người dùng"
+    "USER_DETAILS": "Chi tiết người dùng",
+    "DETAILS": "Chi tiết",
+    "PARAMETERS": "Tham số",
+    "MAIL_TEMPLATES": "Mẫu mail thông báo",
+    "WELCOME_MESSAGES": "Tin nhắn chào mừng",
+    "TYPE_MIME": "Nhập chính sách MIME",
+    "PROVIDERS": "Nguồn cung cấp",
+    "QUOTA": "Hạn ngạch",
+    "PUBLIC_KEYS": "Khóa công khai"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -225,5 +233,10 @@
       "FILE_SIZE_LARGER_THAN_QUOTA": "Kích thước tệp tải lên tối đa phải nhỏ hơn hạn ngạch bộ nhớ",
       "INVALID_FILE_SIZE": "Kích thước tệp tối đa không hợp lệ"
     }
+  },
+  "DOMAIN": {
+    "CREATE_TOP_DOMAIN": "Create a top domain",
+    "CREATE_SUB_DOMAIN": "Create a sub domain",
+    "CREATE_GUEST_DOMAIN": "Create a guest domain"
   }
 }

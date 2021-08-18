@@ -61,7 +61,15 @@
     "MAIL_ACTIVATION": "Активация почты",
     "UPGRADE_TASKS": "Задачи обновления",
     "SEARCH": "Поиск",
-    "USER_DETAILS": "Детали пользователя"
+    "USER_DETAILS": "Детали пользователя",
+    "DETAILS": "Подробности",
+    "PARAMETERS": "Параметры",
+    "MAIL_TEMPLATES": "Почтовые шаблоны",
+    "WELCOME_MESSAGES": "Приветственные сообщения",
+    "TYPE_MIME": "Введите политики MIME",
+    "PROVIDERS": "Провайдеры",
+    "QUOTA": "Квота",
+    "PUBLIC_KEYS": "Открытые ключи"
   },
   "DASHBOARD": {
     "TITLE": "Приборная доска",
@@ -225,5 +233,10 @@
       "FILE_SIZE_LARGER_THAN_QUOTA": "Максимальный размер загружаемого файла должен быть меньше квоты хранилища",
       "INVALID_FILE_SIZE": "Неверный максимальный размер файла"
     }
+  },
+  "DOMAIN": {
+    "CREATE_TOP_DOMAIN": "Добавить домен",
+    "CREATE_SUB_DOMAIN": "Добавить дополнительный домен",
+    "CREATE_GUEST_DOMAIN": "Добавить гостевой домен"
   }
 }

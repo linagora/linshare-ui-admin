@@ -1,28 +1,28 @@
 <template>
   <a-row>
     <a-col :md="{span: 16, offset: 4}">
-      <div class="administration">
+      <div class="page">
         <router-link :to="{ name: 'UsersList' }">
-          <div class="administration__menu-item">
+          <div class="page__menu-item">
             <span>{{ $t("NAVIGATOR.MY_USERS")}}</span>
             <RightOutlined />
           </div>
         </router-link>
         <router-link :to="{ name: 'SharedSpacesList' }">
-          <div class="administration__menu-item">
+          <div class="page__menu-item">
             <span>{{ $t("NAVIGATOR.MY_DRIVES_WORKGROUPS")}}</span>
             <RightOutlined />
           </div>
         </router-link>
-        <div class="administration__menu-item">
+        <div class="page__menu-item">
           <span>{{ $t("NAVIGATOR.MY_CONTACT_LIST") }}</span>
           <RightOutlined />
         </div>
-        <div class="administration__menu-item">
+        <div class="page__menu-item">
           <span>{{ $t("NAVIGATOR.INCONSISTENT_USERS") }}</span>
           <RightOutlined />
         </div>
-        <div class="administration__menu-item">
+        <div class="page__menu-item">
           <span>{{ $t("NAVIGATOR.LOGGERS") }}</span>
           <RightOutlined />
         </div>
@@ -42,27 +42,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style lang='less' scoped>
-  .administration {
-    margin-top: 40px;
-
-    &__menu-item {
-      padding: 15px 0px;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      span {
-        font-size: 16px;
-        color: @text-color;
-      }
-
-      .anticon {
-        color: @primary-4;
-        font-size: 14px;
-      }
-    }
-  }
-</style>

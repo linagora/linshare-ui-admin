@@ -61,7 +61,15 @@
     "MAIL_ACTIVATION": "Mail activation",
     "UPGRADE_TASKS": "Upgrade tasks",
     "SEARCH": "Search",
-    "USER_DETAILS": "User details"
+    "USER_DETAILS": "User details",
+    "DETAILS": "Details",
+    "PARAMETERS": "Parameters (aka Functionalities)",
+    "MAIL_TEMPLATES": "Mail templates",
+    "WELCOME_MESSAGES": "Welcome messages",
+    "TYPE_MIME": "Type mime policies",
+    "PROVIDERS": "Providers",
+    "QUOTA": "Quota",
+    "PUBLIC_KEYS": "Public keys (JWT)"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",
@@ -226,5 +234,10 @@
       "FILE_SIZE_LARGER_THAN_QUOTA": "Max file size must be smaller than storage quota",
       "INVALID_FILE_SIZE": "Invalid max file size"
     }
+  },
+  "DOMAIN": {
+    "CREATE_TOP_DOMAIN": "Create a top domain",
+    "CREATE_SUB_DOMAIN": "Create a sub domain",
+    "CREATE_GUEST_DOMAIN": "Create a guest domain"
   }
 }

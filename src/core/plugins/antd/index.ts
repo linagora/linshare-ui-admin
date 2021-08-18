@@ -24,10 +24,10 @@ import {
   Popover,
   Row,
   Select,
+  Spin,
   Table,
   Tabs,
-  Tag,
-  Tree
+  Tag
 } from 'ant-design-vue';
 import '@/core/styles/variables.less';
 
@@ -57,10 +57,10 @@ function useAntdComponents (vueApp: App): App {
     .use(Popconfirm)
     .use(Row)
     .use(Select)
+    .use(Spin)
     .use(Table)
     .use(Tabs)
-    .use(Tag)
-    .use(Tree);
+    .use(Tag);
 }
 
 export default useAntdComponents;

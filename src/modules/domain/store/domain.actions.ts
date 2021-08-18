@@ -4,13 +4,13 @@ import RootState from '@/core/store/RootState';
 import DomainAPIClient from '@/modules/domain/services/DomainAPIClient';
 
 const actions: ActionTree<DomainState, RootState> = {
-  async fetchDomains ({ commit }, config?: object) {
+  async fetchDomainsTree ({ commit }) {
     try {
-      const domains = await DomainAPIClient.getDomains(config);
+      const domains = await DomainAPIClient.getDomains({ params: { tree: true } });
 
-      commit('setDomains', domains);
+      commit('setDomainsTree', domains[0]);
     } catch (error) {
-      commit('setDomains', []);
+      commit('setDomainsTree', {});
     }
   }
 };

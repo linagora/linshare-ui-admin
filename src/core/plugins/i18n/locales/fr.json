@@ -61,7 +61,15 @@
     "MAIL_ACTIVATION": "Activation des notifications",
     "UPGRADE_TASKS": "Tâches de mise à jour",
     "SEARCH": "Rechercher",
-    "USER_DETAILS": "Détails de l'utilisateur"
+    "USER_DETAILS": "Détails de l'utilisateur",
+    "DETAILS": "Détails",
+    "PARAMETERS": "Paramètres",
+    "MAIL_TEMPLATES": "Modèles de courriels",
+    "WELCOME_MESSAGES": "Messages d'accueil",
+    "TYPE_MIME": "Politiques des types MIME",
+    "PROVIDERS": "Fournisseurs",
+    "QUOTA": "Quota",
+    "PUBLIC_KEYS": "Clés publiques (JWT)"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",
@@ -225,5 +233,10 @@
       "FILE_SIZE_LARGER_THAN_QUOTA": "La taille maximale du fichier doit être inférieure au quota de stockage",
       "INVALID_FILE_SIZE": "La taille maximale du fichier non valide"
     }
+  },
+  "DOMAIN": {
+    "CREATE_TOP_DOMAIN": "Ajouter un top domaine",
+    "CREATE_SUB_DOMAIN": "Ajouter un sous domaine",
+    "CREATE_GUEST_DOMAIN": "Ajouter un domaine invité"
   }
 }
