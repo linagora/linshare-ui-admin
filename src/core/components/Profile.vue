@@ -2,7 +2,7 @@
   <div>
     <a-dropdown :trigger="['click']">
       <a-avatar shape="circle" size="50" class="profile-avatar">
-        <span>{{ firstName[0] }}</span>
+        <span>{{ firstName && firstName[0] || 'A' }}</span>
       </a-avatar>
       <template #overlay>
         <a-menu class="profile-menu">
@@ -43,7 +43,7 @@ export default defineComponent({
         message.error(t('HEADER.PROFILE.LOGOUT'));
       }
 
-      router.push({ name: 'login' });
+      router.push({ name: 'Login' });
     }
 
     return {
