@@ -1,8 +1,6 @@
 <template>
   <a-config-provider :locale="antdLocale">
-    <Suspense>
-      <router-view />
-    </Suspense>
+    <router-view />
   </a-config-provider>
 </template>
 

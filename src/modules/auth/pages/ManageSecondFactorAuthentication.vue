@@ -27,7 +27,7 @@ export default defineComponent({
     KeyCreation,
     KeyRemoval
   },
-  async setup () {
+  setup () {
     const store = useStore();
     const secondFA = computed(() => store.getters['Auth/getSecondFA']);
     const initiallyEnabled = secondFA.value?.enabled;

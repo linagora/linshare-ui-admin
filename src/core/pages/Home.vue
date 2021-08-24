@@ -4,7 +4,9 @@
       <Header />
     </a-layout-header>
     <a-layout-content class="app-content">
-      <router-view />
+      <Suspense>
+        <router-view />
+      </Suspense>
     </a-layout-content>
     <a-layout-footer>
       <Footer />
