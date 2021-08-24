@@ -1,13 +1,15 @@
 <template>
   <div class="domains-tree">
-    <div class="domains-tree__spinner-ctn" v-if="!domainsTree.uuid">
-      <a-spin/>
-    </div>
-
-    <ul v-else>
+    <ul>
       <li>
         <div class="domains-tree__node">
-          <a-button class="name" size="large" :title="domainsTree.name">
+          <a-button
+            class="name"
+            size="large"
+            :title="domainsTree.name"
+            :loading="domainsTreeStatus.loading === domainsTree.uuid"
+            @click="setCurrentDomain(domainsTree.uuid)"
+          >
             {{domainsTree.name}}
           </a-button>
           <a-dropdown :trigger="['click']">
@@ -33,7 +35,13 @@
         <ul>
           <li class="branch" v-for="topDomain in domainsTree.children" :key="topDomain.uuid">
             <div class="domains-tree__node">
-              <a-button class="name" size="large" :title="topDomain.name">
+              <a-button
+                class="name"
+                size="large"
+                :title="topDomain.name"
+                :loading="domainsTreeStatus.loading === topDomain.uuid"
+                @click="setCurrentDomain(topDomain.uuid)"
+              >
                 {{topDomain.name}}
               </a-button>
               <a-dropdown :trigger="['click']">
@@ -63,7 +71,13 @@
             <ul>
               <li class="branch" v-for="subDomain in topDomain.children" :key="subDomain.uuid">
                 <div class="domains-tree__node">
-                  <a-button class="name" size="large" :title="subDomain.name">
+                  <a-button
+                    class="name"
+                    size="large"
+                    :title="subDomain.name"
+                    :loading="domainsTreeStatus.loading === subDomain.uuid"
+                    @click="setCurrentDomain(subDomain.uuid)"
+                  >
                     {{subDomain.name}}
                   </a-button>
                 </div>
@@ -78,20 +92,52 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { useStore } from 'vuex';
+import { defineComponent, computed, reactive } from 'vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
-import useDomainsTree from '@/modules/domain/hooks/useDomainsTree';
+
+interface DomainsTreeStatus {
+  selected: string | null;
+  loading: string | null;
+}
 
 export default defineComponent({
   name: 'DomainsTree',
   components: {
     PlusOutlined
   },
-  setup () {
-    const { domainsTree } = useDomainsTree();
+  async setup () {
+    const store = useStore();
+    const domainsTreeStatus = reactive<DomainsTreeStatus>({
+      selected: null,
+      loading: null
+    });
+    const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
+
+    if (!domainsTree.value.uuid) {
+      await store.dispatch('Domain/fetchDomainsTree');
+
+      domainsTreeStatus.loading = domainsTree.value.uuid;
+
+      await store.dispatch('Domain/fetchDomain', domainsTree.value.uuid);
+
+      domainsTreeStatus.loading = null;
+      domainsTreeStatus.selected = domainsTree.value.uuid;
+    }
+
+    async function setCurrentDomain (uuid: string) {
+      domainsTreeStatus.loading = uuid;
+
+      await store.dispatch('Domain/fetchDomain', uuid);
+
+      domainsTreeStatus.loading = null;
+      domainsTreeStatus.selected = uuid;
+    }
 
     return {
-      domainsTree
+      domainsTree,
+      domainsTreeStatus,
+      setCurrentDomain
     };
   }
 });

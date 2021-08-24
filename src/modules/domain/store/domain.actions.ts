@@ -12,6 +12,15 @@ const actions: ActionTree<DomainState, RootState> = {
     } catch (error) {
       commit('setDomainsTree', {});
     }
+  },
+  async fetchDomain ({ commit }, uuid: string) {
+    try {
+      const domain = await DomainAPIClient.getDomain(uuid, { params: { detail: true } });
+
+      commit('setCurrentDomain', domain);
+    } catch (error) {
+      commit('setCurrentDomain', {});
+    }
   }
 };
 

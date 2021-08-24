@@ -11,6 +11,10 @@ class DomainAPIClient extends AdminAPIClient {
   async getDomains (config?: AxiosRequestConfig): Promise<Domain[] | DomainTreeNode[]> {
     return await this.transport.get('', config);
   };
+
+  async getDomain (uuid: string, configs?: AxiosRequestConfig): Promise<Domain> {
+    return await this.transport.get(uuid, configs);
+  }
 }
 
 export default new DomainAPIClient();

@@ -24,6 +24,7 @@ import {
   Popover,
   Row,
   Select,
+  Skeleton,
   Spin,
   Table,
   Tabs,
@@ -57,6 +58,7 @@ function useAntdComponents (vueApp: App): App {
     .use(Popconfirm)
     .use(Row)
     .use(Select)
+    .use(Skeleton)
     .use(Spin)
     .use(Table)
     .use(Tabs)
