@@ -11,7 +11,9 @@
     "DEFAULT_VALUE": "Valeur par défaut",
     "CURRENT_VALUE": "Valeur actuelle",
     "RESET": "Réinitialiser",
-    "USE_DEFAULTS": "Utiliser les valeurs par défaut"
+    "USE_DEFAULTS": "Utiliser les valeurs par défaut",
+    "CREATION_DATE": "Date de création",
+    "MODIFICATION_DATE": "Date de modification"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -69,7 +71,8 @@
     "TYPE_MIME": "Politiques des types MIME",
     "PROVIDERS": "Fournisseurs",
     "QUOTA": "Quota",
-    "PUBLIC_KEYS": "Clés publiques (JWT)"
+    "PUBLIC_KEYS": "Clés publiques (JWT)",
+    "DOMAIN_DETAILS": "Domaine détails"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",
@@ -237,6 +240,19 @@
   "DOMAIN": {
     "CREATE_TOP_DOMAIN": "Ajouter un top domaine",
     "CREATE_SUB_DOMAIN": "Ajouter un sous domaine",
-    "CREATE_GUEST_DOMAIN": "Ajouter un domaine invité"
+    "CREATE_GUEST_DOMAIN": "Ajouter un domaine invité",
+    "DELETE_DOMAIN": "Supprimer le domaine",
+    "FIELDS": {
+      "NAME": "Nom",
+      "DESCRIPTION": "Description",
+      "NOTIFICATION_LANGUAGE": "langage de notification",
+      "NOTIFICATION_LANGUAGE_HELPER": "Les courriels de notification seront envoyés dans cette langue pour tous les utilisateurs nouvellement créés sur ce domaine.",
+      "DEFAULT_USER_ROLE": "rôle d'utilisateur par défaut",
+      "DEFAULT_USER_ROLE_HELPER": "Ce rôle sera attribué à tous les utilisateurs nouvellement créés sur ce domaine.",
+      "WELCOME_MESSAGE": "Message de bienvenue",
+      "MAIL_CONFIGURATION": "Configuration du courrier",
+      "MIME_POLICY": "Politique MIME",
+      "DOMAIN_POLICY": "Politique de domaine"
+    }
   }
 }

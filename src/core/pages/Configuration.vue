@@ -1,5 +1,5 @@
 <template>
-   <a-row>
+   <a-row :gutter="32">
     <a-col :span="6" wrap>
       <Suspense>
         <template #default>

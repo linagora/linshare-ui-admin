@@ -2,6 +2,7 @@ import { RouteRecordRaw } from 'vue-router';
 
 import { UserRoutes } from '@/modules/user/router';
 import { SharedSpacesRoutes } from '@/modules/shared-spaces/router';
+import { DomainRoutes } from '@/modules/domain/router';
 import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 
 export const CoreRoutes: Array<RouteRecordRaw> = [
@@ -28,7 +29,8 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
             name: 'ConfigurationMain',
             path: '',
             component: () => import('../components/ConfigurationEntries.vue')
-          }
+          },
+          ...DomainRoutes
         ]
       },
       {

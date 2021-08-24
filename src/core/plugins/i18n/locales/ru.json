@@ -11,7 +11,9 @@
     "DEFAULT_VALUE": "Значение по умолчанию",
     "CURRENT_VALUE": "Текущая стоимость",
     "RESET": "Сброс настроек",
-    "USE_DEFAULTS": "Использовать значения по умолчанию"
+    "USE_DEFAULTS": "Использовать значения по умолчанию",
+    "CREATION_DATE": "Дата создания",
+    "MODIFICATION_DATE": "Дата модификации"
   },
   "LOCALE": {
     "ENGLISH": "Английский",
@@ -69,7 +71,8 @@
     "TYPE_MIME": "Введите политики MIME",
     "PROVIDERS": "Провайдеры",
     "QUOTA": "Квота",
-    "PUBLIC_KEYS": "Открытые ключи"
+    "PUBLIC_KEYS": "Открытые ключи",
+    "DOMAIN_DETAILS": "Доменные данные"
   },
   "DASHBOARD": {
     "TITLE": "Приборная доска",
@@ -237,6 +240,19 @@
   "DOMAIN": {
     "CREATE_TOP_DOMAIN": "Добавить домен",
     "CREATE_SUB_DOMAIN": "Добавить дополнительный домен",
-    "CREATE_GUEST_DOMAIN": "Добавить гостевой домен"
+    "CREATE_GUEST_DOMAIN": "Добавить гостевой домен",
+    "DELETE_DOMAIN": "Delete domain",
+    "FIELDS": {
+      "Имя": "Имя",
+      "DESCRIPTION": "Описание",
+      "NOTIFICATION_LANGUAGE": "Язык уведомления",
+      "NOTIFICATION_LANGUAGE_HELPER": "Уведомление электронные письма будут отправлены на этом языке для всех недавно созданных пользователей в этом домене",
+      "DEFAULT_USER_ROLE": "Роль пользователя по умолчанию",
+      "DEFAULT_USER_ROLE_HELPER": "Эта роль будет назначена всем вновь созданным пользователям в этом домене",
+      "WELCOME_MESSAGE": "приветственное сообщение",
+      "MAIL_CONFIGURATION": "Конфигурация почты",
+      "MIME_POLICY": "Политика MIME",
+      "DOMAIN_POLICY": "Политика домена"
+    }
   }
 }

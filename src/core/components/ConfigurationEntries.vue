@@ -2,10 +2,12 @@
   <a-row>
     <a-col :md="{span: 16, offset: 4}">
       <div class="page">
-        <div class="page__menu-item">
-          <span>{{ $t('NAVIGATOR.DETAILS') }}</span>
-          <RightOutlined />
-        </div>
+        <router-link :to="{ name: 'DomainDetails' }">
+          <div class="page__menu-item">
+            <span>{{ $t('NAVIGATOR.DETAILS') }}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
         <div class="page__menu-item">
           <span>{{ $t('NAVIGATOR.PARAMETERS') }}</span>
           <RightOutlined />

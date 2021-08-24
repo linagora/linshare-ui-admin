@@ -116,19 +116,15 @@ export default defineComponent({
 
     if (!domainsTree.value.uuid) {
       await store.dispatch('Domain/fetchDomainsTree');
+      await store.dispatch('Domain/fetchDomainById', domainsTree.value.uuid);
 
-      domainsTreeStatus.loading = domainsTree.value.uuid;
-
-      await store.dispatch('Domain/fetchDomain', domainsTree.value.uuid);
-
-      domainsTreeStatus.loading = null;
       domainsTreeStatus.selected = domainsTree.value.uuid;
     }
 
     async function setCurrentDomain (uuid: string) {
       domainsTreeStatus.loading = uuid;
 
-      await store.dispatch('Domain/fetchDomain', uuid);
+      await store.dispatch('Domain/fetchDomainById', uuid);
 
       domainsTreeStatus.loading = null;
       domainsTreeStatus.selected = uuid;

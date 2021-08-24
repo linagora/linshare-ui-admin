@@ -11,7 +11,9 @@
     "DEFAULT_VALUE": "Giá trị mặc định",
     "CURRENT_VALUE": "Giá trị hiện tại",
     "RESET": "Đặt lại",
-    "USE_DEFAULTS": "Dùng giá trị mặc định"
+    "USE_DEFAULTS": "Dùng giá trị mặc định",
+    "CREATION_DATE": "Ngày tạo",
+    "MODIFICATION_DATE": "Ngày chỉnh sửa"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -69,7 +71,8 @@
     "TYPE_MIME": "Nhập chính sách MIME",
     "PROVIDERS": "Nguồn cung cấp",
     "QUOTA": "Hạn ngạch",
-    "PUBLIC_KEYS": "Khóa công khai"
+    "PUBLIC_KEYS": "Khóa công khai",
+    "DOMAIN_DETAILS": "Chi tiết của miền"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -237,6 +240,19 @@
   "DOMAIN": {
     "CREATE_TOP_DOMAIN": "Create a top domain",
     "CREATE_SUB_DOMAIN": "Create a sub domain",
-    "CREATE_GUEST_DOMAIN": "Create a guest domain"
+    "CREATE_GUEST_DOMAIN": "Create a guest domain",
+    "DELETE_DOMAIN": "Delete domain",
+    "FIELDS": {
+      "NAME": "Tên",
+      "DESCRIPTION": "Mô tả",
+      "NOTIFICATION_LANGUAGE": "Ngôn ngữ thông báo",
+      "NOTIFICATION_LANGUAGE_HELPER": "Email thông báo sẽ được gửi bằng ngôn ngữ này cho tất cả người dùng mới được tạo trên tên miền này.",
+      "DEFAULT_USER_ROLE": "Vai trò người dùng mặc định",
+      "DEFAULT_USER_ROLE_HELPER": "Vai trò này sẽ được gán cho tất cả người dùng mới được tạo trên tên miền này.",
+      "WELCOME_MESSAGE": "Tin nhắn chào mừng",
+      "MAIL_CONFIGURATION": "Cấu hình thư",
+      "MIME_POLICY": "Chính sách MIME",
+      "DOMAIN_POLICY": "Chính sách miền"
+    }
   }
 }
