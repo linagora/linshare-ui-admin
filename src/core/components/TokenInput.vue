@@ -54,12 +54,12 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, PropType, SetupContext, ref, computed, Component } from 'vue';
+import { defineComponent, PropType, SetupContext, ref, computed, Component, ComputedRef } from 'vue';
 import { SearchOutlined, CloseOutlined, SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons-vue';
 
 interface FilterOption {
   key: string;
-  displayKey: string;
+  displayKey: ComputedRef;
   options?: Option[];
   isDefaultToken: boolean;
   asyncAutocomplete?: (text: string) => Promise<Option[]>;
@@ -79,7 +79,7 @@ interface TokenInputProps {
 
 interface Option {
   value: string | boolean;
-  label: string;
+  label: ComputedRef;
   optionComponent?: Component;
   data?: object;
 }
@@ -136,7 +136,7 @@ export default defineComponent({
 
     const initialOptions = props.filterOptions.filter(option => !option.isDefaultToken).map(option => ({
       value: option.key,
-      label: option.displayKey
+      label: option.displayKey.value
     }));
 
     const filterTypeOptions = ref<Option[]>(initialOptions);
