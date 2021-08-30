@@ -21,8 +21,11 @@
       />
       <slot name="titlePostfix"/>
     </div>
-    <h3 class="subtitle">{{ subtitle }}</h3>
-    <slot name="subTitlePostfix"/>
+    <div class="subtitle">
+      <h3 class="subtitle">{{ subtitle }}</h3>
+      <slot name="subTitlePostfix"/>
+    </div>
+
     <a-alert
       v-if="containHelper && showHelper"
       type="info"
@@ -53,7 +56,7 @@ export default defineComponent({
   props: {
     title: {
       type: String,
-      required: true
+      default: ''
     },
     subtitle: {
       type: String,
@@ -113,10 +116,13 @@ export default defineComponent({
     }
 
     .subtitle {
-      display: inline-block;
-      margin-right: 15px;
-      font-weight: 400;
-      color: @text-color-secondary;
+      display: flex;
+      justify-content: space-between;
+
+      h3 {
+        font-weight: 400;
+        color: @text-color-secondary;
+      }
     }
   }
 </style>
