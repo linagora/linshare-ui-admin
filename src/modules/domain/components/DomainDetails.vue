@@ -28,7 +28,7 @@
           <a-input v-model:value="formState.description"></a-input>
         </div>
 
-        <div class="input-container">
+        <div class="input-container" v-if="!isRootDomain">
           <label>{{ $t('DOMAIN.FIELDS.DEFAULT_USER_ROLE') }}</label>
           <a-select v-model:value="formState.defaultUserRole">
             <a-select-option value="SIMPLE">
@@ -44,7 +44,7 @@
           <small>{{ $t('DOMAIN.FIELDS.DEFAULT_USER_ROLE_HELPER') }}</small>
         </div>
 
-        <div class="input-container">
+        <div class="input-container" v-if="!isRootDomain">
           <label>{{ $t('DOMAIN.FIELDS.NOTIFICATION_LANGUAGE') }}</label>
           <a-select v-model:value="formState.defaultEmailLanguage">
             <a-select-option value="ENGLISH">
@@ -86,25 +86,25 @@
             {{ $d(currentDomain.modificationDate, 'mediumDate') }}
           </div>
         </div>
-        <div class="info-block">
+        <div class="info-block" v-if="!isRootDomain">
           <div class="title">{{ $t('DOMAIN.FIELDS.WELCOME_MESSAGE') }}</div>
           <div class="value">
             <a href="">{{ currentDomain.welcomeMessage.name }}</a>
           </div>
         </div>
-        <div class="info-block">
+        <div class="info-block" v-if="!isRootDomain">
           <div class="title">{{ $t('DOMAIN.FIELDS.MAIL_CONFIGURATION') }}</div>
           <div class="value">
             <a href="">{{ currentDomain.mailConfiguration.name }}</a>
           </div>
         </div>
-        <div class="info-block">
+        <div class="info-block" v-if="!isRootDomain">
           <div class="title">{{ $t('DOMAIN.FIELDS.MIME_POLICY') }}</div>
           <div class="value">
             <a href="">{{ currentDomain.mimePolicy.name }}</a>
           </div>
         </div>
-        <div class="info-block">
+        <div class="info-block" v-if="!isRootDomain">
           <div class="title">{{ $t('DOMAIN.FIELDS.DOMAIN_POLICY') }}</div>
           <div class="value">
             <a href="">{{ currentDomain.domainPolicy.name }}</a>
@@ -154,7 +154,8 @@ export default defineComponent({
       currentDomain,
       formRef,
       formState,
-      loadingDomain
+      loadingDomain,
+      isRootDomain: computed(() => store.getters['Domain/isRootDomain'])
     };
   }
 });
