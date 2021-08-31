@@ -238,10 +238,10 @@
     }
   },
   "DOMAIN": {
-    "CREATE_TOP_DOMAIN": "Create a top domain",
-    "CREATE_SUB_DOMAIN": "Create a sub domain",
-    "CREATE_GUEST_DOMAIN": "Create a guest domain",
-    "DELETE_DOMAIN": "Delete domain",
+    "CREATE_TOP_DOMAIN": "Tạo miền chính",
+    "CREATE_SUB_DOMAIN": "Tạo miền phụ",
+    "CREATE_GUEST_DOMAIN": "Tạo miền khách",
+    "DELETE_DOMAIN": "Xóa miền",
     "FIELDS": {
       "NAME": "Tên",
       "NAME_REQUIRED": "Vui lòng nhập tên miền",

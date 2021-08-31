@@ -253,8 +253,8 @@
       "DEFAULT_USER_ROLE": "Default user role",
       "DEFAULT_USER_ROLE_HELPER": "This role will be assigned to all newly created users on this domain.",
       "WELCOME_MESSAGE": "Welcome message",
-      "MAIL_CONFIGURATION":"Mail configuration",
-      "MIME_POLICY": "Mime policy",
+      "MAIL_CONFIGURATION":"Emails configuration",
+      "MIME_POLICY": "Mime types policy",
       "DOMAIN_POLICY": "Domain policy"
     }
   }

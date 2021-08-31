@@ -72,7 +72,7 @@
     "PROVIDERS": "Fournisseurs",
     "QUOTA": "Quota",
     "PUBLIC_KEYS": "Clés publiques (JWT)",
-    "DOMAIN_DETAILS": "Domaine détails"
+    "DOMAIN_DETAILS": "Détails du domaine"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",
@@ -245,15 +245,15 @@
     "FIELDS": {
       "NAME": "Nom",
       "NAME_REQUIRED": "Veuillez saisir le nom de domaine",
-      "NAME_MAX_LENGTH": "Le nom de domaine doit être inférieur à 256 caractères ",
+      "NAME_MAX_LENGTH": "Le nom de domaine doit être inférieur à 256 caractères",
       "DESCRIPTION": "Description",
       "NOTIFICATION_LANGUAGE": "langage de notification",
       "NOTIFICATION_LANGUAGE_HELPER": "Les courriels de notification seront envoyés dans cette langue pour tous les utilisateurs nouvellement créés sur ce domaine.",
-      "DEFAULT_USER_ROLE": "rôle d'utilisateur par défaut",
+      "DEFAULT_USER_ROLE": "rôle par défaut de l'utilisateur",
       "DEFAULT_USER_ROLE_HELPER": "Ce rôle sera attribué à tous les utilisateurs nouvellement créés sur ce domaine.",
       "WELCOME_MESSAGE": "Message de bienvenue",
       "MAIL_CONFIGURATION": "Configuration du courrier",
-      "MIME_POLICY": "Politique MIME",
+      "MIME_POLICY": "Politique des types MIME",
       "DOMAIN_POLICY": "Politique de domaine"
     }
   }
