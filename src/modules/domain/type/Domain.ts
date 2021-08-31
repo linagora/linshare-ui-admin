@@ -2,7 +2,7 @@ export default interface Domain {
   uuid: string;
   name: string;
   description?: string;
-  language?: string;
+  language?: 'RUSSIAN' | 'ENGLISH' | 'FRENCH';
   creationDate?: number;
   modificationDate?: number;
   defaultEmailLanguage?: string;

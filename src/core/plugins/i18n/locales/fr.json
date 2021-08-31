@@ -244,6 +244,8 @@
     "DELETE_DOMAIN": "Supprimer le domaine",
     "FIELDS": {
       "NAME": "Nom",
+      "NAME_REQUIRED": "Veuillez saisir le nom de domaine",
+      "NAME_MAX_LENGTH": "Le nom de domaine doit être inférieur à 256 caractères ",
       "DESCRIPTION": "Description",
       "NOTIFICATION_LANGUAGE": "langage de notification",
       "NOTIFICATION_LANGUAGE_HELPER": "Les courriels de notification seront envoyés dans cette langue pour tous les utilisateurs nouvellement créés sur ce domaine.",

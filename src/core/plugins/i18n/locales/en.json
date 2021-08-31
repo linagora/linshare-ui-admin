@@ -245,6 +245,8 @@
     "DELETE_DOMAIN": "Delete domain",
     "FIELDS": {
       "NAME": "Name",
+      "NAME_REQUIRED": "Please enter domain name",
+      "NAME_MAX_LENGTH": "Domain name must be shorter than 256 characters",
       "DESCRIPTION": "Description",
       "NOTIFICATION_LANGUAGE": "Notification language",
       "NOTIFICATION_LANGUAGE_HELPER": "Notification emails will be sent in this language for all newly created users on this domain.",

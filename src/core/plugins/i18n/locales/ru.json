@@ -243,7 +243,9 @@
     "CREATE_GUEST_DOMAIN": "Добавить гостевой домен",
     "DELETE_DOMAIN": "Delete domain",
     "FIELDS": {
-      "Имя": "Имя",
+      "NAME": "Имя",
+      "NAME_REQUIRED": "Пожалуйста, введите доменное имя",
+      "NAME_MAX_LENGTH": "Имя домена должно быть короче 256 символов",
       "DESCRIPTION": "Описание",
       "NOTIFICATION_LANGUAGE": "Язык уведомления",
       "NOTIFICATION_LANGUAGE_HELPER": "Уведомление электронные письма будут отправлены на этом языке для всех недавно созданных пользователей в этом домене",

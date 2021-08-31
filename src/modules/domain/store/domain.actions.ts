@@ -2,6 +2,7 @@ import { ActionTree } from 'vuex';
 import { DomainState } from './domain.state';
 import RootState from '@/core/store/RootState';
 import Status from '@/core/types/Status';
+import Domain from '@/modules/domain/type/Domain';
 import DomainAPIClient from '@/modules/domain/services/DomainAPIClient';
 
 const actions: ActionTree<DomainState, RootState> = {
@@ -28,6 +29,12 @@ const actions: ActionTree<DomainState, RootState> = {
     } catch (error) {
       commit('setDomainsTreeStatus', Status.ERROR);
     }
+  },
+  async updateDomain ({ commit }, domain: Domain) {
+    const updated = await DomainAPIClient.updateDomain(domain);
+
+    commit('setCurrentDomain', updated);
+    commit('setDomainNameInTree', updated);
   }
 };
 

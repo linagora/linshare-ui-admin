@@ -244,6 +244,8 @@
     "DELETE_DOMAIN": "Delete domain",
     "FIELDS": {
       "NAME": "Tên",
+      "NAME_REQUIRED": "Vui lòng nhập tên miền",
+      "NAME_MAX_LENGTH": "Tên miền phải ngắn hơn 256 ký tự",
       "DESCRIPTION": "Mô tả",
       "NOTIFICATION_LANGUAGE": "Ngôn ngữ thông báo",
       "NOTIFICATION_LANGUAGE_HELPER": "Email thông báo sẽ được gửi bằng ngôn ngữ này cho tất cả người dùng mới được tạo trên tên miền này.",
