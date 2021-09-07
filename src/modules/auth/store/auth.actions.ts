@@ -10,7 +10,7 @@ const actions: ActionTree<AuthState, RootState> = {
 
       commit('setLoggedUser', loggedUser);
     } catch (error) {
-      commit('setLoggedUser', null);
+      commit('setLoggedUser', {});
 
       throw error;
     }
@@ -18,7 +18,7 @@ const actions: ActionTree<AuthState, RootState> = {
   async logoutUser ({ commit }, config?: object) {
     await AuthAPIClient.logOut(config);
 
-    commit('setLoggedUser', null);
+    commit('setLoggedUser', {});
   },
   async fetchSecondFA ({ commit, state }) {
     const loggedUserUuid = state.loggedUser?.uuid;

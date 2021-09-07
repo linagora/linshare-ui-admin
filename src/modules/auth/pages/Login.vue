@@ -91,11 +91,11 @@ export default defineComponent({
           }
         });
 
-        loggingIn.value = false;
         router.push(props.redirect || '/');
       } catch (e) {
-        loggingIn.value = false;
         handleError(e);
+      } finally {
+        loggingIn.value = false;
       }
     }
 
