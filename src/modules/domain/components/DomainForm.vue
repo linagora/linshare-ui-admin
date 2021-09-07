@@ -10,7 +10,7 @@
     <a-form-item>
       <div class="input-container">
         <label>{{ $t("DOMAIN.FIELDS.DESCRIPTION") }}</label>
-        <a-textarea autosize v-model:value="formState.description"></a-textarea>
+        <a-textarea autoSize v-model:value="formState.description"></a-textarea>
       </div>
     </a-form-item>
 

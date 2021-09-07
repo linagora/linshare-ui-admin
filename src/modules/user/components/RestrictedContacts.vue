@@ -10,7 +10,7 @@
           @search="searchUsersDebounce()"
           @select="onSelect"
         >
-          <template #dataSource>
+          <template #options>
             <a-select-option v-for="user in autoCompleteResults" :key="user.uuid" :value="user.mail">
               <div>
                 <UserOutlined class="restricted-contact-autocomplete-user-icon"/>

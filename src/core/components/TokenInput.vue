@@ -18,7 +18,7 @@
         @search="onSearch"
         @select="onSelect"
       >
-        <template #dataSource>
+        <template #options>
           <a-select-option v-for="option in options" :key="option.value">
             <div v-if="!option.optionComponent">
               {{ option.label }}
