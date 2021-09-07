@@ -1,14 +1,7 @@
 <template>
    <a-row :gutter="32">
     <a-col :span="6" wrap>
-      <Suspense>
-        <template #default>
-         <DomainTrees />
-        </template>
-        <template #fallback>
-          <a-skeleton active />
-        </template>
-      </Suspense>
+      <DomainTrees />
     </a-col>
     <a-col :span="18">
       <router-view />

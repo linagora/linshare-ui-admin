@@ -64,7 +64,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, watchEffect } from 'vue';
 import { useStore } from 'vuex';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import PageTitle from '@/core/components/PageTitle.vue';
@@ -79,9 +79,16 @@ export default defineComponent({
   },
   setup () {
     const store = useStore();
+    const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
     const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
     const loadingDomain = computed(() => store.getters['Domain/getStatus']('currentDomain') === Status.LOADING);
     const { breadcrumbs } = useBreadcrumbs();
+
+    watchEffect(() => {
+      if (domainsTree.value.uuid) {
+        store.dispatch('Domain/fetchDomainById', domainsTree.value.uuid);
+      }
+    });
 
     return {
       breadcrumbs,

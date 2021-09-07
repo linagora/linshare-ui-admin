@@ -1,5 +1,7 @@
 <template>
-  <div class="domains-tree">
+  <a-skeleton active v-if="isLoadingTree"/>
+
+  <div class="domains-tree" v-else>
     <ul>
       <li>
         <div class="domains-tree__node">
@@ -93,8 +95,9 @@
 
 <script lang="ts">
 import { useStore } from 'vuex';
-import { defineComponent, computed, reactive } from 'vue';
+import { defineComponent, computed, reactive, watchEffect } from 'vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
+import Status from '@/core/types/Status';
 
 interface DomainsTreeStatus {
   selected: string | null;
@@ -106,20 +109,21 @@ export default defineComponent({
   components: {
     PlusOutlined
   },
-  async setup () {
+  setup () {
     const store = useStore();
     const domainsTreeStatus = reactive<DomainsTreeStatus>({
       selected: null,
       loading: null
     });
     const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
+    const isLoadingTree = computed(() => store.getters['Domain/getStatus']('domainsTree') === Status.LOADING);
+    const loggedUser = computed(() => store.getters['Auth/getLoggedUser']);
 
-    if (!domainsTree.value.uuid) {
-      await store.dispatch('Domain/fetchDomainsTree');
-      await store.dispatch('Domain/fetchDomainById', domainsTree.value.uuid);
-
-      domainsTreeStatus.selected = domainsTree.value.uuid;
-    }
+    watchEffect(() => {
+      if (loggedUser.value.uuid) {
+        store.dispatch('Domain/fetchDomainsTree');
+      }
+    });
 
     async function setCurrentDomain (uuid: string) {
       domainsTreeStatus.loading = uuid;
@@ -133,6 +137,7 @@ export default defineComponent({
     return {
       domainsTree,
       domainsTreeStatus,
+      isLoadingTree,
       setCurrentDomain
     };
   }
@@ -141,14 +146,6 @@ export default defineComponent({
 
 <style lang="less">
   .domains-tree {
-    &__spinner-ctn {
-      text-align: center;
-      border-radius: 4px;
-      margin-bottom: 20px;
-      padding: 30px 50px;
-      margin: 20px 0;
-    }
-
     &__node {
       display: flex;
       margin: 10px 0;
