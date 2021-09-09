@@ -15,9 +15,9 @@ export default function use2FARequiredCheck () {
     currentRoute.value.meta.requiresAuth
   ) {
     Modal.info({
-      title: t('2FA.KEY_CREATION.FORCE_CREATION_MODAL.TITLE'),
-      content: t('2FA.KEY_CREATION.FORCE_CREATION_MODAL.MESSAGE'),
-      okText: t('2FA.KEY_CREATION.FORCE_CREATION_MODAL.OK_BUTTON'),
+      title: () => t('2FA.KEY_CREATION.FORCE_CREATION_MODAL.TITLE'),
+      content: () => t('2FA.KEY_CREATION.FORCE_CREATION_MODAL.MESSAGE'),
+      okText: () => t('2FA.KEY_CREATION.FORCE_CREATION_MODAL.OK_BUTTON'),
       onOk: () => push({ name: 'ManageSecondFactorAuthentication' })
     });
   }

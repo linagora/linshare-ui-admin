@@ -138,11 +138,11 @@ export default defineComponent({
 
     function confirmRemoveSharedKey () {
       Modal.confirm({
-        title: t('GENERAL.DELETION'),
-        icon: createVNode(ExclamationCircleOutlined),
-        content: t('2FA.KEY_REMOVAL.CONFIRMATION'),
-        okText: t('GENERAL.DELETE'),
-        cancelText: t('GENERAL.CANCEL'),
+        title: () => t('GENERAL.DELETION'),
+        icon: () => createVNode(ExclamationCircleOutlined),
+        content: () => t('2FA.KEY_REMOVAL.CONFIRMATION'),
+        okText: () => t('GENERAL.DELETE'),
+        cancelText: () => t('GENERAL.CANCEL'),
         onOk: remove2FAKey
       });
     }
