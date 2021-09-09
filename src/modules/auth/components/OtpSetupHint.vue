@@ -16,7 +16,7 @@
         <div class="otp-secret">
           <a-input :value="configs.secret" disabled/>
           <a-button type="primary" @click="copySecret()">
-            Copy
+            {{ $t('GENERAL.COPY') }}
           </a-button>
         </div>
         <span class="step">{{ $t('2FA.MANUAL_SETUP.STEP_4') }}</span>
@@ -102,15 +102,14 @@ export default defineComponent({
 
     input {
       flex: 1;
-      border-top-left-radius: 2px;
-      border-bottom-left-radius: 2px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     button {
       white-space: nowrap;
-      border-radius: 0;
-      border-top-right-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 

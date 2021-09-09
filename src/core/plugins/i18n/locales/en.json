@@ -13,7 +13,8 @@
     "RESET": "Reset",
     "USE_DEFAULTS": "Use defaults",
     "CREATION_DATE": "Creation date",
-    "MODIFICATION_DATE": "Modification date"
+    "MODIFICATION_DATE": "Modification date",
+    "COPY": "Copy"
   },
   "LOCALE": {
     "ENGLISH": "English",

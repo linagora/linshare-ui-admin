@@ -13,7 +13,8 @@
     "RESET": "Đặt lại",
     "USE_DEFAULTS": "Dùng giá trị mặc định",
     "CREATION_DATE": "Ngày tạo",
-    "MODIFICATION_DATE": "Ngày chỉnh sửa"
+    "MODIFICATION_DATE": "Ngày chỉnh sửa",
+    "COPY": "Sao chép"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",

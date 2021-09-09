@@ -13,7 +13,8 @@
     "RESET": "Сброс настроек",
     "USE_DEFAULTS": "Использовать значения по умолчанию",
     "CREATION_DATE": "Дата создания",
-    "MODIFICATION_DATE": "Дата модификации"
+    "MODIFICATION_DATE": "Дата модификации",
+    "COPY": "Копировать"
   },
   "LOCALE": {
     "ENGLISH": "Английский",
