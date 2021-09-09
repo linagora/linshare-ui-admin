@@ -9,7 +9,8 @@
             class="name"
             size="large"
             :title="domainsTree.name"
-            :loading="domainsTreeStatus.loading === domainsTree.uuid"
+            :class="isCurrentDomain(domainsTree) && 'active'"
+            :loading="isLoadingDomain(domainsTree)"
             @click="setCurrentDomain(domainsTree.uuid)"
           >
             {{domainsTree.name}}
@@ -41,7 +42,8 @@
                 class="name"
                 size="large"
                 :title="topDomain.name"
-                :loading="domainsTreeStatus.loading === topDomain.uuid"
+                :class="isCurrentDomain(topDomain) && 'active'"
+                :loading="isLoadingDomain(topDomain)"
                 @click="setCurrentDomain(topDomain.uuid)"
               >
                 {{topDomain.name}}
@@ -77,7 +79,8 @@
                     class="name"
                     size="large"
                     :title="subDomain.name"
-                    :loading="domainsTreeStatus.loading === subDomain.uuid"
+                    :class="isCurrentDomain(subDomain) && 'active'"
+                    :loading="isLoadingDomain(subDomain)"
                     @click="setCurrentDomain(subDomain.uuid)"
                   >
                     {{subDomain.name}}
@@ -98,6 +101,7 @@ import { useStore } from 'vuex';
 import { defineComponent, computed, reactive, watchEffect } from 'vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
 import Status from '@/core/types/Status';
+import DomainTreeNode from '../type/DomainTreeNode';
 
 interface DomainsTreeStatus {
   selected: string | null;
@@ -117,6 +121,7 @@ export default defineComponent({
     });
     const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
     const isLoadingTree = computed(() => store.getters['Domain/getStatus']('domainsTree') === Status.LOADING);
+    const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
     const loggedUser = computed(() => store.getters['Auth/getLoggedUser']);
 
     watchEffect(() => {
@@ -137,8 +142,10 @@ export default defineComponent({
     return {
       domainsTree,
       domainsTreeStatus,
+      setCurrentDomain,
       isLoadingTree,
-      setCurrentDomain
+      isLoadingDomain: (domain: DomainTreeNode) => domain.uuid === domainsTreeStatus.loading,
+      isCurrentDomain: (domain: DomainTreeNode) => domain.uuid === currentDomain.value.uuid
     };
   }
 });
@@ -155,6 +162,10 @@ export default defineComponent({
         font-size: 14px;
         background: @background-color-base;
         font-weight: 400;
+      }
+
+      .name.active {
+        background: @primary-1;
       }
 
       .name.ant-btn > span {
