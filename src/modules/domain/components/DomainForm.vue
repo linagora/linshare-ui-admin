@@ -3,14 +3,17 @@
     <a-form-item v-bind="validateInfos.name">
       <div class="input-container">
         <label>{{ $t("DOMAIN.FIELDS.NAME") }}</label>
-        <a-input v-model:value="formState.name"></a-input>
+        <a-input v-model:value="formState.name" />
       </div>
     </a-form-item>
 
     <a-form-item>
       <div class="input-container">
         <label>{{ $t("DOMAIN.FIELDS.DESCRIPTION") }}</label>
-        <a-textarea autoSize v-model:value="formState.description"></a-textarea>
+        <a-textarea
+          v-model:value="formState.description"
+          auto-size
+        />
       </div>
     </a-form-item>
 
@@ -24,7 +27,10 @@
           <a-select-option value="ADMIN">
             {{ $t("USERS.DETAIL_USER.ROLE_ADMIN") }}
           </a-select-option>
-          <a-select-option disabled value="SUPERADMIN">
+          <a-select-option
+            disabled
+            value="SUPERADMIN"
+          >
             {{ $t("USERS.DETAIL_USER.ROLE_SUPERADMIN") }}
           </a-select-option>
         </a-select>
@@ -51,11 +57,18 @@
     </a-form-item>
 
     <div class="form-actions">
-      <a-button class="reset" @click="reset">
+      <a-button
+        class="reset"
+        @click="reset"
+      >
         {{ $t("GENERAL.RESET") }}
       </a-button>
 
-      <a-button type="primary" :loading="saving" @click="onSubmit">
+      <a-button
+        type="primary"
+        :loading="saving"
+        @click="onSubmit"
+      >
         {{ $t("GENERAL.SAVE") }}
       </a-button>
     </div>

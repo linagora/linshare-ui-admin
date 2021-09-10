@@ -73,7 +73,9 @@
     "PROVIDERS": "Провайдеры",
     "QUOTA": "Квота",
     "PUBLIC_KEYS": "Открытые ключи",
-    "DOMAIN_DETAILS": "Доменные данные"
+    "DOMAIN_DETAILS": "Доменные данные",
+    "REMOTE_SERVERS": "Удаленные серверы",
+    "REMOTE_FILTERS": "Удаленные фильтры"
   },
   "DASHBOARD": {
     "TITLE": "Приборная доска",

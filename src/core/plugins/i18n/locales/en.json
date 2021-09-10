@@ -73,7 +73,9 @@
     "PROVIDERS": "Providers",
     "QUOTA": "Quota",
     "PUBLIC_KEYS": "Public keys (JWT)",
-    "DOMAIN_DETAILS": "Domain details"
+    "DOMAIN_DETAILS": "Domain details",
+    "REMOTE_SERVERS": "Remote servers",
+    "REMOTE_FILTERS": "Remote filters"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",

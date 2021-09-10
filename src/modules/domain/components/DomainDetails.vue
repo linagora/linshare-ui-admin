@@ -6,54 +6,89 @@
   >
     <template #subTitlePostfix>
       <div class="delete-domain-container">
-        <a-button primary>{{ $t('DOMAIN.DELETE_DOMAIN') }}</a-button>
+        <a-button primary>
+          {{ $t('DOMAIN.DELETE_DOMAIN') }}
+        </a-button>
       </div>
     </template>
   </PageTitle>
 
-  <div class="spinner" v-if="loadingDomain">
-    <a-spin></a-spin>
+  <div
+    v-if="loadingDomain"
+    class="spinner"
+  >
+    <a-spin />
   </div>
 
-  <a-row :gutter="24" v-else>
+  <a-row
+    v-else
+    :gutter="24"
+  >
     <a-col :span="12">
-      <DomainForm :data="currentDomain"/>
+      <DomainForm :data="currentDomain" />
     </a-col>
 
-    <a-col :span="10" :offset="2">
+    <a-col
+      :span="10"
+      :offset="2"
+    >
       <div class="info-block-container">
         <div class="info-block">
-          <div class="title">{{ $t('GENERAL.CREATION_DATE') }}</div>
+          <div class="title">
+            {{ $t('GENERAL.CREATION_DATE') }}
+          </div>
           <div class="value">
             {{ $d(currentDomain.creationDate, 'mediumDate') }}
           </div>
         </div>
         <div class="info-block">
-          <div class="title">{{ $t('GENERAL.MODIFICATION_DATE') }}</div>
+          <div class="title">
+            {{ $t('GENERAL.MODIFICATION_DATE') }}
+          </div>
           <div class="value">
             {{ $d(currentDomain.modificationDate, 'mediumDate') }}
           </div>
         </div>
-        <div class="info-block" v-if="!isRootDomain">
-          <div class="title">{{ $t('DOMAIN.FIELDS.WELCOME_MESSAGE') }}</div>
+        <div
+          v-if="!isRootDomain"
+          class="info-block"
+        >
+          <div class="title">
+            {{ $t('DOMAIN.FIELDS.WELCOME_MESSAGE') }}
+          </div>
           <div class="value">
             <a href="">{{ currentDomain.welcomeMessage.name }}</a>
           </div>
         </div>
-        <div class="info-block" v-if="!isRootDomain">
-          <div class="title">{{ $t('DOMAIN.FIELDS.MAIL_CONFIGURATION') }}</div>
+        <div
+          v-if="!isRootDomain"
+          class="info-block"
+        >
+          <div class="title">
+            {{ $t('DOMAIN.FIELDS.MAIL_CONFIGURATION') }}
+          </div>
           <div class="value">
             <a href="">{{ currentDomain.mailConfiguration.name }}</a>
           </div>
         </div>
-        <div class="info-block" v-if="!isRootDomain">
-          <div class="title">{{ $t('DOMAIN.FIELDS.MIME_POLICY') }}</div>
+        <div
+          v-if="!isRootDomain"
+          class="info-block"
+        >
+          <div class="title">
+            {{ $t('DOMAIN.FIELDS.MIME_POLICY') }}
+          </div>
           <div class="value">
             <a href="">{{ currentDomain.mimePolicy.name }}</a>
           </div>
         </div>
-        <div class="info-block" v-if="!isRootDomain">
-          <div class="title">{{ $t('DOMAIN.FIELDS.DOMAIN_POLICY') }}</div>
+        <div
+          v-if="!isRootDomain"
+          class="info-block"
+        >
+          <div class="title">
+            {{ $t('DOMAIN.FIELDS.DOMAIN_POLICY') }}
+          </div>
           <div class="value">
             <a href="">{{ currentDomain.domainPolicy.name }}</a>
           </div>
@@ -64,7 +99,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watchEffect } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { useStore } from 'vuex';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import PageTitle from '@/core/components/PageTitle.vue';
@@ -79,16 +114,9 @@ export default defineComponent({
   },
   setup () {
     const store = useStore();
-    const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
     const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
     const loadingDomain = computed(() => store.getters['Domain/getStatus']('currentDomain') === Status.LOADING);
     const { breadcrumbs } = useBreadcrumbs();
-
-    watchEffect(() => {
-      if (domainsTree.value.uuid) {
-        store.dispatch('Domain/fetchDomainById', domainsTree.value.uuid);
-      }
-    });
 
     return {
       breadcrumbs,

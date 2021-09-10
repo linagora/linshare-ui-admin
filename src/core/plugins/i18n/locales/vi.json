@@ -73,7 +73,9 @@
     "PROVIDERS": "Nguồn cung cấp",
     "QUOTA": "Hạn ngạch",
     "PUBLIC_KEYS": "Khóa công khai",
-    "DOMAIN_DETAILS": "Chi tiết của miền"
+    "DOMAIN_DETAILS": "Chi tiết của miền",
+    "REMOTE_SERVERS": "Máy chủ bên ngoài",
+    "REMOTE_FILTERS": "Bộ lọc bên ngoài"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",

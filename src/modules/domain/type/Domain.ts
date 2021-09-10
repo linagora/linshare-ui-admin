@@ -7,8 +7,15 @@ export default interface Domain {
   modificationDate?: number;
   defaultEmailLanguage?: string;
   defaultUserRole?: string;
-  type?: 'ROOTDOMAIN' | 'TOPDOMAIN' | 'SUBDOMAIN' | 'GUESTDOMAIN';
+  type?: DOMAIN_TYPE;
 };
+
+export enum DOMAIN_TYPE {
+  ROOT = 'ROOTDOMAIN',
+  TOP = 'TOPDOMAIN',
+  SUB = 'SUBDOMAIN',
+  GUEST = 'GUESTDOMAIN'
+}
 
 export const EMPTY_DOMAIN: Domain = {
   uuid: '',

@@ -2,7 +2,7 @@ import { RouteRecordRaw } from 'vue-router';
 
 import { UserRoutes } from '@/modules/user/router';
 import { SharedSpacesRoutes } from '@/modules/shared-spaces/router';
-import { DomainRoutes } from '@/modules/domain/router';
+import { DomainConfigurationRoute } from '@/modules/domain/router';
 import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 
 export const CoreRoutes: Array<RouteRecordRaw> = [
@@ -16,24 +16,6 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
     },
     children: [
       {
-        name: 'Configuration',
-        path: 'configuration',
-        redirect: { name: 'ConfigurationMain' },
-        component: () => import('../pages/Configuration.vue'),
-        meta: {
-          label: 'NAVIGATOR.CONFIGURATION',
-          requiresAuth: true
-        },
-        children: [
-          {
-            name: 'ConfigurationMain',
-            path: '',
-            component: () => import('../components/ConfigurationEntries.vue')
-          },
-          ...DomainRoutes
-        ]
-      },
-      {
         name: 'Administration',
         path: 'administration',
         component: () => import('../pages/Administration.vue'),
@@ -44,7 +26,8 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       },
       ...UserRoutes,
       ...SharedSpacesRoutes,
-      ManageSecondFactorAuthenticationRoute
+      ManageSecondFactorAuthenticationRoute,
+      DomainConfigurationRoute
     ]
   }
 ];
