@@ -1,4 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
+import { RemoteServersRoute } from '@/modules/remote-server/router';
 
 export const DomainConfigurationRoute: RouteRecordRaw = {
   name: 'Configuration',
@@ -24,6 +25,7 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
         label: 'NAVIGATOR.DOMAIN_DETAILS',
         requiresAuth: true
       }
-    }
+    },
+    RemoteServersRoute
   ]
 };

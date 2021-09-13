@@ -2,6 +2,7 @@ import { computed } from 'vue';
 import { useStore } from 'vuex';
 import { RouteLocationRaw } from 'vue-router';
 import { DOMAIN_TYPE } from '@/modules/domain/type/Domain';
+import { RemoteServersRoute } from '@/modules/remote-server/router';
 
 interface DomainManagementEntry {
   title: string;
@@ -16,7 +17,8 @@ const DOMAIN_MANAGEMENT_ENTRIES: DomainManagementEntry[] = [
   },
   {
     title: 'NAVIGATOR.REMOTE_SERVERS',
-    usedFor: [DOMAIN_TYPE.ROOT]
+    usedFor: [DOMAIN_TYPE.ROOT],
+    route: { name: RemoteServersRoute.name }
   },
   {
     title: 'NAVIGATOR.PROVIDERS',

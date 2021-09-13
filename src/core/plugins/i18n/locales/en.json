@@ -14,7 +14,15 @@
     "USE_DEFAULTS": "Use defaults",
     "CREATION_DATE": "Creation date",
     "MODIFICATION_DATE": "Modification date",
-    "COPY": "Copy"
+    "COPY": "Copy",
+    "CREATE": "Create",
+    "NAME": "Name",
+    "ACTIONS": "Actions",
+    "EDIT": "Edit",
+    "DUPLICATE": "Duplicate",
+    "ASSOCIATED_DOMAINS": "Associated domains",
+    "VIEW_ASSOCIATED_DOMAINS": "View associated domains",
+    "OK": "Ok"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -22,6 +30,7 @@
     "RUSSIAN": "Russian"
   },
   "MESSAGES": {
+    "CREATE_SUCCESS": "Created successfully",
     "UPDATE_SUCCESS": "Updated successfully",
     "DELETE_SUCCESS": "Deleted successfully",
     "PROCESSING": "Processing..."
@@ -259,6 +268,28 @@
       "MAIL_CONFIGURATION":"Emails configuration",
       "MIME_POLICY": "Mime types policy",
       "DOMAIN_POLICY": "Domain policy"
+    }
+  },
+  "REMOTE_SERVER": {
+    "FIELDS": {
+      "PROVIDED_URL": "Provided URL",
+      "TYPE": "Server type",
+      "LDAP_BINDDN": "LDAP user dn",
+      "LDAP_PASSWORD": "LDAP password"
+    },
+    "TYPE": {
+      "LDAP": "LDAP connection",
+      "TWAKE": "Twake connection"
+    },
+    "LDAP": {
+      "MODAL": {
+        "CREATE_TITLE": "Create LDAP Connection",
+        "EDIT_TITLE": "Edit LDAP Connection"
+      }
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Name cannot be blank",
+      "URL_REQUIRED": "URL cannot be blank"
     }
   }
 }
