@@ -7,12 +7,21 @@
       <a-button @click="onOk" type="primary">{{ $t('GENERAL.OK') }}</a-button>
     </template>
 
-    <a-spin v-if="loading"/>
-    <div v-else>
-      <div v-for="domain in list" :key="domain.uuid">
-        <span>{{domain.name}}</span>
-      </div>
-    </div>
+    <a-list
+      :data-source="list"
+      :loading="loading"
+      :locale="{ emptyText: $t('REMOTE_SERVER.NO_ASSOCIATED_DOMAIN') }"
+    >
+      <template #renderItem="{ item }">
+        <a-list-item class="domain-list-item">
+          {{ item.name }}
+
+          <template #actions>
+            <a-tag>{{ $t(`DOMAIN.TYPES.${item.type}`) }}</a-tag>
+          </template>
+        </a-list-item>
+      </template>
+    </a-list>
   </a-modal>
 </template>
 
@@ -64,12 +73,11 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-  .ant-form-item small {
-    color: @text-color-secondary;
-  }
+  .domain-list-item {
+    border-bottom: 1px solid @border-color-base;
 
-  .footer {
-    display: flex;
-    justify-content: space-between;
+    .ant-tag {
+      color: @primary-4
+    }
   }
 </style>

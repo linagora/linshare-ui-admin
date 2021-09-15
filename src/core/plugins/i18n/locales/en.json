@@ -273,6 +273,11 @@
     "WARNING": {
       "PAGE_NOT_AVAILABLE": "This page is not available for curent domain",
       "BACK_TO_CONFIGURATION": "Go to Configuration"
+    },
+    "TYPES": {
+      "TOPDOMAIN": "Top Domain",
+      "SUBDOMAIN": "Sub Domain",
+      "GUESTDOMAIN": "Guest Domain"
     }
   },
   "REMOTE_SERVER": {
@@ -297,6 +302,7 @@
       "URL_REQUIRED": "URL cannot be blank"
     },
     "DELETE_CONFIRM": "You are about to delete this remote server connection, this procedure is irreversible. Do you want to proceed?",
-    "DELETE_ABORT": "This connection is associated with at least one of the providers. You cannot delete."
+    "DELETE_ABORT": "This connection is associated with at least one of the providers. You cannot delete.",
+    "NO_ASSOCIATED_DOMAIN": "There is no domain using this connection."
   }
 }
