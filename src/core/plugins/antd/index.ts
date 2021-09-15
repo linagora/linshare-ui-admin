@@ -22,6 +22,7 @@ import {
   Progress,
   Popconfirm,
   Popover,
+  Result,
   Row,
   Select,
   Skeleton,
@@ -56,6 +57,7 @@ function useAntdComponents (vueApp: App): App {
     .use(Progress)
     .use(Popover)
     .use(Popconfirm)
+    .use(Result)
     .use(Row)
     .use(Select)
     .use(Skeleton)

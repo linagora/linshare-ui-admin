@@ -268,6 +268,10 @@
       "MAIL_CONFIGURATION":"Emails configuration",
       "MIME_POLICY": "Mime types policy",
       "DOMAIN_POLICY": "Domain policy"
+    },
+    "WARNING": {
+      "PAGE_NOT_AVAILABLE": "This page is not available for curent domain",
+      "BACK_TO_CONFIGURATION": "Go to Configuration"
     }
   },
   "REMOTE_SERVER": {

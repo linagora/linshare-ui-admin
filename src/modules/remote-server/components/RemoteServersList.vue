@@ -5,7 +5,9 @@
   >
   </PageTitle>
 
-  <div>
+  <DomainManagementWarning v-if="!availableForCurrentDomain"/>
+
+  <div v-else>
     <div class="actions">
       <a-dropdown :trigger="['click']">
         <a-button :disabled="state.loading" type="primary">
@@ -77,12 +79,14 @@
 import { computed, defineComponent, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import useDomainManagementEntries from '@/modules/domain/hooks/useDomainManagementEntries';
 import RemoteServerAPIClient from '../services/RemoteServerAPICLient';
 import RemoteServer from '../types/RemoteServer';
 
 import PageTitle from '@/core/components/PageTitle.vue';
 import RemoteServerLDAPModal from '../components/RemoteServerLDAPModal.vue';
 import RemoteServerAssociatedDomainsModal from '../components/RemoteServerAssociatedDomainsModal.vue';
+import DomainManagementWarning from '@/modules/domain/components/DomainManagementWarning.vue';
 import { PlusCircleOutlined, EllipsisOutlined } from '@ant-design/icons-vue';
 
 interface RemoteServersListState {
@@ -97,6 +101,7 @@ export default defineComponent({
   name: 'RemoteServersList',
   components: {
     EllipsisOutlined,
+    DomainManagementWarning,
     PageTitle,
     PlusCircleOutlined,
     RemoteServerLDAPModal,
@@ -105,6 +110,7 @@ export default defineComponent({
   setup () {
     const { t } = useI18n();
     const { breadcrumbs } = useBreadcrumbs();
+    const { availableForCurrentDomain } = useDomainManagementEntries();
     const state = reactive<RemoteServersListState>({
       loading: true,
       showLDAPModal: false,
@@ -192,6 +198,7 @@ export default defineComponent({
     onMounted(fetchRemoteServers);
 
     return {
+      availableForCurrentDomain,
       breadcrumbs,
       columns,
       onCancel,
