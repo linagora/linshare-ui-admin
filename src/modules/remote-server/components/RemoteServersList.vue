@@ -51,7 +51,7 @@
               <a-menu-item @click="openAssociatedDomainsModal(record)">
                 {{ $t('GENERAL.VIEW_ASSOCIATED_DOMAINS') }}
               </a-menu-item>
-              <a-menu-item>
+              <a-menu-item @click="openDeleteModal(record)">
                 <span class="danger">{{ $t('GENERAL.DELETE') }}</span>
               </a-menu-item>
             </a-menu>
@@ -76,8 +76,9 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, onMounted } from 'vue';
+import { computed, createVNode, defineComponent, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { Modal, message } from 'ant-design-vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useDomainManagementEntries from '@/modules/domain/hooks/useDomainManagementEntries';
 import RemoteServerAPIClient from '../services/RemoteServerAPICLient';
@@ -87,7 +88,7 @@ import PageTitle from '@/core/components/PageTitle.vue';
 import RemoteServerLDAPModal from '../components/RemoteServerLDAPModal.vue';
 import RemoteServerAssociatedDomainsModal from '../components/RemoteServerAssociatedDomainsModal.vue';
 import DomainManagementWarning from '@/modules/domain/components/DomainManagementWarning.vue';
-import { PlusCircleOutlined, EllipsisOutlined } from '@ant-design/icons-vue';
+import { PlusCircleOutlined, EllipsisOutlined, ExclamationCircleOutlined } from '@ant-design/icons-vue';
 
 interface RemoteServersListState {
   loading: boolean;
@@ -176,6 +177,22 @@ export default defineComponent({
       fetchRemoteServers();
     }
 
+    async function onDeleteConfirmation (target: RemoteServer, abort: boolean) {
+      if (abort) {
+        return;
+      }
+
+      try {
+        await RemoteServerAPIClient.deleteRemoteServer(target.uuid);
+
+        message.success(t('MESSAGES.DELETE_SUCCESS'));
+      } catch (error) {
+        message.error(t('MESSAGES.DELETE_FAILURE'));
+      } finally {
+        fetchRemoteServers();
+      }
+    }
+
     function openAssociatedDomainsModal (target: RemoteServer) {
       state.target = target;
       state.showDomainsModal = true;
@@ -195,6 +212,19 @@ export default defineComponent({
       state.showLDAPModal = true;
     }
 
+    async function openDeleteModal (target: RemoteServer) {
+      const usedInDomains = !!(await RemoteServerAPIClient.getAssociatedDomains(target.uuid)).length;
+
+      Modal.confirm({
+        title: () => t('GENERAL.DELETION'),
+        icon: () => createVNode(ExclamationCircleOutlined),
+        content: () => usedInDomains ? t('REMOTE_SERVER.DELETE_ABORT') : t('REMOTE_SERVER.DELETE_CONFIRM'),
+        okText: () => usedInDomains ? t('GENERAL.OK') : t('GENERAL.DELETE'),
+        cancelText: () => t('GENERAL.CANCEL'),
+        onOk: () => onDeleteConfirmation(target, usedInDomains)
+      });
+    }
+
     onMounted(fetchRemoteServers);
 
     return {
@@ -205,6 +235,7 @@ export default defineComponent({
       onSuccess,
       onOk,
       openAssociatedDomainsModal,
+      openDeleteModal,
       openEditModal,
       openCreateModal,
       state

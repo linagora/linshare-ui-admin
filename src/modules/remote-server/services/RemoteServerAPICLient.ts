@@ -26,6 +26,10 @@ class RemoteServerAPIClient extends AdminAPIClient {
   async getAssociatedDomains (uuid: string): Promise<Domain[]> {
     return await this.transport.get(`${uuid}/domains`);
   }
+
+  async deleteRemoteServer (uuid: string) {
+    return await this.transport.delete(uuid);
+  }
 }
 
 export default new RemoteServerAPIClient();

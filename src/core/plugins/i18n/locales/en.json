@@ -33,6 +33,7 @@
     "CREATE_SUCCESS": "Created successfully",
     "UPDATE_SUCCESS": "Updated successfully",
     "DELETE_SUCCESS": "Deleted successfully",
+    "DELETE_FAILURE": "Delete failed",
     "PROCESSING": "Processing..."
   },
   "HEADER": {
@@ -294,6 +295,8 @@
     "VALIDATION": {
       "NAME_REQUIRED": "Name cannot be blank",
       "URL_REQUIRED": "URL cannot be blank"
-    }
+    },
+    "DELETE_CONFIRM": "You are about to delete this remote server connection, this procedure is irreversible. Do you want to proceed?",
+    "DELETE_ABORT": "This connection is associated with at least one of the providers. You cannot delete."
   }
 }
