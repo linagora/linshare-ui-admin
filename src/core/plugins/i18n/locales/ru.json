@@ -14,7 +14,16 @@
     "USE_DEFAULTS": "Использовать значения по умолчанию",
     "CREATION_DATE": "Дата создания",
     "MODIFICATION_DATE": "Дата модификации",
-    "COPY": "Копировать"
+    "COPY": "Копировать",
+    "CREATE": "Создайте",
+    "NAME": "Создайте",
+    "ACTIONS": "Действия",
+    "EDIT": "Редактировать",
+    "DUPLICATE": "Редактировать",
+    "ASSOCIATED_DOMAINS": "Связанные домены",
+    "VIEW_ASSOCIATED_DOMAINS": "Просмотр связанных доменов",
+    "OK": "Ok",
+    "SEARCH_BY_NAME": "Поиск по имени"
   },
   "LOCALE": {
     "ENGLISH": "Английский",
@@ -22,8 +31,10 @@
     "RUSSIAN": "Русский"
   },
   "MESSAGES": {
+    "CREATE_SUCCESS": "Создано успешно",
     "UPDATE_SUCCESS": "Обновление успешно",
     "DELETE_SUCCESS": "Удалить успешно",
+    "DELETE_FAILURE": "Не удалось удалить",
     "PROCESSING": "Обработка..."
   },
   "HEADER": {
@@ -258,6 +269,40 @@
       "MAIL_CONFIGURATION": "Конфигурация почты",
       "MIME_POLICY": "Политика MIME",
       "DOMAIN_POLICY": "Политика домена"
+    },
+    "WARNING": {
+      "PAGE_NOT_AVAILABLE": "Эта страница недоступна для текущего домена",
+      "BACK_TO_CONFIGURATION": "Перейти к конфигурации"
+    },
+    "TYPES": {
+      "TOPDOMAIN": "Главный домен",
+      "SUBDOMAIN": "Поддомен",
+      "GUESTDOMAIN": "Гостевой домен"
     }
+  },
+  "REMOTE_SERVER": {
+    "FIELDS": {
+      "PROVIDED_URL": "Указанный URL",
+      "TYPE": "Тип сервера",
+      "LDAP_BINDDN": "dn пользователя LDAP",
+      "LDAP_PASSWORD": "Пароль LDAP"
+    },
+    "TYPE": {
+      "LDAP": "Соединение LDAP",
+      "TWAKE": "Twake-соединение"
+    },
+    "LDAP": {
+      "MODAL": {
+        "CREATE_TITLE": "Создать соединение LDAP",
+        "EDIT_TITLE": "Изменить соединение LDAP"
+      }
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Имя не может быть пустым",
+      "URL_REQUIRED": "URL не может быть пустым"
+    },
+    "DELETE_CONFIRM": "Вы собираетесь удалить это подключение к удаленному серверу, эта процедура необратима. Продолжить?",
+    "DELETE_ABORT": "Это соединение связано по крайней мере с одним из провайдеров. Вы не можете удалить.",
+    "NO_ASSOCIATED_DOMAIN": "Нет домена, использующего это соединение."
   }
 }

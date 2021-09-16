@@ -14,7 +14,16 @@
     "USE_DEFAULTS": "Dùng giá trị mặc định",
     "CREATION_DATE": "Ngày tạo",
     "MODIFICATION_DATE": "Ngày chỉnh sửa",
-    "COPY": "Sao chép"
+    "COPY": "Sao chép",
+    "CREATE": "Tạo",
+    "NAME": "Tên",
+    "ACTIONS": "Hành động",
+    "EDIT": "Chỉnh sửa",
+    "DUPLICATE": "Sao y",
+    "ASSOCIATED_DOMAINS": "Các miền được liên kết",
+    "VIEW_ASSOCIATED_DOMAINS": "em các miền được liên kết",
+    "OK": "Ok",
+    "SEARCH_BY_NAME": "Tìm kiếm theo tên"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -22,8 +31,10 @@
     "RUSSIAN": "Tiếng Nga"
   },
   "MESSAGES": {
+    "CREATE_SUCCESS": "Tạo thành công",
     "UPDATE_SUCCESS": "Cập nhật thành công",
     "DELETE_SUCCESS": "Xóa thành công",
+    "DELETE_FAILURE": "Xóa thất bại",
     "PROCESSING": "Đang xử lí..."
   },
   "HEADER": {
@@ -69,7 +80,7 @@
     "PARAMETERS": "Tham số",
     "MAIL_TEMPLATES": "Mẫu mail thông báo",
     "WELCOME_MESSAGES": "Tin nhắn chào mừng",
-    "TYPE_MIME": "Nhập chính sách MIME",
+      "TYPE_MIME": "Nhập chính sách MIME",
     "PROVIDERS": "Nguồn cung cấp",
     "QUOTA": "Hạn ngạch",
     "PUBLIC_KEYS": "Khóa công khai",
@@ -258,6 +269,39 @@
       "MAIL_CONFIGURATION": "Cấu hình thư",
       "MIME_POLICY": "Chính sách MIME",
       "DOMAIN_POLICY": "Chính sách miền"
+    },
+    "WARNING": {
+      "TRANG KHÔNG CÓ SN": "Trang này không khả dụng cho miền hiện tại", "BACK_TO_CONFIGURATION": "Đi tới Cấu hình"
+    },
+    "TYPES": {
+      "TOPDOMAIN": "Miền hàng đầu",
+      "SUBDOMAIN": "Miền phụ",
+      "GUESTDOMAIN": "Miền khách"
     }
+  },
+  "REMOTE_SERVER": {
+    "FIELDS": {
+      "PROVIDED_URL": "URL được cung cấp",
+      "TYPE": "Loại máy chủ",
+      "LDAP_BINDDN": "Người dùng LDAP dn",
+      "LDAP_PASSWORD": "Mật khẩu LDAP"
+    },
+    "TYPE": {
+      "LDAP": "Kết nối LDAP",
+      "TWAKE": "Kết nối Twake"
+    },
+    "LDAP": {
+      "MODAL": {
+        "CREATE_TITLE": "Tạo kết nối LDAP",
+        "EDIT_TITLE": "Chỉnh sửa kết nối LDAP"
+      }
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Tên không được để trống",
+      "URL_REQUIRED": "URL không được để trống"
+    },
+    "DELETE_CONFIRM": "Bạn sắp xóa kết nối máy chủ từ xa này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục không?",
+    "DELETE_ABORT": "Kết nối này được liên kết với ít nhất một trong các nhà cung cấp. Bạn không thể xóa.",
+    "NO_ASSOCIATED_DOMAIN": "Không có miền nào sử dụng kết nối này."
   }
 }

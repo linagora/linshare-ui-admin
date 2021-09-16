@@ -14,7 +14,16 @@
     "USE_DEFAULTS": "Utiliser les valeurs par défaut",
     "CREATION_DATE": "Date de création",
     "MODIFICATION_DATE": "Date de modification",
-    "COPY": "Copier"
+    "COPY": "Copier",
+    "CREATE": "Créer",
+    "NAME": "Nom",
+    "ACTIONS": "Actions",
+    "EDIT": "Éditer",
+    "DUPLICATE": "Dupliquer",
+    "ASSOCIATED_DOMAINS": "Domaines associés",
+    "VIEW_ASSOCIATED_DOMAINS": "Afficher les domaines associés",
+    "OK": "D’accord",
+    "SEARCH_BY_NAME": "Recherche par nom"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -22,8 +31,10 @@
     "RUSSIAN": "Russe"
   },
   "MESSAGES": {
+    "CREATE_SUCCESS": "Créé avec succès",
     "UPDATE_SUCCESS": "Mis à jour avec succès",
     "DELETE_SUCCESS": "Supprimé avec succès",
+    "DELETE_FAILURE": "Échec de la suppression",
     "PROCESSING": "Traitement..."
   },
   "HEADER": {
@@ -258,6 +269,40 @@
       "MAIL_CONFIGURATION": "Configuration du courrier",
       "MIME_POLICY": "Politique des types MIME",
       "DOMAIN_POLICY": "Politique de domaine"
+    },
+    "WARNING": {
+      "PAGE_NOT_AVAILABLE": "Cette page n’est pas disponible pour le domaine actuel",
+      "BACK_TO_CONFIGURATION": "Retour à la configuration"
+    },
+    "TYPES": {
+      "TOPDOMAIN": "Domaine principal",
+      "SUBDOMAIN": "Sous-domaine",
+      "GUESTDOMAIN": "Domaine invité"
     }
+  },
+  "REMOTE_SERVER": {
+    "FIELDS": {
+      "PROVIDED_URL": "URL fournie",
+      "TYPE": "Type de serveur",
+      "LDAP_BINDDN": "Utilisateur LDAP dn",
+      "LDAP_PASSWORD": "Mot de passe LDAP"
+    },
+    "TYPE": {
+      "LDAP": "Connexion LDAP",
+      "TWAKE": "Connexion Twake"
+    },
+    "LDAP": {
+      "MODAL": {
+        "CREATE_TITLE": "Créer une connexion LDAP",
+        "EDIT_TITLE": "Modifier la connexion LDAP"
+      }
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Le nom ne peut pas être vide",
+      "URL_REQUIRED": "L’URL ne peut pas être vide"
+    },
+    "DELETE_CONFIRM": "Vous êtes sur le point de supprimer cette connexion au serveur distant, cette procédure est irréversible. Voulez-vous continuer?",
+    "DELETE_ABORT": "Cette connexion est associée à au moins un des fournisseurs. Vous ne pouvez pas la supprimer.",
+    "NO_ASSOCIATED_DOMAIN": "Aucun domaine n’utilise cette connexion."
   }
 }
