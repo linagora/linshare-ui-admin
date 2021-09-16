@@ -9,6 +9,12 @@
 
   <div v-else>
     <div class="actions">
+      <a-input v-model:value="state.filterText" :placeholder="$t('GENERAL.SEARCH_BY_NAME')" style="width: 200px; margin-right: 10px;">
+        <template #prefix>
+          <SearchOutlined />
+        </template>
+      </a-input>
+
       <a-dropdown :trigger="['click']">
         <a-button :disabled="state.loading" type="primary">
           <template #icon><PlusCircleOutlined /></template>
@@ -29,7 +35,7 @@
 
     <a-table
       :columns="columns"
-      :dataSource="state.list"
+      :dataSource="filteredList"
       :loading="state.loading"
       rowKey="uuid"
     >
@@ -88,12 +94,13 @@ import PageTitle from '@/core/components/PageTitle.vue';
 import RemoteServerLDAPModal from '../components/RemoteServerLDAPModal.vue';
 import RemoteServerAssociatedDomainsModal from '../components/RemoteServerAssociatedDomainsModal.vue';
 import DomainManagementWarning from '@/modules/domain/components/DomainManagementWarning.vue';
-import { PlusCircleOutlined, EllipsisOutlined, ExclamationCircleOutlined } from '@ant-design/icons-vue';
+import { PlusCircleOutlined, EllipsisOutlined, ExclamationCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 
 interface RemoteServersListState {
   loading: boolean;
   showLDAPModal: boolean;
   showDomainsModal: boolean;
+  filterText: string;
   list: RemoteServer[];
   target: RemoteServer | {};
 }
@@ -106,17 +113,19 @@ export default defineComponent({
     PageTitle,
     PlusCircleOutlined,
     RemoteServerLDAPModal,
-    RemoteServerAssociatedDomainsModal
+    RemoteServerAssociatedDomainsModal,
+    SearchOutlined
   },
   setup () {
     const { t } = useI18n();
     const { breadcrumbs } = useBreadcrumbs();
     const { availableForCurrentDomain } = useDomainManagementEntries();
     const state = reactive<RemoteServersListState>({
+      filterText: '',
       loading: true,
+      list: [],
       showLDAPModal: false,
       showDomainsModal: false,
-      list: [],
       target: {}
     });
     const columns = computed(() => [
@@ -238,7 +247,8 @@ export default defineComponent({
       openDeleteModal,
       openEditModal,
       openCreateModal,
-      state
+      state,
+      filteredList: computed(() => state.list.filter(server => server.name.toLowerCase().includes(state.filterText.toLowerCase())))
     };
   }
 });
