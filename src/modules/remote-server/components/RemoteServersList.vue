@@ -9,7 +9,12 @@
 
   <div v-else>
     <div class="actions">
-      <a-input v-model:value="state.filterText" :placeholder="$t('GENERAL.SEARCH_BY_NAME')" style="width: 200px; margin-right: 10px;">
+      <a-input
+        v-model:value="state.filterText"
+        :placeholder="$t('GENERAL.SEARCH_BY_NAME')"
+        style="width: 200px; margin-right: 10px;"
+        allow-clear
+      >
         <template #prefix>
           <SearchOutlined />
         </template>
