@@ -91,7 +91,7 @@ import { computed, createVNode, defineComponent, reactive, onMounted } from 'vue
 import { useI18n } from 'vue-i18n';
 import { Modal, message } from 'ant-design-vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import useDomainManagementEntries from '@/modules/domain/hooks/useDomainManagementEntries';
+import useDomainConfigurationPages from '@/modules/domain/hooks/useDomainConfigurationPages';
 import RemoteServerAPIClient from '../services/RemoteServerAPICLient';
 import RemoteServer from '../types/RemoteServer';
 
@@ -124,7 +124,7 @@ export default defineComponent({
   setup () {
     const { t } = useI18n();
     const { breadcrumbs } = useBreadcrumbs();
-    const { availableForCurrentDomain } = useDomainManagementEntries();
+    const { availableForCurrentDomain } = useDomainConfigurationPages();
     const state = reactive<RemoteServersListState>({
       filterText: '',
       loading: true,

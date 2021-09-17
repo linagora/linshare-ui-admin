@@ -2,16 +2,14 @@
   <a-row>
     <a-col :md="{span: 16, offset: 4}">
       <div class="page">
-        <div v-for="entry in entries" :key="entry.title">
-          <router-link v-if="entry.route" :to="entry.route">
-            <div class="page__menu-item">
-              <span>{{ $t(entry.title) }}</span>
-              <RightOutlined />
-            </div>
-          </router-link>
+        <div v-for="page in pages" :key="page.title">
+          <a v-if="page.route || page.legacy" @click="goToPage(page)" class="page__menu-item">
+            <span>{{ $t(page.title) }}</span>
+            <RightOutlined />
+          </a>
 
           <div class="page__menu-item" v-else>
-              <span>{{ $t(entry.title) }}</span>
+            <span>{{ $t(page.title) }}</span>
           </div>
         </div>
       </div>
@@ -22,7 +20,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { RightOutlined } from '@ant-design/icons-vue';
-import useDomainManagementEntries from '@/modules/domain/hooks/useDomainManagementEntries';
+import useDomainConfigurationPages from '@/modules/domain/hooks/useDomainConfigurationPages';
 
 export default defineComponent({
   name: 'DomainManagement',
@@ -30,10 +28,11 @@ export default defineComponent({
     RightOutlined
   },
   setup () {
-    const { entries } = useDomainManagementEntries();
+    const { pages, goToPage } = useDomainConfigurationPages();
 
     return {
-      entries
+      pages,
+      goToPage
     };
   }
 });

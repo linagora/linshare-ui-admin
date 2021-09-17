@@ -14,17 +14,16 @@
             <RightOutlined />
           </div>
         </router-link>
-        <div class="page__menu-item">
+        <div class="page__menu-item" @click="redirect('NAVIGATOR.MY_CONTACT_LIST')">
           <span>{{ $t("NAVIGATOR.MY_CONTACT_LIST") }}</span>
           <RightOutlined />
         </div>
-        <div class="page__menu-item">
+        <div class="page__menu-item" @click="redirect('NAVIGATOR.INCONSISTENT_USERS')">
           <span>{{ $t("NAVIGATOR.INCONSISTENT_USERS") }}</span>
           <RightOutlined />
         </div>
         <div class="page__menu-item">
           <span>{{ $t("NAVIGATOR.LOGGERS") }}</span>
-          <RightOutlined />
         </div>
       </div>
     </a-col>
@@ -34,11 +33,19 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { RightOutlined } from '@ant-design/icons-vue';
+import useLegacyFeatures from '../hooks/useLegacyFeatures';
 
 export default defineComponent({
   name: 'Administration',
   components: {
     RightOutlined
+  },
+  setup () {
+    const { redirect } = useLegacyFeatures();
+
+    return {
+      redirect
+    };
   }
 });
 </script>

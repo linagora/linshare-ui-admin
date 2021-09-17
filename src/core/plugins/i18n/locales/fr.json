@@ -304,5 +304,10 @@
     "DELETE_CONFIRM": "Vous êtes sur le point de supprimer cette connexion au serveur distant, cette procédure est irréversible. Voulez-vous continuer?",
     "DELETE_ABORT": "Cette connexion est associée à au moins un des fournisseurs. Vous ne pouvez pas la supprimer.",
     "NO_ASSOCIATED_DOMAIN": "Aucun domaine n’utilise cette connexion."
+  },
+  "BETA": {
+    "MENU": "Ancien portail d'administration",
+    "MENU_TITLE": "Le développement de cette nouvelle interface est en cours, passez à l'ancienne version pour tous les menus de configuration.",
+    "CONFIRM_MESSAGE": "Cette fonctionnalité n'est pas encore disponible sur cette version. Voulez-vous accéder à l'ancienne version pour continuer ?"
   }
 }

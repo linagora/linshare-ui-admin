@@ -308,6 +308,7 @@
   },
   "BETA": {
     "MENU": "Legacy Admin Portal",
-    "MENU_TITLE": "The development of this new interface is in progress, go to the old version for all configuration menus."
+    "MENU_TITLE": "The development of this new interface is in progress, go to the old version for all configuration menus.",
+    "CONFIRM_MESSAGE": "This feature is not yet available on this version. Do you want to access the old version to continue?"
   }
 }

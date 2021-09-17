@@ -303,5 +303,10 @@
     "DELETE_CONFIRM": "Bạn sắp xóa kết nối máy chủ từ xa này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục không?",
     "DELETE_ABORT": "Kết nối này được liên kết với ít nhất một trong các nhà cung cấp. Bạn không thể xóa.",
     "NO_ASSOCIATED_DOMAIN": "Không có miền nào sử dụng kết nối này."
+  },
+  "BETA": {
+    "MENU": "Cổng quản trị cũ",
+    "MENU_TITLE": "Ứng dụng hiện tại đang trong giai đoạn phát triển, hãy chuyển đến phiên bản cũ cho toàn bộ tất cả chức năng.",
+    "CONFIRM_MESSAGE": "Tính năng này chưa khả dụng trên phiên bản này. Bạn có muốn truy cập phiên bản cũ để tiếp tục không?"
   }
 }

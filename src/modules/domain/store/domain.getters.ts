@@ -4,6 +4,8 @@ import RootState from '@/core/store/RootState';
 
 const getters: GetterTree<DomainState, RootState> = {
   getCurrentDomain: state => state.currentDomain,
+  getCurrentDomainUuid: state => state.currentDomain.uuid,
+  getCurrentDomainType: state => state.currentDomain.type,
   getDomainsTree: state => state.domainsTree,
   getStatus: state => (entity: 'currentDomain' | 'domainsTree') => state.status[entity],
   isRootDomain: state => state.currentDomain.type === 'ROOTDOMAIN',

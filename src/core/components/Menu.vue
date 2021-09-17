@@ -6,14 +6,14 @@
     <a-menu-item key="administration" @click="navigateTo('Administration')">
       {{ $t("NAVIGATOR.ADMINISTRATION" )}}
     </a-menu-item>
-    <a-menu-item key="reporting" disabled>
-      {{ $t("NAVIGATOR.REPORTING" )}}
-    </a-menu-item>
-    <a-menu-item key="activities" disabled>
+    <a-menu-item key="activities" @click="navigateTo('NAVIGATOR.ACTIVITIES', true)">
       {{ $t("NAVIGATOR.ACTIVITIES" )}}
     </a-menu-item>
-    <a-menu-item key="upgrades" disabled>
+    <a-menu-item key="upgrades" @click="navigateTo('NAVIGATOR.UPGRADES', true)">
       {{ $t("NAVIGATOR.UPGRADES" )}}
+    </a-menu-item>
+    <a-menu-item key="reporting" disabled>
+      {{ $t("NAVIGATOR.REPORTING" )}}
     </a-menu-item>
     <a-menu-item v-if="isBeta" :title="$t('BETA.MENU_TITLE')">
       <a :href="legacyAppUrl">{{ $t('BETA.MENU' )}}</a>
@@ -23,23 +23,28 @@
 
 <script lang='ts'>
 import { defineComponent, computed } from 'vue';
-import router from '@/core/router';
-import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
+import useLegacyFeatures from '../hooks/useLegacyFeatures';
 import ConfigService from '@/core/services/ConfigService';
 import { CONFIGURATION_KEY } from '../types/AppConfiguration';
 
 export default defineComponent({
   name: 'Menu',
   setup () {
-    const { meta, name } = useRoute();
-    const current = computed(() => [meta.parent || name]);
+    const { currentRoute, push } = useRouter();
+    const { redirect } = useLegacyFeatures();
+    const current = computed(() => [currentRoute.value.meta.parent || currentRoute.value.name]);
     const isBeta = ConfigService.get(CONFIGURATION_KEY.BETA);
     const legacyAppUrl = ConfigService.get(CONFIGURATION_KEY.LEGACY_APP_URL);
 
-    function navigateTo (name: string) {
-      if (name) {
-        router.push({ name });
+    function navigateTo (name: string, legacy?: boolean) {
+      if (legacy) {
+        redirect(name);
+
+        return;
       }
+
+      push({ name });
     }
 
     return {
