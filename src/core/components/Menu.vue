@@ -15,6 +15,9 @@
     <a-menu-item key="upgrades" disabled>
       {{ $t("NAVIGATOR.UPGRADES" )}}
     </a-menu-item>
+    <a-menu-item v-if="isBeta" :title="$t('BETA.MENU_TITLE')">
+      <a :href="legacyAppUrl">{{ $t('BETA.MENU' )}}</a>
+    </a-menu-item>
   </a-menu>
 </template>
 
@@ -22,12 +25,16 @@
 import { defineComponent, computed } from 'vue';
 import router from '@/core/router';
 import { useRoute } from 'vue-router';
+import ConfigService from '@/core/services/ConfigService';
+import { CONFIGURATION_KEY } from '../types/AppConfiguration';
 
 export default defineComponent({
   name: 'Menu',
   setup () {
     const { meta, name } = useRoute();
     const current = computed(() => [meta.parent || name]);
+    const isBeta = ConfigService.get(CONFIGURATION_KEY.BETA);
+    const legacyAppUrl = ConfigService.get(CONFIGURATION_KEY.LEGACY_APP_URL);
 
     function navigateTo (name: string) {
       if (name) {
@@ -36,8 +43,10 @@ export default defineComponent({
     }
 
     return {
+      isBeta,
       current,
-      navigateTo
+      navigateTo,
+      legacyAppUrl
     };
   }
 });

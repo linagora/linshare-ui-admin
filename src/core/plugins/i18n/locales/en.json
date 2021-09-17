@@ -305,5 +305,9 @@
     "DELETE_CONFIRM": "You are about to delete this remote server connection, this procedure is irreversible. Do you want to proceed?",
     "DELETE_ABORT": "This connection is associated with at least one of the providers. You cannot delete.",
     "NO_ASSOCIATED_DOMAIN": "There is no domain using this connection."
+  },
+  "BETA": {
+    "MENU": "Legacy Admin Portal",
+    "MENU_TITLE": "The development of this new interface is in progress, go to the old version for all configuration menus."
   }
 }
