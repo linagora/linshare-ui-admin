@@ -26,6 +26,9 @@
             <fileset>
               <directory>dist</directory>
             </fileset>
+            <fileset>
+              <directory>dist-legacy</directory>
+            </fileset>
           </filesets>
         </configuration>
         <executions>
@@ -198,6 +201,28 @@
         </executions>
 
       </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>process-classes-duplicate-dist</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/dist-legacy</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${basedir}/dist</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <!-- maven-replacer-plugin -->
       <plugin>
         <groupId>com.google.code.maven-replacer-plugin</groupId>
@@ -217,6 +242,27 @@
                 <replacement>
                   <token>debug: true</token>
                   <value>debug: false</value>
+                </replacement>
+              </replacements>
+            </configuration>
+          </execution>
+          <execution>
+            <id>legacy-config.js</id>
+            <!-- post-process the generated files from compilation -->
+            <phase>process-classes</phase>
+            <goals>
+              <goal>replace</goal>
+            </goals>
+            <configuration>
+              <file>dist-legacy/scripts/config.js</file>
+              <replacements>
+                <replacement>
+                  <token>debug: true</token>
+                  <value>debug: false</value>
+                </replacement>
+                <replacement>
+                  <token>enabled: false</token>
+                  <value>enabled: true</value>
                 </replacement>
               </replacements>
             </configuration>

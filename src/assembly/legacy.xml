@@ -6,7 +6,7 @@
   </formats>
   <fileSets>
     <fileSet>
-      <directory>dist</directory>
+      <directory>dist-legacy</directory>
       <outputDirectory>.</outputDirectory>
     </fileSet>
   </fileSets>
