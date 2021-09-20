@@ -16,6 +16,10 @@
   </div>
 </script>
 
+<div ng-if="legacyMode.enabled" class="sidebar-legacy-banner bg-red" title="{{ 'LEGACY.BANNER_TITLE' | translate }}">
+  <a href="{{legacyMode.newAppUrl}}" translate>LEGACY.BANNER</a>
+</div>
+
 <form class="sidebar-form" autocomplete="off">
   <div class="input-group">
     <input type="text" name="q" class="form-control"
@@ -34,7 +38,7 @@
       x-ng-repeat="tab in tabs | translateSearchFilter:search">
     <accordion-heading>
       <i
-        id="{{tab.name.replace('COMMON.TAB.', 'MENU-')}}" 
+        id="{{tab.name.replace('COMMON.TAB.', 'MENU-')}}"
         class="fa"
         x-ng-class="tab.icon"
       >
@@ -49,15 +53,15 @@
       >
         &nbsp;{{tab.name | translate}}
       </span>
-      <i 
+      <i
         x-ng-if="tab.links.length !== 1"
         class="fa pull-right"
         x-ng-class="{'fa-angle-down': tab.isopen, 'fa-angle-left': !tab.isopen}">
       </i>
     </accordion-heading>
     <ul class="treeview-menu">
-      <li 
-        x-ng-if="tab.links.length !== 1" 
+      <li
+        x-ng-if="tab.links.length !== 1"
         x-ng-repeat="link in tab.links"
       >
         <a id="{{link.name.replace('COMMON.TAB.', 'MENU-')}}" x-ng-class="{'active': link.sref==linkActive}"

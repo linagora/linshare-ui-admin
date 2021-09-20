@@ -33,7 +33,7 @@ angular.module('linshareAdminApp')
         },
         removeContact: function(mailId, contact) {
           $log.debug('MailingList:removeContact');
-          return customDeleteService.remove('lists/' + mailId + '/contacts', contact, true)
+          return customDeleteService.remove('lists/' + mailId + '/contacts', contact, true);
         }
       };
     }

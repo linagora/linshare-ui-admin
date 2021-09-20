@@ -2660,5 +2660,9 @@
       "PLURAL": "Tâches asynchrones",
       "SINGULAR": "Tâche asynchrone"
     }
+  },
+  "LEGACY": {
+    "BANNER": "Nouveau portail d'administration",
+    "BANNER_TITLE": "Essayez le nouveau portail d'administration"
   }
 }

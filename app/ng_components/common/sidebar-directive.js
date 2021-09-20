@@ -6,8 +6,27 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
       restrict: 'A',
       transclude: false,
       scope: false,
-      controller: ['_', '$rootScope', '$scope', '$log', '$state', 'Authentication', 'Tab', 'Languages', '$http',
-        function(_, $rootScope, $scope, $log, $state, Authentication, Tab, Languages, $http) {
+      controller: [
+        '_',
+        '$rootScope',
+        '$scope',
+        '$state',
+        'Authentication',
+        'Tab',
+        'Languages',
+        '$http',
+        'lsAppConfig',
+        function(
+          _,
+          $rootScope,
+          $scope,
+          $state,
+          Authentication,
+          Tab,
+          Languages,
+          $http,
+          lsAppConfig
+        ) {
           var setActiveSection = function(link, value) {
             $scope.linkActive = link;
             value.isopen = true;
@@ -52,6 +71,7 @@ angular.module('linshareAdminApp').directive('lsSidebar', [
             });
           });
           $scope.language = Languages.getCurrentLang().filter;
+          $scope.legacyMode = lsAppConfig.legacyMode;
         }
       ],
       templateUrl: 'ng_components/common/sidebar.tpl.html',

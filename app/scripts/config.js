@@ -21,5 +21,9 @@ angular.module('linshareAdminApp').constant('lsAppConfig', {
     admin: 'ADMIN',
     write: 'WRITE',
     readonly: 'READ'
+  },
+  legacyMode: {
+    enabled: false,
+    newAppUrl: '/new'
   }
 });

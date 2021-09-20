@@ -28,11 +28,18 @@ var LoginModalInstanceCtrl =
 ];
 
 angular.module('linshareAdminApp').controller('LoginFormCtrl',
-['$scope', '$log', '$modal',
-  function($scope, $log, $modal) {
+['$scope', '$log', '$modal', 'lsAppConfig',
+  function($scope, $log, $modal, lsAppConfig) {
     var modalInstance;
     $scope.$on('event:auth-loginRequired', function() {
       $log.debug('event:auth-loginRequired received');
+
+      if (lsAppConfig.legacyMode.enabled) {
+        window.location.href = lsAppConfig.legacyMode.newAppUrl;
+
+        return;
+      }
+
       if (angular.isUndefined(modalInstance)) {
         modalInstance = $modal.open({
           backdrop: 'static',

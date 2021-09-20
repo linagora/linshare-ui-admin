@@ -2725,5 +2725,9 @@
       "PLURAL": "Asynchronous tasks",
       "SINGULAR": "Asynchronous task"
     }
+  },
+  "LEGACY": {
+    "BANNER": "New Admin Portal",
+    "BANNER_TITLE": "Try the new Admin Portal"
   }
 }
