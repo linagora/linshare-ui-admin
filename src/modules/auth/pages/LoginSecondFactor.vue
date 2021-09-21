@@ -20,7 +20,6 @@
         <p>{{ $t('AUTH.ENTER_OTP_DIGITS') }}</p>
         <a-form
           layout="vertical"
-          :model="credentials"
           @submit="logInWithOtp"
         >
           <a-alert
@@ -121,6 +120,7 @@ export default defineComponent({
     }
 
     return {
+      otp,
       error,
       changeOtp,
       logInWithOtp,
