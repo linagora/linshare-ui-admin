@@ -5,7 +5,7 @@
         v-show="visible"
         :total="pagination.total"
         :current="pagination.current"
-        :pageSize="pagination.pageSize"
+        :page-size="pagination.pageSize"
         @change="handleChange"
       />
     </div>
@@ -16,7 +16,7 @@
         :class="'square-button' + (option === pagination.pageSize ? ' square-button--active' : '')"
         @click="onSelectPageSize(option)"
       >
-        {{option}}
+        {{ option }}
       </a-button>
     </div>
   </div>
@@ -37,6 +37,7 @@ export default defineComponent({
       default: true
     }
   },
+  emits: ['change', 'update:modelValue'],
   setup (props, { emit }) {
     const pageSizeOptions = ref([10, 25, 50, 100]);
     const visible = computed(() => props.isVisible);

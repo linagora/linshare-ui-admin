@@ -7,11 +7,21 @@
   >
     <template #footer>
       <div class="footer">
-        <a-button @click="resetForm">{{ $t('GENERAL.RESET') }}</a-button>
+        <a-button @click="resetForm">
+          {{ $t('GENERAL.RESET') }}
+        </a-button>
 
         <div>
-          <a-button @click="onCancel">{{ $t('GENERAL.CANCEL') }}</a-button>
-          <a-button @click="onSave" :loading="formSubmitting" type="primary">{{ $t('GENERAL.SAVE') }}</a-button>
+          <a-button @click="onCancel">
+            {{ $t('GENERAL.CANCEL') }}
+          </a-button>
+          <a-button
+            :loading="formSubmitting"
+            type="primary"
+            @click="onSave"
+          >
+            {{ $t('GENERAL.SAVE') }}
+          </a-button>
         </div>
       </div>
     </template>
@@ -28,7 +38,7 @@
         name="name"
         required
       >
-        <a-input v-model:value="formState.name"/>
+        <a-input v-model:value="formState.name" />
       </a-form-item>
 
       <a-form-item
@@ -38,7 +48,7 @@
         name="url"
         required
       >
-        <a-input v-model:value="formState.url"/>
+        <a-input v-model:value="formState.url" />
         <small><em>eg: [ldap/ldaps]://my.ldap.lng:[389/636]</em></small>
       </a-form-item>
 
@@ -48,7 +58,7 @@
         :label="$t('REMOTE_SERVER.FIELDS.LDAP_BINDDN')"
         name="bindDn"
       >
-        <a-input v-model:value="formState.bindDn"/>
+        <a-input v-model:value="formState.bindDn" />
       </a-form-item>
 
       <a-form-item
@@ -57,7 +67,7 @@
         :label="$t('REMOTE_SERVER.FIELDS.LDAP_PASSWORD')"
         name="bindPassword"
       >
-        <a-input-password v-model:value="formState.bindPassword"/>
+        <a-input-password v-model:value="formState.bindPassword" />
       </a-form-item>
     </a-form>
   </a-modal>
@@ -77,9 +87,11 @@ export default defineComponent({
       type: Boolean
     },
     data: {
-      type: Object as PropType<RemoteServer>
+      type: Object as PropType<RemoteServer>,
+      default: () => ({})
     }
   },
+  emits: ['cancel', 'success'],
   setup (props, { emit }) {
     const { t } = useI18n();
     const editMode = computed(() => !!props.data?.uuid);

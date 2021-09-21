@@ -1,7 +1,13 @@
 <template>
-  <a-skeleton active v-if="isLoadingTree"/>
+  <a-skeleton
+    v-if="isLoadingTree"
+    active
+  />
 
-  <div class="domains-tree" v-else>
+  <div
+    v-else
+    class="domains-tree"
+  >
     <ul>
       <li>
         <div class="domains-tree__node">
@@ -13,7 +19,7 @@
             :loading="isLoadingDomain(domainsTree)"
             @click="setCurrentDomain(domainsTree.uuid)"
           >
-            {{domainsTree.name}}
+            {{ domainsTree.name }}
           </a-button>
           <a-dropdown :trigger="['click']">
             <a-button
@@ -36,7 +42,11 @@
           </a-dropdown>
         </div>
         <ul>
-          <li class="branch" v-for="topDomain in domainsTree.children" :key="topDomain.uuid">
+          <li
+            v-for="topDomain in domainsTree.children"
+            :key="topDomain.uuid"
+            class="branch"
+          >
             <div class="domains-tree__node">
               <a-button
                 class="name"
@@ -46,7 +56,7 @@
                 :loading="isLoadingDomain(topDomain)"
                 @click="setCurrentDomain(topDomain.uuid)"
               >
-                {{topDomain.name}}
+                {{ topDomain.name }}
               </a-button>
               <a-dropdown :trigger="['click']">
                 <a-button
@@ -73,7 +83,11 @@
             </div>
 
             <ul>
-              <li class="branch" v-for="subDomain in topDomain.children" :key="subDomain.uuid">
+              <li
+                v-for="subDomain in topDomain.children"
+                :key="subDomain.uuid"
+                class="branch"
+              >
                 <div class="domains-tree__node">
                   <a-button
                     class="name"
@@ -83,7 +97,7 @@
                     :loading="isLoadingDomain(subDomain)"
                     @click="setCurrentDomain(subDomain.uuid)"
                   >
-                    {{subDomain.name}}
+                    {{ subDomain.name }}
                   </a-button>
                 </div>
               </li>
@@ -93,7 +107,6 @@
       </li>
     </ul>
   </div>
-
 </template>
 
 <script lang="ts">

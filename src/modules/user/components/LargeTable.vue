@@ -8,7 +8,12 @@
         <DesktopListItem :data="item" />
       </template>
     </a-list>
-    <Pagination class="large-table__pagination" v-model="pagination" :isVisible="!!list.length" @change="handleTableChange"/>
+    <Pagination
+      v-model="pagination"
+      class="large-table__pagination"
+      :is-visible="!!list.length"
+      @change="handleTableChange"
+    />
   </div>
 </template>
 

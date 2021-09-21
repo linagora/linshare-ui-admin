@@ -6,9 +6,13 @@
       :breadcrumbs="breadcrumbs"
     >
       <template #helperContent>
-        <div class='alert-message-in-description'>{{ $t('NAVIGATOR.USERS') }}</div>
+        <div class="alert-message-in-description">
+          {{ $t('NAVIGATOR.USERS') }}
+        </div>
         <div>{{ $t('USERS.MANAGE_USERS.DESCRIPTION') }}</div>
-        <div class='alert-message-in-description'>{{ $t('USERS.MANAGE_USERS.OPERATION') }}</div>
+        <div class="alert-message-in-description">
+          {{ $t('USERS.MANAGE_USERS.OPERATION') }}
+        </div>
         <div>{{ $t('USERS.MANAGE_USERS.SEARCH_GUIDE') }}</div>
         <div>{{ $t('USERS.MANAGE_USERS.NAVIGATE_GUIDE') }}</div>
       </template>
@@ -16,8 +20,8 @@
 
     <div class="users-list">
       <TokenInput
-        :filterOptions="filterOptions"
-        :sortOptions="sortOptions"
+        :filter-options="filterOptions"
+        :sort-options="sortOptions"
         :placeholder="$t('USERS.TOKEN_INPUT.PLACEHOLDER')"
         @submit="handleSubmit"
       />

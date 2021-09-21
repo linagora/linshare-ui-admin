@@ -1,8 +1,20 @@
 <template>
-  <a-input v-model:value="value" @change="updateModelValue" type="number">
+  <a-input
+    v-model:value="value"
+    type="number"
+    @change="updateModelValue"
+  >
     <template #addonAfter>
-      <a-select v-model:value="base" @change="updateModelValue">
-        <a-select-option v-for="unit in STORAGE_UNITS" :key="unit.base">{{unit.label}}</a-select-option>
+      <a-select
+        v-model:value="base"
+        @change="updateModelValue"
+      >
+        <a-select-option
+          v-for="unit in STORAGE_UNITS"
+          :key="unit.base"
+        >
+          {{ unit.label }}
+        </a-select-option>
       </a-select>
     </template>
   </a-input>
@@ -20,6 +32,7 @@ export default defineComponent({
       default: 0
     }
   },
+  emits: ['update:modelValue'],
   setup (props, { emit }: SetupContext) {
     const base = ref(1);
     const value = ref(0);

@@ -13,9 +13,9 @@ export default interface User {
   secondFAEnabled: boolean;
   quotaUuid: string;
   author: {
-    uuid: string,
-    email: string,
-    name: string
+    uuid: string;
+    email: string;
+    name: string;
   };
   domain: {
     name: string;

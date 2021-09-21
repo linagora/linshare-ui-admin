@@ -10,9 +10,9 @@
       </template>
     </a-list>
     <Pagination
-      class="shared-spaces-list__pagination"
       v-model="pagination"
-      :isVisible="!!list.length"
+      class="shared-spaces-list__pagination"
+      :is-visible="!!list.length"
       @change="handlePaginationChange"
     />
   </div>

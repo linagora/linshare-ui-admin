@@ -3,50 +3,74 @@
     <div class="token-input__inner-box token-input__full-flex token-input__scrollable-x">
       <SearchOutlined class="token-input__search-icon" />
       <div class="token-input__tokens-ctn">
-        <div class="token-input__token-item" v-for="token in tokens" :key="token.key">
-          <span>{{token.displayKey}} : &nbsp;</span>
-          <span v-if="!token.value || !token.value.optionComponent">{{token.value && token.value.label}}</span>
-          <component v-else :is="token.value.optionComponent" :data="token.value.data"></component>
-          <CloseOutlined class="token-input__token-item__close-icon" @click="removeToken(token.key)" />
+        <div
+          v-for="token in tokens"
+          :key="token.key"
+          class="token-input__token-item"
+        >
+          <span>{{ token.displayKey }} : &nbsp;</span>
+          <span v-if="!token.value || !token.value.optionComponent">{{ token.value && token.value.label }}</span>
+          <component
+            :is="token.value.optionComponent"
+            v-else
+            :data="token.value.data"
+          />
+          <CloseOutlined
+            class="token-input__token-item__close-icon"
+            @click="removeToken(token.key)"
+          />
         </div>
       </div>
       <a-auto-complete
-        class="token-input__auto-complete"
         v-model:value="autocompleteValue"
+        class="token-input__auto-complete"
         allow-clear
         :default-active-first-option="false"
         @search="onSearch"
         @select="onSelect"
       >
         <template #options>
-          <a-select-option v-for="option in options" :key="option.value">
+          <a-select-option
+            v-for="option in options"
+            :key="option.value"
+          >
             <div v-if="!option.optionComponent">
               {{ option.label }}
             </div>
-            <component v-else :is="option.optionComponent" :data="option.data"></component>
+            <component
+              :is="option.optionComponent"
+              v-else
+              :data="option.data"
+            />
           </a-select-option>
         </template>
-         <a-input
+        <a-input
           ref="autocomplete"
-          :placeholder="placeholder"
           v-model="autocompleteValue"
+          :placeholder="placeholder"
           @pressEnter="handlePressEnter"
         />
       </a-auto-complete>
     </div>
     <div class="token-input__inner-box token-input__sort-ctn">
       <a-select
-        :bordered="false"
         v-model:value="sortField"
+        :bordered="false"
         :placeholder="$t('USERS.TOKEN_INPUT.SORT_BY')"
         @change="handleSort"
       >
-        <a-select-option v-for="sortOption in sortOptions" :key="sortOption.key" :value="sortOption.key">{{ $t(sortOption.label) }}</a-select-option>
+        <a-select-option
+          v-for="sortOption in sortOptions"
+          :key="sortOption.key"
+          :value="sortOption.key"
+        >
+          {{ $t(sortOption.label) }}
+        </a-select-option>
       </a-select>
       <component
+        :is="sortOrder === 'ascend' ? 'SortAscendingOutlined' : 'SortDescendingOutlined'"
         v-if="sortField"
         class="token-input__sort-order-icon"
-        :is="sortOrder === 'ascend' ? 'SortAscendingOutlined' : 'SortDescendingOutlined'"
         @click="toggleSortOrder"
       />
     </div>
@@ -125,6 +149,7 @@ export default defineComponent({
       default: ''
     }
   },
+  emits: ['submit'],
   setup (props: TokenInputProps, { emit }: SetupContext) {
     const autocompleteValue = ref<string>('');
     const autocomplete = ref<CustomHTMLElement | null>(null);

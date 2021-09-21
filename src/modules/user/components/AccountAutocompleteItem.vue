@@ -1,6 +1,8 @@
 <template>
   <div class="autocomplete-item__user">
-    <div class="user-avatar">{{ data.firstName[0] }}</div>
+    <div class="user-avatar">
+      {{ data.firstName[0] }}
+    </div>
     <div class="user-info">
       <span class="user-name">{{ data.firstName }} {{ data.lastName }}</span>
       <span class="user-mail">{{ data.mail }}</span>

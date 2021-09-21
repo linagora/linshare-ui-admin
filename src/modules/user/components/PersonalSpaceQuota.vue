@@ -1,8 +1,22 @@
 <template>
   <div class="personal-space-quota">
-    <a-row type="flex" :gutter="30" class="personal-space-quota__row">
-      <a-col :xl="9" :lg="12" :sm="12" :xs="24">
-        <a-form :model="quotaForm" :rules="rules" ref="formRef" validate-on-rule-change>
+    <a-row
+      type="flex"
+      :gutter="30"
+      class="personal-space-quota__row"
+    >
+      <a-col
+        :xl="9"
+        :lg="12"
+        :sm="12"
+        :xs="24"
+      >
+        <a-form
+          ref="formRef"
+          :model="quotaForm"
+          :rules="rules"
+          validate-on-rule-change
+        >
           <span class="personal-space-quota__status">{{ $t('QUOTA.USED_SPACE', { usedSpace, computedQuota }) }}</span>
           <a-progress :percent="percentUsed" />
 
@@ -12,13 +26,21 @@
             </span>
             <div class="personal-space-quota__default-value">
               <span>{{ $t('GENERAL.DEFAULT_VALUE') }}:</span>
-              <span class="value">{{defaultQuota}}</span>
+              <span class="value">{{ defaultQuota }}</span>
             </div>
 
-            <a-form-item :labelCol="{ span: 24 }" :wrapperCol="{ span: 24 }" :label="$t('GENERAL.CURRENT_VALUE')" name="quota">
-              <SizeInput v-model="quotaForm.quota"/>
+            <a-form-item
+              :label-col="{ span: 24 }"
+              :wrapper-col="{ span: 24 }"
+              :label="$t('GENERAL.CURRENT_VALUE')"
+              name="quota"
+            >
+              <SizeInput v-model="quotaForm.quota" />
 
-              <a-button type="link" @click="quotaForm.quota = userQuota.defaultQuota">
+              <a-button
+                type="link"
+                @click="quotaForm.quota = userQuota.defaultQuota"
+              >
                 <template #icon>
                   <ReloadOutlined />
                 </template>
@@ -32,12 +54,20 @@
             </span>
             <div class="personal-space-quota__default-value">
               <span>{{ $t('GENERAL.DEFAULT_VALUE') }}:</span>
-              <span class="value">{{defaultMaxFileSize}}</span>
+              <span class="value">{{ defaultMaxFileSize }}</span>
             </div>
-            <a-form-item :labelCol="{ span: 24 }" :wrapperCol="{ span: 24 }" :label="$t('GENERAL.CURRENT_VALUE')" name="maxFileSize">
-              <SizeInput v-model="quotaForm.maxFileSize"/>
+            <a-form-item
+              :label-col="{ span: 24 }"
+              :wrapper-col="{ span: 24 }"
+              :label="$t('GENERAL.CURRENT_VALUE')"
+              name="maxFileSize"
+            >
+              <SizeInput v-model="quotaForm.maxFileSize" />
 
-              <a-button type="link" @click="quotaForm.maxFileSize = userQuota.defaultMaxFileSize">
+              <a-button
+                type="link"
+                @click="quotaForm.maxFileSize = userQuota.defaultMaxFileSize"
+              >
                 <template #icon>
                   <ReloadOutlined />
                 </template>
@@ -55,8 +85,19 @@
               </a-button>
             </div>
             <div>
-              <a-button class="reset" type="primary" @click="resetForm">{{ $t('GENERAL.RESET') }}</a-button>
-              <a-button style="margin-left: 10px" type="primary" @click="onSave" :loading="saving">
+              <a-button
+                class="reset"
+                type="primary"
+                @click="resetForm"
+              >
+                {{ $t('GENERAL.RESET') }}
+              </a-button>
+              <a-button
+                style="margin-left: 10px"
+                type="primary"
+                :loading="saving"
+                @click="onSave"
+              >
                 {{ $t('GENERAL.SAVE') }}
                 <template #icon>
                   <CheckOutlined />

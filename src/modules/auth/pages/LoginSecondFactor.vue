@@ -1,14 +1,38 @@
 <template>
-  <a-row class="login" type="flex" justify="center" align="top">
-    <a-col :xs="20" :md="10" :lg="8" :xl="6">
-      <img class="logo" src="@/assets/linshare-icon.png">
+  <a-row
+    class="login"
+    type="flex"
+    justify="center"
+    align="top"
+  >
+    <a-col
+      :xs="20"
+      :md="10"
+      :lg="8"
+      :xl="6"
+    >
+      <img
+        class="logo"
+        src="@/assets/linshare-icon.png"
+      >
       <a-card>
         <h2>{{ $t('AUTH.SECOND_FACTOR_AUTHENTICATION') }}</h2>
         <p>{{ $t('AUTH.ENTER_OTP_DIGITS') }}</p>
-        <a-form layout="vertical" :model="credentials" @submit="logInWithOtp">
-          <a-alert v-if="error" :message="error" type="error" />
+        <a-form
+          layout="vertical"
+          :model="credentials"
+          @submit="logInWithOtp"
+        >
+          <a-alert
+            v-if="error"
+            :message="error"
+            type="error"
+          />
           <a-form-item>
-            <OtpInput :value='otp' @input="changeOtp"/>
+            <OtpInput
+              :value="otp"
+              @input="changeOtp"
+            />
           </a-form-item>
           <a-button
             type="primary"

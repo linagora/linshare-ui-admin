@@ -1,42 +1,65 @@
 <template>
   <div class="restricted-contact">
-    <a-row type="flex" :gutter="30" class="restricted-contact__row">
-      <a-col :xl="7" :lg="10" :sm="12" :xs="24">
+    <a-row
+      type="flex"
+      :gutter="30"
+      class="restricted-contact__row"
+    >
+      <a-col
+        :xl="7"
+        :lg="10"
+        :sm="12"
+        :xs="24"
+      >
         <label class="restricted-contact__label">{{ $t('USERS.DETAIL_USER.ADD_CONTACT') }}</label>
         <a-auto-complete
+          v-model:value="search"
           class="restricted-contact__autocomplete"
           :placeholder="$t('USERS.MANAGE_USERS.EMAIL')"
-          v-model:value="search"
           @search="searchUsersDebounce()"
           @select="onSelect"
         >
           <template #options>
-            <a-select-option v-for="user in autoCompleteResults" :key="user.uuid" :value="user.mail">
+            <a-select-option
+              v-for="user in autoCompleteResults"
+              :key="user.uuid"
+              :value="user.mail"
+            >
               <div>
-                <UserOutlined class="restricted-contact-autocomplete-user-icon"/>
+                <UserOutlined class="restricted-contact-autocomplete-user-icon" />
                 <span class="restricted-contact-autocomplete-user-info">
                   <span>{{ getFullName(user) }}</span>
                   <span>&nbsp;</span>
-                  <span>&lt;{{user.mail}}&gt;</span>
+                  <span>&lt;{{ user.mail }}&gt;</span>
                 </span>
               </div>
             </a-select-option>
           </template>
         </a-auto-complete>
         <div class="restricted-contact__container">
-          <div class="restricted-contact__title">{{ $t('USERS.DETAIL_USER.RESTRICTED_LIST') }}</div>
+          <div class="restricted-contact__title">
+            {{ $t('USERS.DETAIL_USER.RESTRICTED_LIST') }}
+          </div>
           <div class="restricted-contact__list">
-            <a-tooltip v-for="contact in restrictedContacts" :key="contact.uuid"
+            <a-tooltip
+              v-for="contact in restrictedContacts"
+              :key="contact.uuid"
               :title="`${getFullName(contact)} <${contact.mail}>`"
             >
-              <a-tag class="restricted-contact__tag" closable @close="onRemove(contact)">
+              <a-tag
+                class="restricted-contact__tag"
+                closable
+                @close="onRemove(contact)"
+              >
                 {{ getFullName(contact) }}
               </a-tag>
             </a-tooltip>
           </div>
         </div>
         <div class="restricted-contact__container">
-          <div class="restricted-contact__title">{{ $t('USERS.DETAIL_USER.COMMENT') }}</div>
+          <div class="restricted-contact__title">
+            {{ $t('USERS.DETAIL_USER.COMMENT') }}
+          </div>
           <div class="restricted-contact__list">
             <a-textarea
               v-model:value="user.comment"
@@ -48,8 +71,8 @@
         <div class="restricted-contact__save">
           <a-button
             type="primary"
-            @click="onSave()"
             :loading="saving"
+            @click="onSave()"
           >
             {{ $t('GENERAL.SAVE') }}
           </a-button>

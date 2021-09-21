@@ -2,13 +2,23 @@
   <a-row>
     <a-col :md="{span: 16, offset: 4}">
       <div class="page">
-        <div v-for="page in pages" :key="page.title">
-          <a v-if="page.route || page.legacy" @click="goToPage(page)" class="page__menu-item">
+        <div
+          v-for="page in pages"
+          :key="page.title"
+        >
+          <a
+            v-if="page.route || page.legacy"
+            class="page__menu-item"
+            @click="goToPage(page)"
+          >
             <span>{{ $t(page.title) }}</span>
             <RightOutlined />
           </a>
 
-          <div class="page__menu-item" v-else>
+          <div
+            v-else
+            class="page__menu-item"
+          >
             <span>{{ $t(page.title) }}</span>
           </div>
         </div>

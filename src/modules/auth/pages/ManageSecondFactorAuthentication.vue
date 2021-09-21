@@ -9,8 +9,8 @@
     </template>
   </PageTitle>
 
-  <KeyCreation v-if="!initiallyEnabled"/>
-  <KeyRemoval v-else/>
+  <KeyCreation v-if="!initiallyEnabled" />
+  <KeyRemoval v-else />
 </template>
 
 <script lang="ts">

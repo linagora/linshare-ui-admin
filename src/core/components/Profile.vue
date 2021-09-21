@@ -1,14 +1,22 @@
 <template>
   <div>
     <a-dropdown :trigger="['click']">
-      <a-avatar shape="circle" size="50" class="profile-avatar">
+      <a-avatar
+        shape="circle"
+        size="50"
+        class="profile-avatar"
+      >
         <span>{{ firstName && firstName[0] || 'A' }}</span>
       </a-avatar>
       <template #overlay>
         <a-menu class="profile-menu">
           <a-menu-item class="profile-info-ctn">
-            <div class="profile-name">{{ fullName }}</div>
-            <div class="profile-mail">{{ email }}</div>
+            <div class="profile-name">
+              {{ fullName }}
+            </div>
+            <div class="profile-mail">
+              {{ email }}
+            </div>
           </a-menu-item>
           <router-link to="/second_factor_authentication">
             <a-menu-item>

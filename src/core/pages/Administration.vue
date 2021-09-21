@@ -4,21 +4,27 @@
       <div class="page">
         <router-link :to="{ name: 'UsersList' }">
           <div class="page__menu-item">
-            <span>{{ $t("NAVIGATOR.MY_USERS")}}</span>
+            <span>{{ $t("NAVIGATOR.MY_USERS") }}</span>
             <RightOutlined />
           </div>
         </router-link>
         <router-link :to="{ name: 'SharedSpacesList' }">
           <div class="page__menu-item">
-            <span>{{ $t("NAVIGATOR.MY_DRIVES_WORKGROUPS")}}</span>
+            <span>{{ $t("NAVIGATOR.MY_DRIVES_WORKGROUPS") }}</span>
             <RightOutlined />
           </div>
         </router-link>
-        <div class="page__menu-item" @click="redirect('NAVIGATOR.MY_CONTACT_LIST')">
+        <div
+          class="page__menu-item"
+          @click="redirect('NAVIGATOR.MY_CONTACT_LIST')"
+        >
           <span>{{ $t("NAVIGATOR.MY_CONTACT_LIST") }}</span>
           <RightOutlined />
         </div>
-        <div class="page__menu-item" @click="redirect('NAVIGATOR.INCONSISTENT_USERS')">
+        <div
+          class="page__menu-item"
+          @click="redirect('NAVIGATOR.INCONSISTENT_USERS')"
+        >
           <span>{{ $t("NAVIGATOR.INCONSISTENT_USERS") }}</span>
           <RightOutlined />
         </div>

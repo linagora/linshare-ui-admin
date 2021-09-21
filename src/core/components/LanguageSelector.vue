@@ -1,10 +1,14 @@
 <template>
-  <div class='language-selector'>
+  <div class="language-selector">
     <a-select
       v-model:value="selectedLanguage"
       @select="onLanguageChanged"
     >
-      <a-select-option v-for="language in supportedLanguages" :key="language.key" :value="language.language">
+      <a-select-option
+        v-for="language in supportedLanguages"
+        :key="language.key"
+        :value="language.language"
+      >
         <div class="select-dropdown">
           <span class="select-dropdown__symbol">{{ language.name }}</span>
         </div>

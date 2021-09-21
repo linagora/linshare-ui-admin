@@ -1,5 +1,8 @@
 <template>
-  <a-alert v-if="secondFA.enabled && !secondFA.canDeleteIt" type="warning">
+  <a-alert
+    v-if="secondFA.enabled && !secondFA.canDeleteIt"
+    type="warning"
+  >
     <template #description>
       <h1>{{ $t('2FA.KEY_REMOVAL.ALERT.TITLE') }}</h1>
       <span>{{ $t('2FA.KEY_REMOVAL.ALERT.MESSAGE') }}</span>
@@ -10,7 +13,7 @@
     <span class="helper-text">{{ $t('2FA.KEY_REMOVAL.HELPER') }}</span>
 
     <div class="shared-key">
-      <small>{{ $t('2FA.KEY_REMOVAL.INFORMATION', { date:  $d(secondFA.creationDate, 'mediumDate') }) }}</small>
+      <small>{{ $t('2FA.KEY_REMOVAL.INFORMATION', { date: $d(secondFA.creationDate, 'mediumDate') }) }}</small>
     </div>
 
     <a-button

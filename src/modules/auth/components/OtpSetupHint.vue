@@ -6,7 +6,7 @@
         <span class="step">{{ $t('2FA.MANUAL_SETUP.STEP_1') }}</span>
         <span class="step">{{ $t('2FA.MANUAL_SETUP.STEP_2') }}</span>
         <div class="issuer-account">
-          <img src="@/assets/images/freeotp-app-icon.png"/>
+          <img src="@/assets/images/freeotp-app-icon.png">
           <div class="text-fields">
             <span>{{ configs.issuer }}</span>
             <span>{{ configs.account }}</span>
@@ -14,8 +14,14 @@
         </div>
         <span class="step">{{ $t('2FA.MANUAL_SETUP.STEP_3') }}</span>
         <div class="otp-secret">
-          <a-input :value="configs.secret" disabled/>
-          <a-button type="primary" @click="copySecret()">
+          <a-input
+            :value="configs.secret"
+            disabled
+          />
+          <a-button
+            type="primary"
+            @click="copySecret()"
+          >
             {{ $t('GENERAL.COPY') }}
           </a-button>
         </div>

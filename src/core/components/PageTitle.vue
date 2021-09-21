@@ -6,7 +6,10 @@
           {{ $t(route.label) }}
         </span>
 
-        <router-link v-else :to="route.path">
+        <router-link
+          v-else
+          :to="route.path"
+        >
           {{ $t(route.label) }}
         </router-link>
       </template>
@@ -19,11 +22,13 @@
         v-show="!showHelper"
         @click.prevent="toggleHelper"
       />
-      <slot name="titlePostfix"/>
+      <slot name="titlePostfix" />
     </div>
     <div class="subtitle">
-      <h3 class="subtitle">{{ subtitle }}</h3>
-      <slot name="subTitlePostfix"/>
+      <h3 class="subtitle">
+        {{ subtitle }}
+      </h3>
+      <slot name="subTitlePostfix" />
     </div>
 
     <a-alert
@@ -33,7 +38,7 @@
       :after-close="handleClosingHelper"
     >
       <template #description>
-        <slot name="helperContent"/>
+        <slot name="helperContent" />
       </template>
     </a-alert>
   </div>

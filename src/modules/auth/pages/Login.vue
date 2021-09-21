@@ -1,20 +1,47 @@
 <template>
-  <a-row class="login" type="flex" justify="center" align="top">
-    <a-col :xs="20" :md="10" :lg="8" :xl="6">
-      <img class="logo" src="@/assets/linshare-icon.png">
+  <a-row
+    class="login"
+    type="flex"
+    justify="center"
+    align="top"
+  >
+    <a-col
+      :xs="20"
+      :md="10"
+      :lg="8"
+      :xl="6"
+    >
+      <img
+        class="logo"
+        src="@/assets/linshare-icon.png"
+      >
       <a-card>
         <h2>{{ $t('AUTH.LOGIN_TO_ADMIN') }}</h2>
-        <a-form layout="vertical" :model="credentials" @submit="logIn">
-          <a-alert v-if="error" :message="error" type="error" />
+        <a-form
+          layout="vertical"
+          :model="credentials"
+          @submit="logIn"
+        >
+          <a-alert
+            v-if="error"
+            :message="error"
+            type="error"
+          />
           <a-form-item>
-            <a-input placeholder="Email" v-model:value="credentials.email">
+            <a-input
+              v-model:value="credentials.email"
+              placeholder="Email"
+            >
               <template #prefix>
                 <user-outlined />
               </template>
             </a-input>
           </a-form-item>
           <a-form-item>
-            <a-input-password placeholder="Password" v-model:value="credentials.password">
+            <a-input-password
+              v-model:value="credentials.password"
+              placeholder="Password"
+            >
               <template #prefix>
                 <lock-outlined />
               </template>

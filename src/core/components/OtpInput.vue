@@ -1,22 +1,23 @@
 <template>
-  <div class='otp-form-group'>
-    <input class="otp-input"
-      type="text"
+  <div class="otp-form-group">
+    <input
       v-for="(character, index) in characters"
       :key="index"
-      autocomplete="off"
-      v-model='character.value'
-      :name="`otpInput${index}`"
       :ref="setItemRef"
+      v-model="character.value"
+      class="otp-input"
+      type="text"
+      autocomplete="off"
+      :name="`otpInput${index}`"
       maxlength="1"
       required
+      inputmode="numeric"
       @keyup="(event) => handleOnKeyUp(index, event)"
       @keydown="(event) => handleOnKeyDown(index, event)"
       @keypress="(event) => handleOnKeyPress(event)"
       @paste="(event) => handleOnPaste(event)"
       @click="(event) => handleOnClick(index)"
-      inputmode="numeric"
-    />
+    >
   </div>
 </template>
 
@@ -56,6 +57,7 @@ export default defineComponent({
       default: ''
     }
   },
+  emits: ['input'],
   setup (props, { emit }) {
     const characters: Character[] = reactive([0, 1, 2, 3, 4, 5].map((index: number) => ({
       index,

@@ -4,7 +4,12 @@
     :title="$t('GENERAL.ASSOCIATED_DOMAINS')"
   >
     <template #footer>
-      <a-button @click="onOk" type="primary">{{ $t('GENERAL.OK') }}</a-button>
+      <a-button
+        type="primary"
+        @click="onOk"
+      >
+        {{ $t('GENERAL.OK') }}
+      </a-button>
     </template>
 
     <a-list
@@ -38,9 +43,11 @@ export default defineComponent({
       type: Boolean
     },
     data: {
-      type: Object as PropType<RemoteServer>
+      type: Object as PropType<RemoteServer>,
+      default: () => ({})
     }
   },
+  emits: ['ok'],
   setup (props, { emit }) {
     const loading = ref(true);
     const list = ref<Domain[]>([]);

@@ -1,25 +1,34 @@
 <template>
-  <a-row class='user-profile-row'>
+  <a-row class="user-profile-row">
     <a-col :xl="{span: 9, offset: 2}">
-      <a-form :model="form" @submit="updateUser()">
+      <a-form
+        :model="form"
+        @submit="updateUser()"
+      >
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.FIRST_NAME') }}</label>
-          <a-input v-model:value="form.firstName"></a-input>
+          <a-input v-model:value="form.firstName" />
         </div>
         <div class="input-container">
-          <label>{{ $t('USERS.DETAIL_USER.LAST_NAME')}}</label>
-          <a-input v-model:value="form.lastName"></a-input>
+          <label>{{ $t('USERS.DETAIL_USER.LAST_NAME') }}</label>
+          <a-input v-model:value="form.lastName" />
         </div>
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.ROLE') }}</label>
-          <a-select :disabled="user.role === 'SUPERADMIN'" v-model:value="form.role">
+          <a-select
+            v-model:value="form.role"
+            :disabled="user.role === 'SUPERADMIN'"
+          >
             <a-select-option value="SIMPLE">
               {{ $t('USERS.DETAIL_USER.ROLE_SIMPLE') }}
             </a-select-option>
             <a-select-option value="ADMIN">
               {{ $t('USERS.DETAIL_USER.ROLE_ADMIN') }}
             </a-select-option>
-            <a-select-option disabled value="SUPERADMIN">
+            <a-select-option
+              disabled
+              value="SUPERADMIN"
+            >
               {{ $t('USERS.DETAIL_USER.ROLE_SUPERADMIN') }}
             </a-select-option>
           </a-select>
@@ -35,22 +44,36 @@
             </a-select-option>
           </a-select>
         </div>
-        <div class="input-container" v-if="user.accountType === 'GUEST'">
+        <div
+          v-if="user.accountType === 'GUEST'"
+          class="input-container"
+        >
           <label>{{ $t('USERS.DETAIL_USER.EXPIRATION_DATE') }}</label>
-          <a-date-picker style="width: 100%" v-model:value="form.expirationDate" valueFormat="x" format="MMM DD, YYYY"/>
+          <a-date-picker
+            v-model:value="form.expirationDate"
+            style="width: 100%"
+            value-format="x"
+            format="MMM DD, YYYY"
+          />
         </div>
         <div class="input-container">
           <a-checkbox v-model:checked="form.canUpload">
-            {{ $t('USERS.DETAIL_USER.ENABLE_PERSONAL_SPACE')}}
+            {{ $t('USERS.DETAIL_USER.ENABLE_PERSONAL_SPACE') }}
           </a-checkbox>
         </div>
-        <div class="input-container" v-if="user.accountType !== 'GUEST'">
+        <div
+          v-if="user.accountType !== 'GUEST'"
+          class="input-container"
+        >
           <a-checkbox v-model:checked="form.canCreateGuest">
             {{ $t('USERS.DETAIL_USER.ALLOW_GUEST_CREATION') }}
           </a-checkbox>
         </div>
         <div>
-          <a-button type='primary' html-type='submit'>
+          <a-button
+            type="primary"
+            html-type="submit"
+          >
             {{ $t('GENERAL.SAVE') }}
           </a-button>
         </div>
@@ -60,24 +83,47 @@
     <a-col :xl="{span: 9, offset: 2}">
       <div class="info-block-container">
         <div class="info-block">
-          <div class="info-block__title">{{ $t("USERS.DETAIL_USER.ACCOUNT_TYPE")}}</div>
-          <div class="info-block__value">{{ user.accountType }}</div>
+          <div class="info-block__title">
+            {{ $t("USERS.DETAIL_USER.ACCOUNT_TYPE") }}
+          </div>
+          <div class="info-block__value">
+            {{ user.accountType }}
+          </div>
         </div>
         <div class="info-block">
-          <div class="info-block__title">{{ $t('USERS.DETAIL_USER.CREATION_DATE')}}</div>
-          <div class="info-block__value">{{ $d(user.creationDate, 'mediumDateTime') }}</div>
+          <div class="info-block__title">
+            {{ $t('USERS.DETAIL_USER.CREATION_DATE') }}
+          </div>
+          <div class="info-block__value">
+            {{ $d(user.creationDate, 'mediumDateTime') }}
+          </div>
         </div>
         <div class="info-block">
-          <div class="info-block__title">{{ $t('USERS.DETAIL_USER.MODIFICATION_DATE') }}</div>
-          <div class="info-block__value">{{ $d(user.modificationDate, 'mediumDateTime') }}</div>
+          <div class="info-block__title">
+            {{ $t('USERS.DETAIL_USER.MODIFICATION_DATE') }}
+          </div>
+          <div class="info-block__value">
+            {{ $d(user.modificationDate, 'mediumDateTime') }}
+          </div>
         </div>
-        <div class="info-block" v-if="user.accountType === 'GUEST'">
-          <div class="info-block__title">{{ $t('USERS.DETAIL_USER.AUTHOR') }}</div>
-          <div class="info-block__value">{{ user.author && user.author.name }}</div>
+        <div
+          v-if="user.accountType === 'GUEST'"
+          class="info-block"
+        >
+          <div class="info-block__title">
+            {{ $t('USERS.DETAIL_USER.AUTHOR') }}
+          </div>
+          <div class="info-block__value">
+            {{ user.author && user.author.name }}
+          </div>
         </div>
         <div class="info-block">
-          <div class="info-block__title">{{ $t('USERS.DETAIL_USER.DOMAIN') }}</div>
-          <div class="info-block__value">{{ user.domain && user.domain.name }}</div>
+          <div class="info-block__title">
+            {{ $t('USERS.DETAIL_USER.DOMAIN') }}
+          </div>
+          <div class="info-block__value">
+            {{ user.domain && user.domain.name }}
+          </div>
         </div>
       </div>
     </a-col>

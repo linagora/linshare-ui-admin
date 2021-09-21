@@ -7,12 +7,11 @@
       <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.TITLE') }}</div>
       <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.DESCRIPTION') }}</div>
     </template>
-
   </PageTitle>
 
   <TokenInput
-    :filterOptions="filterOptions"
-    :sortOptions="sortOptions"
+    :filter-options="filterOptions"
+    :sort-options="sortOptions"
     :placeholder="$t('USERS.TOKEN_INPUT.PLACEHOLDER')"
     @submit="handleSubmit"
   />

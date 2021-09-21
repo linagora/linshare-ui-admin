@@ -2,10 +2,9 @@
   <PageTitle
     :title="$t('NAVIGATOR.REMOTE_SERVERS')"
     :breadcrumbs="breadcrumbs"
-  >
-  </PageTitle>
+  />
 
-  <DomainManagementWarning v-if="!availableForCurrentDomain"/>
+  <DomainManagementWarning v-if="!availableForCurrentDomain" />
 
   <div v-else>
     <div class="actions">
@@ -21,8 +20,13 @@
       </a-input>
 
       <a-dropdown :trigger="['click']">
-        <a-button :disabled="state.loading" type="primary">
-          <template #icon><PlusCircleOutlined /></template>
+        <a-button
+          :disabled="state.loading"
+          type="primary"
+        >
+          <template #icon>
+            <PlusCircleOutlined />
+          </template>
           {{ $t('GENERAL.CREATE') }}
         </a-button>
         <template #overlay>
@@ -40,9 +44,9 @@
 
     <a-table
       :columns="columns"
-      :dataSource="filteredList"
+      :data-source="filteredList"
       :loading="state.loading"
-      rowKey="uuid"
+      row-key="uuid"
     >
       <template #date="{ text }">
         {{ $d(text, 'mediumDate') }}
@@ -50,7 +54,7 @@
 
       <template #actions="{ record }">
         <a-dropdown :trigger="['click']">
-          <EllipsisOutlined style="font-size: 16px"/>
+          <EllipsisOutlined style="font-size: 16px" />
           <template #overlay>
             <a-menu>
               <a-menu-item @click="openEditModal(record)">

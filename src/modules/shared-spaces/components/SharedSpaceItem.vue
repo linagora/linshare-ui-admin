@@ -3,23 +3,31 @@
     <a-list-item>
       <a-list-item-meta>
         <template #avatar>
-          <component :is="data.nodeType === 'DRIVE' ? 'DriveIcon' : 'WorkgroupIcon'" fill="#0372B3"/>
+          <component
+            :is="data.nodeType === 'DRIVE' ? 'DriveIcon' : 'WorkgroupIcon'"
+            fill="#0372B3"
+          />
         </template>
 
         <template #title>
-          <span class="list-item__name">{{data.name}}</span>
-          <span class="list-item__parent" v-if="data.parentName">@{{data.parentName}}</span>
+          <span class="list-item__name">{{ data.name }}</span>
+          <span
+            v-if="data.parentName"
+            class="list-item__parent"
+          >@{{ data.parentName }}</span>
         </template>
 
         <template #description>
-          <span>{{ $t('GENERAL.UPDATE_TIME_RELATIVE', { time: relativeModificationDate })}}</span>
+          <span>{{ $t('GENERAL.UPDATE_TIME_RELATIVE', { time: relativeModificationDate }) }}</span>
         </template>
       </a-list-item-meta>
 
       <template #extra>
-        <a-tag class="list-item__node-type">{{
-          $t(`SHARED_SPACES.NODE_TYPE.${data.nodeType}`)
-        }}</a-tag>
+        <a-tag class="list-item__node-type">
+          {{
+            $t(`SHARED_SPACES.NODE_TYPE.${data.nodeType}`)
+          }}
+        </a-tag>
       </template>
     </a-list-item>
   </div>

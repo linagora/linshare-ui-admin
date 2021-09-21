@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <Copyright/>
+    <Copyright />
   </div>
 </template>
 

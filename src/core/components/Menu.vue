@@ -1,22 +1,44 @@
 <template>
-  <a-menu v-model:selectedKeys="current" mode="horizontal" class="navigation-menu">
-    <a-menu-item key="configuration" @click="navigateTo('Configuration')">
-      {{ $t("NAVIGATOR.CONFIGURATION" )}}
+  <a-menu
+    v-model:selectedKeys="current"
+    mode="horizontal"
+    class="navigation-menu"
+  >
+    <a-menu-item
+      key="configuration"
+      @click="navigateTo('Configuration')"
+    >
+      {{ $t("NAVIGATOR.CONFIGURATION" ) }}
     </a-menu-item>
-    <a-menu-item key="administration" @click="navigateTo('Administration')">
-      {{ $t("NAVIGATOR.ADMINISTRATION" )}}
+    <a-menu-item
+      key="administration"
+      @click="navigateTo('Administration')"
+    >
+      {{ $t("NAVIGATOR.ADMINISTRATION" ) }}
     </a-menu-item>
-    <a-menu-item key="activities" @click="navigateTo('NAVIGATOR.ACTIVITIES', true)">
-      {{ $t("NAVIGATOR.ACTIVITIES" )}}
+    <a-menu-item
+      key="activities"
+      @click="navigateTo('NAVIGATOR.ACTIVITIES', true)"
+    >
+      {{ $t("NAVIGATOR.ACTIVITIES" ) }}
     </a-menu-item>
-    <a-menu-item key="upgrades" @click="navigateTo('NAVIGATOR.UPGRADES', true)">
-      {{ $t("NAVIGATOR.UPGRADES" )}}
+    <a-menu-item
+      key="upgrades"
+      @click="navigateTo('NAVIGATOR.UPGRADES', true)"
+    >
+      {{ $t("NAVIGATOR.UPGRADES" ) }}
     </a-menu-item>
-    <a-menu-item key="reporting" disabled>
-      {{ $t("NAVIGATOR.REPORTING" )}}
+    <a-menu-item
+      key="reporting"
+      disabled
+    >
+      {{ $t("NAVIGATOR.REPORTING" ) }}
     </a-menu-item>
-    <a-menu-item v-if="isBeta" :title="$t('BETA.MENU_TITLE')">
-      <a :href="legacyAppUrl">{{ $t('BETA.MENU' )}}</a>
+    <a-menu-item
+      v-if="isBeta"
+      :title="$t('BETA.MENU_TITLE')"
+    >
+      <a :href="legacyAppUrl">{{ $t('BETA.MENU' ) }}</a>
     </a-menu-item>
   </a-menu>
 </template>

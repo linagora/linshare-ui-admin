@@ -2,7 +2,9 @@
   <div class="list-item">
     <a-list-item @click="goToUser">
       <template #actions>
-        <a-tag class="list-item__account-type">{{data.accountType}}</a-tag>
+        <a-tag class="list-item__account-type">
+          {{ data.accountType }}
+        </a-tag>
       </template>
       <a-list-item-meta
         :description="data.mail"
@@ -14,7 +16,11 @@
           </div>
         </template>
         <template #avatar>
-          <a-avatar shape="circle" :size="46" class="list-item__profile-avatar">
+          <a-avatar
+            shape="circle"
+            :size="46"
+            class="list-item__profile-avatar"
+          >
             <span>{{ firstLetter }}</span>
           </a-avatar>
         </template>

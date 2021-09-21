@@ -11,8 +11,8 @@
             :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
             :ok-text="$t('USERS.DETAIL_USER.YES')"
             :cancel-text="$t('USERS.DETAIL_USER.NO')"
-            @confirm="deleteUser"
             placement="bottom"
+            @confirm="deleteUser"
           >
             <a-button>{{ $t('USERS.DETAIL_USER.DELETE_USER') }}</a-button>
           </a-popconfirm>
@@ -27,8 +27,12 @@
     >
       <template #description>
         <p>{{ $t('USERS.DETAIL_USER.LOCKED_USER_DESCRIPTION') }}</p>
-        <a-button type='warning' class="unlock-button" @click="unlockUser">
-          {{ $t('USERS.DETAIL_USER.UNLOCK')}}
+        <a-button
+          type="warning"
+          class="unlock-button"
+          @click="unlockUser"
+        >
+          {{ $t('USERS.DETAIL_USER.UNLOCK') }}
         </a-button>
       </template>
     </a-alert>
@@ -40,22 +44,38 @@
           {{ user.secondFAEnabled ? $t('USERS.DETAIL_USER.ENABLED') : $t('USERS.DETAIL_USER.DISABLED') }}
         </a-tag>
       </div>
-      <a-button class="delete-shared-key-button" v-if='user.secondFAEnabled' @click="confirmRemoveSharedKey">
-        {{ $t('2FA.KEY_REMOVAL.BUTTON')}}
+      <a-button
+        v-if="user.secondFAEnabled"
+        class="delete-shared-key-button"
+        @click="confirmRemoveSharedKey"
+      >
+        {{ $t('2FA.KEY_REMOVAL.BUTTON') }}
       </a-button>
     </div>
 
     <div class="user-detail">
       <a-tabs>
-        <a-tab-pane key="1" :tab="$t('USERS.DETAIL_USER.USER_PROFILE')">
+        <a-tab-pane
+          key="1"
+          :tab="$t('USERS.DETAIL_USER.USER_PROFILE')"
+        >
           <UserProfile />
         </a-tab-pane>
-        <a-tab-pane key="2" :tab="$t('USERS.DETAIL_USER.PERSONAL_SPACE_QUOTA')">
+        <a-tab-pane
+          key="2"
+          :tab="$t('USERS.DETAIL_USER.PERSONAL_SPACE_QUOTA')"
+        >
           <PersonalSpaceQuota />
         </a-tab-pane>
-        <a-tab-pane key="3" :tab="$t('USERS.DETAIL_USER.UPLOAD_REQUEST')">
-        </a-tab-pane>
-        <a-tab-pane key="4" v-if="user.accountType === 'GUEST'" :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')">
+        <a-tab-pane
+          key="3"
+          :tab="$t('USERS.DETAIL_USER.UPLOAD_REQUEST')"
+        />
+        <a-tab-pane
+          v-if="user.accountType === 'GUEST'"
+          key="4"
+          :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')"
+        >
           <RestrictedContacts />
         </a-tab-pane>
       </a-tabs>

@@ -1,7 +1,16 @@
 <template>
   <div class="small-table">
-    <ListItem v-for="item in list" :data="item" :key="item.uuid"/>
-    <Pagination class="small-table__pagination" v-model="pagination" :isVisible="!!list.length" @change="handleTableChange"/>
+    <ListItem
+      v-for="item in list"
+      :key="item.uuid"
+      :data="item"
+    />
+    <Pagination
+      v-model="pagination"
+      class="small-table__pagination"
+      :is-visible="!!list.length"
+      @change="handleTableChange"
+    />
   </div>
 </template>
 
