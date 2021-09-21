@@ -14,8 +14,9 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'semi': 0,
-    '@typescript-eslint/semi': ['error', 'always']
+    semi: 0,
+    '@typescript-eslint/semi': ['error', 'always'],
+    'vue/no-unused-vars': 0
   },
   overrides: [
     {
@@ -28,4 +29,4 @@ module.exports = {
       }
     }
   ]
-}
+};

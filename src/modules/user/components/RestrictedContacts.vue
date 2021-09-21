@@ -21,16 +21,16 @@
         >
           <template #options>
             <a-select-option
-              v-for="user in autoCompleteResults"
-              :key="user.uuid"
-              :value="user.mail"
+              v-for="result in autoCompleteResults"
+              :key="result.uuid"
+              :value="result.mail"
             >
               <div>
                 <UserOutlined class="restricted-contact-autocomplete-user-icon" />
                 <span class="restricted-contact-autocomplete-user-info">
-                  <span>{{ getFullName(user) }}</span>
+                  <span>{{ getFullName(result) }}</span>
                   <span>&nbsp;</span>
-                  <span>&lt;{{ user.mail }}&gt;</span>
+                  <span>&lt;{{ result.mail }}&gt;</span>
                 </span>
               </div>
             </a-select-option>

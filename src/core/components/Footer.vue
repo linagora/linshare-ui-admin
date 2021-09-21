@@ -4,16 +4,8 @@
   </div>
 </template>
 
-<script lang='ts'>
-import { defineComponent } from 'vue';
-import Copyright from './Copyright.vue';
-
-export default defineComponent({
-  name: 'Footer',
-  components: {
-    Copyright
-  }
-});
+<script lang="ts" setup>
+import Copyright from '../components/Copyright.vue';
 </script>
 
 <style lang="less" scoped>
