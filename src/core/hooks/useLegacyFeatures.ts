@@ -67,7 +67,7 @@ export default function useLegacyFeatures () {
         const appUrl = ConfigService.get(CONFIGURATION_KEY.LEGACY_APP_URL);
 
         if (page) {
-          window.location.href = `${appUrl}/#/${page.route}`.replace(':id', currentDomainUuid.value);
+          window.location.href = `${appUrl}#/${page.route}`.replace(':id', currentDomainUuid.value);
         }
       }
     });
