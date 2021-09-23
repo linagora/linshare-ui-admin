@@ -1,6 +1,6 @@
 <template>
   <PageTitle
-    :title="'Domain details'"
+    :title="$t('NAVIGATOR.DOMAIN_DETAILS')"
     :subtitle="currentDomain.name"
     :breadcrumbs="breadcrumbs"
   >
