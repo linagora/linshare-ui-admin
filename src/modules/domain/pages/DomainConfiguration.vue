@@ -1,36 +1,65 @@
 <template>
-  <a-row :gutter="32">
-    <a-col
-      :span="6"
-      wrap
+  <a-layout>
+    <a-layout-sider
+      v-if="isLargeScreen"
+      width="300"
+      theme="light"
     >
       <DomainTrees />
-    </a-col>
-    <a-col :span="18">
+    </a-layout-sider>
+    <a-layout-content>
+      <div
+        v-if="!isLargeScreen"
+        style="margin-bottom: 10px;"
+      >
+        <a-button
+          @click="showSidebar = true"
+        >
+          <template #icon>
+            <MenuUnfoldOutlined />
+          </template>
+        </a-button>
+      </div>
       <router-view />
-    </a-col>
-  </a-row>
+    </a-layout-content>
+  </a-layout>
+
+  <a-drawer
+    placement="left"
+    :closable="false"
+    :visible="showSidebar"
+    width="300"
+    @close="showSidebar = false"
+  >
+    <DomainTrees />
+  </a-drawer>
 </template>
 
-<script lang='ts'>
+<script lang='ts' setup>
 import { useStore } from 'vuex';
-import { defineComponent, watchEffect, computed } from 'vue';
+import { watchEffect, ref, computed } from 'vue';
+import { useMediaQuery } from '@vueuse/core';
+import { MenuUnfoldOutlined } from '@ant-design/icons-vue';
 import DomainTrees from '@/modules/domain/components/DomainsTree.vue';
 
-export default defineComponent({
-  name: 'Configuration',
-  components: {
-    DomainTrees
-  },
-  setup () {
-    const store = useStore();
-    const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
+const store = useStore();
+const showSidebar = ref(false);
+const isLargeScreen = useMediaQuery('(min-width: 769px)');
+const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
+const loggedUser = computed(() => store.getters['Auth/getLoggedUser']);
 
-    watchEffect(() => {
-      if (domainsTree.value.uuid) {
-        store.dispatch('Domain/fetchDomainById', domainsTree.value.uuid);
-      }
-    });
+function prepareCurrentDomain () {
+  if (domainsTree.value.uuid) {
+    store.dispatch('Domain/fetchDomainById', domainsTree.value.uuid);
   }
-});
+}
+
+function prepareDomainsTree () {
+  if (loggedUser.value.uuid) {
+    store.dispatch('Domain/fetchDomainsTree');
+  }
+}
+
+watchEffect(prepareCurrentDomain);
+watchEffect(prepareDomainsTree);
 </script>

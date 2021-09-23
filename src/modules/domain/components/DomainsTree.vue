@@ -111,7 +111,7 @@
 
 <script lang="ts">
 import { useStore } from 'vuex';
-import { defineComponent, computed, reactive, watchEffect } from 'vue';
+import { defineComponent, computed, reactive } from 'vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
 import Status from '@/core/types/Status';
 import DomainTreeNode from '../type/DomainTreeNode';
@@ -135,13 +135,6 @@ export default defineComponent({
     const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
     const isLoadingTree = computed(() => store.getters['Domain/getStatus']('domainsTree') === Status.LOADING);
     const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
-    const loggedUser = computed(() => store.getters['Auth/getLoggedUser']);
-
-    watchEffect(() => {
-      if (loggedUser.value.uuid) {
-        store.dispatch('Domain/fetchDomainsTree');
-      }
-    });
 
     async function setCurrentDomain (uuid: string) {
       domainsTreeStatus.loading = uuid;

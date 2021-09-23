@@ -11,6 +11,7 @@ import {
   Col,
   ConfigProvider,
   DatePicker,
+  Drawer,
   Dropdown,
   Form,
   Input,
@@ -46,6 +47,7 @@ function useAntdComponents (vueApp: App): App {
     .use(ConfigProvider)
     .use(Col)
     .use(DatePicker)
+    .use(Drawer)
     .use(Dropdown)
     .use(Form)
     .use(Input)
