@@ -62,9 +62,13 @@ export default function useDomainConfigurationPages () {
   const { redirect } = useLegacyFeatures();
   const domainType = computed(() => store.getters['Domain/getCurrentDomainType']);
 
-  const pages = computed(() => DOMAIN_MANAGEMENT_PAGES.filter(
-    page => !page.usedFor || page.usedFor.includes(domainType.value)
-  ));
+  const pages = computed(() => DOMAIN_MANAGEMENT_PAGES
+    .filter(page => !page.usedFor || page.usedFor.includes(domainType.value))
+    .sort((a, b) => {
+      if (!a.route) return 1;
+
+      return a.title.localeCompare(b.title);
+    }));
 
   const availableForCurrentDomain = computed(() => {
     const currentPage = DOMAIN_MANAGEMENT_PAGES.find(page => !page.legacy && page.route?.name === currentRoute.value.name);
