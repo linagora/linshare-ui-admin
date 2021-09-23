@@ -4,6 +4,7 @@
     :title="editMode ?
       $t('REMOTE_SERVER.LDAP.MODAL.EDIT_TITLE') :
       $t('REMOTE_SERVER.LDAP.MODAL.CREATE_TITLE')"
+    @cancel="emitCancel"
   >
     <template #footer>
       <div class="footer">
@@ -12,7 +13,7 @@
         </a-button>
 
         <div>
-          <a-button @click="onCancel">
+          <a-button @click="emitCancel">
             {{ $t('GENERAL.CANCEL') }}
           </a-button>
           <a-button
@@ -121,7 +122,7 @@ export default defineComponent({
       }
     }
 
-    function onCancel () {
+    function emitCancel () {
       emit('cancel');
     }
 
@@ -167,7 +168,7 @@ export default defineComponent({
       formSubmitting,
       resetForm,
       onSave,
-      onCancel
+      emitCancel
     };
   }
 });

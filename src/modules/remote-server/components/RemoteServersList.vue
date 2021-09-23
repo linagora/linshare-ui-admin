@@ -80,13 +80,14 @@
     :visible="state.showLDAPModal"
     :data="state.target"
     @success="onSuccess"
-    @cancel="onCancel"
+    @cancel="state.showLDAPModal = false"
   />
 
   <RemoteServerAssociatedDomainsModal
     :visible="state.showDomainsModal"
     :data="state.target"
-    @ok="onOk"
+    @ok="state.showDomainsModal = false"
+    @cancel="state.showDomainsModal = false"
   />
 </template>
 
@@ -181,14 +182,6 @@ export default defineComponent({
         });
     };
 
-    function onCancel () {
-      state.showLDAPModal = false;
-    }
-
-    function onOk () {
-      state.showDomainsModal = false;
-    }
-
     function onSuccess () {
       state.showLDAPModal = false;
 
@@ -233,7 +226,7 @@ export default defineComponent({
     async function openDeleteModal (target: RemoteServer) {
       const usedInDomains = !!(await RemoteServerAPIClient.getAssociatedDomains(target.uuid)).length;
 
-      Modal.confirm({
+      Modal[usedInDomains ? 'info' : 'confirm']({
         title: () => t('GENERAL.DELETION'),
         icon: () => createVNode(ExclamationCircleOutlined),
         content: () => usedInDomains ? t('REMOTE_SERVER.DELETE_ABORT') : t('REMOTE_SERVER.DELETE_CONFIRM'),
@@ -249,9 +242,7 @@ export default defineComponent({
       availableForCurrentDomain,
       breadcrumbs,
       columns,
-      onCancel,
       onSuccess,
-      onOk,
       openAssociatedDomainsModal,
       openDeleteModal,
       openEditModal,

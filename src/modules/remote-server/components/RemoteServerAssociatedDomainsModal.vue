@@ -2,11 +2,12 @@
   <a-modal
     :visible="visible"
     :title="$t('GENERAL.ASSOCIATED_DOMAINS')"
+    @cancel="emitOk"
   >
     <template #footer>
       <a-button
         type="primary"
-        @click="onOk"
+        @click="emitOk"
       >
         {{ $t('GENERAL.OK') }}
       </a-button>
@@ -47,12 +48,12 @@ export default defineComponent({
       default: () => ({})
     }
   },
-  emits: ['ok'],
+  emits: ['ok', 'cancel'],
   setup (props, { emit }) {
     const loading = ref(true);
     const list = ref<Domain[]>([]);
 
-    function onOk () {
+    function emitOk () {
       emit('ok');
     };
 
@@ -73,7 +74,7 @@ export default defineComponent({
     return {
       loading,
       list,
-      onOk
+      emitOk
     };
   }
 });
