@@ -1,6 +1,10 @@
 <template>
   <a-row>
-    <a-col :md="{span: 16, offset: 4}">
+    <a-col
+      :xs="24"
+      :sm="24"
+      :md="{span: 16, offset: 4}"
+    >
       <div class="page">
         <div
           v-for="page in pages"
