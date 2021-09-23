@@ -5,7 +5,10 @@
     :breadcrumbs="breadcrumbs"
   >
     <template #subTitlePostfix>
-      <div class="delete-domain-container">
+      <div
+        v-if="!loadingDomain"
+        class="delete-domain-container"
+      >
         <a-button primary>
           {{ $t('DOMAIN.DELETE_DOMAIN') }}
         </a-button>
