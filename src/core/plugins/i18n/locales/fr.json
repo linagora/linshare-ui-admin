@@ -86,7 +86,10 @@
     "PUBLIC_KEYS": "Clés publiques (JWT)",
     "DOMAIN_DETAILS": "Détails du domaine",
     "REMOTE_SERVERS": "Serveurs distants",
-    "REMOTE_FILTERS": "Filtres distants"
+    "REMOTE_FILTERS": "Filtres distants",
+    "USER_FILTERS": "Filtres utilisateurs",
+    "GROUP_FILTERS": "Filtres de groupe",
+    "DRIVE_FILTERS": "Filtres de drive"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",
@@ -278,7 +281,8 @@
       "TOPDOMAIN": "Domaine principal",
       "SUBDOMAIN": "Sous-domaine",
       "GUESTDOMAIN": "Domaine invité"
-    }
+    },
+    "REMOTE_FILTERS_HELPER": "Les filtres distants peuvent être utilisés par n'importe quel domaine"
   },
   "REMOTE_SERVER": {
     "FIELDS": {

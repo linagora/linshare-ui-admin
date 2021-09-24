@@ -26,6 +26,16 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
         requiresAuth: true
       }
     },
+    {
+      name: 'DomainRemoteFilters',
+      path: 'filters',
+      component: () => import('../components/DomainRemoteFilters.vue'),
+      meta: {
+        parentRoute: 'Configuration',
+        label: 'NAVIGATOR.REMOTE_FILTERS',
+        requiresAuth: true
+      }
+    },
     RemoteServersRoute
   ]
 };

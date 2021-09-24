@@ -86,7 +86,10 @@
     "PUBLIC_KEYS": "Khóa công khai",
     "DOMAIN_DETAILS": "Chi tiết của miền",
     "REMOTE_SERVERS": "Máy chủ bên ngoài",
-    "REMOTE_FILTERS": "Bộ lọc bên ngoài"
+    "REMOTE_FILTERS": "Bộ lọc bên ngoài",
+    "USER_FILTERS": "Bộ lọc người dùng",
+    "GROUP_FILTERS": "Bộ lọc nhóm",
+    "DRIVE_FILTERS": "Bộ lọc Drive"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -277,7 +280,8 @@
       "TOPDOMAIN": "Miền hàng đầu",
       "SUBDOMAIN": "Miền phụ",
       "GUESTDOMAIN": "Miền khách"
-    }
+    },
+    "REMOTE_FILTERS_HELPER": "Bộ lọc có thể được sử dụng bởi bất kỳ miền nào"
   },
   "REMOTE_SERVER": {
     "FIELDS": {

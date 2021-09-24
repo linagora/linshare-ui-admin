@@ -86,7 +86,10 @@
     "PUBLIC_KEYS": "Открытые ключи",
     "DOMAIN_DETAILS": "Доменные данные",
     "REMOTE_SERVERS": "Удаленные серверы",
-    "REMOTE_FILTERS": "Удаленные фильтры"
+    "REMOTE_FILTERS": "Удаленные фильтры",
+    "USER_FILTERS": "Пользовательские фильтры",
+    "GROUP_FILTERS": "Групповые фильтры",
+    "DRIVE_FILTERS": "Фильтры дисков"
   },
   "DASHBOARD": {
     "TITLE": "Приборная доска",
@@ -278,7 +281,8 @@
       "TOPDOMAIN": "Главный домен",
       "SUBDOMAIN": "Поддомен",
       "GUESTDOMAIN": "Гостевой домен"
-    }
+    },
+    "REMOTE_FILTERS_HELPER": "Удаленные фильтры могут использоваться любым доменом"
   },
   "REMOTE_SERVER": {
     "FIELDS": {

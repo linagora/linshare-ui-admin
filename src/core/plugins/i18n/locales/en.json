@@ -86,7 +86,10 @@
     "PUBLIC_KEYS": "Public keys (JWT)",
     "DOMAIN_DETAILS": "Domain details",
     "REMOTE_SERVERS": "Remote servers",
-    "REMOTE_FILTERS": "Remote filters"
+    "REMOTE_FILTERS": "Remote filters",
+    "USER_FILTERS": "User filters",
+    "GROUP_FILTERS": "Group filters",
+    "DRIVE_FILTERS": "Drive filters"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",
@@ -279,7 +282,8 @@
       "TOPDOMAIN": "Top Domain",
       "SUBDOMAIN": "Sub Domain",
       "GUESTDOMAIN": "Guest Domain"
-    }
+    },
+    "REMOTE_FILTERS_HELPER": "Remote filters can be used by any domain"
   },
   "REMOTE_SERVER": {
     "FIELDS": {

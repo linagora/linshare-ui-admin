@@ -28,8 +28,7 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
   },
   {
     title: 'NAVIGATOR.REMOTE_FILTERS',
-    legacy: true,
-    usedFor: [DOMAIN_TYPE.ROOT, DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB]
+    route: { name: 'DomainFilters' }
   },
   {
     title: 'NAVIGATOR.PARAMETERS',
