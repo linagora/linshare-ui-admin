@@ -23,7 +23,9 @@
     "ASSOCIATED_DOMAINS": "Các miền được liên kết",
     "VIEW_ASSOCIATED_DOMAINS": "em các miền được liên kết",
     "OK": "Ok",
-    "SEARCH_BY_NAME": "Tìm kiếm theo tên"
+    "SEARCH_BY_NAME": "Tìm kiếm theo tên",
+    "DESCRIPTION": "Mô tả",
+    "TYPES": "Loại"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -80,7 +82,7 @@
     "PARAMETERS": "Tham số",
     "MAIL_TEMPLATES": "Mẫu mail thông báo",
     "WELCOME_MESSAGES": "Tin nhắn chào mừng",
-      "TYPE_MIME": "Nhập chính sách MIME",
+    "TYPE_MIME": "Nhập chính sách MIME",
     "PROVIDERS": "Nguồn cung cấp",
     "QUOTA": "Hạn ngạch",
     "PUBLIC_KEYS": "Khóa công khai",
@@ -263,7 +265,6 @@
       "NAME": "Tên",
       "NAME_REQUIRED": "Vui lòng nhập tên miền",
       "NAME_MAX_LENGTH": "Tên miền phải ngắn hơn 256 ký tự",
-      "DESCRIPTION": "Mô tả",
       "NOTIFICATION_LANGUAGE": "Ngôn ngữ thông báo",
       "NOTIFICATION_LANGUAGE_HELPER": "Email thông báo sẽ được gửi bằng ngôn ngữ này cho tất cả người dùng mới được tạo trên tên miền này.",
       "DEFAULT_USER_ROLE": "Vai trò người dùng mặc định",
@@ -274,7 +275,8 @@
       "DOMAIN_POLICY": "Chính sách miền"
     },
     "WARNING": {
-      "TRANG KHÔNG CÓ SN": "Trang này không khả dụng cho miền hiện tại", "BACK_TO_CONFIGURATION": "Đi tới Cấu hình"
+      "PAGE_NOT_ACCESSIBLE": "Trang này không thể truy cập được đối với miền hoặc người dùng hiện tại",
+      "BACK_TO_CONFIGURATION": "Đi tới Cấu hình"
     },
     "TYPES": {
       "TOPDOMAIN": "Miền hàng đầu",
@@ -312,5 +314,12 @@
     "MENU": "Cổng quản trị cũ",
     "MENU_TITLE": "Ứng dụng hiện tại đang trong giai đoạn phát triển, hãy chuyển đến phiên bản cũ cho toàn bộ tất cả chức năng.",
     "CONFIRM_MESSAGE": "Tính năng này chưa khả dụng trên phiên bản này. Bạn có muốn truy cập phiên bản cũ để tiếp tục không?"
+  },
+  "USER_FILTER": {
+    "TYPES": {
+      "LDAP": "LDAP filter",
+      "TWAKE": "Twake filter"
+    },
+    "EMPTY_TEXT": "There is no user filter"
   }
 }

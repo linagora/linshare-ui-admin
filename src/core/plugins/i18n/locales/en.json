@@ -23,7 +23,9 @@
     "ASSOCIATED_DOMAINS": "Associated domains",
     "VIEW_ASSOCIATED_DOMAINS": "View associated domains",
     "OK": "Ok",
-    "SEARCH_BY_NAME": "Search by name"
+    "SEARCH_BY_NAME": "Search by name",
+    "DESCRIPTION": "Description",
+    "TYPES": "Types"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -264,7 +266,6 @@
       "NAME": "Name",
       "NAME_REQUIRED": "Please enter domain name",
       "NAME_MAX_LENGTH": "Domain name must be shorter than 256 characters",
-      "DESCRIPTION": "Description",
       "NOTIFICATION_LANGUAGE": "Notification language",
       "NOTIFICATION_LANGUAGE_HELPER": "Notification emails will be sent in this language for all newly created users on this domain.",
       "DEFAULT_USER_ROLE": "Default user role",
@@ -314,5 +315,12 @@
     "MENU": "Legacy Admin Portal",
     "MENU_TITLE": "The development of this new interface is in progress, go to the old version for all configuration menus.",
     "CONFIRM_MESSAGE": "This feature is not yet available on this version. Do you want to access the old version to continue?"
+  },
+  "USER_FILTER": {
+    "TYPES": {
+      "LDAP": "LDAP filter",
+      "TWAKE": "Twake filter"
+    },
+    "EMPTY_TEXT": "There is no user filter"
   }
 }

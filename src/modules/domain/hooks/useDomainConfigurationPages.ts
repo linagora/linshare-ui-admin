@@ -36,6 +36,11 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
     route: { name: 'DomainRemoteFilters' }
   },
   {
+    title: 'NAVIGATOR.USER_FILTERS',
+    usedFor: { roles: [ACCOUNT_ROLE.SUPERADMIN] },
+    route: { name: 'UserFilters' }
+  },
+  {
     title: 'NAVIGATOR.PARAMETERS',
     legacy: true
   },

@@ -13,13 +13,14 @@
   <a-row v-else>
     <a-col :span="24">
       <div class="page">
-        <div
-          class="page__menu-item"
-          @click="redirect('NAVIGATOR.USER_FILTERS')"
-        >
-          <span>{{ $t("NAVIGATOR.USER_FILTERS") }}</span>
-          <RightOutlined />
-        </div>
+        <router-link :to="{ name: 'UserFilters' }">
+          <div
+            class="page__menu-item"
+          >
+            <span>{{ $t("NAVIGATOR.USER_FILTERS") }}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
         <div
           class="page__menu-item"
           @click="redirect('NAVIGATOR.DRIVE_FILTERS')"

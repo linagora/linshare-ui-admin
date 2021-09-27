@@ -168,7 +168,7 @@ export default defineComponent({
         align: 'center',
         slots: { customRender: 'actions' }
       }
-    ]); ;
+    ]);
 
     function fetchRemoteServers () {
       if (!canAccessPage.value) {

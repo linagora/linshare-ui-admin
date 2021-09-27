@@ -1,5 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import { RemoteServersRoute } from '@/modules/remote-server/router';
+import { UserFilterRoute } from '@/modules/user-filter/routes';
 
 export const DomainConfigurationRoute: RouteRecordRaw = {
   name: 'Configuration',
@@ -36,6 +37,7 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
         requiresAuth: true
       }
     },
-    RemoteServersRoute
+    RemoteServersRoute,
+    UserFilterRoute
   ]
 };

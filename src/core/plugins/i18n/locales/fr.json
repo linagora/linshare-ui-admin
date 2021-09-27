@@ -23,7 +23,9 @@
     "ASSOCIATED_DOMAINS": "Domaines associés",
     "VIEW_ASSOCIATED_DOMAINS": "Afficher les domaines associés",
     "OK": "D’accord",
-    "SEARCH_BY_NAME": "Recherche par nom"
+    "SEARCH_BY_NAME": "Recherche par nom",
+    "DESCRIPTION": "Description",
+    "TYPES": "Types"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -263,7 +265,6 @@
       "NAME": "Nom",
       "NAME_REQUIRED": "Veuillez saisir le nom de domaine",
       "NAME_MAX_LENGTH": "Le nom de domaine doit être inférieur à 256 caractères",
-      "DESCRIPTION": "Description",
       "NOTIFICATION_LANGUAGE": "langage de notification",
       "NOTIFICATION_LANGUAGE_HELPER": "Les courriels de notification seront envoyés dans cette langue pour tous les utilisateurs nouvellement créés sur ce domaine.",
       "DEFAULT_USER_ROLE": "rôle par défaut de l'utilisateur",
@@ -274,7 +275,7 @@
       "DOMAIN_POLICY": "Politique de domaine"
     },
     "WARNING": {
-      "PAGE_NOT_ACCESSIBLE": "Cette page n’est pas disponible pour le domaine actuel",
+      "PAGE_NOT_ACCESSIBLE": "Cette page n'est pas accessible pour le domaine ou l'utilisateur actuel",
       "BACK_TO_CONFIGURATION": "Retour à la configuration"
     },
     "TYPES": {
@@ -313,5 +314,12 @@
     "MENU": "Ancien portail d'administration",
     "MENU_TITLE": "Le développement de cette nouvelle interface est en cours, passez à l'ancienne version pour tous les menus de configuration.",
     "CONFIRM_MESSAGE": "Cette fonctionnalité n'est pas encore disponible sur cette version. Voulez-vous accéder à l'ancienne version pour continuer ?"
+  },
+  "USER_FILTER": {
+    "TYPES": {
+      "LDAP": "Filtre LDAP",
+      "TWAKE": "Filtre Twake"
+    },
+    "EMPTY_TEXT": "Il n'y a pas de filtre utilisateur"
   }
 }
