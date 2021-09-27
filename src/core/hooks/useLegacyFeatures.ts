@@ -7,10 +7,6 @@ import ConfigService from '../services/ConfigService';
 import { CONFIGURATION_KEY } from '../types/AppConfiguration';
 
 const LEGACY_PAGES = [{
-  title: 'NAVIGATOR.USER_FILTERS',
-  route: 'domainpattern/list'
-},
-{
   title: 'NAVIGATOR.GROUP_FILTERS',
   route: 'grouppattern/list'
 },
