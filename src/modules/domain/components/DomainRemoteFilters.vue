@@ -8,7 +8,9 @@
     </template>
   </PageTitle>
 
-  <a-row>
+  <DomainManagementWarning v-if="!canAccessPage" />
+
+  <a-row v-else>
     <a-col :span="24">
       <div class="page">
         <div
@@ -37,10 +39,13 @@
 
 <script lang='ts' setup>
 import PageTitle from '@/core/components/PageTitle.vue';
-import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import DomainManagementWarning from '@/modules/domain/components/DomainManagementWarning.vue';
 import { RightOutlined } from '@ant-design/icons-vue';
+import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
+import useDomainConfigurationPages from '@/modules/domain/hooks/useDomainConfigurationPages';
 
 const { redirect } = useLegacyFeatures();
 const { breadcrumbs } = useBreadcrumbs();
+const { canAccessPage } = useDomainConfigurationPages();
 </script>

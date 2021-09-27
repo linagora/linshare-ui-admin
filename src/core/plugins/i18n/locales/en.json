@@ -275,7 +275,7 @@
       "DOMAIN_POLICY": "Domain policy"
     },
     "WARNING": {
-      "PAGE_NOT_AVAILABLE": "This page is not available for curent domain",
+      "PAGE_NOT_ACCESSIBLE": "This page is not accessible for current domain or user",
       "BACK_TO_CONFIGURATION": "Go to Configuration"
     },
     "TYPES": {

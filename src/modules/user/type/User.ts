@@ -22,5 +22,16 @@ export default interface User {
     uuid: string;
   };
   accountType: 'INTERNAL' | 'GUEST' | 'TECHNICAL_ACCOUNT' | 'THREAD' | 'ROOT' | 'SYSTEM';
-  role: 'SIMPLE' | 'ADMIN' | 'SYSTEM' | 'SUPERADMIN' | 'DELEGATION' | 'UPLOAD_REQUEST' | 'SAFE' | 'ANONYMOUS';
+  role: ACCOUNT_ROLE;
+}
+
+export enum ACCOUNT_ROLE {
+  SIMPLE = 'SIMPLE',
+  ADMIN = 'ADMIN',
+  SYSTEM = 'SYSTEM',
+  SUPERADMIN = 'SUPERADMIN',
+  DELEGATION = 'DELEGATION',
+  UPLOAD_REQUEST = 'UPLOAD_REQUEST',
+  SAFE = 'SAFE',
+  ANONYMOUS = 'ANONYMOUS'
 }

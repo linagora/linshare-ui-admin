@@ -4,11 +4,15 @@ import { useRouter, LocationAsRelativeRaw } from 'vue-router';
 import { DOMAIN_TYPE } from '@/modules/domain/type/Domain';
 import { RemoteServersRoute } from '@/modules/remote-server/router';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
+import { ACCOUNT_ROLE } from '@/modules/user/type/User';
 interface DomainManagementPage {
   title: string;
   legacy?: boolean;
   route?: LocationAsRelativeRaw;
-  usedFor?: DOMAIN_TYPE[];
+  usedFor?: {
+    types?: DOMAIN_TYPE[];
+    roles?: ACCOUNT_ROLE[];
+  };
 }
 
 const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
@@ -18,17 +22,18 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
   },
   {
     title: 'NAVIGATOR.REMOTE_SERVERS',
-    usedFor: [DOMAIN_TYPE.ROOT],
+    usedFor: { roles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: { name: RemoteServersRoute.name }
   },
   {
     title: 'NAVIGATOR.PROVIDERS',
     legacy: true,
-    usedFor: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB]
+    usedFor: { types: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] }
   },
   {
     title: 'NAVIGATOR.REMOTE_FILTERS',
-    route: { name: 'DomainFilters' }
+    usedFor: { roles: [ACCOUNT_ROLE.SUPERADMIN] },
+    route: { name: 'DomainRemoteFilters' }
   },
   {
     title: 'NAVIGATOR.PARAMETERS',
@@ -60,23 +65,32 @@ export default function useDomainConfigurationPages () {
   const { currentRoute, push } = useRouter();
   const { redirect } = useLegacyFeatures();
   const domainType = computed(() => store.getters['Domain/getCurrentDomainType']);
+  const loggedUserRole = computed(() => store.getters['Auth/getLoggedUserRole']);
+
+  const isPageAccessible = (page: DomainManagementPage): boolean => {
+    if (!page.usedFor) {
+      return true;
+    }
+
+    if (page.usedFor.roles && !page.usedFor.roles.includes(loggedUserRole.value)) {
+      return false;
+    }
+
+    return !page.usedFor.types || !!page.usedFor.types.includes(domainType.value);
+  };
 
   const pages = computed(() => DOMAIN_MANAGEMENT_PAGES
-    .filter(page => !page.usedFor || page.usedFor.includes(domainType.value))
+    .filter(isPageAccessible)
     .sort((a, b) => {
       if (!a.route) return 1;
 
       return a.title.localeCompare(b.title);
     }));
 
-  const availableForCurrentDomain = computed(() => {
+  const canAccessPage = computed(() => {
     const currentPage = DOMAIN_MANAGEMENT_PAGES.find(page => !page.legacy && page.route?.name === currentRoute.value.name);
 
-    if (!currentPage || !currentPage.usedFor) {
-      return true;
-    }
-
-    return currentPage.usedFor.includes(domainType.value);
+    return currentPage && isPageAccessible(currentPage);
   });
 
   function goToPage (page: DomainManagementPage) {
@@ -90,7 +104,7 @@ export default function useDomainConfigurationPages () {
   }
 
   return {
-    availableForCurrentDomain,
+    canAccessPage,
     goToPage,
     pages
   };

@@ -274,7 +274,7 @@
       "DOMAIN_POLICY": "Politique de domaine"
     },
     "WARNING": {
-      "PAGE_NOT_AVAILABLE": "Cette page n’est pas disponible pour le domaine actuel",
+      "PAGE_NOT_ACCESSIBLE": "Cette page n’est pas disponible pour le domaine actuel",
       "BACK_TO_CONFIGURATION": "Retour à la configuration"
     },
     "TYPES": {

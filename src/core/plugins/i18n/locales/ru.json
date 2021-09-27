@@ -274,7 +274,7 @@
       "DOMAIN_POLICY": "Политика домена"
     },
     "WARNING": {
-      "PAGE_NOT_AVAILABLE": "Эта страница недоступна для текущего домена",
+      "PAGE_NOT_ACCESSIBLE": "Эта страница недоступна для текущего домена",
       "BACK_TO_CONFIGURATION": "Перейти к конфигурации"
     },
     "TYPES": {

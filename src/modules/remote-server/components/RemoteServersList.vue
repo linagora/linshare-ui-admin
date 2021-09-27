@@ -4,7 +4,7 @@
     :breadcrumbs="breadcrumbs"
   />
 
-  <DomainManagementWarning v-if="!availableForCurrentDomain" />
+  <DomainManagementWarning v-if="!canAccessPage" />
 
   <div v-else>
     <div class="actions">
@@ -129,7 +129,7 @@ export default defineComponent({
   setup () {
     const { t } = useI18n();
     const { breadcrumbs } = useBreadcrumbs();
-    const { availableForCurrentDomain } = useDomainConfigurationPages();
+    const { canAccessPage } = useDomainConfigurationPages();
     const state = reactive<RemoteServersListState>({
       filterText: '',
       loading: true,
@@ -171,6 +171,10 @@ export default defineComponent({
     ]); ;
 
     function fetchRemoteServers () {
+      if (!canAccessPage.value) {
+        return;
+      }
+
       state.loading = true;
 
       RemoteServerAPIClient.listRemoteServers()
@@ -239,7 +243,7 @@ export default defineComponent({
     onMounted(fetchRemoteServers);
 
     return {
-      availableForCurrentDomain,
+      canAccessPage,
       breadcrumbs,
       columns,
       onSuccess,
