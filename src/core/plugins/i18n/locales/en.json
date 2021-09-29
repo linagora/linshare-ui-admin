@@ -273,7 +273,9 @@
       "WELCOME_MESSAGE": "Welcome message",
       "MAIL_CONFIGURATION":"Emails configuration",
       "MIME_POLICY": "Mime types policy",
-      "DOMAIN_POLICY": "Domain policy"
+      "DOMAIN_POLICY": "Domain policy",
+      "DOMAIN_POLICY_AUTO": "Create domain policy automatically",
+      "PARENT_DOMAIN": "Parent domain"
     },
     "WARNING": {
       "PAGE_NOT_ACCESSIBLE": "This page is not accessible for current domain or user",
@@ -283,6 +285,10 @@
       "TOPDOMAIN": "Top Domain",
       "SUBDOMAIN": "Sub Domain",
       "GUESTDOMAIN": "Guest Domain"
+    },
+    "CREATE_MODAL": {
+      "FOOTER_NOTE": "The domain will be created with default values, for example default role or locale, etc... After creating domain, please edit the domain and its parameters for more advanced settings",
+      "DOMAIN_POLICY_AUTO_TOOLTIP": "If enabled, a rule will be created automatically by authorizing the newly created domain to communicate with itself only. All other communications are forbidden by default. If disabled, the default domain policy will be applied. It will allow all other domains to see this domain."
     },
     "REMOTE_FILTERS_HELPER": "Remote filters can be used by any domain"
   },

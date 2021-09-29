@@ -28,13 +28,22 @@
 
         <template #overlay>
           <a-menu>
-            <a-menu-item v-if="node.type === DOMAIN_TYPE.ROOT">
+            <a-menu-item
+              v-if="node.type === DOMAIN_TYPE.ROOT"
+              @click="onCreateButtonClick(DOMAIN_TYPE.TOP)"
+            >
               {{ $t('DOMAIN.CREATE_TOP_DOMAIN') }}
             </a-menu-item>
-            <a-menu-item v-if="node.type === DOMAIN_TYPE.TOP">
+            <a-menu-item
+              v-if="node.type === DOMAIN_TYPE.TOP"
+              @click="onCreateButtonClick(DOMAIN_TYPE.SUB)"
+            >
               {{ $t('DOMAIN.CREATE_SUB_DOMAIN') }}
             </a-menu-item>
-            <a-menu-item v-if="node.type === DOMAIN_TYPE.TOP && !guestDomainCreated(node)">
+            <a-menu-item
+              v-if="node.type === DOMAIN_TYPE.TOP && !guestDomainCreated(node)"
+              @click="onCreateButtonClick(DOMAIN_TYPE.GUEST)"
+            >
               {{ $t('DOMAIN.CREATE_GUEST_DOMAIN') }}
             </a-menu-item>
           </a-menu>
@@ -47,6 +56,7 @@
         v-for="child in node.children"
         :key="child.uuid"
         :node="child"
+        @on-create-button-click="event => $emit('onCreateButtonClick', event)"
       />
     </ul>
   </li>
@@ -70,7 +80,8 @@ export default defineComponent({
       default: () => ({})
     }
   },
-  setup () {
+  emits: ['onCreateButtonClick'],
+  setup (prop, { emit }) {
     const store = useStore();
     const loading = ref(false);
     const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
@@ -91,7 +102,18 @@ export default defineComponent({
       return node.children?.some((child: DomainTreeNode) => child.type === DOMAIN_TYPE.GUEST);
     }
 
+    function onCreateButtonClick (type: string) {
+      emit('onCreateButtonClick', {
+        parent: {
+          name: prop.node.name,
+          uuid: prop.node.uuid
+        },
+        type
+      });
+    }
+
     return {
+      onCreateButtonClick,
       guestDomainCreated,
       isActive,
       loading,

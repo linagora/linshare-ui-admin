@@ -30,7 +30,8 @@ import {
   Spin,
   Table,
   Tabs,
-  Tag
+  Tag,
+  Tooltip
 } from 'ant-design-vue';
 import '@/core/styles/variables.less';
 
@@ -66,7 +67,8 @@ function useAntdComponents (vueApp: App): App {
     .use(Spin)
     .use(Table)
     .use(Tabs)
-    .use(Tag);
+    .use(Tag)
+    .use(Tooltip);
 }
 
 export default useAntdComponents;

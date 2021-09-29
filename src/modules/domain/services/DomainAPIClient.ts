@@ -19,6 +19,10 @@ class DomainAPIClient extends AdminAPIClient {
   async updateDomain (domain: Domain) {
     return await this.transport.put(domain.uuid, domain);
   }
+
+  async createDomain (domain: Omit<Domain, 'uuid'>, dedicatedDomainPolicy = false): Promise<Domain> {
+    return await this.transport.post('', domain, { params: { dedicatedDomainPolicy } });
+  }
 }
 
 export default new DomainAPIClient();

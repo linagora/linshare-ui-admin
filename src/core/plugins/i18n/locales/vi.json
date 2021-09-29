@@ -283,6 +283,10 @@
       "SUBDOMAIN": "Miền phụ",
       "GUESTDOMAIN": "Miền khách"
     },
+    "CREATE_MODAL": {
+      "FOOTER_NOTE": "Miền sẽ được tạo với các giá trị mặc định, ví dụ như vai trò hoặc ngôn ngữ mặc định, v.v ... Sau khi tạo miền, vui lòng chỉnh sửa miền và các thông số của miền để cài đặt nâng cao hơn",
+      "DOMAIN_POLICY_AUTO_TOOLTIP": "Nếu được bật, quy tắc sẽ được tạo tự động bằng cách cho phép miền mới tạo chỉ giao tiếp với chính nó. Tất cả các liên lạc khác đều bị cấm theo mặc định. Nếu bị tắt, chính sách miền mặc định sẽ được áp dụng. Nó sẽ cho phép tất cả các liên lạc khác miền để xem miền này."
+    },
     "REMOTE_FILTERS_HELPER": "Bộ lọc có thể được sử dụng bởi bất kỳ miền nào"
   },
   "REMOTE_SERVER": {

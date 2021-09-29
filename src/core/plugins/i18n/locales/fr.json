@@ -283,6 +283,10 @@
       "SUBDOMAIN": "Sous-domaine",
       "GUESTDOMAIN": "Domaine invité"
     },
+    "CREATE_MODAL": {
+      "FOOTER_NOTE": "Le domaine sera créé avec des valeurs par défaut, par exemple le rôle ou les paramètres régionaux par défaut, etc... Après avoir créé le domaine, veuillez modifier le domaine et ses paramètres pour des réglages plus avancés.",
+      "DOMAIN_POLICY_AUTO_TOOLTIP": "Si activé, une règle sera créée automatiquement en autorisant le domaine nouvellement créé à communiquer avec lui-même uniquement. Toutes les autres communications sont interdites par défaut. Si elle est désactivée, la politique de domaine par défaut sera appliquée. Elle autorisera toutes les autres domaines à voir ce domaine."
+    },
     "REMOTE_FILTERS_HELPER": "Les filtres distants peuvent être utilisés par n'importe quel domaine"
   },
   "REMOTE_SERVER": {

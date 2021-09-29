@@ -15,6 +15,7 @@ export default interface Domain {
   defaultEmailLanguage?: string;
   defaultUserRole?: string;
   type?: DOMAIN_TYPE;
+  parent?: Partial<Domain>;
 }
 
 export const EMPTY_DOMAIN: Domain = {
