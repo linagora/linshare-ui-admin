@@ -1,7 +1,9 @@
+import { DOMAIN_TYPE } from './Domain';
+
 export default interface DomainTreeNode {
   uuid: string;
   name?: string;
-  type?: 'ROOTDOMAIN' | 'TOPDOMAIN' | 'SUBDOMAIN' | 'GUESTDOMAIN';
+  type?: DOMAIN_TYPE;
   children?: DomainTreeNode[];
 };
 

@@ -5,7 +5,7 @@
       width="300"
       theme="light"
     >
-      <DomainTrees />
+      <DomainsTree />
     </a-layout-sider>
     <a-layout-content>
       <div
@@ -31,7 +31,7 @@
     width="300"
     @close="showSidebar = false"
   >
-    <DomainTrees />
+    <DomainsTree />
   </a-drawer>
 </template>
 
@@ -40,7 +40,7 @@ import { useStore } from 'vuex';
 import { watchEffect, ref, computed } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
 import { MenuUnfoldOutlined } from '@ant-design/icons-vue';
-import DomainTrees from '@/modules/domain/components/DomainsTree.vue';
+import DomainsTree from '@/modules/domain/components/DomainsTree.vue';
 
 const store = useStore();
 const showSidebar = ref(false);
