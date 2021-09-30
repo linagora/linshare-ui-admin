@@ -1,3 +1,14 @@
+export enum ACCOUNT_ROLE {
+  SIMPLE = 'SIMPLE',
+  ADMIN = 'ADMIN',
+  SYSTEM = 'SYSTEM',
+  SUPERADMIN = 'SUPERADMIN',
+  DELEGATION = 'DELEGATION',
+  UPLOAD_REQUEST = 'UPLOAD_REQUEST',
+  SAFE = 'SAFE',
+  ANONYMOUS = 'ANONYMOUS'
+}
+
 export default interface User {
   uuid: string;
   mail: string;
@@ -23,15 +34,4 @@ export default interface User {
   };
   accountType: 'INTERNAL' | 'GUEST' | 'TECHNICAL_ACCOUNT' | 'THREAD' | 'ROOT' | 'SYSTEM';
   role: ACCOUNT_ROLE;
-}
-
-export enum ACCOUNT_ROLE {
-  SIMPLE = 'SIMPLE',
-  ADMIN = 'ADMIN',
-  SYSTEM = 'SYSTEM',
-  SUPERADMIN = 'SUPERADMIN',
-  DELEGATION = 'DELEGATION',
-  UPLOAD_REQUEST = 'UPLOAD_REQUEST',
-  SAFE = 'SAFE',
-  ANONYMOUS = 'ANONYMOUS'
 }

@@ -5,7 +5,7 @@ export default interface DomainTreeNode {
   name?: string;
   type?: DOMAIN_TYPE;
   children?: DomainTreeNode[];
-};
+}
 
 export const EMPTY_DOMAIN_NODE: DomainTreeNode = {
   uuid: ''

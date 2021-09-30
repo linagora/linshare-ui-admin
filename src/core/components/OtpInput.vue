@@ -83,7 +83,7 @@ export default defineComponent({
       });
 
       emit('input', model.value);
-    };
+    }
 
     function setCharactersAndOTPValue (arrayValue: string[] = []) {
       arrayValue.forEach((value: string, index: number) => {

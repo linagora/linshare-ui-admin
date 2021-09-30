@@ -81,6 +81,13 @@
 import { defineComponent, PropType, SetupContext, ref, computed, Component, ComputedRef } from 'vue';
 import { SearchOutlined, CloseOutlined, SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons-vue';
 
+interface Option {
+  value: string | boolean;
+  label: ComputedRef;
+  optionComponent?: Component;
+  data?: Record<string, unknown>;
+}
+
 interface FilterOption {
   key: string;
   displayKey: ComputedRef;
@@ -99,13 +106,6 @@ interface TokenInputProps {
   filterOptions: FilterOption[];
   sortOptions: SortOption[];
   placeholder: string;
-}
-
-interface Option {
-  value: string | boolean;
-  label: ComputedRef;
-  optionComponent?: Component;
-  data?: object;
 }
 
 interface Token {
@@ -171,13 +171,15 @@ export default defineComponent({
         if (selectedOption.value.asyncAutocomplete) {
           return selectedOption.value.options || [];
         } else {
-          return selectedOption.value && selectedOption.value.options ? selectedOption.value.options.map(option => {
-            if (typeof option.value === 'boolean') {
-              option.value = option.value ? 'true' : 'false';
-            }
+          return selectedOption.value && selectedOption.value.options
+            ? selectedOption.value.options.map(option => {
+              if (typeof option.value === 'boolean') {
+                option.value = option.value ? 'true' : 'false';
+              }
 
-            return option;
-          }) : [];
+              return option;
+            })
+            : [];
         }
       } else {
         return filterTypeOptions.value;
@@ -228,7 +230,7 @@ export default defineComponent({
           focusToInput();
         }, 0);
       }
-    };
+    }
 
     function updateToken (type: string, value: string) {
       const selectedValue = options.value.find(option => option.value === value);
@@ -257,9 +259,11 @@ export default defineComponent({
         const filteredOptions = await selectedOption.value.asyncAutocomplete(text);
         selectedOption.value.options = filteredOptions;
       } else {
-        const filteredOptions = text ? initialOptions.filter(option => {
-          return option.label.toUpperCase().includes(text.toUpperCase());
-        }) : initialOptions;
+        const filteredOptions = text
+          ? initialOptions.filter(option => {
+            return option.label.toUpperCase().includes(text.toUpperCase());
+          })
+          : initialOptions;
 
         filterTypeOptions.value = filteredOptions;
       }
@@ -283,10 +287,12 @@ export default defineComponent({
 
       emit('submit', {
         filters,
-        sort: sortField.value ? {
-          field: sortField.value,
-          order: sortOrder.value
-        } : undefined
+        sort: sortField.value
+          ? {
+              field: sortField.value,
+              order: sortOrder.value
+            }
+          : undefined
       });
     };
 

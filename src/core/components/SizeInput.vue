@@ -42,7 +42,7 @@ export default defineComponent({
 
       value.value = readable.value;
       base.value = readable.unit.base;
-    };
+    }
 
     watch(() => props.modelValue, newValue => {
       if (base.value * value.value !== newValue) {

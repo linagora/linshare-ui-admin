@@ -55,7 +55,7 @@ export default defineComponent({
 
     function emitOk () {
       emit('ok');
-    };
+    }
 
     watchEffect(() => {
       if (props.data?.uuid) {

@@ -53,11 +53,11 @@ class AuthAPIClient extends AdminAPIClient {
     } catch (error) {
       throw new AuthError(error);
     }
-  };
+  }
 
-  async logOut (config?: AxiosRequestConfig): Promise<null> {
-    return await this.transport.get('logout', config);
-  };
+  async logOut (): Promise<null> {
+    return await this.transport.get('logout');
+  }
 
   async get2FAStatus (uuid: string): Promise<SecondFactorAuthentication> {
     return await this.transport.get(`2fa/${uuid}`);

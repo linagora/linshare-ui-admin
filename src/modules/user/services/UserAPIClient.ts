@@ -53,10 +53,10 @@ class UserAPIClient extends AdminAPIClient {
       total: Number(headers ? headers['total-elements'] : 0),
       current: Number(headers ? headers['current-page'] : 0)
     };
-  };
+  }
 
-  async getUser (id: string, config?: AxiosRequestConfig): Promise<User> {
-    return (await this.transport.get(id, config)).data;
+  async getUser (id: string): Promise<User> {
+    return (await this.transport.get(id)).data;
   }
 
   async updateUser (payload: User): Promise<User> {

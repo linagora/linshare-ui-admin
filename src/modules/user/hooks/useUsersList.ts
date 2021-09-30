@@ -72,7 +72,7 @@ export default function useUsersList () {
     }
 
     await updateUsersList(options);
-  };
+  }
 
   async function handlePaginationChange (page: number, size: number) {
     const options: ListUsersOptions = {};
@@ -90,4 +90,4 @@ export default function useUsersList () {
     handleTableChange,
     handlePaginationChange
   };
-};
+}

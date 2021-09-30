@@ -4,7 +4,7 @@ import RootState from '@/core/store/RootState';
 import AuthAPIClient from '@/modules/auth/services/AuthAPIClient';
 
 const actions: ActionTree<AuthState, RootState> = {
-  async fetchLoggedUser ({ commit }, config?: object) {
+  async fetchLoggedUser ({ commit }, config?) {
     try {
       const loggedUser = await AuthAPIClient.getAuthorizedUser(config);
 
@@ -15,8 +15,8 @@ const actions: ActionTree<AuthState, RootState> = {
       throw error;
     }
   },
-  async logoutUser ({ commit }, config?: object) {
-    await AuthAPIClient.logOut(config);
+  async logoutUser ({ commit }) {
+    await AuthAPIClient.logOut();
 
     commit('setLoggedUser', {});
   },

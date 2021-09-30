@@ -1,3 +1,7 @@
+export enum USER_FILTER_TYPE {
+  LDAP = 'LDAP'
+}
+
 export default interface UserFilter {
   uuid: string;
   name: string;
@@ -17,8 +21,4 @@ export default interface UserFilter {
   searchSizeLimit: number;
   completionPageSize: number;
   completionSizeLimit: number;
-}
-
-export enum USER_FILTER_TYPE {
-  LDAP = 'LDAP'
 }

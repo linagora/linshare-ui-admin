@@ -1,7 +1,7 @@
 import User from '@/modules/user/type/User';
 
 export interface UserState {
-  user: User | {};
+  user: User | Record<string, never>;
 }
 
 const state: UserState = {

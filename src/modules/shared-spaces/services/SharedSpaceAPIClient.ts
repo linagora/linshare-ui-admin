@@ -31,7 +31,7 @@ class SharedSpaceAPIClient extends AdminAPIClient {
       total: Number(headers ? headers['total-elements'] : 0),
       current: Number(headers ? headers['current-page'] : 0)
     };
-  };
+  }
 
   async getSharedSpace (id: string): Promise<SharedSpace> {
     return (await this.transport.get(id)).data;

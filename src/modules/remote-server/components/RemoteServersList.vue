@@ -112,7 +112,7 @@ interface RemoteServersListState {
   showDomainsModal: boolean;
   filterText: string;
   list: RemoteServer[];
-  target: RemoteServer | {};
+  target: RemoteServer | Record<string, never>;
 }
 
 export default defineComponent({
@@ -184,7 +184,7 @@ export default defineComponent({
         .finally(() => {
           state.loading = false;
         });
-    };
+    }
 
     function onSuccess () {
       state.showLDAPModal = false;
@@ -216,7 +216,7 @@ export default defineComponent({
     function openEditModal (remoteServer: RemoteServer) {
       state.target = remoteServer;
       state.showLDAPModal = true;
-    };
+    }
 
     function openCreateModal (duplicateTarget?: RemoteServer) {
       if (duplicateTarget) {

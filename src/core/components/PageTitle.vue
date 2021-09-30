@@ -48,12 +48,6 @@
 import { defineComponent, ref, SetupContext } from 'vue';
 import { InfoCircleFilled } from '@ant-design/icons-vue';
 
-export interface PageTitleProps {
-  title: string;
-  subtitle: string;
-  breadcrumbs?: object;
-}
-
 export default defineComponent({
   components: {
     InfoCircleFilled
@@ -72,7 +66,7 @@ export default defineComponent({
       default: () => []
     }
   },
-  setup (props: PageTitleProps, { slots }: SetupContext) {
+  setup (_props, { slots }: SetupContext) {
     const showHelper = ref(true);
     const containHelper = slots.helperContent && !!slots.helperContent();
 

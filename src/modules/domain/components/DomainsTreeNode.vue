@@ -101,7 +101,7 @@ export default defineComponent({
 
     function guestDomainCreated (node: DomainTreeNode) {
       return node.children?.some((child: DomainTreeNode) => child.type === DOMAIN_TYPE.GUEST);
-    };
+    }
 
     return {
       guestDomainCreated,

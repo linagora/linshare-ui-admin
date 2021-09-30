@@ -1,7 +1,8 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
+    browser: true
   },
   extends: [
     'plugin:vue/vue3-recommended',
@@ -12,11 +13,12 @@ module.exports = {
     ecmaVersion: 2020
   },
   rules: {
+    semi: 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    semi: 0,
     '@typescript-eslint/semi': ['error', 'always'],
-    'vue/no-unused-vars': 0
+    'vue/no-unused-vars': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
   },
   overrides: [
     {

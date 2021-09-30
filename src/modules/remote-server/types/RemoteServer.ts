@@ -1,3 +1,7 @@
+export enum RemoteServerType {
+  LDAP = 'LDAP'
+}
+
 export default interface RemoteServer {
   uuid: string;
   name: string;
@@ -7,8 +11,4 @@ export default interface RemoteServer {
   bindDn: string;
   bindPassword: string;
   serverType: RemoteServerType;
-}
-
-export enum RemoteServerType {
-  LDAP = 'LDAP'
 }

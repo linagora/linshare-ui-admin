@@ -13,4 +13,4 @@ export default function useUser (user: User) {
     displayInfo,
     firstLetter: displayInfo.charAt(0)
   };
-};
+}

@@ -92,7 +92,7 @@ interface UserFiltersListState {
   loading: boolean;
   filterText: string;
   list: UserFilter[];
-  target: UserFilter | {};
+  target: UserFilter | Record<string, never>;
 }
 
 const { t } = useI18n();
@@ -157,7 +157,7 @@ function fetchUserFilters () {
     .finally(() => {
       state.loading = false;
     });
-};
+}
 
 onMounted(fetchUserFilters);
 </script>

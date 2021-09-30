@@ -6,9 +6,9 @@ import UserAPIClient from '@/modules/user/services/UserAPIClient';
 import User from '@/modules/user/type/User';
 
 const actions: ActionTree<UserState, RootState> = {
-  async fetchUser ({ commit }, id, config?: object) {
+  async fetchUser ({ commit }, id) {
     try {
-      const user = await UserAPIClient.getUser(id, config);
+      const user = await UserAPIClient.getUser(id);
 
       commit('setUser', user);
     } catch {
