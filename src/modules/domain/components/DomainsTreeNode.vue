@@ -6,7 +6,7 @@
         size="large"
         :title="node.name"
         :class="isActive(node) && 'active'"
-        :loading="isLoading(node)"
+        :loading="loading"
         @click="setCurrentDomain(node.uuid)"
       >
         {{ node.name }}
@@ -54,15 +54,11 @@
 
 <script lang="ts">
 import { useStore } from 'vuex';
-import { defineComponent, computed, reactive, PropType } from 'vue';
+import { defineComponent, computed, ref, PropType } from 'vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
-import DomainTreeNode from '../type/DomainTreeNode';
 import { DOMAIN_TYPE } from '../type/Domain';
+import DomainTreeNode from '../type/DomainTreeNode';
 
-interface DomainsTreeStatus {
-  selected: string | null;
-  loading: string | null;
-}
 export default defineComponent({
   name: 'DomainsTreeNode',
   components: {
@@ -76,23 +72,15 @@ export default defineComponent({
   },
   setup () {
     const store = useStore();
-    const domainsTreeStatus = reactive<DomainsTreeStatus>({
-      selected: null,
-      loading: null
-    });
+    const loading = ref(false);
     const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
 
     async function setCurrentDomain (uuid: string) {
-      domainsTreeStatus.loading = uuid;
+      loading.value = true;
 
       await store.dispatch('Domain/fetchDomainById', uuid);
 
-      domainsTreeStatus.loading = null;
-      domainsTreeStatus.selected = uuid;
-    }
-
-    function isLoading (node: DomainTreeNode) {
-      return node.uuid === domainsTreeStatus.loading;
+      loading.value = false;
     }
 
     function isActive (node: DomainTreeNode) {
@@ -105,8 +93,8 @@ export default defineComponent({
 
     return {
       guestDomainCreated,
-      isLoading,
       isActive,
+      loading,
       setCurrentDomain,
       DOMAIN_TYPE
     };
