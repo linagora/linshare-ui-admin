@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="icon" href="/favicon.ico">
     <title>LinShare Admin</title>
     <style>
       #beta_tag {
-        background-image: url("./beta.png");
+        background-image: url("/beta.png");
         width: 48px;
         height: 48px;
         position: absolute;
@@ -20,7 +20,7 @@
         pointer-events: none;
       }
     </style>
-    <script src="config.js"></script>
+    <script src="/config.js"></script>
   </head>
   <body>
     <div id="beta_tag"></div>
@@ -28,6 +28,7 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <script type="module" src="./src/main.ts"></script>
     <!-- built files will be auto injected -->
   </body>
 </html>

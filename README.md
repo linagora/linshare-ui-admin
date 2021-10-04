@@ -2,28 +2,29 @@
 
 ## Project setup
 ```
-npm install
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+yarn run dev
+
+# Development with a custom backend API base url
+
+BACKEND_API_URL='http://demo.linshare.org' yarn run dev
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn run build
 ```
 
-### Run your unit tests
-```
-npm run test:unit
-```
 
 ### Lints and fixes files
 ```
-npm run lint
-```
+yarn run lint
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Fix lint errors
+
+yarn run lint:fix
+```
