@@ -11,7 +11,7 @@ yarn run dev
 
 # Development with a custom backend API base url
 
-BACKEND_API_URL='http://demo.linshare.org' yarn run dev
+BACKEND_API_URL='https://example.linshare.org' yarn run dev
 ```
 
 ### Compiles and minifies for production
