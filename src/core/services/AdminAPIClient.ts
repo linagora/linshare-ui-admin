@@ -7,7 +7,7 @@ interface ClientConfig {
   useAuthInterceptor?: boolean;
   responseDataOnly?: boolean;
 }
-export default abstract class AdminAPIClient {
+export default class AdminAPIClient {
   transport: AxiosInstance;
   clientConfig: ClientConfig;
 

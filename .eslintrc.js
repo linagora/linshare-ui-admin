@@ -17,8 +17,8 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/semi': ['error', 'always'],
-    'vue/no-unused-vars': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off'
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'vue/script-setup-uses-vars': 'error'
   },
   overrides: [
     {
@@ -30,5 +30,11 @@ module.exports = {
         jest: true
       }
     }
-  ]
+  ],
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly'
+  }
 };

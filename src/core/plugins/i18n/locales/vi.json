@@ -25,7 +25,10 @@
     "OK": "Ok",
     "SEARCH_BY_NAME": "Tìm kiếm theo tên",
     "DESCRIPTION": "Mô tả",
-    "TYPES": "Loại"
+    "TYPES": "Loại",
+    "YES": "Có",
+    "NO": "Không",
+    "FIELD_REQUIRED": "Trường này không được bỏ trống"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -91,7 +94,8 @@
     "REMOTE_FILTERS": "Bộ lọc bên ngoài",
     "USER_FILTERS": "Bộ lọc người dùng",
     "GROUP_FILTERS": "Bộ lọc nhóm",
-    "DRIVE_FILTERS": "Bộ lọc Drive"
+    "DRIVE_FILTERS": "Bộ lọc Drive",
+    "LDAP_USER_FILTER": "Bộ lọc người dùng qua LDAP"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -321,9 +325,36 @@
   },
   "USER_FILTER": {
     "TYPES": {
-      "LDAP": "LDAP filter",
-      "TWAKE": "Twake filter"
+      "LDAP": "Bộ lọc LDAP",
+      "TWAKE": "Bộ lọc Twake"
     },
-    "EMPTY_TEXT": "There is no user filter"
+    "LDAP": {
+      "FORM": {
+        "SELECT_MODEL": "Chọn mẫu bộ lọc có sẵn",
+        "SEARCH_USER_QUERY": "Truy vấn tìm kiếm của người dùng",
+        "SEARCH_USER_QUERY_HELPER": "Lệnh truy vấn LDAP để tìm kiếm người dùng",
+        "AUTOCOMPLETE_QUERY": "Truy vấn tự động hoàn thành người dùng",
+        "AUTOCOMPLETE_QUERY_HELPER": "Lệnh truy vấn LDAP để tự động hoàn thành người dùng bằng cách sử dụng tất cả các thuộc tính hoặc chỉ tên và họ",
+        "MAIL": "Thư",
+        "FIRSTNAME": "Tên",
+        "LASTNAME": "Họ",
+        "UNIQUE_ID": "Số nhận dạng duy nhất của người dùng",
+        "PAGE_SIZE": "Kích thước trang",
+        "LIMIT": "Giới hạn",
+        "AUTHENTICATION_QUERY": "Truy vấn xác thực",
+        "AUTHENTICATION_QUERY_HELPER": "Truy vấn xác thực thư mục LDAP",
+        "QUERY": "Truy vấn",
+        "QUERY_ON_ALL_ATTRIBUTES": "Truy vấn trên tất cả các thuộc tính",
+        "QUERY_ON_NAMES": "Truy vấn trên tên",
+        "ATTRIBUTES": "Thuộc tính",
+        "ATTRIBUTES_HELPER": "Ánh xạ thuộc tính người dùng LinShare với thuộc tính thư mục LDAP"
+      },
+      "PAGE_HELPER_P1": "Sau khi tạo kết nối đến thư mục LDAP, cần tạo bộ lọc người dùng.",
+      "PAGE_HELPER_P2": "Mẫu này sẽ cho phép bạn xác định sự tương ứng giữa các thuộc tính của người dùng LinShare và các thuộc tính thư mục của bạn. Hơn nữa, LinShare yêu cầu 4 truy vấn khác nhau để hoạt động bình thường.",
+      "PAGE_SUBTITLE_CREATE": "Tạo bộ lọc người dùng LDAP mới",
+      "PAGE_SUBTITLE_EDIT": "Chỉnh sửa bộ lọc người dùng LDAP"
+    },
+    "EMPTY_TEXT": "Không có bộ lọc người dùng",
+    "CONFIRM_DELETE": "Bạn sắp xóa bộ lọc người dùng này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục?"
   }
 }

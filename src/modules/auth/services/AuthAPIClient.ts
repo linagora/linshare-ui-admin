@@ -1,8 +1,8 @@
 import { AxiosRequestConfig } from 'axios';
 import AdminAPIClient from '@/core/services/AdminAPIClient';
 import User from '@/modules/user/type/User';
+import SecondFactorAuthentication from '../type/SecondFactorAuthentication';
 import { AuthError } from '../type/AuthError';
-import SecondFactorAuthentication from '@/modules/auth/type/SecondFactorAuthentication';
 
 class AuthAPIClient extends AdminAPIClient {
   constructor () {

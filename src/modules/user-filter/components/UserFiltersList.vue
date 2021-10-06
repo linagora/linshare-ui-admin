@@ -32,7 +32,9 @@
         <template #overlay>
           <a-menu>
             <a-menu-item>
-              {{ $t('USER_FILTER.TYPES.LDAP') }}
+              <router-link :to="{ name: 'UserFilterLDAP' }">
+                {{ $t('USER_FILTER.TYPES.LDAP') }}
+              </router-link>
             </a-menu-item>
             <a-menu-item disabled>
               {{ $t('USER_FILTER.TYPES.TWAKE') }}
@@ -53,15 +55,15 @@
         {{ $d(text, 'mediumDate') }}
       </template>
 
-      <template #actions>
+      <template #actions="{ record }">
         <a-dropdown :trigger="['click']">
           <EllipsisOutlined style="font-size: 16px" />
           <template #overlay>
             <a-menu>
-              <a-menu-item>
+              <a-menu-item @click="edit(record)">
                 {{ $t('GENERAL.EDIT') }}
               </a-menu-item>
-              <a-menu-item>
+              <a-menu-item @click="duplicate(record)">
                 {{ $t('GENERAL.DUPLICATE') }}
               </a-menu-item>
               <a-menu-item>
@@ -78,11 +80,13 @@
 <script lang='ts' setup>
 import { computed, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
+
 import { EllipsisOutlined, SearchOutlined, PlusCircleOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
 import DomainManagementWarning from '@/modules/domain/components/DomainManagementWarning.vue';
 
-import UserFilter from '../types/UserFilter';
+import UserFilter, { USER_FILTER_TYPE } from '../types/UserFilter';
 import UserFIlterAPIClient from '../services/UserFilterAPIClient';
 
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
@@ -96,6 +100,7 @@ interface UserFiltersListState {
 }
 
 const { t } = useI18n();
+const { push } = useRouter();
 const { breadcrumbs } = useBreadcrumbs();
 const { canAccessPage } = useDomainConfigurationPages();
 const state = reactive<UserFiltersListState>({
@@ -157,6 +162,18 @@ function fetchUserFilters () {
     .finally(() => {
       state.loading = false;
     });
+}
+
+function edit (filter: UserFilter) {
+  if (filter.type === USER_FILTER_TYPE.LDAP) {
+    push({ name: 'UserFilterLDAP', params: { uuid: filter.uuid } });
+  }
+}
+
+function duplicate (filter: UserFilter) {
+  if (filter.type === USER_FILTER_TYPE.LDAP) {
+    push({ name: 'UserFilterLDAP', params: { uuid: filter.uuid, duplicate: 'true' } });
+  }
 }
 
 onMounted(fetchUserFilters);
