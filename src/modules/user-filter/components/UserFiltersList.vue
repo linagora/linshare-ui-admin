@@ -138,6 +138,7 @@ const columns = computed(() => [
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: 'modificationDate',
     sorter: (a: UserFilter, b: UserFilter) => a.modificationDate - b.modificationDate,
+    defaultSortOrder: 'descend',
     slots: { customRender: 'date' }
   },
   {
