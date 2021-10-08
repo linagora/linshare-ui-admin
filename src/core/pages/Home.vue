@@ -36,16 +36,9 @@ export default defineComponent({
 .ls-admin-layout {
   &.full-height {
     position: relative;
-    padding-bottom: 103px;
     min-height: 100vh;
   }
 
-  .ant-layout-footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-  }
   .app-content {
     padding: 20px 40px;
   }
