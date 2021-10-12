@@ -4,9 +4,7 @@
     :breadcrumbs="breadcrumbs"
   />
 
-  <DomainManagementWarning v-if="!canAccessPage" />
-
-  <div v-else>
+  <div>
     <div class="actions">
       <a-input
         v-model:value="state.filterText"
@@ -96,14 +94,12 @@ import { computed, createVNode, defineComponent, reactive, onMounted } from 'vue
 import { useI18n } from 'vue-i18n';
 import { Modal, message } from 'ant-design-vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import useDomainConfigurationPages from '@/modules/domain/hooks/useDomainConfigurationPages';
 import RemoteServerAPIClient from '../services/RemoteServerAPICLient';
 import RemoteServer from '../types/RemoteServer';
 
 import PageTitle from '@/core/components/PageTitle.vue';
 import RemoteServerLDAPModal from '../components/RemoteServerLDAPModal.vue';
 import RemoteServerAssociatedDomainsModal from '../components/RemoteServerAssociatedDomainsModal.vue';
-import DomainManagementWarning from '@/modules/domain/components/DomainManagementWarning.vue';
 import { PlusCircleOutlined, EllipsisOutlined, ExclamationCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 
 interface RemoteServersListState {
@@ -119,7 +115,6 @@ export default defineComponent({
   name: 'RemoteServersList',
   components: {
     EllipsisOutlined,
-    DomainManagementWarning,
     PageTitle,
     PlusCircleOutlined,
     RemoteServerLDAPModal,
@@ -129,7 +124,6 @@ export default defineComponent({
   setup () {
     const { t } = useI18n();
     const { breadcrumbs } = useBreadcrumbs();
-    const { canAccessPage } = useDomainConfigurationPages();
     const state = reactive<RemoteServersListState>({
       filterText: '',
       loading: true,
@@ -171,10 +165,6 @@ export default defineComponent({
     ]);
 
     function fetchRemoteServers () {
-      if (!canAccessPage.value) {
-        return;
-      }
-
       state.loading = true;
 
       RemoteServerAPIClient.listRemoteServers()
@@ -243,7 +233,6 @@ export default defineComponent({
     onMounted(fetchRemoteServers);
 
     return {
-      canAccessPage,
       breadcrumbs,
       columns,
       onSuccess,

@@ -44,7 +44,7 @@ export default defineComponent({
       type: Boolean
     },
     data: {
-      type: Object as PropType<RemoteServer>,
+      type: Object as PropType<RemoteServer | Record<string, never>>,
       default: () => ({})
     }
   },

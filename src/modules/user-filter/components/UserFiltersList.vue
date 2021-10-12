@@ -4,9 +4,7 @@
     :breadcrumbs="breadcrumbs"
   />
 
-  <DomainManagementWarning v-if="!canAccessPage" />
-
-  <div v-else>
+  <div>
     <div class="actions">
       <a-input
         v-model:value="state.filterText"
@@ -84,13 +82,11 @@ import { useRouter } from 'vue-router';
 
 import { EllipsisOutlined, SearchOutlined, PlusCircleOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
-import DomainManagementWarning from '@/modules/domain/components/DomainManagementWarning.vue';
 
 import UserFilter, { USER_FILTER_TYPE } from '../types/UserFilter';
 import UserFIlterAPIClient from '../services/UserFilterAPIClient';
 
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import useDomainConfigurationPages from '@/modules/domain/hooks/useDomainConfigurationPages';
 
 interface UserFiltersListState {
   loading: boolean;
@@ -102,7 +98,6 @@ interface UserFiltersListState {
 const { t } = useI18n();
 const { push } = useRouter();
 const { breadcrumbs } = useBreadcrumbs();
-const { canAccessPage } = useDomainConfigurationPages();
 const state = reactive<UserFiltersListState>({
   filterText: '',
   loading: true,
@@ -150,10 +145,6 @@ const columns = computed(() => [
 ]);
 
 function fetchUserFilters () {
-  if (!canAccessPage.value) {
-    return;
-  }
-
   state.loading = true;
 
   UserFIlterAPIClient.listUserFilters()

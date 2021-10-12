@@ -1,6 +1,7 @@
 import { RouteRecordRaw } from 'vue-router';
 import { RemoteServersRoute } from '@/modules/remote-server/router';
 import { UserFilterRoutes } from '@/modules/user-filter/routes';
+import { checkAccessiblePage } from './checkAccessiblePage';
 
 export const DomainConfigurationRoute: RouteRecordRaw = {
   name: 'Configuration',
@@ -31,9 +32,18 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
       name: 'DomainRemoteFilters',
       path: 'filters',
       component: () => import('../components/DomainRemoteFilters.vue'),
+      beforeEnter: checkAccessiblePage,
       meta: {
         parentRoute: 'Configuration',
         label: 'NAVIGATOR.REMOTE_FILTERS',
+        requiresAuth: true
+      }
+    },
+    {
+      name: 'PageNotAccessible',
+      path: 'unaccessible',
+      component: () => import('../components/DomainManagementWarning.vue'),
+      meta: {
         requiresAuth: true
       }
     },

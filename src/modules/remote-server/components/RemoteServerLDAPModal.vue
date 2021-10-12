@@ -88,7 +88,7 @@ export default defineComponent({
       type: Boolean
     },
     data: {
-      type: Object as PropType<RemoteServer>,
+      type: Object as PropType<RemoteServer | Record<string, never>>,
       default: () => ({})
     }
   },
@@ -152,7 +152,7 @@ export default defineComponent({
         emit('success');
         message.success(t(editMode.value ? 'MESSAGES.UPDATE_SUCCESS' : 'MESSAGES.CREATE_SUCCESS'));
       } catch (error) {
-        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+        message.error(t('ERRORS.COMMON_MESSAGE'));
       } finally {
         formSubmitting.value = false;
       }
