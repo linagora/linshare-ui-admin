@@ -30,6 +30,10 @@ class UserFilterAPIClient extends AdminAPIClient {
   async getAssociatedDomains (uuid: string): Promise<Domain[]> {
     return await this.transport.get(`${uuid}/domains`);
   }
+
+  async deleteUserFilter (uuid: string): Promise<UserFilter> {
+    return await this.transport.delete(uuid);
+  }
 }
 
 export default new UserFilterAPIClient();

@@ -64,7 +64,7 @@
               <a-menu-item @click="duplicate(record)">
                 {{ $t('GENERAL.DUPLICATE') }}
               </a-menu-item>
-              <a-menu-item>
+              <a-menu-item @click="confirmDelete(record)">
                 <span class="danger">{{ $t('GENERAL.DELETE') }}</span>
               </a-menu-item>
             </a-menu>
@@ -79,14 +79,20 @@
 import { computed, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
+import { message } from 'ant-design-vue';
 
-import { EllipsisOutlined, SearchOutlined, PlusCircleOutlined } from '@ant-design/icons-vue';
+import {
+  EllipsisOutlined,
+  SearchOutlined,
+  PlusCircleOutlined
+} from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
 
 import UserFilter, { USER_FILTER_TYPE } from '../types/UserFilter';
-import UserFIlterAPIClient from '../services/UserFilterAPIClient';
+import UserFilterAPIClient from '../services/UserFilterAPIClient';
 
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import useNotification from '@/core/hooks/useNotification';
 
 interface UserFiltersListState {
   loading: boolean;
@@ -98,6 +104,7 @@ interface UserFiltersListState {
 const { t } = useI18n();
 const { push } = useRouter();
 const { breadcrumbs } = useBreadcrumbs();
+const { infoModal, confirmModal } = useNotification();
 const state = reactive<UserFiltersListState>({
   filterText: '',
   loading: true,
@@ -147,7 +154,7 @@ const columns = computed(() => [
 function fetchUserFilters () {
   state.loading = true;
 
-  UserFIlterAPIClient.listUserFilters()
+  UserFilterAPIClient.listUserFilters()
     .then(filters => {
       state.list = filters;
     })
@@ -159,6 +166,35 @@ function fetchUserFilters () {
 function edit (filter: UserFilter) {
   if (filter.type === USER_FILTER_TYPE.LDAP) {
     push({ name: 'UserFilterLDAP', params: { uuid: filter.uuid } });
+  }
+}
+
+async function confirmDelete (filter: UserFilter) {
+  const usedInDomains = !!(await UserFilterAPIClient.getAssociatedDomains(filter.uuid)).length;
+
+  if (usedInDomains) {
+    return infoModal({
+      title: t('GENERAL.DELETION'),
+      content: t('USER_FILTER.DELETE_ABORT')
+    });
+  }
+
+  confirmModal({
+    title: t('GENERAL.DELETION'),
+    content: t('USER_FILTER.DELETE_CONFIRM'),
+    okText: t('GENERAL.DELETE'),
+    onOk: () => deleteUserFilter(filter)
+  });
+}
+
+async function deleteUserFilter (filter: UserFilter) {
+  try {
+    await UserFilterAPIClient.deleteUserFilter(filter.uuid);
+
+    message.success(t('MESSAGES.DELETE_SUCCESS'));
+    state.list = state.list.filter(item => !(item.uuid === filter.uuid));
+  } catch (error) {
+    message.error(t('MESSAGES.DELETE_FAILURE'));
   }
 }
 

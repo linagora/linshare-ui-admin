@@ -15,19 +15,13 @@
         v-if="editMode && !fetchingData"
         class="delete-button-container"
       >
-        <a-popconfirm
-          :title="$t('USER_FILTER.CONFIRM_DELETE')"
-          :ok-text="$t('GENERAL.YES')"
-          :cancel-text="$t('GENERAL.NO')"
-          placement="bottom"
+        <a-button
+          type="primary"
+          danger
+          @click="confirmDelete"
         >
-          <a-button
-            type="primary"
-            danger
-          >
-            {{ $t('GENERAL.DELETE') }}
-          </a-button>
-        </a-popconfirm>
+          {{ $t('GENERAL.DELETE') }}
+        </a-button>
       </div>
     </template>
   </PageTitle>
@@ -275,6 +269,7 @@ import { SelectTypes } from 'ant-design-vue/es/select';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import useNotification from '@/core/hooks/useNotification';
 import PageTitle from '@/core/components/PageTitle.vue';
 import UserFilter, { USER_FILTER_TYPE } from '../types/UserFilter';
 import UserFilterAPIClient from '../services/UserFilterAPIClient';
@@ -290,6 +285,7 @@ interface UserFilterModelOptions {
   selected: string;
 }
 
+const { confirmModal, infoModal } = useNotification();
 const { breadcrumbs } = useBreadcrumbs();
 const { t } = useI18n();
 const { push } = useRouter();
@@ -394,6 +390,35 @@ function onModelChange (modelUuid: string) {
 
 function resetForm () {
   Object.assign(formState, userFilter);
+}
+
+async function confirmDelete (filter: UserFilter) {
+  const usedInDomains = !!(await UserFilterAPIClient.getAssociatedDomains(filter.uuid)).length;
+
+  if (usedInDomains) {
+    return infoModal({
+      title: t('GENERAL.DELETION'),
+      content: t('USER_FILTER.DELETE_ABORT')
+    });
+  }
+
+  confirmModal({
+    title: t('GENERAL.DELETION'),
+    content: t('USER_FILTER.DELETE_CONFIRM'),
+    okText: t('GENERAL.DELETE'),
+    onOk: () => deleteUserFilter(filter)
+  });
+}
+
+async function deleteUserFilter (filter: UserFilter) {
+  try {
+    await UserFilterAPIClient.deleteUserFilter(filter.uuid);
+
+    message.success(t('MESSAGES.DELETE_SUCCESS'));
+    push({ name: 'UserFilters' });
+  } catch (error) {
+    message.error(t('MESSAGES.DELETE_FAILURE'));
+  }
 }
 
 onMounted(prepareData);
