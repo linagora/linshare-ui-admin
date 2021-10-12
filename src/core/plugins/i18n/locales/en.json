@@ -360,6 +360,7 @@
       "PAGE_SUBTITLE_EDIT": "Edit LDAP user filter"
     },
     "EMPTY_TEXT": "There is no user filter",
-    "CONFIRM_DELETE": "You are about to delete this User filter, this procedure is irreversible. Do you want to proceed?"
+    "DELETE_CONFIRM": "You are about to delete this User filter, this procedure is irreversible. Do you want to proceed?",
+    "DELETE_ABORT": "This user filter is accociated with at least one domain. You cannot delete."
   }
 }

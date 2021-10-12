@@ -355,6 +355,7 @@
       "PAGE_SUBTITLE_EDIT": "Modifier le filtre utilisateur LDAP"
     },
     "EMPTY_TEXT": "Il n'y a pas de filtre utilisateur",
-    "CONFIRM_DELETE": "Vous êtes sur le point de supprimer ce filtre Utilisateur, cette procédure est irréversible. Voulez-vous poursuivre?"
+    "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce filtre Utilisateur, cette procédure est irréversible. Voulez-vous poursuivre?",
+    "DELETE_ABORT": "Ce filtre utilisateur est associé à au moins un domaine. Vous ne pouvez pas le supprimer."
   }
 }

@@ -355,6 +355,7 @@
       "PAGE_SUBTITLE_EDIT": "Chỉnh sửa bộ lọc người dùng LDAP"
     },
     "EMPTY_TEXT": "Không có bộ lọc người dùng",
-    "CONFIRM_DELETE": "Bạn sắp xóa bộ lọc người dùng này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục?"
+    "DELETE_CONFIRM": "Bạn sắp xóa bộ lọc người dùng này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục?",
+    "DELETE_ABORT": "Bộ lọc người dùng này được liên kết với ít nhất một miền. Bạn không thể xóa."
   }
 }
