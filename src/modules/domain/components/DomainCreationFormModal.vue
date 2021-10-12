@@ -2,12 +2,12 @@
   <a-modal
     :visible="props.visible"
     :title="$t(title)"
-    @cancel="$emit('cancel')"
+    @cancel="onCancel"
   >
     <template #footer>
       <div class="footer">
         <div>
-          <a-button @click="$emit('cancel')">
+          <a-button @click="onCancel">
             {{ $t('GENERAL.CANCEL') }}
           </a-button>
           <a-button
@@ -137,12 +137,24 @@ async function onSave () {
     }, formState.dedicatedDomainPolicy);
 
     emit('success');
+    resetForm();
     message.success(t('MESSAGES.CREATE_SUCCESS'));
   } catch (error) {
     message.error(t('ERRORS.COMMON_MESSAGE'));
   } finally {
     formSaving.value = false;
   }
+}
+
+function onCancel () {
+  resetForm();
+  emit('cancel');
+}
+
+function resetForm () {
+  formState.name = '';
+  formState.dedicatedDomainPolicy = false;
+  formState.description = '';
 }
 </script>
 
