@@ -1,10 +1,9 @@
 import { LocationAsRelativeRaw, RouteRecordName } from 'vue-router';
 import { DOMAIN_TYPE } from '@/modules/domain/type/Domain';
 import { ACCOUNT_ROLE } from '@/modules/user/type/User';
-import { USER_FILTER_TYPE } from '@/modules/user-filter/types/UserFilter';
 
 export interface DomainManagementPage {
-  title?: string;
+  title: string;
   legacy?: boolean;
   route?: LocationAsRelativeRaw;
   child?: boolean;
@@ -35,11 +34,13 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
     route: { name: 'DomainRemoteFilters' }
   },
   {
+    title: 'NAVIGATOR.USER_FILTERS',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: { name: 'UserFilters' },
     child: true
   },
   {
+    title: 'NAVIGATOR.LDAP_USER_FILTER',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: { name: 'UserFilterLDAP' },
     child: true
@@ -54,7 +55,6 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
   },
   {
     title: 'NAVIGATOR.WELCOME_MESSAGES',
-
     legacy: true
   },
   {
@@ -73,14 +73,7 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
 export const findDomainPage = (routeName: RouteRecordName): DomainManagementPage | undefined =>
   DOMAIN_MANAGEMENT_PAGES.find(page => !page.legacy && page.route?.name === routeName);
 
-export const getMainPages = (): DomainManagementPage[] =>
-  DOMAIN_MANAGEMENT_PAGES
-    .filter(page => !page.child)
-    .sort((a, b) => {
-      if (!a.route) return 1;
-
-      return a.title.localeCompare(b.title);
-    });
+export const getMainPages = (): DomainManagementPage[] => DOMAIN_MANAGEMENT_PAGES.filter(page => !page.child);
 
 export const canAccessPage = (page: DomainManagementPage, userRole: ACCOUNT_ROLE, domainType: DOMAIN_TYPE): boolean => {
   if (!page.accessibility) {

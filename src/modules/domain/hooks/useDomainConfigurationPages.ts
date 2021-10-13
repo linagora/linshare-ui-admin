@@ -11,8 +11,11 @@ export default function useDomainConfigurationPages () {
   const domainType = computed(() => store.getters['Domain/getCurrentDomainType']);
   const loggedUserRole = computed(() => store.getters['Auth/getLoggedUserRole']);
 
-  const pages = computed(() => getMainPages()
-    .filter(page => canAccessPage(page, loggedUserRole.value, domainType.value)));
+  const pages = computed(() => {
+    const pages = getMainPages();
+
+    return pages.filter(page => canAccessPage(page, loggedUserRole.value, domainType.value));
+  });
 
   function goToPage (page: DomainManagementPage) {
     if (page.legacy) {
