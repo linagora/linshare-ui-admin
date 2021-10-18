@@ -40,6 +40,17 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
       }
     },
     {
+      name: 'DomainProviders',
+      path: 'providers',
+      component: () => import('../components/DomainProviders.vue'),
+      beforeEnter: checkAccessiblePage,
+      meta: {
+        parentRoute: 'Configuration',
+        label: 'NAVIGATOR.PROVIDERS',
+        requiresAuth: true
+      }
+    },
+    {
       name: 'PageNotAccessible',
       path: 'unaccessible',
       component: () => import('../components/DomainManagementWarning.vue'),

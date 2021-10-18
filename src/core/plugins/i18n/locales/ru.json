@@ -95,7 +95,10 @@
     "USER_FILTERS": "Пользовательские фильтры",
     "GROUP_FILTERS": "Групповые фильтры",
     "DRIVE_FILTERS": "Фильтры дисков",
-    "LDAP_USER_FILTER": "Пользовательский фильтр LDAP"
+    "LDAP_USER_FILTER": "Пользовательский фильтр LDAP",
+    "USER_PROVIDERS": "Поставщики пользователей",
+    "GROUP_PROVIDERS": "Групповые поставщики",
+    "DRIVE_PROVIDERS": "Поставщики приводов"
   },
   "DASHBOARD": {
     "TITLE": "Приборная доска",

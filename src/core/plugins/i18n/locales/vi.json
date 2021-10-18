@@ -95,7 +95,10 @@
     "USER_FILTERS": "Bộ lọc người dùng",
     "GROUP_FILTERS": "Bộ lọc nhóm",
     "DRIVE_FILTERS": "Bộ lọc Drive",
-    "LDAP_USER_FILTER": "Bộ lọc người dùng qua LDAP"
+    "LDAP_USER_FILTER": "Bộ lọc người dùng qua LDAP",
+    "USER_PROVIDERS": "Nguồn cung cấp người dùng",
+    "GROUP_PROVIDERS": "Nguồn cung cấp nhóm",
+    "DRIVE_PROVIDERS": "Nguồn cung cấp Drive"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",

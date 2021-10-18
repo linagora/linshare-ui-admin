@@ -95,7 +95,10 @@
     "USER_FILTERS": "Filtres utilisateurs",
     "GROUP_FILTERS": "Filtres de groupe",
     "DRIVE_FILTERS": "Filtres de drive",
-    "LDAP_USER_FILTER": "Filtre utilisateur LDAP"
+    "LDAP_USER_FILTER": "Filtre utilisateur LDAP",
+    "USER_PROVIDERS": "Fournisseurs d'utilisateurs",
+    "GROUP_PROVIDERS": "Fournisseurs de groupe",
+    "DRIVE_PROVIDERS": "Fournisseurs de lecteurs"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",

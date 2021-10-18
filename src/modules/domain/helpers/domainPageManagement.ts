@@ -25,8 +25,8 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
   },
   {
     title: 'NAVIGATOR.PROVIDERS',
-    legacy: true,
-    accessibility: { domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] }
+    accessibility: { domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] },
+    route: { name: 'DomainProviders' }
   },
   {
     title: 'NAVIGATOR.REMOTE_FILTERS',

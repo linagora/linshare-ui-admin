@@ -45,6 +45,14 @@ const LEGACY_PAGES = [{
 {
   title: 'NAVIGATOR.UPGRADES',
   route: 'upgradetasks/list'
+},
+{
+  title: 'NAVIGATOR.GROUP_PROVIDERS',
+  route: 'domain/detail/:id'
+},
+{
+  title: 'NAVIGATOR.DRIVE_PROVIDERS',
+  route: 'domain/detail/:id'
 }];
 
 export default function useLegacyFeatures () {

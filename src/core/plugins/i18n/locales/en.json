@@ -97,7 +97,10 @@
     "USER_FILTERS": "User filters",
     "GROUP_FILTERS": "Group filters",
     "DRIVE_FILTERS": "Drive filters",
-    "LDAP_USER_FILTER": "LDAP user filter"
+    "LDAP_USER_FILTER": "LDAP user filter",
+    "USER_PROVIDERS": "User providers",
+    "GROUP_PROVIDERS": "Group providers",
+    "DRIVE_PROVIDERS": "Drive providers"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",
