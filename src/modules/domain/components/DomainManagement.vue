@@ -31,23 +31,9 @@
   </a-row>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang='ts' setup>
 import { RightOutlined } from '@ant-design/icons-vue';
-import useDomainConfigurationPages from '@/modules/domain/hooks/useDomainConfigurationPages';
+import useDomainConfigurationPages from '../hooks/useDomainConfigurationPages';
 
-export default defineComponent({
-  name: 'DomainManagement',
-  components: {
-    RightOutlined
-  },
-  setup () {
-    const { pages, goToPage } = useDomainConfigurationPages();
-
-    return {
-      pages,
-      goToPage
-    };
-  }
-});
+const { pages, goToPage } = useDomainConfigurationPages();
 </script>
