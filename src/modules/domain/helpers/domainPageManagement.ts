@@ -29,6 +29,12 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
     route: { name: 'DomainProviders' }
   },
   {
+    title: 'NAVIGATOR.USER_PROVIDERS',
+    accessibility: { domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] },
+    route: { name: 'DomainUserProviders' },
+    child: true
+  },
+  {
     title: 'NAVIGATOR.REMOTE_FILTERS',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: { name: 'DomainRemoteFilters' }

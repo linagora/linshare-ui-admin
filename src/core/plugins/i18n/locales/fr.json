@@ -97,8 +97,8 @@
     "DRIVE_FILTERS": "Filtres de drive",
     "LDAP_USER_FILTER": "Filtre utilisateur LDAP",
     "USER_PROVIDERS": "Fournisseurs d'utilisateurs",
-    "GROUP_PROVIDERS": "Fournisseurs de groupe",
-    "DRIVE_PROVIDERS": "Fournisseurs de lecteurs"
+    "GROUP_PROVIDERS": "Fournisseurs de groupes",
+    "DRIVE_PROVIDERS": "Fournisseurs de Drives"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",
@@ -360,5 +360,20 @@
     "EMPTY_TEXT": "Il n'y a pas de filtre utilisateur",
     "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce filtre Utilisateur, cette procédure est irréversible. Voulez-vous poursuivre?",
     "DELETE_ABORT": "Ce filtre utilisateur est associé à au moins un domaine. Vous ne pouvez pas le supprimer."
+  },
+  "USER_PROVIDER": {
+    "EMPTY_MESSAGE": "Aucun fournisseur d'utilisateurs n'a été créé pour ce domaine",
+    "ERROR_MESSAGE": "Impossible de récupérer les données du fournisseur d'utilisateur de ce domaine",
+    "CREATE": "Créer un nouveau fournisseur",
+    "TRY_AGAIN": "Réessayez",
+    "TYPES": {
+      "LDAP": "Fournisseur LDAP",
+      "TWAKE": "Fournisseur Twake",
+      "OIDC": "Fournisseur OIDC"
+    },
+    "LDAP": {
+      "BASE_DN": "Base DN",
+      "BASE_DN_HELPER": "LinShare commencera à rechercher les utilisateurs à partir de cette position dans votre LDAP"
+    }
   }
 }

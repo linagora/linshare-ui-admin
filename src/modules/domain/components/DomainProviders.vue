@@ -7,12 +7,12 @@
   <a-row>
     <a-col :span="24">
       <div class="page">
-        <div
-          class="page__menu-item"
-        >
-          <span>{{ $t("NAVIGATOR.USER_FILTERS") }}</span>
-          <RightOutlined />
-        </div>
+        <router-link :to="{ name: 'DomainUserProviders' }">
+          <div class="page__menu-item">
+            <span>{{ $t("NAVIGATOR.USER_PROVIDERS") }}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
         <div
           class="page__menu-item"
           @click="redirect('NAVIGATOR.GROUP_PROVIDERS')"

@@ -365,5 +365,20 @@
     "EMPTY_TEXT": "There is no user filter",
     "DELETE_CONFIRM": "You are about to delete this User filter, this procedure is irreversible. Do you want to proceed?",
     "DELETE_ABORT": "This user filter is accociated with at least one domain. You cannot delete."
+  },
+  "USER_PROVIDER": {
+    "EMPTY_MESSAGE": "There is no user provider created for this domain",
+    "ERROR_MESSAGE": "Failed to fetch user provider data of this domain",
+    "CREATE": "Create new provider",
+    "TRY_AGAIN": "Try again",
+    "TYPES": {
+      "LDAP": "LDAP Provider",
+      "TWAKE": "Twake Provider",
+      "OIDC": "OIDC Provider"
+    },
+    "LDAP": {
+      "BASE_DN": "Base Dn",
+      "BASE_DN_HELPER": "LinShare will start looking for users from this position in your LDAP"
+    }
   }
 }
