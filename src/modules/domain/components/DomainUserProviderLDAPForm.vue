@@ -33,27 +33,38 @@
     </a-form-item>
 
     <div class="form-actions">
+      <div>
+        <a-button
+          v-if="provider.uuid"
+          @click="resetFields"
+        >
+          {{ $t('GENERAL.RESET') }}
+        </a-button>
+
+        <a-button
+          v-else
+          @click="$emit('cancel')"
+        >
+          {{ $t('GENERAL.CANCEL') }}
+        </a-button>
+
+        <a-button
+          type="primary"
+          style="margin-left: 10px;"
+          :loading="formSubmitting"
+          @click="provider.uuid ? save() : create()"
+        >
+          {{ $t('GENERAL.SAVE') }}
+        </a-button>
+      </div>
+
       <a-button
         v-if="provider.uuid"
-        @click="resetFields"
-      >
-        {{ $t('GENERAL.RESET') }}
-      </a-button>
-
-      <a-button
-        v-else
-        @click="$emit('cancel')"
-      >
-        {{ $t('GENERAL.CANCEL') }}
-      </a-button>
-
-      <a-button
         type="primary"
-        style="margin-left: 10px;"
-        :loading="formSubmitting"
-        @click="provider.uuid ? save() : create()"
+        danger
+        @click="confirmDelete"
       >
-        {{ $t('GENERAL.SAVE') }}
+        {{ $t('GENERAL.DELETE') }}
       </a-button>
     </div>
   </a-form>
@@ -68,6 +79,7 @@ import UserFilter from '@/modules/user-filter/types/UserFilter';
 import LDAPUserProvider from '../type/LDAPUserProvider';
 import DomainAPIClient from '../services/DomainAPIClient';
 import Domain from '../type/Domain';
+import useNotification from '@/core/hooks/useNotification';
 
 interface Props {
   domain: Domain;
@@ -100,7 +112,9 @@ interface ProviderForm {
 
 const useForm = Form.useForm;
 const { t, locale } = useI18n();
-const emit = defineEmits(['cancel', 'success']);
+const { confirmModal } = useNotification();
+
+const emit = defineEmits(['cancel', 'submitted', 'deleted']);
 const props = defineProps<Props>();
 const formSubmitting = ref(false);
 const formState = reactive<ProviderForm>({
@@ -144,7 +158,7 @@ async function create () {
   try {
     const provider = await DomainAPIClient.createUserProvider(props.domain.uuid, getDto());
 
-    emit('success', provider);
+    emit('submitted', provider);
     message.success(t('MESSAGES.CREATE_SUCCESS'));
   } catch (error) {
     message.error(t('ERRORS.COMMON_MESSAGE'));
@@ -184,7 +198,7 @@ async function save () {
       ...getDto()
     });
 
-    emit('success', provider);
+    emit('submitted', provider);
     message.success(t('MESSAGES.UPDATE_SUCCESS'));
   } catch (error) {
     message.error(t('ERRORS.COMMON_MESSAGE'));
@@ -192,10 +206,32 @@ async function save () {
     formSubmitting.value = false;
   }
 }
+
+async function remove () {
+  try {
+    await DomainAPIClient.deleteUserProvider(props.domain.uuid, props.provider);
+
+    message.success(t('MESSAGES.DELETE_SUCCESS'));
+    emit('deleted');
+  } catch (error) {
+    message.error(t('MESSAGES.DELETE_FAILURE'));
+  }
+}
+
+function confirmDelete () {
+  confirmModal({
+    title: t('GENERAL.DELETION'),
+    content: t('USER_PROVIDER.DELETE_CONFIRM'),
+    okText: t('GENERAL.DELETE'),
+    onOk: remove
+  });
+}
 </script>
 
 <style lang='less' scoped>
 .form-actions {
   margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

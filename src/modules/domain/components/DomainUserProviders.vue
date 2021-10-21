@@ -50,7 +50,8 @@
           :filters-list="state.userFilters"
           :domain="currentDomain"
           @cancel="() => setProvider(EMPTY_PROVIDER)"
-          @success="provider => setProvider(provider)"
+          @deleted="() => setProvider(EMPTY_PROVIDER)"
+          @submitted="provider => setProvider(provider)"
         />
       </a-col>
     </a-row>

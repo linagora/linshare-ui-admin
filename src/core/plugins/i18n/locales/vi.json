@@ -364,6 +364,7 @@
   "USER_PROVIDER": {
     "EMPTY_MESSAGE": "Không có nhà cung cấp người dùng nào được tạo cho miền này",
     "ERROR_MESSAGE": "Không tìm nạp được dữ liệu nhà cung cấp người dùng của miền này",
+    "DELETE_CONFIRM": "Bạn sắp xóa nhà cung cấp người dùng này, thủ tục này là không thể đảo ngược. Bạn có muốn tiếp tục?",
     "CREATE": "Tạo nhà cung cấp mới",
     "TRY_AGAIN": "Thử lại",
     "TYPES": {

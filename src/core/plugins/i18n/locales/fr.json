@@ -364,6 +364,7 @@
   "USER_PROVIDER": {
     "EMPTY_MESSAGE": "Aucun fournisseur d'utilisateurs n'a été créé pour ce domaine",
     "ERROR_MESSAGE": "Impossible de récupérer les données du fournisseur d'utilisateur de ce domaine",
+    "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce fournisseur d'utilisateurs, cette procédure est irréversible. Voulez-vous poursuivre?",
     "CREATE": "Créer un nouveau fournisseur",
     "TRY_AGAIN": "Réessayez",
     "TYPES": {

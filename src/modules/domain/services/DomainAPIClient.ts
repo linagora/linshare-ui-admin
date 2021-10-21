@@ -36,6 +36,10 @@ class DomainAPIClient extends AdminAPIClient {
   async updateUserProvider (uuid: string, provider: LDAPUserProvider): Promise<LDAPUserProvider> {
     return await this.transport.put(`${uuid}/user_providers/${provider.uuid}`, provider);
   }
+
+  async deleteUserProvider (uuid: string, provider: LDAPUserProvider): Promise<LDAPUserProvider> {
+    return await this.transport.delete(`${uuid}/user_providers/${provider.uuid}`);
+  }
 }
 
 export default new DomainAPIClient();
