@@ -78,9 +78,7 @@ import {
   watchEffect
 } from 'vue';
 import { useStore } from 'vuex';
-import PageTitle from '@/core/components/PageTitle.vue';
 import DomainUserProviderLDAPForm from './DomainUserProviderLDAPForm.vue';
-import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import DomainAPIClient from '../services/DomainAPIClient';
 import LDAPUserProvider, { EMPTY_PROVIDER } from '../type/LDAPUserProvider';
 import RemoteServerAPICLient from '@/modules/remote-server/services/RemoteServerAPICLient';
@@ -96,7 +94,6 @@ interface State {
 }
 
 const store = useStore();
-const { breadcrumbs } = useBreadcrumbs();
 const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },

@@ -1,6 +1,5 @@
 <template>
   <a-form
-    ref="formRef"
     :label-col="{ span: 24 }"
     :wrapper-col="{ span: 24 }"
   >
