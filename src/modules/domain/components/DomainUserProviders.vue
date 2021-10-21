@@ -1,8 +1,4 @@
 <template>
-  <PageTitle
-    :title="$t('NAVIGATOR.USER_PROVIDERS')"
-    :breadcrumbs="breadcrumbs"
-  />
   <div
     v-if="state.status === 'loading'"
     class="spinner"

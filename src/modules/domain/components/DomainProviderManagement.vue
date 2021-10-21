@@ -1,9 +1,4 @@
 <template>
-  <PageTitle
-    :title="$t('NAVIGATOR.PROVIDERS')"
-    :breadcrumbs="breadcrumbs"
-  />
-
   <a-row>
     <a-col :span="24">
       <div class="page">
@@ -33,11 +28,8 @@
 </template>
 
 <script lang='ts' setup>
-import PageTitle from '@/core/components/PageTitle.vue';
 import { RightOutlined } from '@ant-design/icons-vue';
-import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 
 const { redirect } = useLegacyFeatures();
-const { breadcrumbs } = useBreadcrumbs();
 </script>

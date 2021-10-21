@@ -42,32 +42,32 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
     {
       name: 'DomainProviders',
       path: 'providers',
-      component: () => import('../components/DomainProviders.vue'),
+      component: () => import('../pages/DomainProvidersPage.vue'),
       beforeEnter: checkAccessiblePage,
+      redirect: { name: 'DomainProviderManagement' },
       meta: {
         parentRoute: 'Configuration',
         label: 'NAVIGATOR.PROVIDERS',
         requiresAuth: true
-      }
-    },
-    {
-      name: 'DomainUserProviders',
-      path: 'providers',
-      component: () => import('../components/DomainUserProviders.vue'),
-      beforeEnter: checkAccessiblePage,
-      meta: {
-        parentRoute: 'DomainProviders',
-        label: 'NAVIGATOR.USER_PROVIDERS',
-        requiresAuth: true
-      }
-    },
-    {
-      name: 'PageNotAccessible',
-      path: 'unaccessible',
-      component: () => import('../components/DomainManagementWarning.vue'),
-      meta: {
-        requiresAuth: true
-      }
+      },
+      children: [
+        {
+          name: 'DomainProviderManagement',
+          path: '',
+          component: () => import('../components/DomainProviderManagement.vue')
+        },
+        {
+          name: 'DomainUserProviders',
+          path: 'user',
+          component: () => import('../components/DomainUserProviders.vue'),
+          beforeEnter: checkAccessiblePage,
+          meta: {
+            parentRoute: 'DomainProviders',
+            label: 'NAVIGATOR.USER_PROVIDERS',
+            requiresAuth: true
+          }
+        }
+      ]
     },
     RemoteServersRoute,
     ...UserFilterRoutes

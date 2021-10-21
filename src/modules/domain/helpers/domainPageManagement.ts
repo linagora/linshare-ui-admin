@@ -29,6 +29,12 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
     route: { name: 'DomainProviders' }
   },
   {
+    title: 'NAVIGATOR.PROVIDERS',
+    accessibility: { domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] },
+    route: { name: 'DomainProviderManagement' },
+    child: true
+  },
+  {
     title: 'NAVIGATOR.USER_PROVIDERS',
     accessibility: { domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] },
     route: { name: 'DomainUserProviders' },

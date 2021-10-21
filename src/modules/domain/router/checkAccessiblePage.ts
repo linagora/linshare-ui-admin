@@ -12,7 +12,7 @@ export const checkAccessiblePage: NavigationGuard = (to, from, next) => {
   const page = findDomainPage(to.name);
 
   if (page && !canAccessPage(page, loggedUserRole, domainType)) {
-    next({ name: 'PageNotAccessible' });
+    next('/');
   } else {
     next();
   }
