@@ -22,7 +22,7 @@
               <a-menu-item @click="state.provider.type = 'LDAP_PROVIDER'">
                 {{ $t('USER_PROVIDER.TYPES.LDAP') }}
               </a-menu-item>
-              <a-menu-item disabled>
+              <a-menu-item @click="state.provider.type = 'OIDC_PROVIDER'">
                 {{ $t('USER_PROVIDER.TYPES.OIDC') }}
               </a-menu-item>
               <a-menu-item disabled>
@@ -34,7 +34,7 @@
       </template>
     </a-result>
 
-    <a-row>
+    <a-row v-else>
       <a-col
         :xl="{ span: 12, offset: 6 }"
         :sm="{ span: 24 }"
@@ -44,6 +44,15 @@
           :provider="state.provider"
           :servers-list="state.ldapServers"
           :filters-list="state.userFilters"
+          :domain="currentDomain"
+          @cancel="() => setProvider(EMPTY_PROVIDER)"
+          @deleted="() => setProvider(EMPTY_PROVIDER)"
+          @submitted="provider => setProvider(provider)"
+        />
+
+        <DomainUserProviderOIDCForm
+          v-if="state.provider.type === 'OIDC_PROVIDER'"
+          :provider="state.provider"
           :domain="currentDomain"
           @cancel="() => setProvider(EMPTY_PROVIDER)"
           @deleted="() => setProvider(EMPTY_PROVIDER)"
@@ -79,8 +88,13 @@ import {
 } from 'vue';
 import { useStore } from 'vuex';
 import DomainUserProviderLDAPForm from './DomainUserProviderLDAPForm.vue';
+import DomainUserProviderOIDCForm from './DomainUserProviderOIDCForm.vue';
 import DomainAPIClient from '../services/DomainAPIClient';
-import LDAPUserProvider, { EMPTY_PROVIDER } from '../type/LDAPUserProvider';
+import {
+  LDAPUserProvider,
+  OIDCUserProvider,
+  EMPTY_PROVIDER
+} from '../type/UserProvider';
 import RemoteServerAPICLient from '@/modules/remote-server/services/RemoteServerAPICLient';
 import RemoteServer, { RemoteServerType } from '@/modules/remote-server/types/RemoteServer';
 import UserFilter, { USER_FILTER_TYPE } from '@/modules/user-filter/types/UserFilter';
@@ -88,7 +102,7 @@ import UserFilterAPIClient from '@/modules/user-filter/services/UserFilterAPICli
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
-  provider: LDAPUserProvider;
+  provider: LDAPUserProvider | OIDCUserProvider;
   ldapServers: RemoteServer[];
   userFilters: UserFilter[];
 }

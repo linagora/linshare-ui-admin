@@ -375,6 +375,11 @@
     "LDAP": {
       "BASE_DN": "Dn cơ sở",
       "BASE_DN_HELPER": "LinShare sẽ bắt đầu tìm kiếm người dùng từ vị trí này trong LDAP của bạn"
+    },
+    "OIDC": {
+      "ASSOCIATED_DOMAIN_ID": "Định danh miền được liên kết",
+      "ASSOCIATED_DOMAIN_ID_HELPER": "Bằng cách tạo nhà cung cấp người dùng OIDC cho {name}, bạn cho phép LinShare tạo người dùng cho miền này khi người dùng xác thực bằng OIDC",
+      "USED_DOMAIN_ID": "Mã nhận dạng này đã được sử dụng trong một miền khác"
     }
   }
 }

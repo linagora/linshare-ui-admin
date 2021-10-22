@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 import AdminAPIClient from '@/core/services/AdminAPIClient';
 import Domain from '@/modules/domain/type/Domain';
 import DomainTreeNode from '../type/DomainTreeNode';
-import LDAPUserProvider from '../type/LDAPUserProvider';
+import { LDAPUserProvider, OIDCUserProvider } from '../type/UserProvider';
 
 class DomainAPIClient extends AdminAPIClient {
   constructor () {
@@ -29,15 +29,15 @@ class DomainAPIClient extends AdminAPIClient {
     return await this.transport.get(`${uuid}/user_providers`);
   }
 
-  async createUserProvider (uuid: string, payload: Partial<LDAPUserProvider>): Promise<LDAPUserProvider> {
+  async createUserProvider (uuid: string, payload: Partial<LDAPUserProvider | OIDCUserProvider>): Promise<LDAPUserProvider | OIDCUserProvider> {
     return await this.transport.post(`${uuid}/user_providers`, payload);
   }
 
-  async updateUserProvider (uuid: string, provider: LDAPUserProvider): Promise<LDAPUserProvider> {
+  async updateUserProvider (uuid: string, provider: LDAPUserProvider | OIDCUserProvider): Promise<LDAPUserProvider | OIDCUserProvider> {
     return await this.transport.put(`${uuid}/user_providers/${provider.uuid}`, provider);
   }
 
-  async deleteUserProvider (uuid: string, provider: LDAPUserProvider): Promise<LDAPUserProvider> {
+  async deleteUserProvider (uuid: string, provider: LDAPUserProvider | OIDCUserProvider): Promise<LDAPUserProvider | OIDCUserProvider> {
     return await this.transport.delete(`${uuid}/user_providers/${provider.uuid}`);
   }
 }

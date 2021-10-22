@@ -380,6 +380,11 @@
     "LDAP": {
       "BASE_DN": "Base Dn",
       "BASE_DN_HELPER": "LinShare will start looking for users from this position in your LDAP"
+    },
+    "OIDC": {
+      "ASSOCIATED_DOMAIN_ID": "Associated domain identifier",
+      "ASSOCIATED_DOMAIN_ID_HELPER": "By creating OIDC user provider for {name}, you allow LinShare to create users for this domain when an user authenticates with OIDC",
+      "USED_DOMAIN_ID": "This domain identifier has already been used in another domain"
     }
   }
 }

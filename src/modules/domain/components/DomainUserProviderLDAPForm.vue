@@ -75,7 +75,7 @@ import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
 import UserFilter from '@/modules/user-filter/types/UserFilter';
-import LDAPUserProvider from '../type/LDAPUserProvider';
+import { LDAPUserProvider } from '../type/UserProvider';
 import DomainAPIClient from '../services/DomainAPIClient';
 import Domain from '../type/Domain';
 import useNotification from '@/core/hooks/useNotification';
