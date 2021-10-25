@@ -1,7 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import { RemoteServersRoute } from '@/modules/remote-server/router';
 import { UserFilterRoutes } from '@/modules/user-filter/routes';
-import { checkAccessiblePage } from './checkAccessiblePage';
 
 export const DomainConfigurationRoute: RouteRecordRaw = {
   name: 'Configuration',
@@ -32,7 +31,6 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
       name: 'DomainRemoteFilters',
       path: 'filters',
       component: () => import('../components/DomainRemoteFilters.vue'),
-      beforeEnter: checkAccessiblePage,
       meta: {
         parentRoute: 'Configuration',
         label: 'NAVIGATOR.REMOTE_FILTERS',
@@ -43,7 +41,6 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
       name: 'DomainProviders',
       path: 'providers',
       component: () => import('../pages/DomainProvidersPage.vue'),
-      beforeEnter: checkAccessiblePage,
       redirect: { name: 'DomainProviderManagement' },
       meta: {
         parentRoute: 'Configuration',
@@ -60,7 +57,6 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
           name: 'DomainUserProviders',
           path: 'user',
           component: () => import('../components/DomainUserProviders.vue'),
-          beforeEnter: checkAccessiblePage,
           meta: {
             parentRoute: 'DomainProviders',
             label: 'NAVIGATOR.USER_PROVIDERS',

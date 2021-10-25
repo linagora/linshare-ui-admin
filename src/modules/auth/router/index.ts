@@ -1,5 +1,4 @@
 import { RouteRecordRaw } from 'vue-router';
-import { requiresAuthGuard } from './requiresAuth.guard';
 
 export const LoginRoutes: Array<RouteRecordRaw> = [
   {
@@ -30,5 +29,3 @@ export const ManageSecondFactorAuthenticationRoute: RouteRecordRaw = {
     requiresAuth: true
   }
 };
-
-export { requiresAuthGuard };

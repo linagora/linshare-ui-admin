@@ -1,7 +1,7 @@
 import { Router } from 'vue-router';
-import store from '@/core/store';
+import { Store } from 'vuex';
 
-export const requiresAuthGuard = (router: Router) => {
+export const requiresAuthGuard = (router: Router, store: Store<any>) => {
   router.beforeEach(async (to, from, next) => {
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 

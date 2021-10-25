@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios';
-import { useRouter } from 'vue-router';
+import router from '@/core/router';
 import { CONFIG } from '@/core/constants';
 import { AuthError } from '@/modules/auth/type/AuthError';
 
@@ -7,8 +7,6 @@ interface ClientConfig {
   useAuthInterceptor?: boolean;
   responseDataOnly?: boolean;
 }
-
-const router = useRouter();
 
 export default class AdminAPIClient {
   transport: AxiosInstance;
