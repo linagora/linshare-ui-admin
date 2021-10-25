@@ -18,7 +18,7 @@
         <div class="qrcode-ctn">
           <qrcode-vue
             :value="OTP_APP_INSTALL_LINKS.appStore"
-            size="160"
+            :size="160"
             level="H"
           />
           <img src="@/assets/images/app-store.svg">
@@ -33,7 +33,7 @@
         <div class="qrcode-ctn">
           <qrcode-vue
             :value="OTP_APP_INSTALL_LINKS.googlePlay"
-            size="160"
+            :size="160"
             level="H"
           />
           <img src="@/assets/images/google-play.svg">
@@ -65,7 +65,7 @@
         <qrcode-vue
           v-if="secondFA.sharedKey"
           :value="freeOtpUri"
-          size="160"
+          :size="160"
           level="H"
         />
         <img src="@/assets/images/freeotp.svg">
