@@ -69,7 +69,7 @@ import { useI18n } from 'vue-i18n';
 
 import Copyright from '@/core/components/Copyright.vue';
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
-import { AuthError } from '../services/AuthAPIClient';
+import { AuthError } from '../type/AuthError';
 
 export default defineComponent({
   name: 'Login',
@@ -120,7 +120,7 @@ export default defineComponent({
 
         router.push(props.redirect || '/');
       } catch (e) {
-        handleError(e);
+        handleError(e as AuthError);
       } finally {
         loggingIn.value = false;
       }

@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from 'axios';
+import { AxiosError, AxiosRequestConfig } from 'axios';
 import AdminAPIClient from '@/core/services/AdminAPIClient';
 import User from '@/modules/user/type/User';
 import SecondFactorAuthentication from '../type/SecondFactorAuthentication';
@@ -13,7 +13,7 @@ class AuthAPIClient extends AdminAPIClient {
     try {
       return await this.transport.get('authorized', config);
     } catch (error) {
-      throw new AuthError(error);
+      throw new AuthError(error as AxiosError);
     }
   }
 
