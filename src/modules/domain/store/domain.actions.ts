@@ -3,14 +3,14 @@ import { DomainState } from './domain.state';
 import RootState from '@/core/store/RootState';
 import Status from '@/core/types/Status';
 import Domain from '@/modules/domain/type/Domain';
-import DomainAPIClient from '@/modules/domain/services/DomainAPIClient';
+import { getDomains, getDomain, updateDomain } from '@/modules/domain/services/domain-api';
 
 const actions: ActionTree<DomainState, RootState> = {
   async fetchDomainsTree ({ commit }) {
     commit('setDomainsTreeStatus', Status.LOADING);
 
     try {
-      const domains = await DomainAPIClient.getDomains({ params: { tree: true } });
+      const domains = await getDomains({ params: { tree: true } });
 
       commit('setDomainsTree', domains[0]);
       commit('setDomainsTreeStatus', Status.SUCCESS);
@@ -22,7 +22,7 @@ const actions: ActionTree<DomainState, RootState> = {
     commit('setCurrentDomainStatus', Status.LOADING);
 
     try {
-      const domain = await DomainAPIClient.getDomain(id, { params: { detail: true } });
+      const domain = await getDomain(id, { params: { detail: true } });
 
       commit('setCurrentDomain', domain);
       commit('setCurrentDomainStatus', Status.SUCCESS);
@@ -31,7 +31,7 @@ const actions: ActionTree<DomainState, RootState> = {
     }
   },
   async updateDomain ({ commit }, domain: Domain) {
-    const updated = await DomainAPIClient.updateDomain(domain);
+    const updated = await updateDomain(domain);
 
     commit('setCurrentDomain', updated);
     commit('setDomainNameInTree', updated);

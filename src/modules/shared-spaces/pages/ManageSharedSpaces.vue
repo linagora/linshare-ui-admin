@@ -26,7 +26,7 @@ import PageTitle from '@/core/components/PageTitle.vue';
 import SharedSpacesList from '@/modules/shared-spaces/components/SharedSpacesList.vue';
 import useSharedSpacesList from '@/modules/shared-spaces/hooks/useSharedSpacesList';
 import TokenInput, { Filter } from '@/core/components/TokenInput.vue';
-import UserAPIClient from '@/modules/user/services/UserAPIClient';
+import { listUsers } from '@/modules/user/services/user-api';
 import AccountAutocompleteItem from '@/modules/user/components/AccountAutocompleteItem.vue';
 
 interface Options {
@@ -50,7 +50,7 @@ export default defineComponent({
     const { updateSharedSpacesList } = useSharedSpacesList();
 
     const searchForAccounts = async function (mail: string) {
-      const data = await UserAPIClient.listUsers({ mail });
+      const data = await listUsers({ mail });
 
       return (data && data.data && data.data.map(user => ({
         label: user.mail,

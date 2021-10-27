@@ -272,7 +272,14 @@ import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useNotification from '@/core/hooks/useNotification';
 import PageTitle from '@/core/components/PageTitle.vue';
 import UserFilter, { USER_FILTER_TYPE } from '../types/UserFilter';
-import UserFilterAPIClient from '../services/UserFilterAPIClient';
+import {
+  createUserFilter,
+  deleteUserFilter,
+  listUserFilters,
+  getAssociatedDomains,
+  getUserFilter,
+  updateUserFilter
+} from '../services/user-filter-api';
 
 interface Props {
   uuid?: string;
@@ -326,7 +333,7 @@ async function prepareData () {
   fetchingData.value = true;
 
   if (props.uuid) {
-    const filter = await UserFilterAPIClient.getUserFilter(props.uuid);
+    const filter = await getUserFilter(props.uuid);
     Object.assign(userFilter, filter);
     Object.assign(formState, filter, {
       name: props.duplicate
@@ -336,7 +343,7 @@ async function prepareData () {
   }
 
   if (!editMode.value) {
-    const availableModels = await UserFilterAPIClient.listUserFilters(true);
+    const availableModels = await listUserFilters(true);
 
     Object.assign(models, {
       list: availableModels,
@@ -359,14 +366,14 @@ async function onSubmit () {
 
   try {
     if (props.uuid) {
-      await UserFilterAPIClient.updateUserFilter(props.uuid, {
+      await updateUserFilter(props.uuid, {
         ...formState,
         type: USER_FILTER_TYPE.LDAP
       });
 
       message.success(t('MESSAGES.UPDATE_SUCCESS'));
     } else {
-      await UserFilterAPIClient.createUserFilter({
+      await createUserFilter({
         ...formState,
         type: USER_FILTER_TYPE.LDAP
       });
@@ -393,7 +400,7 @@ function resetForm () {
 }
 
 async function confirmDelete (filter: UserFilter) {
-  const usedInDomains = !!(await UserFilterAPIClient.getAssociatedDomains(filter.uuid)).length;
+  const usedInDomains = !!(await getAssociatedDomains(filter.uuid)).length;
 
   if (usedInDomains) {
     return infoModal({
@@ -406,13 +413,13 @@ async function confirmDelete (filter: UserFilter) {
     title: t('GENERAL.DELETION'),
     content: t('USER_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: () => deleteUserFilter(filter)
+    onOk: () => removeUserFilter(filter)
   });
 }
 
-async function deleteUserFilter (filter: UserFilter) {
+async function removeUserFilter (filter: UserFilter) {
   try {
-    await UserFilterAPIClient.deleteUserFilter(filter.uuid);
+    await deleteUserFilter(filter.uuid);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
     push({ name: 'UserFilters' });

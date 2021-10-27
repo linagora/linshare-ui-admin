@@ -76,9 +76,14 @@ import { useI18n } from 'vue-i18n';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
 import UserFilter from '@/modules/user-filter/types/UserFilter';
 import { LDAPUserProvider } from '../type/UserProvider';
-import DomainAPIClient from '../services/DomainAPIClient';
 import Domain from '../type/Domain';
 import useNotification from '@/core/hooks/useNotification';
+
+import {
+  createUserProvider,
+  deleteUserProvider,
+  updateUserProvider
+} from '../services/domain-api';
 
 interface Props {
   domain: Domain;
@@ -155,7 +160,7 @@ async function create () {
   }
 
   try {
-    const provider = await DomainAPIClient.createUserProvider(props.domain.uuid, getDto());
+    const provider = await createUserProvider(props.domain.uuid, getDto());
 
     emit('submitted', provider);
     message.success(t('MESSAGES.CREATE_SUCCESS'));
@@ -192,7 +197,7 @@ async function save () {
   }
 
   try {
-    const provider = await DomainAPIClient.updateUserProvider(props.domain.uuid, {
+    const provider = await updateUserProvider(props.domain.uuid, {
       ...props.provider,
       ...getDto()
     });
@@ -208,7 +213,7 @@ async function save () {
 
 async function remove () {
   try {
-    await DomainAPIClient.deleteUserProvider(props.domain.uuid, props.provider);
+    await deleteUserProvider(props.domain.uuid, props.provider);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
     emit('deleted');

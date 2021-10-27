@@ -79,7 +79,7 @@ import { computed, defineComponent, reactive, ref, watchEffect, PropType } from 
 import { message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import RemoteServer, { RemoteServerType } from '../types/RemoteServer';
-import RemoteServerAPIClient from '../services/RemoteServerAPICLient';
+import { createRemoteServer, updateRemoteServer } from '../services/remote-server-api';
 
 export default defineComponent({
   name: 'RemoteServerLDAPModal',
@@ -139,11 +139,11 @@ export default defineComponent({
       try {
         await (
           editMode.value
-            ? RemoteServerAPIClient.updateRemoteServer({
+            ? updateRemoteServer({
               ...props.data,
               ...formState
             })
-            : RemoteServerAPIClient.createRemoteServer({
+            : createRemoteServer({
               serverType: RemoteServerType.LDAP,
               ...formState
             })

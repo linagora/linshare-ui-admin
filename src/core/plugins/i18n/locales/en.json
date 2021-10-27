@@ -175,14 +175,17 @@
     }
   },
   "ERRORS": {
-    "FORBIDDEN": "You do not have permission to access this resource.",
-    "UNEXPECTED_ERROR": "An unexpected error happened!",
     "COMMON_MESSAGE": "Something went wrong. Please try again later!",
-    "INVALID_LOGIN_CREDENTIALS": "Invalid login credentials",
-    "OTP_REQUIRED": "Second factor authentication required",
-    "OTP_ERROR": "OTP is wrong or expired",
-    "ACCOUNT_LOCKED": "Your account has been locked due to failed login attempts",
-    "CONTACT_ALREADY_EXISTS": "Contact already exists"
+    "FORBIDDEN": "You do not have permission to access this resource.",
+    "UNKNOWN": "An unexpected error happened!",
+    "CONTACT_ALREADY_EXISTS": "Contact already exists",
+    "AUTH": {
+      "1000": "Something went wrong. Please try again later!",
+      "1001": "Invalid login credentials",
+      "1002": "Second factor authentication required",
+      "1003": "OTP is wrong or expired",
+      "1004": "Your account has been locked due to failed login attempts"
+    }
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "2nd Factor Authentication",

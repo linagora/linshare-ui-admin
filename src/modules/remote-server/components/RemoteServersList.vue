@@ -94,7 +94,7 @@ import { computed, createVNode, defineComponent, reactive, onMounted } from 'vue
 import { useI18n } from 'vue-i18n';
 import { Modal, message } from 'ant-design-vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import RemoteServerAPIClient from '../services/RemoteServerAPICLient';
+import { deleteRemoteServer, getAssociatedDomains, listRemoteServers } from '../services/remote-server-api';
 import RemoteServer from '../types/RemoteServer';
 
 import PageTitle from '@/core/components/PageTitle.vue';
@@ -167,7 +167,7 @@ export default defineComponent({
     function fetchRemoteServers () {
       state.loading = true;
 
-      RemoteServerAPIClient.listRemoteServers()
+      listRemoteServers()
         .then(remoteServers => {
           state.list = remoteServers;
         })
@@ -188,7 +188,7 @@ export default defineComponent({
       }
 
       try {
-        await RemoteServerAPIClient.deleteRemoteServer(target.uuid);
+        await deleteRemoteServer(target.uuid);
 
         message.success(t('MESSAGES.DELETE_SUCCESS'));
       } catch (error) {
@@ -218,7 +218,7 @@ export default defineComponent({
     }
 
     async function openDeleteModal (target: RemoteServer) {
-      const usedInDomains = !!(await RemoteServerAPIClient.getAssociatedDomains(target.uuid)).length;
+      const usedInDomains = !!(await getAssociatedDomains(target.uuid)).length;
 
       Modal[usedInDomains ? 'info' : 'confirm']({
         title: () => t('GENERAL.DELETION'),

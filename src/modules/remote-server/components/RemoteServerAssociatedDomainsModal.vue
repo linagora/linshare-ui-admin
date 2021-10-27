@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, watchEffect, PropType } from 'vue';
-import RemoteServerAPIClient from '../services/RemoteServerAPICLient';
+import { getAssociatedDomains } from '../services/remote-server-api';
 import RemoteServer from '../types/RemoteServer';
 import Domain from '@/modules/domain/type/Domain';
 
@@ -61,7 +61,7 @@ export default defineComponent({
       if (props.data?.uuid) {
         loading.value = true;
 
-        RemoteServerAPIClient.getAssociatedDomains(props.data?.uuid)
+        getAssociatedDomains(props.data?.uuid)
           .then(domains => {
             list.value = domains;
           })

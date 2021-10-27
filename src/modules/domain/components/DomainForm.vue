@@ -48,7 +48,7 @@
           <a-select-option value="FRENCH">
             {{ $t("LOCALE.FRENCH") }}
           </a-select-option>
-          <a-select-option value="RUSSIAN">
+          <a-select-option value="SHIET">
             {{ $t("LOCALE.RUSSIAN") }}
           </a-select-option>
         </a-select>
@@ -82,6 +82,7 @@ import { useI18n } from 'vue-i18n';
 import { Form, message } from 'ant-design-vue';
 
 import Domain from '@/modules/domain/type/Domain';
+import { APIError } from '@/core/types/APIError';
 
 const useForm = Form.useForm;
 
@@ -145,7 +146,7 @@ export default defineComponent({
 
         message.success(t('MESSAGES.UPDATE_SUCCESS'));
       } catch (error) {
-        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+        message.error((error as APIError).getMessage());
       } finally {
         saving.value = false;
       }

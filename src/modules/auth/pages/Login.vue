@@ -65,11 +65,10 @@
 import router from '@/core/router';
 import { defineComponent, ref, reactive } from 'vue';
 import { useStore } from 'vuex';
-import { useI18n } from 'vue-i18n';
 
 import Copyright from '@/core/components/Copyright.vue';
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
-import { AuthError } from '../type/AuthError';
+import { APIError } from '@/core/types/APIError';
 
 export default defineComponent({
   name: 'Login',
@@ -86,7 +85,6 @@ export default defineComponent({
   },
   setup (props) {
     const store = useStore();
-    const { t } = useI18n();
     const error = ref('');
     const loggingIn = ref(false);
     const credentials = reactive({
@@ -94,8 +92,8 @@ export default defineComponent({
       password: ''
     });
 
-    function handleError (e: AuthError) {
-      if (e.isOTPRequiredError()) {
+    function handleError (e: APIError) {
+      if (e.isOTPMissingError()) {
         return router.push({
           name: 'LoginUsingSecondFactorAuthentication',
           params: {
@@ -104,8 +102,7 @@ export default defineComponent({
           }
         });
       }
-
-      error.value = t(e.message) || t('ERRORS.COMMON_MESSAGE');
+      error.value = e.getMessage();
     }
 
     async function logIn () {
@@ -119,8 +116,12 @@ export default defineComponent({
         });
 
         router.push(props.redirect || '/');
-      } catch (e) {
-        handleError(e as AuthError);
+      } catch (error) {
+        if (error instanceof APIError) {
+          handleError(error);
+        } else {
+          console.error(error);
+        }
       } finally {
         loggingIn.value = false;
       }

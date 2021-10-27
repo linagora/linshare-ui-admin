@@ -1,10 +1,14 @@
 import { ref, reactive } from 'vue';
 import { message } from 'ant-design-vue';
-import { useI18n } from 'vue-i18n';
 
 import SharedSpace from '@/modules/shared-spaces/type/SharedSpace';
-import SharedSpaceAPIClient, { ListSharedSpaceOptions } from '@/modules/shared-spaces/services/SharedSpaceAPIClient';
+import {
+  getSharedSpace,
+  listSharedSpaces,
+  ListSharedSpaceOptions
+} from '../services/shared-space-api';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
+import { APIError } from '@/core/types/APIError';
 
 interface Pagination {
   total: number;
@@ -21,8 +25,6 @@ const pagination = reactive<Pagination>({
 });
 
 export default function useSharedSpacesList () {
-  const { t } = useI18n();
-
   async function populateParentDrives (list: SharedSpace[]): Promise<void> {
     const drives = list.filter(sharedSpace => sharedSpace.nodeType === 'DRIVE');
 
@@ -35,7 +37,7 @@ export default function useSharedSpacesList () {
           drive = drives.find(node => node.uuid === sharedSpace.parentUuid);
 
           if (!drive) {
-            drive = await SharedSpaceAPIClient.getSharedSpace(sharedSpace.parentUuid);
+            drive = await getSharedSpace(sharedSpace.parentUuid);
             drives.push(drive);
           }
 
@@ -55,7 +57,7 @@ export default function useSharedSpacesList () {
     try {
       loading.value = true;
 
-      const { data, total, current } = await SharedSpaceAPIClient.listSharedSpaces(options);
+      const { data, total, current } = await listSharedSpaces(options);
 
       await populateParentDrives(data);
 
@@ -63,8 +65,7 @@ export default function useSharedSpacesList () {
       pagination.total = total;
       pagination.current = current + 1;
     } catch (error) {
-      message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
-      console.error(error);
+      message.error((error as APIError).getMessage());
     } finally {
       loading.value = false;
     }

@@ -89,16 +89,16 @@ import {
 import { useStore } from 'vuex';
 import DomainUserProviderLDAPForm from './DomainUserProviderLDAPForm.vue';
 import DomainUserProviderOIDCForm from './DomainUserProviderOIDCForm.vue';
-import DomainAPIClient from '../services/DomainAPIClient';
+import { getUserProviders } from '../services/domain-api';
 import {
   LDAPUserProvider,
   OIDCUserProvider,
   EMPTY_PROVIDER
 } from '../type/UserProvider';
-import RemoteServerAPICLient from '@/modules/remote-server/services/RemoteServerAPICLient';
+import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
 import RemoteServer, { RemoteServerType } from '@/modules/remote-server/types/RemoteServer';
 import UserFilter, { USER_FILTER_TYPE } from '@/modules/user-filter/types/UserFilter';
-import UserFilterAPIClient from '@/modules/user-filter/services/UserFilterAPIClient';
+import { listUserFilters } from '@/modules/user-filter/services/user-filter-api';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
@@ -120,19 +120,19 @@ function setProvider (provider: LDAPUserProvider) {
 }
 
 async function prepareLDAPServers () {
-  const servers = await RemoteServerAPICLient.listRemoteServers();
+  const servers = await listRemoteServers();
 
   state.ldapServers = servers.filter(server => server.serverType === RemoteServerType.LDAP);
 }
 
 async function prepareUserFilters () {
-  const filters = await UserFilterAPIClient.listUserFilters();
+  const filters = await listUserFilters();
 
   state.userFilters = filters.filter(filter => filter.type === USER_FILTER_TYPE.LDAP);
 }
 
 async function prepareUserProvider () {
-  const providers = await DomainAPIClient.getUserProviders(currentDomain.value.uuid);
+  const providers = await getUserProviders(currentDomain.value.uuid);
 
   state.provider = providers[0] || { ...EMPTY_PROVIDER };
 }

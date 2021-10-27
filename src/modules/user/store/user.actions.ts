@@ -2,13 +2,13 @@
 import { ActionTree } from 'vuex';
 import { UserState } from './user.state';
 import RootState from '@/core/store/RootState';
-import UserAPIClient from '@/modules/user/services/UserAPIClient';
+import { getUser, updateUser, deleteUser } from '@/modules/user/services/user-api';
 import User from '@/modules/user/type/User';
 
 const actions: ActionTree<UserState, RootState> = {
   async fetchUser ({ commit }, id) {
     try {
-      const user = await UserAPIClient.getUser(id);
+      const user = await getUser(id);
 
       commit('setUser', user);
     } catch {
@@ -17,13 +17,13 @@ const actions: ActionTree<UserState, RootState> = {
   },
 
   async updateUser ({ commit }, payload: User) {
-    const updatedUser = await UserAPIClient.updateUser(payload);
+    const updatedUser = await updateUser(payload);
 
     commit('mergeUser', updatedUser);
   },
 
   async deleteUser ({ commit }, payload: User) {
-    await UserAPIClient.deleteUser(payload);
+    await deleteUser(payload);
 
     commit('setUser', {});
   },

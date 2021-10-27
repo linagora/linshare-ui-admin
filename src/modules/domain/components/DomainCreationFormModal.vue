@@ -83,8 +83,9 @@ import { computed, reactive, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
-import DomainAPIClient from '../services/DomainAPIClient';
+import { createDomain } from '../services/domain-api';
 import Domain, { DOMAIN_TYPE } from '../type/Domain';
+import { APIError } from '@/core/types/APIError';
 
 export interface DomainCreationFormModalProps {
   visible: boolean;
@@ -129,7 +130,7 @@ async function onSave () {
   }
 
   try {
-    await DomainAPIClient.createDomain({
+    await createDomain({
       name: formState.name,
       description: formState.description,
       parent: props.parent,
@@ -140,7 +141,7 @@ async function onSave () {
     resetForm();
     message.success(t('MESSAGES.CREATE_SUCCESS'));
   } catch (error) {
-    message.error(t('ERRORS.COMMON_MESSAGE'));
+    message.error((error as APIError).getMessage());
   } finally {
     formSaving.value = false;
   }

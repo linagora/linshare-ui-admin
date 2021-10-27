@@ -174,12 +174,15 @@
   },
   "ERRORS": {
     "FORBIDDEN": "Vous n'êtes pas autorisé à accéder à cette ressource.",
-    "UNEXPECTED_ERROR": "Une erreur inattendue est survenue!",
-    "INVALID_LOGIN_CREDENTIALS": "Identifiant incorrect",
+    "UNKNOWN": "Une erreur inattendue est survenue!",
     "COMMON_MESSAGE": "Un problème est survenu. Veuillez réessayer plus tard!",
-    "OTP_REQUIRED": "l'activation de l'authentification double facteur est requise",
-    "OTP_ERROR": "le code OTP est invalide ou expiré",
-    "ACCOUNT_LOCKED": "Votre compte a été verouillé en raison de nombreuses tentatives infructueuses de connexion"
+    "AUTH": {
+      "1000": "Un problème est survenu. Veuillez réessayer plus tard!",
+      "1001": "Identifiant incorrect",
+      "1002": "l'activation de l'authentification double facteur est requise",
+      "1003": "le code OTP est invalide ou expiré",
+      "1004": "Votre compte a été verouillé en raison de nombreuses tentatives infructueuses de connexion"
+    }
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "Authentification double facteur",

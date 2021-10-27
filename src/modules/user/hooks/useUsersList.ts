@@ -4,8 +4,13 @@ import { useI18n } from 'vue-i18n';
 import { TableState } from 'ant-design-vue/es/table/interface';
 
 import User from '@/modules/user/type/User';
-import UserAPIClient, { ListUsersOptions, ListUserFilters } from '@/modules/user/services/UserAPIClient';
+import {
+  listUsers,
+  ListUsersOptions,
+  ListUserFilters
+} from '@/modules/user/services/user-api';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
+import { APIError } from '@/core/types/APIError';
 
 type Pagination = TableState['pagination'];
 
@@ -33,14 +38,17 @@ export default function useUsersList () {
     try {
       loading.value = true;
 
-      const { data, total, current } = await UserAPIClient.listUsers(options);
+      const { data, total, current } = await listUsers(options);
 
       list.value = data;
       pagination.total = total;
       pagination.current = current + 1;
     } catch (error) {
-      message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
-      console.error(error);
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      } else {
+        console.error(error);
+      }
     } finally {
       loading.value = false;
     }

@@ -89,7 +89,11 @@ import {
 import PageTitle from '@/core/components/PageTitle.vue';
 
 import UserFilter, { USER_FILTER_TYPE } from '../types/UserFilter';
-import UserFilterAPIClient from '../services/UserFilterAPIClient';
+import {
+  deleteUserFilter,
+  getAssociatedDomains,
+  listUserFilters
+} from '../services/user-filter-api';
 
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useNotification from '@/core/hooks/useNotification';
@@ -154,7 +158,7 @@ const columns = computed(() => [
 function fetchUserFilters () {
   state.loading = true;
 
-  UserFilterAPIClient.listUserFilters()
+  listUserFilters()
     .then(filters => {
       state.list = filters;
     })
@@ -170,7 +174,7 @@ function edit (filter: UserFilter) {
 }
 
 async function confirmDelete (filter: UserFilter) {
-  const usedInDomains = !!(await UserFilterAPIClient.getAssociatedDomains(filter.uuid)).length;
+  const usedInDomains = !!(await getAssociatedDomains(filter.uuid)).length;
 
   if (usedInDomains) {
     return infoModal({
@@ -183,13 +187,13 @@ async function confirmDelete (filter: UserFilter) {
     title: t('GENERAL.DELETION'),
     content: t('USER_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: () => deleteUserFilter(filter)
+    onOk: () => removeUserFilter(filter)
   });
 }
 
-async function deleteUserFilter (filter: UserFilter) {
+async function removeUserFilter (filter: UserFilter) {
   try {
-    await UserFilterAPIClient.deleteUserFilter(filter.uuid);
+    await deleteUserFilter(filter.uuid);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
     state.list = state.list.filter(item => !(item.uuid === filter.uuid));

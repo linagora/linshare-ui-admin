@@ -51,11 +51,10 @@
 import router from '@/core/router';
 import { defineComponent, ref } from 'vue';
 import { useStore } from 'vuex';
-import { useI18n } from 'vue-i18n';
 
 import Copyright from '@/core/components/Copyright.vue';
 import OtpInput from '@/core/components/OtpInput.vue';
-import { AuthError } from '../services/AuthAPIClient';
+import { APIError } from '@/core/types/APIError';
 
 interface LoginSecondFactorProps {
   email: string;
@@ -85,7 +84,6 @@ export default defineComponent({
   },
   setup (props: LoginSecondFactorProps) {
     const store = useStore();
-    const { t } = useI18n();
     const error = ref('');
     const submitting = ref(false);
     const otp = ref('');
@@ -94,13 +92,10 @@ export default defineComponent({
       otp.value = value;
     }
 
-    function handleError (e: AuthError) {
-      error.value = t(e.message) || t('ERRORS.COMMON_MESSAGE');
-    }
-
     async function logInWithOtp () {
       try {
         submitting.value = true;
+
         await store.dispatch('Auth/fetchLoggedUser', {
           auth: {
             username: props.email,
@@ -111,11 +106,11 @@ export default defineComponent({
           }
         });
 
-        submitting.value = false;
         router.push(props.redirect || '/');
       } catch (e) {
+        error.value = (e as APIError).getMessage();
+      } finally {
         submitting.value = false;
-        handleError(e);
       }
     }
 

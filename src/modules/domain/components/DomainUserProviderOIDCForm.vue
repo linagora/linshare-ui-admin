@@ -56,12 +56,17 @@
 import { reactive, ref } from 'vue';
 import { message, Form } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
-import axios from 'axios';
 
 import Domain from '../type/Domain';
 import { OIDCUserProvider } from '../type/UserProvider';
 import useNotification from '@/core/hooks/useNotification';
-import DomainAPIClient from '../services/DomainAPIClient';
+import { APIError } from '@/core/types/APIError';
+
+import {
+  createUserProvider,
+  deleteUserProvider,
+  updateUserProvider
+} from '../services/domain-api';
 
 interface Props {
   provider: OIDCUserProvider
@@ -94,13 +99,13 @@ async function create () {
 
   try {
     await validate();
-  } catch (error) {
+  } catch (_) {
     formSubmitting.value = false;
     return;
   }
 
   try {
-    const provider = await DomainAPIClient.createUserProvider(props.domain.uuid, {
+    const provider = await createUserProvider(props.domain.uuid, {
       type: 'OIDC_PROVIDER',
       domainDiscriminator: formState.domainDiscriminator
     });
@@ -108,12 +113,11 @@ async function create () {
     emit('submitted', provider);
     message.success(t('MESSAGES.CREATE_SUCCESS'));
   } catch (error) {
-    if (axios.isAxiosError(error) && error.response?.data.errCode === 38100) {
-      unique.value = false;
-      validate();
-    } else {
-      message.error(t('ERRORS.COMMON_MESSAGE'));
+    if (error instanceof APIError) {
+      handleSubmitError(error);
     }
+
+    console.warn(error);
   } finally {
     formSubmitting.value = false;
   }
@@ -130,7 +134,7 @@ async function save () {
   }
 
   try {
-    const provider = await DomainAPIClient.updateUserProvider(props.domain.uuid, {
+    const provider = await updateUserProvider(props.domain.uuid, {
       ...props.provider,
       domainDiscriminator: formState.domainDiscriminator
     });
@@ -138,20 +142,25 @@ async function save () {
     emit('submitted', provider);
     message.success(t('MESSAGES.UPDATE_SUCCESS'));
   } catch (error) {
-    if (axios.isAxiosError(error) && error.response?.data.errCode === 38100) {
-      unique.value = false;
-      validate();
-    } else {
-      message.error(t('ERRORS.COMMON_MESSAGE'));
+    if (error instanceof APIError) {
+      handleSubmitError(error);
     }
+
+    console.warn(error);
   } finally {
     formSubmitting.value = false;
   }
 }
 
+function handleSubmitError (error: APIError) {
+  unique.value = error.errorCode === '38100';
+  validate();
+  message.error(error.getMessage());
+}
+
 async function remove () {
   try {
-    await DomainAPIClient.deleteUserProvider(props.domain.uuid, props.provider);
+    await deleteUserProvider(props.domain.uuid, props.provider);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
     emit('deleted');

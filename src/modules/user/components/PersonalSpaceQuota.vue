@@ -119,7 +119,8 @@ import { useI18n } from 'vue-i18n';
 import { ReloadOutlined, CheckOutlined } from '@ant-design/icons-vue';
 import { getReadableSize } from '@/core/utils/unitStorage';
 import SizeInput from '@/core/components/SizeInput.vue';
-import UserAPIClient from '@/modules/user/services/UserAPIClient';
+import { getUserQuota, updateUserQuota } from '@/modules/user/services/user-api';
+import { APIError } from '@/core/types/APIError';
 
 export default defineComponent({
   name: 'PersonalSpaceQuota',
@@ -132,7 +133,7 @@ export default defineComponent({
     const store = useStore();
     const { t } = useI18n();
     const { uuid, quotaUuid } = store.getters['User/getUser'];
-    const data = await UserAPIClient.getUserQuota(uuid, quotaUuid);
+    const data = await getUserQuota(uuid, quotaUuid);
     const userQuota = reactive(data);
     const saving = ref(false);
     const formRef = ref();
@@ -162,7 +163,7 @@ export default defineComponent({
       }
 
       try {
-        await UserAPIClient.updateUserQuota(uuid, {
+        await updateUserQuota(uuid, {
           ...userQuota,
           ...quotaForm
         });
@@ -170,7 +171,11 @@ export default defineComponent({
         userQuota.quota = quotaForm.quota;
         message.success(t('MESSAGES.UPDATE_SUCCESS'));
       } catch (error) {
-        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+        if (error instanceof APIError) {
+          message.error(error.getMessage());
+        } else {
+          console.error(error);
+        }
       }
 
       saving.value = false;

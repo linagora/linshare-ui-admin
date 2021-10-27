@@ -87,11 +87,17 @@ import { defineComponent, ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
-import UserAPIClient from '@/modules/user/services/UserAPIClient';
+import {
+  listUsers,
+  listRestrictedContacts,
+  createRestrictedContact,
+  removeRestrictedContact
+} from '@/modules/user/services/user-api';
 import User from '@/modules/user/type/User';
 import RestrictedContact from '@/modules/user/type/RestrictedContact';
 import { message } from 'ant-design-vue';
 import { UserOutlined } from '@ant-design/icons-vue';
+import { APIError } from '@/core/types/APIError';
 
 export default defineComponent({
   name: 'RestrictedContacts',
@@ -111,7 +117,7 @@ export default defineComponent({
     let removedRestrictedContacts = [] as RestrictedContact[];
     let _debounce: number | undefined;
 
-    function transformDto (contact: User) {
+    function transformDto (contact: RestrictedContact) {
       return {
         uuid: contact.uuid,
         firstName: contact.firstName,
@@ -123,9 +129,9 @@ export default defineComponent({
 
     async function fetchRestrictedContacts () {
       try {
-        restrictedContacts.value = await UserAPIClient.listRestrictedContacts(id);
+        restrictedContacts.value = await listRestrictedContacts(id);
       } catch (error) {
-        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+        message.error((error as APIError).getMessage());
       }
     }
 
@@ -136,7 +142,7 @@ export default defineComponent({
           return;
         }
 
-        const { data } = await UserAPIClient.listUsers({
+        const { data } = await listUsers({
           mail: search.value,
           sortOrder: 'ASC',
           sortField: 'mail',
@@ -145,7 +151,11 @@ export default defineComponent({
 
         autoCompleteResults.value = data.filter(user => user.uuid !== id);
       } catch (error) {
-        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+        if (error instanceof APIError) {
+          message.error(error.getMessage());
+        } else {
+          console.error(error);
+        }
       }
     }
 
@@ -174,7 +184,7 @@ export default defineComponent({
       autoCompleteResults.value = [];
     }
 
-    async function onRemove (contact: User) {
+    async function onRemove (contact: RestrictedContact) {
       restrictedContacts.value = restrictedContacts.value.filter(restrictedContact => restrictedContact.uuid !== contact.uuid);
 
       if (newRestrictedContacts.find(newContact => newContact.uuid === contact.uuid)) {
@@ -191,8 +201,8 @@ export default defineComponent({
 
       try {
         saving.value = true;
-        const createRestrictedContactPromises = newRestrictedContacts.map((contact) => UserAPIClient.createRestrictedContact(id, contact));
-        const removedRestrictedContactPromises = removedRestrictedContacts.map((contact) => UserAPIClient.removeRestrictedContact(id, contact.uuid));
+        const createRestrictedContactPromises = newRestrictedContacts.map((contact) => createRestrictedContact(id, contact));
+        const removedRestrictedContactPromises = removedRestrictedContacts.map((contact) => removeRestrictedContact(id, contact.uuid));
 
         await Promise.all(createRestrictedContactPromises);
         await Promise.all(removedRestrictedContactPromises);
@@ -204,7 +214,11 @@ export default defineComponent({
 
         message.success(t('MESSAGES.UPDATE_SUCCESS'));
       } catch (error) {
-        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+        if (error instanceof APIError) {
+          message.error(error.getMessage());
+        } else {
+          console.error(error);
+        }
       }
     }
 

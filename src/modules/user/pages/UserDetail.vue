@@ -96,8 +96,9 @@ import UserProfile from '@/modules/user/components/UserProfile.vue';
 import RestrictedContacts from '@/modules/user/components/RestrictedContacts.vue';
 import PersonalSpaceQuota from '@/modules/user/components/PersonalSpaceQuota.vue';
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
-import UserAPIClient from '../services/UserAPIClient';
+import { deleteUser2FAKey } from '../services/user-api';
 import User from '../type/User';
+import { APIError } from '@/core/types/APIError';
 
 export default defineComponent({
   name: 'UserDetail',
@@ -118,7 +119,7 @@ export default defineComponent({
     try {
       await store.dispatch('User/fetchUser', id);
     } catch (error) {
-      message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+      message.error((error as APIError).getMessage());
     }
 
     async function deleteUser () {
@@ -127,7 +128,7 @@ export default defineComponent({
         message.success(t('MESSAGES.DELETE_SUCCESS'));
         router.push({ name: 'Users' });
       } catch (error) {
-        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+        message.error((error as APIError).getMessage());
       }
     }
 
@@ -141,7 +142,7 @@ export default defineComponent({
         await store.dispatch('User/updateUser', store.getters['User/getUser']);
         message.success(t('MESSAGES.UPDATE_SUCCESS'));
       } catch (error) {
-        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+        message.error((error as APIError).getMessage());
       }
     }
 
@@ -149,7 +150,7 @@ export default defineComponent({
       try {
         const user = store.getters['User/getUser'];
 
-        await UserAPIClient.remove2FAKey(user.uuid, user.secondFAUuid);
+        await deleteUser2FAKey(user.uuid, user.secondFAUuid);
         router.go(0);
       } catch (error) {
         message.error(t('2FA.KEY_REMOVAL.MESSAGE.ERROR'));

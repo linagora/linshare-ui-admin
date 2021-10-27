@@ -97,7 +97,7 @@ export default defineComponent({
   },
   setup () {
     const store = useStore();
-    const { locale, t } = useI18n();
+    const { t } = useI18n();
     const loggedUser = store.getters['Auth/getLoggedUser'];
     const secondFA = computed(() => store.getters['Auth/getSecondFA']);
     const otpConfigs = computed(() => ({
@@ -123,7 +123,6 @@ export default defineComponent({
     }
 
     return {
-      locale,
       otpConfigs,
       freeOtpUri,
       create2FAKey,

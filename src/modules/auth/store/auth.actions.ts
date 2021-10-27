@@ -1,12 +1,18 @@
 import { ActionTree } from 'vuex';
 import { AuthState } from './auth.state';
 import RootState from '@/core/store/RootState';
-import AuthAPIClient from '@/modules/auth/services/AuthAPIClient';
+import {
+  create2FAKey,
+  get2FAStatus,
+  getAuthorizedUser,
+  logOut,
+  remove2FAKey
+} from '@/modules/auth/services/auth-api';
 
 const actions: ActionTree<AuthState, RootState> = {
   async fetchLoggedUser ({ commit }, config?) {
     try {
-      const loggedUser = await AuthAPIClient.getAuthorizedUser(config);
+      const loggedUser = await getAuthorizedUser(config);
 
       commit('setLoggedUser', loggedUser);
     } catch (error) {
@@ -16,7 +22,7 @@ const actions: ActionTree<AuthState, RootState> = {
     }
   },
   async logoutUser ({ commit }) {
-    await AuthAPIClient.logOut();
+    await logOut();
 
     commit('setLoggedUser', {});
   },
@@ -28,7 +34,7 @@ const actions: ActionTree<AuthState, RootState> = {
     }
 
     try {
-      const secondFA = await AuthAPIClient.get2FAStatus(loggedUserUuid);
+      const secondFA = await get2FAStatus(loggedUserUuid);
 
       commit('setSecondFA', secondFA);
     } catch (error) {
@@ -38,7 +44,7 @@ const actions: ActionTree<AuthState, RootState> = {
     }
   },
   async createSecondFA ({ commit }) {
-    const secondFA = await AuthAPIClient.create2FAKey();
+    const secondFA = await create2FAKey();
 
     commit('setSecondFA', secondFA);
   },
@@ -50,7 +56,7 @@ const actions: ActionTree<AuthState, RootState> = {
     }
 
     try {
-      const secondFA = await AuthAPIClient.remove2FAKey(loggedUserUuid);
+      const secondFA = await remove2FAKey(loggedUserUuid);
 
       commit('setSecondFA', secondFA);
     } catch (error) {
