@@ -32,7 +32,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import router from '@/core/router';
-import User from '@/modules/user/type/User';
+import User from '@/modules/user/types/User';
 import useUser from '@/modules/user/hooks/useUser';
 
 export default defineComponent({

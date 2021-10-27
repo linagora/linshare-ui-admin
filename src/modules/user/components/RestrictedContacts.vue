@@ -93,8 +93,8 @@ import {
   createRestrictedContact,
   removeRestrictedContact
 } from '@/modules/user/services/user-api';
-import User from '@/modules/user/type/User';
-import RestrictedContact from '@/modules/user/type/RestrictedContact';
+import User from '@/modules/user/types/User';
+import RestrictedContact from '@/modules/user/types/RestrictedContact';
 import { message } from 'ant-design-vue';
 import { UserOutlined } from '@ant-design/icons-vue';
 import { APIError } from '@/core/types/APIError';

@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import { RemoteServersRoute } from '@/modules/remote-server/router';
-import { UserFilterRoutes } from '@/modules/user-filter/routes';
+import { UserFilterRoutes } from '@/modules/user-filter/router';
 
 export const DomainConfigurationRoute: RouteRecordRaw = {
   name: 'Configuration',

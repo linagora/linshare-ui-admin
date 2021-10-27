@@ -1,5 +1,5 @@
 import api from '@/api';
-import Domain from '@/modules/domain/type/Domain';
+import Domain from '@/modules/domain/types/Domain';
 import UserFilter from '../types/UserFilter';
 
 async function listUserFilters (listModel?: boolean): Promise<UserFilter[]> {

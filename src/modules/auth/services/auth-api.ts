@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import api from '@/api';
-import SecondFactorAuthentication from '../type/SecondFactorAuthentication';
-import User from '@/modules/user/type/User';
+import SecondFactorAuthentication from '../types/SecondFactorAuthentication';
+import User from '@/modules/user/types/User';
 
 async function getAuthorizedUser (config?: AxiosRequestConfig): Promise<User> {
   return await api.get('authentication/authorized', config);

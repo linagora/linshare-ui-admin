@@ -1,4 +1,4 @@
-import User from '../type/User';
+import User from '../types/User';
 
 export default function useUser (user: User) {
   let displayInfo;

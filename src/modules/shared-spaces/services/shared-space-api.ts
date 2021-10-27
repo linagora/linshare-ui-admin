@@ -1,5 +1,5 @@
 import api from '@/api';
-import SharedSpace from '@/modules/shared-spaces/type/SharedSpace';
+import SharedSpace from '@/modules/shared-spaces/types/SharedSpace';
 
 export interface ListSharedSpaceOptions {
   account?: string;

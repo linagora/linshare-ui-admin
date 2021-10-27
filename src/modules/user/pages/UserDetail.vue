@@ -97,7 +97,7 @@ import RestrictedContacts from '@/modules/user/components/RestrictedContacts.vue
 import PersonalSpaceQuota from '@/modules/user/components/PersonalSpaceQuota.vue';
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import { deleteUser2FAKey } from '../services/user-api';
-import User from '../type/User';
+import User from '../types/User';
 import { APIError } from '@/core/types/APIError';
 
 export default defineComponent({

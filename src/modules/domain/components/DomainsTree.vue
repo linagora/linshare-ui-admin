@@ -29,7 +29,7 @@
 import { useStore } from 'vuex';
 import { computed, reactive } from 'vue';
 import Status from '@/core/types/Status';
-import { EMPTY_DOMAIN } from '../type/Domain';
+import { EMPTY_DOMAIN } from '../types/Domain';
 import DomainsTreeNode from './DomainsTreeNode.vue';
 import DomainCreationFormModal, { DomainCreationFormModalProps } from './DomainCreationFormModal.vue';
 

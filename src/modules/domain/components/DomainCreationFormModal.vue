@@ -84,7 +84,7 @@ import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
 import { createDomain } from '../services/domain-api';
-import Domain, { DOMAIN_TYPE } from '../type/Domain';
+import Domain, { DOMAIN_TYPE } from '../types/Domain';
 import { APIError } from '@/core/types/APIError';
 
 export interface DomainCreationFormModalProps {

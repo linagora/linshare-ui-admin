@@ -81,7 +81,7 @@ import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
 import { Form, message } from 'ant-design-vue';
 
-import Domain from '@/modules/domain/type/Domain';
+import Domain from '@/modules/domain/types/Domain';
 import { APIError } from '@/core/types/APIError';
 
 const useForm = Form.useForm;

@@ -1,7 +1,7 @@
 import { ref, reactive } from 'vue';
 import { message } from 'ant-design-vue';
 
-import SharedSpace from '@/modules/shared-spaces/type/SharedSpace';
+import SharedSpace from '@/modules/shared-spaces/types/SharedSpace';
 import {
   getSharedSpace,
   listSharedSpaces,

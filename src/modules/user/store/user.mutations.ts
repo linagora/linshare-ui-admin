@@ -1,4 +1,4 @@
-import User from '@/modules/user/type/User';
+import User from '@/modules/user/types/User';
 import { UserState } from './user.state';
 
 export default {

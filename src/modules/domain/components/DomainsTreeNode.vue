@@ -66,8 +66,8 @@
 import { useStore } from 'vuex';
 import { defineComponent, computed, ref, PropType } from 'vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
-import { DOMAIN_TYPE } from '../type/Domain';
-import DomainTreeNode from '../type/DomainTreeNode';
+import { DOMAIN_TYPE } from '../types/Domain';
+import DomainTreeNode from '../types/DomainTreeNode';
 
 export default defineComponent({
   name: 'DomainsTreeNode',

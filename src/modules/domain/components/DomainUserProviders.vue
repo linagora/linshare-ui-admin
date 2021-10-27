@@ -94,7 +94,7 @@ import {
   LDAPUserProvider,
   OIDCUserProvider,
   EMPTY_PROVIDER
-} from '../type/UserProvider';
+} from '../types/UserProvider';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
 import RemoteServer, { RemoteServerType } from '@/modules/remote-server/types/RemoteServer';
 import UserFilter, { USER_FILTER_TYPE } from '@/modules/user-filter/types/UserFilter';

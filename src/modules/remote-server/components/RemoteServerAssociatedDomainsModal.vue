@@ -35,7 +35,7 @@
 import { defineComponent, ref, watchEffect, PropType } from 'vue';
 import { getAssociatedDomains } from '../services/remote-server-api';
 import RemoteServer from '../types/RemoteServer';
-import Domain from '@/modules/domain/type/Domain';
+import Domain from '@/modules/domain/types/Domain';
 
 export default defineComponent({
   name: 'RemoteServerLDAPModal',

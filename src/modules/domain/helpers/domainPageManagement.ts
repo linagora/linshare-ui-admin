@@ -1,6 +1,6 @@
 import { LocationAsRelativeRaw, RouteRecordName } from 'vue-router';
-import { DOMAIN_TYPE } from '@/modules/domain/type/Domain';
-import { ACCOUNT_ROLE } from '@/modules/user/type/User';
+import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 
 export interface DomainManagementPage {
   title: string;

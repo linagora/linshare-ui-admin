@@ -3,7 +3,7 @@ import { message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import { TableState } from 'ant-design-vue/es/table/interface';
 
-import User from '@/modules/user/type/User';
+import User from '@/modules/user/types/User';
 import {
   listUsers,
   ListUsersOptions,

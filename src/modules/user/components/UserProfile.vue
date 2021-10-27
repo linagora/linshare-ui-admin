@@ -135,7 +135,7 @@ import { defineComponent, computed, reactive } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import store from '@/core/store';
-import User from '../type/User';
+import User from '../types/User';
 
 export default defineComponent({
   name: 'UserProfile',

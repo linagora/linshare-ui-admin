@@ -57,8 +57,8 @@ import { reactive, ref } from 'vue';
 import { message, Form } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 
-import Domain from '../type/Domain';
-import { OIDCUserProvider } from '../type/UserProvider';
+import Domain from '../types/Domain';
+import { OIDCUserProvider } from '../types/UserProvider';
 import useNotification from '@/core/hooks/useNotification';
 import { APIError } from '@/core/types/APIError';
 

@@ -1,6 +1,6 @@
 import api from '@/api';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import Domain from '@/modules/domain/type/Domain';
+import Domain from '@/modules/domain/types/Domain';
 
 async function listRemoteServers (): Promise<RemoteServer[]> {
   return await api.get('');

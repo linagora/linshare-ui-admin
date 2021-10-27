@@ -1,11 +1,11 @@
 import { AxiosRequestConfig } from 'axios';
 import api from '@/api';
-import Domain from '@/modules/domain/type/Domain';
-import DomainTreeNode from '../type/DomainTreeNode';
+import Domain from '@/modules/domain/types/Domain';
+import DomainTreeNode from '../types/DomainTreeNode';
 import {
   LDAPUserProvider,
   OIDCUserProvider
-} from '../type/UserProvider';
+} from '../types/UserProvider';
 
 async function getDomains (config?: AxiosRequestConfig): Promise<Domain[] | DomainTreeNode[]> {
   return await api.get('domains', config);

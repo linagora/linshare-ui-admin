@@ -3,7 +3,7 @@ import { ActionTree } from 'vuex';
 import { UserState } from './user.state';
 import RootState from '@/core/store/RootState';
 import { getUser, updateUser, deleteUser } from '@/modules/user/services/user-api';
-import User from '@/modules/user/type/User';
+import User from '@/modules/user/types/User';
 
 const actions: ActionTree<UserState, RootState> = {
   async fetchUser ({ commit }, id) {

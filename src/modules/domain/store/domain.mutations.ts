@@ -1,6 +1,6 @@
 import Status from '@/core/types/Status';
-import Domain from '@/modules/domain/type/Domain';
-import DomainTreeNode from '@/modules/domain/type/DomainTreeNode';
+import Domain from '@/modules/domain/types/Domain';
+import DomainTreeNode from '@/modules/domain/types/DomainTreeNode';
 import { DomainState } from './domain.state';
 
 function updateDomainName (domain: DomainTreeNode, updated: Domain) {

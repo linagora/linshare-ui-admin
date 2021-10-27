@@ -1,8 +1,8 @@
 import { AxiosRequestConfig } from 'axios';
 import api from '@/api';
-import User from '@/modules/user/type/User';
-import UserQuota from '@/modules/user/type/UserQuota';
-import RestrictedContact from '@/modules/user/type/RestrictedContact';
+import User from '@/modules/user/types/User';
+import UserQuota from '@/modules/user/types/UserQuota';
+import RestrictedContact from '@/modules/user/types/RestrictedContact';
 
 export interface ListUsersOptions {
   domain?: string;

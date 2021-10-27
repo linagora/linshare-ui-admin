@@ -1,4 +1,4 @@
-import User from '@/modules/user/type/User';
+import User from '@/modules/user/types/User';
 
 export interface UserState {
   user: User | Record<string, never>;

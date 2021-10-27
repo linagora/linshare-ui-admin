@@ -1,5 +1,5 @@
-import User from '@/modules/user/type/User';
-import SecondFactorAuthentication from '@/modules/auth/type/SecondFactorAuthentication';
+import User from '@/modules/user/types/User';
+import SecondFactorAuthentication from '@/modules/auth/types/SecondFactorAuthentication';
 
 export interface AuthState {
   loggedUser: User | null;
