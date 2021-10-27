@@ -14,8 +14,10 @@ export default interface User {
   mail: string;
   firstName: string;
   lastName: string;
+  locked: boolean;
   canUpload: boolean;
   canCreateGuest: boolean;
+  comment: string;
   externalMailLocale: string;
   creationDate: number;
   modificationDate: number;

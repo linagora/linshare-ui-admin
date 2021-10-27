@@ -164,7 +164,7 @@ export default defineComponent({
         clearTimeout(_debounce);
       }
 
-      _debounce = setTimeout(searchUsers, 500);
+      _debounce = window.setTimeout(searchUsers, 500);
     }
 
     async function onSelect (value: string) {
