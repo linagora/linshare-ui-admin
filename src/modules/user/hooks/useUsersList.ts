@@ -28,8 +28,6 @@ const pagination = reactive({
 });
 
 export default function useUsersList () {
-  const { t } = useI18n();
-
   async function updateUsersList (options: ListUsersOptions) {
     if (loading.value) {
       return;

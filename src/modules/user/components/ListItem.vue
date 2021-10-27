@@ -29,7 +29,7 @@
               {{ $t('USERS.MANAGE_USERS.DOMAIN') }}
             </div>
             <div class="info-block__value">
-              {{ data.domain && data.domain.label }}
+              {{ data.domain && data.domain.name }}
             </div>
           </div>
           <div class="info-block">
@@ -58,7 +58,7 @@
               {{ $t('USERS.MANAGE_USERS.DOMAIN') }}
             </div>
             <div class="info-block__value">
-              {{ data.domain && data.domain.label }}
+              {{ data.domain && data.domain.name }}
             </div>
           </div>
         </a-col>

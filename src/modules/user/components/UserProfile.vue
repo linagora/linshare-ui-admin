@@ -136,6 +136,7 @@ import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import store from '@/core/store';
 import User from '../types/User';
+import { APIError } from '@/core/types/APIError';
 
 export default defineComponent({
   name: 'UserProfile',
@@ -161,7 +162,11 @@ export default defineComponent({
         });
         message.success(t('MESSAGES.UPDATE_SUCCESS'));
       } catch (error) {
-        message.error(error.message || t('ERRORS.COMMON_MESSAGE'));
+        if (error instanceof APIError) {
+          message.error(error.getMessage());
+        } else {
+          console.error(error);
+        }
       }
     }
 

@@ -12,7 +12,7 @@
         <template #title>
           <div>
             <span class="list-item__name">{{ displayInfo }}</span>
-            <span class="list-item__domain">{{ data.domain && data.domain.label }}</span>
+            <span class="list-item__domain">{{ data.domain && data.domain.name }}</span>
           </div>
         </template>
         <template #avatar>
