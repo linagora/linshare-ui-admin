@@ -51,7 +51,7 @@
           class="model-selection"
         >
           <a-form-item
-            :label="$t('USER_FILTER.LDAP.FORM.SELECT_MODEL')"
+            :label="$t('GENERAL.SELECT_MODEL')"
           >
             <a-select
               v-model:value="models.selected"

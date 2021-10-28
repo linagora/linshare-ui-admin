@@ -64,6 +64,12 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
     child: true
   },
   {
+    title: 'NAVIGATOR.LDAP_GROUP_FILTER',
+    accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
+    route: { name: 'GroupFilterLDAP' },
+    child: true
+  },
+  {
     title: 'NAVIGATOR.PARAMETERS',
     legacy: true
   },

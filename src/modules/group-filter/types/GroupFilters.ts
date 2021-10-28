@@ -15,3 +15,18 @@ export interface LDAPGroupFilter {
   memberFirstNameAttribute: string;
   memberLastNameAttribute: string;
 }
+
+export const EMPTY_LDAP_GROUP_FILTER: LDAPGroupFilter = {
+  uuid: '',
+  name: '',
+  groupMemberAttribute: '',
+  groupPrefixToRemove: '',
+  memberFirstNameAttribute: '',
+  memberLastNameAttribute: '',
+  memberMailAttribute: '',
+  groupNameAttribute: '',
+  searchAllGroupsQuery: '',
+  searchGroupQuery: '',
+  searchPageSize: 1,
+  type: 'LDAP'
+};
