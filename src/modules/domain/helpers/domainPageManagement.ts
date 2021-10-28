@@ -58,6 +58,12 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
     child: true
   },
   {
+    title: 'NAVIGATOR.GROUP_FILTERS',
+    accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
+    route: { name: 'GroupFilters' },
+    child: true
+  },
+  {
     title: 'NAVIGATOR.PARAMETERS',
     legacy: true
   },

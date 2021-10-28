@@ -12,23 +12,18 @@
     <a-col :span="24">
       <div class="page">
         <router-link :to="{ name: 'UserFilters' }">
-          <div
-            class="page__menu-item"
-          >
+          <div class="page__menu-item">
             <span>{{ $t("NAVIGATOR.USER_FILTERS") }}</span>
             <RightOutlined />
           </div>
         </router-link>
-        <div
-          class="page__menu-item"
-          @click="redirect('NAVIGATOR.DRIVE_FILTERS')"
-        >
-          <span>{{ $t("NAVIGATOR.GROUP_FILTERS") }}</span>
-          <RightOutlined />
-        </div>
-        <div
-          class="page__menu-item"
-        >
+        <router-link :to="{ name: 'GroupFilters' }">
+          <div class="page__menu-item">
+            <span>{{ $t("NAVIGATOR.GROUP_FILTERS") }}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
+        <div class="page__menu-item">
           <span>{{ $t("NAVIGATOR.DRIVE_FILTERS") }}</span>
         </div>
       </div>

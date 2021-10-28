@@ -389,5 +389,8 @@
       "ASSOCIATED_DOMAIN_ID_HELPER": "By creating OIDC user provider for {name}, you allow LinShare to create users for this domain when an user authenticates with OIDC",
       "USED_DOMAIN_ID": "This domain identifier has already been used in another domain"
     }
+  },
+  "GROUP_FILTER": {
+    "EMPTY_TEXT": "Il n'y a pas de filtre de groupe"
   }
 }
