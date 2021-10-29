@@ -56,6 +56,9 @@
               <a-menu-item @click="duplicate(record)">
                 {{ $t('GENERAL.DUPLICATE') }}
               </a-menu-item>
+              <a-menu-item @click="show(record.uuid)">
+                {{ $t('GENERAL.VIEW_ASSOCIATED_DOMAINS') }}
+              </a-menu-item>
               <a-menu-item @click="confirmDelete(record)">
                 <span class="danger">{{ $t('GENERAL.DELETE') }}</span>
               </a-menu-item>
@@ -65,6 +68,12 @@
       </template>
     </a-table>
   </div>
+
+  <DomainAssociatedListModal
+    :state="modal"
+    :empty-text="$t('GROUP_FILTER.NO_ASSOCIATED_DOMAIN')"
+    @ok="hide"
+  />
 </template>
 
 <script lang='ts' setup>
@@ -79,6 +88,7 @@ import {
   PlusCircleOutlined
 } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
+import DomainAssociatedListModal from '@/modules/domain/components/DomainAssociatedListModal.vue';
 
 import { LDAPGroupFilter } from '../types/GroupFilters';
 import { deleteGroupFilter, getGroupFilterAssociatedDomains, listGroupFilters } from '../services/group-filter-api';
@@ -86,12 +96,12 @@ import { deleteGroupFilter, getGroupFilterAssociatedDomains, listGroupFilters } 
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import { APIError } from '@/core/types/APIError';
 import useNotification from '@/core/hooks/useNotification';
+import useAssociatedDomainsModal from '@/modules/domain/hooks/useAssociatedDomainsModal';
 
 interface GroupFiltersListState {
   loading: boolean;
   filterText: string;
   list: LDAPGroupFilter[];
-  target: LDAPGroupFilter | Record<string, never>;
 }
 
 const router = useRouter();
@@ -101,9 +111,10 @@ const { infoModal, confirmModal } = useNotification();
 const state = reactive<GroupFiltersListState>({
   filterText: '',
   loading: true,
-  list: [],
-  target: {}
+  list: []
 });
+const { show, hide, modal } = useAssociatedDomainsModal(getGroupFilterAssociatedDomains);
+
 const filteredList = computed(() =>
   state.list.filter(server => server.name.toLowerCase().includes(state.filterText.toLowerCase()))
 );
