@@ -24,19 +24,19 @@ async function createDomain (domain: Omit<Domain, 'uuid'>, dedicatedDomainPolicy
 }
 
 async function getUserProviders (uuid: string): Promise<LDAPUserProvider[]> {
-  return await api.get(`domains/'${uuid}/user_providers`);
+  return await api.get(`domains/${uuid}/user_providers`);
 }
 
 async function createUserProvider (uuid: string, payload: Partial<LDAPUserProvider | OIDCUserProvider>): Promise<LDAPUserProvider | OIDCUserProvider> {
-  return await api.post(`domains/'${uuid}/user_providers`, payload);
+  return await api.post(`domains/${uuid}/user_providers`, payload);
 }
 
 async function updateUserProvider (uuid: string, provider: LDAPUserProvider | OIDCUserProvider): Promise<LDAPUserProvider | OIDCUserProvider> {
-  return await api.put(`domains/'${uuid}/user_providers/${provider.uuid}`, provider);
+  return await api.put(`domains/${uuid}/user_providers/${provider.uuid}`, provider);
 }
 
 async function deleteUserProvider (uuid: string, provider: LDAPUserProvider | OIDCUserProvider): Promise<LDAPUserProvider | OIDCUserProvider> {
-  return await api.delete(`domains/'${uuid}/user_providers/${provider.uuid}`);
+  return await api.delete(`domains/${uuid}/user_providers/${provider.uuid}`);
 }
 
 export {
