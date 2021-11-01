@@ -63,6 +63,16 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
             label: 'NAVIGATOR.USER_PROVIDERS',
             requiresAuth: true
           }
+        },
+        {
+          name: 'DomainGroupProviders',
+          path: 'group',
+          component: () => import('../components/DomainGroupProviders.vue'),
+          meta: {
+            parentRoute: 'DomainProviders',
+            label: 'NAVIGATOR.GROUP_PROVIDERS',
+            requiresAuth: true
+          }
         }
       ]
     },

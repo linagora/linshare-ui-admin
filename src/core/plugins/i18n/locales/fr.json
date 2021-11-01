@@ -29,7 +29,8 @@
     "YES": "Oui",
     "NO": "Non",
     "FIELD_REQUIRED": "Ce champ ne peut pas être vide",
-    "SELECT_MODEL": "Sélectionnez un modèle prédéfini"
+    "SELECT_MODEL": "Sélectionnez un modèle prédéfini",
+    "TRY_AGAIN": "Réessayez"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -370,7 +371,6 @@
     "ERROR_MESSAGE": "Impossible de récupérer les données du fournisseur d'utilisateur de ce domaine",
     "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce fournisseur d'utilisateurs, cette procédure est irréversible. Voulez-vous poursuivre?",
     "CREATE": "Créer un nouveau fournisseur",
-    "TRY_AGAIN": "Réessayez",
     "TYPES": {
       "LDAP": "Fournisseur LDAP",
       "TWAKE": "Fournisseur Twake",
@@ -414,6 +414,17 @@
         "WORKGROUP_NAME": "Nom du groupe de travail",
         "WORKGROUP_MEMBER": "Membre du groupe de travail"
       }
+    }
+  },
+  "GROUP_PROVIDER": {
+    "EMPTY_MESSAGE": "Aucun fournisseur de groupe n'a été créé pour ce domaine",
+    "ERROR_MESSAGE": "Impossible de récupérer les données du fournisseur de groupe de ce domaine",
+    "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce fournisseur de groupe, cette procédure est irréversible. Voulez-vous continuer ?",
+    "CREATE": "Créer un nouveau fournisseur",
+    "LDAP": {
+      "BASE_DN": "Base DN",
+      "BASE_DN_HELPER": "LinShare commencera à rechercher des groupes de travail à partir de cette position dans votre LDAP",
+      "SEARCH_IN_OTHER_DOMAINS": "Rechercher dans d'autres domaines"
     }
   }
 }

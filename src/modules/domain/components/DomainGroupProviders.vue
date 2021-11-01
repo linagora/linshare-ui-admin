@@ -9,28 +9,15 @@
   <div v-if="state.status === 'loaded'">
     <a-result
       v-if="!state.provider.uuid && !state.provider.type"
-      :title="$t('USER_PROVIDER.EMPTY_MESSAGE')"
+      :title="$t('GROUP_PROVIDER.EMPTY_MESSAGE')"
     >
       <template #extra>
-        <a-dropdown :trigger="['click']">
-          <a-button type="primary">
-            {{ $t('USER_PROVIDER.CREATE') }}
-          </a-button>
-
-          <template #overlay>
-            <a-menu>
-              <a-menu-item @click="state.provider.type = 'LDAP_PROVIDER'">
-                {{ $t('USER_PROVIDER.TYPES.LDAP') }}
-              </a-menu-item>
-              <a-menu-item @click="state.provider.type = 'OIDC_PROVIDER'">
-                {{ $t('USER_PROVIDER.TYPES.OIDC') }}
-              </a-menu-item>
-              <a-menu-item disabled>
-                {{ $t('USER_PROVIDER.TYPES.TWAKE') }}
-              </a-menu-item>
-            </a-menu>
-          </template>
-        </a-dropdown>
+        <a-button
+          type="primary"
+          @click="state.provider.type = 'LDAP_PROVIDER'"
+        >
+          {{ $t('GROUP_PROVIDER.CREATE') }}
+        </a-button>
       </template>
     </a-result>
 
@@ -39,20 +26,11 @@
         :xl="{ span: 12, offset: 6 }"
         :sm="{ span: 24 }"
       >
-        <DomainUserProviderLDAPForm
+        <DomainGroupProviderLDAPForm
           v-if="state.provider.type === 'LDAP_PROVIDER'"
           :provider="state.provider"
           :servers-list="state.ldapServers"
-          :filters-list="state.userFilters"
-          :domain="currentDomain"
-          @cancel="() => setProvider(EMPTY_PROVIDER)"
-          @deleted="() => setProvider(EMPTY_PROVIDER)"
-          @submitted="provider => setProvider(provider)"
-        />
-
-        <DomainUserProviderOIDCForm
-          v-if="state.provider.type === 'OIDC_PROVIDER'"
-          :provider="state.provider"
+          :filters-list="state.groupFilters"
           :domain="currentDomain"
           @cancel="() => setProvider(EMPTY_PROVIDER)"
           @deleted="() => setProvider(EMPTY_PROVIDER)"
@@ -65,7 +43,7 @@
   <div v-if="state.status === 'error'">
     <a-result
       status="error"
-      :title="$t('USER_PROVIDER.ERROR_MESSAGE')"
+      :title="$t('GROUP_PROVIDER.ERROR_MESSAGE')"
     >
       <template #extra>
         <a-button
@@ -87,24 +65,19 @@ import {
   watchEffect
 } from 'vue';
 import { useStore } from 'vuex';
-import DomainUserProviderLDAPForm from './DomainUserProviderLDAPForm.vue';
-import DomainUserProviderOIDCForm from './DomainUserProviderOIDCForm.vue';
-import { getUserProviders } from '../services/domain-api';
-import {
-  LDAPUserProvider,
-  OIDCUserProvider,
-  EMPTY_PROVIDER
-} from '../types/UserProvider';
+import DomainGroupProviderLDAPForm from './DomainGroupProviderLDAPForm.vue';
+import { getGroupProviders } from '../services/domain-api';
+import { LDAPGroupProvider, EMPTY_PROVIDER } from '../types/GroupProvider';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
 import RemoteServer, { RemoteServerType } from '@/modules/remote-server/types/RemoteServer';
-import UserFilter, { USER_FILTER_TYPE } from '@/modules/user-filter/types/UserFilter';
-import { listUserFilters } from '@/modules/user-filter/services/user-filter-api';
+import { LDAPGroupFilter } from '@/modules/group-filter/types/GroupFilters';
+import { listGroupFilters } from '@/modules/group-filter/services/group-filter-api';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
-  provider: LDAPUserProvider | OIDCUserProvider;
+  provider: LDAPGroupProvider;
   ldapServers: RemoteServer[];
-  userFilters: UserFilter[];
+  groupFilters: LDAPGroupFilter[];
 }
 
 const store = useStore();
@@ -112,10 +85,10 @@ const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
   ldapServers: [],
-  userFilters: []
+  groupFilters: []
 });
 
-function setProvider (provider: LDAPUserProvider) {
+function setProvider (provider: LDAPGroupProvider) {
   state.provider = { ...provider };
 }
 
@@ -125,14 +98,14 @@ async function prepareLDAPServers () {
   state.ldapServers = servers.filter(server => server.serverType === RemoteServerType.LDAP);
 }
 
-async function prepareUserFilters () {
-  const filters = await listUserFilters();
+async function prepareGroupFilters () {
+  const filters = await listGroupFilters();
 
-  state.userFilters = filters.filter(filter => filter.type === USER_FILTER_TYPE.LDAP);
+  state.groupFilters = filters.filter(filter => filter.type === 'LDAP');
 }
 
 async function prepareUserProvider () {
-  const providers = await getUserProviders(currentDomain.value.uuid);
+  const providers = await getGroupProviders(currentDomain.value.uuid);
 
   state.provider = providers[0] || { ...EMPTY_PROVIDER };
 }
@@ -142,7 +115,7 @@ async function prepareData () {
 
   try {
     await prepareLDAPServers();
-    await prepareUserFilters();
+    await prepareGroupFilters();
 
     state.status = 'loaded';
   } catch (error) {

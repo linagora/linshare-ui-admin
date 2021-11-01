@@ -29,7 +29,8 @@
     "YES": "Có",
     "NO": "Không",
     "FIELD_REQUIRED": "Trường này không được bỏ trống",
-    "SELECT_MODEL": "Chọn mẫu có sẵn"
+    "SELECT_MODEL": "Chọn mẫu có sẵn",
+    "TRY_AGAIN": "Thử lại"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -370,7 +371,6 @@
     "ERROR_MESSAGE": "Không tìm nạp được dữ liệu nhà cung cấp người dùng của miền này",
     "DELETE_CONFIRM": "Bạn sắp xóa nhà cung cấp người dùng này, thủ tục này là không thể đảo ngược. Bạn có muốn tiếp tục?",
     "CREATE": "Tạo nhà cung cấp mới",
-    "TRY_AGAIN": "Thử lại",
     "TYPES": {
       "LDAP": "Nhà cung cấp LDAP",
       "TWAKE": "Nhà cung cấp Twake",
@@ -414,6 +414,17 @@
         "WORKGROUP_NAME": "Tên nhóm làm việc",
         "WORKGROUP_MEMBER": "Thành viên nhóm làm việc"
       }
+    }
+  },
+  "GROUP_PROVIDER": {
+    "EMPTY_MESSAGE": "Không có nhà cung cấp nhóm nào được tạo cho miền này",
+    "ERROR_MESSAGE": "Không tìm nạp được dữ liệu nhà cung cấp nhóm của miền này",
+    "DELETE_CONFIRM": "Bạn sắp xóa nhà cung cấp nhóm này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục không?",
+    "CREATE": "Tạo nhà cung cấp mới",
+    "LDAP": {
+      "BASE_DN": "Dn cơ sở",
+      "BASE_DN_HELPER": "LinShare sẽ bắt đầu tìm kiếm các nhóm làm việc từ vị trí này trong LDAP của bạn",
+      "SEARCH_IN_OTHER_DOMAINS": "Tìm kiếm trong các miền khác"
     }
   }
 }

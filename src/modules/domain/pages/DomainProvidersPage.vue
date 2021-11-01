@@ -3,9 +3,6 @@
     :title="$t(currentRoute.meta.label as string)"
     :breadcrumbs="breadcrumbs"
   />
-
-  <!-- <span>{{ currentRoute.meta }}{{ isCurrentPageAccessible }}</span> -->
-
   <DomainManagementWarning v-if="!isCurrentPageAccessible" />
 
   <router-view v-else />

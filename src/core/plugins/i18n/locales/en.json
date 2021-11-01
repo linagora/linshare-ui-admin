@@ -29,7 +29,8 @@
     "YES": "Yes",
     "NO": "No",
     "FIELD_REQUIRED": "This field cannot be blank",
-    "SELECT_MODEL": "Select a predefined model"
+    "SELECT_MODEL": "Select a predefined model",
+    "TRY_AGAIN":"Try again"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -375,7 +376,6 @@
     "ERROR_MESSAGE": "Failed to fetch user provider data of this domain",
     "DELETE_CONFIRM": "You are about to delete this user provider, this procedure is irreversible. Do you want to proceed?",
     "CREATE": "Create new provider",
-    "TRY_AGAIN": "Try again",
     "TYPES": {
       "LDAP": "LDAP Provider",
       "TWAKE": "Twake Provider",
@@ -419,6 +419,17 @@
         "WORKGROUP_NAME": "Workgroup name",
         "WORKGROUP_MEMBER": "Workgroup member"
       }
+    }
+  },
+  "GROUP_PROVIDER": {
+    "EMPTY_MESSAGE": "There is no group provider created for this domain",
+    "ERROR_MESSAGE": "Failed to fetch group provider data of this domain",
+    "DELETE_CONFIRM": "You are about to delete this group provider, this procedure is irreversible. Do you want to proceed?",
+    "CREATE": "Create new provider",
+    "LDAP": {
+      "BASE_DN": "Base Dn",
+      "BASE_DN_HELPER": "LinShare will start looking for workgroups from this position in your LDAP",
+      "SEARCH_IN_OTHER_DOMAINS": "Search in other domains"
     }
   }
 }

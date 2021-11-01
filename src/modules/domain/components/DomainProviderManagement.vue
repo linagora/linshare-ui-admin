@@ -8,13 +8,13 @@
             <RightOutlined />
           </div>
         </router-link>
-        <div
-          class="page__menu-item"
-          @click="redirect('NAVIGATOR.GROUP_PROVIDERS')"
-        >
-          <span>{{ $t("NAVIGATOR.GROUP_PROVIDERS") }}</span>
-          <RightOutlined />
-        </div>
+        <router-link :to="{ name: 'DomainGroupProviders' }">
+          <div class="page__menu-item">
+            <span>{{ $t("NAVIGATOR.GROUP_PROVIDERS") }}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
+
         <div
           class="page__menu-item"
           @click="redirect('NAVIGATOR.DRIVE_PROVIDERS')"
