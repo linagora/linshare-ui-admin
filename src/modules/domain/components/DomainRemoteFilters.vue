@@ -23,9 +23,12 @@
             <RightOutlined />
           </div>
         </router-link>
-        <div class="page__menu-item">
-          <span>{{ $t("NAVIGATOR.DRIVE_FILTERS") }}</span>
-        </div>
+        <router-link :to="{ name: 'DriveFilters' }">
+          <div class="page__menu-item">
+            <span>{{ $t("NAVIGATOR.DRIVE_FILTERS") }}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
       </div>
     </a-col>
   </a-row>
@@ -35,8 +38,6 @@
 import PageTitle from '@/core/components/PageTitle.vue';
 import { RightOutlined } from '@ant-design/icons-vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 
-const { redirect } = useLegacyFeatures();
 const { breadcrumbs } = useBreadcrumbs();
 </script>

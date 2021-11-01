@@ -101,7 +101,8 @@
     "USER_PROVIDERS": "Fournisseurs d'utilisateurs",
     "GROUP_PROVIDERS": "Fournisseurs de groupes",
     "DRIVE_PROVIDERS": "Fournisseurs de Drives",
-    "LDAP_GROUP_FILTER": "Filtre de groupe LDAP"
+    "LDAP_GROUP_FILTER": "Filtre de groupe LDAP",
+    "LDAP_DRIVE_FILTER": "Filtre de drive LDAP"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",
@@ -185,7 +186,8 @@
       "1002": "l'activation de l'authentification double facteur est requise",
       "1003": "le code OTP est invalide ou expiré",
       "1004": "Votre compte a été verouillé en raison de nombreuses tentatives infructueuses de connexion"
-    }
+    },
+    "55000": "Filtre de groupe introuvable"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "Authentification double facteur",
@@ -425,6 +427,36 @@
       "BASE_DN": "Base DN",
       "BASE_DN_HELPER": "LinShare commencera à rechercher des groupes de travail à partir de cette position dans votre LDAP",
       "SEARCH_IN_OTHER_DOMAINS": "Rechercher dans d'autres domaines"
+    }
+  },
+  "DRIVE_FILTER": {
+    "EMPTY_TEXT": "Il n'y a pas de filtre de lecteur",
+    "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce filtre de lecteur, cette procédure est irréversible. Voulez-vous continuer ?",
+    "DELETE_ABORT": "Ce filtre est associé à au moins un fournisseur de lecteur. Vous ne pouvez pas le supprimer.",
+    "NO_ASSOCIATED_DOMAIN": "Aucun fournisseur de lecteur n'utilise ce filtre",
+    "LDAP": {
+      "PAGE_HELPER_P1":"LinShare prend en charge la synchronisation automatique entre les lecteurs LinShare et les lecteurs LDAP. Les lecteurs et les membres de lecteur sont donc créés et synchronisés avec leur homologue LDAP. Par défaut, les membres ont le rôle de lecteur.",
+      "PAGE_HELPER_P2": "LinShare nécessite les requêtes ci-dessous pour se synchroniser :",
+      "PAGE_HELPER_P3": "Requête LQL (LDAP Query Language) pour rechercher tous les lecteurs",
+      "PAGE_HELPER_P4": "Requête LQL pour rechercher un lecteur",
+      "PAGE_SUBTITLE_CREATE": "Créer un nouveau filtre de lecteur LDAP",
+      "PAGE_SUBTITLE_EDIT": "Modifier le filtre de lecteur LDAP",
+      "FORM": {
+        "ATTRIBUTES": "Attributs",
+        "DRIVE_SEARCH": "Rechercher Drive",
+        "DRIVE_SEARCH_HELPER": "Requêtes et paramètres LDAP pour rechercher tous les lecteurs ou un seul lecteur",
+        "QUERY_FOR_ALL": "Requête pour tous les lecteurs",
+        "QUERY_FOR_ONE": "Requête pour un lecteur",
+        "PREFIX": "Préfixe à supprimer",
+        "PREFIX_HELPER": "Le texte du préfixe à supprimer du nom du lecteur",
+        "SEARCH_PAGE_SIZE": "Taille de la page de recherche",
+        "SEARCH_PAGE_SIZE_ERROR": "La taille de la page doit être d'au moins 1",
+        "MEMBER_EMAIL": "E-mail du membre",
+        "MEMBER_FIRSTNAME": "Prénom du membre",
+        "MEMBER_LASTNAME": "Nom du membre",
+        "DRIVE_NAME": "Nom du lecteur",
+        "DRIVE_MEMBER": "Membre Drive"
+      }
     }
   }
 }

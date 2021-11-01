@@ -103,7 +103,8 @@
     "USER_PROVIDERS": "User providers",
     "GROUP_PROVIDERS": "Group providers",
     "DRIVE_PROVIDERS": "Drive providers",
-    "LDAP_GROUP_FILTER": "LDAP group filter"
+    "LDAP_GROUP_FILTER": "LDAP group filter",
+    "LDAP_DRIVE_FILTER": "LDAP drive filter"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",
@@ -188,7 +189,8 @@
       "1002": "Second factor authentication required",
       "1003": "OTP is wrong or expired",
       "1004": "Your account has been locked due to failed login attempts"
-    }
+    },
+    "55000": "Group filter not found"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "2nd Factor Authentication",
@@ -430,6 +432,36 @@
       "BASE_DN": "Base Dn",
       "BASE_DN_HELPER": "LinShare will start looking for workgroups from this position in your LDAP",
       "SEARCH_IN_OTHER_DOMAINS": "Search in other domains"
+    }
+  },
+  "DRIVE_FILTER": {
+    "EMPTY_TEXT": "There is no drive filter",
+    "DELETE_CONFIRM": "You are about to delete this drive filter, this procedure is irreversible. Do you want to proceed?",
+    "DELETE_ABORT": "This filter is associated with at least one drive provider. You cannot delete.",
+    "NO_ASSOCIATED_DOMAIN": "There is no drive provider using this filter",
+    "LDAP": {
+      "PAGE_HELPER_P1":"LinShare support automatical synchronization between LinShare drives and LDAP drives. Drives and drive members are therefore created and synchronized with their LDAP counterpart. By default, members are given reader role.",
+      "PAGE_HELPER_P2": "LinShare requires the queries below to synchronize:",
+      "PAGE_HELPER_P3": "LQL query (LDAP Query Language) to search for all drives",
+      "PAGE_HELPER_P4": "LQL query to search for a drive",
+      "PAGE_SUBTITLE_CREATE": "Create new LDAP drive filter",
+      "PAGE_SUBTITLE_EDIT": "Edit LDAP drive filter",
+      "FORM": {
+        "ATTRIBUTES": "Attributes",
+        "DRIVE_SEARCH": "Drive search",
+        "DRIVE_SEARCH_HELPER": "LDAP queries and parameters to search for all drives or a single drive",
+        "QUERY_FOR_ALL": "Query for all drives",
+        "QUERY_FOR_ONE": "Query for a drive",
+        "PREFIX": "Prefix to be removed",
+        "PREFIX_HELPER": "The prefix text to be stripped form drive name",
+        "SEARCH_PAGE_SIZE": "Search page size",
+        "SEARCH_PAGE_SIZE_ERROR": "Page size must be at least 1",
+        "MEMBER_EMAIL": "Member email",
+        "MEMBER_FIRSTNAME": "Member first name",
+        "MEMBER_LASTNAME": "Member last name",
+        "DRIVE_NAME": "Drive name",
+        "DRIVE_MEMBER": "Drive member"
+      }
     }
   }
 }

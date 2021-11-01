@@ -97,11 +97,12 @@
     "USER_FILTERS": "Bộ lọc người dùng",
     "GROUP_FILTERS": "Bộ lọc nhóm",
     "DRIVE_FILTERS": "Bộ lọc Drive",
-    "LDAP_USER_FILTER": "Bộ lọc người dùng qua LDAP",
+    "LDAP_USER_FILTER": "Bộ lọc người dùng trên LDAP",
     "USER_PROVIDERS": "Nguồn cung cấp người dùng",
     "GROUP_PROVIDERS": "Nguồn cung cấp nhóm",
     "DRIVE_PROVIDERS": "Nguồn cung cấp Drive",
-    "LDAP_GROUP_FILTER": "Bộ lọc nhóm LDAP"
+    "LDAP_GROUP_FILTER": "Bộ lọc nhóm trên LDAP",
+    "LDAP_DRIVE_FILTER": "Bộ lọc ổ trên LDAP"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -185,7 +186,8 @@
      "1002": "Yếu tố xác thực thứ hai bắt buộc",
      "1003": "Mã xác thực không đúng hoặc đã hết hạn",
      "1004": "Tài khoản của bạn đã bị khóa vì đăng nhập thất bại"
-    }
+    },
+    "55000": "Bộ lọc nhóm không được tìm thấy"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "Đăng nhập xác thực hai bước",
@@ -425,6 +427,36 @@
       "BASE_DN": "Dn cơ sở",
       "BASE_DN_HELPER": "LinShare sẽ bắt đầu tìm kiếm các nhóm làm việc từ vị trí này trong LDAP của bạn",
       "SEARCH_IN_OTHER_DOMAINS": "Tìm kiếm trong các miền khác"
+    }
+  },
+  "DRIVE_FILTER": {
+    "EMPTY_TEXT": "Không có bộ lọc ổ đĩa",
+    "DELETE_CONFIRM": "Bạn sắp xóa bộ lọc ổ đĩa này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục không?",
+    "DELETE_ABORT": "Bộ lọc này được liên kết với ít nhất một nhà cung cấp ổ đĩa. Bạn không thể xóa.",
+    "NO_ASSOCIATED_DOMAIN": "Không có nhà cung cấp ổ đĩa nào sử dụng bộ lọc này",
+    "LDAP": {
+      "PAGE_HELPER_P1": "LinShare hỗ trợ đồng bộ hóa tự động giữa các ổ LinShare và ổ LDAP. Do đó, các ổ và thành viên ổ được tạo và đồng bộ hóa với đối tác LDAP của chúng. Theo mặc định, các thành viên được cấp vai trò người đọc.",
+      "PAGE_HELPER_P2": "LinShare yêu cầu các truy vấn bên dưới để đồng bộ hóa:",
+      "PAGE_HELPER_P3": "LQL (Ngôn ngữ truy vấn LDAP) để tìm kiếm tất cả các ổ đĩa",
+      "PAGE_HELPER_P4": "LQL để tìm kiếm ổ đĩa",
+      "PAGE_SUBTITLE_CREATE": "Tạo bộ lọc ổ mới",
+      "PAGE_SUBTITLE_EDIT": "Chỉnh sửa bộ lọc ổ",
+      "FORM": {
+        "ATTRIBUTES": "Thuộc tính",
+        "DRIVE_SEARCH": "Thúc đẩy tìm kiếm",
+        "DRIVE_SEARCH_HELPER": "Các tham số và truy vấn LDAP để tìm kiếm tất cả các ổ đĩa hoặc một ổ đĩa",
+        "QUERY_FOR_ALL": "Truy vấn cho tất cả các ổ đĩa",
+        "QUERY_FOR_ONE": "Truy vấn ổ đĩa",
+        "PREFIX": "Tiền tố cần được xóa",
+        "PREFIX_HELPER": "Văn bản tiền tố được loại bỏ tên ổ đĩa",
+        "SEARCH_PAGE_SIZE": "Kích thước trang tìm kiếm",
+        "SEARCH_PAGE_SIZE_ERROR": "Kích thước trang ít nhất phải là 1",
+        "MEMBER_EMAIL": "Email thành viên",
+        "MEMBER_FIRSTNAME": "Tên thành viên",
+        "MEMBER_LASTNAME": "Họ của thành viên",
+        "DRIVE_NAME": "Tên ổ",
+        "DRIVE_MEMBER": "Thành viên của Drive"
+      }
     }
   }
 }
