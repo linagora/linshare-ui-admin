@@ -8,6 +8,7 @@
             <RightOutlined />
           </div>
         </router-link>
+
         <router-link :to="{ name: 'DomainGroupProviders' }">
           <div class="page__menu-item">
             <span>{{ $t("NAVIGATOR.GROUP_PROVIDERS") }}</span>
@@ -15,13 +16,12 @@
           </div>
         </router-link>
 
-        <div
-          class="page__menu-item"
-          @click="redirect('NAVIGATOR.DRIVE_PROVIDERS')"
-        >
-          <span>{{ $t("NAVIGATOR.DRIVE_PROVIDERS") }}</span>
-          <RightOutlined />
-        </div>
+        <router-link :to="{ name: 'DomainDriveProviders' }">
+          <div class="page__menu-item">
+            <span>{{ $t("NAVIGATOR.DRIVE_PROVIDERS") }}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
       </div>
     </a-col>
   </a-row>
@@ -29,7 +29,4 @@
 
 <script lang='ts' setup>
 import { RightOutlined } from '@ant-design/icons-vue';
-import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
-
-const { redirect } = useLegacyFeatures();
 </script>

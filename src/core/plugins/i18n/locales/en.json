@@ -463,5 +463,16 @@
         "DRIVE_MEMBER": "Drive member"
       }
     }
+  },
+  "DRIVE_PROVIDER": {
+    "EMPTY_MESSAGE": "There is no drive provider created for this domain",
+    "ERROR_MESSAGE": "Failed to fetch drive provider data of this domain",
+    "DELETE_CONFIRM": "You are about to delete this drive provider, this procedure is irreversible. Do you want to proceed?",
+    "CREATE": "Create new provider",
+    "LDAP": {
+      "BASE_DN": "Base Dn",
+      "BASE_DN_HELPER": "LinShare will start looking for drives from this position in your LDAP",
+      "SEARCH_IN_OTHER_DOMAINS": "Search in other domains"
+    }
   }
 }

@@ -7,6 +7,7 @@ import {
   OIDCUserProvider
 } from '../types/UserProvider';
 import { LDAPGroupProvider } from '../types/GroupProvider';
+import { LDAPDriveProvider } from '../types/DriveProvider';
 
 async function getDomains (config?: AxiosRequestConfig): Promise<Domain[] | DomainTreeNode[]> {
   return await api.get('domains', config);
@@ -52,21 +53,40 @@ async function updateGroupProvider (domainUuid: string, provider: LDAPGroupProvi
   return await api.put(`domains/${domainUuid}/group_providers/${provider.uuid}`, provider);
 }
 
-async function deletGroupProvider (domainUuid: string, provider: LDAPGroupProvider) {
+async function deleteGroupProvider (domainUuid: string, provider: LDAPGroupProvider) {
   return await api.delete(`domains/${domainUuid}/group_providers/${provider.uuid}`);
 }
 
+async function getDriveProviders (domainUuid: string): Promise<LDAPDriveProvider[]> {
+  return await api.get(`domains/${domainUuid}/drive_providers`);
+}
+
+async function createDriveProvider (domainUuid: string, provider: LDAPDriveProvider): Promise<LDAPDriveProvider> {
+  return await api.post(`domains/${domainUuid}/drive_providers`, provider);
+}
+
+async function updateDriveProvider (domainUuid: string, provider: LDAPDriveProvider): Promise<LDAPDriveProvider> {
+  return await api.put(`domains/${domainUuid}/drive_providers/${provider.uuid}`, provider);
+}
+
+async function deleteDriveProvider (domainUuid: string, provider: LDAPDriveProvider) {
+  return await api.delete(`domains/${domainUuid}/drive_providers/${provider.uuid}`);
+}
 export {
   createDomain,
+  createDriveProvider,
   createGroupProvider,
   createUserProvider,
+  deleteDriveProvider,
   deleteUserProvider,
-  deletGroupProvider,
+  deleteGroupProvider,
   getDomain,
   getDomains,
+  getDriveProviders,
   getGroupProviders,
   getUserProviders,
   updateDomain,
+  updateDriveProvider,
   updateGroupProvider,
   updateUserProvider
 };

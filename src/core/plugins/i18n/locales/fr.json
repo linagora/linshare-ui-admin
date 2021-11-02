@@ -394,7 +394,7 @@
     "DELETE_ABORT": "Ce filtre est associé à au moins un fournisseur de groupe. Vous ne pouvez pas le supprimer.",
     "NO_ASSOCIATED_DOMAIN": "Aucun domaine n'utilise ce filtre de groupe",
     "LDAP": {
-      "PAGE_HELPER_P1":"LinShare prend en charge la synchronisation automatique entre les groupes de travail LinShare et les groupes LDAP. Les groupes de travail et les membres du groupe de travail sont donc créés et synchronisés avec leur homologue LDAP. Par défaut, les membres ont le rôle de lecteur.",
+      "PAGE_HELPER_P1":"LinShare prend en charge la synchronisation automatique entre les groupes de travail LinShare et les groupes LDAP. Les groupes de travail et les membres du groupe de travail sont donc créés et synchronisés avec leur homologue LDAP. Par défaut, les membres ont le rôle de drive.",
       "PAGE_HELPER_P2": "LinShare nécessite les requêtes ci-dessous pour se synchroniser :",
       "PAGE_HELPER_P3": "Requête LQL (LDAP Query Language) pour rechercher tous les groupes de travail",
       "PAGE_HELPER_P4": "Requête LQL pour rechercher un groupe de travail",
@@ -430,33 +430,44 @@
     }
   },
   "DRIVE_FILTER": {
-    "EMPTY_TEXT": "Il n'y a pas de filtre de lecteur",
-    "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce filtre de lecteur, cette procédure est irréversible. Voulez-vous continuer ?",
-    "DELETE_ABORT": "Ce filtre est associé à au moins un fournisseur de lecteur. Vous ne pouvez pas le supprimer.",
-    "NO_ASSOCIATED_DOMAIN": "Aucun fournisseur de lecteur n'utilise ce filtre",
+    "EMPTY_TEXT": "Il n'y a pas de filtre de drive",
+    "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce filtre de drive, cette procédure est irréversible. Voulez-vous continuer ?",
+    "DELETE_ABORT": "Ce filtre est associé à au moins un fournisseur de drive. Vous ne pouvez pas le supprimer.",
+    "NO_ASSOCIATED_DOMAIN": "Aucun fournisseur de drive n'utilise ce filtre",
     "LDAP": {
-      "PAGE_HELPER_P1":"LinShare prend en charge la synchronisation automatique entre les lecteurs LinShare et les lecteurs LDAP. Les lecteurs et les membres de lecteur sont donc créés et synchronisés avec leur homologue LDAP. Par défaut, les membres ont le rôle de lecteur.",
+      "PAGE_HELPER_P1":"LinShare prend en charge la synchronisation automatique entre les drives LinShare et les drives LDAP. Les drives et les membres de drive sont donc créés et synchronisés avec leur homologue LDAP. Par défaut, les membres ont le rôle de drive.",
       "PAGE_HELPER_P2": "LinShare nécessite les requêtes ci-dessous pour se synchroniser :",
-      "PAGE_HELPER_P3": "Requête LQL (LDAP Query Language) pour rechercher tous les lecteurs",
-      "PAGE_HELPER_P4": "Requête LQL pour rechercher un lecteur",
-      "PAGE_SUBTITLE_CREATE": "Créer un nouveau filtre de lecteur LDAP",
-      "PAGE_SUBTITLE_EDIT": "Modifier le filtre de lecteur LDAP",
+      "PAGE_HELPER_P3": "Requête LQL (LDAP Query Language) pour rechercher tous les drives",
+      "PAGE_HELPER_P4": "Requête LQL pour rechercher un drive",
+      "PAGE_SUBTITLE_CREATE": "Créer un nouveau filtre de drive LDAP",
+      "PAGE_SUBTITLE_EDIT": "Modifier le filtre de drive LDAP",
       "FORM": {
         "ATTRIBUTES": "Attributs",
         "DRIVE_SEARCH": "Rechercher Drive",
-        "DRIVE_SEARCH_HELPER": "Requêtes et paramètres LDAP pour rechercher tous les lecteurs ou un seul lecteur",
-        "QUERY_FOR_ALL": "Requête pour tous les lecteurs",
-        "QUERY_FOR_ONE": "Requête pour un lecteur",
+        "DRIVE_SEARCH_HELPER": "Requêtes et paramètres LDAP pour rechercher tous les drives ou un seul drive",
+        "QUERY_FOR_ALL": "Requête pour tous les drives",
+        "QUERY_FOR_ONE": "Requête pour un drive",
         "PREFIX": "Préfixe à supprimer",
-        "PREFIX_HELPER": "Le texte du préfixe à supprimer du nom du lecteur",
+        "PREFIX_HELPER": "Le texte du préfixe à supprimer du nom du drive",
         "SEARCH_PAGE_SIZE": "Taille de la page de recherche",
         "SEARCH_PAGE_SIZE_ERROR": "La taille de la page doit être d'au moins 1",
         "MEMBER_EMAIL": "E-mail du membre",
         "MEMBER_FIRSTNAME": "Prénom du membre",
         "MEMBER_LASTNAME": "Nom du membre",
-        "DRIVE_NAME": "Nom du lecteur",
+        "DRIVE_NAME": "Nom du drive",
         "DRIVE_MEMBER": "Membre Drive"
       }
+    }
+  },
+  "DRIVE_PROVIDER": {
+    "EMPTY_MESSAGE": "Aucun fournisseur de drive n'a été créé pour ce domaine",
+    "ERROR_MESSAGE": "Impossible de récupérer les données du fournisseur de drive de ce domaine",
+    "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce fournisseur de drive, cette procédure est irréversible. Voulez-vous continuer ?",
+    "CREATE": "Créer un nouveau fournisseur",
+    "LDAP": {
+      "BASE_DN": "Base DN",
+      "BASE_DN_HELPER": "LinShare commencera à rechercher les drives de cette position dans votre LDAP",
+      "SEARCH_IN_OTHER_DOMAINS": "Rechercher dans d'autres domaines"
     }
   }
 }

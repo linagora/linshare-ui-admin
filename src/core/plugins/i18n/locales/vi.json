@@ -458,5 +458,16 @@
         "DRIVE_MEMBER": "Thành viên của Drive"
       }
     }
+  },
+  "DRIVE_PROVIDER": {
+    "EMPTY_MESSAGE": "Không có nhà cung cấp ổ đĩa nào được tạo cho miền này",
+    "ERROR_MESSAGE": "Không tìm nạp được dữ liệu nhà cung cấp ổ đĩa của miền này",
+    "DELETE_CONFIRM": "Bạn sắp xóa nhà cung cấp ổ đĩa này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục không?",
+    "CREATE": "Tạo nhà cung cấp mới",
+    "LDAP": {
+      "BASE_DN": "Dn cơ sở",
+      "BASE_DN_HELPER": "LinShare sẽ bắt đầu tìm kiếm các ổ đĩa từ vị trí này trong LDAP của bạn",
+      "SEARCH_IN_OTHER_DOMAINS": "Tìm kiếm trong các miền khác"
+    }
   }
 }

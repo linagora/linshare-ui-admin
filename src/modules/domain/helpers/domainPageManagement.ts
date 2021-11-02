@@ -59,6 +59,15 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
     child: true
   },
   {
+    title: 'NAVIGATOR.DRIVE_PROVIDERS',
+    accessibility: {
+      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+    },
+    route: { name: 'DomainDriveProviders' },
+    child: true
+  },
+  {
     title: 'NAVIGATOR.REMOTE_FILTERS',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: { name: 'DomainRemoteFilters' }

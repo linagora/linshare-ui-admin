@@ -24,8 +24,8 @@
     </a-form-item>
 
     <a-form-item
-      :label="$t('GROUP_PROVIDER.LDAP.BASE_DN')"
-      :help="$t('GROUP_PROVIDER.LDAP.BASE_DN_HELPER')"
+      :label="$t('DRIVE_PROVIDER.LDAP.BASE_DN')"
+      :help="$t('DRIVE_PROVIDER.LDAP.BASE_DN_HELPER')"
       v-bind="validateInfos.baseDn"
     >
       <a-input v-model:value="formState.baseDn" />
@@ -33,7 +33,7 @@
 
     <a-form-item>
       <a-checkbox v-model:checked="formState.searchInOtherDomains">
-        {{ $t('GROUP_PROVIDER.LDAP.SEARCH_IN_OTHER_DOMAINS') }}
+        {{ $t('DRIVE_PROVIDER.LDAP.SEARCH_IN_OTHER_DOMAINS') }}
       </a-checkbox>
     </a-form-item>
 
@@ -80,22 +80,22 @@ import { computed, reactive, ref, ComputedRef } from 'vue';
 import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import { LDAPGroupFilter } from '@/modules/group-filter/types/GroupFilters';
-import { LDAPGroupProvider } from '../types/GroupProvider';
+import { LDAPDriveFilter } from '@/modules/drive-filter/types/DriveFilters';
+import { LDAPDriveProvider } from '../types/DriveProvider';
 import Domain from '../types/Domain';
 import useNotification from '@/core/hooks/useNotification';
 
 import {
-  createGroupProvider,
-  deleteGroupProvider,
-  updateGroupProvider
+  createDriveProvider,
+  deleteDriveProvider,
+  updateDriveProvider
 } from '../services/domain-api';
 
 interface Props {
   domain: Domain;
-  provider: LDAPGroupProvider;
+  provider: LDAPDriveProvider;
   serversList: RemoteServer[];
-  filtersList: LDAPGroupFilter[];
+  filtersList: LDAPDriveFilter[];
 }
 
 interface LDAPServerOptions {
@@ -107,7 +107,7 @@ interface LDAPServerOptions {
 }
 
 interface LDAPFilterOptions {
-  list: LDAPGroupFilter[];
+  list: LDAPDriveFilter[];
   options: ComputedRef<{
     label: string;
     value: string;
@@ -131,7 +131,7 @@ const formSubmitting = ref(false);
 const formState = reactive<ProviderForm>({
   baseDn: props.provider.baseDn || '',
   serverUuid: props.provider.ldapServer?.uuid || '',
-  filterUuid: props.provider.groupFilter?.uuid || '',
+  filterUuid: props.provider.driveFilter?.uuid || '',
   searchInOtherDomains: props.provider.searchInOtherDomains
 });
 const formRules = reactive({
@@ -168,7 +168,7 @@ async function create () {
   }
 
   try {
-    const provider = await createGroupProvider(props.domain.uuid, getDto());
+    const provider = await createDriveProvider(props.domain.uuid, getDto());
 
     emit('submitted', provider);
     message.success(t('MESSAGES.CREATE_SUCCESS'));
@@ -179,7 +179,7 @@ async function create () {
   }
 }
 
-function getDto (): LDAPGroupProvider {
+function getDto (): LDAPDriveProvider {
   return {
     type: 'LDAP_PROVIDER',
     baseDn: formState.baseDn,
@@ -187,7 +187,7 @@ function getDto (): LDAPGroupProvider {
       uuid: formState.serverUuid || '',
       name: servers.list.find(server => server.uuid === formState.serverUuid)?.name || ''
     },
-    groupFilter: {
+    driveFilter: {
       uuid: formState.filterUuid || '',
       name: filters.list.find(filter => filter.uuid === formState.filterUuid)?.name || ''
     },
@@ -206,7 +206,7 @@ async function save () {
   }
 
   try {
-    const provider = await updateGroupProvider(props.domain.uuid, {
+    const provider = await updateDriveProvider(props.domain.uuid, {
       ...props.provider,
       ...getDto()
     });
@@ -222,7 +222,7 @@ async function save () {
 
 async function remove () {
   try {
-    await deleteGroupProvider(props.domain.uuid, props.provider);
+    await deleteDriveProvider(props.domain.uuid, props.provider);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
     emit('deleted');
@@ -234,7 +234,7 @@ async function remove () {
 function confirmDelete () {
   confirmModal({
     title: t('GENERAL.DELETION'),
-    content: t('GROUP_PROVIDER.DELETE_CONFIRM'),
+    content: t('DRIVE_PROVIDER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
     onOk: remove
   });
