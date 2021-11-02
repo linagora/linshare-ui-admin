@@ -6,14 +6,7 @@ export const requiresDomainAccessibility = (router: Router, store: Store<any>) =
   router.beforeEach(async (to, from, next) => {
     if (
       !to.name ||
-      ![
-        'DomainRemoteFilters',
-        'DomainProviders',
-        'DomainUserProviders',
-        'RemoteServersList',
-        'UserFilters',
-        'UserFilterLDAP'
-      ].includes(to.name as string)
+      !to.fullPath.includes('/configuration')
     ) return next();
 
     const domainType = store.getters['Domain/getCurrentDomainType'];

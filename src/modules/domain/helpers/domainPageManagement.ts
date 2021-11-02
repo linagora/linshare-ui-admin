@@ -25,24 +25,36 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
   },
   {
     title: 'NAVIGATOR.PROVIDERS',
-    accessibility: { domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] },
+    accessibility: {
+      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+    },
     route: { name: 'DomainProviders' }
   },
   {
     title: 'NAVIGATOR.PROVIDERS',
-    accessibility: { domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] },
+    accessibility: {
+      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+    },
     route: { name: 'DomainProviderManagement' },
     child: true
   },
   {
     title: 'NAVIGATOR.USER_PROVIDERS',
-    accessibility: { domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] },
+    accessibility: {
+      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+    },
     route: { name: 'DomainUserProviders' },
     child: true
   },
   {
     title: 'NAVIGATOR.GROUP_PROVIDERS',
-    accessibility: { domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB] },
+    accessibility: {
+      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+    },
     route: { name: 'DomainGroupProviders' },
     child: true
   },
