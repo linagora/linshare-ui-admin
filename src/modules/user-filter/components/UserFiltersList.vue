@@ -49,6 +49,10 @@
       :locale="{ emptyText: $t('USER_FILTER.EMPTY_TEXT') }"
       row-key="uuid"
     >
+      <template #name="{ record, text }">
+        <a @click="edit(record)">{{ text }}</a>
+      </template>
+
       <template #date="{ text }">
         {{ $d(text, 'mediumDate') }}
       </template>
@@ -122,7 +126,8 @@ const columns = computed(() => [
   {
     title: t('GENERAL.NAME'),
     dataIndex: 'name',
-    sorter: (a: UserFilter, b: UserFilter) => a.name.localeCompare(b.name)
+    sorter: (a: UserFilter, b: UserFilter) => a.name.localeCompare(b.name),
+    slots: { customRender: 'name' }
   },
   {
     title: t('GENERAL.DESCRIPTION'),

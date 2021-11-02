@@ -46,6 +46,10 @@
       :loading="state.loading"
       row-key="uuid"
     >
+      <template #name="{ record, text }">
+        <a @click="openEditModal(record)">{{ text }}</a>
+      </template>
+
       <template #date="{ text }">
         {{ $d(text, 'mediumDate') }}
       </template>
@@ -140,7 +144,8 @@ const columns = computed(() => [
   {
     title: t('GENERAL.NAME'),
     dataIndex: 'name',
-    sorter: (a: RemoteServer, b: RemoteServer) => a.name.localeCompare(b.name)
+    sorter: (a: RemoteServer, b: RemoteServer) => a.name.localeCompare(b.name),
+    slots: { customRender: 'name' }
   },
   {
     title: t('REMOTE_SERVER.FIELDS.TYPE'),
