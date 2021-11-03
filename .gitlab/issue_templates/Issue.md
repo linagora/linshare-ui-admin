@@ -1,8 +1,5 @@
-## Description
-
+## Related issues
+ - QA
+ - Story
+ - Tech
 ## Technical details
-
-### Checklist
-
-## Related issues (QA, Story, Technical,...):
- -
