@@ -3,6 +3,7 @@
     <a-list
       item-layout="horizontal"
       :data-source="list"
+      :loading="loading"
     >
       <template #renderItem="{ item }">
         <DesktopListItem :data="item" />
