@@ -1649,6 +1649,18 @@
         "PARAMETER_NAME": "Paramètres",
         "PARAMETER_DESCRIPTION": ""
       },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Activer l'espace personnel pour les utilisateurs internes.",
+        "USE_EXTENDED_DESCRIPTION": "0",
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs de votre domaine d'accéder au menu Myspace. Mon espace est un espace personnel où l'utilisateur peut télécharger ses documents et les partager avec d'autres utilisateurs/espace de travail",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "En l'activant, l'administrateur pourra modifier le paramètre par défaut",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "En activant, vous autorisez votre administrateur de domaine à modifier le champ de paramètre par défaut dans son domaine",
+        "DELEGATION_POLICY": "",
+        "PARAMETER_NAME": "",
+        "PARAMETER_DESCRIPTION": "Ce paramètre permet quand un nouvel utilisateur est créé, il peut accéder au menu Myspace par défaut ou non"
+      },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
         "NAME": "Accusé de partage",
         "USE_EXTENDED_DESCRIPTION": "1",

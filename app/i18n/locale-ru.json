@@ -1621,6 +1621,18 @@
           "PARAMETER_NAME": "Параметры",
           "PARAMETER_DESCRIPTION": ""
         },
+        "INTERNAL_ENABLE_PERSONAL_SPACE": {
+          "NAME": "Enable personal space for internal users.",
+          "USE_EXTENDED_DESCRIPTION": "0",
+          "DESCRIPTION": "This functionality allows users in your domain can access menu Myspace. My space is a personal space where user can upload his documents and share with other users/work space ",
+          "ADVANCED_DESCRIPTION": "",
+          "USER_OVERRIDE": "By enabling, nested admin can re-enable the Configure functionality toggle and then change the default parameter",
+          "ACTIVATION_POLICY": "",
+          "DELEGATION_POLICY": "",
+          "CONFIGURATION_POLICY": "By enabling, you allow your nested domain admin to change default parameter field in his domain",
+          "PARAMETER_NAME": "Parameters",
+          "PARAMETER_DESCRIPTION": "This setting decides when a new user is created, he can use Myspace by default or not"
+        },
         "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
           "NAME": "Подтверждение создания рассылки",
           "USE_EXTENDED_DESCRIPTION": "0",
