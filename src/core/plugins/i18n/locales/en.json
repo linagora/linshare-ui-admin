@@ -126,7 +126,7 @@
       "NAVIGATE_GUIDE": "Click on the user to access to his profile.",
       "FIRST_NAME": "First name",
       "LAST_NAME": "Last name",
-      "EMAIL": "Email",
+      "EMAIL": "Search by email",
       "DOMAIN": "Domain",
       "ROLE": "Role",
       "ACCOUNT_TYPE": "Account type",
@@ -260,7 +260,8 @@
       "ACCOUNT": "Account",
       "MODIFICATION_DATE": "Modification date",
       "CREATION_DATE": "Creation date",
-      "TYPE": "Type"
+      "TYPE": "Type",
+      "PLACEHOLDER": "Search or filter shared spaces"
     }
   },
   "QUOTA": {

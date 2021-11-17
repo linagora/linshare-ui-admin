@@ -20,8 +20,8 @@
 
     <div class="users-list">
       <TokenInput
-        :filter-options="filterOptions"
-        :sort-options="sortOptions"
+        :filters="filterOptions"
+        :sorts="sortOptions"
         :placeholder="$t('USERS.TOKEN_INPUT.PLACEHOLDER')"
         @submit="handleSubmit"
       />
@@ -37,17 +37,9 @@ import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import PageTitle from '@/core/components/PageTitle.vue';
 import LargeTable from '@/modules/user/components/LargeTable.vue';
 import SmallTable from '@/modules/user/components/SmallTable.vue';
-import TokenInput, { Filter } from '@/core/components/TokenInput.vue';
+import TokenInput, { TokenSubmitPayload } from '@/core/components/TokenInput.vue';
 import { useI18n } from 'vue-i18n';
 import useUsersList from '@/modules/user/hooks/useUsersList';
-
-interface Options {
-  filters: Filter;
-  sort: {
-    field: string;
-    order: string;
-  };
-}
 
 export default defineComponent({
   name: 'ManageUsers',
@@ -62,7 +54,7 @@ export default defineComponent({
     const { locale, t } = useI18n();
     const { breadcrumbs } = useBreadcrumbs();
 
-    const handleSubmit = async function (options: Options) {
+    const handleSubmit = async function (options: TokenSubmitPayload) {
       await handleTableChange(pagination, options.filters, options.sort);
     };
 
@@ -98,7 +90,7 @@ export default defineComponent({
       {
         key: 'mail',
         displayKey: computed(() => t('USERS.MANAGE_USERS.EMAIL', locale.value)),
-        isDefaultToken: true
+        default: true
       },
       {
         key: 'firstName',

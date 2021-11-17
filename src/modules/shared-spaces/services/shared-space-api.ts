@@ -1,5 +1,6 @@
 import api from '@/api';
 import SharedSpace from '@/modules/shared-spaces/types/SharedSpace';
+import { SORT_ORDER } from '@/core/types/Sort';
 
 export interface ListSharedSpaceOptions {
   account?: string;
@@ -7,7 +8,7 @@ export interface ListSharedSpaceOptions {
   page?: number;
   size?: number;
   sortField?: string;
-  sortOrder?: string;
+  sortOrder?: SORT_ORDER;
 }
 
 export interface SharedSpacesList {

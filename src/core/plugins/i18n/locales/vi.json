@@ -257,7 +257,8 @@
       "ACCOUNT": "Tài khoản",
       "CREATION_DATE": "Ngày tạo",
       "MODIFICATION_DATE": "Ngày sửa",
-      "TYPE": "Loại"
+      "TYPE": "Loại",
+      "PLACEHOLDER": "Tìm kiếm hoặc lọc không gian được chia sẻ"
     }
   },
   "QUOTA": {

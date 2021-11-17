@@ -98,6 +98,7 @@ import RestrictedContact from '@/modules/user/types/RestrictedContact';
 import { message } from 'ant-design-vue';
 import { UserOutlined } from '@ant-design/icons-vue';
 import { APIError } from '@/core/types/APIError';
+import { SORT_ORDER } from '@/core/types/Sort';
 
 export default defineComponent({
   name: 'RestrictedContacts',
@@ -144,7 +145,7 @@ export default defineComponent({
 
         const { data } = await listUsers({
           mail: search.value,
-          sortOrder: 'ASC',
+          sortOrder: SORT_ORDER.ASC,
           sortField: 'mail',
           type: 'INTERNAL'
         });

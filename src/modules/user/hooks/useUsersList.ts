@@ -1,6 +1,5 @@
 import { ref, reactive } from 'vue';
 import { message } from 'ant-design-vue';
-import { useI18n } from 'vue-i18n';
 import { TableState } from 'ant-design-vue/es/table/interface';
 
 import User from '@/modules/user/types/User';
@@ -9,15 +8,11 @@ import {
   ListUsersOptions,
   ListUserFilters
 } from '@/modules/user/services/user-api';
+import Sort from '@/core/types/Sort';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import { APIError } from '@/core/types/APIError';
 
 type Pagination = TableState['pagination'];
-
-interface SortProps {
-  field: string;
-  order: string;
-}
 
 const list = ref<User[]>([]);
 const loading = ref(false);
@@ -52,7 +47,7 @@ export default function useUsersList () {
     }
   }
 
-  async function handleTableChange (pag: Pagination, filters?: ListUserFilters, sorter?: SortProps) {
+  async function handleTableChange (pag: Pagination, filters?: ListUserFilters, sorter?: Sort) {
     const options: ListUsersOptions = {};
 
     if (pag) {
@@ -74,7 +69,7 @@ export default function useUsersList () {
 
     if (sorter) {
       options.sortField = sorter.field;
-      options.sortOrder = sorter.order === 'descend' ? 'DESC' : 'ASC';
+      options.sortOrder = sorter.order;
     }
 
     await updateUsersList(options);

@@ -3,6 +3,7 @@ import api from '@/api';
 import User from '@/modules/user/types/User';
 import UserQuota from '@/modules/user/types/UserQuota';
 import RestrictedContact from '@/modules/user/types/RestrictedContact';
+import { SORT_ORDER } from '@/core/types/Sort';
 
 export interface ListUsersOptions {
   domain?: string;
@@ -11,7 +12,7 @@ export interface ListUsersOptions {
   mail?: string;
   role?: string;
   type?: string;
-  sortOrder?: 'ASC' | 'DESC';
+  sortOrder?: SORT_ORDER;
   sortField?: string;
   restricted?: boolean;
   canCreateGuest?: boolean;

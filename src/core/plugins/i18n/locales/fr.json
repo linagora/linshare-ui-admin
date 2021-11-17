@@ -257,7 +257,8 @@
       "ACCOUNT": "Le compte",
       "CREATION_DATE": "Date de création",
       "MODIFICATION_DATE": "Date de modification",
-      "TYPE": "Type"
+      "TYPE": "Type",
+      "PLACEHOLDER": "Rechercher ou filtrer les espaces partagés"
     }
   },
   "QUOTA": {

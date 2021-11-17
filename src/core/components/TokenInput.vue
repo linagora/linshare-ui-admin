@@ -35,6 +35,7 @@
             :key="option.value"
           >
             <div v-if="!option.optionComponent">
+              <SearchOutlined v-if="option.default" />
               {{ option.label }}
             </div>
             <component
@@ -46,7 +47,6 @@
         </template>
         <a-input
           ref="autocomplete"
-          v-model="autocompleteValue"
           :placeholder="placeholder"
           @pressEnter="handlePressEnter"
         />
@@ -54,22 +54,22 @@
     </div>
     <div class="token-input__inner-box token-input__sort-ctn">
       <a-select
-        v-model:value="sortField"
+        v-model:value="sort.field"
         :bordered="false"
         :placeholder="$t('USERS.TOKEN_INPUT.SORT_BY')"
-        @change="handleSort"
+        @change="onSortChange"
       >
         <a-select-option
-          v-for="sortOption in sortOptions"
-          :key="sortOption.key"
-          :value="sortOption.key"
+          v-for="s in sorts"
+          :key="s.key"
+          :value="s.key"
         >
-          {{ $t(sortOption.label) }}
+          {{ $t(s.label) }}
         </a-select-option>
       </a-select>
       <component
-        :is="sortOrder === 'ascend' ? 'SortAscendingOutlined' : 'SortDescendingOutlined'"
-        v-if="sortField"
+        :is="sort.order === SORT_ORDER.ASC ? 'SortAscendingOutlined' : 'SortDescendingOutlined'"
+        v-if="sort.order"
         class="token-input__sort-order-icon"
         @click="toggleSortOrder"
       />
@@ -78,12 +78,27 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, PropType, SetupContext, ref, computed, Component, ComputedRef } from 'vue';
-import { SearchOutlined, CloseOutlined, SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons-vue';
+import {
+  defineComponent,
+  PropType,
+  reactive,
+  ref,
+  computed,
+  Component,
+  ComputedRef
+} from 'vue';
+import {
+  SearchOutlined,
+  CloseOutlined,
+  SortAscendingOutlined,
+  SortDescendingOutlined
+} from '@ant-design/icons-vue';
+import Sort, { SORT_ORDER } from '@/core/types/Sort';
 
 interface Option {
+  default?: boolean;
   value: string | boolean;
-  label: ComputedRef;
+  label: ComputedRef<string> | string;
   optionComponent?: Component;
   data?: Record<string, unknown>;
 }
@@ -92,7 +107,7 @@ interface FilterOption {
   key: string;
   displayKey: ComputedRef;
   options?: Option[];
-  isDefaultToken: boolean;
+  default?: boolean;
   asyncAutocomplete?: (text: string) => Promise<Option[]>;
 }
 
@@ -103,14 +118,14 @@ interface SortOption {
 }
 
 interface TokenInputProps {
-  filterOptions: FilterOption[];
-  sortOptions: SortOption[];
+  filters: FilterOption[];
+  sorts: SortOption[];
   placeholder: string;
 }
 
 interface Token {
   key: string;
-  displayKey: string;
+  displayKey: ComputedRef;
   value?: Option;
 }
 
@@ -122,10 +137,10 @@ export interface Filter {
   [key: string]: string | boolean | undefined;
 }
 
-const SORT_DIRECTIONS = {
-  ASC: 'ascend',
-  DESC: 'descend'
-};
+export interface TokenSubmitPayload {
+  filters: Record<string, unknown>;
+  sort?: Sort;
+}
 
 export default defineComponent({
   name: 'TokenInput',
@@ -136,11 +151,11 @@ export default defineComponent({
     SortDescendingOutlined
   },
   props: {
-    filterOptions: {
-      type: Array as PropType<Array<FilterOption>>,
+    filters: {
+      type: Array as PropType<FilterOption[]>,
       default: () => []
     },
-    sortOptions: {
+    sorts: {
       type: Array as PropType<Array<SortOption>>,
       default: () => []
     },
@@ -149,40 +164,54 @@ export default defineComponent({
       default: ''
     }
   },
-  emits: ['submit'],
-  setup (props: TokenInputProps, { emit }: SetupContext) {
-    const autocompleteValue = ref<string>('');
+  emits: {
+    submit: (payload: TokenSubmitPayload) => payload
+  },
+  setup (props: TokenInputProps, { emit }) {
+    const autocompleteValue = ref('');
     const autocomplete = ref<CustomHTMLElement | null>(null);
-    const tokens = ref([] as Token[]);
-    const selectedOption = ref<FilterOption | undefined>(undefined);
-    const defaultSortField = props.sortOptions.find(option => option.default);
-    const sortField = ref<string | undefined>(defaultSortField && defaultSortField.key);
-    const sortOrder = ref<string>(SORT_DIRECTIONS.DESC);
+    const tokens = ref<Token[]>([]);
+    const selectedOption = ref<FilterOption | undefined>();
+    const defaultSortField = props.sorts.find(sort => sort.default);
+    const sort = reactive<Sort>({
+      field: defaultSortField?.key || '',
+      order: SORT_ORDER.DESC
+    });
 
-    const initialOptions = props.filterOptions.filter(option => !option.isDefaultToken).map(option => ({
-      value: option.key,
-      label: option.displayKey.value
-    }));
+    const tokenOptions = props.filters
+      .map(filter => ({
+        default: filter.default,
+        value: filter.key,
+        label: filter.displayKey.value
+      }));
 
-    const filterTypeOptions = ref<Option[]>(initialOptions);
+    const filteredTokenOptions = computed<Option[]>(() => tokenOptions
+      .filter(option =>
+        option.default ||
+        !autocompleteValue.value ||
+        (
+          autocompleteValue.value &&
+          option.label.toUpperCase().includes(autocompleteValue.value.toUpperCase())
+        )
+      )
+      .sort(option => option.default ? 1 : -1)
+    );
 
     const options = computed(() => {
       if (selectedOption.value) {
         if (selectedOption.value.asyncAutocomplete) {
           return selectedOption.value.options || [];
         } else {
-          return selectedOption.value && selectedOption.value.options
-            ? selectedOption.value.options.map(option => {
-              if (typeof option.value === 'boolean') {
-                option.value = option.value ? 'true' : 'false';
-              }
+          return selectedOption.value.options?.map(option => {
+            if (typeof option.value === 'boolean') {
+              option.value = option.value ? 'true' : 'false';
+            }
 
-              return option;
-            })
-            : [];
+            return option;
+          }) || [];
         }
       } else {
-        return filterTypeOptions.value;
+        return filteredTokenOptions.value;
       }
     });
 
@@ -207,14 +236,13 @@ export default defineComponent({
       setTimeout(() => {
         autocompleteValue.value = '';
         selectedOption.value = undefined;
-        filterTypeOptions.value = initialOptions;
         lastValueOfAutocomplete = '';
         focusToInput();
       }, 0);
     }
 
     function createToken (type: string) {
-      selectedOption.value = props.filterOptions.find(option => option.key === type);
+      selectedOption.value = props.filters.find(filter => filter.key === type);
 
       if (selectedOption.value) {
         const newToken: Token = {
@@ -225,15 +253,17 @@ export default defineComponent({
         tokens.value = [...(tokens.value.filter(token => token.key !== type)), newToken];
 
         setTimeout(() => {
-          autocompleteValue.value = selectedOption.value && selectedOption.value.isDefaultToken ? lastValueOfAutocomplete : '';
+          autocompleteValue.value = selectedOption.value?.default ? lastValueOfAutocomplete : '';
+
           fetchAsyncData(autocompleteValue.value);
           focusToInput();
-        }, 0);
+        });
       }
     }
 
     function updateToken (type: string, value: string) {
       const selectedValue = options.value.find(option => option.value === value);
+
       tokens.value = tokens.value.map(token => {
         if (token.key === type) {
           token.value = selectedValue || { value, label: value };
@@ -257,20 +287,14 @@ export default defineComponent({
 
       if (selectedOption.value && selectedOption.value.asyncAutocomplete) {
         const filteredOptions = await selectedOption.value.asyncAutocomplete(text);
-        selectedOption.value.options = filteredOptions;
-      } else {
-        const filteredOptions = text
-          ? initialOptions.filter(option => {
-            return option.label.toUpperCase().includes(text.toUpperCase());
-          })
-          : initialOptions;
 
-        filterTypeOptions.value = filteredOptions;
+        selectedOption.value.options = filteredOptions;
       }
     };
 
     const submit = () => {
-      const filters: Filter = {};
+      const filters: Record<string, unknown> = {};
+
       tokens.value.forEach(token => {
         if (token.key && token.value && token.value.value !== undefined) {
           if (token.value.value === 'true') {
@@ -285,15 +309,7 @@ export default defineComponent({
         }
       });
 
-      emit('submit', {
-        filters,
-        sort: sortField.value
-          ? {
-              field: sortField.value,
-              order: sortOrder.value
-            }
-          : undefined
-      });
+      emit('submit', { filters, sort });
     };
 
     const handlePressEnter = () => {
@@ -305,7 +321,7 @@ export default defineComponent({
       } else if (!autocompleteValue.value) {
         submit();
       } else {
-        const defaultToken = props.filterOptions.find(option => option.isDefaultToken);
+        const defaultToken = props.filters.find(filter => filter.default);
 
         if (defaultToken) {
           createToken(defaultToken.key);
@@ -318,37 +334,39 @@ export default defineComponent({
       }
     };
 
-    const onSelect = (val: string) => {
+    const onSelect = (value: string) => {
       if (!selectedOption.value) {
-        createToken(val);
+        createToken(value);
       } else {
         handlePressEnter();
       }
     };
 
-    const handleSort = () => {
+    const onSortChange = () => {
+      sort.order = sort.order || SORT_ORDER.DESC;
+
       submit();
     };
 
     const toggleSortOrder = () => {
-      sortOrder.value = sortOrder.value === SORT_DIRECTIONS.ASC ? SORT_DIRECTIONS.DESC : SORT_DIRECTIONS.ASC;
+      sort.order = sort.order === SORT_ORDER.ASC ? SORT_ORDER.DESC : SORT_ORDER.ASC;
+
       submit();
     };
 
     return {
       options,
       autocompleteValue,
-      sortField,
-      sortOrder,
+      sort,
       autocomplete,
-      filterTypeOptions,
       tokens,
       removeToken,
       onSearch,
       onSelect,
       handlePressEnter,
-      handleSort,
-      toggleSortOrder
+      onSortChange,
+      toggleSortOrder,
+      SORT_ORDER
     };
   }
 });
