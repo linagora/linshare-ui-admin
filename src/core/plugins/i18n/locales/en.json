@@ -30,7 +30,8 @@
     "NO": "No",
     "FIELD_REQUIRED": "This field cannot be blank",
     "SELECT_MODEL": "Select a predefined model",
-    "TRY_AGAIN":"Try again"
+    "TRY_AGAIN":"Try again",
+    "DOMAIN": "Domain"
   },
   "LOCALE": {
     "ENGLISH": "English",

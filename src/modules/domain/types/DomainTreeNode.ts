@@ -2,7 +2,7 @@ import { DOMAIN_TYPE } from './Domain';
 
 export default interface DomainTreeNode {
   uuid: string;
-  name?: string;
+  name: string;
   type?: DOMAIN_TYPE;
   children?: DomainTreeNode[];
 }
