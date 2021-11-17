@@ -309,7 +309,9 @@
       "PROVIDED_URL": "Указанный URL",
       "TYPE": "Тип сервера",
       "LDAP_BINDDN": "dn пользователя LDAP",
-      "LDAP_PASSWORD": "Пароль LDAP"
+      "LDAP_PASSWORD": "Пароль LDAP",
+      "CLIENT_ID": "ID клиента",
+      "CLIENT_SECRET": "Секрет клиента"
     },
     "TYPE": {
       "LDAP": "Соединение LDAP",
@@ -319,6 +321,12 @@
       "MODAL": {
         "CREATE_TITLE": "Создать соединение LDAP",
         "EDIT_TITLE": "Изменить соединение LDAP"
+      }
+    },
+    "TWAKE": {
+      "MODAL": {
+        "CREATE_TITLE": "Создать соединение Twake",
+        "EDIT_TITLE": "Изменить соединение Twake"
       }
     },
     "VALIDATION": {

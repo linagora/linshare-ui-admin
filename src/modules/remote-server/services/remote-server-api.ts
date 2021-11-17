@@ -6,15 +6,11 @@ async function listRemoteServers (): Promise<RemoteServer[]> {
   return await api.get('remote_servers');
 }
 
-async function createRemoteServer (payload: Partial<RemoteServer>): Promise<RemoteServer> {
+async function createRemoteServer (payload: Omit<RemoteServer, 'uuid'>): Promise<RemoteServer> {
   return await api.post('remote_servers', payload);
 }
 
-async function updateRemoteServer (payload: Partial<RemoteServer>): Promise<RemoteServer> {
-  if (!payload.uuid) {
-    throw new Error('uuid of remote server required');
-  }
-
+async function updateRemoteServer (payload: RemoteServer): Promise<RemoteServer> {
   return await api.put(`remote_servers/${payload.uuid}`, payload);
 }
 

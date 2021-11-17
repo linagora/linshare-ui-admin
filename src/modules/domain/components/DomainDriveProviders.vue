@@ -69,7 +69,7 @@ import DomainDriveProviderLDAPForm from './DomainDriveProviderLDAPForm.vue';
 import { getDriveProviders } from '../services/domain-api';
 import { LDAPDriveProvider, EMPTY_PROVIDER } from '../types/DriveProvider';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
-import RemoteServer, { RemoteServerType } from '@/modules/remote-server/types/RemoteServer';
+import RemoteServer from '@/modules/remote-server/types/RemoteServer';
 import { LDAPDriveFilter } from '@/modules/drive-filter/types/DriveFilters';
 import { listDriveFilters } from '@/modules/drive-filter/services/drive-filter-api';
 
@@ -95,7 +95,7 @@ function setProvider (provider: LDAPDriveProvider) {
 async function prepareLDAPServers () {
   const servers = await listRemoteServers();
 
-  state.ldapServers = servers.filter(server => server.serverType === RemoteServerType.LDAP);
+  state.ldapServers = servers.filter(server => server.serverType === 'LDAP');
 }
 
 async function prepareGroupFilters () {

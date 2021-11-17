@@ -309,7 +309,9 @@
       "PROVIDED_URL": "URL được cung cấp",
       "TYPE": "Loại máy chủ",
       "LDAP_BINDDN": "Người dùng LDAP dn",
-      "LDAP_PASSWORD": "Mật khẩu LDAP"
+      "LDAP_PASSWORD": "Mật khẩu LDAP",
+      "CLIENT_ID": "Client ID",
+      "CLIENT_SECRET": "Client secret"
     },
     "TYPE": {
       "LDAP": "Kết nối LDAP",
@@ -319,6 +321,12 @@
       "MODAL": {
         "CREATE_TITLE": "Tạo kết nối LDAP",
         "EDIT_TITLE": "Chỉnh sửa kết nối LDAP"
+      }
+    },
+    "TWAKE": {
+      "MODAL": {
+        "CREATE_TITLE": "Tạo kết nối Twake",
+        "EDIT_TITLE": "Chỉnh sửa kết nối Twake"
       }
     },
     "VALIDATION": {

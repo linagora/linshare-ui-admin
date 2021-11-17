@@ -314,7 +314,9 @@
       "PROVIDED_URL": "Provided URL",
       "TYPE": "Server type",
       "LDAP_BINDDN": "LDAP user dn",
-      "LDAP_PASSWORD": "LDAP password"
+      "LDAP_PASSWORD": "LDAP password",
+      "CLIENT_ID": "Client ID",
+      "CLIENT_SECRET": "Client secret"
     },
     "TYPE": {
       "LDAP": "LDAP connection",
@@ -324,6 +326,12 @@
       "MODAL": {
         "CREATE_TITLE": "Create LDAP Connection",
         "EDIT_TITLE": "Edit LDAP Connection"
+      }
+    },
+    "TWAKE": {
+      "MODAL": {
+        "CREATE_TITLE": "Create Twake Connection",
+        "EDIT_TITLE": "Edit Twake Connection"
       }
     },
     "VALIDATION": {

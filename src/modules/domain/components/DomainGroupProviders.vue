@@ -69,7 +69,7 @@ import DomainGroupProviderLDAPForm from './DomainGroupProviderLDAPForm.vue';
 import { getGroupProviders } from '../services/domain-api';
 import { LDAPGroupProvider, EMPTY_PROVIDER } from '../types/GroupProvider';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
-import RemoteServer, { RemoteServerType } from '@/modules/remote-server/types/RemoteServer';
+import RemoteServer from '@/modules/remote-server/types/RemoteServer';
 import { LDAPGroupFilter } from '@/modules/group-filter/types/GroupFilters';
 import { listGroupFilters } from '@/modules/group-filter/services/group-filter-api';
 
@@ -95,7 +95,7 @@ function setProvider (provider: LDAPGroupProvider) {
 async function prepareLDAPServers () {
   const servers = await listRemoteServers();
 
-  state.ldapServers = servers.filter(server => server.serverType === RemoteServerType.LDAP);
+  state.ldapServers = servers.filter(server => server.serverType === 'LDAP');
 }
 
 async function prepareGroupFilters () {

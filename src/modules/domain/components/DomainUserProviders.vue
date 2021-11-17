@@ -96,7 +96,7 @@ import {
   EMPTY_PROVIDER
 } from '../types/UserProvider';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
-import RemoteServer, { RemoteServerType } from '@/modules/remote-server/types/RemoteServer';
+import RemoteServer from '@/modules/remote-server/types/RemoteServer';
 import UserFilter, { USER_FILTER_TYPE } from '@/modules/user-filter/types/UserFilter';
 import { listUserFilters } from '@/modules/user-filter/services/user-filter-api';
 
@@ -122,7 +122,7 @@ function setProvider (provider: LDAPUserProvider) {
 async function prepareLDAPServers () {
   const servers = await listRemoteServers();
 
-  state.ldapServers = servers.filter(server => server.serverType === RemoteServerType.LDAP);
+  state.ldapServers = servers.filter(server => server.serverType === 'LDAP');
 }
 
 async function prepareUserFilters () {
