@@ -1785,7 +1785,8 @@
       "WORK_GROUP__FILE_VERSIONING__BOOLEAN_false": "La gestion des versions sera désactivée par défaut lors de la création d'un groupe de travail.",
       "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "La gestion des versions sera activée par défaut lors de la création d'un groupe de travail.",
       "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_true": "l'authentification à double facteurs sera requise pour tous les utilisateurs",
-      "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_false": "l'authentification à double facteur peut être activée par les utilisateurs (optionnel)"
+      "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_false": "l'authentification à double facteur peut être activée par les utilisateurs (optionnel)",
+      "INTERNAL_ENABLE_PERSONAL_SPACE__BOOLEAN_true": "Un utilisateur interne peut accéder à son espace personnel."
     }
   },
   "MIME_POLICIES": {

@@ -1757,7 +1757,8 @@
         "WORK_GROUP__FILE_VERSIONING__BOOLEAN_false": "TRANSLATE ME",
         "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "TRANSLATE ME.",
         "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_true": "Двухфакторная аутентификация необходима для всех пользователей",
-        "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_false": "Двухфакторная аутентификация опциональна для всех пользователей"
+        "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_false": "Двухфакторная аутентификация опциональна для всех пользователей",
+        "INTERNAL_ENABLE_PERSONAL_SPACE__BOOLEAN_true": "Internal user can access to his personal space."
       }
     },
     "MIME_POLICIES": {
