@@ -1,6 +1,6 @@
 import { GetterTree } from 'vuex';
 import { AuthState } from './auth.state';
-import RootState from '@/core/store/RootState';
+import { RootState } from '@/core/store';
 
 const getters: GetterTree<AuthState, RootState> = {
   getLoggedUser: state => state.loggedUser,

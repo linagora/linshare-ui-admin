@@ -4,7 +4,7 @@
   >
     <template #titlePostfix>
       <span :class="['feature-status', { 'active': secondFA.enabled }]">
-        {{ secondFA.enabled ? $t('GENERAL.ENABLED') : $t('GENERAL.DISABLED') }}
+        {{ secondFA && secondFA.enabled ? $t('GENERAL.ENABLED') : $t('GENERAL.DISABLED') }}
       </span>
     </template>
   </PageTitle>

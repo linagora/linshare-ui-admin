@@ -1,7 +1,7 @@
 
 import { ActionTree } from 'vuex';
 import { UserState } from './user.state';
-import RootState from '@/core/store/RootState';
+import { RootState } from '@/core/store';
 import { getUser, updateUser, deleteUser } from '@/modules/user/services/user-api';
 import User from '@/modules/user/types/User';
 

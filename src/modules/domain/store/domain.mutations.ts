@@ -1,6 +1,6 @@
 import Status from '@/core/types/Status';
-import Domain from '@/modules/domain/types/Domain';
-import DomainTreeNode from '@/modules/domain/types/DomainTreeNode';
+import Domain, { EMPTY_DOMAIN } from '@/modules/domain/types/Domain';
+import DomainTreeNode, { EMPTY_DOMAIN_NODE } from '@/modules/domain/types/DomainTreeNode';
 import { DomainState } from './domain.state';
 
 function updateDomainName (domain: DomainTreeNode, updated: Domain) {
@@ -18,6 +18,13 @@ function updateDomainName (domain: DomainTreeNode, updated: Domain) {
 }
 
 export default {
+  dehydrate (state: DomainState) {
+    state.currentDomain = EMPTY_DOMAIN;
+    state.domainsTree = EMPTY_DOMAIN_NODE;
+    state.status = {
+      currentDomain: Status.LOADING
+    };
+  },
   setDomainsTree (state: DomainState, tree: DomainTreeNode) {
     state.domainsTree = tree;
   },
@@ -26,9 +33,6 @@ export default {
   },
   setCurrentDomainStatus (state: DomainState, status: Status) {
     state.status.currentDomain = status;
-  },
-  setDomainsTreeStatus (state: DomainState, status: Status) {
-    state.status.domainsTree = status;
   },
   setDomainNameInTree (state: DomainState, domain: Domain) {
     updateDomainName(state.domainsTree, domain);

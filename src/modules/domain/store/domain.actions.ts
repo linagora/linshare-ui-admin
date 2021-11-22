@@ -1,22 +1,15 @@
 import { ActionTree } from 'vuex';
 import { DomainState } from './domain.state';
-import RootState from '@/core/store/RootState';
+import { RootState } from '@/core/store';
 import Status from '@/core/types/Status';
 import Domain from '@/modules/domain/types/Domain';
 import { getDomains, getDomain, updateDomain } from '@/modules/domain/services/domain-api';
 
 const actions: ActionTree<DomainState, RootState> = {
   async fetchDomainsTree ({ commit }) {
-    commit('setDomainsTreeStatus', Status.LOADING);
+    const domains = await getDomains({ params: { tree: true } });
 
-    try {
-      const domains = await getDomains({ params: { tree: true } });
-
-      commit('setDomainsTree', domains[0]);
-      commit('setDomainsTreeStatus', Status.SUCCESS);
-    } catch (error) {
-      commit('setDomainsTreeStatus', Status.ERROR);
-    }
+    commit('setDomainsTree', domains[0]);
   },
   async fetchDomainById ({ commit }, id: string) {
     commit('setCurrentDomainStatus', Status.LOADING);
@@ -27,7 +20,7 @@ const actions: ActionTree<DomainState, RootState> = {
       commit('setCurrentDomain', domain);
       commit('setCurrentDomainStatus', Status.SUCCESS);
     } catch (error) {
-      commit('setDomainsTreeStatus', Status.ERROR);
+      commit('setCurrentDomainStatus', Status.ERROR);
     }
   },
   async updateDomain ({ commit }, domain: Domain) {

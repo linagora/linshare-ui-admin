@@ -3,6 +3,10 @@ import SecondFactorAuthentication from '@/modules/auth/types/SecondFactorAuthent
 import { AuthState } from './auth.state';
 
 export default {
+  dehydrate (state: AuthState) {
+    state.loggedUser = null;
+    state.secondFA = null;
+  },
   setLoggedUser (state: AuthState, user: User | null) {
     state.loggedUser = user;
   },

@@ -1,11 +1,5 @@
 <template>
-  <a-skeleton
-    v-if="isLoadingTree"
-    active
-  />
-
   <div
-    v-else
     class="domains-tree"
   >
     <ul>
@@ -28,7 +22,6 @@
 <script lang="ts" setup>
 import { useStore } from 'vuex';
 import { computed, reactive } from 'vue';
-import Status from '@/core/types/Status';
 import { EMPTY_DOMAIN } from '../types/Domain';
 import DomainsTreeNode from './DomainsTreeNode.vue';
 import DomainCreationFormModal, { DomainCreationFormModalProps } from './DomainCreationFormModal.vue';
@@ -36,7 +29,6 @@ import DomainCreationFormModal, { DomainCreationFormModalProps } from './DomainC
 const store = useStore();
 const modalProps = reactive<DomainCreationFormModalProps>({ visible: false });
 const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
-const isLoadingTree = computed(() => store.getters['Domain/getStatus']('domainsTree') === Status.LOADING);
 
 function showModal (data: DomainCreationFormModalProps) {
   modalProps.visible = true;

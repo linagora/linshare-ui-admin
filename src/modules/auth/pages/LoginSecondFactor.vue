@@ -50,13 +50,13 @@
 <script lang="ts">
 import router from '@/core/router';
 import { defineComponent, ref } from 'vue';
-import { useStore } from 'vuex';
 
 import Copyright from '@/core/components/Copyright.vue';
 import OtpInput from '@/core/components/OtpInput.vue';
 import { APIError } from '@/core/types/APIError';
+import { login } from '../services/auth.service';
 
-interface LoginSecondFactorProps {
+interface Props {
   email: string;
   password: string;
   redirect: string;
@@ -82,8 +82,7 @@ export default defineComponent({
       default: ''
     }
   },
-  setup (props: LoginSecondFactorProps) {
-    const store = useStore();
+  setup (props: Props) {
     const error = ref('');
     const submitting = ref(false);
     const otp = ref('');
@@ -96,16 +95,11 @@ export default defineComponent({
       try {
         submitting.value = true;
 
-        await store.dispatch('Auth/fetchLoggedUser', {
-          auth: {
-            username: props.email,
-            password: props.password
-          },
-          headers: {
-            'x-linShare-2fa-pin': otp.value
-          }
+        await login({
+          email: props.email,
+          password: props.password,
+          otp: otp.value
         });
-
         router.push(props.redirect || '/');
       } catch (e) {
         error.value = (e as APIError).getMessage();

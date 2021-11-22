@@ -64,11 +64,12 @@
 <script lang="ts">
 import router from '@/core/router';
 import { defineComponent, ref, reactive } from 'vue';
-import { useStore } from 'vuex';
 
 import Copyright from '@/core/components/Copyright.vue';
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
 import { APIError } from '@/core/types/APIError';
+
+import { LoginCredentials, login } from '../services/auth.service';
 
 export default defineComponent({
   name: 'Login',
@@ -84,10 +85,9 @@ export default defineComponent({
     }
   },
   setup (props) {
-    const store = useStore();
     const error = ref('');
     const loggingIn = ref(false);
-    const credentials = reactive({
+    const credentials = reactive<LoginCredentials>({
       email: '',
       password: ''
     });
@@ -108,13 +108,8 @@ export default defineComponent({
     async function logIn () {
       try {
         loggingIn.value = true;
-        await store.dispatch('Auth/fetchLoggedUser', {
-          auth: {
-            username: credentials.email,
-            password: credentials.password
-          }
-        });
 
+        await login(credentials);
         router.push(props.redirect || '/');
       } catch (error) {
         if (error instanceof APIError) {

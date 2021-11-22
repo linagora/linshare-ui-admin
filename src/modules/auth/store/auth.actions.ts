@@ -1,11 +1,10 @@
 import { ActionTree } from 'vuex';
 import { AuthState } from './auth.state';
-import RootState from '@/core/store/RootState';
+import { RootState } from '@/core/store';
 import {
   create2FAKey,
   get2FAStatus,
   getAuthorizedUser,
-  logOut,
   remove2FAKey
 } from '@/modules/auth/services/auth-api';
 
@@ -20,11 +19,6 @@ const actions: ActionTree<AuthState, RootState> = {
 
       throw error;
     }
-  },
-  async logoutUser ({ commit }) {
-    await logOut();
-
-    commit('setLoggedUser', {});
   },
   async fetchSecondFA ({ commit, state }) {
     const loggedUserUuid = state.loggedUser?.uuid;

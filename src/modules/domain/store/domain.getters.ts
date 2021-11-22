@@ -1,6 +1,6 @@
 import { GetterTree } from 'vuex';
 import { DomainState } from './domain.state';
-import RootState from '@/core/store/RootState';
+import { RootState } from '@/core/store';
 import DomainTreeNode from '../types/DomainTreeNode';
 import Domain from '../types/Domain';
 
@@ -10,7 +10,7 @@ const getters: GetterTree<DomainState, RootState> = {
   getCurrentDomainType: state => state.currentDomain.type,
   getDomainsTree: state => state.domainsTree,
   getDomainsList: state => getDomainsListFromTree(state.domainsTree),
-  getStatus: state => (entity: 'currentDomain' | 'domainsTree') => state.status[entity],
+  getStatus: state => (entity: 'currentDomain') => state.status[entity],
   isRootDomain: state => state.currentDomain.type === 'ROOTDOMAIN',
   isGuestDomain: state => state.currentDomain.type === 'GUESTDOMAIN'
 };

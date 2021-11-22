@@ -7,7 +7,6 @@ export interface DomainState {
   domainsTree: DomainTreeNode;
   status: {
     currentDomain: Status;
-    domainsTree: Status;
   };
 }
 
@@ -15,8 +14,7 @@ const state: DomainState = {
   currentDomain: EMPTY_DOMAIN,
   domainsTree: EMPTY_DOMAIN_NODE,
   status: {
-    currentDomain: Status.LOADING,
-    domainsTree: Status.LOADING
+    currentDomain: Status.LOADING
   }
 };
 

@@ -37,7 +37,7 @@ import router from '@/core/router';
 import { computed, defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
-import { message } from 'ant-design-vue';
+import { logout } from '@/modules/auth/services/auth.service';
 
 export default defineComponent({
   setup () {
@@ -45,11 +45,7 @@ export default defineComponent({
     const { t } = useI18n();
 
     async function logOut () {
-      try {
-        await store.dispatch('Auth/logoutUser');
-      } catch (e) {
-        message.error(t('HEADER.PROFILE.LOGOUT'));
-      }
+      await logout();
 
       router.push({ name: 'Login' });
     }
