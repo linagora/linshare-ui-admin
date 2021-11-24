@@ -21,7 +21,7 @@ export const requiresAuthGuard = async (router: Router, store: Store<any>) => {
         await hydrate();
       } catch (error) {
         if (error instanceof APIError && error.isUnauthorizedError()) {
-          next({ name: 'Login' });
+          return next({ name: 'Login' });
         }
       }
     }
