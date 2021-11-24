@@ -395,6 +395,10 @@
       "ASSOCIATED_DOMAIN_ID": "Identifiant de domaine associé",
       "ASSOCIATED_DOMAIN_ID_HELPER": "En créant un fournisseur d'utilisateurs OIDC pour {nom}, vous autorisez LinShare à créer des utilisateurs pour ce domaine lorsqu'un utilisateur s'authentifie avec OIDC",
       "USED_DOMAIN_ID": "Cet identifiant de domaine a déjà été utilisé dans un autre domaine"
+    },
+    "TWAKE": {
+      "COMPANY_ID": "ID de l'entreprise",
+      "COMPANY_ID_HELPER": "LinShare récupérera les utilisateurs de cette entreprise dans Twake"
     }
   },
   "GROUP_FILTER": {

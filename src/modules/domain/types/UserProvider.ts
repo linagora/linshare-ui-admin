@@ -12,7 +12,7 @@ export interface OIDCUserProvider {
 
 export interface LDAPUserProvider {
   uuid: string;
-  creationDAte?: number;
+  creationDate?: number;
   modificationDate?: number;
   type?: 'LDAP_PROVIDER';
   ldapServer?: {
@@ -26,6 +26,22 @@ export interface LDAPUserProvider {
   baseDn?: string;
 }
 
+export interface TwakeUserProvider {
+  uuid: string;
+  creationDate?: number;
+  modificationDate?: number;
+  type?: 'TWAKE_PROVIDER';
+  twakeServer: {
+    uuid: string;
+    name: string;
+  };
+  twakeCompanyId: string;
+}
+
+type UserProvider = OIDCUserProvider | LDAPUserProvider | TwakeUserProvider;
+
 export const EMPTY_PROVIDER = {
   uuid: ''
 };
+
+export default UserProvider;

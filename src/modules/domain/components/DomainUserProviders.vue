@@ -25,7 +25,7 @@
               <a-menu-item @click="state.provider.type = 'OIDC_PROVIDER'">
                 {{ $t('USER_PROVIDER.TYPES.OIDC') }}
               </a-menu-item>
-              <a-menu-item disabled>
+              <a-menu-item @click="state.provider.type = 'TWAKE_PROVIDER'">
                 {{ $t('USER_PROVIDER.TYPES.TWAKE') }}
               </a-menu-item>
             </a-menu>
@@ -42,7 +42,7 @@
         <DomainUserProviderLDAPForm
           v-if="state.provider.type === 'LDAP_PROVIDER'"
           :provider="state.provider"
-          :servers-list="state.ldapServers"
+          :servers-list="state.servers.filter(server => server.serverType === 'LDAP')"
           :filters-list="state.userFilters"
           :domain="currentDomain"
           @cancel="() => setProvider(EMPTY_PROVIDER)"
@@ -52,6 +52,16 @@
 
         <DomainUserProviderOIDCForm
           v-if="state.provider.type === 'OIDC_PROVIDER'"
+          :provider="state.provider"
+          :domain="currentDomain"
+          @cancel="() => setProvider(EMPTY_PROVIDER)"
+          @deleted="() => setProvider(EMPTY_PROVIDER)"
+          @submitted="provider => setProvider(provider)"
+        />
+
+        <DomainUserProviderTwakeForm
+          v-if="state.provider.type === 'TWAKE_PROVIDER'"
+          :servers-list="state.servers.filter(server => server.serverType === 'TWAKE')"
           :provider="state.provider"
           :domain="currentDomain"
           @cancel="() => setProvider(EMPTY_PROVIDER)"
@@ -89,11 +99,13 @@ import {
 import { useStore } from 'vuex';
 import DomainUserProviderLDAPForm from './DomainUserProviderLDAPForm.vue';
 import DomainUserProviderOIDCForm from './DomainUserProviderOIDCForm.vue';
+import DomainUserProviderTwakeForm from './DomainUserProviderTwakeForm.vue';
 import { getUserProviders } from '../services/domain-api';
 import {
   LDAPUserProvider,
   OIDCUserProvider,
-  EMPTY_PROVIDER
+  EMPTY_PROVIDER,
+  TwakeUserProvider
 } from '../types/UserProvider';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
@@ -102,8 +114,8 @@ import { listUserFilters } from '@/modules/user-filter/services/user-filter-api'
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
-  provider: LDAPUserProvider | OIDCUserProvider;
-  ldapServers: RemoteServer[];
+  provider: LDAPUserProvider | OIDCUserProvider | TwakeUserProvider;
+  servers: RemoteServer[];
   userFilters: UserFilter[];
 }
 
@@ -111,7 +123,7 @@ const store = useStore();
 const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
-  ldapServers: [],
+  servers: [],
   userFilters: []
 });
 
@@ -119,10 +131,8 @@ function setProvider (provider: LDAPUserProvider) {
   state.provider = { ...provider };
 }
 
-async function prepareLDAPServers () {
-  const servers = await listRemoteServers();
-
-  state.ldapServers = servers.filter(server => server.serverType === 'LDAP');
+async function prepareServers () {
+  state.servers = await listRemoteServers();
 }
 
 async function prepareUserFilters () {
@@ -141,7 +151,7 @@ async function prepareData () {
   state.status = 'loading';
 
   try {
-    await prepareLDAPServers();
+    await prepareServers();
     await prepareUserFilters();
 
     state.status = 'loaded';
@@ -168,13 +178,6 @@ watchEffect(async () => {
 
 <style class='less' scoped>
 .spinner {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.empty-provider {
   height: 100%;
   display: flex;
   justify-content: center;

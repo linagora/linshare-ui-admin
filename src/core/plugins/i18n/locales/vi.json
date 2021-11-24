@@ -395,6 +395,10 @@
       "ASSOCIATED_DOMAIN_ID": "Định danh miền được liên kết",
       "ASSOCIATED_DOMAIN_ID_HELPER": "Bằng cách tạo nhà cung cấp người dùng OIDC cho {name}, bạn cho phép LinShare tạo người dùng cho miền này khi người dùng xác thực bằng OIDC",
       "USED_DOMAIN_ID": "Mã nhận dạng này đã được sử dụng trong một miền khác"
+    },
+    "TWAKE": {
+      "COMPANY_ID": "ID công ty",
+      "COMPANY_ID_HELPER": "LinShare sẽ truy xuất người dùng từ công ty này trong Twake"
     }
   },
   "GROUP_FILTER": {
