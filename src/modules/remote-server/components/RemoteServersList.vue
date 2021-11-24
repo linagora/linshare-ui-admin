@@ -90,13 +90,13 @@
     :data="state.TWAKE.data"
     @success="onSuccess"
     @cancel="state.TWAKE.showModal = false"
-  >
-    <DomainAssociatedListModal
-      :state="modal"
-      :empty-text="$t('REMOTE_SERVER.NO_ASSOCIATED_DOMAIN')"
-      @ok="hide"
-    />
-  </remoteservertwakemodal>
+  />
+
+  <DomainAssociatedListModal
+    :state="modal"
+    :empty-text="$t('REMOTE_SERVER.NO_ASSOCIATED_DOMAIN')"
+    @ok="hide"
+  />
 </template>
 
 <script lang='ts' setup>
