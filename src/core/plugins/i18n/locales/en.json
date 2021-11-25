@@ -403,7 +403,7 @@
       "USED_DOMAIN_ID": "This domain identifier has already been used in another domain"
     },
     "TWAKE": {
-      "COMPANY_ID": "Company ID",
+      "COMPANY_ID": "Company Identifier",
       "COMPANY_ID_HELPER": "LinShare will retrieve users from this company in Twake"
     }
   },

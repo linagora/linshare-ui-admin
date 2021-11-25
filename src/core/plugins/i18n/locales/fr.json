@@ -397,7 +397,7 @@
       "USED_DOMAIN_ID": "Cet identifiant de domaine a déjà été utilisé dans un autre domaine"
     },
     "TWAKE": {
-      "COMPANY_ID": "ID de l'entreprise",
+      "COMPANY_ID": "Identifiant de l'entreprise",
       "COMPANY_ID_HELPER": "LinShare récupérera les utilisateurs de cette entreprise dans Twake"
     }
   },
