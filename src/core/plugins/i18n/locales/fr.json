@@ -379,9 +379,11 @@
   },
   "USER_PROVIDER": {
     "EMPTY_MESSAGE": "Aucun fournisseur d'utilisateurs n'a été créé pour ce domaine",
+    "EMPTY_MESSAGE_GUEST_DOMAIN": "La création d'un fournisseur d'invité Twake est facultative. En créant le fournisseur invité Twake, les utilisateurs invités seront alors fournis par Twake. Les utilisateurs ne pourront plus créer d'invités pour ce domaine.",
     "ERROR_MESSAGE": "Impossible de récupérer les données du fournisseur d'utilisateur de ce domaine",
     "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce fournisseur d'utilisateurs, cette procédure est irréversible. Voulez-vous poursuivre?",
     "CREATE": "Créer un nouveau fournisseur",
+    "CREATE_TWAKE_PROVIDER": "Créer un nouveau fournisseur Twake",
     "TYPES": {
       "LDAP": "Fournisseur LDAP",
       "TWAKE": "Fournisseur Twake",

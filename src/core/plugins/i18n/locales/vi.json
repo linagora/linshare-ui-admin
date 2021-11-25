@@ -379,9 +379,11 @@
   },
   "USER_PROVIDER": {
     "EMPTY_MESSAGE": "Không có nhà cung cấp người dùng nào được tạo cho miền này",
+    "EMPTY_MESSAGE_GUEST_DOMAIN": "Tạo một nhà cung cấp khách Twake là tùy chọn. Sau khi tạo nhà cung cấp khách Twake, khách sẽ được Twake cung cấp. Người dùng sẽ không thể tạo khách cho miền này nữa.",
     "ERROR_MESSAGE": "Không tìm nạp được dữ liệu nhà cung cấp người dùng của miền này",
     "DELETE_CONFIRM": "Bạn sắp xóa nhà cung cấp người dùng này, thủ tục này là không thể đảo ngược. Bạn có muốn tiếp tục?",
     "CREATE": "Tạo nhà cung cấp mới",
+    "CREATE_TWAKE_PROVIDER": "Tạo nhà cung cấp Twake mới",
     "TYPES": {
       "LDAP": "Nhà cung cấp LDAP",
       "TWAKE": "Nhà cung cấp Twake",

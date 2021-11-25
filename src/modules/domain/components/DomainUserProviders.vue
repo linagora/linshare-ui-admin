@@ -10,9 +10,21 @@
     <a-result
       v-if="!state.provider.uuid && !state.provider.type"
       :title="$t('USER_PROVIDER.EMPTY_MESSAGE')"
+      :sub-title="currentDomain.type === DOMAIN_TYPE.GUEST && $t('USER_PROVIDER.EMPTY_MESSAGE_GUEST_DOMAIN')"
     >
       <template #extra>
-        <a-dropdown :trigger="['click']">
+        <a-button
+          v-if="currentDomain.type === DOMAIN_TYPE.GUEST"
+          type="primary"
+          @click="state.provider.type = 'TWAKE_PROVIDER'"
+        >
+          {{ $t('USER_PROVIDER.CREATE_TWAKE_PROVIDER') }}
+        </a-button>
+
+        <a-dropdown
+          v-else
+          :trigger="['click']"
+        >
           <a-button type="primary">
             {{ $t('USER_PROVIDER.CREATE') }}
           </a-button>
@@ -111,6 +123,7 @@ import { listRemoteServers } from '@/modules/remote-server/services/remote-serve
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
 import UserFilter, { USER_FILTER_TYPE } from '@/modules/user-filter/types/UserFilter';
 import { listUserFilters } from '@/modules/user-filter/services/user-filter-api';
+import Domain, { DOMAIN_TYPE } from '../types/Domain';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
@@ -120,7 +133,7 @@ interface State {
 }
 
 const store = useStore();
-const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
+const currentDomain = computed<Domain>(() => store.getters['Domain/getCurrentDomain']);
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
   servers: [],

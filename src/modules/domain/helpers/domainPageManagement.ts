@@ -26,7 +26,7 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
   {
     title: 'NAVIGATOR.PROVIDERS',
     accessibility: {
-      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
+      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
       userRoles: [ACCOUNT_ROLE.SUPERADMIN]
     },
     route: { name: 'DomainProviders' }
@@ -34,7 +34,7 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
   {
     title: 'NAVIGATOR.PROVIDERS',
     accessibility: {
-      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
+      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
       userRoles: [ACCOUNT_ROLE.SUPERADMIN]
     },
     route: { name: 'DomainProviderManagement' },
@@ -43,7 +43,7 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
   {
     title: 'NAVIGATOR.USER_PROVIDERS',
     accessibility: {
-      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
+      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
       userRoles: [ACCOUNT_ROLE.SUPERADMIN]
     },
     route: { name: 'DomainUserProviders' },
