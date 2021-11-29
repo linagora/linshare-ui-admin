@@ -168,7 +168,11 @@
       "TYPE_ROOT": "Root",
       "TYPE_INTERNAL": "Internal",
       "TYPE_GUEST": "Guest",
-      "COMMENT": "Commentaire"
+      "COMMENT": "Commentaire",
+      "RESTRICTED_CONTACTS_LIST_REQUIRED": "Pour les invités restreints, sa liste de contacts restreints doit contenir au moins un contact.",
+      "NO_USER_FOUND": "Aucun utilisateur trouvé",
+      "RESTRICTED_GUEST": "Restreindre l'invité",
+      "RESTRICTED_CONTACTS": "Comptes que l'invité peut contacter"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Enter value",

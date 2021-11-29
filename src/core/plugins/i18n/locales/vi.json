@@ -168,7 +168,11 @@
       "TYPE_ROOT": "Gốc",
       "TYPE_INTERNAL": "Nội bộ",
       "TYPE_GUEST": "Khách",
-      "COMMENT": "Nhận xét"
+      "COMMENT": "Nhận xét",
+      "RESTRICTED_CONTACTS_LIST_REQUIRED": "Đối với khách bị hạn chế, danh sách liên hệ bị hạn chế của anh ta phải có ít nhất một địa chỉ liên hệ",
+      "NO_USER_FOUND": "Không tìm thấy người dùng",
+      "RESTRICTED_GUEST": "Hạn chế khách",
+      "RESTRICTED_CONTACTS": "Tài khoản mà khách có thể liên hệ"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Nhập thông tin tìm kiếm",

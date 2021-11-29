@@ -68,12 +68,8 @@
           <PersonalSpaceQuota />
         </a-tab-pane>
         <a-tab-pane
-          key="3"
-          :tab="$t('USERS.DETAIL_USER.UPLOAD_REQUEST')"
-        />
-        <a-tab-pane
           v-if="user.accountType === 'GUEST'"
-          key="4"
+          key="3"
           :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')"
         >
           <RestrictedContacts />

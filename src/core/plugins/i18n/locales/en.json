@@ -171,7 +171,11 @@
       "TYPE_ROOT": "Root",
       "TYPE_INTERNAL": "Internal",
       "TYPE_GUEST": "Guest",
-      "COMMENT": "Comment"
+      "COMMENT": "Comment",
+      "RESTRICTED_CONTACTS_LIST_REQUIRED": "For restricted guest, his restricted contacts list must contain at least one contact",
+      "NO_USER_FOUND": "No user found",
+      "RESTRICTED_GUEST": "Restrict guest",
+      "RESTRICTED_CONTACTS": "Accounts guest can contact"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Enter value",

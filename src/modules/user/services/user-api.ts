@@ -70,12 +70,12 @@ async function listRestrictedContacts (id: string, config?: AxiosRequestConfig):
   return await api.get(`users/${id}/restricted_contacts`, config);
 }
 
-async function createRestrictedContact (id: string, payload: RestrictedContact): Promise<RestrictedContact> {
+async function createRestrictedContact (id: string, payload: Omit<RestrictedContact, 'uuid'>): Promise<RestrictedContact> {
   return await api.post(`users/${id}/restricted_contacts`, payload);
 }
 
-async function removeRestrictedContact (id: string, restrictedContactId: string): Promise<void> {
-  await api.delete(`users/${id}/restricted_contacts/${restrictedContactId}`);
+async function removeRestrictedContact (id: string, restrictedContactId: string): Promise<RestrictedContact> {
+  return await api.delete(`users/${id}/restricted_contacts/${restrictedContactId}`);
 }
 
 async function getUserQuota (id: string, quotaId: string): Promise<UserQuota> {

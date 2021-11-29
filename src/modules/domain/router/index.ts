@@ -3,13 +3,12 @@ import { RemoteServersRoute } from '@/modules/remote-server/router';
 import { UserFilterRoutes } from '@/modules/user-filter/router';
 import { GroupFilterRoutes } from '@/modules/group-filter/router';
 import { DriveFilterRoutes } from '@/modules/drive-filter/router';
-import DomainConfiguration from '../pages/DomainConfiguration.vue';
 
 export const DomainConfigurationRoute: RouteRecordRaw = {
   name: 'Configuration',
   path: 'configuration',
   redirect: { name: 'DomainManagement' },
-  component: DomainConfiguration,
+  component: () => import('../pages/DomainConfiguration.vue'),
   meta: {
     label: 'NAVIGATOR.CONFIGURATION',
     requiresAuth: true
