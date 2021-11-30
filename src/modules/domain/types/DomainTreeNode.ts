@@ -8,5 +8,6 @@ export default interface DomainTreeNode {
 }
 
 export const EMPTY_DOMAIN_NODE: DomainTreeNode = {
-  uuid: ''
+  uuid: '',
+  name: ''
 };
