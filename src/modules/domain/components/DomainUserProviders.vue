@@ -16,7 +16,7 @@
         <a-button
           v-if="currentDomain.type === DOMAIN_TYPE.GUEST"
           type="primary"
-          @click="state.provider.type = 'TWAKE_PROVIDER'"
+          @click="state.provider.type = 'TWAKE_GUEST_PROVIDER'"
         >
           {{ $t('USER_PROVIDER.CREATE_TWAKE_PROVIDER') }}
         </a-button>
@@ -72,7 +72,7 @@
         />
 
         <DomainUserProviderTwakeForm
-          v-if="state.provider.type === 'TWAKE_PROVIDER'"
+          v-if="state.provider.type === 'TWAKE_PROVIDER' || state.provider.type === 'TWAKE_GUEST_PROVIDER'"
           :servers-list="state.servers.filter(server => server.serverType === 'TWAKE')"
           :provider="state.provider"
           :domain="currentDomain"

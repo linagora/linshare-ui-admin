@@ -30,7 +30,7 @@ export interface TwakeUserProvider {
   uuid: string;
   creationDate?: number;
   modificationDate?: number;
-  type?: 'TWAKE_PROVIDER';
+  type?: 'TWAKE_PROVIDER' | 'TWAKE_GUEST_PROVIDER';
   twakeServer: {
     uuid: string;
     name: string;

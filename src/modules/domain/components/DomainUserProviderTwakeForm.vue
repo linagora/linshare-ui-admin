@@ -143,7 +143,7 @@ async function create () {
 
 function getDto (): Partial<TwakeUserProvider> {
   return {
-    type: 'TWAKE_PROVIDER',
+    type: props.provider.type,
     twakeCompanyId: formState.companyId,
     twakeServer: {
       uuid: formState.serverUuid || '',
