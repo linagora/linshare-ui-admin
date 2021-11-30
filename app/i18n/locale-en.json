@@ -1806,6 +1806,18 @@
         "PARAMETER_NAME": "Parameters",
         "USE_EXTENDED_DESCRIPTION": "2",
         "DESCRIPTION": "The functionality manages second factor authentication feature. Any changes of this page will have impact on all users of LinShare"
+      },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Collected emails expiration",
+        "USE_EXTENDED_DESCRIPTION": "3",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "By enabling, you allow your nested domain admin to change collected emails uptime in his domain",
+        "PARAMETER_NAME": "Collected emails uptime",
+        "PARAMETER_DESCRIPTION": "The duration of storing a collected email from the last time that email is used for sharing files"
       }
     },
     "PARAMETERS": {

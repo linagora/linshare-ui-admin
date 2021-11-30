@@ -1749,6 +1749,18 @@
         "PARAMETER_NAME": "Paramètres",
         "USE_EXTENDED_DESCRIPTION": "2",
         "DESCRIPTION": "La fonctionnalité permet de gérer l'authentification à double facteur, toute modification apportée sur cette page affecterait tous les utilisateurs de LinShare"
+      },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Expiration des e-mails collectés",
+        "USE_EXTENDED_DESCRIPTION": "3",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "En activant, vous pouver autoriser ou interdire aux administrateurs des sous domaines à modifier la période de rétention ci-dessous",
+        "PARAMETER_NAME": "Période de rétention des e-mails collectés",
+        "PARAMETER_DESCRIPTION": "La période de rétention est utilisé pour calculer la date d'expiration de l' e-mail."
       }
     },
     "PARAMETERS": {
