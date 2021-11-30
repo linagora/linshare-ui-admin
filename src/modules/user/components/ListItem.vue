@@ -67,33 +67,25 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import useUser from '@/modules/user/hooks/useUser';
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 import User from '@/modules/user/types/User';
-import router from '@/core/router';
 
-export default defineComponent({
-  name: 'ListItem',
-  props: {
-    data: {
-      type: Object as PropType<User>,
-      default: () => ({})
-    }
-  },
-  setup (props) {
-    const { displayInfo } = useUser(props.data);
+interface Props {
+  data: User;
+}
 
-    function goToUser () {
-      router.push({ name: 'UserDetail', params: { id: props.data.uuid } });
-    }
+const props = defineProps<Props>();
+const { push } = useRouter();
+const displayInfo = computed(() => !props.data.firstName && !props.data.lastName
+  ? props.data.mail
+  : `${props.data.firstName} ${props.data.lastName}`.trim()
+);
 
-    return {
-      displayInfo,
-      goToUser
-    };
-  }
-});
+function goToUser () {
+  push({ name: 'UserDetail', params: { id: props.data.uuid } });
+}
 </script>
 
 <style lang='less' scoped>
