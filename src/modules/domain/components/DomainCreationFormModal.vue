@@ -89,7 +89,7 @@ import { APIError } from '@/core/types/APIError';
 
 export interface DomainCreationFormModalProps {
   visible: boolean;
-  type?: Exclude<DOMAIN_TYPE, DOMAIN_TYPE.ROOT>;
+  type?: DOMAIN_TYPE.GUEST | DOMAIN_TYPE.SUB | DOMAIN_TYPE.TOP;
   parent?: Partial<Domain>;
 }
 
