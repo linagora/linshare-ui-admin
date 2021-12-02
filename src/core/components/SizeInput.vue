@@ -1,13 +1,13 @@
 <template>
   <a-input
-    v-model:value="value"
+    v-model:value="equivalent"
     type="number"
-    @change="updateModelValue"
+    @change="updateValue"
   >
     <template #addonAfter>
       <a-select
         v-model:value="base"
-        @change="updateModelValue"
+        @change="updateValue"
       >
         <a-select-option
           v-for="unit in STORAGE_UNITS"
@@ -20,50 +20,37 @@
   </a-input>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted, ref, watch, SetupContext } from 'vue';
+<script lang="ts" setup>
+import { onMounted, ref, watch } from 'vue';
 import { getReadableSize, STORAGE_UNITS } from '@/core/utils/unitStorage';
 
-export default defineComponent({
-  name: 'SizeInput',
-  props: {
-    modelValue: {
-      type: Number,
-      default: 0
-    }
-  },
-  emits: ['update:modelValue'],
-  setup (props, { emit }: SetupContext) {
-    const base = ref(1);
-    const value = ref(0);
+interface Props {
+  value: number;
+}
 
-    function setBaseAndValue (bytesValue: number) {
-      const readable = getReadableSize(bytesValue);
+const base = ref(1);
+const equivalent = ref(0);
+const props = defineProps<Props>();
+const emit = defineEmits(['update:value']);
 
-      value.value = readable.value;
-      base.value = readable.unit.base;
-    }
+function setBaseAndValue (bytesValue: number) {
+  const readable = getReadableSize(bytesValue);
 
-    watch(() => props.modelValue, newValue => {
-      if (base.value * value.value !== newValue) {
-        setBaseAndValue(newValue);
-      }
-    });
+  equivalent.value = readable.value;
+  base.value = readable.unit.base;
+}
 
-    onMounted(() => {
-      setBaseAndValue(props.modelValue);
-    });
-
-    function updateModelValue () {
-      emit('update:modelValue', value.value * base.value);
-    }
-
-    return {
-      base,
-      value,
-      updateModelValue,
-      STORAGE_UNITS
-    };
+watch(() => props.value, newValue => {
+  if (base.value * equivalent.value !== newValue) {
+    setBaseAndValue(newValue);
   }
 });
+
+onMounted(() => {
+  setBaseAndValue(props.value);
+});
+
+function updateValue () {
+  emit('update:value', equivalent.value * base.value);
+}
 </script>
