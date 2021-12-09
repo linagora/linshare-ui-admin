@@ -1058,47 +1058,79 @@
         "NAME": "Droit de création",
         "PARAMETER_NAME": "Paramètre"
       },
+      "WORK_GROUP": {
+        "NAME": "Groupe de Travail",
+        "USE_EXTENDED_DESCRIPTION": "",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
+      },
       "DRIVE": {
         "NAME": "Drive",
+        "USE_EXTENDED_DESCRIPTION": "",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
+      },
+      "SHARED_SPACE": {
+        "NAME": "Espace partagé",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs de gérer les Drives. L'objectif principal des Drives est de regrouper des groupe de travail (workgroups) et de leur affecter des membres et rôles par défaut. Il est possible de faire le parallèle entre un Drive et une équipe, un groupe de travail et un projet de cette équipe.",
-        "ADVANCED_DESCRIPTION": ""
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs d'accéder aux espaces partagés. Les espaces partagés contiennent des Drive et des Groupes de travail. Un Drive contient des membres avec leurs rôles au sein du Drive ainsi que leurs roles par défaut dans les groupes de travail. Un groupe de travail contient des membres avec leurs rôles et du contenu (dossiers/fichiers/versions). Lorsque cette fonctionnalité n'est pas activée, les sous-fonctionnalités ci-dessous ne fonctionneront pas.",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "utorise les utilisateurs à utiliser cette fonctionnalité",
+        "CONFIGURATION_POLICY": "Ce paramètre décidera si les administrateurs de domaines imbriqués peuvent modifier le paramètre par défaut ou non",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
       },
       "DRIVE__CREATION_RIGHT": {
-        "NAME": "Drive - Creation right",
+        "NAME": "Drive - Droit de création",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer les DRIVES",
-        "ADVANCED_DESCRIPTION": ""
-      },
-      "WORK_GROUP": {
-        "NAME": "Groupe de Travail"
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
       },
       "WORK_GROUP__CREATION_RIGHT": {
-        "NAME": "Droit de création"
+        "NAME": "Groupe de Travail - Droit de création",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs de créer un groupe de travail autonome",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
       },
       "WORK_GROUP__FILE_EDITION": {
-      "NAME": "Droit de modification d'un fichier",
-      "USE_EXTENDED_DESCRIPTION": "0",
-      "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de modifier les fichiers",
-      "ADVANCED_DESCRIPTION": "",
-      "USER_OVERRIDE": "",
-      "ACTIVATION_POLICY": ".",
-      "DELEGATION_POLICY": "",
-      "CONFIGURATION_POLICY": "",
-      "PARAMETER_NAME": "",
-      "PARAMETER_DESCRIPTION": ""
+        "NAME": "Active la fonctionnalité d'édition collaborative dans le produit.",
+        "USE_EXTENDED_DESCRIPTION": "0",
+        "DESCRIPTION": "En activant cette fonctionnalité, les utilisateurs pourront éditer en ligne les documents stockés dans un workgroup.",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": ".",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "",
+        "PARAMETER_DESCRIPTION": ""
       },
-       "WORK_GROUP__FILE_VERSIONING": {
-       "NAME": "Droit de création des versions de fichiers",
-       "USE_EXTENDED_DESCRIPTION": "0",
-       "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer des versions de fichiers dans un group de travail",
-       "ADVANCED_DESCRIPTION": "",
-       "USER_OVERRIDE": "",
-       "ACTIVATION_POLICY": "",
-       "DELEGATION_POLICY": "",
-       "CONFIGURATION_POLICY": "",
-       "PARAMETER_NAME": "Status par défaut",
-       "PARAMETER_DESCRIPTION": ""
+      "WORK_GROUP__FILE_VERSIONING": {
+        "NAME": "Droit de création des versions de fichiers",
+        "USE_EXTENDED_DESCRIPTION": "0",
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer des versions de fichiers dans un group de travail",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Status par défaut",
+        "PARAMETER_DESCRIPTION": ""
       },
       "WORK_GROUP__DOWNLOAD_ARCHIVE": {
         "NAME": "Droit de téléchargment d'un dossier",
@@ -1729,8 +1761,8 @@
         "ACTIVATION_POLICY": "Une fois activée, les utilisateurs pourront s'authentifier à l'aide d'un jeton permanent. La création et la manipulation seront pilotées par d'autres paramètres.",
         "DELEGATION_POLICY": "",
         "CONFIGURATION_POLICY": "Une fois activée, l'administrateur pourra créer des jetons pour les utilisateurs du domaine.",
-        "PARAMETER_NAME": "",
-        "PARAMETER_DESCRIPTION": ""
+        "PARAMETER_NAME": "Valeur par défaut dans l'interface utilisateur",
+        "PARAMETER_DESCRIPTION": "Ce paramètre décide si un administrateur peut créer un jeton permanent pour les utilisateurs de ses domaines"
       },
       "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
         "NAME": "Jeton JWT permanent pour les utilisateurs",

@@ -1084,47 +1084,78 @@
         "NAME": "Creation right",
         "PARAMETER_NAME": "Parameters"
       },
+      "WORK_GROUP": {
+        "NAME": "Workgroup",
+        "USE_EXTENDED_DESCRIPTION": "",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
+      },
       "DRIVE": {
         "NAME": "Drive",
+        "USE_EXTENDED_DESCRIPTION": "",
+        "DESCRIPTION": "",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
+      },
+      "SHARED_SPACE": {
+        "NAME": "Shared space",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This functionality allow users to manage Drives. The main goal of Drives is to gather workgroups together and to define default membership and roles for a bunch of users. You may see workgroups as projects and Drive as team, a team who handle theses projects.",
-        "ADVANCED_DESCRIPTION": ""
+        "DESCRIPTION": "This functionality allows users to access Shared Space. Shared Space contains Drives and Workgroups. A drive contains members with their roles and nested Workgroups. A Workgroup contains members with their roles and some content (folders/files/versions). When this functionality is not activated, the below sub-function will not work",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "Users will be given access to the feature after enabled",
+        "CONFIGURATION_POLICY": "This parameter will decide whether admins of nested domains can change the default parameter or not",
+        "DELEGATION_POLICY": ""
       },
       "DRIVE__CREATION_RIGHT": {
         "NAME": "Drive - Creation right",
         "USE_EXTENDED_DESCRIPTION": "1",
-        "DESCRIPTION": "This functionality allows users and administrators to create DRIVES",
-        "ADVANCED_DESCRIPTION": ""
-      },
-      "WORK_GROUP": {
-        "NAME": "Workgroup"
+        "DESCRIPTION": "This functionality allows users and administrators to create Drives",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
       },
       "WORK_GROUP__CREATION_RIGHT": {
-        "NAME": "Creation right"
+        "NAME": "Workgroup - Creation right",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This functionality allows users to create standalone Workgroups",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
       },
-       "WORK_GROUP__FILE_EDITION": {
-       "NAME": "File edition right",
-       "USE_EXTENDED_DESCRIPTION": "1",
-       "DESCRIPTION": "NB: This functionality depends on the versioning functionality, it should not be enabled if VERSIONING functionality is disabled",
-       "ADVANCED_DESCRIPTION": "",
-       "USER_OVERRIDE": "",
-       "ACTIVATION_POLICY": "",
-       "DELEGATION_POLICY": "",
-       "CONFIGURATION_POLICY": "",
-       "PARAMETER_NAME": "",
-       "PARAMETER_DESCRIPTION": ""
+      "WORK_GROUP__FILE_EDITION": {
+        "NAME": "File edition right",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "NB: This functionality depends on the versioning functionality, it should not be enabled if VERSIONING functionality is disabled",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "",
+        "PARAMETER_DESCRIPTION": ""
       },
-       "WORK_GROUP__FILE_VERSIONING": {
-       "NAME": "File versioning right",
-       "USE_EXTENDED_DESCRIPTION": "0",
-       "DESCRIPTION": "If enable, it will let users to create and manage versions of a document in a workgroup",
-       "ADVANCED_DESCRIPTION": "",
-       "USER_OVERRIDE": "",
-       "ACTIVATION_POLICY": "",
-       "DELEGATION_POLICY": "",
-       "CONFIGURATION_POLICY": "",
-       "PARAMETER_NAME": "Default versioning status",
-       "PARAMETER_DESCRIPTION": ""
+      "WORK_GROUP__FILE_VERSIONING": {
+        "NAME": "File versioning right",
+        "USE_EXTENDED_DESCRIPTION": "0",
+        "DESCRIPTION": "If enable, it will let users to create and manage versions of a document in a workgroup",
+        "ADVANCED_DESCRIPTION": "",
+        "USER_OVERRIDE": "",
+        "ACTIVATION_POLICY": "",
+        "DELEGATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_NAME": "Default versioning status",
+        "PARAMETER_DESCRIPTION": ""
       },
       "WORK_GROUP__DOWNLOAD_ARCHIVE": {
         "NAME": "Archive download right",
@@ -1786,8 +1817,8 @@
         "ACTIVATION_POLICY": "Once activated, users will be able to authenticate using a permanent token. Creation and manipulation will be handled by the delegation policy.",
         "DELEGATION_POLICY": "",
         "CONFIGURATION_POLICY": "Once enabled, the administrator will be able to create JWT permanent tokens for a user account.",
-        "PARAMETER_NAME": "",
-        "PARAMETER_DESCRIPTION": ""
+        "PARAMETER_NAME": "Default parameter",
+        "PARAMETER_DESCRIPTION": "This parameter decides whether an admin can create permanent token for users in his domains"
       },
       "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
         "NAME": "JWT permanent token for user",

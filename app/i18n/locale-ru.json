@@ -1020,26 +1020,66 @@
           "NAME": "Право право создания",
           "PARAMETER_NAME": "параметры"
         },
+        "WORK_GROUP": {
+          "NAME": "Рабочая группа",
+          "USE_EXTENDED_DESCRIPTION": "",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_DESCRIPTION": "",
+          "DELEGATION_POLICY": ""
+        },
         "DRIVE": {
           "NAME": "Drive",
+          "USE_EXTENDED_DESCRIPTION": "",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_DESCRIPTION": "",
+          "DELEGATION_POLICY": ""
+        },
+        "SHARED_SPACE": {
+          "NAME": "Общее пространство",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This functionality allow users to manage Drives. The main goal of Drives is to gather workgroups together and to define default membership and roles for a bunch of users. You may see workgroups as projects and Drive as team, a team who handle theses projects.",
-          "ADVANCED_DESCRIPTION": ""
+          "DESCRIPTION": "Эта функция позволяет пользователям получить доступ к общему пространству. Общее пространство содержит диски и автономные рабочие группы. Диск содержит участников с их ролями и вложенными рабочими группами. Рабочая группа содержит участников с их ролями и некоторым содержимым (папки / файлы / версии). Если эта функция не активирована, указанная ниже подфункция не будет работать.",
+          "ADVANCED_DESCRIPTION": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_DESCRIPTION": "",
+          "DELEGATION_POLICY": ""
         },
         "DRIVE__CREATION_RIGHT": {
-          "NAME": "Drive - Creation right",
+          "NAME": "Привод - право на создание",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This functionality allows users and administrators to create DRIVES",
-          "ADVANCED_DESCRIPTION": ""
-        },
-        "WORK_GROUP": {
-          "NAME": "Рабочая группа"
+          "DESCRIPTION": "Эта функция позволяет пользователям и администраторам создавать диски.",
+          "ADVANCED_DESCRIPTION": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_DESCRIPTION": "",
+          "DELEGATION_POLICY": ""
         },
         "WORK_GROUP__CREATION_RIGHT": {
-          "NAME": "Право право создания"
+          "NAME": "Право право создания",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Эта функция позволяет пользователям создавать автономные рабочие группы.",
+          "ADVANCED_DESCRIPTION": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_DESCRIPTION": "",
+          "DELEGATION_POLICY": ""
         },
         "WORK_GROUP__FILE_VERSIONING": {
-          "NAME": "TRANSLATE ME "
+          "NAME": "TRANSLATE ME ",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "",
+          "ADVANCED_DESCRIPTION": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_NAME": "Статус управления версиями по умолчанию",
+          "PARAMETER_DESCRIPTION": "",
+          "DELEGATION_POLICY": ""
         },
         "WORK_GROUP__DOWNLOAD_ARCHIVE": {
           "NAME": "TRANSLATE ME",
@@ -1701,8 +1741,8 @@
           "ACTIVATION_POLICY": "После активации пользователи смогут аутентифицироваться с использованием постоянного токена. Политика создания и манипуляции будет осуществляться политикой делегации.",
           "DELEGATION_POLICY": "",
           "CONFIGURATION_POLICY": "После включения администратор сможет создавать постоянные токены для учетной записи пользователя.",
-          "PARAMETER_NAME": "",
-          "PARAMETER_DESCRIPTION": ""
+          "PARAMETER_NAME": "Параметр по умолчанию",
+          "PARAMETER_DESCRIPTION": "Этот параметр определяет, может ли администратор создать постоянный токен для пользователей в его доменах"
         },
         "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
           "NAME": "постоянный токен для пользователя",
