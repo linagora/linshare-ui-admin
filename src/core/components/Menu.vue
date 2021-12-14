@@ -47,8 +47,7 @@
 import { defineComponent, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import useLegacyFeatures from '../hooks/useLegacyFeatures';
-import ConfigService from '@/core/services/ConfigService';
-import { CONFIGURATION_KEY } from '../types/AppConfiguration';
+import config from '@/config';
 
 export default defineComponent({
   name: 'Menu',
@@ -56,8 +55,8 @@ export default defineComponent({
     const { currentRoute, push } = useRouter();
     const { redirect } = useLegacyFeatures();
     const current = computed(() => [currentRoute.value.meta.parent || currentRoute.value.name]);
-    const isBeta = ConfigService.get(CONFIGURATION_KEY.BETA);
-    const legacyAppUrl = ConfigService.get(CONFIGURATION_KEY.LEGACY_APP_URL);
+    const isBeta = config.beta;
+    const legacyAppUrl = config.legacyAppUrl;
 
     function navigateTo (name: string, legacy?: boolean) {
       if (legacy) {

@@ -3,8 +3,7 @@ import { useStore } from 'vuex';
 import { Modal } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
-import ConfigService from '../services/ConfigService';
-import { CONFIGURATION_KEY } from '../types/AppConfiguration';
+import config from '@/config';
 
 const LEGACY_PAGES = [{
   title: 'NAVIGATOR.GROUP_FILTERS',
@@ -68,10 +67,9 @@ export default function useLegacyFeatures () {
       cancelText: () => t('GENERAL.CANCEL'),
       onOk: () => {
         const page = LEGACY_PAGES.find(page => page.title === title);
-        const appUrl = ConfigService.get(CONFIGURATION_KEY.LEGACY_APP_URL);
 
         if (page) {
-          window.location.href = `${appUrl}#/${page.route}`.replace(':id', currentDomainUuid.value);
+          window.location.href = `${config.legacyAppUrl}#/${page.route}`.replace(':id', currentDomainUuid.value);
         }
       }
     });
