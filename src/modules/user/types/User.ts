@@ -37,4 +37,5 @@ export default interface User {
   accountType: 'INTERNAL' | 'GUEST' | 'TECHNICAL_ACCOUNT' | 'THREAD' | 'ROOT' | 'SYSTEM';
   role: ACCOUNT_ROLE;
   restricted: boolean;
+  authWithOIDC: boolean;
 }

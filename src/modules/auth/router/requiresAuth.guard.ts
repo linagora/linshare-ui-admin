@@ -17,12 +17,16 @@ export const requiresAuthGuard = async (router: Router, store: Store<any>) => {
       firstLoad = false;
 
       try {
+        store.commit('setAuthenticating', true);
         await store.dispatch('Auth/fetchLoggedUser');
+        store.commit('setAuthenticated', true);
         await hydrate();
       } catch (error) {
         if (error instanceof APIError && error.isUnauthorizedError()) {
           return next({ name: 'Login' });
         }
+      } finally {
+        store.commit('setAuthenticating', false);
       }
     }
 

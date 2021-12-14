@@ -18,6 +18,11 @@ export const LoginRoutes: Array<RouteRecordRaw> = [
       }
       next();
     }
+  },
+  {
+    name: 'OIDCCallback',
+    path: '/oidccallback',
+    component: () => import('../components/OIDCCallback.vue')
   }
 ];
 

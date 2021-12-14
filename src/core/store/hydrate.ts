@@ -1,13 +1,12 @@
 import DomainTreeNode from '@/modules/domain/types/DomainTreeNode';
-import User from '@/modules/user/types/User';
 import store from './index';
 
 export async function hydrate () {
-  const loggedUser: User = store.getters['Auth/getLoggedUser'];
   const hydrating = store.getters.isHydrating;
   const hydrated = store.getters.isHydrated;
+  const authenticated = store.getters.isAuthenticated;
 
-  if (!loggedUser.uuid || hydrating || hydrated) return;
+  if (!authenticated || hydrating || hydrated) return;
 
   store.commit('setHydrating', true);
 
@@ -31,4 +30,5 @@ export function dehydrate () {
   store.commit('Domain/dehydrate');
   store.commit('Auth/dehydrate');
   store.commit('setHydrated', false);
+  store.commit('setAuthenticated', false);
 }

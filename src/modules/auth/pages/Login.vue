@@ -10,6 +10,7 @@
       :md="10"
       :lg="8"
       :xl="6"
+      :xxl="4"
     >
       <img
         class="logo"
@@ -33,7 +34,7 @@
               placeholder="Email"
             >
               <template #prefix>
-                <user-outlined />
+                <UserOutlined />
               </template>
             </a-input>
           </a-form-item>
@@ -43,93 +44,94 @@
               placeholder="Password"
             >
               <template #prefix>
-                <lock-outlined />
+                <LockOutlined />
               </template>
             </a-input-password>
           </a-form-item>
+
+          <div>
+            <a-button
+              style="width: 100%;"
+              type="primary"
+              html-type="submit"
+              :loading="loggingIn"
+            >
+              {{ $t('AUTH.LOGIN') }}
+            </a-button>
+          </div>
+        </a-form>
+
+        <div
+          v-if="oidcEnabled"
+          class="sso-login"
+        >
+          <small>{{ $t('GENERAL.OR') }}</small>
           <a-button
             type="primary"
-            html-type="submit"
-            :loading="loggingIn"
+            @click="loginOIDC"
           >
-            {{ $t('AUTH.LOGIN') }}
+            {{ $t('AUTH.LOGIN_SSO') }}
           </a-button>
-        </a-form>
+        </div>
       </a-card>
       <Copyright />
     </a-col>
   </a-row>
 </template>
 
-<script lang="ts">
-import router from '@/core/router';
-import { defineComponent, ref, reactive } from 'vue';
-
-import Copyright from '@/core/components/Copyright.vue';
+<script lang="ts" setup>
+import { ref, reactive } from 'vue';
+import { useRouter } from 'vue-router';
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
+import Copyright from '@/core/components/Copyright.vue';
+import { signinRedirect } from '@/modules/auth/services/oidc';
 import { APIError } from '@/core/types/APIError';
+import { LoginCredentials, login } from '../services/basic';
+import config from '@/config';
 
-import { LoginCredentials, login } from '../services/auth.service';
-
-export default defineComponent({
-  name: 'Login',
-  components: {
-    LockOutlined,
-    UserOutlined,
-    Copyright
-  },
-  props: {
-    redirect: {
-      type: String,
-      default: ''
-    }
-  },
-  setup (props) {
-    const error = ref('');
-    const loggingIn = ref(false);
-    const credentials = reactive<LoginCredentials>({
-      email: '',
-      password: ''
-    });
-
-    function handleError (e: APIError) {
-      if (e.isOTPMissingError()) {
-        return router.push({
-          name: 'LoginUsingSecondFactorAuthentication',
-          params: {
-            ...credentials,
-            redirect: props.redirect
-          }
-        });
-      }
-      error.value = e.getMessage();
-    }
-
-    async function logIn () {
-      try {
-        loggingIn.value = true;
-
-        await login(credentials);
-        router.push(props.redirect || '/');
-      } catch (error) {
-        if (error instanceof APIError) {
-          handleError(error);
-        } else {
-          console.error(error);
-        }
-      } finally {
-        loggingIn.value = false;
-      }
-    }
-
-    return {
-      credentials,
-      error,
-      logIn,
-      loggingIn
-    };
-  }
+const props = defineProps<{ redirect?: string }>();
+const router = useRouter();
+const error = ref('');
+const oidcEnabled = config.oidcEnabled;
+const loggingIn = ref(false);
+const credentials = reactive<LoginCredentials>({
+  email: '',
+  password: ''
 });
+
+function handleError (e: APIError) {
+  if (e.isOTPMissingError()) {
+    return router.push({
+      name: 'LoginUsingSecondFactorAuthentication',
+      params: {
+        ...credentials,
+        redirect: props.redirect
+      }
+    });
+  }
+  error.value = e.getMessage();
+}
+
+function loginOIDC () {
+  signinRedirect();
+}
+
+async function logIn () {
+  try {
+    loggingIn.value = true;
+
+    await login(credentials);
+    router.push(props.redirect || '/');
+  } catch (error) {
+    if (error instanceof APIError) {
+      handleError(error);
+    } else {
+      console.error(error);
+    }
+  } finally {
+    loggingIn.value = false;
+  }
+}
 </script>
 
 <style lang="less" scoped>
@@ -157,6 +159,16 @@ export default defineComponent({
     h2 {
       color: @text-color-primary-heavy;
       font-weight: 600;
+    }
+
+    .sso-login {
+      margin-top: 10px;
+      display: flex;
+      flex-flow: column;
+
+      button {
+        margin-top: 5px;
+      }
     }
   }
 </style>

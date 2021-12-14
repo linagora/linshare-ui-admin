@@ -6,7 +6,7 @@
         size="50"
         class="profile-avatar"
       >
-        <span>{{ firstName && firstName[0] || 'A' }}</span>
+        <span>{{ loggedUser?.firstName && loggedUser.firstName[0] || 'A' }}</span>
       </a-avatar>
       <template #overlay>
         <a-menu class="profile-menu">
@@ -15,7 +15,7 @@
               {{ fullName }}
             </div>
             <div class="profile-mail">
-              {{ email }}
+              {{ loggedUser?.mail }}
             </div>
           </a-menu-item>
           <router-link to="/second_factor_authentication">
@@ -32,32 +32,27 @@
   </div>
 </template>
 
-<script lang="ts">
-import router from '@/core/router';
-import { computed, defineComponent } from 'vue';
+<script lang="ts" setup>
+import { computed } from 'vue';
 import { useStore } from 'vuex';
-import { useI18n } from 'vue-i18n';
-import { logout } from '@/modules/auth/services/auth.service';
+import { useRouter } from 'vue-router';
+import { logout } from '@/modules/auth/services/basic';
+import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
 
-export default defineComponent({
-  setup () {
-    const store = useStore();
-    const { t } = useI18n();
+const store = useStore();
+const router = useRouter();
+const loggedUser = computed(() => store.getters['Auth/getLoggedUser']);
+const fullName = computed(() => store.getters['Auth/getLoggedUserFullName']);
 
-    async function logOut () {
-      await logout();
-
-      router.push({ name: 'Login' });
-    }
-
-    return {
-      logOut,
-      firstName: computed(() => store.getters['Auth/getLoggedUserFirstName']),
-      fullName: computed(() => store.getters['Auth/getLoggedUserFullName']),
-      email: computed(() => store.getters['Auth/getLoggedUserEmail'])
-    };
+async function logOut () {
+  if (loggedUser.value.authWithOIDC) {
+    await logoutOIDC();
+  } else {
+    await logout();
   }
-});
+
+  router.push({ name: 'Login' });
+}
 </script>
 
 <style lang="less" scoped>

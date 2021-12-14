@@ -1,7 +1,7 @@
 window.APP_CONFIGURATION = Object.freeze({
   beta: true,
   legacyAppUrl: '/',
-  oidcEnabled: true,
+  oidcEnabled: false,
   oidcSetting: {
     authority: 'https://auth.linshare.local/',
     client_id: 'linshare-admin-dev',

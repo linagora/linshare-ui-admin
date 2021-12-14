@@ -7,6 +7,7 @@ import RootState from '../types/RootState';
 const state: RootState = {
   hydrated: false,
   hydrating: false,
+  authenticating: false,
   authenticated: false,
   error: false
 };
@@ -16,7 +17,8 @@ export default createStore({
   getters: {
     isHydrating: (state: RootState) => state.hydrating,
     isHydrated: (state: RootState) => state.hydrated,
-    isAuthenticated: (state: RootState) => state.hydrated
+    isAuthenticated: (state: RootState) => state.authenticated,
+    isAuthenticating: (state: RootState) => state.authenticating
   },
   mutations: {
     setHydrating (state: RootState, hydrating: boolean) {
@@ -27,6 +29,9 @@ export default createStore({
     },
     setAuthenticated (state: RootState, authenticated: boolean) {
       state.authenticated = authenticated;
+    },
+    setAuthenticating (state: RootState, authenticating: boolean) {
+      state.authenticating = authenticating;
     }
   },
   state,

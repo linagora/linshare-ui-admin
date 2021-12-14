@@ -10,6 +10,7 @@ export default function use2FARequiredCheck () {
   const secondFA = store.getters['Auth/getSecondFA'];
 
   if (
+    secondFA &&
     secondFA.required &&
     currentRoute.value.name !== 'ManageSecondFactorAuthentication' &&
     currentRoute.value.meta.requiresAuth

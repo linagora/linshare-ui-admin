@@ -54,7 +54,7 @@ import { defineComponent, ref } from 'vue';
 import Copyright from '@/core/components/Copyright.vue';
 import OtpInput from '@/core/components/OtpInput.vue';
 import { APIError } from '@/core/types/APIError';
-import { login } from '../services/auth.service';
+import { login } from '../services/basic';
 
 interface Props {
   email: string;

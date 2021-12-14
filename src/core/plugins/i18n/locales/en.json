@@ -31,7 +31,8 @@
     "FIELD_REQUIRED": "This field cannot be blank",
     "SELECT_MODEL": "Select a predefined model",
     "TRY_AGAIN":"Try again",
-    "DOMAIN": "Domain"
+    "DOMAIN": "Domain",
+    "OR": "Or"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -201,7 +202,8 @@
     "SECOND_FACTOR_AUTHENTICATION": "2nd Factor Authentication",
     "ENTER_OTP_DIGITS": "Input the 6-digit code from your FreeOTP app:",
     "LOGIN_TO_ADMIN": "Login to Admin",
-    "LOGIN": "Login"
+    "LOGIN": "Login",
+    "LOGIN_SSO": "Sign in with SSO"
   },
   "2FA": {
     "TITLE": "Second Factor Authentication",

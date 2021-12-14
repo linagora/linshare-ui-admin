@@ -1,13 +1,11 @@
 <template>
   <a-config-provider :locale="antdLocale">
-    <transition name="fade">
-      <div
-        v-if="hydrating"
-        class="hydrating"
-      >
-        <a-spin />
-      </div>
-    </transition>
+    <div
+      v-if="authenticating || hydrating"
+      class="hydrating"
+    >
+      <a-spin />
+    </div>
 
     <router-view v-if="!hydrating" />
   </a-config-provider>
@@ -20,6 +18,7 @@ import useAntConfig from '@/core/hooks/useAntConfig';
 
 const store = useStore();
 const hydrating = computed(() => store.getters.isHydrating);
+const authenticating = computed(() => store.getters.isAuthenticating);
 const { antdLocale } = useAntConfig();
 </script>
 

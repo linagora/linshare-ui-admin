@@ -197,7 +197,8 @@
     "SECOND_FACTOR_AUTHENTICATION": "Authentification double facteur",
     "ENTER_OTP_DIGITS": "Saisissez le code à 6 chiffres de votre application FreeOTP:",
     "LOGIN_TO_ADMIN": "Connectez-vous à l'administrateur",
-    "LOGIN": "Connexion"
+    "LOGIN": "Connexion",
+    "LOGIN_SSO": "Connectez-vous avec SSO"
   },
   "2FA": {
     "TITLE": "Authentification double facteur",
