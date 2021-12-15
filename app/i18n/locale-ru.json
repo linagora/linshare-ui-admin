@@ -1811,6 +1811,7 @@
         "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_true": "Двухфакторная аутентификация необходима для всех пользователей",
         "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_false": "Двухфакторная аутентификация опциональна для всех пользователей",
         "INTERNAL_ENABLE_PERSONAL_SPACE__BOOLEAN_true": "Internal user can access to his personal space.",
+        "INTERNAL_ENABLE_PERSONAL_SPACE__BOOLEAN_false": "The personal space will be disabled for internal user.",
         "FUNCTIONALITIES.PARAMETERS.JWT_PERMANENT_TOKEN__BOOLEAN_true": "Администратор может создать токен JWT для пользователей в своих доменах",
         "FUNCTIONALITIES.PARAMETERS.JWT_PERMANENT_TOKEN__BOOLEAN_false": "Администратор не может создать токен JWT для пользователей в своих доменах"
       }

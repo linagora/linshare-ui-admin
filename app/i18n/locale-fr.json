@@ -1831,6 +1831,7 @@
       "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_true": "l'authentification à double facteurs sera requise pour tous les utilisateurs",
       "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_false": "l'authentification à double facteur peut être activée par les utilisateurs (optionnel)",
       "INTERNAL_ENABLE_PERSONAL_SPACE__BOOLEAN_true": "Un utilisateur interne peut accéder à son espace personnel.",
+      "INTERNAL_ENABLE_PERSONAL_SPACE__BOOLEAN_false": "L'espace personnel sera désactivé pour les utilisateurs internes.",
       "FUNCTIONALITIES.PARAMETERS.JWT_PERMANENT_TOKEN__BOOLEAN_true": "L'administrateur peut créer un jeton JWT pour les utilisateurs de ses domaines",
       "FUNCTIONALITIES.PARAMETERS.JWT_PERMANENT_TOKEN__BOOLEAN_false": "L'administrateur ne peut pas créer de jeton JWT pour les utilisateurs de ses domaines"
     }
