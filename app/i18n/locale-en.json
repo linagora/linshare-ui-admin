@@ -1886,7 +1886,9 @@
       "WORK_GROUP__FILE_VERSIONING__BOOLEAN_true": "Versioning will be enabled by default when creating a new workgroup.",
       "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_true": "The second factor authentication will be required for all users",
       "SECOND_FACTOR_AUTHENTICATION__BOOLEAN_false": "The second factor authentication can be enabled by users (optional)",
-      "INTERNAL_ENABLE_PERSONAL_SPACE__BOOLEAN_true": "Internal user can access to his personal space."
+      "INTERNAL_ENABLE_PERSONAL_SPACE__BOOLEAN_true": "Internal user can access to his personal space.",
+      "FUNCTIONALITIES.PARAMETERS.JWT_PERMANENT_TOKEN__BOOLEAN_true": "Admin can create JWT token for users in his domains",
+      "FUNCTIONALITIES.PARAMETERS.JWT_PERMANENT_TOKEN__BOOLEAN_false": "Admin cannot create JWT token for users in his domains"
     }
   },
   "MIME_POLICIES": {
