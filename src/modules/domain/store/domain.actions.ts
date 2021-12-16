@@ -1,6 +1,6 @@
 import { ActionTree } from 'vuex';
 import { DomainState } from './domain.state';
-import { RootState } from '@/core/store';
+import RootState from '@/core/types/RootState';
 import Status from '@/core/types/Status';
 import Domain from '@/modules/domain/types/Domain';
 import { getDomains, getDomain, updateDomain } from '@/modules/domain/services/domain-api';

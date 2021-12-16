@@ -1,6 +1,6 @@
 import { GetterTree } from 'vuex';
 import { DomainState } from './domain.state';
-import { RootState } from '@/core/store';
+import RootState from '@/core/types/RootState';
 import DomainTreeNode from '../types/DomainTreeNode';
 import Domain from '../types/Domain';
 

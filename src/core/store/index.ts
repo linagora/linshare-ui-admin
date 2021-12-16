@@ -2,13 +2,7 @@ import { createStore } from 'vuex';
 import Auth from '@/modules/auth/store';
 import Domain from '@/modules/domain/store';
 import User from '@/modules/user/store';
-
-export interface RootState {
-  hydrating: boolean;
-  hydrated: boolean;
-  authenticated: boolean;
-  error: boolean;
-}
+import RootState from '../types/RootState';
 
 const state: RootState = {
   hydrated: false,

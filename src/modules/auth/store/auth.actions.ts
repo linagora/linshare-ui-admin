@@ -1,6 +1,6 @@
 import { ActionTree } from 'vuex';
 import { AuthState } from './auth.state';
-import { RootState } from '@/core/store';
+import RootState from '@/core/types/RootState';
 import {
   create2FAKey,
   get2FAStatus,
