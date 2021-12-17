@@ -1,10 +1,15 @@
 <template>
   <div class="list-item">
-    <a-list-item>
+    <a-list-item @click="goToDetails">
       <a-list-item-meta>
         <template #avatar>
-          <component
-            :is="data.nodeType === 'WORK_SPACE' ? 'WorkspaceIcon' : 'WorkgroupIcon'"
+          <WorkspaceIcon
+            v-if="data.nodeType === SHARED_SPACE_TYPE.WORKGROUP"
+            fill="#0372B3"
+          />
+
+          <WorkgroupIcon
+            v-else
             fill="#0372B3"
           />
         </template>
@@ -33,36 +38,32 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import { useRouter } from 'vue-router';
 import WorkgroupIcon from './WorkgroupIcon.vue';
 import WorkspaceIcon from './WorkspaceIcon.vue';
-import { defineComponent } from 'vue';
 import useRelativeTime from '@/core/hooks/useRelativeTime';
+import SharedSpace, { SHARED_SPACE_TYPE } from '../types/SharedSpace';
 
-export default defineComponent({
-  name: 'SharedSpaceItem',
-  components: {
-    WorkgroupIcon,
-    WorkspaceIcon
-  },
-  props: {
-    data: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-  setup (props) {
-    return {
-      relativeModificationDate: useRelativeTime(props.data.modificationDate)
-    };
-  }
-});
+const props = defineProps<{ data: SharedSpace }>();
+const router = useRouter();
+const relativeModificationDate = props.data.modificationDate
+  ? useRelativeTime(props.data.modificationDate)
+  : 'N/A';
+
+function goToDetails () {
+  router.push({
+    name: 'SharedSpaceDetails',
+    params: { id: props.data.uuid }
+  });
+}
 </script>
 
 <style lang='less' scoped>
   .list-item {
     border-bottom: 1px solid @border-color-base;
     background: @component-background;
+    cursor: pointer;
 
     &__icon {
       width: 46px;

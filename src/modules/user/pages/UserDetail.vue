@@ -115,7 +115,11 @@ export default defineComponent({
     try {
       await store.dispatch('User/fetchUser', id);
     } catch (error) {
-      message.error((error as APIError).getMessage());
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      } else {
+        console.error(error);
+      }
     }
 
     async function deleteUser () {

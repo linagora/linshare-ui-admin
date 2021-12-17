@@ -2,6 +2,7 @@ import { createStore } from 'vuex';
 import Auth from '@/modules/auth/store';
 import Domain from '@/modules/domain/store';
 import User from '@/modules/user/store';
+import SharedSpace from '@/modules/shared-spaces/store';
 import RootState from '../types/RootState';
 
 const state: RootState = {
@@ -36,6 +37,7 @@ export default createStore({
   },
   state,
   modules: {
+    SharedSpace,
     Auth,
     Domain,
     User

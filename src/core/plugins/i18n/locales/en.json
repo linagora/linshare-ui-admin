@@ -32,7 +32,9 @@
     "SELECT_MODEL": "Select a predefined model",
     "TRY_AGAIN":"Try again",
     "DOMAIN": "Domain",
-    "OR": "Or"
+    "OR": "Or",
+    "AUTHOR": "Author",
+    "ROLE": "Role"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -106,7 +108,8 @@
     "GROUP_PROVIDERS": "Group providers",
     "WORKSPACE_PROVIDERS": "Workspace providers",
     "LDAP_GROUP_FILTER": "LDAP group filter",
-    "LDAP_WORKSPACE_FILTER": "LDAP workspace filter"
+    "LDAP_WORKSPACE_FILTER": "LDAP workspace filter",
+    "SHARED_SPACE_DETAILS": "Shared space details"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",
@@ -196,7 +199,8 @@
       "1003": "OTP is wrong or expired",
       "1004": "Your account has been locked due to failed login attempts"
     },
-    "55000": "Group filter not found"
+    "55000": "Group filter not found",
+    "66000": "Shared space not found"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "2nd Factor Authentication",
@@ -255,9 +259,20 @@
     }
   },
   "SHARED_SPACES": {
+    "DELETE_WORK_GROUP": "Delete workgroup",
+    "DELETE_WORK_SPACE": "Delete workspace",
     "NODE_TYPE": {
       "WORK_GROUP": "Workgroup",
       "WORK_SPACE": "Workspace"
+    },
+    "ROLE": {
+      "ADMIN": "Administrator",
+      "READER": "Reader",
+      "CONTRIBUTOR": "Contributor",
+      "WRITER": "Writer",
+      "WORK_SPACE_ADMIN": "Workspace - Administrator",
+      "WORK_SPACE_WRITER": "Workspace - Writer",
+      "WORK_SPACE_READER": "Workspace - Reader"
     },
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Workspaces and Workgroups",
@@ -269,6 +284,13 @@
       "CREATION_DATE": "Creation date",
       "TYPE": "Type",
       "PLACEHOLDER": "Search or filter shared spaces"
+    },
+    "MEMBERS": {
+      "TAB_TITLE": "Members list",
+      "CONFIRM_DELETE": "Are you sure you want to remove this member from shared space?",
+      "FILTER_PLACEHOLDER": "Search or filter shared space members",
+      "ADD_NEW": "Add member",
+      "NEW": "New members"
     }
   },
   "QUOTA": {

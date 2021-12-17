@@ -13,6 +13,7 @@ export async function hydrate () {
   try {
     await store.dispatch('Auth/fetchSecondFA');
     await store.dispatch('Domain/fetchDomainsTree');
+    await store.dispatch('SharedSpace/fetchRoles');
 
     const domainsTree: DomainTreeNode = store.getters['Domain/getDomainsTree'];
 
