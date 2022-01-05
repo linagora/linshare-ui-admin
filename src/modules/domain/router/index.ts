@@ -4,11 +4,14 @@ import { UserFilterRoutes } from '@/modules/user-filter/router';
 import { GroupFilterRoutes } from '@/modules/group-filter/router';
 import { DriveFilterRoutes } from '@/modules/drive-filter/router';
 
+import DomainConfiguration from '../pages/DomainConfiguration.vue';
+import DomainManagement from '../components/DomainManagement.vue';
+
 export const DomainConfigurationRoute: RouteRecordRaw = {
   name: 'Configuration',
   path: 'configuration',
   redirect: { name: 'DomainManagement' },
-  component: () => import('../pages/DomainConfiguration.vue'),
+  component: DomainConfiguration,
   meta: {
     label: 'NAVIGATOR.CONFIGURATION',
     requiresAuth: true
@@ -17,7 +20,7 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
     {
       name: 'DomainManagement',
       path: '',
-      component: () => import('../components/DomainManagement.vue')
+      component: DomainManagement
     },
     {
       name: 'DomainDetails',
