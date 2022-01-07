@@ -2694,7 +2694,33 @@
       "UPGRADE_2_2_MIGRATE_THREAD_AND_THREAD_MEMBERS_TO_MONGO_DATABASE":"Migration des groupes de travail et de leurs membres vers la nouvelle structure dans la base de données MongoDB",
       "UPGRADE_2_2_GENERATE_BASIC_STATISTICS_FROM_AUDIT_LOG_ENTRIES":"Génération des statistiques à partir des traces de l'audit (traitement rétro-actif).",
       "UPGRADE_2_2_MIGRATE_WORKGROUP_AUDIT_TO_SHARED_SPACE_AUDIT":"Migration de l'audit des espaces de travail vers nouvelle structure dans la base de données MongoDB.",
-      "UPGRADE_2_2_MIGRATE_WORKGROUP_MEMBER_AUDIT_TO_SHARED_SPACE_MEMBER_AUDIT":"Migration de l'audit des membres des espaces de travail dans une nouvelle structure dans la base de données MongoDB."
+      "UPGRADE_2_2_MIGRATE_WORKGROUP_MEMBER_AUDIT_TO_SHARED_SPACE_MEMBER_AUDIT":"Migration de l'audit des membres des espaces de travail dans une nouvelle structure dans la base de données MongoDB.",
+
+      "UPGRADE_2_3_ADD_ALL_NEW_MIME_TYPE":"Ajout de nouveaux types de média supportés.",
+      "UPGRADE_2_3_UPDATE_DOCUMENT_STRUCTURE_FOR_VERSIONING":"Migration des documents des groupes de travail vers une nouvelle structure afin de supporte le versionning.",
+      "UPGRADE_2_3_UPDATE_SHARED_SPACE_NODE_STRUCTURE_FOR_VERSIONING":"Migration des groupes de travail nodes vers une nouvelle structure afin de supporte le versionning.",
+      "UPGRADE_2_3_MIGRATE_PERMANENT_TOKEN_ENTITY_TO_NEW_STRUCTURE":"Migration des jeton d'accès permanent vers une nouvelle structure",
+      "UPGRADE_2_3_ADD_QUOTA_UUID_TO_ALL_SHARED_SPACES":"Ajout du quota dans les groupes de travail.",
+
+      "UPGRADE_4_0_UPDATE_TARGET_DOMAIN_UUID_MAIL_ATTACHMENT_AUDIT":"Ajout du domaine dans les traces d'audit des mail attachment.",
+      "UPGRADE_4_0_ADD_ALL_NEW_MIME_TYPE":"Ajout de nouveaux types de média supportés.",
+      "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_GUESTS":"Mettre à jour la stratégie de chiffrement des mots de passe pour les invités.",
+      "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_ANONYMOUS":"Mettre à jour la stratégie de chiffrement des mots de passe pour les partages anonymes",
+
+      "UPGRADE_4_1_ADD_ALL_NEW_MIME_TYPE":"Ajout de nouveaux types de média supportés.",
+
+      "UPGRADE_4_2_COMPUTE_ALL_WORKGROUPS_QUOTA": "Mettre à jour les quota des groupes de travail.",
+      "UPGRADE_4_2_COMPUTE_CURRENT_VALUE_FOR_DOMAINS": "Mettre à jour les valeurs actuelles des domaines.",
+      "UPGRADE_4_2_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA": "Mettre à jour les quotas des top et root domaines.",
+      "UPGRADE_4_2_ADD_DETAILS_TO_SHARED_SPACE_NODES": "Ajouter l'acteur dans les groupes de travail.",
+      "UPGRADE_4_2_UPDATE_SYSTEM_TO_ANONYMOUS_ACCOUNT_ON_AUDIT_TRACES": "Mettre à jour le compte system dans les partages anonymes vers un compte anonymes dans les traces d'audits. ",
+      "UPGRADE_4_2_ADD_WORKGROUP_UUID_AS_RELATED_RESOURCE_IN_WORKGROUP_NODE_AUDIT_TRACES":"Ajouter le group de travail dans les traces d'audits des entrées.",
+      "UPGRADE_4_2_ADD_SEE_AS_NESTED_FIELD_TO_SHARED_SPACE_MEMBERS": "Ajout  seeAsNested pour les membres des groupes de travail.",
+      "UPGRADE_4_2_UPDATE_SEE_AS_NESTED_FIELD_IN_NESTED_SHARED_SPACE_MEMBERS": "Mettre à jour seeAsNested pour les membres des groupes de travail.",
+      "UPGRADE_4_2_ADD_MISSING_PROPERTIES_TO_WORK_GROUP_NODE":"Ajout des informations manquantes (hasTumbnail, Sha256sum) dans les entrées des groupes de travail.",
+
+      "UPGRADE_5_0_ADD_DOMAIN_TO_DRIVE": "Ajout du domain dans les Drives.",
+      "UPGRADE_5_0_ADD_DOMAIN_TO_WORK_GROUP": "Ajout du domain dans les groupes de travail."
     },
     "TITLE": "Tâches de mise à jour"
   },

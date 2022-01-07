@@ -2672,7 +2672,41 @@
         "UPGRADE_2_1_COMPUTE_USED_SPACE_FOR_WORGROUPS" : "Вычислить все используемые пространства для каждой рабочей группы",
         "UPGRADE_2_1_REMOVE_ALL_THREAD_ENTRIES" : "Удаление всех бесполезных данных, связанных со старыми потоками / группами в LinShare 1.x.",
         "UPGRADE_2_1_COMPUTE_CURRENT_VALUE_FOR_DOMAINS" : "Вычислить используемое пространство по каждому домену",
-        "UPGRADE_2_1_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA" : "Вычислить использованное пространство субдоменами для доменов верхнего уровня и корневого домена"
+        "UPGRADE_2_1_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA" : "Вычислить использованное пространство субдоменами для доменов верхнего уровня и корневого домена",
+
+        "UPGRADE_2_2_MIGRATE_UPLOAD_PROPOSITION_FILTER_TO_MONGO_DATABASE":"Migrating file upload proposition filters to a new structure in the MongoDB database.",
+        "UPGRADE_2_2_MIGRATE_UPLOAD_PROPOSITION_TO_MONGO_DATABASE":"Migrating file upload proposition in a new structure in the MongoDB database.",
+        "UPGRADE_2_2_MIGRATE_UPLOAD_REQUEST_HISTORY_TO_MONGO_AUDIT":"Migration of the old upload requests history into the new audit in the MongoDB database.",
+        "UPGRADE_2_2_MIGRATE_THREAD_AND_THREAD_MEMBERS_TO_MONGO_DATABASE":"Migrating workgroups and their members to the new structure in the MongoDB database.",
+        "UPGRADE_2_2_GENERATE_BASIC_STATISTICS_FROM_AUDIT_LOG_ENTRIES":"Generation of statistics from the traces of the audit (retroactive processing).",
+        "UPGRADE_2_2_MIGRATE_WORKGROUP_AUDIT_TO_SHARED_SPACE_AUDIT":"Migrating workGroup audit to new structure in the MongoDB database.",
+        "UPGRADE_2_2_MIGRATE_WORKGROUP_MEMBER_AUDIT_TO_SHARED_SPACE_MEMBER_AUDIT":"Migrating the workGroup member audit into a new structure in the MongoDB database.",
+
+        "UPGRADE_2_3_ADD_ALL_NEW_MIME_TYPE":"Upgrade the list of suported mime types.",
+        "UPGRADE_2_3_UPDATE_DOCUMENT_STRUCTURE_FOR_VERSIONING":"Update workgroup documents to support the versionning structure.",
+        "UPGRADE_2_3_UPDATE_SHARED_SPACE_NODE_STRUCTURE_FOR_VERSIONING":"Update sharedSpace nodes to support the versionning structure.",
+        "UPGRADE_2_3_MIGRATE_PERMANENT_TOKEN_ENTITY_TO_NEW_STRUCTURE":"Update the permanent token entity structure.",
+        "UPGRADE_2_3_ADD_QUOTA_UUID_TO_ALL_SHARED_SPACES":"Add the quota information to sharedSpaces.",
+        
+        "UPGRADE_4_0_UPDATE_TARGET_DOMAIN_UUID_MAIL_ATTACHMENT_AUDIT":"Add the domain information to mail attachment's audit traces.",
+        "UPGRADE_4_0_ADD_ALL_NEW_MIME_TYPE":"Upgrade the list of suported mime types.",
+        "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_GUESTS":"Update the password encoding strategy for guests.",
+        "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_ANONYMOUS":"Update the password encoding strategy for anonymous.",
+        
+        "UPGRADE_4_1_ADD_ALL_NEW_MIME_TYPE":"Upgrade the list of suported mime types",
+        
+        "UPGRADE_4_2_COMPUTE_ALL_WORKGROUPS_QUOTA": "Update all workgroup quotas.",
+        "UPGRADE_4_2_COMPUTE_CURRENT_VALUE_FOR_DOMAINS": "Update the current value for domains.",
+        "UPGRADE_4_2_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA": "Update top and root domain's quota.",
+        "UPGRADE_4_2_ADD_DETAILS_TO_SHARED_SPACE_NODES": "Add actor information to sharedSpaces.",
+        "UPGRADE_4_2_UPDATE_SYSTEM_TO_ANONYMOUS_ACCOUNT_ON_AUDIT_TRACES": "Replace the systemAccount to anonymousAccount on audit traces for anonymous share. ",
+        "UPGRADE_4_2_ADD_WORKGROUP_UUID_AS_RELATED_RESOURCE_IN_WORKGROUP_NODE_AUDIT_TRACES":"Add the workgroup information as related resource in audit traces of sharedSpace nodes.",
+        "UPGRADE_4_2_ADD_SEE_AS_NESTED_FIELD_TO_SHARED_SPACE_MEMBERS": "Add the flag see as nested for sharedSpace members.",
+        "UPGRADE_4_2_UPDATE_SEE_AS_NESTED_FIELD_IN_NESTED_SHARED_SPACE_MEMBERS": "Update seeAsNested field for sharedSpace members",
+        "UPGRADE_4_2_ADD_MISSING_PROPERTIES_TO_WORK_GROUP_NODE":"Add missing properties(hasTumbnail, Sha256sum) to workgroup nodes.",
+        
+        "UPGRADE_5_0_ADD_DOMAIN_TO_DRIVE": "Add domain information to Drive.",
+        "UPGRADE_5_0_ADD_DOMAIN_TO_WORK_GROUP": "Add domain information to workgroup."
 
       },
       "TITLE": "Обновить задачи"
