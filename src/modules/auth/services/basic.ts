@@ -27,9 +27,7 @@ export async function login (credentials: LoginCredentials) {
   if (credentials.otp) {
     params.headers['x-linShare-2fa-pin'] = credentials.otp;
   }
-  store.commit('setAuthenticating', true);
   await store.dispatch('Auth/fetchLoggedUser', params);
-  store.commit('setAuthenticating', false);
   store.commit('setAuthenticated', true);
   await hydrate();
 }

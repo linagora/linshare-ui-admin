@@ -34,9 +34,7 @@ export async function signinCallback () {
       Authorization: `Bearer ${access_token}`
     }
   };
-  store.commit('setAuthenticating', true);
   await store.dispatch('Auth/fetchLoggedUser', authRequestConfig);
-  store.commit('setAuthenticated', true);
   store.commit('setAuthenticating', false);
 
   await hydrate();
