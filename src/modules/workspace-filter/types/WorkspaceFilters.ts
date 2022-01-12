@@ -1,4 +1,4 @@
-export interface LDAPDriveFilter {
+export interface LDAPWorkspaceFilter {
   uuid: string;
   name: string;
   description?: string;
@@ -16,7 +16,7 @@ export interface LDAPDriveFilter {
   memberLastNameAttribute: string;
 }
 
-export const EMPTY_FILTER: LDAPDriveFilter = {
+export const EMPTY_FILTER: LDAPWorkspaceFilter = {
   uuid: '',
   name: '',
   groupMemberAttribute: '',

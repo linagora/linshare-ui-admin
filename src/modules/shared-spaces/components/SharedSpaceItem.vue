@@ -4,7 +4,7 @@
       <a-list-item-meta>
         <template #avatar>
           <component
-            :is="data.nodeType === 'DRIVE' ? 'DriveIcon' : 'WorkgroupIcon'"
+            :is="data.nodeType === 'WORK_SPACE' ? 'WorkspaceIcon' : 'WorkgroupIcon'"
             fill="#0372B3"
           />
         </template>
@@ -35,7 +35,7 @@
 
 <script lang="ts">
 import WorkgroupIcon from './WorkgroupIcon.vue';
-import DriveIcon from './DriveIcon.vue';
+import WorkspaceIcon from './WorkspaceIcon.vue';
 import { defineComponent } from 'vue';
 import useRelativeTime from '@/core/hooks/useRelativeTime';
 
@@ -43,7 +43,7 @@ export default defineComponent({
   name: 'SharedSpaceItem',
   components: {
     WorkgroupIcon,
-    DriveIcon
+    WorkspaceIcon
   },
   props: {
     data: {

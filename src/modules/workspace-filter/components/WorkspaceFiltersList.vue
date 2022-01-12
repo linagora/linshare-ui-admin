@@ -1,6 +1,6 @@
 <template>
   <PageTitle
-    :title="$t('NAVIGATOR.DRIVE_FILTERS')"
+    :title="$t('NAVIGATOR.WORKSPACE_FILTERS')"
     :breadcrumbs="breadcrumbs"
   />
 
@@ -17,7 +17,7 @@
         </template>
       </a-input>
 
-      <router-link :to="{ name: 'DriveFilterLDAP' }">
+      <router-link :to="{ name: 'WorkspaceFilterLDAP' }">
         <a-button
           :disabled="state.loading"
           type="primary"
@@ -34,11 +34,11 @@
       :columns="columns"
       :data-source="filteredList"
       :loading="state.loading"
-      :locale="{ emptyText: $t('DRIVE_FILTER.EMPTY_TEXT') }"
+      :locale="{ emptyText: $t('WORKSPACE_FILTER.EMPTY_TEXT') }"
       row-key="uuid"
     >
       <template #name="{ record, text }">
-        <router-link :to="{ name: 'DriveFilterLDAP', params: { uuid: record.uuid } }">
+        <router-link :to="{ name: 'WorkspaceFilterLDAP', params: { uuid: record.uuid } }">
           {{ text }}
         </router-link>
       </template>
@@ -73,7 +73,7 @@
 
   <DomainAssociatedListModal
     :state="modal"
-    :empty-text="$t('DRIVE_FILTER.NO_ASSOCIATED_DOMAIN')"
+    :empty-text="$t('WORKSPACE_FILTER.NO_ASSOCIATED_DOMAIN')"
     @ok="hide"
   />
 </template>
@@ -92,30 +92,34 @@ import {
 import PageTitle from '@/core/components/PageTitle.vue';
 import DomainAssociatedListModal from '@/modules/domain/components/DomainAssociatedListModal.vue';
 
-import { LDAPDriveFilter } from '../types/DriveFilters';
-import { deleteDriveFilter, getDriveFilterAssociatedDomains, listDriveFilters } from '../services/drive-filter-api';
+import { LDAPWorkspaceFilter } from '../types/WorkspaceFilters';
+import {
+  deleteWorkspaceFilter,
+  getWorkspaceFilterAssociatedDomains,
+  listWorkspaceFilters
+} from '../services/workspace-filter-api';
 
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import { APIError } from '@/core/types/APIError';
 import useNotification from '@/core/hooks/useNotification';
 import useAssociatedDomainsModal from '@/modules/domain/hooks/useAssociatedDomainsModal';
 
-interface DriveFiltersListState {
+interface WorkspaceFiltersListState {
   loading: boolean;
   filterText: string;
-  list: LDAPDriveFilter[];
+  list: LDAPWorkspaceFilter[];
 }
 
 const router = useRouter();
 const { t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const { infoModal, confirmModal } = useNotification();
-const state = reactive<DriveFiltersListState>({
+const state = reactive<WorkspaceFiltersListState>({
   filterText: '',
   loading: true,
   list: []
 });
-const { show, hide, modal } = useAssociatedDomainsModal(getDriveFilterAssociatedDomains);
+const { show, hide, modal } = useAssociatedDomainsModal(getWorkspaceFilterAssociatedDomains);
 
 const filteredList = computed(() =>
   state.list.filter(server => server.name.toLowerCase().includes(state.filterText.toLowerCase()))
@@ -124,7 +128,7 @@ const columns = computed(() => [
   {
     title: t('GENERAL.NAME'),
     dataIndex: 'name',
-    sorter: (a: LDAPDriveFilter, b: LDAPDriveFilter) => a.name.localeCompare(b.name),
+    sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => a.name.localeCompare(b.name),
     slots: { customRender: 'name' }
   },
   {
@@ -135,18 +139,18 @@ const columns = computed(() => [
     title: t('GENERAL.TYPES'),
     dataIndex: 'type',
     width: '130px',
-    sorter: (a: LDAPDriveFilter, b: LDAPDriveFilter) => a.type.localeCompare(b.type)
+    sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => a.type.localeCompare(b.type)
   },
   {
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: 'creationDate',
-    sorter: (a: LDAPDriveFilter, b: LDAPDriveFilter) => (a.creationDate || 0) - (b.creationDate || 0),
+    sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => (a.creationDate || 0) - (b.creationDate || 0),
     slots: { customRender: 'date' }
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: 'modificationDate',
-    sorter: (a: LDAPDriveFilter, b: LDAPDriveFilter) => (a.creationDate || 0) - (b.creationDate || 0),
+    sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => (a.creationDate || 0) - (b.creationDate || 0),
     defaultSortOrder: 'descend',
     slots: { customRender: 'date' }
   },
@@ -161,7 +165,7 @@ const columns = computed(() => [
 function fetchFilters () {
   state.loading = true;
 
-  listDriveFilters()
+  listWorkspaceFilters()
     .then(filters => {
       state.list = filters;
     })
@@ -177,18 +181,18 @@ function fetchFilters () {
     });
 }
 
-function viewDetails (filter: LDAPDriveFilter) {
+function viewDetails (filter: LDAPWorkspaceFilter) {
   router.push({
-    name: 'DriveFilterLDAP',
+    name: 'WorkspaceFilterLDAP',
     params: {
       uuid: filter.uuid
     }
   });
 }
 
-function duplicate (filter: LDAPDriveFilter) {
+function duplicate (filter: LDAPWorkspaceFilter) {
   router.push({
-    name: 'DriveFilterLDAP',
+    name: 'WorkspaceFilterLDAP',
     params: {
       uuid: filter.uuid,
       duplicate: 'true'
@@ -196,21 +200,21 @@ function duplicate (filter: LDAPDriveFilter) {
   });
 }
 
-async function confirmDelete (filter: LDAPDriveFilter) {
-  const usedInDomains = !!(await getDriveFilterAssociatedDomains(filter.uuid)).length;
+async function confirmDelete (filter: LDAPWorkspaceFilter) {
+  const usedInDomains = !!(await getWorkspaceFilterAssociatedDomains(filter.uuid)).length;
 
   if (usedInDomains) {
     return infoModal({
       title: t('GENERAL.DELETION'),
-      content: t('DRIVE_FILTER.DELETE_ABORT')
+      content: t('WORKSPACE_FILTER.DELETE_ABORT')
     });
   }
 
   confirmModal({
     title: t('GENERAL.DELETION'),
-    content: t('DRIVE_FILTER.DELETE_CONFIRM'),
+    content: t('WORKSPACE_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: () => filter.uuid && deleteDriveFilter(filter.uuid)
+    onOk: () => filter.uuid && deleteWorkspaceFilter(filter.uuid)
       .then(() => {
         message.success(t('MESSAGES.DELETE_SUCCESS'));
         state.list = state.list.filter(item => !(item.uuid === filter.uuid));

@@ -10,7 +10,7 @@
         </router-link>
         <router-link :to="{ name: 'SharedSpacesList' }">
           <div class="page__menu-item">
-            <span>{{ $t("NAVIGATOR.MY_DRIVES_WORKGROUPS") }}</span>
+            <span>{{ $t("NAVIGATOR.MY_SHARED_SPACES") }}</span>
             <RightOutlined />
           </div>
         </router-link>

@@ -50,7 +50,7 @@ const LEGACY_PAGES = [{
   route: 'domain/detail/:id'
 },
 {
-  title: 'NAVIGATOR.DRIVE_PROVIDERS',
+  title: 'NAVIGATOR.WORKSPACE_PROVIDERS',
   route: 'domain/detail/:id'
 }];
 

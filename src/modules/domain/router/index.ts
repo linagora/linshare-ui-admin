@@ -2,7 +2,7 @@ import { RouteRecordRaw } from 'vue-router';
 import { RemoteServersRoute } from '@/modules/remote-server/router';
 import { UserFilterRoutes } from '@/modules/user-filter/router';
 import { GroupFilterRoutes } from '@/modules/group-filter/router';
-import { DriveFilterRoutes } from '@/modules/drive-filter/router';
+import { WorkspaceFilterRoutes } from '@/modules/workspace-filter/router';
 
 import DomainConfiguration from '../pages/DomainConfiguration.vue';
 import DomainManagement from '../components/DomainManagement.vue';
@@ -79,12 +79,12 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
           }
         },
         {
-          name: 'DomainDriveProviders',
-          path: 'drive',
-          component: () => import('../components/DomainDriveProviders.vue'),
+          name: 'DomainWorkspaceProviders',
+          path: 'workspace',
+          component: () => import('../components/DomainWorkspaceProviders.vue'),
           meta: {
             parentRoute: 'DomainProviders',
-            label: 'NAVIGATOR.DRIVE_PROVIDERS',
+            label: 'NAVIGATOR.WORKSPACE_PROVIDERS',
             requiresAuth: true
           }
         }
@@ -93,6 +93,6 @@ export const DomainConfigurationRoute: RouteRecordRaw = {
     RemoteServersRoute,
     ...UserFilterRoutes,
     ...GroupFilterRoutes,
-    ...DriveFilterRoutes
+    ...WorkspaceFilterRoutes
   ]
 };

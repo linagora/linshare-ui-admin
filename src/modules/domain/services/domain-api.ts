@@ -4,7 +4,7 @@ import Domain from '@/modules/domain/types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
 import UserProvider from '../types/UserProvider';
 import { LDAPGroupProvider } from '../types/GroupProvider';
-import { LDAPDriveProvider } from '../types/DriveProvider';
+import { LDAPWorkspaceProvider } from '../types/WorkspaceProvider';
 
 async function getDomains (config?: AxiosRequestConfig): Promise<Domain[] | DomainTreeNode[]> {
   return await api.get('domains', config);
@@ -54,36 +54,36 @@ async function deleteGroupProvider (domainUuid: string, provider: LDAPGroupProvi
   return await api.delete(`domains/${domainUuid}/group_providers/${provider.uuid}`);
 }
 
-async function getDriveProviders (domainUuid: string): Promise<LDAPDriveProvider[]> {
-  return await api.get(`domains/${domainUuid}/drive_providers`);
+async function getWorkspaceProviders (domainUuid: string): Promise<LDAPWorkspaceProvider[]> {
+  return await api.get(`domains/${domainUuid}/workspace_providers`);
 }
 
-async function createDriveProvider (domainUuid: string, provider: LDAPDriveProvider): Promise<LDAPDriveProvider> {
-  return await api.post(`domains/${domainUuid}/drive_providers`, provider);
+async function createWorkspaceProvider (domainUuid: string, provider: LDAPWorkspaceProvider): Promise<LDAPWorkspaceProvider> {
+  return await api.post(`domains/${domainUuid}/workspace_providers`, provider);
 }
 
-async function updateDriveProvider (domainUuid: string, provider: LDAPDriveProvider): Promise<LDAPDriveProvider> {
-  return await api.put(`domains/${domainUuid}/drive_providers/${provider.uuid}`, provider);
+async function updateWorkspaceProvider (domainUuid: string, provider: LDAPWorkspaceProvider): Promise<LDAPWorkspaceProvider> {
+  return await api.put(`domains/${domainUuid}/workspace_providers/${provider.uuid}`, provider);
 }
 
-async function deleteDriveProvider (domainUuid: string, provider: LDAPDriveProvider) {
-  return await api.delete(`domains/${domainUuid}/drive_providers/${provider.uuid}`);
+async function deleteWorkspaceProvider (domainUuid: string, provider: LDAPWorkspaceProvider) {
+  return await api.delete(`domains/${domainUuid}/workspace_providers/${provider.uuid}`);
 }
 export {
   createDomain,
-  createDriveProvider,
+  createWorkspaceProvider,
   createGroupProvider,
   createUserProvider,
-  deleteDriveProvider,
+  deleteWorkspaceProvider,
   deleteUserProvider,
   deleteGroupProvider,
   getDomain,
   getDomains,
-  getDriveProviders,
+  getWorkspaceProviders,
   getGroupProviders,
   getUserProviders,
   updateDomain,
-  updateDriveProvider,
+  updateWorkspaceProvider,
   updateGroupProvider,
   updateUserProvider
 };

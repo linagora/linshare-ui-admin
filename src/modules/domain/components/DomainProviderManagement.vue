@@ -23,11 +23,11 @@
         </router-link>
 
         <router-link
-          v-if="isPageAccessible('DomainDriveProviders')"
-          :to="{ name: 'DomainDriveProviders' }"
+          v-if="isPageAccessible('DomainWorkspaceProviders')"
+          :to="{ name: 'DomainWorkspaceProviders' }"
         >
           <div class="page__menu-item">
-            <span>{{ $t("NAVIGATOR.DRIVE_PROVIDERS") }}</span>
+            <span>{{ $t("NAVIGATOR.WORKSPACE_PROVIDERS") }}</span>
             <RightOutlined />
           </div>
         </router-link>

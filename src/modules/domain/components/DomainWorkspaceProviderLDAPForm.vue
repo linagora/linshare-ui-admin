@@ -24,8 +24,8 @@
     </a-form-item>
 
     <a-form-item
-      :label="$t('DRIVE_PROVIDER.LDAP.BASE_DN')"
-      :help="$t('DRIVE_PROVIDER.LDAP.BASE_DN_HELPER')"
+      :label="$t('WORKSPACE_PROVIDER.LDAP.BASE_DN')"
+      :help="$t('WORKSPACE_PROVIDER.LDAP.BASE_DN_HELPER')"
       v-bind="validateInfos.baseDn"
     >
       <a-input v-model:value="formState.baseDn" />
@@ -33,7 +33,7 @@
 
     <a-form-item>
       <a-checkbox v-model:checked="formState.searchInOtherDomains">
-        {{ $t('DRIVE_PROVIDER.LDAP.SEARCH_IN_OTHER_DOMAINS') }}
+        {{ $t('WORKSPACE_PROVIDER.LDAP.SEARCH_IN_OTHER_DOMAINS') }}
       </a-checkbox>
     </a-form-item>
 
@@ -80,22 +80,22 @@ import { computed, reactive, ref, ComputedRef } from 'vue';
 import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import { LDAPDriveFilter } from '@/modules/drive-filter/types/DriveFilters';
-import { LDAPDriveProvider } from '../types/DriveProvider';
+import { LDAPWorkspaceFilter } from '@/modules/workspace-filter/types/WorkspaceFilters';
+import { LDAPWorkspaceProvider } from '../types/WorkspaceProvider';
 import Domain from '../types/Domain';
 import useNotification from '@/core/hooks/useNotification';
 
 import {
-  createDriveProvider,
-  deleteDriveProvider,
-  updateDriveProvider
+  createWorkspaceProvider,
+  deleteWorkspaceProvider,
+  updateWorkspaceProvider
 } from '../services/domain-api';
 
 interface Props {
   domain: Domain;
-  provider: LDAPDriveProvider;
+  provider: LDAPWorkspaceProvider;
   serversList: RemoteServer[];
-  filtersList: LDAPDriveFilter[];
+  filtersList: LDAPWorkspaceFilter[];
 }
 
 interface LDAPServerOptions {
@@ -107,7 +107,7 @@ interface LDAPServerOptions {
 }
 
 interface LDAPFilterOptions {
-  list: LDAPDriveFilter[];
+  list: LDAPWorkspaceFilter[];
   options: ComputedRef<{
     label: string;
     value: string;
@@ -168,7 +168,7 @@ async function create () {
   }
 
   try {
-    const provider = await createDriveProvider(props.domain.uuid, getDto());
+    const provider = await createWorkspaceProvider(props.domain.uuid, getDto());
 
     emit('submitted', provider);
     message.success(t('MESSAGES.CREATE_SUCCESS'));
@@ -179,7 +179,7 @@ async function create () {
   }
 }
 
-function getDto (): LDAPDriveProvider {
+function getDto (): LDAPWorkspaceProvider {
   return {
     type: 'LDAP_PROVIDER',
     baseDn: formState.baseDn,
@@ -206,7 +206,7 @@ async function save () {
   }
 
   try {
-    const provider = await updateDriveProvider(props.domain.uuid, {
+    const provider = await updateWorkspaceProvider(props.domain.uuid, {
       ...props.provider,
       ...getDto()
     });
@@ -222,7 +222,7 @@ async function save () {
 
 async function remove () {
   try {
-    await deleteDriveProvider(props.domain.uuid, props.provider);
+    await deleteWorkspaceProvider(props.domain.uuid, props.provider);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
     emit('deleted');
@@ -234,7 +234,7 @@ async function remove () {
 function confirmDelete () {
   confirmModal({
     title: t('GENERAL.DELETION'),
-    content: t('DRIVE_PROVIDER.DELETE_CONFIRM'),
+    content: t('WORKSPACE_PROVIDER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
     onOk: remove
   });

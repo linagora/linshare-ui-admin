@@ -12,7 +12,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'DriveIcon',
+  name: 'WorkspaceIcon',
   props: {
     fill: {
       type: String,

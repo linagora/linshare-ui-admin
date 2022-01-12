@@ -23,9 +23,9 @@
             <RightOutlined />
           </div>
         </router-link>
-        <router-link :to="{ name: 'DriveFilters' }">
+        <router-link :to="{ name: 'WorkspaceFilters' }">
           <div class="page__menu-item">
-            <span>{{ $t("NAVIGATOR.DRIVE_FILTERS") }}</span>
+            <span>{{ $t("NAVIGATOR.WORKSPACE_FILTERS") }}</span>
             <RightOutlined />
           </div>
         </router-link>

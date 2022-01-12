@@ -79,8 +79,8 @@ const filterOptions = [
       value: 'WORK_GROUP'
     },
     {
-      label: computed(() => t('SHARED_SPACES.NODE_TYPE.DRIVE', locale.value)),
-      value: 'DRIVE'
+      label: computed(() => t('SHARED_SPACES.NODE_TYPE.WORK_SPACE', locale.value)),
+      value: 'WORK_SPACE'
     }]
   },
   {

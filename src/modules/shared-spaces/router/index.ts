@@ -7,7 +7,7 @@ export const SharedSpacesRoutes: Array<RouteRecordRaw> = [
     component: () => import('../pages/ManageSharedSpaces.vue'),
     meta: {
       parentRoute: 'Administration',
-      label: 'NAVIGATOR.MY_DRIVES_WORKGROUPS',
+      label: 'NAVIGATOR.MY_SHARED_SPACES',
       requiresAuth: true
     }
   }

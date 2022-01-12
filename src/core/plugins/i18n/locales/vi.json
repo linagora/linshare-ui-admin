@@ -61,7 +61,7 @@
     "REPORTING": "Báo cáo",
     "UPGRADES": "Nâng cấp",
     "MY_USERS": "Người dùng",
-    "MY_DRIVES_WORKGROUPS": "Ổ đĩa và Nhóm làm việc",
+    "MY_SHARED_SPACES": "Không gian được chia sẻ",
     "MY_CONTACT_LIST": "Danh sách liên hệ",
     "LOGGERS": "Nhật ký hoạt động",
     "DOMAINS": "Miền",
@@ -96,13 +96,13 @@
     "REMOTE_FILTERS": "Bộ lọc bên ngoài",
     "USER_FILTERS": "Bộ lọc người dùng",
     "GROUP_FILTERS": "Bộ lọc nhóm",
-    "DRIVE_FILTERS": "Bộ lọc Drive",
+    "WORKSPACE_FILTERS": "Bộ lọc Workspace",
     "LDAP_USER_FILTER": "Bộ lọc người dùng trên LDAP",
     "USER_PROVIDERS": "Nguồn cung cấp người dùng",
     "GROUP_PROVIDERS": "Nguồn cung cấp nhóm",
-    "DRIVE_PROVIDERS": "Nguồn cung cấp Drive",
+    "WORKSPACE_PROVIDERS": "Nguồn cung cấp Workspace",
     "LDAP_GROUP_FILTER": "Bộ lọc nhóm trên LDAP",
-    "LDAP_DRIVE_FILTER": "Bộ lọc ổ trên LDAP"
+    "LDAP_WORKSPACE_FILTER": "Bộ lọc không gian làm việc trên LDAP"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -252,11 +252,11 @@
   "SHARED_SPACES": {
     "NODE_TYPE": {
       "WORK_GROUP": "Nhóm làm việc",
-      "DRIVE": "Ổ đĩa"
+      "WORK_SPACE": "hông gian làm việc "
     },
     "MANAGE_SHARED_SPACES": {
-      "TITLE": "Ổ đĩa và Nhóm làm việc",
-      "DESCRIPTION": "Nhóm làm việc là một không gian cộng tác có chứa người dùng nội bộ hoặc khách. Một ổ đĩa chứa các nhóm làm việc với danh sách thành viên mặc định. Một nhóm làm việc có thể nằm trong một ổ đĩa hoặc độc lập. Chế độ xem này cho phép bạn quản lý các ổ đĩa, nhóm làm việc và các thành viên của họ. Quản trị viên LinShare không được phép truy cập nội dung nhóm làm việc (tệp hoặc thư mục). Các tệp được tải lên trong một nhóm làm việc thuộc sở hữu của nhóm làm việc, không phải cho người dùng. Do đó, chúng không ảnh hưởng đến giới hạn người dùng được sử dụng."
+      "TITLE": "Không gian được chia sẻ",
+      "DESCRIPTION": "Nhóm làm việc là một không gian cộng tác có chứa người dùng nội bộ hoặc khách. Một không gian làm việc chứa các nhóm làm việc với danh sách thành viên mặc định. Một nhóm làm việc có thể nằm trong một không gian làm việc hoặc độc lập. Chế độ xem này cho phép bạn quản lý các không gian làm việc, nhóm làm việc và các thành viên của họ. Quản trị viên LinShare không được phép truy cập nội dung nhóm làm việc (tệp hoặc thư mục). Các tệp được tải lên trong một nhóm làm việc thuộc sở hữu của nhóm làm việc, không phải cho người dùng. Do đó, chúng không ảnh hưởng đến giới hạn người dùng được sử dụng."
     },
     "TOKEN_INPUT": {
       "ACCOUNT": "Tài khoản",
@@ -449,44 +449,44 @@
       "SEARCH_IN_OTHER_DOMAINS": "Tìm kiếm trong các miền khác"
     }
   },
-  "DRIVE_FILTER": {
-    "EMPTY_TEXT": "Không có bộ lọc ổ đĩa",
-    "DELETE_CONFIRM": "Bạn sắp xóa bộ lọc ổ đĩa này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục không?",
-    "DELETE_ABORT": "Bộ lọc này được liên kết với ít nhất một nhà cung cấp ổ đĩa. Bạn không thể xóa.",
-    "NO_ASSOCIATED_DOMAIN": "Không có nhà cung cấp ổ đĩa nào sử dụng bộ lọc này",
+  "WORKSPACE_FILTER": {
+    "EMPTY_TEXT": "Không có bộ lọc không gian làm việc",
+    "DELETE_CONFIRM": "Bạn sắp xóa bộ lọc không gian làm việc này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục không?",
+    "DELETE_ABORT": "Bộ lọc này được liên kết với ít nhất một nhà cung cấp không gian làm việc. Bạn không thể xóa.",
+    "NO_ASSOCIATED_DOMAIN": "Không có nhà cung cấp không gian làm việc nào sử dụng bộ lọc này",
     "LDAP": {
-      "PAGE_HELPER_P1": "LinShare hỗ trợ đồng bộ hóa tự động giữa các ổ LinShare và ổ LDAP. Do đó, các ổ và thành viên ổ được tạo và đồng bộ hóa với đối tác LDAP của chúng. Theo mặc định, các thành viên được cấp vai trò người đọc.",
+      "PAGE_HELPER_P1": "LinShare hỗ trợ đồng bộ hóa tự động giữa các không gian làm việc LinShare và không gian làm việc LDAP. Do đó, các không gian làm việc và thành viên không gian làm việc được tạo và đồng bộ hóa với đối tác LDAP của chúng. Theo mặc định, các thành viên được cấp vai trò người đọc.",
       "PAGE_HELPER_P2": "LinShare yêu cầu các truy vấn bên dưới để đồng bộ hóa:",
-      "PAGE_HELPER_P3": "LQL (Ngôn ngữ truy vấn LDAP) để tìm kiếm tất cả các ổ đĩa",
-      "PAGE_HELPER_P4": "LQL để tìm kiếm ổ đĩa",
-      "PAGE_SUBTITLE_CREATE": "Tạo bộ lọc ổ mới",
-      "PAGE_SUBTITLE_EDIT": "Chỉnh sửa bộ lọc ổ",
+      "PAGE_HELPER_P3": "LQL (Ngôn ngữ truy vấn LDAP) để tìm kiếm tất cả các không gian làm việc",
+      "PAGE_HELPER_P4": "LQL để tìm kiếm không gian làm việc",
+      "PAGE_SUBTITLE_CREATE": "Tạo bộ lọc không gian làm việc mới",
+      "PAGE_SUBTITLE_EDIT": "Chỉnh sửa bộ lọc không gian làm việc",
       "FORM": {
         "ATTRIBUTES": "Thuộc tính",
-        "DRIVE_SEARCH": "Thúc đẩy tìm kiếm",
-        "DRIVE_SEARCH_HELPER": "Các tham số và truy vấn LDAP để tìm kiếm tất cả các ổ đĩa hoặc một ổ đĩa",
-        "QUERY_FOR_ALL": "Truy vấn cho tất cả các ổ đĩa",
-        "QUERY_FOR_ONE": "Truy vấn ổ đĩa",
+        "WORK_SPACE_SEARCH": "Thúc đẩy tìm kiếm",
+        "WORK_SPACE_SEARCH_HELPER": "Các tham số và truy vấn LDAP để tìm kiếm tất cả các không gian làm việc hoặc một không gian làm việc",
+        "QUERY_FOR_ALL": "Truy vấn cho tất cả các không gian làm việc",
+        "QUERY_FOR_ONE": "Truy vấn không gian làm việc",
         "PREFIX": "Tiền tố cần được xóa",
-        "PREFIX_HELPER": "Văn bản tiền tố được loại bỏ tên ổ đĩa",
+        "PREFIX_HELPER": "Văn bản tiền tố được loại bỏ tên không gian làm việc",
         "SEARCH_PAGE_SIZE": "Kích thước trang tìm kiếm",
         "SEARCH_PAGE_SIZE_ERROR": "Kích thước trang ít nhất phải là 1",
         "MEMBER_EMAIL": "Email thành viên",
         "MEMBER_FIRSTNAME": "Tên thành viên",
         "MEMBER_LASTNAME": "Họ của thành viên",
-        "DRIVE_NAME": "Tên ổ",
-        "DRIVE_MEMBER": "Thành viên của Drive"
+        "WORK_SPACE_NAME": "Tên không gian làm việc",
+        "WORK_SPACE_MEMBER": "Thành viên của Workspace"
       }
     }
   },
-  "DRIVE_PROVIDER": {
-    "EMPTY_MESSAGE": "Không có nhà cung cấp ổ đĩa nào được tạo cho miền này",
-    "ERROR_MESSAGE": "Không tìm nạp được dữ liệu nhà cung cấp ổ đĩa của miền này",
-    "DELETE_CONFIRM": "Bạn sắp xóa nhà cung cấp ổ đĩa này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục không?",
+  "WORKSPACE_PROVIDER": {
+    "EMPTY_MESSAGE": "Không có nhà cung cấp không gian làm việc nào được tạo cho miền này",
+    "ERROR_MESSAGE": "Không tìm nạp được dữ liệu nhà cung cấp không gian làm việc của miền này",
+    "DELETE_CONFIRM": "Bạn sắp xóa nhà cung cấp không gian làm việc này, quy trình này không thể thay đổi được. Bạn có muốn tiếp tục không?",
     "CREATE": "Tạo nhà cung cấp mới",
     "LDAP": {
       "BASE_DN": "Dn cơ sở",
-      "BASE_DN_HELPER": "LinShare sẽ bắt đầu tìm kiếm các ổ đĩa từ vị trí này trong LDAP của bạn",
+      "BASE_DN_HELPER": "LinShare sẽ bắt đầu tìm kiếm các không gian làm việc từ vị trí này trong LDAP của bạn",
       "SEARCH_IN_OTHER_DOMAINS": "Tìm kiếm trong các miền khác"
     }
   }

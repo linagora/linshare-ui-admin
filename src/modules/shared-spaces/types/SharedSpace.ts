@@ -5,5 +5,5 @@ export default interface SharedSpace {
   parentName?: string;
   creationDate: number;
   modificationDate: number;
-  nodeType: 'WORK_GROUP' | 'DRIVE';
+  nodeType: 'WORK_GROUP' | 'WORK_SPACE';
 }

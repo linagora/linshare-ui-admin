@@ -9,14 +9,14 @@
   <div v-if="state.status === 'loaded'">
     <a-result
       v-if="!state.provider.uuid && !state.provider.type"
-      :title="$t('DRIVE_PROVIDER.EMPTY_MESSAGE')"
+      :title="$t('WORKSPACE_PROVIDER.EMPTY_MESSAGE')"
     >
       <template #extra>
         <a-button
           type="primary"
           @click="state.provider.type = 'LDAP_PROVIDER'"
         >
-          {{ $t('DRIVE_PROVIDER.CREATE') }}
+          {{ $t('WORKSPACE_PROVIDER.CREATE') }}
         </a-button>
       </template>
     </a-result>
@@ -26,7 +26,7 @@
         :xl="{ span: 12, offset: 6 }"
         :sm="{ span: 24 }"
       >
-        <DomainDriveProviderLDAPForm
+        <DomainWorkspaceProviderLDAPForm
           v-if="state.provider.type === 'LDAP_PROVIDER'"
           :provider="state.provider"
           :servers-list="state.ldapServers"
@@ -43,7 +43,7 @@
   <div v-if="state.status === 'error'">
     <a-result
       status="error"
-      :title="$t('DRIVE_PROVIDER.ERROR_MESSAGE')"
+      :title="$t('WORKSPACE_PROVIDER.ERROR_MESSAGE')"
     >
       <template #extra>
         <a-button
@@ -65,19 +65,19 @@ import {
   watchEffect
 } from 'vue';
 import { useStore } from 'vuex';
-import DomainDriveProviderLDAPForm from './DomainDriveProviderLDAPForm.vue';
-import { getDriveProviders } from '../services/domain-api';
-import { LDAPDriveProvider, EMPTY_PROVIDER } from '../types/DriveProvider';
+import DomainWorkspaceProviderLDAPForm from './DomainWorkspaceProviderLDAPForm.vue';
+import { getWorkspaceProviders } from '../services/domain-api';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
+import { listWorkspaceFilters } from '@/modules/workspace-filter/services/workspace-filter-api';
+import { LDAPWorkspaceFilter } from '@/modules/workspace-filter/types/WorkspaceFilters';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import { LDAPDriveFilter } from '@/modules/drive-filter/types/DriveFilters';
-import { listDriveFilters } from '@/modules/drive-filter/services/drive-filter-api';
+import { LDAPWorkspaceProvider, EMPTY_PROVIDER } from '../types/WorkspaceProvider';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
-  provider: LDAPDriveProvider;
+  provider: LDAPWorkspaceProvider;
   ldapServers: RemoteServer[];
-  groupFilters: LDAPDriveFilter[];
+  groupFilters: LDAPWorkspaceFilter[];
 }
 
 const store = useStore();
@@ -88,7 +88,7 @@ const state = reactive<State>({
   groupFilters: []
 });
 
-function setProvider (provider: LDAPDriveProvider) {
+function setProvider (provider: LDAPWorkspaceProvider) {
   state.provider = { ...provider };
 }
 
@@ -99,13 +99,13 @@ async function prepareLDAPServers () {
 }
 
 async function prepareGroupFilters () {
-  const filters = await listDriveFilters();
+  const filters = await listWorkspaceFilters();
 
   state.groupFilters = filters.filter(filter => filter.type === 'LDAP');
 }
 
 async function prepareUserProvider () {
-  const providers = await getDriveProviders(currentDomain.value.uuid);
+  const providers = await getWorkspaceProviders(currentDomain.value.uuid);
 
   state.provider = providers[0] || { ...EMPTY_PROVIDER };
 }

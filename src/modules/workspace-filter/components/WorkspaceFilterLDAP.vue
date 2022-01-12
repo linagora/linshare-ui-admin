@@ -1,16 +1,16 @@
 <template>
   <PageTitle
-    :title="$t('NAVIGATOR.LDAP_DRIVE_FILTER')"
-    :subtitle="$t(editMode ? 'DRIVE_FILTER.LDAP.PAGE_SUBTITLE_EDIT' : 'DRIVE_FILTER.LDAP.PAGE_SUBTITLE_CREATE')"
+    :title="$t('NAVIGATOR.LDAP_WORKSPACE_FILTER')"
+    :subtitle="$t(editMode ? 'WORKSPACE_FILTER.LDAP.PAGE_SUBTITLE_EDIT' : 'WORKSPACE_FILTER.LDAP.PAGE_SUBTITLE_CREATE')"
     :breadcrumbs="breadcrumbs"
   >
     <template #helperContent>
-      <span>{{ $t('DRIVE_FILTER.LDAP.PAGE_HELPER_P1') }}</span>
+      <span>{{ $t('WORKSPACE_FILTER.LDAP.PAGE_HELPER_P1') }}</span>
       <br>
-      <span>{{ $t('DRIVE_FILTER.LDAP.PAGE_HELPER_P2') }}</span>
+      <span>{{ $t('WORKSPACE_FILTER.LDAP.PAGE_HELPER_P2') }}</span>
       <ul>
-        <li>{{ $t('DRIVE_FILTER.LDAP.PAGE_HELPER_P3') }}</li>
-        <li>{{ $t('DRIVE_FILTER.LDAP.PAGE_HELPER_P4') }}</li>
+        <li>{{ $t('WORKSPACE_FILTER.LDAP.PAGE_HELPER_P3') }}</li>
+        <li>{{ $t('WORKSPACE_FILTER.LDAP.PAGE_HELPER_P4') }}</li>
       </ul>
     </template>
 
@@ -81,15 +81,15 @@
 
         <div class="section">
           <h2 class="section__title">
-            {{ $t('DRIVE_FILTER.LDAP.FORM.DRIVE_SEARCH') }}
+            {{ $t('WORKSPACE_FILTER.LDAP.FORM.WORK_SPACE_SEARCH') }}
           </h2>
 
           <p class="section__helper">
-            {{ $t('DRIVE_FILTER.LDAP.FORM.DRIVE_SEARCH_HELPER') }}
+            {{ $t('WORKSPACE_FILTER.LDAP.FORM.WORK_SPACE_SEARCH_HELPER') }}
           </p>
 
           <a-form-item
-            :label="$t('DRIVE_FILTER.LDAP.FORM.QUERY_FOR_ALL')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.QUERY_FOR_ALL')"
             v-bind="validateInfos.searchAllGroupsQuery"
           >
             <a-textarea
@@ -99,7 +99,7 @@
           </a-form-item>
 
           <a-form-item
-            :label="$t('DRIVE_FILTER.LDAP.FORM.QUERY_FOR_ONE')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.QUERY_FOR_ONE')"
             v-bind="validateInfos.searchGroupQuery"
           >
             <a-textarea
@@ -111,8 +111,8 @@
           <a-row :gutter="32">
             <a-col :span="12">
               <a-form-item
-                :label="$t('DRIVE_FILTER.LDAP.FORM.PREFIX')"
-                :help="$t('DRIVE_FILTER.LDAP.FORM.PREFIX_HELPER')"
+                :label="$t('WORKSPACE_FILTER.LDAP.FORM.PREFIX')"
+                :help="$t('WORKSPACE_FILTER.LDAP.FORM.PREFIX_HELPER')"
                 v-bind="validateInfos.groupPrefixToRemove"
               >
                 <a-input
@@ -124,7 +124,7 @@
 
             <a-col :span="12">
               <a-form-item
-                :label="$t('DRIVE_FILTER.LDAP.FORM.SEARCH_PAGE_SIZE')"
+                :label="$t('WORKSPACE_FILTER.LDAP.FORM.SEARCH_PAGE_SIZE')"
                 v-bind="validateInfos.searchPageSize"
               >
                 <a-input
@@ -138,39 +138,39 @@
 
         <div class="section">
           <h2 class="section__title">
-            {{ $t('DRIVE_FILTER.LDAP.FORM.ATTRIBUTES') }}
+            {{ $t('WORKSPACE_FILTER.LDAP.FORM.ATTRIBUTES') }}
           </h2>
 
           <a-form-item
-            :label="$t('DRIVE_FILTER.LDAP.FORM.MEMBER_EMAIL')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.MEMBER_EMAIL')"
             v-bind="validateInfos.memberMailAttribute"
           >
             <a-input v-model:value="formState.memberMailAttribute" />
           </a-form-item>
 
           <a-form-item
-            :label="$t('DRIVE_FILTER.LDAP.FORM.MEMBER_FIRSTNAME')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.MEMBER_FIRSTNAME')"
             v-bind="validateInfos.memberFirstNameAttribute"
           >
             <a-input v-model:value="formState.memberFirstNameAttribute" />
           </a-form-item>
 
           <a-form-item
-            :label="$t('DRIVE_FILTER.LDAP.FORM.MEMBER_LASTNAME')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.MEMBER_LASTNAME')"
             v-bind="validateInfos.memberLastNameAttribute"
           >
             <a-input v-model:value="formState.memberLastNameAttribute" />
           </a-form-item>
 
           <a-form-item
-            :label="$t('DRIVE_FILTER.LDAP.FORM.DRIVE_NAME')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.WORK_SPACE_NAME')"
             v-bind="validateInfos.groupNameAttribute"
           >
             <a-input v-model:value="formState.groupNameAttribute" />
           </a-form-item>
 
           <a-form-item
-            :label="$t('DRIVE_FILTER.LDAP.FORM.DRIVE_MEMBER')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.WORK_SPACE_MEMBER')"
             v-bind="validateInfos.groupMemberAttribute"
           >
             <a-input v-model:value="formState.groupMemberAttribute" />
@@ -186,7 +186,7 @@
           </a-button>
 
           <a-button v-else>
-            <router-link :to="{ name: 'DriveFilters' }">
+            <router-link :to="{ name: 'WorkspaceFilters' }">
               {{ $t('GENERAL.CANCEL') }}
             </router-link>
           </a-button>
@@ -216,19 +216,17 @@ import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useNotification from '@/core/hooks/useNotification';
 
 import { APIError } from '@/core/types/APIError';
-import { EMPTY_FILTER, LDAPDriveFilter } from '../types/DriveFilters';
+import { EMPTY_FILTER, LDAPWorkspaceFilter } from '../types/WorkspaceFilters';
 import { SelectTypes } from 'ant-design-vue/es/select';
 
 import {
-  createDriveFilter,
-  deleteDriveFilter,
-  getDriveFilter,
-  getDriveFilterAssociatedDomains,
-  listDriveFilters,
-  updateDriveFilter
-} from '../services/drive-filter-api';
-
-// import { listGroupFilters } from '@/modules/group-filter/services/group-filter-api';
+  createWorkspaceFilter,
+  deleteWorkspaceFilter,
+  getWorkspaceFilter,
+  getWorkspaceFilterAssociatedDomains,
+  listWorkspaceFilters,
+  updateWorkspaceFilter
+} from '../services/workspace-filter-api';
 
 interface Props {
   uuid?: string;
@@ -236,7 +234,7 @@ interface Props {
 }
 
 interface GroupFilterModelOptions {
-  list: LDAPDriveFilter[];
+  list: LDAPWorkspaceFilter[];
   options: SelectTypes['options'];
   selected: string;
 }
@@ -254,10 +252,10 @@ const models = reactive<GroupFilterModelOptions>({
   list: [],
   options: []
 });
-const groupFilter: LDAPDriveFilter | Record<never, string> = {};
+const groupFilter: LDAPWorkspaceFilter | Record<never, string> = {};
 const fetchingData = ref(false);
 const formSubmitting = ref(false);
-const formState = reactive <LDAPDriveFilter>({ ...EMPTY_FILTER });
+const formState = reactive <LDAPWorkspaceFilter>({ ...EMPTY_FILTER });
 
 const formRules = reactive({
   name: [{ required: true, message: t('GENERAL.FIELD_REQUIRED'), trigger: 'change' }],
@@ -278,7 +276,7 @@ async function prepareData () {
 
   try {
     if (props.uuid) {
-      const filter = await getDriveFilter(props.uuid);
+      const filter = await getWorkspaceFilter(props.uuid);
       Object.assign(groupFilter, filter);
       Object.assign(formState, filter, {
         name: props.duplicate
@@ -288,7 +286,7 @@ async function prepareData () {
     }
 
     if (!editMode.value) {
-      const availableModels = await listDriveFilters(true);
+      const availableModels = await listWorkspaceFilters(true);
 
       Object.assign(models, {
         list: availableModels,
@@ -302,7 +300,7 @@ async function prepareData () {
       console.error(error);
     }
 
-    push({ name: 'DriveFilters' });
+    push({ name: 'WorkspaceFilters' });
   } finally {
     fetchingData.value = false;
   }
@@ -320,14 +318,14 @@ async function submit () {
 
   try {
     if (editMode.value) {
-      await updateDriveFilter({ ...formState });
+      await updateWorkspaceFilter({ ...formState });
 
       message.success(t('MESSAGES.UPDATE_SUCCESS'));
     } else {
-      await createDriveFilter({ ...formState });
+      await createWorkspaceFilter({ ...formState });
 
       message.success(t('MESSAGES.CREATE_SUCCESS'));
-      push({ name: 'DriveFilters' });
+      push({ name: 'WorkspaceFilters' });
     }
   } catch (error) {
     if (error instanceof APIError) {
@@ -353,7 +351,7 @@ async function confirmDelete () {
   let usedInDomains = false;
 
   try {
-    usedInDomains = (await getDriveFilterAssociatedDomains(props.uuid)).length > 0;
+    usedInDomains = (await getWorkspaceFilterAssociatedDomains(props.uuid)).length > 0;
   } catch (error) {
     message.error((error as APIError).getMessage());
 
@@ -363,15 +361,15 @@ async function confirmDelete () {
   if (usedInDomains) {
     return infoModal({
       title: t('GENERAL.DELETION'),
-      content: t('DRIVE_FILTER.DELETE_ABORT')
+      content: t('WORKSPACE_FILTER.DELETE_ABORT')
     });
   }
 
   confirmModal({
     title: t('GENERAL.DELETION'),
-    content: t('DRIVE_FILTER.DELETE_CONFIRM'),
+    content: t('WORKSPACE_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: () => props.uuid && deleteDriveFilter(props.uuid)
+    onOk: () => props.uuid && deleteWorkspaceFilter(props.uuid)
       .then(() => {
         message.success(t('MESSAGES.DELETE_SUCCESS'));
         push({ name: 'GroupFilters' });

@@ -59,12 +59,12 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
     child: true
   },
   {
-    title: 'NAVIGATOR.DRIVE_PROVIDERS',
+    title: 'NAVIGATOR.WORKSPACE_PROVIDERS',
     accessibility: {
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
       userRoles: [ACCOUNT_ROLE.SUPERADMIN]
     },
-    route: { name: 'DomainDriveProviders' },
+    route: { name: 'DomainWorkspaceProviders' },
     child: true
   },
   {

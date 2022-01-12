@@ -25,25 +25,25 @@ const pagination = reactive<Pagination>({
 });
 
 export default function useSharedSpacesList () {
-  async function populateParentDrives (list: SharedSpace[]): Promise<void> {
-    const drives = list.filter(sharedSpace => sharedSpace.nodeType === 'DRIVE');
+  async function populateParentWorkspaces (list: SharedSpace[]): Promise<void> {
+    const workspaces = list.filter(sharedSpace => sharedSpace.nodeType === 'WORK_SPACE');
 
     for (let index = 0; index < list.length; index++) {
       const sharedSpace = list[index];
-      let drive;
+      let workspace;
 
       if (sharedSpace.parentUuid) {
         try {
-          drive = drives.find(node => node.uuid === sharedSpace.parentUuid);
+          workspace = workspaces.find(node => node.uuid === sharedSpace.parentUuid);
 
-          if (!drive) {
-            drive = await getSharedSpace(sharedSpace.parentUuid);
-            drives.push(drive);
+          if (!workspace) {
+            workspace = await getSharedSpace(sharedSpace.parentUuid);
+            workspaces.push(workspace);
           }
 
-          sharedSpace.parentName = drive.name;
+          sharedSpace.parentName = workspace.name;
         } catch (error) {
-          console.debug('Failed to get parent drive', error);
+          console.debug('Failed to get parent workspace', error);
         }
       }
     }
@@ -59,7 +59,7 @@ export default function useSharedSpacesList () {
 
       const { data, total, current } = await listSharedSpaces(options);
 
-      await populateParentDrives(data);
+      await populateParentWorkspaces(data);
 
       list.value = data;
       pagination.total = total;

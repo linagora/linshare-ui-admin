@@ -1,4 +1,4 @@
-export interface LDAPDriveProvider {
+export interface LDAPWorkspaceProvider {
   uuid?: string;
   creationDate?: number;
   modificationDate?: number;
@@ -15,7 +15,7 @@ export interface LDAPDriveProvider {
   searchInOtherDomains: boolean;
 }
 
-export const EMPTY_PROVIDER: LDAPDriveProvider = {
+export const EMPTY_PROVIDER: LDAPWorkspaceProvider = {
   ldapServer: {
     uuid: '',
     name: ''
