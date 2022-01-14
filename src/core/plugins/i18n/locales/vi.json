@@ -252,7 +252,7 @@
   "SHARED_SPACES": {
     "NODE_TYPE": {
       "WORK_GROUP": "Nhóm làm việc",
-      "WORK_SPACE": "hông gian làm việc "
+      "WORK_SPACE": "Không gian làm việc"
     },
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Không gian được chia sẻ",
