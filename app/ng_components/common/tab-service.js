@@ -12,6 +12,7 @@ angular.module('linshareAdminApp')
           {
             name: 'COMMON.TAB.MANAGE_DOMAINS',
             sref: 'domain.detail',
+            hiddenOnLegacy: true,
             superAdminOnly: true
           }, {
               name: 'COMMON.TAB.DOMAIN_POLICIES',
@@ -31,6 +32,7 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.LDAP_CONNECTIONS',
             sref: 'ldapconnection.list',
             superAdminOnly: true,
+            hiddenOnLegacy: true,
             childrenSref: [
               'ldapconnection.detail'
             ]
@@ -38,6 +40,7 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.DOMAIN_PATTERNS',
             sref: 'domainpattern.list',
             superAdminOnly: true,
+            hiddenOnLegacy: true,
             childrenSref: [
               'domainpattern.detail'
             ]
@@ -45,6 +48,7 @@ angular.module('linshareAdminApp')
             name: 'COMMON.TAB.GROUP_PATTERNS',
             sref: 'grouppattern.list',
             superAdminOnly: true,
+            hiddenOnLegacy: true,
             childrenSref: [
               'grouppattern.detail'
             ]
@@ -177,6 +181,7 @@ angular.module('linshareAdminApp')
         name: 'COMMON.TAB.THREADS',
         icon: 'fa-folder-open',
         superAdminOnly: true,
+        hiddenOnLegacy: true,
         childrenSref: [
           'thread.detail'
         ],
@@ -212,17 +217,25 @@ angular.module('linshareAdminApp')
         getAvailableTabs: function(user) {
           $log.debug('Tab:getAvailableTabs');
           var tabs = self.tabs;
-          if (!Authentication.isSuperAdmin(user)) {
-            tabs = _.filter(tabs, function(container) {
-              return container.superAdminOnly === false;
-            });
 
-            _.forEach(tabs, function(container) {
-              container.links = _.filter(container.links, function(link) {
-                return link.superAdminOnly === false;
-              });
-            });
+          tabs = _.filter(tabs, filterFnc);
+
+          _.forEach(tabs, function(tab) {
+            tab.links = _.filter(tab.links, filterFnc);
+          });
+
+          function filterFnc(entry) {
+            if (!Authentication.isSuperAdmin(user) && entry.superAdminOnly) {
+              return false;
+            }
+
+            if (lsAppConfig.legacyMode.enabled && entry.hiddenOnLegacy) {
+              return false;
+            }
+
+            return true;
           }
+
           return tabs;
         }
       };
