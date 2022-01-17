@@ -73,6 +73,15 @@ async function updateWorkspaceProvider (domainUuid: string, provider: LDAPWorksp
 async function deleteWorkspaceProvider (domainUuid: string, provider: LDAPWorkspaceProvider) {
   return await api.delete(`domains/${domainUuid}/workspace_providers/${provider.uuid}`);
 }
+
+async function getFunctionalties (domainUuid: string, options?: { includeSubs: boolean }) {
+  return await api.get(`domains/${domainUuid}/functionalities`, {
+    params: {
+      subs: options?.includeSubs
+    }
+  });
+}
+
 export {
   createDomain,
   createWorkspaceProvider,
@@ -84,6 +93,7 @@ export {
   deleteGroupProvider,
   getDomain,
   getDomains,
+  getFunctionalties,
   getWorkspaceProviders,
   getGroupProviders,
   getUserProviders,

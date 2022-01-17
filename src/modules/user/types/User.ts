@@ -21,7 +21,7 @@ export default interface User {
   externalMailLocale: string;
   creationDate: number;
   modificationDate: number;
-  expirationDate: number;
+  expirationDate?: number;
   secondFAUuid: string;
   secondFAEnabled: boolean;
   quotaUuid: string;

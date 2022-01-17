@@ -179,7 +179,8 @@
       "RESTRICTED_CONTACTS_LIST_REQUIRED": "For restricted guest, his restricted contacts list must contain at least one contact",
       "NO_USER_FOUND": "No user found",
       "RESTRICTED_GUEST": "Restrict guest",
-      "RESTRICTED_CONTACTS": "Accounts guest can contact"
+      "RESTRICTED_CONTACTS": "Accounts guest can contact",
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Guest expiration date must be between tomorrow and {date}"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Enter value",

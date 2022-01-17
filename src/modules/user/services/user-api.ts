@@ -55,7 +55,7 @@ async function getUser (uuid: string): Promise<User> {
 }
 
 async function updateUser (payload: User): Promise<User> {
-  return await api.put('users', payload);
+  return await api.put(`users/${payload.uuid}`, payload);
 }
 
 async function deleteUser (payload: User): Promise<User> {

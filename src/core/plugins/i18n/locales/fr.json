@@ -177,7 +177,8 @@
       "RESTRICTED_CONTACTS_LIST_REQUIRED": "Pour les invités restreints, sa liste de contacts restreints doit contenir au moins un contact.",
       "NO_USER_FOUND": "Aucun utilisateur trouvé",
       "RESTRICTED_GUEST": "Restreindre l'invité",
-      "RESTRICTED_CONTACTS": "Comptes que l'invité peut contacter"
+      "RESTRICTED_CONTACTS": "Comptes que l'invité peut contacter",
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "La date d'expiration de l'invité doit être comprise entre demain et le {date}"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Enter value",

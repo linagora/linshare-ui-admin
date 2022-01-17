@@ -177,7 +177,8 @@
       "RESTRICTED_CONTACTS_LIST_REQUIRED": "Đối với khách bị hạn chế, danh sách liên hệ bị hạn chế của anh ta phải có ít nhất một địa chỉ liên hệ",
       "NO_USER_FOUND": "Không tìm thấy người dùng",
       "RESTRICTED_GUEST": "Hạn chế khách",
-      "RESTRICTED_CONTACTS": "Tài khoản mà khách có thể liên hệ"
+      "RESTRICTED_CONTACTS": "Tài khoản mà khách có thể liên hệ",
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Ngày hết hạn của khách phải từ ngày mai đến {date}"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Nhập thông tin tìm kiếm",

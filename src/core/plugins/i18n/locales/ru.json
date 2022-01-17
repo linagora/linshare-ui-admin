@@ -177,7 +177,8 @@
       "RESTRICTED_CONTACTS_LIST_REQUIRED": "Для гостя с ограниченным доступом его список контактов с ограниченным доступом должен содержать хотя бы один контакт",
       "NO_USER_FOUND": "Пользователь не найден",
       "RESTRICTED_GUEST": "Ограничить гостя",
-      "RESTRICTED_CONTACTS": "Гость может связаться с аккаунтами"
+      "RESTRICTED_CONTACTS": "Гость может связаться с аккаунтами",
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Дата истечения срока действия гостя должна быть между завтра и {date}"
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Введите значение",

@@ -8,6 +8,8 @@ const getters: GetterTree<DomainState, RootState> = {
   getCurrentDomain: state => state.currentDomain,
   getCurrentDomainUuid: state => state.currentDomain.uuid,
   getCurrentDomainType: state => state.currentDomain.type,
+  getLoggedUserFunctionalities: state => state.loggedUserFunctionalities,
+  getLoggedUserFunctionality: state => (id: string) => state.loggedUserFunctionalities?.find(functionality => functionality.identifier === id),
   getDomainsTree: state => state.domainsTree,
   getDomainsList: state => getDomainsListFromTree(state.domainsTree),
   getDomainByUuid: state => (uuid: string) => getDomainFromTree(uuid, state.domainsTree),
