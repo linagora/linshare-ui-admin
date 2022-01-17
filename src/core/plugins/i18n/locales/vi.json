@@ -30,7 +30,11 @@
     "NO": "Không",
     "FIELD_REQUIRED": "Trường này không được bỏ trống",
     "SELECT_MODEL": "Chọn mẫu có sẵn",
-    "TRY_AGAIN": "Thử lại"
+    "TRY_AGAIN": "Thử lại",
+    "DOMAIN": "Miền",
+    "OR": "Hoặc",
+    "AUTHOR": "Tác giả",
+    "ROLE": "Vai trò"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -102,7 +106,8 @@
     "GROUP_PROVIDERS": "Nguồn cung cấp nhóm",
     "WORKSPACE_PROVIDERS": "Nguồn cung cấp Workspace",
     "LDAP_GROUP_FILTER": "Bộ lọc nhóm trên LDAP",
-    "LDAP_WORKSPACE_FILTER": "Bộ lọc không gian làm việc trên LDAP"
+    "LDAP_WORKSPACE_FILTER": "Bộ lọc không gian làm việc trên LDAP",
+    "SHARED_SPACE_DETAILS": "Chi tiết về không gian chung"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -192,6 +197,8 @@
      "1004": "Tài khoản của bạn đã bị khóa vì đăng nhập thất bại"
     },
     "55000": "Bộ lọc nhóm không được tìm thấy"
+    ,
+    "66000": "Không tìm thấy không gian chia sẻ"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "Đăng nhập xác thực hai bước",
@@ -250,9 +257,20 @@
     }
   },
   "SHARED_SPACES": {
+    "DELETE_WORK_GROUP": "Xóa nhóm làm việc",
+    "DELETE_WORK_SPACE": "Xóa không gian làm việc",
     "NODE_TYPE": {
       "WORK_GROUP": "Nhóm làm việc",
       "WORK_SPACE": "Không gian làm việc"
+    },
+    "ROLE": {
+      "ADMIN": "Quản trị viên",
+      "READER": "Người đọc",
+      "CONTRIBUTOR": "Người đóng góp",
+      "WRITER": "Người viết",
+      "WORK_SPACE_ADMIN": "Không gian làm việc - Quản trị viên",
+      "WORK_SPACE_WRITER": "Không gian làm việc - Người viết",
+      "WORK_SPACE_READER": "Không gian làm việc - Người đọc"
     },
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Không gian được chia sẻ",
@@ -264,10 +282,17 @@
       "MODIFICATION_DATE": "Ngày sửa",
       "TYPE": "Loại",
       "PLACEHOLDER": "Tìm kiếm hoặc lọc không gian được chia sẻ"
+    },
+    "MEMBERS": {
+      "TAB_TITLE": "Danh sách thành viên",
+      "CONFIRM_DELETE": "Bạn có chắc chắn muốn xóa thành viên này khỏi không gian dùng chung không?",
+      "FILTER_PLACEHOLDER": "Tìm kiếm hoặc lọc các thành viên không gian được chia sẻ",
+      "ADD_NEW": "Thêm thành viên",
+      "NEW": "Thành viên mới"
     }
   },
   "QUOTA": {
-    "USER_TAB": "Hạn ngạch Không gian Cá nhân",
+    "USER_TAB": "Hạn ngạch Không gian cá nhân",
     "USED_SPACE": "Đã sử dụng {usedSpace} trên {computedQuota}",
     "USER_QUOTA": "Hạn ngạch được sử dụng cho không gian cá nhân của người dùng",
     "USER_MAX_FILE_SIZE": "Kích thước tệp tải lên tối đa của người dùng trong PersonalSpace",

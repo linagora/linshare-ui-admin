@@ -30,7 +30,11 @@
     "NO": "Non",
     "FIELD_REQUIRED": "Ce champ ne peut pas être vide",
     "SELECT_MODEL": "Sélectionnez un modèle prédéfini",
-    "TRY_AGAIN": "Réessayez"
+    "TRY_AGAIN": "Réessayez",
+    "DOMAIN": "Domaine",
+    "OR": "Ou",
+    "AUTHOR": "Auteur",
+    "ROLE": "Rôle"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -102,7 +106,8 @@
     "GROUP_PROVIDERS": "Fournisseurs de groupes",
     "WORKSPACE_PROVIDERS": "Fournisseurs d'espaces de travail",
     "LDAP_GROUP_FILTER": "Filtre de groupe LDAP",
-    "LDAP_WORKSPACE_FILTER": "Filtre d'espace de travail LDAP"
+    "LDAP_WORKSPACE_FILTER": "Filtre d'espace de travail LDAP",
+    "SHARED_SPACE_DETAILS": "Détails de l'espace partagé"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",
@@ -191,7 +196,8 @@
       "1003": "le code OTP est invalide ou expiré",
       "1004": "Votre compte a été verouillé en raison de nombreuses tentatives infructueuses de connexion"
     },
-    "55000": "Filtre de groupe introuvable"
+    "55000": "Filtre de groupe introuvable",
+    "66000": "Espace partagé introuvable"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "Authentification double facteur",
@@ -250,9 +256,20 @@
     }
   },
   "SHARED_SPACES": {
+    "DELETE_WORK_GROUP": "Supprimer le groupe de travail",
+    "DELETE_WORK_SPACE": "Supprimer l'espace de travail",
     "NODE_TYPE": {
       "WORK_GROUP": "Groupe de travail",
       "WORK_SPACE": "Espace de travail"
+    },
+    "ROLE": {
+      "ADMIN": "Administrateur",
+      "READER": "Lecteur",
+      "CONTRIBUTOR": "Contributeur",
+      "WRITER": "Scénariste",
+      "WORK_SPACE_ADMIN": "Espace de travail - Administrateur",
+      "WORK_SPACE_WRITER": "Espace de travail - Rédacteur",
+      "WORK_SPACE_READER": "Espace de travail - Lecteur"
     },
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Espaces et Groupes de travail",
@@ -264,6 +281,13 @@
       "MODIFICATION_DATE": "Date de modification",
       "TYPE": "Type",
       "PLACEHOLDER": "Rechercher ou filtrer les espaces partagés"
+    },
+    "MEMBERS": {
+      "TAB_TITLE": "Liste des membres",
+      "CONFIRM_DELETE": "Êtes-vous sûr de vouloir supprimer ce membre de l'espace partagé ?",
+      "FILTER_PLACEHOLDER": "Rechercher ou filtrer les membres de l'espace partagé",
+      "ADD_NEW": "Ajouter un membre",
+      "NEW": "Nouveaux membres"
     }
   },
   "QUOTA": {
