@@ -22,6 +22,10 @@ async function createDomain (domain: Omit<Domain, 'uuid'>, dedicatedDomainPolicy
   return await api.post('domains', domain, { params: { dedicatedDomainPolicy } });
 }
 
+async function deleteDomain (domain: Domain): Promise<Domain> {
+  return await api.delete(`domains/${domain.uuid}`);
+}
+
 async function getUserProviders (uuid: string): Promise<UserProvider[]> {
   return await api.get(`domains/${uuid}/user_providers`);
 }
@@ -74,6 +78,7 @@ export {
   createWorkspaceProvider,
   createGroupProvider,
   createUserProvider,
+  deleteDomain,
   deleteWorkspaceProvider,
   deleteUserProvider,
   deleteGroupProvider,

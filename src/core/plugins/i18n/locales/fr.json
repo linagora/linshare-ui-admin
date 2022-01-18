@@ -305,7 +305,13 @@
     "CREATE_TOP_DOMAIN": "Ajouter un top domaine",
     "CREATE_SUB_DOMAIN": "Ajouter un sous domaine",
     "CREATE_GUEST_DOMAIN": "Ajouter un domaine invité",
-    "DELETE_DOMAIN": "Supprimer le domaine",
+    "DELETE": {
+      "BUTTON": "Supprimer le domaine",
+      "MODAL_CHILD_EXISTS_TITLE": "Ce domaine contient des sous domaines",
+      "MODAL_CHILD_EXISTS_TEXT": "Veuillez supprimer tous les sous-domaines de ce domaine avant de le supprimer",
+      "MODAL_CONFIRM_TITLE": "Supprimer le domaine",
+      "MODAL_CONFIRM_TEXT": "Vous êtes sur le point de supprimer ce domaine, cette procédure est irréversible et détruira toutes les données relative au domaine (documents, utilisateurs, ...) Souhaitez-vous continuer ?"
+    },
     "FIELDS": {
       "NAME": "Nom",
       "NAME_REQUIRED": "Veuillez saisir le nom de domaine",

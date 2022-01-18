@@ -3,7 +3,7 @@ import { DomainState } from './domain.state';
 import RootState from '@/core/types/RootState';
 import Status from '@/core/types/Status';
 import Domain from '@/modules/domain/types/Domain';
-import { getDomains, getDomain, updateDomain } from '@/modules/domain/services/domain-api';
+import { getDomains, getDomain, updateDomain, deleteDomain } from '@/modules/domain/services/domain-api';
 
 const actions: ActionTree<DomainState, RootState> = {
   async fetchDomainsTree ({ commit }) {
@@ -28,6 +28,11 @@ const actions: ActionTree<DomainState, RootState> = {
 
     commit('setCurrentDomain', updated);
     commit('setDomainNameInTree', updated);
+  },
+  async deleteCurrentDomain ({ state, dispatch }) {
+    await deleteDomain(state.currentDomain);
+    await dispatch('fetchDomainsTree');
+    await dispatch('fetchDomainById', state.domainsTree.uuid);
   }
 };
 

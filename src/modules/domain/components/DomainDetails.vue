@@ -6,11 +6,16 @@
   >
     <template #subTitlePostfix>
       <div
-        v-if="!loadingDomain"
+        v-if="canDelete"
         class="delete-domain-container"
       >
-        <a-button primary>
-          {{ $t('DOMAIN.DELETE_DOMAIN') }}
+        <a-button
+          :disabled="loadingDomain"
+          :loading="deleting"
+          primary
+          @click="confirmThenDelete"
+        >
+          {{ $t('DOMAIN.DELETE.BUTTON') }}
         </a-button>
       </div>
     </template>
@@ -41,7 +46,7 @@
             {{ $t('GENERAL.CREATION_DATE') }}
           </div>
           <div class="value">
-            {{ $d(currentDomain.creationDate, 'mediumDate') }}
+            {{ currentDomain.creationDate && $d(currentDomain.creationDate, 'mediumDate') }}
           </div>
         </div>
         <div class="info-block">
@@ -49,7 +54,7 @@
             {{ $t('GENERAL.MODIFICATION_DATE') }}
           </div>
           <div class="value">
-            {{ $d(currentDomain.modificationDate, 'mediumDate') }}
+            {{ currentDomain.modificationDate && $d(currentDomain.modificationDate, 'mediumDate') }}
           </div>
         </div>
         <div
@@ -60,7 +65,7 @@
             {{ $t('DOMAIN.FIELDS.WELCOME_MESSAGE') }}
           </div>
           <div class="value">
-            <a href="">{{ currentDomain.welcomeMessage.name }}</a>
+            <a href="">{{ currentDomain.welcomeMessage?.name }}</a>
           </div>
         </div>
         <div
@@ -71,7 +76,7 @@
             {{ $t('DOMAIN.FIELDS.MAIL_CONFIGURATION') }}
           </div>
           <div class="value">
-            <a href="">{{ currentDomain.mailConfiguration.name }}</a>
+            <a href="">{{ currentDomain.mailConfiguration?.name }}</a>
           </div>
         </div>
         <div
@@ -82,7 +87,7 @@
             {{ $t('DOMAIN.FIELDS.MIME_POLICY') }}
           </div>
           <div class="value">
-            <a href="">{{ currentDomain.mimePolicy.name }}</a>
+            <a href="">{{ currentDomain.mimePolicy?.name }}</a>
           </div>
         </div>
         <div
@@ -93,7 +98,7 @@
             {{ $t('DOMAIN.FIELDS.DOMAIN_POLICY') }}
           </div>
           <div class="value">
-            <a href="">{{ currentDomain.domainPolicy.name }}</a>
+            <a href="">{{ currentDomain.domainPolicy?.name }}</a>
           </div>
         </div>
       </div>
@@ -101,34 +106,22 @@
   </a-row>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed } from 'vue';
+<script lang="ts" setup>
+import { computed } from 'vue';
 import { useStore } from 'vuex';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import PageTitle from '@/core/components/PageTitle.vue';
 import DomainForm from '@/modules/domain/components/DomainForm.vue';
 import Status from '@/core/types/Status';
+import useDomainDelete from '../hooks/useDomainDelete';
+import Domain from '../types/Domain';
 
-export default defineComponent({
-  name: 'DomainDetails',
-  components: {
-    PageTitle,
-    DomainForm
-  },
-  setup () {
-    const store = useStore();
-    const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
-    const loadingDomain = computed(() => store.getters['Domain/getStatus']('currentDomain') === Status.LOADING);
-    const { breadcrumbs } = useBreadcrumbs();
-
-    return {
-      breadcrumbs,
-      currentDomain,
-      loadingDomain,
-      isRootDomain: computed(() => store.getters['Domain/isRootDomain'])
-    };
-  }
-});
+const store = useStore();
+const loadingDomain = computed(() => store.getters['Domain/getStatus']('currentDomain') === Status.LOADING);
+const currentDomain = computed<Domain>(() => store.getters['Domain/getCurrentDomain']);
+const isRootDomain = computed(() => store.getters['Domain/isRootDomain']);
+const { breadcrumbs } = useBreadcrumbs();
+const { deleting, confirmThenDelete, canDelete } = useDomainDelete();
 </script>
 
 <style lang="less" scoped>

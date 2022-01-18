@@ -306,7 +306,13 @@
     "CREATE_TOP_DOMAIN": "Tạo miền chính",
     "CREATE_SUB_DOMAIN": "Tạo miền phụ",
     "CREATE_GUEST_DOMAIN": "Tạo miền khách",
-    "DELETE_DOMAIN": "Xóa miền",
+    "DELETE": {
+      "BUTTON": "Xóa miền",
+      "MODAL_CHILD_EXISTS_TITLE": "Miền chứa các miền con",
+      "MODAL_CHILD_EXISTS_TEXT": "Vui lòng xóa tất cả các miền phụ và miền khách của miền này trước khi xóa",
+      "MODAL_CONFIRM_TITLE": "Xóa miền",
+      "MODAL_CONFIRM_TEXT": "Bạn sắp xóa miền này, quy trình này không thể đảo ngược và hủy tất cả người dùng được liên kết. Bạn có muốn tiếp tục không?"
+    },
     "FIELDS": {
       "NAME": "Tên",
       "NAME_REQUIRED": "Vui lòng nhập tên miền",

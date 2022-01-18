@@ -16,6 +16,22 @@ export default interface Domain {
   defaultUserRole?: string;
   type?: DOMAIN_TYPE;
   parent?: Partial<Domain>;
+  domainPolicy?: {
+    name: string;
+    uuid: string;
+  }
+  mailConfiguration?: {
+    name: string;
+    uuid: string;
+  }
+  mimePolicy?: {
+    name: string;
+    uuid: string;
+  }
+  welcomeMessage?: {
+    name: string;
+    uuid: string
+  }
 }
 
 export const EMPTY_DOMAIN: Domain = {

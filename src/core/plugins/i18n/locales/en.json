@@ -308,7 +308,13 @@
     "CREATE_TOP_DOMAIN": "Create a top domain",
     "CREATE_SUB_DOMAIN": "Create a sub domain",
     "CREATE_GUEST_DOMAIN": "Create a guest domain",
-    "DELETE_DOMAIN": "Delete domain",
+    "DELETE": {
+      "BUTTON": "Delete domain",
+      "MODAL_CHILD_EXISTS_TITLE": "Domain contains nested domains",
+      "MODAL_CHILD_EXISTS_TEXT": "Please remove all nested domains (sub-domains and guest domain) of this domain before deleting",
+      "MODAL_CONFIRM_TITLE": "Domain delete",
+      "MODAL_CONFIRM_TEXT": "You are about to delete this domain, this procedure is irreversible and destroy all related data (documents, users, ...). Do you want to proceed?"
+    },
     "FIELDS": {
       "NAME": "Name",
       "NAME_REQUIRED": "Please enter domain name",
