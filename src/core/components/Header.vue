@@ -2,10 +2,10 @@
 <template>
   <div class="header">
     <div class="header__upper">
-      <div class="header__left">
+      <div class="logo">
         <router-link to="/">
           <img
-            src="@/assets/images/linshare-logo-white.png"
+            src="@/assets/images/linshare-logo-white.svg"
             :alt="$t('HEADER.LOGO_ALT')"
           >
         </router-link>
@@ -38,7 +38,15 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-  .header{
+  .header {
+    .logo {
+      width: 160px;
+
+      img {
+        width: 100%;
+      }
+    }
+
     &__upper {
       display: flex;
       align-items: center;

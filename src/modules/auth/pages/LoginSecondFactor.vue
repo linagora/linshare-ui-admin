@@ -13,7 +13,7 @@
     >
       <img
         class="logo"
-        src="@/assets/linshare-icon.png"
+        src="@/assets/images/linshare-logo-white.svg"
       >
       <a-card>
         <h2>{{ $t('AUTH.SECOND_FACTOR_AUTHENTICATION') }}</h2>

@@ -14,7 +14,7 @@
     >
       <img
         class="logo"
-        src="@/assets/linshare-icon.png"
+        src="@/assets/images/linshare-logo-white.svg"
       >
       <a-card>
         <h2>{{ $t('AUTH.LOGIN_TO_ADMIN') }}</h2>
@@ -143,6 +143,7 @@ async function logIn () {
     .logo {
       padding-top: 60px;
       padding-bottom: 60px;
+      width: 200px;
     }
 
     .ant-alert {
