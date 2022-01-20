@@ -3,12 +3,12 @@
     <a-list-item @click="goToDetails">
       <a-list-item-meta>
         <template #avatar>
-          <WorkspaceIcon
+          <WorkgroupIcon
             v-if="data.nodeType === SHARED_SPACE_TYPE.WORKGROUP"
             fill="#0372B3"
           />
 
-          <WorkgroupIcon
+          <WorkspaceIcon
             v-else
             fill="#0372B3"
           />
