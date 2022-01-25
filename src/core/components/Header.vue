@@ -21,20 +21,10 @@
   </div>
 </template>
 
-<script lang='ts'>
-import { defineComponent } from 'vue';
+<script lang='ts' setup>
 import LanguageSelector from '@/core/components/LanguageSelector.vue';
 import Profile from '@/core/components/Profile.vue';
 import Menu from '@/core/components/Menu.vue';
-
-export default defineComponent({
-  name: 'Header',
-  components: {
-    LanguageSelector,
-    Profile,
-    Menu
-  }
-});
 </script>
 
 <style lang="less" scoped>

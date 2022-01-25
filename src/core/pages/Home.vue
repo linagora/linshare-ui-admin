@@ -14,22 +14,12 @@
   </a-layout>
 </template>
 
-<script lang='ts'>
-import { defineComponent } from 'vue';
+<script lang='ts' setup>
 import Footer from '@/core/components/Footer.vue';
 import Header from '@/core/components/Header.vue';
 import use2FARequiredCheck from '@/modules/auth/hooks/use2FARequiredCheck';
 
-export default defineComponent({
-  name: 'Home',
-  components: {
-    Header,
-    Footer
-  },
-  setup () {
-    use2FARequiredCheck();
-  }
-});
+use2FARequiredCheck();
 </script>
 
 <style lang='less'>
