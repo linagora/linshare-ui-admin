@@ -13,3 +13,7 @@ export function getMaximumParameter (functionality: Functionality) {
       return null;
   }
 }
+
+export function isEnable (functionality: Functionality): boolean {
+  return functionality.activationPolicy.enable.value;
+}

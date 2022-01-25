@@ -13,31 +13,16 @@
   <KeyRemoval v-else />
 </template>
 
-<script lang="ts">
-import { defineComponent, computed } from 'vue';
+<script lang="ts" setup>
+import { computed } from 'vue';
 import { useStore } from 'vuex';
 import PageTitle from '@/core/components/PageTitle.vue';
 import KeyCreation from '../components/KeyCreation.vue';
 import KeyRemoval from '../components/KeyRemoval.vue';
 
-export default defineComponent({
-  name: 'ManageSecondFactorAuthentication',
-  components: {
-    PageTitle,
-    KeyCreation,
-    KeyRemoval
-  },
-  setup () {
-    const store = useStore();
-    const secondFA = computed(() => store.getters['Auth/getSecondFA']);
-    const initiallyEnabled = secondFA.value?.enabled;
-
-    return {
-      initiallyEnabled,
-      secondFA
-    };
-  }
-});
+const store = useStore();
+const secondFA = computed(() => store.getters['Auth/getSecondFA']);
+const initiallyEnabled = secondFA.value?.enabled;
 </script>
 
 <style lang='less'>

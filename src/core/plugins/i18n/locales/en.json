@@ -201,7 +201,8 @@
       "1004": "Your account has been locked due to failed login attempts"
     },
     "55000": "Group filter not found",
-    "66000": "Shared space not found"
+    "66000": "Shared space not found",
+    "2002": "Second factor authentication is not enabled for your domain"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "2nd Factor Authentication",

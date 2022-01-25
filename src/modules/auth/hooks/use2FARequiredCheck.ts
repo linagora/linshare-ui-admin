@@ -3,18 +3,25 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { Modal } from 'ant-design-vue';
 import { computed, watchEffect } from 'vue';
+import { isEnable } from '@/core/utils/functionality';
 import SecondFactorAuthentication from '../types/SecondFactorAuthentication';
 
 export default function use2FARequiredCheck () {
   const store = useStore();
   const { push, currentRoute } = useRouter();
   const { t } = useI18n();
-  const secondFA = computed<SecondFactorAuthentication>(() => store.getters['Auth/getSecondFA']);
+  const secondFAAuth = computed<SecondFactorAuthentication>(() => store.getters['Auth/getSecondFA']);
+  const secondFAEnabled = computed(() => {
+    const functionality = store.getters['Domain/getLoggedUserFunctionality']('SECOND_FACTOR_AUTHENTICATION');
+
+    return isEnable(functionality);
+  });
 
   watchEffect(() => {
     if (
-      !secondFA.value.enabled &&
-      secondFA.value.required &&
+      secondFAEnabled.value &&
+      !secondFAAuth.value.enabled &&
+      secondFAAuth.value.required &&
       currentRoute.value.name !== 'ManageSecondFactorAuthentication' &&
       currentRoute.value.meta.requiresAuth
     ) {

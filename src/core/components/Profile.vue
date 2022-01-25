@@ -18,7 +18,10 @@
               {{ loggedUser?.mail }}
             </div>
           </a-menu-item>
-          <router-link to="/second_factor_authentication">
+          <router-link
+            v-if="secondFAEnabled"
+            :to="{ name: 'ManageSecondFactorAuthentication' }"
+          >
             <a-menu-item>
               {{ $t('HEADER.PROFILE.2FA') }}
             </a-menu-item>
@@ -38,11 +41,17 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { logout } from '@/modules/auth/services/basic';
 import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
+import { isEnable } from '../utils/functionality';
 
 const store = useStore();
 const router = useRouter();
 const loggedUser = computed(() => store.getters['Auth/getLoggedUser']);
 const fullName = computed(() => store.getters['Auth/getLoggedUserFullName']);
+const secondFAEnabled = computed(() => {
+  const functionality = store.getters['Domain/getLoggedUserFunctionality']('SECOND_FACTOR_AUTHENTICATION');
+
+  return isEnable(functionality);
+});
 
 async function logOut () {
   if (loggedUser.value.authWithOIDC) {

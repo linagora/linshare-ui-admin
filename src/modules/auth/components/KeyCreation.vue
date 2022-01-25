@@ -88,6 +88,7 @@ import QrcodeVue from 'qrcode.vue';
 import OtpSetupHint from './OtpSetupHint.vue';
 
 import { OTP_DEFAULT_CONFIGURATION, OTP_APP_INSTALL_LINKS } from '../constants';
+import { APIError } from '@/core/types/APIError';
 
 export default defineComponent({
   name: 'KeyCreation',
@@ -118,7 +119,9 @@ export default defineComponent({
       try {
         await store.dispatch('Auth/createSecondFA');
       } catch (error) {
-        message.error(t('2FA.KEY_CREATION.MESSAGE.ERROR'));
+        if (error instanceof APIError) {
+          message.error(error.getMessage());
+        }
       }
     }
 

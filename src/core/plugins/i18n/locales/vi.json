@@ -197,9 +197,9 @@
      "1003": "Mã xác thực không đúng hoặc đã hết hạn",
      "1004": "Tài khoản của bạn đã bị khóa vì đăng nhập thất bại"
     },
-    "55000": "Bộ lọc nhóm không được tìm thấy"
-    ,
-    "66000": "Không tìm thấy không gian chia sẻ"
+    "55000": "Bộ lọc nhóm không được tìm thấy",
+    "66000": "Không tìm thấy không gian chia sẻ",
+    "2002": "Yếu tố xác thực thứ hai không được bật cho miền của bạn"
   },
   "AUTH": {
     "SECOND_FACTOR_AUTHENTICATION": "Đăng nhập xác thực hai bước",

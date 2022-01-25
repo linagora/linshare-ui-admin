@@ -195,7 +195,8 @@
       "1001": "Identifiant incorrect",
       "1002": "l'activation de l'authentification double facteur est requise",
       "1003": "le code OTP est invalide ou expiré",
-      "1004": "Votre compte a été verouillé en raison de nombreuses tentatives infructueuses de connexion"
+      "1004": "Votre compte a été verouillé en raison de nombreuses tentatives infructueuses de connexion",
+      "2002": "L'authentification à deux facteurs n'est pas activée pour votre domaine"
     },
     "55000": "Filtre de groupe introuvable",
     "66000": "Espace partagé introuvable"
