@@ -284,11 +284,16 @@
           "WORKGROUP_WARN_NEW_MEMBER": "Пользователь был добавлен в рабочую группу",
           "WORKGROUP_WARN_UPDATED_MEMBER": "Права пользователся в рабочей группе быле обновлены",
           "WORKGROUP_WARN_DELETED_MEMBER": "Пользователь был удален из рабочей группы",
+          "WORKGROUP_WARN_DELETED_WORKGROUP": "Рабочая группа удалена",
           "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "Пользователь получает уведомление, когда администратор создает постоянный токен доступа (ПЖД) для его аккаунта",
           "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "Пользователь получает уведомление, когда администратор удаляет постоянный токен доступа (ПЖД) для его аккаунта",
-          "DRIVE_WARN_DELETED_MEMBER": "A member was removed from the DRIVE",
-          "DRIVE_WARN_NEW_MEMBER": "A user has been added to the DRIVE",
-          "DRIVE_WARN_UPDATED_MEMBER":"The rights of a member on the DRIVE has been updated"
+          "DRIVE_WARN_DELETED_MEMBER": "Участник удален с ДИСКА",
+          "DRIVE_WARN_NEW_MEMBER": "Пользователь добавлен на ДРАЙВ",
+          "DRIVE_WARN_UPDATED_MEMBER":"Права участника на DRIVE обновлены",
+          "WORK_SPACE_WARN_DELETED": "Рабочее пространство удалено",
+          "WORK_SPACE_WARN_DELETED_MEMBER": "Участник удален из рабочей области",
+          "WORK_SPACE_WARN_NEW_MEMBER": "Пользователь добавлен в рабочую область",
+          "WORK_SPACE_WARN_UPDATED_MEMBER": "Права участника в рабочей области обновлены"
         },
         "ROLE": {
           "SIMPLE": "Простой",
@@ -1054,6 +1059,16 @@
           "NAME": "Привод - право на создание",
           "USE_EXTENDED_DESCRIPTION": "1",
           "DESCRIPTION": "Эта функция позволяет пользователям и администраторам создавать диски.",
+          "ADVANCED_DESCRIPTION": "",
+          "ACTIVATION_POLICY": "",
+          "CONFIGURATION_POLICY": "",
+          "PARAMETER_DESCRIPTION": "",
+          "DELEGATION_POLICY": ""
+        },
+        "WORK_SPACE__CREATION_RIGHT": {
+          "NAME": "Рабочее пространство - право на создание",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Эта функция позволяет пользователям и администраторам создавать рабочие пространства.",
           "ADVANCED_DESCRIPTION": "",
           "ACTIVATION_POLICY": "",
           "CONFIGURATION_POLICY": "",
@@ -2687,14 +2702,14 @@
         "UPGRADE_2_3_UPDATE_SHARED_SPACE_NODE_STRUCTURE_FOR_VERSIONING":"Update sharedSpace nodes to support the versionning structure.",
         "UPGRADE_2_3_MIGRATE_PERMANENT_TOKEN_ENTITY_TO_NEW_STRUCTURE":"Update the permanent token entity structure.",
         "UPGRADE_2_3_ADD_QUOTA_UUID_TO_ALL_SHARED_SPACES":"Add the quota information to sharedSpaces.",
-        
+
         "UPGRADE_4_0_UPDATE_TARGET_DOMAIN_UUID_MAIL_ATTACHMENT_AUDIT":"Add the domain information to mail attachment's audit traces.",
         "UPGRADE_4_0_ADD_ALL_NEW_MIME_TYPE":"Upgrade the list of suported mime types.",
         "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_GUESTS":"Update the password encoding strategy for guests.",
         "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_ANONYMOUS":"Update the password encoding strategy for anonymous.",
-        
+
         "UPGRADE_4_1_ADD_ALL_NEW_MIME_TYPE":"Upgrade the list of suported mime types",
-        
+
         "UPGRADE_4_2_COMPUTE_ALL_WORKGROUPS_QUOTA": "Update all workgroup quotas.",
         "UPGRADE_4_2_COMPUTE_CURRENT_VALUE_FOR_DOMAINS": "Update the current value for domains.",
         "UPGRADE_4_2_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA": "Update top and root domain's quota.",
@@ -2704,7 +2719,7 @@
         "UPGRADE_4_2_ADD_SEE_AS_NESTED_FIELD_TO_SHARED_SPACE_MEMBERS": "Add the flag see as nested for sharedSpace members.",
         "UPGRADE_4_2_UPDATE_SEE_AS_NESTED_FIELD_IN_NESTED_SHARED_SPACE_MEMBERS": "Update seeAsNested field for sharedSpace members",
         "UPGRADE_4_2_ADD_MISSING_PROPERTIES_TO_WORK_GROUP_NODE":"Add missing properties(hasTumbnail, Sha256sum) to workgroup nodes.",
-        
+
         "UPGRADE_5_0_ADD_DOMAIN_TO_DRIVE": "Add domain information to Drive.",
         "UPGRADE_5_0_ADD_DOMAIN_TO_WORK_GROUP": "Add domain information to workgroup."
 

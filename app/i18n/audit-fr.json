@@ -305,6 +305,80 @@
           }
         }
       },
+      "WORK_SPACE": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez créé un nouvel espace de travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a créé un nouvel espace de travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          }
+        },
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé l'espace de travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a supprimé l'espace de travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez modifié l'espace de travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a modifié l'espace de travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        }
+      },
+      "WORK_SPACE_MEMBER": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez ajouté un nouveau membre : {{resourceName}} à l'espace de travail {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a ajouté un nouveau membre : {{resourceName}} à l'espace de travail {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          }
+        },
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé le membre : {{resourceName}} de l'espace de travail {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a supprimé le membre : {{resourceName}} de l'espace de travail {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez modifié le membre : {{resourceName}} de l'espace de travail {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a modifié le membre : {{resourceName}} de l'espace de travail {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        },
+        "DRIVE_DELETION": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé l'espace de travail : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a supprimé l'espace de travail : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        }
+      },
       "GUEST": {
         "CREATE": {
           "AUTHOR": {
@@ -474,6 +548,38 @@
         }
       },
       "WORKGROUP": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez créé un nouveau Groupe de Travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a créé un nouveau Groupe de Travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          }
+        },
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez supprimé le Groupe de Travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a supprimé le Groupe de Travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "Vous avez modifié le Groupe de Travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} a modifié le Groupe de Travail : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        }
+      },
+      "WORK_GROUP": {
         "CREATE": {
           "AUTHOR": {
             "SENTENCE": "Vous avez créé un nouveau Groupe de Travail : {{resourceName}}.",
@@ -740,6 +846,9 @@
       "DRIVE" : "Drive",
       "DRIVE_MEMBER" : "Drive - Member",
       "WORKGROUP": "Groupe de Travail",
+      "WORK_GROUP": "Groupe de Travail",
+      "WORK_SPACE": "Espace de Travail",
+      "WORK_SPACE_MEMBER": "Espace de Travail - Member",
       "WORKGROUP_DOCUMENT": "Groupe de Travail - Fichier",
       "WORKGROUP_DOCUMENT_REVISION": "Groupe de Travail - Fichier (version)",
       "WORKGROUP_FOLDER": "Groupe de Travail - Dossier",

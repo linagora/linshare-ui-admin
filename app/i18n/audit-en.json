@@ -232,79 +232,153 @@
         }
       },
       "DRIVE": {
-      "CREATE": {
-        "AUTHOR": {
-          "SENTENCE": "You have created a new DRIVE: {{resourceName}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have created a new DRIVE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has created a new DRIVE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          }
         },
-        "VIEWER": {
-          "SENTENCE": "{{authorName}} has created a new DRIVE: {{resourceName}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "You have deleted the DRIVE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has deleted the DRIVE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have edited the DRIVE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has edited the DRIVE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
         }
       },
-      "DELETE": {
-        "AUTHOR": {
-          "SENTENCE": "You have deleted the DRIVE: {{resourceName}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+      "DRIVE_MEMBER": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "You added a new member: {{resourceName}} to the DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has added a new member: {{resourceName}} to the DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          }
         },
-        "VIEWER": {
-          "SENTENCE": "{{authorName}} has deleted the DRIVE: {{resourceName}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "You have removed the member: {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has removed the member: {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have edited the member: {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has edited the member: {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        },
+        "DRIVE_DELETION": {
+          "AUTHOR": {
+            "SENTENCE": "You have deleted the Drive : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has deleted the Drive : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
         }
       },
-      "UPDATE": {
-        "AUTHOR": {
-          "SENTENCE": "You have edited the DRIVE: {{resourceName}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+      "WORK_SPACE": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have created a new WORKSPACE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has created a new WORKSPACE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          }
         },
-        "VIEWER": {
-          "SENTENCE": "{{authorName}} has edited the DRIVE: {{resourceName}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
-        }
-      }
-    },
-    "DRIVE_MEMBER": {
-      "CREATE": {
-        "AUTHOR": {
-          "SENTENCE": "You added a new member: {{resourceName}} to the DRIVE {{resourceNameVarious}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "You have deleted the WORKSPACE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has deleted the WORKSPACE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
         },
-        "VIEWER": {
-          "SENTENCE": "{{authorName}} has added a new member: {{resourceName}} to the DRIVE {{resourceNameVarious}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
-        }
-      },
-      "DELETE": {
-        "AUTHOR": {
-          "SENTENCE": "You have removed the member: {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
-        },
-        "VIEWER": {
-          "SENTENCE": "{{authorName}} has removed the member: {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
-        }
-      },
-      "UPDATE": {
-        "AUTHOR": {
-          "SENTENCE": "You have edited the member: {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
-        },
-        "VIEWER": {
-          "SENTENCE": "{{authorName}} has edited the member: {{resourceName}} from the DRIVE {{resourceNameVarious}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have edited the WORKSPACE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has edited the WORKSPACE: {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
         }
       },
-      "DRIVE_DELETION": {
-        "AUTHOR": {
-          "SENTENCE": "You have deleted the Drive : {{resourceNameVarious}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+      "WORK_SPACE_MEMBER": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "You added a new member: {{resourceName}} to the WORKSPACE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has added a new member: {{resourceName}} to the WORKSPACE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+          }
         },
-        "VIEWER": {
-          "SENTENCE": "{{authorName}} has deleted the Drive : {{resourceNameVarious}}.",
-          "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "You have removed the member: {{resourceName}} from the WORKSPACE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has removed the member: {{resourceName}} from the WORKSPACE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have edited the member: {{resourceName}} from the WORKSPACE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has edited the member: {{resourceName}} from the WORKSPACE {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        },
+        "DRIVE_DELETION": {
+          "AUTHOR": {
+            "SENTENCE": "You have deleted the Drive : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has deleted the Drive : {{resourceNameVarious}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
         }
-      }
-    },
+      },
       "GUEST": {
         "CREATE": {
           "AUTHOR": {
@@ -474,6 +548,38 @@
         }
       },
       "WORKGROUP": {
+        "CREATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have created a new Workgroup : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has created a new Workgroup : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+          }
+        },
+        "DELETE": {
+          "AUTHOR": {
+            "SENTENCE": "You have deleted the Workgroup : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has deleted the Workgroup : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+          }
+        },
+        "UPDATE": {
+          "AUTHOR": {
+            "SENTENCE": "You have edited the Workgroup : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          },
+          "VIEWER": {
+            "SENTENCE": "{{authorName}} has edited the Workgroup : {{resourceName}}.",
+            "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+          }
+        }
+      },
+      "WORK_GROUP": {
         "CREATE": {
           "AUTHOR": {
             "SENTENCE": "You have created a new Workgroup : {{resourceName}}.",
@@ -737,21 +843,24 @@
       "GUEST": "Guest account",
       "SHARE_ENTRY": "Share",
       "USER": "User",
-      "DRIVE" : "Drive",
-      "DRIVE_MEMBER" : "Drive - Member",
+      "DRIVE": "Drive",
+      "DRIVE_MEMBER": "Drive - Member",
       "WORKGROUP": "Workgroup",
+      "WORK_GROUP": "Workgroup",
+      "WORK_SPACE": "Workspace",
+      "WORK_SPACE_MEMBER": "Workspace - member",
       "WORKGROUP_DOCUMENT": "Workgroup file",
       "WORKGROUP_DOCUMENT_REVISION": "Workgroup file (version)",
       "WORKGROUP_FOLDER": "Workgroup folder",
       "WORKGROUP_MEMBER": "Workgroup member",
       "JWT_PERMANENT_TOKEN": "Permanent access token (JWT)",
-      "DOMAIN":"Domain",
-      "DOMAIN_PATTERN":"Domain pattern",
-      "UPLOAD_REQUEST":"Upload Request",
-      "UPLOAD_REQUEST_URL":"Upload Request URL",
+      "DOMAIN": "Domain",
+      "DOMAIN_PATTERN": "Domain pattern",
+      "UPLOAD_REQUEST": "Upload Request",
+      "UPLOAD_REQUEST_URL": "Upload Request URL",
       "UPLOAD_REQUEST_GROUP": "Upload Request Group",
-      "UPLOAD_REQUEST_ENTRY":"Upload Request entry"
-      }
+      "UPLOAD_REQUEST_ENTRY": "Upload Request entry"
+    }
   },
   "TABLE_HEADER": {
     "ACTION": "Action",

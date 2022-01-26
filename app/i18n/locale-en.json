@@ -271,7 +271,7 @@
         "UPLOAD_REQUEST_UPLOADED_FILE": "A recipient has uploaded a file within the upload request",
         "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "An upload request is about to be closed",
         "UPLOAD_REQUEST_WARN_EXPIRY": "An upload request has been closed",
-        "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER" : "An upload request has been activated for the issuer",
+        "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": "An upload request has been activated for the issuer",
         "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": "An upload request has been activated for the recipient",
         "UPLOAD_REQUEST_CLOSED_BY_OWNER": "The upload request has been closed by the issuer",
         "UPLOAD_REQUEST_CREATED": "An upload request has been created",
@@ -284,11 +284,16 @@
         "WORKGROUP_WARN_NEW_MEMBER": "A user has been added to the workgroup",
         "WORKGROUP_WARN_UPDATED_MEMBER": "The rights of a member on the workGroup has been updated",
         "WORKGROUP_WARN_DELETED_MEMBER": "A member was removed from the workGroup",
+        "WORKGROUP_WARN_DELETED_WORKGROUP": "A workgroup has been deleted",
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "A user receives a notification when an administrator creates a permanent access token (JWT) for his account",
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "A user receives a notification when an administrator deletes a permanent access token (JWT) for his account",
         "DRIVE_WARN_DELETED_MEMBER": "A member was removed from the DRIVE",
         "DRIVE_WARN_NEW_MEMBER": "A user has been added to the DRIVE",
-        "DRIVE_WARN_UPDATED_MEMBER":"The rights of a member on the DRIVE has been updated"
+        "DRIVE_WARN_UPDATED_MEMBER": "The rights of a member on the DRIVE has been updated",
+        "WORK_SPACE_WARN_DELETED": "A workspace has been deleted",
+        "WORK_SPACE_WARN_DELETED_MEMBER": "A member was removed from the Workspace",
+        "WORK_SPACE_WARN_NEW_MEMBER": "A user has been added to the Workspace",
+        "WORK_SPACE_WARN_UPDATED_MEMBER": "The rights of a member on the Workspace has been updated"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -929,31 +934,38 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the internal user or guest when the upload request is closed by the recipient."
-      },"UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": {
+      },
+      "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_OWNER",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the internal user or guest when the upload request is activated."
-      },"UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": {
+      },
+      "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the recipient when the upload request is activated."
-      },"UPLOAD_REQUEST_CLOSED_BY_OWNER": {
+      },
+      "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the recipient when the upload request is closed by the issuer."
-      },"UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": {
+      },
+      "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_OWNER",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the recipient when a file is deleted from the upload request by the issuer."
-      },"UPLOAD_REQUEST_CREATED": {
+      },
+      "UPLOAD_REQUEST_CREATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the recipient when the upload request is created and not yet enabled."
-      },"UPLOAD_REQUEST_PASSWORD_RENEWAL": {
+      },
+      "UPLOAD_REQUEST_PASSWORD_RENEWAL": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_PASSWORD_RENEWAL",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the recipient to allow him to reset the upload request access password."
-      },"UPLOAD_REQUEST_RECIPIENT_REMOVED": {
+      },
+      "UPLOAD_REQUEST_RECIPIENT_REMOVED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_RECIPIENT_REMOVED",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the recipient when the issuer removes him from the upload request."
@@ -962,11 +974,13 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the issuer of an upload request when the recipient deletes files."
-      },"UPLOAD_REQUEST_REMINDER": {
+      },
+      "UPLOAD_REQUEST_REMINDER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_REMINDER",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to remind the recipient to upload a files on the upload request before it expires."
-      },"UPLOAD_REQUEST_UPDATED_SETTINGS": {
+      },
+      "UPLOAD_REQUEST_UPDATED_SETTINGS": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPDATED_SETTINGS",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to the recipient of an upload request when parameters of the upload request have been updated."
@@ -1001,7 +1015,7 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to a workgroup member when his right was updated."
       },
-      "WORKGROUP_WARN_DELETED_MEMBER": {
+      "WORKGROUP_COM_MEMBER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to a workgroup member, when he was removed from a workgroup."
@@ -1111,12 +1125,23 @@
         "ADVANCED_DESCRIPTION": "",
         "ACTIVATION_POLICY": "Users will be given access to the feature after enabled",
         "CONFIGURATION_POLICY": "This parameter will decide whether admins of nested domains can change the default parameter or not",
+        "PARAMETER_DESCRIPTION": "",
         "DELEGATION_POLICY": ""
       },
       "DRIVE__CREATION_RIGHT": {
         "NAME": "Drive - Creation right",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This functionality allows users and administrators to create Drives",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
+      },
+      "WORK_SPACE__CREATION_RIGHT": {
+        "NAME": "Workspace - Creation right",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This functionality allows users and administrators to create Workspaces",
         "ADVANCED_DESCRIPTION": "",
         "ACTIVATION_POLICY": "",
         "CONFIGURATION_POLICY": "",
@@ -2743,48 +2768,40 @@
       "UPGRADE_2_0_CLEANUP_EXPIRED_GUEST": "Cleanup expired guest account",
       "UPGRADE_2_0_CLEANUP_EXPIRED_ACCOUNT": "Cleanup expired internal account",
       "UPGRADE_2_0_PURGE_ACCOUNT": "Purge account data (internal & guest)",
-
-      "UPGRADE_2_1_DOCUMENT_GARBAGE_COLLECTOR" : "Add all documents UUID in DocumentGarbageCollector",
-      "UPGRADE_2_1_COMPUTE_USED_SPACE_FOR_WORGROUPS" : "Compute all used space for every workgroups",
-      "UPGRADE_2_1_REMOVE_ALL_THREAD_ENTRIES" : "Removal of all useless data related to old threads/groups in LinShare 1.x.",
-      "UPGRADE_2_1_COMPUTE_CURRENT_VALUE_FOR_DOMAINS" : "Compute used space by each domain",
-      "UPGRADE_2_1_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA" : "Compute used space by sub-domains for top-domains and root-domain",
-      "UPGRADE_2_1_ADD_ALL_NEW_MIME_TYPE" : "Update the list of supported mime types. (adding new ones).",
-
-      "UPGRADE_2_2_MIGRATE_UPLOAD_PROPOSITION_FILTER_TO_MONGO_DATABASE":"Migrating file upload proposition filters to a new structure in the MongoDB database.",
-      "UPGRADE_2_2_MIGRATE_UPLOAD_PROPOSITION_TO_MONGO_DATABASE":"Migrating file upload proposition in a new structure in the MongoDB database.",
-      "UPGRADE_2_2_MIGRATE_UPLOAD_REQUEST_HISTORY_TO_MONGO_AUDIT":"Migration of the old upload requests history into the new audit in the MongoDB database.",
-      "UPGRADE_2_2_MIGRATE_THREAD_AND_THREAD_MEMBERS_TO_MONGO_DATABASE":"Migrating workgroups and their members to the new structure in the MongoDB database.",
-      "UPGRADE_2_2_GENERATE_BASIC_STATISTICS_FROM_AUDIT_LOG_ENTRIES":"Generation of statistics from the traces of the audit (retroactive processing).",
-      "UPGRADE_2_2_MIGRATE_WORKGROUP_AUDIT_TO_SHARED_SPACE_AUDIT":"Migrating workGroup audit to new structure in the MongoDB database.",
-      "UPGRADE_2_2_MIGRATE_WORKGROUP_MEMBER_AUDIT_TO_SHARED_SPACE_MEMBER_AUDIT":"Migrating the workGroup member audit into a new structure in the MongoDB database.",
-
-      "UPGRADE_2_3_ADD_ALL_NEW_MIME_TYPE":"Update the list of supported mime types. (adding new ones).",
-      "UPGRADE_2_3_UPDATE_DOCUMENT_STRUCTURE_FOR_VERSIONING":"Update workgroup documents to support the versionning structure.",
-      "UPGRADE_2_3_UPDATE_SHARED_SPACE_NODE_STRUCTURE_FOR_VERSIONING":"Update sharedSpace nodes to support the versionning structure.",
-      "UPGRADE_2_3_MIGRATE_PERMANENT_TOKEN_ENTITY_TO_NEW_STRUCTURE":"Update the permanent token entity structure.",
-      "UPGRADE_2_3_ADD_QUOTA_UUID_TO_ALL_SHARED_SPACES":"Add the quota information to sharedSpaces.",
-
-      "UPGRADE_4_0_UPDATE_TARGET_DOMAIN_UUID_MAIL_ATTACHMENT_AUDIT":"Add the domain information to mail attachment's audit traces.",
-      "UPGRADE_4_0_ADD_ALL_NEW_MIME_TYPE":"Update the list of supported mime types. (adding new ones).",
-      "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_GUESTS":"Update the password encoding strategy for guests.",
-      "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_ANONYMOUS":"Update the password encoding strategy for anonymous.",
-
-      "UPGRADE_4_1_ADD_ALL_NEW_MIME_TYPE":"Update the list of supported mime types. (adding new ones)",
-
+      "UPGRADE_2_1_DOCUMENT_GARBAGE_COLLECTOR": "Add all documents UUID in DocumentGarbageCollector",
+      "UPGRADE_2_1_COMPUTE_USED_SPACE_FOR_WORGROUPS": "Compute all used space for every workgroups",
+      "UPGRADE_2_1_REMOVE_ALL_THREAD_ENTRIES": "Removal of all useless data related to old threads/groups in LinShare 1.x.",
+      "UPGRADE_2_1_COMPUTE_CURRENT_VALUE_FOR_DOMAINS": "Compute used space by each domain",
+      "UPGRADE_2_1_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA": "Compute used space by sub-domains for top-domains and root-domain",
+      "UPGRADE_2_1_ADD_ALL_NEW_MIME_TYPE": "Update the list of supported mime types. (adding new ones).",
+      "UPGRADE_2_2_MIGRATE_UPLOAD_PROPOSITION_FILTER_TO_MONGO_DATABASE": "Migrating file upload proposition filters to a new structure in the MongoDB database.",
+      "UPGRADE_2_2_MIGRATE_UPLOAD_PROPOSITION_TO_MONGO_DATABASE": "Migrating file upload proposition in a new structure in the MongoDB database.",
+      "UPGRADE_2_2_MIGRATE_UPLOAD_REQUEST_HISTORY_TO_MONGO_AUDIT": "Migration of the old upload requests history into the new audit in the MongoDB database.",
+      "UPGRADE_2_2_MIGRATE_THREAD_AND_THREAD_MEMBERS_TO_MONGO_DATABASE": "Migrating workgroups and their members to the new structure in the MongoDB database.",
+      "UPGRADE_2_2_GENERATE_BASIC_STATISTICS_FROM_AUDIT_LOG_ENTRIES": "Generation of statistics from the traces of the audit (retroactive processing).",
+      "UPGRADE_2_2_MIGRATE_WORKGROUP_AUDIT_TO_SHARED_SPACE_AUDIT": "Migrating workGroup audit to new structure in the MongoDB database.",
+      "UPGRADE_2_2_MIGRATE_WORKGROUP_MEMBER_AUDIT_TO_SHARED_SPACE_MEMBER_AUDIT": "Migrating the workGroup member audit into a new structure in the MongoDB database.",
+      "UPGRADE_2_3_ADD_ALL_NEW_MIME_TYPE": "Update the list of supported mime types. (adding new ones).",
+      "UPGRADE_2_3_UPDATE_DOCUMENT_STRUCTURE_FOR_VERSIONING": "Update workgroup documents to support the versionning structure.",
+      "UPGRADE_2_3_UPDATE_SHARED_SPACE_NODE_STRUCTURE_FOR_VERSIONING": "Update sharedSpace nodes to support the versionning structure.",
+      "UPGRADE_2_3_MIGRATE_PERMANENT_TOKEN_ENTITY_TO_NEW_STRUCTURE": "Update the permanent token entity structure.",
+      "UPGRADE_2_3_ADD_QUOTA_UUID_TO_ALL_SHARED_SPACES": "Add the quota information to sharedSpaces.",
+      "UPGRADE_4_0_UPDATE_TARGET_DOMAIN_UUID_MAIL_ATTACHMENT_AUDIT": "Add the domain information to mail attachment's audit traces.",
+      "UPGRADE_4_0_ADD_ALL_NEW_MIME_TYPE": "Update the list of supported mime types. (adding new ones).",
+      "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_GUESTS": "Update the password encoding strategy for guests.",
+      "UPGRADE_4_0_PASSWORD_ENCODING_STRATEGY_CHANGES_FOR_ANONYMOUS": "Update the password encoding strategy for anonymous.",
+      "UPGRADE_4_1_ADD_ALL_NEW_MIME_TYPE": "Update the list of supported mime types. (adding new ones)",
       "UPGRADE_4_2_COMPUTE_ALL_WORKGROUPS_QUOTA": "Update all workgroup quotas.",
       "UPGRADE_4_2_COMPUTE_CURRENT_VALUE_FOR_DOMAINS": "Update the current value for domains.",
       "UPGRADE_4_2_COMPUTE_TOP_AND_ROOT_DOMAIN_QUOTA": "Update top and root domain's quota.",
       "UPGRADE_4_2_ADD_DETAILS_TO_SHARED_SPACE_NODES": "Add actor information to sharedSpaces.",
       "UPGRADE_4_2_UPDATE_SYSTEM_TO_ANONYMOUS_ACCOUNT_ON_AUDIT_TRACES": "Replace the systemAccount by anonymousAccount on audit traces for anonymous shares.",
-      "UPGRADE_4_2_ADD_WORKGROUP_UUID_AS_RELATED_RESOURCE_IN_WORKGROUP_NODE_AUDIT_TRACES":"Audit: Fix issue with missing links between workgroups and all related sharedSpace nodes (files, folders, revisions) traces.",
+      "UPGRADE_4_2_ADD_WORKGROUP_UUID_AS_RELATED_RESOURCE_IN_WORKGROUP_NODE_AUDIT_TRACES": "Audit: Fix issue with missing links between workgroups and all related sharedSpace nodes (files, folders, revisions) traces.",
       "UPGRADE_4_2_ADD_SEE_AS_NESTED_FIELD_TO_SHARED_SPACE_MEMBERS": "Update structure of shareSpace members (new field 'nested' added).",
       "UPGRADE_4_2_UPDATE_SEE_AS_NESTED_FIELD_IN_NESTED_SHARED_SPACE_MEMBERS": "Update structure of shareSpace members (new field 'seeAsNested' added).",
-      "UPGRADE_4_2_ADD_MISSING_PROPERTIES_TO_WORK_GROUP_NODE":"Add missing properties(hasTumbnail, Sha256sum) to workgroup nodes.",
-
+      "UPGRADE_4_2_ADD_MISSING_PROPERTIES_TO_WORK_GROUP_NODE": "Add missing properties(hasTumbnail, Sha256sum) to workgroup nodes.",
       "UPGRADE_5_0_ADD_DOMAIN_TO_DRIVE": "Add domain information to Drives (sharedSpaces).",
       "UPGRADE_5_0_ADD_DOMAIN_TO_WORK_GROUP": "Add domain information to workgroup."
-
     },
     "TITLE": "Upgrade Tasks"
   },

@@ -291,11 +291,16 @@
         "WORKGROUP_WARN_NEW_MEMBER": "Notification d'ajout d'un nouveau membre d'un groupe de travail",
         "WORKGROUP_WARN_UPDATED_MEMBER": "Notification de modification d'un membre d'un groupe de travail",
         "WORKGROUP_WARN_DELETED_MEMBER": "Notification de suppression d'un membre d'un groupe de travail",
+        "WORKGROUP_WARN_DELETED_WORKGROUP": "Un groupe de travail a été supprimé",
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "L'utilisateur reçoit une notification lorsqu'un administrateur crée un jeton d'accès permanent (JWT) à son compte",
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "L'utilisateur reçoit une notification lorsqu'un administrateur supprime un jeton d'accès permanent (JWT) à son compte",
         "DRIVE_WARN_DELETED_MEMBER": "Notification de suppression d'un membre d'un DRIVE",
         "DRIVE_WARN_NEW_MEMBER": "Notification d'ajout d'un nouveau membre à un DRIVE",
-        "DRIVE_WARN_UPDATED_MEMBER":"Notification de modification des droits d'un membre du DRIVE"
+        "DRIVE_WARN_UPDATED_MEMBER":"Notification de modification des droits d'un membre du DRIVE",
+        "WORK_SPACE_WARN_DELETED": "Un espace de travail a été supprimé",
+        "WORK_SPACE_WARN_DELETED_MEMBER": "Un membre a été supprimé de l'espace de travail",
+        "WORK_SPACE_WARN_NEW_MEMBER": "Un utilisateur a été ajouté à l'espace de travail",
+        "WORK_SPACE_WARN_UPDATED_MEMBER": "Les droits d'un membre sur l'espace de travail ont été mis à jour"
       },
       "ROLE": {
         "SIMPLE": "Simple",
@@ -1092,6 +1097,16 @@
         "NAME": "Drive - Droit de création",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer les DRIVES",
+        "ADVANCED_DESCRIPTION": "",
+        "ACTIVATION_POLICY": "",
+        "CONFIGURATION_POLICY": "",
+        "PARAMETER_DESCRIPTION": "",
+        "DELEGATION_POLICY": ""
+      },
+      "WORK_SPACE__CREATION_RIGHT": {
+        "NAME": "Espace de travail - Droit de création",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs et administrateurs de créer l'Espaces de travail",
         "ADVANCED_DESCRIPTION": "",
         "ACTIVATION_POLICY": "",
         "CONFIGURATION_POLICY": "",
