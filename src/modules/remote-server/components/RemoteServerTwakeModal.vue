@@ -44,6 +44,7 @@
 
       <a-form-item
         :label="$t('REMOTE_SERVER.FIELDS.PROVIDED_URL')"
+        :extra="$t('REMOTE_SERVER.FIELDS.PROVIDED_URL_HELPER')"
         name="url"
         required
       >

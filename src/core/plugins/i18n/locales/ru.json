@@ -345,6 +345,7 @@
   "REMOTE_SERVER": {
     "FIELDS": {
       "PROVIDED_URL": "Указанный URL",
+      "PROVIDED_URL_HELPER": "Пожалуйста, введите базовый URL вашего приложения Twake, например, https://my.twake.com",
       "TYPE": "Тип сервера",
       "LDAP_BINDDN": "dn пользователя LDAP",
       "LDAP_PASSWORD": "Пароль LDAP",

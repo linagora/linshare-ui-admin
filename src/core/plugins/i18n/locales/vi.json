@@ -345,6 +345,7 @@
   "REMOTE_SERVER": {
     "FIELDS": {
       "PROVIDED_URL": "URL được cung cấp",
+      "PROVIDED_URL_HELPER": "Vui lòng nhập đường dẫn gốc của Twake, vd: https://my.twake.com",
       "TYPE": "Loại máy chủ",
       "LDAP_BINDDN": "Người dùng LDAP dn",
       "LDAP_PASSWORD": "Mật khẩu LDAP",
