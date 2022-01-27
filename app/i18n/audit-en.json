@@ -368,13 +368,13 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
           }
         },
-        "DRIVE_DELETION": {
+        "WORKSPACE_DELETION": {
           "AUTHOR": {
-            "SENTENCE": "You have deleted the Drive : {{resourceNameVarious}}.",
+            "SENTENCE": "You have deleted the WORKSPACE : {{resourceNameVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           },
           "VIEWER": {
-            "SENTENCE": "{{authorName}} has deleted the Drive : {{resourceNameVarious}}.",
+            "SENTENCE": "{{authorName}} has deleted the WORKSPACE : {{resourceNameVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
           }
         }

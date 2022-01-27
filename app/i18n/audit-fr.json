@@ -368,7 +368,7 @@
             "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
           }
         },
-        "DRIVE_DELETION": {
+        "WORKSPACE_DELETION": {
           "AUTHOR": {
             "SENTENCE": "Vous avez supprimé l'espace de travail : {{resourceNameVarious}}.",
             "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
