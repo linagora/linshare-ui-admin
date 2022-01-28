@@ -2801,7 +2801,13 @@
       "UPGRADE_4_2_UPDATE_SEE_AS_NESTED_FIELD_IN_NESTED_SHARED_SPACE_MEMBERS": "Update structure of shareSpace members (new field 'seeAsNested' added).",
       "UPGRADE_4_2_ADD_MISSING_PROPERTIES_TO_WORK_GROUP_NODE": "Add missing properties(hasTumbnail, Sha256sum) to workgroup nodes.",
       "UPGRADE_5_0_ADD_DOMAIN_TO_DRIVE": "Add domain information to Drives (sharedSpaces).",
-      "UPGRADE_5_0_ADD_DOMAIN_TO_WORK_GROUP": "Add domain information to workgroup."
+      "UPGRADE_5_0_ADD_DOMAIN_TO_WORK_GROUP": "Add domain information to workgroup.",
+      "UPGRADE_5_0_DELETE_EVENT_NOTIFICATION_COLLECTION": "Delete event notification collection.",
+      "UPGRADE_5_0_AUDIT_RENAME_DRIVE_TO_WORK_SPACE": "Rename all DRIVE audit traces to WORKSPACE.",
+      "UPGRADE_5_0_RENAME_DRIVE_TO_WORK_SPACE": "Rename DRIVE to WORKSPACE.",
+      "UPGRADE_5_0_RENAME_WORKGROUP_DELETION_TO_WORK_GROUP_DELETION": "Rename audit trace WORKGROUP_DELETION to WORK_GROUP_DELETION.",
+      "UPGRADE_5_0_RENAME_DRIVE_DELETION_TO_WORK_SPACE_DELETION": "Rename audit trace DRIVE_DELETION to WORK_SPACE_DELETION. ",
+      "UPGRADE_5_0_RENAME_DRIVE_MEMBERS_TO_WORK_SPACE_MEMBERS": "Rename DRIVE members to workSpace members."
     },
     "TITLE": "Upgrade Tasks"
   },

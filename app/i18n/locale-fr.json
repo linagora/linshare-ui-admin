@@ -2735,7 +2735,13 @@
       "UPGRADE_4_2_ADD_MISSING_PROPERTIES_TO_WORK_GROUP_NODE":"Ajout des informations manquantes (hasTumbnail, Sha256sum) dans les entrées des groupes de travail.",
 
       "UPGRADE_5_0_ADD_DOMAIN_TO_DRIVE": "Ajout du domain dans les Drives.",
-      "UPGRADE_5_0_ADD_DOMAIN_TO_WORK_GROUP": "Ajout du domain dans les groupes de travail."
+      "UPGRADE_5_0_ADD_DOMAIN_TO_WORK_GROUP": "Ajout du domain dans les groupes de travail.",
+      "UPGRADE_5_0_DELETE_EVENT_NOTIFICATION_COLLECTION": "Supprimer la collection de notifications d'événements.",
+      "UPGRADE_5_0_AUDIT_RENAME_DRIVE_TO_WORK_SPACE": "Renommez toutes les traces d'audit DRIVE en WORKSPACE.",
+      "UPGRADE_5_0_RENAME_DRIVE_TO_WORK_SPACE": "Renommer DRIVE en WORKSPACE .",
+      "UPGRADE_5_0_RENAME_WORKGROUP_DELETION_TO_WORK_GROUP_DELETION": "Renommer la trace d'audit WORKGROUP_DELETION en WORK_GROUP_DELETION.",
+      "UPGRADE_5_0_RENAME_DRIVE_DELETION_TO_WORK_SPACE_DELETION": "Renommez la trace d'audit DRIVE_DELETION en WORK_SPACE_DELETION.",
+      "UPGRADE_5_0_RENAME_DRIVE_MEMBERS_TO_WORK_SPACE_MEMBERS": "Renommer les membres DRIVE en membres workSpace ."
     },
     "TITLE": "Tâches de mise à jour"
   },
