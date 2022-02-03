@@ -43,39 +43,33 @@
   </a-menu>
 </template>
 
-<script lang='ts'>
-import { defineComponent, computed } from 'vue';
+<script lang='ts' setup>
+import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import useLegacyFeatures from '../hooks/useLegacyFeatures';
 import config from '@/config';
 
-export default defineComponent({
-  name: 'Menu',
-  setup () {
-    const { currentRoute, push } = useRouter();
-    const { redirect } = useLegacyFeatures();
-    const current = computed(() => [currentRoute.value.meta.parent || currentRoute.value.name]);
-    const isBeta = config.beta;
-    const legacyAppUrl = config.legacyAppUrl;
+const { currentRoute, push } = useRouter();
 
-    function navigateTo (name: string, legacy?: boolean) {
-      if (legacy) {
-        redirect(name);
+const { redirect } = useLegacyFeatures();
+const current = ref([currentRoute.value.path.split('/')[1]]);
+const isBeta = config.beta;
+const legacyAppUrl = config.legacyAppUrl;
 
-        return;
-      }
+function navigateTo (name: string, legacy?: boolean) {
+  if (legacy) {
+    redirect(name);
 
-      push({ name });
-    }
-
-    return {
-      isBeta,
-      current,
-      navigateTo,
-      legacyAppUrl
-    };
+    return;
   }
+
+  push({ name });
+}
+
+watch(currentRoute, newRoute => {
+  current.value = [newRoute.path.split('/')[1]];
 });
+
 </script>
 
 <style lang="less">
