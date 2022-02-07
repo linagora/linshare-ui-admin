@@ -20,3 +20,7 @@ export function isAfter (d: Date | number, dateToCompare: Date | number): boolea
 export function isBefore (d: Date | number, dateToCompare: Date | number): boolean {
   return dayjs(d).isBefore(dateToCompare);
 }
+
+export function isValid (d: Date): boolean {
+  return dayjs(d).isValid();
+}
