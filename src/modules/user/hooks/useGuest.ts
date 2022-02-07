@@ -1,5 +1,5 @@
 import { Functionality } from '@/core/types/Functionality';
-import { addTime, isAfter, isBefore } from '@/core/utils/date';
+import { addTime, isAfter, isBefore, isValid } from '@/core/utils/date';
 import { getMaximumParameter } from '@/core/utils/functionality';
 import { computed } from 'vue';
 import { useStore } from 'vuex';
@@ -30,7 +30,11 @@ export function useGuest () {
       return false;
     }
 
-    if (maxExpirationDate.value && isAfter(date, maxExpirationDate.value)) {
+    if (
+      maxExpirationDate.value &&
+      isValid(maxExpirationDate.value) &&
+      isAfter(date, maxExpirationDate.value)
+    ) {
       return false;
     }
 

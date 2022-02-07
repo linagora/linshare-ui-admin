@@ -39,14 +39,17 @@ const formRules = reactive({
   firstName: [{ required: true, message: t('GENERAL.FIELD_REQUIRED') }],
   lastName: [{ required: true, message: t('GENERAL.FIELD_REQUIRED') }],
   expirationDate: [{
-    message: t('USERS.DETAIL_USER.GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE', {
-      date: d(maxExpirationDate.value, 'mediumDate')
-    }),
+    message: isCurrentUserGuest.value
+      ? t('USERS.DETAIL_USER.GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE', {
+        date: d(maxExpirationDate.value, 'mediumDate')
+      })
+      : '',
     validator: (rule: Record<string, unknown>, value: string) => isValidExpirationDate(Number(value))
       ? Promise.resolve()
       : Promise.reject(new Error())
   }]
 });
+
 const { validate, validateInfos } = Form.useForm(formModel, formRules);
 
 async function updateUser () {
