@@ -14,7 +14,7 @@
     <a-button
       type="primary"
       style="margin-left: 5px"
-      @click="showMemberForm = true"
+      @click="showingAddModal = true"
     >
       <template #icon>
         <PlusCircleOutlined />
@@ -32,35 +32,45 @@
     <template #renderItem="{ item }">
       <SharedSpaceMembersListItem
         :data="item"
-        @update="onMemberUpdate"
-        @delete="onMemberDelete"
+        @edit-role="() => showRoleModal(item)"
+        @deleted="onMemberDelete"
       />
     </template>
   </a-list>
 
   <SharedSpaceMembersAddModal
     :shared-space="sharedSpace"
-    :visible="showMemberForm"
+    :visible="showingAddModal"
     :members="list"
     @members-added="onMembersAdded"
-    @cancel="showMemberForm = false"
+    @cancel="showingAddModal = false"
+  />
+
+  <SharedSpaceMemberRoleModal
+    :visible="showingRoleModal"
+    :member="editingMember"
+    @role-updated="onMemberUpdate"
+    @cancel="showingRoleModal = false"
   />
 </template>
 
 <script lang='ts' setup>
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, reactive, ref } from 'vue';
 import { getSharedSpaceMembers } from '../services/shared-space-api';
 import { SearchOutlined, PlusCircleOutlined } from '@ant-design/icons-vue';
 import SharedSpaceMembersListItem from './SharedSpaceMembersListItem.vue';
 import SharedSpaceMembersAddModal from './SharedSpaceMembersAddModal.vue';
+import SharedSpaceMemberRoleModal from './SharedSpaceMemberRoleModal.vue';
 import SharedSpace from '../types/SharedSpace';
-import SharedSpaceMember from '../types/SharedSpaceMember';
+import SharedSpaceMember, { EMPTY_SHARED_SPACE_MEMBER } from '../types/SharedSpaceMember';
 
 const props = defineProps<{ sharedSpace: SharedSpace; }>();
 const filterText = ref('');
-const showMemberForm = ref(false);
+const showingAddModal = ref(false);
+const showingRoleModal = ref(false);
 const loading = ref(false);
 const list = ref<SharedSpaceMember[]>([]);
+const editingMember = reactive<SharedSpaceMember>({ ...EMPTY_SHARED_SPACE_MEMBER });
 const filteredList = computed<SharedSpaceMember[]>(() => {
   if (!filterText.value) {
     return list.value;
@@ -73,7 +83,13 @@ const filteredList = computed<SharedSpaceMember[]>(() => {
   ].some(fieldValue => fieldValue.toUpperCase().includes(filterText.value.toUpperCase())));
 });
 
+function showRoleModal (member: SharedSpaceMember) {
+  showingRoleModal.value = true;
+  Object.assign(editingMember, member);
+}
+
 function onMemberUpdate (updated: SharedSpaceMember) {
+  showingRoleModal.value = false;
   const target = list.value.find(member => member.uuid === updated.uuid);
 
   if (target) {
@@ -87,7 +103,7 @@ function onMemberDelete (deleted: SharedSpaceMember) {
 
 function onMembersAdded () {
   fetchSharedSpaceMembers();
-  showMemberForm.value = false;
+  showingAddModal.value = false;
 }
 
 function fetchSharedSpaceMembers () {

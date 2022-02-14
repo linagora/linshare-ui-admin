@@ -1,11 +1,15 @@
 <template>
   <a-list-item>
     <template #actions>
-      <SharedSpaceRoleSelect
-        :uuid="data.role.uuid"
-        :type="data.node?.nodeType"
-        @change="handleRoleChange"
-      />
+      <a-button
+        type="primary"
+        @click="$emit('editRole')"
+      >
+        {{ $t('GENERAL.EDIT') }}
+        <template #icon>
+          <EditOutlined />
+        </template>
+      </a-button>
 
       <a-popconfirm
         :title="$t('SHARED_SPACES.MEMBERS.CONFIRM_DELETE')"
@@ -28,13 +32,26 @@
         </a-button>
       </a-popconfirm>
     </template>
-    <a-list-item-meta
-      :description="data.account?.mail"
-    >
+    <a-list-item-meta>
       <template #title>
-        <div>
-          <span class="member-name">{{ displayInfo }}</span>
-        </div>
+        <span class="member-name">{{ displayInfo }}</span>
+        <span class="member-mail">{{ data.account?.mail }}</span>
+      </template>
+      <template #description>
+        <a-tag color="green">
+          {{ $t(`SHARED_SPACES.ROLE.${data.role.name}`) }}
+        </a-tag>
+        <a-tag
+          v-if="data.nestedRole"
+          color="cyan"
+        >
+          <a-tooltip>
+            <template #title>
+              {{ $t('SHARED_SPACES.MEMBERS.DEFAULT_ROLE_TAG_TOOLTIP') }}
+            </template>
+            {{ `${$t('SHARED_SPACES.MEMBERS.DEFAULT_ROLE_TAG_PREFIX')} ${$t(`SHARED_SPACES.ROLE.${data.nestedRole?.name}`)}` }}
+          </a-tooltip>
+        </a-tag>
       </template>
       <template #avatar>
         <a-avatar
@@ -54,14 +71,12 @@ import { computed, ref } from 'vue';
 import { message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import { APIError } from '@/core/types/APIError';
-import { DeleteFilled, QuestionCircleOutlined } from '@ant-design/icons-vue';
-import { removeSharedSpaceMember, updateSharedSpaceMember } from '../services/shared-space-api';
+import { DeleteFilled, QuestionCircleOutlined, EditOutlined } from '@ant-design/icons-vue';
+import { removeSharedSpaceMember } from '../services/shared-space-api';
 import SharedSpaceMember from '../types/SharedSpaceMember';
-import SharedSpaceRoleSelect from './SharedSpaceRoleSelect.vue';
-import SharedSpaceRole from '../types/SharedSpaceRole';
 
 const props = defineProps<{ data: SharedSpaceMember }>();
-const emit = defineEmits(['update', 'delete']);
+const emit = defineEmits(['deleted', 'editRole']);
 const { t } = useI18n();
 const deleting = ref(false);
 
@@ -77,35 +92,11 @@ const displayInfo = computed(() => {
   return props.data.account.mail || '';
 });
 
-async function handleRoleChange (role: SharedSpaceRole) {
-  try {
-    if (role) {
-      const member = await updateSharedSpaceMember({
-        ...props.data,
-        role: {
-          name: role.name,
-          type: role.type,
-          uuid: role.uuid
-        }
-      });
-
-      emit('update', member);
-      message.success(t('MESSAGES.UPDATE_SUCCESS'));
-    }
-  } catch (error) {
-    if (error instanceof APIError) {
-      message.error(error.getMessage());
-    } else {
-      console.error(error);
-    }
-  }
-}
-
 async function handleDelete () {
   try {
     deleting.value = true;
     await removeSharedSpaceMember(props.data);
-    emit('delete', props.data);
+    emit('deleted', props.data);
     message.success(t('MESSAGES.DELETE_SUCCESS'));
   } catch (error) {
     if (error instanceof APIError) {
@@ -123,6 +114,11 @@ async function handleDelete () {
 .member-name {
   font-size: 16px;
   font-weight: 600;
+  margin-right: 5px;
+}
+
+.member-mail {
+  color: @text-color-secondary;
 }
 
 .avatar {

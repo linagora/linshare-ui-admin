@@ -50,8 +50,12 @@ async function createSharedSpaceMember (member: SharedSpaceMember): Promise<Shar
   return await api.post('shared_space_members', member);
 }
 
-async function updateSharedSpaceMember (member: SharedSpaceMember): Promise<SharedSpaceMember> {
-  return await api.put(`shared_space_members/${member.uuid}`, member);
+async function updateSharedSpaceMember (member: SharedSpaceMember, force?: boolean): Promise<SharedSpaceMember> {
+  return await api.put(`shared_space_members/${member.uuid}`, member, {
+    params: {
+      force
+    }
+  });
 }
 
 async function removeSharedSpaceMember (member: SharedSpaceMember) {
