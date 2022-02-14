@@ -65,6 +65,17 @@
           @change="setSelectedRole"
         />
       </a-form-item>
+
+      <a-form-item
+        v-if="sharedSpace.nodeType === SHARED_SPACE_TYPE.WORKSPACE"
+        :label="$t('SHARED_SPACES.MEMBERS.DEFAULT_WORKGROUP_ROLE')"
+      >
+        <SharedSpaceRoleSelect
+          :type="SHARED_SPACE_TYPE.WORKGROUP"
+          :uuid="nestedRole.uuid"
+          @change="setNestedRole"
+        />
+      </a-form-item>
     </a-form>
   </a-modal>
 </template>
@@ -84,7 +95,7 @@ import { createSharedSpaceMember } from '../services/shared-space-api';
 import SharedSpaceRoleSelect from './SharedSpaceRoleSelect.vue';
 import User from '@/modules/user/types/User';
 import SharedSpaceRole from '../types/SharedSpaceRole';
-import SharedSpace from '../types/SharedSpace';
+import SharedSpace, { SHARED_SPACE_TYPE } from '../types/SharedSpace';
 import SharedSpaceMember from '../types/SharedSpaceMember';
 
 interface Props {
@@ -101,7 +112,11 @@ const { t } = useI18n();
 const selectedRole = reactive<SharedSpaceRole>({
   ...store.getters['SharedSpace/getRolesByType'](props.sharedSpace.nodeType)[0]
 });
+const nestedRole = reactive<SharedSpaceRole>({
+  ...store.getters['SharedSpace/getRolesByType'](SHARED_SPACE_TYPE.WORKGROUP)[0]
+});
 const setSelectedRole = (role: SharedSpaceRole) => Object.assign(selectedRole, role);
+const setNestedRole = (role: SharedSpaceRole) => Object.assign(nestedRole, role);
 const creating = ref(false);
 
 interface Option {

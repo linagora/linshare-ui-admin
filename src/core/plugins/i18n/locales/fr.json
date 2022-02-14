@@ -289,7 +289,12 @@
       "CONFIRM_DELETE": "Êtes-vous sûr de vouloir supprimer ce membre de l'espace partagé ?",
       "FILTER_PLACEHOLDER": "Rechercher ou filtrer les membres de l'espace partagé",
       "ADD_NEW": "Ajouter un membre",
-      "NEW": "Nouveaux membres"
+      "NEW": "Nouveaux membres",
+      "ROLE_EDIT_TITLE": "Modifier le rôle de {name}",
+      "DEFAULT_WORKGROUP_ROLE": "Rôle de groupe de travail par défaut",
+      "FORCE_CHECKBOX": "Remplacer ce rôle pour tous les groupes de travail imbriqués",
+      "DEFAULT_ROLE_TAG_PREFIX": "Rôle par défaut :",
+      "DEFAULT_ROLE_TAG_TOOLTIP": "Ce rôle s'appliquera à ce membre pour tous les groupes de travail nouvellement créés dans cet espace de travail"
     }
   },
   "QUOTA": {

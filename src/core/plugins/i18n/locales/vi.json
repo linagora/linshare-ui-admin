@@ -289,7 +289,12 @@
       "CONFIRM_DELETE": "Bạn có chắc chắn muốn xóa thành viên này khỏi không gian dùng chung không?",
       "FILTER_PLACEHOLDER": "Tìm kiếm hoặc lọc các thành viên không gian được chia sẻ",
       "ADD_NEW": "Thêm thành viên",
-      "NEW": "Thành viên mới"
+      "NEW": "Thành viên mới",
+      "ROLE_EDIT_TITLE": "Chỉnh sửa vai trò của {name}",
+      "DEFAULT_WORKGROUP_ROLE": "Vai trò nhóm làm việc mặc định",
+      "FORCE_CHECKBOX": "Ghi đè vai trò này cho tất cả các nhóm làm việc con",
+      "DEFAULT_ROLE_TAG_PREFIX": "Vai trò mặc định:",
+      "DEFAULT_ROLE_TAG_TOOLTIP": "Vai trò này sẽ áp dụng cho thành viên này  cho tất cả nhóm làm việc mới được tạo bên trong không gian làm việc này"
     }
   },
   "QUOTA": {
