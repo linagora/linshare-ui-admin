@@ -199,7 +199,9 @@ async function updateUser () {
             {{ $t('USERS.DETAIL_USER.DOMAIN') }}
           </div>
           <div class="info-block__value">
-            {{ user.domain && user.domain.name }}
+            <router-link :to="{ name: 'DomainDetails', params: { domain: user.domain.uuid }}">
+              {{ user.domain.name }}
+            </router-link>
           </div>
         </div>
       </div>
