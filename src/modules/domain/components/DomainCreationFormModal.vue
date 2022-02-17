@@ -132,7 +132,7 @@ async function onSave () {
   try {
     await createDomain({
       name: formState.name,
-      description: formState.description,
+      description: formState.description ? formState.description : undefined,
       parent: props.parent,
       type: props.type
     }, formState.dedicatedDomainPolicy);
