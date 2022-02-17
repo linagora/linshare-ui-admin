@@ -112,7 +112,13 @@
             {{ $t('GENERAL.DOMAIN') }}
           </div>
           <div class="value">
-            {{ sharedSpaceDomain.name }}
+            <router-link
+              :to="{ name: 'DomainDetails', params: {
+                domain: sharedSpaceDomain.uuid
+              }}"
+            >
+              {{ sharedSpaceDomain.name }}
+            </router-link>
           </div>
         </div>
 
