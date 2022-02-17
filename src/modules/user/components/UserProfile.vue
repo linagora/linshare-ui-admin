@@ -6,6 +6,7 @@ import { useStore } from 'vuex';
 import { APIError } from '@/core/types/APIError';
 import { useGuest } from '../hooks/useGuest';
 import User, { ACCOUNT_ROLE } from '../types/User';
+import { isEnable } from '@/core/utils/functionality';
 
 interface FormModel {
   firstName: string;
@@ -20,6 +21,12 @@ interface FormModel {
 const store = useStore();
 const { t, d } = useI18n();
 const user = computed<User>(() => store.getters['User/getUser']);
+const guestFeatureEnabled = computed(() => {
+  const functionality = store.getters['Domain/getLoggedUserFunctionality']('GUESTS');
+
+  return isEnable(functionality);
+});
+
 const {
   isCurrentUserGuest,
   maxExpirationDate,
@@ -137,7 +144,7 @@ async function updateUser () {
           </a-checkbox>
         </div>
         <div
-          v-if="isCurrentUserGuest"
+          v-if="!isCurrentUserGuest && guestFeatureEnabled "
           class="input-container"
         >
           <a-checkbox v-model:checked="formModel.canCreateGuest">
