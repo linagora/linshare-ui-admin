@@ -7,6 +7,7 @@
     "DELETION": "Xóa",
     "SAVE": "Lưu",
     "UPDATE_TIME_RELATIVE": "Cập nhật {time}",
+    "CREATE_TIME_RELATIVE": "Được tạo vào {time}",
     "JUST_NOW": "mới đây",
     "DEFAULT_VALUE": "Giá trị mặc định",
     "CURRENT_VALUE": "Giá trị hiện tại",

@@ -7,6 +7,7 @@
     "DELETION": "Deletion",
     "SAVE": "Save",
     "UPDATE_TIME_RELATIVE": "Updated {time}",
+    "CREATE_TIME_RELATIVE": "Created at {time}",
     "JUST_NOW": "just now",
     "DEFAULT_VALUE": "Default value",
     "CURRENT_VALUE": "Current value",

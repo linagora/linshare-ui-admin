@@ -2,9 +2,12 @@
   <div class="list-item">
     <a-list-item @click="goToUser">
       <template #actions>
-        <a-tag class="list-item__account-type">
-          {{ data.accountType }}
-        </a-tag>
+        <span>
+          {{ $t("GENERAL.CREATE_TIME_RELATIVE", {time: $d(data.creationDate) }) }}
+        </span>
+        <span>
+          {{ $t('GENERAL.UPDATE_TIME_RELATIVE', { time: relativeModificationDate }) }}
+        </span>
       </template>
       <a-list-item-meta
         :description="data.mail"
@@ -25,6 +28,12 @@
           </a-avatar>
         </template>
       </a-list-item-meta>
+      <a-tag color="blue">
+        {{ $t(`USERS.DETAIL_USER.TYPE_${data.accountType}`) }}
+      </a-tag>
+      <a-tag color="purple">
+        {{ $t(`USERS.DETAIL_USER.ROLE_${data.role}`) }}
+      </a-tag>
     </a-list-item>
   </div>
 </template>
@@ -33,6 +42,7 @@
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import User from '@/modules/user/types/User';
+import useRelativeTime from '@/core/hooks/useRelativeTime';
 
 interface Props {
   data: User;
@@ -44,6 +54,9 @@ const displayInfo = computed(() => !props.data.firstName && !props.data.lastName
   ? props.data.mail
   : `${props.data.firstName} ${props.data.lastName}`.trim()
 );
+const relativeModificationDate = props.data.modificationDate
+  ? useRelativeTime(props.data.modificationDate)
+  : 'N/A';
 
 function goToUser () {
   push({ name: 'UserDetail', params: { id: props.data.uuid } });

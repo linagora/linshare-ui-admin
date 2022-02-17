@@ -7,6 +7,7 @@
     "DELETION": "Suppression",
     "SAVE": "Sauvegarder",
     "UPDATE_TIME_RELATIVE": "Modifié {time}",
+    "CREATE_TIME_RELATIVE": "Créé le {time}",
     "JUST_NOW": "il y a un instant",
     "DEFAULT_VALUE": "Valeur par défaut",
     "CURRENT_VALUE": "Valeur actuelle",

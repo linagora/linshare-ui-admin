@@ -7,6 +7,7 @@
     "DELETION": "Удаление",
     "SAVE": "хранить",
     "UPDATE_TIME_RELATIVE": "Обновлено {time}",
+    "CREATE_TIME_RELATIVE": "создано в {time}",
     "JUST_NOW": "только что нет ",
     "DEFAULT_VALUE": "Значение по умолчанию",
     "CURRENT_VALUE": "Текущая стоимость",
