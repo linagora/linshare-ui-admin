@@ -126,7 +126,7 @@ export default defineComponent({
       try {
         await store.dispatch('User/deleteUser', store.getters['User/getUser']);
         message.success(t('MESSAGES.DELETE_SUCCESS'));
-        router.push({ name: 'Users' });
+        router.push({ name: 'UsersList' });
       } catch (error) {
         message.error((error as APIError).getMessage());
       }
