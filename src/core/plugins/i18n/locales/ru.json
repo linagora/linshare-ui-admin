@@ -331,7 +331,8 @@
       "WELCOME_MESSAGE": "приветственное сообщение",
       "MAIL_CONFIGURATION": "Конфигурация почты",
       "MIME_POLICY": "Политика MIME",
-      "DOMAIN_POLICY": "Политика домена"
+      "DOMAIN_POLICY": "Политика домена",
+      "DOMAIN_POLICY_AUTO": "Создать политику домена автоматически"
     },
     "WARNING": {
       "PAGE_NOT_ACCESSIBLE": "Эта страница недоступна для текущего домена или пользователя",
