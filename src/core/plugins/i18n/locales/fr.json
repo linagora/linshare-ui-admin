@@ -35,7 +35,13 @@
     "DOMAIN": "Domaine",
     "OR": "Ou",
     "AUTHOR": "Auteur",
-    "ROLE": "Rôle"
+    "ROLE": "Rôle",
+    "ASSIGNED": "Attribué",
+    "ASSIGN": "Attribuer",
+    "UNASSIGNED": "Non attribué",
+    "READ_ONLY": "Lecture seule",
+    "EDITABLE": "Éditable",
+    "VIEW": "Afficher"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -530,5 +536,10 @@
       "BASE_DN_HELPER": "LinShare commencera à rechercher les espaces de travail de cette position dans votre LDAP",
       "SEARCH_IN_OTHER_DOMAINS": "Rechercher dans d'autres domaines"
     }
+  },
+  "WELCOME_MESSAGES": {
+    "DESCRIPTION": "Sur cette page, vous pouvez sélectionner un domaine et voir la liste des messages d'accueil que vous avez créés ou autorisés à utiliser",
+    "ROOT_DOMAIN_DESCRIPTION": "Le domaine racine peut créer des messages d'accueil mais ne peut pas en utiliser",
+    "NESTED_DOMAIN_DESCRIPTION": "Un domaine peut créer des messages d'accueil pour son propre usage et peut utiliser les messages créés par ses domaines supérieurs"
   }
 }

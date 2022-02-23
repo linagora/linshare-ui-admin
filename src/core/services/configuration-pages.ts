@@ -107,7 +107,10 @@ const CONFIGURATION_PAGES: ConfigurationPage[] = [
   },
   {
     title: 'NAVIGATOR.WELCOME_MESSAGES',
-    legacy: true,
+    route: {
+      name: 'WelcomeMessages',
+      requiresCurrentDomain: true,
+    },
   },
   {
     title: 'NAVIGATOR.TYPE_MIME',

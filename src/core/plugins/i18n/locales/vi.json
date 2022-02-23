@@ -35,7 +35,13 @@
     "DOMAIN": "Miền",
     "OR": "Hoặc",
     "AUTHOR": "Tác giả",
-    "ROLE": "Vai trò"
+    "ROLE": "Vai trò",
+    "ASSIGNED": "Giao",
+    "ASSIGN": "Chỉ định",
+    "UNASSIGNED": "không được chỉ định",
+    "READ_ONLY": "Chỉ đọc",
+    "EDITABLE": "có thể chỉnh sửa",
+    "VIEW": "Quang cảnh"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -530,5 +536,10 @@
       "BASE_DN_HELPER": "LinShare sẽ bắt đầu tìm kiếm các không gian làm việc từ vị trí này trong LDAP của bạn",
       "SEARCH_IN_OTHER_DOMAINS": "Tìm kiếm trong các miền khác"
     }
+  },
+  "WELCOME_MESSAGES": {
+    "DESCRIPTION": "Ở chế độ xem này, bạn có thể chọn một miền trong cây miền và xem danh sách các thông báo chào mừng mà bạn đã tạo hoặc được phép sử dụng",
+    "ROOT_DOMAIN_DESCRIPTION": "Miền gốc có thể tạo tin nhắn chào mừng nhưng không thể sử dụng bất kỳ thông báo nào trong số chúng",
+    "NESTED_DOMAIN_DESCRIPTION": "Miền lồng nhau có thể tạo thông báo chào mừng để sử dụng riêng và có thể sử dụng thông báo chào mừng được tạo bởi miền cao hơn của miền đó"
   }
 }

@@ -22,6 +22,16 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
         },
       },
       {
+        name: 'WelcomeMessages',
+        path: 'welcome_messages',
+        component: () => import('../components/DomainWelcomeMessagesList.vue'),
+        meta: {
+          parentRoute: 'Configuration',
+          label: 'NAVIGATOR.WELCOME_MESSAGES',
+          requiresAuth: true,
+        },
+      },
+      {
         name: 'DomainProviders',
         path: 'providers',
         component: () => import('../pages/DomainProvidersPage.vue'),

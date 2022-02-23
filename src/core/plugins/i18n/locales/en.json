@@ -35,7 +35,13 @@
     "DOMAIN": "Domain",
     "OR": "Or",
     "AUTHOR": "Author",
-    "ROLE": "Role"
+    "ROLE": "Role",
+    "ASSIGNED": "Assigned",
+    "ASSIGN": "Assign",
+    "UNASSIGNED": "Unassigned",
+    "READ_ONLY": "Read-only",
+    "EDITABLE": "Editable",
+    "VIEW": "View"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -534,5 +540,10 @@
       "BASE_DN_HELPER": "LinShare will start looking for workspaces from this position in your LDAP",
       "SEARCH_IN_OTHER_DOMAINS": "Search in other domains"
     }
+  },
+  "WELCOME_MESSAGES": {
+    "DESCRIPTION": "In this view, you can select one domain in the domain trees and see list of welcome messages that you created or allowed to used",
+    "ROOT_DOMAIN_DESCRIPTION": "Root domain can create welcome messages but cannot use any of them",
+    "NESTED_DOMAIN_DESCRIPTION": "Nested domain can create welcome messages for its own use and can use welcome messages created by its highter domains"
   }
 }

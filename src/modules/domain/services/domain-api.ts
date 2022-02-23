@@ -6,6 +6,7 @@ import UserProvider from '../types/UserProvider';
 import { LDAPGroupProvider } from '../types/GroupProvider';
 import { LDAPWorkspaceProvider } from '../types/WorkspaceProvider';
 import { Functionality } from '@/core/types/Functionality';
+import WelcomeMessage from '../types/WelcomeMessages';
 
 async function getDomains(config?: AxiosRequestConfig): Promise<Domain[] | DomainTreeNode[]> {
   return await api.get('domains', config);
@@ -90,6 +91,9 @@ async function getFunctionalties(domainUuid: string, options?: { includeSubs: bo
     },
   });
 }
+async function getWelcomeMessages(domainUuid: string): Promise<WelcomeMessage[]> {
+  return await api.get(`domains/${domainUuid}/welcome_messages`);
+}
 
 export {
   createDomain,
@@ -110,4 +114,5 @@ export {
   updateWorkspaceProvider,
   updateGroupProvider,
   updateUserProvider,
+  getWelcomeMessages,
 };
