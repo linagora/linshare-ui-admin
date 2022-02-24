@@ -15,5 +15,5 @@ export function getMaximumParameter (functionality: Functionality) {
 }
 
 export function isEnable (functionality: Functionality): boolean {
-  return functionality.activationPolicy.enable.value;
+  return functionality?.activationPolicy.enable.value;
 }
