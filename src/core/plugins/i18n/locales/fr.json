@@ -203,6 +203,7 @@
     "66000": "Espace partagé introuvable"
   },
   "AUTH": {
+    "TAGLINE": "Partage sécurisé de fichiers en open source",
     "SECOND_FACTOR_AUTHENTICATION": "Authentification double facteur",
     "ENTER_OTP_DIGITS": "Saisissez le code à 6 chiffres de votre application FreeOTP:",
     "LOGIN_TO_ADMIN": "Connectez-vous à l'administrateur",

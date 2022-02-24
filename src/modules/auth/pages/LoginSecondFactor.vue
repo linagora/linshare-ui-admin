@@ -15,6 +15,9 @@
         class="logo"
         src="@/assets/images/linshare-logo-white.svg"
       >
+      <p class="tagline">
+        {{ $t('AUTH.TAGLINE') }}
+      </p>
       <a-card>
         <h2>{{ $t('AUTH.SECOND_FACTOR_AUTHENTICATION') }}</h2>
         <p>{{ $t('AUTH.ENTER_OTP_DIGITS') }}</p>
@@ -127,7 +130,13 @@ export default defineComponent({
 
     .logo {
       padding-top: 60px;
-      padding-bottom: 60px;
+      width: 280px;
+    }
+
+    .tagline {
+      margin-bottom: 15px;
+      margin-top: 10px;
+      color: @text-color-inverse;
     }
 
     .ant-alert {
