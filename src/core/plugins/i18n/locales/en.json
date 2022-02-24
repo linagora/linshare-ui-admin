@@ -205,6 +205,7 @@
     "2002": "Second factor authentication is not enabled for your domain"
   },
   "AUTH": {
+    "TAGLINE": "Secure file sharing app in open source",
     "SECOND_FACTOR_AUTHENTICATION": "2nd Factor Authentication",
     "ENTER_OTP_DIGITS": "Input the 6-digit code from your FreeOTP app:",
     "LOGIN_TO_ADMIN": "Login to Admin",

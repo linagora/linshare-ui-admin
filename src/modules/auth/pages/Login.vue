@@ -16,6 +16,9 @@
         class="logo"
         src="@/assets/images/linshare-logo-white.svg"
       >
+      <p class="tagline">
+        {{ $t('AUTH.TAGLINE') }}
+      </p>
       <a-card>
         <h2>{{ $t('AUTH.LOGIN_TO_ADMIN') }}</h2>
         <a-form
@@ -142,8 +145,13 @@ async function logIn () {
 
     .logo {
       padding-top: 60px;
-      padding-bottom: 60px;
-      width: 200px;
+      width: 280px;
+    }
+
+    .tagline {
+      margin-bottom: 15px;
+      margin-top: 10px;
+      color: @text-color-inverse;
     }
 
     .ant-alert {

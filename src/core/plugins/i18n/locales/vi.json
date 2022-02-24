@@ -202,6 +202,7 @@
     "2002": "Yếu tố xác thực thứ hai không được bật cho miền của bạn"
   },
   "AUTH": {
+    "TAGLINE": "Phần mềm chia sẻ dữ liệu bảo mật bằng công nghệ nguồn mở",
     "SECOND_FACTOR_AUTHENTICATION": "Đăng nhập xác thực hai bước",
     "ENTER_OTP_DIGITS": "Nhập mã 6 chữ số từ ứng dụng FreeOTP của bạn",
     "LOGIN_TO_ADMIN": "Đăng nhập vào trang Admin",
