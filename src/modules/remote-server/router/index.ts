@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 
-export const RemoteServersRoute: RouteRecordRaw = {
+export const RemoteServerRoutes: RouteRecordRaw[] = [{
   name: 'RemoteServersList',
   path: 'remote_servers',
   component: () => import('../components/RemoteServersList.vue'),
@@ -9,4 +9,4 @@ export const RemoteServersRoute: RouteRecordRaw = {
     label: 'NAVIGATOR.REMOTE_SERVERS',
     requiresAuth: true
   }
-};
+}];
