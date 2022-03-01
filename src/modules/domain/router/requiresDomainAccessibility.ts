@@ -1,5 +1,5 @@
 import { Router } from 'vue-router';
-import { findDomainPage, canAccessPage } from '../helpers/domainPageManagement';
+import { findDomainPage, canAccessPage } from '@/core/services/configuration-pages';
 import { Store } from 'vuex';
 
 export const requiresDomainAccessibility = (router: Router, store: Store<any>) => {

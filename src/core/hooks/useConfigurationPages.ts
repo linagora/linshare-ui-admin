@@ -3,18 +3,19 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
-import { getMainPages, findDomainPage, canAccessPage, DomainManagementPage } from '../helpers/domainPageManagement';
+import { getMainPages, findDomainPage, canAccessPage, ConfigurationPage } from '../services/configuration-pages';
+import Domain from '@/modules/domain/types/Domain';
 
-export default function useDomainConfigurationPages () {
+export default function useConfigurationPAges () {
   const { t } = useI18n();
   const store = useStore();
   const { push, currentRoute } = useRouter();
   const { redirect } = useLegacyFeatures();
-  const domainType = computed(() => store.getters['Domain/getCurrentDomainType']);
+  const currentDomain = computed<Domain>(() => store.getters['Domain/getCurrentDomain']);
   const loggedUserRole = computed(() => store.getters['Auth/getLoggedUserRole']);
 
   const pages = computed(() => getMainPages()
-    .filter(page => canAccessPage(page, loggedUserRole.value, domainType.value))
+    .filter(page => canAccessPage(page, loggedUserRole.value, currentDomain.value.type))
     .sort((a, b) => {
       if (!a.route) return 1;
 
@@ -27,16 +28,21 @@ export default function useDomainConfigurationPages () {
 
     if (!currentPage) return true;
 
-    return canAccessPage(currentPage, loggedUserRole.value, domainType.value);
+    return canAccessPage(currentPage, loggedUserRole.value, currentDomain.value.type);
   });
 
-  function goToPage (page: DomainManagementPage) {
+  function goToPage (page: ConfigurationPage) {
     if (page.legacy) {
       return redirect(page.title);
     }
 
     if (page.route) {
-      push(page.route);
+      push({
+        name: page.route.name,
+        params: {
+          domainUuid: page.route.requiresCurrentDomain ? currentDomain.value.uuid : ''
+        }
+      });
     }
   }
 

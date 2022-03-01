@@ -1,27 +1,35 @@
-import { LocationAsRelativeRaw, RouteRecordName } from 'vue-router';
+import { RouteRecordName } from 'vue-router';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 
-export interface DomainManagementPage {
+export interface ConfigurationPage {
   title: string;
   legacy?: boolean;
-  route?: LocationAsRelativeRaw;
-  child?: boolean;
+  sub?: boolean;
+  route?: {
+    name: string;
+    requiresCurrentDomain?: boolean;
+  };
   accessibility?: {
     domainTypes?: DOMAIN_TYPE[];
     userRoles?: ACCOUNT_ROLE[];
   };
 }
 
-const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
+const CONFIGURATION_PAGES: ConfigurationPage[] = [
   {
     title: 'NAVIGATOR.DETAILS',
-    route: { name: 'DomainDetails' }
+    route: {
+      name: 'DomainDetails',
+      requiresCurrentDomain: true
+    }
   },
   {
     title: 'NAVIGATOR.REMOTE_SERVERS',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
-    route: { name: 'RemoteServersList' }
+    route: {
+      name: 'RemoteServersList'
+    }
   },
   {
     title: 'NAVIGATOR.PROVIDERS',
@@ -29,7 +37,10 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
       userRoles: [ACCOUNT_ROLE.SUPERADMIN]
     },
-    route: { name: 'DomainProviders' }
+    route: {
+      name: 'DomainProviders',
+      requiresCurrentDomain: true
+    }
   },
   {
     title: 'NAVIGATOR.PROVIDERS',
@@ -37,8 +48,11 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
       userRoles: [ACCOUNT_ROLE.SUPERADMIN]
     },
-    route: { name: 'DomainProviderManagement' },
-    child: true
+    route: {
+      name: 'DomainProviderManagement',
+      requiresCurrentDomain: true
+    },
+    sub: true
   },
   {
     title: 'NAVIGATOR.USER_PROVIDERS',
@@ -46,8 +60,11 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
       userRoles: [ACCOUNT_ROLE.SUPERADMIN]
     },
-    route: { name: 'DomainUserProviders' },
-    child: true
+    route: {
+      name: 'DomainUserProviders',
+      requiresCurrentDomain: true
+    },
+    sub: true
   },
   {
     title: 'NAVIGATOR.GROUP_PROVIDERS',
@@ -55,8 +72,11 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
       userRoles: [ACCOUNT_ROLE.SUPERADMIN]
     },
-    route: { name: 'DomainGroupProviders' },
-    child: true
+    route: {
+      name: 'DomainGroupProviders',
+      requiresCurrentDomain: true
+    },
+    sub: true
   },
   {
     title: 'NAVIGATOR.WORKSPACE_PROVIDERS',
@@ -64,37 +84,18 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
       userRoles: [ACCOUNT_ROLE.SUPERADMIN]
     },
-    route: { name: 'DomainWorkspaceProviders' },
-    child: true
+    route: {
+      name: 'DomainWorkspaceProviders',
+      requiresCurrentDomain: true
+    },
+    sub: true
   },
   {
     title: 'NAVIGATOR.REMOTE_FILTERS',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
-    route: { name: 'DomainRemoteFilters' }
-  },
-  {
-    title: 'NAVIGATOR.USER_FILTERS',
-    accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
-    route: { name: 'UserFilters' },
-    child: true
-  },
-  {
-    title: 'NAVIGATOR.LDAP_USER_FILTER',
-    accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
-    route: { name: 'UserFilterLDAP' },
-    child: true
-  },
-  {
-    title: 'NAVIGATOR.GROUP_FILTERS',
-    accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
-    route: { name: 'GroupFilters' },
-    child: true
-  },
-  {
-    title: 'NAVIGATOR.LDAP_GROUP_FILTER',
-    accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
-    route: { name: 'GroupFilterLDAP' },
-    child: true
+    route: {
+      name: 'RemoteFiltersList'
+    }
   },
   {
     title: 'NAVIGATOR.PARAMETERS',
@@ -121,12 +122,12 @@ const DOMAIN_MANAGEMENT_PAGES: DomainManagementPage[] = [
   }
 ];
 
-export const findDomainPage = (routeName: RouteRecordName): DomainManagementPage | undefined =>
-  DOMAIN_MANAGEMENT_PAGES.find(page => !page.legacy && page.route?.name === routeName);
+export const findDomainPage = (routeName: RouteRecordName): ConfigurationPage | undefined =>
+  CONFIGURATION_PAGES.find(page => !page.legacy && page.route?.name === routeName);
 
-export const getMainPages = (): DomainManagementPage[] => DOMAIN_MANAGEMENT_PAGES.filter(page => !page.child);
+export const getMainPages = (): ConfigurationPage[] => CONFIGURATION_PAGES.filter(page => !page.sub);
 
-export const canAccessPage = (page: DomainManagementPage, userRole: ACCOUNT_ROLE, domainType: DOMAIN_TYPE): boolean => {
+export const canAccessPage = (page: ConfigurationPage, userRole: ACCOUNT_ROLE, domainType?: DOMAIN_TYPE): boolean => {
   if (!page.accessibility) {
     return true;
   }
@@ -135,5 +136,9 @@ export const canAccessPage = (page: DomainManagementPage, userRole: ACCOUNT_ROLE
     return false;
   }
 
-  return !page.accessibility.domainTypes || !!page.accessibility.domainTypes.includes(domainType);
+  if (!page.accessibility.domainTypes) {
+    return true;
+  }
+
+  return !!domainType && !!page.accessibility.domainTypes.includes(domainType);
 };

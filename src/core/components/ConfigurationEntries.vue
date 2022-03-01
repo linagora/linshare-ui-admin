@@ -33,7 +33,7 @@
 
 <script lang='ts' setup>
 import { RightOutlined } from '@ant-design/icons-vue';
-import useDomainConfigurationPages from '@/modules/domain/hooks/useDomainConfigurationPages';
+import useConfigurationPages from '@/core/hooks/useConfigurationPages';
 
-const { pages, goToPage } = useDomainConfigurationPages();
+const { pages, goToPage } = useConfigurationPages();
 </script>
