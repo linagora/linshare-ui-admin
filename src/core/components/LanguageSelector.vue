@@ -48,8 +48,8 @@ export default defineComponent({
     .ant-select.ant-select-single.ant-select-show-arrow {
       .ant-select-selector {
         border: 0px;
-        background: @menu-bg;
-        color: @menu-item-color;
+        background: @primary-color;
+        color: @text-color-inverse;
 
         .ant-select-selection-item {
           display: flex;
@@ -61,7 +61,7 @@ export default defineComponent({
       }
 
       .ant-select-arrow {
-        color: @menu-item-color;
+        color: @text-color-inverse;
       }
     }
   }
