@@ -6,11 +6,11 @@ import { Store } from 'vuex';
 let firstLoad = true;
 
 export const requiresAuthGuard = async (router: Router, store: Store<any>) => {
-  router.beforeEach(async (to, from, next) => {
+  router.beforeEach(async (to) => {
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
     if (!requiresAuth) {
-      return next();
+      return;
     }
 
     if (firstLoad) {
@@ -23,13 +23,11 @@ export const requiresAuthGuard = async (router: Router, store: Store<any>) => {
         await hydrate();
       } catch (error) {
         if (error instanceof APIError && error.isUnauthorizedError()) {
-          return next({ name: 'Login' });
+          return { name: 'Login' };
         }
       } finally {
         store.commit('setAuthenticating', false);
       }
     }
-
-    next();
   });
 };

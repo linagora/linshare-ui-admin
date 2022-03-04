@@ -3,20 +3,17 @@ import { findDomainPage, canAccessPage } from '@/core/services/configuration-pag
 import { Store } from 'vuex';
 
 export const requiresDomainAccessibility = (router: Router, store: Store<any>) => {
-  router.beforeEach(async (to, from, next) => {
-    if (
-      !to.name ||
-      !to.fullPath.includes('/configuration')
-    ) return next();
+  router.beforeEach(to => {
+    if (!to.name || !to.fullPath.includes('/configuration')) {
+      return;
+    }
 
     const domainType = store.getters['Domain/getCurrentDomainType'];
     const loggedUserRole = store.getters['Auth/getLoggedUserRole'];
     const page = findDomainPage(to.name);
 
     if (page && !canAccessPage(page, loggedUserRole, domainType)) {
-      next('/');
-    } else {
-      next();
+      return '/';
     }
   });
 };

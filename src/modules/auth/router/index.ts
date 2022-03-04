@@ -1,12 +1,4 @@
-import { NavigationGuard, RouteRecordRaw } from 'vue-router';
-import store from '@/core/store';
-import { isEnable } from '@/core/utils/functionality';
-
-const checkSecondFAEnabled: NavigationGuard = () => {
-  const functionality = store.getters['Domain/getLoggedUserFunctionality']('SECOND_FACTOR_AUTHENTICATION');
-
-  return isEnable(functionality) || '/';
-};
+import { RouteRecordRaw } from 'vue-router';
 
 export const LoginRoutes: Array<RouteRecordRaw> = [
   {
@@ -20,11 +12,10 @@ export const LoginRoutes: Array<RouteRecordRaw> = [
     path: '/login/2fa',
     component: () => import('../pages/LoginSecondFactor.vue'),
     props: true,
-    beforeEnter: (to, from, next) => {
+    beforeEnter: to => {
       if (!to.params.email || !to.params.password) {
-        return next('/login');
+        return '/login';
       }
-      next();
     }
   },
   {
@@ -38,7 +29,6 @@ export const ManageSecondFactorAuthenticationRoute: RouteRecordRaw = {
   name: 'ManageSecondFactorAuthentication',
   path: '/second_factor_authentication',
   component: () => import('../pages/ManageSecondFactorAuthentication.vue'),
-  beforeEnter: [checkSecondFAEnabled],
   meta: {
     requiresAuth: true
   }
