@@ -7,7 +7,7 @@
         :title="node.name"
         :class="isActive(node) && 'active'"
         :loading="loading"
-        @click="setCurrentDomain(node.uuid)"
+        @click="setCurrentDomain(node)"
       >
         {{ node.name }}
       </a-button>
@@ -62,64 +62,49 @@
   </li>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { useStore } from 'vuex';
-import { defineComponent, computed, ref, PropType } from 'vue';
+import { computed, ref } from 'vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
 import { DOMAIN_TYPE } from '../types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
+import { useRoute, useRouter } from 'vue-router';
+import StatusValue from '@/core/types/Status';
 
-export default defineComponent({
-  name: 'DomainsTreeNode',
-  components: {
-    PlusOutlined
-  },
-  props: {
-    node: {
-      type: Object as PropType<DomainTreeNode>,
-      default: () => ({})
-    }
-  },
-  emits: ['onCreateButtonClick'],
-  setup (prop, { emit }) {
-    const store = useStore();
-    const loading = ref(false);
-    const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
+const route = useRoute();
+const router = useRouter();
+const store = useStore();
+const prop = defineProps<{ node: DomainTreeNode }>();
+const emit = defineEmits(['onCreateButtonClick']);
 
-    async function setCurrentDomain (uuid: string) {
-      loading.value = true;
+const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
+const loading = computed(() => currentDomain.value.uuid === prop.node.uuid &&
+  store.getters['Domain/getStatus']('currentDomain') === StatusValue.LOADING
+);
 
-      await store.dispatch('Domain/fetchDomainById', uuid);
+async function setCurrentDomain (node: DomainTreeNode) {
+  await store.dispatch('Domain/setCurrentDomainUuid', node.uuid);
 
-      loading.value = false;
-    }
-
-    function isActive (node: DomainTreeNode) {
-      return node.uuid === currentDomain.value.uuid;
-    }
-
-    function guestDomainCreated (node: DomainTreeNode) {
-      return node.children?.some((child: DomainTreeNode) => child.type === DOMAIN_TYPE.GUEST);
-    }
-
-    function onCreateButtonClick (type: string) {
-      emit('onCreateButtonClick', {
-        parent: {
-          name: prop.node.name,
-          uuid: prop.node.uuid
-        },
-        type
-      });
-    }
-
-    return {
-      onCreateButtonClick,
-      guestDomainCreated,
-      isActive,
-      loading,
-      setCurrentDomain,
-      DOMAIN_TYPE
-    };
+  if (route.params.domainUuid) {
+    router.push({ name: route.name || undefined, params: { domainUuid: node.uuid } });
   }
-});
+}
+
+function isActive (node: DomainTreeNode) {
+  return node.uuid === currentDomain.value.uuid;
+}
+
+function guestDomainCreated (node: DomainTreeNode) {
+  return node.children?.some((child: DomainTreeNode) => child.type === DOMAIN_TYPE.GUEST);
+}
+
+function onCreateButtonClick (type: string) {
+  emit('onCreateButtonClick', {
+    parent: {
+      name: prop.node.name,
+      uuid: prop.node.uuid
+    },
+    type
+  });
+}
 </script>

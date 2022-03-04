@@ -62,7 +62,7 @@ import {
   computed,
   reactive,
   onMounted,
-  watchEffect
+  watch
 } from 'vue';
 import { useStore } from 'vuex';
 import DomainGroupProviderLDAPForm from './DomainGroupProviderLDAPForm.vue';
@@ -70,8 +70,9 @@ import { getGroupProviders } from '../services/domain-api';
 import { LDAPGroupProvider, EMPTY_PROVIDER } from '../types/GroupProvider';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import { LDAPGroupFilter } from '@/modules/group-filter/types/GroupFilters';
-import { listGroupFilters } from '@/modules/group-filter/services/group-filter-api';
+import { LDAPGroupFilter } from '@/modules/remote-filter/types/GroupFilters';
+import { listGroupFilters } from '@/modules/remote-filter/services/group-filter-api';
+import StatusValue from '@/core/types/Status';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
@@ -82,6 +83,8 @@ interface State {
 
 const store = useStore();
 const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
+const currentDomainStatus = computed<StatusValue>(() => store.getters['Domain/getStatus']('currentDomain'));
+
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
   ldapServers: [],
@@ -104,7 +107,7 @@ async function prepareGroupFilters () {
   state.groupFilters = filters.filter(filter => filter.type === 'LDAP');
 }
 
-async function prepareUserProvider () {
+async function prepareGroupProviders () {
   const providers = await getGroupProviders(currentDomain.value.uuid);
 
   state.provider = providers[0] || { ...EMPTY_PROVIDER };
@@ -125,12 +128,13 @@ async function prepareData () {
 
 onMounted(prepareData);
 
-watchEffect(async () => {
-  if (currentDomain.value.uuid) {
+watch(currentDomainStatus, async (status: StatusValue) => {
+  if (status === StatusValue.LOADING) {
     state.status = 'loading';
 
     try {
-      await prepareUserProvider();
+      await prepareGroupProviders();
+
       state.status = 'loaded';
     } catch (error) {
       state.status = 'error';

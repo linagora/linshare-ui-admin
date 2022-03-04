@@ -106,7 +106,8 @@ import {
   computed,
   reactive,
   onMounted,
-  watchEffect
+  watchEffect,
+  watch
 } from 'vue';
 import { useStore } from 'vuex';
 import DomainUserProviderLDAPForm from './DomainUserProviderLDAPForm.vue';
@@ -121,9 +122,10 @@ import {
 } from '../types/UserProvider';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import UserFilter, { USER_FILTER_TYPE } from '@/modules/user-filter/types/UserFilter';
-import { listUserFilters } from '@/modules/user-filter/services/user-filter-api';
+import UserFilter, { USER_FILTER_TYPE } from '@/modules/remote-filter/types/UserFilter';
+import { listUserFilters } from '@/modules/remote-filter/services/user-filter-api';
 import Domain, { DOMAIN_TYPE } from '../types/Domain';
+import StatusValue from '@/core/types/Status';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
@@ -134,6 +136,8 @@ interface State {
 
 const store = useStore();
 const currentDomain = computed<Domain>(() => store.getters['Domain/getCurrentDomain']);
+const currentDomainStatus = computed<StatusValue>(() => store.getters['Domain/getStatus']('currentDomain'));
+
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
   servers: [],
@@ -175,12 +179,13 @@ async function prepareData () {
 
 onMounted(prepareData);
 
-watchEffect(async () => {
-  if (currentDomain.value.uuid) {
+watch(currentDomainStatus, async (status: StatusValue) => {
+  if (status === StatusValue.LOADING) {
     state.status = 'loading';
 
     try {
       await prepareUserProvider();
+
       state.status = 'loaded';
     } catch (error) {
       state.status = 'error';

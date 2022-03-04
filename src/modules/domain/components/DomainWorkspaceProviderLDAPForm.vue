@@ -80,7 +80,7 @@ import { computed, reactive, ref, ComputedRef } from 'vue';
 import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import { LDAPWorkspaceFilter } from '@/modules/workspace-filter/types/WorkspaceFilters';
+import { LDAPWorkspaceFilter } from '@/modules/remote-filter/types/WorkspaceFilters';
 import { LDAPWorkspaceProvider } from '../types/WorkspaceProvider';
 import Domain from '../types/Domain';
 import useNotification from '@/core/hooks/useNotification';

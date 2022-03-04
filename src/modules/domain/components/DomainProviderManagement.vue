@@ -40,7 +40,7 @@
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 import { RightOutlined } from '@ant-design/icons-vue';
-import { findDomainPage, canAccessPage } from '../helpers/domainPageManagement';
+import { findDomainPage, canAccessPage } from '@/core/services/configuration-pages';
 
 const store = useStore();
 const loggedUserRole = computed(() => store.getters['Auth/getLoggedUserRole']);

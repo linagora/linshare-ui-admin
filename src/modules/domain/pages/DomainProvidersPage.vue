@@ -12,10 +12,10 @@
 import { useRouter } from 'vue-router';
 import PageTitle from '@/core/components/PageTitle.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import useDomainConfigurationPages from '../hooks/useDomainConfigurationPages';
+import useConfigurationPages from '@/core/hooks/useConfigurationPages';
 import DomainManagementWarning from '../components/DomainManagementWarning.vue';
 
 const { currentRoute } = useRouter();
 const { breadcrumbs } = useBreadcrumbs();
-const { isCurrentPageAccessible } = useDomainConfigurationPages();
+const { isCurrentPageAccessible } = useConfigurationPages();
 </script>

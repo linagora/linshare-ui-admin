@@ -4,6 +4,7 @@ import { SharedSpacesRoutes } from '@/modules/shared-spaces/router';
 import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 import { RemoteFilterRoutes } from '@/modules/remote-filter/router';
 import { RemoteServerRoutes } from '@/modules/remote-server/router';
+import { DomainConfigurationRoutes } from '@/modules/domain/router';
 
 import Home from '../pages/Home.vue';
 
@@ -32,6 +33,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
             path: '',
             component: () => import('../components/ConfigurationEntries.vue')
           },
+          ...DomainConfigurationRoutes,
           ...RemoteFilterRoutes,
           ...RemoteServerRoutes
         ]

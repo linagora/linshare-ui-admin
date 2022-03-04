@@ -80,7 +80,7 @@ import { computed, reactive, ref, ComputedRef } from 'vue';
 import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import { LDAPGroupFilter } from '@/modules/group-filter/types/GroupFilters';
+import { LDAPGroupFilter } from '@/modules/remote-filter/types/GroupFilters';
 import { LDAPGroupProvider } from '../types/GroupProvider';
 import Domain from '../types/Domain';
 import useNotification from '@/core/hooks/useNotification';

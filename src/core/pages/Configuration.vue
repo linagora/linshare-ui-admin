@@ -36,11 +36,20 @@
 </template>
 
 <script lang='ts' setup>
-import { ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
 import { MenuUnfoldOutlined } from '@ant-design/icons-vue';
+import { useStore } from 'vuex';
 import DomainsTree from '@/modules/domain/components/DomainsTree.vue';
 
+const store = useStore();
+const currentDomainUuid = computed(() => store.getters['Domain/getCurrentDomainUuid']);
 const showSidebar = ref(false);
 const isLargeScreen = useMediaQuery('(min-width: 769px)');
+
+watch(currentDomainUuid, (domainUuid) => {
+  if (domainUuid) {
+    store.dispatch('Domain/fetchDomain');
+  }
+});
 </script>

@@ -1,3 +1,4 @@
+import Domain from '@/modules/domain/types/Domain';
 import DomainTreeNode from '@/modules/domain/types/DomainTreeNode';
 import store from './index';
 
@@ -16,9 +17,15 @@ export async function hydrate () {
     await store.dispatch('Domain/fetchLoggedUserFunctionalities');
     await store.dispatch('SharedSpace/fetchRoles');
 
-    const domainsTree: DomainTreeNode = store.getters['Domain/getDomainsTree'];
+    const currentDomain: Domain = store.getters['Domain/getCurrentDomain'];
 
-    await store.dispatch('Domain/fetchDomainById', domainsTree.uuid);
+    if (!currentDomain.uuid) {
+      const domainsTree: DomainTreeNode = store.getters['Domain/getDomainsTree'];
+
+      store.dispatch('Domain/setCurrentDomainUuid', domainsTree.uuid);
+    }
+
+    await store.dispatch('Domain/fetchDomain');
   } catch (error) {
     console.error(error);
   } finally {

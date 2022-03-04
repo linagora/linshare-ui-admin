@@ -6,7 +6,9 @@ import store from '@/core/store';
 import useAntdComponents from '@/core/plugins/antd';
 import { requiresAuthGuard } from './modules/auth/router/requiresAuth.guard';
 import { requiresDomainAccessibility } from './modules/domain/router/requiresDomainAccessibility';
+import { requiresDomainUpdate } from './modules/domain/router/requiresDomainUpdate';
 
+requiresDomainUpdate(router, store);
 requiresAuthGuard(router, store);
 requiresDomainAccessibility(router, store);
 

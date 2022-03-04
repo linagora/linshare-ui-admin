@@ -62,16 +62,17 @@ import {
   computed,
   reactive,
   onMounted,
-  watchEffect
+  watch
 } from 'vue';
 import { useStore } from 'vuex';
 import DomainWorkspaceProviderLDAPForm from './DomainWorkspaceProviderLDAPForm.vue';
 import { getWorkspaceProviders } from '../services/domain-api';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
-import { listWorkspaceFilters } from '@/modules/workspace-filter/services/workspace-filter-api';
-import { LDAPWorkspaceFilter } from '@/modules/workspace-filter/types/WorkspaceFilters';
+import { listWorkspaceFilters } from '@/modules/remote-filter/services/workspace-filter-api';
+import { LDAPWorkspaceFilter } from '@/modules/remote-filter/types/WorkspaceFilters';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
 import { LDAPWorkspaceProvider, EMPTY_PROVIDER } from '../types/WorkspaceProvider';
+import StatusValue from '@/core/types/Status';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
@@ -82,6 +83,8 @@ interface State {
 
 const store = useStore();
 const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
+const currentDomainStatus = computed<StatusValue>(() => store.getters['Domain/getStatus']('currentDomain'));
+
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
   ldapServers: [],
@@ -104,7 +107,7 @@ async function prepareGroupFilters () {
   state.groupFilters = filters.filter(filter => filter.type === 'LDAP');
 }
 
-async function prepareUserProvider () {
+async function prepareWorkspaceProviders () {
   const providers = await getWorkspaceProviders(currentDomain.value.uuid);
 
   state.provider = providers[0] || { ...EMPTY_PROVIDER };
@@ -125,12 +128,13 @@ async function prepareData () {
 
 onMounted(prepareData);
 
-watchEffect(async () => {
-  if (currentDomain.value.uuid) {
+watch(currentDomainStatus, async (status: StatusValue) => {
+  if (status === StatusValue.LOADING) {
     state.status = 'loading';
 
     try {
-      await prepareUserProvider();
+      await prepareWorkspaceProviders();
+
       state.status = 'loaded';
     } catch (error) {
       state.status = 'error';
