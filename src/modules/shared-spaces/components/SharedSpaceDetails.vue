@@ -113,9 +113,12 @@
           </div>
           <div class="value">
             <router-link
-              :to="{ name: 'DomainDetails', params: {
-                domain: sharedSpaceDomain.uuid
-              }}"
+              :to="{
+                name: 'DomainDetails',
+                params: {
+                  domainUuid: sharedSpaceDomain.uuid
+                }
+              }"
             >
               {{ sharedSpaceDomain.name }}
             </router-link>
