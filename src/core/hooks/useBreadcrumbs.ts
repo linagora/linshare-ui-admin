@@ -1,5 +1,6 @@
 import { useRouter } from 'vue-router';
 import { computed } from 'vue';
+
 interface Breadcrumb {
   label: string | unknown;
   path: string;
@@ -10,7 +11,7 @@ export default function useBreadcrumbs () {
   const breadcrumbs = computed<Breadcrumb[]>(() => {
     const list = [{
       label: currentRoute.value.meta.label,
-      path: currentRoute.value.path
+      path: currentRoute.value.name as string
     }];
 
     if (currentRoute.value.meta.parentRoute) {
@@ -26,7 +27,7 @@ export default function useBreadcrumbs () {
     if (parent) {
       list.unshift({
         label: parent.meta.label,
-        path: parent.path
+        path: parent.name as string
       });
 
       if (parent.meta.parentRoute) {

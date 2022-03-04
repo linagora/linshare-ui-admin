@@ -8,7 +8,7 @@
 
         <router-link
           v-else
-          :to="route.path"
+          :to="{ name: route.path }"
         >
           {{ $t(route.label) }}
         </router-link>
