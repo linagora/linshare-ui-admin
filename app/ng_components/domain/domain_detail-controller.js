@@ -4,11 +4,11 @@ angular.module('linshareAdminApp')
   .controller('DomainDetailCtrl',
     ['_', '$rootScope', '$scope', '$log', '$modal', '$state', '$translate', 'Notification', 'selectOptions',
       'currentDomain', 'authenticatedUser', 'Domain', 'DomainPolicy', '_allWelcomeMessages', 'groupPatterns',
-      '_allLdapConnections',
+      'lsAppConfig',  '_allLdapConnections',
     // TODO: Should dispatch some function to other service or controller
     /* jshint maxparams: false */
     function(_, $rootScope, $scope, $log, $modal, $state, $translate, Notification, selectOptions, currentDomain,
-      authenticatedUser, Domain, DomainPolicy, _allWelcomeMessages, groupPatterns, _allLdapConnections) {
+      authenticatedUser, Domain, DomainPolicy, _allWelcomeMessages, groupPatterns, lsAppConfig, _allLdapConnections) {
       if (currentDomain) {
         $scope.state = $state.params.formState;
         $scope.ldapConnections = selectOptions.ldapConnectionIds;
@@ -35,6 +35,7 @@ angular.module('linshareAdminApp')
         $scope.domain = currentDomain;
         $scope.isSuperAdmin = authenticatedUser.role === 'SUPERADMIN';
         $scope.isRootDomain = currentDomain.type === 'ROOTDOMAIN';
+        $scope.isLegacyModeEnabled = lsAppConfig.legacyMode.enabled;
         $scope.disableProvider = ($scope.isRootDomain || currentDomain.providers.length !== 0);
         $scope.disableGroupProvider = ($scope.isRootDomain ||
           (currentDomain.groupProviders && currentDomain.groupProviders.length !== 0));
@@ -84,7 +85,7 @@ angular.module('linshareAdminApp')
           $log.error('DomainDetailCtrl.deleteGroupProvider - Try to delete an non existing groups provider');
         }
       }
-      
+
       $scope.addProvider = function() {
         if (!$scope.disableProvider) {
           $scope.domain.providers.push({
@@ -105,7 +106,7 @@ angular.module('linshareAdminApp')
           $log.error('Try to delete an non existing provider');
         }
       };
-   
+
       var createPolicy = function(label) {
         $scope.domainPolicy = {
           notification: false,

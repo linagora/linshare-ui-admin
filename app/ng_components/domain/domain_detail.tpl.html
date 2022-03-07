@@ -237,8 +237,11 @@
             </div>
           </div>
 
-          <div class="form-group"
-               x-ng-show="domain.type!='GUESTDOMAIN'">
+          <div
+            class="form-group"
+            ng-if="!isLegacyModeEnabled"
+            x-ng-show="domain.type!='GUESTDOMAIN'"
+          >
             <button type="button" class="btn"
                     x-ng-disabled="disableProvider"
                     x-ng-hide="isRootDomain"
@@ -248,7 +251,7 @@
           </div>
 
           <!-- Provider Form -->
-          <div class="well" style="max-width: 600px; margin: 0 auto 10px;"
+          <div ng-if="!isLegacyModeEnabled" class="well" style="max-width: 600px; margin: 0 auto 10px;"
                x-ng-repeat="provider in domain.providers">
             <button type="button" class="close"
                     x-ng-click="deleteProvider()">
@@ -330,28 +333,36 @@
             </a>
           </div>
 
-          <div class="form-group" x-ng-show="domain.type!='GUESTDOMAIN'">
+          <div
+            class="form-group"
+            ng-if="!isLegacyModeEnabled"
+            x-ng-show="domain.type!='GUESTDOMAIN'"
+          >
             <button type="button" class="btn" x-ng-disabled="disableGroupProvider" x-ng-hide="isRootDomain" x-ng-click="addGroupProvider()">
               <i class="fa fa-plus"></i> {{ 'MANAGE_DOMAINS.BOX_FORM.BUTTON_ADD_GROUP_PROVIDER' | translate }}
             </button>
           </div>
-          
+
           <!-- Group Provider Form -->
-          <div class="well group-provider-form" x-ng-repeat="groupProvider in domain.groupProviders">
+          <div
+            class="well group-provider-form"
+            ng-if="!isLegacyModeEnabled"
+            x-ng-repeat="groupProvider in domain.groupProviders"
+          >
             <button type="button" class="close" x-ng-click="deleteGroupProvider()">
               &times;
             </button>
             <h4>
               {{ 'MANAGE_DOMAINS.BOX_FORM.TITLE_GROUP_PROVIDER' | translate }}
             </h4>
-          
+
             <!-- LDAP Connection -->
             <div class="form-group">
               <label for="ldapConnection">
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_LDAP_CONNECTION' | translate }}
               </label>
               <div class="form-mydomain">
-                <select 
+                <select
                   id="connection"
                   name="connection"
                   class="form-control"
@@ -365,7 +376,7 @@
                   >
                     {{connection.label}}
                   </option>
-                </select>   
+                </select>
                 <div class="box-tools-domain-manage">
                   <a class="clear-btn blue" x-ui-sref="ldapconnection.detail({formState: 'create'})">
                     <i class="fa fa-plus-circle fa-lg" tooltip="{{'COMMON.BASIC_FORM.BUTTON_ADD' | translate}}"></i>
@@ -380,7 +391,7 @@
                 {{ 'MANAGE_DOMAINS.BOX_FORM.LABEL_GROUP_PATTERN' | translate }}
               </label>
               <div class="form-mydomain">
-                <select 
+                <select
                   id="pattern"
                   name="pattern"
                   class="form-control"
@@ -402,7 +413,7 @@
                 </div>
               </div>
             </div>
-          
+
             <!-- Base Dn -->
             <div class="form-group" x-ng-class="{'has-error': domainEditForm.baseDn.$invalid &&
                        (domainEditForm.baseDn.$dirty || ls.domainEditForm.attempted)}">

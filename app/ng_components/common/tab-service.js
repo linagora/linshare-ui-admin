@@ -12,7 +12,6 @@ angular.module('linshareAdminApp')
           {
             name: 'COMMON.TAB.MANAGE_DOMAINS',
             sref: 'domain.detail',
-            hiddenOnLegacy: true,
             superAdminOnly: true
           }, {
               name: 'COMMON.TAB.DOMAIN_POLICIES',
