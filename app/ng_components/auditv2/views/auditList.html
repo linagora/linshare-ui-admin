@@ -107,7 +107,7 @@
                   <td
                     data-title="'TABLE_HEADER.DATE' | translate"
                     sortable="'creationDate'">
-                <span class="truncate">{{auditAction.creationDate | relativeTime}}</span>
+                    <span class="truncate" tooltip="{{auditAction.creationDate | date:'medium'}}">{{auditAction.creationDate | relativeTime}}</span>
                   </td>
                   <td data-title="'TABLE_HEADER.DETAIL' | translate" class="center">
                     <div audit-details="{{auditAction}}"></div>
