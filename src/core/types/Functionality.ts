@@ -4,164 +4,124 @@ interface Config {
   overriden: boolean;
 }
 
-interface Policy {
+interface FunctionalityPolicy {
   hidden: boolean;
   readonly: boolean;
   enable: Config;
   allowOverride: Config;
 }
 
+interface ParameterValue<Type> {
+  type: 'BOOLEAN' | 'STRING' | 'UNIT_TIME' | 'UNIT_SIZE' | 'INTEGER';
+  value: Type;
+  parentValue: Type;
+  overriden: boolean;
+}
+
+interface ParameterValueWithUnits<Type> extends ParameterValue<Type> {
+  unit: string;
+  units: string[];
+  parentUnit: string;
+}
+
+export interface BooleanParameterValue extends ParameterValue<boolean> {
+  type: 'BOOLEAN';
+}
+
+export interface StringParameterValue extends ParameterValue<string> {
+  type: 'STRING';
+}
+
+export interface UnitTimeParameterValue extends ParameterValueWithUnits<number> {
+  type: 'UNIT_TIME';
+}
+
+export interface UnitSizeParameterValue extends ParameterValueWithUnits<number> {
+  type: 'UNIT_SIZE';
+}
+
+export interface IntegerParameterValue extends ParameterValue<number> {
+  type: 'INTEGER';
+}
+
+export interface ParameterUnlimited {
+  supported: boolean;
+  value: boolean;
+  parentValue: boolean;
+}
+
 interface BooleanParameter {
   hidden: boolean;
   readonly: boolean;
-  type: 'BOOLEAN'
-  default: {
-    type: 'BOOLEAN';
-    value: boolean;
-    parentValue: boolean;
-    overridden: boolean;
-  }
+  type: 'BOOLEAN';
+  default: BooleanParameterValue;
 }
 
 interface StringParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'STRING';
-  default: {
-    type: 'STRING';
-    value: string;
-    parentValue: string;
-    overridden: boolean;
-  }
+  default: StringParameterValue;
 }
 
 interface UnitTimeAllParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'UNIT_TIME_ALL';
-  default: {
-    type: 'UNIT_TIME';
-    value: number;
-    parentValue: number;
-    overridden: boolean;
-    unit: string;
-    units: string[];
-    parentUnit: string;
-  }
-  maximum: {
-    type: 'UNIT_TIME';
-    value: number;
-    parentValue: number;
-    overridden: boolean;
-    unit: string;
-    units: string[];
-    parentUnit: string;
-  }
-  unlimited: {
-    supported: boolean;
-    value: boolean;
-    parentValue: boolean;
-  }
+  default: UnitTimeParameterValue;
+  maximum: UnitTimeParameterValue;
+  unlimited: ParameterUnlimited;
 }
 
 interface UnitTimeDefaultParameter {
   hidden: boolean;
   type: 'UNIT_TIME_DEFAULT';
   readonly: boolean;
-  default: {
-    type: 'UNIT_TIME';
-    value: number;
-    parentValue: number;
-    overridden: boolean;
-    unit: string;
-    units: string[];
-    parentUnit: string;
-  }
+  default: UnitTimeParameterValue;
 }
 
 interface IntegerDefaultParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'INTEGER_DEFAULT';
-  default: {
-    type: 'INTEGER';
-    value: number;
-    parentValue: number;
-    overridden: boolean;
-  }
+  default: IntegerParameterValue;
 }
 
 interface IntegerAllParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'INTEGER_ALL';
-  default: {
-    type: 'INTEGER';
-    value: number;
-    parentValue: number;
-    overridden: boolean;
-  }
-  maximum: {
-    type: 'INTEGER';
-    value: number;
-    parentValue: number;
-    overriden: boolean
-  }
-  unlimited: {
-    supported: boolean;
-    value: boolean;
-    parentValue: boolean;
-  }
+  default: IntegerParameterValue;
+  maximum: IntegerParameterValue;
+  unlimited: ParameterUnlimited;
 }
 
 interface UnitSizeAllParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'UNIT_SIZE_ALL';
-  default: {
-    type: 'UNIT_SIZE';
-    value: number;
-    parentValue: number;
-    unit: string;
-    parentUnit: string;
-    units: string[];
-    overridden: boolean;
-  }
-  maximum: {
-    type: 'UNIT_SIZE';
-    value: number;
-    parentValue: number;
-    unit: string;
-    parentUnit: string;
-    units: string[];
-    overriden: boolean;
-  }
-  unlimited: {
-    supported: boolean;
-    value: boolean;
-    parentValue: boolean;
-  }
+  default: UnitSizeParameterValue;
+  maximum: UnitSizeParameterValue;
+  unlimited: ParameterUnlimited;
 }
 
 interface UnitSizeMaxParamter {
   hidden: boolean;
   readonly: boolean;
   type: 'UNIT_SIZE_MAX';
-  maximum: {
-    type: 'UNIT_SIZE';
-    value: number;
-    parentValue: number;
-    unit: string;
-    parentUnit: string;
-    units: string[];
-    overriden: boolean;
-  }
-  unlimited: {
-    supported: boolean;
-    value: boolean;
-    parentValue: boolean;
-  }
+  maximum: UnitSizeParameterValue;
+  unlimited: ParameterUnlimited;
 }
+
+type FunctionalityParameter =
+  | StringParameter
+  | BooleanParameter
+  | UnitTimeAllParameter
+  | UnitTimeDefaultParameter
+  | IntegerDefaultParameter
+  | IntegerAllParameter
+  | UnitSizeAllParameter
+  | UnitSizeMaxParamter;
 
 export interface Functionality {
   identifier: string;
@@ -173,8 +133,8 @@ export interface Functionality {
     uuid: string;
     name: string;
   };
-  activationPolicy: Policy;
-  configurationPolicy: Policy;
-  delegationPolicy: Policy;
-  parameter: StringParameter | BooleanParameter | UnitTimeAllParameter | UnitTimeDefaultParameter | IntegerDefaultParameter | IntegerAllParameter | UnitSizeAllParameter | UnitSizeMaxParamter;
+  activationPolicy: FunctionalityPolicy;
+  configurationPolicy: FunctionalityPolicy;
+  delegationPolicy: FunctionalityPolicy;
+  parameter: FunctionalityParameter;
 }

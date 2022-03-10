@@ -1,6 +1,13 @@
-import { Functionality } from '../types/Functionality';
+import {
+  Functionality,
+  UnitSizeParameterValue,
+  UnitTimeParameterValue,
+  IntegerParameterValue,
+} from '../types/Functionality';
 
-export function getMaximumParameter (functionality: Functionality) {
+export function getMaximumParameter(
+  functionality: Functionality
+): UnitSizeParameterValue | UnitTimeParameterValue | IntegerParameterValue | null {
   const parameter = functionality.parameter;
 
   switch (parameter.type) {
@@ -14,6 +21,6 @@ export function getMaximumParameter (functionality: Functionality) {
   }
 }
 
-export function isEnable (functionality: Functionality): boolean {
+export function isEnable(functionality: Functionality): boolean {
   return functionality?.activationPolicy.enable.value;
 }
