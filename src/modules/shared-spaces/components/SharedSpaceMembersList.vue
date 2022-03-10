@@ -11,11 +11,7 @@
       </template>
     </a-input>
 
-    <a-button
-      type="primary"
-      style="margin-left: 5px"
-      @click="showingAddModal = true"
-    >
+    <a-button type="primary" style="margin-left: 5px" @click="showingAddModal = true">
       <template #icon>
         <PlusCircleOutlined />
       </template>
@@ -24,17 +20,9 @@
     </a-button>
   </div>
 
-  <a-list
-    item-layout="horizontal"
-    :data-source="filteredList"
-    :loading="loading"
-  >
+  <a-list item-layout="horizontal" :data-source="filteredList" :loading="loading">
     <template #renderItem="{ item }">
-      <SharedSpaceMembersListItem
-        :data="item"
-        @edit-role="() => showRoleModal(item)"
-        @deleted="onMemberDelete"
-      />
+      <SharedSpaceMembersListItem :data="item" @edit-role="() => showRoleModal(item)" @deleted="onMemberDelete" />
     </template>
   </a-list>
 
@@ -54,7 +42,7 @@
   />
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed, onMounted, reactive, ref } from 'vue';
 import { getSharedSpaceMembers } from '../services/shared-space-api';
 import { SearchOutlined, PlusCircleOutlined } from '@ant-design/icons-vue';
@@ -64,7 +52,7 @@ import SharedSpaceMemberRoleModal from './SharedSpaceMemberRoleModal.vue';
 import SharedSpace from '../types/SharedSpace';
 import SharedSpaceMember, { EMPTY_SHARED_SPACE_MEMBER } from '../types/SharedSpaceMember';
 
-const props = defineProps<{ sharedSpace: SharedSpace; }>();
+const props = defineProps<{ sharedSpace: SharedSpace }>();
 const filterText = ref('');
 const showingAddModal = ref(false);
 const showingRoleModal = ref(false);
@@ -76,43 +64,44 @@ const filteredList = computed<SharedSpaceMember[]>(() => {
     return list.value;
   }
 
-  return list.value.filter(member => [
-    member.account.mail,
-    member.account.firstName,
-    member.account.lastName
-  ].some(fieldValue => fieldValue.toUpperCase().includes(filterText.value.toUpperCase())));
+  return list.value.filter((member) =>
+    [member.account.mail, member.account.firstName, member.account.lastName].some((fieldValue) =>
+      fieldValue.toUpperCase().includes(filterText.value.toUpperCase())
+    )
+  );
 });
 
-function showRoleModal (member: SharedSpaceMember) {
+function showRoleModal(member: SharedSpaceMember) {
   showingRoleModal.value = true;
   Object.assign(editingMember, member);
 }
 
-function onMemberUpdate (updated: SharedSpaceMember) {
+function onMemberUpdate(updated: SharedSpaceMember) {
   showingRoleModal.value = false;
-  const target = list.value.find(member => member.uuid === updated.uuid);
+  const target = list.value.find((member) => member.uuid === updated.uuid);
 
   if (target) {
     Object.assign(target, updated);
   }
 }
 
-function onMemberDelete (deleted: SharedSpaceMember) {
-  list.value = list.value.filter(member => member.uuid !== deleted.uuid);
+function onMemberDelete(deleted: SharedSpaceMember) {
+  list.value = list.value.filter((member) => member.uuid !== deleted.uuid);
 }
 
-function onMembersAdded () {
+function onMembersAdded() {
   fetchSharedSpaceMembers();
   showingAddModal.value = false;
 }
 
-function fetchSharedSpaceMembers () {
+function fetchSharedSpaceMembers() {
   loading.value = true;
 
   getSharedSpaceMembers(props.sharedSpace.uuid)
-    .then(members => {
+    .then((members) => {
       list.value = members;
-    }).finally(() => {
+    })
+    .finally(() => {
       loading.value = false;
     });
 }

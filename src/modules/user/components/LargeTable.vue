@@ -1,10 +1,6 @@
 <template>
   <div class="large-table">
-    <a-list
-      item-layout="horizontal"
-      :data-source="list"
-      :loading="loading"
-    >
+    <a-list item-layout="horizontal" :data-source="list" :loading="loading">
       <template #renderItem="{ item }">
         <DesktopListItem :data="item" />
       </template>
@@ -28,9 +24,9 @@ export default defineComponent({
   name: 'LargeTable',
   components: {
     Pagination,
-    DesktopListItem
+    DesktopListItem,
   },
-  async setup () {
+  async setup() {
     const { loading, list, pagination, handleTableChange } = useUsersList();
 
     await handleTableChange(pagination);
@@ -39,24 +35,24 @@ export default defineComponent({
       loading,
       list,
       pagination,
-      handleTableChange
+      handleTableChange,
     };
-  }
+  },
 });
 </script>
 
-<style lang='less'>
-  .large-table {
-    @media (max-width: 1068px) {
-      display: none;
-    };
-
-    &__pagination {
-      margin-top: 30px;
-    }
-
-    .ant-table-row {
-      cursor: pointer;
-    }
+<style lang="less">
+.large-table {
+  @media (max-width: 1068px) {
+    display: none;
   }
+
+  &__pagination {
+    margin-top: 30px;
+  }
+
+  .ant-table-row {
+    cursor: pointer;
+  }
+}
 </style>

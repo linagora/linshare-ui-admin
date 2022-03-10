@@ -1,20 +1,18 @@
 <template>
-  <a-modal
-    :visible="visible"
-    :title="$t('SHARED_SPACES.MEMBERS.ADD_NEW')"
-    @cancel="emit('cancel')"
-  >
+  <a-modal :visible="visible" :title="$t('SHARED_SPACES.MEMBERS.ADD_NEW')" @cancel="emit('cancel')">
     <template #footer>
-      <a-button @click="() => { reset(); emit('cancel'); }">
+      <a-button
+        @click="
+          () => {
+            reset();
+            emit('cancel');
+          }
+        "
+      >
         {{ $t('GENERAL.CANCEL') }}
       </a-button>
 
-      <a-button
-        type="primary"
-        :disabled="usersToBeAdded.length === 0"
-        :loading="creating"
-        @click="createMembers"
-      >
+      <a-button type="primary" :disabled="usersToBeAdded.length === 0" :loading="creating" @click="createMembers">
         <template #icon>
           <PlusCircleOutlined />
         </template>
@@ -22,10 +20,7 @@
       </a-button>
     </template>
 
-    <a-form
-      :label-col="{ span: 24 }"
-      :wrapper-col="{ span: 24 }"
-    >
+    <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
       <a-form-item :label="$t('SHARED_SPACES.MEMBERS.NEW')">
         <a-select
           mode="multiple"
@@ -46,11 +41,7 @@
 
           <template #notFoundContent>
             <div class="not-found">
-              <a-spin
-                v-if="searching"
-                class="spinner"
-                size="small"
-              />
+              <a-spin v-if="searching" class="spinner" size="small" />
 
               <span v-else>{{ $t('USERS.DETAIL_USER.NO_USER_FOUND') }}</span>
             </div>
@@ -59,28 +50,20 @@
       </a-form-item>
 
       <a-form-item :label="$t('GENERAL.ROLE')">
-        <SharedSpaceRoleSelect
-          :type="sharedSpace.nodeType"
-          :uuid="selectedRole.uuid"
-          @change="setSelectedRole"
-        />
+        <SharedSpaceRoleSelect :type="sharedSpace.nodeType" :uuid="selectedRole.uuid" @change="setSelectedRole" />
       </a-form-item>
 
       <a-form-item
         v-if="sharedSpace.nodeType === SHARED_SPACE_TYPE.WORKSPACE"
         :label="$t('SHARED_SPACES.MEMBERS.DEFAULT_WORKGROUP_ROLE')"
       >
-        <SharedSpaceRoleSelect
-          :type="SHARED_SPACE_TYPE.WORKGROUP"
-          :uuid="nestedRole.uuid"
-          @change="setNestedRole"
-        />
+        <SharedSpaceRoleSelect :type="SHARED_SPACE_TYPE.WORKGROUP" :uuid="nestedRole.uuid" @change="setNestedRole" />
       </a-form-item>
     </a-form>
   </a-modal>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { APIError } from '@/core/types/APIError';
 import { SORT_ORDER } from '@/core/types/Sort';
 import { listUsers } from '@/modules/user/services/user-api';
@@ -110,10 +93,10 @@ const store = useStore();
 const { t } = useI18n();
 
 const selectedRole = reactive<SharedSpaceRole>({
-  ...store.getters['SharedSpace/getRolesByType'](props.sharedSpace.nodeType)[0]
+  ...store.getters['SharedSpace/getRolesByType'](props.sharedSpace.nodeType)[0],
 });
 const nestedRole = reactive<SharedSpaceRole>({
-  ...store.getters['SharedSpace/getRolesByType'](SHARED_SPACE_TYPE.WORKGROUP)[0]
+  ...store.getters['SharedSpace/getRolesByType'](SHARED_SPACE_TYPE.WORKGROUP)[0],
 });
 const setSelectedRole = (role: SharedSpaceRole) => Object.assign(selectedRole, role);
 const setNestedRole = (role: SharedSpaceRole) => Object.assign(nestedRole, role);
@@ -130,7 +113,7 @@ const usersToBeAdded = ref([] as User[]);
 const searching = ref(false);
 const searchUsersDebounce = useDebounceFn(searchUsers, 500);
 
-async function searchUsers (search: string) {
+async function searchUsers(search: string) {
   searching.value = true;
 
   try {
@@ -138,16 +121,15 @@ async function searchUsers (search: string) {
       mail: search,
       sortOrder: SORT_ORDER.ASC,
       sortField: 'mail',
-      type: 'INTERNAL'
+      type: 'INTERNAL',
     });
 
-    options.value = data
-      .map(user => ({
-        label: getUserFullName(user),
-        value: user.mail,
-        disabled: props.members.some(member => member.account.uuid === user.uuid),
-        data: user
-      }));
+    options.value = data.map((user) => ({
+      label: getUserFullName(user),
+      value: user.mail,
+      disabled: props.members.some((member) => member.account.uuid === user.uuid),
+      data: user,
+    }));
   } catch (error) {
     if (error instanceof APIError) {
       return message.error(error.getMessage());
@@ -159,21 +141,21 @@ async function searchUsers (search: string) {
   }
 }
 
-function onUserSelect (_: string, option: Option) {
+function onUserSelect(_: string, option: Option) {
   usersToBeAdded.value.push(option.data);
 }
 
-function onUserDeselect (_: string, option: Option) {
-  usersToBeAdded.value = usersToBeAdded.value.filter(user => user.uuid !== option.data.uuid);
+function onUserDeselect(_: string, option: Option) {
+  usersToBeAdded.value = usersToBeAdded.value.filter((user) => user.uuid !== option.data.uuid);
 }
 
-async function createMembers () {
+async function createMembers() {
   try {
     creating.value = true;
 
     const promises: Promise<SharedSpaceMember>[] = [];
 
-    usersToBeAdded.value.forEach(user => promises.push(createSharedSpaceMember(transform(user))));
+    usersToBeAdded.value.forEach((user) => promises.push(createSharedSpaceMember(transform(user))));
 
     await Promise.all(promises);
 
@@ -190,51 +172,51 @@ async function createMembers () {
   }
 }
 
-function transform (user: User): SharedSpaceMember {
+function transform(user: User): SharedSpaceMember {
   return {
     uuid: '',
     role: {
       name: selectedRole.name,
       type: selectedRole.type,
-      uuid: selectedRole.uuid
+      uuid: selectedRole.uuid,
     },
     account: {
       uuid: user.uuid,
       mail: user.mail,
       firstName: user.firstName,
-      lastName: user.lastName
+      lastName: user.lastName,
     },
     node: {
       uuid: props.sharedSpace.uuid,
       name: props.sharedSpace.name,
-      nodeType: props.sharedSpace.nodeType
-    }
+      nodeType: props.sharedSpace.nodeType,
+    },
   };
 }
 
-function reset () {
+function reset() {
   creating.value = false;
   usersToBeAdded.value = [];
 }
 </script>
 
-<style lang='less' scoped>
-  .spinner {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-  .user-icon {
-    color: @primary-color;
-    margin-right: 4px;
-  }
+<style lang="less" scoped>
+.spinner {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.user-icon {
+  color: @primary-color;
+  margin-right: 4px;
+}
 
-  .not-found {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.not-found {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>

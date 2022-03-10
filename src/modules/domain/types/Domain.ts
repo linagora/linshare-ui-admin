@@ -2,7 +2,7 @@ export enum DOMAIN_TYPE {
   ROOT = 'ROOTDOMAIN',
   TOP = 'TOPDOMAIN',
   SUB = 'SUBDOMAIN',
-  GUEST = 'GUESTDOMAIN'
+  GUEST = 'GUESTDOMAIN',
 }
 
 export default interface Domain {
@@ -19,22 +19,22 @@ export default interface Domain {
   domainPolicy?: {
     name: string;
     uuid: string;
-  }
+  };
   mailConfiguration?: {
     name: string;
     uuid: string;
-  }
+  };
   mimePolicy?: {
     name: string;
     uuid: string;
-  }
+  };
   welcomeMessage?: {
     name: string;
-    uuid: string
-  }
+    uuid: string;
+  };
 }
 
 export const EMPTY_DOMAIN: Domain = {
   uuid: '',
-  name: ''
+  name: '',
 };

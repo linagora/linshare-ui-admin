@@ -5,7 +5,7 @@ export interface SharedSpaceState {
 }
 
 const state: SharedSpaceState = {
-  roles: []
+  roles: [],
 };
 
 export default state;

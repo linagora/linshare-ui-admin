@@ -8,8 +8,8 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
     meta: {
       parentRoute: 'Configuration',
       label: 'NAVIGATOR.REMOTE_FILTERS',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     name: 'UserFilters',
@@ -18,19 +18,19 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
     meta: {
       parentRoute: 'RemoteFiltersList',
       label: 'NAVIGATOR.USER_FILTERS',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     name: 'UserFilterLDAP',
     path: 'filters/user/ldap',
     component: () => import('../components/UserFilterLDAP.vue'),
-    props: route => ({ ...route.params }),
+    props: (route) => ({ ...route.params }),
     meta: {
       parentRoute: 'UserFilters',
       label: 'NAVIGATOR.LDAP_USER_FILTER',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     name: 'GroupFilters',
@@ -39,19 +39,19 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
     meta: {
       parentRoute: 'RemoteFiltersList',
       label: 'NAVIGATOR.GROUP_FILTERS',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     name: 'GroupFilterLDAP',
     path: 'filters/group/ldap',
     component: () => import('../components/GroupFilterLDAP.vue'),
-    props: route => ({ ...route.params }),
+    props: (route) => ({ ...route.params }),
     meta: {
       parentRoute: 'GroupFilters',
       label: 'NAVIGATOR.LDAP_GROUP_FILTER',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     name: 'WorkspaceFilters',
@@ -60,18 +60,18 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
     meta: {
       parentRoute: 'RemoteFiltersList',
       label: 'NAVIGATOR.WORKSPACE_FILTERS',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     name: 'WorkspaceFilterLDAP',
     path: 'filters/workspace/ldap',
     component: () => import('../components/WorkspaceFilterLDAP.vue'),
-    props: route => ({ ...route.params }),
+    props: (route) => ({ ...route.params }),
     meta: {
       parentRoute: 'WorkspaceFilters',
       label: 'NAVIGATOR.LDAP_WORKSPACE_FILTER',
-      requiresAuth: true
-    }
-  }
+      requiresAuth: true,
+    },
+  },
 ];

@@ -16,32 +16,18 @@
     <div class="install-links">
       <div class="link">
         <div class="qrcode-ctn">
-          <qrcode-vue
-            :value="OTP_APP_INSTALL_LINKS.appStore"
-            :size="160"
-            level="H"
-          />
-          <img src="@/assets/images/app-store.svg">
+          <qrcode-vue :value="OTP_APP_INSTALL_LINKS.appStore" :size="160" level="H" />
+          <img src="@/assets/images/app-store.svg" />
         </div>
-        <a
-          :href="OTP_APP_INSTALL_LINKS.appStore"
-          target="_blank"
-        >{{ $t('2FA.KEY_CREATION.APP_STORE') }}</a>
+        <a :href="OTP_APP_INSTALL_LINKS.appStore" target="_blank">{{ $t('2FA.KEY_CREATION.APP_STORE') }}</a>
       </div>
 
       <div class="link">
         <div class="qrcode-ctn">
-          <qrcode-vue
-            :value="OTP_APP_INSTALL_LINKS.googlePlay"
-            :size="160"
-            level="H"
-          />
-          <img src="@/assets/images/google-play.svg">
+          <qrcode-vue :value="OTP_APP_INSTALL_LINKS.googlePlay" :size="160" level="H" />
+          <img src="@/assets/images/google-play.svg" />
         </div>
-        <a
-          :href="OTP_APP_INSTALL_LINKS.googlePlay"
-          target="_blank"
-        >{{ $t('2FA.KEY_CREATION.GOOGLE_PLAY') }}</a>
+        <a :href="OTP_APP_INSTALL_LINKS.googlePlay" target="_blank">{{ $t('2FA.KEY_CREATION.GOOGLE_PLAY') }}</a>
       </div>
     </div>
 
@@ -49,39 +35,27 @@
       <span class="instruction__number">2</span>
       <span class="instruction__text">{{ $t('2FA.KEY_CREATION.STEP_2') }}</span>
     </div>
-    <a-button
-      v-if="!secondFA.enabled"
-      type="primary"
-      class="button"
-      @click="create2FAKey"
-    >
+    <a-button v-if="!secondFA.enabled" type="primary" class="button" @click="create2FAKey">
       {{ $t('2FA.KEY_CREATION.BUTTON') }}
     </a-button>
 
     <div class="shared-key">
-      <small v-if="secondFA.sharedKey">{{ $t('2FA.KEY_REMOVAL.INFORMATION', { date: $d(secondFA.creationDate, 'mediumDate') }) }}</small>
+      <small v-if="secondFA.sharedKey">{{
+        $t('2FA.KEY_REMOVAL.INFORMATION', { date: $d(secondFA.creationDate, 'mediumDate') })
+      }}</small>
 
       <div class="qrcode-ctn">
-        <qrcode-vue
-          v-if="secondFA.sharedKey"
-          :value="freeOtpUri"
-          :size="160"
-          level="H"
-        />
-        <img src="@/assets/images/freeotp.svg">
+        <qrcode-vue v-if="secondFA.sharedKey" :value="freeOtpUri" :size="160" level="H" />
+        <img src="@/assets/images/freeotp.svg" />
       </div>
 
-      <OtpSetupHint
-        v-if="secondFA.sharedKey"
-        :configs="otpConfigs"
-      />
+      <OtpSetupHint v-if="secondFA.sharedKey" :configs="otpConfigs" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { useStore } from 'vuex';
 import { message } from 'ant-design-vue';
 import QrcodeVue from 'qrcode.vue';
@@ -94,28 +68,28 @@ export default defineComponent({
   name: 'KeyCreation',
   components: {
     QrcodeVue,
-    OtpSetupHint
+    OtpSetupHint,
   },
-  setup () {
+  setup() {
     const store = useStore();
-    const { t } = useI18n();
     const loggedUser = store.getters['Auth/getLoggedUser'];
     const secondFA = computed(() => store.getters['Auth/getSecondFA']);
     const otpConfigs = computed(() => ({
       ...OTP_DEFAULT_CONFIGURATION,
       account: loggedUser.mail,
-      secret: secondFA.value.sharedKey
+      secret: secondFA.value.sharedKey,
     }));
-    const freeOtpUri = computed(() =>
-      `otpauth://${otpConfigs.value.type}/` +
-      `${otpConfigs.value.issuer}:${otpConfigs.value.account}` +
-      `?secret=${otpConfigs.value.secret}` +
-      `&algorithm=${otpConfigs.value.algorithm}` +
-      `&digits=${otpConfigs.value.digits}` +
-      `&period=${otpConfigs.value.period}`
+    const freeOtpUri = computed(
+      () =>
+        `otpauth://${otpConfigs.value.type}/` +
+        `${otpConfigs.value.issuer}:${otpConfigs.value.account}` +
+        `?secret=${otpConfigs.value.secret}` +
+        `&algorithm=${otpConfigs.value.algorithm}` +
+        `&digits=${otpConfigs.value.digits}` +
+        `&period=${otpConfigs.value.period}`
     );
 
-    async function create2FAKey () {
+    async function create2FAKey() {
       try {
         await store.dispatch('Auth/createSecondFA');
       } catch (error) {
@@ -130,9 +104,9 @@ export default defineComponent({
       freeOtpUri,
       create2FAKey,
       secondFA,
-      OTP_APP_INSTALL_LINKS
+      OTP_APP_INSTALL_LINKS,
     };
-  }
+  },
 });
 </script>
 

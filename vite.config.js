@@ -8,24 +8,24 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: '@', replacement: path.resolve(__dirname, 'src') },
-      { find: /^~/, replacement: '' }
-    ]
+      { find: /^~/, replacement: '' },
+    ],
   },
   css: {
     preprocessorOptions: {
       less: {
         additionalData: '@import "@/core/styles/main.less";',
-        javascriptEnabled: true
-      }
-    }
+        javascriptEnabled: true,
+      },
+    },
   },
   server: {
     port: 20082,
     proxy: {
       '^/linshare': {
         target: process.env.BACKEND_API_URL || 'http://localhost:28080',
-        changeOrigin: true
-      }
-    }
-  }
+        changeOrigin: true,
+      },
+    },
+  },
 });

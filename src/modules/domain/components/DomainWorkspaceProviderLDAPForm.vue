@@ -1,26 +1,11 @@
 <template>
-  <a-form
-    :label-col="{ span: 24 }"
-    :wrapper-col="{ span: 24 }"
-  >
-    <a-form-item
-      :label="$t('REMOTE_SERVER.TYPE.LDAP')"
-      v-bind="validateInfos.serverUuid"
-    >
-      <a-select
-        v-model:value="formState.serverUuid"
-        :options="servers.options"
-      />
+  <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
+    <a-form-item :label="$t('REMOTE_SERVER.TYPE.LDAP')" v-bind="validateInfos.serverUuid">
+      <a-select v-model:value="formState.serverUuid" :options="servers.options" />
     </a-form-item>
 
-    <a-form-item
-      :label="$t('USER_FILTER.TYPES.LDAP')"
-      v-bind="validateInfos.filterUuid"
-    >
-      <a-select
-        v-model:value="formState.filterUuid"
-        :options="filters.options"
-      />
+    <a-form-item :label="$t('USER_FILTER.TYPES.LDAP')" v-bind="validateInfos.filterUuid">
+      <a-select v-model:value="formState.filterUuid" :options="filters.options" />
     </a-form-item>
 
     <a-form-item
@@ -39,23 +24,17 @@
 
     <div class="form-actions">
       <div>
-        <a-button
-          v-if="provider.uuid"
-          @click="resetFields"
-        >
+        <a-button v-if="provider.uuid" @click="resetFields">
           {{ $t('GENERAL.RESET') }}
         </a-button>
 
-        <a-button
-          v-else
-          @click="$emit('cancel')"
-        >
+        <a-button v-else @click="$emit('cancel')">
           {{ $t('GENERAL.CANCEL') }}
         </a-button>
 
         <a-button
           type="primary"
-          style="margin-left: 10px;"
+          style="margin-left: 10px"
           :loading="formSubmitting"
           @click="provider.uuid ? save() : create()"
         >
@@ -63,19 +42,14 @@
         </a-button>
       </div>
 
-      <a-button
-        v-if="provider.uuid"
-        type="primary"
-        danger
-        @click="confirmDelete"
-      >
+      <a-button v-if="provider.uuid" type="primary" danger @click="confirmDelete">
         {{ $t('GENERAL.DELETE') }}
       </a-button>
     </div>
   </a-form>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed, reactive, ref, ComputedRef } from 'vue';
 import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
@@ -85,11 +59,7 @@ import { LDAPWorkspaceProvider } from '../types/WorkspaceProvider';
 import Domain from '../types/Domain';
 import useNotification from '@/core/hooks/useNotification';
 
-import {
-  createWorkspaceProvider,
-  deleteWorkspaceProvider,
-  updateWorkspaceProvider
-} from '../services/domain-api';
+import { createWorkspaceProvider, deleteWorkspaceProvider, updateWorkspaceProvider } from '../services/domain-api';
 
 interface Props {
   domain: Domain;
@@ -100,18 +70,22 @@ interface Props {
 
 interface LDAPServerOptions {
   list: RemoteServer[];
-  options: ComputedRef<{
-    label: string;
-    value: string;
-  }[]>;
+  options: ComputedRef<
+    {
+      label: string;
+      value: string;
+    }[]
+  >;
 }
 
 interface LDAPFilterOptions {
   list: LDAPWorkspaceFilter[];
-  options: ComputedRef<{
-    label: string;
-    value: string;
-  }[]>;
+  options: ComputedRef<
+    {
+      label: string;
+      value: string;
+    }[]
+  >;
 }
 
 interface ProviderForm {
@@ -132,32 +106,36 @@ const formState = reactive<ProviderForm>({
   baseDn: props.provider.baseDn || '',
   serverUuid: props.provider.ldapServer?.uuid || '',
   filterUuid: props.provider.driveFilter?.uuid || '',
-  searchInOtherDomains: props.provider.searchInOtherDomains
+  searchInOtherDomains: props.provider.searchInOtherDomains,
 });
 const formRules = reactive({
   baseDn: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
   serverUuid: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
-  filterUuid: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }]
+  filterUuid: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
 });
 
 const { resetFields, validate, validateInfos } = useForm(formState, formRules);
 
 const servers = reactive<LDAPServerOptions>({
   list: props.serversList,
-  options: computed(() => props.serversList.map(server => ({
-    label: server.name,
-    value: server.uuid
-  })))
+  options: computed(() =>
+    props.serversList.map((server) => ({
+      label: server.name,
+      value: server.uuid,
+    }))
+  ),
 });
 const filters = reactive<LDAPFilterOptions>({
   list: props.filtersList,
-  options: computed(() => props.filtersList.map(filter => ({
-    label: filter.name,
-    value: filter.uuid
-  })))
+  options: computed(() =>
+    props.filtersList.map((filter) => ({
+      label: filter.name,
+      value: filter.uuid,
+    }))
+  ),
 });
 
-async function create () {
+async function create() {
   formSubmitting.value = true;
 
   try {
@@ -179,23 +157,23 @@ async function create () {
   }
 }
 
-function getDto (): LDAPWorkspaceProvider {
+function getDto(): LDAPWorkspaceProvider {
   return {
     type: 'LDAP_PROVIDER',
     baseDn: formState.baseDn,
     ldapServer: {
       uuid: formState.serverUuid || '',
-      name: servers.list.find(server => server.uuid === formState.serverUuid)?.name || ''
+      name: servers.list.find((server) => server.uuid === formState.serverUuid)?.name || '',
     },
     driveFilter: {
       uuid: formState.filterUuid || '',
-      name: filters.list.find(filter => filter.uuid === formState.filterUuid)?.name || ''
+      name: filters.list.find((filter) => filter.uuid === formState.filterUuid)?.name || '',
     },
-    searchInOtherDomains: !!formState.searchInOtherDomains
+    searchInOtherDomains: !!formState.searchInOtherDomains,
   };
 }
 
-async function save () {
+async function save() {
   formSubmitting.value = true;
 
   try {
@@ -208,7 +186,7 @@ async function save () {
   try {
     const provider = await updateWorkspaceProvider(props.domain.uuid, {
       ...props.provider,
-      ...getDto()
+      ...getDto(),
     });
 
     emit('submitted', provider);
@@ -220,7 +198,7 @@ async function save () {
   }
 }
 
-async function remove () {
+async function remove() {
   try {
     await deleteWorkspaceProvider(props.domain.uuid, props.provider);
 
@@ -231,17 +209,17 @@ async function remove () {
   }
 }
 
-function confirmDelete () {
+function confirmDelete() {
   confirmModal({
     title: t('GENERAL.DELETION'),
     content: t('WORKSPACE_PROVIDER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: remove
+    onOk: remove,
   });
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .form-actions {
   margin-top: 10px;
   display: flex;

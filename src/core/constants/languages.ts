@@ -3,24 +3,24 @@ export const LANGUAGES = {
     {
       name: 'English',
       key: 'us',
-      language: 'en'
+      language: 'en',
     },
     {
       name: 'Français',
       key: 'fr',
-      language: 'fr'
+      language: 'fr',
     },
     {
       name: 'Tiếng Việt',
       key: 'vi',
-      language: 'vi'
+      language: 'vi',
     },
     {
       name: 'Pусский',
       key: 'ru',
-      language: 'ru'
-    }
+      language: 'ru',
+    },
   ],
   DEFAULT: 'en',
-  SUPPORTED_LOCALES: ['en', 'fr', 'ru', 'vi']
+  SUPPORTED_LOCALES: ['en', 'fr', 'ru', 'vi'],
 };

@@ -1,15 +1,10 @@
 import { ActionTree } from 'vuex';
 import { AuthState } from './auth.state';
 import RootState from '@/core/types/RootState';
-import {
-  create2FAKey,
-  get2FAStatus,
-  getAuthorizedUser,
-  remove2FAKey
-} from '@/modules/auth/services/auth-api';
+import { create2FAKey, get2FAStatus, getAuthorizedUser, remove2FAKey } from '@/modules/auth/services/auth-api';
 
 const actions: ActionTree<AuthState, RootState> = {
-  async fetchLoggedUser ({ commit }, config?) {
+  async fetchLoggedUser({ commit }, config?) {
     try {
       const loggedUser = await getAuthorizedUser(config);
 
@@ -20,7 +15,7 @@ const actions: ActionTree<AuthState, RootState> = {
       throw error;
     }
   },
-  async fetchSecondFA ({ commit, state }) {
+  async fetchSecondFA({ commit, state }) {
     const loggedUserUuid = state.loggedUser?.uuid;
 
     if (!loggedUserUuid) {
@@ -37,12 +32,12 @@ const actions: ActionTree<AuthState, RootState> = {
       throw error;
     }
   },
-  async createSecondFA ({ commit }) {
+  async createSecondFA({ commit }) {
     const secondFA = await create2FAKey();
 
     commit('setSecondFA', secondFA);
   },
-  async removeSecondFA ({ commit, state }) {
+  async removeSecondFA({ commit, state }) {
     const loggedUserUuid = state.loggedUser?.uuid;
 
     if (!loggedUserUuid) {
@@ -58,7 +53,7 @@ const actions: ActionTree<AuthState, RootState> = {
 
       throw error;
     }
-  }
+  },
 };
 
 export default actions;

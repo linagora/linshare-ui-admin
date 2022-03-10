@@ -12,16 +12,16 @@ export interface LoginCredentials {
 interface AuthRequestConfig extends AxiosRequestConfig {
   headers: {
     'x-linShare-2fa-pin'?: string;
-  }
+  };
 }
 
-export async function login (credentials: LoginCredentials) {
+export async function login(credentials: LoginCredentials): Promise<void> {
   const params: AuthRequestConfig = {
     auth: {
       username: credentials.email,
-      password: credentials.password
+      password: credentials.password,
     },
-    headers: {}
+    headers: {},
   };
 
   if (credentials.otp) {
@@ -32,7 +32,7 @@ export async function login (credentials: LoginCredentials) {
   await hydrate();
 }
 
-export async function logout () {
+export async function logout(): Promise<void> {
   await logOut();
   await dehydrate();
 }

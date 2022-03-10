@@ -15,7 +15,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
     redirect: { name: 'Configuration' },
     component: Home,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     },
     children: [
       {
@@ -24,19 +24,19 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
         component: () => import('../pages/Configuration.vue'),
         meta: {
           label: 'NAVIGATOR.CONFIGURATION',
-          requiresAuth: true
+          requiresAuth: true,
         },
         redirect: { name: 'ConfigurationEntries' },
         children: [
           {
             name: 'ConfigurationEntries',
             path: '',
-            component: () => import('../components/ConfigurationEntries.vue')
+            component: () => import('../components/ConfigurationEntries.vue'),
           },
           ...DomainConfigurationRoutes,
           ...RemoteFilterRoutes,
-          ...RemoteServerRoutes
-        ]
+          ...RemoteServerRoutes,
+        ],
       },
       {
         name: 'Administration',
@@ -44,12 +44,12 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
         component: () => import('../pages/Administration.vue'),
         meta: {
           label: 'NAVIGATOR.ADMINISTRATION',
-          requiresAuth: true
-        }
+          requiresAuth: true,
+        },
       },
       ...UserRoutes,
       ...SharedSpacesRoutes,
-      ManageSecondFactorAuthenticationRoute
-    ]
-  }
+      ManageSecondFactorAuthenticationRoute,
+    ],
+  },
 ];

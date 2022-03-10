@@ -1,5 +1,5 @@
 export enum USER_FILTER_TYPE {
-  LDAP = 'LDAP'
+  LDAP = 'LDAP',
 }
 
 export default interface UserFilter {

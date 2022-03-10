@@ -19,46 +19,46 @@ export interface SharedSpacesList {
   current: number;
 }
 
-async function listSharedSpaces (options: ListSharedSpaceOptions = {}): Promise<SharedSpacesList> {
+async function listSharedSpaces(options: ListSharedSpaceOptions = {}): Promise<SharedSpacesList> {
   return await api.get('shared_spaces', {
     params: options,
     transformResponse: (data, headers): SharedSpacesList => ({
       data: JSON.parse(data),
       total: Number(headers ? headers['total-elements'] : 0),
-      current: Number(headers ? headers['current-page'] : 0)
-    })
+      current: Number(headers ? headers['current-page'] : 0),
+    }),
   });
 }
 
-async function getSharedSpace (uuid: string): Promise<SharedSpace> {
+async function getSharedSpace(uuid: string): Promise<SharedSpace> {
   return await api.get(`shared_spaces/${uuid}`);
 }
 
-async function getSharedSpaceMembers (uuid: string): Promise<SharedSpaceMember[]> {
+async function getSharedSpaceMembers(uuid: string): Promise<SharedSpaceMember[]> {
   return api.get(`shared_spaces/${uuid}/members`);
 }
 
-async function getSharedSpaceRoles (nodeType?: SHARED_SPACE_TYPE): Promise<SharedSpaceRole[]> {
+async function getSharedSpaceRoles(nodeType?: SHARED_SPACE_TYPE): Promise<SharedSpaceRole[]> {
   return api.get('shared_space_roles', { params: { nodeType } });
 }
 
-async function updateSharedSpace (payload: SharedSpace): Promise<SharedSpace> {
+async function updateSharedSpace(payload: SharedSpace): Promise<SharedSpace> {
   return await api.put(`shared_spaces/${payload.uuid}`, payload);
 }
 
-async function createSharedSpaceMember (member: SharedSpaceMember): Promise<SharedSpaceMember> {
+async function createSharedSpaceMember(member: SharedSpaceMember): Promise<SharedSpaceMember> {
   return await api.post('shared_space_members', member);
 }
 
-async function updateSharedSpaceMember (member: SharedSpaceMember, force?: boolean): Promise<SharedSpaceMember> {
+async function updateSharedSpaceMember(member: SharedSpaceMember, force?: boolean): Promise<SharedSpaceMember> {
   return await api.put(`shared_space_members/${member.uuid}`, member, {
     params: {
-      force
-    }
+      force,
+    },
   });
 }
 
-async function removeSharedSpaceMember (member: SharedSpaceMember) {
+async function removeSharedSpaceMember(member: SharedSpaceMember): Promise<void> {
   return await api.delete(`shared_space_members/${member.uuid}`);
 }
 
@@ -70,5 +70,5 @@ export {
   listSharedSpaces,
   removeSharedSpaceMember,
   updateSharedSpace,
-  updateSharedSpaceMember
+  updateSharedSpaceMember,
 };

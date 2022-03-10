@@ -16,8 +16,8 @@ const state: DomainState = {
   currentDomain: EMPTY_DOMAIN,
   domainsTree: EMPTY_DOMAIN_NODE,
   status: {
-    currentDomain: Status.LOADING
-  }
+    currentDomain: Status.LOADING,
+  },
 };
 
 export default state;

@@ -1,40 +1,21 @@
 <template>
-  <a-modal
-    :visible="props.visible"
-    :title="$t(title)"
-    @cancel="onCancel"
-  >
+  <a-modal :visible="props.visible" :title="$t(title)" @cancel="onCancel">
     <template #footer>
       <div class="footer">
         <div>
           <a-button @click="onCancel">
             {{ $t('GENERAL.CANCEL') }}
           </a-button>
-          <a-button
-            :loading="formSaving"
-            type="primary"
-            @click="onSave"
-          >
+          <a-button :loading="formSaving" type="primary" @click="onSave">
             {{ $t('GENERAL.SAVE') }}
           </a-button>
         </div>
       </div>
     </template>
 
-    <a-form
-      ref="formRef"
-      :model="formState"
-      :rules="formRules"
-    >
-      <a-form-item
-        :label-col="{ span: 24 }"
-        :wrapper-col="{ span: 24 }"
-        :label="$t('DOMAIN.FIELDS.PARENT_DOMAIN')"
-      >
-        <a-input
-          :value="parent?.name"
-          readonly
-        />
+    <a-form ref="formRef" :model="formState" :rules="formRules">
+      <a-form-item :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }" :label="$t('DOMAIN.FIELDS.PARENT_DOMAIN')">
+        <a-input :value="parent?.name" readonly />
       </a-form-item>
 
       <a-form-item
@@ -95,11 +76,14 @@ export interface DomainCreationFormModalProps {
 
 const props = defineProps<DomainCreationFormModalProps>();
 const emit = defineEmits(['cancel', 'success']);
-const title = computed(() => ({
-  [DOMAIN_TYPE.TOP]: 'DOMAIN.CREATE_TOP_DOMAIN',
-  [DOMAIN_TYPE.SUB]: 'DOMAIN.CREATE_SUB_DOMAIN',
-  [DOMAIN_TYPE.GUEST]: 'DOMAIN.CREATE_GUEST_DOMAIN'
-}[props.type || DOMAIN_TYPE.TOP]));
+const title = computed(
+  () =>
+    ({
+      [DOMAIN_TYPE.TOP]: 'DOMAIN.CREATE_TOP_DOMAIN',
+      [DOMAIN_TYPE.SUB]: 'DOMAIN.CREATE_SUB_DOMAIN',
+      [DOMAIN_TYPE.GUEST]: 'DOMAIN.CREATE_GUEST_DOMAIN',
+    }[props.type || DOMAIN_TYPE.TOP])
+);
 
 const { t } = useI18n();
 const formSaving = ref(false);
@@ -107,19 +91,19 @@ const formRef = ref();
 const formState = reactive({
   name: '',
   description: '',
-  dedicatedDomainPolicy: false
+  dedicatedDomainPolicy: false,
 });
 const formRules = computed(() => ({
   name: [
     {
       required: true,
       message: t('DOMAIN.FIELDS.NAME_REQUIRED'),
-      trigger: 'blur'
-    }
-  ]
+      trigger: 'blur',
+    },
+  ],
 }));
 
-async function onSave () {
+async function onSave() {
   formSaving.value = true;
 
   try {
@@ -130,12 +114,15 @@ async function onSave () {
   }
 
   try {
-    await createDomain({
-      name: formState.name,
-      description: formState.description ? formState.description : undefined,
-      parent: props.parent,
-      type: props.type
-    }, formState.dedicatedDomainPolicy);
+    await createDomain(
+      {
+        name: formState.name,
+        description: formState.description ? formState.description : undefined,
+        parent: props.parent,
+        type: props.type,
+      },
+      formState.dedicatedDomainPolicy
+    );
 
     emit('success');
     resetForm();
@@ -147,12 +134,12 @@ async function onSave () {
   }
 }
 
-function onCancel () {
+function onCancel() {
   resetForm();
   emit('cancel');
 }
 
-function resetForm () {
+function resetForm() {
   formState.name = '';
   formState.dedicatedDomainPolicy = false;
   formState.description = '';

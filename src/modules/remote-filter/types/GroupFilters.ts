@@ -28,5 +28,5 @@ export const EMPTY_LDAP_GROUP_FILTER: LDAPGroupFilter = {
   searchAllGroupsQuery: '',
   searchGroupQuery: '',
   searchPageSize: 1,
-  type: 'LDAP'
+  type: 'LDAP',
 };

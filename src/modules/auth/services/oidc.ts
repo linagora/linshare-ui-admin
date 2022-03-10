@@ -14,25 +14,25 @@ const manager = new UserManager({
   scope: oidcSetting.scope,
   redirect_uri: window.location.origin + '/#/oidccallback',
   response_type: 'code',
-  post_logout_redirect_uri: window.location.origin + '/'
+  post_logout_redirect_uri: window.location.origin + '/',
 });
 
 interface OIDCBearerRequest extends AxiosRequestConfig {
   headers: {
-    'Authorization': string;
-  }
+    Authorization: string;
+  };
 }
 
-export function signinRedirect () {
+export function signinRedirect(): void {
   manager.signinRedirect();
 }
 
-export async function signinCallback () {
+export async function signinCallback(): Promise<void> {
   const { access_token } = await manager.signinRedirectCallback();
   const authRequestConfig: OIDCBearerRequest = {
     headers: {
-      Authorization: `Bearer ${access_token}`
-    }
+      Authorization: `Bearer ${access_token}`,
+    },
   };
   await store.dispatch('Auth/fetchLoggedUser', authRequestConfig);
   store.commit('setAuthenticating', false);
@@ -40,7 +40,7 @@ export async function signinCallback () {
   await hydrate();
 }
 
-export async function signOut () {
+export async function signOut(): Promise<void> {
   await logOut();
   await dehydrate();
   manager.signoutRedirect();

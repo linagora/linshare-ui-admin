@@ -4,7 +4,7 @@ import SharedSpaceRole from './SharedSpaceRole';
 
 export default interface SharedSpaceMember {
   uuid: string;
-  type?: SHARED_SPACE_TYPE
+  type?: SHARED_SPACE_TYPE;
   nested?: boolean;
   node: Partial<SharedSpace>;
   nestedRole?: Omit<SharedSpaceRole, 'enabled'>;
@@ -20,12 +20,12 @@ export const EMPTY_SHARED_SPACE_MEMBER: SharedSpaceMember = {
   role: {
     name: '',
     type: 'WORK_GROUP',
-    uuid: ''
+    uuid: '',
   },
   account: {
     firstName: '',
     lastName: '',
     mail: '',
-    uuid: ''
-  }
+    uuid: '',
+  },
 };

@@ -15,24 +15,29 @@ const store = useStore();
 const { t } = useI18n();
 const props = withDefaults(defineProps<Props>(), {
   type: SHARED_SPACE_TYPE.WORKGROUP,
-  uuid: ''
+  uuid: '',
 });
 const emit = defineEmits(['change']);
 
 const roles: SharedSpaceRole[] = store.getters['SharedSpace/getRolesByType'](props.type);
-const roleOptions = ref(roles.map(role => ({
-  value: role.uuid,
-  label: computed(() => t(`SHARED_SPACES.ROLE.${role.name}`)),
-  disabled: !role.enabled
-})));
+const roleOptions = ref(
+  roles.map((role) => ({
+    value: role.uuid,
+    label: computed(() => t(`SHARED_SPACES.ROLE.${role.name}`)),
+    disabled: !role.enabled,
+  }))
+);
 const selectedRoleUuid = ref(props.uuid || roles[0].uuid);
 
-function onRoleChange (uuid: string) {
-  emit('change', roles.find(role => role.uuid === uuid));
+function onRoleChange(uuid: string) {
+  emit(
+    'change',
+    roles.find((role) => role.uuid === uuid)
+  );
 }
 
 watchEffect(() => {
-  if (roles.some(role => role.uuid === props.uuid)) {
+  if (roles.some((role) => role.uuid === props.uuid)) {
     selectedRoleUuid.value = props.uuid;
   } else {
     selectedRoleUuid.value = roles[0].uuid;
@@ -41,11 +46,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <a-select
-    v-model:value="selectedRoleUuid"
-    :options="roleOptions"
-    @change="onRoleChange"
-  >
+  <a-select v-model:value="selectedRoleUuid" :options="roleOptions" @change="onRoleChange">
     <template #suffixIcon>
       <TeamOutlined v-if="type === SHARED_SPACE_TYPE.WORKSPACE" />
       <UserOutlined v-else />

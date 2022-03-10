@@ -10,7 +10,7 @@ const state: RootState = {
   hydrating: false,
   authenticating: false,
   authenticated: false,
-  error: false
+  error: false,
 };
 
 export default createStore({
@@ -19,28 +19,28 @@ export default createStore({
     isHydrating: (state: RootState) => state.hydrating,
     isHydrated: (state: RootState) => state.hydrated,
     isAuthenticated: (state: RootState) => state.authenticated,
-    isAuthenticating: (state: RootState) => state.authenticating
+    isAuthenticating: (state: RootState) => state.authenticating,
   },
   mutations: {
-    setHydrating (state: RootState, hydrating: boolean) {
+    setHydrating(state: RootState, hydrating: boolean) {
       state.hydrating = hydrating;
     },
-    setHydrated (state: RootState, hydrated: boolean) {
+    setHydrated(state: RootState, hydrated: boolean) {
       state.hydrated = hydrated;
     },
-    setAuthenticated (state: RootState, authenticated: boolean) {
+    setAuthenticated(state: RootState, authenticated: boolean) {
       state.authenticated = authenticated;
     },
-    setAuthenticating (state: RootState, authenticating: boolean) {
+    setAuthenticating(state: RootState, authenticating: boolean) {
       state.authenticating = authenticating;
-    }
+    },
   },
   state,
   modules: {
     SharedSpace,
     Auth,
     Domain,
-    User
+    User,
   },
-  strict: import.meta.env.MODE !== 'production'
+  strict: import.meta.env.MODE !== 'production',
 });

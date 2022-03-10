@@ -5,7 +5,7 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
     mediumDate: {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     },
     mediumDateTime: {
       year: 'numeric',
@@ -14,14 +14,14 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
-      hour12: false
-    }
+      hour12: false,
+    },
   },
   fr: {
     mediumDate: {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     },
     mediumDateTime: {
       year: 'numeric',
@@ -30,14 +30,14 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
-      hour12: false
-    }
+      hour12: false,
+    },
   },
   ru: {
     mediumDate: {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     },
     mediumDateTime: {
       year: 'numeric',
@@ -46,14 +46,14 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
-      hour12: false
-    }
+      hour12: false,
+    },
   },
   vi: {
     mediumDate: {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     },
     mediumDateTime: {
       year: 'numeric',
@@ -62,7 +62,7 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
-      hour12: false
-    }
-  }
+      hour12: false,
+    },
+  },
 };

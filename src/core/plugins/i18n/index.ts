@@ -10,7 +10,7 @@ const i18n = createI18n({
   globalInjection: true,
   datetimeFormats,
   locale,
-  messages
+  messages,
 });
 
 export default i18n;

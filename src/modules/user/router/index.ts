@@ -8,8 +8,8 @@ export const UserRoutes: Array<RouteRecordRaw> = [
     meta: {
       parentRoute: 'Administration',
       label: 'NAVIGATOR.MANAGE_USERS',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     name: 'UserDetail',
@@ -18,7 +18,7 @@ export const UserRoutes: Array<RouteRecordRaw> = [
     meta: {
       parentRoute: 'UsersList',
       label: 'NAVIGATOR.USER_DETAILS',
-      requiresAuth: true
-    }
-  }
+      requiresAuth: true,
+    },
+  },
 ];

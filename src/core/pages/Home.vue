@@ -14,7 +14,7 @@
   </a-layout>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import Footer from '@/core/components/Footer.vue';
 import Header from '@/core/components/Header.vue';
 import use2FARequiredCheck from '@/modules/auth/hooks/use2FARequiredCheck';
@@ -22,7 +22,7 @@ import use2FARequiredCheck from '@/modules/auth/hooks/use2FARequiredCheck';
 use2FARequiredCheck();
 </script>
 
-<style lang='less'>
+<style lang="less">
 .ls-admin-layout {
   &.full-height {
     position: relative;

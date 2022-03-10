@@ -1,8 +1,5 @@
 <template>
-  <a-alert
-    v-if="secondFA.enabled && !secondFA.canDeleteIt"
-    type="warning"
-  >
+  <a-alert v-if="secondFA.enabled && !secondFA.canDeleteIt" type="warning">
     <template #description>
       <h1>{{ $t('2FA.KEY_REMOVAL.ALERT.TITLE') }}</h1>
       <span>{{ $t('2FA.KEY_REMOVAL.ALERT.MESSAGE') }}</span>
@@ -16,12 +13,7 @@
       <small>{{ $t('2FA.KEY_REMOVAL.INFORMATION', { date: $d(secondFA.creationDate, 'mediumDate') }) }}</small>
     </div>
 
-    <a-button
-      v-if="secondFA.canDeleteIt"
-      type="primary"
-      class="button"
-      @click="confirmRemoval"
-    >
+    <a-button v-if="secondFA.canDeleteIt" type="primary" class="button" @click="confirmRemoval">
       {{ $t('2FA.KEY_REMOVAL.BUTTON') }}
     </a-button>
   </div>
@@ -37,12 +29,12 @@ import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 
 export default defineComponent({
   name: 'KeyRemoval',
-  setup () {
+  setup() {
     const { t } = useI18n();
     const router = useRouter();
     const store = useStore();
 
-    async function remove2FAKey () {
+    async function remove2FAKey() {
       try {
         await store.dispatch('Auth/removeSecondFA');
         router.go(0);
@@ -51,21 +43,21 @@ export default defineComponent({
       }
     }
 
-    function confirmRemoval () {
+    function confirmRemoval() {
       Modal.confirm({
         title: () => t('GENERAL.DELETION'),
         icon: () => createVNode(ExclamationCircleOutlined),
         content: () => t('2FA.KEY_REMOVAL.CONFIRMATION'),
         okText: () => t('GENERAL.DELETE'),
         cancelText: () => t('GENERAL.CANCEL'),
-        onOk: remove2FAKey
+        onOk: remove2FAKey,
       });
     }
 
     return {
       confirmRemoval,
-      secondFA: computed(() => store.getters['Auth/getSecondFA'])
+      secondFA: computed(() => store.getters['Auth/getSecondFA']),
     };
-  }
+  },
 });
 </script>

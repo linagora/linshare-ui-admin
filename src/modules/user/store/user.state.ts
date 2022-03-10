@@ -5,7 +5,7 @@ export interface UserState {
 }
 
 const state: UserState = {
-  user: {}
+  user: {},
 };
 
 export default state;

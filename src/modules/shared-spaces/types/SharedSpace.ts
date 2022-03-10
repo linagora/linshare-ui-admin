@@ -1,6 +1,6 @@
 export enum SHARED_SPACE_TYPE {
   WORKGROUP = 'WORK_GROUP',
-  WORKSPACE = 'WORK_SPACE'
+  WORKSPACE = 'WORK_SPACE',
 }
 export default interface SharedSpace {
   uuid: string;
@@ -15,10 +15,10 @@ export default interface SharedSpace {
     name: string;
     mail: string;
     uuid: string;
-  }
+  };
 }
 
 export const EMPTY_SHARED_SPACE: SharedSpace = {
   uuid: '',
-  name: ''
+  name: '',
 };

@@ -1,15 +1,12 @@
 <template>
-  <PageTitle
-    :title="$t('NAVIGATOR.REMOTE_SERVERS')"
-    :breadcrumbs="breadcrumbs"
-  />
+  <PageTitle :title="$t('NAVIGATOR.REMOTE_SERVERS')" :breadcrumbs="breadcrumbs" />
 
   <div>
     <div class="actions">
       <a-input
         v-model:value="state.filterText"
         :placeholder="$t('GENERAL.SEARCH_BY_NAME')"
-        style="width: 200px; margin-right: 10px;"
+        style="width: 200px; margin-right: 10px"
         allow-clear
       >
         <template #prefix>
@@ -18,10 +15,7 @@
       </a-input>
 
       <a-dropdown :trigger="['click']">
-        <a-button
-          :disabled="state.loading"
-          type="primary"
-        >
+        <a-button :disabled="state.loading" type="primary">
           <template #icon>
             <PlusCircleOutlined />
           </template>
@@ -40,12 +34,7 @@
       </a-dropdown>
     </div>
 
-    <a-table
-      :columns="columns"
-      :data-source="filteredList"
-      :loading="state.loading"
-      row-key="uuid"
-    >
+    <a-table :columns="columns" :data-source="filteredList" :loading="state.loading" row-key="uuid">
       <template #name="{ record, text }">
         <a @click="openEditModal(record)">{{ text }}</a>
       </template>
@@ -92,28 +81,14 @@
     @cancel="state.TWAKE.showModal = false"
   />
 
-  <DomainAssociatedListModal
-    :state="modal"
-    :empty-text="$t('REMOTE_SERVER.NO_ASSOCIATED_DOMAIN')"
-    @ok="hide"
-  />
+  <DomainAssociatedListModal :state="modal" :empty-text="$t('REMOTE_SERVER.NO_ASSOCIATED_DOMAIN')" @ok="hide" />
 </template>
 
-<script lang='ts' setup>
-import {
-  computed,
-  createVNode,
-  reactive,
-  onMounted
-} from 'vue';
+<script lang="ts" setup>
+import { computed, createVNode, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { Modal, message } from 'ant-design-vue';
-import {
-  PlusCircleOutlined,
-  EllipsisOutlined,
-  ExclamationCircleOutlined,
-  SearchOutlined
-} from '@ant-design/icons-vue';
+import { PlusCircleOutlined, EllipsisOutlined, ExclamationCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 
 import PageTitle from '@/core/components/PageTitle.vue';
 import RemoteServerLDAPModal from '../components/RemoteServerLDAPModal.vue';
@@ -126,14 +101,10 @@ import RemoteServer, {
   EMPTY_LDAP_SERVER,
   EMPTY_TWAKE_SERVER,
   LDAPRemoteServer,
-  TwakeRemoteServer
+  TwakeRemoteServer,
 } from '../types/RemoteServer';
 
-import {
-  deleteRemoteServer,
-  getAssociatedDomains,
-  listRemoteServers
-} from '../services/remote-server-api';
+import { deleteRemoteServer, getAssociatedDomains, listRemoteServers } from '../services/remote-server-api';
 
 interface RemoteServersListState {
   loading: boolean;
@@ -146,7 +117,7 @@ interface RemoteServersListState {
   TWAKE: {
     showModal: boolean;
     data: TwakeRemoteServer;
-  }
+  };
 }
 
 const { t } = useI18n();
@@ -158,52 +129,54 @@ const state = reactive<RemoteServersListState>({
   list: [],
   LDAP: {
     showModal: false,
-    data: { ...EMPTY_LDAP_SERVER }
+    data: { ...EMPTY_LDAP_SERVER },
   },
   TWAKE: {
     showModal: false,
-    data: { ...EMPTY_TWAKE_SERVER }
-  }
+    data: { ...EMPTY_TWAKE_SERVER },
+  },
 });
-const filteredList = computed(() => state.list.filter(server => server.name.toLowerCase().includes(state.filterText.toLowerCase())));
+const filteredList = computed(() =>
+  state.list.filter((server) => server.name.toLowerCase().includes(state.filterText.toLowerCase()))
+);
 const columns = computed(() => [
   {
     title: t('GENERAL.NAME'),
     dataIndex: 'name',
     sorter: (a: RemoteServer, b: RemoteServer) => a.name.localeCompare(b.name),
-    slots: { customRender: 'name' }
+    slots: { customRender: 'name' },
   },
   {
     title: t('REMOTE_SERVER.FIELDS.TYPE'),
     dataIndex: 'serverType',
     width: '130px',
-    sorter: (a: RemoteServer, b: RemoteServer) => a.name.localeCompare(b.name)
+    sorter: (a: RemoteServer, b: RemoteServer) => a.name.localeCompare(b.name),
   },
   {
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: 'creationDate',
     sorter: (a: RemoteServer, b: RemoteServer) => (a.creationDate || 0) - (b.creationDate || 0),
-    slots: { customRender: 'date' }
+    slots: { customRender: 'date' },
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: 'modificationDate',
     sorter: (a: RemoteServer, b: RemoteServer) => (a.modificationDate || 0) - (b.modificationDate || 0),
-    slots: { customRender: 'date' }
+    slots: { customRender: 'date' },
   },
   {
     title: t('GENERAL.ACTIONS'),
     width: '80px',
     align: 'center',
-    slots: { customRender: 'actions' }
-  }
+    slots: { customRender: 'actions' },
+  },
 ]);
 
-function fetchRemoteServers () {
+function fetchRemoteServers() {
   state.loading = true;
 
   listRemoteServers()
-    .then(remoteServers => {
+    .then((remoteServers) => {
       state.list = remoteServers;
     })
     .finally(() => {
@@ -211,14 +184,14 @@ function fetchRemoteServers () {
     });
 }
 
-function onSuccess () {
+function onSuccess() {
   state.LDAP.showModal = false;
   state.TWAKE.showModal = false;
 
   fetchRemoteServers();
 }
 
-async function onDeleteConfirmation (target: RemoteServer, abort: boolean) {
+async function onDeleteConfirmation(target: RemoteServer, abort: boolean) {
   if (abort) return;
 
   try {
@@ -232,29 +205,27 @@ async function onDeleteConfirmation (target: RemoteServer, abort: boolean) {
   }
 }
 
-function openEditModal (remoteServer: RemoteServer) {
+function openEditModal(remoteServer: RemoteServer) {
   state[remoteServer.serverType].data = remoteServer;
   state[remoteServer.serverType].showModal = true;
 }
 
-function openCreateModal (type: 'TWAKE' | 'LDAP', duplicateTarget?: RemoteServer) {
-  state[type].data = duplicateTarget || type === 'LDAP'
-    ? { ...EMPTY_LDAP_SERVER }
-    : { ...EMPTY_TWAKE_SERVER };
+function openCreateModal(type: 'TWAKE' | 'LDAP', duplicateTarget?: RemoteServer) {
+  state[type].data = duplicateTarget || type === 'LDAP' ? { ...EMPTY_LDAP_SERVER } : { ...EMPTY_TWAKE_SERVER };
 
   state[type].showModal = true;
 }
 
-async function openDeleteModal (target: RemoteServer) {
+async function openDeleteModal(target: RemoteServer) {
   const usedInDomains = !!(await getAssociatedDomains(target.uuid)).length;
 
   Modal[usedInDomains ? 'info' : 'confirm']({
     title: () => t('GENERAL.DELETION'),
     icon: () => createVNode(ExclamationCircleOutlined),
-    content: () => usedInDomains ? t('REMOTE_SERVER.DELETE_ABORT') : t('REMOTE_SERVER.DELETE_CONFIRM'),
-    okText: () => usedInDomains ? t('GENERAL.OK') : t('GENERAL.DELETE'),
+    content: () => (usedInDomains ? t('REMOTE_SERVER.DELETE_ABORT') : t('REMOTE_SERVER.DELETE_CONFIRM')),
+    okText: () => (usedInDomains ? t('GENERAL.OK') : t('GENERAL.DELETE')),
     cancelText: () => t('GENERAL.CANCEL'),
-    onOk: () => onDeleteConfirmation(target, usedInDomains)
+    onOk: () => onDeleteConfirmation(target, usedInDomains),
   });
 }
 
@@ -262,13 +233,13 @@ onMounted(fetchRemoteServers);
 </script>
 
 <style lang="less" scoped>
-  .actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-  }
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
 
-  .danger {
-    color: @error-color;
-  }
+.danger {
+  color: @error-color;
+}
 </style>

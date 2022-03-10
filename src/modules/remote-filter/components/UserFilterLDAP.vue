@@ -6,30 +6,20 @@
   >
     <template #helperContent>
       <span>{{ $t('USER_FILTER.LDAP.PAGE_HELPER_P1') }}</span>
-      <br>
+      <br />
       <span>{{ $t('USER_FILTER.LDAP.PAGE_HELPER_P2') }}</span>
     </template>
 
     <template #subTitlePostfix>
-      <div
-        v-if="editMode && !fetchingData"
-        class="delete-button-container"
-      >
-        <a-button
-          type="primary"
-          danger
-          @click="confirmDelete"
-        >
+      <div v-if="editMode && !fetchingData" class="delete-button-container">
+        <a-button type="primary" danger @click="confirmDelete">
           {{ $t('GENERAL.DELETE') }}
         </a-button>
       </div>
     </template>
   </PageTitle>
 
-  <div
-    v-if="fetchingData"
-    class="spinner"
-  >
+  <div v-if="fetchingData" class="spinner">
     <a-spin />
   </div>
 
@@ -42,40 +32,19 @@
     :wrapper-col="{ span: 24 }"
   >
     <a-row>
-      <a-col
-        :xl="{ span: 12, offset: 6 }"
-        :sm="{ span: 24 }"
-      >
-        <div
-          v-if="!editMode"
-          class="model-selection"
-        >
-          <a-form-item
-            :label="$t('GENERAL.SELECT_MODEL')"
-          >
-            <a-select
-              v-model:value="models.selected"
-              :options="models.options"
-              @change="onModelChange"
-            />
+      <a-col :xl="{ span: 12, offset: 6 }" :sm="{ span: 24 }">
+        <div v-if="!editMode" class="model-selection">
+          <a-form-item :label="$t('GENERAL.SELECT_MODEL')">
+            <a-select v-model:value="models.selected" :options="models.options" @change="onModelChange" />
           </a-form-item>
         </div>
 
-        <a-form-item
-          :label="$t('GENERAL.NAME')"
-          name="name"
-        >
+        <a-form-item :label="$t('GENERAL.NAME')" name="name">
           <a-input v-model:value="formState.name" />
         </a-form-item>
 
-        <a-form-item
-          :label="$t('GENERAL.DESCRIPTION')"
-          name="description"
-        >
-          <a-textarea
-            v-model:value="formState.description"
-            auto-size
-          />
+        <a-form-item :label="$t('GENERAL.DESCRIPTION')" name="description">
+          <a-textarea v-model:value="formState.description" auto-size />
         </a-form-item>
 
         <div class="section">
@@ -87,13 +56,8 @@
             {{ $t('USER_FILTER.LDAP.FORM.AUTHENTICATION_QUERY_HELPER') }}
           </p>
 
-          <a-form-item
-            name="authenticationQuery"
-          >
-            <a-textarea
-              v-model:value="formState.authenticationQuery"
-              auto-size
-            />
+          <a-form-item name="authenticationQuery">
+            <a-textarea v-model:value="formState.authenticationQuery" auto-size />
           </a-form-item>
         </div>
 
@@ -105,38 +69,20 @@
             {{ $t('USER_FILTER.LDAP.FORM.SEARCH_USER_QUERY_HELPER') }}
           </p>
 
-          <a-form-item
-            :label="$t('USER_FILTER.LDAP.FORM.QUERY')"
-            name="searchUserQuery"
-          >
-            <a-textarea
-              v-model:value="formState.searchUserQuery"
-              auto-size
-            />
+          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.QUERY')" name="searchUserQuery">
+            <a-textarea v-model:value="formState.searchUserQuery" auto-size />
           </a-form-item>
 
           <a-row :gutter="32">
             <a-col :span="12">
-              <a-form-item
-                :label="$t('USER_FILTER.LDAP.FORM.PAGE_SIZE')"
-                name="searchPageSize"
-              >
-                <a-input
-                  v-model:value="formState.searchPageSize"
-                  type="number"
-                />
+              <a-form-item :label="$t('USER_FILTER.LDAP.FORM.PAGE_SIZE')" name="searchPageSize">
+                <a-input v-model:value="formState.searchPageSize" type="number" />
               </a-form-item>
             </a-col>
 
             <a-col :span="12">
-              <a-form-item
-                :label="$t('USER_FILTER.LDAP.FORM.LIMIT')"
-                name="searchSizeLimit"
-              >
-                <a-input
-                  v-model:value="formState.searchSizeLimit"
-                  type="number"
-                />
+              <a-form-item :label="$t('USER_FILTER.LDAP.FORM.LIMIT')" name="searchSizeLimit">
+                <a-input v-model:value="formState.searchSizeLimit" type="number" />
               </a-form-item>
             </a-col>
           </a-row>
@@ -154,44 +100,23 @@
             :label="$t('USER_FILTER.LDAP.FORM.QUERY_ON_ALL_ATTRIBUTES')"
             name="autoCompleteCommandOnAllAttributes"
           >
-            <a-textarea
-              v-model:value="formState.autoCompleteCommandOnAllAttributes"
-              auto-size
-            />
+            <a-textarea v-model:value="formState.autoCompleteCommandOnAllAttributes" auto-size />
           </a-form-item>
 
-          <a-form-item
-            :label="$t('USER_FILTER.LDAP.FORM.QUERY_ON_NAMES')"
-            name="autoCompleteCommandOnFirstAndLastName"
-          >
-            <a-textarea
-              v-model:value="formState.autoCompleteCommandOnFirstAndLastName"
-              auto-size
-            />
+          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.QUERY_ON_NAMES')" name="autoCompleteCommandOnFirstAndLastName">
+            <a-textarea v-model:value="formState.autoCompleteCommandOnFirstAndLastName" auto-size />
           </a-form-item>
 
           <a-row :gutter="32">
             <a-col :span="12">
-              <a-form-item
-                :label="$t('USER_FILTER.LDAP.FORM.PAGE_SIZE')"
-                name="completionPageSize"
-              >
-                <a-input
-                  v-model:value="formState.completionPageSize"
-                  type="number"
-                />
+              <a-form-item :label="$t('USER_FILTER.LDAP.FORM.PAGE_SIZE')" name="completionPageSize">
+                <a-input v-model:value="formState.completionPageSize" type="number" />
               </a-form-item>
             </a-col>
 
             <a-col :span="12">
-              <a-form-item
-                :label="$t('USER_FILTER.LDAP.FORM.LIMIT')"
-                name="completionSizeLimit"
-              >
-                <a-input
-                  v-model:value="formState.completionSizeLimit"
-                  type="number"
-                />
+              <a-form-item :label="$t('USER_FILTER.LDAP.FORM.LIMIT')" name="completionSizeLimit">
+                <a-input v-model:value="formState.completionSizeLimit" type="number" />
               </a-form-item>
             </a-col>
           </a-row>
@@ -205,40 +130,25 @@
             {{ $t('USER_FILTER.LDAP.FORM.ATTRIBUTES_HELPER') }}
           </p>
 
-          <a-form-item
-            :label="$t('USER_FILTER.LDAP.FORM.UNIQUE_ID')"
-            name="userUidAttribute"
-          >
+          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.UNIQUE_ID')" name="userUidAttribute">
             <a-input v-model:value="formState.userUidAttribute" />
           </a-form-item>
 
-          <a-form-item
-            :label="$t('USER_FILTER.LDAP.FORM.MAIL')"
-            name="userMailAttribute"
-          >
+          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.MAIL')" name="userMailAttribute">
             <a-input v-model:value="formState.userMailAttribute" />
           </a-form-item>
 
-          <a-form-item
-            :label="$t('USER_FILTER.LDAP.FORM.FIRSTNAME')"
-            name="userFirstNameAttribute"
-          >
+          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.FIRSTNAME')" name="userFirstNameAttribute">
             <a-input v-model:value="formState.userFirstNameAttribute" />
           </a-form-item>
 
-          <a-form-item
-            :label="$t('USER_FILTER.LDAP.FORM.LASTNAME')"
-            name="userLastNameAttribute"
-          >
+          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.LASTNAME')" name="userLastNameAttribute">
             <a-input v-model:value="formState.userLastNameAttribute" />
           </a-form-item>
         </div>
 
         <div>
-          <a-button
-            v-if="editMode"
-            @click="resetForm"
-          >
+          <a-button v-if="editMode" @click="resetForm">
             {{ $t('GENERAL.RESET') }}
           </a-button>
 
@@ -248,12 +158,7 @@
             </router-link>
           </a-button>
 
-          <a-button
-            type="primary"
-            style="margin-left: 10px"
-            :loading="formSubmitting"
-            @click="onSubmit"
-          >
+          <a-button type="primary" style="margin-left: 10px" :loading="formSubmitting" @click="onSubmit">
             {{ $t(props.uuid ? 'GENERAL.SAVE' : 'GENERAL.CREATE') }}
           </a-button>
         </div>
@@ -262,7 +167,7 @@
   </a-form>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed, reactive, ref, onMounted } from 'vue';
 import { message } from 'ant-design-vue';
 import { SelectTypes } from 'ant-design-vue/es/select';
@@ -278,7 +183,7 @@ import {
   listUserFilters,
   getAssociatedDomains,
   getUserFilter,
-  updateUserFilter
+  updateUserFilter,
 } from '../services/user-filter-api';
 
 interface Props {
@@ -302,7 +207,7 @@ const editMode = computed(() => props.uuid && !props.duplicate);
 const models = reactive<UserFilterModelOptions>({
   selected: '',
   list: [],
-  options: []
+  options: [],
 });
 const userFilter = {};
 const fetchingData = ref(false);
@@ -325,20 +230,18 @@ const formRules = computed(() => {
     searchPageSize: [{ ...required, type: 'number' }],
     searchSizeLimit: [{ ...required, type: 'number' }],
     completionPageSize: [{ ...required, type: 'number' }],
-    completionSizeLimit: [{ ...required, type: 'number' }]
+    completionSizeLimit: [{ ...required, type: 'number' }],
   };
 });
 
-async function prepareData () {
+async function prepareData() {
   fetchingData.value = true;
 
   if (props.uuid) {
     const filter = await getUserFilter(props.uuid);
     Object.assign(userFilter, filter);
     Object.assign(formState, filter, {
-      name: props.duplicate
-        ? ''
-        : filter.name
+      name: props.duplicate ? '' : filter.name,
     });
   }
 
@@ -347,14 +250,14 @@ async function prepareData () {
 
     Object.assign(models, {
       list: availableModels,
-      options: availableModels.map(model => ({ label: model.name, value: model.uuid }))
+      options: availableModels.map((model) => ({ label: model.name, value: model.uuid })),
     });
   }
 
   fetchingData.value = false;
 }
 
-async function onSubmit () {
+async function onSubmit() {
   formSubmitting.value = true;
 
   try {
@@ -368,14 +271,14 @@ async function onSubmit () {
     if (props.uuid) {
       await updateUserFilter(props.uuid, {
         ...formState,
-        type: USER_FILTER_TYPE.LDAP
+        type: USER_FILTER_TYPE.LDAP,
       });
 
       message.success(t('MESSAGES.UPDATE_SUCCESS'));
     } else {
       await createUserFilter({
         ...formState,
-        type: USER_FILTER_TYPE.LDAP
+        type: USER_FILTER_TYPE.LDAP,
       });
 
       message.success(t('MESSAGES.CREATE_SUCCESS'));
@@ -388,24 +291,24 @@ async function onSubmit () {
   }
 }
 
-function onModelChange (modelUuid: string) {
-  const model = models.list.find(model => model.uuid === modelUuid);
+function onModelChange(modelUuid: string) {
+  const model = models.list.find((model) => model.uuid === modelUuid);
 
   Object.assign(formState, model, { name: formState.name });
   formRef.value.validate();
 }
 
-function resetForm () {
+function resetForm() {
   Object.assign(formState, userFilter);
 }
 
-async function confirmDelete (filter: UserFilter) {
+async function confirmDelete(filter: UserFilter) {
   const usedInDomains = !!(await getAssociatedDomains(filter.uuid)).length;
 
   if (usedInDomains) {
     return infoModal({
       title: t('GENERAL.DELETION'),
-      content: t('USER_FILTER.DELETE_ABORT')
+      content: t('USER_FILTER.DELETE_ABORT'),
     });
   }
 
@@ -413,11 +316,11 @@ async function confirmDelete (filter: UserFilter) {
     title: t('GENERAL.DELETION'),
     content: t('USER_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: () => removeUserFilter(filter)
+    onOk: () => removeUserFilter(filter),
   });
 }
 
-async function removeUserFilter (filter: UserFilter) {
+async function removeUserFilter(filter: UserFilter) {
   try {
     await deleteUserFilter(filter.uuid);
 

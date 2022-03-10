@@ -26,14 +26,14 @@ export const EMPTY_LDAP_SERVER: LDAPRemoteServer = {
   uuid: '',
   name: '',
   url: '',
-  serverType: 'LDAP'
+  serverType: 'LDAP',
 };
 
 export const EMPTY_TWAKE_SERVER: TwakeRemoteServer = {
   uuid: '',
   name: '',
   url: '',
-  serverType: 'TWAKE'
+  serverType: 'TWAKE',
 };
 
 export default RemoteServer;

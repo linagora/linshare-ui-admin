@@ -8,20 +8,20 @@ import {
   getDomain,
   updateDomain,
   deleteDomain,
-  getFunctionalties
+  getFunctionalties,
 } from '@/modules/domain/services/domain-api';
 import User from '@/modules/user/types/User';
 
 const actions: ActionTree<DomainState, RootState> = {
-  setCurrentDomainUuid ({ commit }, uuid: string) {
+  setCurrentDomainUuid({ commit }, uuid: string) {
     commit('setCurrentDomain', { uuid });
   },
-  async fetchDomainsTree ({ commit }) {
+  async fetchDomainsTree({ commit }) {
     const domains = await getDomains({ params: { tree: true } });
 
     commit('setDomainsTree', domains[0]);
   },
-  async fetchDomain ({ commit, state }) {
+  async fetchDomain({ commit, state }) {
     commit('setCurrentDomainStatus', Status.LOADING);
 
     try {
@@ -33,19 +33,19 @@ const actions: ActionTree<DomainState, RootState> = {
       commit('setCurrentDomainStatus', Status.ERROR);
     }
   },
-  async updateDomain ({ commit }, domain: Domain) {
+  async updateDomain({ commit }, domain: Domain) {
     const updated = await updateDomain(domain);
 
     commit('setCurrentDomain', updated);
     commit('setDomainNameInTree', updated);
   },
-  async deleteCurrentDomain ({ commit, state, dispatch }) {
+  async deleteCurrentDomain({ commit, state, dispatch }) {
     await deleteDomain(state.currentDomain);
     await dispatch('fetchDomainsTree');
     commit('setCurrentDomain', state.domainsTree);
     await dispatch('fetchDomain');
   },
-  async fetchLoggedUserFunctionalities ({ commit, rootGetters }) {
+  async fetchLoggedUserFunctionalities({ commit, rootGetters }) {
     const loggedUser: User = rootGetters['Auth/getLoggedUser'];
 
     if (!loggedUser) return;
@@ -53,7 +53,7 @@ const actions: ActionTree<DomainState, RootState> = {
     const functionalities = await getFunctionalties(loggedUser.domain.uuid, { includeSubs: true });
 
     commit('setLoggedUserFunctionalities', functionalities);
-  }
+  },
 };
 
 export default actions;

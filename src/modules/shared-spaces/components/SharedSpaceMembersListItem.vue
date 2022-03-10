@@ -1,10 +1,7 @@
 <template>
   <a-list-item>
     <template #actions>
-      <a-button
-        type="primary"
-        @click="$emit('editRole')"
-      >
+      <a-button type="primary" @click="$emit('editRole')">
         {{ $t('GENERAL.EDIT') }}
         <template #icon>
           <EditOutlined />
@@ -21,11 +18,7 @@
         <template #icon>
           <QuestionCircleOutlined />
         </template>
-        <a-button
-          type="primary"
-          :loading="deleting"
-          danger
-        >
+        <a-button type="primary" :loading="deleting" danger>
           <template #icon>
             <DeleteFilled />
           </template>
@@ -41,24 +34,21 @@
         <a-tag color="green">
           {{ $t(`SHARED_SPACES.ROLE.${data.role.name}`) }}
         </a-tag>
-        <a-tag
-          v-if="data.nestedRole"
-          color="cyan"
-        >
+        <a-tag v-if="data.nestedRole" color="cyan">
           <a-tooltip>
             <template #title>
               {{ $t('SHARED_SPACES.MEMBERS.DEFAULT_ROLE_TAG_TOOLTIP') }}
             </template>
-            {{ `${$t('SHARED_SPACES.MEMBERS.DEFAULT_ROLE_TAG_PREFIX')} ${$t(`SHARED_SPACES.ROLE.${data.nestedRole?.name}`)}` }}
+            {{
+              `${$t('SHARED_SPACES.MEMBERS.DEFAULT_ROLE_TAG_PREFIX')} ${$t(
+                `SHARED_SPACES.ROLE.${data.nestedRole?.name}`
+              )}`
+            }}
           </a-tooltip>
         </a-tag>
       </template>
       <template #avatar>
-        <a-avatar
-          shape="circle"
-          :size="46"
-          class="avatar"
-        >
+        <a-avatar shape="circle" :size="46" class="avatar">
           <span>{{ displayInfo.charAt(0) }}</span>
         </a-avatar>
       </template>
@@ -66,7 +56,7 @@
   </a-list-item>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
@@ -92,7 +82,7 @@ const displayInfo = computed(() => {
   return props.data.account.mail || '';
 });
 
-async function handleDelete () {
+async function handleDelete() {
   try {
     deleting.value = true;
     await removeSharedSpaceMember(props.data);
@@ -110,7 +100,7 @@ async function handleDelete () {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .member-name {
   font-size: 16px;
   font-weight: 600;

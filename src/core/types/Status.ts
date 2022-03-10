@@ -1,7 +1,7 @@
 enum StatusValue {
   LOADING = 'loading',
   SUCCESS = 'success',
-  ERROR = 'error'
+  ERROR = 'error',
 }
 
 export default StatusValue;

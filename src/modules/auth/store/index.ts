@@ -5,7 +5,7 @@ import mutations from './auth.mutations';
 
 const state: AuthState = {
   loggedUser: null,
-  secondFA: null
+  secondFA: null,
 };
 
 export default {
@@ -13,5 +13,5 @@ export default {
   actions,
   getters,
   mutations,
-  state
+  state,
 };

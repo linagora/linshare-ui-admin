@@ -1,9 +1,7 @@
 <template>
   <a-modal
     :visible="visible"
-    :title="editMode ?
-      $t('REMOTE_SERVER.TWAKE.MODAL.EDIT_TITLE') :
-      $t('REMOTE_SERVER.TWAKE.MODAL.CREATE_TITLE')"
+    :title="editMode ? $t('REMOTE_SERVER.TWAKE.MODAL.EDIT_TITLE') : $t('REMOTE_SERVER.TWAKE.MODAL.CREATE_TITLE')"
     @cancel="$emit('cancel')"
   >
     <template #footer>
@@ -16,29 +14,15 @@
           <a-button @click="$emit('cancel')">
             {{ $t('GENERAL.CANCEL') }}
           </a-button>
-          <a-button
-            :loading="formSubmitting"
-            type="primary"
-            @click="onSave"
-          >
+          <a-button :loading="formSubmitting" type="primary" @click="onSave">
             {{ $t('GENERAL.SAVE') }}
           </a-button>
         </div>
       </div>
     </template>
 
-    <a-form
-      ref="formRef"
-      :model="formState"
-      :rules="formRules"
-      :label-col="{ span: 24 }"
-      :wrapper-col="{ span: 24 }"
-    >
-      <a-form-item
-        :label="$t('GENERAL.NAME')"
-        name="name"
-        required
-      >
+    <a-form ref="formRef" :model="formState" :rules="formRules" :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
+      <a-form-item :label="$t('GENERAL.NAME')" name="name" required>
         <a-input v-model:value="formState.name" />
       </a-form-item>
 
@@ -51,17 +35,11 @@
         <a-input v-model:value="formState.url" />
       </a-form-item>
 
-      <a-form-item
-        :label="$t('REMOTE_SERVER.FIELDS.CLIENT_ID')"
-        name="clientId"
-      >
+      <a-form-item :label="$t('REMOTE_SERVER.FIELDS.CLIENT_ID')" name="clientId">
         <a-input v-model:value="formState.clientId" />
       </a-form-item>
 
-      <a-form-item
-        :label="$t('REMOTE_SERVER.FIELDS.CLIENT_SECRET')"
-        name="clientSecret"
-      >
+      <a-form-item :label="$t('REMOTE_SERVER.FIELDS.CLIENT_SECRET')" name="clientSecret">
         <a-input-password v-model:value="formState.clientSecret" />
       </a-form-item>
     </a-form>
@@ -77,11 +55,11 @@ import { createRemoteServer, updateRemoteServer } from '../services/remote-serve
 
 interface Props {
   visible?: boolean;
-  data: TwakeRemoteServer
+  data: TwakeRemoteServer;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  visible: false
+  visible: false,
 });
 const emit = defineEmits(['cancel', 'success']);
 const { t } = useI18n();
@@ -93,21 +71,33 @@ const formState = reactive<Omit<TwakeRemoteServer, 'uuid'>>({
   name: props.data?.name || '',
   url: props.data?.url || '',
   clientId: props.data?.clientId,
-  clientSecret: props.data?.clientSecret
+  clientSecret: props.data?.clientSecret,
 });
 const formRules = computed(() => ({
-  name: [{ required: true, message: t('REMOTE_SERVER.VALIDATION.NAME_REQUIRED'), trigger: 'blur' }],
-  url: [{ required: true, message: t('REMOTE_SERVER.VALIDATION.URL_REQUIRED'), trigger: 'blur' }]
+  name: [
+    {
+      required: true,
+      message: t('REMOTE_SERVER.VALIDATION.NAME_REQUIRED'),
+      trigger: 'blur',
+    },
+  ],
+  url: [
+    {
+      required: true,
+      message: t('REMOTE_SERVER.VALIDATION.URL_REQUIRED'),
+      trigger: 'blur',
+    },
+  ],
 }));
 
-function resetForm () {
+function resetForm() {
   formState.name = props.data?.name;
   formState.url = props.data?.url;
   formState.clientId = props.data?.clientId;
   formState.clientSecret = props.data?.clientSecret;
 }
 
-async function onSave () {
+async function onSave() {
   formSubmitting.value = true;
 
   try {
@@ -118,11 +108,7 @@ async function onSave () {
   }
 
   try {
-    await (
-      editMode.value
-        ? updateRemoteServer({ ...props.data, ...formState })
-        : createRemoteServer({ ...formState })
-    );
+    await (editMode.value ? updateRemoteServer({ ...props.data, ...formState }) : createRemoteServer({ ...formState }));
 
     emit('success');
     message.success(t(editMode.value ? 'MESSAGES.UPDATE_SUCCESS' : 'MESSAGES.CREATE_SUCCESS'));
@@ -139,12 +125,12 @@ watchEffect(() => {
 </script>
 
 <style lang="less" scoped>
-  .ant-form-item small {
-    color: @text-color-secondary;
-  }
+.ant-form-item small {
+  color: @text-color-secondary;
+}
 
-  .footer {
-    display: flex;
-    justify-content: space-between;
-  }
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
 </style>

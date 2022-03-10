@@ -1,9 +1,5 @@
 <template>
-  <PageTitle
-    :title="$t('NAVIGATOR.SHARED_SPACE_DETAILS')"
-    :subtitle="sharedSpace.name"
-    :breadcrumbs="breadcrumbs"
-  >
+  <PageTitle :title="$t('NAVIGATOR.SHARED_SPACE_DETAILS')" :subtitle="sharedSpace.name" :breadcrumbs="breadcrumbs">
     <template #subTitlePostfix>
       <div class="delete-button-container">
         <a-popconfirm
@@ -21,56 +17,30 @@
     </template>
   </PageTitle>
 
-  <div
-    v-if="!loaded"
-    class="spinner"
-  >
+  <div v-if="!loaded" class="spinner">
     <a-spin />
   </div>
 
-  <a-row
-    v-if="loaded"
-    :gutter="24"
-  >
-    <a-col
-      :xl="{ span: 8, offset: 5 }"
-      :md="{ span: 12 }"
-    >
-      <a-form
-        :label-col="{ span: 24 }"
-        :wrapper-col="{ span: 24 }"
-      >
+  <a-row v-if="loaded" :gutter="24">
+    <a-col :xl="{ span: 8, offset: 5 }" :md="{ span: 12 }">
+      <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
         <a-form-item :label="$t('GENERAL.NAME')">
           <a-input v-model:value="formState.name" />
         </a-form-item>
 
         <a-form-item :label="$t('GENERAL.DESCRIPTION')">
-          <a-textarea
-            v-model:value="formState.description"
-            auto-size
-          />
+          <a-textarea v-model:value="formState.description" auto-size />
         </a-form-item>
 
-        <a-button
-          type="primary"
-          :loading="saving"
-          @click="update"
-        >
+        <a-button type="primary" :loading="saving" @click="update">
           {{ $t('GENERAL.SAVE') }}
         </a-button>
       </a-form>
     </a-col>
 
-    <a-col
-      :xl="{ span: 6 }"
-      :md="{ span: 12 }"
-      :sm="{ span: 24 }"
-    >
+    <a-col :xl="{ span: 6 }" :md="{ span: 12 }" :sm="{ span: 24 }">
       <div class="info-block-container">
-        <div
-          v-if="sharedSpace.author"
-          class="info-block"
-        >
+        <div v-if="sharedSpace.author" class="info-block">
           <div class="title">
             {{ $t('GENERAL.AUTHOR') }}
           </div>
@@ -80,10 +50,7 @@
           </div>
         </div>
 
-        <div
-          v-if="sharedSpace.nodeType"
-          class="info-block"
-        >
+        <div v-if="sharedSpace.nodeType" class="info-block">
           <div class="title">
             {{ $t('SHARED_SPACES.TOKEN_INPUT.TYPE') }}
           </div>
@@ -93,10 +60,7 @@
           </div>
         </div>
 
-        <div
-          v-if="sharedSpace.parentUuid"
-          class="info-block"
-        >
+        <div v-if="sharedSpace.parentUuid" class="info-block">
           <div class="title">
             {{ $t('SHARED_SPACES.NODE_TYPE.WORK_SPACE') }}
           </div>
@@ -116,8 +80,8 @@
               :to="{
                 name: 'DomainDetails',
                 params: {
-                  domainUuid: sharedSpaceDomain.uuid
-                }
+                  domainUuid: sharedSpaceDomain.uuid,
+                },
               }"
             >
               {{ sharedSpaceDomain.name }}
@@ -125,10 +89,7 @@
           </div>
         </div>
 
-        <div
-          v-if="sharedSpace.creationDate"
-          class="info-block"
-        >
+        <div v-if="sharedSpace.creationDate" class="info-block">
           <div class="title">
             {{ $t('GENERAL.CREATION_DATE') }}
           </div>
@@ -137,10 +98,7 @@
           </div>
         </div>
 
-        <div
-          v-if="sharedSpace.modificationDate"
-          class="info-block"
-        >
+        <div v-if="sharedSpace.modificationDate" class="info-block">
           <div class="title">
             {{ $t('GENERAL.MODIFICATION_DATE') }}
           </div>
@@ -153,16 +111,13 @@
   </a-row>
 
   <a-tabs v-if="loaded">
-    <a-tab-pane
-      key="1"
-      :tab="$t('SHARED_SPACES.MEMBERS.TAB_TITLE')"
-    >
+    <a-tab-pane key="1" :tab="$t('SHARED_SPACES.MEMBERS.TAB_TITLE')">
       <SharedSpaceMembersList :shared-space="sharedSpace" />
     </a-tab-pane>
   </a-tabs>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { reactive, ref, watchEffect } from 'vue';
 import { message } from 'ant-design-vue';
 import { useRouter } from 'vue-router';
@@ -193,16 +148,16 @@ const parentSpace = reactive<SharedSpace>({ ...EMPTY_SHARED_SPACE });
 const sharedSpaceDomain = reactive<SharedSpace>({ ...EMPTY_DOMAIN_NODE });
 const formState = reactive<SharedSpaceForm>({
   name: '',
-  description: ''
+  description: '',
 });
 
-async function update () {
+async function update() {
   saving.value = true;
 
   try {
     const data = await updateSharedSpace({
       ...sharedSpace,
-      ...formState
+      ...formState,
     });
 
     Object.assign(sharedSpace, data);
@@ -218,7 +173,7 @@ async function update () {
   }
 }
 
-async function prepare () {
+async function prepare() {
   try {
     loaded.value = false;
 
@@ -254,34 +209,34 @@ watchEffect(() => {
 </script>
 
 <style lang="less" scoped>
-  .spinner {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.spinner {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .info-block-container {
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid #F2F5F7;
-    padding: 20px;
-    border-radius: 4px;
+.info-block-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #f2f5f7;
+  padding: 20px;
+  border-radius: 4px;
 
-    .info-block {
-      flex: 0 1 50%;
-      margin: 20px 0;
+  .info-block {
+    flex: 0 1 50%;
+    margin: 20px 0;
 
-      .title {
-        color: @text-color-secondary;
-      }
+    .title {
+      color: @text-color-secondary;
     }
   }
+}
 
-  .delete-button-container {
-    .ant-btn {
-      background: @primary-8;
-      color: @text-color-inverse;
-    }
+.delete-button-container {
+  .ant-btn {
+    background: @primary-8;
+    color: @text-color-inverse;
   }
+}
 </style>

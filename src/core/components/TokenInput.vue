@@ -3,22 +3,11 @@
     <div class="token-input__inner-box token-input__full-flex token-input__scrollable-x">
       <SearchOutlined class="token-input__search-icon" />
       <div class="token-input__tokens-ctn">
-        <div
-          v-for="token in tokens"
-          :key="token.key"
-          class="token-input__token-item"
-        >
+        <div v-for="token in tokens" :key="token.key" class="token-input__token-item">
           <span>{{ token.displayKey }} : &nbsp;</span>
           <span v-if="!token.value || !token.value.optionComponent">{{ token.value && token.value.label }}</span>
-          <component
-            :is="token.value.optionComponent"
-            v-else
-            :data="token.value.data"
-          />
-          <CloseOutlined
-            class="token-input__token-item__close-icon"
-            @click="removeToken(token.key)"
-          />
+          <component :is="token.value.optionComponent" v-else :data="token.value.data" />
+          <CloseOutlined class="token-input__token-item__close-icon" @click="removeToken(token.key)" />
         </div>
       </div>
       <a-auto-complete
@@ -30,26 +19,15 @@
         @select="onSelect"
       >
         <template #options>
-          <a-select-option
-            v-for="option in options"
-            :key="option.value"
-          >
+          <a-select-option v-for="option in options" :key="option.value">
             <div v-if="!option.optionComponent">
               <SearchOutlined v-if="option.default" />
               {{ option.label }}
             </div>
-            <component
-              :is="option.optionComponent"
-              v-else
-              :data="option.data"
-            />
+            <component :is="option.optionComponent" v-else :data="option.data" />
           </a-select-option>
         </template>
-        <a-input
-          ref="autocomplete"
-          :placeholder="placeholder"
-          @pressEnter="handlePressEnter"
-        />
+        <a-input ref="autocomplete" :placeholder="placeholder" @pressEnter="handlePressEnter" />
       </a-auto-complete>
     </div>
     <div class="token-input__inner-box token-input__sort-ctn">
@@ -59,11 +37,7 @@
         :placeholder="$t('USERS.TOKEN_INPUT.SORT_BY')"
         @change="onSortChange"
       >
-        <a-select-option
-          v-for="s in sorts"
-          :key="s.key"
-          :value="s.key"
-        >
+        <a-select-option v-for="s in sorts" :key="s.key" :value="s.key">
           {{ $t(s.label) }}
         </a-select-option>
       </a-select>
@@ -77,22 +51,9 @@
   </div>
 </template>
 
-<script lang='ts'>
-import {
-  defineComponent,
-  PropType,
-  reactive,
-  ref,
-  computed,
-  Component,
-  ComputedRef
-} from 'vue';
-import {
-  SearchOutlined,
-  CloseOutlined,
-  SortAscendingOutlined,
-  SortDescendingOutlined
-} from '@ant-design/icons-vue';
+<script lang="ts">
+import { defineComponent, PropType, reactive, ref, computed, Component, ComputedRef } from 'vue';
+import { SearchOutlined, CloseOutlined, SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons-vue';
 import Sort, { SORT_ORDER } from '@/core/types/Sort';
 
 interface Option {
@@ -148,53 +109,51 @@ export default defineComponent({
     SearchOutlined,
     CloseOutlined,
     SortAscendingOutlined,
-    SortDescendingOutlined
+    SortDescendingOutlined,
   },
   props: {
     filters: {
       type: Array as PropType<FilterOption[]>,
-      default: () => []
+      default: () => [],
     },
     sorts: {
       type: Array as PropType<Array<SortOption>>,
-      default: () => []
+      default: () => [],
     },
     placeholder: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   emits: {
-    submit: (payload: TokenSubmitPayload) => payload
+    submit: (payload: TokenSubmitPayload) => payload,
   },
-  setup (props: TokenInputProps, { emit }) {
+  setup(props: TokenInputProps, { emit }) {
     const autocompleteValue = ref('');
     const autocomplete = ref<CustomHTMLElement | null>(null);
     const tokens = ref<Token[]>([]);
     const selectedOption = ref<FilterOption | undefined>();
-    const defaultSortField = props.sorts.find(sort => sort.default);
+    const defaultSortField = props.sorts.find((sort) => sort.default);
     const sort = reactive<Sort>({
       field: defaultSortField?.key || '',
-      order: SORT_ORDER.DESC
+      order: SORT_ORDER.DESC,
     });
 
-    const tokenOptions = props.filters
-      .map(filter => ({
-        default: filter.default,
-        value: filter.key,
-        label: filter.displayKey.value
-      }));
+    const tokenOptions = props.filters.map((filter) => ({
+      default: filter.default,
+      value: filter.key,
+      label: filter.displayKey.value,
+    }));
 
-    const filteredTokenOptions = computed<Option[]>(() => tokenOptions
-      .filter(option =>
-        option.default ||
-        !autocompleteValue.value ||
-        (
-          autocompleteValue.value &&
-          option.label.toUpperCase().includes(autocompleteValue.value.toUpperCase())
+    const filteredTokenOptions = computed<Option[]>(() =>
+      tokenOptions
+        .filter(
+          (option) =>
+            option.default ||
+            !autocompleteValue.value ||
+            (autocompleteValue.value && option.label.toUpperCase().includes(autocompleteValue.value.toUpperCase()))
         )
-      )
-      .sort(option => option.default ? 1 : -1)
+        .sort((option) => (option.default ? 1 : -1))
     );
 
     const options = computed(() => {
@@ -202,13 +161,15 @@ export default defineComponent({
         if (selectedOption.value.asyncAutocomplete) {
           return selectedOption.value.options || [];
         } else {
-          return selectedOption.value.options?.map(option => {
-            if (typeof option.value === 'boolean') {
-              option.value = option.value ? 'true' : 'false';
-            }
+          return (
+            selectedOption.value.options?.map((option) => {
+              if (typeof option.value === 'boolean') {
+                option.value = option.value ? 'true' : 'false';
+              }
 
-            return option;
-          }) || [];
+              return option;
+            }) || []
+          );
         }
       } else {
         return filteredTokenOptions.value;
@@ -217,14 +178,14 @@ export default defineComponent({
 
     let lastValueOfAutocomplete = '';
 
-    async function fetchAsyncData (text: string) {
+    async function fetchAsyncData(text: string) {
       if (selectedOption.value && selectedOption.value.asyncAutocomplete) {
         const filteredOptions = await selectedOption.value.asyncAutocomplete(text);
         selectedOption.value.options = filteredOptions;
       }
     }
 
-    function focusToInput () {
+    function focusToInput() {
       setTimeout(() => {
         if (autocomplete.value) {
           autocomplete.value.focus();
@@ -232,7 +193,7 @@ export default defineComponent({
       }, 0);
     }
 
-    function reset () {
+    function reset() {
       setTimeout(() => {
         autocompleteValue.value = '';
         selectedOption.value = undefined;
@@ -241,16 +202,16 @@ export default defineComponent({
       }, 0);
     }
 
-    function createToken (type: string) {
-      selectedOption.value = props.filters.find(filter => filter.key === type);
+    function createToken(type: string) {
+      selectedOption.value = props.filters.find((filter) => filter.key === type);
 
       if (selectedOption.value) {
         const newToken: Token = {
           key: type,
-          displayKey: selectedOption.value.displayKey
+          displayKey: selectedOption.value.displayKey,
         };
 
-        tokens.value = [...(tokens.value.filter(token => token.key !== type)), newToken];
+        tokens.value = [...tokens.value.filter((token) => token.key !== type), newToken];
 
         setTimeout(() => {
           autocompleteValue.value = selectedOption.value?.default ? lastValueOfAutocomplete : '';
@@ -261,10 +222,10 @@ export default defineComponent({
       }
     }
 
-    function updateToken (type: string, value: string) {
-      const selectedValue = options.value.find(option => option.value === value);
+    function updateToken(type: string, value: string) {
+      const selectedValue = options.value.find((option) => option.value === value);
 
-      tokens.value = tokens.value.map(token => {
+      tokens.value = tokens.value.map((token) => {
         if (token.key === type) {
           token.value = selectedValue || { value, label: value };
         }
@@ -273,8 +234,8 @@ export default defineComponent({
       });
     }
 
-    function removeToken (type: string) {
-      tokens.value = tokens.value.filter(token => token.key !== type);
+    function removeToken(type: string) {
+      tokens.value = tokens.value.filter((token) => token.key !== type);
       if (selectedOption.value && selectedOption.value.key === type) {
         reset();
       } else {
@@ -295,7 +256,7 @@ export default defineComponent({
     const submit = () => {
       const filters: Record<string, unknown> = {};
 
-      tokens.value.forEach(token => {
+      tokens.value.forEach((token) => {
         if (token.key && token.value && token.value.value !== undefined) {
           if (token.value.value === 'true') {
             token.value.value = true;
@@ -321,7 +282,7 @@ export default defineComponent({
       } else if (!autocompleteValue.value) {
         submit();
       } else {
-        const defaultToken = props.filters.find(filter => filter.default);
+        const defaultToken = props.filters.find((filter) => filter.default);
 
         if (defaultToken) {
           createToken(defaultToken.key);
@@ -366,109 +327,109 @@ export default defineComponent({
       handlePressEnter,
       onSortChange,
       toggleSortOrder,
-      SORT_ORDER
+      SORT_ORDER,
     };
-  }
+  },
 });
 </script>
 
 <style lang="less">
-  .token-input {
-    padding: 10px 20px;
-    background: @token-input-outer-bg;
-    box-shadow: @token-input-shadow;
+.token-input {
+  padding: 10px 20px;
+  background: @token-input-outer-bg;
+  box-shadow: @token-input-shadow;
+  display: flex;
+
+  &__inner-box {
     display: flex;
+    align-items: center;
+    background: @token-input-inner-bg;
+    border-radius: 4px;
+    padding: 10px;
+  }
 
-    &__inner-box {
-      display: flex;
-      align-items: center;
-      background: @token-input-inner-bg;
-      border-radius: 4px;
-      padding: 10px;
-    }
+  &__scrollable-x {
+    overflow-x: auto;
+    overflow-y: visible;
+  }
 
-    &__scrollable-x {
-      overflow-x: auto;
-      overflow-y: visible;
-    }
+  &__full-flex {
+    flex: 1;
+  }
 
-    &__full-flex {
-      flex: 1;
-    }
+  &__sort-ctn {
+    margin-left: 20px;
 
-    &__sort-ctn {
-      margin-left: 20px;
+    .ant-select-borderless {
+      padding-left: 15px;
+      width: 160px;
 
-      .ant-select-borderless {
-        padding-left: 15px;
-        width: 160px;
-
-        .ant-select-arrow {
-          right: auto;
-          left: 11px;
-        }
-
-        .ant-select-selection-item {
-          padding-right: 0px;
-        }
-      }
-    }
-
-    &__sort-order-icon {
-      font-size: 20px;
-      cursor: pointer;
-      color: @primary-color;
-    }
-
-    &__tokens-ctn {
-      display: flex;
-    }
-
-    &__search-icon {
-      font-size: 18px;
-      color: @text-color-secondary;
-      margin-right: 10px;
-    }
-
-    &__token-item {
-      background: @token-item-bg;
-      border-radius: 2px;
-      padding: 4px;
-      box-shadow: @token-item-box-shadow;
-      margin: 0px 10px;
-      white-space: nowrap;
-      transition: all 0.2s ease-in-out;
-      display: flex;
-      align-items: center;
-
-      &__close-icon {
-        margin-left: 10px;
-        color: @text-color-secondary;
-        cursor: pointer;
-        display: none;
-
-        &:hover {
-          color: @text-color;
-        }
+      .ant-select-arrow {
+        right: auto;
+        left: 11px;
       }
 
-      &:hover {
-        background: @token-item-hover-bg;
-        box-shadow: @token-item-shadow;
-      }
-
-      &:hover > &__close-icon {
-        display: block;
-      }
-    }
-
-    &__auto-complete {
-      flex: 1;
-      min-width: 200px;
-
-      input {
-        border: 0px;
+      .ant-select-selection-item {
+        padding-right: 0px;
       }
     }
   }
+
+  &__sort-order-icon {
+    font-size: 20px;
+    cursor: pointer;
+    color: @primary-color;
+  }
+
+  &__tokens-ctn {
+    display: flex;
+  }
+
+  &__search-icon {
+    font-size: 18px;
+    color: @text-color-secondary;
+    margin-right: 10px;
+  }
+
+  &__token-item {
+    background: @token-item-bg;
+    border-radius: 2px;
+    padding: 4px;
+    box-shadow: @token-item-box-shadow;
+    margin: 0px 10px;
+    white-space: nowrap;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+
+    &__close-icon {
+      margin-left: 10px;
+      color: @text-color-secondary;
+      cursor: pointer;
+      display: none;
+
+      &:hover {
+        color: @text-color;
+      }
+    }
+
+    &:hover {
+      background: @token-item-hover-bg;
+      box-shadow: @token-item-shadow;
+    }
+
+    &:hover > &__close-icon {
+      display: block;
+    }
+  }
+
+  &__auto-complete {
+    flex: 1;
+    min-width: 200px;
+
+    input {
+      border: 0px;
+    }
+  }
+}
 </style>

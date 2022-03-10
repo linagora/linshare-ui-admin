@@ -21,111 +21,111 @@ const CONFIGURATION_PAGES: ConfigurationPage[] = [
     title: 'NAVIGATOR.DETAILS',
     route: {
       name: 'DomainDetails',
-      requiresCurrentDomain: true
-    }
+      requiresCurrentDomain: true,
+    },
   },
   {
     title: 'NAVIGATOR.REMOTE_SERVERS',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: {
-      name: 'RemoteServersList'
-    }
+      name: 'RemoteServersList',
+    },
   },
   {
     title: 'NAVIGATOR.PROVIDERS',
     accessibility: {
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
-      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN],
     },
     route: {
       name: 'DomainProviders',
-      requiresCurrentDomain: true
-    }
+      requiresCurrentDomain: true,
+    },
   },
   {
     title: 'NAVIGATOR.PROVIDERS',
     accessibility: {
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
-      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN],
     },
     route: {
       name: 'DomainProviderManagement',
-      requiresCurrentDomain: true
+      requiresCurrentDomain: true,
     },
-    sub: true
+    sub: true,
   },
   {
     title: 'NAVIGATOR.USER_PROVIDERS',
     accessibility: {
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
-      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN],
     },
     route: {
       name: 'DomainUserProviders',
-      requiresCurrentDomain: true
+      requiresCurrentDomain: true,
     },
-    sub: true
+    sub: true,
   },
   {
     title: 'NAVIGATOR.GROUP_PROVIDERS',
     accessibility: {
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
-      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN],
     },
     route: {
       name: 'DomainGroupProviders',
-      requiresCurrentDomain: true
+      requiresCurrentDomain: true,
     },
-    sub: true
+    sub: true,
   },
   {
     title: 'NAVIGATOR.WORKSPACE_PROVIDERS',
     accessibility: {
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
-      userRoles: [ACCOUNT_ROLE.SUPERADMIN]
+      userRoles: [ACCOUNT_ROLE.SUPERADMIN],
     },
     route: {
       name: 'DomainWorkspaceProviders',
-      requiresCurrentDomain: true
+      requiresCurrentDomain: true,
     },
-    sub: true
+    sub: true,
   },
   {
     title: 'NAVIGATOR.REMOTE_FILTERS',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: {
-      name: 'RemoteFiltersList'
-    }
+      name: 'RemoteFiltersList',
+    },
   },
   {
     title: 'NAVIGATOR.PARAMETERS',
-    legacy: true
+    legacy: true,
   },
   {
     title: 'NAVIGATOR.TYPE_MIME',
-    legacy: true
+    legacy: true,
   },
   {
     title: 'NAVIGATOR.WELCOME_MESSAGES',
-    legacy: true
+    legacy: true,
   },
   {
     title: 'NAVIGATOR.TYPE_MIME',
-    legacy: true
+    legacy: true,
   },
   {
     title: 'NAVIGATOR.QUOTA',
-    legacy: true
+    legacy: true,
   },
   {
-    title: 'NAVIGATOR.PUBLIC_KEYS'
-  }
+    title: 'NAVIGATOR.PUBLIC_KEYS',
+  },
 ];
 
 export const findDomainPage = (routeName: RouteRecordName): ConfigurationPage | undefined =>
-  CONFIGURATION_PAGES.find(page => !page.legacy && page.route?.name === routeName);
+  CONFIGURATION_PAGES.find((page) => !page.legacy && page.route?.name === routeName);
 
-export const getMainPages = (): ConfigurationPage[] => CONFIGURATION_PAGES.filter(page => !page.sub);
+export const getMainPages = (): ConfigurationPage[] => CONFIGURATION_PAGES.filter((page) => !page.sub);
 
 export const canAccessPage = (page: ConfigurationPage, userRole: ACCOUNT_ROLE, domainType?: DOMAIN_TYPE): boolean => {
   if (!page.accessibility) {

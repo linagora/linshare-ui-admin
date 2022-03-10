@@ -1,49 +1,26 @@
 <template>
   <a-row>
-    <a-col
-      :md="{span: 8, offset: 8}"
-      :sm="24"
-      :xs="24"
-    >
-      <div
-        v-if="pageStatus === StatusValue.LOADING"
-        class="spinner-ctn"
-      >
+    <a-col :md="{ span: 8, offset: 8 }" :sm="24" :xs="24">
+      <div v-if="pageStatus === StatusValue.LOADING" class="spinner-ctn">
         <a-spin />
       </div>
 
-      <a-result
-        v-else-if="pageStatus === StatusValue.ERROR"
-        :title="t('ERRORS.COMMON_MESSAGE')"
-        status="error"
-      >
+      <a-result v-else-if="pageStatus === StatusValue.ERROR" :title="t('ERRORS.COMMON_MESSAGE')" status="error">
         <template #extra>
-          <a-button
-            type="primary"
-            @click="fetchRestrictedContacts"
-          >
+          <a-button type="primary" @click="fetchRestrictedContacts">
             {{ $t('GENERAL.TRY_AGAIN') }}
           </a-button>
         </template>
       </a-result>
 
-      <a-form
-        v-else
-        :label-col="{ span: 24 }"
-        :wrapper-col="{ span: 24 }"
-      >
+      <a-form v-else :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
         <a-form-item>
-          <a-checkbox
-            v-model:checked="formState.restricted"
-          >
+          <a-checkbox v-model:checked="formState.restricted">
             {{ t('USERS.DETAIL_USER.RESTRICTED_GUEST') }}
           </a-checkbox>
         </a-form-item>
 
-        <a-form-item
-          :label="t('USERS.DETAIL_USER.RESTRICTED_CONTACTS')"
-          v-bind="validateInfos.selected"
-        >
+        <a-form-item :label="t('USERS.DETAIL_USER.RESTRICTED_CONTACTS')" v-bind="validateInfos.selected">
           <a-select
             v-model:value="formState.selected"
             mode="multiple"
@@ -63,10 +40,7 @@
 
             <template #notFoundContent>
               <div class="not-found-ctn">
-                <a-spin
-                  v-if="searching"
-                  size="small"
-                />
+                <a-spin v-if="searching" size="small" />
 
                 <span v-else>{{ t('USERS.DETAIL_USER.NO_USER_FOUND') }}</span>
               </div>
@@ -75,17 +49,10 @@
         </a-form-item>
 
         <a-form-item :label="$t('USERS.DETAIL_USER.COMMENT')">
-          <a-textarea
-            v-model:value="formState.comment"
-            auto-size
-          />
+          <a-textarea v-model:value="formState.comment" auto-size />
         </a-form-item>
 
-        <a-button
-          type="primary"
-          :loading="saving"
-          @click="onSave()"
-        >
+        <a-button type="primary" :loading="saving" @click="onSave()">
           {{ $t('GENERAL.SAVE') }}
         </a-button>
       </a-form>
@@ -103,7 +70,7 @@ import {
   listUsers,
   listRestrictedContacts,
   createRestrictedContact,
-  removeRestrictedContact
+  removeRestrictedContact,
 } from '@/modules/user/services/user-api';
 import User from '@/modules/user/types/User';
 import RestrictedContact from '@/modules/user/types/RestrictedContact';
@@ -139,33 +106,35 @@ const searchUsersDebounce = useDebounceFn(searchUsers, 500);
 const formState = reactive<FormState>({
   selected: [],
   restricted: currentUser.restricted,
-  comment: currentUser.comment
+  comment: currentUser.comment,
 });
 const formRules = computed(() => ({
-  selected: [{
-    message: t('USERS.DETAIL_USER.RESTRICTED_CONTACTS_LIST_REQUIRED'),
-    trigger: 'change',
-    validator: () => {
-      if (formState.restricted && formState.selected.length === 0) {
-        return Promise.reject(new Error());
-      }
+  selected: [
+    {
+      message: t('USERS.DETAIL_USER.RESTRICTED_CONTACTS_LIST_REQUIRED'),
+      trigger: 'change',
+      validator: () => {
+        if (formState.restricted && formState.selected.length === 0) {
+          return Promise.reject(new Error());
+        }
 
-      return Promise.resolve();
-    }
-  }]
+        return Promise.resolve();
+      },
+    },
+  ],
 }));
 const { validate, validateInfos } = useForm(formState, formRules);
 
-async function fetchRestrictedContacts () {
+async function fetchRestrictedContacts() {
   pageStatus.value = StatusValue.LOADING;
 
   try {
     restrictedContacts = await listRestrictedContacts(id);
-    formState.selected = restrictedContacts.map(contact => contact.mail);
-    options.value = restrictedContacts.map(contact => ({
+    formState.selected = restrictedContacts.map((contact) => contact.mail);
+    options.value = restrictedContacts.map((contact) => ({
       label: getFullName(contact),
       value: contact.mail,
-      data: contact
+      data: contact,
     }));
     pageStatus.value = StatusValue.SUCCESS;
   } catch (error) {
@@ -174,7 +143,7 @@ async function fetchRestrictedContacts () {
   }
 }
 
-async function searchUsers (search: string) {
+async function searchUsers(search: string) {
   searching.value = true;
 
   try {
@@ -182,15 +151,15 @@ async function searchUsers (search: string) {
       mail: search,
       sortOrder: SORT_ORDER.ASC,
       sortField: 'mail',
-      type: 'INTERNAL'
+      type: 'INTERNAL',
     });
 
     options.value = data
-      .filter(user => user.uuid !== id)
-      .map(user => ({
+      .filter((user) => user.uuid !== id)
+      .map((user) => ({
         label: getFullName(user),
         value: user.mail,
-        data: transform(user)
+        data: transform(user),
       }));
   } catch (error) {
     if (error instanceof APIError) {
@@ -203,7 +172,7 @@ async function searchUsers (search: string) {
   }
 }
 
-async function onSave () {
+async function onSave() {
   try {
     await validate();
   } catch {
@@ -216,7 +185,7 @@ async function onSave () {
     await store.dispatch('User/updateUser', {
       ...currentUser,
       comment: formState.comment,
-      restricted: formState.restricted
+      restricted: formState.restricted,
     });
     await updateRestrictedContacts();
 
@@ -231,72 +200,70 @@ async function onSave () {
   }
 }
 
-async function updateRestrictedContacts () {
+async function updateRestrictedContacts() {
   if (!formState.restricted) {
     return;
   }
 
   const contacts = formState.selected
-    .map(mail => options.value
-      .find(option => option.value === mail)?.data)
+    .map((mail) => options.value.find((option) => option.value === mail)?.data)
     .filter(Boolean);
 
   const createRestrictedContactPromises = contacts
-    .filter(contact => !restrictedContacts
-      .some(existing => existing.mail === contact?.mail))
-    .map(contact => contact && createRestrictedContact(id, contact)
-      .then(created => {
-        restrictedContacts.push(created);
-      }));
+    .filter((contact) => !restrictedContacts.some((existing) => existing.mail === contact?.mail))
+    .map(
+      (contact) =>
+        contact &&
+        createRestrictedContact(id, contact).then((created) => {
+          restrictedContacts.push(created);
+        })
+    );
 
   const removedRestrictedContactPromises = restrictedContacts
-    .filter(existing => !contacts
-      .some(contact => contact?.mail === existing.mail))
-    .map(contact => removeRestrictedContact(id, contact.uuid)
-      .then(deleted => {
-        restrictedContacts = restrictedContacts.filter(contact => deleted.uuid !== contact.uuid);
-      }));
+    .filter((existing) => !contacts.some((contact) => contact?.mail === existing.mail))
+    .map((contact) =>
+      removeRestrictedContact(id, contact.uuid).then((deleted) => {
+        restrictedContacts = restrictedContacts.filter((contact) => deleted.uuid !== contact.uuid);
+      })
+    );
 
-  return await Promise.all([
-    ...createRestrictedContactPromises,
-    ...removedRestrictedContactPromises
-  ]);
+  return await Promise.all([...createRestrictedContactPromises, ...removedRestrictedContactPromises]);
 }
 
-function getFullName (user: RestrictedContact) {
+function getFullName(user: RestrictedContact) {
   return `${user.firstName || ''} ${user.lastName || ''}`;
 }
 
-function transform (user: User): RestrictedContact {
+function transform(user: User): RestrictedContact {
   return {
     uuid: '',
     firstName: user.firstName,
     lastName: user.lastName,
     mail: user.mail,
-    domain: user.domain
+    domain: user.domain,
   };
 }
 
 onMounted(fetchRestrictedContacts);
 </script>
 
-<style lang='less' scoped>
-  .spinner-ctn {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-  .user-icon {
-    color: @primary-color;
-    margin-right: 4px;
-  }
+<style lang="less" scoped>
+.spinner-ctn {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.user-icon {
+  color: @primary-color;
+  margin-right: 4px;
+}
 
-  .not-found-ctn {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.not-found-ctn {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>

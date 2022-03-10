@@ -6,7 +6,7 @@ export class APIError extends Error {
   public errorCode: string;
   public response?: AxiosResponse;
 
-  constructor (error: AxiosError) {
+  constructor(error: AxiosError) {
     super();
 
     this.isAuthError = !!error.response?.headers['x-linshare-auth-error-code'];
@@ -21,24 +21,18 @@ export class APIError extends Error {
     }
   }
 
-  getMessage (): string {
-    return i18n.global.t(
-      this.isAuthError
-        ? `ERRORS.AUTH.${this.errorCode}`
-        : `ERRORS.${this.errorCode}`,
-      1,
-      {
-        missingWarn: true,
-        default: this.message
-      }
-    );
+  getMessage(): string {
+    return i18n.global.t(this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`, 1, {
+      missingWarn: true,
+      default: this.message,
+    });
   }
 
-  isUnauthorizedError (): boolean {
+  isUnauthorizedError(): boolean {
     return this.isAuthError && this.errorCode === '1000';
   }
 
-  isOTPMissingError (): boolean {
+  isOTPMissingError(): boolean {
     return this.isAuthError && this.errorCode === '1002';
   }
 }

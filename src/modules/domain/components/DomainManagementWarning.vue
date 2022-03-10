@@ -1,14 +1,8 @@
 <template>
-  <a-result
-    status="warning"
-    :title="$t('DOMAIN.WARNING.PAGE_NOT_ACCESSIBLE')"
-  >
+  <a-result status="warning" :title="$t('DOMAIN.WARNING.PAGE_NOT_ACCESSIBLE')">
     <template #extra>
-      <router-link :to="{ name: 'Configuration'}">
-        <a-button
-          key="console"
-          type="primary"
-        >
+      <router-link :to="{ name: 'Configuration' }">
+        <a-button key="console" type="primary">
           {{ $t('DOMAIN.WARNING.BACK_TO_CONFIGURATION') }}
         </a-button>
       </router-link>

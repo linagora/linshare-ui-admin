@@ -1,17 +1,7 @@
 <template>
-  <a-row
-    type="flex"
-    :gutter="30"
-  >
-    <a-col
-      :lg="{ span: 10, offset: 7 }"
-      :sm="{ span: 12, offset: 6 }"
-      :xs="24"
-    >
-      <a-form
-        :label-col="{ span: 24 }"
-        :wrapper-col="{ span: 24 }"
-      >
+  <a-row type="flex" :gutter="30">
+    <a-col :lg="{ span: 10, offset: 7 }" :sm="{ span: 12, offset: 6 }" :xs="24">
+      <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
         <span class="status">{{ $t('QUOTA.USED_SPACE', { usedSpace, computedQuota }) }}</span>
         <a-progress :percent="percentUsed" />
 
@@ -24,20 +14,14 @@
             <span class="value">{{ defaultQuota }}</span>
           </div>
 
-          <a-form-item
-            :label="$t('GENERAL.CURRENT_VALUE')"
-            v-bind="validateInfos.quota"
-          >
+          <a-form-item :label="$t('GENERAL.CURRENT_VALUE')" v-bind="validateInfos.quota">
             <a-row justify="space-between">
               <a-col flex="1">
                 <SizeInput v-model:value="quotaForm.quota" />
               </a-col>
 
               <a-col>
-                <a-button
-                  type="link"
-                  @click="quotaForm.quota = userQuota.defaultQuota"
-                >
+                <a-button type="link" @click="quotaForm.quota = userQuota.defaultQuota">
                   <template #icon>
                     <ReloadOutlined />
                   </template>
@@ -55,20 +39,14 @@
             <span>{{ $t('GENERAL.DEFAULT_VALUE') }}:</span>
             <span class="value">{{ defaultMaxFileSize }}</span>
           </div>
-          <a-form-item
-            :label="$t('GENERAL.CURRENT_VALUE')"
-            v-bind="validateInfos.maxFileSize"
-          >
+          <a-form-item :label="$t('GENERAL.CURRENT_VALUE')" v-bind="validateInfos.maxFileSize">
             <a-row justify="space-between">
               <a-col flex="1">
                 <SizeInput v-model:value="quotaForm.maxFileSize" />
               </a-col>
 
               <a-col>
-                <a-button
-                  type="link"
-                  @click="quotaForm.maxFileSize = userQuota.defaultMaxFileSize"
-                >
+                <a-button type="link" @click="quotaForm.maxFileSize = userQuota.defaultMaxFileSize">
                   <template #icon>
                     <ReloadOutlined />
                   </template>
@@ -78,12 +56,14 @@
           </a-form-item>
         </div>
 
-        <a-row
-          justify="space-between"
-          :gutter="[16, 16]"
-        >
+        <a-row justify="space-between" :gutter="[16, 16]">
           <a-col>
-            <a-button @click="quotaForm.maxFileSize = userQuota.defaultMaxFileSize; quotaForm.quota = userQuota.defaultQuota;">
+            <a-button
+              @click="
+                quotaForm.maxFileSize = userQuota.defaultMaxFileSize;
+                quotaForm.quota = userQuota.defaultQuota;
+              "
+            >
               {{ $t('GENERAL.USE_DEFAULTS') }}
               <template #icon>
                 <ReloadOutlined />
@@ -92,20 +72,11 @@
           </a-col>
 
           <a-col>
-            <a-button
-              class="reset"
-              type="primary"
-              @click="resetFields"
-            >
+            <a-button class="reset" type="primary" @click="resetFields">
               {{ $t('GENERAL.RESET') }}
             </a-button>
 
-            <a-button
-              style="margin-left: 10px"
-              type="primary"
-              :loading="saving"
-              @click="onSave"
-            >
+            <a-button style="margin-left: 10px" type="primary" :loading="saving" @click="onSave">
               {{ $t('GENERAL.SAVE') }}
               <template #icon>
                 <CheckOutlined />
@@ -138,27 +109,37 @@ const userQuota = reactive(data);
 const saving = ref(false);
 const quotaForm = reactive({
   maxFileSize: data.maxFileSize,
-  quota: data.quota
+  quota: data.quota,
 });
 
 const defaultMaxFileSize = getReadableSize(userQuota.defaultMaxFileSize).getText();
 const defaultQuota = getReadableSize(userQuota.defaultQuota).getText();
 const computedQuota = computed(() => getReadableSize(userQuota.quota).getText());
 const usedSpace = computed(() => getReadableSize(userQuota.realTimeUsedSpace).getText());
-const percentUsed = computed(() => Math.round(userQuota.realTimeUsedSpace / userQuota.quota * 100));
+const percentUsed = computed(() => Math.round((userQuota.realTimeUsedSpace / userQuota.quota) * 100));
 
 const rules = computed(() => ({
   quota: [
-    { min: quotaForm.maxFileSize, type: 'number', message: t('QUOTA.ERROR.QUOTA_LESS_THAN_FILE_SIZE', locale.value), trigger: 'change' }
+    {
+      min: quotaForm.maxFileSize,
+      type: 'number',
+      message: t('QUOTA.ERROR.QUOTA_LESS_THAN_FILE_SIZE', locale.value),
+      trigger: 'change',
+    },
   ],
   maxFileSize: [
-    { max: quotaForm.quota, type: 'number', message: t('QUOTA.ERROR.FILE_SIZE_LARGER_THAN_QUOTA', locale.value), trigger: 'change' },
-    { min: 0, type: 'number', message: t('QUOTA.ERROR.INVALID_FILE_SIZE', locale.value), trigger: 'change' }
-  ]
+    {
+      max: quotaForm.quota,
+      type: 'number',
+      message: t('QUOTA.ERROR.FILE_SIZE_LARGER_THAN_QUOTA', locale.value),
+      trigger: 'change',
+    },
+    { min: 0, type: 'number', message: t('QUOTA.ERROR.INVALID_FILE_SIZE', locale.value), trigger: 'change' },
+  ],
 }));
 const { validate, validateInfos, resetFields } = useForm(quotaForm, rules);
 
-async function onSave () {
+async function onSave() {
   saving.value = true;
 
   try {
@@ -171,7 +152,7 @@ async function onSave () {
   try {
     await updateUserQuota(uuid, {
       ...userQuota,
-      ...quotaForm
+      ...quotaForm,
     });
 
     userQuota.quota = quotaForm.quota;
@@ -189,36 +170,35 @@ async function onSave () {
 </script>
 
 <style lang="less" scoped>
+.status {
+  font-weight: 600;
+  font-size: 16px;
+}
+.field {
+  margin-top: 20px;
+}
 
-  .status {
-    font-weight: 600;
-    font-size: 16px;
-  }
-  .field {
-    margin-top: 20px;
-  }
+.title {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
 
-  .title {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 10px;
-  }
+.reset {
+  background-color: @text-color-primary-heavy;
+  border-color: @text-color-primary-heavy;
+}
+.default-value {
+  display: block;
+  margin-bottom: 5px;
 
-  .reset {
-    background-color: @text-color-primary-heavy;
-    border-color: @text-color-primary-heavy;
+  .value {
+    margin-left: 5px;
+    border: 0px;
+    background: @background-color-base;
+    border-radius: 3px;
+    padding: 7px;
+    text-transform: uppercase;
   }
-  .default-value {
-    display: block;
-    margin-bottom: 5px;
-
-    .value {
-      margin-left: 5px;
-      border: 0px;
-      background: @background-color-base;
-      border-radius: 3px;
-      padding: 7px;
-      text-transform: uppercase;
-    }
-  }
+}
 </style>

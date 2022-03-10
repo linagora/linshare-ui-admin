@@ -6,7 +6,7 @@ import { computed, watchEffect } from 'vue';
 import { isEnable } from '@/core/utils/functionality';
 import SecondFactorAuthentication from '../types/SecondFactorAuthentication';
 
-export default function use2FARequiredCheck () {
+export default function use2FARequiredCheck(): void {
   const store = useStore();
   const { push, currentRoute } = useRouter();
   const { t } = useI18n();
@@ -30,7 +30,7 @@ export default function use2FARequiredCheck () {
         title: () => t('2FA.KEY_CREATION.FORCE_CREATION_MODAL.TITLE'),
         content: () => t('2FA.KEY_CREATION.FORCE_CREATION_MODAL.MESSAGE'),
         okText: () => t('2FA.KEY_CREATION.FORCE_CREATION_MODAL.OK_BUTTON'),
-        onOk: () => push({ name: 'ManageSecondFactorAuthentication' })
+        onOk: () => push({ name: 'ManageSecondFactorAuthentication' }),
       });
     }
   });

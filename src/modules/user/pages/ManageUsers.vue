@@ -47,9 +47,9 @@ export default defineComponent({
     TokenInput,
     LargeTable,
     SmallTable,
-    PageTitle
+    PageTitle,
   },
-  setup () {
+  setup() {
     const { pagination, handleTableChange } = useUsersList();
     const { locale, t } = useI18n();
     const { breadcrumbs } = useBreadcrumbs();
@@ -61,44 +61,44 @@ export default defineComponent({
     const sortOptions = [
       {
         key: 'domain',
-        label: 'USERS.DETAIL_USER.DOMAIN'
+        label: 'USERS.DETAIL_USER.DOMAIN',
       },
       {
         key: 'firstName',
-        label: 'USERS.DETAIL_USER.FIRST_NAME'
+        label: 'USERS.DETAIL_USER.FIRST_NAME',
       },
       {
         key: 'lastName',
-        label: 'USERS.DETAIL_USER.LAST_NAME'
+        label: 'USERS.DETAIL_USER.LAST_NAME',
       },
       {
         key: 'mail',
-        label: 'USERS.MANAGE_USERS.EMAIL'
+        label: 'USERS.MANAGE_USERS.EMAIL',
       },
       {
         key: 'creationDate',
-        label: 'USERS.DETAIL_USER.CREATION_DATE'
+        label: 'USERS.DETAIL_USER.CREATION_DATE',
       },
       {
         key: 'modificationDate',
         label: 'USERS.DETAIL_USER.MODIFICATION_DATE',
-        default: true
-      }
+        default: true,
+      },
     ];
 
     const filterOptions = [
       {
         key: 'mail',
         displayKey: computed(() => t('USERS.MANAGE_USERS.EMAIL', locale.value)),
-        default: true
+        default: true,
       },
       {
         key: 'firstName',
-        displayKey: computed(() => t('USERS.DETAIL_USER.FIRST_NAME', locale.value))
+        displayKey: computed(() => t('USERS.DETAIL_USER.FIRST_NAME', locale.value)),
       },
       {
         key: 'lastName',
-        displayKey: computed(() => t('USERS.DETAIL_USER.LAST_NAME', locale.value))
+        displayKey: computed(() => t('USERS.DETAIL_USER.LAST_NAME', locale.value)),
       },
       {
         key: 'role',
@@ -106,17 +106,17 @@ export default defineComponent({
         options: [
           {
             value: 'SIMPLE',
-            label: computed(() => t('USERS.DETAIL_USER.ROLE_SIMPLE', locale.value))
+            label: computed(() => t('USERS.DETAIL_USER.ROLE_SIMPLE', locale.value)),
           },
           {
             value: 'ADMIN',
-            label: computed(() => t('USERS.DETAIL_USER.ROLE_ADMIN', locale.value))
+            label: computed(() => t('USERS.DETAIL_USER.ROLE_ADMIN', locale.value)),
           },
           {
             value: 'SUPERADMIN',
-            label: computed(() => t('USERS.DETAIL_USER.ROLE_SUPERADMIN', locale.value))
-          }
-        ]
+            label: computed(() => t('USERS.DETAIL_USER.ROLE_SUPERADMIN', locale.value)),
+          },
+        ],
       },
       {
         key: 'type',
@@ -124,17 +124,17 @@ export default defineComponent({
         options: [
           {
             value: 'ROOT',
-            label: computed(() => t('USERS.DETAIL_USER.TYPE_ROOT', locale.value))
+            label: computed(() => t('USERS.DETAIL_USER.TYPE_ROOT', locale.value)),
           },
           {
             value: 'INTERNAL',
-            label: computed(() => t('USERS.DETAIL_USER.TYPE_INTERNAL', locale.value))
+            label: computed(() => t('USERS.DETAIL_USER.TYPE_INTERNAL', locale.value)),
           },
           {
             value: 'GUEST',
-            label: computed(() => t('USERS.DETAIL_USER.TYPE_GUEST', locale.value))
-          }
-        ]
+            label: computed(() => t('USERS.DETAIL_USER.TYPE_GUEST', locale.value)),
+          },
+        ],
       },
       {
         key: 'canCreateGuest',
@@ -142,13 +142,13 @@ export default defineComponent({
         options: [
           {
             value: true,
-            label: computed(() => t('USERS.DETAIL_USER.YES', locale.value))
+            label: computed(() => t('USERS.DETAIL_USER.YES', locale.value)),
           },
           {
             value: false,
-            label: computed(() => t('USERS.DETAIL_USER.NO', locale.value))
-          }
-        ]
+            label: computed(() => t('USERS.DETAIL_USER.NO', locale.value)),
+          },
+        ],
       },
       {
         key: 'canUpload',
@@ -156,37 +156,37 @@ export default defineComponent({
         options: [
           {
             value: true,
-            label: computed(() => t('USERS.DETAIL_USER.YES', locale.value))
+            label: computed(() => t('USERS.DETAIL_USER.YES', locale.value)),
           },
           {
             value: false,
-            label: computed(() => t('USERS.DETAIL_USER.NO', locale.value))
-          }
-        ]
-      }
+            label: computed(() => t('USERS.DETAIL_USER.NO', locale.value)),
+          },
+        ],
+      },
     ];
 
     return {
       breadcrumbs,
       sortOptions,
       filterOptions,
-      handleSubmit
+      handleSubmit,
     };
-  }
+  },
 });
 </script>
 
-<style lang='less' scoped>
-  .manage-users {
-    .users-list {
-      margin-top: 30px;
-    }
-
-    .alert-message-in-description {
-      display: block;
-      margin-top: 10px;
-      margin-bottom: 4px;
-      font-size: 16px;
-    }
+<style lang="less" scoped>
+.manage-users {
+  .users-list {
+    margin-top: 30px;
   }
+
+  .alert-message-in-description {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+}
 </style>

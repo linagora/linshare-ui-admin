@@ -11,19 +11,19 @@ export interface LDAPWorkspaceProvider {
     uuid: string;
     name: string;
   };
-  baseDn: string
+  baseDn: string;
   searchInOtherDomains: boolean;
 }
 
 export const EMPTY_PROVIDER: LDAPWorkspaceProvider = {
   ldapServer: {
     uuid: '',
-    name: ''
+    name: '',
   },
   driveFilter: {
     uuid: '',
-    name: ''
+    name: '',
   },
   baseDn: '',
-  searchInOtherDomains: false
+  searchInOtherDomains: false,
 };

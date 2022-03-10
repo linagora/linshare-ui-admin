@@ -1,14 +1,11 @@
 <template>
-  <PageTitle
-    :title="$t(currentRoute.meta.label as string)"
-    :breadcrumbs="breadcrumbs"
-  />
+  <PageTitle :title="$t(currentRoute.meta.label as string)" :breadcrumbs="breadcrumbs" />
   <DomainManagementWarning v-if="!isCurrentPageAccessible" />
 
   <router-view v-else />
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { useRouter } from 'vue-router';
 import PageTitle from '@/core/components/PageTitle.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';

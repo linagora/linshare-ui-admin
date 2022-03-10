@@ -1,28 +1,30 @@
-import { RouteRecordRaw } from 'vue-router';
+import { NavigationGuard, RouteRecordRaw } from 'vue-router';
+
+const checkCredentials: NavigationGuard = (to) => {
+  if (!to.params.email || !to.params.password) {
+    return '/login';
+  }
+};
 
 export const LoginRoutes: Array<RouteRecordRaw> = [
   {
     name: 'Login',
     path: '/login',
     props: true,
-    component: () => import('../pages/Login.vue')
+    component: () => import('../pages/Login.vue'),
   },
   {
     name: 'LoginUsingSecondFactorAuthentication',
     path: '/login/2fa',
     component: () => import('../pages/LoginSecondFactor.vue'),
     props: true,
-    beforeEnter: to => {
-      if (!to.params.email || !to.params.password) {
-        return '/login';
-      }
-    }
+    beforeEnter: [checkCredentials],
   },
   {
     name: 'OIDCCallback',
     path: '/oidccallback',
-    component: () => import('../components/OIDCCallback.vue')
-  }
+    component: () => import('../components/OIDCCallback.vue'),
+  },
 ];
 
 export const ManageSecondFactorAuthenticationRoute: RouteRecordRaw = {
@@ -30,6 +32,6 @@ export const ManageSecondFactorAuthenticationRoute: RouteRecordRaw = {
   path: '/second_factor_authentication',
   component: () => import('../pages/ManageSecondFactorAuthentication.vue'),
   meta: {
-    requiresAuth: true
-  }
+    requiresAuth: true,
+  },
 };

@@ -7,5 +7,5 @@ export default {
   en,
   fr,
   ru,
-  vi
+  vi,
 };

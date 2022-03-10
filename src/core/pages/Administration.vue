@@ -1,35 +1,29 @@
 <template>
   <a-row>
-    <a-col :md="{span: 16, offset: 4}">
+    <a-col :md="{ span: 16, offset: 4 }">
       <div class="page">
         <router-link :to="{ name: 'UsersList' }">
           <div class="page__menu-item">
-            <span>{{ $t("NAVIGATOR.MY_USERS") }}</span>
+            <span>{{ $t('NAVIGATOR.MY_USERS') }}</span>
             <RightOutlined />
           </div>
         </router-link>
         <router-link :to="{ name: 'SharedSpacesList' }">
           <div class="page__menu-item">
-            <span>{{ $t("NAVIGATOR.MY_SHARED_SPACES") }}</span>
+            <span>{{ $t('NAVIGATOR.MY_SHARED_SPACES') }}</span>
             <RightOutlined />
           </div>
         </router-link>
-        <div
-          class="page__menu-item"
-          @click="redirect('NAVIGATOR.MY_CONTACT_LIST')"
-        >
-          <span>{{ $t("NAVIGATOR.MY_CONTACT_LIST") }}</span>
+        <div class="page__menu-item" @click="redirect('NAVIGATOR.MY_CONTACT_LIST')">
+          <span>{{ $t('NAVIGATOR.MY_CONTACT_LIST') }}</span>
           <RightOutlined />
         </div>
-        <div
-          class="page__menu-item"
-          @click="redirect('NAVIGATOR.INCONSISTENT_USERS')"
-        >
-          <span>{{ $t("NAVIGATOR.INCONSISTENT_USERS") }}</span>
+        <div class="page__menu-item" @click="redirect('NAVIGATOR.INCONSISTENT_USERS')">
+          <span>{{ $t('NAVIGATOR.INCONSISTENT_USERS') }}</span>
           <RightOutlined />
         </div>
         <div class="page__menu-item">
-          <span>{{ $t("NAVIGATOR.LOGGERS") }}</span>
+          <span>{{ $t('NAVIGATOR.LOGGERS') }}</span>
         </div>
       </div>
     </a-col>
@@ -44,14 +38,14 @@ import useLegacyFeatures from '../hooks/useLegacyFeatures';
 export default defineComponent({
   name: 'Administration',
   components: {
-    RightOutlined
+    RightOutlined,
   },
-  setup () {
+  setup() {
     const { redirect } = useLegacyFeatures();
 
     return {
-      redirect
+      redirect,
     };
-  }
+  },
 });
 </script>

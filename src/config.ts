@@ -8,13 +8,13 @@ export const DEFAULT_CONFIGURATION: AppConfiguration = {
     authority: 'https://auth.linshare.local',
     client_id: 'linshare',
     client_secret: 'linshare',
-    scope: 'openid email profile'
-  }
+    scope: 'openid email profile',
+  },
 };
 
 const config: AppConfiguration = {
   ...DEFAULT_CONFIGURATION,
-  ...window.APP_CONFIGURATION
+  ...window.APP_CONFIGURATION,
 };
 
 export default config;

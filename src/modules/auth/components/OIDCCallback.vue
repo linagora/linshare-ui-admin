@@ -22,15 +22,15 @@ onMounted(async () => {
 </script>
 
 <style lang="less" scoped>
-  .oidc-callback {
-    position: fixed;
-    z-index: 99;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background: @text-color-inverse;
-    backdrop-filter: blur(10px);
-  }
+.oidc-callback {
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: @text-color-inverse;
+  backdrop-filter: blur(10px);
+}
 </style>

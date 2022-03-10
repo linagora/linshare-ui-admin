@@ -1,10 +1,6 @@
 <template>
   <div class="small-table">
-    <ListItem
-      v-for="item in list"
-      :key="item.uuid"
-      :data="item"
-    />
+    <ListItem v-for="item in list" :key="item.uuid" :data="item" />
     <Pagination
       v-model="pagination"
       class="small-table__pagination"
@@ -24,9 +20,9 @@ export default defineComponent({
   name: 'SmallTable',
   components: {
     ListItem,
-    Pagination
+    Pagination,
   },
-  async setup () {
+  async setup() {
     const { list, pagination, handleTableChange } = useUsersList();
 
     await handleTableChange(pagination);
@@ -34,21 +30,21 @@ export default defineComponent({
     return {
       list,
       pagination,
-      handleTableChange
+      handleTableChange,
     };
-  }
+  },
 });
 </script>
 
-<style lang='less' scoped>
-  .small-table {
-    display: none;
-    @media (max-width: 1067px) {
-      display: block;
-    }
-
-    &__pagination {
-      margin-top: 30px;
-    }
+<style lang="less" scoped>
+.small-table {
+  display: none;
+  @media (max-width: 1067px) {
+    display: block;
   }
+
+  &__pagination {
+    margin-top: 30px;
+  }
+}
 </style>

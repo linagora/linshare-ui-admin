@@ -1,4 +1,3 @@
-
 import { ActionTree } from 'vuex';
 import { UserState } from './user.state';
 import RootState from '@/core/types/RootState';
@@ -6,7 +5,7 @@ import { getUser, updateUser, deleteUser } from '@/modules/user/services/user-ap
 import User from '@/modules/user/types/User';
 
 const actions: ActionTree<UserState, RootState> = {
-  async fetchUser ({ commit }, id) {
+  async fetchUser({ commit }, id) {
     try {
       const user = await getUser(id);
 
@@ -16,21 +15,21 @@ const actions: ActionTree<UserState, RootState> = {
     }
   },
 
-  async updateUser ({ commit }, payload: User) {
+  async updateUser({ commit }, payload: User) {
     const updatedUser = await updateUser(payload);
 
     commit('mergeUser', updatedUser);
   },
 
-  async deleteUser ({ commit }, payload: User) {
+  async deleteUser({ commit }, payload: User) {
     await deleteUser(payload);
 
     commit('setUser', {});
   },
 
-  setUser ({ commit }, payload: User) {
+  setUser({ commit }, payload: User) {
     commit('setUser', payload);
-  }
+  },
 };
 
 export default actions;

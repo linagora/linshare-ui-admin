@@ -1,11 +1,17 @@
 import { Functionality } from '@/core/types/Functionality';
 import { addTime, isAfter, isBefore, isValid } from '@/core/utils/date';
 import { getMaximumParameter } from '@/core/utils/functionality';
-import { computed } from 'vue';
+import { computed, ComputedRef } from 'vue';
 import { useStore } from 'vuex';
 import User from '../types/User';
 
-export function useGuest () {
+type UsableGuest = {
+  maxExpirationDate: ComputedRef<Date>;
+  isCurrentUserGuest: ComputedRef<boolean>;
+  isValidExpirationDate: (date: Date | number) => boolean;
+};
+
+export function useGuest(): UsableGuest {
   const store = useStore();
   const user = computed<User>(() => store.getters['User/getUser']);
   const isCurrentUserGuest = computed(() => user.value.accountType === 'GUEST');
@@ -25,16 +31,12 @@ export function useGuest () {
     return addTime(user.value.creationDate, max.value, max.unit);
   });
 
-  function isValidExpirationDate (date: Date | number) : boolean {
+  function isValidExpirationDate(date: Date | number): boolean {
     if (isBefore(date, new Date())) {
       return false;
     }
 
-    if (
-      maxExpirationDate.value &&
-      isValid(maxExpirationDate.value) &&
-      isAfter(date, maxExpirationDate.value)
-    ) {
+    if (maxExpirationDate.value && isValid(maxExpirationDate.value) && isAfter(date, maxExpirationDate.value)) {
       return false;
     }
 
@@ -44,6 +46,6 @@ export function useGuest () {
   return {
     maxExpirationDate,
     isCurrentUserGuest,
-    isValidExpirationDate
+    isValidExpirationDate,
   };
 }

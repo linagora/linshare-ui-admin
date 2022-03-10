@@ -1,9 +1,6 @@
 <template>
   <a-config-provider :locale="antdLocale">
-    <div
-      v-if="authenticating || hydrating"
-      class="hydrating"
-    >
+    <div v-if="authenticating || hydrating" class="hydrating">
       <a-spin />
     </div>
 
@@ -11,7 +8,7 @@
   </a-config-provider>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 import useAntConfig from '@/core/hooks/useAntConfig';
@@ -22,21 +19,21 @@ const authenticating = computed(() => store.getters.isAuthenticating);
 const { antdLocale } = useAntConfig();
 </script>
 
-<style lang='less'>
-  #app {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+<style lang="less">
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .hydrating {
-    position: fixed;
-    z-index: 99;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background: @text-color-inverse;
-    backdrop-filter: blur(10px);
-  }
+.hydrating {
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: @text-color-inverse;
+  backdrop-filter: blur(10px);
+}
 </style>

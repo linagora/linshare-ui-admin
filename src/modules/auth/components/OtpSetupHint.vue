@@ -6,7 +6,7 @@
         <span class="step">{{ $t('2FA.MANUAL_SETUP.STEP_1') }}</span>
         <span class="step">{{ $t('2FA.MANUAL_SETUP.STEP_2') }}</span>
         <div class="issuer-account">
-          <img src="@/assets/images/freeotp-app-icon.png">
+          <img src="@/assets/images/freeotp-app-icon.png" />
           <div class="text-fields">
             <span>{{ configs.issuer }}</span>
             <span>{{ configs.account }}</span>
@@ -14,35 +14,37 @@
         </div>
         <span class="step">{{ $t('2FA.MANUAL_SETUP.STEP_3') }}</span>
         <div class="otp-secret">
-          <a-input
-            :value="configs.secret"
-            disabled
-          />
-          <a-button
-            type="primary"
-            @click="copySecret()"
-          >
+          <a-input :value="configs.secret" disabled />
+          <a-button type="primary" @click="copySecret()">
             {{ $t('GENERAL.COPY') }}
           </a-button>
         </div>
         <span class="step">{{ $t('2FA.MANUAL_SETUP.STEP_4') }}</span>
         <div class="other-configs">
-          <span><i>
-            {{ $t('2FA.MANUAL_SETUP.TYPE') }}
-            <b style="text-transform: uppercase">{{ configs.type }}</b>
-          </i></span>
-          <span><i>
-            {{ $t('2FA.MANUAL_SETUP.DIGITS') }}
-            <b>{{ configs.digits }}</b>
-          </i></span>
-          <span><i>
-            {{ $t('2FA.MANUAL_SETUP.ALGORITHM') }}
-            <b>{{ configs.algorithm }}</b>
-          </i></span>
-          <span><i>
-            {{ $t('2FA.MANUAL_SETUP.INTERVAL') }}
-            <b>{{ configs.period }}</b>
-          </i></span>
+          <span
+            ><i>
+              {{ $t('2FA.MANUAL_SETUP.TYPE') }}
+              <b style="text-transform: uppercase">{{ configs.type }}</b>
+            </i></span
+          >
+          <span
+            ><i>
+              {{ $t('2FA.MANUAL_SETUP.DIGITS') }}
+              <b>{{ configs.digits }}</b>
+            </i></span
+          >
+          <span
+            ><i>
+              {{ $t('2FA.MANUAL_SETUP.ALGORITHM') }}
+              <b>{{ configs.algorithm }}</b>
+            </i></span
+          >
+          <span
+            ><i>
+              {{ $t('2FA.MANUAL_SETUP.INTERVAL') }}
+              <b>{{ configs.period }}</b>
+            </i></span
+          >
         </div>
         <span class="step">{{ $t('2FA.MANUAL_SETUP.STEP_5') }}</span>
       </div>
@@ -73,11 +75,11 @@ export default defineComponent({
   props: {
     configs: {
       type: Object as () => OtpSetupHintConfigs,
-      required: true
-    }
+      required: true,
+    },
   },
-  setup (props: OtpSetupHintProps) {
-    async function copySecret () {
+  setup(props: OtpSetupHintProps) {
+    async function copySecret() {
       if (!navigator.clipboard) {
         return;
       }
@@ -90,77 +92,77 @@ export default defineComponent({
     }
 
     return { copySecret };
-  }
+  },
 });
 </script>
 
 <style lang="less" scoped>
-  .trigger-text {
-    color: @primary-5;
-    font-weight: 500;
-    font-size: 14px;
+.trigger-text {
+  color: @primary-5;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.otp-secret {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  input {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
-  .otp-secret {
-    display: flex;
-    align-items: center;
-    width: 100%;
+  button {
+    white-space: nowrap;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
 
-    input {
-      flex: 1;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
+.content {
+  color: @text-color;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 
-    button {
-      white-space: nowrap;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+  label {
+    font-size: 16px;
+    margin-bottom: 5px;
   }
 
-  .content {
-    color: @text-color;
+  .step {
+    margin: 7px 0;
+  }
+
+  .issuer-account {
     display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+    background-color: @component-background;
+    padding: 5px;
+    border-radius: 2px;
 
-    label {
-      font-size: 16px;
-      margin-bottom: 5px;
-    }
-
-    .step {
-      margin: 7px 0;
-    }
-
-    .issuer-account {
-      display: flex;
-      background-color: @component-background;
-      padding: 5px;
-      border-radius: 2px;
-
-      .text-fields {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-evenly;
-        width: 100%;
-        margin-left: 10px;
-
-        span {
-          border-bottom: medium;
-          font-weight: 500;
-          width: 100%;
-          border-bottom: 1px solid @border-color-base;
-        }
-      }
-    }
-
-    .other-configs {
+    .text-fields {
       display: flex;
       flex-direction: column;
-      color: @text-color-medium;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      width: 100%;
+      margin-left: 10px;
+
+      span {
+        border-bottom: medium;
+        font-weight: 500;
+        width: 100%;
+        border-bottom: 1px solid @border-color-base;
+      }
     }
   }
+
+  .other-configs {
+    display: flex;
+    flex-direction: column;
+    color: @text-color-medium;
+  }
+}
 </style>

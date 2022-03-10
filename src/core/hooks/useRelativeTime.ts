@@ -1,5 +1,5 @@
 import { useI18n } from 'vue-i18n';
-import { computed } from 'vue';
+import { computed, ComputedRef } from 'vue';
 interface Unit {
   max: number;
   value: number;
@@ -12,10 +12,12 @@ const UNITS: Unit[] = [
   { max: 518400000, value: 86400000, name: 'day' },
   { max: 2419200000, value: 604800000, name: 'week' },
   { max: 28512000000, value: 2592000000, name: 'month' },
-  { max: Infinity, value: 31536000000, name: 'year' }
+  { max: Infinity, value: 31536000000, name: 'year' },
 ];
 
-export default function useRelativeTime (from: Date | string | number) {
+type UsableRelativeTime = ComputedRef<string> | undefined;
+
+export default function useRelativeTime(from: Date | string | number): UsableRelativeTime {
   const { locale, t } = useI18n();
   const { abs, round } = Math;
   const diff = +new Date(from) - +new Date();

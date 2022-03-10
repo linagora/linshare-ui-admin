@@ -4,9 +4,9 @@ export default interface AppConfiguration {
   legacyAppUrl: string;
   oidcEnabled: boolean;
   oidcSetting: {
-    authority: string,
-    client_id: string,
-    client_secret: string,
-    scope: string
-  }
+    authority: string;
+    client_id: string;
+    client_secret: string;
+    scope: string;
+  };
 }

@@ -1,13 +1,9 @@
-import { ref, reactive } from 'vue';
+import { ref, reactive, Ref, UnwrapRef } from 'vue';
 import { message } from 'ant-design-vue';
 import { TableState } from 'ant-design-vue/es/table/interface';
 
 import User from '@/modules/user/types/User';
-import {
-  listUsers,
-  ListUsersOptions,
-  ListUserFilters
-} from '@/modules/user/services/user-api';
+import { listUsers, ListUsersOptions, ListUserFilters } from '@/modules/user/services/user-api';
 import Sort from '@/core/types/Sort';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import { APIError } from '@/core/types/APIError';
@@ -19,11 +15,19 @@ const loading = ref(false);
 const pagination = reactive({
   total: 0,
   current: 1,
-  pageSize: DEFAULT_PAGE_SIZE
+  pageSize: DEFAULT_PAGE_SIZE,
 });
 
-export default function useUsersList () {
-  async function updateUsersList (options: ListUsersOptions) {
+type UsableUsersList = {
+  list: Ref<User[]>;
+  loading: Ref<boolean>;
+  pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
+  handleTableChange: (pag: Pagination, filters?: ListUserFilters, sorter?: Sort) => Promise<void>;
+  handlePaginationChange: (page: number, size: number) => Promise<void>;
+};
+
+export default function useUsersList(): UsableUsersList {
+  async function updateUsersList(options: ListUsersOptions) {
     if (loading.value) {
       return;
     }
@@ -47,7 +51,7 @@ export default function useUsersList () {
     }
   }
 
-  async function handleTableChange (pag: Pagination, filters?: ListUserFilters, sorter?: Sort) {
+  async function handleTableChange(pag: Pagination, filters?: ListUserFilters, sorter?: Sort) {
     const options: ListUsersOptions = {};
 
     if (pag) {
@@ -75,7 +79,7 @@ export default function useUsersList () {
     await updateUsersList(options);
   }
 
-  async function handlePaginationChange (page: number, size: number) {
+  async function handlePaginationChange(page: number, size: number) {
     const options: ListUsersOptions = {};
 
     options.page = page - 1;
@@ -89,6 +93,6 @@ export default function useUsersList () {
     loading,
     pagination,
     handleTableChange,
-    handlePaginationChange
+    handlePaginationChange,
   };
 }

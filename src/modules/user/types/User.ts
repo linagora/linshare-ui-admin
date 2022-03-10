@@ -6,7 +6,7 @@ export enum ACCOUNT_ROLE {
   DELEGATION = 'DELEGATION',
   UPLOAD_REQUEST = 'UPLOAD_REQUEST',
   SAFE = 'SAFE',
-  ANONYMOUS = 'ANONYMOUS'
+  ANONYMOUS = 'ANONYMOUS',
 }
 
 export default interface User {

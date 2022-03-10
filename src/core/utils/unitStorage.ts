@@ -10,10 +10,16 @@ export const STORAGE_UNITS: StorageUnit[] = [
   { base: 1e9, label: 'GB' },
   { base: 1e12, label: 'TB' },
   { base: 1e15, label: 'PB' },
-  { base: 1e18, label: 'EB' }
+  { base: 1e18, label: 'EB' },
 ];
 
-export function getReadableSize (bytes: number, decimals = 2) {
+type ReadableSize = {
+  value: number;
+  unit: StorageUnit;
+  getText: () => string;
+};
+
+export function getReadableSize(bytes: number, decimals = 2): ReadableSize {
   let unit: StorageUnit = STORAGE_UNITS[0];
   let value: number;
 
@@ -29,8 +35,8 @@ export function getReadableSize (bytes: number, decimals = 2) {
   return {
     value,
     unit,
-    getText () {
+    getText() {
       return `${value} ${unit.label}`;
-    }
+    },
   };
 }

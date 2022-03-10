@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed, reactive, ref } from 'vue';
 import { message, Form } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
@@ -27,11 +27,7 @@ const guestFeatureEnabled = computed(() => {
   return isEnable(functionality);
 });
 
-const {
-  isCurrentUserGuest,
-  maxExpirationDate,
-  isValidExpirationDate
-} = useGuest();
+const { isCurrentUserGuest, maxExpirationDate, isValidExpirationDate } = useGuest();
 const formSubmitting = ref(false);
 const formModel = reactive<FormModel>({
   firstName: user.value.firstName,
@@ -40,26 +36,27 @@ const formModel = reactive<FormModel>({
   externalMailLocale: user.value.externalMailLocale,
   canUpload: user.value.canUpload,
   canCreateGuest: user.value.canCreateGuest,
-  expirationDate: user.value.expirationDate ? user.value.expirationDate.toString() : undefined
+  expirationDate: user.value.expirationDate ? user.value.expirationDate.toString() : undefined,
 });
 const formRules = reactive({
   firstName: [{ required: true, message: t('GENERAL.FIELD_REQUIRED') }],
   lastName: [{ required: true, message: t('GENERAL.FIELD_REQUIRED') }],
-  expirationDate: [{
-    message: isCurrentUserGuest.value
-      ? t('USERS.DETAIL_USER.GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE', {
-        date: d(maxExpirationDate.value, 'mediumDate')
-      })
-      : '',
-    validator: (rule: Record<string, unknown>, value: string) => isValidExpirationDate(Number(value))
-      ? Promise.resolve()
-      : Promise.reject(new Error())
-  }]
+  expirationDate: [
+    {
+      message: isCurrentUserGuest.value
+        ? t('USERS.DETAIL_USER.GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE', {
+            date: d(maxExpirationDate.value, 'mediumDate'),
+          })
+        : '',
+      validator: (rule: Record<string, unknown>, value: string) =>
+        isValidExpirationDate(Number(value)) ? Promise.resolve() : Promise.reject(new Error()),
+    },
+  ],
 });
 
 const { validate, validateInfos } = Form.useForm(formModel, formRules);
 
-async function updateUser () {
+async function updateUser() {
   formSubmitting.value = true;
 
   try {
@@ -67,7 +64,7 @@ async function updateUser () {
     await store.dispatch('User/updateUser', {
       ...user.value,
       ...formModel,
-      expirationDate: Number(formModel.expirationDate)
+      expirationDate: Number(formModel.expirationDate),
     });
     message.success(t('MESSAGES.UPDATE_SUCCESS'));
   } catch (error) {
@@ -82,7 +79,7 @@ async function updateUser () {
 
 <template>
   <a-row class="user-profile-row">
-    <a-col :xl="{span: 9, offset: 2}">
+    <a-col :xl="{ span: 9, offset: 2 }">
       <a-form @submit="updateUser()">
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.FIRST_NAME') }}</label>
@@ -94,20 +91,14 @@ async function updateUser () {
         </div>
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.ROLE') }}</label>
-          <a-select
-            v-model:value="formModel.role"
-            :disabled="user.role === 'SUPERADMIN'"
-          >
+          <a-select v-model:value="formModel.role" :disabled="user.role === 'SUPERADMIN'">
             <a-select-option value="SIMPLE">
               {{ $t('USERS.DETAIL_USER.ROLE_SIMPLE') }}
             </a-select-option>
             <a-select-option value="ADMIN">
               {{ $t('USERS.DETAIL_USER.ROLE_ADMIN') }}
             </a-select-option>
-            <a-select-option
-              disabled
-              value="SUPERADMIN"
-            >
+            <a-select-option disabled value="SUPERADMIN">
               {{ $t('USERS.DETAIL_USER.ROLE_SUPERADMIN') }}
             </a-select-option>
           </a-select>
@@ -123,10 +114,7 @@ async function updateUser () {
             </a-select-option>
           </a-select>
         </div>
-        <div
-          v-if="isCurrentUserGuest"
-          class="input-container"
-        >
+        <div v-if="isCurrentUserGuest" class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.EXPIRATION_DATE') }}</label>
           <a-form-item v-bind="validateInfos.expirationDate">
             <a-date-picker
@@ -143,32 +131,25 @@ async function updateUser () {
             {{ $t('USERS.DETAIL_USER.ENABLE_PERSONAL_SPACE') }}
           </a-checkbox>
         </div>
-        <div
-          v-if="!isCurrentUserGuest && guestFeatureEnabled "
-          class="input-container"
-        >
+        <div v-if="!isCurrentUserGuest && guestFeatureEnabled" class="input-container">
           <a-checkbox v-model:checked="formModel.canCreateGuest">
             {{ $t('USERS.DETAIL_USER.ALLOW_GUEST_CREATION') }}
           </a-checkbox>
         </div>
 
         <div>
-          <a-button
-            type="primary"
-            :loading="formSubmitting"
-            html-type="submit"
-          >
+          <a-button type="primary" :loading="formSubmitting" html-type="submit">
             {{ $t('GENERAL.SAVE') }}
           </a-button>
         </div>
       </a-form>
     </a-col>
 
-    <a-col :xl="{span: 9, offset: 2}">
+    <a-col :xl="{ span: 9, offset: 2 }">
       <div class="info-block-container">
         <div class="info-block">
           <div class="info-block__title">
-            {{ $t("USERS.DETAIL_USER.ACCOUNT_TYPE") }}
+            {{ $t('USERS.DETAIL_USER.ACCOUNT_TYPE') }}
           </div>
           <div class="info-block__value">
             {{ user.accountType }}
@@ -190,10 +171,7 @@ async function updateUser () {
             {{ $d(user.modificationDate, 'mediumDateTime') }}
           </div>
         </div>
-        <div
-          v-if="isCurrentUserGuest"
-          class="info-block"
-        >
+        <div v-if="isCurrentUserGuest" class="info-block">
           <div class="info-block__title">
             {{ $t('USERS.DETAIL_USER.AUTHOR') }}
           </div>
@@ -206,7 +184,7 @@ async function updateUser () {
             {{ $t('USERS.DETAIL_USER.DOMAIN') }}
           </div>
           <div class="info-block__value">
-            <router-link :to="{ name: 'DomainDetails', params: { domainUuid: user.domain.uuid }}">
+            <router-link :to="{ name: 'DomainDetails', params: { domainUuid: user.domain.uuid } }">
               {{ user.domain.name }}
             </router-link>
           </div>
@@ -217,47 +195,46 @@ async function updateUser () {
 </template>
 
 <style lang="less" scoped>
+.input-container {
+  margin: 20px 0px;
 
-  .input-container {
-    margin: 20px 0px;
+  label {
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
 
-    label {
-      display: inline-block;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+  .ant-select {
+    width: 100%;
+  }
+}
 
-    .ant-select {
+.info-block-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #f2f5f7;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+
+  .info-block {
+    padding: 5px;
+    margin-bottom: 20px;
+    width: 50%;
+
+    @media (max-width: 575px) {
       width: 100%;
     }
-  }
 
-  .info-block-container {
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid #F2F5F7;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 4px;
-
-    .info-block {
-      padding: 5px;
-      margin-bottom: 20px;
-      width: 50%;
-
-      @media (max-width: 575px) {
-        width: 100%;
-      }
-
-      &__title {
-        color: @text-color-secondary;
-      }
+    &__title {
+      color: @text-color-secondary;
     }
   }
+}
 
-  @media (max-width: 1068px) {
-    .user-profile-row {
-      flex-direction: column-reverse;
-    }
-  };
+@media (max-width: 1068px) {
+  .user-profile-row {
+    flex-direction: column-reverse;
+  }
+} ;
 </style>

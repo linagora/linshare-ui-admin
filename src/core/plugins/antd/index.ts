@@ -30,11 +30,11 @@ import {
   Table,
   Tabs,
   Tag,
-  Tooltip
+  Tooltip,
 } from 'ant-design-vue';
 import '@/core/styles/variables.less';
 
-function useAntdComponents (vueApp: App): App {
+function useAntdComponents(vueApp: App): App {
   return vueApp
     .use(Alert)
     .use(AutoComplete)

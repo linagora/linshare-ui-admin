@@ -1,12 +1,8 @@
-import { ref, reactive } from 'vue';
+import { ref, reactive, Ref, UnwrapRef } from 'vue';
 import { message } from 'ant-design-vue';
 
 import SharedSpace from '@/modules/shared-spaces/types/SharedSpace';
-import {
-  getSharedSpace,
-  listSharedSpaces,
-  ListSharedSpaceOptions
-} from '../services/shared-space-api';
+import { getSharedSpace, listSharedSpaces, ListSharedSpaceOptions } from '../services/shared-space-api';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import { APIError } from '@/core/types/APIError';
 
@@ -21,12 +17,20 @@ const loading = ref(false);
 const pagination = reactive<Pagination>({
   total: 0,
   current: 1,
-  pageSize: DEFAULT_PAGE_SIZE
+  pageSize: DEFAULT_PAGE_SIZE,
 });
 
-export default function useSharedSpacesList () {
-  async function populateParentWorkspaces (list: SharedSpace[]): Promise<void> {
-    const workspaces = list.filter(sharedSpace => sharedSpace.nodeType === 'WORK_SPACE');
+type UsableSharedSpacesList = {
+  list: Ref<SharedSpace[]>;
+  loading: Ref<boolean>;
+  pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
+  handlePaginationChange: (pagination: Pagination) => Promise<void>;
+  updateSharedSpacesList: (options: ListSharedSpaceOptions) => Promise<void>;
+};
+
+export default function useSharedSpacesList(): UsableSharedSpacesList {
+  async function populateParentWorkspaces(list: SharedSpace[]): Promise<void> {
+    const workspaces = list.filter((sharedSpace) => sharedSpace.nodeType === 'WORK_SPACE');
 
     for (let index = 0; index < list.length; index++) {
       const sharedSpace = list[index];
@@ -34,7 +38,7 @@ export default function useSharedSpacesList () {
 
       if (sharedSpace.parentUuid) {
         try {
-          workspace = workspaces.find(node => node.uuid === sharedSpace.parentUuid);
+          workspace = workspaces.find((node) => node.uuid === sharedSpace.parentUuid);
 
           if (!workspace) {
             workspace = await getSharedSpace(sharedSpace.parentUuid);
@@ -43,13 +47,15 @@ export default function useSharedSpacesList () {
 
           sharedSpace.parentName = workspace.name;
         } catch (error) {
-          console.debug('Failed to get parent workspace', error);
+          if (error instanceof APIError) {
+            message.error(error.getMessage());
+          }
         }
       }
     }
   }
 
-  async function updateSharedSpacesList (options: ListSharedSpaceOptions) {
+  async function updateSharedSpacesList(options: ListSharedSpaceOptions) {
     if (loading.value) {
       return;
     }
@@ -71,7 +77,7 @@ export default function useSharedSpacesList () {
     }
   }
 
-  async function handlePaginationChange (pagination: Pagination) {
+  async function handlePaginationChange(pagination: Pagination) {
     const options: ListSharedSpaceOptions = {};
 
     options.page = pagination.current - 1;
@@ -85,6 +91,6 @@ export default function useSharedSpacesList () {
     loading,
     pagination,
     handlePaginationChange,
-    updateSharedSpacesList
+    updateSharedSpacesList,
   };
 }

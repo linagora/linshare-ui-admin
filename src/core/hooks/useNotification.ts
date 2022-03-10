@@ -11,28 +11,37 @@ interface ModalOptions {
   onOk?: (...args: any[]) => any;
 }
 
-export default function useNotification () {
+type UsableNotification = {
+  infoModal: (options: ModalOptions) => void;
+  confirmModal: (options: ModalOptions) => void;
+};
+
+export default function useNotification(): UsableNotification {
   const { t } = useI18n();
 
-  const infoModal = (options: ModalOptions) => Modal.info({
-    title: () => options.title,
-    icon: () => createVNode(ExclamationCircleOutlined),
-    content: () => options.content,
-    okText: () => options.okText || t('GENERAL.OK'),
-    onOk: options.onOk
-  });
+  const infoModal = (options: ModalOptions) => {
+    Modal.info({
+      title: () => options.title,
+      icon: () => createVNode(ExclamationCircleOutlined),
+      content: () => options.content,
+      okText: () => options.okText || t('GENERAL.OK'),
+      onOk: options.onOk,
+    });
+  };
 
-  const confirmModal = (options: ModalOptions) => Modal.confirm({
-    title: () => options.title,
-    icon: () => createVNode(ExclamationCircleOutlined),
-    content: () => options.content,
-    okText: () => options.okText || t('GENERAL.OK'),
-    cancelText: () => options.cancelText || t('GENERAL.CANCEL'),
-    onOk: options.onOk
-  });
+  const confirmModal = (options: ModalOptions) => {
+    Modal.confirm({
+      title: () => options.title,
+      icon: () => createVNode(ExclamationCircleOutlined),
+      content: () => options.content,
+      okText: () => options.okText || t('GENERAL.OK'),
+      cancelText: () => options.cancelText || t('GENERAL.CANCEL'),
+      onOk: options.onOk,
+    });
+  };
 
   return {
     infoModal,
-    confirmModal
+    confirmModal,
   };
 }

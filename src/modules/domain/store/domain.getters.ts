@@ -5,27 +5,28 @@ import DomainTreeNode, { EMPTY_DOMAIN_NODE } from '../types/DomainTreeNode';
 import Domain from '../types/Domain';
 
 const getters: GetterTree<DomainState, RootState> = {
-  getCurrentDomain: state => state.currentDomain,
-  getCurrentDomainUuid: state => state.currentDomain.uuid,
-  getCurrentDomainType: state => state.currentDomain.type,
-  getLoggedUserFunctionalities: state => state.loggedUserFunctionalities,
-  getLoggedUserFunctionality: state => (id: string) => state.loggedUserFunctionalities?.find(functionality => functionality.identifier === id),
-  getDomainsTree: state => state.domainsTree,
-  getDomainsList: state => getDomainsListFromTree(state.domainsTree),
-  getDomainByUuid: state => (uuid: string) => getDomainFromTree(uuid, state.domainsTree),
-  getStatus: state => (entity: 'currentDomain') => state.status[entity],
-  isRootDomain: state => state.currentDomain.type === 'ROOTDOMAIN',
-  isGuestDomain: state => state.currentDomain.type === 'GUESTDOMAIN'
+  getCurrentDomain: (state) => state.currentDomain,
+  getCurrentDomainUuid: (state) => state.currentDomain.uuid,
+  getCurrentDomainType: (state) => state.currentDomain.type,
+  getLoggedUserFunctionalities: (state) => state.loggedUserFunctionalities,
+  getLoggedUserFunctionality: (state) => (id: string) =>
+    state.loggedUserFunctionalities?.find((functionality) => functionality.identifier === id),
+  getDomainsTree: (state) => state.domainsTree,
+  getDomainsList: (state) => getDomainsListFromTree(state.domainsTree),
+  getDomainByUuid: (state) => (uuid: string) => getDomainFromTree(uuid, state.domainsTree),
+  getStatus: (state) => (entity: 'currentDomain') => state.status[entity],
+  isRootDomain: (state) => state.currentDomain.type === 'ROOTDOMAIN',
+  isGuestDomain: (state) => state.currentDomain.type === 'GUESTDOMAIN',
 };
 
-function getDomainsListFromTree (node: DomainTreeNode): Domain[] {
+function getDomainsListFromTree(node: DomainTreeNode): Domain[] {
   const list: Domain[] = [];
 
-  function add (node: DomainTreeNode) {
+  function add(node: DomainTreeNode) {
     list.push({
       uuid: node.uuid,
       name: node.name,
-      type: node.type
+      type: node.type,
     });
 
     if (node.children?.length) {
@@ -40,10 +41,10 @@ function getDomainsListFromTree (node: DomainTreeNode): Domain[] {
   return list;
 }
 
-function getDomainFromTree (uuid: string, node: DomainTreeNode): DomainTreeNode {
+function getDomainFromTree(uuid: string, node: DomainTreeNode): DomainTreeNode {
   const target: DomainTreeNode = { ...EMPTY_DOMAIN_NODE };
 
-  function find (node: DomainTreeNode) {
+  function find(node: DomainTreeNode) {
     if (node.uuid === uuid) {
       Object.assign(target, node);
     }

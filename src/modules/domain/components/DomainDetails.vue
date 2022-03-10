@@ -1,45 +1,24 @@
 <template>
-  <PageTitle
-    :title="$t('NAVIGATOR.DOMAIN_DETAILS')"
-    :subtitle="currentDomain.name"
-    :breadcrumbs="breadcrumbs"
-  >
+  <PageTitle :title="$t('NAVIGATOR.DOMAIN_DETAILS')" :subtitle="currentDomain.name" :breadcrumbs="breadcrumbs">
     <template #subTitlePostfix>
-      <div
-        v-if="canDelete"
-        class="delete-domain-container"
-      >
-        <a-button
-          :disabled="loadingDomain"
-          :loading="deleting"
-          primary
-          @click="confirmThenDelete"
-        >
+      <div v-if="canDelete" class="delete-domain-container">
+        <a-button :disabled="loadingDomain" :loading="deleting" primary @click="confirmThenDelete">
           {{ $t('DOMAIN.DELETE.BUTTON') }}
         </a-button>
       </div>
     </template>
   </PageTitle>
 
-  <div
-    v-if="loadingDomain"
-    class="spinner"
-  >
+  <div v-if="loadingDomain" class="spinner">
     <a-spin />
   </div>
 
-  <a-row
-    v-else
-    :gutter="24"
-  >
+  <a-row v-else :gutter="24">
     <a-col :span="12">
       <DomainForm :data="currentDomain" />
     </a-col>
 
-    <a-col
-      :span="10"
-      :offset="2"
-    >
+    <a-col :span="10" :offset="2">
       <div class="info-block-container">
         <div class="info-block">
           <div class="title">
@@ -57,10 +36,7 @@
             {{ currentDomain.modificationDate && $d(currentDomain.modificationDate, 'mediumDate') }}
           </div>
         </div>
-        <div
-          v-if="!isRootDomain"
-          class="info-block"
-        >
+        <div v-if="!isRootDomain" class="info-block">
           <div class="title">
             {{ $t('DOMAIN.FIELDS.WELCOME_MESSAGE') }}
           </div>
@@ -68,10 +44,7 @@
             <a href="">{{ currentDomain.welcomeMessage?.name }}</a>
           </div>
         </div>
-        <div
-          v-if="!isRootDomain"
-          class="info-block"
-        >
+        <div v-if="!isRootDomain" class="info-block">
           <div class="title">
             {{ $t('DOMAIN.FIELDS.MAIL_CONFIGURATION') }}
           </div>
@@ -79,10 +52,7 @@
             <a href="">{{ currentDomain.mailConfiguration?.name }}</a>
           </div>
         </div>
-        <div
-          v-if="!isRootDomain"
-          class="info-block"
-        >
+        <div v-if="!isRootDomain" class="info-block">
           <div class="title">
             {{ $t('DOMAIN.FIELDS.MIME_POLICY') }}
           </div>
@@ -90,10 +60,7 @@
             <a href="">{{ currentDomain.mimePolicy?.name }}</a>
           </div>
         </div>
-        <div
-          v-if="!isRootDomain"
-          class="info-block"
-        >
+        <div v-if="!isRootDomain" class="info-block">
           <div class="title">
             {{ $t('DOMAIN.FIELDS.DOMAIN_POLICY') }}
           </div>
@@ -125,35 +92,35 @@ const { deleting, confirmThenDelete, canDelete } = useDomainDelete();
 </script>
 
 <style lang="less" scoped>
-  .spinner {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.spinner {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .info-block-container {
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid #F2F5F7;
-    padding: 20px;
-    border-radius: 4px;
-    margin-top: 30px;
+.info-block-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #f2f5f7;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 30px;
 
-    .info-block {
-      flex: 0 1 50%;
-      margin: 20px 0;
+  .info-block {
+    flex: 0 1 50%;
+    margin: 20px 0;
 
-      .title {
-        color: @text-color-secondary;
-      }
+    .title {
+      color: @text-color-secondary;
     }
   }
+}
 
-  .delete-domain-container {
-    .ant-btn {
-      background: @primary-8;
-      color: @text-color-inverse;
-    }
+.delete-domain-container {
+  .ant-btn {
+    background: @primary-8;
+    color: @text-color-inverse;
   }
+}
 </style>

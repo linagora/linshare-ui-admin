@@ -20,18 +20,10 @@
       </template>
     </PageTitle>
 
-    <a-alert
-      v-if="user.locked"
-      :message="$t('USERS.DETAIL_USER.LOCKED_USER')"
-      type="warning"
-    >
+    <a-alert v-if="user.locked" :message="$t('USERS.DETAIL_USER.LOCKED_USER')" type="warning">
       <template #description>
         <p>{{ $t('USERS.DETAIL_USER.LOCKED_USER_DESCRIPTION') }}</p>
-        <a-button
-          type="warning"
-          class="unlock-button"
-          @click="unlockUser"
-        >
+        <a-button type="warning" class="unlock-button" @click="unlockUser">
           {{ $t('USERS.DETAIL_USER.UNLOCK') }}
         </a-button>
       </template>
@@ -44,34 +36,20 @@
           {{ user.secondFAEnabled ? $t('USERS.DETAIL_USER.ENABLED') : $t('USERS.DETAIL_USER.DISABLED') }}
         </a-tag>
       </div>
-      <a-button
-        v-if="user.secondFAEnabled"
-        class="delete-shared-key-button"
-        @click="confirmRemoveSharedKey"
-      >
+      <a-button v-if="user.secondFAEnabled" class="delete-shared-key-button" @click="confirmRemoveSharedKey">
         {{ $t('2FA.KEY_REMOVAL.BUTTON') }}
       </a-button>
     </div>
 
     <div class="user-detail">
       <a-tabs>
-        <a-tab-pane
-          key="1"
-          :tab="$t('USERS.DETAIL_USER.USER_PROFILE')"
-        >
+        <a-tab-pane key="1" :tab="$t('USERS.DETAIL_USER.USER_PROFILE')">
           <UserProfile />
         </a-tab-pane>
-        <a-tab-pane
-          key="2"
-          :tab="$t('USERS.DETAIL_USER.PERSONAL_SPACE_QUOTA')"
-        >
+        <a-tab-pane key="2" :tab="$t('USERS.DETAIL_USER.PERSONAL_SPACE_QUOTA')">
           <PersonalSpaceQuota />
         </a-tab-pane>
-        <a-tab-pane
-          v-if="user.accountType === 'GUEST'"
-          key="3"
-          :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')"
-        >
+        <a-tab-pane v-if="user.accountType === 'GUEST'" key="3" :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')">
           <RestrictedContacts />
         </a-tab-pane>
       </a-tabs>
@@ -102,9 +80,9 @@ export default defineComponent({
     PageTitle,
     PersonalSpaceQuota,
     UserProfile,
-    RestrictedContacts
+    RestrictedContacts,
   },
-  async setup () {
+  async setup() {
     const { params } = useRoute();
     const { t } = useI18n();
 
@@ -122,7 +100,7 @@ export default defineComponent({
       }
     }
 
-    async function deleteUser () {
+    async function deleteUser() {
       try {
         await store.dispatch('User/deleteUser', store.getters['User/getUser']);
         message.success(t('MESSAGES.DELETE_SUCCESS'));
@@ -132,11 +110,11 @@ export default defineComponent({
       }
     }
 
-    async function unlockUser () {
+    async function unlockUser() {
       try {
         store.dispatch('User/setUser', {
           ...store.getters['User/getUser'],
-          locked: false
+          locked: false,
         });
 
         await store.dispatch('User/updateUser', store.getters['User/getUser']);
@@ -146,7 +124,7 @@ export default defineComponent({
       }
     }
 
-    async function remove2FAKey () {
+    async function remove2FAKey() {
       try {
         const user = store.getters['User/getUser'];
 
@@ -157,14 +135,14 @@ export default defineComponent({
       }
     }
 
-    function confirmRemoveSharedKey () {
+    function confirmRemoveSharedKey() {
       Modal.confirm({
         title: () => t('GENERAL.DELETION'),
         icon: () => createVNode(ExclamationCircleOutlined),
         content: () => t('2FA.KEY_REMOVAL.CONFIRMATION'),
         okText: () => t('GENERAL.DELETE'),
         cancelText: () => t('GENERAL.CANCEL'),
-        onOk: remove2FAKey
+        onOk: remove2FAKey,
       });
     }
 
@@ -173,62 +151,62 @@ export default defineComponent({
       breadcrumbs,
       deleteUser,
       confirmRemoveSharedKey,
-      unlockUser
+      unlockUser,
     };
-  }
+  },
 });
 </script>
 
-<style lang='less' scoped>
-  .manage-users {
-    .user-detail {
-      margin-top: 40px;
-    }
+<style lang="less" scoped>
+.manage-users {
+  .user-detail {
+    margin-top: 40px;
+  }
 
-    .delete-user-container {
-      display: inline-block;
+  .delete-user-container {
+    display: inline-block;
 
-      .ant-btn {
-        background: @primary-8;
-        color: @text-color-inverse;
-      }
-    }
-
-    .unlock-button {
-      @media (min-width: 575px) {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-      }
-
-      background: @warning-color;
-      color: @text-color;
-    }
-
-    .second-factor-authentication {
-      margin-top: 30px;
-      border: 1px solid #eee;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 4px;
-
-      @media (max-width: 575px) {
-        display: block;
-
-        .delete-shared-key-button {
-          margin-top: 10px;
-        }
-      }
-
-      .ant-tag {
-        margin-left: 10px;
-      }
-
-      .delete-shared-key-button {
-        background: @background-color-base;
-      }
+    .ant-btn {
+      background: @primary-8;
+      color: @text-color-inverse;
     }
   }
+
+  .unlock-button {
+    @media (min-width: 575px) {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+
+    background: @warning-color;
+    color: @text-color;
+  }
+
+  .second-factor-authentication {
+    margin-top: 30px;
+    border: 1px solid #eee;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
+
+    @media (max-width: 575px) {
+      display: block;
+
+      .delete-shared-key-button {
+        margin-top: 10px;
+      }
+    }
+
+    .ant-tag {
+      margin-left: 10px;
+    }
+
+    .delete-shared-key-button {
+      background: @background-color-base;
+    }
+  }
+}
 </style>

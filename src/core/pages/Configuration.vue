@@ -1,20 +1,11 @@
 <template>
   <a-layout>
-    <a-layout-sider
-      v-if="isLargeScreen"
-      width="300"
-      theme="light"
-    >
+    <a-layout-sider v-if="isLargeScreen" width="300" theme="light">
       <DomainsTree />
     </a-layout-sider>
     <a-layout-content>
-      <div
-        v-if="!isLargeScreen"
-        style="margin-bottom: 10px;"
-      >
-        <a-button
-          @click="showSidebar = true"
-        >
+      <div v-if="!isLargeScreen" style="margin-bottom: 10px">
+        <a-button @click="showSidebar = true">
           <template #icon>
             <MenuUnfoldOutlined />
           </template>
@@ -24,18 +15,12 @@
     </a-layout-content>
   </a-layout>
 
-  <a-drawer
-    placement="left"
-    :closable="false"
-    :visible="showSidebar"
-    width="300"
-    @close="showSidebar = false"
-  >
+  <a-drawer placement="left" :closable="false" :visible="showSidebar" width="300" @close="showSidebar = false">
     <DomainsTree />
   </a-drawer>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed, ref, watch } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
 import { MenuUnfoldOutlined } from '@ant-design/icons-vue';

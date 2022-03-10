@@ -2,8 +2,8 @@ import { Router } from 'vue-router';
 import { findDomainPage, canAccessPage } from '@/core/services/configuration-pages';
 import { Store } from 'vuex';
 
-export const requiresDomainAccessibility = (router: Router, store: Store<any>) => {
-  router.beforeEach(to => {
+export const requiresDomainAccessibility = (router: Router, store: Store<any>): void => {
+  router.beforeEach((to) => {
     if (!to.name || !to.fullPath.includes('/configuration')) {
       return;
     }

@@ -1,15 +1,12 @@
 <template>
-  <PageTitle
-    :title="$t('NAVIGATOR.GROUP_FILTERS')"
-    :breadcrumbs="breadcrumbs"
-  />
+  <PageTitle :title="$t('NAVIGATOR.GROUP_FILTERS')" :breadcrumbs="breadcrumbs" />
 
   <div>
     <div class="actions">
       <a-input
         v-model:value="state.filterText"
         :placeholder="$t('GENERAL.SEARCH_BY_NAME')"
-        style="width: 200px; margin-right: 10px;"
+        style="width: 200px; margin-right: 10px"
         allow-clear
       >
         <template #prefix>
@@ -18,10 +15,7 @@
       </a-input>
 
       <router-link :to="{ name: 'GroupFilterLDAP' }">
-        <a-button
-          :disabled="state.loading"
-          type="primary"
-        >
+        <a-button :disabled="state.loading" type="primary">
           <template #icon>
             <PlusCircleOutlined />
           </template>
@@ -69,24 +63,16 @@
     </a-table>
   </div>
 
-  <DomainAssociatedListModal
-    :state="modal"
-    :empty-text="$t('GROUP_FILTER.NO_ASSOCIATED_DOMAIN')"
-    @ok="hide"
-  />
+  <DomainAssociatedListModal :state="modal" :empty-text="$t('GROUP_FILTER.NO_ASSOCIATED_DOMAIN')" @ok="hide" />
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { message } from 'ant-design-vue';
 
-import {
-  EllipsisOutlined,
-  SearchOutlined,
-  PlusCircleOutlined
-} from '@ant-design/icons-vue';
+import { EllipsisOutlined, SearchOutlined, PlusCircleOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
 import DomainAssociatedListModal from '@/modules/domain/components/DomainAssociatedListModal.vue';
 
@@ -111,59 +97,59 @@ const { infoModal, confirmModal } = useNotification();
 const state = reactive<GroupFiltersListState>({
   filterText: '',
   loading: true,
-  list: []
+  list: [],
 });
 const { show, hide, modal } = useAssociatedDomainsModal(getGroupFilterAssociatedDomains);
 
 const filteredList = computed(() =>
-  state.list.filter(server => server.name.toLowerCase().includes(state.filterText.toLowerCase()))
+  state.list.filter((server) => server.name.toLowerCase().includes(state.filterText.toLowerCase()))
 );
 const columns = computed(() => [
   {
     title: t('GENERAL.NAME'),
     dataIndex: 'name',
     sorter: (a: LDAPGroupFilter, b: LDAPGroupFilter) => a.name.localeCompare(b.name),
-    slots: { customRender: 'name' }
+    slots: { customRender: 'name' },
   },
   {
     title: t('GENERAL.DESCRIPTION'),
-    dataIndex: 'description'
+    dataIndex: 'description',
   },
   {
     title: t('GENERAL.TYPES'),
     dataIndex: 'type',
     width: '130px',
-    sorter: (a: LDAPGroupFilter, b: LDAPGroupFilter) => a.type.localeCompare(b.type)
+    sorter: (a: LDAPGroupFilter, b: LDAPGroupFilter) => a.type.localeCompare(b.type),
   },
   {
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: 'creationDate',
     sorter: (a: LDAPGroupFilter, b: LDAPGroupFilter) => (a.creationDate || 0) - (b.creationDate || 0),
-    slots: { customRender: 'date' }
+    slots: { customRender: 'date' },
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: 'modificationDate',
     sorter: (a: LDAPGroupFilter, b: LDAPGroupFilter) => (a.creationDate || 0) - (b.creationDate || 0),
     defaultSortOrder: 'descend',
-    slots: { customRender: 'date' }
+    slots: { customRender: 'date' },
   },
   {
     title: t('GENERAL.ACTIONS'),
     width: '80px',
     align: 'center',
-    slots: { customRender: 'actions' }
-  }
+    slots: { customRender: 'actions' },
+  },
 ]);
 
-function fetchGroupFilters () {
+function fetchGroupFilters() {
   state.loading = true;
 
   listGroupFilters()
-    .then(filters => {
+    .then((filters) => {
       state.list = filters;
     })
-    .catch(error => {
+    .catch((error) => {
       if (error instanceof APIError) {
         message.error(error.getMessage());
       } else {
@@ -175,32 +161,32 @@ function fetchGroupFilters () {
     });
 }
 
-function viewDetails (filter: LDAPGroupFilter) {
-  router.push({
-    name: 'GroupFilterLDAP',
-    params: {
-      uuid: filter.uuid
-    }
-  });
-}
-
-function duplicate (filter: LDAPGroupFilter) {
+function viewDetails(filter: LDAPGroupFilter) {
   router.push({
     name: 'GroupFilterLDAP',
     params: {
       uuid: filter.uuid,
-      duplicate: 'true'
-    }
+    },
   });
 }
 
-async function confirmDelete (filter: LDAPGroupFilter) {
+function duplicate(filter: LDAPGroupFilter) {
+  router.push({
+    name: 'GroupFilterLDAP',
+    params: {
+      uuid: filter.uuid,
+      duplicate: 'true',
+    },
+  });
+}
+
+async function confirmDelete(filter: LDAPGroupFilter) {
   const usedInDomains = !!(await getGroupFilterAssociatedDomains(filter.uuid)).length;
 
   if (usedInDomains) {
     return infoModal({
       title: t('GENERAL.DELETION'),
-      content: t('GROUP_FILTER.DELETE_ABORT')
+      content: t('GROUP_FILTER.DELETE_ABORT'),
     });
   }
 
@@ -208,14 +194,15 @@ async function confirmDelete (filter: LDAPGroupFilter) {
     title: t('GENERAL.DELETION'),
     content: t('GROUP_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: () => deleteGroupFilter(filter.uuid)
-      .then(() => {
-        message.success(t('MESSAGES.DELETE_SUCCESS'));
-        state.list = state.list.filter(item => !(item.uuid === filter.uuid));
-      })
-      .catch(() => {
-        message.error(t('MESSAGES.DELETE_FAILURE'));
-      })
+    onOk: () =>
+      deleteGroupFilter(filter.uuid)
+        .then(() => {
+          message.success(t('MESSAGES.DELETE_SUCCESS'));
+          state.list = state.list.filter((item) => !(item.uuid === filter.uuid));
+        })
+        .catch(() => {
+          message.error(t('MESSAGES.DELETE_FAILURE'));
+        }),
   });
 }
 
@@ -223,13 +210,13 @@ onMounted(fetchGroupFilters);
 </script>
 
 <style lang="less" scoped>
-  .actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-  }
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
 
-  .danger {
-    color: @error-color;
-  }
+.danger {
+  color: @error-color;
+}
 </style>

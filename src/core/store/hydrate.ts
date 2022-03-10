@@ -2,7 +2,7 @@ import Domain from '@/modules/domain/types/Domain';
 import DomainTreeNode from '@/modules/domain/types/DomainTreeNode';
 import store from './index';
 
-export async function hydrate () {
+export async function hydrate(): Promise<void> {
   const hydrating = store.getters.isHydrating;
   const hydrated = store.getters.isHydrated;
   const authenticated = store.getters.isAuthenticated;
@@ -35,7 +35,7 @@ export async function hydrate () {
   store.commit('setHydrated', true);
 }
 
-export function dehydrate () {
+export function dehydrate(): void {
   store.commit('Domain/dehydrate');
   store.commit('Auth/dehydrate');
   store.commit('setHydrated', false);

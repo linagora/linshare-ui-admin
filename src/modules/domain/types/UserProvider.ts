@@ -7,7 +7,7 @@ export interface OIDCUserProvider {
   checkExternalUserID?: boolean;
   useAccessClaim?: boolean;
   useRoleClaim?: boolean;
-  useEmailLocaleClaim?: boolean
+  useEmailLocaleClaim?: boolean;
 }
 
 export interface LDAPUserProvider {
@@ -18,11 +18,11 @@ export interface LDAPUserProvider {
   ldapServer?: {
     uuid: string;
     name: string;
-  }
+  };
   userFilter?: {
     uuid: string;
     name: string;
-  }
+  };
   baseDn?: string;
 }
 
@@ -41,7 +41,7 @@ export interface TwakeUserProvider {
 type UserProvider = OIDCUserProvider | LDAPUserProvider | TwakeUserProvider;
 
 export const EMPTY_PROVIDER = {
-  uuid: ''
+  uuid: '',
 };
 
 export default UserProvider;

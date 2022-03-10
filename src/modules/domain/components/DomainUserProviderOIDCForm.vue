@@ -1,38 +1,26 @@
 <template>
-  <a-form
-    :label-col="{ span: 24 }"
-    :wrapper-col="{ span: 24 }"
-  >
+  <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
     <a-form-item
       :label="$t('USER_PROVIDER.OIDC.ASSOCIATED_DOMAIN_ID')"
       :extra="$t('USER_PROVIDER.OIDC.ASSOCIATED_DOMAIN_ID_HELPER', { name: domain.name })"
       v-bind="validateInfos.domainDiscriminator"
     >
-      <a-input
-        v-model:value="formState.domainDiscriminator"
-        @change="unique = true"
-      />
+      <a-input v-model:value="formState.domainDiscriminator" @change="unique = true" />
     </a-form-item>
 
     <div class="form-actions">
       <div>
-        <a-button
-          v-if="provider.uuid"
-          @click="resetFields"
-        >
+        <a-button v-if="provider.uuid" @click="resetFields">
           {{ $t('GENERAL.RESET') }}
         </a-button>
 
-        <a-button
-          v-else
-          @click="$emit('cancel')"
-        >
+        <a-button v-else @click="$emit('cancel')">
           {{ $t('GENERAL.CANCEL') }}
         </a-button>
 
         <a-button
           type="primary"
-          style="margin-left: 10px;"
+          style="margin-left: 10px"
           :loading="formSubmitting"
           @click="provider.uuid ? save() : create()"
         >
@@ -40,19 +28,14 @@
         </a-button>
       </div>
 
-      <a-button
-        v-if="provider.uuid"
-        type="primary"
-        danger
-        @click="confirmDelete"
-      >
+      <a-button v-if="provider.uuid" type="primary" danger @click="confirmDelete">
         {{ $t('GENERAL.DELETE') }}
       </a-button>
     </div>
   </a-form>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { reactive, ref } from 'vue';
 import { message, Form } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
@@ -62,15 +45,11 @@ import { OIDCUserProvider } from '../types/UserProvider';
 import useNotification from '@/core/hooks/useNotification';
 import { APIError } from '@/core/types/APIError';
 
-import {
-  createUserProvider,
-  deleteUserProvider,
-  updateUserProvider
-} from '../services/domain-api';
+import { createUserProvider, deleteUserProvider, updateUserProvider } from '../services/domain-api';
 
 interface Props {
-  provider: OIDCUserProvider
-  domain: Domain
+  provider: OIDCUserProvider;
+  domain: Domain;
 }
 
 const unique = ref(true);
@@ -81,20 +60,23 @@ const { t } = useI18n();
 const { confirmModal } = useNotification();
 const formSubmitting = ref(false);
 const formState = reactive<Partial<OIDCUserProvider>>({
-  domainDiscriminator: props.provider.domainDiscriminator
+  domainDiscriminator: props.provider.domainDiscriminator,
 });
-const formRules = reactive(({
-  domainDiscriminator: [{
-    required: true,
-    message: t('GENERAL.FIELD_REQUIRED')
-  }, {
-    message: t('USER_PROVIDER.OIDC.USED_DOMAIN_ID'),
-    validator: () => unique.value ? Promise.resolve() : Promise.reject(new Error())
-  }]
-}));
+const formRules = reactive({
+  domainDiscriminator: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+    {
+      message: t('USER_PROVIDER.OIDC.USED_DOMAIN_ID'),
+      validator: () => (unique.value ? Promise.resolve() : Promise.reject(new Error())),
+    },
+  ],
+});
 const { validate, validateInfos, resetFields } = useForm(formState, formRules);
 
-async function create () {
+async function create() {
   formSubmitting.value = true;
 
   try {
@@ -107,7 +89,7 @@ async function create () {
   try {
     const provider = await createUserProvider(props.domain.uuid, {
       type: 'OIDC_PROVIDER',
-      domainDiscriminator: formState.domainDiscriminator
+      domainDiscriminator: formState.domainDiscriminator,
     });
 
     emit('submitted', provider);
@@ -123,7 +105,7 @@ async function create () {
   }
 }
 
-async function save () {
+async function save() {
   formSubmitting.value = true;
 
   try {
@@ -136,7 +118,7 @@ async function save () {
   try {
     const provider = await updateUserProvider(props.domain.uuid, {
       ...props.provider,
-      domainDiscriminator: formState.domainDiscriminator
+      domainDiscriminator: formState.domainDiscriminator,
     });
 
     emit('submitted', provider);
@@ -152,13 +134,13 @@ async function save () {
   }
 }
 
-function handleSubmitError (error: APIError) {
+function handleSubmitError(error: APIError) {
   unique.value = error.errorCode === '38100';
   validate();
   message.error(error.getMessage());
 }
 
-async function remove () {
+async function remove() {
   try {
     await deleteUserProvider(props.domain.uuid, props.provider);
 
@@ -169,17 +151,17 @@ async function remove () {
   }
 }
 
-function confirmDelete () {
+function confirmDelete() {
   confirmModal({
     title: t('GENERAL.DELETION'),
     content: t('USER_PROVIDER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: remove
+    onOk: remove,
   });
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .form-actions {
   margin-top: 20px;
   display: flex;

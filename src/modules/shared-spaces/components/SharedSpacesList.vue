@@ -1,10 +1,6 @@
 <template>
   <div class="shared-spaces-list">
-    <a-list
-      item-layout="horizontal"
-      :loading="loading"
-      :data-source="list"
-    >
+    <a-list item-layout="horizontal" :loading="loading" :data-source="list">
       <template #renderItem="{ item }">
         <SharedSpaceItem :data="item" />
       </template>
@@ -28,9 +24,9 @@ export default defineComponent({
   name: 'SharedSpacesList',
   components: {
     Pagination,
-    SharedSpaceItem
+    SharedSpaceItem,
   },
-  async setup () {
+  async setup() {
     const { loading, list, pagination, handlePaginationChange } = useSharedSpacesList();
 
     await handlePaginationChange(pagination);
@@ -39,20 +35,20 @@ export default defineComponent({
       loading,
       list,
       pagination,
-      handlePaginationChange
+      handlePaginationChange,
     };
-  }
+  },
 });
 </script>
 
-<style lang='less'>
-  .shared-spaces-list {
-    &__pagination {
-      margin-top: 30px;
-    }
-
-    .ant-table-row {
-      cursor: pointer;
-    }
+<style lang="less">
+.shared-spaces-list {
+  &__pagination {
+    margin-top: 30px;
   }
+
+  .ant-table-row {
+    cursor: pointer;
+  }
+}
 </style>

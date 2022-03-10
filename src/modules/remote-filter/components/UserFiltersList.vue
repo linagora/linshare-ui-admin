@@ -1,15 +1,12 @@
 <template>
-  <PageTitle
-    :title="$t('NAVIGATOR.USER_FILTERS')"
-    :breadcrumbs="breadcrumbs"
-  />
+  <PageTitle :title="$t('NAVIGATOR.USER_FILTERS')" :breadcrumbs="breadcrumbs" />
 
   <div>
     <div class="actions">
       <a-input
         v-model:value="state.filterText"
         :placeholder="$t('GENERAL.SEARCH_BY_NAME')"
-        style="width: 200px; margin-right: 10px;"
+        style="width: 200px; margin-right: 10px"
         allow-clear
       >
         <template #prefix>
@@ -18,10 +15,7 @@
       </a-input>
 
       <a-dropdown :trigger="['click']">
-        <a-button
-          :disabled="state.loading"
-          type="primary"
-        >
+        <a-button :disabled="state.loading" type="primary">
           <template #icon>
             <PlusCircleOutlined />
           </template>
@@ -79,25 +73,17 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { message } from 'ant-design-vue';
 
-import {
-  EllipsisOutlined,
-  SearchOutlined,
-  PlusCircleOutlined
-} from '@ant-design/icons-vue';
+import { EllipsisOutlined, SearchOutlined, PlusCircleOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
 
 import UserFilter, { USER_FILTER_TYPE } from '../types/UserFilter';
-import {
-  deleteUserFilter,
-  getAssociatedDomains,
-  listUserFilters
-} from '../services/user-filter-api';
+import { deleteUserFilter, getAssociatedDomains, listUserFilters } from '../services/user-filter-api';
 
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useNotification from '@/core/hooks/useNotification';
@@ -117,54 +103,54 @@ const state = reactive<UserFiltersListState>({
   filterText: '',
   loading: true,
   list: [],
-  target: {}
+  target: {},
 });
 const filteredList = computed(() =>
-  state.list.filter(server => server.name.toLowerCase().includes(state.filterText.toLowerCase()))
+  state.list.filter((server) => server.name.toLowerCase().includes(state.filterText.toLowerCase()))
 );
 const columns = computed(() => [
   {
     title: t('GENERAL.NAME'),
     dataIndex: 'name',
     sorter: (a: UserFilter, b: UserFilter) => a.name.localeCompare(b.name),
-    slots: { customRender: 'name' }
+    slots: { customRender: 'name' },
   },
   {
     title: t('GENERAL.DESCRIPTION'),
-    dataIndex: 'description'
+    dataIndex: 'description',
   },
   {
     title: t('GENERAL.TYPES'),
     dataIndex: 'type',
     width: '130px',
-    sorter: (a: UserFilter, b: UserFilter) => a.type.localeCompare(b.type)
+    sorter: (a: UserFilter, b: UserFilter) => a.type.localeCompare(b.type),
   },
   {
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: 'creationDate',
     sorter: (a: UserFilter, b: UserFilter) => a.creationDate - b.creationDate,
-    slots: { customRender: 'date' }
+    slots: { customRender: 'date' },
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: 'modificationDate',
     sorter: (a: UserFilter, b: UserFilter) => a.modificationDate - b.modificationDate,
     defaultSortOrder: 'descend',
-    slots: { customRender: 'date' }
+    slots: { customRender: 'date' },
   },
   {
     title: t('GENERAL.ACTIONS'),
     width: '80px',
     align: 'center',
-    slots: { customRender: 'actions' }
-  }
+    slots: { customRender: 'actions' },
+  },
 ]);
 
-function fetchUserFilters () {
+function fetchUserFilters() {
   state.loading = true;
 
   listUserFilters()
-    .then(filters => {
+    .then((filters) => {
       state.list = filters;
     })
     .finally(() => {
@@ -172,19 +158,19 @@ function fetchUserFilters () {
     });
 }
 
-function edit (filter: UserFilter) {
+function edit(filter: UserFilter) {
   if (filter.type === USER_FILTER_TYPE.LDAP) {
     push({ name: 'UserFilterLDAP', params: { uuid: filter.uuid } });
   }
 }
 
-async function confirmDelete (filter: UserFilter) {
+async function confirmDelete(filter: UserFilter) {
   const usedInDomains = !!(await getAssociatedDomains(filter.uuid)).length;
 
   if (usedInDomains) {
     return infoModal({
       title: t('GENERAL.DELETION'),
-      content: t('USER_FILTER.DELETE_ABORT')
+      content: t('USER_FILTER.DELETE_ABORT'),
     });
   }
 
@@ -192,22 +178,22 @@ async function confirmDelete (filter: UserFilter) {
     title: t('GENERAL.DELETION'),
     content: t('USER_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: () => removeUserFilter(filter)
+    onOk: () => removeUserFilter(filter),
   });
 }
 
-async function removeUserFilter (filter: UserFilter) {
+async function removeUserFilter(filter: UserFilter) {
   try {
     await deleteUserFilter(filter.uuid);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
-    state.list = state.list.filter(item => !(item.uuid === filter.uuid));
+    state.list = state.list.filter((item) => !(item.uuid === filter.uuid));
   } catch (error) {
     message.error(t('MESSAGES.DELETE_FAILURE'));
   }
 }
 
-function duplicate (filter: UserFilter) {
+function duplicate(filter: UserFilter) {
   if (filter.type === USER_FILTER_TYPE.LDAP) {
     push({ name: 'UserFilterLDAP', params: { uuid: filter.uuid, duplicate: 'true' } });
   }
@@ -217,13 +203,13 @@ onMounted(fetchUserFilters);
 </script>
 
 <style lang="less" scoped>
-  .actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-  }
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
 
-  .danger {
-    color: @error-color;
-  }
+.danger {
+  color: @error-color;
+}
 </style>

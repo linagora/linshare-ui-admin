@@ -5,9 +5,9 @@ import { Store } from 'vuex';
 
 let firstLoad = true;
 
-export const requiresAuthGuard = async (router: Router, store: Store<any>) => {
+export const requiresAuthGuard = async (router: Router, store: Store<any>): Promise<void> => {
   router.beforeEach(async (to) => {
-    const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+    const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
 
     if (!requiresAuth) {
       return;

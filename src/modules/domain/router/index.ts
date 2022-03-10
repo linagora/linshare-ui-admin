@@ -8,7 +8,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
     component: DomainPage,
     redirect: { name: 'DomainDetails' },
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     },
     children: [
       {
@@ -18,8 +18,8 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
         meta: {
           parentRoute: 'Configuration',
           label: 'NAVIGATOR.DOMAIN_DETAILS',
-          requiresAuth: true
-        }
+          requiresAuth: true,
+        },
       },
       {
         name: 'DomainProviders',
@@ -29,13 +29,13 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
         meta: {
           parentRoute: 'Configuration',
           label: 'NAVIGATOR.PROVIDERS',
-          requiresAuth: true
+          requiresAuth: true,
         },
         children: [
           {
             name: 'DomainProviderManagement',
             path: '',
-            component: () => import('../components/DomainProviderManagement.vue')
+            component: () => import('../components/DomainProviderManagement.vue'),
           },
           {
             name: 'DomainUserProviders',
@@ -44,8 +44,8 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
             meta: {
               parentRoute: 'DomainProviders',
               label: 'NAVIGATOR.USER_PROVIDERS',
-              requiresAuth: true
-            }
+              requiresAuth: true,
+            },
           },
           {
             name: 'DomainGroupProviders',
@@ -54,8 +54,8 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
             meta: {
               parentRoute: 'DomainProviders',
               label: 'NAVIGATOR.GROUP_PROVIDERS',
-              requiresAuth: true
-            }
+              requiresAuth: true,
+            },
           },
           {
             name: 'DomainWorkspaceProviders',
@@ -64,11 +64,11 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
             meta: {
               parentRoute: 'DomainProviders',
               label: 'NAVIGATOR.WORKSPACE_PROVIDERS',
-              requiresAuth: true
-            }
-          }
-        ]
-      }
-    ]
-  }
+              requiresAuth: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
 ];

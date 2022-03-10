@@ -1,8 +1,5 @@
 <template>
-  <PageTitle
-    :title="$t('SHARED_SPACES.MANAGE_SHARED_SPACES.TITLE')"
-    :breadcrumbs="breadcrumbs"
-  >
+  <PageTitle :title="$t('SHARED_SPACES.MANAGE_SHARED_SPACES.TITLE')" :breadcrumbs="breadcrumbs">
     <template #helperContent>
       <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.TITLE') }}</div>
       <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.DESCRIPTION') }}</div>
@@ -40,57 +37,59 @@ const domainsList = store.getters['Domain/getDomainsList'];
 const searchForAccounts = async function (mail: string) {
   const data = await listUsers({ mail });
 
-  return data.data.map(user => ({
+  return data.data.map((user) => ({
     label: user.mail,
     value: user.uuid,
     data: user,
-    optionComponent: shallowRef(AccountAutocompleteItem)
+    optionComponent: shallowRef(AccountAutocompleteItem),
   }));
 };
 
 const sortOptions = [
   {
     key: 'creationDate',
-    label: 'SHARED_SPACES.TOKEN_INPUT.CREATION_DATE'
+    label: 'SHARED_SPACES.TOKEN_INPUT.CREATION_DATE',
   },
   {
     key: 'modificationDate',
     label: 'SHARED_SPACES.TOKEN_INPUT.MODIFICATION_DATE',
-    default: true
-  }
+    default: true,
+  },
 ];
 
 const filterOptions = [
   {
     key: 'name',
     displayKey: computed(() => t('GENERAL.SEARCH_BY_NAME', locale.value)),
-    default: true
+    default: true,
   },
   {
     key: 'account',
     displayKey: computed(() => t('SHARED_SPACES.TOKEN_INPUT.ACCOUNT', locale.value)),
-    asyncAutocomplete: searchForAccounts
+    asyncAutocomplete: searchForAccounts,
   },
   {
     key: 'nodeType',
     displayKey: computed(() => t('SHARED_SPACES.TOKEN_INPUT.TYPE', locale.value)),
-    options: [{
-      label: computed(() => t('SHARED_SPACES.NODE_TYPE.WORK_GROUP', locale.value)),
-      value: 'WORK_GROUP'
-    },
-    {
-      label: computed(() => t('SHARED_SPACES.NODE_TYPE.WORK_SPACE', locale.value)),
-      value: 'WORK_SPACE'
-    }]
+    options: [
+      {
+        label: computed(() => t('SHARED_SPACES.NODE_TYPE.WORK_GROUP', locale.value)),
+        value: 'WORK_GROUP',
+      },
+      {
+        label: computed(() => t('SHARED_SPACES.NODE_TYPE.WORK_SPACE', locale.value)),
+        value: 'WORK_SPACE',
+      },
+    ],
   },
   {
     key: 'domains',
     displayKey: computed(() => t('GENERAL.DOMAIN', locale.value)),
     options: domainsList.map((domain: Domain) => ({
       label: domain.name,
-      value: domain.uuid
-    }))
-  }
+      value: domain.uuid,
+    })),
+  },
 ];
 
 const handleSubmit = async function (options: TokenSubmitPayload) {
@@ -99,12 +98,12 @@ const handleSubmit = async function (options: TokenSubmitPayload) {
   if (options.sort) {
     sortObject = {
       sortField: options.sort.field,
-      sortOrder: options.sort.order
+      sortOrder: options.sort.order,
     };
   }
   await updateSharedSpacesList({
     ...(options.filters || {}),
-    ...(sortObject)
+    ...sortObject,
   });
 };
 </script>

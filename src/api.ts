@@ -5,24 +5,24 @@ import router from './core/router';
 
 const api = axios.create({
   baseURL: `${window.location.origin}/${CONFIG.API.BASE_URL}`,
-  headers: CONFIG.API.DEFAULT_HEADERS
+  headers: CONFIG.API.DEFAULT_HEADERS,
 });
 
 api.interceptors.response.use(onResponse, onError);
 
-function onResponse (response: AxiosResponse): AxiosResponse {
+function onResponse(response: AxiosResponse): AxiosResponse {
   return response.data;
 }
 
-function onError (e: AxiosError): Promise<APIError> {
+function onError(e: AxiosError): Promise<APIError> {
   const error = new APIError(e);
 
   if (error.isUnauthorizedError()) {
     router.push({
       name: 'Login',
       params: {
-        redirect: router.currentRoute.value.fullPath
-      }
+        redirect: router.currentRoute.value.fullPath,
+      },
     });
   }
 

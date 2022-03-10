@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-export function addTime (d: Date | number, amount: number, unit: string): Date {
+export function addTime(d: Date | number, amount: number, unit: string): Date {
   switch (unit.toLowerCase()) {
     case 'day':
       return dayjs(d).add(amount, 'day').toDate();
@@ -13,14 +13,14 @@ export function addTime (d: Date | number, amount: number, unit: string): Date {
   }
 }
 
-export function isAfter (d: Date | number, dateToCompare: Date | number): boolean {
+export function isAfter(d: Date | number, dateToCompare: Date | number): boolean {
   return dayjs(d).isAfter(dateToCompare);
 }
 
-export function isBefore (d: Date | number, dateToCompare: Date | number): boolean {
+export function isBefore(d: Date | number, dateToCompare: Date | number): boolean {
   return dayjs(d).isBefore(dateToCompare);
 }
 
-export function isValid (d: Date): boolean {
+export function isValid(d: Date): boolean {
   return dayjs(d).isValid();
 }

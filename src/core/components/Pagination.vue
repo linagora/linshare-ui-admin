@@ -30,26 +30,26 @@ export default defineComponent({
   props: {
     modelValue: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     isVisible: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   emits: ['change', 'update:modelValue'],
-  setup (props, { emit }) {
+  setup(props, { emit }) {
     const pageSizeOptions = ref([10, 25, 50, 100]);
     const visible = computed(() => props.isVisible);
     const pagination = reactive(props.modelValue);
 
-    function handleChange (page?: number) {
+    function handleChange(page?: number) {
       pagination.current = page || pagination.current;
       emit('update:modelValue', pagination);
       emit('change', pagination);
     }
 
-    function onSelectPageSize (newValue: number) {
+    function onSelectPageSize(newValue: number) {
       pagination.pageSize = newValue;
 
       if (pagination.total <= pagination.pageSize * (pagination.current - 1)) {
@@ -64,57 +64,58 @@ export default defineComponent({
       pagination,
       visible,
       onSelectPageSize,
-      handleChange
+      handleChange,
     };
-  }
+  },
 });
 </script>
 
 <style lang="less" scoped>
-  .pagination-ctn {
+.pagination-ctn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .page-size-selector-ctn {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
 
-    .page-size-selector-ctn {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-
-      @media (max-width: 500px) {
-        display: none;
-      }
-
-      .square-button {
-        min-width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0px;
-        margin: 4px;
-        font-weight: 400;
-        background-color: @component-background;
-        color: @text-color-primary-heavy;
-        border: 0px;
-
-        &--active {
-          background-color: @item-active-bg;
-        }
-
-        &:hover, &:focus {
-          background-color: @item-active-bg;
-          border: 0px;
-          outline: none;
-        }
-      }
+    @media (max-width: 500px) {
+      display: none;
     }
 
-    .pagination-selector-ctn {
+    .square-button {
+      min-width: 36px;
+      height: 36px;
       display: flex;
+      align-items: center;
       justify-content: center;
-      margin-top: 10px;
+      padding: 0px;
+      margin: 4px;
+      font-weight: 400;
+      background-color: @component-background;
+      color: @text-color-primary-heavy;
+      border: 0px;
+
+      &--active {
+        background-color: @item-active-bg;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: @item-active-bg;
+        border: 0px;
+        outline: none;
+      }
     }
   }
+
+  .pagination-selector-ctn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
 </style>

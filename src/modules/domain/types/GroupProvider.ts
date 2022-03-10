@@ -11,19 +11,19 @@ export interface LDAPGroupProvider {
     uuid: string;
     name: string;
   };
-  baseDn: string
+  baseDn: string;
   searchInOtherDomains: boolean;
 }
 
 export const EMPTY_PROVIDER: LDAPGroupProvider = {
   ldapServer: {
     uuid: '',
-    name: ''
+    name: '',
   },
   groupFilter: {
     uuid: '',
-    name: ''
+    name: '',
   },
   baseDn: '',
-  searchInOtherDomains: false
+  searchInOtherDomains: false,
 };

@@ -1,31 +1,19 @@
 <template>
-  <div
-    v-if="state.status === 'loading'"
-    class="spinner"
-  >
+  <div v-if="state.status === 'loading'" class="spinner">
     <a-spin />
   </div>
 
   <div v-if="state.status === 'loaded'">
-    <a-result
-      v-if="!state.provider.uuid && !state.provider.type"
-      :title="$t('GROUP_PROVIDER.EMPTY_MESSAGE')"
-    >
+    <a-result v-if="!state.provider.uuid && !state.provider.type" :title="$t('GROUP_PROVIDER.EMPTY_MESSAGE')">
       <template #extra>
-        <a-button
-          type="primary"
-          @click="state.provider.type = 'LDAP_PROVIDER'"
-        >
+        <a-button type="primary" @click="state.provider.type = 'LDAP_PROVIDER'">
           {{ $t('GROUP_PROVIDER.CREATE') }}
         </a-button>
       </template>
     </a-result>
 
     <a-row v-else>
-      <a-col
-        :xl="{ span: 12, offset: 6 }"
-        :sm="{ span: 24 }"
-      >
+      <a-col :xl="{ span: 12, offset: 6 }" :sm="{ span: 24 }">
         <DomainGroupProviderLDAPForm
           v-if="state.provider.type === 'LDAP_PROVIDER'"
           :provider="state.provider"
@@ -34,22 +22,16 @@
           :domain="currentDomain"
           @cancel="() => setProvider(EMPTY_PROVIDER)"
           @deleted="() => setProvider(EMPTY_PROVIDER)"
-          @submitted="provider => setProvider(provider)"
+          @submitted="(provider) => setProvider(provider)"
         />
       </a-col>
     </a-row>
   </div>
 
   <div v-if="state.status === 'error'">
-    <a-result
-      status="error"
-      :title="$t('GROUP_PROVIDER.ERROR_MESSAGE')"
-    >
+    <a-result status="error" :title="$t('GROUP_PROVIDER.ERROR_MESSAGE')">
       <template #extra>
-        <a-button
-          type="primary"
-          @click="prepareData()"
-        >
+        <a-button type="primary" @click="prepareData()">
           {{ $t('GENERAL.TRY_AGAIN') }}
         </a-button>
       </template>
@@ -57,13 +39,8 @@
   </div>
 </template>
 
-<script lang='ts' setup>
-import {
-  computed,
-  reactive,
-  onMounted,
-  watch
-} from 'vue';
+<script lang="ts" setup>
+import { computed, reactive, onMounted, watch } from 'vue';
 import { useStore } from 'vuex';
 import DomainGroupProviderLDAPForm from './DomainGroupProviderLDAPForm.vue';
 import { getGroupProviders } from '../services/domain-api';
@@ -88,32 +65,32 @@ const currentDomainStatus = computed<StatusValue>(() => store.getters['Domain/ge
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
   ldapServers: [],
-  groupFilters: []
+  groupFilters: [],
 });
 
-function setProvider (provider: LDAPGroupProvider) {
+function setProvider(provider: LDAPGroupProvider) {
   state.provider = { ...provider };
 }
 
-async function prepareLDAPServers () {
+async function prepareLDAPServers() {
   const servers = await listRemoteServers();
 
-  state.ldapServers = servers.filter(server => server.serverType === 'LDAP');
+  state.ldapServers = servers.filter((server) => server.serverType === 'LDAP');
 }
 
-async function prepareGroupFilters () {
+async function prepareGroupFilters() {
   const filters = await listGroupFilters();
 
-  state.groupFilters = filters.filter(filter => filter.type === 'LDAP');
+  state.groupFilters = filters.filter((filter) => filter.type === 'LDAP');
 }
 
-async function prepareGroupProviders () {
+async function prepareGroupProviders() {
   const providers = await getGroupProviders(currentDomain.value.uuid);
 
   state.provider = providers[0] || { ...EMPTY_PROVIDER };
 }
 
-async function prepareData () {
+async function prepareData() {
   state.status = 'loading';
 
   try {
@@ -143,7 +120,7 @@ watch(currentDomainStatus, async (status: StatusValue) => {
 });
 </script>
 
-<style class='less' scoped>
+<style class="less" scoped>
 .spinner {
   height: 100%;
   display: flex;

@@ -8,8 +8,8 @@ export const SharedSpacesRoutes: Array<RouteRecordRaw> = [
     meta: {
       parentRoute: 'Administration',
       label: 'NAVIGATOR.MY_SHARED_SPACES',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     name: 'SharedSpaceDetails',
@@ -18,7 +18,7 @@ export const SharedSpacesRoutes: Array<RouteRecordRaw> = [
     meta: {
       parentRoute: 'SharedSpacesList',
       label: 'NAVIGATOR.SHARED_SPACE_DETAILS',
-      requiresAuth: true
-    }
-  }
+      requiresAuth: true,
+    },
+  },
 ];

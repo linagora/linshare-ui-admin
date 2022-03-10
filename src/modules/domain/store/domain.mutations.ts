@@ -4,7 +4,7 @@ import DomainTreeNode, { EMPTY_DOMAIN_NODE } from '@/modules/domain/types/Domain
 import { Functionality } from '@/core/types/Functionality';
 import { DomainState } from './domain.state';
 
-function updateDomainName (domain: DomainTreeNode, updated: Domain) {
+function updateDomainName(domain: DomainTreeNode, updated: Domain) {
   if (domain.uuid === updated.uuid) {
     domain.name = updated.name;
 
@@ -19,27 +19,27 @@ function updateDomainName (domain: DomainTreeNode, updated: Domain) {
 }
 
 export default {
-  dehydrate (state: DomainState) {
+  dehydrate(state: DomainState): void {
     state.currentDomain = EMPTY_DOMAIN;
     state.domainsTree = EMPTY_DOMAIN_NODE;
     state.loggedUserFunctionalities = undefined;
     state.status = {
-      currentDomain: Status.LOADING
+      currentDomain: Status.LOADING,
     };
   },
-  setDomainsTree (state: DomainState, tree: DomainTreeNode) {
+  setDomainsTree(state: DomainState, tree: DomainTreeNode): void {
     state.domainsTree = tree;
   },
-  setCurrentDomain (state: DomainState, domain: Domain) {
+  setCurrentDomain(state: DomainState, domain: Domain): void {
     state.currentDomain = { ...state.currentDomain, ...domain };
   },
-  setCurrentDomainStatus (state: DomainState, status: Status) {
+  setCurrentDomainStatus(state: DomainState, status: Status): void {
     state.status.currentDomain = status;
   },
-  setDomainNameInTree (state: DomainState, domain: Domain) {
+  setDomainNameInTree(state: DomainState, domain: Domain): void {
     updateDomainName(state.domainsTree, domain);
   },
-  setLoggedUserFunctionalities (state: DomainState, functionalities: Functionality[]) {
+  setLoggedUserFunctionalities(state: DomainState, functionalities: Functionality[]): void {
     state.loggedUserFunctionalities = functionalities;
-  }
+  },
 };

@@ -12,15 +12,8 @@
         {{ node.name }}
       </a-button>
 
-      <a-dropdown
-        v-if="node.type !== DOMAIN_TYPE.GUEST && node.type !== DOMAIN_TYPE.SUB"
-        :trigger="['click']"
-      >
-        <a-button
-          class="dropdown-btn"
-          type="primary"
-          size="large"
-        >
+      <a-dropdown v-if="node.type !== DOMAIN_TYPE.GUEST && node.type !== DOMAIN_TYPE.SUB" :trigger="['click']">
+        <a-button class="dropdown-btn" type="primary" size="large">
           <template #icon>
             <PlusOutlined />
           </template>
@@ -28,16 +21,10 @@
 
         <template #overlay>
           <a-menu>
-            <a-menu-item
-              v-if="node.type === DOMAIN_TYPE.ROOT"
-              @click="onCreateButtonClick(DOMAIN_TYPE.TOP)"
-            >
+            <a-menu-item v-if="node.type === DOMAIN_TYPE.ROOT" @click="onCreateButtonClick(DOMAIN_TYPE.TOP)">
               {{ $t('DOMAIN.CREATE_TOP_DOMAIN') }}
             </a-menu-item>
-            <a-menu-item
-              v-if="node.type === DOMAIN_TYPE.TOP"
-              @click="onCreateButtonClick(DOMAIN_TYPE.SUB)"
-            >
+            <a-menu-item v-if="node.type === DOMAIN_TYPE.TOP" @click="onCreateButtonClick(DOMAIN_TYPE.SUB)">
               {{ $t('DOMAIN.CREATE_SUB_DOMAIN') }}
             </a-menu-item>
             <a-menu-item
@@ -56,7 +43,7 @@
         v-for="child in node.children"
         :key="child.uuid"
         :node="child"
-        @on-create-button-click="event => $emit('onCreateButtonClick', event)"
+        @on-create-button-click="(event) => $emit('onCreateButtonClick', event)"
       />
     </ul>
   </li>
@@ -64,7 +51,7 @@
 
 <script lang="ts" setup>
 import { useStore } from 'vuex';
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
 import { DOMAIN_TYPE } from '../types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
@@ -78,11 +65,13 @@ const prop = defineProps<{ node: DomainTreeNode }>();
 const emit = defineEmits(['onCreateButtonClick']);
 
 const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
-const loading = computed(() => currentDomain.value.uuid === prop.node.uuid &&
-  store.getters['Domain/getStatus']('currentDomain') === StatusValue.LOADING
+const loading = computed(
+  () =>
+    currentDomain.value.uuid === prop.node.uuid &&
+    store.getters['Domain/getStatus']('currentDomain') === StatusValue.LOADING
 );
 
-async function setCurrentDomain (node: DomainTreeNode) {
+async function setCurrentDomain(node: DomainTreeNode) {
   await store.dispatch('Domain/setCurrentDomainUuid', node.uuid);
 
   if (route.params.domainUuid) {
@@ -90,21 +79,21 @@ async function setCurrentDomain (node: DomainTreeNode) {
   }
 }
 
-function isActive (node: DomainTreeNode) {
+function isActive(node: DomainTreeNode) {
   return node.uuid === currentDomain.value.uuid;
 }
 
-function guestDomainCreated (node: DomainTreeNode) {
+function guestDomainCreated(node: DomainTreeNode) {
   return node.children?.some((child: DomainTreeNode) => child.type === DOMAIN_TYPE.GUEST);
 }
 
-function onCreateButtonClick (type: string) {
+function onCreateButtonClick(type: string) {
   emit('onCreateButtonClick', {
     parent: {
       name: prop.node.name,
-      uuid: prop.node.uuid
+      uuid: prop.node.uuid,
     },
-    type
+    type,
   });
 }
 </script>

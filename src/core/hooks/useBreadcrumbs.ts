@@ -1,18 +1,23 @@
 import { useRouter } from 'vue-router';
-import { computed } from 'vue';
-
+import { computed, ComputedRef } from 'vue';
 interface Breadcrumb {
   label: string | unknown;
   path: string;
 }
 
-export default function useBreadcrumbs () {
+type UsableBreadcrumbs = {
+  breadcrumbs: ComputedRef<Breadcrumb[]>;
+};
+
+export default function useBreadcrumbs(): UsableBreadcrumbs {
   const { getRoutes, currentRoute } = useRouter();
   const breadcrumbs = computed<Breadcrumb[]>(() => {
-    const list = [{
-      label: currentRoute.value.meta.label,
-      path: currentRoute.value.name as string
-    }];
+    const list = [
+      {
+        label: currentRoute.value.meta.label,
+        path: currentRoute.value.name as string,
+      },
+    ];
 
     if (currentRoute.value.meta.parentRoute) {
       addParentRoute(currentRoute.value.meta.parentRoute, list);
@@ -21,13 +26,13 @@ export default function useBreadcrumbs () {
     return list;
   });
 
-  function addParentRoute (name: string | unknown, list: Breadcrumb[]) {
-    const parent = getRoutes().find(route => route.name === name);
+  function addParentRoute(name: string | unknown, list: Breadcrumb[]) {
+    const parent = getRoutes().find((route) => route.name === name);
 
     if (parent) {
       list.unshift({
         label: parent.meta.label,
-        path: parent.name as string
+        path: parent.name as string,
       });
 
       if (parent.meta.parentRoute) {
@@ -37,6 +42,6 @@ export default function useBreadcrumbs () {
   }
 
   return {
-    breadcrumbs
+    breadcrumbs,
   };
 }

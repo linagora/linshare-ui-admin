@@ -1,4 +1,4 @@
-import { computed } from 'vue';
+import { computed, ComputedRef } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { LANGUAGES } from '@/core/constants';
 import { Locale } from 'ant-design-vue/es/locale-provider';
@@ -14,15 +14,17 @@ keyToLocaleMap.set('fr', frFR);
 keyToLocaleMap.set('ru', ruRU);
 keyToLocaleMap.set('vi', viVN);
 
-export default function useAntConfig () {
+type AntConfig = {
+  antdLocale: ComputedRef<Locale | undefined>;
+};
+
+export default function useAntConfig(): AntConfig {
   const { locale } = useI18n();
   const antdLocale = computed<Locale | undefined>(() =>
-    keyToLocaleMap.has(locale.value)
-      ? keyToLocaleMap.get(locale.value)
-      : keyToLocaleMap.get(LANGUAGES.DEFAULT)
+    keyToLocaleMap.has(locale.value) ? keyToLocaleMap.get(locale.value) : keyToLocaleMap.get(LANGUAGES.DEFAULT)
   );
 
   return {
-    antdLocale
+    antdLocale,
   };
 }
