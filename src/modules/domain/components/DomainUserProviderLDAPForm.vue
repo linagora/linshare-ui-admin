@@ -48,7 +48,7 @@ import { computed, reactive, ref, ComputedRef } from 'vue';
 import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import UserFilter from '@/modules/user-filter/types/UserFilter';
+import UserFilter from '@/modules/remote-filter/types/UserFilter';
 import { LDAPUserProvider } from '../types/UserProvider';
 import Domain from '../types/Domain';
 import useNotification from '@/core/hooks/useNotification';
