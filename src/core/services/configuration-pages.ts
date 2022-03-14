@@ -99,7 +99,10 @@ const CONFIGURATION_PAGES: ConfigurationPage[] = [
   },
   {
     title: 'NAVIGATOR.PARAMETERS',
-    legacy: true,
+    route: {
+      name: 'DomainFunctionalities',
+      requiresCurrentDomain: true,
+    },
   },
   {
     title: 'NAVIGATOR.TYPE_MIME',

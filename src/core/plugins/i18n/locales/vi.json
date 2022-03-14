@@ -541,5 +541,139 @@
     "DESCRIPTION": "Ở chế độ xem này, bạn có thể chọn một miền trong cây miền và xem danh sách các thông báo chào mừng mà bạn đã tạo hoặc được phép sử dụng",
     "ROOT_DOMAIN_DESCRIPTION": "Miền gốc có thể tạo tin nhắn chào mừng nhưng không thể sử dụng bất kỳ thông báo nào trong số chúng",
     "NESTED_DOMAIN_DESCRIPTION": "Miền lồng nhau có thể tạo thông báo chào mừng để sử dụng riêng và có thể sử dụng thông báo chào mừng được tạo bởi miền cao hơn của miền đó"
+  },
+  "FUNCTIONALITIES": {
+    "LIST": {
+      "SEARCH_PLACEHOLDER": "Tìm kiếm các chức năng theo tên",
+      "SORTER": {
+        "ENABLE_FIRST": "Sắp xếp theo bật",
+        "DISABLE_FIRST": "Sắp xếp theo tắt"
+      }
+    },
+    "DETAILS": {
+      "DANH SÁCH LIÊN LẠC": {
+        "NAME": "Danh sách liên hệ"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Quyền tạo"
+      },
+      "SHARED_SPACE": {
+        "NAME": "Không gian được chia sẻ"
+      },
+      "UPLOAD_REQUEST": {
+        "NAME": "Yêu cầu tải lên"
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Ngôn ngữ thông báo qua email"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+        "NAME": "Chậm trễ trước khi kích hoạt"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+        "NAME": "Chậm trễ trước khi hết hạn"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+        "NAME": "Số tệp tối đa"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+        "NAME": "Kích thước tệp tối đa"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+        "NAME": "Kích thước tiền gửi tối đa"
+      },
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Được bảo vệ bằng URL mật khẩu"
+      },
+      "UPLOAD_REQUEST__CAN_CLOSE": {
+        "NAME": "Quyền đóng"
+      },
+      "UPLOAD_REQUEST__CAN_DELETE": {
+        "NAME": "Người nhận có quyền xóa"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+        "NAME": "Thời gian gửi thông báo nhắc tải lên"
+      },
+      "MIME_TYPE": {
+        "NAME": "Mime"
+      },
+      "ANTIVIRUS": {
+        "NAME": "Antivirus"
+      },
+      "DOCUMENT_EXPIRATION": {
+        "NAME": "Hết hạn tập tin"
+      },
+      "SHARE_EXPIRATION": {
+        "NAME": "Chia sẻ hết hạn"
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Xóa tệp trên các lượt chia sẻ hết hạn"
+      },
+      "HOÀN THÀNH": {
+        "NAME": "Hoàn thành"
+      },
+      "ANONYMOUS_URL": {
+        "NAME": "URL ẩn danh"
+      },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "URL thông báo qua email"
+      },
+      "KHÁCH": {
+        "NAME": "Khách"
+      },
+      "GUESTS__EXPIRATION": {
+        "NAME": "Hết hạn"
+      },
+      "GUESTS__CAN_UPLOAD": {
+        "NAME": "Quyền tải lên"
+      },
+      "GUESTS__RESTRICTED": {
+        "NAME": "Hạn chế liên hệ"
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Tạm hoãn ngày hết hạn của khách"
+      },
+      "MIỀN": {
+        "NAME": "Miền"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "Email miền"
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "URL thông báo"
+      },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Bật không gian cá nhân cho người dùng nội bộ."
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Xác nhận về việc tạo chia sẻ"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Cảnh báo tài liệu chia sẻ chưa tải xuống"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Cảnh báo tài liệu chia sẻ chưa tải xuống - Ngày trước cảnh báo"
+      },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "URL ẩn danh - buộc quá trình chia sẻ ẩn danh"
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "NAME": "Ẩn menu Chia sẻ đã Nhận"
+      },
+      "ANONYMOUS_URL__NOTIFICATION": {
+        "NAME": "Thông báo tải xuống ẩn danh"
+      },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "Mã thông báo vĩnh viễn JWT"
+      },
+      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
+        "NAME": "Mã thông báo vĩnh viễn JWT cho người dùng"
+      },
+      "SECOND_FACTOR_AUTHENTICATION": {
+        "NAME": "Xác thực yếu tố thứ hai"
+      },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Hết hạn email đã thu thập"
+      }
+    }
   }
 }

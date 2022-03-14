@@ -541,5 +541,139 @@
     "DESCRIPTION": "Sur cette page, vous pouvez sélectionner un domaine et voir la liste des messages d'accueil que vous avez créés ou autorisés à utiliser",
     "ROOT_DOMAIN_DESCRIPTION": "Le domaine racine peut créer des messages d'accueil mais ne peut pas en utiliser",
     "NESTED_DOMAIN_DESCRIPTION": "Un domaine peut créer des messages d'accueil pour son propre usage et peut utiliser les messages créés par ses domaines supérieurs"
+  },
+  "FUNCTIONALITIES": {
+    "LIST": {
+      "SEARCH_PLACEHOLDER": "Fonctionnalités de recherche par nom",
+      "SORTER": {
+        "ENABLE_FIRST": "Trie par activé",
+        "DISABLE_FIRST": "Trie par désactivé"
+      }
+    },
+    "DETAILS": {
+      "CONTACTS_LIST": {
+        "NAME": "Liste de contacts"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Droit de création"
+      },
+      "SHARED_SPACE": {
+        "NAME": "Espace partagé"
+      },
+      "UPLOAD_REQUEST": {
+        "NAME": "Invitation de dépôt"
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Langue d'émission des courriels"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+        "NAME": "Délais avant activation"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+        "NAME": "Délai avant expiration"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+        "NAME": "Nombre maximum de fichiers"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+        "NAME": "Taille maximale d'un fichier"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+        "NAME": "Taille maximale du dépôt"
+      },
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Protection par mot de passe des URLs"
+      },
+      "UPLOAD_REQUEST__CAN_CLOSE": {
+        "NAME": "Droit de clôture"
+      },
+      "UPLOAD_REQUEST__CAN_DELETE": {
+        "NAME": "Droit de suppression de fichiers pour le destinataire"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+        "NAME": "Délais avant notification d'expiration"
+      },
+      "MIME_TYPE": {
+        "NAME": "Type MIME"
+      },
+      "ANTIVIRUS": {
+        "NAME": "Antivirus"
+      },
+      "DOCUMENT_EXPIRATION": {
+        "NAME": "Expiration de document"
+      },
+      "SHARE_EXPIRATION": {
+        "NAME": "Expiration de partage"
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Suppression des fichiers lors de l'expiration des partages"
+      },
+      "COMPLETION": {
+        "NAME": "Complétion"
+      },
+      "ANONYMOUS_URL": {
+        "NAME": "URL anonymes"
+      },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "URL de notification courriel"
+      },
+      "GUESTS": {
+        "NAME": "Invités"
+      },
+      "GUESTS__EXPIRATION": {
+        "NAME": "Expiration des comptes invités"
+      },
+      "GUESTS__CAN_UPLOAD": {
+        "NAME": "Envoi de fichiers"
+      },
+      "GUESTS__RESTRICTED": {
+        "NAME": "Restriction de contacts"
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Autoriser la prolongation de la date d'expiration des invités"
+      },
+      "DOMAIN": {
+        "NAME": "Domaine"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "Adresse de courriel du domaine"
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "URL de base pour les notifications par courriel"
+      },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Activer l'espace personnel pour les utilisateurs internes"
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Accusé de partage"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Alerte de non téléchargement"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Alerte de non téléchargement - Nombre de jours avant notification"
+      },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "URL anonymes - forcer le partage en anonyme"
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "NAME": "Cacher le menu Partages Reçus"
+      },
+      "ANONYMOUS_URL__NOTIFICATION": {
+        "NAME": "URL de notification courriel"
+      },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "Jeton JWT permanent"
+      },
+      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
+        "NAME": "Jeton JWT permanent pour les utilisateurs"
+      },
+      "SECOND_FACTOR_AUTHENTICATION": {
+        "NAME": "Authentification double facteur"
+      },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Expiration des e-mails collectés"
+      }
+    }
   }
 }

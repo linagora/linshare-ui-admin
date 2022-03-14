@@ -545,5 +545,139 @@
     "DESCRIPTION": "In this view, you can select one domain in the domain trees and see list of welcome messages that you created or allowed to used",
     "ROOT_DOMAIN_DESCRIPTION": "Root domain can create welcome messages but cannot use any of them",
     "NESTED_DOMAIN_DESCRIPTION": "Nested domain can create welcome messages for its own use and can use welcome messages created by its highter domains"
+  },
+  "FUNCTIONALITIES": {
+    "LIST": {
+      "SEARCH_PLACEHOLDER": "Search functionalities by name",
+      "SORTER": {
+        "ENABLE_FIRST": "Sorts by enabled",
+        "DISABLE_FIRST": "Sorts by disabled"
+      }
+    },
+    "DETAILS": {
+      "CONTACTS_LIST": {
+        "NAME": "Contacts list"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Creation right"
+      },
+      "SHARED_SPACE": {
+        "NAME": "Shared space"
+      },
+      "UPLOAD_REQUEST": {
+        "NAME": "Upload request"
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Upload request - email notification language"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+        "NAME": "Ulpload request - Delay before activation"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+        "NAME": "Ulpload request - Delay before expiration"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+        "NAME": "Upload request - maximum file count"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+        "NAME": "Upload request - Maximum file size"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+        "NAME": "Upload request - Maximum deposit size"
+      },
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Upload request - Protected by password URL"
+      },
+      "UPLOAD_REQUEST__CAN_CLOSE": {
+        "NAME": "Upload request - Closure right"
+      },
+      "UPLOAD_REQUEST__CAN_DELETE": {
+        "NAME": "Upload request - Recipient delete right"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+        "NAME": "Upload request - Delay before notification"
+      },
+      "MIME_TYPE": {
+        "NAME": "Mime type"
+      },
+      "ANTIVIRUS": {
+        "NAME": "Antivirus"
+      },
+      "DOCUMENT_EXPIRATION": {
+        "NAME": "Document expiration"
+      },
+      "SHARE_EXPIRATION": {
+        "NAME": "Share expiration"
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Deleting files on expiration shares"
+      },
+      "COMPLETION": {
+        "NAME": "Completion"
+      },
+      "ANONYMOUS_URL": {
+        "NAME": "Anonymous URL"
+      },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "Email notification URL"
+      },
+      "GUESTS": {
+        "NAME": "Guests"
+      },
+      "GUESTS__EXPIRATION": {
+        "NAME": "Expiration"
+      },
+      "GUESTS__CAN_UPLOAD": {
+        "NAME": "Upload right"
+      },
+      "GUESTS__RESTRICTED": {
+        "NAME": "Contacts restriction"
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Postpone guest expiry date"
+      },
+      "DOMAIN": {
+        "NAME": "Domain"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "Domain mail"
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "Notification URL"
+      },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Enable personal space for internal users."
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Acknowledgement of share creation"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Undownloaded shared document alert"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Undownloaded shared document alert - Days before the alert"
+      },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "Anonymous URL - force anonymous sharing process"
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "NAME": "Hide Received Shares menu"
+      },
+      "ANONYMOUS_URL__NOTIFICATION": {
+        "NAME": "Anonymous download notification"
+      },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "JWT permanent token"
+      },
+      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
+        "NAME": "JWT permanent token for user"
+      },
+      "SECOND_FACTOR_AUTHENTICATION": {
+        "NAME": "Second factor authentication"
+      },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Collected emails expiration"
+      }
+    }
   }
 }

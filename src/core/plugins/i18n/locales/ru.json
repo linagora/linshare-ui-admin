@@ -541,5 +541,142 @@
     "DESCRIPTION": "В этом представлении вы можете выбрать один домен в дереве доменов и просмотреть список приветственных сообщений, которые вы создали или разрешили использовать.",
     "ROOT_DOMAIN_DESCRIPTION": "Корневой домен может создавать приветственные сообщения, но не может использовать ни одно из них",
     "NESTED_DOMAIN_DESCRIPTION": "Вложенный домен может создавать приветственные сообщения для собственного использования и может использовать приветственные сообщения, созданные его более высокими доменами."
+  },
+  "FUNCTIONALITIES": {
+    "LIST": {
+      "SEARCH_PLACEHOLDER": "Поиск функций по названию",
+      "SORTER": {
+        "ENABLE_FIRST": "Сортировка по включенным",
+        "DISABLE_FIRST": "Сортировка по отключенным"
+      }
+    },
+    "DETAILS": {
+      "CONTACTS_LIST": {
+        "NAME": "Список контактов"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Право право создания"
+      },
+      "SHARED_SPACE": {
+        "NAME": "Общее пространство"
+      },
+      "UPLOAD_REQUEST": {
+        "NAME": "Запрос на отправку"
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Запрос на отправку - Язык уведомлений"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+        "NAME": "Запрос на отправку - Задержка перед активацией"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+        "NAME": "Запрос на отправку - Задержка до истечения срока действия"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+        "NAME": "Запрос на отправку - Максимальное количество файлов"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+        "NAME": "Запрос на отправку - Максимальный размер файла"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+        "NAME": "Запрос на отправку - Максимальный размер депозита"
+      },
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Запрос на отправку - Защищенный URL"
+      },
+      "UPLOAD_REQUEST__CAN_CLOSE": {
+        "NAME": "Запрос на отправку - Закрытие справа"
+      },
+      "UPLOAD_REQUEST__CAN_DELETE": {
+        "NAME": "Запрос на отправку - Право на удаление получателя"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+        "NAME": "Запрос на отправку - Задержка перед уведомлением"
+      },
+      "MIME_TYPE": {
+        "NAME": "Mime type"
+      },
+      "ANTIVIRUS": {
+        "NAME": "Антивирус"
+      },
+      "DOCUMENT_EXPIRATION": {
+        "NAME": "Срок действия документа"
+      },
+      "SHARE_EXPIRATION": {
+        "NAME": "Завершение рассылки"
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Удаление файлов на ресурсах истечения срока действия"
+      },
+      "COMPLETION": {
+        "NAME": "Завершение"
+      },
+      "ANONYMOUS_URL": {
+        "NAME": "Секретный URL"
+      },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "URL-адрес электронной почты"
+      },
+      "GUESTS": {
+        "NAME": "Гости"
+      },
+      "GUESTS__EXPIRATION": {
+        "NAME": "истечение"
+      },
+      "GUESTS__CAN_UPLOAD": {
+        "NAME": "Загрузить порядок"
+      },
+      "GUESTS__RESTRICTED": {
+        "NAME": "Ограничение контактов"
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Отсрочить дату истечения срока действия гостя"
+      },
+      "SHARE_NOTIFICATION_BEFORE_EXPIRATION": {
+        "NAME": "Предоставлять уведомление до истечения срока действия"
+      },
+      "DOMAIN": {
+        "NAME": "Домен"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "Доменная почта"
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "Уведомления URL"
+      },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Enable personal space for internal users."
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Подтверждение создания рассылки"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Уведомление о незагруженном файле"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Предупреждение о несанкционированном совместном документе - За несколько дней до предупреждения"
+      },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "Анонимный URL - принудительный анонимный процесс обмена"
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "NAME": "Меню «Скрыть полученные пакеты»"
+      },
+      "ANONYMOUS_URL__NOTIFICATION": {
+        "NAME": "Анонимное уведомление для загрузки"
+      },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "Постоянный токен"
+      },
+      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
+        "NAME": "постоянный токен для пользователя"
+      },
+      "SECOND_FACTOR_AUTHENTICATION": {
+        "NAME": "Двухфакторная аутентификация"
+      },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Срок действия собранных писем"
+      }
+    }
   }
 }
