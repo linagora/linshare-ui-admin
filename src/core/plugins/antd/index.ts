@@ -32,6 +32,7 @@ import {
   Tabs,
   Tag,
   Tooltip,
+  BackTop,
 } from 'ant-design-vue';
 import '@/core/styles/variables.less';
 
@@ -40,6 +41,7 @@ function useAntdComponents(vueApp: App): App {
     .use(Alert)
     .use(AutoComplete)
     .use(Avatar)
+    .use(BackTop)
     .use(Badge)
     .use(Breadcrumb)
     .use(Button)

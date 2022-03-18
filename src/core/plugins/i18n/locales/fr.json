@@ -49,7 +49,8 @@
   "LOCALE": {
     "ENGLISH": "Anglais",
     "FRENCH": "Français",
-    "RUSSIAN": "Russe"
+    "RUSSIAN": "Russe",
+    "VIETNAMESE": "Vietnamien"
   },
   "MESSAGES": {
     "CREATE_SUCCESS": "Créé avec succès",
@@ -101,6 +102,8 @@
     "PARAMETERS": "Paramètres",
     "MAIL_TEMPLATES": "Modèles de courriels",
     "WELCOME_MESSAGES": "Messages d'accueil",
+    "WELCOME_MESSAGES_MANAGE": "Gestion des messages d'accueil",
+    "WELCOME_MESSAGES_NEW": "Nouveau message d'accueil",
     "TYPE_MIME": "Politiques des types MIME",
     "PROVIDERS": "Fournisseurs",
     "QUOTA": "Quota",
@@ -209,7 +212,8 @@
       "2002": "L'authentification à deux facteurs n'est pas activée pour votre domaine"
     },
     "55000": "Filtre de groupe introuvable",
-    "66000": "Espace partagé introuvable"
+    "66000": "Espace partagé introuvable",
+    "36004": "Ce message d'accueil n'existe pas"
   },
   "AUTH": {
     "TAGLINE": "Partage sécurisé de fichiers en open source",
@@ -551,7 +555,11 @@
   "WELCOME_MESSAGES": {
     "DESCRIPTION": "Sur cette page, vous pouvez sélectionner un domaine et voir la liste des messages d'accueil que vous avez créés ou autorisés à utiliser",
     "ROOT_DOMAIN_DESCRIPTION": "Le domaine racine peut créer des messages d'accueil mais ne peut pas en utiliser",
-    "NESTED_DOMAIN_DESCRIPTION": "Un domaine peut créer des messages d'accueil pour son propre usage et peut utiliser les messages créés par ses domaines supérieurs"
+    "NESTED_DOMAIN_DESCRIPTION": "Un domaine peut créer des messages d'accueil pour son propre usage et peut utiliser les messages créés par ses domaines supérieurs",
+    "THE_WELCOME_MESSAGE":"Le message d'accueil",
+    "SET_FIELD":"Vous devez renseigner ce champ",
+    "DELETE_CONFIRM":"Vous êtes sur le point de supprimer ce message d'accueil, cette action est irréversible, souhaitez-vous continuer ?",
+    "MESSAGE_PREVIEW":"Voici un aperçu du message d'accueil :"
   },
   "FUNCTIONALITIES": {
     "LIST": {

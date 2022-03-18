@@ -22,13 +22,14 @@
           <SearchOutlined />
         </template>
       </a-input>
-
-      <a-button type="primary">
-        <template #icon>
-          <PlusCircleOutlined />
-        </template>
-        {{ $t('GENERAL.CREATE') }}
-      </a-button>
+      <router-link :to="{ name: 'DomainWelcomeMessageNew' }">
+        <a-button type="primary">
+          <template #icon>
+            <PlusCircleOutlined />
+          </template>
+          {{ $t('GENERAL.CREATE') }}
+        </a-button>
+      </router-link>
     </div>
   </div>
   <a-table
@@ -37,6 +38,11 @@
     :loading="state.status === StatusValue.LOADING"
     row-key="uuid"
   >
+    <template #name="{ record, text }">
+      <router-link :to="{ name: 'DomainWelcomeMessageDetails', params: { uuid: record.uuid } }">
+        <span class="elipsis-name" :title="text">{{ text }}</span>
+      </router-link>
+    </template>
     <template #date="{ text }">
       <span>{{ $d(text, 'mediumDate') }}</span>
     </template>
@@ -71,9 +77,11 @@
               <a-menu-item>
                 {{ $t('GENERAL.DUPLICATE') }}
               </a-menu-item>
-              <a-menu-item>
-                {{ $t(record.readOnly ? 'GENERAL.VIEW' : 'GENERAL.EDIT') }}
-              </a-menu-item>
+              <router-link :to="{ name: 'DomainWelcomeMessageDetails', params: { uuid: record.uuid } }">
+                <a-menu-item>
+                  {{ $t(record.readOnly ? 'GENERAL.VIEW' : 'GENERAL.EDIT') }}
+                </a-menu-item>
+              </router-link>
               <a-menu-item v-if="!record.readOnly">
                 <span class="delete_text"> {{ $t('GENERAL.DELETE') }} </span>
               </a-menu-item>
@@ -98,14 +106,15 @@ import { APIError } from '@/core/types/APIError';
 import { message } from 'ant-design-vue';
 import StatusValue from '@/core/types/Status';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
+import { useRouter } from 'vue-router';
 
 interface WelcomeMessagesListState {
   status: StatusValue;
   filterText: string;
   list: WelcomeMessage[];
-  disabled: boolean;
 }
 
+const { push } = useRouter();
 const { t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const state = reactive<WelcomeMessagesListState>({
@@ -127,6 +136,8 @@ const columns = computed(() => [
     title: t('GENERAL.NAME'),
     dataIndex: 'name',
     sorter: (a: WelcomeMessage, b: WelcomeMessage) => a.name.localeCompare(b.name),
+    slots: { customRender: 'name' },
+    width: '300px',
   },
   {
     title: t('GENERAL.READ_ONLY'),
@@ -136,7 +147,7 @@ const columns = computed(() => [
   {
     title: t('GENERAL.DOMAIN'),
     dataIndex: 'domain.name',
-    sorter: (a: WelcomeMessage, b: WelcomeMessage) => a.domain.name.localeCompare(b.domain.name),
+    sorter: (a: WelcomeMessage, b: WelcomeMessage) => a.domain?.name.localeCompare(b.domain?.name || ''),
   },
   {
     title: t('GENERAL.CREATION_DATE'),
@@ -189,6 +200,12 @@ watch(currentDomainStatus, (status: StatusValue) => {
   }
 });
 
+watch(currentDomainStatus, (status: StatusValue) => {
+  if (status === StatusValue.LOADING) {
+    fetchWelcomeMessages();
+  }
+});
+
 onMounted(fetchWelcomeMessages);
 </script>
 
@@ -201,5 +218,13 @@ onMounted(fetchWelcomeMessages);
 
 .delete_text {
   color: @error-color;
+}
+
+.elipsis-name {
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
 }
 </style>

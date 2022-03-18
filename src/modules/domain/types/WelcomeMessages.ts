@@ -1,14 +1,25 @@
 export default interface WelcomeMessage {
-  uuid?: string;
+  uuid: string;
   creationDate?: number;
-  name?: string;
+  name: string;
   modificationDate?: number;
   description?: string;
-  domain: {
+  domain?: {
     uuid: string;
     name: string;
   };
   entries: Record<string, string>;
-  assignedToCurrentDomain: boolean;
-  readOnly: boolean;
+  assignedToCurrentDomain?: boolean;
+  readOnly?: boolean;
 }
+
+export const EMPTY_WELCOME_MESSAGE: WelcomeMessage = {
+  uuid: '',
+  name: '',
+  entries: {
+    VIETNAMESE: '',
+    ENGLISH: '',
+    FRENCH: '',
+    RUSSIAN: '',
+  },
+};

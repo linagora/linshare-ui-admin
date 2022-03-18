@@ -49,7 +49,8 @@
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
     "FRENCH": "Tiếng Pháp",
-    "RUSSIAN": "Tiếng Nga"
+    "RUSSIAN": "Tiếng Nga",
+    "VIETNAMESE": "Tiếng Việt"
   },
   "MESSAGES": {
     "CREATE_SUCCESS": "Tạo thành công",
@@ -101,6 +102,8 @@
     "PARAMETERS": "PARAMETER",
     "MAIL_TEMPLATES": "Mẫu mail thông báo",
     "WELCOME_MESSAGES": "Tin nhắn chào mừng",
+    "WELCOME_MESSAGES_MANAGE": "Quản lý tin nhắn chào mừng",
+    "WELCOME_MESSAGES_NEW": "Tin nhắn chào mừng mới",
     "TYPE_MIME": "Nhập chính sách MIME",
     "PROVIDERS": "Nguồn cung cấp",
     "QUOTA": "Hạn ngạch",
@@ -209,7 +212,8 @@
     },
     "55000": "Bộ lọc nhóm không được tìm thấy",
     "66000": "Không tìm thấy không gian chia sẻ",
-    "2002": "Yếu tố xác thực thứ hai không được bật cho miền của bạn"
+    "2002": "Yếu tố xác thực thứ hai không được bật cho miền của bạn",
+    "36004": "Không tìm thấy thông điệp chào mừng"
   },
   "AUTH": {
     "TAGLINE": "Phần mềm chia sẻ dữ liệu bảo mật bằng công nghệ nguồn mở",
@@ -549,9 +553,13 @@
     }
   },
   "WELCOME_MESSAGES": {
-    "DESCRIPTION": "Ở chế độ xem này, bạn có thể chọn một miền trong cây miền và xem danh sách các thông báo chào mừng mà bạn đã tạo hoặc được phép sử dụng",
-    "ROOT_DOMAIN_DESCRIPTION": "Miền gốc có thể tạo tin nhắn chào mừng nhưng không thể sử dụng bất kỳ thông báo nào trong số chúng",
-    "NESTED_DOMAIN_DESCRIPTION": "Miền phụ có thể tạo thông báo chào mừng để sử dụng riêng và có thể sử dụng thông báo chào mừng được tạo bởi miền cao hơn của miền đó"
+    "DESCRIPTION": "Ở chế độ xem, bạn có thể chọn một miền trong cây miền và xem danh sách các thông điệp chào mừng mà bạn đã tạo hoặc được phép chỉ định cho miền",
+    "ROOT_DOMAIN_DESCRIPTION": "Miền gốc có thể tạo thông điệp chào mừng nhưng không thể được chỉ định bất kỳ một thông điệp nào",
+    "NESTED_DOMAIN_DESCRIPTION": "Ở miền phụ, thông điệp chào mừng có thể tạo riêng hoặc sử dụng thông điệp được tạo trên miền cao hơn",
+    "THE_WELCOME_MESSAGE": "Thông điệp chào mừng",
+    "SET_FIELD": "Bạn cần đặt trường này",
+    "DELETE_CONFIRM":"Bạn sắp xóa thông điệp chào mừng này, quy trình này không thể hoàn tác. Bạn có muốn tiếp tục?",
+    "MESSAGE_PREVIEW":"Đây là bản xem trước của thông điệp chào mừng:"
   },
   "FUNCTIONALITIES": {
     "LIST": {

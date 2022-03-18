@@ -49,7 +49,8 @@
   "LOCALE": {
     "ENGLISH": "English",
     "FRENCH": "French",
-    "RUSSIAN": "Russian"
+    "RUSSIAN": "Russian",
+    "VIETNAMESE": "Vietnamese"
   },
   "MESSAGES": {
     "CREATE_SUCCESS": "Created successfully",
@@ -103,6 +104,8 @@
     "PARAMETERS": "Parameters (aka Functionalities)",
     "MAIL_TEMPLATES": "Mail templates",
     "WELCOME_MESSAGES": "Welcome messages",
+    "WELCOME_MESSAGES_MANAGE": "Manage welcome message",
+    "WELCOME_MESSAGES_NEW": "New welcome message",
     "TYPE_MIME": "Type mime policies",
     "PROVIDERS": "Providers",
     "QUOTA": "Quota",
@@ -212,7 +215,8 @@
     },
     "55000": "Group filter not found",
     "66000": "Shared space not found",
-    "2002": "Second factor authentication is not enabled for your domain"
+    "2002": "Second factor authentication is not enabled for your domain",
+    "36004": "Welcome message not found"
   },
   "AUTH": {
     "TAGLINE": "Secure file sharing app in open source",
@@ -555,7 +559,11 @@
   "WELCOME_MESSAGES": {
     "DESCRIPTION": "In this view, you can select one domain in the domain trees and see list of welcome messages that you created or allowed to used",
     "ROOT_DOMAIN_DESCRIPTION": "Root domain can create welcome messages but cannot use any of them",
-    "NESTED_DOMAIN_DESCRIPTION": "Nested domain can create welcome messages for its own use and can use welcome messages created by its highter domains"
+    "NESTED_DOMAIN_DESCRIPTION": "Nested domain can create welcome messages for its own use and can use welcome messages created by its highter domains",
+    "THE_WELCOME_MESSAGE":"The welcome message",
+    "SET_FIELD":"You need to set this field",
+    "DELETE_CONFIRM":"You are about to delete this welcome message, this procedure is irreversible. Do you want to proceed?",
+    "MESSAGE_PREVIEW":"Here is a preview of the welcome message:"
   },
   "FUNCTIONALITIES": {
     "LIST": {
