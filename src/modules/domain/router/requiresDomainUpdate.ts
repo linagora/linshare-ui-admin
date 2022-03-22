@@ -5,6 +5,7 @@ export const requiresDomainUpdate = (router: Router, store: Store<any>): void =>
   router.beforeEach((to, from) => {
     const domainUuid = to.params.domainUuid as string;
     const currentDomainUuid = store.getters['Domain/getCurrentDomainUuid'];
+    const isHydrated = store.getters.isHydrated;
 
     if (!domainUuid || domainUuid === currentDomainUuid) {
       return;
@@ -12,7 +13,7 @@ export const requiresDomainUpdate = (router: Router, store: Store<any>): void =>
 
     store.dispatch('Domain/setCurrentDomainUuid', domainUuid);
 
-    if (!from.path.includes('/configuration')) {
+    if (isHydrated && !from.path.includes('/configuration')) {
       store.dispatch('Domain/fetchDomain');
     }
   });
