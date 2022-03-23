@@ -3,7 +3,7 @@ import i18n from '../plugins/i18n';
 
 export class APIError extends Error {
   public isAuthError: boolean;
-  public errorCode: string;
+  public errorCode: number;
   public response?: AxiosResponse;
 
   constructor(error: AxiosError) {
@@ -13,10 +13,10 @@ export class APIError extends Error {
     this.response = error.response;
 
     if (this.isAuthError) {
-      this.errorCode = error.response?.headers['x-linshare-auth-error-code'];
+      this.errorCode = +error.response?.headers['x-linshare-auth-error-code'];
       this.message = error.response?.headers['x-linshare-auth-error-msg'] || i18n.global.t('ERRORS.UNKNOWN');
     } else {
-      this.errorCode = error.response?.data.errCode || 'UNKNOWN';
+      this.errorCode = +error.response?.data.errCode || NaN;
       this.message = error.response?.data.message || i18n.global.t('ERRORS.UNKNOWN');
     }
   }
@@ -29,10 +29,10 @@ export class APIError extends Error {
   }
 
   isUnauthorizedError(): boolean {
-    return this.isAuthError && this.errorCode === '1000';
+    return this.isAuthError && this.errorCode === 1000;
   }
 
   isOTPMissingError(): boolean {
-    return this.isAuthError && this.errorCode === '1002';
+    return this.isAuthError && this.errorCode === 1002;
   }
 }
