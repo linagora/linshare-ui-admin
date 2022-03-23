@@ -8,17 +8,48 @@
       :extra="$t('USER_PROVIDER.OIDC.ASSOCIATED_DOMAIN_ID_HELPER', { name: domain.name })"
       v-bind="validateInfos.domainDiscriminator"
     >
-      <a-input
-        v-model:value="formState.domainDiscriminator"
-        @change="unique = true"
-      />
+      <a-input v-model:value="formState.domainDiscriminator" />
     </a-form-item>
+
+    <a-form-item :extra="$t('USER_PROVIDER.OIDC.CHECK_EXTERNAL_USER_ID_HELPER')">
+      <a-checkbox v-model:checked="formState.checkExternalUserID">
+        {{ $t('USER_PROVIDER.OIDC.CHECK_EXTERNAL_USER_ID') }}
+      </a-checkbox>
+    </a-form-item>
+
+    <a-form-item :extra="$t('USER_PROVIDER.OIDC.USE_ACCESS_CLAIM_HELPER')">
+      <a-checkbox v-model:checked="formState.useAccessClaim">
+        {{ $t('USER_PROVIDER.OIDC.USE_ACCESS_CLAIM') }}
+      </a-checkbox>
+    </a-form-item>
+
+    <a-form-item :extra="$t('USER_PROVIDER.OIDC.USE_ROLE_CLAIM_HELPER')">
+      <a-checkbox v-model:checked="formState.useRoleClaim">
+        {{ $t('USER_PROVIDER.OIDC.USE_ROLE_CLAIM') }}
+      </a-checkbox>
+    </a-form-item>
+
+    <a-form-item :extra="$t('USER_PROVIDER.OIDC.USE_EMAIL_LOCALE_CLAIM_HELPER')">
+      <a-checkbox v-model:checked="formState.useEmailLocaleClaim">
+        {{ $t('USER_PROVIDER.OIDC.USE_EMAIL_LOCALE_CLAIM') }}
+      </a-checkbox>
+    </a-form-item>
+
+    <div class="date-info">
+      <span v-if="provider.creationDate">
+        {{ $t('GENERAL.CREATE_AT', { time: $d(provider.creationDate) }) }}
+      </span>
+
+      <span v-if="provider.modificationDate">
+        {{ $t('GENERAL.UPDATE_AT', { time: $d(provider.modificationDate) }) }}
+      </span>
+    </div>
 
     <div class="form-actions">
       <div>
         <a-button
           v-if="provider.uuid"
-          @click="resetFields"
+          @click="resetFields()"
         >
           {{ $t('GENERAL.RESET') }}
         </a-button>
@@ -52,8 +83,8 @@
   </a-form>
 </template>
 
-<script lang='ts' setup>
-import { reactive, ref } from 'vue';
+<script lang="ts" setup>
+import { computed, reactive, ref } from 'vue';
 import { message, Form } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 
@@ -73,7 +104,6 @@ interface Props {
   domain: Domain
 }
 
-const unique = ref(true);
 const props = defineProps<Props>();
 const emit = defineEmits(['cancel', 'deleted', 'submitted']);
 const useForm = Form.useForm;
@@ -81,16 +111,19 @@ const { t } = useI18n();
 const { confirmModal } = useNotification();
 const formSubmitting = ref(false);
 const formState = reactive<Partial<OIDCUserProvider>>({
-  domainDiscriminator: props.provider.domainDiscriminator
+  domainDiscriminator: props.provider.domainDiscriminator,
+  useRoleClaim: props.provider.useAccessClaim,
+  useAccessClaim: props.provider.useAccessClaim,
+  useEmailLocaleClaim: props.provider.useEmailLocaleClaim,
+  checkExternalUserID: props.provider.checkExternalUserID
 });
-const formRules = reactive(({
-  domainDiscriminator: [{
-    required: true,
-    message: t('GENERAL.FIELD_REQUIRED')
-  }, {
-    message: t('USER_PROVIDER.OIDC.USED_DOMAIN_ID'),
-    validator: () => unique.value ? Promise.resolve() : Promise.reject(new Error())
-  }]
+const formRules = computed(() => ({
+  domainDiscriminator: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED')
+    }
+  ]
 }));
 const { validate, validateInfos, resetFields } = useForm(formState, formRules);
 
@@ -99,15 +132,9 @@ async function create () {
 
   try {
     await validate();
-  } catch (_) {
-    formSubmitting.value = false;
-    return;
-  }
-
-  try {
     const provider = await createUserProvider(props.domain.uuid, {
       type: 'OIDC_PROVIDER',
-      domainDiscriminator: formState.domainDiscriminator
+      ...formState
     });
 
     emit('submitted', provider);
@@ -116,8 +143,6 @@ async function create () {
     if (error instanceof APIError) {
       handleSubmitError(error);
     }
-
-    console.warn(error);
   } finally {
     formSubmitting.value = false;
   }
@@ -136,7 +161,7 @@ async function save () {
   try {
     const provider = await updateUserProvider(props.domain.uuid, {
       ...props.provider,
-      domainDiscriminator: formState.domainDiscriminator
+      ...formState
     });
 
     emit('submitted', provider);
@@ -145,17 +170,18 @@ async function save () {
     if (error instanceof APIError) {
       handleSubmitError(error);
     }
-
-    console.warn(error);
   } finally {
     formSubmitting.value = false;
   }
 }
 
 function handleSubmitError (error: APIError) {
-  unique.value = error.errorCode === '38100';
-  validate();
-  message.error(error.getMessage());
+  if (error.errorCode === 38100) {
+    validateInfos.domainDiscriminator.validateStatus = 'error';
+    validateInfos.domainDiscriminator.help = computed(() => t('USER_PROVIDER.OIDC.USED_DOMAIN_ID'));
+  } else {
+    message.error(error.getMessage());
+  }
 }
 
 async function remove () {
@@ -184,5 +210,14 @@ function confirmDelete () {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+.date-info {
+  display: flex;
+
+  span {
+    flex: 1;
+    color: @text-color-secondary;
+  }
 }
 </style>

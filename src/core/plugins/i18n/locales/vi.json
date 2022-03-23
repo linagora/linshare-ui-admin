@@ -7,6 +7,8 @@
     "DELETION": "Xóa",
     "SAVE": "Lưu",
     "UPDATE_TIME_RELATIVE": "Cập nhật {time}",
+    "UPDATE_AT": "Được cập nhật vào {time}",
+    "CREATE_AT": "Được tạo vào {time}",
     "JUST_NOW": "mới đây",
     "DEFAULT_VALUE": "Giá trị mặc định",
     "CURRENT_VALUE": "Giá trị hiện tại",
@@ -441,7 +443,15 @@
     "OIDC": {
       "ASSOCIATED_DOMAIN_ID": "Định danh miền được liên kết",
       "ASSOCIATED_DOMAIN_ID_HELPER": "Bằng cách tạo nhà cung cấp người dùng OIDC cho {name}, bạn cho phép LinShare tạo người dùng cho miền này khi người dùng xác thực bằng OIDC",
-      "USED_DOMAIN_ID": "Mã nhận dạng này đã được sử dụng trong một miền khác"
+      "USED_DOMAIN_ID": "Mã nhận dạng này đã được sử dụng trong một miền khác",
+      "CHECK_EXTERNAL_USER_ID": "Kiểm tra id người dùng bên ngoài",
+      "CHECK_EXTERNAL_USER_ID_HELPER": "LinShare sẽ tìm kiếm yêu cầu lấy id người dùng bên ngoài ngay khi kết nối đầu tiên. Sau đó id này sẽ được sử dụng trong mỗi lần xác thực OIDC",
+      "USE_ROLE_CLAIM": "Sử dụng xác nhận vai trò",
+      "USE_ROLE_CLAIM_HELPER": "LinShare sẽ tìm kiếm yêu cầu về vai trò người dùng sẽ được sử dụng khi tạo hồ sơ ở lần kết nối đầu tiên",
+      "USE_EMAIL_LOCALE_CLAIM": "Sử dụng xác nhận ngôn ngữ email",
+      "USE_EMAIL_LOCALE_CLAIM_HELPER": "LinShare sẽ tìm kiếm yêu cầu về ngôn ngữ email khi tạo hồ sơ ở lần kết nối đầu tiên",
+      "USE_ACCESS_CLAIM": "Sử dụng xác nhận quyền truy cập",
+      "USE_ACCESS_CLAIM_HELPER": "LinShare sẽ tìm kiếm xác nhận quyền truy cập và so sánh nó với giá trị được lưu trữ trong tệp thuộc tính. Nếu không khớp, người dùng sẽ bị từ chối"
     },
     "TWAKE": {
       "COMPANY_ID": "ID công ty",

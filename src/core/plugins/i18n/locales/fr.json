@@ -7,6 +7,8 @@
     "DELETION": "Suppression",
     "SAVE": "Sauvegarder",
     "UPDATE_TIME_RELATIVE": "Modifié {time}",
+    "UPDATE_AT": "Mis à jour à {time}",
+    "CREATE_AT": "Créé le {time}",
     "JUST_NOW": "il y a un instant",
     "DEFAULT_VALUE": "Valeur par défaut",
     "CURRENT_VALUE": "Valeur actuelle",
@@ -440,8 +442,16 @@
     },
     "OIDC": {
       "ASSOCIATED_DOMAIN_ID": "Identifiant de domaine associé",
-      "ASSOCIATED_DOMAIN_ID_HELPER": "En créant un fournisseur d'utilisateurs OIDC pour {nom}, vous autorisez LinShare à créer des utilisateurs pour ce domaine lorsqu'un utilisateur s'authentifie avec OIDC",
-      "USED_DOMAIN_ID": "Cet identifiant de domaine a déjà été utilisé dans un autre domaine"
+      "ASSOCIATED_DOMAIN_ID_HELPER": "En créant un fournisseur d'utilisateurs OIDC pour {nom}, vous autorisez LinShare à créer des utilisateurs pour ce domaine lorsqu'un utilisateur s'authentifie avec OIDC. L'utilisateur sera créé dans ce domaine si la valeur de la revendication (claim) 'domain_discriminator' correspond à la valeur ci-dessus",
+      "USED_DOMAIN_ID": "Cet identifiant de domaine est déjà utilisé par un autre domaine",
+      "CHECK_EXTERNAL_USER_ID": "Utiliser la revendication (claim) identifiant utilisateur externe",
+      "CHECK_EXTERNAL_USER_ID_HELPER": "La valeur de la revendication (claim) 'external_uid' sera récupérée et stockée dans le profil de l'utilisateur, profil créé lors de la première connexion. La valeur stockée sera alors comparée à la valeur présentée lors de chaque tentative d'authentification OIDC afin de valider qu'il s'agit de la même personne.",
+      "USE_ROLE_CLAIM": "Utiliser la revendication (claim) rôle",
+      "USE_ROLE_CLAIM_HELPER": "La valeur de la revendication (claim) 'linshare_role' sera utilisée comme valeur par défaut pour le rôle de l'utilisateur lors de la création du profil (uniquement à la première connexion). Valeurs possibles: ADMIN, SIMPLE.",
+      "USE_EMAIL_LOCALE_CLAIM": "Utiliser la revendication (claim) langue de notification",
+      "USE_EMAIL_LOCALE_CLAIM_HELPER": "La valeur de la revendication (claim) 'linshare_locale' sera utilisée comme valeur par défaut pour la langue de notification de l'utilisateur lors de la création du profil (uniquement à la première connexion). Valeurs possibles: ENGLISH, FRENCH, RUSSIAN.",
+      "USE_ACCESS_CLAIM": "Utiliser la revendication (claim) contrôle d'accès",
+      "USE_ACCESS_CLAIM_HELPER": "La valeur de la revendication (claim) 'linshare_access' sera utilisée pour contrôler l'accès à LinShare. La valeur devra correspondre à la valeur de la clé 'oidc.access.claim.value' présente dans le fichier de configuration."
     },
     "TWAKE": {
       "COMPANY_ID": "Identifiant de l'entreprise",
