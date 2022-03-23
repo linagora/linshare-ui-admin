@@ -3,7 +3,7 @@
     <a-list-item @click="goToUser">
       <template #actions>
         <span>
-          {{ $t('GENERAL.CREATE_TIME_RELATIVE', { time: $d(data.creationDate) }) }}
+          {{ $t('GENERAL.CREATE_AT', { time: $d(data.creationDate) }) }}
         </span>
         <span>
           {{ $t('GENERAL.UPDATE_TIME_RELATIVE', { time: relativeModificationDate }) }}

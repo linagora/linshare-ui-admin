@@ -7,7 +7,8 @@
     "DELETION": "Deletion",
     "SAVE": "Save",
     "UPDATE_TIME_RELATIVE": "Updated {time}",
-    "CREATE_TIME_RELATIVE": "Created at {time}",
+    "UPDATE_AT": "Updated at {time}",
+    "CREATE_AT": "Created at {time}",
     "JUST_NOW": "just now",
     "DEFAULT_VALUE": "Default value",
     "CURRENT_VALUE": "Current value",
@@ -451,8 +452,16 @@
     },
     "OIDC": {
       "ASSOCIATED_DOMAIN_ID": "Associated domain identifier",
-      "ASSOCIATED_DOMAIN_ID_HELPER": "By creating OIDC user provider for {name}, you allow LinShare to create users for this domain when an user authenticates with OIDC",
-      "USED_DOMAIN_ID": "This domain identifier has already been used in another domain"
+      "ASSOCIATED_DOMAIN_ID_HELPER": "By creating OIDC user provider for {name}, you allow LinShare to create users for this domain when an user authenticates with OIDC. The user will be created in this domain if the value of the claim 'domain_discriminator' matches the value above.",
+      "USED_DOMAIN_ID": "This domain identifier has already been used by another domain",
+      "CHECK_EXTERNAL_USER_ID": "Check external user identifier",
+      "CHECK_EXTERNAL_USER_ID_HELPER": "LinShare will search for the claim 'external_uid' and will store its value in the user profile upon first connection. Then this stored identifier will be compared with the claim value at each OIDC authentication attempts in order to be sure it is the same user.",
+      "USE_ROLE_CLAIM": "Use role claim",
+      "USE_ROLE_CLAIM_HELPER": "LinShare will search for the claim 'linshare_role', its value will be used as default role value when creating the profile at first connection. Possible values: ADMIN, SIMPLE",
+      "USE_EMAIL_LOCALE_CLAIM": "Use email locale claim",
+      "USE_EMAIL_LOCALE_CLAIM_HELPER": "LinShare will search for the claim 'linshare_locale', its value will be used as default locale value when creating the profile at first connection. Possible values: ENGLISH, FRENCH, RUSSIAN.",
+      "USE_ACCESS_CLAIM": "Use access claim",
+      "USE_ACCESS_CLAIM_HELPER": "LinShare will search for the claim 'linshare_access' (presence and value) to grant access to LinShare. The value of the claim must match the value stored in the property file otherwise the user will be rejected"
     },
     "TWAKE": {
       "COMPANY_ID": "Company Identifier",
