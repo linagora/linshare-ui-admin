@@ -142,6 +142,7 @@ async function prepareData() {
   state.status = 'loading';
 
   try {
+    await prepareUserProvider();
     await prepareServers();
     await prepareUserFilters();
 

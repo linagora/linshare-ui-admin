@@ -8,8 +8,8 @@ import { requiresAuthGuard } from './modules/auth/router/requiresAuth.guard';
 import { requiresDomainAccessibility } from './modules/domain/router/requiresDomainAccessibility';
 import { requiresDomainUpdate } from './modules/domain/router/requiresDomainUpdate';
 
-requiresAuthGuard(router, store);
 requiresDomainUpdate(router, store);
+requiresAuthGuard(router, store);
 requiresDomainAccessibility(router, store);
 
 const app = createApp(App).use(store).use(router).use(i18n);
