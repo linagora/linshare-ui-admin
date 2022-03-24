@@ -44,7 +44,7 @@
 
     <div class="form-actions">
       <div>
-        <a-button v-if="provider.uuid" @click="resetFields">
+        <a-button v-if="provider.uuid" @click="resetFields()">
           {{ $t('GENERAL.RESET') }}
         </a-button>
 
