@@ -23,8 +23,10 @@ export default {
     state.currentDomain = EMPTY_DOMAIN;
     state.domainsTree = EMPTY_DOMAIN_NODE;
     state.loggedUserFunctionalities = undefined;
+    state.currentDomainFunctionalities = [];
     state.status = {
       currentDomain: Status.LOADING,
+      currentDomainFunctionalities: Status.LOADING,
     };
   },
   setDomainsTree(state: DomainState, tree: DomainTreeNode): void {
@@ -41,5 +43,18 @@ export default {
   },
   setLoggedUserFunctionalities(state: DomainState, functionalities: Functionality[]): void {
     state.loggedUserFunctionalities = functionalities;
+  },
+  setCurrentDomainFunctionalities(state: DomainState, functionalities: Functionality[]): void {
+    state.currentDomainFunctionalities = functionalities;
+  },
+  setCurrentDomainFunctionalitiesStatus(state: DomainState, status: Status): void {
+    state.status.currentDomainFunctionalities = status;
+  },
+  updateCurrentDomainFunctionality(state: DomainState, functionality: Functionality): void {
+    const index = state.currentDomainFunctionalities.findIndex((func) => func.identifier === functionality.identifier);
+
+    if (index > -1) {
+      state.currentDomainFunctionalities[index] = functionality;
+    }
   },
 };

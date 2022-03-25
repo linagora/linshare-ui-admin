@@ -563,7 +563,103 @@
         "DISABLE_FIRST": "Sorts by disabled"
       }
     },
+    "UNITS": {
+      "TIME": {
+        "MONTH": "Months",
+        "DAY": "Days",
+        "WEEK": "Weeks"
+      },
+      "SIZE": {
+        "KILO": "KB",
+        "MEGA": "MB",
+        "GIGA": "GB"
+      }
+    },
+    "DEFAULT": {
+      "PARAMETER": {
+        "HEADER": "Parameter(s)",
+        "TITLE": "Default",
+        "TITLE_MAXIMUM": "Maximum",
+        "DESCRIPTION": "",
+        "DESCRIPTION_MAXIMUM": "",
+        "BOOLEAN_DESCRIPTION": "Enable this parameter"
+      },
+      "ACTIVATION_POLICY": {
+        "HEADER": "Activation policy",
+        "DESCRIPTION": "To turn the functionality on or off and control nested domain admin access on the functionality activation",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Enable functionality",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Allow nested admin to override this section"
+      },
+      "CONFIGURATION_POLICY": {
+        "HEADER": "Configuration policy",
+        "DESCRIPTION": "Determine whether nested domain admin can change Parameter(s) section",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Allow nested admin to change functionality parameter",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Allow nested admin to override this section"
+      },
+      "DELEGATION_POLICY": {
+        "HEADER": "Delegation policy",
+        "DESCRIPTION": "Determine whether user can change the default parameter provided by administrator",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change default value of parameter",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Allow nested admin to override this section"
+      }
+    },
     "DETAILS": {
+      "ANONYMOUS_URL": {
+        "NAME": "Anonymous URL",
+        "PARAMETER": {
+          "TITLE": "Secure sharing",
+          "DESCRIPTION": "This value will be used as initial value when users open sharing form. The sharing will be protected by an one time password. Even if you are able to retrieve the URL, without the password you won't be able to access to it.",
+          "BOOLEAN_DESCRIPTION": "Secure anonymous shares with a password"
+        },
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can share a file to an anonynous email"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users when sharing can override the default value of secure sharing option",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change secure sharing option when sharing documents"
+        }
+      },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "Force anonymous sharing process",
+        "PARAMETER": {
+          "TITLE": "Force anonymous share",
+          "DESCRIPTION": "Even if you are sharing documents with other LinShare users, documents will be shared using an anonymous link.",
+          "BOOLEAN_DESCRIPTION": "Force anonymous share for all recipients"
+        },
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can choose to share documents only via anonymous url."
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users when sharing documents can change the initial value of force anynomous url option"
+        }
+      },
+      "ANONYMOUS_URL__NOTIFICATION": {
+        "NAME": "Anonymous download notification",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "If users share files to others. They will receive a mail notification when recipients download any files from anonymous url."
+        },
+        "PARAMETER": {
+          "TITLE": "Notification sending frequency",
+          "DESCRIPTION": "Determine whether to send notification for every downloads or only the first one",
+          "BOOLEAN_DESCRIPTION": "Send notifications for every downloads"
+        }
+      },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "Email notification URL",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Provide base url for the share link of anonymous share"
+        },
+        "PARAMETER": {
+          "TITLE": "Base url for the anonymous share link",
+          "DESCRIPTION": "This URL will appear in recipient's notification email when users in this domain share files via anonymous url"
+        }
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "NAME": "Hide Received Shares menu",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Received Share is a menu where users can see files others have shared with them. By enabling this functionality, users will not be able to access this menu."
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
@@ -577,34 +673,34 @@
         "NAME": "Upload request"
       },
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
-        "NAME": "Upload request - email notification language"
+        "NAME": "Email notification language"
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
-        "NAME": "Ulpload request - Delay before activation"
+        "NAME": "Delay before activation"
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
-        "NAME": "Ulpload request - Delay before expiration"
+        "NAME": "Delay before expiration"
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
-        "NAME": "Upload request - maximum file count"
+        "NAME": "Maximum file count"
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
-        "NAME": "Upload request - Maximum file size"
+        "NAME": "Maximum file size"
       },
       "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
-        "NAME": "Upload request - Maximum deposit size"
+        "NAME": "Maximum deposit size"
       },
       "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
-        "NAME": "Upload request - Protected by password URL"
+        "NAME": "Protected by password URL"
       },
       "UPLOAD_REQUEST__CAN_CLOSE": {
-        "NAME": "Upload request - Closure right"
+        "NAME": "Closure right"
       },
       "UPLOAD_REQUEST__CAN_DELETE": {
-        "NAME": "Upload request - Recipient delete right"
+        "NAME": "Recipient delete right"
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
-        "NAME": "Upload request - Delay before notification"
+        "NAME": "Delay before notification"
       },
       "MIME_TYPE": {
         "NAME": "Mime type"
@@ -623,12 +719,6 @@
       },
       "COMPLETION": {
         "NAME": "Completion"
-      },
-      "ANONYMOUS_URL": {
-        "NAME": "Anonymous URL"
-      },
-      "ANONYMOUS_URL__NOTIFICATION_URL": {
-        "NAME": "Email notification URL"
       },
       "GUESTS": {
         "NAME": "Guests"
@@ -664,16 +754,7 @@
         "NAME": "Undownloaded shared document alert"
       },
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
-        "NAME": "Undownloaded shared document alert - Days before the alert"
-      },
-      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
-        "NAME": "Anonymous URL - force anonymous sharing process"
-      },
-      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
-        "NAME": "Hide Received Shares menu"
-      },
-      "ANONYMOUS_URL__NOTIFICATION": {
-        "NAME": "Anonymous download notification"
+        "NAME": "Days before the alert"
       },
       "JWT_PERMANENT_TOKEN": {
         "NAME": "JWT permanent token"

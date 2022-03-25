@@ -9,6 +9,7 @@ import {
   Card,
   Checkbox,
   Col,
+  Collapse,
   ConfigProvider,
   DatePicker,
   Drawer,
@@ -46,6 +47,7 @@ function useAntdComponents(vueApp: App): App {
     .use(Checkbox)
     .use(ConfigProvider)
     .use(Col)
+    .use(Collapse)
     .use(DatePicker)
     .use(Drawer)
     .use(Dropdown)

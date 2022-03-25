@@ -10,7 +10,7 @@ export function getMaximumParameter(
 ): UnitSizeParameterValue | UnitTimeParameterValue | IntegerParameterValue | null {
   const parameter = functionality.parameter;
 
-  switch (parameter.type) {
+  switch (parameter?.type) {
     case 'UNIT_SIZE_ALL':
     case 'UNIT_TIME_ALL':
     case 'INTEGER_ALL':

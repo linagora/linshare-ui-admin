@@ -9,8 +9,10 @@ import {
   updateDomain,
   deleteDomain,
   getFunctionalties,
+  updateFunctionality,
 } from '@/modules/domain/services/domain-api';
 import User from '@/modules/user/types/User';
+import { Functionality } from '@/core/types/Functionality';
 
 const actions: ActionTree<DomainState, RootState> = {
   setCurrentDomainUuid({ commit }, uuid: string) {
@@ -53,6 +55,23 @@ const actions: ActionTree<DomainState, RootState> = {
     const functionalities = await getFunctionalties(loggedUser.domain.uuid, { includeSubs: true });
 
     commit('setLoggedUserFunctionalities', functionalities);
+  },
+  async fetchDomainFunctionalities({ commit, state }) {
+    commit('setCurrentDomainFunctionalitiesStatus', Status.LOADING);
+
+    try {
+      const functionalities = await getFunctionalties(state.currentDomain.uuid, { includeSubs: true });
+
+      commit('setCurrentDomainFunctionalities', functionalities);
+      commit('setCurrentDomainFunctionalitiesStatus', Status.SUCCESS);
+    } catch (error) {
+      commit('setCurrentDomainFunctionalitiesStatus', Status.ERROR);
+    }
+  },
+  async updateDomainFunctionality({ commit, state }, functionality: Functionality) {
+    const updated = await updateFunctionality(state.currentDomain.uuid, functionality);
+
+    commit('updateCurrentDomainFunctionality', updated);
   },
 };
 

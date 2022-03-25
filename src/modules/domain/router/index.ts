@@ -34,10 +34,19 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
       {
         name: 'DomainFunctionalities',
         path: 'functionalities',
-        component: () => import('../components/DomainFunctionalities.vue'),
+        component: () => import('../components/DomainFunctionalitiesList.vue'),
         meta: {
           parentRoute: 'Configuration',
           label: 'NAVIGATOR.FUNCTIONALITIES',
+          requiresAuth: true,
+        },
+      },
+      {
+        name: 'DomainFunctionality',
+        path: 'functionalities/:identifier',
+        component: () => import('../components/DomainFunctionalityDetails.vue'),
+        meta: {
+          parentRoute: 'DomainFunctionalities',
           requiresAuth: true,
         },
       },

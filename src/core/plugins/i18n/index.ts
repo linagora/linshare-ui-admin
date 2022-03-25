@@ -8,6 +8,8 @@ const locale = i18nService && i18nService.getLocale();
 const i18n = createI18n({
   legacy: false,
   globalInjection: true,
+  missingWarn: false,
+  fallbackWarn: false,
   datetimeFormats,
   locale,
   messages,

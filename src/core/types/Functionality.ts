@@ -54,21 +54,21 @@ interface BooleanParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'BOOLEAN';
-  default: BooleanParameterValue;
+  defaut: BooleanParameterValue;
 }
 
 interface StringParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'STRING';
-  default: StringParameterValue;
+  defaut: StringParameterValue;
 }
 
 interface UnitTimeAllParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'UNIT_TIME_ALL';
-  default: UnitTimeParameterValue;
+  defaut: UnitTimeParameterValue;
   maximum: UnitTimeParameterValue;
   unlimited: ParameterUnlimited;
 }
@@ -77,21 +77,21 @@ interface UnitTimeDefaultParameter {
   hidden: boolean;
   type: 'UNIT_TIME_DEFAULT';
   readonly: boolean;
-  default: UnitTimeParameterValue;
+  defaut: UnitTimeParameterValue;
 }
 
 interface IntegerDefaultParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'INTEGER_DEFAULT';
-  default: IntegerParameterValue;
+  defaut: IntegerParameterValue;
 }
 
 interface IntegerAllParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'INTEGER_ALL';
-  default: IntegerParameterValue;
+  defaut: IntegerParameterValue;
   maximum: IntegerParameterValue;
   unlimited: ParameterUnlimited;
 }
@@ -100,7 +100,7 @@ interface UnitSizeAllParameter {
   hidden: boolean;
   readonly: boolean;
   type: 'UNIT_SIZE_ALL';
-  default: UnitSizeParameterValue;
+  defaut: UnitSizeParameterValue;
   maximum: UnitSizeParameterValue;
   unlimited: ParameterUnlimited;
 }
@@ -126,7 +126,7 @@ type FunctionalityParameter =
 export interface Functionality {
   identifier: string;
   type: 'DEFAULT' | 'INTEGER' | 'STRING' | 'UNIT' | 'UNIT_SIZE' | 'UNIT_TIME' | 'BOOLEAN' | 'ENUM_LANG';
-  parentIdentifier: string;
+  parentIdentifier?: string;
   hidden: boolean;
   readonly: boolean;
   domain: {
@@ -136,5 +136,5 @@ export interface Functionality {
   activationPolicy: FunctionalityPolicy;
   configurationPolicy: FunctionalityPolicy;
   delegationPolicy: FunctionalityPolicy;
-  parameter: FunctionalityParameter;
+  parameter?: FunctionalityParameter;
 }

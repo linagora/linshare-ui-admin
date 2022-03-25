@@ -35,6 +35,7 @@ const isLargeScreen = useMediaQuery('(min-width: 769px)');
 watch(currentDomainUuid, (domainUuid) => {
   if (domainUuid) {
     store.dispatch('Domain/fetchDomain');
+    store.dispatch('Domain/fetchDomainFunctionalities');
   }
 });
 </script>

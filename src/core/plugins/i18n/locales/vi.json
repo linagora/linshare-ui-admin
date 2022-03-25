@@ -549,7 +549,7 @@
   "WELCOME_MESSAGES": {
     "DESCRIPTION": "Ở chế độ xem này, bạn có thể chọn một miền trong cây miền và xem danh sách các thông báo chào mừng mà bạn đã tạo hoặc được phép sử dụng",
     "ROOT_DOMAIN_DESCRIPTION": "Miền gốc có thể tạo tin nhắn chào mừng nhưng không thể sử dụng bất kỳ thông báo nào trong số chúng",
-    "NESTED_DOMAIN_DESCRIPTION": "Miền lồng nhau có thể tạo thông báo chào mừng để sử dụng riêng và có thể sử dụng thông báo chào mừng được tạo bởi miền cao hơn của miền đó"
+    "NESTED_DOMAIN_DESCRIPTION": "Miền phụ có thể tạo thông báo chào mừng để sử dụng riêng và có thể sử dụng thông báo chào mừng được tạo bởi miền cao hơn của miền đó"
   },
   "FUNCTIONALITIES": {
     "LIST": {
@@ -559,8 +559,104 @@
         "DISABLE_FIRST": "Sắp xếp theo tắt"
       }
     },
+    "UNITS": {
+      "TIME": {
+        "MONTH": "Mois",
+        "DAY": "Jours",
+        "WEEK": "Semaines"
+      },
+      "SIZE": {
+        "KILO": "KB",
+        "MEGA": "MB",
+        "GIGA": "GB"
+      }
+    },
+    "DEFAULT": {
+      "PARAMETER": {
+        "HEADER": "(Các) thông số",
+        "TITLE": "Mặc định",
+        "TITLE_MAXIMUM": "Tối đa",
+        "DESCRIPTION": "",
+        "DESCRIPTION_MAXIMUM": "",
+        "BOOLEAN_DESCRIPTION": "Bật tham số này"
+      },
+      "ACTIVATION_POLICY": {
+        "HEADER": "Chính sách kích hoạt",
+        "DESCRIPTION": "Để bật hoặc tắt chức năng và kiểm soát quyền truy cập của quản trị viên miền phụ khi kích hoạt chức năng",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Bật chức năng",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Cho phép quản trị viên phụ ghi đè phần này"
+      },
+      "CONFIGURATION_POLICY": {
+        "HEADER": "Chính sách cấu hình",
+        "DESCRIPTION": "Xác định xem quản trị viên miền phụ có thể thay đổi (các) phần Thông số hay không",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép quản trị viên phụ thay đổi thông số chức năng",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Cho phép quản trị viên phụ ghi đè phần này"
+      },
+      "DELEGATION_POLICY": {
+        "HEADER": "Chính sách ủy quyền",
+        "DESCRIPTION": "Xác định xem người dùng có thể thay đổi thông số mặc định do quản trị viên cung cấp hay không",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi giá trị mặc định của tham số",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Cho phép quản trị viên phụ ghi đè phần này"
+      }
+    },
     "DETAILS": {
-      "DANH SÁCH LIÊN LẠC": {
+      "ANONYMOUS_URL": {
+        "NAME": "URL ẩn danh",
+        "PARAMETER": {
+          "TITLE": "Chia sẻ an toàn",
+          "DESCRIPTION": "Giá trị này sẽ được sử dụng làm giá trị ban đầu khi người dùng mở biểu mẫu chia sẻ. Việc chia sẻ sẽ được bảo vệ bằng mật khẩu dùng một lần. Ngay cả khi bạn có thể truy xuất URL, nếu không có mật khẩu, bạn sẽ không thể truy cập truy cập vào nó.",
+          "BOOLEAN_DESCRIPTION": "Bảo mật chia sẻ ẩn danh bằng mật khẩu"
+        },
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Xác định xem liệu người dùng có thể chia sẻ tệp với một email ẩn danh hay không"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem liệu người dùng khi chia sẻ có thể ghi đè giá trị mặc định của tùy chọn chia sẻ an toàn hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi tùy chọn chia sẻ an toàn khi chia sẻ tài liệu"
+        }
+      },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "Bắt buộc quá trình chia sẻ ẩn danh",
+        "PARAMETER": {
+          "TITLE": "Buộc chia sẻ ẩn danh",
+          "DESCRIPTION": "Ngay cả khi bạn đang chia sẻ tài liệu với những người dùng LinShare khác, các tài liệu sẽ được chia sẻ bằng liên kết ẩn danh.",
+          "BOOLEAN_DESCRIPTION": "Buộc chia sẻ ẩn danh cho tất cả người nhận"
+        },
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể chọn chỉ chia sẻ tài liệu qua url ẩn danh hay không."
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem liệu người dùng khi chia sẻ tài liệu có thể thay đổi giá trị ban đầu của tùy chọn"
+        }
+      },
+      "ANONYMOUS_URL__NOTIFICATION": {
+        "NAME": "Thông báo tải xuống ẩn danh",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Nếu người dùng chia sẻ tệp cho người khác. Họ sẽ nhận được thông báo qua thư khi người nhận tải xuống bất kỳ tệp nào từ url ẩn danh."
+        },
+        "PARAMETER": {
+          "TITLE": "Tần suất gửi thông báo",
+          "DESCRIPTION": "Xác định xem nên gửi thông báo cho mọi lượt tải xuống hay chỉ gửi thông báo đầu tiên",
+          "BOOLEAN_DESCRIPTION": "Gửi thông báo cho mọi lượt tải xuống"
+        }
+      },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "URL thông báo qua email",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cung cấp url cơ sở cho liên kết chia sẻ của chia sẻ ẩn danh"
+        },
+        "PARAMETER": {
+          "TITLE": "Url cơ sở cho liên kết chia sẻ ẩn danh",
+          "DESCRIPTION": "URL này sẽ xuất hiện trong email thông báo của người nhận khi người dùng trong miền hiện tại chia sẻ tệp qua url ẩn danh"
+        }
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "NAME": "Ẩn menu Chia sẻ đã Nhận",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Chia sẻ đã nhận là menu nơi người dùng có thể xem các tệp mà người khác đã chia sẻ với họ. Bằng cách bật chức năng này, người dùng sẽ không thể truy cập menu này."
+        }
+      },
+      "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
       "CONTACTS_LIST__CREATION_RIGHT": {
@@ -620,12 +716,6 @@
       "HOÀN THÀNH": {
         "NAME": "Hoàn thành"
       },
-      "ANONYMOUS_URL": {
-        "NAME": "URL ẩn danh"
-      },
-      "ANONYMOUS_URL__NOTIFICATION_URL": {
-        "NAME": "URL thông báo qua email"
-      },
       "KHÁCH": {
         "NAME": "Khách"
       },
@@ -661,15 +751,6 @@
       },
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
         "NAME": "Cảnh báo tài liệu chia sẻ chưa tải xuống - Ngày trước cảnh báo"
-      },
-      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
-        "NAME": "URL ẩn danh - buộc quá trình chia sẻ ẩn danh"
-      },
-      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
-        "NAME": "Ẩn menu Chia sẻ đã Nhận"
-      },
-      "ANONYMOUS_URL__NOTIFICATION": {
-        "NAME": "Thông báo tải xuống ẩn danh"
       },
       "JWT_PERMANENT_TOKEN": {
         "NAME": "Mã thông báo vĩnh viễn JWT"

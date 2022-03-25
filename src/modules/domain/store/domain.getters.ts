@@ -8,13 +8,20 @@ const getters: GetterTree<DomainState, RootState> = {
   getCurrentDomain: (state) => state.currentDomain,
   getCurrentDomainUuid: (state) => state.currentDomain.uuid,
   getCurrentDomainType: (state) => state.currentDomain.type,
+  getAllFunctionalities: (state) => state.currentDomainFunctionalities,
+  getMainFunctionalities: (state) =>
+    state.currentDomainFunctionalities.filter((functionality) => !functionality.parentIdentifier),
+  getFunctionality: (state) => (id: string) =>
+    state.currentDomainFunctionalities.find((functionality) => functionality.identifier === id),
+  getSubFunctionalities: (state) => (parentId: string) =>
+    state.currentDomainFunctionalities.filter((functionality) => functionality.parentIdentifier === parentId),
   getLoggedUserFunctionalities: (state) => state.loggedUserFunctionalities,
   getLoggedUserFunctionality: (state) => (id: string) =>
     state.loggedUserFunctionalities?.find((functionality) => functionality.identifier === id),
   getDomainsTree: (state) => state.domainsTree,
   getDomainsList: (state) => getDomainsListFromTree(state.domainsTree),
   getDomainByUuid: (state) => (uuid: string) => getDomainFromTree(uuid, state.domainsTree),
-  getStatus: (state) => (entity: 'currentDomain') => state.status[entity],
+  getStatus: (state) => (entity: 'currentDomain' | 'currentDomainFunctionalities') => state.status[entity],
   isRootDomain: (state) => state.currentDomain.type === 'ROOTDOMAIN',
   isGuestDomain: (state) => state.currentDomain.type === 'GUESTDOMAIN',
 };
