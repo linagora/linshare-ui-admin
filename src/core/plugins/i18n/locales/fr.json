@@ -582,9 +582,9 @@
       },
       "ACTIVATION_POLICY": {
         "HEADER": "Politique d'activation",
-        "DESCRIPTION": "Pour activer ou désactiver la fonctionnalité et contrôler l'accès de l'administrateur du domaine imbriqué lors de l'activation de la fonctionnalité",
+        "DESCRIPTION": "Pour activer ou désactiver la fonctionnalité et contrôler l'accès des administrateurs des sous domaines de la fonctionnalité",
         "ENABLE_CHECKBOX_DESCRIPTION": "Activer la fonctionnalité",
-        "OVERRIDE_CHECKBOX_DESCRIPTION": "Autoriser l'administrateur imbriqué à remplacer cette section"
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Autoriser l'administrateur des sous domaines à remplacer cette section"
       },
       "CONFIGURATION_POLICY": {
         "HEADER": "Politique de configuration",
