@@ -32,48 +32,29 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, SetupContext } from 'vue';
+<script lang="ts" setup>
+import { ref, useSlots } from 'vue';
 import { InfoCircleFilled } from '@ant-design/icons-vue';
 
-export default defineComponent({
-  components: {
-    InfoCircleFilled,
-  },
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    subtitle: {
-      type: String,
-      default: '',
-    },
-    breadcrumbs: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  setup(_props, { slots }: SetupContext) {
-    const showHelper = ref(true);
-    const containHelper = slots.helperContent && !!slots.helperContent();
+defineProps<{
+  title?: string;
+  subtitle?: string;
+  breadcrumbs?: {
+    label: string;
+    path: string;
+  }[];
+}>();
+const slots = useSlots();
+const showHelper = ref(true);
+const containHelper = slots.helperContent && !!slots.helperContent();
 
-    function toggleHelper() {
-      showHelper.value = !showHelper.value;
-    }
+function toggleHelper() {
+  showHelper.value = !showHelper.value;
+}
 
-    function handleClosingHelper() {
-      showHelper.value = false;
-    }
-
-    return {
-      containHelper,
-      handleClosingHelper,
-      showHelper,
-      toggleHelper,
-    };
-  },
-});
+function handleClosingHelper() {
+  showHelper.value = false;
+}
 </script>
 
 <style lang="less" scoped>
