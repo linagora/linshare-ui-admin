@@ -30,8 +30,8 @@ const functionalities = computed(() => [main.value, ...subs.value]);
 
 watch(
   () => route.params.identifier,
-  () => {
-    if (!main.value && !route.params.identifier) {
+  (newId) => {
+    if (!main.value && newId) {
       router.push({ name: 'DomainFunctionalities' });
     }
   }
