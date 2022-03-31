@@ -38,7 +38,7 @@ watchEffect(() => {
   <div>
     <a-collapse v-model:activeKey="collapsedKeys">
       <a-collapse-panel
-        v-if="data.activationPolicy"
+        v-if="data.activationPolicy && !data.activationPolicy.hidden"
         key="activation"
         :header="$t('FUNCTIONALITIES.DEFAULT.ACTIVATION_POLICY.HEADER')"
       >
@@ -63,12 +63,6 @@ watchEffect(() => {
             {{ $t('FUNCTIONALITIES.DEFAULT.ACTIVATION_POLICY.OVERRIDE_CHECKBOX_DESCRIPTION') }}
           </a-checkbox>
         </div>
-
-        <template #extra>
-          <a-tag :color="data.activationPolicy.enable.value ? 'success' : 'error'">{{
-            $t(data.activationPolicy.enable.value ? 'GENERAL.ENABLED' : 'GENERAL.DISABLED')
-          }}</a-tag>
-        </template>
       </a-collapse-panel>
 
       <a-collapse-panel

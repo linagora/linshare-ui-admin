@@ -42,7 +42,9 @@
     "UNASSIGNED": "Non attribué",
     "READ_ONLY": "Lecture seule",
     "EDITABLE": "Éditable",
-    "VIEW": "Afficher"
+    "VIEW": "Afficher",
+    "EXPAND": "Étendre",
+    "COLLAPSE": "Réduire"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -572,6 +574,7 @@
       }
     },
     "DEFAULT": {
+      "DESCRIPTION": "",
       "PARAMETER": {
         "HEADER": "Paramètre(s)",
         "TITLE": "Par défaut",
@@ -602,13 +605,11 @@
     "DETAILS": {
       "ANONYMOUS_URL": {
         "NAME": "URL anonymes",
+        "DESCRIPTION": "Détermine si les utilisateurs peuvent partager un fichier vers un utilisateur anonyme (pas de compte, juste un email)",
         "PARAMETER": {
           "TITLE": "Partage sécurisé",
           "DESCRIPTION": "Cette valeur sera utilisée comme valeur par défaut lorsque les utilisateurs ouvriront le formulaire de partage. Le partage sera protégé par un mot de passe à usage unique. Même si vous parvenez à récupérer l'URL, sans le mot de passe, vous ne pourrez pas y accéder.",
           "BOOLEAN_DESCRIPTION": "Sécuriser les partages anonymes avec un mot de passe"
-        },
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Détermine si les utilisateurs peuvent partager un fichier vers un utilisateur anonyme (pas de compte, juste un email)"
         },
         "DELEGATION_POLICY": {
           "DESCRIPTION": "Détermine si les utilisateurs lors du partage peuvent remplacer la valeur par défaut de l'option de partage sécurisé",
@@ -617,13 +618,11 @@
       },
       "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
         "NAME": "Forcer le partage en anonyme",
+        "DESCRIPTION": "Détermine si les utilisateurs peuvent choisir de partager des documents uniquement via une URL anonyme.",
         "PARAMETER": {
           "TITLE": "Forcer le partage anonyme",
           "DESCRIPTION": "Même lors de partage vers des utilisateurs de LinShare, les partages seront réalisés via url anonymes.",
           "BOOLEAN_DESCRIPTION": "Forcer le partage anonyme pour tous les destinataires"
-        },
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Détermine si les utilisateurs peuvent choisir de partager des documents uniquement via une URL anonyme."
         },
         "DELEGATION_POLICY": {
           "DESCRIPTION": "Détermine si les utilisateurs lors du partage de documents peuvent modifier la valeur initiale de l'option forcer l'url anonyme"
@@ -631,9 +630,7 @@
       },
       "ANONYMOUS_URL__NOTIFICATION": {
         "NAME": "URL de notification courriel",
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Lorsque des fichiers partagés anonymement sont téléchargés, une notification sera envoyée à l'émetteur"
-        },
+        "DESCRIPTION": "Lorsque des fichiers partagés anonymement sont téléchargés, une notification sera envoyée à l'émetteur",
         "PARAMETER": {
           "TITLE": "Fréquence d'envoi des notifications",
           "DESCRIPTION": "Détermine s'il faut envoyer une notification pour chaque téléchargement ou seulement au premier téléchargement",
@@ -642,9 +639,7 @@
       },
       "ANONYMOUS_URL__NOTIFICATION_URL": {
         "NAME": "URL de notification courriel",
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Fournir l'URL de base pour le lien de partage du partage anonyme"
-        },
+        "DESCRIPTION": "Fournir l'URL de base pour le lien de partage du partage anonyme",
         "PARAMETER": {
           "TITLE": "URL de base pour le lien de partage anonyme",
           "DESCRIPTION": "Cette URL apparaîtra dans l'e-mail de notification du destinataire lorsque les utilisateurs de ce domaine partageront des fichiers via une URL anonyme"
@@ -652,9 +647,7 @@
       },
       "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
         "NAME": "Cacher le menu Partages Reçus",
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Partage reçu est un menu où les utilisateurs peuvent voir les fichiers que d'autres ont partagés avec eux. En activant cette fonctionnalité, les utilisateurs ne pourront pas accéder à ce menu."
-        }
+        "DESCRIPTION": "Partage reçu est un menu où les utilisateurs peuvent voir les fichiers que d'autres ont partagés avec eux. En activant cette fonctionnalité, les utilisateurs ne pourront pas accéder à ce menu."
       },
       "CONTACTS_LIST": {
         "NAME": "Liste de contacts"

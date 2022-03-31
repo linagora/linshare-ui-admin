@@ -37,12 +37,14 @@
     "OR": "Hoặc",
     "AUTHOR": "Tác giả",
     "ROLE": "Vai trò",
-    "ASSIGNED": "Giao",
+    "ASSIGNED": "Đang được chỉ định",
     "ASSIGN": "Chỉ định",
-    "UNASSIGNED": "không được chỉ định",
+    "UNASSIGNED": "Không được chỉ định",
     "READ_ONLY": "Chỉ đọc",
-    "EDITABLE": "có thể chỉnh sửa",
-    "VIEW": "Quang cảnh"
+    "EDITABLE": "Có thể sửa",
+    "VIEW": "Xem",
+    "EXPAND": "Mở rộng",
+    "COLLAPSE": "Thu hồi"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -572,6 +574,7 @@
       }
     },
     "DEFAULT": {
+      "DESCRIPTION": "",
       "PARAMETER": {
         "HEADER": "(Các) thông số",
         "TITLE": "Mặc định",
@@ -602,13 +605,11 @@
     "DETAILS": {
       "ANONYMOUS_URL": {
         "NAME": "URL ẩn danh",
+        "DESCRIPTION": "Xác định xem liệu người dùng có thể chia sẻ tệp với một email ẩn danh hay không",
         "PARAMETER": {
           "TITLE": "Chia sẻ an toàn",
           "DESCRIPTION": "Giá trị này sẽ được sử dụng làm giá trị ban đầu khi người dùng mở biểu mẫu chia sẻ. Việc chia sẻ sẽ được bảo vệ bằng mật khẩu dùng một lần. Ngay cả khi bạn có thể truy xuất URL, nếu không có mật khẩu, bạn sẽ không thể truy cập truy cập vào nó.",
           "BOOLEAN_DESCRIPTION": "Bảo mật chia sẻ ẩn danh bằng mật khẩu"
-        },
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Xác định xem liệu người dùng có thể chia sẻ tệp với một email ẩn danh hay không"
         },
         "DELEGATION_POLICY": {
           "DESCRIPTION": "Xác định xem liệu người dùng khi chia sẻ có thể ghi đè giá trị mặc định của tùy chọn chia sẻ an toàn hay không",
@@ -617,13 +618,11 @@
       },
       "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
         "NAME": "Bắt buộc quá trình chia sẻ ẩn danh",
+        "DESCRIPTION": "Xác định xem người dùng có thể chọn chỉ chia sẻ tài liệu qua url ẩn danh hay không.",
         "PARAMETER": {
           "TITLE": "Buộc chia sẻ ẩn danh",
           "DESCRIPTION": "Ngay cả khi bạn đang chia sẻ tài liệu với những người dùng LinShare khác, các tài liệu sẽ được chia sẻ bằng liên kết ẩn danh.",
           "BOOLEAN_DESCRIPTION": "Buộc chia sẻ ẩn danh cho tất cả người nhận"
-        },
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Xác định xem người dùng có thể chọn chỉ chia sẻ tài liệu qua url ẩn danh hay không."
         },
         "DELEGATION_POLICY": {
           "DESCRIPTION": "Xác định xem liệu người dùng khi chia sẻ tài liệu có thể thay đổi giá trị ban đầu của tùy chọn"
@@ -631,9 +630,7 @@
       },
       "ANONYMOUS_URL__NOTIFICATION": {
         "NAME": "Thông báo tải xuống ẩn danh",
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Nếu người dùng chia sẻ tệp cho người khác. Họ sẽ nhận được thông báo qua thư khi người nhận tải xuống bất kỳ tệp nào từ url ẩn danh."
-        },
+        "DESCRIPTION": "Nếu người dùng chia sẻ tệp cho người khác. Họ sẽ nhận được thông báo qua thư khi người nhận tải xuống bất kỳ tệp nào từ url ẩn danh.",
         "PARAMETER": {
           "TITLE": "Tần suất gửi thông báo",
           "DESCRIPTION": "Xác định xem nên gửi thông báo cho mọi lượt tải xuống hay chỉ gửi thông báo đầu tiên",
@@ -642,9 +639,7 @@
       },
       "ANONYMOUS_URL__NOTIFICATION_URL": {
         "NAME": "URL thông báo qua email",
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Cung cấp url cơ sở cho liên kết chia sẻ của chia sẻ ẩn danh"
-        },
+        "DESCRIPTION": "Cung cấp url cơ sở cho liên kết chia sẻ của chia sẻ ẩn danh",
         "PARAMETER": {
           "TITLE": "Url cơ sở cho liên kết chia sẻ ẩn danh",
           "DESCRIPTION": "URL này sẽ xuất hiện trong email thông báo của người nhận khi người dùng trong miền hiện tại chia sẻ tệp qua url ẩn danh"
@@ -652,9 +647,7 @@
       },
       "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
         "NAME": "Ẩn menu Chia sẻ đã Nhận",
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Chia sẻ đã nhận là menu nơi người dùng có thể xem các tệp mà người khác đã chia sẻ với họ. Bằng cách bật chức năng này, người dùng sẽ không thể truy cập menu này."
-        }
+        "DESCRIPTION": "Chia sẻ đã nhận là menu nơi người dùng có thể xem các tệp mà người khác đã chia sẻ với họ. Bằng cách bật chức năng này, người dùng sẽ không thể truy cập menu này."
       },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"

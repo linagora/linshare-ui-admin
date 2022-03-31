@@ -42,7 +42,9 @@
     "UNASSIGNED": "Unassigned",
     "READ_ONLY": "Read-only",
     "EDITABLE": "Editable",
-    "VIEW": "View"
+    "VIEW": "View",
+    "EXPAND": "Expand",
+    "COLLAPSE": "Collapse"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -576,6 +578,7 @@
       }
     },
     "DEFAULT": {
+      "DESCRIPTION": "",
       "PARAMETER": {
         "HEADER": "Parameter(s)",
         "TITLE": "Default",
@@ -606,13 +609,11 @@
     "DETAILS": {
       "ANONYMOUS_URL": {
         "NAME": "Anonymous URL",
+        "DESCRIPTION": "Determine whether users can share a file to an anonynous email",
         "PARAMETER": {
           "TITLE": "Secure sharing",
           "DESCRIPTION": "This value will be used as initial value when users open sharing form. The sharing will be protected by an one time password. Even if you are able to retrieve the URL, without the password you won't be able to access to it.",
           "BOOLEAN_DESCRIPTION": "Secure anonymous shares with a password"
-        },
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Determine whether users can share a file to an anonynous email"
         },
         "DELEGATION_POLICY": {
           "DESCRIPTION": "Determine whether users when sharing can override the default value of secure sharing option",
@@ -621,13 +622,11 @@
       },
       "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
         "NAME": "Force anonymous sharing process",
+        "DESCRIPTION": "Determine whether users can choose to share documents only via anonymous url.",
         "PARAMETER": {
           "TITLE": "Force anonymous share",
           "DESCRIPTION": "Even if you are sharing documents with other LinShare users, documents will be shared using an anonymous link.",
           "BOOLEAN_DESCRIPTION": "Force anonymous share for all recipients"
-        },
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Determine whether users can choose to share documents only via anonymous url."
         },
         "DELEGATION_POLICY": {
           "DESCRIPTION": "Determine whether users when sharing documents can change the initial value of force anynomous url option"
@@ -635,9 +634,7 @@
       },
       "ANONYMOUS_URL__NOTIFICATION": {
         "NAME": "Anonymous download notification",
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "If users share files to others. They will receive a mail notification when recipients download any files from anonymous url."
-        },
+        "DESCRIPTION": "If users share files to others. They will receive a mail notification when recipients download any files from anonymous url.",
         "PARAMETER": {
           "TITLE": "Notification sending frequency",
           "DESCRIPTION": "Determine whether to send notification for every downloads or only the first one",
@@ -646,19 +643,15 @@
       },
       "ANONYMOUS_URL__NOTIFICATION_URL": {
         "NAME": "Email notification URL",
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Provide base url for the share link of anonymous share"
-        },
+        "DESCRIPTION": "Provide base url for the share link of anonymous share",
         "PARAMETER": {
           "TITLE": "Base url for the anonymous share link",
           "DESCRIPTION": "This URL will appear in recipient's notification email when users in this domain share files via anonymous url"
         }
       },
       "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
-        "NAME": "Hide Received Shares menu",
-        "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Received Share is a menu where users can see files others have shared with them. By enabling this functionality, users will not be able to access this menu."
-        }
+        "DESCRIPTION": "Received Share is a menu where users can see files others have shared with them. By enabling this functionality, users will not be able to access this menu.",
+        "NAME": "Hide Received Shares menu"
       },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"

@@ -4,7 +4,6 @@ import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { Functionality } from '@/core/types/Functionality';
 import StatusValue from '@/core/types/Status';
-import Domain from '../types/Domain';
 import PageTitle from '@/core/components/PageTitle.vue';
 import DomainFunctionality from './DomainFunctionality.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
@@ -19,20 +18,20 @@ const { breadcrumbs } = useBreadcrumbs([
     label: `FUNCTIONALITIES.DETAILS.${route.params.identifier}.NAME`,
   },
 ]);
-const { status } = useFunctionalities();
+const { status, getTranslatedText } = useFunctionalities();
 const show = reactive<Record<string, boolean>>({});
-const currentDomain = computed<Domain>(() => store.getters['Domain/getCurrentDomain']);
-const mainFunctionality = computed<Functionality | undefined>(() =>
+const main = computed<Functionality | undefined>(() =>
   store.getters['Domain/getFunctionality'](route.params.identifier as string)
 );
-const subFunctionalities = computed<Functionality[]>(() =>
+const subs = computed<Functionality[]>(() =>
   store.getters['Domain/getSubFunctionalities'](route.params.identifier as string)
 );
+const functionalities = computed(() => [main.value, ...subs.value]);
 
 watch(
   () => route.params.identifier,
   () => {
-    if (!mainFunctionality.value && !route.params.identifier) {
+    if (!main.value && !route.params.identifier) {
       router.push({ name: 'DomainFunctionalities' });
     }
   }
@@ -40,11 +39,7 @@ watch(
 </script>
 
 <template>
-  <PageTitle
-    :breadcrumbs="breadcrumbs"
-    :title="$t(`FUNCTIONALITIES.DETAILS.${route.params.identifier}.NAME`)"
-    :subtitle="currentDomain.name"
-  ></PageTitle>
+  <PageTitle :breadcrumbs="breadcrumbs"></PageTitle>
 
   <div v-if="status === StatusValue.LOADING" class="spinner">
     <a-spin />
@@ -52,22 +47,32 @@ watch(
 
   <a-row v-else>
     <a-col :xs="24" :sm="24" :md="{ span: 16, offset: 4 }">
-      <DomainFunctionality
-        v-if="mainFunctionality"
-        :expand-on-load="true"
-        :data="mainFunctionality"
-      ></DomainFunctionality>
+      <div v-for="functionality in functionalities" :key="functionality?.identifier">
+        <div v-if="functionality" class="functionality">
+          <div class="header">
+            <div class="status">
+              <a-tag :color="functionality.activationPolicy.enable.value ? 'success' : 'error'">{{
+                $t(functionality.activationPolicy.enable.value ? 'GENERAL.ENABLED' : 'GENERAL.DISABLED')
+              }}</a-tag>
+            </div>
 
-      <div v-for="functionality in subFunctionalities" :key="functionality.identifier" class="sub-functionality">
-        <div class="header">
-          <h2>{{ $t(`FUNCTIONALITIES.DETAILS.${functionality.identifier}.NAME`) }}</h2>
+            <div class="title">
+              <h2>{{ $t(`FUNCTIONALITIES.DETAILS.${functionality.identifier}.NAME`) }}</h2>
+            </div>
+            <a-button
+              v-if="functionality.parentIdentifier"
+              type="text"
+              @click="show[functionality.identifier] = !show[functionality.identifier]"
+            >
+              {{ $t(show[functionality.identifier] ? 'GENERAL.COLLAPSE' : 'GENERAL.EXPAND') }}
+            </a-button>
+          </div>
 
-          <a-button type="text" @click="show[functionality.identifier] = !show[functionality.identifier]">{{
-            show[functionality.identifier] ? 'Collapse' : 'Expand'
-          }}</a-button>
-        </div>
-        <div v-show="show[functionality.identifier]">
-          <DomainFunctionality :expand-on-load="false" :data="functionality"></DomainFunctionality>
+          <div v-show="!functionality.parentIdentifier || show[functionality.identifier]">
+            <p class="description">{{ getTranslatedText(functionality, 'DESCRIPTION') }}</p>
+
+            <DomainFunctionality :expand-on-load="false" :data="functionality"></DomainFunctionality>
+          </div>
         </div>
       </div>
     </a-col>
@@ -82,14 +87,28 @@ watch(
   align-items: center;
 }
 
-.sub-functionality {
+.functionality {
   margin: 30px 0;
+
+  .description {
+    color: @text-color-secondary;
+  }
 
   .header {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     border-bottom: solid 1px @border-color-base;
+
+    .status {
+      flex: 0 0 80px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5em;
+    }
+    .title {
+      flex: 1;
+    }
   }
 }
 </style>
