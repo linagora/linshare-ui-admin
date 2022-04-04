@@ -184,10 +184,17 @@ watchEffect(() => {
             :label="$t('FUNCTIONALITIES.DEFAULT.PARAMETER.TITLE_MAXIMUM')"
             :extra="getTranslatedText(functionality, 'PARAMETER.DESCRIPTION_MAXIMUM')"
           >
+            <a-checkbox
+              v-if="functionality.parameter.unlimited.supported"
+              v-model:checked="functionality.parameter.unlimited.value"
+              class="unlimited-checkbox"
+            >
+              {{ getTranslatedText(functionality, 'PARAMETER.UNLIMITED_CHECKBOX') }}
+            </a-checkbox>
             <a-input
               v-model:value="functionality.parameter.maximum.value"
               type="number"
-              :disabled="data.parameter?.readonly"
+              :disabled="data.parameter?.readonly || functionality.parameter.unlimited.value"
             >
               <template #addonAfter>
                 <a-select v-model:value="functionality.parameter.maximum.unit" :disabled="data.parameter?.readonly">
@@ -215,10 +222,18 @@ watchEffect(() => {
               :label="$t('FUNCTIONALITIES.DEFAULT.PARAMETER.TITLE_MAXIMUM')"
               :extra="getTranslatedText(functionality, 'PARAMETER.DESCRIPTION_MAXIMUM')"
             >
+              <a-checkbox
+                v-if="functionality.parameter.unlimited.supported"
+                v-model:checked="functionality.parameter.unlimited.value"
+                class="unlimited-checkbox"
+              >
+                {{ getTranslatedText(functionality, 'PARAMETER.UNLIMITED_CHECKBOX') }}
+              </a-checkbox>
+
               <a-input
                 v-model:value="functionality.parameter.maximum.value"
                 type="number"
-                :disabled="data.parameter?.readonly"
+                :disabled="data.parameter?.readonly || functionality.parameter.unlimited.value"
               ></a-input>
             </a-form-item>
           </div>
@@ -247,10 +262,18 @@ watchEffect(() => {
               :label="$t('FUNCTIONALITIES.DEFAULT.PARAMETER.TITLE_MAXIMUM')"
               :extra="getTranslatedText(functionality, 'PARAMETER.DESCRIPTION_MAXIMUM')"
             >
+              <a-checkbox
+                v-if="functionality.parameter.unlimited.supported"
+                v-model:checked="functionality.parameter.unlimited.value"
+                class="unlimited-checkbox"
+              >
+                {{ getTranslatedText(functionality, 'PARAMETER.UNLIMITED_CHECKBOX') }}
+              </a-checkbox>
+
               <a-input
                 v-model:value="functionality.parameter.maximum.value"
                 type="number"
-                :disabled="data.parameter?.readonly"
+                :disabled="data.parameter?.readonly || functionality.parameter.unlimited.value"
               >
                 <template #addonAfter>
                   <a-select v-model:value="functionality.parameter.maximum.unit" :disabled="data.parameter?.readonly">
@@ -287,10 +310,18 @@ watchEffect(() => {
               :label="$t('FUNCTIONALITIES.DEFAULT.PARAMETER.TITLE_MAXIMUM')"
               :extra="getTranslatedText(functionality, 'PARAMETER.DESCRIPTION_MAXIMUM')"
             >
+              <a-checkbox
+                v-if="functionality.parameter.unlimited.supported"
+                v-model:checked="functionality.parameter.unlimited.value"
+                class="unlimited-checkbox"
+              >
+                {{ getTranslatedText(functionality, 'PARAMETER.UNLIMITED_CHECKBOX') }}
+              </a-checkbox>
+
               <a-input
                 v-model:value="functionality.parameter.maximum.value"
                 type="number"
-                :disabled="data.parameter?.readonly"
+                :disabled="data.parameter?.readonly || functionality.parameter.unlimited.value"
               >
                 <template #addonAfter>
                   <a-select v-model:value="functionality.parameter.maximum.unit" :disabled="data.parameter?.readonly">
@@ -337,5 +368,9 @@ watchEffect(() => {
   .ant-form-item-label label {
     font-weight: 700;
   }
+}
+
+.unlimited-checkbox {
+  margin-bottom: 10px;
 }
 </style>

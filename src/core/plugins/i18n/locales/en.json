@@ -585,7 +585,8 @@
         "TITLE_MAXIMUM": "Maximum",
         "DESCRIPTION": "",
         "DESCRIPTION_MAXIMUM": "",
-        "BOOLEAN_DESCRIPTION": "Enable this parameter"
+        "BOOLEAN_DESCRIPTION": "Enable this parameter",
+        "UNLIMITED_CHECKBOX": "Unlimited"
       },
       "ACTIVATION_POLICY": {
         "HEADER": "Activation policy",

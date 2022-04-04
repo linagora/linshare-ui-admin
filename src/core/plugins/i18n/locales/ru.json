@@ -581,7 +581,8 @@
         "TITLE_MAXIMUM": "Максимум",
         "DESCRIPTION": "",
         "DESCRIPTION_MAXIMUM": "",
-        "BOOLEAN_DESCRIPTION": "Включить этот параметр"
+        "BOOLEAN_DESCRIPTION": "Включить этот параметр",
+        "UNLIMITED_CHECKBOX": "Неограниченный"
       },
       "ACTIVATION_POLICY": {
         "HEADER": "Политика активации",

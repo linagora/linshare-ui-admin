@@ -581,7 +581,8 @@
         "TITLE_MAXIMUM": "Tối đa",
         "DESCRIPTION": "",
         "DESCRIPTION_MAXIMUM": "",
-        "BOOLEAN_DESCRIPTION": "Bật tham số này"
+        "BOOLEAN_DESCRIPTION": "Bật tham số này",
+        "UNLIMITED_CHECKBOX": "Không giới hạn"
       },
       "ACTIVATION_POLICY": {
         "HEADER": "Chính sách kích hoạt",
