@@ -4,12 +4,13 @@ import { SharedSpacesRoutes } from '@/modules/shared-spaces/router';
 import { DomainConfigurationRoute } from '@/modules/domain/router';
 import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 import Home from '../pages/Home.vue';
+import config from '@/config';
 
 export const CoreRoutes: Array<RouteRecordRaw> = [
   {
     name: 'Home',
     path: '/',
-    redirect: { name: 'Configuration' },
+    redirect: config.homeRoute,
     component: Home,
     meta: {
       requiresAuth: true
