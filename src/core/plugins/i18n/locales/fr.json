@@ -579,7 +579,7 @@
         "HEADER": "Paramètre(s)",
         "TITLE": "Par défaut",
         "TITLE_MAXIMUM": "Maximum",
-        "DESCRIPITON": "",
+        "DESCRIPTION": "",
         "DESCRIPTION_MAXIMUM": "",
         "BOOLEAN_DESCRIPTION": "Activer ce paramètre",
         "UNLIMITED_CHECKBOX": "Illimité"
@@ -650,15 +650,6 @@
         "NAME": "Cacher le menu Partages Reçus",
         "DESCRIPTION": "Partage reçu est un menu où les utilisateurs peuvent voir les fichiers que d'autres ont partagés avec eux. En activant cette fonctionnalité, les utilisateurs ne pourront pas accéder à ce menu."
       },
-      "CONTACTS_LIST": {
-        "NAME": "Liste de contacts"
-      },
-      "CONTACTS_LIST__CREATION_RIGHT": {
-        "NAME": "Droit de création"
-      },
-      "SHARED_SPACE": {
-        "NAME": "Espace partagé"
-      },
       "UPLOAD_REQUEST": {
         "NAME": "Invitation de dépôt"
       },
@@ -691,6 +682,15 @@
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
         "NAME": "Délais avant notification d'expiration"
+      },
+      "CONTACTS_LIST": {
+        "NAME": "Liste de contacts"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Droit de création"
+      },
+      "SHARED_SPACE": {
+        "NAME": "Espace partagé"
       },
       "MIME_TYPE": {
         "NAME": "Type MIME"

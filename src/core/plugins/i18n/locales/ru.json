@@ -650,6 +650,39 @@
         "NAME": "Меню «Скрыть полученные пакеты»",
         "DESCRIPTION": "Полученный общий доступ — это меню, в котором пользователи могут видеть файлы, которыми с ними поделились другие. Включив эту функцию, пользователи не смогут получить доступ к этому меню."
       },
+      "UPLOAD_REQUEST": {
+        "NAME": "Запрос на отправку"
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Язык уведомлений"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+        "NAME": "Задержка перед активацией"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+        "NAME": "Задержка до истечения срока действия"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+        "NAME": "Максимальное количество файлов"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+        "NAME": "Максимальный размер файла"
+      },
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+        "NAME": "Максимальный размер депозита"
+      },
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Защищенный URL"
+      },
+      "UPLOAD_REQUEST__CAN_CLOSE": {
+        "NAME": "Закрытие справа"
+      },
+      "UPLOAD_REQUEST__CAN_DELETE": {
+        "NAME": "Право на удаление получателя"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+        "NAME": "Задержка перед уведомлением"
+      },
       "CONTACTS_LIST": {
         "NAME": "Список контактов"
       },
@@ -658,39 +691,6 @@
       },
       "SHARED_SPACE": {
         "NAME": "Общее пространство"
-      },
-      "UPLOAD_REQUEST": {
-        "NAME": "Запрос на отправку"
-      },
-      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
-        "NAME": "Запрос на отправку - Язык уведомлений"
-      },
-      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
-        "NAME": "Запрос на отправку - Задержка перед активацией"
-      },
-      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
-        "NAME": "Запрос на отправку - Задержка до истечения срока действия"
-      },
-      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
-        "NAME": "Запрос на отправку - Максимальное количество файлов"
-      },
-      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
-        "NAME": "Запрос на отправку - Максимальный размер файла"
-      },
-      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
-        "NAME": "Запрос на отправку - Максимальный размер депозита"
-      },
-      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
-        "NAME": "Запрос на отправку - Защищенный URL"
-      },
-      "UPLOAD_REQUEST__CAN_CLOSE": {
-        "NAME": "Запрос на отправку - Закрытие справа"
-      },
-      "UPLOAD_REQUEST__CAN_DELETE": {
-        "NAME": "Запрос на отправку - Право на удаление получателя"
-      },
-      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
-        "NAME": "Запрос на отправку - Задержка перед уведомлением"
       },
       "MIME_TYPE": {
         "NAME": "Mime type"

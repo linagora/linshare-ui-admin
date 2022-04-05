@@ -51,7 +51,7 @@ watchEffect(() => {
             v-model:checked="functionality.activationPolicy.enable.value"
             :disabled="data.activationPolicy.readonly"
           >
-            {{ $t('FUNCTIONALITIES.DEFAULT.ACTIVATION_POLICY.ENABLE_CHECKBOX_DESCRIPTION') }}
+            {{ getTranslatedText(functionality, 'ACTIVATION_POLICY.ENABLE_CHECKBOX_DESCRIPTION') }}
           </a-checkbox>
         </div>
 
@@ -181,7 +181,7 @@ watchEffect(() => {
 
           <a-form-item
             v-if="functionality.parameter.type === 'UNIT_SIZE_MAX'"
-            :label="$t('FUNCTIONALITIES.DEFAULT.PARAMETER.TITLE_MAXIMUM')"
+            :label="getTranslatedText(functionality, 'PARAMETER.TITLE_MAXIMUM')"
             :extra="getTranslatedText(functionality, 'PARAMETER.DESCRIPTION_MAXIMUM')"
           >
             <a-checkbox
@@ -219,7 +219,7 @@ watchEffect(() => {
             </a-form-item>
 
             <a-form-item
-              :label="$t('FUNCTIONALITIES.DEFAULT.PARAMETER.TITLE_MAXIMUM')"
+              :label="getTranslatedText(functionality, 'PARAMETER.TITLE_MAXIMUM')"
               :extra="getTranslatedText(functionality, 'PARAMETER.DESCRIPTION_MAXIMUM')"
             >
               <a-checkbox
@@ -259,7 +259,7 @@ watchEffect(() => {
             </a-form-item>
 
             <a-form-item
-              :label="$t('FUNCTIONALITIES.DEFAULT.PARAMETER.TITLE_MAXIMUM')"
+              :label="getTranslatedText(functionality, 'PARAMETER.TITLE_MAXIMUM')"
               :extra="getTranslatedText(functionality, 'PARAMETER.DESCRIPTION_MAXIMUM')"
             >
               <a-checkbox
@@ -307,7 +307,7 @@ watchEffect(() => {
             </a-form-item>
 
             <a-form-item
-              :label="$t('FUNCTIONALITIES.DEFAULT.PARAMETER.TITLE_MAXIMUM')"
+              :label="getTranslatedText(functionality, 'PARAMETER.TITLE_MAXIMUM')"
               :extra="getTranslatedText(functionality, 'PARAMETER.DESCRIPTION_MAXIMUM')"
             >
               <a-checkbox

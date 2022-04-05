@@ -563,9 +563,9 @@
     },
     "UNITS": {
       "TIME": {
-        "MONTH": "Mois",
-        "DAY": "Jours",
-        "WEEK": "Semaines"
+        "MONTH": "Tháng",
+        "DAY": "Ngày",
+        "WEEK": "Tuần"
       },
       "SIZE": {
         "KILO": "KB",
@@ -650,6 +650,152 @@
         "NAME": "Ẩn menu Chia sẻ đã Nhận",
         "DESCRIPTION": "Chia sẻ đã nhận là menu nơi người dùng có thể xem các tệp mà người khác đã chia sẻ với họ. Bằng cách bật chức năng này, người dùng sẽ không thể truy cập menu này."
       },
+      "UPLOAD_REQUEST": {
+        "NAME": "Yêu cầu tải lên",
+        "DESCRIPTION": "Yêu cầu tải lên là một tính năng mà qua đó một người (được xác định bằng email) có thể tải lên tệp cho người dùng LinShare, theo cách tạm thời và được quy định. Các tài liệu đã tải lên sẽ chiếm chỗ trong không gian cá nhân của người tạo yêu cầu. Khi chức năng này bị vô hiệu hóa, các chức năng phụ dưới đây sẽ không hoạt động. ",
+        "PARAMETER": {
+          "TITLE": "URL cơ sở của cổng yêu cầu tải lên",
+          "DESCRIPTION": "Người nhận yêu cầu tải lên sẽ quản lý các tệp tải lên của họ từ một cổng riêng biệt. URL tới cổng này được nhúng trong các email thông báo do máy chủ gửi."
+        }
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Ngôn ngữ email thông báo"
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+        "NAME": "Chậm trễ trước khi kích hoạt",
+        "DESCRIPTION": "Xác định khoảng thời gian giữa ngày tạo yêu cầu tải lên và ngày kích hoạt. Chỉ khi kích hoạt người dùng có thể tải tệp lên",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cho phép một khoảng thời gian nhất định giữa ngày tạo và ngày kích hoạt yêu cầu tải lên. Nếu bị vô hiệu hóa, yêu cầu tải lên sẽ được kích hoạt khi tạo",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép cài đặt độ trễ giữa ngày kích hoạt và ngày tạo"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi ngày kích hoạt ban đầu hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi ngày kích hoạt"
+        },
+        "PARAMETER": {
+          "TITLE": "Độ trễ mặc định để kích hoạt các yêu cầu sau ngày tạo",
+          "TITLE_MAXIMUM": "Độ trễ tối đa để kích hoạt yêu cầu sau ngày tạo",
+          "UNLIMITED_CHECKBOX": "Không giới hạn ngày kích hoạt"
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+        "NAME": "Chậm trễ trước khi hết hạn",
+        "DESCRIPTION": "Xác định độ trễ giữa ngày kích hoạt yêu cầu tải lên và ngày hết hạn khi yêu cầu tải lên bị đóng, người nhận không thể tải tệp lên nữa",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cho phép một khoảng thời gian trễ nhất định giữa ngày kích hoạt và ngày hết hạn của yêu cầu tải lên. Nếu bị vô hiệu hóa, các yêu cầu tải lên trong tương lai sẽ không hết hạn",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép cài đặt độ trễ giữa ngày kích hoạt và ngày tạo"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi ngày hết hạn ban đầu hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi ngày hết hạn"
+        },
+        "PARAMETER": {
+          "TITLE": "Độ trễ mặc định để yêu cầu hết hạn sau ngày kích hoạt",
+          "TITLE_MAXIMUM": "Độ trễ tối đa để yêu cầu hết hạn sau ngày kích hoạt",
+          "UNLIMITED_CHECKBOX": "Không giới hạn ngày hết hạn"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+        "NAME": "Số tệp tối đa",
+        "DESCRIPTION": "Xác định số tệp tối đa mà người nhận có thể tải lên theo yêu cầu tải lên",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Thêm giới hạn cho số lượng tệp mà người nhận có thể tải lên theo yêu cầu. Nếu bị tắt, sẽ không có giới hạn.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép đặt số lượng tệp tối đa mà người nhận có thể tải lên"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi số tệp tối đa ban đầu hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi số tệp tối đa"
+        },
+        "PARAMETER": {
+          "TITLE": "Giới hạn số lượng tệp mặc định",
+          "TITLE_MAXIMUM": "Giới hạn số tệp tối đa mà người tạo yêu cầu có thể đặt"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+        "NAME": "Kích thước tệp tối đa",
+        "DESCRIPTION": "Xác định kích thước tối đa của tệp mà người nhận có thể tải lên theo yêu cầu tải lên",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Thêm giới hạn cho kích thước tệp mà người nhận có thể tải lên. Nếu bị tắt, sẽ không có giới hạn.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép đặt kích thước tệp tối đa"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi số tệp tối đa ban đầu hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi số tệp tối đa"
+        },
+        "PARAMETER": {
+          "TITLE": "Kích thước tệp tối đa mặc định",
+          "TITLE_MAXIMUM": "Giới hạn kích thước tệp tối đa mà người tạo yêu cầu có thể đặt"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+        "NAME": "Kích thước tiền gửi tối đa",
+        "DESCRIPTION": "Xác định tổng dung lượng bộ nhớ tối đa mà người nhận có thể tải lên theo yêu cầu tải lên",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Thêm giới hạn cho tổng dung lượng bộ nhớ mà người nhận có thể tải lên. Nếu bị tắt, sẽ không có giới hạn.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép đặt tổng kích thước tệp tối đa"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi tổng kích thước tệp ban đầu hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi tổng số tệp tin"
+        },
+        "PARAMETER": {
+          "TITLE": "Tổng kích thước tệp mặc định",
+          "TITLE_MAXIMUM": "Tổng kích thước tệp tối đa"
+        }
+      },
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Được bảo vệ bằng URL mật khẩu",
+        "DESCRIPTION": "Khi gửi yêu cầu đến người nhận, một mật khẩu sẽ được đính kèm vào email mời. Mật khẩu này sẽ là mật khẩu ban đầu khi người nhận vào cổng vì họ phải thay đổi mật khẩu để truy cập trong tương lai",
+        "PARAMETER": {
+          "TITLE": "Cho phép bảo vệ yêu cầu tải lên bằng mật khẩu",
+          "BOOLEAN_DESCRIPTION": "Yêu cầu tải lên được bảo vệ theo mặc định"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể ghi đè giá trị mặc định của tùy chọn được bảo vệ bằng mật khẩu hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi tùy chọn được bảo vệ bằng mật khẩu"
+        }
+      },
+      "UPLOAD_REQUEST__CAN_CLOSE": {
+        "NAME": "Quyền đóng",
+        "DESCRIPTION": "Xác định xem người phát hành yêu cầu hoặc người nhận yêu cầu có thể đóng yêu cầu tải lên trước ngày hết hạn",
+        "PARAMETER": {
+          "TITLE": "Cho phép đóng",
+          "BOOLEAN_DESCRIPTION": "Cho phép người dùng đóng yêu cầu theo mặc định"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể ghi đè giá trị mặc định của tùy chọn đóng cho phép hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi tùy chọn cho phép đóng"
+        }
+      },
+      "UPLOAD_REQUEST__CAN_DELETE": {
+        "NAME": "Người nhận có quyền xóa",
+        "DESCRIPTION": "Xác định xem người nhận yêu cầu tải lên có thể xóa các tệp đã tải lên hay không",
+        "PARAMETER": {
+          "TITLE": "Cho phép xóa",
+          "BOOLEAN_DESCRIPTION": "Cho phép người nhận xóa các tệp đã tải lên theo mặc định"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể ghi đè giá trị mặc định của tùy chọn cho phép xóa hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi tùy chọn cho phép xóa"
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+        "NAME": "Thời gian gửi thông báo nhắc tải lên",
+        "DESCRIPTION": "Gửi thông báo để nhắc người nhận tải tệp lên.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cho phép LinShare gửi thông báo nhắc nhở hoặc xác định thời gian gửi thông báo trước khi yêu cầu hết hạn",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép LinShare gửi thông báo nhắc nhở"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi ngày thông báo ban đầu hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi ngày thông báo"
+        },
+        "PARAMETER": {
+          "TITLE": "Độ trễ mặc định để gửi thông báo trước khi yêu cầu hết hạn",
+          "TITLE_MAXIMUM": "Độ trễ tối đa để gửi thông báo trước khi yêu cầu hết hạn",
+          "UNLIMITED_CHECKBOX": "Không có giới hạn ngoại trừ ngày hiện tại"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
@@ -658,39 +804,6 @@
       },
       "SHARED_SPACE": {
         "NAME": "Không gian được chia sẻ"
-      },
-      "UPLOAD_REQUEST": {
-        "NAME": "Yêu cầu tải lên"
-      },
-      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
-        "NAME": "Ngôn ngữ thông báo qua email"
-      },
-      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
-        "NAME": "Chậm trễ trước khi kích hoạt"
-      },
-      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
-        "NAME": "Chậm trễ trước khi hết hạn"
-      },
-      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
-        "NAME": "Số tệp tối đa"
-      },
-      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
-        "NAME": "Kích thước tệp tối đa"
-      },
-      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
-        "NAME": "Kích thước tiền gửi tối đa"
-      },
-      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
-        "NAME": "Được bảo vệ bằng URL mật khẩu"
-      },
-      "UPLOAD_REQUEST__CAN_CLOSE": {
-        "NAME": "Quyền đóng"
-      },
-      "UPLOAD_REQUEST__CAN_DELETE": {
-        "NAME": "Người nhận có quyền xóa"
-      },
-      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
-        "NAME": "Thời gian gửi thông báo nhắc tải lên"
       },
       "MIME_TYPE": {
         "NAME": "Mime"

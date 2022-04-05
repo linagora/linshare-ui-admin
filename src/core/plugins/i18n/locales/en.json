@@ -646,13 +646,160 @@
         "NAME": "Email notification URL",
         "DESCRIPTION": "Provide base url for the share link of anonymous share",
         "PARAMETER": {
-          "TITLE": "Base url for the anonymous share link",
+          "TITLE": "Base URL for the anonymous share link",
           "DESCRIPTION": "This URL will appear in recipient's notification email when users in this domain share files via anonymous url"
         }
       },
       "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
         "DESCRIPTION": "Received Share is a menu where users can see files others have shared with them. By enabling this functionality, users will not be able to access this menu.",
         "NAME": "Hide Received Shares menu"
+      },
+      "UPLOAD_REQUEST": {
+        "NAME": "Upload request",
+        "DESCRIPTION": "Upload request is a feature through which a person (identified by email) can upload files for a LinShare user, in a temporary and regulated manner. The uploaded documents will take space in the issuer's personal space. When this functionality is disabled, the below sub-functions will not work.",
+        "PARAMETER": {
+          "TITLE": "Base URL of upload request portal",
+          "DESCRIPTION": "Upload request recipient will manage their uploads from a separate portal. The URL to this portal is embedded in the notification emails sent by the server."
+        }
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Email notification language",
+        "DESCRIPTION": ""
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+        "NAME": "Delay before activation",
+        "DESCRIPTION": "Determine the delay between upload request creation date and the activation date when upload request is available and users can upload files",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Allow a certain delay between creation date and activation date of upload requests. If disabled, upload requests will be activated upon creation",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow setting delay between activation date and creation date"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change the initial activation date",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change activation date"
+        },
+        "PARAMETER": {
+          "TITLE": "Default delay to activate requests after creation date",
+          "TITLE_MAXIMUM": "Maximum delay to activate requests after creation date",
+          "UNLIMITED_CHECKBOX": "No activattion date limit"
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+        "NAME": "Delay before expiration",
+        "DESCRIPTION": "Determine the delay between upload request activation date and expiration date when upload request is closed, recipients can no longer upload files",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Allow a certain delay between activation date and expiration date of upload requests. If disabled, future upload requests will not be expired",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow setting delay between activation date and creation date"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change the initial expiration date",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change expiration date"
+        },
+        "PARAMETER": {
+          "TITLE": "Default delay to expire requests after activation date",
+          "TITLE_MAXIMUM": "Maximum delay to expire requests after activation date",
+          "UNLIMITED_CHECKBOX": "No expiration date limit"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+        "NAME": "Maximum file count",
+        "DESCRIPTION": "Determine maximum number of files that a recipient can upload on an upload request",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Add a limit for number of files recipient can upload per request. If disabled, there will be no limit.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow setting maximum number of files that a recipient can upload"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change the initial maximum files number",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change maximum files number"
+        },
+        "PARAMETER": {
+          "TITLE": "Default number of files limit",
+          "TITLE_MAXIMUM": "Maximum number of files limit that issuer can set"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+        "NAME": "Maximum file size",
+        "DESCRIPTION": "Determine maximum size of a file that a recipient can upload on an upload request",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Add a limit for file size that recipient can upload. If disabled, there will be no limit.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow setting maximum file size"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change the initial maximum files number",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change maximum files number"
+        },
+        "PARAMETER": {
+          "TITLE": "Default maximum file size",
+          "TITLE_MAXIMUM": "Maximum file size limit that issuer can set"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+        "NAME": "Maximum deposit size",
+        "DESCRIPTION": "Determine maximum total storage size that a recipient can upload on an upload request",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Add a limit for total storage size that recipient can upload. If disabled, there will be no limit.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow setting maximum total files size"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change the initial total files size",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change total files siz"
+        },
+        "PARAMETER": {
+          "TITLE": "Default total files size",
+          "TITLE_MAXIMUM": "Maximum total files size"
+        }
+      },
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Protected by password URL",
+        "DESCRIPTION": "Upon sending requests to recipients, a password will be attached to the invitation email. This password will be the inital password when recipients enter the portal as they have to change the password for future access",
+        "PARAMETER": {
+          "TITLE": "Allow upload request to be protected by a password",
+          "BOOLEAN_DESCRIPTION": "Upload requests are protected by default"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can override the default value of password protected option",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change password protected option"
+        }
+      },
+      "UPLOAD_REQUEST__CAN_CLOSE": {
+        "NAME": "Closure right",
+        "DESCRIPTION": "Determine whether request issuer or request recipients can close upload request before its expiration date",
+        "PARAMETER": {
+          "TITLE": "Allow closure",
+          "BOOLEAN_DESCRIPTION": "Allow users to close requests by default"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can override the default value of allow closure option",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change allow closure option"
+        }
+      },
+      "UPLOAD_REQUEST__CAN_DELETE": {
+        "NAME": "Allow repcipients to delete files",
+        "DESCRIPTION": "Determine whether upload request recipients can delete uploaded files",
+        "PARAMETER": {
+          "TITLE": "Allow deletion",
+          "BOOLEAN_DESCRIPTION": "Allow recipients to delete uploaded files by default"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can override the default value of allow deletion option",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change allow deletion option"
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+        "NAME": "Delay before notification",
+        "DESCRIPTION": "Send a notification to remind recipient to upload file.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Allow LinShare to send reminder notifications or determine the delay of sending notification before request expiration",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow LinShare to send reminder notifications"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change the initial notification date",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change notification date"
+        },
+        "PARAMETER": {
+          "TITLE": "Default delay to send notification before request is expired",
+          "TITLE_MAXIMUM": "Maximum delay to send notification before request is expired",
+          "UNLIMITED_CHECKBOX": "No limit except for current date"
+        }
       },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
@@ -662,39 +809,6 @@
       },
       "SHARED_SPACE": {
         "NAME": "Shared space"
-      },
-      "UPLOAD_REQUEST": {
-        "NAME": "Upload request"
-      },
-      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
-        "NAME": "Email notification language"
-      },
-      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
-        "NAME": "Delay before activation"
-      },
-      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
-        "NAME": "Delay before expiration"
-      },
-      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
-        "NAME": "Maximum file count"
-      },
-      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
-        "NAME": "Maximum file size"
-      },
-      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
-        "NAME": "Maximum deposit size"
-      },
-      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
-        "NAME": "Protected by password URL"
-      },
-      "UPLOAD_REQUEST__CAN_CLOSE": {
-        "NAME": "Closure right"
-      },
-      "UPLOAD_REQUEST__CAN_DELETE": {
-        "NAME": "Recipient delete right"
-      },
-      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
-        "NAME": "Delay before notification"
       },
       "MIME_TYPE": {
         "NAME": "Mime type"
