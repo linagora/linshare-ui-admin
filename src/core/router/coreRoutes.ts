@@ -5,6 +5,7 @@ import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 import { RemoteFilterRoutes } from '@/modules/remote-filter/router';
 import { RemoteServerRoutes } from '@/modules/remote-server/router';
 import { DomainConfigurationRoutes } from '@/modules/domain/router';
+import config from '@/config';
 
 import Home from '../pages/Home.vue';
 
@@ -12,7 +13,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
   {
     name: 'Home',
     path: '/',
-    redirect: { name: 'Configuration' },
+    redirect: config.homeRoute,
     component: Home,
     meta: {
       requiresAuth: true,

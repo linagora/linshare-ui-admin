@@ -2,6 +2,7 @@
 export default interface AppConfiguration {
   beta: boolean;
   legacyAppUrl: string;
+  homeRoute: string;
   oidcEnabled: boolean;
   oidcSetting: {
     authority: string;

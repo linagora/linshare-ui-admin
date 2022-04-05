@@ -3,6 +3,7 @@ import AppConfiguration from '@/core/types/AppConfiguration';
 export const DEFAULT_CONFIGURATION: AppConfiguration = {
   beta: true,
   legacyAppUrl: '/',
+  homeRoute: '/administration',
   oidcEnabled: false,
   oidcSetting: {
     authority: 'https://auth.linshare.local',
