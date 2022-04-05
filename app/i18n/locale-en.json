@@ -162,6 +162,7 @@
         "20003": "Webservice not found",
         "26000": "Group not found",
         "28405": "You can not update a restricted guest without a list of contacts",
+        "28410": "Password must have at least 12 characters in length and must contain uppercase characters, digits and special characters",
         "29000": "The technical account does not exist",
         "30000": "Mime policy not found",
         "35004": "Upload proposition filtering not found",

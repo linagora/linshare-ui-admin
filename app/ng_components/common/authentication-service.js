@@ -53,7 +53,7 @@ angular.module('linshareAdminApp')
         },
         changePassword: function(password) {
           $log.debug('Authentication:changePassword');
-          Restangular.all('authentication').all('change_password').post(password).then(function() {
+          return Restangular.all('authentication').all('change_password').post(password).then(function() {
             Notification.addSuccess('UPDATE');
           });
         },

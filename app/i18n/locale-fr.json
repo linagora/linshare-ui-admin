@@ -162,6 +162,7 @@
         "20003": "Webservice introuvable",
         "26000": "Groupe introuvable",
         "28405": "Vous ne pouvez pas restreindre un invité avec une liste de contacts vide",
+        "28410": "Le mot de passe doit comporter au moins 12 caractères, contenir des majuscules, des chiffres et des caractères spéciaux",
         "29000": "Le compte technique n'existe pas",
         "30000": "Règles de type MIME introuvable",
         "35004": "Filtrage des demandes d'invitation de dépôt introuvable",
