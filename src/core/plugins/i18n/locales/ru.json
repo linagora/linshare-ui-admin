@@ -695,6 +695,9 @@
       "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
         "NAME": "Удаление файлов на ресурсах истечения срока действия"
       },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Подтверждение создания рассылки"
+      },
       "CONTACTS_LIST": {
         "NAME": "Список контактов"
       },
@@ -745,9 +748,6 @@
       },
       "INTERNAL_ENABLE_PERSONAL_SPACE": {
         "NAME": "Enable personal space for internal users."
-      },
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
-        "NAME": "Подтверждение создания рассылки"
       },
       "JWT_PERMANENT_TOKEN": {
         "NAME": "Постоянный токен"

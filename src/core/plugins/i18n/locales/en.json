@@ -847,6 +847,22 @@
           "BOOLEAN_DESCRIPTION": "Remove the shared file on expiration"
         }
       },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Acknowledgement of share creation",
+        "DESCRIPTION": "Determine whether users would receive email notification when they share files in LinShare",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Allow acknowledgement of share creation and determine the default option",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow acknowledgement of share creation"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can override the default value of Sharing Acknowledgement option",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to turn on/off Sharing Acknowledgement"
+        },
+        "PARAMETER": {
+          "TITLE": "Default value Sharing Acknowledgement when users create a share",
+          "BOOLEAN_DESCRIPTION": "Allow sharing acknowledgement by default"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
@@ -894,9 +910,6 @@
       },
       "INTERNAL_ENABLE_PERSONAL_SPACE": {
         "NAME": "Enable personal space for internal users."
-      },
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
-        "NAME": "Acknowledgement of share creation"
       },
       "JWT_PERMANENT_TOKEN": {
         "NAME": "JWT permanent token"

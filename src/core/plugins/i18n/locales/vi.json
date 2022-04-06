@@ -842,6 +842,22 @@
           "BOOLEAN_DESCRIPTION": "Xóa tệp chia sẻ khi hết hạn"
         }
       },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Xác nhận chia sẻ",
+        "DESCRIPTION": "Xác định xem liệu người dùng có nhận được thông báo qua email khi họ chia sẻ tệp trong LinShare hay không",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cho phép xác nhận việc tạo chia sẻ và xác định tùy chọn mặc định",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép xác nhận việc tạo chia sẻ"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể ghi đè giá trị mặc định của tùy chọn Xác nhận Chia sẻ hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng bật / tắt Xác nhận Chia sẻ"
+        },
+        "PARAMETER": {
+          "TITLE": "Giá trị mặc định của xác nhận chia sẻ khi người dùng tạo một chia sẻ",
+          "BOOLEAN_DESCRIPTION": "Mặc định bật xác nhận chia sẻ"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
@@ -889,9 +905,6 @@
       },
       "INTERNAL_ENABLE_PERSONAL_SPACE": {
         "NAME": "Bật không gian cá nhân cho người dùng nội bộ."
-      },
-      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
-        "NAME": "Xác nhận về việc tạo chia sẻ"
       },
       "JWT_PERMANENT_TOKEN": {
         "NAME": "Mã thông báo vĩnh viễn JWT"
