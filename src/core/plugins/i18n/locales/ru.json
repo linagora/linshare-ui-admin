@@ -683,6 +683,12 @@
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
         "NAME": "Задержка перед уведомлением"
       },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Уведомление о незагруженном файле"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Предупреждение о несанкционированном совместном документе - За несколько дней до предупреждения"
+      },
       "CONTACTS_LIST": {
         "NAME": "Список контактов"
       },
@@ -742,12 +748,6 @@
       },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
         "NAME": "Подтверждение создания рассылки"
-      },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
-        "NAME": "Уведомление о незагруженном файле"
-      },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
-        "NAME": "Предупреждение о несанкционированном совместном документе - За несколько дней до предупреждения"
       },
       "JWT_PERMANENT_TOKEN": {
         "NAME": "Постоянный токен"

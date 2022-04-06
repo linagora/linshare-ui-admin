@@ -801,6 +801,30 @@
           "UNLIMITED_CHECKBOX": "No limit except for current date"
         }
       },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Undownloaded shared document alert",
+        "DESCRIPTION": "Determine whether users will be notified when a shared document has not been downloaded. Notification will not be sent if at least one file of the share has been downloaded.",
+        "PARAMETER": {
+          "TITLE": "Undownloaded document alert",
+          "BOOLEAN_DESCRIPTION": "Allow notifications to be sent by default"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can override the default value of Undownloaded Document Alert option",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change Undownloaded Document Alert option"
+        }
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Days before the alert",
+        "DESCRIPTION": "Determine the number of work days (weekends and holidays are excluded) between sharing date and the alert notification date",
+        "PARAMETER": {
+          "DESCRIPTION": "Determine the default notification date when user ticks Undownloaded Document Alert option in sharing form",
+          "TITLE": "Default number of days after sharing that notification is sent"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can override the default notification date",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change notification date"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
@@ -857,12 +881,6 @@
       },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
         "NAME": "Acknowledgement of share creation"
-      },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
-        "NAME": "Undownloaded shared document alert"
-      },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
-        "NAME": "Days before the alert"
       },
       "JWT_PERMANENT_TOKEN": {
         "NAME": "JWT permanent token"

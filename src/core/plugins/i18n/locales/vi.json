@@ -26,7 +26,7 @@
     "VIEW_ASSOCIATED_DOMAINS": "em các miền được liên kết",
     "OK": "Ok",
     "SEARCH_BY_NAME": "Tìm kiếm theo tên",
-    "DESCRIPTION": "Mô tả",
+    "DESCRIPTION": "DESCRIPTION",
     "TYPES": "Loại",
     "YES": "Có",
     "NO": "Không",
@@ -98,7 +98,7 @@
     "SEARCH": "Tìm kiếm",
     "USER_DETAILS": "Chi tiết người dùng",
     "DETAILS": "Chi tiết",
-    "PARAMETERS": "Tham số",
+    "PARAMETERS": "PARAMETER",
     "MAIL_TEMPLATES": "Mẫu mail thông báo",
     "WELCOME_MESSAGES": "Tin nhắn chào mừng",
     "TYPE_MIME": "Nhập chính sách MIME",
@@ -796,6 +796,30 @@
           "UNLIMITED_CHECKBOX": "Không có giới hạn ngoại trừ ngày hiện tại"
         }
       },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Cảnh báo tài liệu chia sẻ chưa tải xuống",
+        "DESCRIPTION": "Xác định xem liệu người dùng có được thông báo khi tài liệu được chia sẻ chưa được tải xuống hay không. Thông báo sẽ không được gửi nếu ít nhất một tệp chia sẻ đã được tải xuống.",
+        "PARAMETER": {
+          "TITLE": "Cảnh báo tài liệu chưa tải xuống",
+          "BOOLEAN_DESCRIPTION": "Cho phép gửi thông báo theo mặc định"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể ghi đè giá trị mặc định của tùy chọn Cảnh báo tài liệu chưa tải xuống hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi tùy chọn Cảnh báo tài liệu chưa tải xuống"
+        }
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Ngày trước cảnh báo",
+        "DESCRIPTION": "Xác định số ngày làm việc (không bao gồm cuối tuần và ngày lễ) giữa ngày chia sẻ và ngày thông báo cảnh báo",
+        "PARAMETER": {
+          "DESCRIPTION": "Xác định ngày thông báo mặc định khi người dùng chọn Cảnh Báo Tài Liệu Chưa Tải Xuống khi tạo chia sẻ",
+          "TITLE": "Số ngày mặc định sau khi chia sẻ thông báo đó sẽ được gửi"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể ghi đè ngày thông báo mặc định hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi ngày thông báo"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
@@ -852,12 +876,6 @@
       },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
         "NAME": "Xác nhận về việc tạo chia sẻ"
-      },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
-        "NAME": "Cảnh báo tài liệu chia sẻ chưa tải xuống"
-      },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
-        "NAME": "Cảnh báo tài liệu chia sẻ chưa tải xuống - Ngày trước cảnh báo"
       },
       "JWT_PERMANENT_TOKEN": {
         "NAME": "Mã thông báo vĩnh viễn JWT"

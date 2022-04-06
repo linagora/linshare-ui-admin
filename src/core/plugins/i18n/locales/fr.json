@@ -683,6 +683,12 @@
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
         "NAME": "Délais avant notification d'expiration"
       },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Alerte de non téléchargement"
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Nombre de jours avant notification"
+      },
       "CONTACTS_LIST": {
         "NAME": "Liste de contacts"
       },
@@ -739,12 +745,6 @@
       },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
         "NAME": "Accusé de partage"
-      },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
-        "NAME": "Alerte de non téléchargement"
-      },
-      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
-        "NAME": "Alerte de non téléchargement - Nombre de jours avant notification"
       },
       "JWT_PERMANENT_TOKEN": {
         "NAME": "Jeton JWT permanent"
