@@ -751,6 +751,9 @@
       "JWT_PERMANENT_TOKEN": {
         "NAME": "Jeton JWT permanent"
       },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Activer l'espace personnel pour les utilisateurs internes"
+      },
       "CONTACTS_LIST": {
         "NAME": "Liste de contacts"
       },
@@ -789,9 +792,6 @@
       },
       "DOMAIN__NOTIFICATION_URL": {
         "NAME": "URL de base pour les notifications par courriel"
-      },
-      "INTERNAL_ENABLE_PERSONAL_SPACE": {
-        "NAME": "Activer l'espace personnel pour les utilisateurs internes"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Authentification double facteur"

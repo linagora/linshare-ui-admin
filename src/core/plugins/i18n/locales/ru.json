@@ -751,6 +751,9 @@
       "JWT_PERMANENT_TOKEN": {
         "NAME": "Постоянный токен"
       },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Enable personal space for internal users."
+      },
       "CONTACTS_LIST": {
         "NAME": "Список контактов"
       },
@@ -792,9 +795,6 @@
       },
       "DOMAIN__NOTIFICATION_URL": {
         "NAME": "Уведомления URL"
-      },
-      "INTERNAL_ENABLE_PERSONAL_SPACE": {
-        "NAME": "Enable personal space for internal users."
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Двухфакторная аутентификация"

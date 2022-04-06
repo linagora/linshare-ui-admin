@@ -921,6 +921,14 @@
           "BOOLEAN_DESCRIPTION": "Quản trị viên miền có thể tạo mã JWT cho người dùng trong miền"
         }
       },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Bật không gian cá nhân cho người dùng nội bộ",
+        "DESCRIPTION": "Cho phép người dùng truy cập vào Không gian của tôi, nơi người dùng có thể tải tệp lên và chia sẻ với người khác",
+        "PARAMETER": {
+          "TITLE": "Khi người dùng mới được tạo, họ có thể sử dụng Không gian của tôi hay không",
+          "BOOLEAN_DESCRIPTION": "Cho phép truy cập Không gian của tôi cho người dùng mới"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
@@ -959,9 +967,6 @@
       },
       "DOMAIN__NOTIFICATION_URL": {
         "NAME": "URL thông báo"
-      },
-      "INTERNAL_ENABLE_PERSONAL_SPACE": {
-        "NAME": "Bật không gian cá nhân cho người dùng nội bộ."
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Xác thực yếu tố thứ hai"

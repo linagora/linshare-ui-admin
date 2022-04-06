@@ -926,6 +926,14 @@
           "BOOLEAN_DESCRIPTION": "Domain administrators can create JWT token for users in domain"
         }
       },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Enable personal space for internal users",
+        "DESCRIPTION": "Allow users access to their My Space where users can upload files and share with others",
+        "PARAMETER": {
+          "TITLE": "When a new users are created, they can use My Space or not",
+          "BOOLEAN_DESCRIPTION": "Allow access to My Space for new users"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
@@ -964,9 +972,6 @@
       },
       "DOMAIN__NOTIFICATION_URL": {
         "NAME": "Notification URL"
-      },
-      "INTERNAL_ENABLE_PERSONAL_SPACE": {
-        "NAME": "Enable personal space for internal users."
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Second factor authentication"
