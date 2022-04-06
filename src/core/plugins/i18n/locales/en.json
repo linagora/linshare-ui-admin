@@ -863,14 +863,58 @@
           "BOOLEAN_DESCRIPTION": "Allow sharing acknowledgement by default"
         }
       },
+      "SHARED_SPACE": {
+        "NAME": "Shared space",
+        "DESCRIPTION": "This functionality allows users to access Shared Space. Shared Space contains Workspaces and standalone Workgroups. A Workspace contains members with their roles and nested Workgroups. A Workgroup contains members with their roles and content (folders/files/versions)."
+      },
+      "WORK_GROUP__CREATION_RIGHT": {
+        "NAME": "Workgroup creation",
+        "DESCRIPTION": "Determine whether users can create workgroups",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to create workgroups"
+        }
+      },
+      "WORK_SPACE__CREATION_RIGHT": {
+        "NAME": "Workspace creation",
+        "DESCRIPTION": "Determine whether users can create workspaces",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to create workspaces"
+        }
+      },
+      "WORK_GROUP__DOWNLOAD_ARCHIVE": {
+        "NAME": "Archive download",
+        "DESCRIPTION": "Determine whether users can download content of a folder in an archive file",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Allow archive download of folders in a workgroup",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow archive download"
+        },
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Maximum size for an archive download"
+        }
+      },
+      "WORK_GROUP__FILE_VERSIONING": {
+        "NAME": "File versioning",
+        "DESCRIPTION": "Use file versioning feature in workgroups",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Allow file versioning option in a workgroup",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow file versioning"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can turn on/off file versioning feature on their workgorups",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to turn on/off file versioning"
+        },
+        "PARAMETER": {
+          "TITLE": "Default state of file versioning feature on new workgroups",
+          "BOOLEAN_DESCRIPTION": "Enable file versioning for new workgroups"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
       "CONTACTS_LIST__CREATION_RIGHT": {
         "NAME": "Creation right"
-      },
-      "SHARED_SPACE": {
-        "NAME": "Shared space"
       },
       "MIME_TYPE": {
         "NAME": "Mime type"

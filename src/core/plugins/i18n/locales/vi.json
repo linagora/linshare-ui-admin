@@ -858,14 +858,58 @@
           "BOOLEAN_DESCRIPTION": "Mặc định bật xác nhận chia sẻ"
         }
       },
+      "SHARED_SPACE": {
+        "NAME": "Không gian được chia sẻ",
+        "DESCRIPTION": "Chức năng này cho phép người dùng truy cập Không gian dùng chung. Không gian dùng chung chứa Không gian làm việc và Nhóm làm việc độc lập. Không gian làm việc chứa các thành viên có vai trò của họ và Nhóm làm việc lồng nhau. Một Nhóm làm việc chứa các thành viên có vai trò và nội dung của họ (thư mục / tệp / phiên bản). "
+      },
+      "WORK_GROUP__CREATION_RIGHT": {
+        "NAME": "Tạo nhóm làm việc",
+        "DESCRIPTION": "Xác định xem người dùng có thể tạo nhóm làm việc hay không",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng tạo nhóm làm việc"
+        }
+      },
+      "WORK_SPACE__CREATION_RIGHT": {
+        "NAME": "Tạo không gian làm việc",
+        "DESCRIPTION": "Xác định xem người dùng có thể tạo không gian làm việc hay không",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng tạo không gian làm việc"
+        }
+      },
+      "WORK_GROUP__DOWNLOAD_ARCHIVE": {
+        "NAME": "Tải xuống thư mục ở dạng nén",
+        "DESCRIPTION": "Xác định xem người dùng có thể tải xuống nội dung của một thư mục trong một tệp một hay không",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cho phép tải các thư mục trong một nhóm làm việc",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép tải xuống thư mục"
+        },
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Tổng kích thước tối đa để tải xuống"
+        }
+      },
+      "WORK_GROUP__FILE_VERSIONING": {
+        "NAME": "Phiên bản tệp",
+        "DESCRIPTION": "Sử dụng tính năng tạo phiên bản tệp trong nhóm làm việc",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cho phép tùy chọn tạo phiên bản tệp trong nhóm làm việc",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép tạo phiên bản tệp"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể bật / tắt tính năng tạo phiên bản tệp trên bản dự phòng của họ hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng bật / tắt tính năng tạo phiên bản tệp"
+        },
+        "PARAMETER": {
+          "TITLE": "Trạng thái mặc định của tính năng tạo phiên bản tệp trên các nhóm làm việc mới",
+          "BOOLEAN_DESCRIPTION": "Bật lập phiên bản tệp cho nhóm làm việc mới"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
       "CONTACTS_LIST__CREATION_RIGHT": {
         "NAME": "Quyền tạo"
-      },
-      "SHARED_SPACE": {
-        "NAME": "Không gian được chia sẻ"
       },
       "MIME_TYPE": {
         "NAME": "Mime"
