@@ -909,6 +909,18 @@
         "NAME": "Áp dụng chính sách Mime type cho tệp tải lên",
         "DESCRIPTION": "Xác định xem có áp dụng chính sách Mime type đã cấu hình cho miền hiện tại hay không"
       },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "Mã JWT vĩnh viễn",
+        "DESCRIPTION": "Bật xác thực bằng cách sử dụng mã JWT vĩnh viễn và vĩnh viễn trang quản lý mã trong giao diện người dùng",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cho phép xác thực bằng cách sử dụng mã JWT vĩnh viễn và quản lý mã",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép tạo và sử dụng mã JWT vĩnh viễn để xác thực"
+        },
+        "PARAMETER": {
+          "TITLE": "",
+          "BOOLEAN_DESCRIPTION": "Quản trị viên miền có thể tạo mã JWT cho người dùng trong miền"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
@@ -950,12 +962,6 @@
       },
       "INTERNAL_ENABLE_PERSONAL_SPACE": {
         "NAME": "Bật không gian cá nhân cho người dùng nội bộ."
-      },
-      "JWT_PERMANENT_TOKEN": {
-        "NAME": "Mã thông báo vĩnh viễn JWT"
-      },
-      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
-        "NAME": "Mã thông báo vĩnh viễn JWT cho người dùng"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Xác thực yếu tố thứ hai"

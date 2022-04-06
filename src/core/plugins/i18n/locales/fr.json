@@ -748,6 +748,9 @@
       "MIME_TYPE": {
         "NAME": "Type MIME"
       },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "Jeton JWT permanent"
+      },
       "CONTACTS_LIST": {
         "NAME": "Liste de contacts"
       },
@@ -789,12 +792,6 @@
       },
       "INTERNAL_ENABLE_PERSONAL_SPACE": {
         "NAME": "Activer l'espace personnel pour les utilisateurs internes"
-      },
-      "JWT_PERMANENT_TOKEN": {
-        "NAME": "Jeton JWT permanent"
-      },
-      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
-        "NAME": "Jeton JWT permanent pour les utilisateurs"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Authentification double facteur"

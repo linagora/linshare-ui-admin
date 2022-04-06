@@ -748,6 +748,9 @@
       "MIME_TYPE": {
         "NAME": "Mime type"
       },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "Постоянный токен"
+      },
       "CONTACTS_LIST": {
         "NAME": "Список контактов"
       },
@@ -792,12 +795,6 @@
       },
       "INTERNAL_ENABLE_PERSONAL_SPACE": {
         "NAME": "Enable personal space for internal users."
-      },
-      "JWT_PERMANENT_TOKEN": {
-        "NAME": "Постоянный токен"
-      },
-      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
-        "NAME": "постоянный токен для пользователя"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Двухфакторная аутентификация"

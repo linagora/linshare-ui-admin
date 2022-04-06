@@ -914,6 +914,18 @@
         "NAME": "Mime type",
         "DESCRIPTION": "Determine whether to apply configured Mime type policy to the current domain"
       },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "JWT permanent token",
+        "DESCRIPTION": "Enable authentication using JWT permanent token and Tokens management page in user interface",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Allow authentication using permanent token and token management",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow creation and using JWT permanent token for authentication"
+        },
+        "PARAMETER": {
+          "TITLE": "",
+          "BOOLEAN_DESCRIPTION": "Domain administrators can create JWT token for users in domain"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
@@ -955,12 +967,6 @@
       },
       "INTERNAL_ENABLE_PERSONAL_SPACE": {
         "NAME": "Enable personal space for internal users."
-      },
-      "JWT_PERMANENT_TOKEN": {
-        "NAME": "JWT permanent token"
-      },
-      "JWT_PERMANENT_TOKEN__USER_MANAGEMENT": {
-        "NAME": "JWT permanent token for user"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Second factor authentication"
