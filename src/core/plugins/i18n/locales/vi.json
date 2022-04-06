@@ -905,14 +905,15 @@
           "BOOLEAN_DESCRIPTION": "Bật lập phiên bản tệp cho nhóm làm việc mới"
         }
       },
+      "MIME_TYPE": {
+        "NAME": "Áp dụng chính sách Mime type cho tệp tải lên",
+        "DESCRIPTION": "Xác định xem có áp dụng chính sách Mime type đã cấu hình cho miền hiện tại hay không"
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
       "CONTACTS_LIST__CREATION_RIGHT": {
         "NAME": "Quyền tạo"
-      },
-      "MIME_TYPE": {
-        "NAME": "Mime"
       },
       "ANTIVIRUS": {
         "NAME": "Antivirus"

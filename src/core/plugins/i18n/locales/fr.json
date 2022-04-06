@@ -745,14 +745,14 @@
           "BOOLEAN_DESCRIPTION": "Enable file versioning for new workgroups"
         }
       },
+      "MIME_TYPE": {
+        "NAME": "Type MIME"
+      },
       "CONTACTS_LIST": {
         "NAME": "Liste de contacts"
       },
       "CONTACTS_LIST__CREATION_RIGHT": {
         "NAME": "Droit de création"
-      },
-      "MIME_TYPE": {
-        "NAME": "Type MIME"
       },
       "ANTIVIRUS": {
         "NAME": "Antivirus"

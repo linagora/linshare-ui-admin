@@ -910,14 +910,15 @@
           "BOOLEAN_DESCRIPTION": "Enable file versioning for new workgroups"
         }
       },
+      "MIME_TYPE": {
+        "NAME": "Mime type",
+        "DESCRIPTION": "Determine whether to apply configured Mime type policy to the current domain"
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
       "CONTACTS_LIST__CREATION_RIGHT": {
         "NAME": "Creation right"
-      },
-      "MIME_TYPE": {
-        "NAME": "Mime type"
       },
       "ANTIVIRUS": {
         "NAME": "Antivirus"
