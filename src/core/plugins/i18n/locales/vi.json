@@ -929,6 +929,62 @@
           "BOOLEAN_DESCRIPTION": "Cho phép truy cập Không gian của tôi cho người dùng mới"
         }
       },
+      "GUESTS": {
+        "NAME": "Khách",
+        "DESCRIPTION": "Người dùng có email chưa đăng ký với LinShare có thể được người dùng nội bộ mời với tư cách là khách. Khách có thể sử dụng mọi tính năng của LinShare với tư cách là người dùng nội bộ, ngoại trừ khách đó sẽ hết hạn sau một khoảng thời gian nhất định.",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng tạo và quản lý khách"
+        }
+      },
+      "GUESTS__EXPIRATION": {
+        "NAME": "Thời gian hết hạn",
+        "DESCRIPTION": "Xác định ngày hết hạn của tài khoản khách",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi ngày hết hạn của tài khoản khách đã tạo của họ hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi ngày hết hạn của khách"
+        },
+        "PARAMETER": {
+          "TITLE": "Ngày hết hạn mặc định",
+          "DESCRIPTION": "Khoảng thời gian từ ngày tạo đến ngày hết hạn mặc định",
+          "TITLE_MAXIMUM": "Ngày hết hạn muộn nhất",
+          "DESCRIPTION_MAXIMUM": "Khoảng thời gian dài nhất mà người dùng có thể đặt từ ngày tạo đến ngày hết hạn"
+        }
+      },
+      "GUESTS__CAN_UPLOAD": {
+        "NAME": "Cho phép truy cập trang Không gian của tôi",
+        "DESCRIPTION": "Xác định xem khách có quyền truy cập vào trang Không gian của tôi hay không",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi cài đặt quyền Không gian của tôi khi tạo khách hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi cài đặt quyền Không gian của tôi"
+        },
+        "PARAMETER": {
+          "TITLE": "Cài đặt quyền Không gian của tôi mặc định",
+          "BOOLEAN_DESCRIPTION": "Cho phép khách truy cập vào trang Không gian của tôi"
+        }
+      },
+      "GUESTS__RESTRICTED": {
+        "NAME": "Hạn chế liên hệ",
+        "DESCRIPTION": "Khi tạo khách mới, người dùng có thể hạn chế chỉ chia sẻ tệp của khách trong danh sách email. Theo mặc định, khách sẽ bị hạn chế đối với người tạo của mình",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Khi tạo khách mới, hãy hiển thị tùy chọn Hạn chế danh sách liên hệ trong phần nâng cao",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép hạn chế địa chỉ liên hệ"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi cài đặt hạn chế liên hệ khi tạo khách hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi cài đặt hạn chế liên hệ"
+        },
+        "PARAMETER": {
+          "TITLE": "Cài đặt mặc định cho hạn chế liên hệ",
+          "BOOLEAN_DESCRIPTION": "Cho phép giới hạn hợp đồng đối với danh sách email"
+        }
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Tạm hoãn ngày hết hạn của khách",
+        "DESCRIPTION": "Xác định xem người dùng có thể chỉnh sửa và hoãn ngày hết hạn của khách hay không",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng chỉnh sửa và hoãn ngày hết hạn của khách"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
@@ -943,21 +999,6 @@
       },
       "HOÀN THÀNH": {
         "NAME": "Hoàn thành"
-      },
-      "KHÁCH": {
-        "NAME": "Khách"
-      },
-      "GUESTS__EXPIRATION": {
-        "NAME": "Hết hạn"
-      },
-      "GUESTS__CAN_UPLOAD": {
-        "NAME": "Quyền tải lên"
-      },
-      "GUESTS__RESTRICTED": {
-        "NAME": "Hạn chế liên hệ"
-      },
-      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
-        "NAME": "Tạm hoãn ngày hết hạn của khách"
       },
       "MIỀN": {
         "NAME": "Miền"

@@ -934,6 +934,62 @@
           "BOOLEAN_DESCRIPTION": "Allow access to My Space for new users"
         }
       },
+      "GUESTS": {
+        "NAME": "Guests",
+        "DESCRIPTION": "External emails not registered to LinShare can be invited by internal users as guests. A guest can use every features of LinShare as an internal user, except that guest will be expired after a configurable period of time.",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to create and manage guests"
+        }
+      },
+      "GUESTS__EXPIRATION": {
+        "NAME": "Expiration",
+        "DESCRIPTION": "Determine the expiration date of guest accounts",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change expiration date of their created guest accounts",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change guest's expiration date"
+        },
+        "PARAMETER": {
+          "TITLE": "Default expiration date",
+          "DESCRIPTION": "Time period between creation date and default expirationd date",
+          "TITLE_MAXIMUM": "Latest expiration date",
+          "DESCRIPTION_MAXIMUM": "Longest time period that user can set between creation date and expiration date"
+        }
+      },
+      "GUESTS__CAN_UPLOAD": {
+        "NAME": "Allow access to My Space",
+        "DESCRIPTION": "Determine whether guests have access to My Space page or not",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change My Space settings when creating guests",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change My Space settings"
+        },
+        "PARAMETER": {
+          "TITLE": "Default My Space settings",
+          "BOOLEAN_DESCRIPTION": "Allow guests access to My Space"
+        }
+      },
+      "GUESTS__RESTRICTED": {
+        "NAME": "Contact restriction",
+        "DESCRIPTION": "When creating a new guest, user can restrict guest files sharing only to a list of emails. By default, the guest will be restricted to his creator",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Upon creating a new guest, show an option of Restrict contact list in advanced section",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow contact restriction"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change contact restriction settings when creating guests",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change contact restriction settings"
+        },
+        "PARAMETER": {
+          "TITLE": "Default settings for contact restriction",
+          "BOOLEAN_DESCRIPTION": "Allow contract restriction to a list of emails"
+        }
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Postpone guest expiry date",
+        "DESCRIPTION": "Determine whether users can edit and postpone the expiration date of guests",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to edit and postpone guest's expiration date"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
@@ -948,21 +1004,6 @@
       },
       "COMPLETION": {
         "NAME": "Completion"
-      },
-      "GUESTS": {
-        "NAME": "Guests"
-      },
-      "GUESTS__EXPIRATION": {
-        "NAME": "Expiration"
-      },
-      "GUESTS__CAN_UPLOAD": {
-        "NAME": "Upload right"
-      },
-      "GUESTS__RESTRICTED": {
-        "NAME": "Contacts restriction"
-      },
-      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
-        "NAME": "Postpone guest expiry date"
       },
       "DOMAIN": {
         "NAME": "Domain"

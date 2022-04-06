@@ -754,21 +754,6 @@
       "INTERNAL_ENABLE_PERSONAL_SPACE": {
         "NAME": "Enable personal space for internal users."
       },
-      "CONTACTS_LIST": {
-        "NAME": "Список контактов"
-      },
-      "CONTACTS_LIST__CREATION_RIGHT": {
-        "NAME": "Право право создания"
-      },
-      "ANTIVIRUS": {
-        "NAME": "Антивирус"
-      },
-      "DOCUMENT_EXPIRATION": {
-        "NAME": "Срок действия документа"
-      },
-      "COMPLETION": {
-        "NAME": "Завершение"
-      },
       "GUESTS": {
         "NAME": "Гости"
       },
@@ -783,6 +768,21 @@
       },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
         "NAME": "Отсрочить дату истечения срока действия гостя"
+      },
+      "CONTACTS_LIST": {
+        "NAME": "Список контактов"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Право право создания"
+      },
+      "ANTIVIRUS": {
+        "NAME": "Антивирус"
+      },
+      "DOCUMENT_EXPIRATION": {
+        "NAME": "Срок действия документа"
+      },
+      "COMPLETION": {
+        "NAME": "Завершение"
       },
       "SHARE_NOTIFICATION_BEFORE_EXPIRATION": {
         "NAME": "Предоставлять уведомление до истечения срока действия"
