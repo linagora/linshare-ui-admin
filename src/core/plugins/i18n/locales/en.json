@@ -825,6 +825,28 @@
           "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change notification date"
         }
       },
+      "SHARE_EXPIRATION": {
+        "NAME": "Share expiration",
+        "DESCRIPTION": "Determine whether a share can be expired or not",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Allow a share to be expired and determine the expiration date",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow a share to be expired"
+        },
+        "PARAMETER": {
+          "DESCRIPTION": "Determine period before a share is expired ",
+          "TITLE": "Default period before a shared is expired",
+          "TITLE_MAXIMUM": "Longest period before a shared is expired",
+          "UNLIMITED_CHECKBOX": "No limit on expiration date"
+        }
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Deleting files on expiration shares",
+        "DESCRIPTION": "Shared files will be removed from user's space at the expiration",
+        "PARAMETER": {
+          "DESCRIPTION": "Determine whether shared files will be removed when the share is expired",
+          "BOOLEAN_DESCRIPTION": "Remove the shared file on expiration"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
@@ -842,12 +864,6 @@
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Document expiration"
-      },
-      "SHARE_EXPIRATION": {
-        "NAME": "Share expiration"
-      },
-      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
-        "NAME": "Deleting files on expiration shares"
       },
       "COMPLETION": {
         "NAME": "Completion"

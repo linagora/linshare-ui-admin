@@ -820,6 +820,28 @@
           "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi ngày thông báo"
         }
       },
+      "SHARE_EXPIRATION": {
+        "NAME": "Chia sẻ hết hạn",
+        "DESCRIPTION": "Xác định xem một lượt chia sẻ có thể hết hạn hay không",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cho phép chia sẻ hết hạn và xác định ngày hết hạn",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép chia sẻ hết hạn"
+        },
+        "PARAMETER": {
+          "DESCRIPTION": "Xác định khoảng thời gian trước khi một lượt chia sẻ hết hạn",
+          "TITLE": "Khoảng thời gian mặc định trước khi một lượt chia sẻ hết hạn",
+          "TITLE_MAXIMUM": "Khoảng thời gian dài nhất trước khi một lượt chia sẻ hết hạn",
+          "UNLIMITED_CHECKBOX": "Không giới hạn ngày hết hạn"
+        }
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Xóa tệp trên các lượt chia sẻ hết hạn",
+        "DESCRIPTION": "Các tệp được chia sẻ sẽ bị xóa khỏi không gian của người dùng khi hết hạn",
+        "PARAMETER": {
+          "DESCRIPTION": "Xác định xem các tệp chia sẻ có bị xóa khi chia sẻ hết hạn hay không",
+          "BOOLEAN_DESCRIPTION": "Xóa tệp chia sẻ khi hết hạn"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
@@ -837,12 +859,6 @@
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Hết hạn tập tin"
-      },
-      "SHARE_EXPIRATION": {
-        "NAME": "Chia sẻ hết hạn"
-      },
-      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
-        "NAME": "Xóa tệp trên các lượt chia sẻ hết hạn"
       },
       "HOÀN THÀNH": {
         "NAME": "Hoàn thành"

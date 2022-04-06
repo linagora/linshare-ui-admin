@@ -689,6 +689,12 @@
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
         "NAME": "Предупреждение о несанкционированном совместном документе - За несколько дней до предупреждения"
       },
+      "SHARE_EXPIRATION": {
+        "NAME": "Завершение рассылки"
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Удаление файлов на ресурсах истечения срока действия"
+      },
       "CONTACTS_LIST": {
         "NAME": "Список контактов"
       },
@@ -706,12 +712,6 @@
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Срок действия документа"
-      },
-      "SHARE_EXPIRATION": {
-        "NAME": "Завершение рассылки"
-      },
-      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
-        "NAME": "Удаление файлов на ресурсах истечения срока действия"
       },
       "COMPLETION": {
         "NAME": "Завершение"

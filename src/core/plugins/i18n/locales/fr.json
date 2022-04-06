@@ -689,6 +689,12 @@
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
         "NAME": "Nombre de jours avant notification"
       },
+      "SHARE_EXPIRATION": {
+        "NAME": "Expiration de partage"
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Suppression des fichiers lors de l'expiration des partages"
+      },
       "CONTACTS_LIST": {
         "NAME": "Liste de contacts"
       },
@@ -706,12 +712,6 @@
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Expiration de document"
-      },
-      "SHARE_EXPIRATION": {
-        "NAME": "Expiration de partage"
-      },
-      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
-        "NAME": "Suppression des fichiers lors de l'expiration des partages"
       },
       "COMPLETION": {
         "NAME": "Complétion"
