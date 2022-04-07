@@ -592,15 +592,15 @@
       },
       "CONFIGURATION_POLICY": {
         "HEADER": "Politique de configuration",
-        "DESCRIPTION": "Détermine si l'administrateur du domaine imbriqué peut modifier la section Paramètre(s)",
-        "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser l'administrateur imbriqué à modifier le paramètre de fonctionnalité",
-        "OVERRIDE_CHECKBOX_DESCRIPTION": "Autoriser l'administrateur imbriqué à remplacer cette section"
+        "DESCRIPTION": "Détermine si l'administrateur des sous domaines peut modifier la section Paramètre(s)",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser l'administrateur des sous domaines à modifier le paramètre de fonctionnalité",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Autoriser l'administrateur des sous domaines à remplacer cette section"
       },
       "DELEGATION_POLICY": {
         "HEADER": "Politique de délégation",
         "DESCRIPTION": "Détermine si l'utilisateur peut modifier le paramètre par défaut fourni par l'administrateur",
         "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier la valeur par défaut du paramètre",
-        "OVERRIDE_CHECKBOX_DESCRIPTION": "Autoriser l'administrateur imbriqué à remplacer cette section"
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Autoriser l'administrateur des sous domaines à remplacer cette section"
       }
     },
     "DETAILS": {
@@ -651,153 +651,417 @@
         "DESCRIPTION": "Partage reçu est un menu où les utilisateurs peuvent voir les fichiers que d'autres ont partagés avec eux. En activant cette fonctionnalité, les utilisateurs ne pourront pas accéder à ce menu."
       },
       "UPLOAD_REQUEST": {
-        "NAME": "Invitation de dépôt"
-      },
+        "NAME": "Invitation de dépôt",
+        "DESCRIPTION": "L'invitation de dépôt est une fonctionnalité par laquelle une personne (identifiée par e-mail) peut téléverser des fichiers pour un utilisateur LinShare, de manière temporaire et réglementée. Les documents téléversés prendront de la place dans l'espace personnel de l'émetteur. Lorsque cette fonctionnalité est désactivée, les sous-fonctionnalités ne fonctionneront pas.",
+        "PARAMETER": {
+          "TITLE": "URL de base du portail de l'invitation de dépôt",
+          "DESCRIPTION":"Le destinataire de l'invitation de dépot gérera ses téléversements à partir d'un portail séparé. L'URL de ce portail est intégrée dans les e-mails de notification envoyés par le serveur."
+      }
+    },
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
-        "NAME": "Langue d'émission des courriels"
+        "NAME": "Langue d'émission des courriels",
+        "DESCRIPTION": ""
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
-        "NAME": "Délais avant activation"
+        "NAME": "Délais avant activation",
+        "DESCRIPTION": "Détermine le délai entre la date de création de l'invitation de dépôt et la date d'activation de celle-ci où les utilisateurs peuvent téléverser des fichiers",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Autoriser un délai entre la date de création et la date d'activation des invitations de dépôt. Si désactivé, les invitations de dépôt seront activées dès leur création",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser le réglage du délai entre la date d'activation et la date de création"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier la date d'activation initiale",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier la date d'activation"
+        },
+        "PARAMETER": {
+          "TITLE": "Délai par défaut pour activer les invitations de dépôt après la date de création",
+          "TITLE_MAXIMUM": "Délai maximum pour activer les invitations de dépôt après la date de création",
+          "UNLIMITED_CHECKBOX": "Pas de limite de date d'activation"
+        }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
-        "NAME": "Délai avant expiration"
+        "NAME": "Délai avant expiration",
+        "DESCRIPTION": "Détermine le délai entre la date d'activation de l'invitation de dépôt et la date d'expiration lorsque celle-ci est fermée et que les destinataires ne peuvent plus téléverser de fichiers",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Autoriser un délai entre la date d'activation et la date d'expiration des invitations de dépôt. Si désactivé, les futures invitations de dépôt n'expireront pas",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser le réglage du délai entre la date d'activation et la date de création"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier la date d'expiration initiale",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier la date d'expiration"
+        },
+        "PARAMETER": {
+          "TITLE": "Délai par défaut pour faire expirer les invitations de dépôt après la date d'activation",
+          "TITLE_MAXIMUM": "Délai maximal d'expiration des invitations de dépôt après la date d'activation",
+          "UNLIMITED_CHECKBOX": "Aucune limite de date d'expiration"
+        }
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
-        "NAME": "Nombre maximum de fichiers"
+        "NAME": "Nombre maximum de fichiers",
+        "DESCRIPTION": "Détermine le nombre maximal de fichiers qu'un destinataire peut téléverser sur une invitation de dépôt",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Ajoute une limite au nombre de fichiers que le destinataire peut téléverser par inviation de dépôt. Si désactivé, il n'y aura pas de limite",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser à définir le nombre maximal de fichiers qu'un destinataire peut téléverser"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier le nombre maximal de fichiers",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier le nombre maximal de fichiers"
+        },
+        "PARAMETER": {
+          "TITLE": "Limite par défaut du nombre de fichiers",
+          "TITLE_MAXIMUM": "Limite du nombre maximal de fichiers que l'émetteur peut définir"
+        }
       },
       "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
-        "NAME": "Taille maximale d'un fichier"
+        "NAME": "Taille maximale d'un fichier",
+        "DESCRIPTION": "Détermine la taille maximale d'un fichier qu'un destinataire peut téléverser sur une invitation de dépôt",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Ajoute une limite à la taille de fichier que le destinataire peut téléverser. Si désactivé, il n'y aura pas de limite",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser le réglage de la taille de fichier maximale"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier le nombre maximal de fichiers",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier le nombre maximal de fichiers"
+        },
+        "PARAMETER": {
+          "TITLE": "Taille de fichier maximale par défaut",
+          "TITLE_MAXIMUM": "Limite de taille de fichier maximale que l'émetteur peut définir"
+        }
       },
       "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
-        "NAME": "Taille maximale du dépôt"
+        "NAME": "Taille maximale du dépôt",
+        "DESCRIPTION": "Détermine la taille de stockage maximale qu'un destinataire peut téléverser sur une invitation de dépôt",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Ajoute une limite à la taille de stockage totale que le destinataire peut téléverser. Si désactivé, il n'y aura pas de limite.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser le réglage de la taille maximale des fichiers"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier la taille de stockage totale des fichiers",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autorise les utilisateurs à modifier la taille de stockage totale des fichiers"
+        },
+        "PARAMETER": {
+          "TITLE": "Taille de skockage des fichiers par défaut",
+          "TITLE_MAXIMUM": "Taille de stockage maximale"
+        }
       },
       "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
-        "NAME": "Protection par mot de passe des URLs"
+        "NAME": "Protection par mot de passe des URLs",
+        "DESCRIPTION": "Lors de l'envoi de demandes aux destinataires, un mot de passe sera joint à l'e-mail d'invitation. Ce mot de passe sera le mot de passe initial attribué aux destinataires lorsqu'ils se connectent au portail. Ils doivent changer le mot de passe pour un accès futur au portail",
+        "PARAMETER": {
+          "TITLE": "Autoriser l'invitation de dépôt à être protégée par un mot de passe",
+          "BOOLEAN_DESCRIPTION": "Les invitations de dépôt sont protégées par défaut"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent remplacer la valeur par défaut de l'option protégée par mot de passe",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier l'option protégée par mot de passe"
+        }
       },
       "UPLOAD_REQUEST__CAN_CLOSE": {
-        "NAME": "Droit de clôture"
+        "NAME": "Droit de clôture",
+        "DESCRIPTION": "Détermine si l'émetteur de l'invitation ou les destinataires de l'invitation peuvent clôturer celle-ci avant sa date d'expiration",
+        "PARAMETER": {
+          "TITLE": "Autoriser la clôture",
+          "BOOLEAN_DESCRIPTION": "Autoriser les utilisateurs à clôturer les invitations par défaut"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent remplacer la valeur par défaut de l'option de droit de clôture",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier l'option de droit de clôture"
+        }
       },
       "UPLOAD_REQUEST__CAN_DELETE": {
-        "NAME": "Droit de suppression de fichiers pour le destinataire"
+        "NAME": "Droit de suppression de fichiers pour le destinataire",
+        "DESCRIPTION": "Détermine si les destinataires de la demande de téléchargement peuvent supprimer les fichiers téléverser",
+        "PARAMETER": {
+          "TITLE": "Autoriser la suppression",
+          "BOOLEAN_DESCRIPTION": "Autoriser les destinataires à supprimer les fichiers téléversés par défaut"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent remplacer la valeur par défaut de l'option de droit de suppression de fichiers",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier l'option de droit de suppression de fichiers"
+        }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
-        "NAME": "Délais avant notification d'expiration"
+        "NAME": "Délais avant notification d'expiration",
+        "DESCRIPTION": "Envoi une notification pour rappeler au destinataire de téléverser le fichier.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Autorise LinShare à envoyer des notifications de rappel ou à déterminer le délai d'envoi des notifications avant l'expiration de la demande",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser LinShare à envoyer des notifications de rappel"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier la date de notification initiale",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier la date de notification"
+        },
+        "PARAMETER": {
+          "TITLE": "Délai par défaut d'envoi d'une notification avant l'expiration de l'invitation'",
+          "TITLE_MAXIMUM": "Délai maximal d'envoi de la notification avant l'expiration de l'invitation",
+          "UNLIMITED_CHECKBOX": "Aucune limite sauf pour la date actuelle"
+        }
       },
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
-        "NAME": "Alerte de non téléchargement"
+        "NAME": "Alerte de non téléchargement",
+        "DESCRIPTION": "Détermine si les utilisateurs seront notifiés lorsqu'un document partagé n'a pas été téléchargé. La notification ne sera pas envoyée si au moins un fichier du partage a été téléchargé.",
+        "PARAMETER": {
+          "TITLE": "Alerte de non téléchargement",
+          "BOOLEAN_DESCRIPTION": "Autoriser l'envoi des notifications par défaut"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent remplacer la valeur par défaut de l'option Alerte de non téléchargement",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier l'option Alerte de non téléchargement"
+        }
       },
       "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
-        "NAME": "Nombre de jours avant notification"
+        "NAME": "Nombre de jours avant notification",
+        "DESCRIPTION": "Détermine le nombre de jours ouvrables (hors week-ends et les jours fériés) entre la date de partage et la date de notification",
+        "PARAMETER": {
+          "DESCRIPTION": "Détermine la date de notification par défaut lorsque l'utilisateur coche l'option alerte de non téléchargement dans le formulaire de partage",
+          "TITLE": "Nombre de jours par défaut entre la date de partage et la date de notification"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier la date de notification par défaut",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier la date de notification"
+        }
       },
       "SHARE_EXPIRATION": {
-        "NAME": "Expiration de partage"
+        "NAME": "Expiration de partage",
+        "DESCRIPTION": "Détermine si un partage peut expirer",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Autorise l'expiration d'un partage et détermine la date d'expiration",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser l'expiration d'un partage"
+        },
+        "PARAMETER": {
+          "DESCRIPTION": "Détermine le délai avant l'expiration d'un partage",
+          "TITLE": "Délai par défaut avant l'expiration d'un partage",
+          "TITLE_MAXIMUM": "Délai maximal avant l'expiration d'un partage",
+          "UNLIMITED_CHECKBOX": "Aucune limite de date d'expiration"
+        }
       },
       "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
-        "NAME": "Suppression des fichiers lors de l'expiration des partages"
+        "NAME": "Suppression des fichiers lors de l'expiration des partages",
+        "DESCRIPTION": "Les fichiers partagés seront supprimés de l'espace de l'utilisateur à l'expiration des partages",
+        "PARAMETER": {
+          "DESCRIPTION": "Détermine si les fichiers partagés seront supprimés lorsque le partage aura expiré",
+          "BOOLEAN_DESCRIPTION": "Supprimer le fichier partagé à l'expiration"
+        }
       },
       "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
-        "NAME": "Accusé de partage"
+        "NAME": "Accusé de partage",
+        "DESCRIPTION": "Détermine si les utilisateurs recevront une notification par e-mail lorsqu'ils partagent des fichiers dans LinShare",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Autoriser l'accusé de réception de partage et déterminer l'option par défaut",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les accusés de partage"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier la valeur par défaut de l'option accusé de partage",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à activer/désactiver l'accusé de partage"
+        },
+        "PARAMETER": {
+          "TITLE": "Valeur par défaut de l'accusé de partage lorsque les utilisateurs créent un partage",
+          "BOOLEAN_DESCRIPTION": "Autoriser accusé de partage par défaut"
+        }
       },
       "SHARED_SPACE": {
-        "NAME": "Shared space",
-        "DESCRIPTION": "This functionality allows users to access Shared Space. Shared Space contains Workspaces and standalone Workgroups. A Workspace contains members with their roles and nested Workgroups. A Workgroup contains members with their roles and content (folders/files/versions)."
+        "NAME": "Espace partagé",
+        "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs d'accéder à l'espace partagé. L'espace partagé contient des espaces de travail et des groupes de travail autonomes. Un espace de travail contient des membres avec leurs rôles et des groupes de travail imbriqués. Un groupe de travail contient des membres avec leurs rôles et leur contenu (dossiers/fichiers/versions)."
       },
       "WORK_GROUP__CREATION_RIGHT": {
-        "NAME": "Workgroup creation",
-        "DESCRIPTION": "Determine whether users can create workgroups",
+        "NAME": "Création de groupe de travail",
+        "DESCRIPTION": "Détermine si les utilisateurs peuvent créer des groupes de travail",
         "ACTIVATION_POLICY": {
           "DESCRIPTION": "",
-          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to create workgroups"
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à créer des groupes de travail"
         }
       },
       "WORK_SPACE__CREATION_RIGHT": {
-        "NAME": "Workspace creation",
-        "DESCRIPTION": "Determine whether users can create workspaces",
+        "NAME": "Création d'espace de travail",
+        "DESCRIPTION": "Détermine si les utilisateurs peuvent créer des espaces de travail",
         "ACTIVATION_POLICY": {
           "DESCRIPTION": "",
-          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to create workspaces"
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à créer des espaces de travail"
         }
       },
       "WORK_GROUP__DOWNLOAD_ARCHIVE": {
-        "NAME": "Archive download",
-        "DESCRIPTION": "Determine whether users can download content of a folder in an archive file",
+        "NAME": "Téléchargement d'archives",
+        "DESCRIPTION": "Détermine si les utilisateurs peuvent télécharger le contenu d'un dossier dans un fichier d'archive",
         "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Allow archive download of folders in a workgroup",
-          "ENABLE_CHECKBOX_DESCRIPTION": "Allow archive download"
+          "DESCRIPTION": "Autoriser le téléchargement d'archives de dossiers dans un groupe de travail",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser le téléchargement des archives"
         },
         "PARAMETER": {
-          "TITLE_MAXIMUM": "Maximum size for an archive download"
+          "TITLE_MAXIMUM": "Taille maximale d'un téléchargement d'archive"
         }
       },
       "WORK_GROUP__FILE_VERSIONING": {
-        "NAME": "File versioning",
-        "DESCRIPTION": "Use file versioning feature in workgroups",
+        "NAME": "Gestion des versions de fichiers",
+        "DESCRIPTION": "Utilise la fonctionnalité de gestion des versions de fichiers dans les groupes de travail",
         "ACTIVATION_POLICY": {
-          "DESCRIPTION": "Allow file versioning option in a workgroup",
-          "ENABLE_CHECKBOX_DESCRIPTION": "Allow file versioning"
+          "DESCRIPTION": "Autorise l'option de gestion des versions de fichiers dans un groupe de travail",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser la gestion des versions de fichiers"
         },
         "DELEGATION_POLICY": {
-          "DESCRIPTION": "Determine whether users can turn on/off file versioning feature on their workgorups",
-          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to turn on/off file versioning"
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent activer/désactiver la fonctionnalité de gestion des versions de fichiers sur leurs groupes de travail",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à activer/désactiver la gestion des versions des fichiers"
         },
         "PARAMETER": {
-          "TITLE": "Default state of file versioning feature on new workgroups",
-          "BOOLEAN_DESCRIPTION": "Enable file versioning for new workgroups"
+          "TITLE": "État par défaut de la fonctionnalité de gestion des versions de fichiers sur les nouveaux groupes de travail",
+          "BOOLEAN_DESCRIPTION": "Activer la gestion des versions de fichiers pour les nouveaux groupes de travail"
         }
       },
       "MIME_TYPE": {
-        "NAME": "Type MIME"
+        "NAME": "Type MIME",
+        "DESCRIPTION": "Déterminer s'il faut appliquer la stratégie de type Mime au domaine actuel"
       },
       "JWT_PERMANENT_TOKEN": {
-        "NAME": "Jeton JWT permanent"
+        "NAME": "Jeton JWT permanent",
+        "DESCRIPTION": "Active l'authentification à l'aide du jeton permanent JWT et de la page de gestion des jetons dans l'interface utilisateur",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Autorise l'authentification à l'aide d'un jeton permanent et de la gestion des jetons",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser la création et l'utilisation du jeton permanent JWT pour l'authentification"
+        },
+        "PARAMETER": {
+          "TITLE": "",
+          "BOOLEAN_DESCRIPTION": "Les administrateurs de domaine peuvent créer un jeton JWT pour les utilisateurs du domaine"
+        }
       },
       "INTERNAL_ENABLE_PERSONAL_SPACE": {
-        "NAME": "Activer l'espace personnel pour les utilisateurs internes"
+        "NAME": "Activer l'espace personnel pour les utilisateurs internes",
+        "DESCRIPTION": "Autoriser les utilisateurs à accéder à leur espace personnel où ils peuvent téléverser des fichiers et les partager avec d'autres utilisateurs",
+        "PARAMETER": {
+          "TITLE": "Lorsqu'un nouvel utilisateur est créé, il peut utiliser son espace personnel ou non",
+          "BOOLEAN_DESCRIPTION": "Autoriser l'accès à l'espace personnel pour les nouveaux utilisateurs"
+        }
       },
       "GUESTS": {
-        "NAME": "Invités"
+        "NAME": "Invités",
+        "DESCRIPTION": "Les e-mails externes non enregistrés sur LinShare peuvent être invités par des utilisateurs internes en tant qu'invités. Un invité peut utiliser toutes les fonctionnalités de LinShare au même titre qu'un utilisateur interne, sauf que les accès de l'invité expireront après une période de temps configurable.",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à créer et gérer des invités"
+        }
       },
       "GUESTS__EXPIRATION": {
-        "NAME": "Expiration des comptes invités"
+        "NAME": "Expiration des comptes invités",
+        "DESCRIPTION": "Détermine la date d'expiration des comptes invités",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier la date d'expiration des comptes invités qu'ils ont créés",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier la date d'expiration d'un invité"
+        },
+        "PARAMETER": {
+          "TITLE": "Date d'expiration par défaut",
+          "DESCRIPTION": "Délai entre la date de création et la date d'expiration par défaut",
+          "TITLE_MAXIMUM": "Date d'expiration maximale",
+          "DESCRIPTION_MAXIMUM": "Délai maximal que l'utilisateur peut définir entre la date de création et la date d'expiration"
+        }
       },
       "GUESTS__CAN_UPLOAD": {
-        "NAME": "Envoi de fichiers"
+        "NAME": "Autoriser l'accès à l'espace personnel",
+        "DESCRIPTION": "Détermine si les invités ont accès à mon espace personnel ou non",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier les paramètres de l'espace personnel lors de la création d'invités",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier les paramètres de l'espace personnel"
+        },
+        "PARAMETER": {
+          "TITLE": "Paramètres par défaut de mon espace personnel",
+          "BOOLEAN_DESCRIPTION": "Autoriser les invités à accéder à mon espace personnel"
+        }
       },
       "GUESTS__RESTRICTED": {
-        "NAME": "Restriction de contacts"
+        "NAME": "Restriction de contacts",
+        "DESCRIPTION": "Lors de la création d'un nouvel invité, l'utilisateur peut restreindre le partage de fichiers de l'invité uniquement à une liste d'e-mails. Par défaut, l'invité sera limité à l'utilisateur qui l'a créé",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Lors de la création d'un nouvel invité, afficher une option de restriction de contacts dans la section avancée",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser la restriction de contact"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier les paramètres de restriction de contacts lors de la création d'invités",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier les paramètres de restriction de contacts"
+        },
+        "PARAMETER": {
+          "TITLE": "Paramètres par défaut pour la restriction de contacts",
+          "BOOLEAN_DESCRIPTION": "Autoriser la restriction de contacts à une liste d'e-mails"
+        }
       },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
-        "NAME": "Autoriser la prolongation de la date d'expiration des invités"
+        "NAME": "Autoriser la prolongation de la date d'expiration des invités",
+        "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier et reporter la date d'expiration des invités",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier et reporter la date d'expiration des invités"
+        }
       },
       "DOMAIN": {
         "NAME": "Domaine"
       },
       "DOMAIN__MAIL": {
-        "NAME": "Adresse de courriel du domaine"
+        "NAME": "Adresse de courriel du domaine",
+        "DESCRIPTION": "Setting of the notification email of current domain. This email will be the sender address for any notifications.",
+        "PARAMETER": {
+          "TITLE": "Domain notificaiton email address"
+        }
       },
       "DOMAIN__NOTIFICATION_URL": {
-        "NAME": "URL de base pour les notifications par courriel"
+        "NAME": "URL de base pour les notifications par courriel",
+        "DESCRIPTION": "Réglage de l'email de notification du domaine courant. Cet e-mail sera l'adresse de l'expéditeur pour toutes les notifications par courriel.",
+        "PARAMETER": {
+          "TITLE": "URL dans l'en-tête de l'e-mail de notification"
+        }
       },
       "CONTACTS_LIST": {
-        "NAME": "Liste de contacts"
+        "NAME": "Liste de contacts",
+        "DESCRIPTION": "Une liste de contacts peut être utilisée comme destinataire pour de nombreuses fonctionnalités LinShare telles que le partage de fichiers, l'invitation de dépot, ... Les listes de contacts publiques sont disponibles pour tous les utilisateurs du domaine, tandis que les listes privées ne peuvent être utilisées que par leur créateur"
       },
       "CONTACTS_LIST__CREATION_RIGHT": {
-        "NAME": "Droit de création"
+        "NAME": "Droit de création",
+        "DESCRIPTION": "Détermine si les utilisateurs peuvent créer une nouvelle liste de contacts",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à créer une nouvelle liste de contacts"
+        }
       },
       "COMPLETION": {
-        "NAME": "Complétion"
+        "NAME": "Complétion",
+        "DESCRIPTION": "Déterminer le nombre de caractères qui déclencheront la complétion lorsque les utilisateurs saisiront le destinataire du partage",
+        "PARAMETER": {
+          "TITLE": "Nombre de caractères saisis pour déclencher la complétion"
+        }
       },
       "ANTIVIRUS": {
-        "NAME": "Antivirus"
+        "NAME": "Antivirus",
+        "DESCRIPTION": "Lorsque l'utilisateur téléverse un fichier dans LinShare, il sera analysé avant d'être téléversé sur le serveur. Pour utiliser cette fonctionnalité, vous devez configurer l'adresse IP et le port ClamAV dans le fichier linshare.properties. Le redémarrage du serveur est requis."
       },
       "COLLECTED_EMAILS_EXPIRATION": {
-        "NAME": "Expiration des e-mails collectés"
+        "NAME": "Expiration des e-mails collectés",
+        "DESCRIPTION": "Lorsque l'utilisateur partage des fichiers avec de nouveaux destinataires (e-mails internes/externes ou invités), ces e-mails sont ensuite collectés et suggérés pour de futurs partages. Cette fonctionnalité décidera si ces e-mails sont expirés ou non",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Décide si les e-mails collectés expireront",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser l'expiration des e-mails collectés"
+        },
+        "PARAMETER": {
+          "TITLE": "Durée de conservation des emails collectés"
+        }
       },
       "DOCUMENT_EXPIRATION": {
-        "NAME": "Expiration de document"
+        "NAME": "Expiration de document",
+        "DESCRIPTION": "Défini une date d'expiration pour les documents téléversé ou dupliqués dans l'espace de l'utilisateur. Une fois expirés, les documents seront automatiquement supprimés. Si les utilisateurs partagent un document, son expiration sera supprimée puis réappliquée à l'expiration du partage.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Décide si les documents expireront",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser l'expiration des documents"
+        },
+        "PARAMETER": {
+          "TITLE": "Période de conservation des documents"
+        }
       },
       "SECOND_FACTOR_AUTHENTICATION": {
-        "NAME": "Authentification double facteur"
+        "NAME": "Authentification double facteur",
+        "DESCRIPTION": "Le processus de connexion sera complété par une étape d'authentification par OTP",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permet à l'utilisateur de configurer l'authentification double facteur dans l'interface utilisateur",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permet à l'utilisateur de configurer l'authentification double facteur"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Permet à l'utilisateur de supprimer l'authentification double facteur",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permet à l'utilisateur de supprimer la clé partagée de l'authentification double facteur"
+        },
+        "PARAMETER": {
+          "TITLE": "Forcer tous les utilisateurs à configurer l'authentification double facteur",
+          "BOOLEAN_DESCRIPTION": "Tous les utilisateurs doivent configurer l'authentification double facteur"
+        }
       }
     }
   }
