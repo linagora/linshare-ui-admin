@@ -1024,14 +1024,22 @@
         "NAME": "Chống vi-rút",
         "MÔ TẢ": "Khi người dùng tải lên một tập tin trong LinShare, tệp đó sẽ được quét trước khi tải lên máy chủ. Để sử dụng chức năng này, bạn cần định cấu hình IP và cổng của ClamAV trong tệp linshare.properties. Máy chủ cần phải khởi động lại sau đó."
       },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Các email đã thu thập hết hạn",
+        "DESCRIPTION": "Khi người dùng chia sẻ tệp với người nhận mới (email nội bộ / bên ngoài hoặc khách), những email này sau đó sẽ được thu thập và đề xuất cho các lần chia sẻ trong tương lai. Chức năng này sẽ quyết định xem những email đó sẽ hết hạn hay không.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Quyết định xem các email đã thu thập có hết hạn hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép hết hạn các email đã thu thập"
+        },
+        "PARAMETER": {
+          "TITLE": "Thời gian lưu giữ các email đã thu thập"
+        }
+      },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Hết hạn tập tin"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Xác thực yếu tố thứ hai"
-      },
-      "COLLECTED_EMAILS_EXPIRATION": {
-        "NAME": "Hết hạn email đã thu thập"
       }
     }
   }

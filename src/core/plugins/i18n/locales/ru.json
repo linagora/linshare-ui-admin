@@ -790,6 +790,9 @@
       "ANTIVIRUS": {
         "NAME": "Антивирус"
       },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Срок действия собранных писем"
+      },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Срок действия документа"
       },
@@ -798,9 +801,6 @@
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Двухфакторная аутентификация"
-      },
-      "COLLECTED_EMAILS_EXPIRATION": {
-        "NAME": "Срок действия собранных писем"
       }
     }
   }

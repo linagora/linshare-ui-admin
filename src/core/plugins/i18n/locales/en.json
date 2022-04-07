@@ -1029,14 +1029,22 @@
         "NAME": "Antivirus",
         "DESCRIPTION": "When user uploads a file in LinShare, itwill be scanned before uploading to server. In order to use this functionalit, you need to configure IP and port of ClamAV in linshare.properties file. Server restart is required."
       },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Collected emails expiration",
+        "DESCRIPTION": "When user share files to new recipients (internal/external emails or guest), these emails are then collected and suggested on future shares. This functionality will decides whether those emails are expired or not",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Decides whether collected emails will be expired",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow collected emails to be expired"
+        },
+        "PARAMETER": {
+          "TITLE": "Retention period of collected emails"
+        }
+      },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Document expiration"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Second factor authentication"
-      },
-      "COLLECTED_EMAILS_EXPIRATION": {
-        "NAME": "Collected emails expiration"
       }
     }
   }

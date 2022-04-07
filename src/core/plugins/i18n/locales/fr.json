@@ -790,14 +790,14 @@
       "ANTIVIRUS": {
         "NAME": "Antivirus"
       },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Expiration des e-mails collectés"
+      },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Expiration de document"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Authentification double facteur"
-      },
-      "COLLECTED_EMAILS_EXPIRATION": {
-        "NAME": "Expiration des e-mails collectés"
       }
     }
   }
