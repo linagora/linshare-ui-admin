@@ -997,7 +997,7 @@
       },
       "DOMAIN__NOTIFICATION_URL": {
         "NAME": "URL trong thông báo",
-        "MÔ TẢ": "Cài đặt URL LinShare sẽ xuất hiện trong tiêu đề  của email thông báo",
+        "DESCRIPTION": "Cài đặt URL LinShare sẽ xuất hiện trong tiêu đề  của email thông báo",
         "PARAMETER": {
           "TITLE": "URL trong email thông báo"
         }
@@ -1022,7 +1022,7 @@
       },
       "ANTIVIRUS": {
         "NAME": "Chống vi-rút",
-        "MÔ TẢ": "Khi người dùng tải lên một tập tin trong LinShare, tệp đó sẽ được quét trước khi tải lên máy chủ. Để sử dụng chức năng này, bạn cần định cấu hình IP và cổng của ClamAV trong tệp linshare.properties. Máy chủ cần phải khởi động lại sau đó."
+        "DESCRIPTION": "Khi người dùng tải lên một tập tin trong LinShare, tệp đó sẽ được quét trước khi tải lên máy chủ. Để sử dụng chức năng này, bạn cần định cấu hình IP và cổng của ClamAV trong tệp linshare.properties. Máy chủ cần phải khởi động lại sau đó."
       },
       "COLLECTED_EMAILS_EXPIRATION": {
         "NAME": "Các email đã thu thập hết hạn",
@@ -1047,7 +1047,20 @@
         }
       },
       "SECOND_FACTOR_AUTHENTICATION": {
-        "NAME": "Xác thực yếu tố thứ hai"
+        "NAME": "Yếu tố xác thực thứ hai",
+        "DESCRIPTION": "Quá trình đăng nhập sẽ được thêm vào bởi một bước xác thực khác bằng OTP",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Cho phép người dùng thiết lập yếu tố xác thực thứ hai trong giao diện người dùng",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thiết lập yếu tố xác thực thứ hai"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Cho phép người dùng xóa yếu tố xác thực thứ hai",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng xóa khóa chia sẻ của yếu tố xác thực thứ hai"
+        },
+        "PARAMETER": {
+          "TITLE": "Buộc tất cả người dùng thiết lập yếu tố xác thực thứ hai",
+          "BOOLEAN_DESCRIPTION": "Tất cả người dùng phải thiết lập yếu tố xác thực thứ hai"
+        }
       }
     }
   }

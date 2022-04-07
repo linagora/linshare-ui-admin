@@ -1052,7 +1052,20 @@
         }
       },
       "SECOND_FACTOR_AUTHENTICATION": {
-        "NAME": "Second factor authentication"
+        "NAME": "Second factor authentication",
+        "DESCRIPTION": "Log in process will be added by another step of authentication by OTP",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Allows user to setup second factor authentication in user interface",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allows user to setup second factor authentication"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Allows user to remove second factor authentication",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allows user to remove shared key of second factor authentication"
+        },
+        "PARAMETER": {
+          "TITLE": "Force all users to setup second factor authentication",
+          "BOOLEAN_DESCRIPTION": "All users must setup second factor authentication"
+        }
       }
     }
   }
