@@ -1026,7 +1026,8 @@
         }
       },
       "ANTIVIRUS": {
-        "NAME": "Antivirus"
+        "NAME": "Antivirus",
+        "DESCRIPTION": "When user uploads a file in LinShare, itwill be scanned before uploading to server. In order to use this functionalit, you need to configure IP and port of ClamAV in linshare.properties file. Server restart is required."
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Document expiration"

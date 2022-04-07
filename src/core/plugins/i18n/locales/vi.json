@@ -1021,7 +1021,8 @@
         }
       },
       "ANTIVIRUS": {
-        "NAME": "Antivirus"
+        "NAME": "Chống vi-rút",
+        "MÔ TẢ": "Khi người dùng tải lên một tập tin trong LinShare, tệp đó sẽ được quét trước khi tải lên máy chủ. Để sử dụng chức năng này, bạn cần định cấu hình IP và cổng của ClamAV trong tệp linshare.properties. Máy chủ cần phải khởi động lại sau đó."
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Hết hạn tập tin"
