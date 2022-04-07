@@ -1008,10 +1008,15 @@
         }
       },
       "CONTACTS_LIST": {
-        "NAME": "Contacts list"
+        "NAME": "Contacts list",
+        "DESCRIPTION": "A contacts list can be used as recipient for many LinShare feature like files sharing, upload request,... Public contact lists are available to all domain users, while private lists can only be used by their creator"
       },
       "CONTACTS_LIST__CREATION_RIGHT": {
-        "NAME": "Creation right"
+        "NAME": "Creation right",
+        "DESCRIPTION": "Determine whether users can create new contacts list",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to create new contacts list"
+        }
       },
       "ANTIVIRUS": {
         "NAME": "Antivirus"

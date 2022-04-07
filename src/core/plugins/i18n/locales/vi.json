@@ -1003,10 +1003,15 @@
         }
       },
       "CONTACTS_LIST": {
-        "NAME": "Danh sách liên hệ"
+        "NAME": "Danh sách liên hệ",
+        "DESCRIPTION": "Danh sách liên hệ có thể được sử dụng làm người nhận cho nhiều tính năng LinShare như chia sẻ tệp, yêu cầu tải lên,... Danh sách liên hệ công khai có sẵn cho tất cả người dùng miền, trong khi danh sách riêng tư chỉ có người tạo của họ mới có thể sử dụng"
       },
       "CONTACTS_LIST__CREATION_RIGHT": {
-        "NAME": "Quyền tạo"
+        "NAME": "Quyền tạo",
+        "DESCRIPTION": "Xác định xem người dùng có thể tạo danh sách liên hệ mới hay không",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng tạo danh sách liên hệ mới"
+        }
       },
       "ANTIVIRUS": {
         "NAME": "Antivirus"
