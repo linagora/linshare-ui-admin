@@ -990,6 +990,23 @@
           "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to edit and postpone guest's expiration date"
         }
       },
+      "DOMAIN": {
+        "NAME": "Domain"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "Domain mail",
+        "DESCRIPTION": "Setting of the notification email of current domain. This email will be the sender address for any notifications.",
+        "PARAMETER": {
+          "TITLE": "Domain notificaiton email address"
+        }
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "Notification URL",
+        "DESCRIPTION": "Setting of LinShare URL that will be used for the header of notification emails",
+        "PARAMETER": {
+          "TITLE": "URL in notification email header"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Contacts list"
       },
@@ -1004,15 +1021,6 @@
       },
       "COMPLETION": {
         "NAME": "Completion"
-      },
-      "DOMAIN": {
-        "NAME": "Domain"
-      },
-      "DOMAIN__MAIL": {
-        "NAME": "Domain mail"
-      },
-      "DOMAIN__NOTIFICATION_URL": {
-        "NAME": "Notification URL"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Second factor authentication"

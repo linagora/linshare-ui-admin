@@ -769,6 +769,15 @@
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
         "NAME": "Отсрочить дату истечения срока действия гостя"
       },
+      "DOMAIN": {
+        "NAME": "Домен"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "Доменная почта"
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "Уведомления URL"
+      },
       "CONTACTS_LIST": {
         "NAME": "Список контактов"
       },
@@ -786,15 +795,6 @@
       },
       "SHARE_NOTIFICATION_BEFORE_EXPIRATION": {
         "NAME": "Предоставлять уведомление до истечения срока действия"
-      },
-      "DOMAIN": {
-        "NAME": "Домен"
-      },
-      "DOMAIN__MAIL": {
-        "NAME": "Доменная почта"
-      },
-      "DOMAIN__NOTIFICATION_URL": {
-        "NAME": "Уведомления URL"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Двухфакторная аутентификация"

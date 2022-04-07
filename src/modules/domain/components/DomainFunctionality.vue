@@ -342,9 +342,9 @@ watchEffect(() => {
         type="primary"
         :loading="saving"
         :disabled="
-          data.activationPolicy.readonly &&
-          data.configurationPolicy.readonly &&
-          data.delegationPolicy.readonly &&
+          data.activationPolicy?.readonly &&
+          data.configurationPolicy?.readonly &&
+          data.delegationPolicy?.readonly &&
           data.parameter?.readonly
         "
         @click="saveChanges()"

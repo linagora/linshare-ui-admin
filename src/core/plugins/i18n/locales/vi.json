@@ -985,6 +985,23 @@
           "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng chỉnh sửa và hoãn ngày hết hạn của khách"
         }
       },
+      "DOMAIN": {
+        "NAME": "Miền"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "Thư miền",
+        "DESCRIPTION": "Cài đặt email thông báo của miền hiện tại. Email này sẽ là địa chỉ người gửi cho bất kỳ thông báo nào.",
+        "PARAMETER": {
+          "TITLE": "Địa chỉ email thông báo của miền"
+        }
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "URL trong thông báo",
+        "MÔ TẢ": "Cài đặt URL LinShare sẽ xuất hiện trong tiêu đề  của email thông báo",
+        "PARAMETER": {
+          "TITLE": "URL trong email thông báo"
+        }
+      },
       "CONTACTS_LIST": {
         "NAME": "Danh sách liên hệ"
       },
@@ -999,15 +1016,6 @@
       },
       "HOÀN THÀNH": {
         "NAME": "Hoàn thành"
-      },
-      "MIỀN": {
-        "NAME": "Miền"
-      },
-      "DOMAIN__MAIL": {
-        "NAME": "Email miền"
-      },
-      "DOMAIN__NOTIFICATION_URL": {
-        "NAME": "URL thông báo"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Xác thực yếu tố thứ hai"

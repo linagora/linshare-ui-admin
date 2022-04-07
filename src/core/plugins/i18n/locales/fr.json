@@ -769,6 +769,15 @@
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
         "NAME": "Autoriser la prolongation de la date d'expiration des invités"
       },
+      "DOMAIN": {
+        "NAME": "Domaine"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "Adresse de courriel du domaine"
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "URL de base pour les notifications par courriel"
+      },
       "CONTACTS_LIST": {
         "NAME": "Liste de contacts"
       },
@@ -783,15 +792,6 @@
       },
       "COMPLETION": {
         "NAME": "Complétion"
-      },
-      "DOMAIN": {
-        "NAME": "Domaine"
-      },
-      "DOMAIN__MAIL": {
-        "NAME": "Adresse de courriel du domaine"
-      },
-      "DOMAIN__NOTIFICATION_URL": {
-        "NAME": "URL de base pour les notifications par courriel"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Authentification double facteur"
