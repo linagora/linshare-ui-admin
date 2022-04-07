@@ -46,7 +46,7 @@ watch(
   </div>
 
   <a-row v-else>
-    <a-col :xs="24" :sm="24" :md="{ span: 16, offset: 4 }">
+    <a-col :md="24" :xl="{ span: 12, offset: 6 }">
       <div v-for="functionality in functionalities" :key="functionality?.identifier">
         <div v-if="functionality" class="functionality">
           <div class="header">
