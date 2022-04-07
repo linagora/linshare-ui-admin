@@ -784,14 +784,14 @@
       "CONTACTS_LIST__CREATION_RIGHT": {
         "NAME": "Право право создания"
       },
+      "COMPLETION": {
+        "NAME": "Завершение"
+      },
       "ANTIVIRUS": {
         "NAME": "Антивирус"
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Срок действия документа"
-      },
-      "COMPLETION": {
-        "NAME": "Завершение"
       },
       "SHARE_NOTIFICATION_BEFORE_EXPIRATION": {
         "NAME": "Предоставлять уведомление до истечения срока действия"

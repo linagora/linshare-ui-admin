@@ -1018,14 +1018,18 @@
           "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to create new contacts list"
         }
       },
+      "COMPLETION": {
+        "NAME": "Autocompletion",
+        "DESCRIPTION": "Determine number of characters that will trigger autocompletion search when users enter share recipient",
+        "PARAMETER": {
+          "TITLE": "Number of input characters to trigger autocompletion search"
+        }
+      },
       "ANTIVIRUS": {
         "NAME": "Antivirus"
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Document expiration"
-      },
-      "COMPLETION": {
-        "NAME": "Completion"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Second factor authentication"

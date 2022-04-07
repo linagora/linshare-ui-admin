@@ -1013,14 +1013,18 @@
           "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng tạo danh sách liên hệ mới"
         }
       },
+      "COMPLETION": {
+        "NAME": "Tự động hoàn thành",
+        "DESCRIPTION": "Xác định số ký tự sẽ kích hoạt tìm kiếm tự động hoàn thành khi người dùng nhập người nhận chia sẻ",
+        "PARAMETER": {
+          "TITLE": "Số ký tự nhập vào để kích hoạt tìm kiếm tự động hoàn thành"
+        }
+      },
       "ANTIVIRUS": {
         "NAME": "Antivirus"
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Hết hạn tập tin"
-      },
-      "HOÀN THÀNH": {
-        "NAME": "Hoàn thành"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Xác thực yếu tố thứ hai"

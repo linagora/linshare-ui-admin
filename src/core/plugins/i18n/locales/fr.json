@@ -784,14 +784,14 @@
       "CONTACTS_LIST__CREATION_RIGHT": {
         "NAME": "Droit de création"
       },
+      "COMPLETION": {
+        "NAME": "Complétion"
+      },
       "ANTIVIRUS": {
         "NAME": "Antivirus"
       },
       "DOCUMENT_EXPIRATION": {
         "NAME": "Expiration de document"
-      },
-      "COMPLETION": {
-        "NAME": "Complétion"
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Authentification double facteur"
