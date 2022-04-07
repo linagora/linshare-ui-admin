@@ -1041,7 +1041,15 @@
         }
       },
       "DOCUMENT_EXPIRATION": {
-        "NAME": "Document expiration"
+        "NAME": "Document expiration",
+        "DESCRIPTION": "Set an expiration date on new uploaded or duplicated files in user's space. When expired, files will be automatically removed. If users share a document, its expiration will be removed and then reapplied on share expiration.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Decides whether new files will be expired",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow newly uploaded files to expired"
+        },
+        "PARAMETER": {
+          "TITLE": "Retention period of newly uploaded files"
+        }
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Second factor authentication"

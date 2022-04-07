@@ -1036,7 +1036,15 @@
         }
       },
       "DOCUMENT_EXPIRATION": {
-        "NAME": "Hết hạn tập tin"
+        "NAME": "Cho phép tập tin hết hạn",
+        "DESCRIPTION": "Đặt ngày hết hạn cho các tệp mới được tải lên trong không gian của người dùng. Khi hết hạn, các tệp sẽ tự động bị xóa. Nếu người dùng chia sẻ tài liệu, ngày hết hạn của tài liệu đó sẽ bị xóa và sau đó áp dụng lại khi hết hạn chia sẻ.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Quyết định xem các tệp mới có bị hết hạn hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép các tệp mới tải lên hết hạn"
+        },
+        "PARAMETER": {
+          "TITLE": "Thời gian lưu trữ của các tệp mới tải lên"
+        }
       },
       "SECOND_FACTOR_AUTHENTICATION": {
         "NAME": "Xác thực yếu tố thứ hai"
