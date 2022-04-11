@@ -4,7 +4,7 @@ window.APP_CONFIGURATION = Object.freeze({
   oidcEnabled: false,
   oidcSetting: {
     authority: 'https://auth.linshare.local/',
-    client_id: 'linshare-admin-dev',
+    client_id: 'linshare',
     client_secret: 'linshare',
     scope: 'openid email profile',
   },
