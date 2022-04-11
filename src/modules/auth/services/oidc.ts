@@ -12,7 +12,7 @@ const manager = new UserManager({
   client_id: oidcSetting.client_id,
   client_secret: oidcSetting.client_secret,
   scope: oidcSetting.scope,
-  redirect_uri: window.location.origin + '/#/oidccallback',
+  redirect_uri: window.location.origin + '/#/oidc/callback',
   response_type: 'code',
   post_logout_redirect_uri: window.location.origin + '/'
 });
