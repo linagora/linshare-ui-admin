@@ -125,6 +125,12 @@ async function deleteWelcomeMessage(domainUuid: string, messageUuid: string): Pr
     data: {},
   });
 }
+
+async function assignWelcomeMessage(domainUuid: string, messageUuid: string): Promise<WelcomeMessage> {
+  return await api.put(`domains/${domainUuid}/welcome_messages/${messageUuid}/assign`, {
+    assign: true,
+  });
+}
 export {
   createDomain,
   createWorkspaceProvider,
@@ -151,4 +157,5 @@ export {
   updateWelcomeMessage,
   createWelcomeMessage,
   deleteWelcomeMessage,
+  assignWelcomeMessage,
 };

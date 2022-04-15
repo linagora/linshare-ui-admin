@@ -32,6 +32,7 @@
       </router-link>
     </div>
   </div>
+
   <a-table
     :columns="columns"
     :data-source="filteredList"
@@ -71,18 +72,26 @@
               <a-menu-item
                 v-if="currentDomain.type !== DOMAIN_TYPE.ROOT"
                 :disabled="record.assignedToCurrentDomain === true"
+                @click="confirmAssign(record)"
               >
                 {{ $t('GENERAL.ASSIGN') }}
               </a-menu-item>
-              <a-menu-item>
-                {{ $t('GENERAL.DUPLICATE') }}
-              </a-menu-item>
+              <router-link
+                :to="{
+                  name: 'DomainWelcomeMessageNew',
+                  query: { duplicate: record.uuid },
+                }"
+              >
+                <a-menu-item>
+                  {{ $t('GENERAL.DUPLICATE') }}
+                </a-menu-item>
+              </router-link>
               <router-link :to="{ name: 'DomainWelcomeMessageDetails', params: { uuid: record.uuid } }">
                 <a-menu-item>
                   {{ $t(record.readOnly ? 'GENERAL.VIEW' : 'GENERAL.EDIT') }}
                 </a-menu-item>
               </router-link>
-              <a-menu-item v-if="!record.readOnly">
+              <a-menu-item v-if="!record.readOnly && record.uuid !== rootWelcomeMessageUuid">
                 <span class="delete_text"> {{ $t('GENERAL.DELETE') }} </span>
               </a-menu-item>
             </a-menu>
@@ -100,13 +109,14 @@ import { useI18n } from 'vue-i18n';
 import { PlusCircleOutlined, SearchOutlined, EllipsisOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import { getWelcomeMessages } from '../services/domain-api';
+import { getWelcomeMessages, assignWelcomeMessage } from '../services/domain-api';
 import WelcomeMessage from '../types/WelcomeMessages';
 import { APIError } from '@/core/types/APIError';
 import { message } from 'ant-design-vue';
 import StatusValue from '@/core/types/Status';
+import useNotification from '@/core/hooks/useNotification';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
-import { useRouter } from 'vue-router';
+import config from '@/config';
 
 interface WelcomeMessagesListState {
   status: StatusValue;
@@ -114,7 +124,6 @@ interface WelcomeMessagesListState {
   list: WelcomeMessage[];
 }
 
-const { push } = useRouter();
 const { t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const state = reactive<WelcomeMessagesListState>({
@@ -124,6 +133,8 @@ const state = reactive<WelcomeMessagesListState>({
 });
 
 const store = useStore();
+const rootWelcomeMessageUuid = config.rootWelcomeMessageUuid;
+const { confirmModal } = useNotification();
 const currentDomainUuid = computed(() => store.getters['Domain/getCurrentDomainUuid']);
 const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
 const filteredList = computed(() =>
@@ -177,7 +188,6 @@ async function fetchWelcomeMessages() {
   if (!currentDomainUuid.value) {
     return;
   }
-
   state.status = StatusValue.LOADING;
 
   try {
@@ -192,6 +202,33 @@ async function fetchWelcomeMessages() {
       message.error(error.getMessage());
     }
   }
+}
+
+async function assign(welcomeMessage: WelcomeMessage) {
+  try {
+    await assignWelcomeMessage(currentDomain.value.uuid, welcomeMessage.uuid);
+    message.success(t('WELCOME_MESSAGES.ASSIGN_SUCCESS'));
+    state.list.forEach((element) => {
+      if (element.uuid === welcomeMessage.uuid) {
+        element.assignedToCurrentDomain = true;
+        return;
+      }
+      element.assignedToCurrentDomain = false;
+    });
+  } catch (error) {
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+    }
+  }
+}
+
+function confirmAssign(messageUuid: WelcomeMessage) {
+  confirmModal({
+    title: t('GENERAL.ASSIGN'),
+    content: t('WELCOME_MESSAGES.ASSIGN_CONFIRM'),
+    okText: t('GENERAL.YES'),
+    onOk: () => assign(messageUuid),
+  });
 }
 
 watch(currentDomainStatus, (status: StatusValue) => {

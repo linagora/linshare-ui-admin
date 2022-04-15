@@ -563,7 +563,10 @@
     "THE_WELCOME_MESSAGE":"The welcome message",
     "SET_FIELD":"You need to set this field",
     "DELETE_CONFIRM":"You are about to delete this welcome message, this procedure is irreversible. Do you want to proceed?",
-    "MESSAGE_PREVIEW":"Here is a preview of the welcome message:"
+    "DELETE_ERROR":"One of selected  Welcome messages is associated with at least one domain. You cannot delete.",
+    "MESSAGE_PREVIEW":"Here is a preview of the welcome message:",
+    "ASSIGN_SUCCESS": "Assigned successfully",
+    "ASSIGN_CONFIRM": "You are about to assign this welcome message to the current domain. Do you want to proceed?"
   },
   "FUNCTIONALITIES": {
     "LIST": {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data.uuid && !data.readOnly" class="actions">
+  <div v-if="data.uuid && !isDuplicating && !data.readOnly" class="actions">
     <a-button class="action-button" type="primary" @click="toggleEditMode()">
       {{ $t(mode.edit ? 'GENERAL.CANCEL' : 'GENERAL.EDIT') }}
     </a-button>
@@ -16,7 +16,7 @@
   </div>
   <a-row class="top-panel" justify="center">
     <a-col :md="12" :sm="24">
-      <div v-if="!data.uuid || mode.edit" class="form-info">
+      <div v-if="isDuplicating || !data.uuid || mode.edit" class="form-info">
         <a-form layout="vertical">
           <a-form-item :label="$t('DOMAIN.FIELDS.NAME')" v-bind="validateInfos.name">
             <div class="input-container">
@@ -52,7 +52,7 @@
       </div>
     </a-col>
 
-    <a-col v-if="data.uuid" :md="12" :sm="24">
+    <a-col v-if="data.uuid && !isDuplicating" :md="12" :sm="24">
       <div class="info-block-container">
         <div class="info-block">
           <div v-if="data.creationDate" class="info-block">
@@ -99,7 +99,7 @@
       <a-collapse v-model:activeKey="collapsedKeys" @click="collapse()">
         <a-collapse-panel v-for="key in Object.keys(formState.entries)" :key="key" :header="$t(`LOCALE.${key}`)">
           <template #extra>{{ flagMappings[key] || '🌍' }}</template>
-          <span v-if="!mode.edit && data.uuid" v-html="formState.entries[key]"></span>
+          <span v-if="!mode.edit && data.uuid && !isDuplicating" v-html="formState.entries[key]"></span>
           <a-textarea v-else v-model:value="formState.entries[key]" rows="10" />
         </a-collapse-panel>
       </a-collapse>
@@ -113,7 +113,7 @@
       </a-button>
     </div>
   </div>
-  <div v-if="!data.uuid">
+  <div v-if="!data.uuid || isDuplicating">
     <a-button class="action-button" type="primary" @click="submit()">
       {{ $t('GENERAL.CREATE') }}
     </a-button>
@@ -121,7 +121,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, watchEffect } from 'vue';
+import { reactive, ref, watchEffect, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import WelcomeMessage from '../types/WelcomeMessages';
 import config from '@/config';
@@ -133,7 +133,11 @@ const { currentRoute } = useRouter();
 const messageUuid = currentRoute.value.params.uuid;
 const emit = defineEmits(['delete', 'submit']);
 const useForm = Form.useForm;
+const router = useRouter();
 const defaultWelcomeMessageUuid = config.rootWelcomeMessageUuid;
+const isDuplicating = computed(
+  () => !!router.currentRoute.value.query.duplicate && router.currentRoute.value.name === 'DomainWelcomeMessageNew'
+);
 const props = defineProps<{
   data: WelcomeMessage;
 }>();

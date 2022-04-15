@@ -559,7 +559,10 @@
     "THE_WELCOME_MESSAGE": "Thông điệp chào mừng",
     "SET_FIELD": "Bạn cần đặt trường này",
     "DELETE_CONFIRM":"Bạn sắp xóa thông điệp chào mừng này, quy trình này không thể hoàn tác. Bạn có muốn tiếp tục?",
-    "MESSAGE_PREVIEW":"Đây là bản xem trước của thông điệp chào mừng:"
+    "DELETE_ERROR":"Một trong các thông báo Chào mừng đã chọn được liên kết với ít nhất một miền. Bạn không thể xóa.",
+    "MESSAGE_PREVIEW":"Đây là bản xem trước của thông điệp chào mừng:",
+    "ASSIGN_SUCCESS": "Đã gán thành công",
+    "ASSIGN_CONFIRM": "Bạn sắp gán thông báo chào mừng này cho miền hiện tại. Bạn có muốn tiếp tục?"
   },
   "FUNCTIONALITIES": {
     "LIST": {

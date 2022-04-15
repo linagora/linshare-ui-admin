@@ -35,6 +35,9 @@ const { breadcrumbs } = useBreadcrumbs();
 const { confirmModal } = useNotification();
 const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
 const welcomeMessage = reactive<WelcomeMessage>({ ...EMPTY_WELCOME_MESSAGE });
+const isDuplicating = computed(
+  () => !!router.currentRoute.value.query.duplicate && router.currentRoute.value.name === 'DomainWelcomeMessageNew'
+);
 
 function setSubmit(data: WelcomeMessage) {
   if (router.currentRoute.value.name === 'DomainWelcomeMessageDetails') {
@@ -45,17 +48,19 @@ function setSubmit(data: WelcomeMessage) {
 }
 
 async function getWelcomeMessageInformations() {
-  if (router.currentRoute.value.name === 'DomainWelcomeMessageDetails') {
+  if (router.currentRoute.value.name === 'DomainWelcomeMessageDetails' || router.currentRoute.value.query.duplicate) {
     try {
-      const message = await getWelcomeMessage(
-        currentDomain.value.uuid,
-        router.currentRoute.value.params.uuid as string
-      );
+      const targetUuid = isDuplicating.value
+        ? (router.currentRoute.value.query.duplicate as string)
+        : (router.currentRoute.value.params.uuid as string);
+      const message = await getWelcomeMessage(currentDomain.value.uuid, targetUuid);
       Object.assign(welcomeMessage, message);
+      if (isDuplicating.value) {
+        welcomeMessage.name = '';
+      }
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
-
         if (error.errorCode === 36004) {
           router.push({ name: 'WelcomeMessages' });
         }

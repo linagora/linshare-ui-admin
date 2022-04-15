@@ -559,7 +559,10 @@
     "THE_WELCOME_MESSAGE":"Le message d'accueil",
     "SET_FIELD":"Vous devez renseigner ce champ",
     "DELETE_CONFIRM":"Vous êtes sur le point de supprimer ce message d'accueil, cette action est irréversible, souhaitez-vous continuer ?",
-    "MESSAGE_PREVIEW":"Voici un aperçu du message d'accueil :"
+    "DELETE_ERROR":"Un des messages d'accueil selectionnés est associé à au moins un domaine, vous ne pouvez pas le supprimer.",
+    "MESSAGE_PREVIEW":"Voici un aperçu du message d'accueil :",
+    "ASSIGN_SUCCESS": "Assigné avec succès",
+    "ASSIGN_CONFIRM": "Vous êtes sur le point d'attribuer ce message d'accueil au domaine actuel, souhaitez-vous continuer ?"
   },
   "FUNCTIONALITIES": {
     "LIST": {
