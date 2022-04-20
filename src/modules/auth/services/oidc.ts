@@ -12,9 +12,9 @@ const manager = new UserManager({
   client_id: oidcSetting.client_id,
   client_secret: oidcSetting.client_secret,
   scope: oidcSetting.scope,
-  redirect_uri: window.location.origin + '/#/oidc/callback',
   response_type: 'code',
-  post_logout_redirect_uri: window.location.origin + '/',
+  redirect_uri: `${window.location.origin}${window.location.pathname}#/oidc/callback`,
+  post_logout_redirect_uri: `${window.location.origin}${window.location.pathname}`,
 });
 
 interface OIDCBearerRequest extends AxiosRequestConfig {
