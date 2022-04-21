@@ -116,10 +116,6 @@ const CONFIGURATION_PAGES: ConfigurationPage[] = [
     },
   },
   {
-    title: 'NAVIGATOR.TYPE_MIME',
-    legacy: true,
-  },
-  {
     title: 'NAVIGATOR.QUOTA',
     legacy: true,
   },
