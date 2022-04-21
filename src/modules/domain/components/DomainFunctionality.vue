@@ -7,19 +7,14 @@ import { useI18n } from 'vue-i18n';
 
 interface Props {
   data: Functionality;
-  expandOnLoad?: boolean;
 }
 
 const { t } = useI18n();
 const { getTranslatedText, saveFunctionality } = useFunctionalties();
-const props = withDefaults(defineProps<Props>(), { expandOnLoad: false });
+const props = defineProps<Props>();
 const functionality = reactive<Functionality>(cloneDeep(props.data));
-const collapsedKeys = ref(['parameter']);
+const collapsedKeys = ref(['parameter', 'activation', 'delegation', 'configuration']);
 const saving = ref(false);
-
-if (props.expandOnLoad) {
-  collapsedKeys.value = ['parameter', 'activation', 'delegation', 'configuration'];
-}
 
 async function saveChanges() {
   saving.value = true;

@@ -23,6 +23,7 @@ const show = reactive<Record<string, boolean>>({});
 const main = computed<Functionality | undefined>(() =>
   store.getters['Domain/getFunctionality'](route.params.identifier as string)
 );
+
 const subs = computed<Functionality[]>(() =>
   store.getters['Domain/getSubFunctionalities'](route.params.identifier as string)
 );
@@ -71,7 +72,7 @@ watch(
           <div v-show="!functionality.parentIdentifier || show[functionality.identifier]">
             <p class="description">{{ getTranslatedText(functionality, 'DESCRIPTION') }}</p>
 
-            <DomainFunctionality :expand-on-load="false" :data="functionality"></DomainFunctionality>
+            <DomainFunctionality :data="functionality"></DomainFunctionality>
           </div>
         </div>
       </div>
