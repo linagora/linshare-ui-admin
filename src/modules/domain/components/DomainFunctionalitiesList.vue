@@ -71,9 +71,9 @@ const filteredList = computed<Functionality[]>(() => {
     .sort(sorters[params.sorterKey]);
 });
 
-function goToDetails(functionality: Functionality) {
-  router.push({ name: 'DomainFunctionality', params: { identifier: functionality.identifier } });
-}
+const customRow = (record: Functionality) => ({
+  onClick: () => router.push({ name: 'DomainFunctionality', params: { identifier: record.identifier } }),
+});
 </script>
 
 <template>
@@ -103,9 +103,11 @@ function goToDetails(functionality: Functionality) {
     :data-source="filteredList"
     :loading="status === StatusValue.LOADING"
     row-key="identifier"
+    :custom-row="customRow"
+    class="functionnality-table"
   >
     <template #name="{ record }">
-      <div class="name" @click="goToDetails(record)">
+      <div class="name">
         <span>{{ t(`FUNCTIONALITIES.DETAILS.${record.identifier}.NAME`) }}</span>
       </div>
     </template>
@@ -114,8 +116,8 @@ function goToDetails(functionality: Functionality) {
       <a-tag :color="text ? 'success' : 'error'">{{ $t(text ? 'GENERAL.ENABLED' : 'GENERAL.DISABLED') }}</a-tag>
     </template>
 
-    <template #action="{ record }">
-      <a @click="goToDetails(record)">
+    <template #action>
+      <a>
         <RightOutlined />
       </a>
     </template>
@@ -136,6 +138,10 @@ function goToDetails(functionality: Functionality) {
 
 .name {
   width: 100%;
+  cursor: pointer;
+}
+
+.functionnality-table {
   cursor: pointer;
 }
 </style>
