@@ -91,7 +91,7 @@
                   {{ $t(record.readOnly ? 'GENERAL.VIEW' : 'GENERAL.EDIT') }}
                 </a-menu-item>
               </router-link>
-              <a-menu-item v-if="!record.readOnly && record.uuid !== rootWelcomeMessageUuid">
+              <a-menu-item v-if="canDeleteMessage(record)" @click="confirmDelete(record)">
                 <span class="delete_text"> {{ $t('GENERAL.DELETE') }} </span>
               </a-menu-item>
             </a-menu>
@@ -109,7 +109,7 @@ import { useI18n } from 'vue-i18n';
 import { PlusCircleOutlined, SearchOutlined, EllipsisOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import { getWelcomeMessages, assignWelcomeMessage } from '../services/domain-api';
+import { getWelcomeMessages, assignWelcomeMessage, deleteWelcomeMessage } from '../services/domain-api';
 import WelcomeMessage from '../types/WelcomeMessages';
 import { APIError } from '@/core/types/APIError';
 import { message } from 'ant-design-vue';
@@ -222,13 +222,42 @@ async function assign(welcomeMessage: WelcomeMessage) {
   }
 }
 
-function confirmAssign(messageUuid: WelcomeMessage) {
+function confirmAssign(welcomeMessage: WelcomeMessage) {
   confirmModal({
     title: t('GENERAL.ASSIGN'),
     content: t('WELCOME_MESSAGES.ASSIGN_CONFIRM'),
     okText: t('GENERAL.YES'),
-    onOk: () => assign(messageUuid),
+    onOk: () => assign(welcomeMessage),
   });
+}
+
+async function remove(welcomeMessage: WelcomeMessage) {
+  try {
+    await deleteWelcomeMessage(currentDomain.value.uuid, welcomeMessage.uuid);
+    message.success(t('MESSAGES.DELETE_SUCCESS'));
+    state.list = state.list.filter((message) => message.uuid !== welcomeMessage.uuid);
+  } catch (error) {
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+    }
+  }
+}
+
+async function confirmDelete(welcomeMessage: WelcomeMessage) {
+  confirmModal({
+    title: t('GENERAL.DELETION'),
+    content: t('WELCOME_MESSAGES.DELETE_CONFIRM'),
+    okText: t('GENERAL.DELETE'),
+    onOk: () => remove(welcomeMessage),
+  });
+}
+
+function canDeleteMessage(welcomeMessage: WelcomeMessage) {
+  return (
+    !welcomeMessage.readOnly &&
+    welcomeMessage.uuid !== rootWelcomeMessageUuid &&
+    welcomeMessage.assignedToCurrentDomain === false
+  );
 }
 
 watch(currentDomainStatus, (status: StatusValue) => {

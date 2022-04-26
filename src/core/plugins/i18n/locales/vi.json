@@ -213,7 +213,8 @@
     "55000": "Bộ lọc nhóm không được tìm thấy",
     "66000": "Không tìm thấy không gian chia sẻ",
     "2002": "Yếu tố xác thực thứ hai không được bật cho miền của bạn",
-    "36004": "Không tìm thấy thông điệp chào mừng"
+    "36004": "Không tìm thấy thông điệp chào mừng",
+    "36006": "Thông điệp chào mừng hiện đang được gán cho ít nhất một miền."
   },
   "AUTH": {
     "TAGLINE": "Phần mềm chia sẻ dữ liệu bảo mật bằng công nghệ nguồn mở",
@@ -559,7 +560,6 @@
     "THE_WELCOME_MESSAGE": "Thông điệp chào mừng",
     "SET_FIELD": "Bạn cần đặt trường này",
     "DELETE_CONFIRM":"Bạn sắp xóa thông điệp chào mừng này, quy trình này không thể hoàn tác. Bạn có muốn tiếp tục?",
-    "DELETE_ERROR":"Một trong các thông báo Chào mừng đã chọn được liên kết với ít nhất một miền. Bạn không thể xóa.",
     "MESSAGE_PREVIEW":"Đây là bản xem trước của thông điệp chào mừng:",
     "ASSIGN_SUCCESS": "Đã gán thành công",
     "ASSIGN_CONFIRM": "Bạn sắp gán thông báo chào mừng này cho miền hiện tại. Bạn có muốn tiếp tục?"

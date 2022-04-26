@@ -216,7 +216,8 @@
     "55000": "Group filter not found",
     "66000": "Shared space not found",
     "2002": "Second factor authentication is not enabled for your domain",
-    "36004": "Welcome message not found"
+    "36004": "Welcome message not found",
+    "36006": "Welcome message is currently assigned with at least one domain."
   },
   "AUTH": {
     "TAGLINE": "Secure file sharing app in open source",
@@ -563,7 +564,6 @@
     "THE_WELCOME_MESSAGE":"The welcome message",
     "SET_FIELD":"You need to set this field",
     "DELETE_CONFIRM":"You are about to delete this welcome message, this procedure is irreversible. Do you want to proceed?",
-    "DELETE_ERROR":"One of selected  Welcome messages is associated with at least one domain. You cannot delete.",
     "MESSAGE_PREVIEW":"Here is a preview of the welcome message:",
     "ASSIGN_SUCCESS": "Assigned successfully",
     "ASSIGN_CONFIRM": "You are about to assign this welcome message to the current domain. Do you want to proceed?"
