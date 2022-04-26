@@ -1,5 +1,6 @@
 import { AxiosResponse, AxiosError } from 'axios';
 import i18n from '../plugins/i18n';
+import { ERRORS_REQUIRE_EXTRA_MESSAGE } from '@/core/constants';
 
 export class APIError extends Error {
   public isAuthError: boolean;
@@ -25,6 +26,11 @@ export class APIError extends Error {
   }
 
   getMessage(): string {
+    if (ERRORS_REQUIRE_EXTRA_MESSAGE.includes(this.errorCode)) {
+      return i18n.global.t(this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`, {
+        message: this.message,
+      });
+    }
     return i18n.global.t(this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`, 1, {
       missingWarn: true,
       default: this.message,

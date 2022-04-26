@@ -220,7 +220,11 @@
       "1001": "Invalid login credentials",
       "1002": "Second factor authentication required",
       "1003": "OTP is wrong or expired",
-      "1004": "Your account has been locked due to failed login attempts"
+      "1004": "Your account has been locked due to failed login attempts",
+      "1006": "SSO authentication failed: {message}",
+      "1007": "SSO authentication failed: {message}",
+      "1008": "SSO authentication failed: {message}",
+      "1009": "Multiple domain found"
     },
     "55000": "Group filter not found",
     "66000": "Shared space not found",

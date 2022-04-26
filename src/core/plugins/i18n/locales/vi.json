@@ -217,7 +217,11 @@
      "1001": "Sai thông tin đăng nhập",
      "1002": "Yếu tố xác thực thứ hai bắt buộc",
      "1003": "Mã xác thực không đúng hoặc đã hết hạn",
-     "1004": "Tài khoản của bạn đã bị khóa vì đăng nhập thất bại"
+     "1004": "Tài khoản của bạn đã bị khóa vì đăng nhập thất bại",
+     "1006": "Xác thực SSO không thành công: {message}",
+     "1007": "Xác thực SSO không thành công: {message}",
+     "1008": "Xác thực SSO không thành công: {message}",
+     "1009": "Nhiều miền được tìm thấy"
     },
     "55000": "Bộ lọc nhóm không được tìm thấy",
     "66000": "Không tìm thấy không gian chia sẻ",
