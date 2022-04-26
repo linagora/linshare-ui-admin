@@ -8,6 +8,8 @@
 import { useRouter } from 'vue-router';
 import { onMounted } from 'vue';
 import { signinCallback } from '@/modules/auth/services/oidc';
+import { message } from 'ant-design-vue';
+import { APIError } from '@/core/types/APIError';
 
 const router = useRouter();
 
@@ -17,6 +19,9 @@ onMounted(async () => {
     router.replace('/');
   } catch (error) {
     console.error(error);
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+    }
   }
 });
 </script>

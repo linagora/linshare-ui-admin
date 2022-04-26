@@ -198,6 +198,10 @@
       "1002": "l'activation de l'authentification double facteur est requise",
       "1003": "le code OTP est invalide ou expiré",
       "1004": "Votre compte a été verouillé en raison de nombreuses tentatives infructueuses de connexion",
+      "1006": "L'authentication de SSO a échoué: {message}",
+      "1007": "L'authentication de SSO a échoué: {message}",
+      "1008": "L'authentication de SSO a échoué: {message}",
+      "1009": "Plusieurs domaines trouvés",
       "2002": "L'authentification à deux facteurs n'est pas activée pour votre domaine"
     },
     "55000": "Filtre de groupe introuvable",

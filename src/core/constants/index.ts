@@ -10,3 +10,4 @@ export const CONFIG = {
 export * from './languages';
 export * from './permissions';
 export * from './pagination';
+export * from './api-errors';
