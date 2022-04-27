@@ -44,7 +44,8 @@
     "EDITABLE": "Éditable",
     "VIEW": "Afficher",
     "EXPAND": "Étendre",
-    "COLLAPSE": "Réduire"
+    "COLLAPSE": "Réduire",
+    "ADD": "Ajouter"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -192,6 +193,14 @@
       "RESTRICTED_GUEST": "Restreindre l'invité",
       "RESTRICTED_CONTACTS": "Comptes que l'invité peut contacter",
       "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "La date d'expiration de l'invité doit être comprise entre demain et le {date}"
+    },
+    "GUEST_MODERATOR": {
+      "TAB_TITLE": "Modérateurs",
+      "ADD_MODERATOR": "Ajouter un modérateur",
+      "ROLE": {
+        "ADMIN": "Administrateur",
+        "SIMPLE": "Modérateur"
+      }
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Enter value",

@@ -44,7 +44,8 @@
     "EDITABLE": "редактируемый",
     "VIEW": "Посмотреть",
     "EXPAND": "Расширить",
-    "COLLAPSE": "Свернуть"
+    "COLLAPSE": "Свернуть",
+    "ADD": "Добавлять"
   },
   "LOCALE": {
     "ENGLISH": "Английский",
@@ -192,6 +193,14 @@
       "RESTRICTED_GUEST": "Ограничить гостя",
       "RESTRICTED_CONTACTS": "Гость может связаться с аккаунтами",
       "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Дата истечения срока действия гостя должна быть между завтра и {date}"
+    },
+    "GUEST_MODERATOR": {
+      "TAB_TITLE": "Модераторы",
+      "ADD_MODERATOR": "Добавить модератора",
+      "ROLE": {
+        "ADMIN": "Администратор",
+        "SIMPLE": "Модератор"
+      }
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Введите значение",

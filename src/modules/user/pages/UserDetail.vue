@@ -52,6 +52,9 @@
         <a-tab-pane v-if="user.accountType === 'GUEST'" key="3" :tab="$t('USERS.DETAIL_USER.RESTRICTED_CONTACT_LIST')">
           <RestrictedContacts />
         </a-tab-pane>
+        <a-tab-pane v-if="user.accountType === 'GUEST'" key="4" :tab="$t('USERS.GUEST_MODERATOR.TAB_TITLE')">
+          <GuestModerators />
+        </a-tab-pane>
       </a-tabs>
     </div>
   </div>
@@ -73,6 +76,7 @@ import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import { deleteUser2FAKey } from '../services/user-api';
 import User from '../types/User';
 import { APIError } from '@/core/types/APIError';
+import GuestModerators from '../components/GuestModerators.vue';
 
 export default defineComponent({
   name: 'UserDetail',
@@ -81,6 +85,7 @@ export default defineComponent({
     PersonalSpaceQuota,
     UserProfile,
     RestrictedContacts,
+    GuestModerators,
   },
   async setup() {
     const { params } = useRoute();

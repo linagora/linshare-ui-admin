@@ -44,7 +44,8 @@
     "EDITABLE": "Editable",
     "VIEW": "View",
     "EXPAND": "Expand",
-    "COLLAPSE": "Collapse"
+    "COLLAPSE": "Collapse",
+    "ADD": "Add"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -194,6 +195,14 @@
       "RESTRICTED_GUEST": "Restrict guest",
       "RESTRICTED_CONTACTS": "Accounts guest can contact",
       "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Guest expiration date must be between tomorrow and {date}"
+    },
+    "GUEST_MODERATOR": {
+      "TAB_TITLE": "Moderators",
+      "ADD_MODERATOR": "Add moderator",
+      "ROLE": {
+        "ADMIN": "Administrator",
+        "SIMPLE": "Moderator"
+      }
     },
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Enter value",
