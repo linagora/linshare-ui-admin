@@ -606,7 +606,8 @@
         "DESCRIPTION": "",
         "DESCRIPTION_MAXIMUM": "",
         "BOOLEAN_DESCRIPTION": "Enable this parameter",
-        "UNLIMITED_CHECKBOX": "Unlimited"
+        "UNLIMITED_CHECKBOX": "Unlimited",
+        "LANGUAGE_TITLE": "Language"
       },
       "ACTIVATION_POLICY": {
         "HEADER": "Activation policy",
@@ -684,7 +685,10 @@
       },
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
         "NAME": "Email notification language",
-        "DESCRIPTION": ""
+        "DESCRIPTION": "",
+        "PARAMETER": {
+          "LANGUAGE_TITLE": "Email notification language"
+        }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Delay before activation",

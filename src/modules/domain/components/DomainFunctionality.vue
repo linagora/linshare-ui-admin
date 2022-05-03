@@ -328,6 +328,20 @@ watchEffect(() => {
               </a-input>
             </a-form-item>
           </div>
+
+          <div v-if="functionality.parameter.type === 'LANGUAGE'">
+            <a-form-item :label="getTranslatedText(functionality, 'PARAMETER.LANGUAGE_TITLE')">
+              <a-select v-model:value="functionality.parameter.defaut.value" :disabled="data.parameter?.readonly">
+                <a-select-option
+                  v-for="language in functionality.parameter.defaut.languages"
+                  :key="language"
+                  :value="language"
+                >
+                  {{ t(`LOCALE.${language}`) }}
+                </a-select-option>
+              </a-select>
+            </a-form-item>
+          </div>
         </a-form>
       </a-collapse-panel>
     </a-collapse>

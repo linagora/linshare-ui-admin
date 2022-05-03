@@ -602,7 +602,8 @@
         "DESCRIPTION": "",
         "DESCRIPTION_MAXIMUM": "",
         "BOOLEAN_DESCRIPTION": "Bật tham số này",
-        "UNLIMITED_CHECKBOX": "Không giới hạn"
+        "UNLIMITED_CHECKBOX": "Không giới hạn",
+        "LANGUAGE_TITLE": "Ngôn ngữ"
       },
       "ACTIVATION_POLICY": {
         "HEADER": "Chính sách kích hoạt",
@@ -679,7 +680,10 @@
         }
       },
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
-        "NAME": "Ngôn ngữ email thông báo"
+        "NAME": "Ngôn ngữ email thông báo",
+        "PARAMETER": {
+          "LANGUAGE_TITLE": "Ngôn ngữ email thông báo"
+        }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Chậm trễ trước khi kích hoạt",

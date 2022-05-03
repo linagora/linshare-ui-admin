@@ -602,7 +602,8 @@
         "DESCRIPTION": "",
         "DESCRIPTION_MAXIMUM": "",
         "BOOLEAN_DESCRIPTION": "Activer ce paramètre",
-        "UNLIMITED_CHECKBOX": "Illimité"
+        "UNLIMITED_CHECKBOX": "Illimité",
+        "LANGUAGE_TITLE": "Langue"
       },
       "ACTIVATION_POLICY": {
         "HEADER": "Politique d'activation",
@@ -680,7 +681,10 @@
     },
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
         "NAME": "Langue d'émission des courriels",
-        "DESCRIPTION": ""
+        "DESCRIPTION": "",
+        "PARAMETER": {
+          "LANGUAGE_TITLE": "Langue d'émission des courriels"
+        }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Délais avant activation",

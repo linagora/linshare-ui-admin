@@ -601,7 +601,8 @@
         "DESCRIPTION": "",
         "DESCRIPTION_MAXIMUM": "",
         "BOOLEAN_DESCRIPTION": "Включить этот параметр",
-        "UNLIMITED_CHECKBOX": "Неограниченный"
+        "UNLIMITED_CHECKBOX": "Неограниченный",
+        "LANGUAGE_TITLE": "Язык"
       },
       "ACTIVATION_POLICY": {
         "HEADER": "Политика активации",
@@ -620,6 +621,9 @@
         "DESCRIPTION": "Определить, может ли пользователь изменить параметр по умолчанию, предоставленный администратором",
         "ENABLE_CHECKBOX_DESCRIPTION": "Разрешить пользователям изменять значение параметра по умолчанию",
         "OVERRIDE_CHECKBOX_DESCRIPTION": "Разрешить вложенному администратору переопределять этот раздел"
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Язык уведомлений"
       }
     },
     "DETAILS": {
@@ -673,7 +677,10 @@
         "NAME": "Запрос на отправку"
       },
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
-        "NAME": "Язык уведомлений"
+        "NAME": "Язык уведомлений",
+        "PARAMETER": {
+          "LANGUAGE_TITLE": "Язык уведомлений"
+        }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Задержка перед активацией"
