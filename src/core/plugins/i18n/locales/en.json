@@ -199,9 +199,10 @@
     "GUEST_MODERATOR": {
       "TAB_TITLE": "Moderators",
       "ADD_MODERATOR": "Add moderator",
+      "FILTER_PLACEHOLDER": "Search or filter moderators",
       "ROLE": {
         "ADMIN": "Administrator",
-        "SIMPLE": "Moderator"
+        "SIMPLE": "Simple"
       }
     },
     "TOKEN_INPUT": {

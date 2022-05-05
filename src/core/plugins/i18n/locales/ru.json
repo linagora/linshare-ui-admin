@@ -197,9 +197,10 @@
     "GUEST_MODERATOR": {
       "TAB_TITLE": "Модераторы",
       "ADD_MODERATOR": "Добавить модератора",
+      "FILTER_PLACEHOLDER": "Поиск или фильтрация модераторов",
       "ROLE": {
         "ADMIN": "Администратор",
-        "SIMPLE": "Модератор"
+        "SIMPLE": "Простой"
       }
     },
     "TOKEN_INPUT": {

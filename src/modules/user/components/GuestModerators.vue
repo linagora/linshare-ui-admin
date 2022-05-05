@@ -121,7 +121,7 @@ onMounted(fetchGuestModerators);
       v-model:value="filterText"
       class="filter-input"
       allow-clear
-      :placeholder="$t('SHARED_SPACES.MEMBERS.FILTER_PLACEHOLDER')"
+      :placeholder="$t('USERS.GUEST_MODERATOR.FILTER_PLACEHOLDER')"
     >
       <template #prefix>
         <SearchOutlined />

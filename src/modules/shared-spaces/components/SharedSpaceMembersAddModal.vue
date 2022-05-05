@@ -1,5 +1,10 @@
 <template>
-  <a-modal :visible="visible" :title="$t('SHARED_SPACES.MEMBERS.ADD_NEW')" @cancel="emit('cancel')">
+  <a-modal
+    :visible="visible"
+    :title="$t('SHARED_SPACES.MEMBERS.ADD_NEW')"
+    :destroy-on-close="true"
+    @cancel="emit('cancel')"
+  >
     <template #footer>
       <a-button
         @click="
@@ -22,33 +27,8 @@
 
     <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
       <a-form-item :label="$t('SHARED_SPACES.MEMBERS.NEW')">
-        <a-select
-          mode="multiple"
-          :options="options"
-          :placeholder="$t('USERS.MANAGE_USERS.EMAIL')"
-          @search="searchUsersDebounce"
-          @select="onUserSelect"
-          @deselect="onUserDeselect"
-        >
-          <template #option="{ value, label }">
-            <UserOutlined class="user-icon" />
-            <span>
-              <span>{{ label }}</span>
-              <span>&nbsp;</span>
-              <span>&lt;{{ value }}&gt;</span>
-            </span>
-          </template>
-
-          <template #notFoundContent>
-            <div class="not-found">
-              <a-spin v-if="searching" class="spinner" size="small" />
-
-              <span v-else>{{ $t('USERS.DETAIL_USER.NO_USER_FOUND') }}</span>
-            </div>
-          </template>
-        </a-select>
+        <UserSelect :disable-checker="disableCurrentMember" @select="onSelect" @deselect="onDeselect" />
       </a-form-item>
-
       <a-form-item :label="$t('GENERAL.ROLE')">
         <SharedSpaceRoleSelect :type="sharedSpace.nodeType" :uuid="selectedRole.uuid" @change="setSelectedRole" />
       </a-form-item>
@@ -65,12 +45,8 @@
 
 <script lang="ts" setup>
 import { APIError } from '@/core/types/APIError';
-import { SORT_ORDER } from '@/core/types/Sort';
-import { listUsers } from '@/modules/user/services/user-api';
-import { getUserFullName } from '@/modules/user/services/user-utils';
-import { useDebounceFn } from '@vueuse/core';
 import { message } from 'ant-design-vue';
-import { PlusCircleOutlined, UserOutlined } from '@ant-design/icons-vue';
+import { PlusCircleOutlined } from '@ant-design/icons-vue';
 import { reactive, ref } from 'vue';
 import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
@@ -80,11 +56,12 @@ import User from '@/modules/user/types/User';
 import SharedSpaceRole from '../types/SharedSpaceRole';
 import SharedSpace, { SHARED_SPACE_TYPE } from '../types/SharedSpace';
 import SharedSpaceMember from '../types/SharedSpaceMember';
+import UserSelect, { UserSelectOption } from '@/core/components/UserSelect.vue';
 
 interface Props {
   sharedSpace: SharedSpace;
-  members: SharedSpaceMember[];
   visible: boolean;
+  members: SharedSpaceMember[];
 }
 
 const props = defineProps<Props>();
@@ -101,52 +78,10 @@ const nestedRole = reactive<SharedSpaceRole>({
 const setSelectedRole = (role: SharedSpaceRole) => Object.assign(selectedRole, role);
 const setNestedRole = (role: SharedSpaceRole) => Object.assign(nestedRole, role);
 const creating = ref(false);
-
-interface Option {
-  label: string;
-  value: string;
-  disabled: boolean;
-  data: User;
-}
-const options = ref([] as Option[]);
 const usersToBeAdded = ref([] as User[]);
-const searching = ref(false);
-const searchUsersDebounce = useDebounceFn(searchUsers, 500);
 
-async function searchUsers(search: string) {
-  searching.value = true;
-
-  try {
-    const { data } = await listUsers({
-      mail: search,
-      sortOrder: SORT_ORDER.ASC,
-      sortField: 'mail',
-      type: 'INTERNAL',
-    });
-
-    options.value = data.map((user) => ({
-      label: getUserFullName(user),
-      value: user.mail,
-      disabled: props.members.some((member) => member.account.uuid === user.uuid),
-      data: user,
-    }));
-  } catch (error) {
-    if (error instanceof APIError) {
-      return message.error(error.getMessage());
-    }
-
-    console.warn(error);
-  } finally {
-    searching.value = false;
-  }
-}
-
-function onUserSelect(_: string, option: Option) {
-  usersToBeAdded.value.push(option.data);
-}
-
-function onUserDeselect(_: string, option: Option) {
-  usersToBeAdded.value = usersToBeAdded.value.filter((user) => user.uuid !== option.data.uuid);
+function disableCurrentMember(user: User) {
+  return props.members.some((member) => member.account.uuid === user.uuid);
 }
 
 async function createMembers() {
@@ -170,6 +105,14 @@ async function createMembers() {
   } finally {
     reset();
   }
+}
+
+function onSelect(selectedUser: UserSelectOption) {
+  usersToBeAdded.value.push(selectedUser.data);
+}
+
+function onDeselect(deselectedUser: UserSelectOption) {
+  usersToBeAdded.value = usersToBeAdded.value.filter((user) => user.uuid !== deselectedUser.data.uuid);
 }
 
 function transform(user: User): SharedSpaceMember {
@@ -199,24 +142,3 @@ function reset() {
   usersToBeAdded.value = [];
 }
 </script>
-
-<style lang="less" scoped>
-.spinner {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-.user-icon {
-  color: @primary-color;
-  margin-right: 4px;
-}
-
-.not-found {
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>

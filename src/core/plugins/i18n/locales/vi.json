@@ -197,9 +197,10 @@
     "GUEST_MODERATOR": {
       "TAB_TITLE": "Người kiểm duyệt",
       "ADD_MODERATOR": "Thêm người kiểm duyệt",
+      "FILTER_PLACEHOLDER": "Tìm kiếm hoặc lọc người kiểm duyệt",
       "ROLE": {
         "ADMIN": "Quản trị viên",
-        "SIMPLE": "Người kiểm duyệt"
+        "SIMPLE": "Cơ bản"
       }
     },
     "TOKEN_INPUT": {
