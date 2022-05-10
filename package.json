@@ -39,7 +39,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build"
   },
   "dependencies": {

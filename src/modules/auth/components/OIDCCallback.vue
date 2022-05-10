@@ -22,6 +22,7 @@ onMounted(async () => {
     if (error instanceof APIError) {
       message.error(error.getMessage());
     }
+    router.replace({ name: 'Login' });
   }
 });
 </script>
