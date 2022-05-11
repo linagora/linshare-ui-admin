@@ -20,6 +20,8 @@ const { antdLocale } = useAntConfig();
 </script>
 
 <style lang="less">
+@import '@/core/styles/main.less';
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
