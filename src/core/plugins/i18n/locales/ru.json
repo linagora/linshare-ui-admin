@@ -192,7 +192,8 @@
       "NO_USER_FOUND": "Пользователь не найден",
       "RESTRICTED_GUEST": "Ограничить гостя",
       "RESTRICTED_CONTACTS": "Гость может связаться с аккаунтами",
-      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Дата истечения срока действия гостя должна быть между завтра и {date}"
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Дата истечения срока действия гостя должна быть между завтра и {date}",
+      "MAIL":"Эл. адрес"
     },
     "GUEST_MODERATOR": {
       "TAB_TITLE": "Модераторы",

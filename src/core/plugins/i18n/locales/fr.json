@@ -192,7 +192,8 @@
       "NO_USER_FOUND": "Aucun utilisateur trouvé",
       "RESTRICTED_GUEST": "Restreindre l'invité",
       "RESTRICTED_CONTACTS": "Comptes que l'invité peut contacter",
-      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "La date d'expiration de l'invité doit être comprise entre demain et le {date}"
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "La date d'expiration de l'invité doit être comprise entre demain et le {date}",
+      "MAIL":"E-mail"
     },
     "GUEST_MODERATOR": {
       "TAB_TITLE": "Modérateurs",

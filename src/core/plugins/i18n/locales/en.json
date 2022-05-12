@@ -194,7 +194,8 @@
       "NO_USER_FOUND": "No user found",
       "RESTRICTED_GUEST": "Restrict guest",
       "RESTRICTED_CONTACTS": "Accounts guest can contact",
-      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Guest expiration date must be between tomorrow and {date}"
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Guest expiration date must be between tomorrow and {date}",
+      "MAIL":"Mail"
     },
     "GUEST_MODERATOR": {
       "TAB_TITLE": "Moderators",

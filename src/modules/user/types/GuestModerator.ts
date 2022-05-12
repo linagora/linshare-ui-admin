@@ -12,10 +12,18 @@ export default interface GuestModerator {
     uuid: string;
     name?: string;
     email?: string;
+    domain?: {
+      uuid: string;
+      name: string;
+    };
   };
   guest: {
     uuid: string;
     name?: string;
     email?: string;
+    domain?: {
+      uuid: string;
+      name: string;
+    };
   };
 }

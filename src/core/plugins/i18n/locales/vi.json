@@ -192,7 +192,8 @@
       "NO_USER_FOUND": "Không tìm thấy người dùng",
       "RESTRICTED_GUEST": "Hạn chế khách",
       "RESTRICTED_CONTACTS": "Tài khoản mà khách có thể liên hệ",
-      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Ngày hết hạn của khách phải từ ngày mai đến {date}"
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Ngày hết hạn của khách phải từ ngày mai đến {date}",
+      "MAIL": "Mail"
     },
     "GUEST_MODERATOR": {
       "TAB_TITLE": "Người kiểm duyệt",

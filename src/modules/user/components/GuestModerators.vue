@@ -33,6 +33,20 @@ const columns = computed(() => [
     align: 'left',
   },
   {
+    title: t('USERS.DETAIL_USER.MAIL'),
+    dataIndex: 'account.email',
+    sorter: (a: GuestModerator, b: GuestModerator) => a.account.email?.localeCompare(b.account.email || ''),
+    align: 'left',
+  },
+  {
+    title: t('GENERAL.DOMAIN'),
+    dataIndex: 'account.domain',
+    sorter: (a: GuestModerator, b: GuestModerator) =>
+      a.account.domain?.name.localeCompare(b.account.domain?.name || ''),
+    align: 'left',
+    slots: { customRender: 'domain' },
+  },
+  {
     title: t('GENERAL.ROLE'),
     align: 'center',
     dataIndex: 'role',
@@ -143,7 +157,11 @@ onMounted(fetchGuestModerators);
         <span>{{ record.account.name.charAt(0) }}</span>
       </a-avatar>
     </template>
-
+    <template #domain="{ record }">
+      <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.account.domain.uuid } }">
+        <a>{{ record.account.domain.name }}</a>
+      </router-link>
+    </template>
     <template #role="{ record }">
       <a-select v-model:value="record.role" @change="update(record)">
         <a-select-option :value="GUEST_MODERATOR_ROLE.ADMIN">{{
