@@ -3,6 +3,7 @@ import {
   Alert,
   AutoComplete,
   Avatar,
+  BackTop,
   Badge,
   Breadcrumb,
   Button,
@@ -32,7 +33,6 @@ import {
   Tabs,
   Tag,
   Tooltip,
-  BackTop,
 } from 'ant-design-vue';
 import '@/core/styles/variables.less';
 

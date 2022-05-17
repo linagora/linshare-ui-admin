@@ -8,7 +8,9 @@
         :page-size="pagination.pageSize"
         @change="handleChange"
       />
+      <span class="total-number">{{ $t('GENERAL.TOTAL') }} : {{ pagination.total }}</span>
     </div>
+
     <div class="page-size-selector-ctn">
       <a-button
         v-for="(option, index) in pageSizeOptions"
@@ -116,6 +118,12 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     margin-top: 10px;
+  }
+
+  .total-number {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
   }
 }
 </style>

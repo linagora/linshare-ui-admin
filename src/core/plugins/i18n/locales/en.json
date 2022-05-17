@@ -45,7 +45,8 @@
     "VIEW": "View",
     "EXPAND": "Expand",
     "COLLAPSE": "Collapse",
-    "ADD": "Add"
+    "ADD": "Add",
+    "TOTAL": "Total"
   },
   "LOCALE": {
     "ENGLISH": "English",
