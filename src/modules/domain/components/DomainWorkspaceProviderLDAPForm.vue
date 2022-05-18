@@ -131,7 +131,7 @@ const formSubmitting = ref(false);
 const formState = reactive<ProviderForm>({
   baseDn: props.provider.baseDn || '',
   serverUuid: props.provider.ldapServer?.uuid || '',
-  filterUuid: props.provider.driveFilter?.uuid || '',
+  filterUuid: props.provider.workSpaceFilter?.uuid || '',
   searchInOtherDomains: props.provider.searchInOtherDomains
 });
 const formRules = reactive({
@@ -187,7 +187,7 @@ function getDto (): LDAPWorkspaceProvider {
       uuid: formState.serverUuid || '',
       name: servers.list.find(server => server.uuid === formState.serverUuid)?.name || ''
     },
-    driveFilter: {
+    workSpaceFilter: {
       uuid: formState.filterUuid || '',
       name: filters.list.find(filter => filter.uuid === formState.filterUuid)?.name || ''
     },
