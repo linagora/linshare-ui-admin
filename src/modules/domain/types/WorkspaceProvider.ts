@@ -7,7 +7,7 @@ export interface LDAPWorkspaceProvider {
     uuid: string;
     name: string;
   };
-  driveFilter: {
+  workSpaceFilter: {
     uuid: string;
     name: string;
   };
@@ -20,7 +20,7 @@ export const EMPTY_PROVIDER: LDAPWorkspaceProvider = {
     uuid: '',
     name: '',
   },
-  driveFilter: {
+  workSpaceFilter: {
     uuid: '',
     name: '',
   },
