@@ -46,6 +46,10 @@ async function updateSharedSpace(payload: SharedSpace): Promise<SharedSpace> {
   return await api.put(`shared_spaces/${payload.uuid}`, payload);
 }
 
+async function deleteSharedSpace(payload: SharedSpace): Promise<SharedSpace> {
+  return await api.delete(`shared_spaces/${payload.uuid}`);
+}
+
 async function createSharedSpaceMember(member: SharedSpaceMember): Promise<SharedSpaceMember> {
   return await api.post('shared_space_members', member);
 }
@@ -71,4 +75,5 @@ export {
   removeSharedSpaceMember,
   updateSharedSpace,
   updateSharedSpaceMember,
+  deleteSharedSpace,
 };

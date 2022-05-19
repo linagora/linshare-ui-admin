@@ -8,8 +8,9 @@
           :ok-text="$t('USERS.DETAIL_USER.YES')"
           :cancel-text="$t('USERS.DETAIL_USER.NO')"
           placement="bottom"
+          @confirm="deleteSpace(sharedSpace)"
         >
-          <a-button>
+          <a-button :loading="deleting">
             {{ $t(`SHARED_SPACES.DELETE_${sharedSpace.nodeType}`) }}
           </a-button>
         </a-popconfirm>
@@ -125,7 +126,7 @@ import { useRouter } from 'vue-router';
 import PageTitle from '@/core/components/PageTitle.vue';
 import SharedSpaceMembersList from './SharedSpaceMembersList.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import { getSharedSpace, updateSharedSpace } from '../services/shared-space-api';
+import { getSharedSpace, updateSharedSpace, deleteSharedSpace } from '../services/shared-space-api';
 import { APIError } from '@/core/types/APIError';
 import SharedSpace, { EMPTY_SHARED_SPACE } from '../types/SharedSpace';
 import { useI18n } from 'vue-i18n';
@@ -143,6 +144,8 @@ const { t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const loaded = ref(false);
 const saving = ref(false);
+const deleting = ref(false);
+const router = useRouter();
 const sharedSpace = reactive<SharedSpace>({ ...EMPTY_SHARED_SPACE });
 const parentSpace = reactive<SharedSpace>({ ...EMPTY_SHARED_SPACE });
 const sharedSpaceDomain = reactive<SharedSpace>({ ...EMPTY_DOMAIN_NODE });
@@ -170,6 +173,27 @@ async function update() {
     }
   } finally {
     saving.value = false;
+  }
+}
+
+async function deleteSpace(sharedSpace: SharedSpace) {
+  deleting.value = true;
+
+  try {
+    await deleteSharedSpace(sharedSpace);
+    message.success(t('MESSAGES.DELETE_SUCCESS'));
+    router.push({ name: 'SharedSpacesList' });
+  } catch (error) {
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+      if (error.errorCode === 66000) {
+        router.push({ name: 'SharedSpacesList' });
+      }
+    } else {
+      console.error(error);
+    }
+  } finally {
+    deleting.value = false;
   }
 }
 
