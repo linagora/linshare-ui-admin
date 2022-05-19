@@ -340,6 +340,7 @@
       "NAME": "Name"
     },
     "MEMBERS": {
+      "MEMBERS":"Members",
       "TAB_TITLE": "Members list",
       "CONFIRM_DELETE": "Are you sure you want to remove this member from shared space?",
       "FILTER_PLACEHOLDER": "Search or filter shared space members",
@@ -348,6 +349,9 @@
       "ROLE_EDIT_TITLE": "Edit {name}'s role",
       "DEFAULT_WORKGROUP_ROLE": "Default workgroup role",
       "FORCE_CHECKBOX": "Override this role for all nested workgroups",
+      "MEMBER_ADVANCED_RESEARCH": "Advanced research",
+      "DEFAULT_ROLE":"Default role",
+      "NO_DEFAULT_ROLE": "No default role",
       "DEFAULT_ROLE_TAG_PREFIX": "Default role: ",
       "DEFAULT_ROLE_TAG_TOOLTIP": "This role will apply to this member for all newly created workgroup inside this workspace"
     }

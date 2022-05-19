@@ -3,7 +3,7 @@ import { ref, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useSharedSpacesStore } from '@/modules/shared-spaces/store';
 import { SHARED_SPACE_TYPE } from '../types/SharedSpace';
-import SharedSpaceRole from '../types/SharedSpaceRole';
+import type SharedSpaceRole from '../types/SharedSpaceRole';
 import { UserOutlined, TeamOutlined } from '@ant-design/icons-vue';
 
 interface Props {

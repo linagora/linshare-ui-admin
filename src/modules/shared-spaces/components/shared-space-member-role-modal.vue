@@ -6,7 +6,7 @@ import { reactive, ref, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { updateSharedSpaceMember } from '../services/shared-space-api';
 import { SHARED_SPACE_TYPE } from '../types/SharedSpace';
-import SharedSpaceMember from '../types/SharedSpaceMember';
+import type { SharedSpaceMember } from '../types/SharedSpaceMember';
 import SharedSpaceRole from '../types/SharedSpaceRole';
 import SharedSpaceRoleSelect from './shared-space-role-select.vue';
 

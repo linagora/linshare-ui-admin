@@ -1,6 +1,5 @@
 import { ref, reactive, Ref, UnwrapRef } from 'vue';
 import { message } from 'ant-design-vue';
-
 import SharedSpace from '@/modules/shared-spaces/types/SharedSpace';
 import { SharedSpaceListParameters, SharedSpaceListFilters } from '@/modules/shared-spaces/types/ShareSpaceList';
 import { getSharedSpace, listSharedSpaces } from '../services/shared-space-api';
@@ -53,9 +52,7 @@ export default function useSharedSpacesList(): UsableSharedSpacesList {
 
           sharedSpace.parentName = workspace.name;
         } catch (error) {
-          if (error instanceof APIError) {
-            message.error(error.getMessage());
-          }
+          message.error((error as APIError).getMessage());
         }
       }
     }
@@ -72,7 +69,6 @@ export default function useSharedSpacesList(): UsableSharedSpacesList {
       const { data, total, current } = await listSharedSpaces(options);
 
       await populateParentWorkspaces(data);
-
       list.value = data;
       pagination.total = total;
       pagination.current = current + 1;
