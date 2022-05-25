@@ -24,6 +24,7 @@ angular.module('linshareAdminApp').constant('lsAppConfig', {
   },
   legacyMode: {
     enabled: false,
-    newAppUrl: '/new'
+    // Do not forget to add '/' at the end of the following path.
+    newAppUrl: '/new/'
   }
 });
