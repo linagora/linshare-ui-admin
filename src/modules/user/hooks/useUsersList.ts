@@ -1,14 +1,12 @@
 import { ref, reactive, Ref, UnwrapRef } from 'vue';
 import { message } from 'ant-design-vue';
-import { TableState } from 'ant-design-vue/es/table/interface';
 
-import User from '@/modules/user/types/User';
-import { listUsers, ListUsersOptions, ListUserFilters } from '@/modules/user/services/user-api';
-import Sort from '@/core/types/Sort';
+import Sort, { SORT_ORDER } from '@/core/types/Sort';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import { APIError } from '@/core/types/APIError';
-
-type Pagination = TableState['pagination'];
+import { listUsers } from '../services/user-api';
+import { UsersListFilters, UsersListParameters } from '../types/UsersList';
+import User from '../types/User';
 
 const list = ref<User[]>([]);
 const loading = ref(false);
@@ -17,17 +15,20 @@ const pagination = reactive({
   current: 1,
   pageSize: DEFAULT_PAGE_SIZE,
 });
+const filters = reactive<UsersListFilters>({});
+const sorter = reactive<Sort>({ order: SORT_ORDER.ASC });
 
 type UsableUsersList = {
   list: Ref<User[]>;
   loading: Ref<boolean>;
+  sorter: UnwrapRef<Sort>;
+  filters: UnwrapRef<UsersListFilters>;
   pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
-  handleTableChange: (pag: Pagination, filters?: ListUserFilters, sorter?: Sort) => Promise<void>;
-  handlePaginationChange: (page: number, size: number) => Promise<void>;
+  handleTableChange: () => Promise<void>;
 };
 
 export default function useUsersList(): UsableUsersList {
-  async function updateUsersList(options: ListUsersOptions) {
+  async function updateUsersList(options: UsersListParameters) {
     if (loading.value) {
       return;
     }
@@ -43,56 +44,38 @@ export default function useUsersList(): UsableUsersList {
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
-      } else {
-        console.error(error);
       }
     } finally {
       loading.value = false;
     }
   }
 
-  async function handleTableChange(pag: Pagination, filters?: ListUserFilters, sorter?: Sort) {
-    const options: ListUsersOptions = {};
+  async function handleTableChange() {
+    const parameters: UsersListParameters = {};
 
-    if (pag) {
-      options.size = pag.pageSize;
-      options.page = pag.current ? pag.current - 1 : 0;
-    }
+    parameters.size = pagination.pageSize;
+    parameters.page = pagination.current ? pagination.current - 1 : 0;
+    parameters.domain = filters.domain;
+    parameters.firstName = filters.firstName;
+    parameters.lastName = filters.lastName;
+    parameters.mail = filters.mail;
+    parameters.role = filters.role;
+    parameters.type = filters.type;
+    parameters.restricted = filters.restricted;
+    parameters.canUpload = filters.canUpload;
+    parameters.canCreateGuest = filters.canCreateGuest;
+    parameters.sortField = sorter.field;
+    parameters.sortOrder = sorter.order;
 
-    if (filters) {
-      options.domain = filters.domain;
-      options.firstName = filters.firstName;
-      options.lastName = filters.lastName;
-      options.mail = filters.mail;
-      options.role = filters.role;
-      options.type = filters.type;
-      options.restricted = filters.restricted;
-      options.canUpload = filters.canUpload;
-      options.canCreateGuest = filters.canCreateGuest;
-    }
-
-    if (sorter) {
-      options.sortField = sorter.field;
-      options.sortOrder = sorter.order;
-    }
-
-    await updateUsersList(options);
-  }
-
-  async function handlePaginationChange(page: number, size: number) {
-    const options: ListUsersOptions = {};
-
-    options.page = page - 1;
-    options.size = size;
-
-    await updateUsersList(options);
+    await updateUsersList(parameters);
   }
 
   return {
     list,
     loading,
+    filters,
+    sorter,
     pagination,
     handleTableChange,
-    handlePaginationChange,
   };
 }

@@ -5,52 +5,20 @@
         <DesktopListItem :data="item" />
       </template>
     </a-list>
-    <Pagination
-      v-model="pagination"
-      class="large-table__pagination"
-      :is-visible="!!list.length"
-      @change="handleTableChange"
-    />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
 import useUsersList from '@/modules/user/hooks/useUsersList';
-import Pagination from '@/core/components/Pagination.vue';
 import DesktopListItem from '@/modules/user/components/DesktopListItem.vue';
 
-export default defineComponent({
-  name: 'LargeTable',
-  components: {
-    Pagination,
-    DesktopListItem,
-  },
-  async setup() {
-    const { loading, list, pagination, handleTableChange } = useUsersList();
+const { loading, list, handleTableChange } = useUsersList();
 
-    await handleTableChange(pagination);
-
-    return {
-      loading,
-      list,
-      pagination,
-      handleTableChange,
-    };
-  },
-});
+await handleTableChange();
 </script>
 
 <style lang="less">
 .large-table {
-  @media (max-width: 1068px) {
-    display: none;
-  }
-
-  &__pagination {
-    margin-top: 30px;
-  }
-
   .ant-table-row {
     cursor: pointer;
   }

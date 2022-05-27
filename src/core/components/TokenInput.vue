@@ -55,6 +55,7 @@
 import { defineComponent, PropType, reactive, ref, computed, Component, ComputedRef } from 'vue';
 import { SearchOutlined, CloseOutlined, SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons-vue';
 import Sort, { SORT_ORDER } from '@/core/types/Sort';
+import Filters from '@/core/types/Filters';
 
 interface Option {
   default?: boolean;
@@ -94,12 +95,8 @@ interface CustomHTMLElement extends HTMLElement {
   focus: () => void;
 }
 
-export interface Filter {
-  [key: string]: string | boolean | undefined;
-}
-
-export interface TokenSubmitPayload {
-  filters: Record<string, unknown>;
+export interface TokenSubmitPayload<Filters> {
+  filters: Filters;
   sort?: Sort;
 }
 
@@ -126,7 +123,7 @@ export default defineComponent({
     },
   },
   emits: {
-    submit: (payload: TokenSubmitPayload) => payload,
+    submit: (payload: TokenSubmitPayload<Filters>) => payload,
   },
   setup(props: TokenInputProps, { emit }) {
     const autocompleteValue = ref('');
@@ -136,7 +133,7 @@ export default defineComponent({
     const defaultSortField = props.sorts.find((sort) => sort.default);
     const sort = reactive<Sort>({
       field: defaultSortField?.key || '',
-      order: SORT_ORDER.DESC,
+      order: SORT_ORDER.ASC,
     });
 
     const tokenOptions = props.filters.map((filter) => ({
@@ -254,7 +251,7 @@ export default defineComponent({
     };
 
     const submit = () => {
-      const filters: Record<string, unknown> = {};
+      const filters: Filters = {};
 
       tokens.value.forEach((token) => {
         if (token.key && token.value && token.value.value !== undefined) {

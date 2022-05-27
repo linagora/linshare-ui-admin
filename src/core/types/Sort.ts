@@ -4,6 +4,6 @@ export enum SORT_ORDER {
 }
 
 export default interface Sort {
-  field: string;
+  field?: string;
   order: SORT_ORDER;
 }

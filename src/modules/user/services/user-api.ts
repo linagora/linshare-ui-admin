@@ -1,45 +1,11 @@
 import { AxiosRequestConfig } from 'axios';
 import api from '@/api';
-import User from '@/modules/user/types/User';
-import UserQuota from '@/modules/user/types/UserQuota';
-import RestrictedContact from '@/modules/user/types/RestrictedContact';
-import { SORT_ORDER } from '@/core/types/Sort';
+import User from '../types/User';
+import UserQuota from '../types/UserQuota';
+import RestrictedContact from '../types/RestrictedContact';
+import { UsersList, UsersListParameters } from '../types/UsersList';
 
-export interface ListUsersOptions {
-  domain?: string;
-  firstName?: string;
-  lastName?: string;
-  mail?: string;
-  role?: string;
-  type?: string;
-  sortOrder?: SORT_ORDER;
-  sortField?: string;
-  restricted?: boolean;
-  canCreateGuest?: boolean;
-  canUpload?: boolean;
-  page?: number;
-  size?: number;
-}
-
-export interface ListUserFilters {
-  domain?: string;
-  firstName?: string;
-  lastName?: string;
-  mail?: string;
-  role?: string;
-  type?: string;
-  restricted?: boolean;
-  canCreateGuest?: boolean;
-  canUpload?: boolean;
-}
-
-export interface UsersList {
-  data: User[];
-  total: number;
-  current: number;
-}
-
-async function listUsers(options: ListUsersOptions = {}): Promise<UsersList> {
+async function listUsers(options: UsersListParameters = {}): Promise<UsersList> {
   return await api.get('users', {
     params: options,
     transformResponse: (data, headers): UsersList => ({
