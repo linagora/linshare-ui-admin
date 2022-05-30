@@ -2,8 +2,10 @@ import { ref, reactive, Ref, UnwrapRef } from 'vue';
 import { message } from 'ant-design-vue';
 
 import SharedSpace from '@/modules/shared-spaces/types/SharedSpace';
-import { getSharedSpace, listSharedSpaces, ListSharedSpaceOptions } from '../services/shared-space-api';
+import { SharedSpaceListParameters, SharedSpaceListFilters } from '@/modules/shared-spaces/types/ShareSpaceList';
+import { getSharedSpace, listSharedSpaces } from '../services/shared-space-api';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
+import Sort, { SORT_ORDER } from '@/core/types/Sort';
 import { APIError } from '@/core/types/APIError';
 
 interface Pagination {
@@ -14,6 +16,8 @@ interface Pagination {
 
 const list = ref<SharedSpace[]>([]);
 const loading = ref(false);
+const filters = reactive<SharedSpaceListFilters>({});
+const sorter = reactive<Sort>({ order: SORT_ORDER.ASC });
 const pagination = reactive<Pagination>({
   total: 0,
   current: 1,
@@ -23,9 +27,10 @@ const pagination = reactive<Pagination>({
 type UsableSharedSpacesList = {
   list: Ref<SharedSpace[]>;
   loading: Ref<boolean>;
+  sorter: UnwrapRef<Sort>;
+  filters: UnwrapRef<SharedSpaceListFilters>;
   pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
-  handlePaginationChange: (pagination: Pagination) => Promise<void>;
-  updateSharedSpacesList: (options: ListSharedSpaceOptions) => Promise<void>;
+  handleTableChange: () => Promise<void>;
 };
 
 export default function useSharedSpacesList(): UsableSharedSpacesList {
@@ -55,7 +60,7 @@ export default function useSharedSpacesList(): UsableSharedSpacesList {
     }
   }
 
-  async function updateSharedSpacesList(options: ListSharedSpaceOptions) {
+  async function updateSharedSpacesList(options: SharedSpaceListParameters) {
     if (loading.value) {
       return;
     }
@@ -77,20 +82,26 @@ export default function useSharedSpacesList(): UsableSharedSpacesList {
     }
   }
 
-  async function handlePaginationChange(pagination: Pagination) {
-    const options: ListSharedSpaceOptions = {};
+  async function handleTableChange() {
+    const parameters: SharedSpaceListParameters = {};
 
-    options.page = pagination.current - 1;
-    options.size = pagination.pageSize;
-
-    await updateSharedSpacesList(options);
+    parameters.size = pagination.pageSize;
+    parameters.page = pagination.current ? pagination.current - 1 : 0;
+    parameters.account = filters.account;
+    parameters.domains = filters.domains;
+    parameters.name = filters.name;
+    parameters.nodeType = filters.nodeType;
+    parameters.sortField = sorter.field;
+    parameters.sortOrder = sorter.order;
+    await updateSharedSpacesList(parameters);
   }
 
   return {
     list,
     loading,
     pagination,
-    handlePaginationChange,
-    updateSharedSpacesList,
+    handleTableChange,
+    filters,
+    sorter,
   };
 }

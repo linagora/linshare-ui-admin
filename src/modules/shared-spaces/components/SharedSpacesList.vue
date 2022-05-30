@@ -5,48 +5,19 @@
         <SharedSpaceItem :data="item" />
       </template>
     </a-list>
-    <Pagination
-      v-model="pagination"
-      class="shared-spaces-list__pagination"
-      :is-visible="!!list.length"
-      @change="handlePaginationChange"
-    />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
 import useSharedSpacesList from '@/modules/shared-spaces/hooks/useSharedSpacesList';
-import Pagination from '@/core/components/Pagination.vue';
 import SharedSpaceItem from './SharedSpaceItem.vue';
 
-export default defineComponent({
-  name: 'SharedSpacesList',
-  components: {
-    Pagination,
-    SharedSpaceItem,
-  },
-  async setup() {
-    const { loading, list, pagination, handlePaginationChange } = useSharedSpacesList();
-
-    await handlePaginationChange(pagination);
-
-    return {
-      loading,
-      list,
-      pagination,
-      handlePaginationChange,
-    };
-  },
-});
+const { loading, list, handleTableChange } = useSharedSpacesList();
+await handleTableChange();
 </script>
 
 <style lang="less">
 .shared-spaces-list {
-  &__pagination {
-    margin-top: 30px;
-  }
-
   .ant-table-row {
     cursor: pointer;
   }

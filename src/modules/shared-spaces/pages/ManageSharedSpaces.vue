@@ -13,6 +13,12 @@
     @submit="handleSubmit"
   />
   <SharedSpacesList />
+  <Pagination
+    v-model="pagination"
+    class="shared-spaces-list__pagination"
+    :is-visible="!!list.length"
+    @change="() => handleTableChange()"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -23,14 +29,16 @@ import TokenInput, { TokenSubmitPayload } from '@/core/components/TokenInput.vue
 import PageTitle from '@/core/components/PageTitle.vue';
 import AccountAutocompleteItem from '@/modules/user/components/AccountAutocompleteItem.vue';
 import SharedSpacesList from '@/modules/shared-spaces/components/SharedSpacesList.vue';
+import Pagination from '@/core/components/Pagination.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useSharedSpacesList from '@/modules/shared-spaces/hooks/useSharedSpacesList';
 import { listUsers } from '@/modules/user/services/user-api';
 import Domain from '@/modules/domain/types/Domain';
+import { SharedSpaceListFilters } from '@/modules/shared-spaces/types/ShareSpaceList';
 
 const { locale, t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
-const { updateSharedSpacesList } = useSharedSpacesList();
+const { handleTableChange, filters, sorter, pagination, list } = useSharedSpacesList();
 const store = useStore();
 const domainsList = store.getters['Domain/getDomainsList'];
 
@@ -92,18 +100,14 @@ const filterOptions = [
   },
 ];
 
-const handleSubmit = async function (options: TokenSubmitPayload) {
-  let sortObject = {};
-
+const handleSubmit = async function (options: TokenSubmitPayload<SharedSpaceListFilters>) {
   if (options.sort) {
-    sortObject = {
-      sortField: options.sort.field,
-      sortOrder: options.sort.order,
-    };
+    if (options.sort) {
+      Object.assign(sorter, options.sort);
+    }
+
+    Object.assign(filters, options.filters);
   }
-  await updateSharedSpacesList({
-    ...(options.filters || {}),
-    ...sortObject,
-  });
+  await handleTableChange();
 };
 </script>
