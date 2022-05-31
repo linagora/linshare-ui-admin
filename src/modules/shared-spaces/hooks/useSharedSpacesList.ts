@@ -16,7 +16,7 @@ interface Pagination {
 
 const list = ref<SharedSpace[]>([]);
 const loading = ref(false);
-const filters = reactive<SharedSpaceListFilters>({});
+const filters = ref<SharedSpaceListFilters>({});
 const sorter = reactive<Sort>({ order: SORT_ORDER.ASC });
 const pagination = reactive<Pagination>({
   total: 0,
@@ -28,7 +28,7 @@ type UsableSharedSpacesList = {
   list: Ref<SharedSpace[]>;
   loading: Ref<boolean>;
   sorter: UnwrapRef<Sort>;
-  filters: UnwrapRef<SharedSpaceListFilters>;
+  filters: Ref<SharedSpaceListFilters>;
   pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
   handleTableChange: () => Promise<void>;
 };
@@ -87,10 +87,10 @@ export default function useSharedSpacesList(): UsableSharedSpacesList {
 
     parameters.size = pagination.pageSize;
     parameters.page = pagination.current ? pagination.current - 1 : 0;
-    parameters.account = filters.account;
-    parameters.domains = filters.domains;
-    parameters.name = filters.name;
-    parameters.nodeType = filters.nodeType;
+    parameters.account = filters.value.account;
+    parameters.domains = filters.value.domains;
+    parameters.name = filters.value.name;
+    parameters.nodeType = filters.value.nodeType;
     parameters.sortField = sorter.field;
     parameters.sortOrder = sorter.order;
     await updateSharedSpacesList(parameters);

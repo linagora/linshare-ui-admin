@@ -61,8 +61,7 @@ const handleSubmit = async function (options: TokenSubmitPayload<UsersListFilter
   if (options.sort) {
     Object.assign(sorter, options.sort);
   }
-
-  Object.assign(filters, options.filters);
+  filters.value = options.filters;
 
   await handleTableChange();
 };

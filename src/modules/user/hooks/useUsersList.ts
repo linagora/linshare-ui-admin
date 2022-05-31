@@ -15,14 +15,14 @@ const pagination = reactive({
   current: 1,
   pageSize: DEFAULT_PAGE_SIZE,
 });
-const filters = reactive<UsersListFilters>({});
+const filters = ref<UsersListFilters>({});
 const sorter = reactive<Sort>({ order: SORT_ORDER.ASC });
 
 type UsableUsersList = {
   list: Ref<User[]>;
   loading: Ref<boolean>;
   sorter: UnwrapRef<Sort>;
-  filters: UnwrapRef<UsersListFilters>;
+  filters: Ref<UsersListFilters>;
   pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
   handleTableChange: () => Promise<void>;
 };
@@ -55,15 +55,15 @@ export default function useUsersList(): UsableUsersList {
 
     parameters.size = pagination.pageSize;
     parameters.page = pagination.current ? pagination.current - 1 : 0;
-    parameters.domain = filters.domain;
-    parameters.firstName = filters.firstName;
-    parameters.lastName = filters.lastName;
-    parameters.mail = filters.mail;
-    parameters.role = filters.role;
-    parameters.type = filters.type;
-    parameters.restricted = filters.restricted;
-    parameters.canUpload = filters.canUpload;
-    parameters.canCreateGuest = filters.canCreateGuest;
+    parameters.domain = filters.value.domain;
+    parameters.firstName = filters.value.firstName;
+    parameters.lastName = filters.value.lastName;
+    parameters.mail = filters.value.mail;
+    parameters.role = filters.value.role;
+    parameters.type = filters.value.type;
+    parameters.restricted = filters.value.restricted;
+    parameters.canUpload = filters.value.canUpload;
+    parameters.canCreateGuest = filters.value.canCreateGuest;
     parameters.sortField = sorter.field;
     parameters.sortOrder = sorter.order;
 
