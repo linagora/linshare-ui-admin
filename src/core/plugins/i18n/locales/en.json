@@ -697,6 +697,14 @@
           "LANGUAGE_TITLE": "Email notification language"
         }
       },
+      "UPLOAD_REQUEST__LIMIT": {
+        "NAME": "Limit number of upload requests per user",
+        "DESCRIPTION": "Allows setting limitation of how many uploaded requests an user can create in this domain.",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Max upload request count",
+          "DESCRIPTION_MAXIMUM":"Maximum number of upload requests a user can create in this domain. Only requests with status of Pending/Active/Closed are counted."
+        }
+      },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Delay before activation",
         "DESCRIPTION": "Determine the delay between upload request creation date and the activation date when upload request is available and users can upload files",

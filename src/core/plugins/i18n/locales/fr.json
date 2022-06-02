@@ -693,6 +693,14 @@
           "LANGUAGE_TITLE": "Langue d'émission des courriels"
         }
       },
+      "UPLOAD_REQUEST__LIMIT": {
+        "NAME": "Nombre maximum d'invitation de dépot par utilisateur",
+        "DESCRIPTION": "Permet de définir la limitation du nombre d'invitation de dépôt qu'un utilisateur peut créer dans ce domaine.",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Nombre maximal de d'invitations de dépôt'",
+          "DESCRIPTION_MAXIMUM":"Nombre maximal d'invitations de dépôt d'un utilisateur dans ce domaine. Ce nombre correspond aux invitations de dépôt avec le statut : En attente/Actif/Fermé"
+        }
+      },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Délais avant activation",
         "DESCRIPTION": "Détermine le délai entre la date de création de l'invitation de dépôt et la date d'activation de celle-ci où les utilisateurs peuvent téléverser des fichiers",

@@ -692,6 +692,14 @@
           "LANGUAGE_TITLE": "Ngôn ngữ email thông báo"
         }
       },
+      "UPLOAD_REQUEST__LIMIT": {
+        "NAME": "Giới hạn số lượng yêu cầu tải lên cho mỗi người dùng",
+        "DESCRIPTION": "Cho phép đặt giới hạn về số lượng yêu cầu đã tải lên mà người dùng có thể tạo trong miền này.",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Số lượng yêu cầu đã tải lên tối đa",
+          "DESCRIPTION_MAXIMUM":"Số lượng yêu cầu tải lên tối đa của một người dùng trong miền này. Số lượng được tính trên các yêu cầu tải lên có trạng thái: Đang chờ xử lý / Đang hoạt động / Đã đóng"
+        }
+      },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
         "NAME": "Chậm trễ trước khi kích hoạt",
         "DESCRIPTION": "Xác định khoảng thời gian giữa ngày tạo yêu cầu tải lên và ngày kích hoạt. Chỉ khi kích hoạt người dùng có thể tải tệp lên",
