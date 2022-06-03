@@ -893,6 +893,22 @@
         "NAME": "Không gian được chia sẻ",
         "DESCRIPTION": "Chức năng này cho phép người dùng truy cập Không gian dùng chung. Không gian dùng chung chứa Không gian làm việc và Nhóm làm việc độc lập. Không gian làm việc chứa các thành viên có vai trò của họ và Nhóm làm việc lồng nhau. Một Nhóm làm việc chứa các thành viên có vai trò và nội dung của họ (thư mục / tệp / phiên bản). "
       },
+      "SHARED_SPACE__WORKSPACE_LIMIT": {
+        "NAME": "Giới hạn số lượng không gian làm việc",
+        "DESCRIPTION": "Chức năng này cho phép quản trị viên đặt giới hạn cho số lượng Không gian làm việc một người dùng có thể được tạo trong miền này",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Số lượng không gian làm việc tối đa",
+          "DESCRIPTION_MAXIMUM": "Số lượng Không gian làm việc tối đa một người dùng có thể được tạo trong miền này"
+        }
+      },
+      "SHARED_SPACE__NESTED_WORKGROUPS_LIMIT": {
+        "NAME": "Giới hạn số lượng nhóm làm việc trong một không gian làm việc",
+        "DESCRIPTION": "Chức năng này cho phép quản trị viên đặt giới hạn cho số lượng Nhóm làm việc một người dùng có thể được tạo bên trong không gian làm việc trong miền này",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Số lượng nhóm làm việc tối đa",
+          "DESCRIPTION_MAXIMUM": "Số lượng nhóm làm việc tối đa một người dùng có thể được tạo bên trong không gian làm việc trong miền này"
+        }
+      },
       "WORK_GROUP__CREATION_RIGHT": {
         "NAME": "Tạo nhóm làm việc",
         "DESCRIPTION": "Xác định xem người dùng có thể tạo nhóm làm việc hay không",

@@ -894,6 +894,22 @@
         "NAME": "Espace partagé",
         "DESCRIPTION": "Cette fonctionnalité permet aux utilisateurs d'accéder à l'espace partagé. L'espace partagé contient des espaces de travail et des groupes de travail autonomes. Un espace de travail contient des membres avec leurs rôles et des groupes de travail imbriqués. Un groupe de travail contient des membres avec leurs rôles et leur contenu (dossiers/fichiers/versions)."
       },
+      "SHARED_SPACE__WORKSPACE_LIMIT": {
+        "NAME": "Limitation des espaces de travail",
+        "DESCRIPTION": "Cette fonctionnalité permet à l'administrateur de définir une limitation du nombre d'espaces de travail pouvant être créés dans ce domaine",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Nombre maximal d'espaces de travail",
+          "DESCRIPTION_MAXIMUM": "Nombre maximal d'espaces de travail pouvant être créés au sein de ce domaine"
+        }
+      },
+      "SHARED_SPACE__NESTED_WORKGROUPS_LIMIT": {
+        "NAME": "Limitation des groupes de travail imbriqués",
+        "DESCRIPTION": "Cette fonctionnalité permet à l'administrateur de définir une limitation du nombre de groupes de travail imbriqués pouvant être créés dans un espace de travail de ce domaine",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Nombre maximal de groupes de travail",
+          "DESCRIPTION_MAXIMUM": " Nombre maximal de groupes de travail imbriqués pouvant être créés dans un espace de travail au sein de ce domaine"
+        }
+      },
       "WORK_GROUP__CREATION_RIGHT": {
         "NAME": "Création de groupe de travail",
         "DESCRIPTION": "Détermine si les utilisateurs peuvent créer des groupes de travail",

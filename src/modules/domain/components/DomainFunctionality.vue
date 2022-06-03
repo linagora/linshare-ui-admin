@@ -342,6 +342,26 @@ watchEffect(() => {
               </a-select>
             </a-form-item>
           </div>
+          <div v-if="functionality.parameter.type === 'INTEGER_MAX'">
+            <p class="secondary-text">
+              {{ getTranslatedText(functionality, 'PARAMETER.DESCRIPTION_MAXIMUM') }}
+            </p>
+            <a-checkbox
+              v-if="functionality.parameter.unlimited.supported"
+              v-model:checked="functionality.parameter.unlimited"
+              class="unlimited-checkbox"
+            >
+              {{ getTranslatedText(functionality, 'PARAMETER.UNLIMITED_CHECKBOX') }}
+            </a-checkbox>
+            <a-form-item :label="getTranslatedText(functionality, 'PARAMETER.TITLE_MAXIMUM')">
+              <a-input
+                v-model:value="functionality.parameter.maximum.value"
+                type="number"
+                :disabled="data.parameter?.readonly"
+              >
+              </a-input>
+            </a-form-item>
+          </div>
         </a-form>
       </a-collapse-panel>
     </a-collapse>

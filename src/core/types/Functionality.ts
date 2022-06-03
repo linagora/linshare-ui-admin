@@ -113,6 +113,14 @@ interface UnitSizeMaxParamter {
   unlimited: ParameterUnlimited;
 }
 
+interface IntegerMaxParameter {
+  type: 'INTEGER_MAX';
+  hidden: boolean;
+  readonly: boolean;
+  maximum: IntegerParameterValue;
+  unlimited: ParameterUnlimited;
+}
+
 interface EnumLanguageParameter {
   type: 'LANGUAGE';
   hidden: boolean;
@@ -134,6 +142,7 @@ type FunctionalityParameter =
   | IntegerAllParameter
   | UnitSizeAllParameter
   | EnumLanguageParameter
+  | IntegerMaxParameter
   | UnitSizeMaxParamter;
 
 export interface Functionality {

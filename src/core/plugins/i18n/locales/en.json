@@ -898,6 +898,23 @@
         "NAME": "Shared space",
         "DESCRIPTION": "This functionality allows users to access Shared Space. Shared Space contains Workspaces and standalone Workgroups. A Workspace contains members with their roles and nested Workgroups. A Workgroup contains members with their roles and content (folders/files/versions)."
       },
+      "SHARED_SPACE__WORKSPACE_LIMIT": {
+        "NAME": "Limit number of workspaces",
+        "DESCRIPTION": "Allows setting limitation on number of workspace that an user can create in this domain",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Max workspace count",
+          "DESCRIPTION_MAXIMUM": "Max number of workspaces that an user can create in this domain"
+        }
+
+      },
+      "SHARED_SPACE__NESTED_WORKGROUPS_LIMIT": {
+        "NAME": "Limit number of nested workgroups",
+        "DESCRIPTION": "Allows setting limitation on number of nested workgroups that an user can create inside a workspace in this domain",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Max workgroups count",
+          "DESCRIPTION_MAXIMUM": "Maximum number of nested workgroups that an user can create inside a workspace in this domain"
+        }
+      },
       "WORK_GROUP__CREATION_RIGHT": {
         "NAME": "Workgroup creation",
         "DESCRIPTION": "Determine whether users can create workgroups",

@@ -735,6 +735,22 @@
         "NAME": "Shared space",
         "DESCRIPTION": "This functionality allows users to access Shared Space. Shared Space contains Workspaces and standalone Workgroups. A Workspace contains members with their roles and nested Workgroups. A Workgroup contains members with their roles and content (folders/files/versions)."
       },
+      "SHARED_SPACE__WORKSPACE_LIMIT": {
+        "NAME": "Ограничение рабочего пространства",
+        "DESCRIPTION": "Эта функция позволяет администратору устанавливать ограничение на количество рабочих областей, которые могут быть созданы в этом домене.",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Максимальное количество рабочих мест",
+          "DESCRIPTION_MAXIMUM": "Максимальное количество рабочих областей, которые можно создать в этом домене"
+        }
+      },
+      "SHARED_SPACE__NESTED_WORKGROUPS_LIMIT": {
+        "NAME": "Ограничение вложенной рабочей группы",
+        "DESCRIPTION": "Эта функция позволяет администратору устанавливать ограничение на количество вложенных рабочих групп, которые могут быть созданы внутри рабочей области в этом домене.",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Максимальное количество рабочих групп",
+          "DESCRIPTION_MAXIMUM": "Максимальное количество вложенных рабочих групп, которые можно создать внутри рабочей области в этом домене."
+        }
+      },
       "WORK_GROUP__CREATION_RIGHT": {
         "NAME": "Workgroup creation",
         "DESCRIPTION": "Determine whether users can create workgroups",
