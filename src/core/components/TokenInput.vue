@@ -15,17 +15,16 @@
         class="token-input__auto-complete"
         allow-clear
         :default-active-first-option="false"
+        :options="options"
         @search="onSearch"
         @select="onSelect"
       >
-        <template #options>
-          <a-select-option v-for="option in options" :key="option.value">
-            <div v-if="!option.optionComponent">
-              <SearchOutlined v-if="option.default" />
-              {{ option.label }}
-            </div>
-            <component :is="option.optionComponent" v-else :data="option.data" />
-          </a-select-option>
+        <template #option="option">
+          <div v-if="!option.optionComponent">
+            <SearchOutlined v-if="option.default" />
+            {{ option.label }}
+          </div>
+          <component :is="option.optionComponent" v-else :data="option.data" />
         </template>
         <a-input ref="autocomplete" :placeholder="placeholder" @pressEnter="handlePressEnter" />
       </a-auto-complete>
