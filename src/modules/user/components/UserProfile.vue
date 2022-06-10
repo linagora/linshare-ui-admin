@@ -196,7 +196,6 @@ async function updateUser() {
   margin: 20px 0px;
 
   label {
-    display: inline-block;
     font-weight: 600;
     margin-bottom: 10px;
   }
