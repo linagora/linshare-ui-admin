@@ -40,6 +40,8 @@ module.exports = {
         'no-console': ['error', { allow: ['warn', 'error'] }],
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        'vue/no-v-html': 'off',
       },
     },
   ],

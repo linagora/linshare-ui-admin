@@ -26,7 +26,7 @@
           </div>
           <component :is="option.optionComponent" v-else :data="option.data" />
         </template>
-        <a-input ref="autocomplete" :placeholder="placeholder" @pressEnter="handlePressEnter" />
+        <a-input ref="autocomplete" :placeholder="placeholder" @press-enter="handlePressEnter" />
       </a-auto-complete>
     </div>
     <div class="token-input__inner-box token-input__sort-ctn">

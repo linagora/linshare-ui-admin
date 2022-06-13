@@ -8,19 +8,19 @@
       </div>
       <div class="header__right">
         <LanguageSelector />
-        <Profile />
+        <TheProfile />
       </div>
     </div>
     <div class="header__menu">
-      <Menu />
+      <TheMenu />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import LanguageSelector from '@/core/components/LanguageSelector.vue';
-import Profile from '@/core/components/Profile.vue';
-import Menu from '@/core/components/Menu.vue';
+import TheProfile from '@/core/components/TheProfile.vue';
+import TheMenu from '@/core/components/TheMenu.vue';
 </script>
 
 <style lang="less" scoped>

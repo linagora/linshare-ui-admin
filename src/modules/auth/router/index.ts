@@ -11,7 +11,7 @@ export const LoginRoutes: Array<RouteRecordRaw> = [
     name: 'Login',
     path: '/login',
     props: true,
-    component: () => import('../pages/Login.vue'),
+    component: () => import('../pages/LoginPage.vue'),
   },
   {
     name: 'LoginUsingSecondFactorAuthentication',

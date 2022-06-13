@@ -13,7 +13,7 @@
     @submit="handleSubmit"
   />
   <SharedSpacesList />
-  <Pagination
+  <ThePagination
     v-model="pagination"
     class="shared-spaces-list__pagination"
     :is-visible="!!list.length"
@@ -29,7 +29,7 @@ import TokenInput, { TokenSubmitPayload } from '@/core/components/TokenInput.vue
 import PageTitle from '@/core/components/PageTitle.vue';
 import AccountAutocompleteItem from '@/modules/user/components/AccountAutocompleteItem.vue';
 import SharedSpacesList from '@/modules/shared-spaces/components/SharedSpacesList.vue';
-import Pagination from '@/core/components/Pagination.vue';
+import ThePagination from '@/core/components/ThePagination.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useSharedSpacesList from '@/modules/shared-spaces/hooks/useSharedSpacesList';
 import { listUsers } from '@/modules/user/services/user-api';

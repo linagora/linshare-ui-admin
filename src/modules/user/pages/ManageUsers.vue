@@ -29,7 +29,7 @@
       <LargeTable v-if="isLargeScreen" />
       <SmallTable v-else />
 
-      <Pagination
+      <ThePagination
         v-model="pagination"
         class="pagination"
         :is-visible="!!list.length"
@@ -44,7 +44,7 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import PageTitle from '@/core/components/PageTitle.vue';
-import Pagination from '@/core/components/Pagination.vue';
+import ThePagination from '@/core/components/ThePagination.vue';
 import TokenInput, { TokenSubmitPayload } from '@/core/components/TokenInput.vue';
 import LargeTable from '@/modules/user/components/LargeTable.vue';
 import SmallTable from '@/modules/user/components/SmallTable.vue';

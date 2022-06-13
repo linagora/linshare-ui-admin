@@ -38,7 +38,7 @@
           </a-button>
         </div>
       </a-card>
-      <Copyright />
+      <TheCopyright />
     </a-col>
   </a-row>
 </template>
@@ -47,7 +47,7 @@
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
-import Copyright from '@/core/components/Copyright.vue';
+import TheCopyright from '@/core/components/TheCopyright.vue';
 import { signinRedirect } from '@/modules/auth/services/oidc';
 import { APIError } from '@/core/types/APIError';
 import { LoginCredentials, login } from '../services/basic';

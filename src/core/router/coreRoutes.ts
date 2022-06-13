@@ -7,14 +7,14 @@ import { RemoteServerRoutes } from '@/modules/remote-server/router';
 import { DomainConfigurationRoutes } from '@/modules/domain/router';
 import config from '@/config';
 
-import Home from '../pages/Home.vue';
+import HomePage from '../pages/HomePage.vue';
 
 export const CoreRoutes: Array<RouteRecordRaw> = [
   {
     name: 'Home',
     path: '/',
     redirect: config.homeRoute,
-    component: Home,
+    component: HomePage,
     meta: {
       requiresAuth: true,
     },
@@ -22,7 +22,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       {
         name: 'Configuration',
         path: 'configuration',
-        component: () => import('../pages/Configuration.vue'),
+        component: () => import('../pages/ConfigurationPage.vue'),
         meta: {
           label: 'NAVIGATOR.CONFIGURATION',
           requiresAuth: true,
@@ -42,7 +42,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       {
         name: 'Administration',
         path: 'administration',
-        component: () => import('../pages/Administration.vue'),
+        component: () => import('../pages/AdministrationPage.vue'),
         meta: {
           label: 'NAVIGATOR.ADMINISTRATION',
           requiresAuth: true,

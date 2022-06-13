@@ -1,7 +1,7 @@
 <template>
   <a-layout class="ls-admin-layout full-height">
     <a-layout-header class="ls-app-header">
-      <Header />
+      <TheHeader />
     </a-layout-header>
     <a-layout-content class="app-content">
       <Suspense>
@@ -9,14 +9,14 @@
       </Suspense>
     </a-layout-content>
     <a-layout-footer>
-      <Footer />
+      <TheFooter />
     </a-layout-footer>
   </a-layout>
 </template>
 
 <script lang="ts" setup>
-import Footer from '@/core/components/Footer.vue';
-import Header from '@/core/components/Header.vue';
+import TheFooter from '@/core/components/TheFooter.vue';
+import TheHeader from '@/core/components/TheHeader.vue';
 import use2FARequiredCheck from '@/modules/auth/hooks/use2FARequiredCheck';
 
 use2FARequiredCheck();

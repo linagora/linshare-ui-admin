@@ -36,7 +36,7 @@ import { RightOutlined } from '@ant-design/icons-vue';
 import useLegacyFeatures from '../hooks/useLegacyFeatures';
 
 export default defineComponent({
-  name: 'Administration',
+  name: 'AdministrationPage',
   components: {
     RightOutlined,
   },

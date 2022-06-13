@@ -28,7 +28,7 @@
 import { defineComponent, ref, reactive, computed } from 'vue';
 
 export default defineComponent({
-  name: 'Pagination',
+  name: 'ThePagination',
   props: {
     modelValue: {
       type: Object,

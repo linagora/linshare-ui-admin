@@ -1,11 +1,11 @@
 <template>
   <div class="footer">
-    <Copyright />
+    <TheCopyright />
   </div>
 </template>
 
 <script lang="ts" setup>
-import Copyright from '../components/Copyright.vue';
+import TheCopyright from './TheCopyright.vue';
 </script>
 
 <style lang="less" scoped>

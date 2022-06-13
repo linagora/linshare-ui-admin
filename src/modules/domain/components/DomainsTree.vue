@@ -1,7 +1,7 @@
 <template>
   <div class="domains-tree">
     <ul>
-      <DomainsTreeNode :node="domainsTree" @onCreateButtonClick="showModal" />
+      <DomainsTreeNode :node="domainsTree" @on-create-button-click="showModal" />
     </ul>
   </div>
 

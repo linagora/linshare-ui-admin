@@ -18,7 +18,7 @@
           </a-button>
         </a-form>
       </a-card>
-      <Copyright />
+      <TheCopyright />
     </a-col>
   </a-row>
 </template>
@@ -27,7 +27,7 @@
 import router from '@/core/router';
 import { defineComponent, ref } from 'vue';
 
-import Copyright from '@/core/components/Copyright.vue';
+import TheCopyright from '@/core/components/TheCopyright.vue';
 import OtpInput from '@/core/components/OtpInput.vue';
 import { APIError } from '@/core/types/APIError';
 import { login } from '../services/basic';
@@ -39,9 +39,9 @@ interface Props {
 }
 
 export default defineComponent({
-  name: 'Login',
+  name: 'LoginSecondFactor',
   components: {
-    Copyright,
+    TheCopyright,
     OtpInput,
   },
   props: {
