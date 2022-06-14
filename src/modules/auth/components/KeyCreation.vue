@@ -1,6 +1,6 @@
 <template>
   <a-alert
-    v-if="!secondFA.enabled && secondFA.required"
+    v-if="!secondFA?.enabled && secondFA?.required"
     type="warning"
     :message="$t('2FA.KEY_CREATION.ALERT.TITLE')"
     :description="$t('2FA.KEY_CREATION.ALERT.MESSAGE')"
@@ -35,34 +35,35 @@
       <span class="instruction__number">2</span>
       <span class="instruction__text">{{ $t('2FA.KEY_CREATION.STEP_2') }}</span>
     </div>
-    <a-button v-if="!secondFA.enabled" type="primary" class="button" @click="create2FAKey">
+    <a-button v-if="!secondFA?.enabled" type="primary" class="button" @click="create2FAKey">
       {{ $t('2FA.KEY_CREATION.BUTTON') }}
     </a-button>
 
     <div class="shared-key">
-      <small v-if="secondFA.sharedKey">{{
-        $t('2FA.KEY_REMOVAL.INFORMATION', { date: $d(secondFA.creationDate, 'mediumDate') })
+      <small v-if="secondFA?.sharedKey">{{
+        $t('2FA.KEY_REMOVAL.INFORMATION', { date: $d(secondFA?.creationDate, 'mediumDate') })
       }}</small>
 
       <div class="qrcode-ctn">
-        <qrcode-vue v-if="secondFA.sharedKey" :value="freeOtpUri" :size="160" level="H" />
+        <qrcode-vue v-if="secondFA?.sharedKey" :value="freeOtpUri" :size="160" level="H" />
         <img src="@/assets/images/freeotp.svg" />
       </div>
 
-      <OtpSetupHint v-if="secondFA.sharedKey" :configs="otpConfigs" />
+      <OtpSetupHint v-if="otpConfigs" :configs="otpConfigs" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import { useStore } from 'vuex';
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '@/modules/auth/store';
 import { message } from 'ant-design-vue';
 import QrcodeVue from 'qrcode.vue';
 import OtpSetupHint from './OtpSetupHint.vue';
-
 import { OTP_DEFAULT_CONFIGURATION, OTP_APP_INSTALL_LINKS } from '../constants';
 import { APIError } from '@/core/types/APIError';
+import OtpSetupHintConfigs from '@/modules/auth/types/OtpSetupHintConfigs';
 
 export default defineComponent({
   name: 'KeyCreation',
@@ -71,27 +72,31 @@ export default defineComponent({
     OtpSetupHint,
   },
   setup() {
-    const store = useStore();
-    const loggedUser = store.getters['Auth/getLoggedUser'];
-    const secondFA = computed(() => store.getters['Auth/getSecondFA']);
-    const otpConfigs = computed(() => ({
-      ...OTP_DEFAULT_CONFIGURATION,
-      account: loggedUser.mail,
-      secret: secondFA.value.sharedKey,
-    }));
+    const authStore = useAuthStore();
+    const { loggedUser, secondFA } = storeToRefs(authStore);
+    const otpConfigs = computed<OtpSetupHintConfigs | null>(() => {
+      if (!loggedUser.value?.mail || !secondFA.value?.sharedKey) return null;
+
+      return {
+        ...OTP_DEFAULT_CONFIGURATION,
+        account: loggedUser.value?.mail || '',
+        secret: secondFA.value?.sharedKey || '',
+      };
+    });
+
     const freeOtpUri = computed(
       () =>
-        `otpauth://${otpConfigs.value.type}/` +
-        `${otpConfigs.value.issuer}:${otpConfigs.value.account}` +
-        `?secret=${otpConfigs.value.secret}` +
-        `&algorithm=${otpConfigs.value.algorithm}` +
-        `&digits=${otpConfigs.value.digits}` +
-        `&period=${otpConfigs.value.period}`
+        `otpauth://${otpConfigs.value?.type}/` +
+        `${otpConfigs.value?.issuer}:${otpConfigs.value?.account}` +
+        `?secret=${otpConfigs.value?.secret}` +
+        `&algorithm=${otpConfigs.value?.algorithm}` +
+        `&digits=${otpConfigs.value?.digits}` +
+        `&period=${otpConfigs.value?.period}`
     );
 
     async function create2FAKey() {
       try {
-        await store.dispatch('Auth/createSecondFA');
+        await authStore.createSecondFA();
       } catch (error) {
         if (error instanceof APIError) {
           message.error(error.getMessage());

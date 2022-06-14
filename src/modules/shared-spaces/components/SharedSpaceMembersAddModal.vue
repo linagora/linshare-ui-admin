@@ -48,7 +48,7 @@ import { APIError } from '@/core/types/APIError';
 import { message } from 'ant-design-vue';
 import { PlusCircleOutlined } from '@ant-design/icons-vue';
 import { reactive, ref } from 'vue';
-import { useStore } from 'vuex';
+import { useSharedSpacesStore } from '@/modules/shared-spaces/store';
 import { useI18n } from 'vue-i18n';
 import { createSharedSpaceMember } from '../services/shared-space-api';
 import SharedSpaceRoleSelect from './SharedSpaceRoleSelect.vue';
@@ -66,14 +66,14 @@ interface Props {
 
 const props = defineProps<Props>();
 const emit = defineEmits(['membersAdded', 'cancel']);
-const store = useStore();
+const sharedSpacesStore = useSharedSpacesStore();
 const { t } = useI18n();
 
 const selectedRole = reactive<SharedSpaceRole>({
-  ...store.getters['SharedSpace/getRolesByType'](props.sharedSpace.nodeType)[0],
+  ...sharedSpacesStore.getRolesByType(props.sharedSpace.nodeType)[0],
 });
 const nestedRole = reactive<SharedSpaceRole>({
-  ...store.getters['SharedSpace/getRolesByType'](SHARED_SPACE_TYPE.WORKGROUP)[0],
+  ...sharedSpacesStore.getRolesByType(SHARED_SPACE_TYPE.WORKGROUP)[0],
 });
 const setSelectedRole = (role: SharedSpaceRole) => Object.assign(selectedRole, role);
 const setNestedRole = (role: SharedSpaceRole) => Object.assign(nestedRole, role);

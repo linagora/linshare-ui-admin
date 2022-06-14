@@ -1,5 +1,6 @@
-import { computed, createVNode } from 'vue';
-import { useStore } from 'vuex';
+import { createVNode } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useDomainStore } from '@/modules/domain/store';
 import { Modal } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
@@ -62,8 +63,8 @@ type UsableLegacyFeatures = {
 
 export default function useLegacyFeatures(): UsableLegacyFeatures {
   const { t } = useI18n();
-  const store = useStore();
-  const currentDomainUuid = computed(() => store.getters['Domain/getCurrentDomainUuid']);
+  const domainStore = useDomainStore();
+  const { currentDomain } = storeToRefs(domainStore);
 
   function redirect(title: string) {
     Modal.confirm({
@@ -75,7 +76,7 @@ export default function useLegacyFeatures(): UsableLegacyFeatures {
         const page = LEGACY_PAGES.find((page) => page.title === title);
 
         if (page) {
-          window.location.href = `${config.legacyAppUrl}#/${page.route}`.replace(':id', currentDomainUuid.value);
+          window.location.href = `${config.legacyAppUrl}#/${page.route}`.replace(':id', currentDomain.value.uuid);
         }
       },
     });

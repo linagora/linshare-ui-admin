@@ -41,7 +41,7 @@
 
 <script lang="ts" setup>
 import { computed, reactive, onMounted, watch } from 'vue';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import DomainGroupProviderLDAPForm from './DomainGroupProviderLDAPForm.vue';
 import { getGroupProviders } from '../services/domain-api';
 import { LDAPGroupProvider, EMPTY_PROVIDER } from '../types/GroupProvider';
@@ -50,6 +50,7 @@ import RemoteServer from '@/modules/remote-server/types/RemoteServer';
 import { LDAPGroupFilter } from '@/modules/remote-filter/types/GroupFilters';
 import { listGroupFilters } from '@/modules/remote-filter/services/group-filter-api';
 import StatusValue from '@/core/types/Status';
+import { storeToRefs } from 'pinia';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
@@ -58,9 +59,9 @@ interface State {
   groupFilters: LDAPGroupFilter[];
 }
 
-const store = useStore();
-const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
-const currentDomainStatus = computed<StatusValue>(() => store.getters['Domain/getStatus']('currentDomain'));
+const domainStore = useDomainStore();
+const { currentDomain, getStatus } = storeToRefs(domainStore);
+const currentDomainStatus = computed<StatusValue>(() => getStatus.value('currentDomain'));
 
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },

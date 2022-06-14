@@ -8,7 +8,7 @@
         <a-menu class="profile-menu">
           <a-menu-item class="profile-info-ctn">
             <div class="profile-name">
-              {{ fullName }}
+              {{ loggedUserFullName }}
             </div>
             <div class="profile-mail">
               {{ loggedUser?.mail }}
@@ -30,24 +30,26 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { useAuthStore } from '@/modules/auth/store';
+import { useDomainStore } from '@/modules/domain/store';
 import { useRouter } from 'vue-router';
 import { logout } from '@/modules/auth/services/basic';
 import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
 import { isEnable } from '../utils/functionality';
+import { storeToRefs } from 'pinia';
 
-const store = useStore();
 const router = useRouter();
-const loggedUser = computed(() => store.getters['Auth/getLoggedUser']);
-const fullName = computed(() => store.getters['Auth/getLoggedUserFullName']);
+const authStore = useAuthStore();
+const domainStore = useDomainStore();
+const { loggedUser, loggedUserFullName } = storeToRefs(authStore);
 const secondFAEnabled = computed(() => {
-  const functionality = store.getters['Domain/getLoggedUserFunctionality']('SECOND_FACTOR_AUTHENTICATION');
+  const functionality = domainStore.getLoggedUserFunctionality('SECOND_FACTOR_AUTHENTICATION');
 
   return isEnable(functionality);
 });
 
 async function logOut() {
-  if (loggedUser.value.authWithOIDC) {
+  if (loggedUser.value?.authWithOIDC) {
     await logoutOIDC();
   } else {
     await logout();

@@ -13,7 +13,7 @@ import { computed, reactive, onMounted, watch } from 'vue';
 import PageTitle from '@/core/components/PageTitle.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import DomainWelcomeMessageForm from './DomainWelcomeMessageForm.vue';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import {
   getWelcomeMessage,
   updateWelcomeMessage,
@@ -27,13 +27,14 @@ import { useI18n } from 'vue-i18n';
 import WelcomeMessage, { EMPTY_WELCOME_MESSAGE } from '../types/WelcomeMessages';
 import useNotification from '@/core/hooks/useNotification';
 import { ArrowUpOutlined } from '@ant-design/icons-vue';
+import { storeToRefs } from 'pinia';
 
-const store = useStore();
+const domainStore = useDomainStore();
 const router = useRouter();
 const { t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const { confirmModal } = useNotification();
-const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
+const { currentDomain } = storeToRefs(domainStore);
 const welcomeMessage = reactive<WelcomeMessage>({ ...EMPTY_WELCOME_MESSAGE });
 const isDuplicating = computed(
   () => !!router.currentRoute.value.query.duplicate && router.currentRoute.value.name === 'DomainWelcomeMessageNew'

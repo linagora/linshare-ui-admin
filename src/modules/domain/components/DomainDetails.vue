@@ -75,18 +75,17 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { storeToRefs } from 'pinia';
+import { useDomainStore } from '@/modules/domain/store';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import PageTitle from '@/core/components/PageTitle.vue';
 import DomainForm from '@/modules/domain/components/DomainForm.vue';
 import Status from '@/core/types/Status';
 import useDomainDelete from '../hooks/useDomainDelete';
-import Domain from '../types/Domain';
 
-const store = useStore();
-const loadingDomain = computed(() => store.getters['Domain/getStatus']('currentDomain') === Status.LOADING);
-const currentDomain = computed<Domain>(() => store.getters['Domain/getCurrentDomain']);
-const isRootDomain = computed(() => store.getters['Domain/isRootDomain']);
+const domainStore = useDomainStore();
+const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === Status.LOADING);
+const { isRootDomain, currentDomain } = storeToRefs(domainStore);
 const { breadcrumbs } = useBreadcrumbs();
 const { deleting, confirmThenDelete, canDelete } = useDomainDelete();
 </script>

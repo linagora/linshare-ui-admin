@@ -1,5 +1,5 @@
 <template>
-  <div class="manage-users">
+  <div v-if="user" class="manage-users">
     <PageTitle
       :title="$t('USERS.DETAIL_USER.TITLE')"
       :subtitle="`${user.firstName} ${user.lastName} <${user.mail}>`"
@@ -60,106 +60,90 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed, createVNode } from 'vue';
+<script lang="ts" setup>
+import { createVNode } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { Modal, message } from 'ant-design-vue';
-import router from '@/core/router';
-import store from '@/core/store';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import { useUserStore } from '@/modules/user/store';
+import { APIError } from '@/core/types/APIError';
+import { deleteUser2FAKey } from '@/modules/user/services/user-api';
+
+import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
 import UserProfile from '@/modules/user/components/UserProfile.vue';
 import RestrictedContacts from '@/modules/user/components/RestrictedContacts.vue';
 import PersonalSpaceQuota from '@/modules/user/components/PersonalSpaceQuota.vue';
-import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
-import { deleteUser2FAKey } from '../services/user-api';
-import User from '../types/User';
-import { APIError } from '@/core/types/APIError';
-import GuestModerators from '../components/GuestModerators.vue';
+import GuestModerators from '@/modules/user/components/GuestModerators.vue';
 
-export default defineComponent({
-  name: 'UserDetail',
-  components: {
-    PageTitle,
-    PersonalSpaceQuota,
-    UserProfile,
-    RestrictedContacts,
-    GuestModerators,
-  },
-  async setup() {
-    const { params } = useRoute();
-    const { t } = useI18n();
+const { t } = useI18n();
+const { params } = useRoute();
+const router = useRouter();
+const userStore = useUserStore();
 
-    const id = params.id;
-    const user = computed<User>(() => store.getters['User/getUser']);
-    const { breadcrumbs } = useBreadcrumbs();
+const id = params.id as string;
+const { user } = storeToRefs(userStore);
+const { breadcrumbs } = useBreadcrumbs();
 
-    try {
-      await store.dispatch('User/fetchUser', id);
-    } catch (error) {
-      if (error instanceof APIError) {
-        message.error(error.getMessage());
-      } else {
-        console.error(error);
-      }
-    }
+try {
+  await userStore.fetchUser(id);
+} catch (error) {
+  if (error instanceof APIError) {
+    message.error(error.getMessage());
+  }
+}
 
-    async function deleteUser() {
-      try {
-        await store.dispatch('User/deleteUser', store.getters['User/getUser']);
-        message.success(t('MESSAGES.DELETE_SUCCESS'));
-        router.push({ name: 'UsersList' });
-      } catch (error) {
-        message.error((error as APIError).getMessage());
-      }
-    }
+async function deleteUser() {
+  if (!user.value) return;
 
-    async function unlockUser() {
-      try {
-        store.dispatch('User/setUser', {
-          ...store.getters['User/getUser'],
-          locked: false,
-        });
+  try {
+    await userStore.deleteUser(user.value);
+    message.success(t('MESSAGES.DELETE_SUCCESS'));
+    router.push({ name: 'UsersList' });
+  } catch (error) {
+    message.error((error as APIError).getMessage());
+  }
+}
 
-        await store.dispatch('User/updateUser', store.getters['User/getUser']);
-        message.success(t('MESSAGES.UPDATE_SUCCESS'));
-      } catch (error) {
-        message.error((error as APIError).getMessage());
-      }
-    }
+async function unlockUser() {
+  if (!user.value) return;
 
-    async function remove2FAKey() {
-      try {
-        const user = store.getters['User/getUser'];
+  try {
+    userStore.setUser({
+      ...user.value,
+      locked: false,
+    });
 
-        await deleteUser2FAKey(user.uuid, user.secondFAUuid);
-        router.go(0);
-      } catch (error) {
-        message.error(t('2FA.KEY_REMOVAL.MESSAGE.ERROR'));
-      }
-    }
+    await userStore.updateUser(user.value);
+    message.success(t('MESSAGES.UPDATE_SUCCESS'));
+  } catch (error) {
+    message.error((error as APIError).getMessage());
+  }
+}
 
-    function confirmRemoveSharedKey() {
-      Modal.confirm({
-        title: () => t('GENERAL.DELETION'),
-        icon: () => createVNode(ExclamationCircleOutlined),
-        content: () => t('2FA.KEY_REMOVAL.CONFIRMATION'),
-        okText: () => t('GENERAL.DELETE'),
-        cancelText: () => t('GENERAL.CANCEL'),
-        onOk: remove2FAKey,
-      });
-    }
+async function remove2FAKey() {
+  if (!user.value) return;
 
-    return {
-      user,
-      breadcrumbs,
-      deleteUser,
-      confirmRemoveSharedKey,
-      unlockUser,
-    };
-  },
-});
+  try {
+    await deleteUser2FAKey(user.value.uuid, user.value.secondFAUuid);
+    router.go(0);
+  } catch (error) {
+    message.error(t('2FA.KEY_REMOVAL.MESSAGE.ERROR'));
+  }
+}
+
+function confirmRemoveSharedKey() {
+  Modal.confirm({
+    title: () => t('GENERAL.DELETION'),
+    icon: () => createVNode(ExclamationCircleOutlined),
+    content: () => t('2FA.KEY_REMOVAL.CONFIRMATION'),
+    okText: () => t('GENERAL.DELETE'),
+    cancelText: () => t('GENERAL.CANCEL'),
+    onOk: remove2FAKey,
+  });
+}
 </script>
 
 <style lang="less" scoped>

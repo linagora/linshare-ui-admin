@@ -9,13 +9,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { useAppStore } from '@/core/store';
+import { storeToRefs } from 'pinia';
 import useAntConfig from '@/core/hooks/useAntConfig';
 
-const store = useStore();
-const hydrating = computed(() => store.getters.isHydrating);
-const authenticating = computed(() => store.getters.isAuthenticating);
+const appStore = useAppStore();
+const { hydrating, authenticating } = storeToRefs(appStore);
 const { antdLocale } = useAntConfig();
 </script>
 

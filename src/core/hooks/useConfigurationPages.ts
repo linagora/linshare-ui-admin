@@ -1,10 +1,11 @@
 import { computed, ComputedRef } from 'vue';
-import { useStore } from 'vuex';
+import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
+import { useDomainStore } from '@/modules/domain/store';
+import { useAuthStore } from '@/modules/auth/store';
 import { getMainPages, findDomainPage, canAccessPage, ConfigurationPage } from '../services/configuration-pages';
-import Domain from '@/modules/domain/types/Domain';
+import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 
 type UsableConfigurationPages = {
   isCurrentPageAccessible: ComputedRef<boolean>;
@@ -14,15 +15,16 @@ type UsableConfigurationPages = {
 
 export default function useConfigurationPages(): UsableConfigurationPages {
   const { t } = useI18n();
-  const store = useStore();
   const { push, currentRoute } = useRouter();
   const { redirect } = useLegacyFeatures();
-  const currentDomain = computed<Domain>(() => store.getters['Domain/getCurrentDomain']);
-  const loggedUserRole = computed(() => store.getters['Auth/getLoggedUserRole']);
+  const domainStore = useDomainStore();
+  const authStore = useAuthStore();
+  const { currentDomain } = storeToRefs(domainStore);
+  const { loggedUser } = storeToRefs(authStore);
 
   const pages = computed(() =>
     getMainPages()
-      .filter((page) => canAccessPage(page, loggedUserRole.value, currentDomain.value.type))
+      .filter((page) => canAccessPage(page, loggedUser.value?.role, currentDomain.value.type))
       .sort((a, b) => {
         if (!a.route) return 1;
 
@@ -35,7 +37,7 @@ export default function useConfigurationPages(): UsableConfigurationPages {
 
     if (!currentPage) return true;
 
-    return canAccessPage(currentPage, loggedUserRole.value, currentDomain.value.type);
+    return canAccessPage(currentPage, loggedUser.value?.role, currentDomain.value.type);
   });
 
   function goToPage(page: ConfigurationPage) {

@@ -1,4 +1,4 @@
-export default interface RootState {
+export default interface AppState {
   hydrating: boolean;
   hydrated: boolean;
   authenticating: boolean;

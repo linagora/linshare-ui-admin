@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { computed, shallowRef } from 'vue';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import { useI18n } from 'vue-i18n';
 import TokenInput, { TokenSubmitPayload } from '@/core/components/TokenInput.vue';
 import PageTitle from '@/core/components/PageTitle.vue';
@@ -35,12 +35,13 @@ import useSharedSpacesList from '@/modules/shared-spaces/hooks/useSharedSpacesLi
 import { listUsers } from '@/modules/user/services/user-api';
 import Domain from '@/modules/domain/types/Domain';
 import { SharedSpaceListFilters } from '@/modules/shared-spaces/types/ShareSpaceList';
+import { storeToRefs } from 'pinia';
 
 const { locale, t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const { handleTableChange, filters, sorter, pagination, list } = useSharedSpacesList();
-const store = useStore();
-const domainsList = store.getters['Domain/getDomainsList'];
+const domainStore = useDomainStore();
+const { getDomainsList: domainsList } = storeToRefs(domainStore);
 
 const searchForAccounts = async function (mail: string) {
   const data = await listUsers({ mail });
@@ -93,7 +94,7 @@ const filterOptions = [
   {
     key: 'domains',
     displayKey: computed(() => t('GENERAL.DOMAIN', locale.value)),
-    options: domainsList.map((domain: Domain) => ({
+    options: domainsList.value.map((domain: Domain) => ({
       label: domain.name,
       value: domain.uuid,
     })),

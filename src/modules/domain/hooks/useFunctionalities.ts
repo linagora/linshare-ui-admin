@@ -1,14 +1,15 @@
-import { computed, ComputedRef } from 'vue';
+import { computed, ComputedRef, Ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import { message } from 'ant-design-vue';
 import { Functionality } from '@/core/types/Functionality';
 import { APIError } from '@/core/types/APIError';
 import StatusValue from '@/core/types/Status';
+import { storeToRefs } from 'pinia';
 
 type UsableFunctionalities = {
   status: ComputedRef<StatusValue>;
-  functionalities: ComputedRef<Functionality[]>;
+  functionalities: Ref<Functionality[]>;
   mainFunctionalities: ComputedRef<Functionality[]>;
   getTranslatedText: (functionality: Functionality, key: string) => string;
   saveFunctionality: (functionality: Functionality) => Promise<void>;
@@ -16,10 +17,10 @@ type UsableFunctionalities = {
 
 export default function useFunctionalities(): UsableFunctionalities {
   const { t } = useI18n();
-  const store = useStore();
-  const status = computed<StatusValue>(() => store.getters['Domain/getStatus']('currentDomainFunctionalities'));
-  const functionalities = computed<Functionality[]>(() => store.getters['Domain/getAllFunctionalities']);
-  const mainFunctionalities = computed<Functionality[]>(() => store.getters['Domain/getMainFunctionalities']);
+  const domainStore = useDomainStore();
+  const status = computed<StatusValue>(() => domainStore.getStatus('currentDomainFunctionalities'));
+  const { currentDomainFunctionalities } = storeToRefs(domainStore);
+  const mainFunctionalities = computed<Functionality[]>(() => domainStore.getMainFunctionalities);
 
   function getTranslatedText(functionality: Functionality, key: string): string {
     const i18nKey = `FUNCTIONALITIES.DETAILS.${functionality.identifier}.${key}`;
@@ -30,7 +31,7 @@ export default function useFunctionalities(): UsableFunctionalities {
 
   async function saveFunctionality(functionality: Functionality) {
     try {
-      await store.dispatch('Domain/updateDomainFunctionality', functionality);
+      await domainStore.updateDomainFunctionality(functionality);
       message.success(t('MESSAGES.UPDATE_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {
@@ -41,9 +42,9 @@ export default function useFunctionalities(): UsableFunctionalities {
 
   return {
     status,
-    functionalities,
     mainFunctionalities,
     getTranslatedText,
     saveFunctionality,
+    functionalities: currentDomainFunctionalities,
   };
 }

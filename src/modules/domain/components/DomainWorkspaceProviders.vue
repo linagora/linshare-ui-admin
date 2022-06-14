@@ -41,7 +41,7 @@
 
 <script lang="ts" setup>
 import { computed, reactive, onMounted, watch } from 'vue';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import DomainWorkspaceProviderLDAPForm from './DomainWorkspaceProviderLDAPForm.vue';
 import { getWorkspaceProviders } from '../services/domain-api';
 import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
@@ -58,9 +58,9 @@ interface State {
   groupFilters: LDAPWorkspaceFilter[];
 }
 
-const store = useStore();
-const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
-const currentDomainStatus = computed<StatusValue>(() => store.getters['Domain/getStatus']('currentDomain'));
+const domainStore = useDomainStore();
+const currentDomain = domainStore.currentDomain;
+const currentDomainStatus = computed<StatusValue>(() => domainStore.getStatus('currentDomain'));
 
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
@@ -85,7 +85,7 @@ async function prepareGroupFilters() {
 }
 
 async function prepareWorkspaceProviders() {
-  const providers = await getWorkspaceProviders(currentDomain.value.uuid);
+  const providers = await getWorkspaceProviders(currentDomain.uuid);
 
   state.provider = providers[0] || { ...EMPTY_PROVIDER };
 }

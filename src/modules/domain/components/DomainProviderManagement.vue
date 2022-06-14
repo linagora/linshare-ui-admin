@@ -28,18 +28,20 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '@/modules/auth/store';
+import { useDomainStore } from '@/modules/domain/store';
 import { RightOutlined } from '@ant-design/icons-vue';
 import { findDomainPage, canAccessPage } from '@/core/services/configuration-pages';
 
-const store = useStore();
-const loggedUserRole = computed(() => store.getters['Auth/getLoggedUserRole']);
-const currentDomainType = computed(() => store.getters['Domain/getCurrentDomainType']);
+const authStore = useAuthStore();
+const domainStore = useDomainStore();
+const { loggedUser } = storeToRefs(authStore);
+const { currentDomain } = storeToRefs(domainStore);
 
 function isPageAccessible(name: string) {
   const page = findDomainPage(name);
 
-  return page && canAccessPage(page, loggedUserRole.value, currentDomainType.value);
+  return page && canAccessPage(page, loggedUser.value?.role, currentDomain.value.type);
 }
 </script>

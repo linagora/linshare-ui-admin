@@ -88,7 +88,8 @@
 
 <script lang="ts" setup>
 import { computed, reactive, onMounted, watch } from 'vue';
-import { useStore } from 'vuex';
+import { storeToRefs } from 'pinia';
+import { useDomainStore } from '@/modules/domain/store';
 import DomainUserProviderLDAPForm from './DomainUserProviderLDAPForm.vue';
 import DomainUserProviderOIDCForm from './DomainUserProviderOIDCForm.vue';
 import DomainUserProviderTwakeForm from './DomainUserProviderTwakeForm.vue';
@@ -98,7 +99,7 @@ import { listRemoteServers } from '@/modules/remote-server/services/remote-serve
 import RemoteServer from '@/modules/remote-server/types/RemoteServer';
 import UserFilter, { USER_FILTER_TYPE } from '@/modules/remote-filter/types/UserFilter';
 import { listUserFilters } from '@/modules/remote-filter/services/user-filter-api';
-import Domain, { DOMAIN_TYPE } from '../types/Domain';
+import { DOMAIN_TYPE } from '../types/Domain';
 import StatusValue from '@/core/types/Status';
 
 interface State {
@@ -108,9 +109,10 @@ interface State {
   userFilters: UserFilter[];
 }
 
-const store = useStore();
-const currentDomain = computed<Domain>(() => store.getters['Domain/getCurrentDomain']);
-const currentDomainStatus = computed<StatusValue>(() => store.getters['Domain/getStatus']('currentDomain'));
+const domainStore = useDomainStore();
+const { currentDomain } = storeToRefs(domainStore);
+
+const currentDomainStatus = computed<StatusValue>(() => domainStore.getStatus('currentDomain'));
 
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },

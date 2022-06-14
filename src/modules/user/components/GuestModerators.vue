@@ -1,19 +1,21 @@
 <script lang="ts" setup>
-import { useStore } from 'vuex';
 import { computed, onMounted, reactive, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { storeToRefs } from 'pinia';
 import { message } from 'ant-design-vue';
-import { listGuestModerators, removeGuestModerator, updateGuestModerator } from '../services/guest-api';
+import { DeleteFilled, PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
+import { useUserStore } from '@/modules/user/store';
 import { APIError } from '@/core/types/APIError';
-import User from '../types/User';
+import { listGuestModerators, removeGuestModerator, updateGuestModerator } from '../services/guest-api';
 import GuestModerator, { GUEST_MODERATOR_ROLE } from '../types/GuestModerator';
 import GuestModeratorAddModal from './GuestModeratorAddModal.vue';
-import { DeleteFilled, PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
-import { useI18n } from 'vue-i18n';
 
-const store = useStore();
 const { t } = useI18n();
 const list = ref<GuestModerator[]>([]);
-const currentUser = computed<User>(() => store.getters['User/getUser']);
+
+const userStore = useUserStore();
+const { user: currentUser } = storeToRefs(userStore);
+
 const filterText = ref('');
 const loading = ref(false);
 const showingAddModal = ref(false);
@@ -79,6 +81,8 @@ const columns = computed(() => [
 ]);
 
 async function fetchGuestModerators() {
+  if (!currentUser.value) return;
+
   loading.value = true;
 
   try {
@@ -91,6 +95,8 @@ async function fetchGuestModerators() {
   }
 }
 async function remove(moderator: GuestModerator) {
+  if (!currentUser.value) return;
+
   deleting[moderator.uuid] = true;
 
   try {
@@ -107,6 +113,8 @@ async function remove(moderator: GuestModerator) {
 }
 
 async function update(moderator: GuestModerator) {
+  if (!currentUser.value) return;
+
   try {
     const updated = await updateGuestModerator(currentUser.value.uuid, moderator);
     const index = list.value.findIndex((moderator) => moderator.uuid === updated.uuid);
@@ -160,11 +168,13 @@ onMounted(fetchGuestModerators);
           {{ record.account.name.charAt(0) }}
         </a-avatar>
       </template>
+
       <template v-else-if="column.key === 'domain'">
         <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.account.domain.uuid } }">
           {{ record.account.domain.name }}
         </router-link>
       </template>
+
       <template v-else-if="column.key === 'role'">
         <a-select v-model:value="record.role" @change="update(record)">
           <a-select-option :value="GUEST_MODERATOR_ROLE.ADMIN">{{

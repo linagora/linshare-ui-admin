@@ -3,10 +3,12 @@ import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { message, Modal } from 'ant-design-vue';
 import { computed, ComputedRef, createVNode, Ref, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useStore } from 'vuex';
-import Domain, { DOMAIN_TYPE } from '../types/Domain';
+import { useDomainStore } from '@/modules/domain/store';
+import { useAuthStore } from '@/modules/auth/store';
+import { DOMAIN_TYPE } from '../types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
+import { storeToRefs } from 'pinia';
 
 type UsableDomainDelete = {
   canDelete: ComputedRef<boolean>;
@@ -16,20 +18,21 @@ type UsableDomainDelete = {
 };
 
 export default function useDomainDelete(): UsableDomainDelete {
-  const store = useStore();
+  const domainStore = useDomainStore();
+  const authStore = useAuthStore();
   const { t } = useI18n();
   const deleting = ref(false);
-  const currentDomain = computed<Domain>(() => store.getters['Domain/getCurrentDomain']);
-  const loggedUserRole = computed<ACCOUNT_ROLE>(() => store.getters['Auth/getLoggedUserRole']);
+  const { currentDomain } = storeToRefs(domainStore);
+  const { loggedUser } = storeToRefs(authStore);
   const canDelete = computed(
-    () => loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN && currentDomain.value.type !== DOMAIN_TYPE.ROOT
+    () => loggedUser.value?.role === ACCOUNT_ROLE.SUPERADMIN && currentDomain.value.type !== DOMAIN_TYPE.ROOT
   );
 
   function confirmThenDelete() {
     let childDomainExists = false;
 
     if (currentDomain.value.type === DOMAIN_TYPE.TOP) {
-      const domainNode: DomainTreeNode = store.getters['Domain/getDomainByUuid'](currentDomain.value.uuid);
+      const domainNode: DomainTreeNode = domainStore.getDomainByUuid(currentDomain.value.uuid);
 
       childDomainExists = !!domainNode.children?.length;
     }
@@ -57,7 +60,7 @@ export default function useDomainDelete(): UsableDomainDelete {
     deleting.value = true;
 
     try {
-      await store.dispatch('Domain/deleteCurrentDomain');
+      await domainStore.deleteCurrentDomain();
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());

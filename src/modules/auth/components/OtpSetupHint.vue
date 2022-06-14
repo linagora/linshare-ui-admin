@@ -56,16 +56,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import OtpSetupHintConfigs from '@/modules/auth/types/OtpSetupHintConfigs';
 
-interface OtpSetupHintConfigs {
-  secret: string;
-  issuer: string;
-  account: string;
-  type: string;
-  digits: number;
-  algorithm: string;
-  period: number;
-}
 interface OtpSetupHintProps {
   configs: OtpSetupHintConfigs;
 }

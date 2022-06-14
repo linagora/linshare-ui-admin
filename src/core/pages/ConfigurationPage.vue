@@ -21,21 +21,25 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useMediaQuery } from '@vueuse/core';
 import { MenuUnfoldOutlined } from '@ant-design/icons-vue';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import DomainsTree from '@/modules/domain/components/DomainsTree.vue';
 
-const store = useStore();
-const currentDomainUuid = computed(() => store.getters['Domain/getCurrentDomainUuid']);
+const domainStore = useDomainStore();
+const { currentDomain } = storeToRefs(domainStore);
 const showSidebar = ref(false);
 const isLargeScreen = useMediaQuery('(min-width: 769px)');
 
-watch(currentDomainUuid, (domainUuid) => {
-  if (domainUuid) {
-    store.dispatch('Domain/fetchDomain');
-    store.dispatch('Domain/fetchDomainFunctionalities');
+watch(
+  () => currentDomain.value.uuid,
+  (domainUuid) => {
+    if (domainUuid) {
+      domainStore.fetchDomain();
+      domainStore.fetchDomainFunctionalities();
+    }
   }
-});
+);
 </script>

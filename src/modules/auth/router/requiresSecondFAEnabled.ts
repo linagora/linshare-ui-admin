@@ -1,11 +1,11 @@
 import { isEnable } from '@/core/utils/functionality';
 import { Router } from 'vue-router';
-import { Store } from 'vuex';
-
-export const requiresSecondFAEnabled = (router: Router, store: Store<any>): void => {
+import { useDomainStore } from '@/modules/domain/store';
+export const requiresSecondFAEnabled = (router: Router): void => {
   router.beforeEach((to) => {
+    const domainStore = useDomainStore();
     if (to.name === 'ManageSecondFactorAuthentication') {
-      const functionality = store.getters['Domain/getLoggedUserFunctionality']('SECOND_FACTOR_AUTHENTICATION');
+      const functionality = domainStore.getLoggedUserFunctionality('SECOND_FACTOR_AUTHENTICATION');
 
       return isEnable(functionality) || '/';
     }

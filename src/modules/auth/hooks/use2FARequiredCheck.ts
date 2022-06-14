@@ -1,18 +1,20 @@
+import { computed, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useStore } from 'vuex';
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '@/modules/auth/store';
+import { useDomainStore } from '@/modules/domain/store';
 import { useRouter } from 'vue-router';
 import { Modal } from 'ant-design-vue';
-import { computed, watchEffect } from 'vue';
 import { isEnable } from '@/core/utils/functionality';
-import SecondFactorAuthentication from '../types/SecondFactorAuthentication';
 
 export default function use2FARequiredCheck(): void {
-  const store = useStore();
+  const authStore = useAuthStore();
+  const domainStore = useDomainStore();
   const { push, currentRoute } = useRouter();
   const { t } = useI18n();
-  const secondFAAuth = computed<SecondFactorAuthentication>(() => store.getters['Auth/getSecondFA']);
+  const { secondFA } = storeToRefs(authStore);
   const secondFAEnabled = computed(() => {
-    const functionality = store.getters['Domain/getLoggedUserFunctionality']('SECOND_FACTOR_AUTHENTICATION');
+    const functionality = domainStore.getLoggedUserFunctionality('SECOND_FACTOR_AUTHENTICATION');
 
     return isEnable(functionality);
   });
@@ -20,8 +22,8 @@ export default function use2FARequiredCheck(): void {
   watchEffect(() => {
     if (
       secondFAEnabled.value &&
-      !secondFAAuth.value.enabled &&
-      secondFAAuth.value.required &&
+      !secondFA.value?.enabled &&
+      secondFA.value?.required &&
       currentRoute.value.name !== 'ManageSecondFactorAuthentication' &&
       currentRoute.value.meta.requiresAuth
     ) {

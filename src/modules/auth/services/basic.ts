@@ -1,6 +1,7 @@
-import store from '@/core/store';
+import { useAuthStore } from '@/modules/auth/store';
+import { useAppStore } from '@/core/store';
+import { hydrate, dehydrate } from '@/core/store/hydrate';
 import { logOut } from './auth-api';
-import { dehydrate, hydrate } from '@/core/store/hydrate';
 import { AxiosRequestConfig } from 'axios';
 
 export interface LoginCredentials {
@@ -27,9 +28,12 @@ export async function login(credentials: LoginCredentials): Promise<void> {
   if (credentials.otp) {
     params.headers['x-linShare-2fa-pin'] = credentials.otp;
   }
-  await store.dispatch('Auth/fetchLoggedUser', params);
-  store.commit('setAuthenticated', true);
-  await hydrate();
+
+  const authStore = useAuthStore();
+  const appStore = useAppStore();
+  await authStore.fetchLoggedUser(params);
+  appStore.setAuthenticated(true);
+  hydrate();
 }
 
 export async function logout(): Promise<void> {

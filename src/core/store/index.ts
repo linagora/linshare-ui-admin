@@ -1,46 +1,26 @@
-import { createStore } from 'vuex';
-import Auth from '@/modules/auth/store';
-import Domain from '@/modules/domain/store';
-import User from '@/modules/user/store';
-import SharedSpace from '@/modules/shared-spaces/store';
-import RootState from '../types/RootState';
+import { defineStore } from 'pinia';
+import AppState from '@/core/types/AppState';
 
-const state: RootState = {
-  hydrated: false,
-  hydrating: false,
-  authenticating: false,
-  authenticated: false,
-  error: false,
-};
-
-export default createStore({
-  actions: {},
-  getters: {
-    isHydrating: (state: RootState) => state.hydrating,
-    isHydrated: (state: RootState) => state.hydrated,
-    isAuthenticated: (state: RootState) => state.authenticated,
-    isAuthenticating: (state: RootState) => state.authenticating,
-  },
-  mutations: {
-    setHydrating(state: RootState, hydrating: boolean) {
-      state.hydrating = hydrating;
+export const useAppStore = defineStore('appStore', {
+  state: (): AppState => ({
+    hydrated: false,
+    hydrating: false,
+    authenticating: false,
+    authenticated: false,
+    error: false,
+  }),
+  actions: {
+    setHydrating(hydrating: boolean) {
+      this.hydrating = hydrating;
     },
-    setHydrated(state: RootState, hydrated: boolean) {
-      state.hydrated = hydrated;
+    setHydrated(hydrated: boolean) {
+      this.hydrated = hydrated;
     },
-    setAuthenticated(state: RootState, authenticated: boolean) {
-      state.authenticated = authenticated;
+    setAuthenticated(authenticated: boolean) {
+      this.authenticated = authenticated;
     },
-    setAuthenticating(state: RootState, authenticating: boolean) {
-      state.authenticating = authenticating;
+    setAuthenticating(authenticating: boolean) {
+      this.authenticating = authenticating;
     },
   },
-  state,
-  modules: {
-    SharedSpace,
-    Auth,
-    Domain,
-    User,
-  },
-  strict: import.meta.env.MODE !== 'production',
 });

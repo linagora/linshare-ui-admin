@@ -43,7 +43,7 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import PageTitle from '@/core/components/PageTitle.vue';
 import Domain from '@/modules/domain/types/Domain';
 import ThePagination from '@/core/components/ThePagination.vue';
@@ -53,13 +53,14 @@ import SmallTable from '@/modules/user/components/SmallTable.vue';
 import { UsersListFilters } from '../types/UsersList';
 import useUsersList from '../hooks/useUsersList';
 import { useMediaQuery } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
 
 const { list, pagination, sorter, filters, handleTableChange } = useUsersList();
 const { locale, t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const isLargeScreen = useMediaQuery('(min-width: 1069px)');
-const store = useStore();
-const domainsList = store.getters['Domain/getDomainsList'];
+const domainStore = useDomainStore();
+const { getDomainsList: domainsList } = storeToRefs(domainStore);
 
 const handleSubmit = async function (options: TokenSubmitPayload<UsersListFilters>) {
   if (options.sort) {
@@ -175,7 +176,7 @@ const filterOptions = [
   {
     key: 'domain',
     displayKey: computed(() => t('GENERAL.DOMAIN', locale.value)),
-    options: domainsList.map((domain: Domain) => ({
+    options: domainsList.value.map((domain: Domain) => ({
       label: domain.name,
       value: domain.uuid,
     })),

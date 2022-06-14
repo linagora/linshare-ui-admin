@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 import { computed, reactive, ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import { message, Form } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
-import { useStore } from 'vuex';
+import { useUserStore } from '@/modules/user/store';
+import { useDomainStore } from '@/modules/domain/store';
 import { APIError } from '@/core/types/APIError';
 import { useGuest } from '../hooks/useGuest';
 import User, { ACCOUNT_ROLE } from '../types/User';
@@ -18,11 +20,12 @@ interface FormModel {
   expirationDate?: string;
 }
 
-const store = useStore();
+const userStore = useUserStore();
+const domainStore = useDomainStore();
 const { t, d } = useI18n();
-const user = computed<User>(() => store.getters['User/getUser']);
+const { user: currentUser } = storeToRefs(userStore);
 const guestFeatureEnabled = computed(() => {
-  const functionality = store.getters['Domain/getLoggedUserFunctionality']('GUESTS');
+  const functionality = domainStore.getLoggedUserFunctionality('GUESTS');
 
   return isEnable(functionality);
 });
@@ -30,13 +33,13 @@ const guestFeatureEnabled = computed(() => {
 const { isCurrentUserGuest, maxExpirationDate, isValidExpirationDate } = useGuest();
 const formSubmitting = ref(false);
 const formModel = reactive<FormModel>({
-  firstName: user.value.firstName,
-  lastName: user.value.lastName,
-  role: user.value.role,
-  externalMailLocale: user.value.externalMailLocale,
-  canUpload: user.value.canUpload,
-  canCreateGuest: user.value.canCreateGuest,
-  expirationDate: user.value.expirationDate ? user.value.expirationDate.toString() : undefined,
+  firstName: currentUser.value?.firstName || '',
+  lastName: currentUser.value?.lastName || '',
+  role: currentUser.value?.role || ACCOUNT_ROLE.SIMPLE,
+  externalMailLocale: currentUser.value?.externalMailLocale || '',
+  canUpload: currentUser.value?.canUpload || false,
+  canCreateGuest: currentUser.value?.canCreateGuest || false,
+  expirationDate: currentUser.value?.expirationDate ? currentUser.value.expirationDate.toString() : undefined,
 });
 const formRules = reactive({
   firstName: [{ required: true, message: t('GENERAL.FIELD_REQUIRED') }],
@@ -61,11 +64,11 @@ async function updateUser() {
 
   try {
     await validate();
-    await store.dispatch('User/updateUser', {
-      ...user.value,
+    await userStore.updateUser({
+      ...currentUser.value,
       ...formModel,
       expirationDate: Number(formModel.expirationDate),
-    });
+    } as User);
     message.success(t('MESSAGES.UPDATE_SUCCESS'));
   } catch (error) {
     if (error instanceof APIError) {
@@ -91,7 +94,7 @@ async function updateUser() {
         </div>
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.ROLE') }}</label>
-          <a-select v-model:value="formModel.role" :disabled="user.role === 'SUPERADMIN'">
+          <a-select v-model:value="formModel.role">
             <a-select-option value="SIMPLE">
               {{ $t('USERS.DETAIL_USER.ROLE_SIMPLE') }}
             </a-select-option>
@@ -142,14 +145,14 @@ async function updateUser() {
       </a-form>
     </a-col>
 
-    <a-col :xl="{ span: 9, offset: 2 }">
+    <a-col v-if="currentUser" :xl="{ span: 9, offset: 2 }">
       <div class="info-block-container">
         <div class="info-block">
           <div class="info-block__title">
             {{ $t('USERS.DETAIL_USER.ACCOUNT_TYPE') }}
           </div>
           <div class="info-block__value">
-            {{ user.accountType }}
+            {{ currentUser.accountType }}
           </div>
         </div>
         <div class="info-block">
@@ -157,7 +160,7 @@ async function updateUser() {
             {{ $t('USERS.DETAIL_USER.CREATION_DATE') }}
           </div>
           <div class="info-block__value">
-            {{ $d(user.creationDate, 'mediumDateTime') }}
+            {{ $d(currentUser.creationDate, 'mediumDateTime') }}
           </div>
         </div>
         <div class="info-block">
@@ -165,7 +168,7 @@ async function updateUser() {
             {{ $t('USERS.DETAIL_USER.MODIFICATION_DATE') }}
           </div>
           <div class="info-block__value">
-            {{ $d(user.modificationDate, 'mediumDateTime') }}
+            {{ $d(currentUser.modificationDate, 'mediumDateTime') }}
           </div>
         </div>
         <div v-if="isCurrentUserGuest" class="info-block">
@@ -173,7 +176,7 @@ async function updateUser() {
             {{ $t('USERS.DETAIL_USER.AUTHOR') }}
           </div>
           <div class="info-block__value">
-            {{ user.author && user.author.name }}
+            {{ currentUser.author && currentUser.author.name }}
           </div>
         </div>
         <div class="info-block">
@@ -181,8 +184,8 @@ async function updateUser() {
             {{ $t('USERS.DETAIL_USER.DOMAIN') }}
           </div>
           <div class="info-block__value">
-            <router-link :to="{ name: 'DomainDetails', params: { domainUuid: user.domain.uuid } }">
-              {{ user.domain.name }}
+            <router-link :to="{ name: 'DomainDetails', params: { domainUuid: currentUser.domain.uuid } }">
+              {{ currentUser.domain.name }}
             </router-link>
           </div>
         </div>

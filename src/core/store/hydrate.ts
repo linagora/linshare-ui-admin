@@ -1,43 +1,51 @@
-import Domain from '@/modules/domain/types/Domain';
-import DomainTreeNode from '@/modules/domain/types/DomainTreeNode';
-import store from './index';
+import { storeToRefs } from 'pinia';
+import { useAppStore } from '@/core/store';
+import { useAuthStore } from '@/modules/auth/store';
+import { useDomainStore } from '@/modules/domain/store';
+import { useSharedSpacesStore } from '@/modules/shared-spaces/store';
 
 export async function hydrate(): Promise<void> {
-  const hydrating = store.getters.isHydrating;
-  const hydrated = store.getters.isHydrated;
-  const authenticated = store.getters.isAuthenticated;
+  const appStore = useAppStore();
+  const authStore = useAuthStore();
+  const domainStore = useDomainStore();
+  const sharedSpacesStore = useSharedSpacesStore();
+  const hydrating = appStore.hydrating;
+  const hydrated = appStore.hydrated;
+  const authenticated = appStore.authenticated;
 
   if (!authenticated || hydrating || hydrated) return;
 
-  store.commit('setHydrating', true);
+  appStore.setHydrating(true);
 
   try {
-    await store.dispatch('Auth/fetchSecondFA');
-    await store.dispatch('Domain/fetchDomainsTree');
-    await store.dispatch('Domain/fetchLoggedUserFunctionalities');
-    await store.dispatch('SharedSpace/fetchRoles');
+    await authStore.fetchSecondFA();
+    await domainStore.fetchDomainsTree();
+    await domainStore.fetchLoggedUserFunctionalities();
+    await sharedSpacesStore.fetchRoles();
 
-    const currentDomain: Domain = store.getters['Domain/getCurrentDomain'];
+    const { currentDomain, domainsTree } = storeToRefs(domainStore);
 
-    if (!currentDomain.uuid) {
-      const domainsTree: DomainTreeNode = store.getters['Domain/getDomainsTree'];
-
-      store.dispatch('Domain/setCurrentDomainUuid', domainsTree.uuid);
+    if (!currentDomain.value.uuid) {
+      domainStore.setCurrentDomainUuid(domainsTree.value.uuid);
     }
-    await store.dispatch('Domain/fetchDomain');
-    await store.dispatch('Domain/fetchDomainFunctionalities');
+    await domainStore.fetchDomain();
+    await domainStore.fetchDomainFunctionalities();
   } catch (error) {
     console.error(error);
   } finally {
-    store.commit('setHydrating', false);
+    appStore.setHydrating(false);
   }
 
-  store.commit('setHydrated', true);
+  appStore.setHydrated(true);
 }
 
 export function dehydrate(): void {
-  store.commit('Domain/dehydrate');
-  store.commit('Auth/dehydrate');
-  store.commit('setHydrated', false);
-  store.commit('setAuthenticated', false);
+  const appStore = useAppStore();
+  const authStore = useAuthStore();
+  const domainStore = useDomainStore();
+
+  domainStore.dehydrate();
+  authStore.dehydrate();
+  appStore.setHydrated(false);
+  appStore.setAuthenticated(false);
 }

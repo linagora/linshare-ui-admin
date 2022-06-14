@@ -129,7 +129,11 @@ export const findDomainPage = (routeName: RouteRecordName): ConfigurationPage | 
 
 export const getMainPages = (): ConfigurationPage[] => CONFIGURATION_PAGES.filter((page) => !page.sub);
 
-export const canAccessPage = (page: ConfigurationPage, userRole: ACCOUNT_ROLE, domainType?: DOMAIN_TYPE): boolean => {
+export const canAccessPage = (page: ConfigurationPage, userRole?: ACCOUNT_ROLE, domainType?: DOMAIN_TYPE): boolean => {
+  if (!userRole) {
+    return false;
+  }
+
   if (!page.accessibility) {
     return true;
   }

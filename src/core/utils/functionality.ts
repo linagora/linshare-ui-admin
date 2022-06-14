@@ -6,8 +6,11 @@ import {
 } from '../types/Functionality';
 
 export function getMaximumParameter(
-  functionality: Functionality
+  functionality: Functionality | undefined
 ): UnitSizeParameterValue | UnitTimeParameterValue | IntegerParameterValue | null {
+  if (!functionality) {
+    return null;
+  }
   const parameter = functionality.parameter;
 
   switch (parameter?.type) {
@@ -21,6 +24,9 @@ export function getMaximumParameter(
   }
 }
 
-export function isEnable(functionality: Functionality): boolean {
+export function isEnable(functionality: Functionality | undefined): boolean {
+  if (!functionality) {
+    return false;
+  }
   return functionality?.activationPolicy.enable.value;
 }

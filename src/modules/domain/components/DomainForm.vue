@@ -63,13 +63,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, reactive, watchEffect, PropType } from 'vue';
-import { useStore } from 'vuex';
+import { defineComponent, ref, reactive, watchEffect, PropType } from 'vue';
+import { useDomainStore } from '@/modules/domain/store';
 import { useI18n } from 'vue-i18n';
 import { Form, message } from 'ant-design-vue';
 
 import Domain from '@/modules/domain/types/Domain';
 import { APIError } from '@/core/types/APIError';
+import { storeToRefs } from 'pinia';
 
 const useForm = Form.useForm;
 
@@ -83,7 +84,8 @@ export default defineComponent({
   },
   setup(props) {
     const { t, locale } = useI18n();
-    const store = useStore();
+    const domainStore = useDomainStore();
+    const { isRootDomain } = storeToRefs(domainStore);
     const saving = ref(false);
 
     const formState = reactive<Omit<Domain, 'uuid'>>({
@@ -126,7 +128,7 @@ export default defineComponent({
       }
 
       try {
-        await store.dispatch('Domain/updateDomain', {
+        await domainStore.updateDomain({
           ...props.data,
           ...formState,
         });
@@ -152,7 +154,7 @@ export default defineComponent({
       reset,
       saving,
       validateInfos,
-      isRootDomain: computed(() => store.getters['Domain/isRootDomain']),
+      isRootDomain,
     };
   },
 });

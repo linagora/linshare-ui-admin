@@ -15,15 +15,16 @@
 </template>
 
 <script lang="ts" setup>
-import { useStore } from 'vuex';
-import { computed, reactive } from 'vue';
+import { reactive } from 'vue';
+import { storeToRefs } from 'pinia';
 import { EMPTY_DOMAIN } from '../types/Domain';
+import { useDomainStore } from '@/modules/domain/store';
 import DomainsTreeNode from './DomainsTreeNode.vue';
 import DomainCreationFormModal, { DomainCreationFormModalProps } from './DomainCreationFormModal.vue';
 
-const store = useStore();
+const domainStore = useDomainStore();
 const modalProps = reactive<DomainCreationFormModalProps>({ visible: false });
-const domainsTree = computed(() => store.getters['Domain/getDomainsTree']);
+const { domainsTree } = storeToRefs(domainStore);
 
 function showModal(data: DomainCreationFormModalProps) {
   modalProps.visible = true;
@@ -39,7 +40,7 @@ function onCreateCancel() {
 function onCreateSuccess() {
   modalProps.visible = false;
   modalProps.parent = EMPTY_DOMAIN;
-  store.dispatch('Domain/fetchDomainsTree');
+  domainStore.fetchDomainsTree();
 }
 </script>
 

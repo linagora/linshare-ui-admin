@@ -50,8 +50,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useStore } from 'vuex';
 import { computed } from 'vue';
+import { useDomainStore } from '@/modules/domain/store';
 import { PlusOutlined } from '@ant-design/icons-vue';
 import { DOMAIN_TYPE } from '../types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
@@ -60,19 +60,17 @@ import StatusValue from '@/core/types/Status';
 
 const route = useRoute();
 const router = useRouter();
-const store = useStore();
+const domainStore = useDomainStore();
 const prop = defineProps<{ node: DomainTreeNode }>();
 const emit = defineEmits(['onCreateButtonClick']);
+const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 
-const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
 const loading = computed(
-  () =>
-    currentDomain.value.uuid === prop.node.uuid &&
-    store.getters['Domain/getStatus']('currentDomain') === StatusValue.LOADING
+  () => currentDomainUuid.value === prop.node.uuid && domainStore.getStatus('currentDomain') === StatusValue.LOADING
 );
 
-async function setCurrentDomain(node: DomainTreeNode) {
-  await store.dispatch('Domain/setCurrentDomainUuid', node.uuid);
+function setCurrentDomain(node: DomainTreeNode) {
+  domainStore.setCurrentDomainUuid(node.uuid);
 
   if (route.params.domainUuid) {
     router.push({ name: route.name || undefined, params: { domainUuid: node.uuid } });
@@ -80,7 +78,7 @@ async function setCurrentDomain(node: DomainTreeNode) {
 }
 
 function isActive(node: DomainTreeNode) {
-  return node.uuid === currentDomain.value.uuid;
+  return node.uuid === currentDomainUuid.value;
 }
 
 function guestDomainCreated(node: DomainTreeNode) {

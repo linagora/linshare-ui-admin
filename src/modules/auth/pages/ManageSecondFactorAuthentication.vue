@@ -1,7 +1,7 @@
 <template>
   <PageTitle :title="$t('2FA.TITLE')">
     <template #titlePostfix>
-      <span :class="['feature-status', { active: secondFA.enabled }]">
+      <span :class="['feature-status', { active: secondFA?.enabled }]">
         {{ secondFA && secondFA.enabled ? $t('GENERAL.ENABLED') : $t('GENERAL.DISABLED') }}
       </span>
     </template>
@@ -12,15 +12,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '@/modules/auth/store';
 import PageTitle from '@/core/components/PageTitle.vue';
 import KeyCreation from '../components/KeyCreation.vue';
 import KeyRemoval from '../components/KeyRemoval.vue';
 
-const store = useStore();
-const secondFA = computed(() => store.getters['Auth/getSecondFA']);
-const initiallyEnabled = secondFA.value?.enabled;
+const authStore = useAuthStore();
+const { secondFA: initiallyEnabled } = authStore;
+const { secondFA } = storeToRefs(authStore);
 </script>
 
 <style lang="less">

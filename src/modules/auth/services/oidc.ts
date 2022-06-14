@@ -1,10 +1,11 @@
 /* eslint-disable camelcase */
 import { UserManager } from 'oidc-client';
 import { AxiosRequestConfig } from 'axios';
-import store from '@/core/store';
 import { logOut } from './auth-api';
-import { dehydrate, hydrate } from '@/core/store/hydrate';
 import config from '@/config';
+import { useAuthStore } from '@/modules/auth/store';
+import { useAppStore } from '@/core/store';
+import { hydrate, dehydrate } from '@/core/store/hydrate';
 
 const oidcSetting = config.oidcSetting;
 const manager = new UserManager({
@@ -34,8 +35,12 @@ export async function signinCallback(): Promise<void> {
       Authorization: `Bearer ${access_token}`,
     },
   };
-  await store.dispatch('Auth/fetchLoggedUser', authRequestConfig);
-  store.commit('setAuthenticating', false);
+
+  const authStore = useAuthStore();
+  const appStore = useAppStore();
+
+  await authStore.fetchLoggedUser(authRequestConfig);
+  appStore.setAuthenticating(false);
 
   await hydrate();
 }

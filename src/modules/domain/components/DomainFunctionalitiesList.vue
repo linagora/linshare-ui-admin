@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { computed, reactive, ref } from 'vue';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import { RightOutlined, SearchOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
@@ -9,6 +9,7 @@ import StatusValue from '@/core/types/Status';
 import { Functionality } from '@/core/types/Functionality';
 import useFunctionalities from '../hooks/useFunctionalities';
 import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
 
 interface ListParams {
   filterText: string;
@@ -20,12 +21,12 @@ interface FunctionalitySorters {
 }
 
 const { t } = useI18n();
-const store = useStore();
+const domainStore = useDomainStore();
 const router = useRouter();
 const { breadcrumbs } = useBreadcrumbs();
 const { mainFunctionalities, status } = useFunctionalities();
 
-const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
+const { currentDomain } = storeToRefs(domainStore);
 const params = reactive<ListParams>({
   sorterKey: 'enableFirst',
   filterText: '',

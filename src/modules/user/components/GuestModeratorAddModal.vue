@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
-import { useStore } from 'vuex';
+import { ref } from 'vue';
+import { useUserStore } from '@/modules/user/store';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import { PlusCircleOutlined } from '@ant-design/icons-vue';
@@ -9,6 +9,7 @@ import GuestModerator, { GUEST_MODERATOR_ROLE } from '../types/GuestModerator';
 import User from '@/modules/user/types/User';
 import { createGuestModerator } from '../services/guest-api';
 import UserSelect, { UserSelectOption } from '@/core/components/UserSelect.vue';
+import { storeToRefs } from 'pinia';
 
 interface Props {
   moderators: GuestModerator[];
@@ -17,9 +18,9 @@ interface Props {
 
 const props = defineProps<Props>();
 const emit = defineEmits(['moderatorsAdded', 'cancel']);
-const store = useStore();
+const userStore = useUserStore();
 const { t } = useI18n();
-const currentUser = computed<User>(() => store.getters['User/getUser']);
+const { user: currentUser } = storeToRefs(userStore);
 const selectedRole = ref<GUEST_MODERATOR_ROLE>(GUEST_MODERATOR_ROLE.SIMPLE);
 const adding = ref(false);
 const moderatorsToBeAdded = ref([] as User[]);

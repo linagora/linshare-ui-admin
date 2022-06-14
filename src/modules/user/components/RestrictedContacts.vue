@@ -64,7 +64,7 @@
 import { computed, ref, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
-import { useStore } from 'vuex';
+import { useUserStore } from '@/modules/user/store';
 import { useDebounceFn } from '@vueuse/core';
 import {
   listUsers,
@@ -79,6 +79,7 @@ import { UserOutlined } from '@ant-design/icons-vue';
 import { APIError } from '@/core/types/APIError';
 import { SORT_ORDER } from '@/core/types/Sort';
 import StatusValue from '@/core/types/Status';
+import { storeToRefs } from 'pinia';
 
 interface Option {
   label: string;
@@ -94,10 +95,10 @@ interface FormState {
 const id = useRoute().params.id as string;
 let restrictedContacts: RestrictedContact[] = [];
 const { t } = useI18n();
-const store = useStore();
+const userStore = useUserStore();
 const useForm = Form.useForm;
 const pageStatus = ref<StatusValue>(StatusValue.LOADING);
-const currentUser: User = store.getters['User/getUser'];
+const { user: currentUser } = storeToRefs(userStore);
 const options = ref([] as Option[]);
 const saving = ref(false);
 const searching = ref(false);
@@ -105,8 +106,8 @@ const searchUsersDebounce = useDebounceFn(searchUsers, 500);
 
 const formState = reactive<FormState>({
   selected: [],
-  restricted: currentUser.restricted,
-  comment: currentUser.comment,
+  restricted: currentUser.value.restricted,
+  comment: currentUser.value.comment,
 });
 const formRules = computed(() => ({
   selected: [
@@ -182,7 +183,7 @@ async function onSave() {
   try {
     saving.value = true;
 
-    await store.dispatch('User/updateUser', {
+    await userStore.updateUser({
       ...currentUser,
       comment: formState.comment,
       restricted: formState.restricted,

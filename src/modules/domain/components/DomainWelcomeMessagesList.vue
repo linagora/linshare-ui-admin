@@ -104,7 +104,8 @@
 
 <script lang="ts" setup>
 import { computed, reactive, onMounted, watch } from 'vue';
-import { useStore } from 'vuex';
+import { storeToRefs } from 'pinia';
+import { useDomainStore } from '@/modules/domain/store';
 import { useI18n } from 'vue-i18n';
 import { PlusCircleOutlined, SearchOutlined, EllipsisOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/PageTitle.vue';
@@ -132,15 +133,14 @@ const state = reactive<WelcomeMessagesListState>({
   list: [],
 });
 
-const store = useStore();
+const domainStore = useDomainStore();
+const { currentDomain } = storeToRefs(domainStore);
 const rootWelcomeMessageUuid = config.rootWelcomeMessageUuid;
 const { confirmModal } = useNotification();
-const currentDomainUuid = computed(() => store.getters['Domain/getCurrentDomainUuid']);
-const currentDomain = computed(() => store.getters['Domain/getCurrentDomain']);
 const filteredList = computed(() =>
   state.list.filter((message) => message.name.toLowerCase().includes(state.filterText.toLowerCase()))
 );
-const currentDomainStatus = computed<StatusValue>(() => store.getters['Domain/getStatus']('currentDomain'));
+const currentDomainStatus = computed<StatusValue>(() => domainStore.getStatus('currentDomain'));
 
 const columns = computed(() => [
   {
@@ -186,13 +186,10 @@ const columns = computed(() => [
 ]);
 
 async function fetchWelcomeMessages() {
-  if (!currentDomainUuid.value) {
-    return;
-  }
   state.status = StatusValue.LOADING;
 
   try {
-    const messages = await getWelcomeMessages(currentDomainUuid.value);
+    const messages = await getWelcomeMessages(currentDomain.value.uuid);
 
     state.status = StatusValue.SUCCESS;
     state.list = messages;

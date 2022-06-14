@@ -130,7 +130,7 @@ import { getSharedSpace, updateSharedSpace, deleteSharedSpace } from '../service
 import { APIError } from '@/core/types/APIError';
 import SharedSpace, { EMPTY_SHARED_SPACE } from '../types/SharedSpace';
 import { useI18n } from 'vue-i18n';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import { EMPTY_DOMAIN_NODE } from '@/modules/domain/types/DomainTreeNode';
 
 interface SharedSpaceForm {
@@ -138,7 +138,7 @@ interface SharedSpaceForm {
   description: string;
 }
 
-const store = useStore();
+const domainStore = useDomainStore();
 const { push, currentRoute } = useRouter();
 const { t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
@@ -205,7 +205,7 @@ async function prepare() {
 
     Object.assign(sharedSpace, { parentUuid: '' }, data);
     Object.assign(formState, data);
-    Object.assign(sharedSpaceDomain, store.getters['Domain/getDomainByUuid'](sharedSpace.domainUuid));
+    Object.assign(sharedSpaceDomain, domainStore.getDomainByUuid(sharedSpace.domainUuid || ''));
 
     if (sharedSpace.parentUuid) {
       const workspace = await getSharedSpace(sharedSpace.parentUuid);

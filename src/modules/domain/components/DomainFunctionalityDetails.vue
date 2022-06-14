@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, reactive, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useStore } from 'vuex';
+import { useDomainStore } from '@/modules/domain/store';
 import { Functionality } from '@/core/types/Functionality';
 import StatusValue from '@/core/types/Status';
 import PageTitle from '@/core/components/PageTitle.vue';
@@ -9,7 +9,7 @@ import DomainFunctionality from './DomainFunctionality.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useFunctionalities from '../hooks/useFunctionalities';
 
-const store = useStore();
+const domainStore = useDomainStore();
 const route = useRoute();
 const router = useRouter();
 const { breadcrumbs } = useBreadcrumbs([
@@ -20,13 +20,9 @@ const { breadcrumbs } = useBreadcrumbs([
 ]);
 const { status, getTranslatedText } = useFunctionalities();
 const show = reactive<Record<string, boolean>>({});
-const main = computed<Functionality | undefined>(() =>
-  store.getters['Domain/getFunctionality'](route.params.identifier as string)
-);
+const main = computed<Functionality | undefined>(() => domainStore.getFunctionality(route.params.identifier as string));
 
-const subs = computed<Functionality[]>(() =>
-  store.getters['Domain/getSubFunctionalities'](route.params.identifier as string)
-);
+const subs = computed<Functionality[]>(() => domainStore.getSubFunctionalities(route.params.identifier as string));
 const functionalities = computed(() => [main.value, ...subs.value]);
 
 watch(
