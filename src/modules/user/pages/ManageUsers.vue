@@ -43,7 +43,9 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import { useStore } from 'vuex';
 import PageTitle from '@/core/components/PageTitle.vue';
+import Domain from '@/modules/domain/types/Domain';
 import ThePagination from '@/core/components/ThePagination.vue';
 import TokenInput, { TokenSubmitPayload } from '@/core/components/TokenInput.vue';
 import LargeTable from '@/modules/user/components/LargeTable.vue';
@@ -56,6 +58,8 @@ const { list, pagination, sorter, filters, handleTableChange } = useUsersList();
 const { locale, t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const isLargeScreen = useMediaQuery('(min-width: 1069px)');
+const store = useStore();
+const domainsList = store.getters['Domain/getDomainsList'];
 
 const handleSubmit = async function (options: TokenSubmitPayload<UsersListFilters>) {
   if (options.sort) {
@@ -67,10 +71,6 @@ const handleSubmit = async function (options: TokenSubmitPayload<UsersListFilter
 };
 
 const sortOptions = [
-  {
-    key: 'domain',
-    label: 'USERS.DETAIL_USER.DOMAIN',
-  },
   {
     key: 'firstName',
     label: 'USERS.DETAIL_USER.FIRST_NAME',
@@ -167,6 +167,14 @@ const filterOptions = [
         label: computed(() => t('USERS.DETAIL_USER.NO', locale.value)),
       },
     ],
+  },
+  {
+    key: 'domain',
+    displayKey: computed(() => t('GENERAL.DOMAIN', locale.value)),
+    options: domainsList.map((domain: Domain) => ({
+      label: domain.name,
+      value: domain.uuid,
+    })),
   },
 ];
 </script>
