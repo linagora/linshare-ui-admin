@@ -25,9 +25,10 @@
         :placeholder="$t('USERS.TOKEN_INPUT.PLACEHOLDER')"
         @submit="handleSubmit"
       />
-
-      <LargeTable v-if="isLargeScreen" />
-      <SmallTable v-else />
+      <div class="users-table">
+        <LargeTable v-if="isLargeScreen" />
+        <SmallTable v-else />
+      </div>
 
       <ThePagination
         v-model="pagination"
@@ -199,6 +200,12 @@ const filterOptions = [
     margin-top: 10px;
     margin-bottom: 4px;
     font-size: 16px;
+  }
+}
+
+.users-table {
+  @media (min-width: 1069px) {
+    margin-top: 20px;
   }
 }
 </style>
