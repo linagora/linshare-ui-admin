@@ -115,31 +115,31 @@ const filteredList = computed(() =>
 const columns = computed(() => [
   {
     title: t('GENERAL.NAME'),
-    dataIndex: 'name',
+    dataIndex: ['name'],
     sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => a.name.localeCompare(b.name),
     key: 'name',
   },
   {
     title: t('GENERAL.DESCRIPTION'),
-    dataIndex: 'description',
+    dataIndex: ['description'],
     key: 'description',
   },
   {
     title: t('GENERAL.TYPES'),
-    dataIndex: 'type',
+    dataIndex: ['type'],
     key: 'type',
     width: '130px',
     sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => a.type.localeCompare(b.type),
   },
   {
     title: t('GENERAL.CREATION_DATE'),
-    dataIndex: 'creationDate',
+    dataIndex: ['creationDate'],
     sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => (a.creationDate || 0) - (b.creationDate || 0),
     key: 'date',
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
-    dataIndex: 'modificationDate',
+    dataIndex: ['modificationDate'],
     sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => (a.creationDate || 0) - (b.creationDate || 0),
     defaultSortOrder: 'descend',
     key: 'date',

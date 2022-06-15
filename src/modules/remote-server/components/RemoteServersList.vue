@@ -150,20 +150,20 @@ const columns = computed(() => [
   },
   {
     title: t('REMOTE_SERVER.FIELDS.TYPE'),
-    dataIndex: 'serverType',
+    dataIndex: ['serverType'],
     key: 'serverType',
     width: '130px',
     sorter: (a: RemoteServer, b: RemoteServer) => a.name.localeCompare(b.name),
   },
   {
     title: t('GENERAL.CREATION_DATE'),
-    dataIndex: 'creationDate',
+    dataIndex: ['creationDate'],
     sorter: (a: RemoteServer, b: RemoteServer) => (a.creationDate || 0) - (b.creationDate || 0),
     key: 'date',
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
-    dataIndex: 'modificationDate',
+    dataIndex: ['modificationDate'],
     sorter: (a: RemoteServer, b: RemoteServer) => (a.modificationDate || 0) - (b.modificationDate || 0),
     key: 'date',
   },

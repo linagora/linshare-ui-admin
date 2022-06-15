@@ -32,13 +32,13 @@ const params = reactive<ListParams>({
 });
 const columns = ref([
   {
-    dataIndex: 'identifier',
+    dataIndex: ['identifier'],
     key: 'name',
   },
   {
     width: '100px',
     align: 'center',
-    dataIndex: 'activationPolicy.enable.value',
+    dataIndex: ['activationPolicy', 'enable', 'value'],
     key: 'enable',
   },
   {

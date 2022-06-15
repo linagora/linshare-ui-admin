@@ -147,38 +147,38 @@ const currentDomainStatus = computed<StatusValue>(() => store.getters['Domain/ge
 const columns = computed(() => [
   {
     title: t('GENERAL.NAME'),
-    dataIndex: 'name',
+    dataIndex: ['name'],
     sorter: (a: WelcomeMessage, b: WelcomeMessage) => a.name.localeCompare(b.name),
     key: 'name',
     width: '300px',
   },
   {
     title: t('GENERAL.READ_ONLY'),
-    dataIndex: 'readOnly',
+    dataIndex: ['readOnly'],
     key: 'readOnly',
   },
   {
     title: t('GENERAL.DOMAIN'),
-    dataIndex: 'domain.name',
+    dataIndex: ['domain', 'name'],
     sorter: (a: WelcomeMessage, b: WelcomeMessage) => a.domain?.name.localeCompare(b.domain?.name || ''),
     key: 'readOnly',
   },
   {
     title: t('GENERAL.CREATION_DATE'),
-    dataIndex: 'creationDate',
+    dataIndex: ['creationDate'],
     sorter: (a: WelcomeMessage, b: WelcomeMessage) => (a.creationDate || 0) - (b.creationDate || 0),
     key: 'date',
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
-    dataIndex: 'modificationDate',
+    dataIndex: ['modificationDate'],
     sorter: (a: WelcomeMessage, b: WelcomeMessage) => (a.modificationDate || 0) - (b.modificationDate || 0),
     defaultSortOrder: 'descend',
     key: 'date',
   },
   {
     title: t('GENERAL.ASSIGNED'),
-    dataIndex: 'assignedToCurrentDomain',
+    dataIndex: ['assignedToCurrentDomain'],
     key: 'assigned',
   },
   {

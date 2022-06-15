@@ -115,31 +115,31 @@ const columns = computed(
   (): TableColumnsType => [
     {
       title: t('GENERAL.NAME'),
-      dataIndex: 'name',
+      dataIndex: ['name'],
       key: 'name',
       sorter: (a: UserFilter, b: UserFilter) => a.name.localeCompare(b.name),
     },
     {
       title: t('GENERAL.DESCRIPTION'),
-      dataIndex: 'description',
+      dataIndex: ['description'],
       key: 'description',
     },
     {
       title: t('GENERAL.TYPES'),
-      dataIndex: 'type',
+      dataIndex: ['type'],
       key: 'type',
       width: '130px',
       sorter: (a: UserFilter, b: UserFilter) => a.type.localeCompare(b.type),
     },
     {
       title: t('GENERAL.CREATION_DATE'),
-      dataIndex: 'creationDate',
+      dataIndex: ['creationDate'],
       key: 'date',
       sorter: (a: UserFilter, b: UserFilter) => a.creationDate - b.creationDate,
     },
     {
       title: t('GENERAL.MODIFICATION_DATE'),
-      dataIndex: 'modificationDate',
+      dataIndex: ['modificationDate'],
       sorter: (a: UserFilter, b: UserFilter) => a.modificationDate - b.modificationDate,
       defaultSortOrder: 'descend',
       key: 'date',
