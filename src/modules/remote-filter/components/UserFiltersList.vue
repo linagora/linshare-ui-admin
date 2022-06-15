@@ -43,31 +43,33 @@
       :locale="{ emptyText: $t('USER_FILTER.EMPTY_TEXT') }"
       row-key="uuid"
     >
-      <template #name="{ record, text }">
-        <a @click="edit(record)">{{ text }}</a>
-      </template>
+      <template #bodyCell="{ column, record, text }">
+        <template v-if="column.key === 'name'">
+          <a @click="edit(record)">{{ text }}</a>
+        </template>
 
-      <template #date="{ text }">
-        {{ $d(text, 'mediumDate') }}
-      </template>
+        <template v-else-if="column.key === 'date'">
+          {{ $d(text, 'mediumDate') }}
+        </template>
 
-      <template #actions="{ record }">
-        <a-dropdown :trigger="['click']">
-          <EllipsisOutlined style="font-size: 16px" />
-          <template #overlay>
-            <a-menu>
-              <a-menu-item @click="edit(record)">
-                {{ $t('GENERAL.EDIT') }}
-              </a-menu-item>
-              <a-menu-item @click="duplicate(record)">
-                {{ $t('GENERAL.DUPLICATE') }}
-              </a-menu-item>
-              <a-menu-item @click="confirmDelete(record)">
-                <span class="danger">{{ $t('GENERAL.DELETE') }}</span>
-              </a-menu-item>
-            </a-menu>
-          </template>
-        </a-dropdown>
+        <template v-else-if="column.key === 'actions'">
+          <a-dropdown :trigger="['click']">
+            <EllipsisOutlined style="font-size: 16px" />
+            <template #overlay>
+              <a-menu>
+                <a-menu-item @click="edit(record)">
+                  {{ $t('GENERAL.EDIT') }}
+                </a-menu-item>
+                <a-menu-item @click="duplicate(record)">
+                  {{ $t('GENERAL.DUPLICATE') }}
+                </a-menu-item>
+                <a-menu-item @click="confirmDelete(record)">
+                  <span class="danger">{{ $t('GENERAL.DELETE') }}</span>
+                </a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
+        </template>
       </template>
     </a-table>
   </div>
@@ -87,6 +89,7 @@ import { deleteUserFilter, getAssociatedDomains, listUserFilters } from '../serv
 
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useNotification from '@/core/hooks/useNotification';
+import type { TableColumnsType } from 'ant-design-vue';
 
 interface UserFiltersListState {
   loading: boolean;
@@ -108,43 +111,47 @@ const state = reactive<UserFiltersListState>({
 const filteredList = computed(() =>
   state.list.filter((server) => server.name.toLowerCase().includes(state.filterText.toLowerCase()))
 );
-const columns = computed(() => [
-  {
-    title: t('GENERAL.NAME'),
-    dataIndex: 'name',
-    sorter: (a: UserFilter, b: UserFilter) => a.name.localeCompare(b.name),
-    slots: { customRender: 'name' },
-  },
-  {
-    title: t('GENERAL.DESCRIPTION'),
-    dataIndex: 'description',
-  },
-  {
-    title: t('GENERAL.TYPES'),
-    dataIndex: 'type',
-    width: '130px',
-    sorter: (a: UserFilter, b: UserFilter) => a.type.localeCompare(b.type),
-  },
-  {
-    title: t('GENERAL.CREATION_DATE'),
-    dataIndex: 'creationDate',
-    sorter: (a: UserFilter, b: UserFilter) => a.creationDate - b.creationDate,
-    slots: { customRender: 'date' },
-  },
-  {
-    title: t('GENERAL.MODIFICATION_DATE'),
-    dataIndex: 'modificationDate',
-    sorter: (a: UserFilter, b: UserFilter) => a.modificationDate - b.modificationDate,
-    defaultSortOrder: 'descend',
-    slots: { customRender: 'date' },
-  },
-  {
-    title: t('GENERAL.ACTIONS'),
-    width: '80px',
-    align: 'center',
-    slots: { customRender: 'actions' },
-  },
-]);
+const columns = computed(
+  (): TableColumnsType => [
+    {
+      title: t('GENERAL.NAME'),
+      dataIndex: 'name',
+      key: 'name',
+      sorter: (a: UserFilter, b: UserFilter) => a.name.localeCompare(b.name),
+    },
+    {
+      title: t('GENERAL.DESCRIPTION'),
+      dataIndex: 'description',
+      key: 'description',
+    },
+    {
+      title: t('GENERAL.TYPES'),
+      dataIndex: 'type',
+      key: 'type',
+      width: '130px',
+      sorter: (a: UserFilter, b: UserFilter) => a.type.localeCompare(b.type),
+    },
+    {
+      title: t('GENERAL.CREATION_DATE'),
+      dataIndex: 'creationDate',
+      key: 'date',
+      sorter: (a: UserFilter, b: UserFilter) => a.creationDate - b.creationDate,
+    },
+    {
+      title: t('GENERAL.MODIFICATION_DATE'),
+      dataIndex: 'modificationDate',
+      sorter: (a: UserFilter, b: UserFilter) => a.modificationDate - b.modificationDate,
+      defaultSortOrder: 'descend',
+      key: 'date',
+    },
+    {
+      title: t('GENERAL.ACTIONS'),
+      width: '80px',
+      align: 'center',
+      key: 'actions',
+    },
+  ]
+);
 
 function fetchUserFilters() {
   state.loading = true;

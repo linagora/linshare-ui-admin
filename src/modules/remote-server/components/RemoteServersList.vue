@@ -35,34 +35,36 @@
     </div>
 
     <a-table :columns="columns" :data-source="filteredList" :loading="state.loading" row-key="uuid">
-      <template #name="{ record, text }">
-        <a @click="openEditModal(record)">{{ text }}</a>
-      </template>
+      <template #bodyCell="{ column, record, text }">
+        <template v-if="column.key === 'name'">
+          <a @click="openEditModal(record)">{{ text }}</a>
+        </template>
 
-      <template #date="{ text }">
-        {{ $d(text, 'mediumDate') }}
-      </template>
+        <template v-else-if="column.key === 'date'">
+          {{ $d(text, 'mediumDate') }}
+        </template>
 
-      <template #actions="{ record }">
-        <a-dropdown :trigger="['click']">
-          <EllipsisOutlined style="font-size: 16px" />
-          <template #overlay>
-            <a-menu>
-              <a-menu-item @click="openEditModal(record)">
-                {{ $t('GENERAL.EDIT') }}
-              </a-menu-item>
-              <a-menu-item @click="openCreateModal(record.serverType, record)">
-                {{ $t('GENERAL.DUPLICATE') }}
-              </a-menu-item>
-              <a-menu-item @click="show(record.uuid)">
-                {{ $t('GENERAL.VIEW_ASSOCIATED_DOMAINS') }}
-              </a-menu-item>
-              <a-menu-item @click="openDeleteModal(record)">
-                <span class="danger">{{ $t('GENERAL.DELETE') }}</span>
-              </a-menu-item>
-            </a-menu>
-          </template>
-        </a-dropdown>
+        <template v-else-if="column.key === 'actions'">
+          <a-dropdown :trigger="['click']">
+            <EllipsisOutlined style="font-size: 16px" />
+            <template #overlay>
+              <a-menu>
+                <a-menu-item @click="openEditModal(record)">
+                  {{ $t('GENERAL.EDIT') }}
+                </a-menu-item>
+                <a-menu-item @click="openCreateModal(record.serverType, record)">
+                  {{ $t('GENERAL.DUPLICATE') }}
+                </a-menu-item>
+                <a-menu-item @click="show(record.uuid)">
+                  {{ $t('GENERAL.VIEW_ASSOCIATED_DOMAINS') }}
+                </a-menu-item>
+                <a-menu-item @click="openDeleteModal(record)">
+                  <span class="danger">{{ $t('GENERAL.DELETE') }}</span>
+                </a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
+        </template>
       </template>
     </a-table>
   </div>
@@ -144,11 +146,12 @@ const columns = computed(() => [
     title: t('GENERAL.NAME'),
     dataIndex: 'name',
     sorter: (a: RemoteServer, b: RemoteServer) => a.name.localeCompare(b.name),
-    slots: { customRender: 'name' },
+    key: 'name',
   },
   {
     title: t('REMOTE_SERVER.FIELDS.TYPE'),
     dataIndex: 'serverType',
+    key: 'serverType',
     width: '130px',
     sorter: (a: RemoteServer, b: RemoteServer) => a.name.localeCompare(b.name),
   },
@@ -156,19 +159,19 @@ const columns = computed(() => [
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: 'creationDate',
     sorter: (a: RemoteServer, b: RemoteServer) => (a.creationDate || 0) - (b.creationDate || 0),
-    slots: { customRender: 'date' },
+    key: 'date',
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: 'modificationDate',
     sorter: (a: RemoteServer, b: RemoteServer) => (a.modificationDate || 0) - (b.modificationDate || 0),
-    slots: { customRender: 'date' },
+    key: 'date',
   },
   {
     title: t('GENERAL.ACTIONS'),
     width: '80px',
     align: 'center',
-    slots: { customRender: 'actions' },
+    key: 'actions',
   },
 ]);
 

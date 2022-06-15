@@ -31,36 +31,38 @@
       :locale="{ emptyText: $t('WORKSPACE_FILTER.EMPTY_TEXT') }"
       row-key="uuid"
     >
-      <template #name="{ record, text }">
-        <router-link :to="{ name: 'WorkspaceFilterLDAP', params: { uuid: record.uuid } }">
-          {{ text }}
-        </router-link>
-      </template>
+      <template #bodyCell="{ column, record, text }">
+        <template v-if="column.key === 'name'">
+          <router-link :to="{ name: 'WorkspaceFilterLDAP', params: { uuid: record.uuid } }">
+            {{ text }}
+          </router-link>
+        </template>
 
-      <template #date="{ text }">
-        {{ $d(text, 'mediumDate') }}
-      </template>
+        <template v-else-if="column.key === 'date'">
+          {{ $d(text, 'mediumDate') }}
+        </template>
 
-      <template #actions="{ record }">
-        <a-dropdown :trigger="['click']">
-          <EllipsisOutlined style="font-size: 16px" />
-          <template #overlay>
-            <a-menu>
-              <a-menu-item @click="viewDetails(record)">
-                {{ $t('GENERAL.EDIT') }}
-              </a-menu-item>
-              <a-menu-item @click="duplicate(record)">
-                {{ $t('GENERAL.DUPLICATE') }}
-              </a-menu-item>
-              <a-menu-item @click="show(record.uuid)">
-                {{ $t('GENERAL.VIEW_ASSOCIATED_DOMAINS') }}
-              </a-menu-item>
-              <a-menu-item @click="confirmDelete(record)">
-                <span class="danger">{{ $t('GENERAL.DELETE') }}</span>
-              </a-menu-item>
-            </a-menu>
-          </template>
-        </a-dropdown>
+        <template v-else-if="column.key === 'actions'">
+          <a-dropdown :trigger="['click']">
+            <EllipsisOutlined style="font-size: 16px" />
+            <template #overlay>
+              <a-menu>
+                <a-menu-item @click="viewDetails(record)">
+                  {{ $t('GENERAL.EDIT') }}
+                </a-menu-item>
+                <a-menu-item @click="duplicate(record)">
+                  {{ $t('GENERAL.DUPLICATE') }}
+                </a-menu-item>
+                <a-menu-item @click="show(record.uuid)">
+                  {{ $t('GENERAL.VIEW_ASSOCIATED_DOMAINS') }}
+                </a-menu-item>
+                <a-menu-item @click="confirmDelete(record)">
+                  <span class="danger">{{ $t('GENERAL.DELETE') }}</span>
+                </a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
+        </template>
       </template>
     </a-table>
   </div>
@@ -115,15 +117,17 @@ const columns = computed(() => [
     title: t('GENERAL.NAME'),
     dataIndex: 'name',
     sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => a.name.localeCompare(b.name),
-    slots: { customRender: 'name' },
+    key: 'name',
   },
   {
     title: t('GENERAL.DESCRIPTION'),
     dataIndex: 'description',
+    key: 'description',
   },
   {
     title: t('GENERAL.TYPES'),
     dataIndex: 'type',
+    key: 'type',
     width: '130px',
     sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => a.type.localeCompare(b.type),
   },
@@ -131,20 +135,20 @@ const columns = computed(() => [
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: 'creationDate',
     sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => (a.creationDate || 0) - (b.creationDate || 0),
-    slots: { customRender: 'date' },
+    key: 'date',
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: 'modificationDate',
     sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => (a.creationDate || 0) - (b.creationDate || 0),
     defaultSortOrder: 'descend',
-    slots: { customRender: 'date' },
+    key: 'date',
   },
   {
     title: t('GENERAL.ACTIONS'),
     width: '80px',
     align: 'center',
-    slots: { customRender: 'actions' },
+    key: 'actions',
   },
 ]);
 

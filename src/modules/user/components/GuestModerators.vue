@@ -24,19 +24,21 @@ const filteredList = computed(() =>
 const columns = computed(() => [
   {
     width: '46px',
-    slots: { customRender: 'avatar' },
+    key: 'avatar',
   },
   {
     title: t('GENERAL.NAME'),
     dataIndex: 'account.name',
     sorter: (a: GuestModerator, b: GuestModerator) => a.account.name?.localeCompare(b.account.name || ''),
     align: 'left',
+    key: 'name',
   },
   {
     title: t('USERS.DETAIL_USER.MAIL'),
     dataIndex: 'account.email',
     sorter: (a: GuestModerator, b: GuestModerator) => a.account.email?.localeCompare(b.account.email || ''),
     align: 'left',
+    key: 'email',
   },
   {
     title: t('GENERAL.DOMAIN'),
@@ -44,14 +46,14 @@ const columns = computed(() => [
     sorter: (a: GuestModerator, b: GuestModerator) =>
       a.account.domain?.name.localeCompare(b.account.domain?.name || ''),
     align: 'left',
-    slots: { customRender: 'domain' },
+    key: 'domain',
   },
   {
     title: t('GENERAL.ROLE'),
     align: 'center',
     dataIndex: 'role',
     sorter: (a: GuestModerator, b: GuestModerator) => a.role.localeCompare(b.role),
-    slots: { customRender: 'role' },
+    key: 'role',
   },
   {
     width: '170px',
@@ -59,7 +61,7 @@ const columns = computed(() => [
     align: 'center',
     dataIndex: 'modificationDate',
     sorter: (a: GuestModerator, b: GuestModerator) => (a.modificationDate || 0) - (b.modificationDate || 0),
-    slots: { customRender: 'date' },
+    key: 'date',
   },
   {
     width: '170px',
@@ -67,12 +69,12 @@ const columns = computed(() => [
     align: 'center',
     dataIndex: 'creationDate',
     sorter: (a: GuestModerator, b: GuestModerator) => (a.creationDate || 0) - (b.creationDate || 0),
-    slots: { customRender: 'date' },
+    key: 'date',
   },
   {
     width: '80px',
     align: 'center',
-    slots: { customRender: 'action' },
+    key: 'action',
   },
 ]);
 
@@ -152,36 +154,38 @@ onMounted(fetchGuestModerators);
   </div>
 
   <a-table :pagination="false" :columns="columns" :data-source="filteredList" :loading="loading" row-key="uuid">
-    <template #avatar="{ record }">
-      <a-avatar shape="circle" :size="46" class="avatar">
-        <span>{{ record.account.name.charAt(0) }}</span>
-      </a-avatar>
-    </template>
-    <template #domain="{ record }">
-      <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.account.domain.uuid } }">
-        <a>{{ record.account.domain.name }}</a>
-      </router-link>
-    </template>
-    <template #role="{ record }">
-      <a-select v-model:value="record.role" @change="update(record)">
-        <a-select-option :value="GUEST_MODERATOR_ROLE.ADMIN">{{
-          $t('USERS.GUEST_MODERATOR.ROLE.ADMIN')
-        }}</a-select-option>
+    <template #bodyCell="{ column, record, text }">
+      <template v-if="column.key === 'avatar'">
+        <a-avatar shape="circle" :size="46" class="avatar">
+          <span>{{ record.account.name.charAt(0) }}</span>
+        </a-avatar>
+      </template>
+      <template v-else-if="column.key === 'domain'">
+        <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.account.domain.uuid } }">
+          <a>{{ record.account.domain.name }}</a>
+        </router-link>
+      </template>
+      <template v-else-if="column.key === 'role'">
+        <a-select v-model:value="record.role" @change="update(record)">
+          <a-select-option :value="GUEST_MODERATOR_ROLE.ADMIN">{{
+            $t('USERS.GUEST_MODERATOR.ROLE.ADMIN')
+          }}</a-select-option>
 
-        <a-select-option :value="GUEST_MODERATOR_ROLE.SIMPLE">{{
-          $t('USERS.GUEST_MODERATOR.ROLE.SIMPLE')
-        }}</a-select-option>
-      </a-select>
-    </template>
+          <a-select-option :value="GUEST_MODERATOR_ROLE.SIMPLE">{{
+            $t('USERS.GUEST_MODERATOR.ROLE.SIMPLE')
+          }}</a-select-option>
+        </a-select>
+      </template>
 
-    <template #date="{ text }">
-      {{ $d(text, 'mediumDate') }}
-    </template>
+      <template v-else-if="column.key === 'date'">
+        {{ $d(text, 'mediumDate') }}
+      </template>
 
-    <template #action="{ record }">
-      <a-button type="primary" danger :loading="deleting[record.uuid]" @click="remove(record)">
-        <template #icon><DeleteFilled /></template>
-      </a-button>
+      <template v-else-if="column.key === 'action'">
+        <a-button type="primary" danger :loading="deleting[record.uuid]" @click="remove(record)">
+          <template #icon><DeleteFilled /></template>
+        </a-button>
+      </template>
     </template>
   </a-table>
 

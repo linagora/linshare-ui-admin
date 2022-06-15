@@ -33,18 +33,18 @@ const params = reactive<ListParams>({
 const columns = ref([
   {
     dataIndex: 'identifier',
-    slots: { customRender: 'name' },
+    key: 'name',
   },
   {
     width: '100px',
     align: 'center',
     dataIndex: 'activationPolicy.enable.value',
-    slots: { customRender: 'enable' },
+    key: 'enable',
   },
   {
     width: '80px',
     align: 'center',
-    slots: { customRender: 'action' },
+    key: 'action',
   },
 ]);
 const sorters: FunctionalitySorters = {
@@ -106,20 +106,22 @@ const customRow = (record: Functionality) => ({
     :custom-row="customRow"
     class="functionnality-table"
   >
-    <template #name="{ record }">
-      <div class="name">
-        <span>{{ t(`FUNCTIONALITIES.DETAILS.${record.identifier}.NAME`) }}</span>
-      </div>
-    </template>
+    <template #bodyCell="{ column, record, text }">
+      <template v-if="column.key === 'name'">
+        <div class="name">
+          <span>{{ t(`FUNCTIONALITIES.DETAILS.${record.identifier}.NAME`) }}</span>
+        </div>
+      </template>
 
-    <template #enable="{ text }">
-      <a-tag :color="text ? 'success' : 'error'">{{ $t(text ? 'GENERAL.ENABLED' : 'GENERAL.DISABLED') }}</a-tag>
-    </template>
+      <template v-else-if="column.key === 'enable'">
+        <a-tag :color="text ? 'success' : 'error'">{{ $t(text ? 'GENERAL.ENABLED' : 'GENERAL.DISABLED') }}</a-tag>
+      </template>
 
-    <template #action>
-      <a>
-        <RightOutlined />
-      </a>
+      <template v-else-if="column.key === 'action'">
+        <a>
+          <RightOutlined />
+        </a>
+      </template>
     </template>
   </a-table>
 </template>
