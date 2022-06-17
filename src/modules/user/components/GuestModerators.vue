@@ -157,12 +157,12 @@ onMounted(fetchGuestModerators);
     <template #bodyCell="{ column, record, text }">
       <template v-if="column.key === 'avatar'">
         <a-avatar shape="circle" :size="46" class="avatar">
-          <span>{{ record.account.name.charAt(0) }}</span>
+          {{ record.account.name.charAt(0) }}
         </a-avatar>
       </template>
       <template v-else-if="column.key === 'domain'">
         <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.account.domain.uuid } }">
-          <a>{{ record.account.domain.name }}</a>
+          {{ record.account.domain.name }}
         </router-link>
       </template>
       <template v-else-if="column.key === 'role'">

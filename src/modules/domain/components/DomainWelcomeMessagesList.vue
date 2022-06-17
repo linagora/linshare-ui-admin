@@ -65,40 +65,38 @@
         </a-tag>
       </template>
       <template v-else-if="column.key === 'action'">
-        <div>
-          <a-dropdown>
-            <EllipsisOutlined />
-            <template #overlay>
-              <a-menu>
-                <a-menu-item
-                  v-if="currentDomain.type !== DOMAIN_TYPE.ROOT"
-                  :disabled="record.assignedToCurrentDomain === true"
-                  @click="confirmAssign(record)"
-                >
-                  {{ $t('GENERAL.ASSIGN') }}
+        <a-dropdown>
+          <EllipsisOutlined />
+          <template #overlay>
+            <a-menu>
+              <a-menu-item
+                v-if="currentDomain.type !== DOMAIN_TYPE.ROOT"
+                :disabled="record.assignedToCurrentDomain === true"
+                @click="confirmAssign(record)"
+              >
+                {{ $t('GENERAL.ASSIGN') }}
+              </a-menu-item>
+              <router-link
+                :to="{
+                  name: 'DomainWelcomeMessageNew',
+                  query: { duplicate: record.uuid },
+                }"
+              >
+                <a-menu-item>
+                  {{ $t('GENERAL.DUPLICATE') }}
                 </a-menu-item>
-                <router-link
-                  :to="{
-                    name: 'DomainWelcomeMessageNew',
-                    query: { duplicate: record.uuid },
-                  }"
-                >
-                  <a-menu-item>
-                    {{ $t('GENERAL.DUPLICATE') }}
-                  </a-menu-item>
-                </router-link>
-                <router-link :to="{ name: 'DomainWelcomeMessageDetails', params: { uuid: record.uuid } }">
-                  <a-menu-item>
-                    {{ $t(record.readOnly ? 'GENERAL.VIEW' : 'GENERAL.EDIT') }}
-                  </a-menu-item>
-                </router-link>
-                <a-menu-item v-if="canDeleteMessage(record)" @click="confirmDelete(record)">
-                  <span class="delete_text"> {{ $t('GENERAL.DELETE') }} </span>
+              </router-link>
+              <router-link :to="{ name: 'DomainWelcomeMessageDetails', params: { uuid: record.uuid } }">
+                <a-menu-item>
+                  {{ $t(record.readOnly ? 'GENERAL.VIEW' : 'GENERAL.EDIT') }}
                 </a-menu-item>
-              </a-menu>
-            </template>
-          </a-dropdown>
-        </div>
+              </router-link>
+              <a-menu-item v-if="canDeleteMessage(record)" @click="confirmDelete(record)">
+                <span class="delete_text"> {{ $t('GENERAL.DELETE') }} </span>
+              </a-menu-item>
+            </a-menu>
+          </template>
+        </a-dropdown>
       </template>
     </template>
   </a-table>
