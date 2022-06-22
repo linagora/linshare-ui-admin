@@ -253,11 +253,15 @@
         "GUEST_ACCOUNT_NEW_CREATION": "A new guest receives an activation link for his account",
         "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "A guest receives a reset link for his password",
         "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "A guest account password was modified",
+        "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "A guest account has expired",
         "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "A guest's account will expire soon",
         "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": "Change guest password due to security enhancement",
         "SHARE_FILE_DOWNLOAD": "A recipient has downloaded the file share",
         "SHARE_FILE_SHARE_DELETED": "A sender has deleted his file share",
         "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "The sender receives a recap of his file shares",
+        "GUEST_MODERATOR_CREATION":"Guest moderator has been created",
+        "GUEST_MODERATOR_DELETION":"Guest moderator has been deleted",
+        "GUEST_MODERATOR_UPDATE":"Guest moderator role has been updated",
         "SHARE_NEW_SHARE_FOR_RECIPIENT": "A recipient receives a file share link",
         "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": "The file share of the sender is about to expire",
         "SHARE_WARN_UNDOWNLOADED_FILESHARES": "Undownloaded file share reminder",
@@ -286,6 +290,8 @@
         "WORKGROUP_WARN_UPDATED_MEMBER": "The rights of a member on the workGroup has been updated",
         "WORKGROUP_WARN_DELETED_MEMBER": "A member was removed from the workGroup",
         "WORKGROUP_WARN_DELETED_WORKGROUP": "A workgroup has been deleted",
+        "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "A new document has been added to the workgroup",
+        "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "A workgroup document has been updated",
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "A user receives a notification when an administrator creates a permanent access token (JWT) for his account",
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "A user receives a notification when an administrator deletes a permanent access token (JWT) for his account",
         "DRIVE_WARN_DELETED_MEMBER": "A member was removed from the DRIVE",
@@ -881,6 +887,26 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to guests to reset their passwords due to security enhancement."
       },
+      "GUEST_MODERATOR_CREATION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_CREATION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "A user receives an email notification when he is added to a guest moderators list"
+      },
+      "GUEST_MODERATOR_DELETION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_DELETION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "A user receives an email notification when he is deleted from a guest moderators list"
+      },
+      "GUEST_MODERATOR_UPDATE": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_UPDATE",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "A user receives an email notification when his moderator role is updated"
+      },
+      "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent when a guest account has expired"
+      },
       "SHARE_ANONYMOUS_RESET_PASSWORD": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_ANONYMOUS_RESET_PASSWORD",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -1016,6 +1042,26 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to a workgroup member when his right was updated."
       },
+      "WORKGROUP_WARN_DELETED_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to members removed from the workgroup."
+      },
+      "WORKGROUP_WARN_DELETED_WORKGROUP":{
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_WORKGROUP",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent when a workgroup is deleted"
+      },
+      "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT":{
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent when a document has been added to the workgroup"
+      },
+      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED":{
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent when a workgroup document has been updated"
+      },
       "WORKGROUP_COM_MEMBER": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -1045,6 +1091,26 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_UPDATED_MEMBER",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "This notification is sent to a DRIVE member when his right was updated."
+      },
+      "WORK_SPACE_WARN_DELETED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent when a workspace is deleted"
+      },
+      "WORK_SPACE_WARN_DELETED_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to a workspace member is deleted."
+      },
+      "WORK_SPACE_WARN_NEW_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_NEW_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent when the new member is added to the workspace."
+      },
+      "WORK_SPACE_WARN_UPDATED_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_UPDATED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "This notification is sent to a workspace member when his right was updated."
       }
     },
     "PARAMETERS": {

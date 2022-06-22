@@ -259,9 +259,13 @@
         "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "Futur suppression de fichier pour cause d'expiration",
         "GUEST_ACCOUNT_NEW_CREATION": "Un nouvel invité reçoit le lien d'activation de son compte invité",
         "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "Un invité reçoit le lien de réinitialisation de son mot de passe",
+        "GUEST_MODERATOR_CREATION":"Le modérateur invité a été créé",
+        "GUEST_MODERATOR_DELETION":"Le modérateur invité a été supprimé",
+        "GUEST_MODERATOR_UPDATE":"Le modérateur invité a été mis a jour",
         "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "Envoi d'un courriel d'avertissement à l'invité pour l'avertir que son mot de passe a été changé.",
         "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "Envoi d'un courriel d'avertissement au créateur d'un invité pour l'avertir de l'expiration prochaine de celui-ci.",
         "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": "Changement du mot de passe de l'invité due à des changement de politique de sécurité sur les mot de passes",
+        "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "Le compte d'un invité à expiré",
         "SHARE_FILE_DOWNLOAD": "Un destinataire a téléchargé le fichier partagé",
         "SHARE_FILE_SHARE_DELETED": "L'émetteur a supprimé le partage de son fichier",
         "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "L'émetteur reçoit un résumé de son partage",
@@ -293,6 +297,8 @@
         "WORKGROUP_WARN_UPDATED_MEMBER": "Notification de modification d'un membre d'un groupe de travail",
         "WORKGROUP_WARN_DELETED_MEMBER": "Notification de suppression d'un membre d'un groupe de travail",
         "WORKGROUP_WARN_DELETED_WORKGROUP": "Un groupe de travail a été supprimé",
+        "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "Un nouveau document à été ajouté au groupe de travail",
+        "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "Un document du groupe de travail à été mis à jour",
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "L'utilisateur reçoit une notification lorsqu'un administrateur crée un jeton d'accès permanent (JWT) à son compte",
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "L'utilisateur reçoit une notification lorsqu'un administrateur supprime un jeton d'accès permanent (JWT) à son compte",
         "DRIVE_WARN_DELETED_MEMBER": "Notification de suppression d'un membre d'un DRIVE",
@@ -881,8 +887,28 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée aux comptes invités pour changer leurs mots de passe suite à une mise à jour de sécurité."
       },
+      "GUEST_MODERATOR_CREATION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_CREATION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Un utilisateur reçoit une notification lorsqu'il est ajouté à une liste de modérateurs invités"
+      },
+      "GUEST_MODERATOR_DELETION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_DELETION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Un utilisateur reçoit une notification lorsqu'il est supprimé d'une liste de modérateurs invités"
+      },
+      "GUEST_MODERATOR_UPDATE": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_UPDATE",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Un utilisateur reçoit une notification lorsque son rôle de modérateur est mis à jour"
+      },
+      "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée lorsque le compte d'un invité à expiré"
+      },
       "SHARE_ANONYMOUS_RESET_PASSWORD": {
-        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE_SHARE_ANONYMOUS_RESET_PASSWORD",
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_ANONYMOUS_RESET_PASSWORD",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lors de la génération d'un mot de passe pour un partage anonyme existant."
       },
@@ -986,6 +1012,21 @@
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée aux membres retirés du groupe de travail."
       },
+      "WORKGROUP_WARN_DELETED_WORKGROUP":{
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_WORKGROUP",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée lorsqu'un groupe de travail est supprimé"
+      },
+      "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT":{
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée lorsqu'un nouveau document est crée dans le groupe de travail"
+      },
+      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED":{
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée lorsqu'un document du groupe de travail est mis à jour"
+      },
       "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
         "USE_EXTENDED_DESCRIPTION": "1",
@@ -1010,6 +1051,26 @@
         "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_UPDATED_MEMBER",
         "USE_EXTENDED_DESCRIPTION": "1",
         "DESCRIPTION": "Cette notification est envoyée lors d'une mise à jour des droits d'un memebre du DRIVE."
+      },
+      "WORK_SPACE_WARN_DELETED": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée lorsqu'un espace de travail est supprimé"
+      },
+      "WORK_SPACE_WARN_DELETED_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée à un membre de l'espace de travail lorsqu'il est retiré ce celui-ci."
+      },
+      "WORK_SPACE_WARN_NEW_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_NEW_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée lorsqu'un nouveau membre est ajouté à l'espace de travail."
+      },
+      "WORK_SPACE_WARN_UPDATED_MEMBER": {
+        "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_UPDATED_MEMBER",
+        "USE_EXTENDED_DESCRIPTION": "1",
+        "DESCRIPTION": "Cette notification est envoyée à un membre de l'espace de travail lorsque ses droits ont été mis à jour"
       }
     },
     "PARAMETERS": {

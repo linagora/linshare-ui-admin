@@ -254,10 +254,14 @@
           "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "Гость получает ссылку для сброса пароля",
           "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "Изменен пароль учетной записи гостя",
           "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "Учетная запись гостя скоро истечет",
-          "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": "Change guest password due to security enhancement",
+          "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": "Изменить гостевой пароль в целях повышения безопасности",
+          "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION":"Срок действия учетной записи гостя истек",
           "SHARE_FILE_DOWNLOAD": "Получатель загрузил рассылку файла",
           "SHARE_FILE_SHARE_DELETED": "Отправитель удалил свой файловый ресурс",
           "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "Отправитель получает сводку своих файловых рассылок",
+          "GUEST_MODERATOR_CREATION":"Приглашенный модератор создан",
+          "GUEST_MODERATOR_DELETION":"Приглашенный модератор удален",
+          "GUEST_MODERATOR_UPDATE":"Обновлена ​​роль приглашенного модератора",
           "SHARE_NEW_SHARE_FOR_RECIPIENT": "Получатель получает ссылку на общий доступ к файлам",
           "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": "Рассылка файла отправителя истекает",
           "SHARE_WARN_UNDOWNLOADED_FILESHARES": "Незагруженное напоминание об общем файле",
@@ -267,7 +271,7 @@
           "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "Владелец закрыл запрос на загрузку",
           "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Получатель закрыл запрос на загрузку создателя",
           "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": "Получатель удалил файл в общем доступе",
-          "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": "A file was deleted by the issuer of the Upload Request",
+          "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": "Файл был удален отправителем запроса на загрузку.",
           "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "Получатель не смог загрузить свой файл из-за недостаточного пространства",
           "UPLOAD_REQUEST_UPLOADED_FILE": "Получатель загрузил файл в общем доступе",
           "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "Рассылка запросов на загрузку будет закрыта",
@@ -281,11 +285,13 @@
           "UPLOAD_REQUEST_PASSWORD_REMOVED": "Пароль доступа к запросу на загрузку был удален",
           "UPLOAD_REQUEST_REMINDER": "Напомнить адресату о запросе на загрузку",
           "UPLOAD_REQUEST_UPDATED_SETTINGS": "Настройки запроса на загрузку были обновлены",
-          "UPLOAD_REQUEST_RECIPIENT_REMOVED": "A given contact in the Upload Request was removed",
+          "UPLOAD_REQUEST_RECIPIENT_REMOVED": "Указанный контакт в запросе на загрузку был удален",
           "WORKGROUP_WARN_NEW_MEMBER": "Пользователь был добавлен в рабочую группу",
           "WORKGROUP_WARN_UPDATED_MEMBER": "Права пользователся в рабочей группе быле обновлены",
           "WORKGROUP_WARN_DELETED_MEMBER": "Пользователь был удален из рабочей группы",
           "WORKGROUP_WARN_DELETED_WORKGROUP": "Рабочая группа удалена",
+          "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "Документ добавлен в рабочую группу",
+          "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "Обновлен документ рабочей группы",
           "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "Пользователь получает уведомление, когда администратор создает постоянный токен доступа (ПЖД) для его аккаунта",
           "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "Пользователь получает уведомление, когда администратор удаляет постоянный токен доступа (ПЖД) для его аккаунта",
           "DRIVE_WARN_DELETED_MEMBER": "Участник удален с ДИСКА",
@@ -818,6 +824,26 @@
          "USE_EXTENDED_DESCRIPTION": "1",
          "DESCRIPTION": "This notification is sent to guests to reset their passwords due to security enhancement."
         },
+        "GUEST_MODERATOR_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Пользователь получает уведомление по электронной почте, когда его добавляют в список приглашенных модераторов"
+        },
+        "GUEST_MODERATOR_DELETION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_DELETION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Пользователь получает уведомление по электронной почте, когда он удаляется из списка приглашенных модераторов"
+        },
+        "GUEST_MODERATOR_UPDATE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_UPDATE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Пользователь получает уведомление по электронной почте, когда его роль модератора обновляется"
+        },
+        "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, когда срок действия учетной записи гостя истек."
+        },
         "SHARE_ANONYMOUS_RESET_PASSWORD": {
          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_ANONYMOUS_RESET_PASSWORD",
          "USE_EXTENDED_DESCRIPTION": "1",
@@ -887,27 +913,27 @@
         },"UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_OWNER",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This notification is sent to the recipient when a file is deleted from the upload request by the issuer."
+          "DESCRIPTION": "Это уведомление отправляется получателю, когда файл удаляется из запроса на загрузку эмитентом."
         },"UPLOAD_REQUEST_CREATED": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This notification is sent to the recipient when the upload request is created and not yet enabled."
+          "DESCRIPTION": "Это уведомление отправляется получателю, когда запрос на загрузку создан и еще не активирован."
         },"UPLOAD_REQUEST_PASSWORD_RENEWAL": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_PASSWORD_RENEWAL",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This notification is sent to the recipient to allow him to reset the upload request access password."
+          "DESCRIPTION": "Это уведомление отправляется получателю, чтобы позволить ему сбросить пароль доступа к запросу на загрузку."
         },"UPLOAD_REQUEST_RECIPIENT_REMOVED": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_RECIPIENT_REMOVED",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This notification is sent to the recipient when the issuer remove him from the upload request."
+          "DESCRIPTION": "Это уведомление отправляется получателю, когда эмитент удаляет его из запроса на загрузку."
         },"UPLOAD_REQUEST_REMINDER": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_REMINDER",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This notification is sent to reminds the recipient to upload a documents on the upload request before it expires."
+          "DESCRIPTION": "Это уведомление отправляется, чтобы напомнить получателю о необходимости загрузки документов по запросу на загрузку до истечения срока его действия."
         },"UPLOAD_REQUEST_UPDATED_SETTINGS": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPDATED_SETTINGS",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This notification is sent to the recipient of an upload request when parameters of the upload request has been changed."
+          "DESCRIPTION": "Это уведомление отправляется получателю запроса на загрузку, когда параметры запроса на загрузку были изменены."
         },"UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
           "USE_EXTENDED_DESCRIPTION": "1",
@@ -948,6 +974,21 @@
           "USE_EXTENDED_DESCRIPTION": "1",
           "DESCRIPTION": "Это уведомление отправляется члену рабочей группы, когда он был удален из рабочей группы."
         },
+        "WORKGROUP_WARN_DELETED_WORKGROUP":{
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_WORKGROUP",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при удалении рабочей группы"
+        },
+        "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT":{
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, когда документ был добавлен в рабочую группу"
+        },
+        "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED":{
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при обновлении документа рабочей группы"
+        },
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
           "USE_EXTENDED_DESCRIPTION": "1",
@@ -961,17 +1002,37 @@
         "DRIVE_WARN_DELETED_MEMBER": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_DELETED_MEMBER",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This notification is sent to a DRIVE member is deleted."
+          "DESCRIPTION": "Это уведомление отправляется члену DRIVE, который удален."
         },
         "DRIVE_WARN_NEW_MEMBER": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_NEW_MEMBER",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This notification is sent when the new member is added to the DRIVE."
+          "DESCRIPTION": "Это уведомление отправляется, когда новый участник добавляется в DRIVE."
         },
         "DRIVE_WARN_UPDATED_MEMBER": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_UPDATED_MEMBER",
           "USE_EXTENDED_DESCRIPTION": "1",
-          "DESCRIPTION": "This notification is sent to a DRIVE member when his right was updated."
+          "DESCRIPTION": "Это уведомление отправляется участнику DRIVE, когда его права были обновлены."
+        },
+        "WORK_SPACE_WARN_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при удалении рабочей области"
+        },
+        "WORK_SPACE_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется удаленному члену рабочей области."
+        },
+        "WORK_SPACE_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, когда новый участник добавляется в рабочую область."
+        },
+        "WORK_SPACE_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется участнику рабочей области, когда его право было обновлено."
         }
       },
       "PARAMETERS": {
@@ -1678,16 +1739,16 @@
           "PARAMETER_DESCRIPTION": ""
         },
         "INTERNAL_ENABLE_PERSONAL_SPACE": {
-          "NAME": "Enable personal space for internal users.",
+          "NAME": "Включить личное пространство для внутренних пользователей.",
           "USE_EXTENDED_DESCRIPTION": "0",
-          "DESCRIPTION": "This functionality allows users in your domain can access menu Myspace. My space is a personal space where user can upload his documents and share with other users/work space ",
+          "DESCRIPTION": "Эта функция позволяет пользователям вашего домена получить доступ к меню Myspace. Мое пространство — это личное пространство, куда пользователь может загружать свои документы и делиться ими с другими пользователями/рабочим пространством.",
           "ADVANCED_DESCRIPTION": "",
-          "USER_OVERRIDE": "By enabling, nested admin can re-enable the Configure functionality toggle and then change the default parameter",
+          "USER_OVERRIDE": "Включив, вложенный администратор может снова включить переключатель «Настроить функциональность», а затем изменить параметр по умолчанию.",
           "ACTIVATION_POLICY": "",
           "DELEGATION_POLICY": "",
-          "CONFIGURATION_POLICY": "By enabling, you allow your nested domain admin to change default parameter field in his domain",
-          "PARAMETER_NAME": "Parameters",
-          "PARAMETER_DESCRIPTION": "This setting decides when a new user is created, he can use Myspace by default or not"
+          "CONFIGURATION_POLICY": "Включив, вы разрешаете администратору вложенного домена изменять поле параметра по умолчанию в своем домене.",
+          "PARAMETER_NAME": "Параметры",
+          "PARAMETER_DESCRIPTION": "Этот параметр определяет, когда создается новый пользователь, может он использовать Myspace по умолчанию или нет."
         },
         "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
           "NAME": "Подтверждение создания рассылки",
