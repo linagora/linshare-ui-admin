@@ -1,6 +1,6 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { CONFIG } from './core/constants';
-import { APIError } from '@/core/types/APIError';
+import { APIError, LinShareAPIError } from '@/core/types/APIError';
 import router from './core/router';
 
 const api = axios.create({
@@ -10,11 +10,21 @@ const api = axios.create({
 
 api.interceptors.response.use(onResponse, onError);
 
-function onResponse(response: AxiosResponse): AxiosResponse {
+function onResponse(response: AxiosResponse) {
+  const headers = response.headers;
+
+  if (headers['total-elements'] && headers['current-page']) {
+    return {
+      data: response.data,
+      total: +(headers ? headers['total-elements'] : 0),
+      current: +(headers ? headers['current-page'] : 0),
+    };
+  }
+
   return response.data;
 }
 
-function onError(e: AxiosError): Promise<APIError> {
+function onError(e: LinShareAPIError): APIError {
   const error = new APIError(e);
 
   if (error.isUnauthorizedError()) {

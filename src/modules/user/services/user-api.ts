@@ -6,14 +6,7 @@ import RestrictedContact from '../types/RestrictedContact';
 import { UsersList, UsersListParameters } from '../types/UsersList';
 
 async function listUsers(options: UsersListParameters = {}): Promise<UsersList> {
-  return await api.get('users', {
-    params: options,
-    transformResponse: (data, headers): UsersList => ({
-      data: JSON.parse(data),
-      total: Number(headers ? headers['total-elements'] : 0),
-      current: Number(headers ? headers['current-page'] : 0),
-    }),
-  });
+  return await api.get('users', { params: options });
 }
 
 async function getUser(uuid: string): Promise<User> {

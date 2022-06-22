@@ -20,14 +20,7 @@ export interface SharedSpacesList {
 }
 
 async function listSharedSpaces(options: ListSharedSpaceOptions = {}): Promise<SharedSpacesList> {
-  return await api.get('shared_spaces', {
-    params: options,
-    transformResponse: (data, headers): SharedSpacesList => ({
-      data: JSON.parse(data),
-      total: Number(headers ? headers['total-elements'] : 0),
-      current: Number(headers ? headers['current-page'] : 0),
-    }),
-  });
+  return await api.get('shared_spaces', { params: options });
 }
 
 async function getSharedSpace(uuid: string): Promise<SharedSpace> {
