@@ -72,6 +72,10 @@ const handleSubmit = async function (options: TokenSubmitPayload<UsersListFilter
 
 const sortOptions = [
   {
+    key: 'domain',
+    label: 'GENERAL.DOMAIN',
+  },
+  {
     key: 'firstName',
     label: 'USERS.DETAIL_USER.FIRST_NAME',
   },
