@@ -2805,7 +2805,8 @@
     },
     "CRITICALITY": {
       "MANDATORY": "Mandatory",
-      "REQUIRED": "Required"
+      "REQUIRED": "Required",
+      "OPTIONAL": "Optional"
     },
     "MODAL": {
       "BUTTONS": {
@@ -2874,7 +2875,12 @@
       "UPGRADE_5_0_RENAME_DRIVE_TO_WORK_SPACE": "Rename DRIVE to WORKSPACE.",
       "UPGRADE_5_0_RENAME_WORKGROUP_DELETION_TO_WORK_GROUP_DELETION": "Rename audit trace WORKGROUP_DELETION to WORK_GROUP_DELETION.",
       "UPGRADE_5_0_RENAME_DRIVE_DELETION_TO_WORK_SPACE_DELETION": "Rename audit trace DRIVE_DELETION to WORK_SPACE_DELETION. ",
-      "UPGRADE_5_0_RENAME_DRIVE_MEMBERS_TO_WORK_SPACE_MEMBERS": "Rename DRIVE members to workSpace members."
+      "UPGRADE_5_0_RENAME_DRIVE_MEMBERS_TO_WORK_SPACE_MEMBERS": "Rename DRIVE members to workSpace members.",
+
+      "UPGRADE_5_1_ADD_INTERNAL_ACCOUNT_TYPE_TO_SHARED_SPACE_MEMBER": "Adds an account type to shared space members (with value: INTERNAL)",
+      "UPGRADE_5_1_ADD_GUEST_ACCOUNT_TYPE_TO_SHARED_SPACE_MEMBER": "Adds an account type to shared space guests (with value: GUEST)",
+      "UPGRADE_5_1_RENAME_WORKGROUP_TO_WORK_GROUP": "Renames WORKGROUP to WORK_GROUP in shared space node audit entries.",
+      "OPTIONAL_POPULATE_EXTERNAL_FAVOURITE_RECIPIENT": "Optional task, populating favourite recipient to be anonymized by the GDPR process."
     },
     "TITLE": "Upgrade Tasks"
   },
