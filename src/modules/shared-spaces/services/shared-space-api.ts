@@ -1,8 +1,9 @@
 import api from '@/api';
 import SharedSpace, { SHARED_SPACE_TYPE } from '@/modules/shared-spaces/types/SharedSpace';
 import { SORT_ORDER } from '@/core/types/Sort';
-import SharedSpaceRole from '../types/SharedSpaceRole';
-import SharedSpaceMember from '../types/SharedSpaceMember';
+import type SharedSpaceRole from '../types/SharedSpaceRole';
+import type SharedSpaceMember from '../types/SharedSpaceMember';
+import type { PaginatedList } from '@/core/types/PaginatedList';
 
 export interface ListSharedSpaceOptions {
   account?: string;
@@ -13,13 +14,7 @@ export interface ListSharedSpaceOptions {
   sortOrder?: SORT_ORDER;
 }
 
-export interface SharedSpacesList {
-  data: SharedSpace[];
-  total: number;
-  current: number;
-}
-
-async function listSharedSpaces(options: ListSharedSpaceOptions = {}): Promise<SharedSpacesList> {
+async function listSharedSpaces(options: ListSharedSpaceOptions = {}): Promise<PaginatedList<SharedSpace>> {
   return await api.get('shared_spaces', { params: options });
 }
 
@@ -27,7 +22,7 @@ async function getSharedSpace(uuid: string): Promise<SharedSpace> {
   return await api.get(`shared_spaces/${uuid}`);
 }
 
-async function getSharedSpaceMembers(uuid: string): Promise<SharedSpaceMember[]> {
+async function getSharedSpaceMembers(uuid: string): Promise<PaginatedList<SharedSpaceMember>> {
   return api.get(`shared_spaces/${uuid}/members`);
 }
 

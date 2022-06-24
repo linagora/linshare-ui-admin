@@ -1,7 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
-import { CONFIG } from './core/constants';
+import router from '@/core/router';
+import { CONFIG } from '@/core/constants';
 import { APIError, LinShareAPIError } from '@/core/types/APIError';
-import router from './core/router';
+import type { PaginatedList } from '@/core/types/PaginatedList';
 
 const api = axios.create({
   baseURL: `${window.location.origin}/${CONFIG.API.BASE_URL}`,
@@ -10,7 +11,7 @@ const api = axios.create({
 
 api.interceptors.response.use(onResponse, onError);
 
-function onResponse(response: AxiosResponse) {
+function onResponse(response: AxiosResponse): PaginatedList<any> | any {
   const headers = response.headers;
 
   if (headers['total-elements'] && headers['current-page']) {

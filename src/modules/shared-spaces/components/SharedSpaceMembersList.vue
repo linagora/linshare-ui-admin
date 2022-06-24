@@ -99,7 +99,7 @@ function fetchSharedSpaceMembers() {
 
   getSharedSpaceMembers(props.sharedSpace.uuid)
     .then((members) => {
-      list.value = members;
+      list.value = members.data;
     })
     .finally(() => {
       loading.value = false;

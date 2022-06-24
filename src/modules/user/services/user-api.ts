@@ -3,9 +3,10 @@ import api from '@/api';
 import User from '../types/User';
 import UserQuota from '../types/UserQuota';
 import RestrictedContact from '../types/RestrictedContact';
-import { UsersList, UsersListParameters } from '../types/UsersList';
+import type { UsersListParameters } from '../types/UsersList';
+import type { PaginatedList } from '@/core/types/PaginatedList';
 
-async function listUsers(options: UsersListParameters = {}): Promise<UsersList> {
+async function listUsers(options: UsersListParameters = {}): Promise<PaginatedList<User>> {
   return await api.get('users', { params: options });
 }
 

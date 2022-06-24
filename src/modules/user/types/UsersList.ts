@@ -14,12 +14,6 @@ export interface UsersListFilters extends Filters {
   canUpload?: boolean;
 }
 
-export interface UsersList {
-  data: User[];
-  total: number;
-  current: number;
-}
-
 export interface UsersListParameters {
   domain?: string;
   firstName?: string;
