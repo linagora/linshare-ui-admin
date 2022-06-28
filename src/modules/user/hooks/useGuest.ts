@@ -4,6 +4,7 @@ import { computed, ComputedRef } from 'vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { useUserStore } from '@/modules/user/store';
 import { storeToRefs } from 'pinia';
+import { useAuthStore } from '@/modules/auth/store';
 
 type UsableGuest = {
   maxExpirationDate: ComputedRef<Date>;
@@ -12,18 +13,18 @@ type UsableGuest = {
 };
 
 export function useGuest(): UsableGuest {
-  const domainStore = useDomainStore();
+  const authStore = useAuthStore();
   const userStore = useUserStore();
   const { user } = storeToRefs(userStore);
+  const { functionalities } = storeToRefs(authStore);
   const isCurrentUserGuest = computed(() => user.value?.accountType === 'GUEST');
-  const guestExpiration = computed(() => domainStore.getLoggedUserFunctionality('GUESTS__EXPIRATION'));
 
   const maxExpirationDate = computed<Date>(() => {
     if (!isCurrentUserGuest.value || !user.value) {
       return new Date(NaN);
     }
 
-    const max = getMaximumParameter(guestExpiration.value);
+    const max = getMaximumParameter(functionalities.value.GUESTS__EXPIRATION);
 
     if (max?.type !== 'UNIT_TIME') {
       return new Date(NaN);

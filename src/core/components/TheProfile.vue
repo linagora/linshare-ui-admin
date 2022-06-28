@@ -31,7 +31,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useAuthStore } from '@/modules/auth/store';
-import { useDomainStore } from '@/modules/domain/store';
 import { useRouter } from 'vue-router';
 import { logout } from '@/modules/auth/services/basic';
 import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
@@ -40,13 +39,8 @@ import { storeToRefs } from 'pinia';
 
 const router = useRouter();
 const authStore = useAuthStore();
-const domainStore = useDomainStore();
-const { loggedUser, loggedUserFullName } = storeToRefs(authStore);
-const secondFAEnabled = computed(() => {
-  const functionality = domainStore.getLoggedUserFunctionality('SECOND_FACTOR_AUTHENTICATION');
-
-  return isEnable(functionality);
-});
+const { loggedUser, loggedUserFullName, functionalities } = storeToRefs(authStore);
+const secondFAEnabled = computed(() => isEnable(functionalities.value.SECOND_FACTOR_AUTHENTICATION));
 
 async function logOut() {
   if (loggedUser.value?.authWithOIDC) {

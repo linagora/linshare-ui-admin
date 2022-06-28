@@ -12,9 +12,9 @@ export default function use2FARequiredCheck(): void {
   const domainStore = useDomainStore();
   const { push, currentRoute } = useRouter();
   const { t } = useI18n();
-  const { secondFA } = storeToRefs(authStore);
+  const { secondFA, functionalities } = storeToRefs(authStore);
   const secondFAEnabled = computed(() => {
-    const functionality = domainStore.getLoggedUserFunctionality('SECOND_FACTOR_AUTHENTICATION');
+    const functionality = functionalities.value.SECOND_FACTOR_AUTHENTICATION;
 
     return isEnable(functionality);
   });

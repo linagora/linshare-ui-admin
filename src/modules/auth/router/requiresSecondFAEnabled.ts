@@ -1,13 +1,13 @@
 import { isEnable } from '@/core/utils/functionality';
 import { Router } from 'vue-router';
-import { useDomainStore } from '@/modules/domain/store';
+import { useAuthStore } from '../store';
+
 export const requiresSecondFAEnabled = (router: Router): void => {
   router.beforeEach((to) => {
-    const domainStore = useDomainStore();
-    if (to.name === 'ManageSecondFactorAuthentication') {
-      const functionality = domainStore.getLoggedUserFunctionality('SECOND_FACTOR_AUTHENTICATION');
+    const authStore = useAuthStore();
 
-      return isEnable(functionality) || '/';
+    if (to.name === 'ManageSecondFactorAuthentication') {
+      return isEnable(authStore.functionalities.SECOND_FACTOR_AUTHENTICATION) || '/';
     }
   });
 };

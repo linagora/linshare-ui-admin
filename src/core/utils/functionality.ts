@@ -11,6 +11,7 @@ export function getMaximumParameter(
   if (!functionality) {
     return null;
   }
+
   const parameter = functionality.parameter;
 
   switch (parameter?.type) {

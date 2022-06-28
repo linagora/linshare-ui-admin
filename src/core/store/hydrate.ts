@@ -19,8 +19,8 @@ export async function hydrate(): Promise<void> {
 
   try {
     await authStore.fetchSecondFA();
+    await authStore.fetchFunctionalities();
     await domainStore.fetchDomainsTree();
-    await domainStore.fetchLoggedUserFunctionalities();
     await sharedSpacesStore.fetchRoles();
 
     const { currentDomain, domainsTree } = storeToRefs(domainStore);

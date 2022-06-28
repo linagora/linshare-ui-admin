@@ -3,16 +3,24 @@ import { AxiosRequestConfig } from 'axios';
 import User from '@/modules/user/types/User';
 import SecondFactorAuthentication from '@/modules/auth/types/SecondFactorAuthentication';
 import { create2FAKey, get2FAStatus, getAuthorizedUser, remove2FAKey } from '@/modules/auth/services/auth-api';
+import { Functionality } from '@/core/types/Functionality';
+import { getFunctionality } from '@/modules/domain/services/domain-api';
 
 interface AuthState {
   loggedUser: User | null;
   secondFA: SecondFactorAuthentication | null;
+  functionalities: {
+    GUESTS?: Functionality;
+    GUESTS__EXPIRATION?: Functionality;
+    SECOND_FACTOR_AUTHENTICATION?: Functionality;
+  };
 }
 
 export const useAuthStore = defineStore('authStore', {
   state: (): AuthState => ({
     loggedUser: null,
     secondFA: null,
+    functionalities: {},
   }),
   getters: {
     loggedUserFullName: (state): string =>
@@ -62,6 +70,18 @@ export const useAuthStore = defineStore('authStore', {
         this.secondFA = null;
         throw error;
       }
+    },
+    async fetchFunctionalities() {
+      if (!this.loggedUser) return;
+
+      this.functionalities = {
+        GUESTS: await getFunctionality(this.loggedUser.domain.uuid, 'GUESTS'),
+        GUESTS__EXPIRATION: await getFunctionality(this.loggedUser.domain.uuid, 'GUESTS__EXPIRATION'),
+        SECOND_FACTOR_AUTHENTICATION: await getFunctionality(
+          this.loggedUser.domain.uuid,
+          'SECOND_FACTOR_AUTHENTICATION'
+        ),
+      };
     },
     dehydrate(): void {
       this.loggedUser = null;

@@ -1,5 +1,12 @@
 import { defineStore } from 'pinia';
-import AppState from '@/core/types/AppState';
+
+interface AppState {
+  hydrating: boolean;
+  hydrated: boolean;
+  authenticating: boolean;
+  authenticated: boolean;
+  error: boolean;
+}
 
 export const useAppStore = defineStore('appStore', {
   state: (): AppState => ({

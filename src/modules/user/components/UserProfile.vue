@@ -3,8 +3,8 @@ import { computed, reactive, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { message, Form } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
+import { useAuthStore } from '@/modules/auth/store';
 import { useUserStore } from '@/modules/user/store';
-import { useDomainStore } from '@/modules/domain/store';
 import { APIError } from '@/core/types/APIError';
 import { useGuest } from '../hooks/useGuest';
 import User, { ACCOUNT_ROLE } from '../types/User';
@@ -20,15 +20,12 @@ interface FormModel {
   expirationDate?: string;
 }
 
-const userStore = useUserStore();
-const domainStore = useDomainStore();
 const { t, d } = useI18n();
+const userStore = useUserStore();
+const authStore = useAuthStore();
+const { functionalities } = storeToRefs(authStore);
 const { user: currentUser } = storeToRefs(userStore);
-const guestFeatureEnabled = computed(() => {
-  const functionality = domainStore.getLoggedUserFunctionality('GUESTS');
-
-  return isEnable(functionality);
-});
+const guestFeatureEnabled = computed(() => isEnable(functionalities.value.GUESTS));
 
 const { isCurrentUserGuest, maxExpirationDate, isValidExpirationDate } = useGuest();
 const formSubmitting = ref(false);

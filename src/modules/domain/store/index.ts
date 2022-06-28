@@ -15,7 +15,6 @@ import {
 
 interface DomainState {
   currentDomain: Domain;
-  loggedUserFunctionalities?: Functionality[];
   domainsTree: DomainTreeNode;
   status: {
     currentDomain: Status;
@@ -31,10 +30,6 @@ export const useDomainStore = defineStore('domainStore', {
     },
   }),
   getters: {
-    getLoggedUserFunctionality:
-      (state) =>
-      (id: string): Functionality | undefined =>
-        state.loggedUserFunctionalities?.find((functionality) => functionality.identifier === id),
     getDomainsList: (state): Domain[] => _getDomainsListFromTree(state.domainsTree),
     getDomainByUuid:
       (state) =>
@@ -80,20 +75,9 @@ export const useDomainStore = defineStore('domainStore', {
       this.currentDomain = { ...this.currentDomain, ...this.domainsTree };
       await this.fetchDomain();
     },
-    async fetchLoggedUserFunctionalities() {
-      const authStore = useAuthStore();
-      const loggedUser = authStore.loggedUser;
-
-      if (!loggedUser) return;
-
-      const functionalities = await getFunctionalties(loggedUser.domain.uuid, { includeSubs: true });
-
-      this.loggedUserFunctionalities = functionalities;
-    },
     dehydrate(): void {
       this.currentDomain = EMPTY_DOMAIN;
       this.domainsTree = EMPTY_DOMAIN_NODE;
-      this.loggedUserFunctionalities = undefined;
       this.status = {
         currentDomain: Status.LOADING,
       };
