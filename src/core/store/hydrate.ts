@@ -29,7 +29,6 @@ export async function hydrate(): Promise<void> {
       domainStore.setCurrentDomainUuid(domainsTree.value.uuid);
     }
     await domainStore.fetchDomain();
-    await domainStore.fetchDomainFunctionalities();
   } catch (error) {
     console.error(error);
   } finally {
