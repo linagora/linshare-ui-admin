@@ -1,15 +1,16 @@
 <script lang="ts" setup>
+import { computed, onMounted, reactive, ref, watch } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import { computed, reactive, ref } from 'vue';
-import { useDomainStore } from '@/modules/domain/store';
+import { message } from 'ant-design-vue';
 import { RightOutlined, SearchOutlined } from '@ant-design/icons-vue';
-import PageTitle from '@/core/components/PageTitle.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import StatusValue from '@/core/types/Status';
+import PageTitle from '@/core/components/PageTitle.vue';
 import { Functionality } from '@/core/types/Functionality';
-import useFunctionalities from '../hooks/useFunctionalities';
-import { useRouter } from 'vue-router';
-import { storeToRefs } from 'pinia';
+import { APIError } from '@/core/types/APIError';
+import { useDomainStore } from '@/modules/domain/store';
+import { getFunctionalties } from '@/modules/domain/services/domain-api';
 
 interface ListParams {
   filterText: string;
@@ -20,13 +21,12 @@ interface FunctionalitySorters {
   [key: string]: (a: Functionality, b: Functionality) => number;
 }
 
-const { t } = useI18n();
 const domainStore = useDomainStore();
-const router = useRouter();
-const { breadcrumbs } = useBreadcrumbs();
-const { mainFunctionalities, status } = useFunctionalities();
-
+const { t } = useI18n();
 const { currentDomain } = storeToRefs(domainStore);
+const { breadcrumbs } = useBreadcrumbs();
+const mainFunctionalities = ref<Functionality[]>([]);
+const status = ref<StatusValue>(StatusValue.LOADING);
 const params = reactive<ListParams>({
   sorterKey: 'enableFirst',
   filterText: '',
@@ -72,9 +72,28 @@ const filteredList = computed<Functionality[]>(() => {
     .sort(sorters[params.sorterKey]);
 });
 
-const customRow = (record: Functionality) => ({
-  onClick: () => router.push({ name: 'DomainFunctionality', params: { identifier: record.identifier } }),
-});
+async function fetchFunctionalities() {
+  try {
+    status.value = StatusValue.LOADING;
+    mainFunctionalities.value = await getFunctionalties(currentDomain.value.uuid, { includeSubs: false });
+    status.value = StatusValue.SUCCESS;
+  } catch (error) {
+    status.value = StatusValue.ERROR;
+
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+    }
+  }
+}
+
+watch(
+  () => currentDomain.value.uuid,
+  (domainUuid) => {
+    if (domainUuid) fetchFunctionalities();
+  }
+);
+
+onMounted(fetchFunctionalities);
 </script>
 
 <template>
@@ -104,14 +123,14 @@ const customRow = (record: Functionality) => ({
     :data-source="filteredList"
     :loading="status === StatusValue.LOADING"
     row-key="identifier"
-    :custom-row="customRow"
-    class="functionnality-table"
   >
     <template #bodyCell="{ column, record, text }">
       <template v-if="column.key === 'name'">
-        <div class="name">
-          <span>{{ t(`FUNCTIONALITIES.DETAILS.${record.identifier}.NAME`) }}</span>
-        </div>
+        <router-link :to="{ name: 'DomainFunctionality', params: { identifier: record.identifier } }">
+          <div class="name">
+            <span>{{ t(`FUNCTIONALITIES.DETAILS.${text}.NAME`) }}</span>
+          </div>
+        </router-link>
       </template>
 
       <template v-else-if="column.key === 'enable'">
@@ -119,9 +138,9 @@ const customRow = (record: Functionality) => ({
       </template>
 
       <template v-else-if="column.key === 'action'">
-        <a>
+        <router-link :to="{ name: 'DomainFunctionality', params: { identifier: record.identifier } }">
           <RightOutlined />
-        </a>
+        </router-link>
       </template>
     </template>
   </a-table>
@@ -141,10 +160,6 @@ const customRow = (record: Functionality) => ({
 
 .name {
   width: 100%;
-  cursor: pointer;
-}
-
-.functionnality-table {
-  cursor: pointer;
+  color: @text-color;
 }
 </style>

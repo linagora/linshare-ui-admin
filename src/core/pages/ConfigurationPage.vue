@@ -38,7 +38,6 @@ watch(
   (domainUuid) => {
     if (domainUuid) {
       domainStore.fetchDomain();
-      domainStore.fetchDomainFunctionalities();
     }
   }
 );
