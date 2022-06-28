@@ -230,7 +230,8 @@
     "55000": "Filtre de groupe introuvable",
     "66000": "Espace partagé introuvable",
     "36004": "Ce message d'accueil n'existe pas",
-    "36006": "Un des messages d'accueil selectionnés est associé à au moins un domaine, vous ne pouvez pas le supprimer."
+    "36006": "Un des messages d'accueil selectionnés est associé à au moins un domaine, vous ne pouvez pas le supprimer.",
+    "14004": "Fonctionnalité introuvable"
   },
   "AUTH": {
     "TAGLINE": "Partage sécurisé de fichiers en open source",

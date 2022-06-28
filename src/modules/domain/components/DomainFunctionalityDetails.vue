@@ -1,6 +1,8 @@
 <script lang="ts" setup>
-import { computed, reactive, watch } from 'vue';
+import { onMounted, reactive, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
+import { message } from 'ant-design-vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { Functionality } from '@/core/types/Functionality';
 import StatusValue from '@/core/types/Status';
@@ -8,31 +10,62 @@ import PageTitle from '@/core/components/PageTitle.vue';
 import DomainFunctionality from './DomainFunctionality.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useFunctionalities from '../hooks/useFunctionalities';
+import { APIError } from '@/core/types/APIError';
+import { getFunctionality, getFunctionalties } from '../services/domain-api';
 
-const domainStore = useDomainStore();
 const route = useRoute();
 const router = useRouter();
+const domainStore = useDomainStore();
+const { currentDomain } = storeToRefs(domainStore);
 const { breadcrumbs } = useBreadcrumbs([
   {
     path: 'DomainFunctionality',
     label: `FUNCTIONALITIES.DETAILS.${route.params.identifier}.NAME`,
   },
 ]);
-const { status, getTranslatedText } = useFunctionalities();
+const { getTranslatedText } = useFunctionalities();
+const status = ref<StatusValue>(StatusValue.LOADING);
 const show = reactive<Record<string, boolean>>({});
-const main = computed<Functionality | undefined>(() => domainStore.getFunctionality(route.params.identifier as string));
+const functionalities = ref<Functionality[]>([]);
+const functionalityId = route.params.identifier as string;
 
-const subs = computed<Functionality[]>(() => domainStore.getSubFunctionalities(route.params.identifier as string));
-const functionalities = computed(() => [main.value, ...subs.value]);
+function onFunctionalityUpdate(updated: Functionality) {
+  const index = functionalities.value.findIndex((func) => func.identifier === updated.identifier);
+
+  functionalities.value.splice(index, 1, updated);
+}
+
+async function fetchFunctionalities() {
+  try {
+    status.value = StatusValue.LOADING;
+    functionalities.value = [
+      await getFunctionality(currentDomain.value.uuid, functionalityId),
+      ...(await getFunctionalties(currentDomain.value.uuid, { parent: functionalityId })),
+    ];
+    status.value = StatusValue.SUCCESS;
+  } catch (error) {
+    status.value = StatusValue.ERROR;
+
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+
+      if (error.errorCode === 14004) {
+        router.push({ name: 'DomainFunctionalities' });
+      }
+    }
+  }
+}
 
 watch(
   () => route.params.identifier,
-  (newId) => {
-    if (!main.value && newId) {
-      router.push({ name: 'DomainFunctionalities' });
+  (identifier) => {
+    if (identifier) {
+      fetchFunctionalities();
     }
   }
 );
+
+onMounted(fetchFunctionalities);
 </script>
 
 <template>
@@ -68,7 +101,7 @@ watch(
           <div v-show="!functionality.parentIdentifier || show[functionality.identifier]">
             <p class="description">{{ getTranslatedText(functionality, 'DESCRIPTION') }}</p>
 
-            <DomainFunctionality :data="functionality"></DomainFunctionality>
+            <DomainFunctionality :data="functionality" @updated="onFunctionalityUpdate"></DomainFunctionality>
           </div>
         </div>
       </div>

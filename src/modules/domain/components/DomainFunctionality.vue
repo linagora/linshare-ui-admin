@@ -1,25 +1,41 @@
 <script lang="ts" setup>
-import { reactive, ref, unref, watchEffect } from 'vue';
+import { reactive, ref, watchEffect } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { storeToRefs } from 'pinia';
+import { message } from 'ant-design-vue';
+import { cloneDeep } from 'lodash-es';
 import { Functionality } from '@/core/types/Functionality';
 import useFunctionalties from '../hooks/useFunctionalities';
-import { cloneDeep } from 'lodash-es';
-import { useI18n } from 'vue-i18n';
+import { updateFunctionality } from '../services/domain-api';
+import { useDomainStore } from '../store';
+import { APIError } from '@/core/types/APIError';
 
 interface Props {
   data: Functionality;
 }
 
 const { t } = useI18n();
-const { getTranslatedText, saveFunctionality } = useFunctionalties();
+const domainStore = useDomainStore();
+const { currentDomain } = storeToRefs(domainStore);
+const { getTranslatedText } = useFunctionalties();
 const props = defineProps<Props>();
+const emits = defineEmits(['updated']);
 const functionality = reactive<Functionality>(cloneDeep(props.data));
 const collapsedKeys = ref(['parameter', 'activation', 'delegation', 'configuration']);
 const saving = ref(false);
 
 async function saveChanges() {
-  saving.value = true;
-  await saveFunctionality(unref(functionality));
-  saving.value = false;
+  try {
+    saving.value = true;
+    const updated = await updateFunctionality(currentDomain.value.uuid, functionality);
+    emits('updated', updated);
+  } catch (error) {
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+    }
+  } finally {
+    saving.value = false;
+  }
 }
 
 watchEffect(() => {
