@@ -16,6 +16,10 @@
         REQUIRED: {
           value: 'REQUIRED',
           order: 5
+        },
+        OPTIONAL: {
+          value: 'OPTIONAL',
+          order: -1
         }
       },
       log: {
