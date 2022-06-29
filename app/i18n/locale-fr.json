@@ -2809,6 +2809,8 @@
       "UPGRADE_5_1_ADD_INTERNAL_ACCOUNT_TYPE_TO_SHARED_SPACE_MEMBER": "Ajoute un type de compte aux membres de l'espace partagé (avec valeur : INTERNE)",
       "UPGRADE_5_1_ADD_GUEST_ACCOUNT_TYPE_TO_SHARED_SPACE_MEMBER": "Ajoute un type de compte aux invités de l'espace partagé (avec la valeur : GUEST)",
       "UPGRADE_5_1_RENAME_WORKGROUP_TO_WORK_GROUP": "Renomme WORKGROUP en WORK_GROUP dans les entrées d'audit de nœud d'espace partagé.",
+      "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_SHARED_SPACE_ACCOUNT_IN_MEMBERS": "Ajoute l'uuid de domaine dans le champs membre du compte de l'espace partagé",
+      "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_SHARED_SPACE_ACCOUNT_IN_NODES": "Ajoute l'uuid du domaine dans les entrées du compte de l'espace partagé",
       "OPTIONAL_POPULATE_EXTERNAL_FAVOURITE_RECIPIENT": "Tâche facultative, anonymisation du destinataire favori par le processus GDPR."
     },
     "TITLE": "Tâches de mise à jour"
