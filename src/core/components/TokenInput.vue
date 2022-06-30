@@ -19,12 +19,12 @@
         @search="onSearch"
         @select="onSelect"
       >
-        <template #option="option">
-          <div v-if="!option.optionComponent">
-            <SearchOutlined v-if="option.default" />
-            {{ option.label }}
+        <template #option="item">
+          <div v-if="!item.optionComponent">
+            <SearchOutlined v-if="item.default" />
+            {{ item.label }}
           </div>
-          <component :is="option.optionComponent" v-else :data="option.data" />
+          <component :is="item.optionComponent.value" v-else :data="item.data" />
         </template>
         <a-input ref="autocomplete" :placeholder="placeholder" @press-enter="handlePressEnter" />
       </a-auto-complete>
@@ -55,7 +55,6 @@ import { defineComponent, PropType, reactive, ref, computed, Component, Computed
 import { SearchOutlined, CloseOutlined, SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons-vue';
 import Sort, { SORT_ORDER } from '@/core/types/Sort';
 import Filters from '@/core/types/Filters';
-
 interface Option {
   default?: boolean;
   value: string | boolean;
@@ -244,7 +243,6 @@ export default defineComponent({
 
       if (selectedOption.value && selectedOption.value.asyncAutocomplete) {
         const filteredOptions = await selectedOption.value.asyncAutocomplete(text);
-
         selectedOption.value.options = filteredOptions;
       }
     };
