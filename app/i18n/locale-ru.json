@@ -2797,6 +2797,9 @@
         "UPGRADE_5_1_RENAME_WORKGROUP_TO_WORK_GROUP": "Переименовывает WORKGROUP в WORK_GROUP в записях аудита узла общего пространства.",
         "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_SHARED_SPACE_ACCOUNT_IN_MEMBERS": "Добавить uuid домена в учетную запись общего пространства в поле участников",
         "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_SHARED_SPACE_ACCOUNT_IN_NODES": "Добавить uuid домена в общее пространство в узлах",
+        "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_WORK_GROUP_LAST_AUTHOR_IN_NODES":"Добавить uuid домена в рабочую группу последнего автора в узлах",
+        "UPGRADE_5_1_ADD_RELATED_DOMAIN_FILED_TO_AUDIT":"Добавить связанное поле домена для аудита",
+        "UPGRADE_5_1_ADD_FIRST_NAME_AND_LAST_NAME_TO_AUDIT_ACTOR_FIELD":"Добавьте имя и фамилию в поле субъекта аудита",
         "OPTIONAL_POPULATE_EXTERNAL_FAVOURITE_RECIPIENT": "Необязательная задача, заполнение избранного получателя для анонимизации в процессе GDPR."
       },
       "TITLE": "Обновить задачи"

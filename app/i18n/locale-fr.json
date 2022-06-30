@@ -2811,6 +2811,9 @@
       "UPGRADE_5_1_RENAME_WORKGROUP_TO_WORK_GROUP": "Renomme WORKGROUP en WORK_GROUP dans les entrées d'audit de nœud d'espace partagé.",
       "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_SHARED_SPACE_ACCOUNT_IN_MEMBERS": "Ajoute l'uuid de domaine dans le champs membre du compte de l'espace partagé",
       "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_SHARED_SPACE_ACCOUNT_IN_NODES": "Ajoute l'uuid du domaine dans les entrées du compte de l'espace partagé",
+      "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_WORK_GROUP_LAST_AUTHOR_IN_NODES":"Ajoute l'uuid du domaine au dernier autheur des entrées du groupe de travail",
+      "UPGRADE_5_1_ADD_RELATED_DOMAIN_FILED_TO_AUDIT":"Ajoute le champs du domaine associé à l'audit",
+      "UPGRADE_5_1_ADD_FIRST_NAME_AND_LAST_NAME_TO_AUDIT_ACTOR_FIELD":"Ajoute le nom et le prénom aux champs acteur de l'audit",
       "OPTIONAL_POPULATE_EXTERNAL_FAVOURITE_RECIPIENT": "Tâche facultative, anonymisation du destinataire favori par le processus GDPR."
     },
     "TITLE": "Tâches de mise à jour"
