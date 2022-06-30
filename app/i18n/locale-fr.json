@@ -2808,12 +2808,12 @@
 
       "UPGRADE_5_1_ADD_INTERNAL_ACCOUNT_TYPE_TO_SHARED_SPACE_MEMBER": "Ajoute un type de compte aux membres de l'espace partagé (avec valeur : INTERNE)",
       "UPGRADE_5_1_ADD_GUEST_ACCOUNT_TYPE_TO_SHARED_SPACE_MEMBER": "Ajoute un type de compte aux invités de l'espace partagé (avec la valeur : GUEST)",
-      "UPGRADE_5_1_RENAME_WORKGROUP_TO_WORK_GROUP": "Renomme WORKGROUP en WORK_GROUP dans les entrées d'audit de nœud d'espace partagé.",
-      "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_SHARED_SPACE_ACCOUNT_IN_MEMBERS": "Ajoute l'uuid de domaine dans le champs membre du compte de l'espace partagé",
+      "UPGRADE_5_1_RENAME_WORKGROUP_TO_WORK_GROUP": "Renomme WORKGROUP en WORK_GROUP dans les entrées d'audit des espaces partagés.",
+      "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_SHARED_SPACE_ACCOUNT_IN_MEMBERS": "Ajoute l'uuid de domaine aux membres des espaces partagés",
       "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_SHARED_SPACE_ACCOUNT_IN_NODES": "Ajoute l'uuid du domaine dans les entrées du compte de l'espace partagé",
-      "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_WORK_GROUP_LAST_AUTHOR_IN_NODES":"Ajoute l'uuid du domaine au dernier autheur des entrées du groupe de travail",
-      "UPGRADE_5_1_ADD_RELATED_DOMAIN_FILED_TO_AUDIT":"Ajoute le champs du domaine associé à l'audit",
-      "UPGRADE_5_1_ADD_FIRST_NAME_AND_LAST_NAME_TO_AUDIT_ACTOR_FIELD":"Ajoute le nom et le prénom aux champs acteur de l'audit",
+      "UPGRADE_5_1_ADD_DOMAIN_UUID_TO_WORK_GROUP_LAST_AUTHOR_IN_NODES":"Ajout de l'uuid du domaine à l'auteur de la dernière modification dans les traces d'audit des espaces de travail",
+      "UPGRADE_5_1_ADD_RELATED_DOMAIN_FIELD_TO_AUDIT":"Ajout du champs 'related domains' à toutes les traces de l'audit",
+      "UPGRADE_5_1_ADD_FIRST_NAME_AND_LAST_NAME_TO_AUDIT_ACTOR_FIELD":"Ajout des champs nom et prénom à toutes les traces de l'audit (champs actor)",
       "OPTIONAL_POPULATE_EXTERNAL_FAVOURITE_RECIPIENT": "Tâche facultative, anonymisation du destinataire favori par le processus GDPR."
     },
     "TITLE": "Tâches de mise à jour"
