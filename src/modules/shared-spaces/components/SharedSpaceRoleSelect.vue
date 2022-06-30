@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, watchEffect } from 'vue';
+import { ref, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useSharedSpacesStore } from '@/modules/shared-spaces/store';
 import { SHARED_SPACE_TYPE } from '../types/SharedSpace';
@@ -23,7 +23,7 @@ const roles: SharedSpaceRole[] = sharedSpacesStore.getRolesByType(props.type);
 const roleOptions = ref(
   roles.map((role) => ({
     value: role.uuid,
-    label: computed(() => t(`SHARED_SPACES.ROLE.${role.name}`)),
+    label: t(`SHARED_SPACES.ROLE.${role.name}`),
     disabled: !role.enabled,
   }))
 );
