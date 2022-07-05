@@ -26,7 +26,7 @@
           </div>
           <component :is="item.optionComponent.value" v-else :data="item.data" />
         </template>
-        <a-input ref="autocomplete" :placeholder="placeholder" @press-enter="handlePressEnter" />
+        <a-input ref="autocomplete" :placeholder="placeholder" @keydown="handleKeyPress" />
       </a-auto-complete>
     </div>
     <div class="token-input__inner-box token-input__sort-ctn">
@@ -46,6 +46,9 @@
         class="token-input__sort-order-icon"
         @click="toggleSortOrder"
       />
+    </div>
+    <div class="token-input__search-btn">
+      <a-button type="primary" @click="submit()"> {{ $t('USERS.TOKEN_INPUT.SEARCH') }} </a-button>
     </div>
   </div>
 </template>
@@ -128,6 +131,7 @@ export default defineComponent({
     const autocomplete = ref<CustomHTMLElement | null>(null);
     const tokens = ref<Token[]>([]);
     const selectedOption = ref<FilterOption | undefined>();
+    const isPressArrowDown = ref(false);
     const defaultSortField = props.sorts.find((sort) => sort.default);
     const sort = reactive<Sort>({
       field: defaultSortField?.key || '',
@@ -167,7 +171,7 @@ export default defineComponent({
           );
         }
       } else {
-        return filteredTokenOptions.value;
+        return filteredTokenOptions.value || [];
       }
     });
 
@@ -267,25 +271,41 @@ export default defineComponent({
       emit('submit', { filters, sort });
     };
 
-    const handlePressEnter = () => {
+    const onPressEnter = () => {
       if (selectedOption.value) {
         if (autocompleteValue.value) {
           updateToken(selectedOption.value.key, autocompleteValue.value);
           reset();
         }
-      } else if (!autocompleteValue.value) {
+      } else if (!selectedOption.value && !autocompleteValue.value) {
         submit();
-      } else {
+      } else if (!selectedOption.value && autocomplete.value && !isPressArrowDown.value) {
         const defaultToken = props.filters.find((filter) => filter.default);
 
         if (defaultToken) {
           createToken(defaultToken.key);
           updateToken(defaultToken.key, autocompleteValue.value);
-          setTimeout(() => {
-            autocompleteValue.value = '';
-          }, 0);
+          autocompleteValue.value = '';
           submit();
         }
+        isPressArrowDown.value = false;
+      }
+    };
+
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.code === 'ArrowDown') {
+        isPressArrowDown.value = true;
+      }
+      if (event.code === 'Enter') {
+        onPressEnter();
+      }
+      if (autocompleteValue.value == '' && event.code === 'Backspace') {
+        tokens.value.pop();
+        selectedOption.value = undefined;
+      } else if (autocompleteValue.value.length === 1 && event.code === 'Backspace' && selectedOption.value) {
+        autocompleteValue.value = '';
+        lastValueOfAutocomplete = '';
+        focusToInput();
       }
     };
 
@@ -293,7 +313,7 @@ export default defineComponent({
       if (!selectedOption.value) {
         createToken(value);
       } else {
-        handlePressEnter();
+        onPressEnter();
       }
     };
 
@@ -315,12 +335,13 @@ export default defineComponent({
       sort,
       autocomplete,
       tokens,
+      submit,
       removeToken,
       onSearch,
       onSelect,
-      handlePressEnter,
       onSortChange,
       toggleSortOrder,
+      handleKeyPress,
       SORT_ORDER,
     };
   },
@@ -366,6 +387,14 @@ export default defineComponent({
       .ant-select-selection-item {
         padding-right: 0px;
       }
+    }
+  }
+
+  &__search-btn {
+    margin-left: 25px;
+
+    .ant-btn {
+      height: 100%;
     }
   }
 

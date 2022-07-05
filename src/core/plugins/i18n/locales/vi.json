@@ -208,7 +208,8 @@
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Nhập thông tin tìm kiếm",
       "SORT_BY": "Sắp xếp theo",
-      "PLACEHOLDER": "Tìm kiếm hoặc lọc người dùng"
+      "PLACEHOLDER": "Tìm kiếm hoặc lọc người dùng",
+      "SEARCH": "Tìm kiếm"
     }
   },
   "ERRORS": {
@@ -367,18 +368,18 @@
       "WELCOME_MESSAGE": "Tin nhắn chào mừng",
       "MAIL_CONFIGURATION": "Cấu hình thư",
       "MIME_POLICY": "Chính sách MIME",
-      "DOMAIN_POLICY": "Chính sách miền",
-      "DOMAIN_POLICY_AUTO": "Tạo chính sách tên miền tự động",
-      "PARENT_DOMAIN": "Tên miền chính"
+      "PARENT_DOMAIN": "Tên miền chính",
+      "DOMAIN_POLICY": "Chính sách tên miền",
+      "DOMAIN_POLICY_AUTO": "Tạo chính sách tên miền tự động"
     },
     "WARNING": {
-      "PAGE_NOT_ACCESSIBLE": "Trang này không thể truy cập được đối với miền hoặc người dùng hiện tại",
+      "PAGE_NOT_ACCESSIBLE": "Trang này không thể truy cập được đối với Tên miền hoặc người dùng hiện tại",
       "BACK_TO_CONFIGURATION": "Đi tới Cấu hình"
     },
     "TYPES": {
-      "TOPDOMAIN": "Miền hàng đầu",
-      "SUBDOMAIN": "Miền phụ",
-      "GUESTDOMAIN": "Miền khách"
+      "TOPDOMAIN": "Tên miền hàng đầu",
+      "SUBDOMAIN": "Tên miền phụ",
+      "GUESTDOMAIN": "Tên miền khách"
     },
     "CREATE_MODAL": {
       "FOOTER_NOTE": "Miền sẽ được tạo với các giá trị mặc định, ví dụ như vai trò hoặc ngôn ngữ mặc định, v.v ... Sau khi tạo miền, vui lòng chỉnh sửa miền và các thông số của miền để cài đặt nâng cao hơn",

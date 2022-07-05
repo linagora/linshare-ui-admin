@@ -133,10 +133,6 @@ const filterOptions = [
     displayKey: computed(() => t('USERS.DETAIL_USER.ACCOUNT_TYPE', locale.value)),
     options: [
       {
-        value: 'ROOT',
-        label: computed(() => t('USERS.DETAIL_USER.TYPE_ROOT', locale.value)),
-      },
-      {
         value: 'INTERNAL',
         label: computed(() => t('USERS.DETAIL_USER.TYPE_INTERNAL', locale.value)),
       },

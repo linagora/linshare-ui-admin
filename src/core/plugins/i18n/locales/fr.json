@@ -206,9 +206,10 @@
       }
     },
     "TOKEN_INPUT": {
-      "ENTER_VALUE": "Enter value",
-      "SORT_BY": "Sort by",
-      "PLACEHOLDER": "Search or filter users"
+      "ENTER_VALUE": "Entrez une valeur",
+      "SORT_BY": "Trier par",
+      "PLACEHOLDER": "Rechercher ou filtrer les utilisateurs",
+      "SEARCH": "Rechercher"
     }
   },
   "ERRORS": {

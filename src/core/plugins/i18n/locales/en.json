@@ -210,7 +210,8 @@
     "TOKEN_INPUT": {
       "ENTER_VALUE": "Enter value",
       "SORT_BY": "Sort by",
-      "PLACEHOLDER": "Search or filter users"
+      "PLACEHOLDER": "Search or filter users",
+      "SEARCH": "Search"
     }
   },
   "ERRORS": {
