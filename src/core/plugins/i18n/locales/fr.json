@@ -586,7 +586,9 @@
       "SEARCH_PLACEHOLDER": "Fonctionnalités de recherche par nom",
       "SORTER": {
         "ENABLE_FIRST": "Trie par activé",
-        "DISABLE_FIRST": "Trie par désactivé"
+        "DISABLE_FIRST": "Trie par désactivé",
+        "NAME_ASC": "Trier par nom (A-Z)",
+        "NAME_DESC": "Trier par nom (Z-A)"
       }
     },
     "UNITS": {

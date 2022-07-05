@@ -14,7 +14,7 @@ import { getFunctionalties } from '@/modules/domain/services/domain-api';
 
 interface ListParams {
   filterText: string;
-  sorterKey: 'enableFirst' | 'disableFirst';
+  sorterKey: 'enableFirst' | 'disableFirst' | 'nameAsc' | 'nameDesc';
 }
 
 interface FunctionalitySorters {
@@ -49,6 +49,18 @@ const columns = ref([
   },
 ]);
 const sorters: FunctionalitySorters = {
+  nameAsc: (a: Functionality, b: Functionality) => {
+    const translatedNameA = t(`FUNCTIONALITIES.DETAILS.${a.identifier}.NAME`);
+    const translatedNameB = t(`FUNCTIONALITIES.DETAILS.${b.identifier}.NAME`);
+
+    return translatedNameA.localeCompare(translatedNameB);
+  },
+  nameDesc: (a: Functionality, b: Functionality) => {
+    const translatedNameA = t(`FUNCTIONALITIES.DETAILS.${a.identifier}.NAME`);
+    const translatedNameB = t(`FUNCTIONALITIES.DETAILS.${b.identifier}.NAME`);
+
+    return translatedNameB.localeCompare(translatedNameA);
+  },
   enableFirst: (a: Functionality, b: Functionality) => {
     if (a.activationPolicy.enable.value) return -1;
     if (b.activationPolicy.enable.value) return 1;
@@ -113,6 +125,8 @@ onMounted(fetchFunctionalities);
     <a-select v-model:value="params.sorterKey">
       <a-select-option value="enableFirst">{{ $t('FUNCTIONALITIES.LIST.SORTER.ENABLE_FIRST') }}</a-select-option>
       <a-select-option value="disableFirst">{{ $t('FUNCTIONALITIES.LIST.SORTER.DISABLE_FIRST') }}</a-select-option>
+      <a-select-option value="nameAsc">{{ $t('FUNCTIONALITIES.LIST.SORTER.NAME_ASC') }}</a-select-option>
+      <a-select-option value="nameDesc">{{ $t('FUNCTIONALITIES.LIST.SORTER.NAME_DESC') }}</a-select-option>
     </a-select>
   </div>
 

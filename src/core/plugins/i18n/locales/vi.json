@@ -586,7 +586,9 @@
       "SEARCH_PLACEHOLDER": "Tìm kiếm các chức năng theo tên",
       "SORTER": {
         "ENABLE_FIRST": "Sắp xếp theo bật",
-        "DISABLE_FIRST": "Sắp xếp theo tắt"
+        "DISABLE_FIRST": "Sắp xếp theo tắt",
+        "NAME_ASC": "Sắp xếp theo tên (A-Z)",
+        "NAME_DESC": "Sắp xếp theo tên (Z-A)"
       }
     },
     "UNITS": {

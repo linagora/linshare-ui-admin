@@ -590,7 +590,9 @@
       "SEARCH_PLACEHOLDER": "Search functionalities by name",
       "SORTER": {
         "ENABLE_FIRST": "Sorts by enabled",
-        "DISABLE_FIRST": "Sorts by disabled"
+        "DISABLE_FIRST": "Sorts by disabled",
+        "NAME_ASC": "Sorts by name (A-Z)",
+        "NAME_DESC": "Sorts by name (Z-A)"
       }
     },
     "UNITS": {
