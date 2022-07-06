@@ -31,14 +31,19 @@ export class APIError extends Error {
 
   getMessage(): string {
     if (ERRORS_REQUIRE_EXTRA_MESSAGE.includes(this.errorCode)) {
-      return i18n.global.t(this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`, {
-        message: this.message,
-      });
+      return i18n.global.t(
+        this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`,
+        {
+          message: this.message,
+        },
+        this.message || i18n.global.t('ERRORS.UNKNOWN')
+      );
     }
-    return i18n.global.t(this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`, 1, {
-      missingWarn: true,
-      default: this.message,
-    });
+
+    return i18n.global.t(
+      this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`,
+      this.message || i18n.global.t('ERRORS.UNKNOWN')
+    );
   }
 
   isUnauthorizedError(): boolean {
