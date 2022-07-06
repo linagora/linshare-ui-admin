@@ -106,8 +106,8 @@ const searchUsersDebounce = useDebounceFn(searchUsers, 500);
 
 const formState = reactive<FormState>({
   selected: [],
-  restricted: currentUser.value.restricted,
-  comment: currentUser.value.comment,
+  restricted: currentUser.value?.restricted || false,
+  comment: currentUser.value?.comment || '',
 });
 const formRules = computed(() => ({
   selected: [
@@ -174,6 +174,8 @@ async function searchUsers(search: string) {
 }
 
 async function onSave() {
+  if (!currentUser.value) return;
+
   try {
     await validate();
   } catch {
@@ -184,13 +186,12 @@ async function onSave() {
     saving.value = true;
 
     await userStore.updateUser({
-      ...currentUser,
+      ...currentUser.value,
       comment: formState.comment,
       restricted: formState.restricted,
     });
     await updateRestrictedContacts();
 
-    saving.value = false;
     message.success(t('MESSAGES.UPDATE_SUCCESS'));
   } catch (error) {
     if (error instanceof APIError) {
@@ -198,6 +199,8 @@ async function onSave() {
     } else {
       console.error(error);
     }
+  } finally {
+    saving.value = false;
   }
 }
 
