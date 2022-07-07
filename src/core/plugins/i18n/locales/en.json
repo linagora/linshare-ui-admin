@@ -311,7 +311,11 @@
     },
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Workspaces and Workgroups",
-      "DESCRIPTION": "A workgroup is a collaborating space that contains internal or guest users. A workspace contains workgroups with the default member list. A workgroup can be inside a workspace or standalone. This view allows you to manage workspaces, workgroups and their members. LinShare administrators are not allowed to access the workgroup content (files or folders). The uploaded files in a workgroup are owned by the workgroup, not to the user. Therefore, they do not affect the user allowed quota."
+      "DESCRIPTION": "A workgroup is a collaborating space that contains internal or guest users. A workspace contains workgroups with the default member list. A workgroup can be inside a workspace or standalone. This view allows you to manage workspaces, workgroups and their members. LinShare administrators are not allowed to access the workgroup content (files or folders). The uploaded files in a workgroup are owned by the workgroup, not to the user. Therefore, they do not affect the user allowed quota.",
+      "COLUMNS": {
+        "SHARED_SPACE": "Shared space",
+        "TYPE": "Type"
+      }
     },
     "TOKEN_INPUT": {
       "ACCOUNT": "Account",

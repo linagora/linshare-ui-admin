@@ -308,7 +308,11 @@
     },
     "MANAGE_SHARED_SPACES": {
       "TITLE": "Espaces et Groupes de travail",
-      "DESCRIPTION": "Un groupe de travail est un espace collaboratif contenant des utilisateurs internes ou invités. Un Espace de travail permet de regrouper des groupes de travail (workgroups) et de leur affecter des membres et des rôles par défaut. A aucun moment, l'administrateur peut accéder ou administrer le contenu (fichiers ou dossiers) d'un groupe de travail. Les fichiers déposés dans un groupe appartiennent au groupe et non à l'utilisateur, ils n'ont donc aucun impact sur le quota utilisateur."
+      "DESCRIPTION": "Un groupe de travail est un espace collaboratif contenant des utilisateurs internes ou invités. Un Espace de travail permet de regrouper des groupes de travail (workgroups) et de leur affecter des membres et des rôles par défaut. A aucun moment, l'administrateur peut accéder ou administrer le contenu (fichiers ou dossiers) d'un groupe de travail. Les fichiers déposés dans un groupe appartiennent au groupe et non à l'utilisateur, ils n'ont donc aucun impact sur le quota utilisateur.",
+      "COLUMNS": {
+        "SHARED_SPACE": "Espace partagé",
+        "TYPE": "Type"
+      }
     },
     "TOKEN_INPUT": {
       "ACCOUNT": "Le compte",

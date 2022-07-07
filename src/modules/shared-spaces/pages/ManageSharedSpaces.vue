@@ -12,7 +12,9 @@
     :placeholder="$t('SHARED_SPACES.TOKEN_INPUT.PLACEHOLDER')"
     @submit="handleSubmit"
   />
-  <SharedSpacesList />
+  <div class="list">
+    <SharedSpacesList />
+  </div>
   <ThePagination
     v-model="pagination"
     class="shared-spaces-list__pagination"
@@ -110,3 +112,9 @@ const handleSubmit = async function (options: TokenSubmitPayload<SharedSpaceList
   await handleTableChange();
 };
 </script>
+
+<style lang="less">
+.list {
+  margin-top: 20px;
+}
+</style>
