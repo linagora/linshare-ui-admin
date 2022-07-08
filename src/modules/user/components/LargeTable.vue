@@ -1,6 +1,6 @@
 <template>
   <a-table :columns="columns" :data-source="list" row-key="uuid" :pagination="false" :loading="loading">
-    <template #bodyCell="{ column, record }">
+    <template #bodyCell="{ column, record, text }">
       <template v-if="column.key === 'user'">
         <router-link :to="{ name: 'UserDetail', params: { id: record.uuid } }">
           <div class="user-infos">
@@ -19,30 +19,30 @@
         </router-link>
       </template>
 
-      <template v-if="column.key === 'type'">
+      <template v-else-if="column.key === 'type'">
         <a-tag color="blue">
-          {{ $t(`USERS.DETAIL_USER.TYPE_${record.accountType}`) }}
+          {{ $t(`USERS.DETAIL_USER.TYPE_${text}`) }}
         </a-tag>
       </template>
 
-      <template v-if="column.key === 'role'">
+      <template v-else-if="column.key === 'role'">
         <a-tag color="purple">
-          {{ $t(`USERS.DETAIL_USER.ROLE_${record.role}`) }}
+          {{ $t(`USERS.DETAIL_USER.ROLE_${text}`) }}
         </a-tag>
       </template>
 
-      <template v-if="column.key === 'domain'">
+      <template v-else-if="column.key === 'domain'">
         <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.domain.uuid } }">
-          <span class="item__domain">{{ record.domain.name }}</span>
+          <span class="item__domain">{{ text }}</span>
         </router-link>
       </template>
 
-      <template v-if="column.key === 'modification_date'">
-        <span :title="$d(record.modificationDate, 'mediumDate')">{{ relativeDate(record.modificationDate) }}</span>
+      <template v-else-if="column.key === 'modificationDate'">
+        <span :title="$d(text, 'mediumDate')">{{ relativeDate(record.modificationDate) }}</span>
       </template>
 
-      <template v-if="column.key === 'creation_date'">
-        <span>{{ $d(record.creationDate, 'mediumDate') }}</span>
+      <template v-else-if="column.key === 'creationDate'">
+        <span>{{ $d(text, 'mediumDate') }}</span>
       </template>
     </template>
   </a-table>
@@ -64,41 +64,40 @@ function relativeDate(date: number) {
 const columns = computed(() => [
   {
     title: t('NAVIGATOR.USERS'),
-    dataIndex: ['user'],
     key: 'user',
   },
   {
     title: t('GENERAL.DOMAIN'),
     align: 'center',
-    dataIndex: 'domain',
-    width: '200',
+    dataIndex: ['domain', 'name'],
+    width: 200,
     key: 'domain',
   },
   {
     title: t('USERS.DETAIL_USER.ACCOUNT_TYPE'),
-    dataIndex: 'type',
+    dataIndex: 'accountType',
     align: 'center',
-    width: '200',
+    width: 200,
     key: 'type',
   },
   {
     title: t('USERS.DETAIL_USER.ROLE'),
     dataIndex: 'role',
     align: 'center',
-    width: '200',
+    width: 200,
     key: 'role',
   },
   {
     title: t('GENERAL.UPDATE_TIME_RELATIVE'),
-    dataIndex: 'modification_date',
-    width: '200',
-    key: 'modification_date',
+    dataIndex: 'modificationDate',
+    width: 200,
+    key: 'modificationDate',
   },
   {
     title: t('GENERAL.CREATE_AT'),
-    dataIndex: 'creation_date',
-    width: '200',
-    key: 'creation_date',
+    dataIndex: 'creationDate',
+    width: 200,
+    key: 'creationDate',
   },
 ]);
 await handleTableChange();
