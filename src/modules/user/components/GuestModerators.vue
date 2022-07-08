@@ -44,7 +44,7 @@ const columns = computed(() => [
   },
   {
     title: t('GENERAL.DOMAIN'),
-    dataIndex: ['account', 'domain'],
+    dataIndex: ['account', 'domain', 'name'],
     sorter: (a: GuestModerator, b: GuestModerator) =>
       a.account.domain?.name.localeCompare(b.account.domain?.name || ''),
     align: 'left',
@@ -53,7 +53,7 @@ const columns = computed(() => [
   {
     title: t('GENERAL.ROLE'),
     align: 'center',
-    dataIndex: ['role'],
+    dataIndex: 'role',
     sorter: (a: GuestModerator, b: GuestModerator) => a.role.localeCompare(b.role),
     key: 'role',
   },
@@ -61,7 +61,7 @@ const columns = computed(() => [
     width: '170px',
     title: t('GENERAL.MODIFICATION_DATE'),
     align: 'center',
-    dataIndex: ['modificationDate'],
+    dataIndex: 'modificationDate',
     sorter: (a: GuestModerator, b: GuestModerator) => (a.modificationDate || 0) - (b.modificationDate || 0),
     key: 'date',
   },
@@ -69,7 +69,7 @@ const columns = computed(() => [
     width: '170px',
     title: t('GENERAL.CREATION_DATE'),
     align: 'center',
-    dataIndex: ['creationDate'],
+    dataIndex: 'creationDate',
     sorter: (a: GuestModerator, b: GuestModerator) => (a.creationDate || 0) - (b.creationDate || 0),
     key: 'date',
   },
@@ -164,14 +164,22 @@ onMounted(fetchGuestModerators);
   <a-table :pagination="false" :columns="columns" :data-source="filteredList" :loading="loading" row-key="uuid">
     <template #bodyCell="{ column, record, text }">
       <template v-if="column.key === 'avatar'">
-        <a-avatar shape="circle" :size="46" class="avatar">
-          {{ record.account.name.charAt(0) }}
-        </a-avatar>
+        <router-link :to="{ name: 'UserDetail', params: { id: record.account.uuid } }">
+          <a-avatar shape="circle" :size="46" class="avatar">
+            {{ record.account.name.charAt(0) }}
+          </a-avatar>
+        </router-link>
+      </template>
+
+      <template v-else-if="column.key === 'name'">
+        <router-link :to="{ name: 'UserDetail', params: { id: record.account.uuid } }">
+          {{ text }}
+        </router-link>
       </template>
 
       <template v-else-if="column.key === 'domain'">
         <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.account.domain.uuid } }">
-          {{ record.account.domain.name }}
+          {{ text }}
         </router-link>
       </template>
 
