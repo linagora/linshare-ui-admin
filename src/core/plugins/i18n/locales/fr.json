@@ -368,7 +368,8 @@
       "MAIL_CONFIGURATION": "Configuration du courrier",
       "MIME_POLICY": "Politique des types MIME",
       "DOMAIN_POLICY": "Politique de domaine",
-      "DOMAIN_POLICY_AUTO": "Créer une politique de domaine automatiquement"
+      "DOMAIN_POLICY_AUTO": "Créer une politique de domaine automatiquement",
+      "PARENT_DOMAIN": "Domaine parent"
     },
     "WARNING": {
       "PAGE_NOT_ACCESSIBLE": "Cette page n'est pas accessible pour le domaine ou l'utilisateur actuel",

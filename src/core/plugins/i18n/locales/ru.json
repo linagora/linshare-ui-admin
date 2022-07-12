@@ -368,7 +368,8 @@
       "MAIL_CONFIGURATION": "Конфигурация почты",
       "MIME_POLICY": "Политика MIME",
       "DOMAIN_POLICY": "Политика домена",
-      "DOMAIN_POLICY_AUTO": "Создать политику домена автоматически"
+      "DOMAIN_POLICY_AUTO": "Создать политику домена автоматически",
+      "PARENT_DOMAIN": "Родительский домен"
     },
     "WARNING": {
       "PAGE_NOT_ACCESSIBLE": "Эта страница недоступна для текущего домена или пользователя",
