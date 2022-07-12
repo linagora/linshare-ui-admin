@@ -41,7 +41,11 @@
             {{ $t('DOMAIN.FIELDS.WELCOME_MESSAGE') }}
           </div>
           <div class="value">
-            <a href="">{{ currentDomain.welcomeMessage?.name }}</a>
+            <router-link
+              :to="{ name: 'DomainWelcomeMessageDetails', params: { uuid: currentDomain.welcomeMessage?.uuid } }"
+            >
+              {{ currentDomain.welcomeMessage?.name }}
+            </router-link>
           </div>
         </div>
         <div v-if="!isRootDomain" class="info-block">
