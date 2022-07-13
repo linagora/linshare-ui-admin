@@ -78,7 +78,7 @@ async function updateUser() {
 </script>
 
 <template>
-  <a-row class="user-profile-row">
+  <a-row class="user-profile-row" type="flex" justify="space-between">
     <a-col :xl="{ span: 9, offset: 2 }">
       <a-form @submit="updateUser()">
         <div class="input-container">
