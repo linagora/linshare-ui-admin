@@ -24,6 +24,7 @@
         :sorts="sortOptions"
         :placeholder="$t('USERS.TOKEN_INPUT.PLACEHOLDER')"
         @submit="handleSubmit"
+        @unmount="reset"
       />
       <div class="users-table">
         <LargeTable v-if="isLargeScreen" />
@@ -56,7 +57,7 @@ import useUsersList from '../hooks/useUsersList';
 import { useMediaQuery } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
 
-const { list, pagination, sorter, filters, handleTableChange } = useUsersList();
+const { list, pagination, sorter, filters, handleTableChange, reset } = useUsersList();
 const { locale, t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const isLargeScreen = useMediaQuery('(min-width: 1069px)');

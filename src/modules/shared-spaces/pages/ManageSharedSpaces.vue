@@ -11,6 +11,7 @@
     :sorts="sortOptions"
     :placeholder="$t('SHARED_SPACES.TOKEN_INPUT.PLACEHOLDER')"
     @submit="handleSubmit"
+    @unmount="reset"
   />
   <div class="list">
     <SharedSpacesList />
@@ -41,7 +42,7 @@ import { storeToRefs } from 'pinia';
 
 const { locale, t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
-const { handleTableChange, filters, sorter, pagination, list } = useSharedSpacesList();
+const { handleTableChange, reset, filters, sorter, pagination, list } = useSharedSpacesList();
 const domainStore = useDomainStore();
 const { getDomainsList: domainsList } = storeToRefs(domainStore);
 

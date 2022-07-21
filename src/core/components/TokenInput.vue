@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, reactive, ref, computed, Component, ComputedRef } from 'vue';
+import { defineComponent, PropType, reactive, ref, computed, Component, ComputedRef, onUnmounted } from 'vue';
 import { SearchOutlined, CloseOutlined, SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons-vue';
 import Sort, { SORT_ORDER } from '@/core/types/Sort';
 import Filters from '@/core/types/Filters';
@@ -125,6 +125,7 @@ export default defineComponent({
   },
   emits: {
     submit: (payload: TokenSubmitPayload<Filters>) => payload,
+    unmount: null,
   },
   setup(props: TokenInputProps, { emit }) {
     const autocompleteValue = ref('');
@@ -328,6 +329,10 @@ export default defineComponent({
 
       submit();
     };
+
+    onUnmounted(() => {
+      emit('unmount');
+    });
 
     return {
       options,

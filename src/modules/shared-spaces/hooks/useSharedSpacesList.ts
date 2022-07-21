@@ -31,6 +31,7 @@ type UsableSharedSpacesList = {
   filters: Ref<SharedSpaceListFilters>;
   pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
   handleTableChange: () => Promise<void>;
+  reset: () => void;
 };
 
 export default function useSharedSpacesList(): UsableSharedSpacesList {
@@ -96,11 +97,17 @@ export default function useSharedSpacesList(): UsableSharedSpacesList {
     await updateSharedSpacesList(parameters);
   }
 
+  function reset() {
+    filters.value = {};
+    sorter.order = SORT_ORDER.ASC;
+  }
+
   return {
     list,
     loading,
     pagination,
     handleTableChange,
+    reset,
     filters,
     sorter,
   };

@@ -25,6 +25,7 @@ type UsableUsersList = {
   filters: Ref<UsersListFilters>;
   pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
   handleTableChange: () => Promise<void>;
+  reset: () => void;
 };
 
 export default function useUsersList(): UsableUsersList {
@@ -70,6 +71,11 @@ export default function useUsersList(): UsableUsersList {
     await updateUsersList(parameters);
   }
 
+  function reset() {
+    filters.value = {};
+    sorter.order = SORT_ORDER.ASC;
+  }
+
   return {
     list,
     loading,
@@ -77,5 +83,6 @@ export default function useUsersList(): UsableUsersList {
     sorter,
     pagination,
     handleTableChange,
+    reset,
   };
 }
