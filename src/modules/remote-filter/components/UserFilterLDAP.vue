@@ -227,10 +227,10 @@ const formRules = computed(() => {
     userFirstNameAttribute: [required],
     userLastNameAttribute: [required],
     userUidAttribute: [required],
-    searchPageSize: [{ ...required, type: 'number' }],
-    searchSizeLimit: [{ ...required, type: 'number' }],
-    completionPageSize: [{ ...required, type: 'number' }],
-    completionSizeLimit: [{ ...required, type: 'number' }],
+    searchPageSize: [required],
+    searchSizeLimit: [required],
+    completionPageSize: [required],
+    completionSizeLimit: [required],
   };
 });
 
