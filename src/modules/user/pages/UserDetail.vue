@@ -16,7 +16,7 @@ import UserGuestModerators from '@/modules/user/components/UserGuestModerators.v
 import User from '../types/User';
 import StatusValue from '@/core/types/Status';
 
-const { push, currentRoute } = useRouter();
+const { push, currentRoute, replace } = useRouter();
 const { t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
 const user = ref<User | undefined>();
@@ -90,6 +90,10 @@ async function prepare() {
 
     if (error instanceof APIError) {
       message.error(error.getMessage());
+
+      if (error.errorCode === 2200) {
+        replace({ name: 'UsersList' });
+      }
     }
   }
 }

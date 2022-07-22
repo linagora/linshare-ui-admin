@@ -232,7 +232,8 @@
     "2002": "Yếu tố xác thực thứ hai không được bật cho miền của bạn",
     "36004": "Không tìm thấy thông điệp chào mừng",
     "36006": "Thông điệp chào mừng hiện đang được gán cho ít nhất một miền.",
-    "14004": "Chức năng không được tìm thấy"
+    "14004": "Chức năng không được tìm thấy",
+    "2200": "Không tìm thấy ngươì dùng"
   },
   "AUTH": {
     "TAGLINE": "Phần mềm chia sẻ dữ liệu bảo mật bằng công nghệ nguồn mở",

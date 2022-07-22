@@ -235,7 +235,8 @@
     "2002": "Second factor authentication is not enabled for your domain",
     "36004": "Welcome message not found",
     "36006": "Welcome message is currently assigned with at least one domain.",
-    "14004": "Functionality not found"
+    "14004": "Functionality not found",
+    "2200": "User not found"
   },
   "AUTH": {
     "TAGLINE": "Secure file sharing app in open source",
