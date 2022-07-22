@@ -1,21 +1,17 @@
 <script lang="ts" setup>
 import { computed, onMounted, reactive, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { storeToRefs } from 'pinia';
 import { message } from 'ant-design-vue';
 import { DeleteFilled, PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
-import { useUserStore } from '@/modules/user/store';
 import { APIError } from '@/core/types/APIError';
 import { listGuestModerators, removeGuestModerator, updateGuestModerator } from '../services/guest-api';
-import GuestModerator, { GUEST_MODERATOR_ROLE } from '../types/GuestModerator';
+import type User from '@/modules/user/types/User';
+import GuestModerator, { GUEST_MODERATOR_ROLE } from '@/modules/user/types/GuestModerator';
 import GuestModeratorAddModal from './GuestModeratorAddModal.vue';
 
+const props = defineProps<{ user: User }>();
 const { t } = useI18n();
 const list = ref<GuestModerator[]>([]);
-
-const userStore = useUserStore();
-const { user: currentUser } = storeToRefs(userStore);
-
 const filterText = ref('');
 const loading = ref(false);
 const showingAddModal = ref(false);
@@ -81,12 +77,10 @@ const columns = computed(() => [
 ]);
 
 async function fetchGuestModerators() {
-  if (!currentUser.value) return;
-
   loading.value = true;
 
   try {
-    list.value = await listGuestModerators(currentUser.value.uuid);
+    list.value = await listGuestModerators(props.user.uuid);
     loading.value = false;
   } catch (error) {
     if (error instanceof APIError) {
@@ -95,12 +89,10 @@ async function fetchGuestModerators() {
   }
 }
 async function remove(moderator: GuestModerator) {
-  if (!currentUser.value) return;
-
   deleting[moderator.uuid] = true;
 
   try {
-    const deleted = await removeGuestModerator(currentUser.value.uuid, moderator);
+    const deleted = await removeGuestModerator(props.user.uuid, moderator);
     list.value = list.value.filter((e) => e.uuid !== deleted.uuid);
     message.success(t('MESSAGES.DELETE_SUCCESS'));
   } catch (error) {
@@ -113,10 +105,8 @@ async function remove(moderator: GuestModerator) {
 }
 
 async function update(moderator: GuestModerator) {
-  if (!currentUser.value) return;
-
   try {
-    const updated = await updateGuestModerator(currentUser.value.uuid, moderator);
+    const updated = await updateGuestModerator(props.user.uuid, moderator);
     const index = list.value.findIndex((moderator) => moderator.uuid === updated.uuid);
 
     if (index) {
@@ -208,6 +198,7 @@ onMounted(fetchGuestModerators);
   </a-table>
 
   <GuestModeratorAddModal
+    :user="user"
     :visible="showingAddModal"
     :moderators="list"
     @moderators-added="onModeratorsAdded"

@@ -1,44 +1,36 @@
 import { addTime, isAfter, isBefore, isValid } from '@/core/utils/date';
 import { getMaximumParameter } from '@/core/utils/functionality';
-import { computed, ComputedRef } from 'vue';
-import { useDomainStore } from '@/modules/domain/store';
-import { useUserStore } from '@/modules/user/store';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
+import User from '../types/User';
 
 type UsableGuest = {
-  maxExpirationDate: ComputedRef<Date>;
-  isCurrentUserGuest: ComputedRef<boolean>;
-  isValidExpirationDate: (date: Date | number) => boolean;
+  getMaxExpirationDate: (user: User) => Date;
+  isValidExpirationDate: (user: User, date: Date) => boolean;
 };
 
 export function useGuest(): UsableGuest {
   const authStore = useAuthStore();
-  const userStore = useUserStore();
-  const { user } = storeToRefs(userStore);
   const { functionalities } = storeToRefs(authStore);
-  const isCurrentUserGuest = computed(() => user.value?.accountType === 'GUEST');
 
-  const maxExpirationDate = computed<Date>(() => {
-    if (!isCurrentUserGuest.value || !user.value) {
-      return new Date(NaN);
-    }
-
+  function getMaxExpirationDate(guest: User): Date {
     const max = getMaximumParameter(functionalities.value.GUESTS__EXPIRATION);
 
     if (max?.type !== 'UNIT_TIME') {
       return new Date(NaN);
     }
 
-    return addTime(user.value.creationDate, max.value, max.unit);
-  });
+    return addTime(guest.creationDate, max.value, max.unit);
+  }
 
-  function isValidExpirationDate(date: Date | number): boolean {
+  function isValidExpirationDate(guest: User, date: Date | number): boolean {
+    const maxExpirationDate = getMaxExpirationDate(guest);
+
     if (isBefore(date, new Date())) {
       return false;
     }
 
-    if (maxExpirationDate.value && isValid(maxExpirationDate.value) && isAfter(date, maxExpirationDate.value)) {
+    if (maxExpirationDate && isValid(maxExpirationDate) && isAfter(date, maxExpirationDate)) {
       return false;
     }
 
@@ -46,8 +38,7 @@ export function useGuest(): UsableGuest {
   }
 
   return {
-    maxExpirationDate,
-    isCurrentUserGuest,
+    getMaxExpirationDate,
     isValidExpirationDate,
   };
 }

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useUserStore } from '@/modules/user/store';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import { PlusCircleOutlined } from '@ant-design/icons-vue';
@@ -9,18 +8,16 @@ import GuestModerator, { GUEST_MODERATOR_ROLE } from '../types/GuestModerator';
 import User from '@/modules/user/types/User';
 import { createGuestModerator } from '../services/guest-api';
 import UserSelect, { UserSelectOption } from '@/core/components/UserSelect.vue';
-import { storeToRefs } from 'pinia';
 
 interface Props {
+  user: User;
   moderators: GuestModerator[];
   visible: boolean;
 }
 
 const props = defineProps<Props>();
 const emit = defineEmits(['moderatorsAdded', 'cancel']);
-const userStore = useUserStore();
 const { t } = useI18n();
-const { user: currentUser } = storeToRefs(userStore);
 const selectedRole = ref<GUEST_MODERATOR_ROLE>(GUEST_MODERATOR_ROLE.SIMPLE);
 const adding = ref(false);
 const moderatorsToBeAdded = ref([] as User[]);
@@ -39,9 +36,7 @@ async function addModerator() {
 
     const promises: Promise<GuestModerator>[] = [];
 
-    moderatorsToBeAdded.value.forEach((user) =>
-      promises.push(createGuestModerator(currentUser.value.uuid, transform(user)))
-    );
+    moderatorsToBeAdded.value.forEach((user) => promises.push(createGuestModerator(props.user.uuid, transform(user))));
 
     await Promise.all(promises);
 
@@ -50,12 +45,10 @@ async function addModerator() {
   } catch (error) {
     if (error instanceof APIError) {
       message.error(error.getMessage());
-    } else {
-      console.error(error);
     }
-  } finally {
-    reset();
   }
+
+  reset();
 }
 
 function disableExistingModerator(user: User) {
@@ -70,7 +63,7 @@ function transform(user: User): GuestModerator {
       uuid: user.uuid,
     },
     guest: {
-      uuid: currentUser.value.uuid,
+      uuid: props.user.uuid,
     },
   };
 }

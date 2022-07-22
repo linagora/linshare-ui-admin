@@ -43,19 +43,18 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
+import { useMediaQuery } from '@vueuse/core';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import { useDomainStore } from '@/modules/domain/store';
 import PageTitle from '@/core/components/PageTitle.vue';
-import Domain from '@/modules/domain/types/Domain';
 import ThePagination from '@/core/components/ThePagination.vue';
 import TokenInput, { TokenSubmitPayload } from '@/core/components/TokenInput.vue';
 import LargeTable from '@/modules/user/components/LargeTable.vue';
 import SmallTable from '@/modules/user/components/SmallTable.vue';
-import { UsersListFilters } from '../types/UsersList';
 import useUsersList from '../hooks/useUsersList';
-import { useMediaQuery } from '@vueuse/core';
-import { storeToRefs } from 'pinia';
+import { useDomainStore } from '@/modules/domain/store';
+import { UsersListFilters } from '../types/UsersList';
 
 const { list, pagination, sorter, filters, handleTableChange, reset } = useUsersList();
 const { locale, t } = useI18n();
@@ -174,7 +173,7 @@ const filterOptions = [
   {
     key: 'domain',
     displayKey: computed(() => t('GENERAL.DOMAIN', locale.value)),
-    options: domainsList.value.map((domain: Domain) => ({
+    options: domainsList.value.map((domain) => ({
       label: domain.name,
       value: domain.uuid,
     })),

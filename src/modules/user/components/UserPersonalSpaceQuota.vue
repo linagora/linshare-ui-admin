@@ -91,21 +91,19 @@
 
 <script lang="ts" setup>
 import { reactive, ref, computed } from 'vue';
-import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import { message, Form } from 'ant-design-vue';
-import { useUserStore } from '@/modules/user/store';
 import { APIError } from '@/core/types/APIError';
 import { getReadableSize } from '@/core/utils/unitStorage';
 import { ReloadOutlined, CheckOutlined } from '@ant-design/icons-vue';
 import { getUserQuota, updateUserQuota } from '@/modules/user/services/user-api';
 import SizeInput from '@/core/components/SizeInput.vue';
+import User from '../types/User';
 
-const userStore = useUserStore();
+const props = defineProps<{ user: User }>();
 const { t, locale } = useI18n();
 const useForm = Form.useForm;
-const { user } = storeToRefs(userStore);
-const data = await getUserQuota(user.value?.uuid || '', user.value?.quotaUuid || '');
+const data = await getUserQuota(props.user.uuid, props.user.quotaUuid);
 const userQuota = reactive(data);
 const saving = ref(false);
 const quotaForm = reactive({
@@ -141,8 +139,6 @@ const rules = computed(() => ({
 const { validate, validateInfos, resetFields } = useForm(quotaForm, rules);
 
 async function onSave() {
-  if (!user.value) return;
-
   saving.value = true;
 
   try {
@@ -153,18 +149,16 @@ async function onSave() {
   }
 
   try {
-    await updateUserQuota(user.value?.uuid, {
+    const updatedQuota = await updateUserQuota(props.user.uuid, {
       ...userQuota,
       ...quotaForm,
     });
 
-    userQuota.quota = quotaForm.quota;
+    Object.assign(userQuota, updatedQuota);
     message.success(t('MESSAGES.UPDATE_SUCCESS'));
   } catch (error) {
     if (error instanceof APIError) {
       message.error(error.getMessage());
-    } else {
-      console.error(error);
     }
   }
 

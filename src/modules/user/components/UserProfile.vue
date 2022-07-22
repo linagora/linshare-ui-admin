@@ -4,69 +4,68 @@ import { storeToRefs } from 'pinia';
 import { message, Form } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import { useAuthStore } from '@/modules/auth/store';
-import { useUserStore } from '@/modules/user/store';
 import { APIError } from '@/core/types/APIError';
 import { useGuest } from '../hooks/useGuest';
 import User, { ACCOUNT_ROLE } from '../types/User';
 import { isEnable } from '@/core/utils/functionality';
+import { updateUser } from '../services/user-api';
 
 interface FormModel {
+  canCreateGuest: boolean;
+  canUpload: boolean;
+  expirationDate?: string;
+  externalMailLocale: string;
   firstName: string;
   lastName: string;
   role: ACCOUNT_ROLE;
-  externalMailLocale: string;
-  canUpload: boolean;
-  canCreateGuest: boolean;
-  expirationDate?: string;
 }
 
-const { t, d } = useI18n();
-const userStore = useUserStore();
 const authStore = useAuthStore();
+const props = defineProps<{ user: User }>();
+const emit = defineEmits(['update']);
+const { t, d } = useI18n();
 const { functionalities } = storeToRefs(authStore);
-const { user: currentUser } = storeToRefs(userStore);
+const isGuestUser = computed(() => props.user.accountType === 'GUEST');
 const guestFeatureEnabled = computed(() => isEnable(functionalities.value.GUESTS));
 
-const { isCurrentUserGuest, maxExpirationDate, isValidExpirationDate } = useGuest();
+const { isValidExpirationDate, getMaxExpirationDate } = useGuest();
 const formSubmitting = ref(false);
 const formModel = reactive<FormModel>({
-  firstName: currentUser.value?.firstName || '',
-  lastName: currentUser.value?.lastName || '',
-  role: currentUser.value?.role || ACCOUNT_ROLE.SIMPLE,
-  externalMailLocale: currentUser.value?.externalMailLocale || '',
-  canUpload: currentUser.value?.canUpload || false,
-  canCreateGuest: currentUser.value?.canCreateGuest || false,
-  expirationDate: currentUser.value?.expirationDate ? currentUser.value.expirationDate.toString() : undefined,
+  firstName: props.user.firstName || '',
+  lastName: props.user.lastName || '',
+  role: props.user.role || ACCOUNT_ROLE.SIMPLE,
+  externalMailLocale: props.user.externalMailLocale || '',
+  canUpload: props.user.canUpload || false,
+  canCreateGuest: props.user.canCreateGuest || false,
+  expirationDate: props.user.expirationDate ? props.user.expirationDate.toString() : undefined,
 });
 const formRules = reactive({
   firstName: [{ required: true, message: t('GENERAL.FIELD_REQUIRED') }],
   lastName: [{ required: true, message: t('GENERAL.FIELD_REQUIRED') }],
   expirationDate: [
     {
-      message: isCurrentUserGuest.value
-        ? t('USERS.DETAIL_USER.GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE', {
-            date: d(maxExpirationDate.value, 'mediumDate'),
-          })
-        : '',
-      validator: (rule: Record<string, unknown>, value: string) =>
-        isValidExpirationDate(Number(value)) ? Promise.resolve() : Promise.reject(new Error()),
+      message: t('USERS.DETAIL_USER.GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE', {
+        date: d(getMaxExpirationDate(props.user), 'mediumDate'),
+      }),
+      validator: (_: any, value: string) =>
+        isValidExpirationDate(props.user, new Date(value)) ? Promise.resolve() : Promise.reject(new Error()),
     },
   ],
 });
-
 const { validate, validateInfos } = Form.useForm(formModel, formRules);
 
-async function updateUser() {
+async function update() {
   formSubmitting.value = true;
 
   try {
     await validate();
-    await userStore.updateUser({
-      ...currentUser.value,
+    const updated = await updateUser({
+      ...props.user,
       ...formModel,
       expirationDate: Number(formModel.expirationDate),
-    } as User);
+    });
     message.success(t('MESSAGES.UPDATE_SUCCESS'));
+    emit('update', updated);
   } catch (error) {
     if (error instanceof APIError) {
       message.error(error.getMessage());
@@ -78,9 +77,56 @@ async function updateUser() {
 </script>
 
 <template>
-  <a-row class="user-profile-row" type="flex" justify="space-between">
-    <a-col :xl="{ span: 9, offset: 2 }">
-      <a-form @submit="updateUser()">
+  <a-row class="user-profile-row" justify="center" :gutter="[{ xs: 8, sm: 16, md: 24, lg: 32 }]">
+    <a-col :xl="8" :lg="12" :md="24">
+      <div class="info-block-container">
+        <div class="info-block">
+          <div class="info-block__title">
+            {{ $t('USERS.DETAIL_USER.ACCOUNT_TYPE') }}
+          </div>
+          <div class="info-block__value">
+            {{ user.accountType }}
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block__title">
+            {{ $t('USERS.DETAIL_USER.CREATION_DATE') }}
+          </div>
+          <div class="info-block__value">
+            {{ $d(user.creationDate, 'mediumDateTime') }}
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block__title">
+            {{ $t('USERS.DETAIL_USER.MODIFICATION_DATE') }}
+          </div>
+          <div class="info-block__value">
+            {{ $d(user.modificationDate, 'mediumDateTime') }}
+          </div>
+        </div>
+        <div v-if="isGuestUser" class="info-block">
+          <div class="info-block__title">
+            {{ $t('USERS.DETAIL_USER.AUTHOR') }}
+          </div>
+          <div class="info-block__value">
+            {{ user.author && user.author.name }}
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block__title">
+            {{ $t('USERS.DETAIL_USER.DOMAIN') }}
+          </div>
+          <div class="info-block__value">
+            <router-link :to="{ name: 'DomainDetails', params: { domainUuid: user.domain.uuid } }">
+              {{ user.domain.name }}
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </a-col>
+
+    <a-col :xl="8" :lg="12" :md="24">
+      <a-form @submit="update()">
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.FIRST_NAME') }}</label>
           <a-input v-model:value="formModel.firstName" />
@@ -111,12 +157,12 @@ async function updateUser() {
             </a-select-option>
           </a-select>
         </div>
-        <div v-if="isCurrentUserGuest" class="input-container">
+        <div v-if="isGuestUser" class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.EXPIRATION_DATE') }}</label>
           <a-form-item v-bind="validateInfos.expirationDate">
             <a-date-picker
               v-model:value="formModel.expirationDate"
-              :disabled-date="(moment: any) => !isValidExpirationDate(moment.toDate())"
+              :disabled-date="(moment: any) => !isValidExpirationDate(props.user, moment.toDate())"
               style="width: 100%"
               value-format="x"
               format="MMM DD, YYYY"
@@ -128,7 +174,7 @@ async function updateUser() {
             {{ $t('USERS.DETAIL_USER.ENABLE_PERSONAL_SPACE') }}
           </a-checkbox>
         </div>
-        <div v-if="!isCurrentUserGuest && guestFeatureEnabled" class="input-container">
+        <div v-if="user.accountType !== 'GUEST' && guestFeatureEnabled" class="input-container">
           <a-checkbox v-model:checked="formModel.canCreateGuest">
             {{ $t('USERS.DETAIL_USER.ALLOW_GUEST_CREATION') }}
           </a-checkbox>
@@ -140,53 +186,6 @@ async function updateUser() {
           </a-button>
         </div>
       </a-form>
-    </a-col>
-
-    <a-col v-if="currentUser" :xl="{ span: 9, offset: 2 }">
-      <div class="info-block-container">
-        <div class="info-block">
-          <div class="info-block__title">
-            {{ $t('USERS.DETAIL_USER.ACCOUNT_TYPE') }}
-          </div>
-          <div class="info-block__value">
-            {{ currentUser.accountType }}
-          </div>
-        </div>
-        <div class="info-block">
-          <div class="info-block__title">
-            {{ $t('USERS.DETAIL_USER.CREATION_DATE') }}
-          </div>
-          <div class="info-block__value">
-            {{ $d(currentUser.creationDate, 'mediumDateTime') }}
-          </div>
-        </div>
-        <div class="info-block">
-          <div class="info-block__title">
-            {{ $t('USERS.DETAIL_USER.MODIFICATION_DATE') }}
-          </div>
-          <div class="info-block__value">
-            {{ $d(currentUser.modificationDate, 'mediumDateTime') }}
-          </div>
-        </div>
-        <div v-if="isCurrentUserGuest" class="info-block">
-          <div class="info-block__title">
-            {{ $t('USERS.DETAIL_USER.AUTHOR') }}
-          </div>
-          <div class="info-block__value">
-            {{ currentUser.author && currentUser.author.name }}
-          </div>
-        </div>
-        <div class="info-block">
-          <div class="info-block__title">
-            {{ $t('USERS.DETAIL_USER.DOMAIN') }}
-          </div>
-          <div class="info-block__value">
-            <router-link :to="{ name: 'DomainDetails', params: { domainUuid: currentUser.domain.uuid } }">
-              {{ currentUser.domain.name }}
-            </router-link>
-          </div>
-        </div>
-      </div>
     </a-col>
   </a-row>
 </template>
@@ -208,7 +207,7 @@ async function updateUser() {
 .info-block-container {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid #f2f5f7;
+  border: 1px solid @border-color-base;
   padding: 20px;
   margin-top: 20px;
   border-radius: 4px;
@@ -228,9 +227,9 @@ async function updateUser() {
   }
 }
 
-@media (max-width: 1068px) {
+@media (min-width: 992px) {
   .user-profile-row {
-    flex-direction: column-reverse;
+    flex-direction: row-reverse;
   }
 } ;
 </style>
