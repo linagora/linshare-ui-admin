@@ -104,6 +104,10 @@ await handleTableChange();
 </script>
 
 <style lang="less" scoped>
+a:hover .user-infos .name {
+  text-decoration: underline;
+}
+
 .name {
   font-size: 16px;
   font-weight: 600;
