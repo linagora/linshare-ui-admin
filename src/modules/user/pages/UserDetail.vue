@@ -61,7 +61,7 @@ async function prepare() {
 }
 
 watchEffect(() => {
-  if (currentRoute.value.params.id) {
+  if (currentRoute.value.params.id && currentRoute.value.name === 'UserDetail') {
     prepare();
   }
 });
