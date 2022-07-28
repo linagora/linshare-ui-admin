@@ -15,6 +15,7 @@ import {
   DatePicker,
   Drawer,
   Dropdown,
+  Empty,
   Form,
   Input,
   Menu,
@@ -54,6 +55,7 @@ function useAntdComponents(vueApp: App): App {
     .use(DatePicker)
     .use(Drawer)
     .use(Dropdown)
+    .use(Empty)
     .use(Form)
     .use(Input)
     .use(Menu)

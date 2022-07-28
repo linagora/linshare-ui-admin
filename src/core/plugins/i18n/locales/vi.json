@@ -214,7 +214,8 @@
       "RESTRICTED_GUEST": "Hạn chế khách",
       "RESTRICTED_CONTACTS": "Tài khoản mà khách có thể liên hệ",
       "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Ngày hết hạn của khách phải từ ngày mai đến {date}",
-      "MAIL": "Mail"
+      "MAIL": "Mail",
+      "ADVANCED_RESEARCH": "Tìm kiếm nâng cao"
     },
     "GUEST_MODERATOR": {
       "TAB_TITLE": "Người kiểm duyệt",

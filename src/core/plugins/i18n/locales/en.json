@@ -216,7 +216,8 @@
       "RESTRICTED_GUEST": "Restrict guest",
       "RESTRICTED_CONTACTS": "Accounts guest can contact",
       "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Guest expiration date must be between tomorrow and {date}",
-      "MAIL":"Mail"
+      "MAIL":"Mail",
+      "ADVANCED_RESEARCH": "Advanced research"
     },
     "GUEST_MODERATOR": {
       "TAB_TITLE": "Moderators",

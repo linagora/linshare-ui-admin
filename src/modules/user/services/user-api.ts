@@ -1,6 +1,8 @@
 import { AxiosRequestConfig } from 'axios';
 import api from '@/api';
 import User from '../types/User';
+import type { Guest } from '@/modules/user/types/GuestList';
+import { GuestListParameters } from '../types/GuestList';
 import UserQuota from '../types/UserQuota';
 import RestrictedContact from '../types/RestrictedContact';
 import type { UsersListParameters } from '../types/UsersList';
@@ -8,6 +10,10 @@ import type { PaginatedList } from '@/core/types/PaginatedList';
 
 async function listUsers(options: UsersListParameters = {}): Promise<PaginatedList<User>> {
   return await api.get('users', { params: options });
+}
+
+async function listGuestsThatUserIsModeratorOf(options: GuestListParameters, uuid: string | string[]): Promise<Guest> {
+  return await api.get(`users/${uuid}/guests`, { params: options });
 }
 
 async function getUser(uuid: string): Promise<User> {
@@ -59,5 +65,6 @@ export {
   createRestrictedContact,
   removeRestrictedContact,
   getUserQuota,
+  listGuestsThatUserIsModeratorOf,
   updateUserQuota,
 };

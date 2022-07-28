@@ -1,27 +1,37 @@
 <script lang="ts" setup>
-import { computed, ref, watchEffect } from 'vue';
+import { computed, ref, watchEffect, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { message } from 'ant-design-vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import { APIError } from '@/core/types/APIError';
 import { deleteUser, getUser } from '@/modules/user/services/user-api';
-
 import PageTitle from '@/core/components/page-title.vue';
 import UserProfile from '@/modules/user/components/user-profile.vue';
 import UserRestrictedContacts from '@/modules/user/components/user-restricted-contacts.vue';
 import UserPersonalSpaceQuota from '@/modules/user/components/user-personal-space-quota.vue';
 import UserGuestModerators from '@/modules/user/components/user-guest-moderators.vue';
 import UserSharedKeyAlert from '@/modules/user/components/user-shared-key-alert.vue';
+import CurrentUserGuest from '@/modules/user/components/current-user-guests.vue';
 import UserLockedAlert from '@/modules/user/components/user-locked-alert.vue';
 import StatusValue from '@/core/types/Status';
+import { GuestListFilters } from '@/modules/user/types/GuestList';
 import type User from '@/modules/user/types/User';
+import useGuestList from '@/modules/user/hooks/useGuestList';
+import ThePagination from '@/core/components/the-pagination.vue';
+import { useMediaQuery } from '@vueuse/core';
+import { LARGE_SCREEN_BREAK_POINT } from '@/core/constants/breakpoint';
+import CurrentUserGuestSmallTable from '../components/current-user-guests-small-table.vue';
+import TokenInput, { TokenSubmitPayload } from '@/core/components/token-input.vue';
 
 const { push, currentRoute, replace } = useRouter();
-const { t } = useI18n();
+const isLargeScreen = useMediaQuery(LARGE_SCREEN_BREAK_POINT);
+const { locale, t } = useI18n();
 const { breadcrumbs } = useBreadcrumbs();
+const { list, pagination, handleTableChange, filters, sorter } = useGuestList();
 const user = ref<User | undefined>();
 const isGuestUser = computed(() => user.value?.accountType === 'GUEST');
+const isInternalUser = computed(() => user.value?.accountType === 'INTERNAL');
 const pageStatus = ref<StatusValue>(StatusValue.LOADING);
 const pageSubtitle = computed(() =>
   user.value ? `${user.value.firstName} ${user.value.lastName} <${user.value.mail}>` : ''
@@ -40,6 +50,34 @@ async function remove() {
     }
   }
 }
+const filterOptions = [
+  {
+    key: 'pattern',
+    displayKey: computed(() => t('USERS.DETAIL_USER.ADVANCED_RESEARCH', locale.value)),
+    default: true,
+  },
+  {
+    key: 'role',
+    displayKey: computed(() => t('GENERAL.ROLE', locale.value)),
+    options: [
+      {
+        label: computed(() => t('USERS.DETAIL_USER.ROLE_ADMIN', locale.value)),
+        value: 'ADMIN',
+      },
+      {
+        label: computed(() => t('USERS.DETAIL_USER.ROLE_SIMPLE', locale.value)),
+        value: 'SIMPLE',
+      },
+    ],
+  },
+];
+const sortOptions = [
+  {
+    key: 'firstName',
+    label: 'USERS.DETAIL_USER.FIRST_NAME',
+    default: true,
+  },
+];
 
 async function prepare() {
   pageStatus.value = StatusValue.LOADING;
@@ -60,11 +98,23 @@ async function prepare() {
   }
 }
 
+const handleSubmit = async function (options: TokenSubmitPayload<GuestListFilters>) {
+  if (options.sort) {
+    Object.assign(sorter, options.sort);
+  }
+
+  filters.value = options.filters;
+
+  await handleTableChange();
+};
+
 watchEffect(() => {
   if (currentRoute.value.params.id && currentRoute.value.name === 'UserDetail') {
     prepare();
   }
 });
+
+onMounted(handleTableChange);
 </script>
 
 <template>
@@ -105,6 +155,17 @@ watchEffect(() => {
         </a-tab-pane>
         <a-tab-pane v-if="isGuestUser" key="4" :tab="$t('USERS.GUEST_MODERATOR.TAB_TITLE')">
           <UserGuestModerators :user="user" />
+        </a-tab-pane>
+        <a-tab-pane v-if="isInternalUser" key="5" :tab="$t('FUNCTIONALITIES.DETAILS.GUESTS.NAME')">
+          <TokenInput
+            :filters="filterOptions"
+            :sorts="sortOptions"
+            :placeholder="$t('USERS.TOKEN_INPUT.PLACEHOLDER')"
+            @submit="handleSubmit"
+          />
+          <CurrentUserGuest v-if="isLargeScreen" :list="list" />
+          <CurrentUserGuestSmallTable v-else :list="list" />
+          <ThePagination v-model="pagination" :is-visible="!!list.length" @change="() => handleTableChange()" />
         </a-tab-pane>
       </a-tabs>
     </div>

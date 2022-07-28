@@ -1,6 +1,5 @@
 import Filters from '@/core/types/Filters';
 import { SORT_ORDER } from '@/core/types/Sort';
-import User from './User';
 
 export interface UsersListFilters extends Filters {
   domain?: string;
