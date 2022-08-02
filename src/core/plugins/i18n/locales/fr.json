@@ -321,7 +321,8 @@
       "CREATION_DATE": "Date de création",
       "MODIFICATION_DATE": "Date de modification",
       "TYPE": "Type",
-      "PLACEHOLDER": "Rechercher ou filtrer les espaces partagés"
+      "PLACEHOLDER": "Rechercher ou filtrer les espaces partagés",
+      "NAME": "Nom"
     },
     "MEMBERS": {
       "TAB_TITLE": "Liste des membres",

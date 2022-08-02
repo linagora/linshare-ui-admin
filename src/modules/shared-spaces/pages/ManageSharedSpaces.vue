@@ -59,6 +59,10 @@ const searchForAccounts = async function (mail: string) {
 
 const sortOptions = [
   {
+    key: 'name',
+    label: 'SHARED_SPACES.TOKEN_INPUT.NAME',
+  },
+  {
     key: 'creationDate',
     label: 'SHARED_SPACES.TOKEN_INPUT.CREATION_DATE',
   },

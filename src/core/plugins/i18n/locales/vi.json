@@ -321,7 +321,8 @@
       "CREATION_DATE": "Ngày tạo",
       "MODIFICATION_DATE": "Ngày sửa",
       "TYPE": "Loại",
-      "PLACEHOLDER": "Tìm kiếm hoặc lọc không gian được chia sẻ"
+      "PLACEHOLDER": "Tìm kiếm hoặc lọc không gian được chia sẻ",
+      "NAME": "Tên"
     },
     "MEMBERS": {
       "TAB_TITLE": "Danh sách thành viên",
