@@ -46,7 +46,10 @@
     "EXPAND": "Expand",
     "COLLAPSE": "Collapse",
     "ADD": "Add",
-    "TOTAL": "Total"
+    "TOTAL": "Total",
+    "REFRESH": "Refresh",
+    "FAIL_TO_LOAD_DATA": "Fail to load data",
+    "REQUEST_RELOAD_DATA": "Please click Refresh to reload missing data."
   },
   "LOCALE": {
     "ENGLISH": "English",

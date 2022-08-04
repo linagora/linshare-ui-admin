@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-
 interface AppState {
   hydrating: boolean;
   hydrated: boolean;
@@ -28,6 +27,9 @@ export const useAppStore = defineStore('appStore', {
     },
     setAuthenticating(authenticating: boolean) {
       this.authenticating = authenticating;
+    },
+    setError(errorState: boolean) {
+      this.error = errorState;
     },
   },
 });

@@ -46,7 +46,10 @@
     "EXPAND": "Étendre",
     "COLLAPSE": "Réduire",
     "ADD": "Ajouter",
-    "TOTAL": "Total"
+    "TOTAL": "Total",
+    "REFRESH": "Actualiser",
+    "FAIL_TO_LOAD_DATA": "Echec du chargement des données",
+    "REQUEST_RELOAD_DATA": "Veuillez cliquer sur Actualiser pour charger les données manquantes."
   },
   "LOCALE": {
     "ENGLISH": "Anglais",

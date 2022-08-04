@@ -46,7 +46,10 @@
     "EXPAND": "Mở rộng",
     "COLLAPSE": "Thu hồi",
     "ADD": "Thêm",
-    "TOTAL": "Tổng"
+    "TOTAL": "Tổng",
+    "REFRESH": "Làm mới",
+    "FAIL_TO_LOAD_DATA": "Lỗi tải dữ liệu",
+    "REQUEST_RELOAD_DATA": "Click nút làm mới để tải lại dữ liệu."
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",

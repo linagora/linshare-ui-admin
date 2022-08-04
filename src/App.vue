@@ -3,7 +3,7 @@
     <div v-if="authenticating || hydrating" class="hydrating">
       <a-spin />
     </div>
-
+    <hydrate-error></hydrate-error>
     <router-view v-if="!hydrating" />
   </a-config-provider>
 </template>
@@ -12,7 +12,7 @@
 import { useAppStore } from '@/core/store';
 import { storeToRefs } from 'pinia';
 import useAntConfig from '@/core/hooks/useAntConfig';
-
+import HydrateError from '@/core/components/HydrateError.vue';
 const appStore = useAppStore();
 const { hydrating, authenticating } = storeToRefs(appStore);
 const { antdLocale } = useAntConfig();

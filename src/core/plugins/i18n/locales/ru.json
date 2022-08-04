@@ -46,7 +46,10 @@
     "EXPAND": "Расширить",
     "COLLAPSE": "Свернуть",
     "ADD": "Добавлять",
-    "TOTAL": "Общее"
+    "TOTAL": "Общее",
+    "REFRESH": "Refresh",
+    "FAIL_TO_LOAD_DATA": "Fail to load data",
+    "REQUEST_RELOAD_DATA": "Please click Refresh to reload missing data."
   },
   "LOCALE": {
     "ENGLISH": "Английский",

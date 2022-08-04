@@ -30,7 +30,8 @@ export async function hydrate(): Promise<void> {
     }
     await domainStore.fetchDomain();
   } catch (error) {
-    console.error(error);
+    appStore.setError(true);
+    throw error;
   } finally {
     appStore.setHydrating(false);
   }
