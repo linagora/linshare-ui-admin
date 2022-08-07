@@ -34,6 +34,7 @@ use2FARequiredCheck();
   }
   .ls-app-header {
     height: auto;
+    padding: 0;
   }
 }
 </style>

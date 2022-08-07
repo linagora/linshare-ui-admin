@@ -1,5 +1,30 @@
+<script lang="ts" setup>
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
+import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
+import config from '@/config';
+
+interface Props {
+  mode: 'vertical' | 'horizontal';
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  mode: 'horizontal',
+});
+
+const { currentRoute } = useRouter();
+const { redirect } = useLegacyFeatures();
+const current = ref([currentRoute.value.path.split('/')[1]]);
+const isBeta = config.beta;
+const legacyAppUrl = config.legacyAppUrl;
+
+watch(currentRoute, (newRoute) => {
+  current.value = [newRoute.path.split('/')[1]];
+});
+</script>
+
 <template>
-  <a-menu v-model:selectedKeys="current" mode="horizontal" class="navigation-menu">
+  <a-menu v-model:selectedKeys="current" :mode="mode" class="navigation-menu">
     <a-menu-item key="configuration">
       <router-link :to="{ name: 'Configuration' }">
         {{ $t('NAVIGATOR.CONFIGURATION') }}
@@ -30,29 +55,14 @@
   </a-menu>
 </template>
 
-<script lang="ts" setup>
-import { ref, watch } from 'vue';
-import { useRouter } from 'vue-router';
-import useLegacyFeatures from '../hooks/useLegacyFeatures';
-import config from '@/config';
-
-const { currentRoute } = useRouter();
-
-const { redirect } = useLegacyFeatures();
-const current = ref([currentRoute.value.path.split('/')[1]]);
-const isBeta = config.beta;
-const legacyAppUrl = config.legacyAppUrl;
-
-watch(currentRoute, (newRoute) => {
-  current.value = [newRoute.path.split('/')[1]];
-});
-</script>
-
 <style lang="less">
 .ant-menu.ant-menu-horizontal.navigation-menu {
   border-bottom: 2px solid @primary-color;
   background: @primary-color;
   color: @text-color-inverse;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
 
   .ant-menu-item-disabled {
     color: fade(@text-color-inverse, 25%) !important;
@@ -60,6 +70,7 @@ watch(currentRoute, (newRoute) => {
 
   .ant-menu-item-selected {
     color: @text-color-inverse;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
 
     &::after {
       border-bottom: 2px solid @text-color-inverse;
@@ -67,6 +78,8 @@ watch(currentRoute, (newRoute) => {
   }
 
   .ant-menu-item {
+    margin-right: 8px;
+
     &:hover {
       color: @text-color-inverse;
     }
@@ -77,6 +90,11 @@ watch(currentRoute, (newRoute) => {
 
     a {
       color: @text-color-inverse;
+    }
+
+    &::after {
+      right: 0;
+      left: 0;
     }
   }
 }
