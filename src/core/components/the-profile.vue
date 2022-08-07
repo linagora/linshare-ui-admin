@@ -1,16 +1,18 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useAuthStore } from '@/modules/auth/store';
-import { useRouter } from 'vue-router';
-import { logout } from '@/modules/auth/services/basic';
-import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
-import { isEnable } from '@/core/utils/functionality';
 import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
 import UserProfileIcon from '@/core/components/icons/user-profile-icon.vue';
+import useProfile from '@/core/hooks/useProfile';
+import { useAuthStore } from '@/modules/auth/store';
+import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
+import { logout } from '@/modules/auth/services/basic';
+import { isEnable } from '@/core/utils/functionality';
 
-const router = useRouter();
 const authStore = useAuthStore();
+const { current, onClose } = useProfile();
 const { loggedUser, loggedUserFullName, functionalities } = storeToRefs(authStore);
+const { push } = useRouter();
 const secondFAEnabled = computed(() => isEnable(functionalities.value.SECOND_FACTOR_AUTHENTICATION));
 
 async function logOut() {
@@ -20,7 +22,7 @@ async function logOut() {
     await logout();
   }
 
-  router.push({ name: 'Login' });
+  push({ name: 'Login' });
 }
 </script>
 
@@ -30,7 +32,7 @@ async function logOut() {
       <a-dropdown :trigger="['click']">
         <user-profile-icon></user-profile-icon>
         <template #overlay>
-          <a-menu class="profile-menu">
+          <a-menu v-model:selectedKeys="current" class="profile-menu">
             <a-menu-item class="profile-info-ctn">
               <div class="profile-name">
                 {{ loggedUserFullName }}
@@ -39,13 +41,15 @@ async function logOut() {
                 {{ loggedUser?.mail }}
               </div>
             </a-menu-item>
-            <router-link v-if="secondFAEnabled" :to="{ name: 'ManageSecondFactorAuthentication' }">
-              <a-menu-item>
-                {{ $t('HEADER.PROFILE.2FA') }}
-              </a-menu-item>
-            </router-link>
-            <a-menu-item @click="logOut()">
-              {{ $t('HEADER.PROFILE.LOGOUT') }}
+            <a-menu-item v-if="secondFAEnabled" key="second_factor_authentication" @click="onClose">
+              <router-link :to="{ name: 'ManageSecondFactorAuthentication' }" class="link">
+                <span class="name">{{ $t('HEADER.PROFILE.2FA') }}</span>
+              </router-link>
+            </a-menu-item>
+            <a-menu-item key="logout" @click="logOut">
+              <a name="logout" class="link">
+                <span class="name">{{ $t('HEADER.PROFILE.LOGOUT') }}</span>
+              </a>
             </a-menu-item>
           </a-menu>
         </template>

@@ -77,7 +77,8 @@
     "LOGO_ALT": "Logo Linshare",
     "PROFILE": {
       "LOGOUT": "Đăng xuất",
-      "2FA": "Cơ chế xác thực thứ hai"
+      "2FA": "Cơ chế xác thực thứ hai",
+      "LANGUAGE": "Ngôn ngữ"
     }
   },
   "FOOTER": {
@@ -1267,5 +1268,11 @@
       "DESCRIPTION": "Hiển thị 100 người dùng hàng đầu có bộ nhớ đã sử dụng lớn nhất",
       "TABLE_STORAGE_COLUMN_HEADER": "Đã sử dụng"
     }
+  },
+  "LANGUAGE": {
+    "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"
+  },
+  "PROFILE": {
+    "SETTING": "Cài đặt"
   }
 }

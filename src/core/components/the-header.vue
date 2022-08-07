@@ -1,7 +1,13 @@
 <script lang="ts" setup>
 import TheMenu from '@/core/components/the-menu.vue';
 import TheProfile from '@/core/components/the-profile.vue';
+import TheMobileProfile from '@/core/components/the-mobile-profile.vue';
 import TheMobileMenu from '@/core/components/the-mobile-menu.vue';
+import LsLanguageModal from '@/core/components/ls-language-modal.vue';
+import GlobeIcon from '@/core/components/icons/globe-icon.vue';
+import useLanguageModal from '@/core/hooks/useLanguageModal';
+
+const { toogleLanguage } = useLanguageModal();
 </script>
 
 <template>
@@ -16,11 +22,18 @@ import TheMobileMenu from '@/core/components/the-mobile-menu.vue';
         </router-link>
       </div>
       <div class="menu">
-        <the-menu mode="horizontal"></the-menu>
+        <the-menu></the-menu>
       </div>
     </div>
     <div class="the-header__right">
-      <the-profile></the-profile>
+      <div class="desktop">
+        <globe-icon class="language" @click="toogleLanguage(true)"></globe-icon>
+        <the-profile></the-profile>
+      </div>
+      <div class="mobile">
+        <the-mobile-profile></the-mobile-profile>
+      </div>
+      <ls-language-modal></ls-language-modal>
     </div>
   </div>
 </template>
@@ -66,6 +79,16 @@ import TheMobileMenu from '@/core/components/the-mobile-menu.vue';
   }
   &__right {
     width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    .mobile {
+      display: flex;
+    }
+    .desktop {
+      display: none;
+    }
   }
 }
 
@@ -90,9 +113,23 @@ import TheMobileMenu from '@/core/components/the-mobile-menu.vue';
       top: 14px;
       bottom: 14px;
     }
-
     .mobile {
       display: none;
+    }
+  }
+  .the-header__right {
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .language {
+      margin-right: 20px;
+      color: #fff;
     }
   }
 }

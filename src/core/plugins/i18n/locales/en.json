@@ -79,7 +79,8 @@
     "LOGO_ALT": "Linshare logo",
     "PROFILE": {
       "LOGOUT": "Log out",
-      "2FA": "Second factor authentication"
+      "2FA": "Second factor authentication",
+      "LANGUAGE": "Language"
     }
   },
   "FOOTER": {
@@ -1272,5 +1273,11 @@
       "DESCRIPTION": "Showing top 100 users with largest used storage",
       "TABLE_STORAGE_COLUMN_HEADER": "Used storage"
     }
+  },
+  "LANGUAGE": {
+    "SELECT_YOUR_LANGUAGE": "Select your language"
+  },
+  "PROFILE": {
+    "SETTING": "Setting"
   }
 }

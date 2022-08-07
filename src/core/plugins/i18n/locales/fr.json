@@ -77,7 +77,8 @@
     "LOGO_ALT": "Logo Linshare",
     "PROFILE": {
       "LOGOUT": "Déconnexion",
-      "2FA": "Authentification double facteur"
+      "2FA": "Authentification double facteur",
+      "LANGUAGE": "Langage"
     }
   },
   "FOOTER": {
@@ -1268,5 +1269,11 @@
       "DESCRIPTION": "Afficher les 100 premiers utilisateurs avec le plus grand espace de stockage utilisé",
       "TABLE_STORAGE_COLUMN_HEADER": "Espace de stockage utilisé"
     }
+  },
+  "LANGUAGE": {
+    "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"
+  },
+  "PROFILE": {
+    "SETTING": "Réglages"
   }
 }

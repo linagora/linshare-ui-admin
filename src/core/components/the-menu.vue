@@ -1,56 +1,43 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
-import { useRouter } from 'vue-router';
-import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 import config from '@/config';
+import useMenu from '@/core/hooks/useMenu';
+import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 
-interface Props {
-  mode: 'vertical' | 'horizontal';
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  mode: 'horizontal',
-});
-
-const { currentRoute } = useRouter();
 const { redirect } = useLegacyFeatures();
-const current = ref([currentRoute.value.path.split('/')[1]]);
-const isBeta = config.beta;
-const legacyAppUrl = config.legacyAppUrl;
-
-watch(currentRoute, (newRoute) => {
-  current.value = [newRoute.path.split('/')[1]];
-});
+const { current } = useMenu();
 </script>
 
 <template>
-  <a-menu v-model:selectedKeys="current" :mode="mode" class="navigation-menu">
+  <a-menu v-model:selectedKeys="current" mode="horizontal" class="navigation-menu">
     <a-menu-item key="configuration">
       <router-link :to="{ name: 'Configuration' }">
         {{ $t('NAVIGATOR.CONFIGURATION') }}
       </router-link>
     </a-menu-item>
-
     <a-menu-item key="administration">
       <router-link :to="{ name: 'Administration' }">
         {{ $t('NAVIGATOR.ADMINISTRATION') }}
       </router-link>
     </a-menu-item>
-
     <a-menu-item key="reporting">
       <router-link :to="{ name: 'Reporting' }">
         {{ $t('NAVIGATOR.REPORTING') }}
       </router-link>
     </a-menu-item>
-
     <a-menu-item key="activities" @click="redirect('NAVIGATOR.ACTIVITIES')">
-      {{ $t('NAVIGATOR.ACTIVITIES') }}
+      <a name="activities">
+        {{ $t('NAVIGATOR.ACTIVITIES') }}
+      </a>
     </a-menu-item>
     <a-menu-item key="upgrades" @click="redirect('NAVIGATOR.UPGRADES')">
-      {{ $t('NAVIGATOR.UPGRADES') }}
+      <a name="upgrades">
+        {{ $t('NAVIGATOR.UPGRADES') }}
+      </a>
     </a-menu-item>
-    <a-menu-item v-if="isBeta" :title="$t('BETA.MENU_TITLE')">
-      <a :href="legacyAppUrl">{{ $t('BETA.MENU') }}</a>
+    <a-menu-item key="beta">
+      <a name="beta" :href="config.legacyAppUrl">
+        {{ $t('BETA.MENU') }}
+      </a>
     </a-menu-item>
   </a-menu>
 </template>
@@ -79,17 +66,14 @@ watch(currentRoute, (newRoute) => {
 
   .ant-menu-item {
     margin-right: 8px;
-
-    &:hover {
-      color: @text-color-inverse;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: @text-color-inverse;
 
     &:hover::after {
       border-bottom: 2px solid @text-color-inverse;
-    }
-
-    a {
-      color: @text-color-inverse;
     }
 
     &::after {
@@ -97,5 +81,21 @@ watch(currentRoute, (newRoute) => {
       left: 0;
     }
   }
+  .ant-menu-overflow-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .ant-menu-title-content a {
+    color: @text-color-inverse;
+  }
+}
+
+.ant-menu-item.ant-menu-item-only-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>

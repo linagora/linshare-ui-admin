@@ -3,7 +3,7 @@
     <a-layout-header class="ls-app-header">
       <the-header />
     </a-layout-header>
-    <a-layout-content class="app-content" :class="{ beta: $route.meta.uiBeta }">
+    <a-layout-content class="ls-app-content" :class="{ beta: $route.meta.uiBeta }">
       <Suspense>
         <router-view />
       </Suspense>
@@ -29,7 +29,7 @@ use2FARequiredCheck();
     min-height: 100vh;
   }
 
-  .app-content {
+  .ls-app-content {
     padding: 20px 40px;
 
     &.beta {
@@ -40,6 +40,15 @@ use2FARequiredCheck();
   .ls-app-header {
     height: auto;
     padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
+    background: #007aff;
+  }
+  .ls-app-content {
+    margin-top: 65px;
   }
 }
 </style>
