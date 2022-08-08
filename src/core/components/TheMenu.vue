@@ -1,19 +1,28 @@
 <template>
   <a-menu v-model:selectedKeys="current" mode="horizontal" class="navigation-menu">
-    <a-menu-item key="configuration" @click="navigateTo('Configuration')">
-      {{ $t('NAVIGATOR.CONFIGURATION') }}
+    <a-menu-item key="configuration">
+      <router-link :to="{ name: 'Configuration' }">
+        {{ $t('NAVIGATOR.CONFIGURATION') }}
+      </router-link>
     </a-menu-item>
-    <a-menu-item key="administration" @click="navigateTo('Administration')">
-      {{ $t('NAVIGATOR.ADMINISTRATION') }}
+
+    <a-menu-item key="administration">
+      <router-link :to="{ name: 'Administration' }">
+        {{ $t('NAVIGATOR.ADMINISTRATION') }}
+      </router-link>
     </a-menu-item>
-    <a-menu-item key="activities" @click="navigateTo('NAVIGATOR.ACTIVITIES', true)">
+
+    <a-menu-item key="reporting">
+      <router-link :to="{ name: 'Reporting' }">
+        {{ $t('NAVIGATOR.REPORTING') }}
+      </router-link>
+    </a-menu-item>
+
+    <a-menu-item key="activities" @click="redirect('NAVIGATOR.ACTIVITIES')">
       {{ $t('NAVIGATOR.ACTIVITIES') }}
     </a-menu-item>
-    <a-menu-item key="upgrades" @click="navigateTo('NAVIGATOR.UPGRADES', true)">
+    <a-menu-item key="upgrades" @click="redirect('NAVIGATOR.UPGRADES')">
       {{ $t('NAVIGATOR.UPGRADES') }}
-    </a-menu-item>
-    <a-menu-item key="reporting" disabled>
-      {{ $t('NAVIGATOR.REPORTING') }}
     </a-menu-item>
     <a-menu-item v-if="isBeta" :title="$t('BETA.MENU_TITLE')">
       <a :href="legacyAppUrl">{{ $t('BETA.MENU') }}</a>
@@ -27,22 +36,12 @@ import { useRouter } from 'vue-router';
 import useLegacyFeatures from '../hooks/useLegacyFeatures';
 import config from '@/config';
 
-const { currentRoute, push } = useRouter();
+const { currentRoute } = useRouter();
 
 const { redirect } = useLegacyFeatures();
 const current = ref([currentRoute.value.path.split('/')[1]]);
 const isBeta = config.beta;
 const legacyAppUrl = config.legacyAppUrl;
-
-function navigateTo(name: string, legacy?: boolean) {
-  if (legacy) {
-    redirect(name);
-
-    return;
-  }
-
-  push({ name });
-}
 
 watch(currentRoute, (newRoute) => {
   current.value = [newRoute.path.split('/')[1]];
