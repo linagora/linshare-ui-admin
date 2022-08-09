@@ -1,9 +1,10 @@
 <template>
-  <a-layout>
-    <a-layout-sider v-if="isLargeScreen" width="300" theme="light">
+  <div class="configuration-layout">
+    <div v-if="isLargeScreen" class="tree">
       <DomainsTree />
-    </a-layout-sider>
-    <a-layout-content>
+    </div>
+
+    <div class="content">
       <div v-if="!isLargeScreen" style="margin-bottom: 10px">
         <a-button @click="showSidebar = true">
           <template #icon>
@@ -11,9 +12,10 @@
           </template>
         </a-button>
       </div>
+
       <router-view />
-    </a-layout-content>
-  </a-layout>
+    </div>
+  </div>
 
   <a-drawer placement="left" :closable="false" :visible="showSidebar" width="300" @close="showSidebar = false">
     <DomainsTree />
@@ -42,3 +44,18 @@ watch(
   }
 );
 </script>
+
+<style lang="less" scoped>
+.configuration-layout {
+  display: flex;
+  flex-direction: row;
+
+  .tree {
+    flex: 0 0 300px;
+  }
+
+  .content {
+    flex: 1;
+  }
+}
+</style>
