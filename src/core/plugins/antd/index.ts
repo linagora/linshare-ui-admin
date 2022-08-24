@@ -25,6 +25,7 @@ import {
   Progress,
   Popconfirm,
   Popover,
+  Radio,
   Result,
   Row,
   Select,
@@ -63,6 +64,7 @@ function useAntdComponents(vueApp: App): App {
     .use(Progress)
     .use(Popover)
     .use(Popconfirm)
+    .use(Radio)
     .use(Result)
     .use(Row)
     .use(Select)

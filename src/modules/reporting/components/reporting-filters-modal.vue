@@ -1,0 +1,194 @@
+<script lang="ts" setup>
+import { computed, reactive, ref, watchEffect } from 'vue';
+import { storeToRefs } from 'pinia';
+import dayjs, { Dayjs } from 'dayjs';
+import { TimePeriod } from '@/core/types/TimePeriod';
+import { useDomainStore } from '@/modules/domain/store';
+import Domain from '@/modules/domain/types/Domain';
+import { ReportingCategory, useReportingStore } from '../store';
+import { getDatesFromPeriod, getPeriodFromDate } from '@/core/utils/date';
+
+withDefaults(defineProps<{ visible: boolean }>(), { visible: false });
+
+const emits = defineEmits(['close']);
+const { domains, category, beginDate, endDate } = storeToRefs(useReportingStore());
+const { getDomainsList: domainsList } = storeToRefs(useDomainStore());
+const domainOptions = computed(() =>
+  domainsList.value.map((domain) => ({
+    label: domain.name,
+    value: domain.uuid,
+  }))
+);
+const period = ref<TimePeriod>(getPeriodFromDate(beginDate.value, endDate.value));
+const filterForm = reactive<{
+  dateRange: [Dayjs, Dayjs];
+  category: ReportingCategory;
+  domainUuids: string[];
+  period?: TimePeriod;
+}>({
+  domainUuids: [],
+  dateRange: [dayjs(beginDate.value), dayjs(endDate.value)],
+  category: category.value,
+});
+
+function apply() {
+  const list: Domain[] = [];
+
+  filterForm.domainUuids.forEach((uuid) => {
+    const domain = domainsList.value.find((d) => d.uuid === uuid);
+
+    if (domain) {
+      list.push(domain);
+    }
+  });
+
+  domains.value = list;
+  category.value = filterForm.category;
+  beginDate.value = filterForm.dateRange[0];
+  endDate.value = filterForm.dateRange[1];
+  emits('close');
+}
+
+function reset() {
+  filterForm.domainUuids = domains.value.map((domain) => domain.uuid);
+  filterForm.dateRange = [dayjs(beginDate.value), dayjs(endDate.value)];
+  filterForm.category = category.value;
+}
+
+function onDateOptionChange(option: TimePeriod) {
+  const range = getDatesFromPeriod(option);
+
+  if (range) {
+    filterForm.dateRange = range;
+  }
+}
+
+watchEffect(() => {
+  if (filterForm.dateRange[0] && filterForm.dateRange[1]) {
+    period.value = getPeriodFromDate(filterForm.dateRange[0], filterForm.dateRange[1]);
+  }
+});
+
+watchEffect(() => {
+  filterForm.domainUuids = domains.value.map((domain) => domain.uuid);
+});
+</script>
+<template>
+  <a-modal
+    class="filter-modal"
+    :destroy-on-close="true"
+    :visible="visible"
+    :title="$t('REPORTING.FILTERS_MODAL.TITLE')"
+    @cancel="
+      reset();
+      $emit('close');
+    "
+  >
+    <template #footer>
+      <div class="footer">
+        <a-button class="reset" @click="reset">
+          {{ $t('GENERAL.RESET') }}
+        </a-button>
+        <a-button class="ok" type="primary" @click="apply">
+          {{ $t('GENERAL.APPLY') }}
+        </a-button>
+      </div>
+    </template>
+
+    <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
+      <a-form-item :label="$t('GENERAL.DOMAIN')">
+        <a-select
+          v-model:value="filterForm.domainUuids"
+          mode="multiple"
+          :options="domainOptions"
+          :placeholder="$t('REPORTING.FILTERS_MODAL.DOMAIN_SELECT_PLACEHOLDER')"
+        ></a-select>
+      </a-form-item>
+
+      <a-form-item :label="$t('REPORTING.FILTERS_MODAL.CATEGORIES')">
+        <a-radio-group v-model:value="filterForm.category">
+          <a-radio value="WHOLE_DOMAIN">{{ $t('REPORTING.FILTERS_MODAL.CATEGORIES_WHOLE_DOMAIN') }}</a-radio>
+          <a-radio value="SHARED_SPACE">{{ $t('REPORTING.FILTERS_MODAL.CATEGORIES_SHARED_SPACE') }}</a-radio>
+          <a-radio value="MY_SPACE">{{ $t('REPORTING.FILTERS_MODAL.CATEGORIES_MY_SPACE') }}</a-radio>
+        </a-radio-group>
+      </a-form-item>
+
+      <a-form-item :label="$t('REPORTING.FILTERS_MODAL.TIME_RANGE')">
+        <div class="time-picker">
+          <a-select v-model:value="period" class="options" @change="onDateOptionChange">
+            <a-select-option value="ALL_TIME">
+              {{ $t('GENERAL.DATE_ALL_TIME') }}
+            </a-select-option>
+            <a-select-option value="LAST_7_DAYS">
+              {{ $t('GENERAL.DATE_LAST_7_DAYS') }}
+            </a-select-option>
+            <a-select-option value="LAST_30_DAYS">
+              {{ $t('GENERAL.DATE_LAST_30_DAYS') }}
+            </a-select-option>
+            <a-select-option value="LAST_6_MONTHS">
+              {{ $t('GENERAL.DATE_LAST_6_MONTHS') }}
+            </a-select-option>
+            <a-select-option value="LAST_YEARar">
+              {{ $t('GENERAL.DATE_LAST_YEAR') }}
+            </a-select-option>
+            <a-select-option value="CUSTOM">
+              {{ $t('GENERAL.DATE_CUSTOM') }}
+            </a-select-option>
+          </a-select>
+
+          <a-range-picker
+            v-model:value="filterForm.dateRange"
+            :disabled="period === 'ALL_TIME' ? [true, true] : [false, false]"
+            class="range"
+          />
+        </div>
+      </a-form-item>
+    </a-form>
+  </a-modal>
+</template>
+
+<style lang="less">
+.filter-modal {
+  .ant-modal-header {
+    border-radius: 16px;
+    border-bottom: none;
+
+    .ant-modal-title {
+      text-align: center;
+    }
+  }
+
+  .ant-modal-content {
+    border-radius: 16px;
+  }
+
+  .ant-modal-footer {
+    border-top: none;
+  }
+
+  .time-picker {
+    display: flex;
+
+    .options {
+      flex: 1;
+      margin-right: 5px;
+    }
+
+    .range {
+      flex: 0 0 320px;
+    }
+  }
+
+  .footer {
+    display: flex;
+
+    .reset {
+      flex: 1;
+    }
+
+    .ok {
+      flex: 1;
+    }
+  }
+}
+</style>

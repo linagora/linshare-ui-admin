@@ -49,7 +49,14 @@
     "TOTAL": "Total",
     "REFRESH": "Refresh",
     "FAIL_TO_LOAD_DATA": "Fail to load data",
-    "REQUEST_RELOAD_DATA": "Please click Refresh to reload missing data."
+    "REQUEST_RELOAD_DATA": "Please click Refresh to reload missing data.",
+    "APPLY": "Apply",
+    "DATE_ALL_TIME": "All time",
+    "DATE_LAST_7_DAYS": "Last 7 days",
+    "DATE_LAST_30_DAYS": "Last 30 days",
+    "DATE_LAST_6_MONTHS": "Last 6 months",
+    "DATE_LAST_YEAR": "Last year",
+    "DATE_CUSTOM": "Custom range"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -1136,6 +1143,24 @@
           "BOOLEAN_DESCRIPTION": "All users must setup second factor authentication"
         }
       }
+    }
+  },
+  "REPORTING": {
+    "INTRODUCTION": "Showing vairous statistics on your LinShare",
+    "FILTERS_BUTTON": "Filters",
+    "FILTERS_BAR": {
+      "DOMAIN_FILTER": "Domain:",
+      "CATEGORY_FILTER": "Category:",
+      "TIME_RANGE_FILTER": "Time range:"
+    },
+    "FILTERS_MODAL": {
+      "TITLE": "Filters setting",
+      "TIME_RANGE": "Time range",
+      "DOMAIN_SELECT_PLACEHOLDER": "Select domains to filter, leave blank to select all domains",
+      "CATEGORIES": "Categories",
+      "CATEGORIES_WHOLE_DOMAIN": "Whole domain",
+      "CATEGORIES_SHARED_SPACE": "Shared space",
+      "CATEGORIES_MY_SPACE": "My space"
     }
   }
 }

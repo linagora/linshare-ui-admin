@@ -2,6 +2,11 @@ import { IntlDateTimeFormats } from 'vue-i18n';
 
 export const DATETIME_FORMATS: IntlDateTimeFormats = {
   en: {
+    shortDate: {
+      year: 'numeric',
+      month: 'numeric',
+      day: '2-digit',
+    },
     mediumDate: {
       year: 'numeric',
       month: 'long',
@@ -18,6 +23,11 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
     },
   },
   fr: {
+    shortDate: {
+      year: 'numeric',
+      month: 'numeric',
+      day: '2-digit',
+    },
     mediumDate: {
       year: 'numeric',
       month: 'long',
@@ -34,6 +44,11 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
     },
   },
   ru: {
+    shortDate: {
+      year: 'numeric',
+      month: 'numeric',
+      day: '2-digit',
+    },
     mediumDate: {
       year: 'numeric',
       month: 'long',
@@ -50,6 +65,11 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
     },
   },
   vi: {
+    shortDate: {
+      year: 'numeric',
+      month: 'numeric',
+      day: '2-digit',
+    },
     mediumDate: {
       year: 'numeric',
       month: 'long',
