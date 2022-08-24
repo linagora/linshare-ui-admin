@@ -1,11 +1,13 @@
 <template>
   <a-layout class="ls-admin-layout full-height">
     <a-layout-header class="ls-app-header">
-      <TheHeader />
+      <the-header />
     </a-layout-header>
-    <a-layout-content class="app-content">
+    <a-layout-content>
       <Suspense>
-        <router-view />
+        <div class="app-content" :class="{ beta: $route.meta.uiBeta }">
+          <router-view />
+        </div>
       </Suspense>
     </a-layout-content>
     <a-layout-footer>
@@ -22,7 +24,7 @@ import use2FARequiredCheck from '@/modules/auth/hooks/use2FARequiredCheck';
 use2FARequiredCheck();
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .ls-admin-layout {
   &.full-height {
     position: relative;
@@ -31,6 +33,11 @@ use2FARequiredCheck();
 
   .app-content {
     padding: 20px 40px;
+
+    &.beta {
+      background-color: #dedede;
+      padding: 0;
+    }
   }
   .ls-app-header {
     height: auto;
