@@ -1,14 +1,12 @@
 <script lang="ts" setup>
 import { computed, reactive, ref } from 'vue';
-import { storeToRefs } from 'pinia';
 import { message, Form } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
-import { useAuthStore } from '@/modules/auth/store';
 import { APIError } from '@/core/types/APIError';
 import { useGuest } from '../hooks/useGuest';
 import User, { ACCOUNT_ROLE } from '../types/User';
-import { isEnable } from '@/core/utils/functionality';
 import { updateUser } from '../services/user-api';
+import { getFunctionality } from '@/modules/domain/services/domain-api';
 
 interface FormModel {
   canCreateGuest: boolean;
@@ -20,14 +18,13 @@ interface FormModel {
   role: ACCOUNT_ROLE;
 }
 
-const authStore = useAuthStore();
 const props = defineProps<{ user: User }>();
 const emit = defineEmits(['update']);
 const { t, d } = useI18n();
-const { functionalities } = storeToRefs(authStore);
 const isGuestUser = computed(() => props.user.accountType === 'GUEST');
-const guestFeatureEnabled = computed(() => isEnable(functionalities.value.GUESTS));
-
+const guestFeatureEnabled = reactive({
+  enable: false,
+});
 const { isValidExpirationDate, getMaxExpirationDate } = useGuest();
 const formSubmitting = ref(false);
 const formModel = reactive<FormModel>({
@@ -54,6 +51,20 @@ const formRules = reactive({
 });
 const { validate, validateInfos } = Form.useForm(formModel, formRules);
 
+async function checkGuestFeature() {
+  if (!isGuestUser.value) {
+    try {
+      guestFeatureEnabled.enable = await (
+        await getFunctionality(props.user.domain.uuid, 'GUESTS')
+      ).activationPolicy.enable.value;
+    } catch (error) {
+      if (error instanceof APIError) {
+        return;
+      }
+    }
+  }
+}
+
 async function update() {
   formSubmitting.value = true;
 
@@ -74,6 +85,8 @@ async function update() {
     formSubmitting.value = false;
   }
 }
+
+checkGuestFeature();
 </script>
 
 <template>
@@ -174,7 +187,7 @@ async function update() {
             {{ $t('USERS.DETAIL_USER.ENABLE_PERSONAL_SPACE') }}
           </a-checkbox>
         </div>
-        <div v-if="user.accountType !== 'GUEST' && guestFeatureEnabled" class="input-container">
+        <div v-if="user.accountType !== 'GUEST' && guestFeatureEnabled.enable" class="input-container">
           <a-checkbox v-model:checked="formModel.canCreateGuest">
             {{ $t('USERS.DETAIL_USER.ALLOW_GUEST_CREATION') }}
           </a-checkbox>
