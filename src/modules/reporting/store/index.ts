@@ -7,8 +7,8 @@ export type ReportingCategory = 'WHOLE_DOMAIN' | 'SHARED_SPACE' | 'MY_SPACE';
 interface ReportingStore {
   domains: Domain[];
   category: ReportingCategory;
-  beginDate: Dayjs;
-  endDate: Dayjs;
+  beginDate: Dayjs | null;
+  endDate: Dayjs | null;
 }
 
 export const useReportingStore = defineStore('reportingStore', {

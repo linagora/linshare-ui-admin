@@ -13,9 +13,11 @@ const { t, d } = useI18n();
 const dateRange = computed(() => {
   const period: TimePeriod = getPeriodFromDate(beginDate.value, endDate.value);
 
-  return period === 'CUSTOM'
-    ? `${d(beginDate.value.toDate(), 'shortDate')} - ${d(endDate.value.toDate(), 'shortDate')}`
-    : t(`GENERAL.DATE_${period}`);
+  if (period === 'CUSTOM' && beginDate.value && endDate.value) {
+    return `${d(beginDate.value.toDate(), 'shortDate')} - ${d(endDate.value.toDate(), 'shortDate')}`;
+  }
+
+  return t(`GENERAL.DATE_${period}`);
 });
 
 function removeDomainFromFilter(toBeRemoved: Domain) {
@@ -40,7 +42,7 @@ function removeDomainFromFilter(toBeRemoved: Domain) {
       <span class="filter__type">{{ $t('REPORTING.FILTERS_BAR.CATEGORY_FILTER') }}</span>
       <ls-tag :value="$t(`REPORTING.FILTERS_MODAL.CATEGORIES_${category}`)"></ls-tag>
     </div>
-    <div v-if="beginDate && endDate" class="filter">
+    <div class="filter">
       <span class="filter__type">{{ $t('REPORTING.FILTERS_BAR.TIME_RANGE_FILTER') }}</span>
       <ls-tag :value="dateRange"></ls-tag>
     </div>

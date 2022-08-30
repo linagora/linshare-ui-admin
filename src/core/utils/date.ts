@@ -26,7 +26,7 @@ function isValid(d: Date): boolean {
   return dayjs(d).isValid();
 }
 
-function getPeriodFromDate(beginDate: Dayjs, endDate: Dayjs): TimePeriod {
+function getPeriodFromDate(beginDate: Dayjs | null, endDate: Dayjs | null): TimePeriod {
   if (!beginDate && !endDate) {
     return 'ALL_TIME';
   } else if (endDate?.diff(beginDate, 'day') === 7) {

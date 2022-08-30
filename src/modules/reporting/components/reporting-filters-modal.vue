@@ -44,8 +44,8 @@ function apply() {
 
   domains.value = list;
   category.value = filterForm.category;
-  beginDate.value = filterForm.dateRange[0];
-  endDate.value = filterForm.dateRange[1];
+  beginDate.value = period.value === 'ALL_TIME' ? null : filterForm.dateRange[0];
+  endDate.value = period.value === 'ALL_TIME' ? null : filterForm.dateRange[1];
   emits('close');
 }
 
