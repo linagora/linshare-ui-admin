@@ -56,7 +56,9 @@
     "DATE_LAST_30_DAYS": "30 derniers jours",
     "DATE_LAST_6_MONTHS": "6 derniers mois",
     "DATE_LAST_YEAR": "L'année dernière",
-    "DATE_CUSTOM": "Plage personnalisée"
+    "DATE_CUSTOM": "Plage personnalisée",
+    "NUMBER_COL": "Non.",
+    "EMPTY_MESSAGE": "Aucune donnée"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -1157,6 +1159,61 @@
       "CATEGORIES_WHOLE_DOMAIN": "Domaine entier",
       "CATEGORIES_SHARED_SPACE": "Espace partagé",
       "CATEGORIES_MY_SPACE": "Mon espace"
+    },
+    "GENERICS": {
+      "TITLE": "Statistiques globales",
+      "DESCRIPTION": "Détails des interactions sur différentes ressources de LinShare",
+      "RESOURCE_COL": "Ressource",
+      "ACTION": {
+        "CREATE": "Création",
+        "UPDATE": "Mis à jour",
+        "DELETE": "Suppression",
+        "GET": "Consultation",
+        "DOWNLOAD": "Téléchargement",
+        "SUCCESS": "Succès",
+        "FAILURE": "Echec",
+        "PURGE": "Purge"
+      },
+      "RESOURCE": {
+        "ANONYMOUS_SHARE_ENTRY": " Partages anonymes ",
+        "AUTHENTICATION": "Authentification",
+        "CONTACTS_LISTS": "Listes de contacts",
+        "CONTACTS_LISTS_CONTACTS": "Contacts",
+        "DRIVE": "Drives",
+        "DRIVE_MEMBER": "Membres du drive",
+        "DOMAIN": "Domaines",
+        "DOMAIN_PATTERN": " Modèles de domaine ",
+        "DOCUMENT_ENTRY": "Documents (espace perso)",
+        "FUNCTIONALITY": "Fonctionnalités",
+        "GUEST_MODERATOR": "Modérateurs d’invité",
+        "GUEST": "Inivtés",
+        "GROUP_FILTER": "Filtres de groupes de travail",
+        "JWT_PERMANENT_TOKEN": "Jeton JWT permanent",
+        "MAIL_ATTACHMENT": " Pièces jointes ",
+        "RESET_PASSWORD": " Réinitialisation du mot de passe ",
+        "PUBLIC_KEY": " Clés publiques ",
+        "SAFE_DETAIL": "Détail d'un coffre",
+        "SHARE_ENTRY": "Partages",
+        "SHARED_SPACE_NODE": "Nœuds d'espace partagé ",
+        "SHARED_SPACE_MEMBER": " Membres de l'espace partagé",
+        "USER": "Utilisateurs",
+        "USER_PREFERENCE": " Préférences de l'utilisateur ",
+        "UPLOAD_REQUEST": "Invitations de dépôt imbriquées",
+        "UPLOAD_PROPOSITION": "Propositions d’invitations de dépôt",
+        "UPLOAD_REQUEST_URL": "URLS d’invitations de dépôt",
+        "UPLOAD_REQUEST_GROUP": "Invitations de dépôt",
+        "UPLOAD_REQUEST_ENTRY": " Documents de l’invitation de dépôt ",
+        "WORK_GROUP": "Groupes de travail",
+        "WORK_GROUP_MEMBER": " Membres du groupe de travail ",
+        "WORK_SPACE": "Espace de travail",
+        "WORK_SPACE_MEMBER": " Membres de l’espace de travail ",
+        "WORKSPACE_FILTER": " Filtres d’espace de travail ",
+        "WORKGROUP": "Groupe de travail",
+        "WORKGROUP_DOCUMENT": "Documents du groupe de travail",
+        "WORKGROUP_MEMBER": "Membres du groupe de travail",
+        "WORKGROUP_FOLDER": "Documents du groupe de travail",
+        "WORKGROUP_DOCUMENT_REVISION": " Révisions des documents du groupe de travail"
+      }
     }
   }
 }
