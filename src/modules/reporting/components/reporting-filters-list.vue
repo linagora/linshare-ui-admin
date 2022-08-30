@@ -50,10 +50,12 @@ function removeDomainFromFilter(toBeRemoved: Domain) {
 <style lang="less" scoped>
 .filter-list {
   display: flex;
+  flex-wrap: wrap;
 
   .filter {
     display: flex;
     align-items: center;
+    margin-top: 5px;
 
     &__type {
       color: #6d7885;
