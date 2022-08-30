@@ -3,11 +3,9 @@
     <a-layout-header class="ls-app-header">
       <the-header />
     </a-layout-header>
-    <a-layout-content>
+    <a-layout-content class="app-content" :class="{ beta: $route.meta.uiBeta }">
       <Suspense>
-        <div class="app-content" :class="{ beta: $route.meta.uiBeta }">
-          <router-view />
-        </div>
+        <router-view />
       </Suspense>
     </a-layout-content>
     <a-layout-footer>
