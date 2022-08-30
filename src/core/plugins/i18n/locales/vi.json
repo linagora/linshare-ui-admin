@@ -56,7 +56,9 @@
     "DATE_LAST_30_DAYS": "30 ngày qua",
     "DATE_LAST_6_MONTHS": "6 tháng trước",
     "DATE_LAST_YEAR": "Năm ngoái",
-    "DATE_CUSTOM": "Phạm vi tùy chỉnh"
+    "DATE_CUSTOM": "Phạm vi tùy chỉnh",
+    "NUMBER_COL": "STT",
+    "EMPTY_MESSAGE": "Không có dữ liệu"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -1156,6 +1158,61 @@
       "CATEGORIES_WHOLE_DOMAIN": "Toàn bộ miền",
       "CATEGORIES_SHARED_SPACE": "Không gian được chia sẻ",
       "CATEGORIES_MY_SPACE": "Không gian của tôi"
+    },
+    "GENERICS": {
+      "TITLE": "Thống kê tổng thể",
+      "DESCRIPTION": "Chi tiết về các bản ghi tương tác trên nhiều tài nguyên trong LinShare",
+      "RESOURCE_COL": "Tài nguyên",
+      "ACTION": {
+        "CREATE": "Tạo",
+        "UPDATE": "Cập nhật",
+        "DELETE": "Xóa",
+        "GET": "Truy vấn",
+        "DOWNLOAD": "Lượt tải",
+        "SUCCESS": "Thành công",
+        "FAILURE": "Thất bại",
+        "PURGE": "Thanh lọc"
+      },
+      "RESOURCE": {
+        "ANONYMOUS_SHARE_ENTRY": "Chia sẻ ẩn danh",
+        "AUTHENTICATION": "Xác thực",
+        "CONTACTS_LISTS": "Danh sách liên hệ",
+        "CONTACTS_LISTS_CONTACTS": "Danh bạ",
+        "DRIVE": "Ổ đĩa",
+        "DRIVE_MEMBER": "Thúc đẩy thành viên",
+        "DOMAIN": "Miền",
+        "DOMAIN_PATTERN": "Mẫu miền",
+        "DOCUMENT_ENTRY": "Tài liệu",
+        "FUNCTIONALITY": "Tính năng",
+        "GUEST_MODERATOR": "Người kiểm duyệt khách",
+        "GUEST": "Khách",
+        "GROUP_FILTER": "Bộ lọc nhóm làm việc",
+        "JWT_PERMANENT_TOKEN": "JWT vĩnh viễn",
+        "MAIL_ATTACHMENT": "Tệp đính kèm thư",
+        "RESET_PASSWORD": "Đặt lại mật khẩu",
+        "PUBLIC_KEY": "Khóa công khai",
+        "SAFE_DETAIL": "Chi tiết an toàn",
+        "SHARE_ENTRY": "Chia sẻ",
+        "SHARED_SPACE_NODE": "Các nút không gian được chia sẻ",
+        "SHARED_SPACE_MEMBER": "Thành viên không gian được chia sẻ",
+        "USER": "Người dùng",
+        "USER_PREFERENCE": "Tùy chọn người dùng",
+        "UPLOAD_REQUEST": "Yêu cầu tải lên lồng nhau",
+        "UPLOAD_PROPOSITION": "Tải lên mệnh đề",
+        "UPLOAD_REQUEST_URL": "URL yêu cầu tải lên",
+        "UPLOAD_REQUEST_GROUP": "Yêu cầu tải lên",
+        "UPLOAD_REQUEST_ENTRY": "Tải lên tài liệu yêu cầu",
+        "WORK_GROUP": "Nhóm làm việc",
+        "WORK_GROUP_MEMBER": "Thành viên nhóm làm việc",
+        "WORK_SPACE": "Không gian làm việc",
+        "WORK_SPACE_MEMBER": "Thành viên không gian làm việc",
+        "WORKSPACE_FILTER": "Bộ lọc không gian làm việc",
+        "WORKGROUP": "Nhóm làm việc",
+        "WORKGROUP_DOCUMENT": "Tài liệu nhóm làm việc",
+        "WORKGROUP_MEMBER": "Thành viên nhóm làm việc",
+        "WORKGROUP_FOLDER": "Thư mục nhóm làm việc",
+        "WORKGROUP_DOCUMENT_REVISION": "Bản sửa đổi tài liệu nhóm làm việc"
+      }
     }
   }
 }

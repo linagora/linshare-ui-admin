@@ -56,7 +56,9 @@
     "DATE_LAST_30_DAYS": "Last 30 days",
     "DATE_LAST_6_MONTHS": "Last 6 months",
     "DATE_LAST_YEAR": "Last year",
-    "DATE_CUSTOM": "Custom range"
+    "DATE_CUSTOM": "Custom range",
+    "NUMBER_COL": "No.",
+    "EMPTY_MESSAGE": "No data"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -1161,6 +1163,61 @@
       "CATEGORIES_WHOLE_DOMAIN": "Whole domain",
       "CATEGORIES_SHARED_SPACE": "Shared space",
       "CATEGORIES_MY_SPACE": "My space"
+    },
+    "GENERICS": {
+      "TITLE": "Overall statistics",
+      "DESCRIPTION": "Details of interaction records on multiple resources in LinShare",
+      "RESOURCE_COL": "Resource",
+      "ACTION": {
+        "CREATE": "Create",
+        "UPDATE": "Update",
+        "DELETE": "Delete",
+        "GET": "Get",
+        "DOWNLOAD": "Download",
+        "SUCCESS": "Success",
+        "FAILURE": "Failure",
+        "PURGE": "Purge"
+      },
+      "RESOURCE": {
+        "ANONYMOUS_SHARE_ENTRY": "Anonymous shares",
+        "AUTHENTICATION": "Authentication",
+        "CONTACTS_LISTS": "Contact lists",
+        "CONTACTS_LISTS_CONTACTS": "Contacts",
+        "DRIVE": "Drives",
+        "DRIVE_MEMBER": "Drive members",
+        "DOMAIN": "Domains",
+        "DOMAIN_PATTERN": "Domain patterns",
+        "DOCUMENT_ENTRY": "Documents",
+        "FUNCTIONALITY": "Funcitonalities",
+        "GUEST_MODERATOR": "Guest moderators",
+        "GUEST": "Guests",
+        "GROUP_FILTER": "Workgroup filters",
+        "JWT_PERMANENT_TOKEN": "Permanent JWT",
+        "MAIL_ATTACHMENT": "Mail attachments",
+        "RESET_PASSWORD": "Password resets",
+        "PUBLIC_KEY": "Public keys",
+        "SAFE_DETAIL": "Safe details",
+        "SHARE_ENTRY": "Shares",
+        "SHARED_SPACE_NODE": "Shared space nodes",
+        "SHARED_SPACE_MEMBER": "Shared space members",
+        "USER": "Users",
+        "USER_PREFERENCE": "User preferences",
+        "UPLOAD_REQUEST": "Nested upload requests",
+        "UPLOAD_PROPOSITION": "Upload propositions",
+        "UPLOAD_REQUEST_URL": "Upload request URLS",
+        "UPLOAD_REQUEST_GROUP": "Upload requests",
+        "UPLOAD_REQUEST_ENTRY": "Upload request documents",
+        "WORK_GROUP": "Workgroups",
+        "WORK_GROUP_MEMBER": "Workgroup members",
+        "WORK_SPACE": "Workspace",
+        "WORK_SPACE_MEMBER": "Workspace members",
+        "WORKSPACE_FILTER": "Workspace filters",
+        "WORKGROUP": "Workgroups",
+        "WORKGROUP_DOCUMENT": "Workgroup documents",
+        "WORKGROUP_MEMBER": "Workgroup members",
+        "WORKGROUP_FOLDER": "Workgroup folders",
+        "WORKGROUP_DOCUMENT_REVISION": "Workgroup document revisions"
+      }
     }
   }
 }

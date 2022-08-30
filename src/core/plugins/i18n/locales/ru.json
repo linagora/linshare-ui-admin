@@ -56,7 +56,9 @@
     "DATE_LAST_30_DAYS": "Последние 30 дней",
     "DATE_LAST_6_MONTHS": "Последние 6 месяцев",
     "DATE_LAST_YEAR": "В прошлом году",
-    "DATE_CUSTOM": "Пользовательский диапазон"
+    "DATE_CUSTOM": "Пользовательский диапазон",
+    "NUMBER_COL": "Нет.",
+    "EMPTY_MESSAGE": "Нет данных"
   },
   "LOCALE": {
     "ENGLISH": "Английский",
@@ -898,6 +900,61 @@
       "CATEGORIES_WHOLE_DOMAIN": "Весь домен",
       "CATEGORIES_SHARED_SPACE": "Общее пространство",
       "CATEGORIES_MY_SPACE": "Мое пространство"
+    },
+    "GENERICS": {
+      "TITLE": "Общая статистика",
+      "DESCRIPTION": "Подробности записей взаимодействия на нескольких ресурсах в LinShare",
+      "RESOURCE_COL": "Ресурс",
+      "ACTION": {
+        "CREATE": "Создать",
+        "UPDATE": "Обновить",
+        "DELETE": "Удалить",
+        "GET": "Получить",
+        "DOWNLOAD": "Скачать",
+        "SUCCESS": "Успех",
+        "FAILURE": "Неудача",
+        "PURGE": "Очистить"
+      },
+      "RESOURCE": {
+        "ANONYMOUS_SHARE_ENTRY": "Анонимные публикации",
+        "АУТЕНТИФИКАЦИЯ": "Аутентификация",
+        "CONTACTS_LISTS": "Списки контактов",
+        "CONTACTS_LISTS_CONTACTS": "Контакты",
+        "DRIVE": "Диски",
+        "DRIVE_MEMBER": "Диск участников",
+        "DOMAIN": "Домены",
+        "DOMAIN_PATTERN": "Шаблоны доменов",
+        "DOCUMENT_ENTRY": "Документы",
+        "FUNCTIONALITY": "Функциональность",
+        "GUEST_MODERATOR": "Приглашенные модераторы",
+        "GUEST": "Гости",
+        "GROUP_FILTER": "Фильтры рабочей группы",
+        "JWT_PERMANENT_TOKEN": "Постоянный JWT",
+        "MAIL_ATTACHMENT": "Почтовые вложения",
+        "RESET_PASSWORD": "Сброс пароля",
+        "PUBLIC_KEY": "Открытые ключи",
+        "SAFE_DETAIL": "Безопасные данные",
+        "SHARE_ENTRY": "Доли",
+        "SHARED_SPACE_NODE": "Узлы общего пространства",
+        "SHARED_SPACE_MEMBER": "Участники общего пространства",
+        "USER": "Пользователи",
+        "USER_PREFERENCE": "Настройки пользователя",
+        "UPLOAD_REQUEST": "Вложенные запросы на загрузку",
+        "UPLOAD_PROPOSITION": "Загрузить предложения",
+        "UPLOAD_REQUEST_URL": "Загрузить URL запросов",
+        "UPLOAD_REQUEST_GROUP": "Загружать запросы",
+        "UPLOAD_REQUEST_ENTRY": "Загрузить документы запроса",
+        "WORK_GROUP": "Рабочие группы",
+        "WORK_GROUP_MEMBER": "Члены рабочей группы",
+        "WORK_SPACE": "Рабочее пространство",
+        "WORK_SPACE_MEMBER": "Участники рабочей области",
+        "WORKSPACE_FILTER": "Фильтры рабочей области",
+        "WORKGROUP": "Рабочие группы",
+        "WORKGROUP_DOCUMENT": "Документы рабочей группы",
+        "WORKGROUP_MEMBER": "Члены рабочей группы",
+        "WORKGROUP_FOLDER": "Папки рабочей группы",
+        "WORKGROUP_DOCUMENT_REVISION": "Редакции документов рабочей группы"
+      }
     }
   }
 }
