@@ -1202,7 +1202,7 @@
         "SHARED_SPACE_MEMBER": "Shared space members",
         "USER": "Users",
         "USER_PREFERENCE": "User preferences",
-        "UPLOAD_REQUEST": "Nested upload requests",
+        "UPLOAD_REQUEST": "Individual upload requests",
         "UPLOAD_PROPOSITION": "Upload propositions",
         "UPLOAD_REQUEST_URL": "Upload request URLS",
         "UPLOAD_REQUEST_GROUP": "Upload requests",
