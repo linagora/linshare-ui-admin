@@ -11,26 +11,26 @@ export const LoginRoutes: Array<RouteRecordRaw> = [
     name: 'Login',
     path: '/login',
     props: true,
-    component: () => import('../pages/LoginPage.vue'),
+    component: () => import('../pages/login-page.vue'),
   },
   {
     name: 'LoginUsingSecondFactorAuthentication',
     path: '/login/2fa',
-    component: () => import('../pages/LoginSecondFactor.vue'),
+    component: () => import('../pages/login-second-factor.vue'),
     props: true,
     beforeEnter: [checkCredentials],
   },
   {
     name: 'OIDCCallback',
     path: '/oidc/callback',
-    component: () => import('../components/OIDCCallback.vue'),
+    component: () => import('../components/oidc-callback.vue'),
   },
 ];
 
 export const ManageSecondFactorAuthenticationRoute: RouteRecordRaw = {
   name: 'ManageSecondFactorAuthentication',
   path: '/second_factor_authentication',
-  component: () => import('../pages/ManageSecondFactorAuthentication.vue'),
+  component: () => import('../pages/manage-second-factor-authentication.vue'),
   meta: {
     requiresAuth: true,
   },

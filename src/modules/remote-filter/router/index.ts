@@ -4,7 +4,7 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
   {
     name: 'RemoteFiltersList',
     path: 'filters',
-    component: () => import('../components/RemoteFilters.vue'),
+    component: () => import('../components/remote-filters.vue'),
     meta: {
       parentRoute: 'Configuration',
       label: 'NAVIGATOR.REMOTE_FILTERS',
@@ -14,7 +14,7 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
   {
     name: 'UserFilters',
     path: 'filters/user',
-    component: () => import('../components/UserFiltersList.vue'),
+    component: () => import('../components/user-filters-list.vue'),
     meta: {
       parentRoute: 'RemoteFiltersList',
       label: 'NAVIGATOR.USER_FILTERS',
@@ -24,7 +24,7 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
   {
     name: 'UserFilterLDAP',
     path: 'filters/user/ldap',
-    component: () => import('../components/UserFilterLDAP.vue'),
+    component: () => import('../components/user-filter-ldap.vue'),
     props: (route) => ({ ...route.params }),
     meta: {
       parentRoute: 'UserFilters',
@@ -35,7 +35,7 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
   {
     name: 'GroupFilters',
     path: 'filters/group',
-    component: () => import('../components/GroupFiltersList.vue'),
+    component: () => import('../components/group-filters-list.vue'),
     meta: {
       parentRoute: 'RemoteFiltersList',
       label: 'NAVIGATOR.GROUP_FILTERS',
@@ -45,7 +45,7 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
   {
     name: 'GroupFilterLDAP',
     path: 'filters/group/ldap',
-    component: () => import('../components/GroupFilterLDAP.vue'),
+    component: () => import('../components/group-filter-ldap.vue'),
     props: (route) => ({ ...route.params }),
     meta: {
       parentRoute: 'GroupFilters',
@@ -56,7 +56,7 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
   {
     name: 'WorkspaceFilters',
     path: 'filters/workspace',
-    component: () => import('../components/WorkspaceFiltersList.vue'),
+    component: () => import('../components/workspace-filters-list.vue'),
     meta: {
       parentRoute: 'RemoteFiltersList',
       label: 'NAVIGATOR.WORKSPACE_FILTERS',
@@ -66,7 +66,7 @@ export const RemoteFilterRoutes: RouteRecordRaw[] = [
   {
     name: 'WorkspaceFilterLDAP',
     path: 'filters/workspace/ldap',
-    component: () => import('../components/WorkspaceFilterLDAP.vue'),
+    component: () => import('../components/workspace-filter-ldap.vue'),
     props: (route) => ({ ...route.params }),
     meta: {
       parentRoute: 'WorkspaceFilters',

@@ -8,7 +8,7 @@ import { DomainConfigurationRoutes } from '@/modules/domain/router';
 import { ReportingRoute } from '@/modules/reporting/router';
 import config from '@/config';
 
-import HomePage from '../pages/HomePage.vue';
+import HomePage from '../pages/home-page.vue';
 
 export const CoreRoutes: Array<RouteRecordRaw> = [
   {
@@ -23,7 +23,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       {
         name: 'Configuration',
         path: 'configuration',
-        component: () => import('../pages/ConfigurationPage.vue'),
+        component: () => import('../pages/configuration-page.vue'),
         meta: {
           label: 'NAVIGATOR.CONFIGURATION',
           requiresAuth: true,
@@ -33,7 +33,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
           {
             name: 'ConfigurationEntries',
             path: '',
-            component: () => import('../components/ConfigurationEntries.vue'),
+            component: () => import('../components/configuration-entries.vue'),
           },
           ...DomainConfigurationRoutes,
           ...RemoteFilterRoutes,
@@ -43,7 +43,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       {
         name: 'Administration',
         path: 'administration',
-        component: () => import('../pages/AdministrationPage.vue'),
+        component: () => import('../pages/administration-page.vue'),
         meta: {
           label: 'NAVIGATOR.ADMINISTRATION',
           requiresAuth: true,

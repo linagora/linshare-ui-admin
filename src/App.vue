@@ -12,7 +12,7 @@
 import { useAppStore } from '@/core/store';
 import { storeToRefs } from 'pinia';
 import useAntConfig from '@/core/hooks/useAntConfig';
-import HydrateError from '@/core/components/HydrateError.vue';
+import HydrateError from '@/core/components/hydrate-error.vue';
 const appStore = useAppStore();
 const { hydrating, authenticating } = storeToRefs(appStore);
 const { antdLocale } = useAntConfig();

@@ -4,7 +4,7 @@ export const SharedSpacesRoutes: Array<RouteRecordRaw> = [
   {
     name: 'SharedSpacesList',
     path: 'administration/sharedspaces',
-    component: () => import('../pages/ManageSharedSpaces.vue'),
+    component: () => import('../pages/manage-shared-spaces.vue'),
     meta: {
       parentRoute: 'Administration',
       label: 'NAVIGATOR.MY_SHARED_SPACES',
@@ -14,7 +14,7 @@ export const SharedSpacesRoutes: Array<RouteRecordRaw> = [
   {
     name: 'SharedSpaceDetails',
     path: 'administration/sharedspaces/:id',
-    component: () => import('../components/SharedSpaceDetails.vue'),
+    component: () => import('../components/shared-space-details.vue'),
     meta: {
       parentRoute: 'SharedSpacesList',
       label: 'NAVIGATOR.SHARED_SPACE_DETAILS',

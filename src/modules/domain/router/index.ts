@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-import DomainPage from '../pages/DomainPage.vue';
+import DomainPage from '../pages/domain-page.vue';
 
 export const DomainConfigurationRoutes: RouteRecordRaw[] = [
   {
@@ -14,7 +14,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
       {
         name: 'DomainDetails',
         path: 'details',
-        component: () => import('../components/DomainDetails.vue'),
+        component: () => import('../components/domain-details.vue'),
         meta: {
           parentRoute: 'Configuration',
           label: 'NAVIGATOR.DOMAIN_DETAILS',
@@ -24,7 +24,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
       {
         name: 'WelcomeMessages',
         path: 'welcome_messages',
-        component: () => import('../components/DomainWelcomeMessagesList.vue'),
+        component: () => import('../components/domain-welcome-messages-list.vue'),
         meta: {
           parentRoute: 'Configuration',
           label: 'NAVIGATOR.WELCOME_MESSAGES',
@@ -34,7 +34,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
       {
         name: 'DomainFunctionalities',
         path: 'functionalities',
-        component: () => import('../components/DomainFunctionalitiesList.vue'),
+        component: () => import('../components/domain-functionalities-list.vue'),
         meta: {
           parentRoute: 'Configuration',
           label: 'NAVIGATOR.FUNCTIONALITIES',
@@ -43,7 +43,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
       {
         name: 'DomainWelcomeMessageDetails',
         path: 'welcome_messages/:uuid',
-        component: () => import('../components/DomainWelcomeMessage.vue'),
+        component: () => import('../components/domain-welcome-message.vue'),
         meta: {
           parentRoute: 'WelcomeMessages',
           label: 'NAVIGATOR.WELCOME_MESSAGES_MANAGE',
@@ -53,7 +53,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
       {
         name: 'DomainFunctionality',
         path: 'functionalities/:identifier',
-        component: () => import('../components/DomainFunctionalityDetails.vue'),
+        component: () => import('../components/domain-functionality-details.vue'),
         meta: {
           parentRoute: 'DomainFunctionalities',
           requiresAuth: true,
@@ -62,7 +62,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
       {
         name: 'DomainWelcomeMessageNew',
         path: 'welcome_messages/new',
-        component: () => import('../components/DomainWelcomeMessage.vue'),
+        component: () => import('../components/domain-welcome-message.vue'),
         meta: {
           parentRoute: 'WelcomeMessages',
           label: 'NAVIGATOR.WELCOME_MESSAGES_NEW',
@@ -72,7 +72,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
       {
         name: 'DomainProviders',
         path: 'providers',
-        component: () => import('../pages/DomainProvidersPage.vue'),
+        component: () => import('../pages/domain-providers-page.vue'),
         redirect: { name: 'DomainProviderManagement' },
         meta: {
           parentRoute: 'Configuration',
@@ -83,12 +83,12 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
           {
             name: 'DomainProviderManagement',
             path: '',
-            component: () => import('../components/DomainProviderManagement.vue'),
+            component: () => import('../components/domain-provider-management.vue'),
           },
           {
             name: 'DomainUserProviders',
             path: 'user',
-            component: () => import('../components/DomainUserProviders.vue'),
+            component: () => import('../components/domain-user-providers.vue'),
             meta: {
               parentRoute: 'DomainProviders',
               label: 'NAVIGATOR.USER_PROVIDERS',
@@ -98,7 +98,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
           {
             name: 'DomainGroupProviders',
             path: 'group',
-            component: () => import('../components/DomainGroupProviders.vue'),
+            component: () => import('../components/domain-group-providers.vue'),
             meta: {
               parentRoute: 'DomainProviders',
               label: 'NAVIGATOR.GROUP_PROVIDERS',
@@ -108,7 +108,7 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
           {
             name: 'DomainWorkspaceProviders',
             path: 'workspace',
-            component: () => import('../components/DomainWorkspaceProviders.vue'),
+            component: () => import('../components/domain-workspace-providers.vue'),
             meta: {
               parentRoute: 'DomainProviders',
               label: 'NAVIGATOR.WORKSPACE_PROVIDERS',

@@ -4,7 +4,7 @@ export const UserRoutes: Array<RouteRecordRaw> = [
   {
     name: 'UsersList',
     path: 'administration/users',
-    component: () => import('../pages/ManageUsers.vue'),
+    component: () => import('../pages/manage-users.vue'),
     meta: {
       parentRoute: 'Administration',
       label: 'NAVIGATOR.MANAGE_USERS',
@@ -14,7 +14,7 @@ export const UserRoutes: Array<RouteRecordRaw> = [
   {
     name: 'UserDetail',
     path: 'administration/users/:id',
-    component: () => import('../pages/UserDetail.vue'),
+    component: () => import('../pages/user-detail.vue'),
     meta: {
       parentRoute: 'UsersList',
       label: 'NAVIGATOR.USER_DETAILS',
