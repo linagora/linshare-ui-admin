@@ -1213,6 +1213,26 @@
         "WORKGROUP_FOLDER": "Thư mục nhóm làm việc",
         "WORKGROUP_DOCUMENT_REVISION": "Bản sửa đổi tài liệu nhóm làm việc"
       }
+    },
+    "FILES_QUANTITY": {
+      "TITLE": "Số lượng file",
+      "DESCRIPTION": "Ghi lại các thay đổi về số lượng file"
+    },
+    "STORAGE_CONSUMPTION": {
+      "TITLE": "Lưu trữ",
+      "DESCRIPTION": "Ghi lại các thay đổi về lưu lượng lưu trữ file"
+    },
+    "SUMMARY": {
+      "TITLE": "Tổng quát",
+      "DESCRIPTION": "Tính toán dựa trên tập lưu trữ mà bạn quản lý"
+    },
+    "TOTAL_STORAGE": {
+      "TITLE": "Tổng lưu trữ",
+      "DESCRIPTION": "Tính toán dựa trên tập lưu trữ mà bạn quản lý"
+    },
+    "MOST_UPLOADED": {
+      "TITLE": "Kiểu tập tin tải lên",
+      "DESCRIPTION": "Tính toán dựa trên tập lưu trữ mà bạn quản lý"
     }
   }
 }

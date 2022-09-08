@@ -1218,6 +1218,26 @@
         "WORKGROUP_FOLDER": "Workgroup folders",
         "WORKGROUP_DOCUMENT_REVISION": "Workgroup document revisions"
       }
+    },
+    "FILES_QUANTITY": {
+      "TITLE": "Quantity of files",
+      "DESCRIPTION": "Record changes on quantity of files"
+    },
+    "STORAGE_CONSUMPTION": {
+      "TITLE": "Storage consumption",
+      "DESCRIPTION": "Record changes on storage consumped by users"
+    },
+    "SUMMARY": {
+      "TITLE": "Summary",
+      "DESCRIPTION": "Calculate on storage that you are managing"
+    },
+    "TOTAL_STORAGE": {
+      "TITLE": "Total storage",
+      "DESCRIPTION": "Calculate on storage that you are managing"
+    },
+    "MOST_UPLOADED": {
+      "TITLE": "Most uploaded files",
+      "DESCRIPTION": "Calculate on storage that you are managing"
     }
   }
 }

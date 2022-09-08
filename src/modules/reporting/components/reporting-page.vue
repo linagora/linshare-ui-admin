@@ -26,21 +26,84 @@ const showFilterModal = ref(false);
 
   <reporting-filters-modal :visible="showFilterModal" @close="showFilterModal = false"></reporting-filters-modal>
 
-  <div class="card">
-    <div class="header">
-      <span class="title">{{ $t('REPORTING.GENERICS.TITLE') }}</span>
-      <span class="description">{{ $t('REPORTING.GENERICS.DESCRIPTION') }}</span>
-    </div>
+  <div class="page-wrapper">
+    <a-row>
+      <a-col :xl="16" :lg="24" :md="24" :sm="24" :xs="24">
+        <div class="card">
+          <div class="header">
+            <span class="title">{{ $t('REPORTING.SUMMARY.TITLE') }}</span>
+            <span class="description">{{ $t('REPORTING.SUMMARY.DESCRIPTION') }}</span>
+          </div>
 
-    <div class="content">
-      <reporting-statistic-generics></reporting-statistic-generics>
+          <div class="content"></div>
+        </div>
+      </a-col>
+      <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
+        <div class="card">
+          <div class="header">
+            <span class="title">{{ $t('REPORTING.STORAGE_CONSUMPTION.TITLE') }}</span>
+            <span class="description">{{ $t('REPORTING.STORAGE_CONSUMPTION.DESCRIPTION') }}</span>
+          </div>
+
+          <div class="content"></div>
+        </div>
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
+        <div class="card">
+          <div class="header">
+            <span class="title">{{ $t('REPORTING.TOTAL_STORAGE.TITLE') }}</span>
+            <span class="description">{{ $t('REPORTING.TOTAL_STORAGE.DESCRIPTION') }}</span>
+          </div>
+
+          <div class="content"></div>
+        </div>
+      </a-col>
+
+      <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
+        <div class="card">
+          <div class="header">
+            <span class="title">{{ $t('REPORTING.MOST_UPLOADED.TITLE') }}</span>
+            <span class="description">{{ $t('REPORTING.MOST_UPLOADED.DESCRIPTION') }}</span>
+          </div>
+
+          <div class="content"></div>
+        </div>
+      </a-col>
+
+      <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
+        <div class="card">
+          <div class="header">
+            <span class="title">{{ $t('REPORTING.FILES_QUANTITY.TITLE') }}</span>
+            <span class="description">{{ $t('REPORTING.FILES_QUANTITY.DESCRIPTION') }}</span>
+          </div>
+
+          <div class="content"></div>
+        </div>
+      </a-col>
+    </a-row>
+
+    <div class="card">
+      <div class="header">
+        <span class="title">{{ $t('REPORTING.GENERICS.TITLE') }}</span>
+        <span class="description">{{ $t('REPORTING.GENERICS.DESCRIPTION') }}</span>
+      </div>
+
+      <div class="content">
+        <reporting-statistic-generics></reporting-statistic-generics>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
+.page-wrapper {
+  padding: 10px;
+}
 .card {
-  margin: 20px;
+  margin: 10px;
   padding: 32px;
   background-color: @white;
   border-radius: 10px;
