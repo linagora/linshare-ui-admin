@@ -162,7 +162,14 @@
       "ROLE": "Vai trò",
       "ACCOUNT_TYPE": "Loại tài khoản",
       "SEARCH": "Tìm kiếm",
-      "NO_DATA": "Không có kết quả phù hợp"
+      "NO_DATA": "Không có kết quả phù hợp",
+      "MULTIPLE_DELETE": "{number} users đã được xóa thành công",
+      "MULTIPLE_DELETE_CONFIRM": "Bạn đang trong quá trình xóa các users này khỏi hệ thống. Tiến trình này sẽ hủy tất cả các tài liệu liên quan tới users này. Bạn có muốn tiếp tục?",
+      "SELECTED_USERS_NUMBER": "Users đã chọn: {number}",
+      "SELECTED_USERS_DELETE": "Xóa các user đã chọn",
+      "SELECTED_USERS_UNLOCK":"{number} users đã được khóa thành công",
+      "SELECT_ALL":"Chọn tất cả",
+      "UNSELECT_ALL":"Bỏ chọn tất cả"
     },
     "DETAIL_USER": {
       "TITLE": "Quản lí người dùng",
