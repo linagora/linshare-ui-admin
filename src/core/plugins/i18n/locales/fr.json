@@ -1161,12 +1161,12 @@
       "CATEGORIES_MY_SPACE": "Mon espace"
     },
     "CHART_FIELD": {
-      "DELETE": "Delete",
-      "UPLOAD": "Upload",
+      "DELETE": "Suppressions",
+      "UPLOAD": "Téléversements",
       "BALANCE": "Balance"
     },
     "CHART_TIME_AXIS": {
-      "WEEK": "Week {number}"
+      "WEEK": "Semaine {number}"
     },
     "GENERICS": {
       "TITLE": "Statistiques globales",
@@ -1224,24 +1224,24 @@
       }
     },
     "FILES_QUANTITY": {
-      "TITLE": "Quantity of files",
-      "DESCRIPTION": "Record changes on quantity of files"
+      "TITLE": "Nombre de fichiers",
+      "DESCRIPTION": "Détails des changements sur la quantité de fichiers"
     },
     "STORAGE_CONSUMPTION": {
-      "TITLE": "Storage consumption",
-      "DESCRIPTION": "Record changes on storage consumped by users"
+      "TITLE": "Stockage utilisé",
+      "DESCRIPTION": "Détails des changements sur le stockage utilisé par les utilisateurs"
     },
     "SUMMARY": {
-      "TITLE": "Summary",
-      "DESCRIPTION": "Calculate on storage that you are managing"
+      "TITLE": "Résumé",
+      "DESCRIPTION": "Calculé sur le stockage que vous gérez"
     },
     "TOTAL_STORAGE": {
-      "TITLE": "Total storage",
-      "DESCRIPTION": "Calculate on storage that you are managing"
+      "TITLE": "Stockage total",
+      "DESCRIPTION": "Calculé sur le stockage que vous gérez"
     },
     "MOST_UPLOADED": {
-      "TITLE": "Most uploaded files",
-      "DESCRIPTION": "Calculate on storage that you are managing"
+      "TITLE": "Fichiers les plus téléversés",
+      "DESCRIPTION": "Calculé sur le stockage que vous gérez"
     }
   }
 }
