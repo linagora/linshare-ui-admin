@@ -1,6 +1,6 @@
 interface StorageUnit {
   base: number;
-  label: string;
+  label: 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB' | 'EB';
 }
 
 export const STORAGE_UNITS: StorageUnit[] = [
@@ -19,7 +19,7 @@ type ReadableSize = {
   getText: () => string;
 };
 
-export function getReadableSize(bytes: number, decimals = 2): ReadableSize {
+function getReadableSize(bytes: number, decimals = 2): ReadableSize {
   let unit: StorageUnit = STORAGE_UNITS[0];
   let value: number;
 
@@ -40,3 +40,13 @@ export function getReadableSize(bytes: number, decimals = 2): ReadableSize {
     },
   };
 }
+
+function getSizeInUnit(bytes: number, unitLabel: StorageUnit['label'], decimals = 2): number {
+  const unit = STORAGE_UNITS.find((unit) => unit.label === unitLabel);
+
+  if (!unit) return NaN;
+
+  return +(bytes / unit.base).toFixed(decimals);
+}
+
+export { getReadableSize, getSizeInUnit };

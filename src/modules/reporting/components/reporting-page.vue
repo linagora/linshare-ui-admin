@@ -6,6 +6,7 @@ import ReportingFiltersModal from './reporting-filters-modal.vue';
 import ReportingFiltersList from './reporting-filters-list.vue';
 import ReportingStatisticGenerics from './reporting-statistic-generics.vue';
 import ReportingStatisticFilesQuantity from './reporting-statistic-files-quantity.vue';
+import ReportingStatisticStorageConsumption from './reporting-statistic-storage-consumption.vue';
 
 const showFilterModal = ref(false);
 </script>
@@ -46,7 +47,9 @@ const showFilterModal = ref(false);
             <span class="description">{{ $t('REPORTING.STORAGE_CONSUMPTION.DESCRIPTION') }}</span>
           </div>
 
-          <div class="content"></div>
+          <div class="content">
+            <reporting-statistic-storage-consumption></reporting-statistic-storage-consumption>
+          </div>
         </div>
       </a-col>
     </a-row>
