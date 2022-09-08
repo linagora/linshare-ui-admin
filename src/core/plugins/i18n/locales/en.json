@@ -1164,6 +1164,14 @@
       "CATEGORIES_SHARED_SPACE": "Shared space",
       "CATEGORIES_MY_SPACE": "My space"
     },
+    "CHART_FIELD": {
+      "DELETE": "Delete",
+      "UPLOAD": "Upload",
+      "BALANCE": "Balance"
+    },
+    "CHART_TIME_AXIS": {
+      "WEEK": "Week {number}"
+    },
     "GENERICS": {
       "TITLE": "Overall statistics",
       "DESCRIPTION": "Details of interaction records on multiple resources in LinShare",

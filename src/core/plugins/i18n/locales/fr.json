@@ -1160,6 +1160,14 @@
       "CATEGORIES_SHARED_SPACE": "Espace partagé",
       "CATEGORIES_MY_SPACE": "Mon espace"
     },
+    "CHART_FIELD": {
+      "DELETE": "Delete",
+      "UPLOAD": "Upload",
+      "BALANCE": "Balance"
+    },
+    "CHART_TIME_AXIS": {
+      "WEEK": "Week {number}"
+    },
     "GENERICS": {
       "TITLE": "Statistiques globales",
       "DESCRIPTION": "Détails des interactions sur différentes ressources de LinShare",

@@ -1,7 +1,11 @@
 import api from '@/api';
 import { PaginatedList } from '@/core/types/PaginatedList';
 import { SORT_ORDER } from '@/core/types/Sort';
-import { GenericStatistic, GenericActions } from '../types/GenericStatistic';
+import type { GenericStatistic, GenericActions } from '../types/GenericStatistic';
+import type {
+  StorageConsumptionStatistic,
+  StorageConsumtptionStatisticType,
+} from '../types/StorageConsumptionStatistic';
 
 type SumableField = 'action' | 'statisticDate' | 'resourceType';
 
@@ -36,6 +40,17 @@ interface GenericStatisticParameters {
   size?: number;
 }
 
+interface StorageConsumptionParameters {
+  includeNestedDomains?: boolean;
+  sortOrder?: SORT_ORDER;
+  sortField?: 'creationDate' | 'statisticDate';
+  type?: StorageConsumtptionStatisticType;
+  beginDate?: string;
+  endDate?: string;
+  page?: number;
+  size?: number;
+}
+
 async function getGenericStatistics(
   domainUuid: string,
   options: GenericStatisticParameters = {}
@@ -43,4 +58,11 @@ async function getGenericStatistics(
   return await api.get(`domains/${domainUuid}/statistics/generics`, { params: options });
 }
 
-export { getGenericStatistics };
+async function getStorageConsumptionStatistics(
+  domainUuid: string,
+  options: StorageConsumptionParameters = {}
+): Promise<PaginatedList<StorageConsumptionStatistic>> {
+  return await api.get(`domains/${domainUuid}/statistics/storage_consumptions`, { params: options });
+}
+
+export { getGenericStatistics, getStorageConsumptionStatistics };

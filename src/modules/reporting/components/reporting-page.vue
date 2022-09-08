@@ -5,6 +5,7 @@ import FilterIcon from '@/core/components/icons/filter-icon.vue';
 import ReportingFiltersModal from './reporting-filters-modal.vue';
 import ReportingFiltersList from './reporting-filters-list.vue';
 import ReportingStatisticGenerics from './reporting-statistic-generics.vue';
+import ReportingStatisticFilesQuantity from './reporting-statistic-files-quantity.vue';
 
 const showFilterModal = ref(false);
 </script>
@@ -80,7 +81,9 @@ const showFilterModal = ref(false);
             <span class="description">{{ $t('REPORTING.FILES_QUANTITY.DESCRIPTION') }}</span>
           </div>
 
-          <div class="content"></div>
+          <div class="content">
+            <reporting-statistic-files-quantity></reporting-statistic-files-quantity>
+          </div>
         </div>
       </a-col>
     </a-row>

@@ -901,6 +901,14 @@
       "CATEGORIES_SHARED_SPACE": "Общее пространство",
       "CATEGORIES_MY_SPACE": "Мое пространство"
     },
+    "CHART_FIELD": {
+      "DELETE": "Удалить",
+      "UPLOAD": "Загрузить",
+      "BALANCE": "Баланс"
+    },
+    "CHART_TIME_AXIS": {
+      "WEEK": "Неделя {number}"
+    },
     "GENERICS": {
       "TITLE": "Общая статистика",
       "DESCRIPTION": "Подробности записей взаимодействия на нескольких ресурсах в LinShare",

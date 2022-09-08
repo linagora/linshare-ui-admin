@@ -1159,6 +1159,14 @@
       "CATEGORIES_SHARED_SPACE": "Không gian được chia sẻ",
       "CATEGORIES_MY_SPACE": "Không gian của tôi"
     },
+    "CHART_FIELD": {
+      "DELETE": "Xóa",
+      "UPLOAD": "Tải lên",
+      "BALANCE": "Tổngs"
+    },
+    "CHART_TIME_AXIS": {
+      "WEEK": "Tuần {number}"
+    },
     "GENERICS": {
       "TITLE": "Thống kê tổng thể",
       "DESCRIPTION": "Chi tiết về các bản ghi tương tác trên nhiều tài nguyên trong LinShare",
