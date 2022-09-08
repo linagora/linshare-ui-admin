@@ -128,7 +128,7 @@ watchEffect(() => {
             <a-select-option value="LAST_6_MONTHS">
               {{ $t('GENERAL.DATE_LAST_6_MONTHS') }}
             </a-select-option>
-            <a-select-option value="LAST_YEARar">
+            <a-select-option value="LAST_YEAR">
               {{ $t('GENERAL.DATE_LAST_YEAR') }}
             </a-select-option>
             <a-select-option value="CUSTOM">
