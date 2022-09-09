@@ -1,6 +1,7 @@
 import api from '@/api';
 import { PaginatedList } from '@/core/types/PaginatedList';
 import { SORT_ORDER } from '@/core/types/Sort';
+import type { AccountQuotaStatistic } from '../types/AccountQuotaStatistic';
 import type { GenericStatistic, GenericActions } from '../types/GenericStatistic';
 import type {
   StorageConsumptionStatistic,
@@ -51,18 +52,50 @@ interface StorageConsumptionParameters {
   size?: number;
 }
 
+interface AccountQuotaParameters {
+  includeNestedDomains?: boolean;
+  sortOrder?: SORT_ORDER;
+  sortField?:
+    | 'quota'
+    | 'usedSpace'
+    | 'yesterdayUsedSpace'
+    | 'maxFileSize'
+    | 'domain'
+    | 'parentDomain'
+    | 'maintenance'
+    | 'creationDate'
+    | 'modificationDate'
+    | 'batchModificationDate'
+    | 'maxFileSizeOverride'
+    | 'quotaOverride';
+  greaterThanOrEqualTope?: number;
+  lessThanOrEqualTo?: number;
+  type?: 'USER' | 'WORK_GROUP';
+  beginDate?: string;
+  endDate?: string;
+  page?: number;
+  size?: number;
+}
+
 async function getGenericStatistics(
   domainUuid: string,
-  options: GenericStatisticParameters = {}
+  params: GenericStatisticParameters = {}
 ): Promise<PaginatedList<GenericStatistic>> {
-  return await api.get(`domains/${domainUuid}/statistics/generics`, { params: options });
+  return await api.get(`domains/${domainUuid}/statistics/generics`, { params });
 }
 
 async function getStorageConsumptionStatistics(
   domainUuid: string,
-  options: StorageConsumptionParameters = {}
+  params: StorageConsumptionParameters = {}
 ): Promise<PaginatedList<StorageConsumptionStatistic>> {
-  return await api.get(`domains/${domainUuid}/statistics/storage_consumptions`, { params: options });
+  return await api.get(`domains/${domainUuid}/statistics/storage_consumptions`, { params });
 }
 
-export { getGenericStatistics, getStorageConsumptionStatistics };
+async function getAccountQuotaStatistics(
+  domainUuid: string,
+  params: AccountQuotaParameters = {}
+): Promise<PaginatedList<AccountQuotaStatistic>> {
+  return await api.get(`domains/${domainUuid}/statistics/account_quotas`, { params });
+}
+
+export { getAccountQuotaStatistics, getGenericStatistics, getStorageConsumptionStatistics };

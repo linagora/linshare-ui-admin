@@ -7,6 +7,7 @@ import ReportingFiltersList from './reporting-filters-list.vue';
 import ReportingStatisticGenerics from './reporting-statistic-generics.vue';
 import ReportingStatisticFilesQuantity from './reporting-statistic-files-quantity.vue';
 import ReportingStatisticStorageConsumption from './reporting-statistic-storage-consumption.vue';
+import ReportingStatisticUserUsedStorage from './reporting-statistic-user-used-storage.vue';
 
 const showFilterModal = ref(false);
 </script>
@@ -99,6 +100,17 @@ const showFilterModal = ref(false);
 
       <div class="content">
         <reporting-statistic-generics></reporting-statistic-generics>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="header">
+        <span class="title">{{ $t('REPORTING.USER_USED_STORAGE.TITLE') }}</span>
+        <span class="description">{{ $t('REPORTING.USER_USED_STORAGE.DESCRIPTION') }}</span>
+      </div>
+
+      <div class="content">
+        <reporting-statistic-user-used-storage></reporting-statistic-user-used-storage>
       </div>
     </div>
   </div>

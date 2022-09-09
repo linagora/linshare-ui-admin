@@ -1246,6 +1246,11 @@
     "MOST_UPLOADED": {
       "TITLE": "Most uploaded files",
       "DESCRIPTION": "Calculate on storage that you are managing"
+    },
+    "USER_USED_STORAGE": {
+      "TITLE": "User & Storage statistc",
+      "DESCRIPTION": "Showing top 100 users with largest used storage",
+      "TABLE_STORAGE_COLUMN_HEADER": "Used storage"
     }
   }
 }
