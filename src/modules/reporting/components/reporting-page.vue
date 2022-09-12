@@ -43,55 +43,60 @@ const showFilterModal = ref(false);
             <reporting-statistic-summary></reporting-statistic-summary>
           </div>
         </div>
-      </a-col>
-      <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-        <div class="card">
-          <div class="header">
-            <span class="title">{{ $t('REPORTING.STORAGE_CONSUMPTION.TITLE') }}</span>
-            <span class="description">{{ $t('REPORTING.STORAGE_CONSUMPTION.DESCRIPTION') }}</span>
-          </div>
 
-          <div class="content">
-            <reporting-statistic-storage-consumption></reporting-statistic-storage-consumption>
-          </div>
-        </div>
-      </a-col>
-    </a-row>
+        <a-row>
+          <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
+            <div class="card">
+              <div class="header">
+                <span class="title">{{ $t('REPORTING.TOTAL_STORAGE.TITLE') }}</span>
+                <span class="description">{{ $t('REPORTING.TOTAL_STORAGE.DESCRIPTION') }}</span>
+              </div>
 
-    <a-row>
-      <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-        <div class="card">
-          <div class="header">
-            <span class="title">{{ $t('REPORTING.TOTAL_STORAGE.TITLE') }}</span>
-            <span class="description">{{ $t('REPORTING.TOTAL_STORAGE.DESCRIPTION') }}</span>
-          </div>
+              <div class="content"></div>
+            </div>
+          </a-col>
 
-          <div class="content"></div>
-        </div>
-      </a-col>
+          <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
+            <div class="card">
+              <div class="header">
+                <span class="title">{{ $t('REPORTING.MOST_UPLOADED.TITLE') }}</span>
+                <span class="description">{{ $t('REPORTING.MOST_UPLOADED.DESCRIPTION') }}</span>
+              </div>
 
-      <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-        <div class="card">
-          <div class="header">
-            <span class="title">{{ $t('REPORTING.MOST_UPLOADED.TITLE') }}</span>
-            <span class="description">{{ $t('REPORTING.MOST_UPLOADED.DESCRIPTION') }}</span>
-          </div>
-
-          <div class="content"></div>
-        </div>
+              <div class="content"></div>
+            </div>
+          </a-col>
+        </a-row>
       </a-col>
 
       <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
-        <div class="card">
-          <div class="header">
-            <span class="title">{{ $t('REPORTING.FILES_QUANTITY.TITLE') }}</span>
-            <span class="description">{{ $t('REPORTING.FILES_QUANTITY.DESCRIPTION') }}</span>
-          </div>
+        <a-row>
+          <a-col span="24">
+            <div class="card">
+              <div class="header">
+                <span class="title">{{ $t('REPORTING.STORAGE_CONSUMPTION.TITLE') }}</span>
+                <span class="description">{{ $t('REPORTING.STORAGE_CONSUMPTION.DESCRIPTION') }}</span>
+              </div>
 
-          <div class="content">
-            <reporting-statistic-files-quantity></reporting-statistic-files-quantity>
-          </div>
-        </div>
+              <div class="content">
+                <reporting-statistic-storage-consumption></reporting-statistic-storage-consumption>
+              </div>
+            </div>
+          </a-col>
+
+          <a-col span="24">
+            <div class="card">
+              <div class="header">
+                <span class="title">{{ $t('REPORTING.FILES_QUANTITY.TITLE') }}</span>
+                <span class="description">{{ $t('REPORTING.FILES_QUANTITY.DESCRIPTION') }}</span>
+              </div>
+
+              <div class="content">
+                <reporting-statistic-files-quantity></reporting-statistic-files-quantity>
+              </div>
+            </div>
+          </a-col>
+        </a-row>
       </a-col>
     </a-row>
 
