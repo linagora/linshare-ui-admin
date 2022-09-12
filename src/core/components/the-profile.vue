@@ -6,7 +6,7 @@ import { logout } from '@/modules/auth/services/basic';
 import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
 import { isEnable } from '@/core/utils/functionality';
 import { storeToRefs } from 'pinia';
-import UserIcon from '@/core/components/icons/user-icon.vue';
+import UserProfileIcon from '@/core/components/icons/user-profile-icon.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -28,7 +28,7 @@ async function logOut() {
   <div class="the-profile">
     <div class="user">
       <a-dropdown :trigger="['click']">
-        <user-icon></user-icon>
+        <user-profile-icon></user-profile-icon>
         <template #overlay>
           <a-menu class="profile-menu">
             <a-menu-item class="profile-info-ctn">

@@ -1,8 +1,8 @@
 import api from '@/api';
-import { PaginatedList } from '@/core/types/PaginatedList';
 import { SORT_ORDER } from '@/core/types/Sort';
+import type { PaginatedList } from '@/core/types/PaginatedList';
 import type { AccountQuotaStatistic } from '../types/AccountQuotaStatistic';
-import type { GenericStatistic, GenericActions } from '../types/GenericStatistic';
+import type { GenericStatistic, GenericActions, ResourceType } from '../types/GenericStatistic';
 import type {
   StorageConsumptionStatistic,
   StorageConsumtptionStatisticType,
@@ -24,7 +24,7 @@ interface GenericStatisticParameters {
     | 'value';
   type?: 'ONESHOT' | 'DAILY';
   action?: GenericActions;
-  resourceType?: string;
+  resourceType?: ResourceType | ResourceType[];
   resourceGroup?:
     | 'ACCOUNTS'
     | 'ADMINISTRATION'

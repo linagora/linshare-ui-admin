@@ -1232,7 +1232,11 @@
     },
     "SUMMARY": {
       "TITLE": "Tổng quát",
-      "DESCRIPTION": "Tính toán dựa trên tập lưu trữ mà bạn quản lý"
+      "DESCRIPTION": "Tính toán dựa trên tập lưu trữ mà bạn quản lý",
+      "DOMAIN_COUNT": "Tổng số miền",
+      "SHARED_SPACE_COUNT": "Tổng số không gian được chia sẻ",
+      "USER_COUNT": "Tổng số người dùng",
+      "NEW_USER_COUNT": "Người dùng mới"
     },
     "TOTAL_STORAGE": {
       "TITLE": "Tổng lưu trữ",

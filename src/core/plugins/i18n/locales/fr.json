@@ -1233,7 +1233,11 @@
     },
     "SUMMARY": {
       "TITLE": "Résumé",
-      "DESCRIPTION": "Calculé sur le stockage que vous gérez"
+      "DESCRIPTION": "Calculé sur le stockage que vous gérez",
+      "DOMAIN_COUNT": "Nombre total de domaines",
+      "SHARED_SPACE_COUNT": "Nombre total d'espaces partagés",
+      "USER_COUNT": "Nombre total d'utilisateurs",
+      "NEW_USER_COUNT": "Nouveaux utilisateurs"
     },
     "TOTAL_STORAGE": {
       "TITLE": "Stockage total",

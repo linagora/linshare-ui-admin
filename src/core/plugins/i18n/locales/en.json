@@ -1237,7 +1237,11 @@
     },
     "SUMMARY": {
       "TITLE": "Summary",
-      "DESCRIPTION": "Calculate on storage that you are managing"
+      "DESCRIPTION": "Calculate on storage that you are managing",
+      "DOMAIN_COUNT": "Total domains",
+      "SHARED_SPACE_COUNT": "Total shared spaces",
+      "USER_COUNT": "Total users",
+      "NEW_USER_COUNT": "New users"
     },
     "TOTAL_STORAGE": {
       "TITLE": "Total storage",

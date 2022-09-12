@@ -3,10 +3,15 @@ import api from '@/api';
 import Domain from '@/modules/domain/types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
 import UserProvider from '../types/UserProvider';
+import WelcomeMessage from '../types/WelcomeMessages';
 import { LDAPGroupProvider } from '../types/GroupProvider';
 import { LDAPWorkspaceProvider } from '../types/WorkspaceProvider';
 import { Functionality } from '@/core/types/Functionality';
-import WelcomeMessage from '../types/WelcomeMessages';
+import { PaginatedList } from '@/core/types/PaginatedList';
+
+async function listDomainsR2(config?: AxiosRequestConfig): Promise<PaginatedList<Domain>> {
+  return api.get('domains/r2', config);
+}
 
 async function getDomains(config?: AxiosRequestConfig): Promise<Domain[] | DomainTreeNode[]> {
   return await api.get('domains', config);
@@ -147,6 +152,7 @@ export {
   getWorkspaceProviders,
   getGroupProviders,
   getUserProviders,
+  listDomainsR2,
   updateDomain,
   updateWorkspaceProvider,
   updateGroupProvider,

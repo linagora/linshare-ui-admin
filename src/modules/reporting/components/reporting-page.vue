@@ -8,6 +8,7 @@ import ReportingStatisticGenerics from './reporting-statistic-generics.vue';
 import ReportingStatisticFilesQuantity from './reporting-statistic-files-quantity.vue';
 import ReportingStatisticStorageConsumption from './reporting-statistic-storage-consumption.vue';
 import ReportingStatisticUserUsedStorage from './reporting-statistic-user-used-storage.vue';
+import ReportingStatisticSummary from './reporting-statistic-summary.vue';
 
 const showFilterModal = ref(false);
 </script>
@@ -38,7 +39,9 @@ const showFilterModal = ref(false);
             <span class="description">{{ $t('REPORTING.SUMMARY.DESCRIPTION') }}</span>
           </div>
 
-          <div class="content"></div>
+          <div class="content">
+            <reporting-statistic-summary></reporting-statistic-summary>
+          </div>
         </div>
       </a-col>
       <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
