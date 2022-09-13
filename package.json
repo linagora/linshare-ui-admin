@@ -36,6 +36,9 @@
       "email": "dtpham@linagora.com"
     }
   ],
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
