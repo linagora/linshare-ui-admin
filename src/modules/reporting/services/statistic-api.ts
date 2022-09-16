@@ -7,6 +7,7 @@ import type {
   StorageConsumptionStatistic,
   StorageConsumtptionStatisticType,
 } from '../types/StorageConsumptionStatistic';
+import { MimeTypeStatistic } from '../types/MimeTypeStatistic';
 
 type SumableField = 'action' | 'statisticDate' | 'resourceType';
 
@@ -77,6 +78,21 @@ interface AccountQuotaParameters {
   size?: number;
 }
 
+interface MimeTypeParameter {
+  includeNestedDomains?: boolean;
+  sortOrder?: SORT_ORDER;
+  sortField?: 'creationDate' | 'mimeType' | 'value';
+  greaterThanOrEqualTope?: number;
+  lessThanOrEqualTo?: number;
+  type?: 'DAILY';
+  mimeType?: string;
+  sum?: boolean;
+  beginDate?: string;
+  endDate?: string;
+  page?: number;
+  size?: number;
+}
+
 async function getGenericStatistics(
   domainUuid: string,
   params: GenericStatisticParameters = {}
@@ -98,4 +114,11 @@ async function getAccountQuotaStatistics(
   return await api.get(`domains/${domainUuid}/statistics/account_quotas`, { params });
 }
 
-export { getAccountQuotaStatistics, getGenericStatistics, getStorageConsumptionStatistics };
+async function getMimeTypeStatistics(
+  domainUuid: string,
+  params: MimeTypeParameter = {}
+): Promise<PaginatedList<MimeTypeStatistic>> {
+  return await api.get(`domains/${domainUuid}/statistics/mime_types`, { params });
+}
+
+export { getAccountQuotaStatistics, getGenericStatistics, getStorageConsumptionStatistics, getMimeTypeStatistics };

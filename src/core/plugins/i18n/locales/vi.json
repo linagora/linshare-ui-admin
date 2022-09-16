@@ -1167,6 +1167,17 @@
     "CHART_TIME_AXIS": {
       "WEEK": "Tuần {number}"
     },
+    "HUMAN_MIME_TYPE": {
+      "OTHERS": "Khác",
+      "AUDIO": "Âm thanh",
+      "VIDEO": "Video",
+      "IMAGE": "Hình ảnh",
+      "PDF": "PDF",
+      "ARCHIVE": "Nén",
+      "ENCRYPTED": "Mã hóa",
+      "DOCUMENT": "Tài liệu",
+      "TEXT": "Văn bản"
+    },
     "GENERICS": {
       "TITLE": "Thống kê tổng thể",
       "DESCRIPTION": "Chi tiết về các bản ghi tương tác trên nhiều tài nguyên trong LinShare",
@@ -1240,7 +1251,8 @@
     },
     "TOTAL_STORAGE": {
       "TITLE": "Tổng lưu trữ",
-      "DESCRIPTION": "Tính toán dựa trên tập lưu trữ mà bạn quản lý"
+      "DESCRIPTION": "Tính toán dựa trên tập lưu trữ mà bạn quản lý",
+      "CHART_SUBTITLE": "tải lên"
     },
     "MOST_UPLOADED": {
       "TITLE": "Kiểu tập tin tải lên",

@@ -1172,6 +1172,17 @@
     "CHART_TIME_AXIS": {
       "WEEK": "Week {number}"
     },
+    "HUMAN_MIME_TYPE": {
+      "OTHERS": "Other",
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image",
+      "PDF": "PDF",
+      "ARCHIVE": "Archive",
+      "ENCRYPTED": "Encrypted",
+      "DOCUMENT": "Document",
+      "TEXT": "Text"
+    },
     "GENERICS": {
       "TITLE": "Overall statistics",
       "DESCRIPTION": "Details of interaction records on multiple resources in LinShare",
@@ -1245,7 +1256,8 @@
     },
     "TOTAL_STORAGE": {
       "TITLE": "Total storage",
-      "DESCRIPTION": "Calculate on storage that you are managing"
+      "DESCRIPTION": "Calculate on storage that you are managing",
+      "CHART_SUBTITLE": "uploaded"
     },
     "MOST_UPLOADED": {
       "TITLE": "Most uploaded files",

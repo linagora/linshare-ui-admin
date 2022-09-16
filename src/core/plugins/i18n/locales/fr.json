@@ -1168,6 +1168,17 @@
     "CHART_TIME_AXIS": {
       "WEEK": "Semaine {number}"
     },
+    "HUMAN_MIME_TYPE": {
+      "OTHERS": "Autre",
+      "AUDIO": "Audio",
+      "VIDEO": "Vidéo",
+      "IMAGE": "Image",
+      "PDF": "PDF",
+      "ARCHIVE": "Archive",
+      "ENCRYPTED": "Crypté",
+      "DOCUMENT": "Document",
+      "TEXT": "Texte"
+    },
     "GENERICS": {
       "TITLE": "Statistiques globales",
       "DESCRIPTION": "Détails des interactions sur différentes ressources de LinShare",
@@ -1241,7 +1252,8 @@
     },
     "TOTAL_STORAGE": {
       "TITLE": "Stockage total",
-      "DESCRIPTION": "Calculé sur le stockage que vous gérez"
+      "DESCRIPTION": "Calculé sur le stockage que vous gérez",
+      "CHART_SUBTITLE": "téléchargés"
     },
     "MOST_UPLOADED": {
       "TITLE": "Fichiers les plus téléversés",

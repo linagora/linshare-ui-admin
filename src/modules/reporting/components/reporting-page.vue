@@ -9,6 +9,10 @@ import ReportingStatisticFilesQuantity from './reporting-statistic-files-quantit
 import ReportingStatisticStorageConsumption from './reporting-statistic-storage-consumption.vue';
 import ReportingStatisticUserUsedStorage from './reporting-statistic-user-used-storage.vue';
 import ReportingStatisticSummary from './reporting-statistic-summary.vue';
+import ReportingStatisticTotalStorage from './reporting-statistic-total-storage.vue';
+import ReportingStatisticMostUploaded from './reporting-statistic-most-uploaded.vue';
+
+// console.log(22, ReportingStatisticTotalStorage);
 
 const showFilterModal = ref(false);
 </script>
@@ -52,7 +56,9 @@ const showFilterModal = ref(false);
                 <span class="description">{{ $t('REPORTING.TOTAL_STORAGE.DESCRIPTION') }}</span>
               </div>
 
-              <div class="content"></div>
+              <div class="content">
+                <reporting-statistic-total-storage></reporting-statistic-total-storage>
+              </div>
             </div>
           </a-col>
 
@@ -63,7 +69,9 @@ const showFilterModal = ref(false);
                 <span class="description">{{ $t('REPORTING.MOST_UPLOADED.DESCRIPTION') }}</span>
               </div>
 
-              <div class="content"></div>
+              <div class="content">
+                <reporting-statistic-most-uploaded></reporting-statistic-most-uploaded>
+              </div>
             </div>
           </a-col>
         </a-row>
