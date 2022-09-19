@@ -46,7 +46,7 @@ defineProps<{
 
   .details {
     display: flex;
-    flex: 0 150px;
+    flex: 0 30%;
     flex-direction: row;
     margin-right: 10px;
 
@@ -59,7 +59,7 @@ defineProps<{
       flex-direction: column;
 
       .mime {
-        max-width: 100px;
+        width: 175px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
