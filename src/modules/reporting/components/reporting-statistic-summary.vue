@@ -121,7 +121,7 @@ watchEffect(getDynamicStatistic);
 
 <style lang="less" scoped>
 .spinner-ctn {
-  height: 30p;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
