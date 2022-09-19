@@ -14,7 +14,11 @@ const mostUploadedMimeType = computed<string[]>(() =>
 </script>
 
 <template>
-  <div>
+  <div v-if="loading" class="spinner-ctn">
+    <a-spin></a-spin>
+  </div>
+
+  <div v-else>
     <mime-type-statistic
       v-for="mimeType in mostUploadedMimeType"
       :key="mimeType"
@@ -24,3 +28,12 @@ const mostUploadedMimeType = computed<string[]>(() =>
     />
   </div>
 </template>
+
+<style lang="less" scoped>
+.spinner-ctn {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
