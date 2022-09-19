@@ -12,11 +12,8 @@ import ReportingStatisticSummary from './reporting-statistic-summary.vue';
 import ReportingStatisticTotalStorage from './reporting-statistic-total-storage.vue';
 import ReportingStatisticMostUploaded from './reporting-statistic-most-uploaded.vue';
 
-// console.log(22, ReportingStatisticTotalStorage);
-
 const showFilterModal = ref(false);
 </script>
-
 <template>
   <the-subheader>
     <template #action>
@@ -37,19 +34,21 @@ const showFilterModal = ref(false);
   <div class="page-wrapper">
     <a-row>
       <a-col :xl="16" :lg="24" :md="24" :sm="24" :xs="24">
-        <div class="card">
-          <div class="header">
-            <span class="title">{{ $t('REPORTING.SUMMARY.TITLE') }}</span>
-            <span class="description">{{ $t('REPORTING.SUMMARY.DESCRIPTION') }}</span>
+        <div class="first-col">
+          <div class="first-row">
+            <div class="card">
+              <div class="header">
+                <span class="title">{{ $t('REPORTING.SUMMARY.TITLE') }}</span>
+                <span class="description">{{ $t('REPORTING.SUMMARY.DESCRIPTION') }}</span>
+              </div>
+
+              <div class="content">
+                <reporting-statistic-summary></reporting-statistic-summary>
+              </div>
+            </div>
           </div>
 
-          <div class="content">
-            <reporting-statistic-summary></reporting-statistic-summary>
-          </div>
-        </div>
-
-        <a-row>
-          <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
+          <div class="second-row">
             <div class="card">
               <div class="header">
                 <span class="title">{{ $t('REPORTING.TOTAL_STORAGE.TITLE') }}</span>
@@ -60,9 +59,7 @@ const showFilterModal = ref(false);
                 <reporting-statistic-total-storage></reporting-statistic-total-storage>
               </div>
             </div>
-          </a-col>
 
-          <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
             <div class="card">
               <div class="header">
                 <span class="title">{{ $t('REPORTING.MOST_UPLOADED.TITLE') }}</span>
@@ -73,8 +70,8 @@ const showFilterModal = ref(false);
                 <reporting-statistic-most-uploaded></reporting-statistic-most-uploaded>
               </div>
             </div>
-          </a-col>
-        </a-row>
+          </div>
+        </div>
       </a-col>
 
       <a-col :xl="8" :lg="24" :md="24" :sm="24" :xs="24">
@@ -135,6 +132,31 @@ const showFilterModal = ref(false);
 <style lang="less" scoped>
 .page-wrapper {
   padding: 10px;
+
+  .first-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .first-row {
+      flex: 0;
+    }
+
+    .second-row {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .card {
+        flex: 1;
+      }
+    }
+
+    @media (min-width: @screen-lg-min) {
+      .second-row {
+        flex-direction: row;
+      }
+    }
+  }
 }
 .card {
   margin: 10px;
