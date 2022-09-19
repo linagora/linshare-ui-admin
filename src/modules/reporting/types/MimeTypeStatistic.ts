@@ -37,15 +37,3 @@ export type StatisticByMimeType = Record<
     totalCount: number;
   }
 >;
-
-export const EMPTY_STATISTIC: StatisticByHumanMimeType = {
-  audio: { totalSize: 0, totalCount: 0 },
-  archive: { totalSize: 0, totalCount: 0 },
-  document: { totalSize: 0, totalCount: 0 },
-  encrypted: { totalSize: 0, totalCount: 0 },
-  image: { totalSize: 0, totalCount: 0 },
-  pdf: { totalSize: 0, totalCount: 0 },
-  text: { totalSize: 0, totalCount: 0 },
-  video: { totalSize: 0, totalCount: 0 },
-  others: { totalSize: 0, totalCount: 0 },
-};
