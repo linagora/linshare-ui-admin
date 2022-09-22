@@ -163,13 +163,13 @@
       "ACCOUNT_TYPE": "Тип аккаунта",
       "SEARCH": "Поиск",
       "NO_DATA": "Совпадающих записей не найдено",
-      "MULTIPLE_DELETE": "{number} users have been successfully deleted",
-      "MULTIPLE_DELETE_CONFIRM": "You are about to delete this or these users, this procedure is irreversible and destroys all documents. Do you want to continue?",
-      "SELECTED_USERS_NUMBER": "Selected users: {number}",
-      "SELECTED_USERS_DELETE": "Delete selected users",
-      "SELECTED_USERS_UNLOCK":"{number} users have been successfully unlocked",
-      "SELECT_ALL":"Select all",
-      "UNSELECT_ALL":"Unselect all"
+      "MULTIPLE_DELETE": "{number} пользователей было успешно удалено",
+      "MULTIPLE_DELETE_CONFIRM": "Вы собираетесь удалить пользователей, процедура необратима и все их документы будут так же удалены. Хотите продолжить?",
+      "SELECTED_USERS_NUMBER": "Выбрано пользователей: {number}",
+      "SELECTED_USERS_DELETE": "Удалить выбранных пользователей",
+      "SELECTED_USERS_UNLOCK":"{number} пользователей было успешно разюлокировано",
+      "SELECT_ALL":"Выбрать всех",
+      "UNSELECT_ALL":"Отенить выбор всех"
     },
     "DETAIL_USER": {
       "TITLE": "Управлять пользователем",
