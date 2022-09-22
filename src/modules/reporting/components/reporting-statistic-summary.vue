@@ -82,7 +82,7 @@ watchEffect(getDynamicStatistic);
   <div v-else class="summary-statistics">
     <div class="box">
       <div class="icon">
-        <globe-icon width="21" height="21"></globe-icon>
+        <globe-icon width="16" height="16"></globe-icon>
       </div>
       <div class="statistic">
         <span class="value">{{ statistic.domainCount }}</span>

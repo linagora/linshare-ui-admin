@@ -33,7 +33,7 @@ use2FARequiredCheck();
     padding: 20px 40px;
 
     &.beta {
-      background-color: #dedede;
+      background-color: #f3f3f7;
       padding: 0;
     }
   }
