@@ -30,6 +30,9 @@ const filterForm = reactive<{
   dateRange: [dayjs(beginDate.value), dayjs(endDate.value)],
   category: category.value,
 });
+const disabledDate = (current: Dayjs) => {
+  return current && current > dayjs().endOf('day');
+};
 
 function apply() {
   const list: Domain[] = [];
@@ -139,6 +142,7 @@ watchEffect(() => {
           <a-range-picker
             v-model:value="filterForm.dateRange"
             :disabled="period === 'ALL_TIME' ? [true, true] : [false, false]"
+            :disabled-date="disabledDate"
             class="range"
           />
         </div>

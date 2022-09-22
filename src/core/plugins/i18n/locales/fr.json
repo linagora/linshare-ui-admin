@@ -1160,7 +1160,7 @@
       "TITLE": "Réglage des filtres",
       "TIME_RANGE": "Plage horaire",
       "DOMAIN_SELECT_PLACEHOLDER": "Sélectionnez les domaines à filtrer, laissez vide pour sélectionner tous les domaines",
-      "CATÉGORIES": "Catégories",
+      "CATEGORIES": "Catégories",
       "CATEGORIES_WHOLE_DOMAIN": "Domaine entier",
       "CATEGORIES_SHARED_SPACE": "Espace partagé",
       "CATEGORIES_MY_SPACE": "Mon espace"
