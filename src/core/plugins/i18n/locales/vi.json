@@ -1160,7 +1160,8 @@
     "FILTERS_BAR": {
       "DOMAIN_FILTER": "Tên miền:",
       "CATEGORY_FILTER": "Danh mục:",
-      "TIME_RANGE_FILTER": "Giai đoạn:"
+      "TIME_RANGE_FILTER": "Giai đoạn:",
+      "ALL_DOMAINS": "Tất cả các"
     },
     "FILTERS_MODAL": {
       "TITLE": "Cài đặt bộ lọc",

@@ -902,7 +902,8 @@
     "FILTERS_BAR": {
       "DOMAIN_FILTER": "Домен:",
       "CATEGORY_FILTER": "Категория:",
-      "TIME_RANGE_FILTER": "Диапазон времени:"
+      "TIME_RANGE_FILTER": "Диапазон времени:",
+      "ALL_DOMAINS": "Все"
     },
     "FILTERS_MODAL": {
       "TITLE": "Настройка фильтров",

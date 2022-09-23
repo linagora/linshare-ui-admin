@@ -1165,7 +1165,8 @@
     "FILTERS_BAR": {
       "DOMAIN_FILTER": "Domain:",
       "CATEGORY_FILTER": "Category:",
-      "TIME_RANGE_FILTER": "Time range:"
+      "TIME_RANGE_FILTER": "Time range:",
+      "ALL_DOMAINS": "All"
     },
     "FILTERS_MODAL": {
       "TITLE": "Filters setting",

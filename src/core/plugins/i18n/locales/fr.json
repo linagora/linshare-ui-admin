@@ -1161,7 +1161,8 @@
     "FILTERS_BAR": {
       "DOMAIN_FILTER": "Domaine :",
       "CATEGORY_FILTER": "Catégorie :",
-      "TIME_RANGE_FILTER": "Plage horaire :"
+      "TIME_RANGE_FILTER": "Plage horaire :",
+      "ALL_DOMAINS": "Tous"
     },
     "FILTERS_MODAL": {
       "TITLE": "Réglage des filtres",

@@ -27,7 +27,7 @@ function removeDomainFromFilter(toBeRemoved: Domain) {
 
 <template>
   <div class="filter-list">
-    <div v-if="domains.length" class="filter">
+    <div v-if="domains.length > 0" class="filter">
       <span class="filter__type">{{ $t('REPORTING.FILTERS_BAR.DOMAIN_FILTER') }}</span>
       <ls-tag
         v-for="domain in domains"
@@ -36,6 +36,10 @@ function removeDomainFromFilter(toBeRemoved: Domain) {
         :closable="true"
         @close="removeDomainFromFilter(domain)"
       ></ls-tag>
+    </div>
+    <div v-else class="filter">
+      <span class="filter__type">{{ $t('REPORTING.FILTERS_BAR.DOMAIN_FILTER') }}</span>
+      <ls-tag :value="$t('REPORTING.FILTERS_BAR.ALL_DOMAINS')"></ls-tag>
     </div>
 
     <div class="filter">
