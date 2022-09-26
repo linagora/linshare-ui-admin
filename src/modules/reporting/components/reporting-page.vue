@@ -104,18 +104,6 @@ const showFilterModal = ref(false);
         </a-row>
       </a-col>
     </a-row>
-
-    <div class="card">
-      <div class="header">
-        <span class="title">{{ $t('REPORTING.GENERICS.TITLE') }}</span>
-        <span class="description">{{ $t('REPORTING.GENERICS.DESCRIPTION') }}</span>
-      </div>
-
-      <div class="content">
-        <reporting-statistic-generics></reporting-statistic-generics>
-      </div>
-    </div>
-
     <div class="card">
       <div class="header">
         <span class="title">{{ $t('REPORTING.USER_USED_STORAGE.TITLE') }}</span>
@@ -125,6 +113,17 @@ const showFilterModal = ref(false);
       <div class="content">
         <reporting-statistic-user-used-storage></reporting-statistic-user-used-storage>
       </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="title">{{ $t('REPORTING.GENERICS.TITLE') }}</span>
+      <span class="description">{{ $t('REPORTING.GENERICS.DESCRIPTION') }}</span>
+    </div>
+
+    <div class="content">
+      <reporting-statistic-generics></reporting-statistic-generics>
     </div>
   </div>
 </template>
