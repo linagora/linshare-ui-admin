@@ -6,10 +6,13 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { AccountQuotaStatistic } from '../types/AccountQuotaStatistic';
 
-defineProps<{
+const props = defineProps<{
   data: AccountQuotaStatistic[];
   loading: boolean;
 }>();
+const usedSpaceData = computed(() => {
+  return props.data.filter((data) => data.usedSpace !== 0);
+});
 const { t } = useI18n();
 const columns = computed<LsTableColumn[]>(() => [
   {
@@ -42,7 +45,7 @@ const columns = computed<LsTableColumn[]>(() => [
 </script>
 
 <template>
-  <ls-table class="used-storage-table" :data-source="data" :loading="loading" :columns="columns">
+  <ls-table class="used-storage-table" :data-source="usedSpaceData" :loading="loading" :columns="columns">
     <template #bodyCell="{ column, row, index }">
       <template v-if="column.key === 'number'">
         {{ index + 1 }}
