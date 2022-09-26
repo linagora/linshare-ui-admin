@@ -125,11 +125,12 @@ const chartOptions = computed<TChartOptions<'doughnut'>>(() => ({
   margin-top: 10px;
   flex-wrap: wrap;
   padding: 20px;
+  gap: 20px;
 }
 .human-mime-type-stat {
-  flex: 50%;
+  flex: calc(50% - 10px);
+  flex-grow: 1;
   display: flex;
-  margin-bottom: 20px;
 
   .statistic {
     display: flex;
