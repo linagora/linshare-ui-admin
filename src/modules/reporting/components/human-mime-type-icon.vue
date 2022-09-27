@@ -20,6 +20,7 @@ defineProps<{ type: string }>();
     <security-icon v-else-if="type === 'encrypted'"></security-icon>
     <text-icon v-else-if="type === 'text'"></text-icon>
     <document-icon v-else-if="type === 'document'"></document-icon>
+    <file-icon v-else-if="type === 'pdf'"></file-icon>
     <file-icon v-else></file-icon>
   </div>
 </template>
@@ -62,6 +63,10 @@ defineProps<{ type: string }>();
   }
 
   &.file {
+    color: #007aff;
+    background-color: #e8f4ff;
+  }
+  &.pdf {
     color: #007aff;
     background-color: #e8f4ff;
   }
