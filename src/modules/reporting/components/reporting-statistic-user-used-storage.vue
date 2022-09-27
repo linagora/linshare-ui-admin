@@ -31,8 +31,6 @@ async function fetchAll() {
 async function fetchAccountQuota(domainUuid?: string) {
   const res = await getAccountQuotaStatistics(domainUuid || currentDomain.value.uuid, {
     includeNestedDomains: domains.value.length === 0,
-    beginDate: beginDate.value?.format('YYYY-MM-DD'),
-    endDate: endDate.value?.format('YYYY-MM-DD'),
     type: category.value === 'WHOLE_DOMAIN' ? undefined : category.value === 'SHARED_SPACE' ? 'WORK_GROUP' : 'USER',
     size: 100,
     sortField: 'usedSpace',
