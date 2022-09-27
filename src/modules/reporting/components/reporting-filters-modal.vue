@@ -168,18 +168,22 @@ watchEffect(() => {
 
   .ant-modal-footer {
     border-top: none;
+    padding: 10px 24px 20px;
   }
 
   .time-picker {
     display: flex;
-
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
     .options {
       flex: 1;
-      margin-right: 5px;
+      flex-grow: 1;
     }
 
     .range {
       flex: 0 0 320px;
+      flex-grow: 1;
     }
   }
 
