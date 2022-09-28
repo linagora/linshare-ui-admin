@@ -130,6 +130,7 @@ const { toogleLanguage } = useLanguageModal();
     .language {
       margin-right: 20px;
       color: #fff;
+      cursor: pointer;
     }
   }
 }
