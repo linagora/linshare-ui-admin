@@ -12,7 +12,7 @@ import type { TChartData, TChartOptions } from 'vue-chartjs/dist/types';
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, SubTitle);
 
 const { t } = useI18n();
-const { statisticByMimeType, totalUploadedSize } = useMimeType();
+const { statisticByMimeType, totalUploadedSize, loading } = useMimeType();
 const data = computed(() => {
   const statistic: Record<string, { totalCount: number; totalSize: number }> = {};
 
@@ -87,7 +87,10 @@ const chartOptions = computed<TChartOptions<'doughnut'>>(() => ({
 </script>
 
 <template>
-  <div class="total-storage">
+  <div v-if="loading" class="spinner-ctn">
+    <a-spin></a-spin>
+  </div>
+  <div v-else class="total-storage">
     <div class="chart">
       <doughnut :chart-data="chartData" :chart-options="chartOptions" :width="277" />
     </div>
@@ -146,6 +149,13 @@ const chartOptions = computed<TChartOptions<'doughnut'>>(() => ({
       color: @text-color-secondary;
     }
   }
+}
+
+.spinner-ctn {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: @screen-md-min) and (max-width: @screen-xl-min) {
