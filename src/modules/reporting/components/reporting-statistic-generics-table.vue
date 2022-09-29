@@ -25,25 +25,25 @@ const columns = computed<LsTableColumn[]>(() => [
   {
     title: t('REPORTING.GENERICS.ACTION.CREATE'),
     key: 'CREATE',
-    width: '120px',
+    width: '160px',
     sorter: (a: GenericResourceStatistic, b: GenericResourceStatistic) => a.CREATE - b.CREATE,
   },
   {
     title: t('REPORTING.GENERICS.ACTION.DELETE'),
     key: 'DELETE',
-    width: '120px',
+    width: '140px',
     sorter: (a: GenericResourceStatistic, b: GenericResourceStatistic) => a.DELETE - b.DELETE,
   },
   {
     title: t('REPORTING.GENERICS.ACTION.DOWNLOAD'),
     key: 'DOWNLOAD',
-    width: '120px',
+    width: '240px',
     sorter: (a: GenericResourceStatistic, b: GenericResourceStatistic) => a.DOWNLOAD - b.DOWNLOAD,
   },
   {
     title: t('REPORTING.GENERICS.ACTION.GET'),
     key: 'GET',
-    width: '120px',
+    width: '200px',
     sorter: (a: GenericResourceStatistic, b: GenericResourceStatistic) => a.GET - b.GET,
   },
   {
