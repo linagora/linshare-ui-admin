@@ -1,8 +1,15 @@
 import { NavigationGuard, RouteRecordRaw } from 'vue-router';
-
+import { useAuthStore } from '@/modules/auth/store';
 const checkCredentials: NavigationGuard = (to) => {
   if (!to.params.email || !to.params.password) {
     return '/login';
+  }
+};
+
+const checkLoggedIn: NavigationGuard = (to) => {
+  const authStore = useAuthStore();
+  if (authStore.loggedUser) {
+    return '/administration';
   }
 };
 
@@ -12,6 +19,7 @@ export const LoginRoutes: Array<RouteRecordRaw> = [
     path: '/login',
     props: true,
     component: () => import('../pages/login-page.vue'),
+    beforeEnter: checkLoggedIn,
   },
   {
     name: 'LoginUsingSecondFactorAuthentication',

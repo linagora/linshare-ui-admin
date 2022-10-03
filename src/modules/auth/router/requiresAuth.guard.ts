@@ -11,6 +11,11 @@ export const requiresAuthGuard = async (router: Router): Promise<void> => {
 
     if (!requiresAuth) {
       return;
+    } else {
+      const authStore = useAuthStore();
+      if (!authStore.loggedUser) {
+        return { name: 'Login' };
+      }
     }
 
     if (firstLoad) {
