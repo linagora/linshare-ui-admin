@@ -19,6 +19,7 @@ export const LoginRoutes: Array<RouteRecordRaw> = [
     path: '/login',
     props: true,
     component: () => import('../pages/login-page.vue'),
+    beforeEnter: [checkLoggedIn],
   },
   {
     name: 'LoginUsingSecondFactorAuthentication',
