@@ -7,7 +7,7 @@
     </template>
   </PageTitle>
 
-  <KeyCreation v-if="!initiallyEnabled" />
+  <KeyCreation v-if="initiallyEnabled?.enabled === false" />
   <KeyRemoval v-else />
 </template>
 
