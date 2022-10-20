@@ -22,7 +22,7 @@
     </div>
     <p class="footer-log-info">
       <span data-ng-if="auditAction.fileSize"> {{auditAction.fileSize | readableSize:undefined:true}} | </span>
-      <span>{{auditAction.creationDate | relativeTime}}</span>
+      <span class="truncate" tooltip="{{auditAction.creationDate | relativeTime}}">{{auditAction.creationDate | date:'medium'}}</span>
       | <span translate>DETAILS_POPUP.BY</span> <span translate>{{auditAction.authorName}}</span>
     </p>
   </div>
