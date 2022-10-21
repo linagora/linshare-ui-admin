@@ -1,6 +1,6 @@
 <template>
   <a-collapse-panel class="ls-collapse-panel" v-bind="$attrs">
-    <slot />
+    <slot v-for="slot in Object.keys($slots)" :name="slot" />
   </a-collapse-panel>
 </template>
 <style lang="less">
@@ -27,6 +27,10 @@
 
   .ant-collapse-content {
     border-top: none;
+    padding: 0 28px 28px !important;
+  }
+  .ant-collapse-content-box {
+    padding: 0 !important;
   }
 
   .ant-collapse-arrow {

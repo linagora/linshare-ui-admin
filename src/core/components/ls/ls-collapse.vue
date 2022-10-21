@@ -1,6 +1,6 @@
 <template>
   <a-collapse class="ls-collapse" v-bind="$attrs" expand-icon-position="right">
-    <slot />
+    <slot v-for="slot in Object.keys($slots)" :name="slot" />
   </a-collapse>
 </template>
 <style lang="less">
