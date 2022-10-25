@@ -130,7 +130,6 @@ function onChangeQuota(item: number) {
       color: #434657;
     }
   }
-
   &__unit--dropdown {
     &.ant-select-dropdown {
       padding: 8px 8px 8px 8px !important;
