@@ -371,6 +371,24 @@
       "QUOTA_LESS_THAN_FILE_SIZE": "Le quota de stockage doit être supérieur à la taille maximale d'un fichier",
       "FILE_SIZE_LARGER_THAN_QUOTA": "La taille maximale du fichier doit être inférieure au quota de stockage",
       "INVALID_FILE_SIZE": "La taille maximale du fichier non valide"
+    },
+    "QUOTA_VISUALIZE":"Visualisation des quotas",
+    "ROOT_DOMAIN_QUOTA":{
+      "CURRENT_DOMAIN_USED_SPACE": "Espace utilisé par le domaine courant (Personel + espaces partagés)",
+      "SUB_DOMAIN_USED_SPACE":"Espace utilisé par les sous-domaines ",
+      "REMAINING_SPACE":"Espace restant",
+      "QUOTA_PER_SUB_DOMAIN": "Quota per sub domain"
+    },
+    "TOP_DOMAIN_QUOTA":{
+      "CURRENT_DOMAIN_USED_SPACE": "Espace utilisé par le domaine courant",
+      "SUB_DOMAIN_USED_SPACE":"Espace utilisé par les sous-domaines ",
+      "REMAINING_SPACE":"Espace restant",
+      "UNALLOCATED_SPACE": "Espace non alloué"
+    },
+    "GUEST_DOMAIN_QUOTA":{
+      "CURRENT_DOMAIN_USED_SPACE": "Espace utilisé par le domaine courant",
+      "REMAINING_SPACE":"Espace restant",
+      "UNALLOCATED_SPACE": "Espace non alloué"
     }
   },
   "DOMAIN": {

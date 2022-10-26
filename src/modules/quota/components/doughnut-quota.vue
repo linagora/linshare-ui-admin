@@ -24,7 +24,7 @@ for (const [key, value] of Object.entries(props)) {
   quotaData.push(value);
 }
 
-const colors = ['rgb(19, 99, 215)', 'rgb(247,222,10)', 'rgb(15,202,236)', 'rgb(255,0,120)'];
+const colors = ['rgb(19, 99, 215)', 'rgb(247,222,10)', 'rgb(64,198,46)', 'rgb(255,0,120)'];
 
 const cache = new Map();
 let width: any = null;
@@ -50,7 +50,7 @@ function createRadialGradient3(context: any, c1: string, c2: string, c3: string)
     const r = Math.min((chartArea.right - chartArea.left) / 2, (chartArea.bottom - chartArea.top) / 2);
     const ctx = context.chart.ctx;
     gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, r);
-    gradient.addColorStop(0, c1);
+    gradient.addColorStop(0.5, c1);
     gradient.addColorStop(0.5, c2);
     gradient.addColorStop(1, c3);
     cache.set(c1 + c2 + c3, gradient);
@@ -78,14 +78,14 @@ const chartData = computed(() => ({
       tooltip: {
         callbacks: {
           label: function (context: any) {
-            let value = context.formattedValue;
+            let value = context.raw;
             let sum = 0;
             let dataArr = context.chart.data.datasets[0].data;
             dataArr.map((data: any) => {
               sum += Number(data);
             });
 
-            let percentage = (value * 100) / sum + ' %';
+            let percentage = ((value * 100) / sum).toFixed(2) + ' %';
             return ' ' + percentage;
           },
         },

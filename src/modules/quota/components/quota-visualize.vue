@@ -1,0 +1,157 @@
+<template>
+  <div class="quota-card">
+    <h3 class="quota-card-title">{{ $t('QUOTA.QUOTA_VISUALIZE') }}</h3>
+    <div class="card-informations">
+      <Doughnut
+        :used-space="props.usedSpace"
+        :remaining-quota="props.remainingQuota"
+        :unallocated-space="props.unallocatedSpace"
+        :sub-quota="props.subQuota"
+      ></Doughnut>
+      <div class="quota-detail">
+        <div class="quota-information-block">
+          <div v-if="props.usedSpace">
+            <div class="quota-information">
+              <div class="quota-point" style="background: #007aff"></div>
+              <span v-if="currentDomain.type === 'ROOTDOMAIN'" class="quota-title">
+                {{ $t('QUOTA.ROOT_DOMAIN_QUOTA.CURRENT_DOMAIN_USED_SPACE') }}</span
+              >
+              <span v-else class="quota-title"> {{ $t('QUOTA.TOP_DOMAIN_QUOTA.CURRENT_DOMAIN_USED_SPACE') }}</span>
+            </div>
+            <p class="quota-number" style="color: #007aff">{{ niceBytes(props.usedSpace) }}</p>
+          </div>
+          <div
+            v-if="(props.remainingQuota && currentDomain.type !== 'GUESTDOMAIN') || currentDomain.type !== 'SUBDOMAIN'"
+          >
+            <div class="quota-information">
+              <div class="quota-point" style="background: #ffa940"></div>
+              <span class="quota-title"> {{ $t('QUOTA.ROOT_DOMAIN_QUOTA.SUB_DOMAIN_USED_SPACE') }}</span>
+            </div>
+            <p class="quota-number" style="color: #ffa940">{{ niceBytes(props.remainingQuota) }}</p>
+          </div>
+          <div v-else>
+            <div class="quota-information">
+              <div class="quota-point" style="background: #ffa940"></div>
+              <span class="quota-title"> {{ $t('QUOTA.GUEST_DOMAIN_QUOTA.REMAINING_SPACE') }}</span>
+            </div>
+            <p class="quota-number" style="color: #ffa940">{{ niceBytes(props.remainingQuota) }}</p>
+          </div>
+          <div
+            v-if="
+              (props.unallocatedSpace && currentDomain.type !== 'GUESTDOMAIN') || currentDomain.type !== 'SUBDOMAIN'
+            "
+          >
+            <div class="quota-information">
+              <div class="quota-point" style="background: #40c62e"></div>
+              <span class="quota-title"> {{ $t('QUOTA.ROOT_DOMAIN_QUOTA.REMAINING_SPACE') }}</span>
+            </div>
+            <p class="quota-number" style="color: #40c62e">{{ niceBytes(props.unallocatedSpace) }}</p>
+          </div>
+          <div v-else>
+            <div class="quota-information">
+              <div class="quota-point" style="background: #40c62e"></div>
+              <span class="quota-title"> {{ $t('QUOTA.GUEST_DOMAIN_QUOTA.UNALLOCATED_SPACE') }}</span>
+            </div>
+            <p class="quota-number" style="color: #40c62e">{{ niceBytes(props.unallocatedSpace) }}</p>
+          </div>
+        </div>
+        <div
+          v-if="
+            props.subQuota &&
+            currentDomain.type !== 'GUESTDOMAIN' &&
+            props.subQuota &&
+            currentDomain.type !== 'SUBDOMAIN' &&
+            props.subQuota &&
+            currentDomain.type !== 'TOPDOMAIN'
+          "
+        >
+          <div class="quota-information">
+            <div class="quota-point" style="background: #ea3c3c"></div>
+            <span class="quota-title"> {{ $t('QUOTA.ROOT_DOMAIN_QUOTA.QUOTA_PER_SUB_DOMAIN') }}</span>
+          </div>
+          <p class="quota-number" style="color: #ea3c3c">{{ niceBytes(props.subQuota) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script lang="ts" setup>
+import Doughnut from './doughnut-quota.vue';
+import { storeToRefs } from 'pinia';
+import { useDomainStore } from '@/modules/domain/store';
+import { useI18n } from 'vue-i18n';
+
+interface Props {
+  usedSpace?: number;
+  remainingQuota?: number;
+  unallocatedSpace?: number;
+  subQuota?: number;
+}
+
+const props = defineProps<Props>();
+const domainStore = useDomainStore();
+const { currentDomain } = storeToRefs(domainStore);
+const { t } = useI18n();
+
+const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+function niceBytes(x: any) {
+  let l = 0,
+    n = parseInt(x, 10) || 0;
+
+  while (n >= 1024 && ++l) {
+    n = n / 1024;
+  }
+
+  return n.toFixed(2) + ' ' + units[l];
+}
+</script>
+<style lang="less">
+.quota-card {
+  margin-top: 10px;
+  background: #f7f7fa;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.quota-card-title {
+  color: #434657;
+}
+.card-informations {
+  display: flex;
+  align-items: center;
+}
+.quota-information {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.quota-point {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+}
+
+.quota-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.quota-number {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 15px;
+}
+.quota-detail {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+</style>
