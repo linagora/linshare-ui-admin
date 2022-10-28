@@ -31,6 +31,7 @@ import {
   Row,
   Select,
   Spin,
+  Switch,
   Table,
   Tabs,
   Tag,
@@ -71,6 +72,7 @@ function useAntdComponents(vueApp: App): App {
     .use(Row)
     .use(Select)
     .use(Spin)
+    .use(Switch)
     .use(Table)
     .use(Tabs)
     .use(Tag)

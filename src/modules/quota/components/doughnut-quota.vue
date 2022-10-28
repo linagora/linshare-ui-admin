@@ -82,7 +82,9 @@ const chartData = computed(() => ({
             let sum = 0;
             let dataArr = context.chart.data.datasets[0].data;
             dataArr.map((data: any) => {
-              sum += Number(data);
+              if (data !== undefined) {
+                sum += Number(data);
+              }
             });
 
             let percentage = ((value * 100) / sum).toFixed(2) + ' %';

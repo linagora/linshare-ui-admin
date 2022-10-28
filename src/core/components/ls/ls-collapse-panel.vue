@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     padding: 28px !important;
     background: #ffffff;
     font-style: normal;

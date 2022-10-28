@@ -20,6 +20,13 @@
             </div>
             <p class="quota-number" style="color: #007aff">{{ niceBytes(props.usedSpace) }}</p>
           </div>
+          <div v-else>
+            <div class="quota-information">
+              <div class="quota-point" style="background: #007aff"></div>
+              <span class="quota-title"> {{ $t('QUOTA.TOP_DOMAIN_QUOTA.CURRENT_DOMAIN_USED_SPACE') }}</span>
+            </div>
+            <p class="quota-number" style="color: #007aff">{{ niceBytes(props.usedSpace) }}</p>
+          </div>
           <div
             v-if="(props.remainingQuota && currentDomain.type !== 'GUESTDOMAIN') || currentDomain.type !== 'SUBDOMAIN'"
           >

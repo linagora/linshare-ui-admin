@@ -370,6 +370,10 @@
     "USED_SPACE": "Used {usedSpace} over {computedQuota}",
     "USER_QUOTA": "User's personal space allocated quota",
     "USER_MAX_FILE_SIZE": "User's max upload file size in Personal Space",
+    "CURRENT DOMAIN QUOTA":"CURRENT DOMAIN QUOTA",
+    "MAINTENANCE_MODE":"Maintenance mode",
+    "MAINTENANCE_MODE_ACTIVATED":"Maintenance mode is activated, thereby preventing any uploads to be made within the current domain.",
+    "DOMAIN_MAXIMUM_QUOTA":"Maximum Domain Quota : ",
     "ERROR": {
       "QUOTA_LESS_THAN_FILE_SIZE": "Storage quota must be larger than max file size",
       "FILE_SIZE_LARGER_THAN_QUOTA": "Max file size must be smaller than storage quota",
