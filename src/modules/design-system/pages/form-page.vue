@@ -13,7 +13,34 @@
 import { reactive } from 'vue';
 import LsQuotaInput from '@/core/components/ls/ls-quota-input.vue';
 import LsDomainTreeview from '@/core/components/ls/ls-domain-treeview.vue';
-
+const domains = {
+  name: 'Top domain',
+  checked: false,
+  subs: [
+    {
+      name: 'Top domain',
+      checked: false,
+      subs: [
+        {
+          name: 'Sub domain 01',
+          checked: false,
+        },
+        {
+          name: 'Sub domain 02',
+          checked: false,
+        },
+        {
+          name: 'Sub domain 03',
+          checked: false,
+        },
+        {
+          name: 'Sub domain 04',
+          checked: false,
+        },
+      ],
+    },
+  ],
+};
 const form = reactive({
   quotaValue: 0,
   unit: undefined,
