@@ -13,8 +13,10 @@
 import { reactive } from 'vue';
 import LsQuotaInput from '@/core/components/ls/ls-quota-input.vue';
 import LsDomainTreeview from '@/core/components/ls/ls-domain-treeview.vue';
-const domains = {
-  name: 'Top domain',
+import Domain from '@/core/types/Domain';
+
+const domains: Domain = {
+  name: 'Root domain',
   checked: false,
   subs: [
     {
@@ -24,6 +26,24 @@ const domains = {
         {
           name: 'Sub domain 01',
           checked: false,
+          subs: [
+            {
+              name: 'Sub Sub domain 01',
+              checked: false,
+            },
+            {
+              name: 'Sub Sub domain 02',
+              checked: false,
+            },
+            {
+              name: 'Sub Sub domain 03',
+              checked: false,
+            },
+            {
+              name: 'Sub Sub domain 04',
+              checked: false,
+            },
+          ],
         },
         {
           name: 'Sub domain 02',
@@ -36,6 +56,24 @@ const domains = {
         {
           name: 'Sub domain 04',
           checked: false,
+          subs: [
+            {
+              name: 'Sub Sub domain 01',
+              checked: false,
+            },
+            {
+              name: 'Sub Sub domain 02',
+              checked: false,
+            },
+            {
+              name: 'Sub Sub domain 03',
+              checked: false,
+            },
+            {
+              name: 'Sub Sub domain 04',
+              checked: false,
+            },
+          ],
         },
       ],
     },
