@@ -2,8 +2,8 @@
   <div class="ls-app-subheader">
     <div class="ls-app-subheader__content">
       <div class="content">
-        <span class="title">{{ $t('NAVIGATOR.REPORTING') }}</span>
-        <span class="details">{{ $t('REPORTING.INTRODUCTION') }}</span>
+        <span class="title">{{ title }}</span>
+        <span class="details">{{ detail }}</span>
       </div>
 
       <div class="action">
@@ -16,6 +16,12 @@
     </div>
   </div>
 </template>
+<script lang="ts" setup>
+const props = defineProps<{
+  title: string;
+  detail: string;
+}>();
+</script>
 
 <style lang="less" scoped>
 .ls-app-subheader {
@@ -30,7 +36,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 48px;
 
     .content {
       display: flex;

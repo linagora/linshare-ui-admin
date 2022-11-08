@@ -1305,6 +1305,9 @@
       "TABLE_STORAGE_COLUMN_HEADER": "Used storage"
     }
   },
+  "CONFIGURATION": {
+    "INTRODUCTION": "Showing all LinShare root domains"
+  },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Select your language"
   },

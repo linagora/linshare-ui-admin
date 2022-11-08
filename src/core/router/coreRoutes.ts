@@ -7,9 +7,10 @@ import { RemoteServerRoutes } from '@/modules/remote-server/router';
 import { DomainConfigurationRoutes } from '@/modules/domain/router';
 import { ReportingRoute } from '@/modules/reporting/router';
 import { DesignSystemRoutes } from '@/modules/design-system/router';
+import { QuotaConfigurationRoutes } from '@/modules/quota/router';
 import config from '@/config';
 
-import HomePage from '../pages/home-page.vue';
+import HomePage from '../layouts/home-page.vue';
 
 export const CoreRoutes: Array<RouteRecordRaw> = [
   {
@@ -24,27 +25,29 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       {
         name: 'Configuration',
         path: 'configuration',
-        component: () => import('../pages/configuration-page.vue'),
+        component: () => import('../layouts/configuration-page-v2.vue'),
         meta: {
           label: 'NAVIGATOR.CONFIGURATION',
           requiresAuth: true,
+          uiBeta: true,
         },
         redirect: { name: 'ConfigurationEntries' },
         children: [
           {
             name: 'ConfigurationEntries',
             path: '',
-            component: () => import('../components/configuration-entries.vue'),
+            component: () => import('../pages/configuration-entries.vue'),
           },
           ...DomainConfigurationRoutes,
           ...RemoteFilterRoutes,
           ...RemoteServerRoutes,
+          ...QuotaConfigurationRoutes,
         ],
       },
       {
         name: 'Administration',
         path: 'administration',
-        component: () => import('../pages/administration-page.vue'),
+        component: () => import('../layouts/administration-page.vue'),
         meta: {
           label: 'NAVIGATOR.ADMINISTRATION',
           requiresAuth: true,

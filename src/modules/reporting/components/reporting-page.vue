@@ -15,7 +15,7 @@ import ReportingStatisticMostUploaded from './reporting-statistic-most-uploaded.
 const showFilterModal = ref(false);
 </script>
 <template>
-  <the-subheader>
+  <the-subheader :title="$t('NAVIGATOR.REPORTING')" :detail="$t('REPORTING.INTRODUCTION')">
     <template #action>
       <a-button @click="showFilterModal = true">
         <template #icon>
