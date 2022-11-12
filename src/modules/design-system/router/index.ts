@@ -35,6 +35,11 @@ export const DesignSystemRoutes: RouteRecordRaw[] = [
         path: 'navigation',
         component: () => import('../pages/navigation-page.vue'),
       },
+      {
+        name: 'DomainSelected',
+        path: 'domains/:domainUuid/quota',
+        component: () => import('../pages/navigation-page.vue'),
+      },
     ],
   },
 ];

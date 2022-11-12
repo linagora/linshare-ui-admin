@@ -1,5 +1,7 @@
 export default interface Domain {
-  name: string;
+  name?: string;
   checked?: boolean;
-  subs?: Domain[];
+  children?: Domain[];
+  type?: string;
+  uuid: string;
 }
