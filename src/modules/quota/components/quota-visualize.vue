@@ -6,7 +6,6 @@
         :used-space="props.usedSpace"
         :remaining-quota="props.remainingQuota"
         :unallocated-space="props.unallocatedSpace"
-        :sub-quota="props.subQuota"
       ></Doughnut>
       <div class="quota-detail">
         <div class="quota-information-block">
@@ -62,22 +61,6 @@
             <p class="quota-number" style="color: #40c62e">{{ niceBytes(props.unallocatedSpace) }}</p>
           </div>
         </div>
-        <div
-          v-if="
-            props.subQuota &&
-            currentDomain.type !== 'GUESTDOMAIN' &&
-            props.subQuota &&
-            currentDomain.type !== 'SUBDOMAIN' &&
-            props.subQuota &&
-            currentDomain.type !== 'TOPDOMAIN'
-          "
-        >
-          <div class="quota-information">
-            <div class="quota-point" style="background: #ea3c3c"></div>
-            <span class="quota-title"> {{ $t('QUOTA.ROOT_DOMAIN_QUOTA.QUOTA_PER_SUB_DOMAIN') }}</span>
-          </div>
-          <p class="quota-number" style="color: #ea3c3c">{{ niceBytes(props.subQuota) }}</p>
-        </div>
       </div>
     </div>
   </div>
@@ -87,31 +70,19 @@ import Doughnut from './doughnut-quota.vue';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 import { useI18n } from 'vue-i18n';
+import useQuota from '../hooks/useQuota';
+const { niceBytes } = useQuota();
 
 interface Props {
   usedSpace?: number;
   remainingQuota?: number;
   unallocatedSpace?: number;
-  subQuota?: number;
 }
 
 const props = defineProps<Props>();
 const domainStore = useDomainStore();
 const { currentDomain } = storeToRefs(domainStore);
 const { t } = useI18n();
-
-const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-
-function niceBytes(x: any) {
-  let l = 0,
-    n = parseInt(x, 10) || 0;
-
-  while (n >= 1024 && ++l) {
-    n = n / 1024;
-  }
-
-  return n.toFixed(2) + ' ' + units[l];
-}
 </script>
 <style lang="less">
 .quota-card {

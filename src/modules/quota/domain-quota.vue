@@ -13,7 +13,7 @@
       <div class="quota-informations">
         <div class="quota-input">
           <div class="maintenance-mode">
-            <a-switch v-model:checked="checked.checked" class="maintenance-switch" />
+            <a-switch v-model:checked="checked.checked" class="maintenance-switch" @click="changeMaintenanceMode" />
             <span>{{ $t('QUOTA.MAINTENANCE_MODE') }}</span>
           </div>
           <QuotaInput
@@ -26,7 +26,7 @@
           ></QuotaInput>
           <div class="maximum-quota">
             <span>{{ $t('QUOTA.DOMAIN_MAXIMUM_QUOTA') }}</span>
-            <span class="maximum-quota-value">{{ props.maximimQuota }}</span>
+            <span class="maximum-quota-value">{{ niceBytes(props.maximimQuota) }}</span>
           </div>
         </div>
         <div class="quota-chart">
@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { reactive, watchEffect } from 'vue';
 import CollapsePanel from '../../core/components/ls/ls-collapse-panel.vue';
 import Collapse from '../../core/components/ls/ls-collapse.vue';
 import Alert from '../../core/components/ls/ls-alert.vue';
@@ -58,18 +58,19 @@ interface Props {
   remainingQuota?: number;
   unallocatedSpace?: number;
   subQuota?: number;
-  maximimQuota?: string;
+  maximimQuota?: number;
   note?: string;
   label?: string;
   modelValue?: number;
   modelUnit?: object;
+  maintenance?: boolean;
 }
 
 const { t } = useI18n();
-const emits = defineEmits(['update:modelValue', 'update:modelUnit']);
+const emits = defineEmits(['update:modelValue', 'update:modelUnit', 'maintenance']);
 const props = defineProps<Props>();
 const checked = reactive({
-  checked: false,
+  checked: props.maintenance,
 });
 
 const data = reactive({
@@ -86,6 +87,29 @@ function quotaUnit(value: any) {
   data.modelUnit.value = value;
   emits('update:modelUnit', value);
 }
+
+function changeMaintenanceMode() {
+  emits('maintenance');
+}
+
+const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+function niceBytes(x: any) {
+  let l = 0,
+    n = parseInt(x, 10) || 0;
+
+  while (n >= 1024 && ++l) {
+    n = n / 1024;
+  }
+
+  return n.toFixed(1) + ' ' + units[l];
+}
+
+watchEffect(() => {
+  if (props.maintenance) {
+    props.maintenance === true ? (checked.checked = true) : (checked.checked = false);
+  }
+});
 </script>
 
 <style lang="less" scoped>
