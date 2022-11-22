@@ -37,6 +37,7 @@ import { computed, ref } from 'vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { onClickOutside } from '@vueuse/core';
 
+const emits = defineEmits(['on-create-child-modal']);
 const router = useRouter();
 const domainStore = useDomainStore();
 
@@ -53,7 +54,7 @@ onClickOutside(mobileMenuTarget, (event) => {
 });
 
 function onCreateChildDomain() {
-  mobileMenu.value = false;
+  emits('on-create-child-modal');
 }
 
 function onDeleteSelectedDomain() {

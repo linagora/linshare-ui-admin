@@ -3,12 +3,21 @@ import TheSubheader from '@/core/components/the-subheader.vue';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 import ConfigDomainActions from '@/core/components/layouts/config-domain-actions.vue';
 import ConfigDomainRedirectAction from '@/core/components/layouts/config-domain-redirect-action.vue';
+import DomainCreationFormModal, {
+  DomainCreationFormModalProps,
+} from '@/modules/domain/components/domain-creation-form-modal.vue';
+import { EMPTY_DOMAIN } from '@/modules/domain/types/Domain';
+import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import LsButton from '@/core/components/ls/ls-button.vue';
 import { useRoute, useRouter } from 'vue-router';
-import { computed } from 'vue';
+import { computed, reactive } from 'vue';
 import { useDomainStore } from '@/modules/domain/store';
 const domainStore = useDomainStore();
 const currentDomainName = computed(() => domainStore.currentDomain.name);
+const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
+const currentDomainType = computed(() => domainStore.currentDomain.type);
+
+const modalProps = reactive<DomainCreationFormModalProps>({ visible: false });
 
 const route = useRoute();
 const router = useRouter();
@@ -23,6 +32,31 @@ const isDomainSelected = computed(() => {
 
 function onBackToConfigurationPage() {
   router.push({ name: 'ConfigurationEntries' });
+}
+
+function showModal() {
+  modalProps.visible = true;
+  modalProps.parent = {
+    name: currentDomainName.value,
+    uuid: currentDomainUuid.value,
+  };
+  modalProps.type =
+    currentDomainType.value === DOMAIN_TYPE.ROOT
+      ? DOMAIN_TYPE.TOP
+      : currentDomainType.value === DOMAIN_TYPE.TOP
+      ? DOMAIN_TYPE.SUB
+      : DOMAIN_TYPE.GUEST;
+}
+
+function onCreateCancel() {
+  modalProps.visible = false;
+  modalProps.parent = EMPTY_DOMAIN;
+}
+
+function onCreateSuccess() {
+  modalProps.visible = false;
+  modalProps.parent = EMPTY_DOMAIN;
+  domainStore.fetchDomainsTree();
 }
 </script>
 <template>
@@ -47,13 +81,21 @@ function onBackToConfigurationPage() {
           </div>
         </div>
         <config-domain-redirect-action v-if="isInDomainDetail"></config-domain-redirect-action>
-        <config-domain-actions v-if="!isInDomainDetail && isDomainSelected"></config-domain-actions>
+        <config-domain-actions v-if="!isInDomainDetail && isDomainSelected" @on-create-child-modal="showModal">
+        </config-domain-actions>
       </div>
       <div class="configuration-page__body">
         <router-view></router-view>
       </div>
     </div>
   </div>
+  <domain-creation-form-modal
+    :visible="modalProps.visible"
+    :type="modalProps.type"
+    :parent="modalProps.parent"
+    @cancel="onCreateCancel"
+    @success="onCreateSuccess"
+  ></domain-creation-form-modal>
 </template>
 <style lang="less">
 .configuration-page {
