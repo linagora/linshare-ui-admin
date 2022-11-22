@@ -2,7 +2,7 @@ import { RouteRecordRaw } from 'vue-router';
 import QuotaPage from '@/modules/quota/pages/quota-page.vue';
 export const QuotaConfigurationRoutes: RouteRecordRaw[] = [
   {
-    name: 'Quota',
+    name: 'ConfigurationDomainQuota',
     path: ':domainUuid/quota',
     component: QuotaPage,
     meta: {

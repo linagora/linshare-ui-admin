@@ -40,7 +40,8 @@ const props = defineProps<{
 
     .content {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      flex-direction: column;
 
       .title {
         font-size: 28px;
@@ -48,7 +49,6 @@ const props = defineProps<{
       }
 
       .details {
-        margin-left: 16px;
         color: @text-color-secondary;
       }
     }
@@ -57,6 +57,20 @@ const props = defineProps<{
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .ls-app-subheader {
+    &__content {
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: baseline;
+        flex-direction: row;
+        gap: 16px;
+      }
     }
   }
 }

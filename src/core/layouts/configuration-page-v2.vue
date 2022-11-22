@@ -1,10 +1,14 @@
 <script lang="ts" setup>
 import TheSubheader from '@/core/components/the-subheader.vue';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
-import ArrowRightIcon from '@/core/components/icons/arrow-right-icon.vue';
+import ConfigDomainActions from '@/core/components/layouts/config-domain-actions.vue';
+import ConfigDomainRedirectAction from '@/core/components/layouts/config-domain-redirect-action.vue';
 import LsButton from '@/core/components/ls/ls-button.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { computed } from 'vue';
+import { useDomainStore } from '@/modules/domain/store';
+const domainStore = useDomainStore();
+const currentDomainName = computed(() => domainStore.currentDomain.name);
 
 const route = useRoute();
 const router = useRouter();
@@ -16,6 +20,10 @@ const isInDomainDetail = computed(() => {
 const isDomainSelected = computed(() => {
   return true;
 });
+
+function onBackToConfigurationPage() {
+  router.push({ name: 'ConfigurationEntries' });
+}
 </script>
 <template>
   <the-subheader :title="$t('NAVIGATOR.CONFIGURATION')" :detail="$t('CONFIGURATION.INTRODUCTION')"> </the-subheader>
@@ -23,37 +31,23 @@ const isDomainSelected = computed(() => {
     <div class="configuration-page__wrapper">
       <div class="configuration-page__header">
         <div class="configuration-page__header-title">
-          <strong class="title">Manage domain</strong>
-          <span class="breakcrumb">Configuration / LinShare Root Domain</span>
-        </div>
-        <div v-if="isInDomainDetail" class="configuration-page__header-action">
-          <div class="preview-action">
-            <span class="label">Previous domain</span>
-            <button class="action">
-              <arrow-left-icon></arrow-left-icon>
-            </button>
-          </div>
-          <div class="next-action">
-            <button class="action">
-              <arrow-right-icon></arrow-right-icon>
-            </button>
-            <span class="label">Next domain</span>
+          <ls-button
+            v-if="isInDomainDetail"
+            type="text"
+            class="configuration-page__back"
+            @click="onBackToConfigurationPage"
+          >
+            <arrow-left-icon width="18" height="18" class="icon"></arrow-left-icon>
+          </ls-button>
+          <div class="configuration-page__header-title-content">
+            <strong class="title">Manage domain</strong>
+            <span class="breakcrumb"
+              >Configuration / <span class="current">{{ currentDomainName }}</span></span
+            >
           </div>
         </div>
-        <div v-if="!isInDomainDetail && isDomainSelected" class="configuration-page__header-action">
-          <ls-button color="info">
-            <arrow-left-icon class="icon"></arrow-left-icon>
-            View details
-          </ls-button>
-          <ls-button color="info">
-            <arrow-left-icon class="icon"></arrow-left-icon>
-            Create Child domain
-          </ls-button>
-          <ls-button color="error">
-            <arrow-left-icon class="icon"></arrow-left-icon>
-            Delete
-          </ls-button>
-        </div>
+        <config-domain-redirect-action v-if="isInDomainDetail"></config-domain-redirect-action>
+        <config-domain-actions v-if="!isInDomainDetail && isDomainSelected"></config-domain-actions>
       </div>
       <div class="configuration-page__body">
         <router-view></router-view>
@@ -69,13 +63,22 @@ const isDomainSelected = computed(() => {
   align-items: stretch;
   width: 100%;
   background-color: #f6f6f6;
-  padding: 20px;
+  padding: 0;
+
+  &__back {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 4px;
+    padding-right: 17px;
+  }
 
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 32px;
+    padding: 16px;
     gap: 16px;
     background: #ffffff;
     border-radius: 10px;
@@ -85,17 +88,20 @@ const isDomainSelected = computed(() => {
   &__header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
     padding-bottom: 16px;
     border-bottom: 1px solid #e4e5f0;
+    gap: 12px;
   }
 
   &__header-title {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: flex-start;
+    flex-grow: 1;
 
     .title {
       font-style: normal;
@@ -110,47 +116,28 @@ const isDomainSelected = computed(() => {
       font-weight: 500;
       font-size: 15px;
       line-height: 20px;
+      color: #989cb1;
+    }
+
+    .current {
+      color: #434657;
     }
   }
 
-  &__header-action {
+  &__header-title-content {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
 
-    .preview-action {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 8px;
-    }
+@media (min-width: 992px) {
+  .configuration-page {
+    padding: 20px;
 
-    .next-action {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .action {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-      width: 44px;
-      height: 44px;
-      background: #ffffff;
-      border: 1px solid #e4e5f0;
-      border-radius: 100px;
-    }
-
-    .icon {
-      margin-right: 12px;
+    &__wrapper {
+      padding: 32px;
     }
   }
 }

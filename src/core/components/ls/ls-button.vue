@@ -28,6 +28,12 @@ const classByColorProp = computed(() => {
   line-height: 24px;
   height: 48px;
   padding: 12px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &--default {
+    color: @text-color;
+  }
   &--info {
     color: @link-color;
   }
@@ -42,6 +48,11 @@ const classByColorProp = computed(() => {
 
   &--error {
     color: @error-color;
+  }
+
+  &--default.ant-btn-primary {
+    background-color: @text-color;
+    color: #fff;
   }
 
   &--info.ant-btn-primary {

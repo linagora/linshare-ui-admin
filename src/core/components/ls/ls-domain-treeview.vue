@@ -6,11 +6,19 @@
         <a-checkbox :checked="isActive"></a-checkbox>
       </div>
       <div v-if="node?.children?.length" class="dot dot__group">
-        <globe-icon v-if="isRoot"></globe-icon>
-        <group-domain-icon v-else></group-domain-icon>
+        <template v-if="isRoot">
+          <globe-icon class="icon"></globe-icon>
+          <chevron-down-fill-icon class="icon expand" :class="{ 'expand--rotate': isExpand }" @click="onExpandChild">
+          </chevron-down-fill-icon>
+        </template>
+        <template v-else>
+          <chevron-down-fill-icon class="icon expand" :class="{ 'expand--rotate': isExpand }" @click="onExpandChild">
+          </chevron-down-fill-icon>
+          <group-domain-icon class="icon"></group-domain-icon>
+        </template>
       </div>
       <div v-else class="dot">
-        <dot-icon></dot-icon>
+        <dot-icon class="icon point"></dot-icon>
       </div>
       <div class="name">
         <span>{{ node?.name }}</span>
@@ -19,7 +27,7 @@
         <check-circle-icon></check-circle-icon>
       </div>
     </div>
-    <div v-if="node?.children?.length" class="ls-domain-treeview__domain-sub-item">
+    <div v-if="node?.children?.length && isExpand" class="ls-domain-treeview__domain-sub-item">
       <ls-domain-treeview
         v-for="(item, index) in node?.children"
         :key="index + 'ls-domain-treeview' + item?.uuid"
@@ -38,6 +46,7 @@ import CheckCircleIcon from '@/core/components/icons/check-circle-icon.vue';
 import GroupDomainIcon from '@/core/components/icons/group-domain-icon.vue';
 import GlobeIcon from '@/core/components/icons/globe-icon.vue';
 import DotIcon from '@/core/components/icons/dot-icon.vue';
+import ChevronDownFillIcon from '@/core/components/icons/chevron-down-fill-icon.vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import DomainTreeNode from '@/modules/domain/types/DomainTreeNode';
@@ -55,6 +64,9 @@ const route = useRoute();
 const router = useRouter();
 const domainStore = useDomainStore();
 const emit = defineEmits(['onCreateButtonClick']);
+
+const isExpand = ref(false);
+
 const currentDomainUuid = computed(() => domainStore.currentDomain?.uuid);
 const currentLevel = computed(() => props.level + 1);
 
@@ -63,7 +75,7 @@ const loading = computed(
 );
 
 function setCurrentDomain(node: DomainTreeNode) {
-  domainStore.setCurrentDomainUuid(node.uuid);
+  domainStore.setCurrentDomain(node);
 
   if (route.params.domainUuid) {
     router.push({ name: route.name || undefined, params: { domainUuid: node.uuid } });
@@ -87,6 +99,10 @@ function onCreateButtonClick(type: string) {
     type,
   });
 }
+
+function onExpandChild() {
+  isExpand.value = !isExpand.value;
+}
 </script>
 <style lang="less" scoped>
 .ls-domain-treeview {
@@ -96,14 +112,12 @@ function onCreateButtonClick(type: string) {
   align-items: stretch;
 
   &__domain-item {
+    height: 48px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-right: 18px;
-    padding-left: 18px;
+    padding: 0 18px;
     border-radius: 8px;
     cursor: pointer;
 
@@ -118,7 +132,6 @@ function onCreateButtonClick(type: string) {
     }
 
     .dot {
-      margin: 0 18px;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -140,6 +153,20 @@ function onCreateButtonClick(type: string) {
 
     .dot__group::after {
       display: none;
+    }
+
+    .expand {
+      &--rotate {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .icon {
+      margin: 8px;
+    }
+
+    .icon.point {
+      margin: 16px;
     }
 
     .name {

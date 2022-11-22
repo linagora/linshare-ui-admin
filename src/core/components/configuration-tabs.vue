@@ -1,5 +1,5 @@
 <template>
-  <a-tabs v-model:activeKey="activeKey" centered>
+  <a-tabs v-model:activeKey="activeKey">
     <a-tab-pane v-for="configuration in configurationTabs" :key="configuration.key" :tab="configuration.name">
     </a-tab-pane>
   </a-tabs>

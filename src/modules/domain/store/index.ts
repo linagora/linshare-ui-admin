@@ -46,6 +46,10 @@ export const useDomainStore = defineStore('domainStore', {
     setCurrentDomainUuid(uuid: string) {
       this.currentDomain = { ...this.currentDomain, uuid };
     },
+
+    setCurrentDomain(currentDomain: DomainTreeNode) {
+      this.currentDomain = { ...currentDomain };
+    },
     async fetchDomainsTree() {
       const domains = await getDomains({ params: { tree: true } });
 
