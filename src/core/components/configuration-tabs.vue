@@ -1,13 +1,15 @@
 <template>
-  <a-tabs v-model:activeKey="activeKey">
-    <a-tab-pane v-for="configuration in configurationTabs" :key="configuration.key" :tab="configuration.name">
+  <a-tabs v-model:activeKey="activeKey" @tab-click="onSelectTab">
+    <a-tab-pane v-for="configuration in configurationTabsArray" :key="configuration.key" :tab="configuration.name">
     </a-tab-pane>
   </a-tabs>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, reactive, ref } from 'vue';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
+import { useRouter } from 'vue-router';
+import useLegacyFeatures from '../hooks/useLegacyFeatures';
 
 interface ConfigurationPage {
   key: string;
@@ -25,9 +27,11 @@ interface ConfigurationPage {
   };
 }
 
+const { redirect } = useLegacyFeatures();
+const router = useRouter();
 const activeKey = ref('QUOTA');
-const configurationTabs: ConfigurationPage[] = [
-  {
+const configurationTabs = {
+  DETAILS: {
     key: 'DETAILS',
     name: 'Details',
     title: 'NAVIGATOR.DETAILS',
@@ -36,7 +40,40 @@ const configurationTabs: ConfigurationPage[] = [
       requiresCurrentDomain: true,
     },
   },
-  {
+  PARAMETERS: {
+    key: 'PARAMETERS',
+    name: 'Parameters',
+    title: 'NAVIGATOR.PARAMETERS',
+    route: {
+      name: 'DomainFunctionalities',
+      requiresCurrentDomain: true,
+    },
+  },
+  TYPE_MIME_POLICIES: {
+    title: 'NAVIGATOR.TYPE_MIME',
+    legacy: true,
+    key: 'TYPE_MIME_POLICIES',
+    name: 'Type mime policies',
+  },
+  WELCOME_MESSAGES: {
+    title: 'NAVIGATOR.WELCOME_MESSAGES',
+    route: {
+      name: 'WelcomeMessages',
+      requiresCurrentDomain: true,
+    },
+    key: 'WELCOME_MESSAGES',
+    name: 'Welcome messages',
+  },
+  QUOTA: {
+    title: 'NAVIGATOR.QUOTA',
+    route: {
+      name: 'ConfigurationDomainQuota',
+      requiresCurrentDomain: true,
+    },
+    key: 'QUOTA',
+    name: 'Quota',
+  },
+  REMOTE_SERVERS: {
     key: 'REMOTE_SERVERS',
     title: 'NAVIGATOR.REMOTE_SERVERS',
     name: 'Remote Servers',
@@ -45,7 +82,7 @@ const configurationTabs: ConfigurationPage[] = [
       name: 'RemoteServersList',
     },
   },
-  {
+  PROVIDERS: {
     key: 'PROVIDERS',
     name: 'Providers',
     title: 'NAVIGATOR.PROVIDERS',
@@ -58,8 +95,8 @@ const configurationTabs: ConfigurationPage[] = [
       requiresCurrentDomain: true,
     },
   },
-  {
-    key: 'PROVIDERS',
+  PROVIDERS_MANAGEMENT: {
+    key: 'PROVIDERS_MANAGEMENT',
     name: 'Domain Provider Management',
     title: 'NAVIGATOR.PROVIDERS',
     accessibility: {
@@ -72,7 +109,7 @@ const configurationTabs: ConfigurationPage[] = [
     },
     sub: true,
   },
-  {
+  USER_PROVIDERS: {
     key: 'USER_PROVIDERS',
     name: 'Domain User Providers',
     title: 'NAVIGATOR.USER_PROVIDERS',
@@ -86,7 +123,7 @@ const configurationTabs: ConfigurationPage[] = [
     },
     sub: true,
   },
-  {
+  GROUP_PROVIDERS: {
     key: 'GROUP_PROVIDERS',
     name: 'Domain Group Providers',
     title: 'NAVIGATOR.GROUP_PROVIDERS',
@@ -100,7 +137,7 @@ const configurationTabs: ConfigurationPage[] = [
     },
     sub: true,
   },
-  {
+  WORKSPACE_PROVIDERS: {
     key: 'WORKSPACE_PROVIDERS',
     name: 'Domain Workspace Providers',
     title: 'NAVIGATOR.WORKSPACE_PROVIDERS',
@@ -114,7 +151,7 @@ const configurationTabs: ConfigurationPage[] = [
     },
     sub: true,
   },
-  {
+  REMOTE_FILTERS: {
     key: 'REMOTE_FILTERS',
     name: 'Remote Filters List',
     title: 'NAVIGATOR.REMOTE_FILTERS',
@@ -123,43 +160,22 @@ const configurationTabs: ConfigurationPage[] = [
       name: 'RemoteFiltersList',
     },
   },
-  {
-    key: 'PARAMETERS',
-    name: 'Parameters',
-    title: 'NAVIGATOR.PARAMETERS',
-    route: {
-      name: 'DomainFunctionalities',
-      requiresCurrentDomain: true,
-    },
-  },
-  {
-    title: 'NAVIGATOR.TYPE_MIME',
-    legacy: true,
-    key: 'TYPE_MIME_POLICIES',
-    name: 'Type mime policies',
-  },
-  {
-    title: 'NAVIGATOR.WELCOME_MESSAGES',
-    route: {
-      name: 'WelcomeMessages',
-      requiresCurrentDomain: true,
-    },
-    key: 'WELCOME_MESSAGES',
-    name: 'Welcome messages',
-  },
-  {
-    title: 'NAVIGATOR.QUOTA',
-    route: {
-      name: 'WelcomeMessages',
-      requiresCurrentDomain: true,
-    },
-    key: 'QUOTA',
-    name: 'Quota',
-  },
-  {
+  PUBLIC_KEYS_JWT: {
     title: 'NAVIGATOR.PUBLIC_KEYS',
     key: 'PUBLIC_KEYS_JWT',
     name: 'Public keys (JWT)',
   },
-];
+};
+
+const configurationTabsArray = computed(() => {
+  return Object.values(configurationTabs);
+});
+function onSelectTab(tab: string) {
+  const activeTab = configurationTabs[tab as keyof typeof configurationTabs] as ConfigurationPage;
+  if (activeTab?.route && !activeTab?.legacy) {
+    router.push(activeTab?.route);
+  } else if (activeTab?.legacy) {
+    redirect(activeTab?.title);
+  }
+}
 </script>
