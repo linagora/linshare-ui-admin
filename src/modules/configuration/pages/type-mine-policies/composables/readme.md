@@ -1,0 +1,1 @@
+This directory is to store the files that declare the composable methods of configuration/type-mine-policies module

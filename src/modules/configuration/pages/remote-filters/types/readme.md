@@ -1,0 +1,1 @@
+This directory is for storing type declaration files of configuration/remote-filter-list module

@@ -7,7 +7,7 @@ import { RemoteServerRoutes } from '@/modules/remote-server/router';
 import { DomainConfigurationRoutes } from '@/modules/domain/router';
 import { ReportingRoute } from '@/modules/reporting/router';
 import { DesignSystemRoutes } from '@/modules/design-system/router';
-import { QuotaConfigurationRoutes } from '@/modules/quota/router';
+import { ConfigurationRoute } from '@/modules/configuration/router';
 import config from '@/config';
 
 import HomePage from '../layouts/home-page.vue';
@@ -22,28 +22,28 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       requiresAuth: true,
     },
     children: [
-      {
-        name: 'Configuration',
-        path: 'configuration',
-        component: () => import('../layouts/configuration-page-v2.vue'),
-        meta: {
-          label: 'NAVIGATOR.CONFIGURATION',
-          requiresAuth: true,
-          uiBeta: true,
-        },
-        redirect: { name: 'ConfigurationEntries' },
-        children: [
-          {
-            name: 'ConfigurationEntries',
-            path: '',
-            component: () => import('../pages/configuration-entries.vue'),
-          },
-          ...DomainConfigurationRoutes,
-          ...RemoteFilterRoutes,
-          ...RemoteServerRoutes,
-          ...QuotaConfigurationRoutes,
-        ],
-      },
+      // {
+      //   name: 'Configuration',
+      //   path: 'configuration',
+      //   component: () => import('../layouts/configuration-page-v2.vue'),
+      //   meta: {
+      //     label: 'NAVIGATOR.CONFIGURATION',
+      //     requiresAuth: true,
+      //     uiBeta: true,
+      //   },
+      //   redirect: { name: 'ConfigurationEntries' },
+      //   children: [
+      //     {
+      //       name: 'ConfigurationEntries',
+      //       path: '',
+      //       component: () => import('../pages/configuration-entries.vue'),
+      //     },
+      //     ...DomainConfigurationRoutes,
+      //     ...RemoteFilterRoutes,
+      //     ...RemoteServerRoutes,
+      //     ...QuotaConfigurationRoutes,
+      //   ],
+      // },
       {
         name: 'Administration',
         path: 'administration',
@@ -57,6 +57,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       ...SharedSpacesRoutes,
       ReportingRoute,
       ManageSecondFactorAuthenticationRoute,
+      ConfigurationRoute,
       ...DesignSystemRoutes,
     ],
   },

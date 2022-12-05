@@ -2,12 +2,8 @@
   <div class="ls-domain-treeview">
     <div class="ls-domain-treeview__domain-item" :class="{ active: isActive }" @click="setCurrentDomain(node)">
       <div v-if="isChildren" class="space"></div>
-      <div class="checkbox">
-        <a-checkbox :checked="isActive"></a-checkbox>
-      </div>
       <div v-if="node?.children?.length" class="dot dot__group">
         <template v-if="isRoot">
-          <globe-icon class="icon"></globe-icon>
           <chevron-down-fill-icon class="icon expand" :class="{ 'expand--rotate': isExpand }" @click="onExpandChild">
           </chevron-down-fill-icon>
         </template>
@@ -65,7 +61,7 @@ const router = useRouter();
 const domainStore = useDomainStore();
 const emit = defineEmits(['onCreateButtonClick']);
 
-const isExpand = ref(false);
+const isExpand = ref(true);
 
 const currentDomainUuid = computed(() => domainStore.currentDomain?.uuid);
 const currentLevel = computed(() => props.level + 1);
@@ -117,7 +113,7 @@ function onExpandChild() {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 18px;
+    padding: 0;
     border-radius: 8px;
     cursor: pointer;
 
@@ -148,7 +144,7 @@ function onExpandChild() {
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 10;
+      z-index: 1;
     }
 
     .dot__group::after {
@@ -167,6 +163,8 @@ function onExpandChild() {
 
     .icon.point {
       margin: 16px;
+      position: relative;
+      z-index: 2;
     }
 
     .name {

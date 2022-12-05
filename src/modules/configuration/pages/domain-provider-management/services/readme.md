@@ -1,0 +1,1 @@
+This directory to store services files of configuration/domain-provider-management module

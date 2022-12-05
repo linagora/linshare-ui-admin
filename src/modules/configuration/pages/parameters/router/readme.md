@@ -1,0 +1,1 @@
+This directory to store route config files of configuration/parameters module

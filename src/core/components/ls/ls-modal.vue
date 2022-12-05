@@ -1,5 +1,14 @@
 <template>
   <a-modal class="ls-modal" v-bind="$attrs">
-    <slot v-for="slot in Object.keys($slots)" :name="slot" />
+    <slot name="title"></slot>
+    <slot name="centered"></slot>
+    <slot name="footer"></slot>
   </a-modal>
 </template>
+<style lang="less">
+.ls-modal {
+  .ant-modal-content {
+    border-radius: 16px;
+  }
+}
+</style>

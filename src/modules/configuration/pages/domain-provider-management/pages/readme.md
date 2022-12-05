@@ -1,0 +1,1 @@
+This directory to store vue page files of configuration/domain-provider-management module ( the file will be import in the routes)

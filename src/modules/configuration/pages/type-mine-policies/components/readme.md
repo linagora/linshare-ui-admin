@@ -1,0 +1,1 @@
+This directory to store component files of configuration/type-mine-policies module

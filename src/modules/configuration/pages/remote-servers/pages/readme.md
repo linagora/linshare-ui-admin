@@ -1,0 +1,1 @@
+This directory to store vue page files of configuration/remote-servers module ( the file will be import in the routes)
