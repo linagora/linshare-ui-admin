@@ -1,7 +1,6 @@
 <template>
   <div class="quota-page">
     <div class="quota-page__tabs">
-      <configuration-tabs>test </configuration-tabs>
       <domain-quota
         :header-text="'Domain quota and used space'"
         :alert-text="'This section allows you manage the current domain quota size and setup it as on your need'"
@@ -22,7 +21,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import configurationTabs from '@/core/components/configuration-tabs.vue';
 import DomainQuota from '../../quota/domain-quota.vue';
 import useQuota from '../hooks/useQuota';
 import { storeToRefs } from 'pinia';
