@@ -8,7 +8,12 @@
   >
     <template #bodyCell="{ column, record, text }">
       <template v-if="column.key === 'name'">
-        <router-link :to="{ name: 'DomainWelcomeMessageDetails', params: { uuid: record.uuid } }">
+        <router-link
+          :to="{
+            name: 'DomainWelcomeMessageDetails',
+            params: { uuid: record.uuid, domainUuid: currentDomain.uuid },
+          }"
+        >
           <span class="elipsis-name" :title="text">{{ text }}</span>
         </router-link>
       </template>
@@ -98,7 +103,6 @@ const columns = computed(() => [
   {
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: ['creationDate'],
-    sorter: (a: WelcomeMessage, b: WelcomeMessage) => (a.creationDate || 0) - (b.creationDate || 0),
     key: 'date',
   },
   {

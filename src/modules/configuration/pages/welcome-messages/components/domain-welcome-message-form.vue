@@ -20,7 +20,7 @@
         <a-form layout="vertical">
           <a-form-item :label="$t('DOMAIN.FIELDS.NAME')" v-bind="validateInfos.name">
             <div class="input-container">
-              <a-input v-model:value="formState.name" maxlength="255"></a-input>
+              <a-input v-model:value="formState.name" :maxlength="255"></a-input>
             </div>
           </a-form-item>
 
@@ -74,7 +74,7 @@
               {{ $t('GENERAL.DOMAIN') }}
             </div>
             <div class="value">
-              <router-link :to="{ name: 'DomainDetails', params: { domainUuid: data.domain?.uuid } }">
+              <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: data.domain?.uuid } }">
                 {{ data.domain?.name }}
               </router-link>
             </div>
@@ -100,7 +100,7 @@
         <a-collapse-panel v-for="key in Object.keys(formState.entries)" :key="key" :header="$t(`LOCALE.${key}`)">
           <template #extra>{{ flagMappings[key] || '🌍' }}</template>
           <span v-if="!mode.edit && data.uuid && !isDuplicating" v-html="formState.entries[key]"></span>
-          <a-textarea v-else v-model:value="formState.entries[key]" rows="10" />
+          <a-textarea v-else v-model:value="formState.entries[key]" :rows="10" />
         </a-collapse-panel>
       </a-collapse>
     </div>

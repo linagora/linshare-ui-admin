@@ -1,5 +1,7 @@
 <template>
-  <PageTitle :title="$t('NAVIGATOR.WELCOME_MESSAGES_MANAGE')" :breadcrumbs="breadcrumbs"></PageTitle>
+  <router-link :to="{ name: 'ConfigurationDomainWelcomeMessages' }">
+    <ArrowLeftIcon></ArrowLeftIcon>
+  </router-link>
   <a-row>
     <a-col :xs="24" :sm="24" :md="{ span: 18, offset: 2 }">
       <DomainWelcomeMessageForm :data="welcomeMessage" @delete="confirmDelete" @submit="setSubmit" />
@@ -10,7 +12,6 @@
 
 <script lang="ts" setup>
 import { computed, reactive, onMounted, watch } from 'vue';
-import PageTitle from '@/core/components/page-title.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import DomainWelcomeMessageForm from './domain-welcome-message-form.vue';
 import { useDomainStore } from '@/modules/domain/store';
@@ -19,7 +20,7 @@ import {
   updateWelcomeMessage,
   createWelcomeMessage,
   deleteWelcomeMessage,
-} from '../services/domain-api';
+} from '../services/welcome-messages-api';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { useRouter } from 'vue-router';
@@ -28,6 +29,7 @@ import WelcomeMessage, { EMPTY_WELCOME_MESSAGE } from '../types/WelcomeMessages'
 import useNotification from '@/core/hooks/useNotification';
 import { ArrowUpOutlined } from '@ant-design/icons-vue';
 import { storeToRefs } from 'pinia';
+import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 
 const domainStore = useDomainStore();
 const router = useRouter();
@@ -73,7 +75,7 @@ async function getWelcomeMessageInformations() {
 async function create(data: WelcomeMessage) {
   try {
     await createWelcomeMessage(currentDomain.value.uuid, data);
-    router.push({ name: 'WelcomeMessages' });
+    router.push({ name: 'ConfigurationDomainWelcomeMessages' });
     message.success(t('MESSAGES.CREATE_SUCCESS'));
   } catch (error) {
     if (error instanceof APIError) {
@@ -97,7 +99,7 @@ async function update(data: WelcomeMessage) {
 async function deleteMessage() {
   try {
     await deleteWelcomeMessage(currentDomain.value.uuid, welcomeMessage.uuid);
-    router.push({ name: 'WelcomeMessages' });
+    router.push({ name: 'ConfigurationDomainWelcomeMessages' });
     message.success(t('MESSAGES.DELETE_SUCCESS'));
   } catch (error) {
     if (error instanceof APIError) {

@@ -1,6 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
 import WelcomeMessagesPage from '../pages/welcome-messages-page.vue';
-import WelcomeMessageDetail from '@/modules/domain/components/domain-welcome-message.vue';
 export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
   {
     name: 'ConfigurationDomainWelcomeMessages',
@@ -12,8 +11,32 @@ export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
   },
   {
     name: 'DomainWelcomeMessageDetails',
-    path: ':domainUuid/welcome-messages/:uuid',
-    component: WelcomeMessageDetail,
+    path: ':domainUuid/welcome_messages/:uuid',
+    component: () => import('../components/domain-welcome-message.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    name: 'DomainWelcomeMessageNew',
+    path: ':domainUuid/welcome_messages/new',
+    component: () => import('../components/domain-welcome-message.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    name: 'DomainWelcomeMessageDetails',
+    path: ':domainUuid/welcome_messages/:uuid',
+    component: () => import('../components/domain-welcome-message.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    name: 'DomainWelcomeMessageNew',
+    path: ':domainUuid/welcome_messages/new',
+    component: () => import('../components/domain-welcome-message.vue'),
     meta: {
       requiresAuth: true,
     },

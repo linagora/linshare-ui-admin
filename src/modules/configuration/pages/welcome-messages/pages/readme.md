@@ -1,1 +1,0 @@
-This directory to store vue page files of configuration/welcome-messages module ( the file will be import in the routes)

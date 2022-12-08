@@ -5,7 +5,12 @@
         <a-col :xs="12" :sm="6">
           <div class="info-block">
             <div class="info-block__name">
-              <router-link :to="{ name: 'DomainWelcomeMessageDetails', params: { uuid: message.uuid } }">
+              <router-link
+                :to="{
+                  name: 'DomainWelcomeMessageDetails',
+                  params: { messageUuid: message.uuid, domainUuid: currentDomain.uuid },
+                }"
+              >
                 <span class="elipsis-name" :title="message.name">{{ message.name }}</span>
               </router-link>
             </div>

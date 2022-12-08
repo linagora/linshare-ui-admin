@@ -22,16 +22,6 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
         },
       },
       {
-        name: 'WelcomeMessages',
-        path: 'welcome_messages',
-        component: () => import('../components/domain-welcome-messages-list.vue'),
-        meta: {
-          parentRoute: 'Configuration',
-          label: 'NAVIGATOR.WELCOME_MESSAGES',
-          requiresAuth: true,
-        },
-      },
-      {
         name: 'DomainFunctionalities',
         path: 'functionalities',
         component: () => import('../components/domain-functionalities-list.vue'),
@@ -41,31 +31,11 @@ export const DomainConfigurationRoutes: RouteRecordRaw[] = [
         },
       },
       {
-        name: 'DomainWelcomeMessageDetails',
-        path: 'welcome_messages/:uuid',
-        component: () => import('../components/domain-welcome-message.vue'),
-        meta: {
-          parentRoute: 'WelcomeMessages',
-          label: 'NAVIGATOR.WELCOME_MESSAGES_MANAGE',
-          requiresAuth: true,
-        },
-      },
-      {
         name: 'DomainFunctionality',
         path: 'functionalities/:identifier',
         component: () => import('../components/domain-functionality-details.vue'),
         meta: {
           parentRoute: 'DomainFunctionalities',
-          requiresAuth: true,
-        },
-      },
-      {
-        name: 'DomainWelcomeMessageNew',
-        path: 'welcome_messages/new',
-        component: () => import('../components/domain-welcome-message.vue'),
-        meta: {
-          parentRoute: 'WelcomeMessages',
-          label: 'NAVIGATOR.WELCOME_MESSAGES_NEW',
           requiresAuth: true,
         },
       },

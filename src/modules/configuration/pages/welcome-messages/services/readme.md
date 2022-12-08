@@ -1,1 +1,0 @@
-This directory to store services files of configuration/welcome-messages module

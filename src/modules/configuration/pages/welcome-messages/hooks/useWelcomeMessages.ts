@@ -1,7 +1,7 @@
 import { computed, ComputedRef, reactive, Ref, ref, UnwrapRef, watch } from 'vue';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import WelcomeMessage from '../types/WelcomeMessages';
-import { getWelcomeMessages, assignWelcomeMessage, deleteWelcomeMessage } from '../services/domain-api';
+import { getWelcomeMessages, assignWelcomeMessage, deleteWelcomeMessage } from '../services/welcome-messages-api';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 import { message } from 'ant-design-vue';
@@ -105,7 +105,7 @@ export default function useWelcomeMessages(): UsableWelcomeMessages {
   }
 
   function view(welcomeMessage: WelcomeMessage) {
-    push({ name: 'DomainWelcomeMessageDetails', params: { uuid: welcomeMessage.uuid } });
+    push({ name: 'DomainWelcomeMessageDetails', params: { messageUuid: welcomeMessage.uuid } });
   }
 
   function dupplicate(welcomeMessage: WelcomeMessage) {

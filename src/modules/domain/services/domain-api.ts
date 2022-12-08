@@ -3,7 +3,6 @@ import api from '@/api';
 import Domain from '@/modules/domain/types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
 import UserProvider from '../types/UserProvider';
-import WelcomeMessage from '../types/WelcomeMessages';
 import { LDAPGroupProvider } from '../types/GroupProvider';
 import { LDAPWorkspaceProvider } from '../types/WorkspaceProvider';
 import { Functionality } from '@/core/types/Functionality';
@@ -109,33 +108,6 @@ async function updateFunctionality(domainUuid: string, functionality: Functional
   return await api.put(`domains/${domainUuid}/functionalities/${functionality.identifier}`, functionality);
 }
 
-async function getWelcomeMessages(domainUuid: string): Promise<WelcomeMessage[]> {
-  return await api.get(`domains/${domainUuid}/welcome_messages`);
-}
-
-async function getWelcomeMessage(domainUuid: string, messageUuid: string): Promise<WelcomeMessage> {
-  return await api.get(`domains/${domainUuid}/welcome_messages/${messageUuid}`);
-}
-
-async function updateWelcomeMessage(domainUuid: string, message: WelcomeMessage): Promise<WelcomeMessage> {
-  return await api.put(`domains/${domainUuid}/welcome_messages/${message.uuid}`, message);
-}
-
-async function createWelcomeMessage(domainUuid: string, message: WelcomeMessage): Promise<WelcomeMessage> {
-  return await api.post(`domains/${domainUuid}/welcome_messages/`, message);
-}
-
-async function deleteWelcomeMessage(domainUuid: string, messageUuid: string): Promise<WelcomeMessage> {
-  return await api.delete(`domains/${domainUuid}/welcome_messages/${messageUuid}`, {
-    data: {},
-  });
-}
-
-async function assignWelcomeMessage(domainUuid: string, messageUuid: string): Promise<WelcomeMessage> {
-  return await api.put(`domains/${domainUuid}/welcome_messages/${messageUuid}/assign`, {
-    assign: true,
-  });
-}
 export {
   createDomain,
   createWorkspaceProvider,
@@ -158,10 +130,4 @@ export {
   updateGroupProvider,
   updateFunctionality,
   updateUserProvider,
-  getWelcomeMessages,
-  getWelcomeMessage,
-  updateWelcomeMessage,
-  createWelcomeMessage,
-  deleteWelcomeMessage,
-  assignWelcomeMessage,
 };
