@@ -4,11 +4,6 @@
       <a-tab-pane v-for="configuration in configurationTabsArray" :key="configuration.key" :tab="configuration.name">
       </a-tab-pane>
     </a-tabs>
-
-    <ls-button class="action" color="error">
-      <delete-icon class="icon"></delete-icon>
-      Delete Domain
-    </ls-button>
   </div>
 </template>
 <script lang="ts" setup>
@@ -17,8 +12,6 @@ import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import { useRouter } from 'vue-router';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
-import LsButton from '@/core/components/ls/ls-button.vue';
-import DeleteIcon from '@/core/components/icons/delete-icon.vue';
 
 interface ConfigurationPage {
   key: string;
@@ -196,14 +189,11 @@ function onSelectTab(tab: string) {
   justify-content: space-between;
   align-items: center;
   .tabs {
-    max-width: 70%;
+    max-width: 100%;
   }
   .tabs .ant-tabs-nav::before {
     border-bottom: none !important;
     border-color: transparent !important;
-  }
-  .action .icon {
-    margin-right: 8px;
   }
 }
 </style>

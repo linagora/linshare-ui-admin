@@ -11,13 +11,17 @@ import DomainCreationFormModal, {
 import { EMPTY_DOMAIN } from '@/modules/domain/types/Domain';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import LsButton from '@/core/components/ls/ls-button.vue';
+import DeleteIcon from '@/core/components/icons/delete-icon.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { computed, reactive } from 'vue';
 import { useDomainStore } from '@/modules/domain/store';
+import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
+
 const domainStore = useDomainStore();
 const currentDomainName = computed(() => domainStore.currentDomain.name);
 const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 const currentDomainType = computed(() => domainStore.currentDomain.type);
+const { deleting, confirmThenDelete, canDelete } = useDomainDelete();
 
 const modalProps = reactive<DomainCreationFormModalProps>({ visible: false });
 
@@ -86,6 +90,17 @@ function onCreateSuccess() {
             >
           </div>
         </div>
+        <ls-button
+          v-if="isInDomainDetail && canDelete"
+          :disabled="loadingDomain"
+          :loading="deleting"
+          class="action"
+          color="error"
+          @click="confirmThenDelete"
+        >
+          <delete-icon class="icon"></delete-icon>
+          <span class="desktop">{{ $t('DOMAIN.DELETE.BUTTON') }}</span>
+        </ls-button>
       </div>
       <div class="configuration-page__body">
         <configuration-tabs v-if="isInDomainDetail"></configuration-tabs>
@@ -169,6 +184,13 @@ function onCreateSuccess() {
       color: #434657;
     }
   }
+
+  .action {
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-right: 4px;
+  }
+
   &__body {
     display: flex;
     flex-direction: column;
@@ -183,6 +205,10 @@ function onCreateSuccess() {
     justify-content: flex-start;
     align-items: flex-start;
   }
+
+  .desktop {
+    display: none;
+  }
 }
 
 @media (min-width: 992px) {
@@ -191,6 +217,16 @@ function onCreateSuccess() {
 
     &__wrapper {
       padding: 32px;
+    }
+
+    .action {
+      .icon {
+        margin-right: 8px;
+      }
+
+      .desktop {
+        display: block;
+      }
     }
   }
 }
