@@ -1,1 +1,0 @@
-This directory to store component files of configuration/remote-filter-list module

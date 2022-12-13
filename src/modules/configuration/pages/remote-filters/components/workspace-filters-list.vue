@@ -1,7 +1,10 @@
 <template>
-  <PageTitle :title="$t('NAVIGATOR.GROUP_FILTERS')" :breadcrumbs="breadcrumbs" />
+  <PageTitle :title="$t('NAVIGATOR.WORKSPACE_FILTERS')" />
 
   <div>
+    <router-link :to="{ name: 'ConfigurationDomainRemoteFilters' }">
+      <ArrowLeftIcon></ArrowLeftIcon>
+    </router-link>
     <div class="actions">
       <a-input
         v-model:value="state.filterText"
@@ -14,7 +17,7 @@
         </template>
       </a-input>
 
-      <router-link :to="{ name: 'GroupFilterLDAP' }">
+      <router-link :to="{ name: 'NewWorkspaceFilterLDAP', params: { duplicate: 'new' } }">
         <a-button :disabled="state.loading" type="primary">
           <template #icon>
             <PlusCircleOutlined />
@@ -28,12 +31,14 @@
       :columns="columns"
       :data-source="filteredList"
       :loading="state.loading"
-      :locale="{ emptyText: $t('GROUP_FILTER.EMPTY_TEXT') }"
+      :locale="{ emptyText: $t('WORKSPACE_FILTER.EMPTY_TEXT') }"
       row-key="uuid"
     >
       <template #bodyCell="{ column, record, text }">
         <template v-if="column.key === 'name'">
-          <a @click="viewDetails(record)">{{ text }}</a>
+          <router-link :to="{ name: 'WorkspaceFilterLDAP', params: { filterUuid: record.uuid } }">
+            {{ text }}
+          </router-link>
         </template>
 
         <template v-else-if="column.key === 'date'">
@@ -65,7 +70,7 @@
     </a-table>
   </div>
 
-  <DomainAssociatedListModal :state="modal" :empty-text="$t('GROUP_FILTER.NO_ASSOCIATED_DOMAIN')" @ok="hide" />
+  <DomainAssociatedListModal :state="modal" :empty-text="$t('WORKSPACE_FILTER.NO_ASSOCIATED_DOMAIN')" @ok="hide" />
 </template>
 
 <script lang="ts" setup>
@@ -73,35 +78,36 @@ import { computed, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { message } from 'ant-design-vue';
-
+import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 import { EllipsisOutlined, SearchOutlined, PlusCircleOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/page-title.vue';
 import DomainAssociatedListModal from '@/modules/domain/components/domain-associated-list-modal.vue';
+import { LDAPWorkspaceFilter } from '../types/WorkspaceFilters';
+import {
+  deleteWorkspaceFilter,
+  getWorkspaceFilterAssociatedDomains,
+  listWorkspaceFilters,
+} from '../services/workspace-filter-api';
 
-import { LDAPGroupFilter } from '../types/GroupFilters';
-import { deleteGroupFilter, getGroupFilterAssociatedDomains, listGroupFilters } from '../services/group-filter-api';
-
-import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import { APIError } from '@/core/types/APIError';
 import useNotification from '@/core/hooks/useNotification';
 import useAssociatedDomainsModal from '@/modules/domain/hooks/useAssociatedDomainsModal';
 
-interface GroupFiltersListState {
+interface WorkspaceFiltersListState {
   loading: boolean;
   filterText: string;
-  list: LDAPGroupFilter[];
+  list: LDAPWorkspaceFilter[];
 }
 
 const router = useRouter();
 const { t } = useI18n();
-const { breadcrumbs } = useBreadcrumbs();
 const { infoModal, confirmModal } = useNotification();
-const state = reactive<GroupFiltersListState>({
+const state = reactive<WorkspaceFiltersListState>({
   filterText: '',
   loading: true,
   list: [],
 });
-const { show, hide, modal } = useAssociatedDomainsModal(getGroupFilterAssociatedDomains);
+const { show, hide, modal } = useAssociatedDomainsModal(getWorkspaceFilterAssociatedDomains);
 
 const filteredList = computed(() =>
   state.list.filter((server) => server.name.toLowerCase().includes(state.filterText.toLowerCase()))
@@ -110,7 +116,7 @@ const columns = computed(() => [
   {
     title: t('GENERAL.NAME'),
     dataIndex: ['name'],
-    sorter: (a: LDAPGroupFilter, b: LDAPGroupFilter) => a.name.localeCompare(b.name),
+    sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => a.name.localeCompare(b.name),
     key: 'name',
   },
   {
@@ -123,18 +129,18 @@ const columns = computed(() => [
     dataIndex: ['type'],
     key: 'type',
     width: '130px',
-    sorter: (a: LDAPGroupFilter, b: LDAPGroupFilter) => a.type.localeCompare(b.type),
+    sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => a.type.localeCompare(b.type),
   },
   {
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: ['creationDate'],
-    sorter: (a: LDAPGroupFilter, b: LDAPGroupFilter) => (a.creationDate || 0) - (b.creationDate || 0),
+    sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => (a.creationDate || 0) - (b.creationDate || 0),
     key: 'date',
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: ['modificationDate'],
-    sorter: (a: LDAPGroupFilter, b: LDAPGroupFilter) => (a.creationDate || 0) - (b.creationDate || 0),
+    sorter: (a: LDAPWorkspaceFilter, b: LDAPWorkspaceFilter) => (a.creationDate || 0) - (b.creationDate || 0),
     defaultSortOrder: 'descend',
     key: 'date',
   },
@@ -146,10 +152,10 @@ const columns = computed(() => [
   },
 ]);
 
-function fetchGroupFilters() {
+function fetchFilters() {
   state.loading = true;
 
-  listGroupFilters()
+  listWorkspaceFilters()
     .then((filters) => {
       state.list = filters;
     })
@@ -165,41 +171,42 @@ function fetchGroupFilters() {
     });
 }
 
-function viewDetails(filter: LDAPGroupFilter) {
+function viewDetails(filter: LDAPWorkspaceFilter) {
   router.push({
-    name: 'GroupFilterLDAP',
+    name: 'WorkspaceFilterLDAP',
     params: {
-      uuid: filter.uuid,
+      filterUuid: filter.uuid,
     },
   });
 }
 
-function duplicate(filter: LDAPGroupFilter) {
+function duplicate(filter: LDAPWorkspaceFilter) {
   router.push({
-    name: 'GroupFilterLDAP',
+    name: 'DuplicateWorkspaceFilterLDAP',
     params: {
-      uuid: filter.uuid,
+      filterUuid: filter.uuid,
       duplicate: 'true',
     },
   });
 }
 
-async function confirmDelete(filter: LDAPGroupFilter) {
-  const usedInDomains = !!(await getGroupFilterAssociatedDomains(filter.uuid)).length;
+async function confirmDelete(filter: LDAPWorkspaceFilter) {
+  const usedInDomains = !!(await getWorkspaceFilterAssociatedDomains(filter.uuid)).length;
 
   if (usedInDomains) {
     return infoModal({
       title: t('GENERAL.DELETION'),
-      content: t('GROUP_FILTER.DELETE_ABORT'),
+      content: t('WORKSPACE_FILTER.DELETE_ABORT'),
     });
   }
 
   confirmModal({
     title: t('GENERAL.DELETION'),
-    content: t('GROUP_FILTER.DELETE_CONFIRM'),
+    content: t('WORKSPACE_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
     onOk: () =>
-      deleteGroupFilter(filter.uuid)
+      filter.uuid &&
+      deleteWorkspaceFilter(filter.uuid)
         .then(() => {
           message.success(t('MESSAGES.DELETE_SUCCESS'));
           state.list = state.list.filter((item) => !(item.uuid === filter.uuid));
@@ -210,7 +217,7 @@ async function confirmDelete(filter: LDAPGroupFilter) {
   });
 }
 
-onMounted(fetchGroupFilters);
+onMounted(fetchFilters);
 </script>
 
 <style lang="less" scoped>

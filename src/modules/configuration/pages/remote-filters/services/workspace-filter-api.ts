@@ -18,15 +18,15 @@ async function updateWorkspaceFilter(filter: LDAPWorkspaceFilter): Promise<LDAPW
   return await api.put(`workspace_filters/${filter.uuid}`, filter);
 }
 
-async function getWorkspaceFilter(uuid: string): Promise<LDAPWorkspaceFilter> {
+async function getWorkspaceFilter(uuid: string | string[]): Promise<LDAPWorkspaceFilter> {
   return await api.get(`workspace_filters/${uuid}`);
 }
 
-async function getWorkspaceFilterAssociatedDomains(uuid: string): Promise<Domain[]> {
+async function getWorkspaceFilterAssociatedDomains(uuid: string | string[]): Promise<Domain[]> {
   return await api.get(`workspace_filters/${uuid}/domains`);
 }
 
-async function deleteWorkspaceFilter(uuid: string): Promise<LDAPWorkspaceFilter> {
+async function deleteWorkspaceFilter(uuid: string | string[]): Promise<LDAPWorkspaceFilter> {
   return await api.delete(`workspace_filters/${uuid}`);
 }
 

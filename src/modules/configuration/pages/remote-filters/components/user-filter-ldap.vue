@@ -2,7 +2,6 @@
   <PageTitle
     :title="$t('NAVIGATOR.LDAP_USER_FILTER')"
     :subtitle="$t(editMode ? 'USER_FILTER.LDAP.PAGE_SUBTITLE_EDIT' : 'USER_FILTER.LDAP.PAGE_SUBTITLE_CREATE')"
-    :breadcrumbs="breadcrumbs"
   >
     <template #helperContent>
       <span>{{ $t('USER_FILTER.LDAP.PAGE_HELPER_P1') }}</span>
@@ -18,6 +17,9 @@
       </div>
     </template>
   </PageTitle>
+  <router-link :to="{ name: 'UserFilters' }">
+    <ArrowLeftIcon></ArrowLeftIcon>
+  </router-link>
 
   <div v-if="fetchingData" class="spinner">
     <a-spin />
@@ -159,7 +161,7 @@
           </a-button>
 
           <a-button type="primary" style="margin-left: 10px" :loading="formSubmitting" @click="onSubmit">
-            {{ $t(props.uuid ? 'GENERAL.SAVE' : 'GENERAL.CREATE') }}
+            {{ $t(route.params.duplicate ? 'GENERAL.CREATE' : 'GENERAL.SAVE') }}
           </a-button>
         </div>
       </a-col>
@@ -173,7 +175,7 @@ import { message } from 'ant-design-vue';
 import { SelectTypes } from 'ant-design-vue/es/select';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
-import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 import useNotification from '@/core/hooks/useNotification';
 import PageTitle from '@/core/components/page-title.vue';
 import UserFilter, { USER_FILTER_TYPE } from '../types/UserFilter';
@@ -185,11 +187,7 @@ import {
   getUserFilter,
   updateUserFilter,
 } from '../services/user-filter-api';
-
-interface Props {
-  uuid?: string;
-  duplicate?: string;
-}
+import { useRoute } from 'vue-router';
 
 interface UserFilterModelOptions {
   list: UserFilter[];
@@ -198,12 +196,10 @@ interface UserFilterModelOptions {
 }
 
 const { confirmModal, infoModal } = useNotification();
-const { breadcrumbs } = useBreadcrumbs();
 const { t } = useI18n();
 const { push } = useRouter();
-
-const props = defineProps<Props>();
-const editMode = computed(() => props.uuid && !props.duplicate);
+const route = useRoute();
+const editMode = computed(() => !route.params.duplicate);
 const models = reactive<UserFilterModelOptions>({
   selected: '',
   list: [],
@@ -237,11 +233,11 @@ const formRules = computed(() => {
 async function prepareData() {
   fetchingData.value = true;
 
-  if (props.uuid) {
-    const filter = await getUserFilter(props.uuid);
+  if (route.params.filterUuid) {
+    const filter = await getUserFilter(route.params.filterUuid);
     Object.assign(userFilter, filter);
     Object.assign(formState, filter, {
-      name: props.duplicate ? '' : filter.name,
+      name: route.params.duplicate ? '' : filter.name,
     });
   }
 
@@ -268,8 +264,8 @@ async function onSubmit() {
   }
 
   try {
-    if (props.uuid) {
-      await updateUserFilter(props.uuid, {
+    if (!route.params.duplicate) {
+      await updateUserFilter(route.params.filterUuid, {
         ...formState,
         type: USER_FILTER_TYPE.LDAP,
       });
@@ -285,7 +281,7 @@ async function onSubmit() {
       push({ name: 'UserFilters' });
     }
   } catch (error) {
-    message.error(t(props.uuid ? 'MESSAGES.UPDATE_FAILURE' : 'ERRORS.CREATE_FAILURE'));
+    message.error(t(route.params.filterUuid ? 'MESSAGES.UPDATE_FAILURE' : 'ERRORS.CREATE_FAILURE'));
   } finally {
     formSubmitting.value = false;
   }
@@ -303,7 +299,7 @@ function resetForm() {
 }
 
 async function confirmDelete(filter: UserFilter) {
-  const usedInDomains = !!(await getAssociatedDomains(filter.uuid)).length;
+  const usedInDomains = !!(await getAssociatedDomains(route.params.filterUuid)).length;
 
   if (usedInDomains) {
     return infoModal({
@@ -316,13 +312,13 @@ async function confirmDelete(filter: UserFilter) {
     title: t('GENERAL.DELETION'),
     content: t('USER_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
-    onOk: () => removeUserFilter(filter),
+    onOk: () => removeUserFilter(route.params.filterUuid),
   });
 }
 
-async function removeUserFilter(filter: UserFilter) {
+async function removeUserFilter(filter: any) {
   try {
-    await deleteUserFilter(filter.uuid);
+    await deleteUserFilter(filter);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
     push({ name: 'UserFilters' });

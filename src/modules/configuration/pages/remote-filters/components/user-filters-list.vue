@@ -1,7 +1,11 @@
 <template>
-  <PageTitle :title="$t('NAVIGATOR.USER_FILTERS')" :breadcrumbs="breadcrumbs" />
+  <PageTitle :title="$t('NAVIGATOR.USER_FILTERS')" />
 
   <div>
+    <router-link :to="{ name: 'ConfigurationDomainRemoteFilters' }">
+      <ArrowLeftIcon></ArrowLeftIcon>
+    </router-link>
+
     <div class="actions">
       <a-input
         v-model:value="state.filterText"
@@ -24,7 +28,7 @@
         <template #overlay>
           <a-menu>
             <a-menu-item>
-              <router-link :to="{ name: 'UserFilterLDAP' }">
+              <router-link :to="{ name: 'NewUserFilterLDAP', params: { duplicate: 'new' } }">
                 {{ $t('USER_FILTER.TYPES.LDAP') }}
               </router-link>
             </a-menu-item>
@@ -35,7 +39,6 @@
         </template>
       </a-dropdown>
     </div>
-
     <a-table
       :columns="columns"
       :data-source="filteredList"
@@ -80,16 +83,12 @@ import { computed, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { message } from 'ant-design-vue';
-
 import { EllipsisOutlined, SearchOutlined, PlusCircleOutlined } from '@ant-design/icons-vue';
 import PageTitle from '@/core/components/page-title.vue';
-
 import UserFilter, { USER_FILTER_TYPE } from '../types/UserFilter';
 import { deleteUserFilter, getAssociatedDomains, listUserFilters } from '../services/user-filter-api';
-
-import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 import useNotification from '@/core/hooks/useNotification';
-import type { TableColumnsType } from 'ant-design-vue';
 
 interface UserFiltersListState {
   loading: boolean;
@@ -100,7 +99,6 @@ interface UserFiltersListState {
 
 const { t } = useI18n();
 const { push } = useRouter();
-const { breadcrumbs } = useBreadcrumbs();
 const { infoModal, confirmModal } = useNotification();
 const state = reactive<UserFiltersListState>({
   filterText: '',
@@ -165,7 +163,7 @@ function fetchUserFilters() {
 
 function edit(filter: UserFilter) {
   if (filter.type === USER_FILTER_TYPE.LDAP) {
-    push({ name: 'UserFilterLDAP', params: { uuid: filter.uuid } });
+    push({ name: 'UserFilterLDAP', params: { filterUuid: filter.uuid } });
   }
 }
 
@@ -200,7 +198,7 @@ async function removeUserFilter(filter: UserFilter) {
 
 function duplicate(filter: UserFilter) {
   if (filter.type === USER_FILTER_TYPE.LDAP) {
-    push({ name: 'UserFilterLDAP', params: { uuid: filter.uuid, duplicate: 'true' } });
+    push({ name: 'DuplicateUserFilterLDAP', params: { filterUuid: filter.uuid, duplicate: 'duplicate' } });
   }
 }
 

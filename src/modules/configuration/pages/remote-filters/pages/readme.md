@@ -1,1 +1,0 @@
-This directory to store vue page files of configuration/remote-filter-list module ( the file will be import in the routes)

@@ -14,19 +14,19 @@ async function createUserFilter(filter: Partial<UserFilter>): Promise<UserFilter
   return await api.post('user_filters', filter);
 }
 
-async function updateUserFilter(uuid: string, filter: Partial<UserFilter>): Promise<UserFilter> {
+async function updateUserFilter(uuid: string | string[], filter: Partial<UserFilter>): Promise<UserFilter> {
   return await api.put(`user_filters/${uuid}`, filter);
 }
 
-async function getUserFilter(uuid: string): Promise<UserFilter> {
+async function getUserFilter(uuid: string | string[]): Promise<UserFilter> {
   return await api.get(`user_filters/${uuid}`);
 }
 
-async function getAssociatedDomains(uuid: string): Promise<Domain[]> {
+async function getAssociatedDomains(uuid: string | string[]): Promise<Domain[]> {
   return await api.get(`user_filters/${uuid}/domains`);
 }
 
-async function deleteUserFilter(uuid: string): Promise<UserFilter> {
+async function deleteUserFilter(uuid: string | string[]): Promise<UserFilter> {
   return await api.delete(`user_filters/${uuid}`);
 }
 

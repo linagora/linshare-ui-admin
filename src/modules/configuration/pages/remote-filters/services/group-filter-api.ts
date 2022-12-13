@@ -16,15 +16,15 @@ async function updateGroupFilter(filter: LDAPGroupFilter): Promise<LDAPGroupFilt
   return await api.put(`group_filters/${filter.uuid}`, filter);
 }
 
-async function getGroupFilter(uuid: string): Promise<LDAPGroupFilter> {
+async function getGroupFilter(uuid: string | string[]): Promise<LDAPGroupFilter> {
   return await api.get(`group_filters/${uuid}`);
 }
 
-async function getGroupFilterAssociatedDomains(uuid: string): Promise<Domain[]> {
+async function getGroupFilterAssociatedDomains(uuid: string | string[]): Promise<Domain[]> {
   return await api.get(`group_filters/${uuid}/domains`);
 }
 
-async function deleteGroupFilter(uuid: string): Promise<LDAPGroupFilter> {
+async function deleteGroupFilter(uuid: string | string[]): Promise<LDAPGroupFilter> {
   return await api.delete(`group_filters/${uuid}`);
 }
 

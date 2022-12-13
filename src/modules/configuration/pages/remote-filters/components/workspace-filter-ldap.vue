@@ -1,16 +1,15 @@
 <template>
   <PageTitle
-    :title="$t('NAVIGATOR.LDAP_GROUP_FILTER')"
-    :subtitle="$t(editMode ? 'GROUP_FILTER.LDAP.PAGE_SUBTITLE_EDIT' : 'GROUP_FILTER.LDAP.PAGE_SUBTITLE_CREATE')"
-    :breadcrumbs="breadcrumbs"
+    :title="$t('NAVIGATOR.LDAP_WORKSPACE_FILTER')"
+    :subtitle="$t(editMode ? 'WORKSPACE_FILTER.LDAP.PAGE_SUBTITLE_EDIT' : 'WORKSPACE_FILTER.LDAP.PAGE_SUBTITLE_CREATE')"
   >
     <template #helperContent>
-      <span>{{ $t('GROUP_FILTER.LDAP.PAGE_HELPER_P1') }}</span>
+      <span>{{ $t('WORKSPACE_FILTER.LDAP.PAGE_HELPER_P1') }}</span>
       <br />
-      <span>{{ $t('GROUP_FILTER.LDAP.PAGE_HELPER_P2') }}</span>
+      <span>{{ $t('WORKSPACE_FILTER.LDAP.PAGE_HELPER_P2') }}</span>
       <ul>
-        <li>{{ $t('GROUP_FILTER.LDAP.PAGE_HELPER_P3') }}</li>
-        <li>{{ $t('GROUP_FILTER.LDAP.PAGE_HELPER_P4') }}</li>
+        <li>{{ $t('WORKSPACE_FILTER.LDAP.PAGE_HELPER_P3') }}</li>
+        <li>{{ $t('WORKSPACE_FILTER.LDAP.PAGE_HELPER_P4') }}</li>
       </ul>
     </template>
 
@@ -22,7 +21,9 @@
       </div>
     </template>
   </PageTitle>
-
+  <router-link :to="{ name: 'WorkspaceFilters' }">
+    <ArrowLeftIcon></ArrowLeftIcon>
+  </router-link>
   <div v-if="fetchingData" class="spinner">
     <a-spin />
   </div>
@@ -46,26 +47,29 @@
 
         <div class="section">
           <h2 class="section__title">
-            {{ $t('GROUP_FILTER.LDAP.FORM.WORKGROUP_SEARCH') }}
+            {{ $t('WORKSPACE_FILTER.LDAP.FORM.WORK_SPACE_SEARCH') }}
           </h2>
 
           <p class="section__helper">
-            {{ $t('GROUP_FILTER.LDAP.FORM.WORKGROUP_SEARCH_HELPER') }}
+            {{ $t('WORKSPACE_FILTER.LDAP.FORM.WORK_SPACE_SEARCH_HELPER') }}
           </p>
 
-          <a-form-item :label="$t('GROUP_FILTER.LDAP.FORM.QUERY_FOR_ALL')" v-bind="validateInfos.searchAllGroupsQuery">
+          <a-form-item
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.QUERY_FOR_ALL')"
+            v-bind="validateInfos.searchAllGroupsQuery"
+          >
             <a-textarea v-model:value="formState.searchAllGroupsQuery" auto-size />
           </a-form-item>
 
-          <a-form-item :label="$t('GROUP_FILTER.LDAP.FORM.QUERY_FOR_ONE')" v-bind="validateInfos.searchGroupQuery">
+          <a-form-item :label="$t('WORKSPACE_FILTER.LDAP.FORM.QUERY_FOR_ONE')" v-bind="validateInfos.searchGroupQuery">
             <a-textarea v-model:value="formState.searchGroupQuery" auto-size />
           </a-form-item>
 
           <a-row :gutter="32">
             <a-col :span="12">
               <a-form-item
-                :label="$t('GROUP_FILTER.LDAP.FORM.PREFIX')"
-                :help="$t('GROUP_FILTER.LDAP.FORM.PREFIX_HELPER')"
+                :label="$t('WORKSPACE_FILTER.LDAP.FORM.PREFIX')"
+                :help="$t('WORKSPACE_FILTER.LDAP.FORM.PREFIX_HELPER')"
                 v-bind="validateInfos.groupPrefixToRemove"
               >
                 <a-input v-model:value="formState.groupPrefixToRemove" auto-size />
@@ -73,7 +77,10 @@
             </a-col>
 
             <a-col :span="12">
-              <a-form-item :label="$t('GROUP_FILTER.LDAP.FORM.SEARCH_PAGE_SIZE')" v-bind="validateInfos.searchPageSize">
+              <a-form-item
+                :label="$t('WORKSPACE_FILTER.LDAP.FORM.SEARCH_PAGE_SIZE')"
+                v-bind="validateInfos.searchPageSize"
+              >
                 <a-input v-model:value="formState.searchPageSize" type="number" />
               </a-form-item>
             </a-col>
@@ -82,33 +89,39 @@
 
         <div class="section">
           <h2 class="section__title">
-            {{ $t('GROUP_FILTER.LDAP.FORM.ATTRIBUTES') }}
+            {{ $t('WORKSPACE_FILTER.LDAP.FORM.ATTRIBUTES') }}
           </h2>
 
-          <a-form-item :label="$t('GROUP_FILTER.LDAP.FORM.MEMBER_EMAIL')" v-bind="validateInfos.memberMailAttribute">
+          <a-form-item
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.MEMBER_EMAIL')"
+            v-bind="validateInfos.memberMailAttribute"
+          >
             <a-input v-model:value="formState.memberMailAttribute" />
           </a-form-item>
 
           <a-form-item
-            :label="$t('GROUP_FILTER.LDAP.FORM.MEMBER_FIRSTNAME')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.MEMBER_FIRSTNAME')"
             v-bind="validateInfos.memberFirstNameAttribute"
           >
             <a-input v-model:value="formState.memberFirstNameAttribute" />
           </a-form-item>
 
           <a-form-item
-            :label="$t('GROUP_FILTER.LDAP.FORM.MEMBER_LASTNAME')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.MEMBER_LASTNAME')"
             v-bind="validateInfos.memberLastNameAttribute"
           >
             <a-input v-model:value="formState.memberLastNameAttribute" />
           </a-form-item>
 
-          <a-form-item :label="$t('GROUP_FILTER.LDAP.FORM.WORKGROUP_NAME')" v-bind="validateInfos.groupNameAttribute">
+          <a-form-item
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.WORK_SPACE_NAME')"
+            v-bind="validateInfos.groupNameAttribute"
+          >
             <a-input v-model:value="formState.groupNameAttribute" />
           </a-form-item>
 
           <a-form-item
-            :label="$t('GROUP_FILTER.LDAP.FORM.WORKGROUP_MEMBER')"
+            :label="$t('WORKSPACE_FILTER.LDAP.FORM.WORK_SPACE_MEMBER')"
             v-bind="validateInfos.groupMemberAttribute"
           >
             <a-input v-model:value="formState.groupMemberAttribute" />
@@ -121,13 +134,13 @@
           </a-button>
 
           <a-button v-else>
-            <router-link :to="{ name: 'GroupFilters' }">
+            <router-link :to="{ name: 'WorkspaceFilters' }">
               {{ $t('GENERAL.CANCEL') }}
             </router-link>
           </a-button>
 
           <a-button type="primary" style="margin-left: 10px" :loading="formSubmitting" @click="submit">
-            {{ $t(props.uuid ? 'GENERAL.SAVE' : 'GENERAL.CREATE') }}
+            {{ $t($route.params.duplicate ? 'GENERAL.CREATE' : 'GENERAL.SAVE') }}
           </a-button>
         </div>
       </a-col>
@@ -139,53 +152,46 @@
 import { computed, reactive, ref, onMounted } from 'vue';
 import { message, Form } from 'ant-design-vue';
 import PageTitle from '@/core/components/page-title.vue';
-
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
-import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useNotification from '@/core/hooks/useNotification';
-
 import { APIError } from '@/core/types/APIError';
-import { EMPTY_LDAP_GROUP_FILTER, LDAPGroupFilter } from '../types/GroupFilters';
+import { EMPTY_FILTER, LDAPWorkspaceFilter } from '../types/WorkspaceFilters';
 import { SelectTypes } from 'ant-design-vue/es/select';
+import { useRoute } from 'vue-router';
+import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 
 import {
-  createGroupFilter,
-  deleteGroupFilter,
-  getGroupFilter,
-  getGroupFilterAssociatedDomains,
-  listGroupFilters,
-  updateGroupFilter,
-} from '../services/group-filter-api';
-
-interface Props {
-  uuid?: string;
-  duplicate?: string;
-}
+  createWorkspaceFilter,
+  deleteWorkspaceFilter,
+  getWorkspaceFilter,
+  getWorkspaceFilterAssociatedDomains,
+  listWorkspaceFilters,
+  updateWorkspaceFilter,
+} from '../services/workspace-filter-api';
 
 interface GroupFilterModelOptions {
-  list: LDAPGroupFilter[];
+  list: LDAPWorkspaceFilter[];
   options: SelectTypes['options'];
   selected: string;
 }
 
 const useForm = Form.useForm;
 const { confirmModal, infoModal } = useNotification();
-const { breadcrumbs } = useBreadcrumbs();
 const { t } = useI18n();
+const route = useRoute();
 const { push } = useRouter();
 
-const props = defineProps<Props>();
-const editMode = computed(() => props.uuid && !props.duplicate);
+const editMode = computed(() => !route.params.duplicate);
 const models = reactive<GroupFilterModelOptions>({
   selected: '',
   list: [],
   options: [],
 });
-const groupFilter: LDAPGroupFilter | Record<never, string> = {};
+const groupFilter: LDAPWorkspaceFilter | Record<never, string> = {};
 const fetchingData = ref(false);
 const formSubmitting = ref(false);
-const formState = reactive<LDAPGroupFilter>({ ...EMPTY_LDAP_GROUP_FILTER });
+const formState = reactive<LDAPWorkspaceFilter>({ ...EMPTY_FILTER });
 
 const formRules = reactive({
   name: [{ required: true, message: t('GENERAL.FIELD_REQUIRED'), trigger: 'change' }],
@@ -205,16 +211,16 @@ async function prepareData() {
   fetchingData.value = true;
 
   try {
-    if (props.uuid) {
-      const filter = await getGroupFilter(props.uuid);
+    if (route.params.filterUuid) {
+      const filter = await getWorkspaceFilter(route.params.filterUuid);
       Object.assign(groupFilter, filter);
       Object.assign(formState, filter, {
-        name: props.duplicate ? '' : filter.name,
+        name: route.params.duplicate ? '' : filter.name,
       });
     }
 
     if (!editMode.value) {
-      const availableModels = await listGroupFilters(true);
+      const availableModels = await listWorkspaceFilters(true);
 
       Object.assign(models, {
         list: availableModels,
@@ -228,7 +234,7 @@ async function prepareData() {
       console.error(error);
     }
 
-    push({ name: 'GroupFilters' });
+    push({ name: 'WorkspaceFilters' });
   } finally {
     fetchingData.value = false;
   }
@@ -246,14 +252,14 @@ async function submit() {
 
   try {
     if (editMode.value) {
-      await updateGroupFilter({ ...formState });
+      await updateWorkspaceFilter({ ...formState });
 
       message.success(t('MESSAGES.UPDATE_SUCCESS'));
     } else {
-      await createGroupFilter({ ...formState });
+      await createWorkspaceFilter({ ...formState });
 
       message.success(t('MESSAGES.CREATE_SUCCESS'));
-      push({ name: 'GroupFilters' });
+      push({ name: 'WorkspaceFilters' });
     }
   } catch (error) {
     if (error instanceof APIError) {
@@ -274,27 +280,35 @@ function onModelChange(modelUuid: string) {
 }
 
 async function confirmDelete() {
-  if (!props.uuid) return;
+  if (route.params.duplicate) return;
 
-  const usedInDomains = (await getGroupFilterAssociatedDomains(props.uuid)).length > 0;
+  let usedInDomains = false;
+
+  try {
+    usedInDomains = (await getWorkspaceFilterAssociatedDomains(route.params.filterUuid)).length > 0;
+  } catch (error) {
+    message.error((error as APIError).getMessage());
+
+    return;
+  }
 
   if (usedInDomains) {
     return infoModal({
       title: t('GENERAL.DELETION'),
-      content: t('GROUP_FILTER.DELETE_ABORT'),
+      content: t('WORKSPACE_FILTER.DELETE_ABORT'),
     });
   }
 
   confirmModal({
     title: t('GENERAL.DELETION'),
-    content: t('GROUP_FILTER.DELETE_CONFIRM'),
+    content: t('WORKSPACE_FILTER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
     onOk: () =>
-      props.uuid &&
-      deleteGroupFilter(props.uuid)
+      route.params.filterUuid &&
+      deleteWorkspaceFilter(route.params.filterUuid)
         .then(() => {
           message.success(t('MESSAGES.DELETE_SUCCESS'));
-          push({ name: 'GroupFilters' });
+          push({ name: 'WorkspaceFilters' });
         })
         .catch((error) => {
           message.error(t('MESSAGES.DELETE_FAILURE'));
