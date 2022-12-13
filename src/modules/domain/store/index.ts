@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
 import Status from '@/core/types/Status';
 import type { Functionality } from '@/core/types/Functionality';
-import Domain, { EMPTY_DOMAIN } from '@/modules/domain/types/Domain';
+import Domain, { DOMAIN_TYPE, EMPTY_DOMAIN } from '@/modules/domain/types/Domain';
 import DomainTreeNode, { EMPTY_DOMAIN_NODE } from '@/modules/domain/types/DomainTreeNode';
 
 import {
@@ -39,8 +39,10 @@ export const useDomainStore = defineStore('domainStore', {
       (state) =>
       (entity: 'currentDomain'): Status =>
         state.status[entity],
-    isRootDomain: (state): boolean => state.currentDomain.type === 'ROOTDOMAIN',
-    isGuestDomain: (state): boolean => state.currentDomain.type === 'GUESTDOMAIN',
+    isRootDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.ROOT,
+    isGuestDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.GUEST,
+    isSubDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.SUB,
+    isTopDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.TOP,
   },
   actions: {
     setCurrentDomainUuid(uuid: string) {

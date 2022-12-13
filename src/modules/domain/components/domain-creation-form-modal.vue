@@ -37,6 +37,12 @@
         <a-input v-model:value="formState.description" />
       </a-form-item>
 
+      <a-form-item v-if="isGuestDomainAllowed">
+        <a-checkbox v-model:checked="formState.guestDomain">
+          {{ $t('DOMAIN.CREATE_MODAL.GUEST_DOMAIN_CHECKBOX') }}
+        </a-checkbox>
+      </a-form-item>
+
       <a-form-item>
         <a-checkbox v-model:checked="formState.dedicatedDomainPolicy">
           {{ $t('DOMAIN.FIELDS.DOMAIN_POLICY_AUTO') }}
@@ -67,6 +73,8 @@ import { InfoCircleOutlined } from '@ant-design/icons-vue';
 import { createDomain } from '../services/domain-api';
 import Domain, { DOMAIN_TYPE } from '../types/Domain';
 import { APIError } from '@/core/types/APIError';
+import { useDomainStore } from '@/modules/domain/store';
+import DomainTreeNode from '@/modules/domain/types/DomainTreeNode';
 
 export interface DomainCreationFormModalProps {
   visible: boolean;
@@ -84,6 +92,16 @@ const title = computed(
       [DOMAIN_TYPE.GUEST]: 'DOMAIN.CREATE_GUEST_DOMAIN',
     }[props.type || DOMAIN_TYPE.TOP])
 );
+const domainStore = useDomainStore();
+const isGuestDomainAllowed = computed(() => {
+  if (domainStore.isTopDomain) {
+    const domainWithChildren: DomainTreeNode = domainStore.getDomainByUuid(domainStore.currentDomain.uuid);
+    //TODO ASH move this logic and add children when to the current domain on getting domain info
+    if (!domainWithChildren.children) return true;
+    return domainWithChildren.children?.filter((child) => child.type === DOMAIN_TYPE.GUEST).length === 0;
+  }
+  return false;
+});
 
 const { t } = useI18n();
 const formSaving = ref(false);
@@ -92,6 +110,7 @@ const formState = reactive({
   name: '',
   description: '',
   dedicatedDomainPolicy: false,
+  guestDomain: false,
 });
 const formRules = computed(() => ({
   name: [
@@ -119,7 +138,7 @@ async function onSave() {
         name: formState.name,
         description: formState.description ? formState.description : undefined,
         parent: props.parent,
-        type: props.type,
+        type: formState.guestDomain ? DOMAIN_TYPE.GUEST : props.type,
       },
       formState.dedicatedDomainPolicy
     );

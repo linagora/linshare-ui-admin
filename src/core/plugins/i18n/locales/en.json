@@ -399,9 +399,11 @@
     }
   },
   "DOMAIN": {
+    "CREATE_DOMAIN": "Create domain",
     "CREATE_TOP_DOMAIN": "Create a top domain",
     "CREATE_SUB_DOMAIN": "Create a sub domain",
     "CREATE_GUEST_DOMAIN": "Create a guest domain",
+    "SELECT_DOMAIN": "Select domain",
     "DELETE": {
       "BUTTON": "Delete domain",
       "MODAL_CHILD_EXISTS_TITLE": "Domain contains nested domains",
@@ -435,7 +437,8 @@
     },
     "CREATE_MODAL": {
       "FOOTER_NOTE": "The domain will be created with default values, for example default role or locale, etc... After creating domain, please edit the domain and its parameters for more advanced settings",
-      "DOMAIN_POLICY_AUTO_TOOLTIP": "If enabled, a rule will be created automatically by authorizing the newly created domain to communicate with itself only. All other communications are forbidden by default. If disabled, the default domain policy will be applied. It will allow all other domains to see this domain."
+      "DOMAIN_POLICY_AUTO_TOOLTIP": "If enabled, a rule will be created automatically by authorizing the newly created domain to communicate with itself only. All other communications are forbidden by default. If disabled, the default domain policy will be applied. It will allow all other domains to see this domain.",
+      "GUEST_DOMAIN_CHECKBOX": "It is guest domain"
     },
     "REMOTE_FILTERS_HELPER": "Remote filters can be used by any domain"
   },

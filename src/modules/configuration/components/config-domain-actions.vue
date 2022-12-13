@@ -5,18 +5,22 @@
         <detail-icon class="icon"></detail-icon>
       </ls-button>
       <div v-if="mobileMenu" ref="mobileMenuTarget" class="config-menu">
-        <ls-button type="text" class="action" @click="onCreateChildDomain"> Create Domain </ls-button>
-        <ls-button type="text" class="action" @click="openSelectDomainModal = true"> Select Domain </ls-button>
+        <ls-button type="text" class="action" :disabled="createDomainButton.disabled" @click="onCreateChildDomain">
+          {{ $t('DOMAIN.CREATE_DOMAIN') }}
+        </ls-button>
+        <ls-button type="text" class="action" @click="openSelectDomainModal = true">
+          {{ $t('DOMAIN.SELECT_DOMAIN') }}
+        </ls-button>
       </div>
     </div>
     <div class="desktop">
-      <ls-button color="info" @click="onCreateChildDomain">
+      <ls-button color="info" :disabled="createDomainButton.disabled" @click="onCreateChildDomain">
         <plus-icon class="icon"></plus-icon>
-        Create Domain
+        {{ $t('DOMAIN.CREATE_DOMAIN') }}
       </ls-button>
       <ls-button color="info" @click="openSelectDomainModal = true">
         <globe-icon class="icon"></globe-icon>
-        Select Domain
+        {{ $t('DOMAIN.SELECT_DOMAIN') }}
       </ls-button>
     </div>
     <select-domain-modal
@@ -31,7 +35,7 @@ import PlusIcon from '@/core/components/icons/plus-icon.vue';
 import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import LsButton from '@/core/components/ls/ls-button.vue';
 import { useRoute, useRouter } from 'vue-router';
-import { computed, ref } from 'vue';
+import { computed, ref, reactive, watch } from 'vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { onClickOutside } from '@vueuse/core';
 import SelectDomainModal from '@/modules/configuration/components/select-domain-modal.vue';
@@ -44,6 +48,10 @@ const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 const mobileMenu = ref(false);
 const mobileMenuTarget = ref(null);
 const openSelectDomainModal = ref(false);
+
+const createDomainButton = reactive({
+  disabled: false,
+});
 
 function onViewDomainDetail() {
   router.push({ name: 'ConfigurationDomainQuota', params: { domainUuid: currentDomainUuid.value } });
@@ -60,6 +68,17 @@ function onCreateChildDomain() {
 function onViewDetail() {
   mobileMenu.value = !mobileMenu.value;
 }
+
+function onDomainChanged() {
+  //for the root domain we can create any number of subdomain
+  if (domainStore.isGuestDomain || domainStore.isSubDomain) {
+    createDomainButton.disabled = true;
+  } else {
+    createDomainButton.disabled = false;
+  }
+}
+
+watch(() => domainStore.currentDomain, onDomainChanged);
 </script>
 <style lang="less">
 .config-domain-actions {
