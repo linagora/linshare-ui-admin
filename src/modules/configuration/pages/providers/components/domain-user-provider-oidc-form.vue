@@ -79,7 +79,7 @@ import { OIDCUserProvider } from '../types/UserProvider';
 import useNotification from '@/core/hooks/useNotification';
 import { APIError } from '@/core/types/APIError';
 
-import { createUserProvider, deleteUserProvider, updateUserProvider } from '../services/domain-api';
+import { createUserProvider, deleteUserProvider, updateUserProvider } from '../services/providers-api';
 
 interface Props {
   provider: OIDCUserProvider;

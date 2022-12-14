@@ -2,7 +2,9 @@
   <div v-if="state.status === 'loading'" class="spinner">
     <a-spin />
   </div>
-
+  <router-link :to="{ name: 'ConfigurationDomainProviders' }">
+    <ArrowLeftIcon></ArrowLeftIcon>
+  </router-link>
   <div v-if="state.status === 'loaded'">
     <a-result
       v-if="!state.provider.uuid && !state.provider.type"
@@ -93,13 +95,14 @@ import { useDomainStore } from '@/modules/domain/store';
 import DomainUserProviderLDAPForm from './domain-user-provider-ldap-form.vue';
 import DomainUserProviderOIDCForm from './domain-user-provider-oidc-form.vue';
 import DomainUserProviderTwakeForm from './domain-user-provider-twake-form.vue';
-import { getUserProviders } from '../services/domain-api';
+import { getUserProviders } from '../services/providers-api';
 import { LDAPUserProvider, OIDCUserProvider, EMPTY_PROVIDER, TwakeUserProvider } from '../types/UserProvider';
-import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
-import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import UserFilter, { USER_FILTER_TYPE } from '@/modules/remote-filter/types/UserFilter';
-import { listUserFilters } from '@/modules/remote-filter/services/user-filter-api';
+import { listRemoteServers } from '@/modules/configuration/pages/remote-servers/services/remote-server-api';
+import RemoteServer from '@/modules/configuration/pages/remote-servers/types/RemoteServer';
+import UserFilter, { USER_FILTER_TYPE } from '@/modules/configuration/pages/remote-filters/types/UserFilter';
+import { listUserFilters } from '@/modules/configuration/pages/remote-filters/services/user-filter-api';
 import { DOMAIN_TYPE } from '../types/Domain';
+import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 import StatusValue from '@/core/types/Status';
 
 interface State {

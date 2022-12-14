@@ -2,19 +2,21 @@
   <div v-if="state.status === 'loading'" class="spinner">
     <a-spin />
   </div>
-
+  <router-link :to="{ name: 'ConfigurationDomainProviders' }">
+    <ArrowLeftIcon></ArrowLeftIcon>
+  </router-link>
   <div v-if="state.status === 'loaded'">
-    <a-result v-if="!state.provider.uuid && !state.provider.type" :title="$t('GROUP_PROVIDER.EMPTY_MESSAGE')">
+    <a-result v-if="!state.provider.uuid && !state.provider.type" :title="$t('WORKSPACE_PROVIDER.EMPTY_MESSAGE')">
       <template #extra>
         <a-button type="primary" @click="state.provider.type = 'LDAP_PROVIDER'">
-          {{ $t('GROUP_PROVIDER.CREATE') }}
+          {{ $t('WORKSPACE_PROVIDER.CREATE') }}
         </a-button>
       </template>
     </a-result>
 
     <a-row v-else>
       <a-col :xl="{ span: 12, offset: 6 }" :sm="{ span: 24 }">
-        <DomainGroupProviderLDAPForm
+        <DomainWorkspaceProviderLDAPForm
           v-if="state.provider.type === 'LDAP_PROVIDER'"
           :provider="state.provider"
           :servers-list="state.ldapServers"
@@ -29,7 +31,7 @@
   </div>
 
   <div v-if="state.status === 'error'">
-    <a-result status="error" :title="$t('GROUP_PROVIDER.ERROR_MESSAGE')">
+    <a-result status="error" :title="$t('WORKSPACE_PROVIDER.ERROR_MESSAGE')">
       <template #extra>
         <a-button type="primary" @click="prepareData()">
           {{ $t('GENERAL.TRY_AGAIN') }}
@@ -42,26 +44,26 @@
 <script lang="ts" setup>
 import { computed, reactive, onMounted, watch } from 'vue';
 import { useDomainStore } from '@/modules/domain/store';
-import DomainGroupProviderLDAPForm from './domain-group-provider-ldap-form.vue';
-import { getGroupProviders } from '../services/domain-api';
-import { LDAPGroupProvider, EMPTY_PROVIDER } from '../types/GroupProvider';
-import { listRemoteServers } from '@/modules/remote-server/services/remote-server-api';
-import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import { LDAPGroupFilter } from '@/modules/remote-filter/types/GroupFilters';
-import { listGroupFilters } from '@/modules/remote-filter/services/group-filter-api';
+import DomainWorkspaceProviderLDAPForm from './domain-workspace-provider-ldap-form.vue';
+import { getWorkspaceProviders } from '../services/providers-api';
+import { listRemoteServers } from '@/modules/configuration/pages/remote-servers/services/remote-server-api';
+import { listWorkspaceFilters } from '@/modules/configuration/pages/remote-filters/services/workspace-filter-api';
+import { LDAPWorkspaceFilter } from '@/modules/configuration/pages/remote-filters/types/WorkspaceFilters';
+import RemoteServer from '@/modules/configuration/pages/remote-servers/types/RemoteServer';
+import { LDAPWorkspaceProvider, EMPTY_PROVIDER } from '../types/WorkspaceProvider';
 import StatusValue from '@/core/types/Status';
-import { storeToRefs } from 'pinia';
+import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
-  provider: LDAPGroupProvider;
+  provider: LDAPWorkspaceProvider;
   ldapServers: RemoteServer[];
-  groupFilters: LDAPGroupFilter[];
+  groupFilters: LDAPWorkspaceFilter[];
 }
 
 const domainStore = useDomainStore();
-const { currentDomain, getStatus } = storeToRefs(domainStore);
-const currentDomainStatus = computed<StatusValue>(() => getStatus.value('currentDomain'));
+const currentDomain = domainStore.currentDomain;
+const currentDomainStatus = computed<StatusValue>(() => domainStore.getStatus('currentDomain'));
 
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
@@ -69,7 +71,7 @@ const state = reactive<State>({
   groupFilters: [],
 });
 
-function setProvider(provider: LDAPGroupProvider) {
+function setProvider(provider: LDAPWorkspaceProvider) {
   state.provider = { ...provider };
 }
 
@@ -80,13 +82,13 @@ async function prepareLDAPServers() {
 }
 
 async function prepareGroupFilters() {
-  const filters = await listGroupFilters();
+  const filters = await listWorkspaceFilters();
 
   state.groupFilters = filters.filter((filter) => filter.type === 'LDAP');
 }
 
-async function prepareGroupProviders() {
-  const providers = await getGroupProviders(currentDomain.value.uuid);
+async function prepareWorkspaceProviders() {
+  const providers = await getWorkspaceProviders(currentDomain.uuid);
 
   state.provider = providers[0] || { ...EMPTY_PROVIDER };
 }
@@ -111,7 +113,7 @@ watch(currentDomainStatus, async (status: StatusValue) => {
     state.status = 'loading';
 
     try {
-      await prepareGroupProviders();
+      await prepareWorkspaceProviders();
 
       state.status = 'loaded';
     } catch (error) {
@@ -123,13 +125,6 @@ watch(currentDomainStatus, async (status: StatusValue) => {
 
 <style class="less" scoped>
 .spinner {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.empty-provider {
   height: 100%;
   display: flex;
   justify-content: center;

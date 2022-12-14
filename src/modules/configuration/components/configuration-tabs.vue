@@ -97,62 +97,6 @@ const configurationTabs = {
       requiresCurrentDomain: true,
     },
   },
-  PROVIDERS_MANAGEMENT: {
-    key: 'PROVIDERS_MANAGEMENT',
-    name: 'Domain Provider Management',
-    title: 'NAVIGATOR.PROVIDERS',
-    accessibility: {
-      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
-      userRoles: [ACCOUNT_ROLE.SUPERADMIN],
-    },
-    route: {
-      name: 'ConfigurationDomainProviderManagement',
-      requiresCurrentDomain: true,
-    },
-    sub: true,
-  },
-  USER_PROVIDERS: {
-    key: 'USER_PROVIDERS',
-    name: 'Domain User Providers',
-    title: 'NAVIGATOR.USER_PROVIDERS',
-    accessibility: {
-      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
-      userRoles: [ACCOUNT_ROLE.SUPERADMIN],
-    },
-    route: {
-      name: 'ConfigurationDomainDomainUserProviders',
-      requiresCurrentDomain: true,
-    },
-    sub: true,
-  },
-  GROUP_PROVIDERS: {
-    key: 'GROUP_PROVIDERS',
-    name: 'Domain Group Providers',
-    title: 'NAVIGATOR.GROUP_PROVIDERS',
-    accessibility: {
-      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
-      userRoles: [ACCOUNT_ROLE.SUPERADMIN],
-    },
-    route: {
-      name: 'ConfigurationDomainGroupProviders',
-      requiresCurrentDomain: true,
-    },
-    sub: true,
-  },
-  WORKSPACE_PROVIDERS: {
-    key: 'WORKSPACE_PROVIDERS',
-    name: 'Domain Workspace Providers',
-    title: 'NAVIGATOR.WORKSPACE_PROVIDERS',
-    accessibility: {
-      domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB],
-      userRoles: [ACCOUNT_ROLE.SUPERADMIN],
-    },
-    route: {
-      name: 'ConfigurationDomainDomainWorkspaceProviders',
-      requiresCurrentDomain: true,
-    },
-    sub: true,
-  },
   REMOTE_FILTERS: {
     key: 'REMOTE_FILTERS',
     name: 'Remote Filters List',

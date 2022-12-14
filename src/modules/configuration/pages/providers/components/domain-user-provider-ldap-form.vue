@@ -9,17 +9,11 @@
     </a-form-item>
 
     <a-form-item
-      :label="$t('GROUP_PROVIDER.LDAP.BASE_DN')"
-      :help="$t('GROUP_PROVIDER.LDAP.BASE_DN_HELPER')"
+      :label="$t('USER_PROVIDER.LDAP.BASE_DN')"
+      :help="$t('USER_PROVIDER.LDAP.BASE_DN_HELPER')"
       v-bind="validateInfos.baseDn"
     >
       <a-input v-model:value="formState.baseDn" />
-    </a-form-item>
-
-    <a-form-item>
-      <a-checkbox v-model:checked="formState.searchInOtherDomains">
-        {{ $t('GROUP_PROVIDER.LDAP.SEARCH_IN_OTHER_DOMAINS') }}
-      </a-checkbox>
     </a-form-item>
 
     <div class="form-actions">
@@ -53,19 +47,19 @@
 import { computed, reactive, ref, ComputedRef } from 'vue';
 import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
-import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import { LDAPGroupFilter } from '@/modules/remote-filter/types/GroupFilters';
-import { LDAPGroupProvider } from '../types/GroupProvider';
+import RemoteServer from '@/modules/configuration/pages/remote-servers/types/RemoteServer';
+import UserFilter from '@/modules/configuration/pages/remote-filters/types/UserFilter';
+import { LDAPUserProvider } from '../types/UserProvider';
 import Domain from '../types/Domain';
 import useNotification from '@/core/hooks/useNotification';
 
-import { createGroupProvider, deleteGroupProvider, updateGroupProvider } from '../services/domain-api';
+import { createUserProvider, deleteUserProvider, updateUserProvider } from '../services/providers-api';
 
 interface Props {
   domain: Domain;
-  provider: LDAPGroupProvider;
+  provider: LDAPUserProvider;
   serversList: RemoteServer[];
-  filtersList: LDAPGroupFilter[];
+  filtersList: UserFilter[];
 }
 
 interface LDAPServerOptions {
@@ -79,7 +73,7 @@ interface LDAPServerOptions {
 }
 
 interface LDAPFilterOptions {
-  list: LDAPGroupFilter[];
+  list: UserFilter[];
   options: ComputedRef<
     {
       label: string;
@@ -89,10 +83,9 @@ interface LDAPFilterOptions {
 }
 
 interface ProviderForm {
-  baseDn: string;
-  serverUuid: string;
-  filterUuid: string;
-  searchInOtherDomains: boolean;
+  baseDn?: string;
+  serverUuid?: string;
+  filterUuid?: string;
 }
 
 const useForm = Form.useForm;
@@ -103,10 +96,9 @@ const emit = defineEmits(['cancel', 'submitted', 'deleted']);
 const props = defineProps<Props>();
 const formSubmitting = ref(false);
 const formState = reactive<ProviderForm>({
-  baseDn: props.provider.baseDn || '',
-  serverUuid: props.provider.ldapServer?.uuid || '',
-  filterUuid: props.provider.groupFilter?.uuid || '',
-  searchInOtherDomains: props.provider.searchInOtherDomains,
+  baseDn: props.provider.baseDn,
+  serverUuid: props.provider.ldapServer?.uuid,
+  filterUuid: props.provider.userFilter?.uuid,
 });
 const formRules = reactive({
   baseDn: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
@@ -146,7 +138,7 @@ async function create() {
   }
 
   try {
-    const provider = await createGroupProvider(props.domain.uuid, getDto());
+    const provider = await createUserProvider(props.domain.uuid, getDto());
 
     emit('submitted', provider);
     message.success(t('MESSAGES.CREATE_SUCCESS'));
@@ -157,7 +149,7 @@ async function create() {
   }
 }
 
-function getDto(): LDAPGroupProvider {
+function getDto(): Partial<LDAPUserProvider> {
   return {
     type: 'LDAP_PROVIDER',
     baseDn: formState.baseDn,
@@ -165,11 +157,10 @@ function getDto(): LDAPGroupProvider {
       uuid: formState.serverUuid || '',
       name: servers.list.find((server) => server.uuid === formState.serverUuid)?.name || '',
     },
-    groupFilter: {
+    userFilter: {
       uuid: formState.filterUuid || '',
       name: filters.list.find((filter) => filter.uuid === formState.filterUuid)?.name || '',
     },
-    searchInOtherDomains: !!formState.searchInOtherDomains,
   };
 }
 
@@ -184,7 +175,7 @@ async function save() {
   }
 
   try {
-    const provider = await updateGroupProvider(props.domain.uuid, {
+    const provider = await updateUserProvider(props.domain.uuid, {
       ...props.provider,
       ...getDto(),
     });
@@ -200,7 +191,7 @@ async function save() {
 
 async function remove() {
   try {
-    await deleteGroupProvider(props.domain.uuid, props.provider);
+    await deleteUserProvider(props.domain.uuid, props.provider);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
     emit('deleted');
@@ -212,7 +203,7 @@ async function remove() {
 function confirmDelete() {
   confirmModal({
     title: t('GENERAL.DELETION'),
-    content: t('GROUP_PROVIDER.DELETE_CONFIRM'),
+    content: t('USER_PROVIDER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
     onOk: remove,
   });

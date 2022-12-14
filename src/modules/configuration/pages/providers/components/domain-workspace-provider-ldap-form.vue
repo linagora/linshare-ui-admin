@@ -1,15 +1,25 @@
 <template>
   <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
-    <a-form-item :label="$t('REMOTE_SERVER.TYPE.TWAKE')" v-bind="validateInfos.serverUuid">
+    <a-form-item :label="$t('REMOTE_SERVER.TYPE.LDAP')" v-bind="validateInfos.serverUuid">
       <a-select v-model:value="formState.serverUuid" :options="servers.options" />
     </a-form-item>
 
+    <a-form-item :label="$t('USER_FILTER.TYPES.LDAP')" v-bind="validateInfos.filterUuid">
+      <a-select v-model:value="formState.filterUuid" :options="filters.options" />
+    </a-form-item>
+
     <a-form-item
-      :label="$t('USER_PROVIDER.TWAKE.COMPANY_ID')"
-      :help="$t('USER_PROVIDER.TWAKE.COMPANY_ID_HELPER')"
-      v-bind="validateInfos.companyId"
+      :label="$t('WORKSPACE_PROVIDER.LDAP.BASE_DN')"
+      :help="$t('WORKSPACE_PROVIDER.LDAP.BASE_DN_HELPER')"
+      v-bind="validateInfos.baseDn"
     >
-      <a-input v-model:value="formState.companyId" />
+      <a-input v-model:value="formState.baseDn" />
+    </a-form-item>
+
+    <a-form-item>
+      <a-checkbox v-model:checked="formState.searchInOtherDomains">
+        {{ $t('WORKSPACE_PROVIDER.LDAP.SEARCH_IN_OTHER_DOMAINS') }}
+      </a-checkbox>
     </a-form-item>
 
     <div class="form-actions">
@@ -43,20 +53,22 @@
 import { computed, reactive, ref, ComputedRef } from 'vue';
 import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
-import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import { TwakeUserProvider } from '../types/UserProvider';
+import RemoteServer from '@/modules/configuration/pages/remote-servers/types/RemoteServer';
+import { LDAPWorkspaceFilter } from '@/modules/configuration/pages/remote-filters/types/WorkspaceFilters';
+import { LDAPWorkspaceProvider } from '../types/WorkspaceProvider';
 import Domain from '../types/Domain';
 import useNotification from '@/core/hooks/useNotification';
 
-import { createUserProvider, deleteUserProvider, updateUserProvider } from '../services/domain-api';
+import { createWorkspaceProvider, deleteWorkspaceProvider, updateWorkspaceProvider } from '../services/providers-api';
 
 interface Props {
   domain: Domain;
-  provider: TwakeUserProvider;
+  provider: LDAPWorkspaceProvider;
   serversList: RemoteServer[];
+  filtersList: LDAPWorkspaceFilter[];
 }
 
-interface TwakeServerOptions {
+interface LDAPServerOptions {
   list: RemoteServer[];
   options: ComputedRef<
     {
@@ -66,9 +78,21 @@ interface TwakeServerOptions {
   >;
 }
 
+interface LDAPFilterOptions {
+  list: LDAPWorkspaceFilter[];
+  options: ComputedRef<
+    {
+      label: string;
+      value: string;
+    }[]
+  >;
+}
+
 interface ProviderForm {
-  serverUuid?: string;
-  companyId?: string;
+  baseDn: string;
+  serverUuid: string;
+  filterUuid: string;
+  searchInOtherDomains: boolean;
 }
 
 const useForm = Form.useForm;
@@ -77,7 +101,22 @@ const { confirmModal } = useNotification();
 
 const emit = defineEmits(['cancel', 'submitted', 'deleted']);
 const props = defineProps<Props>();
-const servers = reactive<TwakeServerOptions>({
+const formSubmitting = ref(false);
+const formState = reactive<ProviderForm>({
+  baseDn: props.provider.baseDn || '',
+  serverUuid: props.provider.ldapServer?.uuid || '',
+  filterUuid: props.provider.workSpaceFilter?.uuid || '',
+  searchInOtherDomains: props.provider.searchInOtherDomains,
+});
+const formRules = reactive({
+  baseDn: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
+  serverUuid: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
+  filterUuid: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
+});
+
+const { resetFields, validate, validateInfos } = useForm(formState, formRules);
+
+const servers = reactive<LDAPServerOptions>({
   list: props.serversList,
   options: computed(() =>
     props.serversList.map((server) => ({
@@ -86,18 +125,15 @@ const servers = reactive<TwakeServerOptions>({
     }))
   ),
 });
-
-const formSubmitting = ref(false);
-const formState = reactive<ProviderForm>({
-  serverUuid: props.provider.twakeServer?.uuid,
-  companyId: props.provider.twakeCompanyId,
+const filters = reactive<LDAPFilterOptions>({
+  list: props.filtersList,
+  options: computed(() =>
+    props.filtersList.map((filter) => ({
+      label: filter.name,
+      value: filter.uuid,
+    }))
+  ),
 });
-const formRules = reactive({
-  companyId: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
-  serverUuid: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
-});
-
-const { resetFields, validate, validateInfos } = useForm(formState, formRules);
 
 async function create() {
   formSubmitting.value = true;
@@ -110,7 +146,7 @@ async function create() {
   }
 
   try {
-    const provider = await createUserProvider(props.domain.uuid, getDto());
+    const provider = await createWorkspaceProvider(props.domain.uuid, getDto());
 
     emit('submitted', provider);
     message.success(t('MESSAGES.CREATE_SUCCESS'));
@@ -121,14 +157,19 @@ async function create() {
   }
 }
 
-function getDto(): Partial<TwakeUserProvider> {
+function getDto(): LDAPWorkspaceProvider {
   return {
-    type: props.provider.type,
-    twakeCompanyId: formState.companyId,
-    twakeServer: {
+    type: 'LDAP_PROVIDER',
+    baseDn: formState.baseDn,
+    ldapServer: {
       uuid: formState.serverUuid || '',
       name: servers.list.find((server) => server.uuid === formState.serverUuid)?.name || '',
     },
+    workSpaceFilter: {
+      uuid: formState.filterUuid || '',
+      name: filters.list.find((filter) => filter.uuid === formState.filterUuid)?.name || '',
+    },
+    searchInOtherDomains: !!formState.searchInOtherDomains,
   };
 }
 
@@ -143,7 +184,7 @@ async function save() {
   }
 
   try {
-    const provider = await updateUserProvider(props.domain.uuid, {
+    const provider = await updateWorkspaceProvider(props.domain.uuid, {
       ...props.provider,
       ...getDto(),
     });
@@ -159,7 +200,7 @@ async function save() {
 
 async function remove() {
   try {
-    await deleteUserProvider(props.domain.uuid, props.provider);
+    await deleteWorkspaceProvider(props.domain.uuid, props.provider);
 
     message.success(t('MESSAGES.DELETE_SUCCESS'));
     emit('deleted');
@@ -171,7 +212,7 @@ async function remove() {
 function confirmDelete() {
   confirmModal({
     title: t('GENERAL.DELETION'),
-    content: t('USER_PROVIDER.DELETE_CONFIRM'),
+    content: t('WORKSPACE_PROVIDER.DELETE_CONFIRM'),
     okText: t('GENERAL.DELETE'),
     onOk: remove,
   });

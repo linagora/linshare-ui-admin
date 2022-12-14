@@ -1,19 +1,15 @@
 <template>
   <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
-    <a-form-item :label="$t('REMOTE_SERVER.TYPE.LDAP')" v-bind="validateInfos.serverUuid">
+    <a-form-item :label="$t('REMOTE_SERVER.TYPE.TWAKE')" v-bind="validateInfos.serverUuid">
       <a-select v-model:value="formState.serverUuid" :options="servers.options" />
     </a-form-item>
 
-    <a-form-item :label="$t('USER_FILTER.TYPES.LDAP')" v-bind="validateInfos.filterUuid">
-      <a-select v-model:value="formState.filterUuid" :options="filters.options" />
-    </a-form-item>
-
     <a-form-item
-      :label="$t('USER_PROVIDER.LDAP.BASE_DN')"
-      :help="$t('USER_PROVIDER.LDAP.BASE_DN_HELPER')"
-      v-bind="validateInfos.baseDn"
+      :label="$t('USER_PROVIDER.TWAKE.COMPANY_ID')"
+      :help="$t('USER_PROVIDER.TWAKE.COMPANY_ID_HELPER')"
+      v-bind="validateInfos.companyId"
     >
-      <a-input v-model:value="formState.baseDn" />
+      <a-input v-model:value="formState.companyId" />
     </a-form-item>
 
     <div class="form-actions">
@@ -47,22 +43,20 @@
 import { computed, reactive, ref, ComputedRef } from 'vue';
 import { Form, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
-import RemoteServer from '@/modules/remote-server/types/RemoteServer';
-import UserFilter from '@/modules/remote-filter/types/UserFilter';
-import { LDAPUserProvider } from '../types/UserProvider';
+import RemoteServer from '@/modules/configuration/pages/remote-servers/types/RemoteServer';
+import { TwakeUserProvider } from '../types/UserProvider';
 import Domain from '../types/Domain';
 import useNotification from '@/core/hooks/useNotification';
 
-import { createUserProvider, deleteUserProvider, updateUserProvider } from '../services/domain-api';
+import { createUserProvider, deleteUserProvider, updateUserProvider } from '../services/providers-api';
 
 interface Props {
   domain: Domain;
-  provider: LDAPUserProvider;
+  provider: TwakeUserProvider;
   serversList: RemoteServer[];
-  filtersList: UserFilter[];
 }
 
-interface LDAPServerOptions {
+interface TwakeServerOptions {
   list: RemoteServer[];
   options: ComputedRef<
     {
@@ -72,20 +66,9 @@ interface LDAPServerOptions {
   >;
 }
 
-interface LDAPFilterOptions {
-  list: UserFilter[];
-  options: ComputedRef<
-    {
-      label: string;
-      value: string;
-    }[]
-  >;
-}
-
 interface ProviderForm {
-  baseDn?: string;
   serverUuid?: string;
-  filterUuid?: string;
+  companyId?: string;
 }
 
 const useForm = Form.useForm;
@@ -94,21 +77,7 @@ const { confirmModal } = useNotification();
 
 const emit = defineEmits(['cancel', 'submitted', 'deleted']);
 const props = defineProps<Props>();
-const formSubmitting = ref(false);
-const formState = reactive<ProviderForm>({
-  baseDn: props.provider.baseDn,
-  serverUuid: props.provider.ldapServer?.uuid,
-  filterUuid: props.provider.userFilter?.uuid,
-});
-const formRules = reactive({
-  baseDn: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
-  serverUuid: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
-  filterUuid: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
-});
-
-const { resetFields, validate, validateInfos } = useForm(formState, formRules);
-
-const servers = reactive<LDAPServerOptions>({
+const servers = reactive<TwakeServerOptions>({
   list: props.serversList,
   options: computed(() =>
     props.serversList.map((server) => ({
@@ -117,15 +86,18 @@ const servers = reactive<LDAPServerOptions>({
     }))
   ),
 });
-const filters = reactive<LDAPFilterOptions>({
-  list: props.filtersList,
-  options: computed(() =>
-    props.filtersList.map((filter) => ({
-      label: filter.name,
-      value: filter.uuid,
-    }))
-  ),
+
+const formSubmitting = ref(false);
+const formState = reactive<ProviderForm>({
+  serverUuid: props.provider.twakeServer?.uuid,
+  companyId: props.provider.twakeCompanyId,
 });
+const formRules = reactive({
+  companyId: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
+  serverUuid: [{ required: true, message: t('GENERAL.FIELD_REQUIRED', locale.value) }],
+});
+
+const { resetFields, validate, validateInfos } = useForm(formState, formRules);
 
 async function create() {
   formSubmitting.value = true;
@@ -149,17 +121,13 @@ async function create() {
   }
 }
 
-function getDto(): Partial<LDAPUserProvider> {
+function getDto(): Partial<TwakeUserProvider> {
   return {
-    type: 'LDAP_PROVIDER',
-    baseDn: formState.baseDn,
-    ldapServer: {
+    type: props.provider.type,
+    twakeCompanyId: formState.companyId,
+    twakeServer: {
       uuid: formState.serverUuid || '',
       name: servers.list.find((server) => server.uuid === formState.serverUuid)?.name || '',
-    },
-    userFilter: {
-      uuid: formState.filterUuid || '',
-      name: filters.list.find((filter) => filter.uuid === formState.filterUuid)?.name || '',
     },
   };
 }

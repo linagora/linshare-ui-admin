@@ -1,11 +1,15 @@
-<template>Here is providers page with domainuuid: {{ currentDomainUuid }}</template>
+<template>
+  <DomainManagementWarning v-if="!isCurrentPageAccessible" />
+
+  <DomainProvidersManagement v-else />
+</template>
+
 <script lang="ts" setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
+import useConfigurationPages from '@/core/hooks/useConfigurationPages';
+import DomainManagementWarning from '../components/domain-management-warning.vue';
+import DomainProvidersManagement from '../components/domain-provider-management.vue';
 
-const route = useRoute();
-
-const currentDomainUuid = computed(() => {
-  return route.params.domainUuid;
-});
+const { currentRoute } = useRouter();
+const { isCurrentPageAccessible } = useConfigurationPages();
 </script>
