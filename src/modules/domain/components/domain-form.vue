@@ -75,7 +75,7 @@ import { storeToRefs } from 'pinia';
 const useForm = Form.useForm;
 
 export default defineComponent({
-  name: 'DomainDetails',
+  name: 'DomainForm',
   props: {
     data: {
       default: () => ({}),

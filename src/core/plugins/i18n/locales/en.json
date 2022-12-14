@@ -1309,7 +1309,13 @@
     }
   },
   "CONFIGURATION": {
-    "INTRODUCTION": "Showing all LinShare root domains"
+    "INTRODUCTION": "Showing all LinShare root domains",
+    "VIEW_DETAILS": "View details",
+    "CREATE_CHILD_DOMAIN": "Create Child domain",
+    "DELETE": "Delete",
+    "SELECT_DOMAIN": "Select domain",
+    "VIEW_DETAIL": "View detail",
+    "CANCEL": "Cancel"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Select your language"

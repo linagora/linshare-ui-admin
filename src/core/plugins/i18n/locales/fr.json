@@ -1300,6 +1300,15 @@
       "TABLE_STORAGE_COLUMN_HEADER": "Espace de stockage utilisé"
     }
   },
+  "CONFIGURATION": {
+    "INTRODUCTION": "Showing all LinShare root domains",
+    "VIEW_DETAILS": "View details",
+    "CREATE_CHILD_DOMAIN": "Create Child domain",
+    "DELETE": "Delete",
+    "SELECT_DOMAIN": "Select domain",
+    "VIEW_DETAIL": "View detail",
+    "CANCEL": "Cancel"
+  },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"
   },

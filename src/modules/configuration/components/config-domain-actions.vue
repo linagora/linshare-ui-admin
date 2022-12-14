@@ -25,42 +25,40 @@
     </div>
     <select-domain-modal
       v-model:visible="openSelectDomainModal"
+      :open-modal="openSelectDomainModal"
       @close="openSelectDomainModal = false"
     ></select-domain-modal>
   </div>
 </template>
 <script lang="ts" setup>
-import GlobeIcon from '@/core/components/icons/globe-icon.vue';
-import PlusIcon from '@/core/components/icons/plus-icon.vue';
-import DetailIcon from '@/core/components/icons/detail-icon.vue';
-import LsButton from '@/core/components/ls/ls-button.vue';
-import { useRoute, useRouter } from 'vue-router';
-import { computed, ref, reactive, watch } from 'vue';
-import { useDomainStore } from '@/modules/domain/store';
+import { ref, reactive, watch } from 'vue';
 import { onClickOutside } from '@vueuse/core';
+import { useDomainStore } from '@/modules/domain/store';
+import LsButton from '@/core/components/ls/ls-button.vue';
+import PlusIcon from '@/core/components/icons/plus-icon.vue';
+import GlobeIcon from '@/core/components/icons/globe-icon.vue';
+import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import SelectDomainModal from '@/modules/configuration/components/select-domain-modal.vue';
 
+// composables
 const emits = defineEmits(['on-create-child-modal']);
-const router = useRouter();
 const domainStore = useDomainStore();
 
-const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
+// data
 const mobileMenu = ref(false);
 const mobileMenuTarget = ref(null);
 const openSelectDomainModal = ref(false);
-
 const createDomainButton = reactive({
   disabled: false,
 });
 
-function onViewDomainDetail() {
-  router.push({ name: 'ConfigurationDomainQuota', params: { domainUuid: currentDomainUuid.value } });
-}
-
+// hooks
 onClickOutside(mobileMenuTarget, (event) => {
   mobileMenu.value = false;
 });
+watch(() => domainStore.currentDomain, onDomainChanged);
 
+// methods
 function onCreateChildDomain() {
   emits('on-create-child-modal');
 }
@@ -77,8 +75,6 @@ function onDomainChanged() {
     createDomainButton.disabled = false;
   }
 }
-
-watch(() => domainStore.currentDomain, onDomainChanged);
 </script>
 <style lang="less">
 .config-domain-actions {
@@ -108,6 +104,7 @@ watch(() => domainStore.currentDomain, onDomainChanged);
       gap: 4px;
       box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.08), 0px 8px 24px rgba(0, 0, 0, 0.08);
       border-radius: 8px;
+      z-index: 2;
     }
     .config-menu .action {
       text-align: left;

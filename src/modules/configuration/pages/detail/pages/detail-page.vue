@@ -34,7 +34,7 @@
             <router-link
               :to="{
                 name: 'DomainWelcomeMessageDetails',
-                params: { uuid: currentDomain.welcomeMessage?.uuid, domainUuid: currentDomain.uuid },
+                params: { uuid: currentDomain?.welcomeMessage?.uuid || '', domainUuid: currentDomain.uuid },
               }"
             >
               {{ currentDomain.welcomeMessage?.name }}

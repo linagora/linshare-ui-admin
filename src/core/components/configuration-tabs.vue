@@ -36,7 +36,7 @@ const configurationTabs = {
     name: 'Details',
     title: 'NAVIGATOR.DETAILS',
     route: {
-      name: 'DomainDetails',
+      name: 'ConfigurationDomainDetail',
       requiresCurrentDomain: true,
     },
   },

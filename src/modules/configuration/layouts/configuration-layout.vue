@@ -1,41 +1,39 @@
 <script lang="ts" setup>
+import { computed, reactive, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useDomainStore } from '@/modules/domain/store';
+import { EMPTY_DOMAIN, DOMAIN_TYPE } from '@/modules/domain/types/Domain';
+import Status from '@/core/types/Status';
+import LsButton from '@/core/components/ls/ls-button.vue';
 import TheSubheader from '@/core/components/the-subheader.vue';
+import DeleteIcon from '@/core/components/icons/delete-icon.vue';
+import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
-import ConfigDomainActions from '@/modules/configuration/components/config-domain-actions.vue';
-import ConfigDomainRedirectAction from '@/modules/configuration/components/config-domain-redirect-action.vue';
-import ConfigurationTabs from '@/modules/configuration/components/configuration-tabs.vue';
-
 import DomainCreationFormModal, {
   DomainCreationFormModalProps,
 } from '@/modules/domain/components/domain-creation-form-modal.vue';
-import { EMPTY_DOMAIN } from '@/modules/domain/types/Domain';
-import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
-import LsButton from '@/core/components/ls/ls-button.vue';
-import DeleteIcon from '@/core/components/icons/delete-icon.vue';
-import { useRoute, useRouter } from 'vue-router';
-import { computed, reactive } from 'vue';
-import { useDomainStore } from '@/modules/domain/store';
-import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
+import ConfigurationTabs from '@/modules/configuration/components/configuration-tabs.vue';
+import ConfigDomainActions from '@/modules/configuration/components/config-domain-actions.vue';
 
+// composables
+const route = useRoute();
+const router = useRouter();
 const domainStore = useDomainStore();
+const { deleting, confirmThenDelete, canDelete } = useDomainDelete();
+
+// data
+const modalProps = reactive<DomainCreationFormModalProps>({ visible: false });
+
+// computed
 const currentDomainName = computed(() => domainStore.currentDomain.name);
 const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 const currentDomainType = computed(() => domainStore.currentDomain.type);
-const { deleting, confirmThenDelete, canDelete } = useDomainDelete();
-
-const modalProps = reactive<DomainCreationFormModalProps>({ visible: false });
-
-const route = useRoute();
-const router = useRouter();
-
-const isInDomainDetail = computed(() => {
+const isEntriesConfigurationPage = computed(() => {
   return !!route.params?.domainUuid;
 });
+const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === Status.LOADING);
 
-const isDomainSelected = computed(() => {
-  return true;
-});
-
+// methods
 function onBackToConfigurationPage() {
   router.push({ name: 'ConfigurationEntries' });
 }
@@ -64,11 +62,18 @@ function onCreateSuccess() {
   modalProps.parent = EMPTY_DOMAIN;
   domainStore.fetchDomainsTree();
 }
+
+// hook
+watch(currentDomainUuid, async (newVal) => {
+  if (newVal) {
+    await domainStore.fetchDomain();
+  }
+});
 </script>
 <template>
   <the-subheader :title="$t('NAVIGATOR.CONFIGURATION')" :detail="$t('CONFIGURATION.INTRODUCTION')">
     <template #action>
-      <config-domain-actions v-if="isDomainSelected" @on-create-child-modal="showModal"> </config-domain-actions>
+      <config-domain-actions @on-create-child-modal="showModal"> </config-domain-actions>
     </template>
   </the-subheader>
   <div class="configuration-page">
@@ -76,7 +81,7 @@ function onCreateSuccess() {
       <div class="configuration-page__header">
         <div class="configuration-page__header-title">
           <ls-button
-            v-if="isInDomainDetail"
+            v-if="isEntriesConfigurationPage"
             type="text"
             class="configuration-page__back"
             @click="onBackToConfigurationPage"
@@ -91,7 +96,7 @@ function onCreateSuccess() {
           </div>
         </div>
         <ls-button
-          v-if="isInDomainDetail && canDelete"
+          v-if="!isEntriesConfigurationPage && canDelete"
           :disabled="loadingDomain"
           :loading="deleting"
           class="action"
@@ -103,7 +108,7 @@ function onCreateSuccess() {
         </ls-button>
       </div>
       <div class="configuration-page__body">
-        <configuration-tabs v-if="isInDomainDetail"></configuration-tabs>
+        <configuration-tabs v-if="isEntriesConfigurationPage"></configuration-tabs>
         <router-view></router-view>
       </div>
     </div>

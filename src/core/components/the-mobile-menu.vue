@@ -43,7 +43,7 @@ const firstFullNameCharacter = computed(() => {
       <div class="the-mobile-menu__body">
         <a-menu v-model:selectedKeys="current" class="navigation-menu">
           <a-menu-item key="configuration" @click="onClose">
-            <router-link :to="{ name: 'Configuration' }" class="link">
+            <router-link :to="{ name: 'ConfigurationEntries' }" class="link">
               <switch-icon class="icon"></switch-icon>
               <span class="name">{{ $t('NAVIGATOR.CONFIGURATION') }}</span>
               <chevron-right-icon class="direction"></chevron-right-icon>

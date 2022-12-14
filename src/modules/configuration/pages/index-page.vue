@@ -14,6 +14,7 @@
     </div>
     <select-domain-modal
       v-model:visible="openSelectDomainModal"
+      :open-modal="openSelectDomainModal"
       @close="openSelectDomainModal = false"
     ></select-domain-modal>
   </div>

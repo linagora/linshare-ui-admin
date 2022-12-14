@@ -39,6 +39,7 @@ export const useDomainStore = defineStore('domainStore', {
       (state) =>
       (entity: 'currentDomain'): Status =>
         state.status[entity],
+    getCurrentDomain: (state): Domain => state.currentDomain,
     isRootDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.ROOT,
     isGuestDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.GUEST,
     isSubDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.SUB,

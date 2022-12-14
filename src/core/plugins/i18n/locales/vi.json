@@ -1299,6 +1299,15 @@
       "TABLE_STORAGE_COLUMN_HEADER": "Đã sử dụng"
     }
   },
+  "CONFIGURATION": {
+    "INTRODUCTION": "Hiển thị tất cả Linshare domain",
+    "VIEW_DETAILS": "Hiển thị chi tiết",
+    "CREATE_CHILD_DOMAIN": "Tạo domain con",
+    "DELETE": "Xóa",
+    "SELECT_DOMAIN": "Chọn domain",
+    "VIEW_DETAIL": "Hiển thị chi tiết",
+    "CANCEL": "Hủy"
+  },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"
   },

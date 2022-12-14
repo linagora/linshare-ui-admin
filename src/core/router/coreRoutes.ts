@@ -22,28 +22,6 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       requiresAuth: true,
     },
     children: [
-      // {
-      //   name: 'Configuration',
-      //   path: 'configuration',
-      //   component: () => import('../layouts/configuration-page-v2.vue'),
-      //   meta: {
-      //     label: 'NAVIGATOR.CONFIGURATION',
-      //     requiresAuth: true,
-      //     uiBeta: true,
-      //   },
-      //   redirect: { name: 'ConfigurationEntries' },
-      //   children: [
-      //     {
-      //       name: 'ConfigurationEntries',
-      //       path: '',
-      //       component: () => import('../pages/configuration-entries.vue'),
-      //     },
-      //     ...DomainConfigurationRoutes,
-      //     ...RemoteFilterRoutes,
-      //     ...RemoteServerRoutes,
-      //     ...QuotaConfigurationRoutes,
-      //   ],
-      // },
       {
         name: 'Administration',
         path: 'administration',

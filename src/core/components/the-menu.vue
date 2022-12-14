@@ -10,7 +10,7 @@ const { current } = useMenu();
 <template>
   <a-menu v-model:selectedKeys="current" mode="horizontal" class="navigation-menu">
     <a-menu-item key="configuration">
-      <router-link :to="{ name: 'Configuration' }">
+      <router-link :to="{ name: 'ConfigurationEntries' }">
         {{ $t('NAVIGATOR.CONFIGURATION') }}
       </router-link>
     </a-menu-item>

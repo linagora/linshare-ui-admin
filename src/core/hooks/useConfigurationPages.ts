@@ -49,7 +49,7 @@ export default function useConfigurationPages(): UsableConfigurationPages {
       push({
         name: page.route.name,
         params: {
-          domainUuid: page.route.requiresCurrentDomain ? currentDomain.value.uuid : '',
+          domainUuid: page.route.requiresCurrentDomain ? currentDomain.value?.uuid : '',
         },
       });
     }
