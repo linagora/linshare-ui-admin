@@ -168,7 +168,7 @@ onMounted(fetchGuestModerators);
       </template>
 
       <template v-else-if="column.key === 'domain'">
-        <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.account.domain.uuid } }">
+        <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.account.domain.uuid } }">
           {{ text }}
         </router-link>
       </template>

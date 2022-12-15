@@ -73,7 +73,7 @@ const columns = computed(() => [
         </router-link>
       </template>
       <template v-if="column.key === 'domain'">
-        <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.domain } }">
+        <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domain } }">
           {{ getDomainFromUuid(record.domain)?.name }}
         </router-link>
       </template>

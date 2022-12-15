@@ -63,7 +63,7 @@
       </template>
 
       <template v-else-if="column.key === 'domain'">
-        <router-link :to="{ name: 'DomainDetails', params: { domainUuid: record.domain.uuid } }">
+        <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domain.uuid } }">
           <span class="item__domain">{{ text }}</span>
         </router-link>
       </template>

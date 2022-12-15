@@ -130,7 +130,7 @@ checkGuestFeature();
             {{ $t('USERS.DETAIL_USER.DOMAIN') }}
           </div>
           <div class="info-block__value">
-            <router-link :to="{ name: 'DomainDetails', params: { domainUuid: user.domain.uuid } }">
+            <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: user.domain.uuid } }">
               {{ user.domain.name }}
             </router-link>
           </div>

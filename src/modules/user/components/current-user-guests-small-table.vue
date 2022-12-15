@@ -35,7 +35,7 @@
               {{ t('GENERAL.DOMAIN') }}
             </div>
             <div class="info-block">
-              <router-link :to="{ name: 'DomainDetails', params: { domainUuid: guest.domain } }">
+              <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: guest.domain } }">
                 {{ getDomainFromUuid(guest.domain)?.name }}
               </router-link>
             </div>
