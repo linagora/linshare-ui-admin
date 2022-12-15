@@ -79,7 +79,7 @@
           <div class="value">
             <router-link
               :to="{
-                name: 'DomainDetails',
+                name: 'ConfigurationDomainDetail',
                 params: {
                   domainUuid: sharedSpaceDomain.uuid,
                 },

@@ -79,7 +79,7 @@ onMounted(handleTableChange);
       </template>
 
       <template v-if="column.key === 'domain'">
-        <router-link :to="{ name: 'DomainDetails', params: { domainUuid: text } }">
+        <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: text } }">
           <span class="item__domain">{{ getDomainFromUuid(text)?.name }}</span>
         </router-link>
       </template>
