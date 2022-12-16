@@ -3,8 +3,8 @@ import { AxiosRequestConfig } from 'axios';
 import User from '@/modules/user/types/User';
 import SecondFactorAuthentication from '@/modules/auth/types/SecondFactorAuthentication';
 import { create2FAKey, get2FAStatus, getAuthorizedUser, remove2FAKey } from '@/modules/auth/services/auth-api';
-import { Functionality } from '@/core/types/Functionality';
-import { getFunctionality } from '@/modules/domain/services/domain-api';
+import { Functionality } from '@/modules/configuration/pages/parameters/types/Functionality';
+import { getFunctionality } from '@/modules/configuration/pages/parameters/services/parameters-api';
 
 interface AuthState {
   loggedUser: User | null;

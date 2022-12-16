@@ -6,7 +6,7 @@ import { APIError } from '@/core/types/APIError';
 import { useGuest } from '../hooks/useGuest';
 import User, { ACCOUNT_ROLE } from '../types/User';
 import { updateUser } from '../services/user-api';
-import { getFunctionality } from '@/modules/domain/services/domain-api';
+import { getFunctionality } from '@/modules/configuration/pages/parameters/services/parameters-api';
 
 interface FormModel {
   canCreateGuest: boolean;
