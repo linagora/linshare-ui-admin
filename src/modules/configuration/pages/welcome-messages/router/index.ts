@@ -10,16 +10,8 @@ export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
     },
   },
   {
-    name: 'DomainWelcomeMessageDetails',
-    path: ':domainUuid/welcome_messages/:uuid',
-    component: () => import('../components/domain-welcome-message.vue'),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
     name: 'DomainWelcomeMessageNew',
-    path: ':domainUuid/welcome_messages/new',
+    path: ':domainUuid/welcome-messages/new',
     component: () => import('../components/domain-welcome-message.vue'),
     meta: {
       requiresAuth: true,
@@ -27,15 +19,7 @@ export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
   },
   {
     name: 'DomainWelcomeMessageDetails',
-    path: ':domainUuid/welcome_messages/:uuid',
-    component: () => import('../components/domain-welcome-message.vue'),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    name: 'DomainWelcomeMessageNew',
-    path: ':domainUuid/welcome_messages/new',
+    path: ':domainUuid/welcome-messages/:uuid',
     component: () => import('../components/domain-welcome-message.vue'),
     meta: {
       requiresAuth: true,

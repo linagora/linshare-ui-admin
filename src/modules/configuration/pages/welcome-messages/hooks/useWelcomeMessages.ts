@@ -105,7 +105,7 @@ export default function useWelcomeMessages(): UsableWelcomeMessages {
   }
 
   function view(welcomeMessage: WelcomeMessage) {
-    push({ name: 'DomainWelcomeMessageDetails', params: { messageUuid: welcomeMessage.uuid } });
+    push({ name: 'DomainWelcomeMessageDetails', params: { uuid: welcomeMessage.uuid } });
   }
 
   function dupplicate(welcomeMessage: WelcomeMessage) {
