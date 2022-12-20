@@ -96,7 +96,7 @@ watch(currentDomainUuid, async (newVal) => {
           </div>
         </div>
         <ls-button
-          v-if="!isEntriesConfigurationPage && canDelete"
+          v-if="isEntriesConfigurationPage && canDelete"
           :disabled="loadingDomain"
           :loading="deleting"
           class="action"
