@@ -100,6 +100,7 @@ async function prepareData() {
   try {
     await prepareLDAPServers();
     await prepareGroupFilters();
+    await prepareGroupProviders();
 
     state.status = 'loaded';
   } catch (error) {

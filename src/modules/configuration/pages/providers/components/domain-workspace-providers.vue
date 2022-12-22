@@ -99,6 +99,7 @@ async function prepareData() {
   try {
     await prepareLDAPServers();
     await prepareGroupFilters();
+    await prepareWorkspaceProviders();
 
     state.status = 'loaded';
   } catch (error) {
