@@ -1043,14 +1043,16 @@
   },
   "CONFIGURATION": {
     "INTRODUCTION": "Showing all LinShare root domains",
-    "VIEW_DETAILS": "View details",
+    "VIEW_DETAILS": "Показать детали",
     "CREATE_CHILD_DOMAIN": "Create Child domain",
-    "DELETE": "Delete",
-    "SELECT_DOMAIN": "Select domain",
-    "VIEW_DETAIL": "View detail",
-    "CANCEL": "Cancel",
     "MANAGE_DOMAINS":"Manage domains",
-    "CONFIGURATION": "Configuration"
+    "CONFIGURATION": "Configuration",
+    "DELETE": "Удалить",
+    "SELECT_DOMAIN": "Выбрать домен",
+    "VIEW_DETAIL": "Показать детали",
+    "CANCEL": "Отмена",
+    "SELECT_DOMAIN_TO_START": "Select domain to start",
+    "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "You need to choose one domain by the button below before start make any changes on its setting"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Выберите язык"

@@ -1308,8 +1308,10 @@
     "VIEW_DETAIL": "Hiển thị chi tiết",
     "CANCEL": "Hủy",
     "MANAGE_DOMAINS":"Quản lí miền",
-    "CONFIGURATION": "Cấu hình"
-  },
+    "CONFIGURATION": "Cấu hình",
+    "SELECT_DOMAIN_TO_START": "Chọn domain để bắt đầu",
+    "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Bạn cần chọn một tên miền bằng nút bên dưới trước khi bắt đầu thực hiện bất kỳ thay đổi nào đối với cài đặt của tên miền đó"
+    },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"
   },

@@ -1309,7 +1309,9 @@
     "VIEW_DETAIL": "Afficher le détail",
     "CANCEL": "Annuler",
     "MANAGE_DOMAINS":"Gérer les domaines",
-    "CONFIGURATION": "Configuration"
+    "CONFIGURATION": "Configuration",
+    "SELECT_DOMAIN_TO_START": "Sélectionner un domaine pour commencer",
+    "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Vous devez choisir un domaine en cliquant sur le bouton ci-dessous avant de pouvoir modifier ses paramètres."
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"

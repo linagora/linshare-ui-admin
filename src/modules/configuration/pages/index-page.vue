@@ -5,11 +5,13 @@
         <empty-icon></empty-icon>
       </div>
       <div class="content">
-        <strong>Select domain to start</strong>
-        <span>You need to choose one domain by the button below before start make any changes on its setting</span>
+        <strong>{{ $t('CONFIGURATION.SELECT_DOMAIN_TO_START') }}</strong>
+        <span>{{ $t('CONFIGURATION.YOU_NEED_TO_CHOOSE_ONE_DOMAIN') }}</span>
       </div>
       <div class="action">
-        <ls-button color="info" type="primary" @click="openSelectDomainModal = true">Select domain</ls-button>
+        <ls-button color="info" type="primary" @click="openSelectDomainModal = true">{{
+          $t('CONFIGURATION.SELECT_DOMAIN')
+        }}</ls-button>
       </div>
     </div>
     <select-domain-modal
