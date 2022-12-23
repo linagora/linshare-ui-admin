@@ -1,16 +1,20 @@
 <template>
   <div class="configuration-tabs">
     <a-tabs v-model:activeKey="activeKey" class="tabs" @tab-click="onSelectTab">
-      <a-tab-pane v-for="configuration in configurationTabsArray" :key="configuration.key" :tab="configuration.name">
+      <a-tab-pane
+        v-for="configuration in configurationTabsArray"
+        :key="configuration.name"
+        :tab="$t(configuration.title)"
+      >
       </a-tab-pane>
     </a-tabs>
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 
 interface ConfigurationPage {
@@ -31,62 +35,64 @@ interface ConfigurationPage {
 
 const { redirect } = useLegacyFeatures();
 const router = useRouter();
-const activeKey = ref('DETAILS');
+const route = useRoute();
+const activeKey = ref('ConfigurationDomainDetail');
 const configurationTabs = {
-  DETAILS: {
+  ConfigurationDomainDetail: {
     key: 'DETAILS',
-    name: 'Details',
+    name: 'ConfigurationDomainDetail',
     title: 'NAVIGATOR.DETAILS',
     route: {
       name: 'ConfigurationDomainDetail',
       requiresCurrentDomain: true,
     },
   },
-  PARAMETERS: {
+  ConfigurationDomainParameters: {
     key: 'PARAMETERS',
-    name: 'Parameters',
+    name: 'ConfigurationDomainParameters',
     title: 'NAVIGATOR.PARAMETERS',
     route: {
       name: 'ConfigurationDomainParameters',
       requiresCurrentDomain: true,
     },
   },
-  TYPE_MIME_POLICIES: {
+  TypeMinePolicies: {
     title: 'NAVIGATOR.TYPE_MIME',
     legacy: true,
     key: 'TYPE_MIME_POLICIES',
-    name: 'Type mime policies',
+    name: 'TypeMinePolicies',
   },
-  WELCOME_MESSAGES: {
+  ConfigurationDomainWelcomeMessages: {
     title: 'NAVIGATOR.WELCOME_MESSAGES',
     route: {
       name: 'ConfigurationDomainWelcomeMessages',
       requiresCurrentDomain: true,
     },
     key: 'WELCOME_MESSAGES',
-    name: 'Welcome messages',
+    name: 'ConfigurationDomainWelcomeMessages',
   },
-  QUOTA: {
+  ConfigurationDomainQuota: {
     title: 'NAVIGATOR.QUOTA',
     route: {
       name: 'ConfigurationDomainQuota',
       requiresCurrentDomain: true,
     },
+    legacy: true,
     key: 'QUOTA',
-    name: 'Quota',
+    name: 'ConfigurationDomainQuota',
   },
-  REMOTE_SERVERS: {
+  ConfigurationDomainRemoteServers: {
     key: 'REMOTE_SERVERS',
     title: 'NAVIGATOR.REMOTE_SERVERS',
-    name: 'Remote Servers',
+    name: 'ConfigurationDomainRemoteServers',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: {
       name: 'ConfigurationDomainRemoteServers',
     },
   },
-  PROVIDERS: {
+  ConfigurationDomainProviders: {
     key: 'PROVIDERS',
-    name: 'Providers',
+    name: 'ConfigurationDomainProviders',
     title: 'NAVIGATOR.PROVIDERS',
     accessibility: {
       domainTypes: [DOMAIN_TYPE.TOP, DOMAIN_TYPE.SUB, DOMAIN_TYPE.GUEST],
@@ -97,19 +103,19 @@ const configurationTabs = {
       requiresCurrentDomain: true,
     },
   },
-  REMOTE_FILTERS: {
+  ConfigurationDomainRemoteFilters: {
     key: 'REMOTE_FILTERS',
-    name: 'Remote Filters List',
+    name: 'ConfigurationDomainRemoteFilters',
     title: 'NAVIGATOR.REMOTE_FILTERS',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: {
       name: 'ConfigurationDomainRemoteFilters',
     },
   },
-  PUBLIC_KEYS_JWT: {
+  PublicKeysJwt: {
     title: 'NAVIGATOR.PUBLIC_KEYS',
     key: 'PUBLIC_KEYS_JWT',
-    name: 'Public keys (JWT)',
+    name: 'PublicKeysJwt',
     legacy: true,
   },
 };
@@ -125,6 +131,17 @@ function onSelectTab(tab: string) {
     redirect(activeTab?.title);
   }
 }
+
+// hooks
+watch(
+  () => route.name,
+  (name) => {
+    if (name) {
+      activeKey.value = name.toString();
+    }
+  },
+  { immediate: true }
+);
 </script>
 <style lang="less">
 .configuration-tabs {
@@ -132,9 +149,11 @@ function onSelectTab(tab: string) {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   .tabs {
     max-width: 100%;
   }
+
   .tabs .ant-tabs-nav::before {
     border-bottom: none !important;
     border-color: transparent !important;
