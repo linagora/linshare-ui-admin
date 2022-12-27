@@ -7,6 +7,7 @@ export const ConfigurationDomainProviderManagementRoutes: RouteRecordRaw[] = [
     component: ProviderManagementPage,
     meta: {
       requiresAuth: true,
+      parentRoute: 'Configuration',
     },
     children: [],
   },

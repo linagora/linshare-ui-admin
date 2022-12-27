@@ -1315,7 +1315,9 @@
     "DELETE": "Delete",
     "SELECT_DOMAIN": "Select domain",
     "VIEW_DETAIL": "View detail",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "MANAGE_DOMAINS":"Manage domains",
+    "CONFIGURATION": "Configuration"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Select your language"

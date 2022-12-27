@@ -7,6 +7,8 @@ export const ConfigurationDomainRemoteServersRoutes: RouteRecordRaw[] = [
     component: RemoteServersPage,
     meta: {
       requiresAuth: true,
+      parentRoute: 'Configuration',
+      label: 'NAVIGATOR.REMOTE_SERVERS',
     },
     children: [],
   },

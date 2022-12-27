@@ -14,13 +14,14 @@ import DomainCreationFormModal, {
 } from '@/modules/domain/components/domain-creation-form-modal.vue';
 import ConfigurationTabs from '@/modules/configuration/components/configuration-tabs.vue';
 import ConfigDomainActions from '@/modules/configuration/components/config-domain-actions.vue';
+import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 
 // composables
 const route = useRoute();
 const router = useRouter();
 const domainStore = useDomainStore();
 const { deleting, confirmThenDelete, canDelete } = useDomainDelete();
-
+const { breadcrumbs } = useBreadcrumbs();
 // data
 const modalProps = reactive<DomainCreationFormModalProps>({ visible: false });
 
@@ -32,6 +33,18 @@ const isEntriesConfigurationPage = computed(() => {
   return !!route.params?.domainUuid;
 });
 const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === Status.LOADING);
+
+const breadcrumbsWithDomain = computed(() => {
+  const newBreadcrumbs = [
+    breadcrumbs.value[0],
+    {
+      label: currentDomainName.value as string,
+      path: '',
+    },
+    ...breadcrumbs.value.slice(1),
+  ];
+  return newBreadcrumbs;
+});
 
 // methods
 function onBackToConfigurationPage() {
@@ -89,10 +102,18 @@ watch(currentDomainUuid, async (newVal) => {
             <arrow-left-icon width="18" height="18" class="icon"></arrow-left-icon>
           </ls-button>
           <div class="configuration-page__header-title-content">
-            <strong class="title">Manage domain</strong>
-            <span class="breakcrumb"
-              >Configuration / <span class="current">{{ currentDomainName }}</span></span
-            >
+            <strong class="title">{{ $t('CONFIGURATION.MANAGE_DOMAINS') }}</strong>
+            <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">
+              <template #itemRender="{ route, routes }">
+                <span v-if="routes.indexOf(route) === routes.length - 1" class="current">
+                  {{ $t(route.label) }}
+                </span>
+
+                <router-link v-else :to="{ name: route.path }">
+                  {{ $t(route.label) }}
+                </router-link>
+              </template>
+            </a-breadcrumb>
           </div>
         </div>
         <ls-button
@@ -209,6 +230,7 @@ watch(currentDomainUuid, async (newVal) => {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 8px;
   }
 
   .desktop {

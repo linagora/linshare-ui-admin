@@ -18,7 +18,7 @@ export const ConfigurationDomainParametersRoutes: RouteRecordRaw[] = [
     path: ':domainUuid/parameters/:identifier',
     component: ParametersDetailsPage,
     meta: {
-      parentRoute: 'DomainFunctionalities',
+      parentRoute: 'ConfigurationDomainParameters',
       requiresAuth: true,
     },
     children: [],

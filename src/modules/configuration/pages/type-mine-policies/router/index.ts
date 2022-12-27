@@ -7,6 +7,7 @@ export const ConfigurationDomainTypeMinePoliciesRoutes: RouteRecordRaw[] = [
     component: TypeMinePoliciesPage,
     meta: {
       requiresAuth: true,
+      parentRoute: 'Configuration',
     },
     children: [],
   },

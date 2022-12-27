@@ -1306,7 +1306,9 @@
     "DELETE": "Xóa",
     "SELECT_DOMAIN": "Chọn domain",
     "VIEW_DETAIL": "Hiển thị chi tiết",
-    "CANCEL": "Hủy"
+    "CANCEL": "Hủy",
+    "MANAGE_DOMAINS":"Quản lí miền",
+    "CONFIGURATION": "Cấu hình"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"

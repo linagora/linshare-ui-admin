@@ -7,6 +7,7 @@ export const ConfigurationDomainDomainWorkspaceProvidersRoutes: RouteRecordRaw[]
     component: DomainWorkspaceProvidersPage,
     meta: {
       requiresAuth: true,
+      parentRoute: 'Configuration',
     },
     children: [],
   },

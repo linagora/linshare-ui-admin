@@ -7,6 +7,8 @@ export const ConfigurationDomainPublicKeysRoutes: RouteRecordRaw[] = [
     component: PublicKeysPage,
     meta: {
       requiresAuth: true,
+      parentRoute: 'Configuration',
+      label: 'NAVIGATOR.PUBLIC_KEYS',
     },
     children: [],
   },

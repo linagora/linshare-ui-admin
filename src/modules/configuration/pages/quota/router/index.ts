@@ -7,6 +7,7 @@ export const ConfigurationDomainQuotaRoutes: RouteRecordRaw[] = [
     component: QuotaPage,
     meta: {
       requiresAuth: true,
+      parentRoute: 'Configuration',
     },
     children: [],
   },

@@ -7,6 +7,8 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     component: RemoteFilterPage,
     meta: {
       requiresAuth: true,
+      parentRoute: 'Configuration',
+      label: 'NAVIGATOR.REMOTE_FILTERS',
     },
     children: [],
   },
@@ -17,6 +19,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.USER_FILTERS',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -26,6 +29,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.LDAP_USER_FILTER',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -35,6 +39,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.LDAP_USER_FILTER',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -44,6 +49,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.LDAP_USER_FILTER',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -53,6 +59,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.GROUP_FILTERS',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -62,6 +69,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.LDAP_GROUP_FILTER',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -71,6 +79,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.LDAP_GROUP_FILTER',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -80,6 +89,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.LDAP_GROUP_FILTER',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -89,6 +99,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.WORKSPACE_FILTERS',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -98,6 +109,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.LDAP_WORKSPACE_FILTER',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -107,6 +119,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.LDAP_WORKSPACE_FILTER',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
   {
@@ -116,6 +129,7 @@ export const ConfigurationDomainRemoteFiltersRoutes: RouteRecordRaw[] = [
     meta: {
       label: 'NAVIGATOR.LDAP_WORKSPACE_FILTER',
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainRemoteFilters',
     },
   },
 ];

@@ -7,6 +7,8 @@ export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
     component: WelcomeMessagesPage,
     meta: {
       requiresAuth: true,
+      parentRoute: 'Configuration',
+      label: 'NAVIGATOR.WELCOME_MESSAGES',
     },
   },
   {
@@ -15,6 +17,7 @@ export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
     component: () => import('../components/domain-welcome-message.vue'),
     meta: {
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainWelcomeMessages',
     },
   },
   {
@@ -23,6 +26,7 @@ export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
     component: () => import('../components/domain-welcome-message.vue'),
     meta: {
       requiresAuth: true,
+      parentRoute: 'ConfigurationDomainWelcomeMessages',
     },
   },
 ];

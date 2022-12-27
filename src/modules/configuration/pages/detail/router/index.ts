@@ -7,6 +7,8 @@ export const ConfigurationDomainDetailRoutes: RouteRecordRaw[] = [
     component: DetailPage,
     meta: {
       requiresAuth: true,
+      parentRoute: 'Configuration',
+      label: 'NAVIGATOR.DETAILS',
     },
     children: [],
   },

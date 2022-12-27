@@ -1301,13 +1301,15 @@
     }
   },
   "CONFIGURATION": {
-    "INTRODUCTION": "Showing all LinShare root domains",
-    "VIEW_DETAILS": "View details",
-    "CREATE_CHILD_DOMAIN": "Create Child domain",
-    "DELETE": "Delete",
-    "SELECT_DOMAIN": "Select domain",
-    "VIEW_DETAIL": "View detail",
-    "CANCEL": "Cancel"
+    "INTRODUCTION": "Afficher tous les domaines LinShare racine",
+    "VIEW_DETAILS": "Afficher les détails",
+    "CREATE_CHILD_DOMAIN": "Créer un sous domaine",
+    "DELETE": "Supprimer",
+    "SELECT_DOMAIN": "Sélectionner un domaine",
+    "VIEW_DETAIL": "Afficher le détail",
+    "CANCEL": "Annuler",
+    "MANAGE_DOMAINS":"Gérer les domaines",
+    "CONFIGURATION": "Configuration"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"
