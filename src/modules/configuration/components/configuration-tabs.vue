@@ -11,11 +11,12 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useDomainStore } from '@/modules/domain/store';
+import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
-import { useRoute, useRouter } from 'vue-router';
-import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 
 interface ConfigurationPage {
   key: string;
@@ -33,11 +34,23 @@ interface ConfigurationPage {
   };
 }
 
+// hooks
 const { redirect } = useLegacyFeatures();
+const domainStore = useDomainStore();
 const router = useRouter();
 const route = useRoute();
+
+// computed
+const configurationTabsArray = computed(() => {
+  const tabs = Object.values(configurationTabs);
+  return tabs.filter((item) => item.visible);
+});
+const isSelectingRootDomain = computed(() => {
+  return domainStore.currentDomain?.type === DOMAIN_TYPE.ROOT;
+});
+
 const activeKey = ref('ConfigurationDomainDetail');
-const configurationTabs = {
+const configurationTabs = reactive({
   ConfigurationDomainDetail: {
     key: 'DETAILS',
     name: 'ConfigurationDomainDetail',
@@ -46,6 +59,7 @@ const configurationTabs = {
       name: 'ConfigurationDomainDetail',
       requiresCurrentDomain: true,
     },
+    visible: true,
   },
   ConfigurationDomainParameters: {
     key: 'PARAMETERS',
@@ -55,12 +69,14 @@ const configurationTabs = {
       name: 'ConfigurationDomainParameters',
       requiresCurrentDomain: true,
     },
+    visible: true,
   },
   TypeMinePolicies: {
     title: 'NAVIGATOR.TYPE_MIME',
     legacy: true,
     key: 'TYPE_MIME_POLICIES',
     name: 'TypeMinePolicies',
+    visible: true,
   },
   ConfigurationDomainWelcomeMessages: {
     title: 'NAVIGATOR.WELCOME_MESSAGES',
@@ -70,6 +86,7 @@ const configurationTabs = {
     },
     key: 'WELCOME_MESSAGES',
     name: 'ConfigurationDomainWelcomeMessages',
+    visible: true,
   },
   ConfigurationDomainQuota: {
     title: 'NAVIGATOR.QUOTA',
@@ -80,6 +97,7 @@ const configurationTabs = {
     legacy: true,
     key: 'QUOTA',
     name: 'ConfigurationDomainQuota',
+    visible: true,
   },
   ConfigurationDomainRemoteServers: {
     key: 'REMOTE_SERVERS',
@@ -89,6 +107,7 @@ const configurationTabs = {
     route: {
       name: 'ConfigurationDomainRemoteServers',
     },
+    visible: true,
   },
   ConfigurationDomainProviders: {
     key: 'PROVIDERS',
@@ -102,6 +121,9 @@ const configurationTabs = {
       name: 'ConfigurationDomainProviders',
       requiresCurrentDomain: true,
     },
+    visible: computed(() => {
+      return !isSelectingRootDomain.value;
+    }),
   },
   ConfigurationDomainRemoteFilters: {
     key: 'REMOTE_FILTERS',
@@ -111,18 +133,18 @@ const configurationTabs = {
     route: {
       name: 'ConfigurationDomainRemoteFilters',
     },
+    visible: true,
   },
   PublicKeysJwt: {
     title: 'NAVIGATOR.PUBLIC_KEYS',
     key: 'PUBLIC_KEYS_JWT',
     name: 'PublicKeysJwt',
     legacy: true,
+    visible: true,
   },
-};
-
-const configurationTabsArray = computed(() => {
-  return Object.values(configurationTabs);
 });
+
+//methods
 function onSelectTab(tab: string) {
   const activeTab = configurationTabs[tab as keyof typeof configurationTabs] as ConfigurationPage;
   if (activeTab?.route && !activeTab?.legacy) {
