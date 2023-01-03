@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import apiv4 from '@/apiv4';
-import Quota from '../../quota/types/Quota';
+import Quota from '../types/Quota';
 
 async function getQuotaInformations(domainUuid: string) {
   return await apiv4.get(`quotas/domains/${domainUuid}`);

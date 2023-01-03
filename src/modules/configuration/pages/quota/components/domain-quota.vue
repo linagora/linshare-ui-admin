@@ -44,10 +44,10 @@
 
 <script lang="ts" setup>
 import { reactive, watchEffect } from 'vue';
-import CollapsePanel from '../../core/components/ls/ls-collapse-panel.vue';
-import Collapse from '../../core/components/ls/ls-collapse.vue';
-import Alert from '../../core/components/ls/ls-alert.vue';
-import QuotaVisualizeCard from './components/quota-visualize.vue';
+import CollapsePanel from '@/core/components/ls/ls-collapse-panel.vue';
+import Collapse from '@/core/components/ls/ls-collapse.vue';
+import Alert from '@/core/components/ls/ls-alert.vue';
+import QuotaVisualizeCard from '../components/quota-visualize.vue';
 import QuotaInput from '@/core/components/ls/ls-quota-input.vue';
 import { useI18n } from 'vue-i18n';
 

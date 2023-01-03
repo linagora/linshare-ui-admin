@@ -1,8 +1,8 @@
 import { reactive, ref } from 'vue';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
-import { getQuotaInformations, getQuotaUuid, switchMaintenanceMode } from '../../quota/services/quota-api';
-import Quota, { EMPTY_QUOTA } from '../../quota/types/Quota';
+import { getQuotaInformations, getQuotaUuid, switchMaintenanceMode } from '../services/quota-api';
+import Quota, { EMPTY_QUOTA } from '../types/Quota';
 
 const domainQuotaInformations = reactive<Quota>({ ...EMPTY_QUOTA });
 const domainQuotaUuid = ref();
