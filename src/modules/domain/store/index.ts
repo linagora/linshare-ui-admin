@@ -1,17 +1,9 @@
 import { defineStore } from 'pinia';
-import { useAuthStore } from '@/modules/auth/store';
 import Status from '@/core/types/Status';
-import type { Functionality } from '@/core/types/Functionality';
 import Domain, { DOMAIN_TYPE, EMPTY_DOMAIN } from '@/modules/domain/types/Domain';
 import DomainTreeNode, { EMPTY_DOMAIN_NODE } from '@/modules/domain/types/DomainTreeNode';
 
-import {
-  getDomains,
-  getDomain,
-  updateDomain,
-  deleteDomain,
-  getFunctionalties,
-} from '@/modules/domain/services/domain-api';
+import { getDomains, getDomain, updateDomain, deleteDomain } from '@/modules/domain/services/domain-api';
 
 interface DomainState {
   currentDomain: Domain;

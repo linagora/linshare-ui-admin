@@ -2,17 +2,46 @@
 import config from '@/config';
 import useMenu from '@/core/hooks/useMenu';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
+import { storeToRefs } from 'pinia';
+import { useDomainStore } from '@/modules/domain/store';
+import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
+import { useRoute, useRouter } from 'vue-router';
+import { computed } from 'vue';
 
 const { redirect } = useLegacyFeatures();
+const router = useRouter();
+const route = useRoute();
 const { current } = useMenu();
+const domainStore = useDomainStore();
+const { domainsTree } = storeToRefs(domainStore);
+
+const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
+
+function goToDefaultDomain() {
+  const firstTopDomain = domainsTree.value?.children?.length === 1 ? domainsTree.value?.children[0] : domainsTree.value?.children?.find((domain) => {
+    return domain.type === DOMAIN_TYPE.TOP;
+  });
+  if (firstTopDomain) {
+    domainStore.setCurrentDomain(firstTopDomain);
+    domainStore.fetchDomain();
+    if (route.params.domainUuid) {
+      router.push({ name: route.name || undefined, params: { domainUuid: firstTopDomain?.uuid } });
+      return;
+    }
+    router.push({ name: 'ConfigurationDomainDetail', params: { domainUuid: currentDomainUuid.value } });
+    return;
+  } else {
+    router.push({ name: 'ConfigurationEntries' });
+  }
+}
 </script>
 
 <template>
   <a-menu v-model:selectedKeys="current" mode="horizontal" class="navigation-menu">
-    <a-menu-item key="configuration">
-      <router-link :to="{ name: 'ConfigurationEntries' }">
+    <a-menu-item key="configuration" @click="goToDefaultDomain()">
+      <a name="configuration">
         {{ $t('NAVIGATOR.CONFIGURATION') }}
-      </router-link>
+      </a>
     </a-menu-item>
     <a-menu-item key="administration">
       <router-link :to="{ name: 'Administration' }">
@@ -81,12 +110,14 @@ const { current } = useMenu();
       left: 0;
     }
   }
+
   .ant-menu-overflow-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
   .ant-menu-title-content a {
     color: @text-color-inverse;
   }

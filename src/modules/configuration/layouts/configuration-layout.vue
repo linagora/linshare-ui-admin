@@ -8,7 +8,6 @@ import LsButton from '@/core/components/ls/ls-button.vue';
 import TheSubheader from '@/core/components/the-subheader.vue';
 import DeleteIcon from '@/core/components/icons/delete-icon.vue';
 import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
-import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 import DomainCreationFormModal, {
   DomainCreationFormModalProps,
 } from '@/modules/domain/components/domain-creation-form-modal.vue';
@@ -47,10 +46,6 @@ const breadcrumbsWithDomain = computed(() => {
 });
 
 // methods
-function onBackToConfigurationPage() {
-  router.push({ name: 'ConfigurationEntries' });
-}
-
 function showModal() {
   modalProps.visible = true;
   modalProps.parent = {
@@ -93,14 +88,6 @@ watch(currentDomainUuid, async (newVal) => {
     <div class="configuration-page__wrapper">
       <div class="configuration-page__header">
         <div class="configuration-page__header-title">
-          <ls-button
-            v-if="isEntriesConfigurationPage"
-            type="text"
-            class="configuration-page__back"
-            @click="onBackToConfigurationPage"
-          >
-            <arrow-left-icon width="18" height="18" class="icon"></arrow-left-icon>
-          </ls-button>
           <div class="configuration-page__header-title-content">
             <strong class="title">{{ $t('CONFIGURATION.MANAGE_DOMAINS') }}</strong>
             <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">

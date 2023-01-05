@@ -8,7 +8,7 @@
               <router-link
                 :to="{
                   name: 'DomainWelcomeMessageDetails',
-                  params: { messageUuid: message.uuid, domainUuid: currentDomain.uuid },
+                  params: { uuid: message.uuid, domainUuid: currentDomain.uuid },
                 }"
               >
                 <span class="elipsis-name" :title="message.name">{{ message.name }}</span>

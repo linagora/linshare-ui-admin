@@ -2,6 +2,9 @@
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
+import { useRoute, useRouter } from 'vue-router';
+import { useDomainStore } from '@/modules/domain/store';
+import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 import useMenu from '@/core/hooks/useMenu';
 import config from '@/config';
@@ -16,13 +19,40 @@ import CloseIcon from '@/core/components/icons/close-icon.vue';
 import MenuIcon from '@/core/components/icons/menu-icon.vue';
 
 const authStore = useAuthStore();
+const router = useRouter();
+const route = useRoute();
+const domainStore = useDomainStore();
+const { domainsTree } = storeToRefs(domainStore);
 const { redirect } = useLegacyFeatures();
 const { visible, current, showDrawer, onClose } = useMenu();
 const { loggedUserFullName } = storeToRefs(authStore);
 
+// computed
 const firstFullNameCharacter = computed(() => {
   return loggedUserFullName.value.charAt(0);
 });
+
+const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
+
+// methods
+function goToDefaultDomain() {
+  const firstTopDomain = domainsTree.value?.children?.find((domain) => {
+    return domain.type === DOMAIN_TYPE.TOP;
+  });
+  if (firstTopDomain) {
+    domainStore.setCurrentDomain(firstTopDomain);
+    domainStore.fetchDomain();
+    onClose();
+    if (route.params.domainUuid) {
+      router.push({ name: route.name || undefined, params: { domainUuid: firstTopDomain?.uuid } });
+      return;
+    }
+    router.push({ name: 'ConfigurationDomainDetail', params: { domainUuid: currentDomainUuid.value } });
+    return;
+  } else {
+    router.push({ name: 'ConfigurationEntries' });
+  }
+}
 </script>
 
 <template>
@@ -42,12 +72,12 @@ const firstFullNameCharacter = computed(() => {
       </div>
       <div class="the-mobile-menu__body">
         <a-menu v-model:selectedKeys="current" class="navigation-menu">
-          <a-menu-item key="configuration" @click="onClose">
-            <router-link :to="{ name: 'ConfigurationEntries' }" class="link">
+          <a-menu-item key="configuration" @click="goToDefaultDomain()">
+            <a name="configuration" class="link">
               <switch-icon class="icon"></switch-icon>
               <span class="name">{{ $t('NAVIGATOR.CONFIGURATION') }}</span>
               <chevron-right-icon class="direction"></chevron-right-icon>
-            </router-link>
+            </a>
           </a-menu-item>
           <a-menu-item key="administration" @click="onClose">
             <router-link :to="{ name: 'Administration' }" class="link">

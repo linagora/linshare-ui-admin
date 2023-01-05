@@ -22,7 +22,7 @@ export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
   },
   {
     name: 'DomainWelcomeMessageDetails',
-    path: ':domainUuid/welcome-messages/:uuid',
+    path: ':domainUuid/welcome-messages/:uuid?',
     component: () => import('../components/domain-welcome-message.vue'),
     meta: {
       requiresAuth: true,
