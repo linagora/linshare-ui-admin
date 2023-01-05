@@ -65,6 +65,14 @@
             <a href="">{{ currentDomain.domainPolicy?.name }}</a>
           </div>
         </div>
+        <div class="info-block">
+          <div class="title">
+            {{ $t('DOMAIN.TYPE') }}
+          </div>
+          <div class="value">
+            {{ $t(`DOMAIN.TYPES.${currentDomain.type}`) }}
+          </div>
+        </div>
       </div>
     </a-col>
   </a-row>

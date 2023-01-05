@@ -405,6 +405,7 @@
     "CREATE_SUB_DOMAIN": "Create a sub domain",
     "CREATE_GUEST_DOMAIN": "Create a guest domain",
     "SELECT_DOMAIN": "Select domain",
+    "TYPE": "Type",
     "DELETE": {
       "BUTTON": "Delete domain",
       "MODAL_CHILD_EXISTS_TITLE": "Domain contains nested domains",

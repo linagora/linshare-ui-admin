@@ -398,6 +398,7 @@
     "CREATE_SUB_DOMAIN": "Tạo miền phụ",
     "CREATE_GUEST_DOMAIN": "Tạo miền khách",
     "SELECT_DOMAIN": "Chọn tên miền",
+    "TYPE": "Loại",
     "DELETE": {
       "BUTTON": "Xóa miền",
       "MODAL_CHILD_EXISTS_TITLE": "Miền chứa các miền con",

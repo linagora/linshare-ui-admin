@@ -398,6 +398,7 @@
     "CREATE_SUB_DOMAIN": "Ajouter un sous domaine",
     "CREATE_GUEST_DOMAIN": "Ajouter un domaine invité",
     "SELECT_DOMAIN": "Sélectionner un domaine",
+    "TYPE": "Type",
     "DELETE": {
       "BUTTON": "Supprimer le domaine",
       "MODAL_CHILD_EXISTS_TITLE": "Ce domaine contient des sous domaines",

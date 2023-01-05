@@ -398,6 +398,7 @@
     "CREATE_SUB_DOMAIN": "Добавить дополнительный домен",
     "CREATE_GUEST_DOMAIN": "Добавить гостевой домен",
     "SELECT_DOMAIN": "Выбрать домен",
+    "TYPE": "Тип: ",
     "DELETE": {
       "BUTTON": "Удалить домен",
       "MODAL_CHILD_EXISTS_TITLE": "Домен содержит дочерние домены",
