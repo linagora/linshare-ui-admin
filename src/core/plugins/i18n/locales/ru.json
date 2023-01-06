@@ -135,7 +135,8 @@
     "WORKSPACE_PROVIDERS": "Поставщики приводов",
     "LDAP_GROUP_FILTER": "Фильтр группы LDAP",
     "LDAP_WORKSPACE_FILTER": "Фильтр рабочей области LDAP",
-    "SHARED_SPACE_DETAILS": "Сведения об общем пространстве"
+    "SHARED_SPACE_DETAILS": "Сведения об общем пространстве",
+    "WELCOME_MESSAGE_DETAIL": "Welcome message detail"
   },
   "DASHBOARD": {
     "TITLE": "Приборная доска",

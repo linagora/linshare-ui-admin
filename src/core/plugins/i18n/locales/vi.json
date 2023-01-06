@@ -135,7 +135,8 @@
     "WORKSPACE_PROVIDERS": "Nguồn cung cấp Workspace",
     "LDAP_GROUP_FILTER": "Bộ lọc nhóm trên LDAP",
     "LDAP_WORKSPACE_FILTER": "Bộ lọc không gian làm việc trên LDAP",
-    "SHARED_SPACE_DETAILS": "Chi tiết về không gian chung"
+    "SHARED_SPACE_DETAILS": "Chi tiết về không gian chung",
+    "WELCOME_MESSAGE_DETAIL": "Chi tiết tin nhắn chào mừng"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",

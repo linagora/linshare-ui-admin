@@ -8,6 +8,7 @@ export const ConfigurationDomainQuotaRoutes: RouteRecordRaw[] = [
     meta: {
       requiresAuth: true,
       parentRoute: 'Configuration',
+      label: 'NAVIGATOR.QUOTA',
     },
     children: [],
   },

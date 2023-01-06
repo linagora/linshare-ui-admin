@@ -14,6 +14,7 @@
 import { computed, reactive, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useDomainStore } from '@/modules/domain/store';
+import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
@@ -36,6 +37,7 @@ interface ConfigurationPage {
 
 // hooks
 const { redirect } = useLegacyFeatures();
+const { breadcrumbs } = useBreadcrumbs();
 const domainStore = useDomainStore();
 const router = useRouter();
 const route = useRoute();
@@ -159,7 +161,15 @@ watch(
   () => route.name,
   (name) => {
     if (name) {
-      activeKey.value = name.toString();
+      configurationTabsArray.value?.forEach((element) => {
+        const matchingRouter = breadcrumbs.value.find((item) => {
+          return item.path === element?.name;
+        });
+        if (matchingRouter) {
+          activeKey.value = matchingRouter.path;
+          return;
+        }
+      });
     }
   },
   { immediate: true }

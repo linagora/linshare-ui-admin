@@ -27,6 +27,7 @@ export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
     meta: {
       requiresAuth: true,
       parentRoute: 'ConfigurationDomainWelcomeMessages',
+      label: 'NAVIGATOR.WELCOME_MESSAGE_DETAIL',
     },
   },
 ];

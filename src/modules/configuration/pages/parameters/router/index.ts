@@ -20,7 +20,11 @@ export const ConfigurationDomainParametersRoutes: RouteRecordRaw[] = [
     meta: {
       parentRoute: 'ConfigurationDomainParameters',
       requiresAuth: true,
+      label: 'NAVIGATOR.FUNCTIONALITIES',
     },
     children: [],
+    beforeEnter: (to) => {
+      to.meta.label = to.params.identifier;
+    },
   },
 ];

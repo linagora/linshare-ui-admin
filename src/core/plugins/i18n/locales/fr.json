@@ -135,7 +135,8 @@
     "WORKSPACE_PROVIDERS": "Fournisseurs d'espaces de travail",
     "LDAP_GROUP_FILTER": "Filtre de groupe LDAP",
     "LDAP_WORKSPACE_FILTER": "Filtre d'espace de travail LDAP",
-    "SHARED_SPACE_DETAILS": "Détails de l'espace partagé"
+    "SHARED_SPACE_DETAILS": "Détails de l'espace partagé",
+    "WELCOME_MESSAGE_DETAIL": "Welcome message detail"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",

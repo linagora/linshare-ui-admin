@@ -18,9 +18,12 @@ const { domainsTree } = storeToRefs(domainStore);
 const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 
 function goToDefaultDomain() {
-  const firstTopDomain = domainsTree.value?.children?.length === 1 ? domainsTree.value?.children[0] : domainsTree.value?.children?.find((domain) => {
-    return domain.type === DOMAIN_TYPE.TOP;
-  });
+  const firstTopDomain =
+    domainsTree.value?.children?.length === 1
+      ? domainsTree.value?.children[0]
+      : domainsTree.value?.children?.find((domain) => {
+          return domain.type === DOMAIN_TYPE.TOP;
+        });
   if (firstTopDomain) {
     domainStore.setCurrentDomain(firstTopDomain);
     domainStore.fetchDomain();
