@@ -24,9 +24,6 @@
           <a-select-option value="ADMIN">
             {{ $t('USERS.DETAIL_USER.ROLE_ADMIN') }}
           </a-select-option>
-          <a-select-option disabled value="SUPERADMIN">
-            {{ $t('USERS.DETAIL_USER.ROLE_SUPERADMIN') }}
-          </a-select-option>
         </a-select>
         <small>{{ $t('DOMAIN.FIELDS.DEFAULT_USER_ROLE_HELPER') }}</small>
       </div>

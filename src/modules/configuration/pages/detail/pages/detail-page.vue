@@ -79,14 +79,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, watch, reactive } from 'vue';
+import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import PageTitle from '@/core/components/page-title.vue';
-import DomainForm from '@/modules/domain/components/domain-form.vue';
+import DomainForm from '@/modules/configuration/pages/detail/components/domain-form.vue';
 import Status from '@/core/types/Status';
-import { useRouter } from 'vue-router';
 
 const domainStore = useDomainStore();
 const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === Status.LOADING);
