@@ -35,10 +35,13 @@ const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === 
 
 const breadcrumbsWithDomain = computed(() => {
   const newBreadcrumbs = [
-    breadcrumbs.value[0],
+    {
+      label: 'NAVIGATOR.CONFIGURATION',
+      path: 'ConfigurationEntries',
+    },
     {
       label: currentDomainName.value as string,
-      path: '',
+      path: 'ConfigurationDomainDetail',
     },
     ...breadcrumbs.value.slice(1),
   ];
