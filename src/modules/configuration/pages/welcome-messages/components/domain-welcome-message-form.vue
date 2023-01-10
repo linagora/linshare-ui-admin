@@ -74,9 +74,13 @@
               {{ $t('GENERAL.DOMAIN') }}
             </div>
             <div class="value">
-              <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: data.domain?.uuid } }">
+              <router-link
+                v-if="canAccessDomain"
+                :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: data.domain?.uuid } }"
+              >
                 {{ data.domain?.name }}
               </router-link>
+              <span v-else>{{ data.domain?.name }}</span>
             </div>
           </div>
         </div>
@@ -122,25 +126,33 @@
 
 <script lang="ts" setup>
 import { reactive, ref, watchEffect, computed } from 'vue';
-import { useRouter } from 'vue-router';
-import WelcomeMessage from '../types/WelcomeMessages';
-import config from '@/config';
 import { useI18n } from 'vue-i18n';
 import { Form } from 'ant-design-vue';
+import { useRouter } from 'vue-router';
+import config from '@/config';
+import WelcomeMessage from '@/modules/configuration/pages/welcome-messages/types/WelcomeMessages';
 
+// composables
 const { t } = useI18n();
+const router = useRouter();
+const useForm = Form.useForm;
 const { currentRoute } = useRouter();
 const messageUuid = currentRoute.value.params.uuid;
-const emit = defineEmits(['delete', 'submit']);
-const useForm = Form.useForm;
-const router = useRouter();
 const defaultWelcomeMessageUuid = config.rootWelcomeMessageUuid;
-const isDuplicating = computed(
-  () => !!router.currentRoute.value.query.duplicate && router.currentRoute.value.name === 'DomainWelcomeMessageNew'
-);
+
+// props & emits
+const emit = defineEmits(['delete', 'submit']);
 const props = defineProps<{
   data: WelcomeMessage;
 }>();
+
+// computed
+const canAccessDomain = computed(() => !props.data?.readOnly);
+const isDuplicating = computed(
+  () => !!router.currentRoute.value.query.duplicate && router.currentRoute.value.name === 'DomainWelcomeMessageNew'
+);
+
+// data
 const collapsedKeys = ref(Object.keys(props.data.entries));
 
 interface FormState {
@@ -179,6 +191,7 @@ const formRules = reactive({
 
 const { validate, validateInfos } = useForm(formState, formRules);
 
+// methods
 function collapse() {
   if (mode.collapse === true) {
     collapsedKeys.value = Object.keys(flagMappings);
@@ -212,12 +225,6 @@ async function submit() {
   emit('submit', payload);
 }
 
-watchEffect(() => {
-  if (props.data) {
-    setFormData();
-  }
-});
-
 function setFormData() {
   formState.name = props.data.name;
   formState.description = props.data.description || '';
@@ -227,6 +234,13 @@ function setFormData() {
     }
   });
 }
+
+// hooks
+watchEffect(() => {
+  if (props.data) {
+    setFormData();
+  }
+});
 </script>
 
 <style lang="less" scoped>
