@@ -1312,7 +1312,8 @@
     "MANAGE_DOMAINS":"Quản lí miền",
     "CONFIGURATION": "Cấu hình",
     "SELECT_DOMAIN_TO_START": "Chọn domain để bắt đầu",
-    "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Bạn cần chọn một tên miền bằng nút bên dưới trước khi bắt đầu thực hiện bất kỳ thay đổi nào đối với cài đặt của tên miền đó"
+    "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Bạn cần chọn một tên miền bằng nút bên dưới trước khi bắt đầu thực hiện bất kỳ thay đổi nào đối với cài đặt của tên miền đó",
+    "VIEW": "Hiển thị"
     },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"

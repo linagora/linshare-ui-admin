@@ -1321,7 +1321,8 @@
     "MANAGE_DOMAINS":"Manage domains",
     "CONFIGURATION": "Configuration",
     "SELECT_DOMAIN_TO_START": "Select domain to start",
-    "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "You need to choose one domain by the button below before start make any changes on its setting"
+    "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "You need to choose one domain by the button below before start make any changes on its setting",
+    "VIEW": "View"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Select your language"

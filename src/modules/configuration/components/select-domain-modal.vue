@@ -16,7 +16,7 @@
       <div class="actions">
         <ls-button class="action" color="info" @click="onCloseModal">{{ $t('CONFIGURATION.CANCEL') }}</ls-button>
         <ls-button class="action" color="info" type="primary" @click="onViewDomainDetail">{{
-          $t('CONFIGURATION.VIEW_DETAIL')
+          $t('CONFIGURATION.VIEW')
         }}</ls-button>
       </div>
     </template>
@@ -59,8 +59,9 @@ function onViewDomainDetail() {
   domainStore.setCurrentDomain(selectedDomain.value);
   if (route.params.domainUuid) {
     router.push({ name: route.name || undefined, params: { domainUuid: selectedDomain.value.uuid } });
+  } else {
+    router.push({ name: 'ConfigurationDomainDetail', params: { domainUuid: currentDomainUuid.value } });
   }
-  router.push({ name: 'ConfigurationDomainDetail', params: { domainUuid: currentDomainUuid.value } });
   emits('close');
 }
 
