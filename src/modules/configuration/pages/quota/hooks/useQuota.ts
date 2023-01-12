@@ -109,22 +109,10 @@ export default function useQuota() {
     };
   }
 
-  function usedSpaceNoteInformation(x: any) {
-    let l = 0,
-      n = parseInt(x, 10) || 0;
-
-    while (n >= 1024 && ++l) {
-      n = n / 1024;
-    }
-
-    return n.toFixed(1);
-  }
-
   return {
     getInformations,
     niceBytes,
     switchMaintenance,
     domainQuotaInformations,
-    usedSpaceNoteInformation,
   };
 }

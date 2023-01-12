@@ -24,7 +24,7 @@
             @update:model-value="quotaValue"
             @update:model-unit="quotaUnit"
           ></QuotaInput>
-          <div class="maximum-quota">
+          <div v-if="currentDomain.type !== 'ROOTDOMAIN'" class="maximum-quota">
             <span>{{ $t('QUOTA.DOMAIN_MAXIMUM_QUOTA') }}</span>
             <span class="maximum-quota-value">{{ niceBytes(props.maximimQuota) }}</span>
           </div>
@@ -50,6 +50,8 @@ import Alert from '@/core/components/ls/ls-alert.vue';
 import QuotaVisualizeCard from '../components/quota-visualize.vue';
 import QuotaInput from '@/core/components/ls/ls-quota-input.vue';
 import { useI18n } from 'vue-i18n';
+import useQuota from '../hooks/useQuota';
+import { useDomainStore } from '@/modules/domain/store';
 
 interface Props {
   headerText?: string;
@@ -67,8 +69,12 @@ interface Props {
 }
 
 const { t } = useI18n();
+const domainStore = useDomainStore();
+const currentDomain = domainStore.currentDomain;
 const emits = defineEmits(['update:modelValue', 'update:modelUnit', 'maintenance']);
 const props = defineProps<Props>();
+const { niceBytes } = useQuota();
+
 const checked = reactive({
   checked: props.maintenance,
 });
@@ -90,19 +96,6 @@ function quotaUnit(value: any) {
 
 function changeMaintenanceMode() {
   emits('maintenance');
-}
-
-const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-
-function niceBytes(x: any) {
-  let l = 0,
-    n = parseInt(x, 10) || 0;
-
-  while (n >= 1024 && ++l) {
-    n = n / 1024;
-  }
-
-  return n.toFixed(1) + ' ' + units[l];
 }
 
 watchEffect(() => {
