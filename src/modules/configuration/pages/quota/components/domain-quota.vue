@@ -28,6 +28,10 @@
             <span>{{ $t('QUOTA.DOMAIN_MAXIMUM_QUOTA') }}</span>
             <span class="maximum-quota-value">{{ niceBytes(props.maximimQuota) }}</span>
           </div>
+          <div v-if="currentDomain.type == 'TOPDOMAIN'" class="maximum-quota">
+            <span>{{ $t('QUOTA.DEFAULT_SUB_DOMAIN_QUOTA') }}</span>
+            <span class="maximum-quota-value">{{ niceBytes(props.defaultQuota) }}</span>
+          </div>
         </div>
         <div class="quota-chart">
           <QuotaVisualizeCard
@@ -66,6 +70,7 @@ interface Props {
   modelValue?: number;
   modelUnit?: object;
   maintenance?: boolean;
+  defaultQuota?: number;
 }
 
 const { t } = useI18n();
