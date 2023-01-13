@@ -36,6 +36,7 @@ export const useDomainStore = defineStore('domainStore', {
     isGuestDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.GUEST,
     isSubDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.SUB,
     isTopDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.TOP,
+    topMostDomain: (state): Domain => state.domainsTree,
   },
   actions: {
     setCurrentDomainUuid(uuid: string) {

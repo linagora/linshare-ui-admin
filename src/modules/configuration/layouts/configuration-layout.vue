@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed, reactive, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import { useDomainStore } from '@/modules/domain/store';
 import { EMPTY_DOMAIN, DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import Status from '@/core/types/Status';
@@ -16,8 +16,7 @@ import ConfigDomainActions from '@/modules/configuration/components/config-domai
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 
 // composables
-const route = useRoute();
-const router = useRouter();
+const useRouteInstance = useRoute();
 const domainStore = useDomainStore();
 const { deleting, confirmThenDelete, canDelete } = useDomainDelete();
 const { breadcrumbs } = useBreadcrumbs();
@@ -28,8 +27,9 @@ const modalProps = reactive<DomainCreationFormModalProps>({ visible: false });
 const currentDomainName = computed(() => domainStore.currentDomain.name);
 const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 const currentDomainType = computed(() => domainStore.currentDomain.type);
+const topMostDomain = computed(() => domainStore.topMostDomain);
 const isEntriesConfigurationPage = computed(() => {
-  return !!route.params?.domainUuid;
+  return !!useRouteInstance.params?.domainUuid;
 });
 const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === Status.LOADING);
 
@@ -37,7 +37,10 @@ const breadcrumbsWithDomain = computed(() => {
   const newBreadcrumbs = [
     {
       label: 'NAVIGATOR.CONFIGURATION',
-      path: 'ConfigurationEntries',
+      path: 'ConfigurationDomainDetail',
+      params: {
+        domainUuid: topMostDomain.value?.uuid,
+      },
     },
     {
       label: currentDomainName.value as string,
@@ -99,7 +102,7 @@ watch(currentDomainUuid, async (newVal) => {
                   {{ $t(route.label) }}
                 </span>
 
-                <router-link v-else :to="{ name: route.path }">
+                <router-link v-else :to="{ name: route.path, params: route?.params }">
                   {{ $t(route.label) }}
                 </router-link>
               </template>

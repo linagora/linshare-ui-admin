@@ -28,6 +28,7 @@ const { visible, current, showDrawer, onClose } = useMenu();
 const { loggedUserFullName } = storeToRefs(authStore);
 
 // computed
+const topMostDomain = computed(() => domainStore.topMostDomain);
 const firstFullNameCharacter = computed(() => {
   return loggedUserFullName.value.charAt(0);
 });
@@ -36,15 +37,12 @@ const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 
 // methods
 function goToDefaultDomain() {
-  const firstTopDomain = domainsTree.value?.children?.find((domain) => {
-    return domain.type === DOMAIN_TYPE.TOP;
-  });
-  if (firstTopDomain) {
-    domainStore.setCurrentDomain(firstTopDomain);
+  if (topMostDomain.value) {
+    domainStore.setCurrentDomain(topMostDomain.value);
     domainStore.fetchDomain();
     onClose();
     if (route.params.domainUuid) {
-      router.push({ name: route.name || undefined, params: { domainUuid: firstTopDomain?.uuid } });
+      router.push({ name: route.name || undefined, params: { domainUuid: topMostDomain.value?.uuid } });
       return;
     }
     router.push({ name: 'ConfigurationDomainDetail', params: { domainUuid: currentDomainUuid.value } });

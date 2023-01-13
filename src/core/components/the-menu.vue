@@ -13,22 +13,16 @@ const router = useRouter();
 const route = useRoute();
 const { current } = useMenu();
 const domainStore = useDomainStore();
-const { domainsTree } = storeToRefs(domainStore);
 
 const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
+const topMostDomain = computed(() => domainStore.topMostDomain);
 
 function goToDefaultDomain() {
-  const firstTopDomain =
-    domainsTree.value?.children?.length === 1
-      ? domainsTree.value?.children[0]
-      : domainsTree.value?.children?.find((domain) => {
-          return domain.type === DOMAIN_TYPE.TOP;
-        });
-  if (firstTopDomain) {
-    domainStore.setCurrentDomain(firstTopDomain);
+  if (topMostDomain.value) {
+    domainStore.setCurrentDomain(topMostDomain.value);
     domainStore.fetchDomain();
     if (route.params.domainUuid) {
-      router.push({ name: route.name || undefined, params: { domainUuid: firstTopDomain?.uuid } });
+      router.push({ name: route.name || undefined, params: { domainUuid: topMostDomain.value?.uuid } });
       return;
     }
     router.push({ name: 'ConfigurationDomainDetail', params: { domainUuid: currentDomainUuid.value } });
