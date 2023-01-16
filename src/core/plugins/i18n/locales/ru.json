@@ -1055,7 +1055,10 @@
     "CANCEL": "Отмена",
     "SELECT_DOMAIN_TO_START": "Select domain to start",
     "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "You need to choose one domain by the button below before start make any changes on its setting",
-    "VIEW": "Показать"
+    "VIEW": "Показать",
+    "ENTER_DOMAIN_NAME": "Enter domain name",
+    "SUGGESTED_DOMAINS": "Suggested domains:",
+    "DOMAIN_NOT_FOUND": "Domain not found"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Выберите язык"

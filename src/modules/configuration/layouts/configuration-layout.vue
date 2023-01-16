@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import { computed, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { useDomainStore } from '@/modules/domain/store';
-import { EMPTY_DOMAIN, DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import Status from '@/core/types/Status';
+import { computed, reactive, watch } from 'vue';
+import { useDomainStore } from '@/modules/domain/store';
+import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import { EMPTY_DOMAIN, DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import LsButton from '@/core/components/ls/ls-button.vue';
 import TheSubheader from '@/core/components/the-subheader.vue';
 import DeleteIcon from '@/core/components/icons/delete-icon.vue';
@@ -13,10 +14,9 @@ import DomainCreationFormModal, {
 } from '@/modules/domain/components/domain-creation-form-modal.vue';
 import ConfigurationTabs from '@/modules/configuration/components/configuration-tabs.vue';
 import ConfigDomainActions from '@/modules/configuration/components/config-domain-actions.vue';
-import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 
 // composables
-const useRouteInstance = useRoute();
+const routeInstance = useRoute();
 const domainStore = useDomainStore();
 const { deleting, confirmThenDelete, canDelete } = useDomainDelete();
 const { breadcrumbs } = useBreadcrumbs();
@@ -29,7 +29,7 @@ const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 const currentDomainType = computed(() => domainStore.currentDomain.type);
 const topMostDomain = computed(() => domainStore.topMostDomain);
 const isEntriesConfigurationPage = computed(() => {
-  return !!useRouteInstance.params?.domainUuid;
+  return !!routeInstance.params?.domainUuid;
 });
 const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === Status.LOADING);
 

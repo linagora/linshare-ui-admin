@@ -1313,7 +1313,10 @@
     "CONFIGURATION": "Cấu hình",
     "SELECT_DOMAIN_TO_START": "Chọn domain để bắt đầu",
     "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Bạn cần chọn một tên miền bằng nút bên dưới trước khi bắt đầu thực hiện bất kỳ thay đổi nào đối với cài đặt của tên miền đó",
-    "VIEW": "Hiển thị"
+    "VIEW": "Hiển thị",
+    "ENTER_DOMAIN_NAME": "Nhập tên domain",
+    "SUGGESTED_DOMAINS": "Domain đề xuất:",
+    "DOMAIN_NOT_FOUND": "Không tồn tại domain tương ứng"
     },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"

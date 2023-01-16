@@ -1314,7 +1314,10 @@
     "CONFIGURATION": "Configuration",
     "SELECT_DOMAIN_TO_START": "Sélectionner un domaine pour commencer",
     "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Vous devez choisir un domaine en cliquant sur le bouton ci-dessous avant de pouvoir modifier ses paramètres.",
-    "VIEW": "Afficher"
+    "VIEW": "Afficher",
+    "ENTER_DOMAIN_NAME": "Entrer le nom d'un domaine",
+    "SUGGESTED_DOMAINS": "Domaines suggerés :",
+    "DOMAIN_NOT_FOUND": "Domaine non trouvé"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"
