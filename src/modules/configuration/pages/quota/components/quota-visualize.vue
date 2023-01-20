@@ -2,11 +2,11 @@
   <div class="quota-card">
     <h3 class="quota-card-title">{{ $t('QUOTA.QUOTA_VISUALIZE') }}</h3>
     <div class="card-informations">
-      <Doughnut
+      <quota-doughnut-chart
         :used-space="props.usedSpace"
         :remaining-quota="props.remainingQuota"
         :unallocated-space="props.unallocatedSpace"
-      ></Doughnut>
+      ></quota-doughnut-chart>
       <div class="quota-detail">
         <div class="quota-information-block">
           <div v-if="props.usedSpace">
@@ -66,7 +66,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import Doughnut from './doughnut-quota.vue';
+import QuotaDoughnutChart from './quota-doughnut-chart.vue';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 import { useI18n } from 'vue-i18n';

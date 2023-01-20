@@ -22,11 +22,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-type Unit = {
-  name: string;
-  value: string;
-  factor: number;
-};
+import { Unit } from '@/core/types/Unit';
+
 const defaultQuotaUnits: Unit[] = [
   { name: 'Byte', value: 'B', factor: 0 },
   { name: 'KB', value: 'KB', factor: 3 },
@@ -41,8 +38,8 @@ const defaultQuotaUnits: Unit[] = [
 
 const emits = defineEmits(['update:modelValue', 'update:modelUnit']);
 const props = defineProps<{
-  modelValue?: number;
-  modelUnit?: Unit;
+  modelValue?: number | string;
+  modelUnit?: Unit | string | undefined;
   label?: string;
   note?: string;
 }>();
@@ -130,6 +127,7 @@ function onChangeQuota(item: number) {
       color: #434657;
     }
   }
+
   &__unit--dropdown {
     &.ant-select-dropdown {
       padding: 8px 8px 8px 8px !important;

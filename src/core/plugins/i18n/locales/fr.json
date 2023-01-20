@@ -373,7 +373,7 @@
     "ALREADY_USED":"utilisés sur",
     "QUOTA_AND_USED_SPACE":"Quota du domaine et espace utilisé",
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Cette section vous permet de gérer le quota actuel du domaine et de le configurer en fonction de vos besoins.",
-    "MAINTENANCE_MODE_ACTIVATED":"Le mode maintenance est activé, empêchant ainsi tout téléchargement dans le domaine actuel.",
+    "MAINTENANCE_MODE_ACTIVATED_ALERT":"Le mode maintenance est activé, empêchant ainsi tout téléchargement dans le domaine actuel.",
     "DOMAIN_MAXIMUM_QUOTA":"Quota maximal du domaine : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Quota par défaut des sous-domaines : ",
     "DOMAIN_QUOTA":"Quota du domaine",
@@ -399,7 +399,10 @@
       "CURRENT_DOMAIN_USED_SPACE": "Espace utilisé par le domaine courant",
       "REMAINING_SPACE":"Espace restant",
       "UNALLOCATED_SPACE": "Espace non alloué"
-    }
+    },
+    "SAVE_CHANGE": "Sauvegarder",
+    "CANCEL": "Annuler",
+    "RESET": "Réinitialiser"
   },
   "DOMAIN": {
     "CREATE_DOMAIN": "Ajouter un domaine",

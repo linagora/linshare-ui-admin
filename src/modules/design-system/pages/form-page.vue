@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue';
-import LsQuotaInput from '@/core/components/ls/ls-quota-input.vue';
+import LsQuotaInput from '@/modules/configuration/pages/quota/components/quota-input.vue';
 import LsDomainTreeview from '@/core/components/ls/ls-domain-treeview.vue';
 import DomainTreeNode from '@/modules/domain/types/DomainTreeNode';
 

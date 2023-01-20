@@ -373,7 +373,7 @@
     "ALREADY_USED":"đã được sử dụng",
     "QUOTA_AND_USED_SPACE":"Hạn mức tên miền và dung lượng đã sử dụng",
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Phần này cho phép bạn quản lý kích thước hạn ngạch tên miền hiện tại và thiết lập nó theo nhu cầu của bạn.",
-    "MAINTENANCE_MODE_ACTIVATED":"Chế độ bảo trì được kích hoạt, do đó ngăn chặn mọi hoạt động tải lên được thực hiện trong miền hiện tại.",
+    "MAINTENANCE_MODE_ACTIVATED_ALERT":"Chế độ bảo trì được kích hoạt, do đó ngăn chặn mọi hoạt động tải lên được thực hiện trong miền hiện tại.",
     "DOMAIN_MAXIMUM_QUOTA":"Hạn mức tối đa của tên miền : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Hạn mức mặc định của tên miền con : ",
     "DOMAIN_QUOTA":"Hạn mức tên miền",
@@ -384,22 +384,25 @@
     },
     "QUOTA_VISUALIZE":"Quota visualize",
     "ROOT_DOMAIN_QUOTA":{
-      "CURRENT_DOMAIN_USED_SPACE": "Current domain used space (Personal + Shared Space)",
-      "SUB_DOMAIN_USED_SPACE":"Sub-domain used space",
-      "REMAINING_SPACE":"Remaining space",
-      "QUOTA_PER_SUB_DOMAIN": "Quota per sub domain"
+      "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại (Dung lượng cá nhân + dung lượng chia sẻ)",
+      "SUB_DOMAIN_USED_SPACE":"Dung lượng miền phụ",
+      "REMAINING_SPACE":"Dung lượng còn lại",
+      "QUOTA_PER_SUB_DOMAIN": "Hạn mức cho mỗi tên miền phụ"
     },
     "TOP_DOMAIN_QUOTA":{
-      "CURRENT_DOMAIN_USED_SPACE": "Current domain used space",
-      "SUB_DOMAIN_USED_SPACE":"Sub-domain used space",
-      "REMAINING_SPACE":"Remaining space",
-      "QUOTA_PER_SUB_DOMAIN": "Unallocated space"
+      "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại",
+      "SUB_DOMAIN_USED_SPACE":"Dung lượng miền phụ",
+      "REMAINING_SPACE":"Dung lượng còn lại",
+      "QUOTA_PER_SUB_DOMAIN": "Dung lượng chưa phân bổ"
     },
     "GUEST_DOMAIN_QUOTA":{
-      "CURRENT_DOMAIN_USED_SPACE": "Current domain used space",
-      "REMAINING_SPACE":"Remaining space",
-      "UNALLOCATED_SPACE": "Unallocated space"
-    }
+      "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại",
+      "REMAINING_SPACE":"Dung lượng còn lại",
+      "UNALLOCATED_SPACE": "Dung lượng chưa phân bổ"
+    },
+    "SAVE_CHANGE": "Lưu thay đổi",
+    "CANCEL": "Hủy bỏ",
+    "RESET": "Thiết lập lại"
   },
   "DOMAIN": {
     "CREATE_DOMAIN": "Tạo tên miền",

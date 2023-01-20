@@ -3,23 +3,42 @@ import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { getQuotaInformations, getQuotaUuid, switchMaintenanceMode } from '../services/quota-api';
 import Quota, { EMPTY_QUOTA } from '../types/Quota';
+import { getSizeInUnit } from '@/core/utils/unitStorage';
+import { Unit } from '@/core/types/Unit';
 
 const domainQuotaInformations = reactive<Quota>({ ...EMPTY_QUOTA });
 const domainQuotaUuid = ref();
+const form = reactive<{
+  quotaSpace: number | string;
+  quotaUnit: Unit | string | undefined;
+  maintenance: boolean | undefined;
+}>({
+  quotaSpace: 1000,
+  quotaUnit: undefined,
+  maintenance: false,
+});
 
 export default function useQuota() {
+  // local data
+  const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+  // methods
   async function getInformations(domainUuid: string) {
     try {
       domainQuotaUuid.value = await getQuotaUuid(domainUuid);
       const message = await getQuotaInformations(domainQuotaUuid.value.quota);
       Object.assign(domainQuotaInformations, message);
+      _generateFormData(domainQuotaInformations);
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
       }
     }
   }
-  const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+  async function resetDomainQuotaInformation(domainUuid: string) {
+    await getInformations(domainUuid);
+  }
 
   function niceBytes(x: any) {
     let l = 0,
@@ -35,7 +54,7 @@ export default function useQuota() {
   async function switchMaintenance() {
     if (domainQuotaInformations.maintenance === false) {
       try {
-        await switchMaintenanceMode(domainQuotaUuid.value.quota, switchIntoTrue());
+        await switchMaintenanceMode(domainQuotaUuid.value.quota, _switchIntoTrue());
       } catch (error) {
         if (error instanceof APIError) {
           message.error(error.getMessage());
@@ -43,7 +62,7 @@ export default function useQuota() {
       }
     } else {
       try {
-        await switchMaintenanceMode(domainQuotaUuid.value.quota, switchIntoFalse());
+        await switchMaintenanceMode(domainQuotaUuid.value.quota, _switchIntoFalse());
       } catch (error) {
         if (error instanceof APIError) {
           message.error(error.getMessage());
@@ -52,7 +71,7 @@ export default function useQuota() {
     }
   }
 
-  function switchIntoFalse() {
+  function _switchIntoFalse() {
     return {
       creationDate: domainQuotaInformations.creationDate,
       currentValueForSubdomains: domainQuotaInformations.currentValueForSubdomains,
@@ -80,7 +99,8 @@ export default function useQuota() {
       domainShared: domainQuotaInformations.domainShared,
     };
   }
-  function switchIntoTrue() {
+
+  function _switchIntoTrue() {
     return {
       creationDate: domainQuotaInformations.creationDate,
       currentValueForSubdomains: domainQuotaInformations.currentValueForSubdomains,
@@ -109,10 +129,18 @@ export default function useQuota() {
     };
   }
 
+  function _generateFormData(quota: Quota) {
+    form.maintenance = quota.maintenance;
+    form.quotaSpace = getSizeInUnit(quota.quota, 'GB', 2);
+    form.quotaUnit = { name: 'GB', value: 'GB', factor: 9 };
+  }
+
   return {
-    getInformations,
-    niceBytes,
-    switchMaintenance,
+    form,
     domainQuotaInformations,
+    niceBytes,
+    getInformations,
+    switchMaintenance,
+    resetDomainQuotaInformation,
   };
 }

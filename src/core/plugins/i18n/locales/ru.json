@@ -373,7 +373,7 @@
     "ALREADY_USED":"already used",
     "QUOTA_AND_USED_SPACE":"Domain quota and used space",
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "This section allows you manage the current domain quota size and setup it as on your need.",
-    "MAINTENANCE_MODE_ACTIVATED":"Maintenance mode is activated, thereby preventing any uploads to be made within the current domain.",
+    "MAINTENANCE_MODE_ACTIVATED_ALERT":"Maintenance mode is activated, thereby preventing any uploads to be made within the current domain.",
     "DOMAIN_MAXIMUM_QUOTA":"Maximum Domain Quota : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Default Subdomain quota : ",
     "DOMAIN_QUOTA":"Domain Quota",
@@ -399,7 +399,10 @@
       "CURRENT_DOMAIN_USED_SPACE": "Current domain used space",
       "REMAINING_SPACE":"Remaining space",
       "UNALLOCATED_SPACE": "Unallocated space"
-    }
+    },
+    "SAVE_CHANGE": "Save change",
+    "CANCEL": "Cancel",
+    "RESET": "Reset"
   },
   "DOMAIN": {
     "CREATE_DOMAIN": "Добавить домен",
