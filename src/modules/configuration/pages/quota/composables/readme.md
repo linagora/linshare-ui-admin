@@ -1,1 +1,0 @@
-This directory is to store the files that declare the composable methods of configuration/quota module

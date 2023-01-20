@@ -372,11 +372,24 @@
     "MAINTENANCE_MODE":"Mode maintenance",
     "ALREADY_USED":"utilisés sur",
     "QUOTA_AND_USED_SPACE":"Quota du domaine et espace utilisé",
+    "SUBDOMAINS_ALLOCATION_SETTINGS": "Paramètres d'attribution par défaut des sous-domaines",
+    "SUBDOMAIN_QUOTA": "QUOTA DES SOUS-DOMAINES",
+    "SHRAED_DOMAIN_QUOTA_ACTIVATION": "Activer le mode Domaine Quota partagé",
+    "QUOTA_PER_SUB_DOMAIN": "Quota (par sous-domaine)",
+    "PERSONAL_SPACE_QUOTA": "QUOTA DES ESPACES PERSONNEL",
+    "ALL_SPACE_ALLOCATED_QUOTA": "Valeur des quotas de tous les Espaces Personnel",
+    "DEFAULT_ALLOCATED_QUOTA_PER_USER": "Valeur par défaut d'un Espace Personnel (par utilisateur)",
+    "CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA": "La valeur ne peut excéder celle du quota",
+    "SHARED_SPACE_QUOTA": "QUOTA DES ESPACES COMMUNS",
+    "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Quota total alloué pour l'Espace Commun",
+    "DEFAULT_MAX_FILE_SIZE": "Taille max d'un fichier dans les Espaces Personnel",
+    "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Définir le quota pour un utilisateur",
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Cette section vous permet de gérer le quota actuel du domaine et de le configurer en fonction de vos besoins.",
     "MAINTENANCE_MODE_ACTIVATED_ALERT":"Le mode maintenance est activé, empêchant ainsi tout téléchargement dans le domaine actuel.",
     "DOMAIN_MAXIMUM_QUOTA":"Quota maximal du domaine : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Quota par défaut des sous-domaines : ",
     "DOMAIN_QUOTA":"Quota du domaine",
+    "ERROR_MESSAGE_FIELD": "La valeur doit etre inférieure ou égale à : ",
     "ERROR": {
       "QUOTA_LESS_THAN_FILE_SIZE": "Le quota de stockage doit être supérieur à la taille maximale d'un fichier",
       "FILE_SIZE_LARGER_THAN_QUOTA": "La taille maximale du fichier doit être inférieure au quota de stockage",
@@ -448,6 +461,7 @@
       "BACK_TO_CONFIGURATION": "Retour à la configuration"
     },
     "TYPES": {
+          "ROOTDOMAIN":"Domain racine",
       "TOPDOMAIN": "Domaine principal",
       "SUBDOMAIN": "Sous-domaine",
       "GUESTDOMAIN": "Domaine invité"

@@ -156,7 +156,7 @@ function byteTo(value: number, selectedUnit: StorageUnit['label'] | undefined | 
   return newResult;
 }
 
-function toByte(value: number, unit: StorageUnit['label']) {
+function toByte(value: number, unit: StorageUnit['label'] | string) {
   let result = 0;
   if (value === undefined || value === null || isNaN(value)) {
     return result;

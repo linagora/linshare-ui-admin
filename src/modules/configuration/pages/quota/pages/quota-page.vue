@@ -2,6 +2,7 @@
   <div :key="data.key" class="quota-page">
     <div class="quota-page__tabs">
       <domain-quota-and-used-space> </domain-quota-and-used-space>
+      <subdomains-allocation-settings></subdomains-allocation-settings>
     </div>
     <div class="quota-page__actions">
       <a-button
@@ -33,12 +34,20 @@ import { onMounted, reactive, watch } from 'vue';
 import useQuota from '../hooks/useQuota';
 import { useDomainStore } from '@/modules/domain/store';
 import DomainQuotaAndUsedSpace from '../components/domain-quota-and-used-space.vue';
+import SubdomainsAllocationSettings from '../components/subdomains-allocation-settings.vue';
 
 // composabled
 const { currentRoute } = useRouter();
 const { t } = useI18n();
 const domainStore = useDomainStore();
-const { getInformations, resetDomainQuotaInformation, saveQuota, form } = useQuota();
+const {
+  getInformations,
+  resetDomainQuotaInformation,
+  getSubdomainBlockInformations,
+  getAllocationBlockInformations,
+  saveQuota,
+  form,
+} = useQuota();
 const { currentDomain } = storeToRefs(domainStore);
 
 // data
@@ -66,6 +75,8 @@ watch(currentRoute, (newRoute) => {
 
 onMounted(() => {
   getInformations(currentDomain.value.uuid);
+  getSubdomainBlockInformations(currentDomain.value.uuid);
+  getAllocationBlockInformations(currentDomain.value.uuid);
 });
 </script>
 

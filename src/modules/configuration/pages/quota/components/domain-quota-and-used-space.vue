@@ -156,7 +156,7 @@ const inputNote = computed(() => {
 
 function onClickToggleLockDomainSharedQuota() {
   form.domain_quota_and_used_space.domainSharedOverride = !form.domain_quota_and_used_space.domainSharedOverride;
-  emits('update:modeldomainSharedOverride', form.domain_quota_and_used_space.domainSharedOverrid);
+  emits('update:modeldomainSharedOverride', form.domain_quota_and_used_space.domainSharedOverride);
 }
 </script>
 

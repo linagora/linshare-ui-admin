@@ -372,6 +372,18 @@
     "MAINTENANCE_MODE":"Chế độ bảo trì",
     "ALREADY_USED":"đã được sử dụng",
     "QUOTA_AND_USED_SPACE":"Hạn mức tên miền và dung lượng đã sử dụng",
+  "SUBDOMAINS_ALLOCATION_SETTINGS": "Cài đặt phân bổ mặc định cho tên miền phụ",
+    "SUBDOMAIN_QUOTA": "HẠN MỨC TÊN MIỀN PHỤ",
+    "SHRAED_DOMAIN_QUOTA_ACTIVATION": "Kích hoạt chia sẻ hạn mức tên miền",
+    "QUOTA_PER_SUB_DOMAIN": "Hạn mức trên mỗi TÊN MIỀN PHỤ",
+    "PERSONAL_SPACE_QUOTA": "HẠN MỨC CÁ NHÂN",
+    "ALL_SPACE_ALLOCATED_QUOTA": "Định mức được phân bổ cho tất cả KHÔNG GIAN CÁ NHÂN",
+    "DEFAULT_ALLOCATED_QUOTA_PER_USER": "Hạn mức được phân bổ mặc định (mỗi NGƯỜI DÙNG)",
+    "CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA": "Giá trị không thể vượt quá hạn mức miền được phân bổ",
+    "SHARED_SPACE_QUOTA": "HẠN MỨC CHIA SẺ",
+    "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Tổng hạn mức được phân bổ mặc định",
+    "DEFAULT_MAX_FILE_SIZE": "Kích thước tệp tối đa mặc định",
+    "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Phân bổ hạn mức cho một tài khoản người dùng cụ thể",
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Phần này cho phép bạn quản lý kích thước hạn ngạch tên miền hiện tại và thiết lập nó theo nhu cầu của bạn.",
     "MAINTENANCE_MODE_ACTIVATED_ALERT":"Chế độ bảo trì được kích hoạt, do đó ngăn chặn mọi hoạt động tải lên được thực hiện trong miền hiện tại.",
     "DOMAIN_MAXIMUM_QUOTA":"Hạn mức tối đa của tên miền : ",
@@ -448,6 +460,7 @@
       "BACK_TO_CONFIGURATION": "Đi tới Cấu hình"
     },
     "TYPES": {
+      "ROOTDOMAIN":"tên miền gốc",
       "TOPDOMAIN": "Tên miền hàng đầu",
       "SUBDOMAIN": "Tên miền phụ",
       "GUESTDOMAIN": "Tên miền khách"
