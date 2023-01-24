@@ -34,6 +34,10 @@
             <span>{{ $t('QUOTA.DOMAIN_MAXIMUM_QUOTA') }}</span>
             <span class="maximum-quota-value">{{ niceBytes(maximumQuota) }}</span>
           </div>
+          <div v-if="currentDomain.type == 'TOPDOMAIN'" class="maximum-quota">
+            <span>{{ $t('QUOTA.DEFAULT_SUB_DOMAIN_QUOTA') }}</span>
+            <span class="maximum-quota-value">{{ niceBytes(defaultQuota) }}</span>
+          </div>
         </div>
         <div class="domain-quota-and-used-space__chart">
           <QuotaVisualizeCard
@@ -83,9 +87,13 @@ const remainingQuota = computed(() => {
 const maximumQuota = computed(() => {
   return domainQuotaInformations.quota;
 });
-
+const defaultQuota = computed(() => {
+  return domainQuotaInformations.defaultQuota;
+});
 const inputNote = computed(() => {
-  return `${niceBytes(domainQuotaInformations.usedSpace)}/${niceBytes(domainQuotaInformations.quota)} ${t( 'QUOTA.ALREADY_USED' )} (${((domainQuotaInformations.usedSpace / domainQuotaInformations.quota) * 100).toFixed(1)}%)`;
+  return `${niceBytes(domainQuotaInformations.usedSpace)}/${niceBytes(domainQuotaInformations.quota)} ${t(
+    'QUOTA.ALREADY_USED'
+  )} (${((domainQuotaInformations.usedSpace / domainQuotaInformations.quota) * 100).toFixed(1)}%)`;
 });
 // methods
 

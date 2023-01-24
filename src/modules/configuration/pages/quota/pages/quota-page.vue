@@ -6,7 +6,9 @@
     <div class="quota-page__actions">
       <a-button type="primary" class="ls-button">{{ $t('QUOTA.SAVE_CHANGE') }}</a-button>
       <a-button class="ls-button ls-button--cancel">{{ $t('QUOTA.CANCEL') }}</a-button>
-      <a-button :loading="loading.reset" class="ls-button ls-button--reset" @click="onResetDomainQuota">{{ $t('QUOTA.RESET') }}</a-button>
+      <a-button :loading="loading.reset" class="ls-button ls-button--reset" @click="onResetDomainQuota">{{
+        $t('QUOTA.RESET')
+      }}</a-button>
     </div>
   </div>
 </template>
