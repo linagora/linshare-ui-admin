@@ -1,21 +1,24 @@
 import { reactive, ref } from 'vue';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
-import { getQuotaInformations, getQuotaUuid, switchMaintenanceMode } from '../services/quota-api';
+import { getQuotaInformations, getQuotaUuid, updateQuota } from '../services/quota-api';
 import Quota, { EMPTY_QUOTA } from '../types/Quota';
-import { getSizeInUnit } from '@/core/utils/unitStorage';
-import { Unit } from '@/core/types/Unit';
+import { find, byteTo, toByte } from '@/core/utils/unitStorage';
 
 const domainQuotaInformations = reactive<Quota>({ ...EMPTY_QUOTA });
 const domainQuotaUuid = ref();
 const form = reactive<{
-  quotaSpace: number | string;
-  quotaUnit: Unit | string | undefined;
-  maintenance: boolean | undefined;
+  domain_quota_and_used_space: {
+    quotaSpace: number | string;
+    quotaUnit: string;
+    maintenance: boolean | undefined;
+  };
 }>({
-  quotaSpace: 1000,
-  quotaUnit: undefined,
-  maintenance: false,
+  domain_quota_and_used_space: {
+    quotaSpace: byteTo(domainQuotaInformations.quota, undefined, false),
+    quotaUnit: find(domainQuotaInformations.quota),
+    maintenance: false,
+  },
 });
 
 export default function useQuota() {
@@ -51,88 +54,50 @@ export default function useQuota() {
     return n.toFixed(1) + ' ' + units[l];
   }
 
-  async function switchMaintenance() {
-    if (domainQuotaInformations.maintenance === false) {
-      try {
-        await switchMaintenanceMode(domainQuotaUuid.value.quota, _switchIntoTrue());
-      } catch (error) {
-        if (error instanceof APIError) {
-          message.error(error.getMessage());
-        }
-      }
-    } else {
-      try {
-        await switchMaintenanceMode(domainQuotaUuid.value.quota, _switchIntoFalse());
-      } catch (error) {
-        if (error instanceof APIError) {
-          message.error(error.getMessage());
-        }
+  async function saveQuota(domainUuid: string) {
+    try {
+      await updateQuota(domainQuotaUuid.value.quota, savePaypload());
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
       }
     }
-  }
-
-  function _switchIntoFalse() {
-    return {
-      creationDate: domainQuotaInformations.creationDate,
-      currentValueForSubdomains: domainQuotaInformations.currentValueForSubdomains,
-      defaultDomainShared: domainQuotaInformations.defaultDomainShared,
-      defaultDomainSharedOverride: domainQuotaInformations.defaultDomainSharedOverride,
-      defaultQuota: domainQuotaInformations.defaultQuota,
-      defaultQuotaOverride: domainQuotaInformations.defaultDomainSharedOverride,
-      maintenance: false,
-      modificationDate: domainQuotaInformations.modificationDate,
-      quota: domainQuotaInformations.quota,
-      quotaOverride: domainQuotaInformations.quotaOverride,
-      usedSpace: domainQuotaInformations.usedSpace,
-      uuid: domainQuotaInformations.uuid,
-      domain: {
-        label: domainQuotaInformations.domain?.label,
-        identifier: domainQuotaInformations.domain?.identifier,
-        type: domainQuotaInformations.domain?.type,
-      },
-      parentDomain: {
-        label: domainQuotaInformations.parentDomain?.label,
-        identifier: domainQuotaInformations.parentDomain?.identifier,
-        type: domainQuotaInformations.parentDomain?.type,
-      },
-      batchModificationDate: domainQuotaInformations.batchModificationDate,
-      domainShared: domainQuotaInformations.domainShared,
-    };
-  }
-
-  function _switchIntoTrue() {
-    return {
-      creationDate: domainQuotaInformations.creationDate,
-      currentValueForSubdomains: domainQuotaInformations.currentValueForSubdomains,
-      defaultDomainShared: domainQuotaInformations.defaultDomainShared,
-      defaultDomainSharedOverride: domainQuotaInformations.defaultDomainSharedOverride,
-      defaultQuota: domainQuotaInformations.defaultQuota,
-      defaultQuotaOverride: domainQuotaInformations.defaultDomainSharedOverride,
-      maintenance: true,
-      modificationDate: domainQuotaInformations.modificationDate,
-      quota: domainQuotaInformations.quota,
-      quotaOverride: domainQuotaInformations.quotaOverride,
-      usedSpace: domainQuotaInformations.usedSpace,
-      uuid: domainQuotaInformations.uuid,
-      domain: {
-        label: domainQuotaInformations.domain?.label,
-        identifier: domainQuotaInformations.domain?.identifier,
-        type: domainQuotaInformations.domain?.type,
-      },
-      parentDomain: {
-        label: domainQuotaInformations.parentDomain?.label,
-        identifier: domainQuotaInformations.parentDomain?.identifier,
-        type: domainQuotaInformations.parentDomain?.type,
-      },
-      batchModificationDate: domainQuotaInformations.batchModificationDate,
-      domainShared: domainQuotaInformations.domainShared,
-    };
+    resetDomainQuotaInformation(domainUuid);
   }
 
   function _generateFormData(quota: Quota) {
-    form.maintenance = quota.maintenance;
-    form.quotaSpace = getSizeInUnit(quota.quota, 'GB', 2);
-    form.quotaUnit = { name: 'GB', value: 'GB', factor: 9 };
+    form.domain_quota_and_used_space.maintenance = quota.maintenance;
+    form.domain_quota_and_used_space.quotaSpace = byteTo(domainQuotaInformations.quota, undefined, false);
+    form.domain_quota_and_used_space.quotaUnit = find(domainQuotaInformations.quota);
+  }
+
+  function savePaypload() {
+    return {
+      creationDate: domainQuotaInformations.creationDate,
+      currentValueForSubdomains: domainQuotaInformations.currentValueForSubdomains,
+      defaultDomainShared: domainQuotaInformations.defaultDomainShared,
+      defaultDomainSharedOverride: domainQuotaInformations.defaultDomainSharedOverride,
+      defaultQuota: domainQuotaInformations.defaultQuota,
+      defaultQuotaOverride: domainQuotaInformations.defaultDomainSharedOverride,
+      maintenance: form.domain_quota_and_used_space.maintenance,
+      modificationDate: domainQuotaInformations.modificationDate,
+      quota: toByte(form.domain_quota_and_used_space.quotaSpace, form.domain_quota_and_used_space.quotaUnit, false),
+      quotaOverride: domainQuotaInformations.quotaOverride,
+      usedSpace: domainQuotaInformations.usedSpace,
+      uuid: domainQuotaInformations.uuid,
+      domain: {
+        label: domainQuotaInformations.domain?.label,
+        identifier: domainQuotaInformations.domain?.identifier,
+        type: domainQuotaInformations.domain?.type,
+      },
+      parentDomain: {
+        label: domainQuotaInformations.parentDomain?.label,
+        identifier: domainQuotaInformations.parentDomain?.identifier,
+        type: domainQuotaInformations.parentDomain?.type,
+      },
+      batchModificationDate: domainQuotaInformations.batchModificationDate,
+      domainShared: domainQuotaInformations.domainShared,
+    };
   }
 
   return {
@@ -140,7 +105,7 @@ export default function useQuota() {
     domainQuotaInformations,
     niceBytes,
     getInformations,
-    switchMaintenance,
+    saveQuota,
     resetDomainQuotaInformation,
   };
 }

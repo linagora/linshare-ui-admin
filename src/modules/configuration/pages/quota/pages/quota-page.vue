@@ -4,7 +4,9 @@
       <domain-quota-and-used-space> </domain-quota-and-used-space>
     </div>
     <div class="quota-page__actions">
-      <a-button type="primary" class="ls-button">{{ $t('QUOTA.SAVE_CHANGE') }}</a-button>
+      <a-button type="primary" class="ls-button" @click="saveQuota(currentDomain.uuid)">{{
+        $t('QUOTA.SAVE_CHANGE')
+      }}</a-button>
       <a-button class="ls-button ls-button--cancel">{{ $t('QUOTA.CANCEL') }}</a-button>
       <a-button :loading="loading.reset" class="ls-button ls-button--reset" @click="onResetDomainQuota">{{
         $t('QUOTA.RESET')
@@ -23,7 +25,7 @@ import DomainQuotaAndUsedSpace from '../components/domain-quota-and-used-space.v
 // composabled
 const { currentRoute } = useRouter();
 const domainStore = useDomainStore();
-const { getInformations, resetDomainQuotaInformation } = useQuota();
+const { getInformations, resetDomainQuotaInformation, saveQuota } = useQuota();
 const { currentDomain } = storeToRefs(domainStore);
 
 // data

@@ -1,6 +1,6 @@
 <template>
   <collapse
-    ><collapse-panel :header="$t('QUOTA.QUOTA_AND_USED_SPACE')">
+    ><collapse-panel :key="1" :header="$t('QUOTA.QUOTA_AND_USED_SPACE')">
       <ls-alert
         :message="$t('QUOTA.QUOTA_AND_USED_INFORMATIONS_ALERT')"
         type="info"
@@ -10,23 +10,19 @@
       <div class="domain-quota-and-used-space">
         <div class="domain-quota-and-used-space__form">
           <div class="maintenance-mode">
-            <a-switch
-              v-model:checked="form.maintenance"
-              class="maintenance-switch"
-              @click="updateQuotaMaintenanceMode"
-            />
+            <a-switch v-model:checked="form.domain_quota_and_used_space.maintenance" class="maintenance-switch" />
             <span>{{ $t('QUOTA.MAINTENANCE_MODE') }}</span>
           </div>
           <ls-alert
-            v-if="form.maintenance"
+            v-if="form.domain_quota_and_used_space.maintenance"
             :message="$t('QUOTA.MAINTENANCE_MODE_ACTIVATED_ALERT')"
             type="warning"
             :border="true"
             :show-icon="false"
           ></ls-alert>
           <quota-input
-            v-model:model-unit="form.quotaUnit"
-            v-model:model-value="form.quotaSpace"
+            v-model:model-unit="form.domain_quota_and_used_space.quotaUnit"
+            v-model:model-value="form.domain_quota_and_used_space.quotaSpace"
             :label="$t('QUOTA.DOMAIN_QUOTA')"
             :note="inputNote"
           ></quota-input>
@@ -67,7 +63,7 @@ import QuotaInput from '@/modules/configuration/pages/quota/components/quota-inp
 const { t } = useI18n();
 const domainStore = useDomainStore();
 const currentDomain = domainStore.currentDomain;
-const { domainQuotaInformations, form, niceBytes, switchMaintenance } = useQuota();
+const { domainQuotaInformations, form, niceBytes } = useQuota();
 
 // computed
 const subQuota = computed(() => {
@@ -96,10 +92,6 @@ const inputNote = computed(() => {
   )} (${((domainQuotaInformations.usedSpace / domainQuotaInformations.quota) * 100).toFixed(1)}%)`;
 });
 // methods
-
-function updateQuotaMaintenanceMode() {
-  switchMaintenance();
-}
 </script>
 
 <style lang="less" scoped>
