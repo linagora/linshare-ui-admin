@@ -13,7 +13,7 @@ export default interface DomainQuota {
   currentValueForSubdomains?: number;
   defaultDomainShared?: boolean;
   defaultDomainSharedOverride?: boolean;
-  defaultQuota?: number;
+  defaultQuota: number;
   defaultQuotaOverride?: boolean;
   maintenance?: boolean;
   modificationDate?: number;

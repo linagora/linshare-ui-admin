@@ -4,9 +4,20 @@
       <domain-quota-and-used-space> </domain-quota-and-used-space>
     </div>
     <div class="quota-page__actions">
-      <a-button type="primary" class="ls-button" @click="saveQuota(currentDomain.uuid)">{{
-        $t('QUOTA.SAVE_CHANGE')
-      }}</a-button>
+      <a-button
+        v-if="form.saverCheck && currentDomain.type !== 'ROOTDOMAIN'"
+        disabled
+        type="primary"
+        class="ls-button"
+        >{{ $t('QUOTA.SAVE_CHANGE') }}</a-button
+      >
+      <a-button
+        v-else
+        type="primary"
+        class="ls-button"
+        @click="saveQuota(currentDomain.uuid, t('MESSAGES.UPDATE_SUCCESS'))"
+        >{{ $t('QUOTA.SAVE_CHANGE') }}</a-button
+      >
       <a-button class="ls-button ls-button--cancel">{{ $t('QUOTA.CANCEL') }}</a-button>
       <a-button :loading="loading.reset" class="ls-button ls-button--reset" @click="onResetDomainQuota">{{
         $t('QUOTA.RESET')
@@ -15,6 +26,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { onMounted, reactive, watch } from 'vue';
@@ -24,8 +36,9 @@ import DomainQuotaAndUsedSpace from '../components/domain-quota-and-used-space.v
 
 // composabled
 const { currentRoute } = useRouter();
+const { t } = useI18n();
 const domainStore = useDomainStore();
-const { getInformations, resetDomainQuotaInformation, saveQuota } = useQuota();
+const { getInformations, resetDomainQuotaInformation, saveQuota, form } = useQuota();
 const { currentDomain } = storeToRefs(domainStore);
 
 // data
@@ -47,6 +60,7 @@ async function onResetDomainQuota() {
 watch(currentRoute, (newRoute) => {
   if (newRoute) {
     data.key += 1;
+    resetDomainQuotaInformation(currentDomain.value.uuid);
   }
 });
 

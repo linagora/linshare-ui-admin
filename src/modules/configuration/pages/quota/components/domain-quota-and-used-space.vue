@@ -27,12 +27,18 @@
             :note="inputNote"
           ></quota-input>
           <div v-if="currentDomain.type !== 'ROOTDOMAIN'" class="maximum-quota">
-            <span>{{ $t('QUOTA.DOMAIN_MAXIMUM_QUOTA') }}</span>
-            <span class="maximum-quota-value">{{ niceBytes(maximumQuota) }}</span>
+            <span v-if="!defaultMaxiQuotaLogic()">{{ $t('QUOTA.DOMAIN_MAXIMUM_QUOTA') }}</span>
+            <span v-else class="save-check-wrong">{{ $t('QUOTA.DOMAIN_MAXIMUM_QUOTA') }}</span>
+            <span v-if="!defaultMaxiQuotaLogic()" class="maximum-quota-value">{{ maximumQuota }}</span>
+            <span v-else class="save-check-wrong">{{ maximumQuota }}</span>
           </div>
-          <div v-if="currentDomain.type == 'TOPDOMAIN'" class="maximum-quota">
-            <span>{{ $t('QUOTA.DEFAULT_SUB_DOMAIN_QUOTA') }}</span>
-            <span class="maximum-quota-value">{{ niceBytes(defaultQuota) }}</span>
+          <div v-if="currentDomain.type === 'TOPDOMAIN'" class="maximum-quota">
+            <span v-if="defaultSubdomainQuotaLogic()" class="save-check-wrong">{{
+              $t('QUOTA.DEFAULT_SUB_DOMAIN_QUOTA')
+            }}</span>
+            <span v-else>{{ $t('QUOTA.DEFAULT_SUB_DOMAIN_QUOTA') }}</span>
+            <span v-if="defaultSubdomainQuotaLogic()" class="save-check-wrong">{{ defaultQuota }}</span>
+            <span v-else class="maximum-quota-value">{{ defaultQuota }}</span>
           </div>
         </div>
         <div class="domain-quota-and-used-space__chart">
@@ -58,12 +64,14 @@ import Collapse from '@/core/components/ls/ls-collapse.vue';
 import CollapsePanel from '@/core/components/ls/ls-collapse-panel.vue';
 import QuotaVisualizeCard from '@/modules/configuration/pages/quota/components/quota-visualize.vue';
 import QuotaInput from '@/modules/configuration/pages/quota/components/quota-input.vue';
+import { byteTo, displayUnit } from '@/core/utils/unitStorage';
 
 // composable
 const { t } = useI18n();
 const domainStore = useDomainStore();
 const currentDomain = domainStore.currentDomain;
-const { domainQuotaInformations, form, niceBytes } = useQuota();
+const { domainQuotaInformations, form, defaultMaxiQuotaLogic, defaultSubdomainQuotaLogic, parentDomainInformations } =
+  useQuota();
 
 // computed
 const subQuota = computed(() => {
@@ -81,17 +89,21 @@ const remainingQuota = computed(() => {
   return domainQuotaInformations.currentValueForSubdomains;
 });
 const maximumQuota = computed(() => {
-  return domainQuotaInformations.quota;
+  return displayUnit(byteTo, parentDomainInformations.quota, undefined);
 });
 const defaultQuota = computed(() => {
-  return domainQuotaInformations.defaultQuota;
+  return displayUnit(byteTo, domainQuotaInformations.defaultQuota, undefined);
 });
+
 const inputNote = computed(() => {
-  return `${niceBytes(domainQuotaInformations.usedSpace)}/${niceBytes(domainQuotaInformations.quota)} ${t(
-    'QUOTA.ALREADY_USED'
-  )} (${((domainQuotaInformations.usedSpace / domainQuotaInformations.quota) * 100).toFixed(1)}%)`;
+  return `${displayUnit(byteTo, domainQuotaInformations.usedSpace, undefined)}/${displayUnit(
+    byteTo,
+    domainQuotaInformations.quota,
+    undefined
+  )} ${t('QUOTA.ALREADY_USED')} (${((domainQuotaInformations.usedSpace / domainQuotaInformations.quota) * 100).toFixed(
+    1
+  )}%)`;
 });
-// methods
 </script>
 
 <style lang="less" scoped>
@@ -121,12 +133,16 @@ const inputNote = computed(() => {
 }
 
 .maximum-quota {
-  margin-top: 25px;
+  margin-top: 15px;
   color: #6d7885;
 }
 
 .maximum-quota-value {
   color: black;
+  font-weight: bolder;
+}
+.save-check-wrong {
+  color: red;
   font-weight: bolder;
 }
 </style>

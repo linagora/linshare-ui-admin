@@ -1,4 +1,4 @@
-interface StorageUnit {
+export interface StorageUnit {
   base: number;
   label: 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB' | 'EB';
 }
@@ -138,25 +138,32 @@ function find(value: number) {
   }
 }
 
-function byteTo(value: number, selectedUnit: StorageUnit['label'] | undefined, showUnit: boolean) {
+type callBackFn = (value: number, selectedUnit: StorageUnit['label'] | undefined | string) => void;
+
+function displayUnit(callBackFn: callBackFn, value: number, selectedUnit: StorageUnit['label'] | undefined) {
+  const unit = selectedUnit === undefined ? find(value) : selectedUnit;
+  return `${callBackFn(value, unit)} ${unit}`;
+}
+
+function byteTo(value: number, selectedUnit: StorageUnit['label'] | undefined | string) {
   let result = 0;
   if (value === undefined || value === null || isNaN(value)) {
     return result;
   }
   const unit = selectedUnit === undefined ? find(value) : selectedUnit;
   result = value / Math.pow(10, units[unit as StorageUnit['label']].factor);
-  const newResult = result % 1 === 0 ? result : result.toFixed(2);
-  return showUnit ? newResult + ' ' + unit : newResult;
+  const newResult = result % 1 === 0 ? result : Math.round(result * 1e2) / 1e2;
+  return newResult;
 }
 
-function toByte(value: number, unit: StorageUnit['label'], showUnit: boolean) {
+function toByte(value: number, unit: StorageUnit['label']) {
   let result = 0;
   if (value === undefined || value === null || isNaN(value)) {
     return result;
   }
   result = value * Math.pow(10, units[unit as StorageUnit['label']].factor);
-  const newResult = result % 1 === 0 ? result : result.toFixed(2);
-  return showUnit ? newResult + `${units.B}` : newResult;
+  const newResult = result % 1 === 0 ? result : Math.round(result * 1e2) / 1e2;
+  return newResult;
 }
 
-export { getReadableSize, getSizeInUnit, byteTo, find, toByte };
+export { getReadableSize, getSizeInUnit, byteTo, find, toByte, displayUnit };
