@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import Status from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import Domain, { DOMAIN_TYPE, EMPTY_DOMAIN } from '@/modules/domain/types/Domain';
 import DomainTreeNode, { EMPTY_DOMAIN_NODE } from '@/modules/domain/types/DomainTreeNode';
 
@@ -9,7 +9,7 @@ interface DomainState {
   currentDomain: Domain;
   domainsTree: DomainTreeNode;
   status: {
-    currentDomain: Status;
+    currentDomain: STATUS;
   };
 }
 
@@ -18,7 +18,7 @@ export const useDomainStore = defineStore('domainStore', {
     currentDomain: EMPTY_DOMAIN,
     domainsTree: EMPTY_DOMAIN_NODE,
     status: {
-      currentDomain: Status.LOADING,
+      currentDomain: STATUS.LOADING,
     },
   }),
   getters: {
@@ -29,7 +29,7 @@ export const useDomainStore = defineStore('domainStore', {
         _getDomainFromTree(uuid, state.domainsTree),
     getStatus:
       (state) =>
-      (entity: 'currentDomain'): Status =>
+      (entity: 'currentDomain'): STATUS =>
         state.status[entity],
     getCurrentDomain: (state): Domain => state.currentDomain,
     isRootDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.ROOT,
@@ -52,15 +52,15 @@ export const useDomainStore = defineStore('domainStore', {
       this.domainsTree = domains[0];
     },
     async fetchDomain() {
-      this.status.currentDomain = Status.LOADING;
+      this.status.currentDomain = STATUS.LOADING;
 
       try {
         const domain = await getDomain(this.currentDomain.uuid, { params: { detail: true } });
 
         this.currentDomain = { ...this.currentDomain, ...domain };
-        this.status.currentDomain = Status.SUCCESS;
+        this.status.currentDomain = STATUS.SUCCESS;
       } catch (error) {
-        this.status.currentDomain = Status.ERROR;
+        this.status.currentDomain = STATUS.ERROR;
       }
     },
     async updateDomain(domain: Domain) {
@@ -79,7 +79,7 @@ export const useDomainStore = defineStore('domainStore', {
       this.currentDomain = EMPTY_DOMAIN;
       this.domainsTree = EMPTY_DOMAIN_NODE;
       this.status = {
-        currentDomain: Status.LOADING,
+        currentDomain: STATUS.LOADING,
       };
     },
   },

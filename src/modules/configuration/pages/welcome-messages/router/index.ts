@@ -1,8 +1,15 @@
 import { RouteRecordRaw } from 'vue-router';
 import WelcomeMessagesPage from '../pages/welcome-messages-page.vue';
+
+export const CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES = {
+  CONFIGURATION_DOMAIN_WELCOME_MESSAGES: 'ConfigurationDomainWelcomeMessages',
+  DOMAIN_WELCOME_MESSAGE_NEW: 'DomainWelcomeMessageNew',
+  DOMAIN_WELCOME_MESSAGE_DETAILS: 'DomainWelcomeMessageDetails',
+};
+
 export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
   {
-    name: 'ConfigurationDomainWelcomeMessages',
+    name: CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES.CONFIGURATION_DOMAIN_WELCOME_MESSAGES,
     path: ':domainUuid/welcome-messages',
     component: WelcomeMessagesPage,
     meta: {
@@ -12,22 +19,22 @@ export const ConfigurationDomainWelcomeMessagesRoutes: RouteRecordRaw[] = [
     },
   },
   {
-    name: 'DomainWelcomeMessageNew',
+    name: CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES.DOMAIN_WELCOME_MESSAGE_NEW,
     path: ':domainUuid/welcome-messages/new',
     component: () => import('../components/domain-welcome-message.vue'),
     meta: {
       requiresAuth: true,
-      parentRoute: 'ConfigurationDomainWelcomeMessages',
+      parentRoute: CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES.CONFIGURATION_DOMAIN_WELCOME_MESSAGES,
     },
   },
   {
-    name: 'DomainWelcomeMessageDetails',
-    path: ':domainUuid/welcome-messages/:uuid?',
+    name: CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES.DOMAIN_WELCOME_MESSAGE_DETAILS,
+    path: ':domainUuid/welcome-messages/:uuid',
     component: () => import('../components/domain-welcome-message.vue'),
     meta: {
       requiresAuth: true,
-      parentRoute: 'ConfigurationDomainWelcomeMessages',
       label: 'NAVIGATOR.WELCOME_MESSAGE_DETAIL',
+      parentRoute: CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES.CONFIGURATION_DOMAIN_WELCOME_MESSAGES,
     },
   },
 ];

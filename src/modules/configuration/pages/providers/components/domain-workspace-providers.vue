@@ -51,7 +51,7 @@ import { listWorkspaceFilters } from '@/modules/configuration/pages/remote-filte
 import { LDAPWorkspaceFilter } from '@/modules/configuration/pages/remote-filters/types/WorkspaceFilters';
 import RemoteServer from '@/modules/configuration/pages/remote-servers/types/RemoteServer';
 import { LDAPWorkspaceProvider, EMPTY_PROVIDER } from '../types/WorkspaceProvider';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 
 interface State {
@@ -63,7 +63,7 @@ interface State {
 
 const domainStore = useDomainStore();
 const currentDomain = domainStore.currentDomain;
-const currentDomainStatus = computed<StatusValue>(() => domainStore.getStatus('currentDomain'));
+const currentDomainStatus = computed<STATUS>(() => domainStore.getStatus('currentDomain'));
 
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
@@ -109,8 +109,8 @@ async function prepareData() {
 
 onMounted(prepareData);
 
-watch(currentDomainStatus, async (status: StatusValue) => {
-  if (status === StatusValue.LOADING) {
+watch(currentDomainStatus, async (status: STATUS) => {
+  if (status === STATUS.LOADING) {
     state.status = 'loading';
 
     try {

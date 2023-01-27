@@ -51,7 +51,7 @@ import { listRemoteServers } from '@/modules/configuration/pages/remote-servers/
 import RemoteServer from '@/modules/configuration/pages/remote-servers/types/RemoteServer';
 import { LDAPGroupFilter } from '@/modules/configuration/pages/remote-filters/types/GroupFilters';
 import { listGroupFilters } from '@/modules/configuration/pages/remote-filters/services/group-filter-api';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import { storeToRefs } from 'pinia';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 
@@ -64,7 +64,7 @@ interface State {
 
 const domainStore = useDomainStore();
 const { currentDomain, getStatus } = storeToRefs(domainStore);
-const currentDomainStatus = computed<StatusValue>(() => getStatus.value('currentDomain'));
+const currentDomainStatus = computed<STATUS>(() => getStatus.value('currentDomain'));
 
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
@@ -110,8 +110,8 @@ async function prepareData() {
 
 onMounted(prepareData);
 
-watch(currentDomainStatus, async (status: StatusValue) => {
-  if (status === StatusValue.LOADING) {
+watch(currentDomainStatus, async (status: STATUS) => {
+  if (status === STATUS.LOADING) {
     state.status = 'loading';
 
     try {

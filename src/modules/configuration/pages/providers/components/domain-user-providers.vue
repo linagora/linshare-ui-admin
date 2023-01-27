@@ -103,7 +103,7 @@ import UserFilter, { USER_FILTER_TYPE } from '@/modules/configuration/pages/remo
 import { listUserFilters } from '@/modules/configuration/pages/remote-filters/services/user-filter-api';
 import { DOMAIN_TYPE } from '../types/Domain';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
@@ -115,7 +115,7 @@ interface State {
 const domainStore = useDomainStore();
 const { currentDomain } = storeToRefs(domainStore);
 
-const currentDomainStatus = computed<StatusValue>(() => domainStore.getStatus('currentDomain'));
+const currentDomainStatus = computed<STATUS>(() => domainStore.getStatus('currentDomain'));
 
 const state = reactive<State>({
   provider: { ...EMPTY_PROVIDER },
@@ -159,8 +159,8 @@ async function prepareData() {
 
 onMounted(prepareData);
 
-watch(currentDomainStatus, async (status: StatusValue) => {
-  if (status === StatusValue.LOADING) {
+watch(currentDomainStatus, async (status: STATUS) => {
+  if (status === STATUS.LOADING) {
     state.status = 'loading';
 
     try {

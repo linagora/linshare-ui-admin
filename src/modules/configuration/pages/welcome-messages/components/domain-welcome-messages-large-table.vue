@@ -3,7 +3,7 @@
     :columns="columns"
     :data-source="filteredListByPage"
     :pagination="false"
-    :loading="status === StatusValue.LOADING"
+    :loading="status === STATUS.LOADING"
     row-key="uuid"
   >
     <template #bodyCell="{ column, record, text }">
@@ -71,7 +71,7 @@ import { useI18n } from 'vue-i18n';
 import { EllipsisOutlined } from '@ant-design/icons-vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import WelcomeMessage from '../types/WelcomeMessages';
 import useWelcomeMessages from '../hooks/useWelcomeMessages';
 import useNotification from '@/core/hooks/useNotification';

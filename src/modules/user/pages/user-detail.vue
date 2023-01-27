@@ -14,7 +14,7 @@ import UserGuestModerators from '@/modules/user/components/user-guest-moderators
 import UserSharedKeyAlert from '@/modules/user/components/user-shared-key-alert.vue';
 import CurrentUserGuest from '@/modules/user/components/current-user-guests.vue';
 import UserLockedAlert from '@/modules/user/components/user-locked-alert.vue';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import { GuestListFilters } from '@/modules/user/types/GuestList';
 import type User from '@/modules/user/types/User';
 import useGuestList from '@/modules/user/hooks/useGuestList';
@@ -32,7 +32,7 @@ const { list, pagination, handleTableChange, filters, sorter } = useGuestList();
 const user = ref<User | undefined>();
 const isGuestUser = computed(() => user.value?.accountType === 'GUEST');
 const isInternalUser = computed(() => user.value?.accountType === 'INTERNAL');
-const pageStatus = ref<StatusValue>(StatusValue.LOADING);
+const pageStatus = ref<STATUS>(STATUS.LOADING);
 const pageSubtitle = computed(() =>
   user.value ? `${user.value.firstName} ${user.value.lastName} <${user.value.mail}>` : ''
 );
@@ -80,13 +80,13 @@ const sortOptions = [
 ];
 
 async function prepare() {
-  pageStatus.value = StatusValue.LOADING;
+  pageStatus.value = STATUS.LOADING;
 
   try {
     user.value = await getUser(currentRoute.value.params.id as string);
-    pageStatus.value = StatusValue.SUCCESS;
+    pageStatus.value = STATUS.SUCCESS;
   } catch (error) {
-    pageStatus.value = StatusValue.ERROR;
+    pageStatus.value = STATUS.ERROR;
 
     if (error instanceof APIError) {
       message.error(error.getMessage());
@@ -120,7 +120,7 @@ onMounted(handleTableChange);
 <template>
   <PageTitle :title="$t('USERS.DETAIL_USER.TITLE')" :subtitle="pageSubtitle" :breadcrumbs="breadcrumbs">
     <template #subTitlePostfix>
-      <div v-if="pageStatus === StatusValue.SUCCESS" class="delete-user-container">
+      <div v-if="pageStatus === STATUS.SUCCESS" class="delete-user-container">
         <a-popconfirm
           :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
           :ok-text="$t('USERS.DETAIL_USER.YES')"
@@ -134,11 +134,11 @@ onMounted(handleTableChange);
     </template>
   </PageTitle>
 
-  <div v-if="pageStatus === StatusValue.LOADING" class="spinner">
+  <div v-if="pageStatus === STATUS.LOADING" class="spinner">
     <a-spin />
   </div>
 
-  <div v-if="user && pageStatus === StatusValue.SUCCESS">
+  <div v-if="user && pageStatus === STATUS.SUCCESS">
     <UserLockedAlert :user="user" @unlock="user && (user.locked = false)" />
     <UserSharedKeyAlert :user="user" @delete="user && (user.secondFAEnabled = false)" />
 

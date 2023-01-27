@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router';
-import Status from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import { computed, reactive, watch } from 'vue';
 import { useDomainStore } from '@/modules/domain/store';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
@@ -31,7 +31,7 @@ const topMostDomain = computed(() => domainStore.topMostDomain);
 const isEntriesConfigurationPage = computed(() => {
   return !!routeInstance.params?.domainUuid;
 });
-const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === Status.LOADING);
+const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === STATUS.LOADING);
 
 const breadcrumbsWithDomain = computed(() => {
   const newBreadcrumbs = [

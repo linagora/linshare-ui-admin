@@ -5,7 +5,7 @@ import { storeToRefs } from 'pinia';
 import { message } from 'ant-design-vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { Functionality } from '@/core/types/Functionality';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import PageTitle from '@/core/components/page-title.vue';
 import DomainFunctionality from './domain-functionality.vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
@@ -24,7 +24,7 @@ const { breadcrumbs } = useBreadcrumbs([
   },
 ]);
 const { getTranslatedText } = useFunctionalities();
-const status = ref<StatusValue>(StatusValue.LOADING);
+const status = ref<STATUS>(STATUS.LOADING);
 const show = reactive<Record<string, boolean>>({});
 const functionalities = ref<Functionality[]>([]);
 const functionalityId = route.params.identifier as string;
@@ -37,14 +37,14 @@ function onFunctionalityUpdate(updated: Functionality) {
 
 async function fetchFunctionalities() {
   try {
-    status.value = StatusValue.LOADING;
+    status.value = STATUS.LOADING;
     functionalities.value = [
       await getFunctionality(currentDomain.value.uuid, functionalityId),
       ...(await getFunctionalties(currentDomain.value.uuid, { parent: functionalityId })),
     ];
-    status.value = StatusValue.SUCCESS;
+    status.value = STATUS.SUCCESS;
   } catch (error) {
-    status.value = StatusValue.ERROR;
+    status.value = STATUS.ERROR;
 
     if (error instanceof APIError) {
       message.error(error.getMessage());
@@ -71,7 +71,7 @@ onMounted(fetchFunctionalities);
 <template>
   <PageTitle :breadcrumbs="breadcrumbs"></PageTitle>
 
-  <div v-if="status === StatusValue.LOADING" class="spinner">
+  <div v-if="status === STATUS.LOADING" class="spinner">
     <a-spin />
   </div>
 

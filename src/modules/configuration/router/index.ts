@@ -6,7 +6,10 @@ import { ConfigurationDomainParametersRoutes } from '@/modules/configuration/pag
 import { ConfigurationDomainRemoteServersRoutes } from '@/modules/configuration/pages/remote-servers/router';
 import { ConfigurationDomainRemoteFiltersRoutes } from '@/modules/configuration/pages/remote-filters/router';
 import { ConfigurationDomainGroupProvidersRoutes } from '@/modules/configuration/pages/domain-group-providers/router';
-import { ConfigurationDomainWelcomeMessagesRoutes } from '@/modules/configuration/pages/welcome-messages/router';
+import {
+  ConfigurationDomainWelcomeMessagesRoutes,
+  CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES,
+} from '@/modules/configuration/pages/welcome-messages/router';
 import { ConfigurationDomainTypeMinePoliciesRoutes } from '@/modules/configuration/pages/type-mine-policies/router';
 import { ConfigurationDomainProviderManagementRoutes } from '@/modules/configuration/pages/domain-provider-management/router';
 import { ConfigurationDomainDomainUserProvidersRoutes } from '@/modules/configuration/pages/domain-user-providers/router';
@@ -40,4 +43,8 @@ export const ConfigurationRoute: RouteRecordRaw = {
     ...ConfigurationDomainDomainUserProvidersRoutes,
     ...ConfigurationDomainDomainWorkspaceProvidersRoutes,
   ],
+};
+
+export const CONFIGURATION_ROUTE_NAMES = {
+  ...CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES,
 };

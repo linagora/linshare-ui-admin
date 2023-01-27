@@ -39,7 +39,7 @@ import { useDomainStore } from '@/modules/domain/store';
 import { useI18n } from 'vue-i18n';
 import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 import { useMediaQuery } from '@vueuse/core';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import ThePagination from '@/core/components/the-pagination.vue';
 import useWelcomeMessages from '../hooks/useWelcomeMessages';
 import DomainWelcomeMessagesLargeTable from '../components/domain-welcome-messages-large-table.vue';
@@ -51,10 +51,10 @@ const { t } = useI18n();
 const isLargeScreen = useMediaQuery(LARGE_SCREEN_BREAK_POINT);
 const domainStore = useDomainStore();
 const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
-const currentDomainStatus = computed<StatusValue>(() => domainStore.getStatus('currentDomain'));
+const currentDomainStatus = computed<STATUS>(() => domainStore.getStatus('currentDomain'));
 
-watch(currentDomainStatus, (status: StatusValue) => {
-  if (status === StatusValue.LOADING) {
+watch(currentDomainStatus, (status: STATUS) => {
+  if (status === STATUS.LOADING) {
     fetchWelcomeMessages();
   }
 });

@@ -56,7 +56,7 @@ import { PlusOutlined } from '@ant-design/icons-vue';
 import { DOMAIN_TYPE } from '../types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
 import { useRoute, useRouter } from 'vue-router';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 
 const route = useRoute();
 const router = useRouter();
@@ -66,7 +66,7 @@ const emit = defineEmits(['onCreateButtonClick']);
 const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 
 const loading = computed(
-  () => currentDomainUuid.value === prop.node.uuid && domainStore.getStatus('currentDomain') === StatusValue.LOADING
+  () => currentDomainUuid.value === prop.node.uuid && domainStore.getStatus('currentDomain') === STATUS.LOADING
 );
 
 function setCurrentDomain(node: DomainTreeNode) {

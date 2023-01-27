@@ -33,7 +33,7 @@
           <div class="value">
             <router-link
               :to="{
-                name: 'DomainWelcomeMessageDetails',
+                name: CONFIGURATION_ROUTE_NAMES.DOMAIN_WELCOME_MESSAGE_DETAILS,
                 params: { uuid: currentDomain?.welcomeMessage?.uuid || '', domainUuid: currentDomain.uuid },
               }"
             >
@@ -81,15 +81,17 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
+import { STATUS } from '@/core/types/Status';
 import { useDomainStore } from '@/modules/domain/store';
-import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import DomainForm from '@/modules/configuration/pages/detail/components/domain-form.vue';
-import Status from '@/core/types/Status';
+import { CONFIGURATION_ROUTE_NAMES } from '@/modules/configuration/router/index';
 
+// composable
 const domainStore = useDomainStore();
-const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === Status.LOADING);
 const { isRootDomain, currentDomain } = storeToRefs(domainStore);
-const { breadcrumbs } = useBreadcrumbs();
+
+// computed
+const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === STATUS.LOADING);
 </script>
 
 <style lang="less" scoped>

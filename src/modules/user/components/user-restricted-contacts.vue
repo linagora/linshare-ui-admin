@@ -15,7 +15,7 @@ import { message, Form } from 'ant-design-vue';
 import { UserOutlined } from '@ant-design/icons-vue';
 import { APIError } from '@/core/types/APIError';
 import { SORT_ORDER } from '@/core/types/Sort';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 
 interface Option {
   label: string;
@@ -34,7 +34,7 @@ let restrictedContacts: RestrictedContact[] = [];
 const useForm = Form.useForm;
 const props = defineProps<{ user: User }>();
 const { t } = useI18n();
-const pageStatus = ref<StatusValue>(StatusValue.LOADING);
+const pageStatus = ref<STATUS>(STATUS.LOADING);
 const options = ref([] as Option[]);
 const saving = ref(false);
 const searching = ref(false);
@@ -63,7 +63,7 @@ const formRules = computed(() => ({
 const { validate, validateInfos } = useForm(formState, formRules);
 
 async function fetchRestrictedContacts() {
-  pageStatus.value = StatusValue.LOADING;
+  pageStatus.value = STATUS.LOADING;
 
   try {
     restrictedContacts = await listRestrictedContacts(props.user.uuid);
@@ -73,9 +73,9 @@ async function fetchRestrictedContacts() {
       value: contact.mail,
       data: contact,
     }));
-    pageStatus.value = StatusValue.SUCCESS;
+    pageStatus.value = STATUS.SUCCESS;
   } catch (error) {
-    pageStatus.value = StatusValue.ERROR;
+    pageStatus.value = STATUS.ERROR;
 
     if (error instanceof APIError) {
       message.error(error.getMessage());
@@ -189,11 +189,11 @@ onMounted(fetchRestrictedContacts);
 <template>
   <a-row>
     <a-col :md="{ span: 8, offset: 8 }" :sm="24" :xs="24">
-      <div v-if="pageStatus === StatusValue.LOADING" class="spinner-ctn">
+      <div v-if="pageStatus === STATUS.LOADING" class="spinner-ctn">
         <a-spin />
       </div>
 
-      <a-result v-else-if="pageStatus === StatusValue.ERROR" :title="t('ERRORS.COMMON_MESSAGE')" status="error">
+      <a-result v-else-if="pageStatus === STATUS.ERROR" :title="t('ERRORS.COMMON_MESSAGE')" status="error">
         <template #extra>
           <a-button type="primary" @click="fetchRestrictedContacts">
             {{ $t('GENERAL.TRY_AGAIN') }}

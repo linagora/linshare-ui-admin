@@ -8,7 +8,7 @@ import { message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
 import { APIError } from '@/core/types/APIError';
 import { useRouter } from 'vue-router';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import config from '@/config';
 
 type UsableWelcomeMessages = {
@@ -17,7 +17,7 @@ type UsableWelcomeMessages = {
   filteredListByPage: ComputedRef<WelcomeMessage[]>;
   filterText: Ref<string>;
   loading: Ref<boolean>;
-  status: Ref<StatusValue>;
+  status: Ref<STATUS>;
   pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
   fetchWelcomeMessages: () => Promise<void>;
   assign: (message: WelcomeMessage) => Promise<void>;
@@ -29,7 +29,7 @@ type UsableWelcomeMessages = {
 
 const loading = ref(false);
 const filterText = ref('');
-const status = ref(StatusValue.LOADING);
+const status = ref(STATUS.LOADING);
 const list = ref<WelcomeMessage[]>([]);
 const pagination = reactive({
   total: 0,
@@ -58,15 +58,15 @@ export default function useWelcomeMessages(): UsableWelcomeMessages {
   });
 
   async function fetchWelcomeMessages() {
-    status.value = StatusValue.LOADING;
+    status.value = STATUS.LOADING;
 
     try {
       const messages = await getWelcomeMessages(currentDomain.value.uuid);
 
-      status.value = StatusValue.SUCCESS;
+      status.value = STATUS.SUCCESS;
       list.value = messages;
     } catch (error) {
-      status.value = StatusValue.ERROR;
+      status.value = STATUS.ERROR;
 
       if (error instanceof APIError) {
         message.error(error.getMessage());

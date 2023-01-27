@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import { RightOutlined, SearchOutlined } from '@ant-design/icons-vue';
-import StatusValue from '@/core/types/Status';
+import { STATUS } from '@/core/types/Status';
 import { Functionality } from '../types/Functionality';
 import { APIError } from '@/core/types/APIError';
 import { useDomainStore } from '@/modules/domain/store';
@@ -23,7 +23,7 @@ const domainStore = useDomainStore();
 const { t } = useI18n();
 const { currentDomain } = storeToRefs(domainStore);
 const mainFunctionalities = ref<Functionality[]>([]);
-const status = ref<StatusValue>(StatusValue.LOADING);
+const status = ref<STATUS>(STATUS.LOADING);
 const params = reactive<ListParams>({
   sorterKey: 'enableFirst',
   filterText: '',
@@ -83,11 +83,11 @@ const filteredList = computed<Functionality[]>(() => {
 
 async function fetchFunctionalities() {
   try {
-    status.value = StatusValue.LOADING;
+    status.value = STATUS.LOADING;
     mainFunctionalities.value = await getFunctionalties(currentDomain.value.uuid, { includeSubs: false });
-    status.value = StatusValue.SUCCESS;
+    status.value = STATUS.SUCCESS;
   } catch (error) {
-    status.value = StatusValue.ERROR;
+    status.value = STATUS.ERROR;
 
     if (error instanceof APIError) {
       message.error(error.getMessage());
@@ -130,7 +130,7 @@ onMounted(fetchFunctionalities);
     :show-header="false"
     :columns="columns"
     :data-source="filteredList"
-    :loading="status === StatusValue.LOADING"
+    :loading="status === STATUS.LOADING"
     row-key="identifier"
   >
     <template #bodyCell="{ column, record, text }">
