@@ -5,7 +5,12 @@
         <detail-icon class="icon"></detail-icon>
       </ls-button>
       <div v-if="mobileMenu" ref="mobileMenuTarget" class="config-menu">
-        <ls-button type="text" class="action" :disabled="createDomainButton.disabled" @click="onCreateChildDomain">
+        <ls-button
+          type="text"
+          class="action"
+          :disabled="createDomainButton.disabled || !isSuperAdmin"
+          @click="onCreateChildDomain"
+        >
           {{ $t('DOMAIN.CREATE_DOMAIN') }}
         </ls-button>
         <ls-button type="text" class="action" @click="openSelectDomainModal = true">
@@ -14,7 +19,7 @@
       </div>
     </div>
     <div class="desktop">
-      <ls-button color="info" :disabled="createDomainButton.disabled" @click="onCreateChildDomain">
+      <ls-button color="info" :disabled="createDomainButton.disabled || !isSuperAdmin" @click="onCreateChildDomain">
         <plus-icon class="icon"></plus-icon>
         {{ $t('DOMAIN.CREATE_DOMAIN') }}
       </ls-button>
@@ -31,9 +36,12 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, reactive, watch } from 'vue';
+import { ref, reactive, watch, computed } from 'vue';
+import { storeToRefs } from 'pinia';
 import { onClickOutside } from '@vueuse/core';
+import { useAuthStore } from '@/modules/auth/store';
 import { useDomainStore } from '@/modules/domain/store';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import LsButton from '@/core/components/ls/ls-button.vue';
 import PlusIcon from '@/core/components/icons/plus-icon.vue';
 import GlobeIcon from '@/core/components/icons/globe-icon.vue';
@@ -43,6 +51,8 @@ import SelectDomainModal from '@/modules/configuration/components/select-domain-
 // composables
 const emits = defineEmits(['on-create-child-modal']);
 const domainStore = useDomainStore();
+const authStore = useAuthStore();
+const { loggedUser } = storeToRefs(authStore);
 
 // data
 const mobileMenu = ref(false);
@@ -50,6 +60,11 @@ const mobileMenuTarget = ref(null);
 const openSelectDomainModal = ref(false);
 const createDomainButton = reactive({
   disabled: false,
+});
+
+// computed
+const isSuperAdmin = computed(() => {
+  return loggedUser.value?.role === ACCOUNT_ROLE.SUPERADMIN;
 });
 
 // hooks
