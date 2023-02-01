@@ -24,6 +24,7 @@ export default interface DomainQuota {
   yesterdayUsedSpace?: number;
   batchModificationDate?: number;
   domainShared?: boolean;
+  domainSharedOverride?: boolean;
 }
 
 export const EMPTY_QUOTA: DomainQuota = {
@@ -40,4 +41,6 @@ export const EMPTY_QUOTA: DomainQuota = {
   usedSpace: 0,
   uuid: '',
   yesterdayUsedSpace: 0,
+  domainShared: false,
+  domainSharedOverride: false,
 };

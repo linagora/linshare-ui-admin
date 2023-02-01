@@ -405,7 +405,17 @@
     },
     "SAVE_CHANGE": "Save change",
     "CANCEL": "Cancel",
-    "RESET": "Reset"
+    "RESET": "Reset",
+    "HINT_LABELS": {
+      "HINT_UNLINK_TOOLTIP": "Override default value",
+      "HINT_RESET_TOOLTIP": "Reset to default value: {value}",
+      "HINT_ACTIVATE_SHARING_TOOLTIP": "Activate Domain shared Quota",
+      "HINT_DESACTIVATE_SHARING_TOOLTIP": "Desactivate Domain shared Quota"
+    },
+    "DOMAIN_SHARED_QUOTA": {
+      "DESCRIPTION": "Activation of this mode exempt from setting each container's quota of this domain (Personal Space and Shared Space). The user will see global consumption of all users of the domain.",
+      "LABEL": "Activate Domain shared Quota"
+    }
   },
   "DOMAIN": {
     "CREATE_DOMAIN": "Create domain",

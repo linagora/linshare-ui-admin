@@ -20,9 +20,42 @@
             :border="true"
             :show-icon="false"
           ></ls-alert>
+          <div class="domain-shared-quota">
+            <a-tooltip :title="t('QUOTA.DOMAIN_SHARED_QUOTA.DESCRIPTION')" trigger="hover">
+              <info-icon class="icon"></info-icon>
+            </a-tooltip>
+            <a-switch
+              v-model:checked="form.domain_quota_and_used_space.domainShared"
+              :disabled="form.domain_quota_and_used_space.domainSharedOverride && !isRootDomain"
+              class="domain-shared-quota-switch"
+            />
+            <span>{{ $t('QUOTA.DOMAIN_SHARED_QUOTA.LABEL') }}</span>
+            <a-tooltip
+              :title="
+                form.domain_quota_and_used_space.domainSharedOverride
+                  ? t('QUOTA.HINT_LABELS.HINT_DESACTIVATE_SHARING_TOOLTIP')
+                  : t('QUOTA.HINT_LABELS.HINT_ACTIVATE_SHARING_TOOLTIP')
+              "
+              trigger="hover"
+            >
+              <ls-button
+                v-if="!isRootDomain && canDelete"
+                class="ant-btn ls-button--info domain-shared-quota-lock-button"
+                color="info"
+                @click="onClickToggleLockDomainSharedQuota"
+              >
+                <lock-icon v-show="form.domain_quota_and_used_space.domainSharedOverride" class="icon"></lock-icon>
+                <unlock-icon v-show="!form.domain_quota_and_used_space.domainSharedOverride" class="icon"></unlock-icon>
+              </ls-button>
+            </a-tooltip>
+          </div>
           <quota-input
             v-model:model-unit="form.domain_quota_and_used_space.quotaUnit"
             v-model:model-value="form.domain_quota_and_used_space.quotaSpace"
+            v-model:model-override="form.domain_quota_and_used_space.quotaOverride"
+            v-model:model-default-quota="defaultQuota"
+            v-model:model-default-value="defaultQuotaValue"
+            v-model:model-default-unit="defaultQuotaUnit"
             :label="$t('QUOTA.DOMAIN_QUOTA')"
             :note="inputNote"
           ></quota-input>
@@ -64,7 +97,12 @@ import Collapse from '@/core/components/ls/ls-collapse.vue';
 import CollapsePanel from '@/core/components/ls/ls-collapse-panel.vue';
 import QuotaVisualizeCard from '@/modules/configuration/pages/quota/components/quota-visualize.vue';
 import QuotaInput from '@/modules/configuration/pages/quota/components/quota-input.vue';
-import { byteTo, displayUnit } from '@/core/utils/unitStorage';
+import { byteTo, displayUnit, find } from '@/core/utils/unitStorage';
+import LockIcon from '@/core/components/icons/lock-icon.vue';
+import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
+import InfoIcon from '@/core/components/icons/info-icon.vue';
+import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
+import { storeToRefs } from 'pinia';
 
 // composable
 const { t } = useI18n();
@@ -72,10 +110,21 @@ const domainStore = useDomainStore();
 const currentDomain = domainStore.currentDomain;
 const { domainQuotaInformations, form, defaultMaxiQuotaLogic, defaultSubdomainQuotaLogic, parentDomainInformations } =
   useQuota();
+const { canDelete } = useDomainDelete();
+const { isRootDomain } = storeToRefs(domainStore);
+const emits = defineEmits(['update:modeldomainSharedOverride']);
 
 // computed
 const subQuota = computed(() => {
   return domainQuotaInformations.currentValueForSubdomains;
+});
+
+const defaultQuotaValue = computed(() => {
+  return byteTo(domainQuotaInformations.defaultQuota, undefined);
+});
+
+const defaultQuotaUnit = computed(() => {
+  return find(domainQuotaInformations.defaultQuota);
 });
 
 const unAllocatedSpace = computed(() => {
@@ -104,6 +153,11 @@ const inputNote = computed(() => {
     1
   )}%)`;
 });
+
+function onClickToggleLockDomainSharedQuota() {
+  form.domain_quota_and_used_space.domainSharedOverride = !form.domain_quota_and_used_space.domainSharedOverride;
+  emits('update:modeldomainSharedOverride', form.domain_quota_and_used_space.domainSharedOverrid);
+}
 </script>
 
 <style lang="less" scoped>
@@ -122,13 +176,16 @@ const inputNote = computed(() => {
   margin-top: 15px;
 }
 
-.maintenance-mode {
+.maintenance-mode,
+.domain-shared-quota {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
+  margin: 10px 0;
+  gap: 12px;
+  align-items: center;
 }
 
-.maintenance-switch {
+.domain-shared-quota-switch {
   margin-right: 5px;
 }
 
@@ -144,5 +201,9 @@ const inputNote = computed(() => {
 .save-check-wrong {
   color: red;
   font-weight: bolder;
+}
+
+.domain-shared-quota-lock-button {
+  align-items: center;
 }
 </style>

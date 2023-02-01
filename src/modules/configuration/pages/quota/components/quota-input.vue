@@ -4,9 +4,15 @@
       {{ label }}
     </div>
     <div class="ls-quota-input__field">
-      <a-input :value="modelValue" class="ls-quota-input__qty" @input="onChangeQuota($event.target.value)" />
+      <a-input
+        :value="modelValue"
+        :disabled="data.modelOverride && !isRootDomain"
+        class="ls-quota-input__qty"
+        @input="onChangeQuota($event.target.value)"
+      />
       <a-select
         :value="modelUnit"
+        :disabled="data.modelOverride && !isRootDomain"
         class="ls-quota-input__unit"
         dropdown-class-name="ls-quota-input__unit--dropdown"
         @change="onChangeUnit($event)"
@@ -15,6 +21,20 @@
           {{ unit.name }}</a-select-option
         >
       </a-select>
+      <a-tooltip
+        :title="data.modelOverride ? t('QUOTA.HINT_LABELS.HINT_UNLINK_TOOLTIP') : unlinkQuotaTooltip"
+        trigger="hover"
+      >
+        <ls-button
+          v-if="!isRootDomain && canDelete"
+          class="ant-btn ls-button ls-button-override ls-button--info"
+          color="info"
+          @click="onClickToggleLockQuota"
+        >
+          <lock-icon v-show="data.modelOverride" class="icon"></lock-icon>
+          <unlock-icon v-show="!data.modelOverride" class="icon"></unlock-icon>
+        </ls-button>
+      </a-tooltip>
     </div>
     <div v-if="note" class="ls-quota-input__sub-label">
       {{ note }}
@@ -22,7 +42,23 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import LockIcon from '@/core/components/icons/lock-icon.vue';
+import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
+import useQuota from '@/modules/configuration/pages/quota/hooks/useQuota';
+import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
+import { useDomainStore } from '@/modules/domain/store';
+import { useAuthStore } from '@/modules/auth/store';
+import { storeToRefs } from 'pinia';
 import { Unit } from '@/core/types/Unit';
+
+const domainStore = useDomainStore();
+const authStore = useAuthStore();
+const { isRootDomain } = storeToRefs(domainStore);
+const { loggedUser } = storeToRefs(authStore);
+const { canDelete } = useDomainDelete();
+const { t } = useI18n();
 
 const defaultQuotaUnits: Unit[] = [
   { name: 'Byte', value: 'B', factor: 0 },
@@ -36,13 +72,33 @@ const defaultQuotaUnits: Unit[] = [
   { name: 'YB', value: 'YB', factor: 24 },
 ];
 
-const emits = defineEmits(['update:modelValue', 'update:modelUnit']);
+const emits = defineEmits(['update:modelValue', 'update:modelUnit', 'update:modelLockQuota']);
 const props = defineProps<{
   modelValue?: number | string;
   modelUnit?: Unit | string | undefined;
   label?: string;
   note?: string;
+  unlinkQuotaTooltip: string;
+  modelOverride: boolean | undefined;
+  modelDefaultValue: string | number;
+  modelDefaultQuota: number;
+  modelDefaultUnit: Unit | string | undefined;
 }>();
+
+// data
+const data = ref({
+  modelOverride: false,
+});
+
+const unlinkQuotaTooltip = t('QUOTA.HINT_LABELS.HINT_RESET_TOOLTIP', {
+  value: props.modelDefaultQuota,
+});
+
+function onClickToggleLockQuota() {
+  data.value.modelOverride = !data.value.modelOverride;
+  emits('update:modelValue', props.modelDefaultValue);
+  emits('update:modelUnit', props.modelDefaultUnit);
+}
 
 function onChangeUnit(item: Event) {
   emits('update:modelUnit', item);
@@ -162,6 +218,10 @@ function onChangeQuota(item: number) {
       border: 1px solid #007aff !important;
       box-shadow: none !important;
     }
+  }
+
+  .ls-button-override {
+    height: 44px;
   }
 }
 </style>

@@ -402,7 +402,17 @@
     },
     "SAVE_CHANGE": "Lưu thay đổi",
     "CANCEL": "Hủy bỏ",
-    "RESET": "Thiết lập lại"
+    "RESET": "Thiết lập lại",
+    "HINT_LABELS": {
+      "HINT_UNLINK_TOOLTIP": "Ghi đè giá trị mặc định",
+      "HINT_RESET_TOOLTIP": "Đặt lại về giá trị mặc định: {value}",
+      "HINT_ACTIVATE_SHARING_TOOLTIP": "Kích hoạt hạn mức chia sẻ miền",
+      "HINT_DESACTIVATE_SHARING_TOOLTIP": "Vô hiệu hóa hạn mức chia sẻ tên miền"
+    },
+    "DOMAIN_SHARED_QUOTA": {
+      "DESCRIPTION": "Việc kích hoạt chế độ này được miễn thiết lập hạn mức cho từng vùng chứa của miền này (Không gian cá nhân và Không gian dùng chung). Người dùng sẽ thấy mức tiêu thụ toàn cầu của tất cả người dùng miền.",
+      "LABEL": "Kích hoạt Hạn mức chia sẻ miền"
+    }
   },
   "DOMAIN": {
     "CREATE_DOMAIN": "Tạo tên miền",

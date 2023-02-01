@@ -402,7 +402,17 @@
     },
     "SAVE_CHANGE": "Sauvegarder",
     "CANCEL": "Annuler",
-    "RESET": "Réinitialiser"
+    "RESET": "Réinitialiser",
+    "HINT_LABELS": {
+      "HINT_UNLINK_TOOLTIP": "Surcharger la valeur par défaut",
+      "HINT_RESET_TOOLTIP": "Réinitialiser à la valeur par défaut : {value}",
+      "HINT_ACTIVATE_SHARING_TOOLTIP": "Désactiver le mode Domain Quota partagé",
+      "HINT_DESACTIVATE_SHARING_TOOLTIP": "Activer le mode Domaine Quota partagé"
+    },
+    "DOMAIN_SHARED_QUOTA": {
+      "DESCRIPTION": "L'activation de ce mode dispense le paramétrage du quota de chaque conteneur de ce domaine (Espace Personel et Espace Commun). L'utilisateur verra la consommation globale des utilisateurs du domaine",
+      "LABEL": "Activer le mode Domaine Quota partagé"
+    }
   },
   "DOMAIN": {
     "CREATE_DOMAIN": "Ajouter un domaine",

@@ -14,13 +14,19 @@ const form = reactive<{
     quotaSpace: number;
     quotaUnit: StorageUnit['label'] | string;
     maintenance: boolean | undefined;
+    domainShared: boolean | undefined;
+    domainSharedOverride: boolean | undefined;
+    quotaOverride: boolean | undefined;
   };
   saverCheck: boolean;
 }>({
   domain_quota_and_used_space: {
-    quotaSpace: byteTo(domainQuotaInformations.quota, undefined),
-    quotaUnit: find(domainQuotaInformations.quota),
+    quotaSpace: 0,
+    quotaUnit: 'TB',
     maintenance: false,
+    domainShared: false,
+    domainSharedOverride: false,
+    quotaOverride: false,
   },
   saverCheck: false,
 });
@@ -79,6 +85,9 @@ export default function useQuota() {
     form.domain_quota_and_used_space.maintenance = quota.maintenance;
     form.domain_quota_and_used_space.quotaSpace = byteTo(domainQuotaInformations.quota, undefined);
     form.domain_quota_and_used_space.quotaUnit = find(domainQuotaInformations.quota);
+    form.domain_quota_and_used_space.domainShared = domainQuotaInformations.domainShared;
+    form.domain_quota_and_used_space.domainSharedOverride = domainQuotaInformations.domainSharedOverride;
+    form.domain_quota_and_used_space.quotaOverride = domainQuotaInformations.quotaOverride;
   }
 
   function savePaypload() {
@@ -107,6 +116,7 @@ export default function useQuota() {
       },
       batchModificationDate: domainQuotaInformations.batchModificationDate,
       domainShared: domainQuotaInformations.domainShared,
+      domainSharedOverride: domainQuotaInformations.domainSharedOverride,
     };
   }
 
