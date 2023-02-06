@@ -5,66 +5,34 @@
 </template>
 
 <script lang="ts" setup>
-import { Doughnut } from 'vue-chartjs';
 import { computed } from 'vue';
+import { Doughnut } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, SubTitle } from 'chart.js';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, SubTitle);
 
 interface Props {
-  usedSpace?: number;
-  remainingQuota?: number;
-  unallocatedSpace?: number;
-  subQuota?: number;
+  items: { name: string; value: number; color: string }[];
 }
 
+// props & emits
 const props = defineProps<Props>();
-const quotaData: number[] = [];
-for (const [key, value] of Object.entries(props)) {
-  quotaData.push(value);
-}
-
-const colors = ['rgb(19, 99, 215)', 'rgb(247,222,10)', 'rgb(64,198,46)', 'rgb(255,0,120)'];
 
 const cache = new Map();
 let width: any = null;
 let height: any = null;
 
-function createRadialGradient3(context: any, c1: string, c2: string, c3: string) {
-  const chartArea = context.chart.chartArea;
-  if (!chartArea) {
-    return;
-  }
-
-  const chartWidth = chartArea.right - chartArea.left;
-  const chartHeight = chartArea.bottom - chartArea.top;
-  if (width !== chartWidth || height !== chartHeight) {
-    cache.clear();
-  }
-  let gradient = cache.get(c1 + c2 + c3);
-  if (!gradient) {
-    width = chartWidth;
-    height = chartHeight;
-    const centerX = (chartArea.left + chartArea.right) / 2;
-    const centerY = (chartArea.top + chartArea.bottom) / 2;
-    const r = Math.min((chartArea.right - chartArea.left) / 2, (chartArea.bottom - chartArea.top) / 2);
-    const ctx = context.chart.ctx;
-    gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, r);
-    gradient.addColorStop(0.5, c1);
-    gradient.addColorStop(0.5, c2);
-    gradient.addColorStop(1, c3);
-    cache.set(c1 + c2 + c3, gradient);
-  }
-
-  return gradient;
-}
+// computed
+const quotaData = computed(() => {
+  return generateQuotaData();
+});
 
 const chartData = computed(() => ({
   datasets: [
     {
-      data: quotaData,
+      data: quotaData.value,
       backgroundColor: function (context: any) {
-        let c = colors[context.dataIndex];
+        let c = props.items[context.dataIndex]?.color;
         if (!c) {
           return;
         }
@@ -102,6 +70,43 @@ const chartOptions = computed(() => ({
   radius: 70,
   responsive: true,
 }));
+
+// methods
+
+function createRadialGradient3(context: any, c1: string, c2: string, c3: string) {
+  const chartArea = context.chart.chartArea;
+  if (!chartArea) {
+    return;
+  }
+
+  const chartWidth = chartArea.right - chartArea.left;
+  const chartHeight = chartArea.bottom - chartArea.top;
+  if (width !== chartWidth || height !== chartHeight) {
+    cache.clear();
+  }
+  let gradient = cache.get(c1 + c2 + c3);
+  if (!gradient) {
+    width = chartWidth;
+    height = chartHeight;
+    const centerX = (chartArea.left + chartArea.right) / 2;
+    const centerY = (chartArea.top + chartArea.bottom) / 2;
+    const r = Math.min((chartArea.right - chartArea.left) / 2, (chartArea.bottom - chartArea.top) / 2);
+    const ctx = context.chart.ctx;
+    gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, r);
+    gradient.addColorStop(0.5, c1);
+    gradient.addColorStop(0.5, c2);
+    gradient.addColorStop(1, c3);
+    cache.set(c1 + c2 + c3, gradient);
+  }
+
+  return gradient;
+}
+
+function generateQuotaData() {
+  return props.items.map((item) => {
+    return item?.value;
+  });
+}
 </script>
 
 <style lang="less" scoped>

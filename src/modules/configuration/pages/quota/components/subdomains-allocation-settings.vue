@@ -103,11 +103,11 @@
           </router-link>
         </div>
         <div class="subdomain-allocation-settings__chart">
-          <QuotaVisualizeCard
+          <quota-visualize-card
             :used-space="usedQuota"
             :remaining-quota="remainingQuota"
             :unallocated-space="subQuota"
-          ></QuotaVisualizeCard>
+          ></quota-visualize-card>
         </div>
       </div>
     </collapse-panel>
