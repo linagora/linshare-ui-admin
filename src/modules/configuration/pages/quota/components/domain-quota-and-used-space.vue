@@ -20,6 +20,13 @@
             :border="true"
             :show-icon="false"
           ></ls-alert>
+          <ls-alert
+            v-if="quotaExceeded"
+            :message="`${$t('QUOTA.QUOTA_EXCEEDED_ERROR')} ${$t('QUOTA.SPACES_LABEL.CURRENT_DOMAIN')}`"
+            type="error"
+            :border="true"
+            :show-icon="false"
+          ></ls-alert>
           <div class="domain-shared-quota">
             <a-tooltip :title="t('QUOTA.DOMAIN_SHARED_QUOTA.DESCRIPTION')" trigger="hover">
               <info-icon class="icon"></info-icon>
@@ -106,7 +113,7 @@ import { storeToRefs } from 'pinia';
 const { t } = useI18n();
 const domainStore = useDomainStore();
 const currentDomain = domainStore.currentDomain;
-const { domainQuotaInformations, form, defaultMaxiQuotaLogic, parentDomainInformations } = useQuota();
+const { domainQuotaInformations, form, defaultMaxiQuotaLogic, parentDomainInformations, isExceeded } = useQuota();
 const { canDelete } = useDomainDelete();
 const { isRootDomain } = storeToRefs(domainStore);
 const emits = defineEmits(['update:modeldomainSharedOverride']);
@@ -156,6 +163,10 @@ const inputNote = computed(() => {
   )} ${t('QUOTA.ALREADY_USED')} (${((domainQuotaInformations.usedSpace / domainQuotaInformations.quota) * 100).toFixed(
     1
   )}%)`;
+});
+
+const quotaExceeded = computed(() => {
+  return isExceeded(domainQuotaInformations.usedSpace, domainQuotaInformations.quota);
 });
 
 function onClickToggleLockDomainSharedQuota() {

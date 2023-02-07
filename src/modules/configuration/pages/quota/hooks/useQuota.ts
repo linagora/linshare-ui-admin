@@ -328,6 +328,10 @@ export default function useQuota() {
     return false;
   }
 
+  function isExceeded(useSpace: number, quota: number) {
+    return useSpace >= quota;
+  }
+
   watchEffect(() => {
     if (
       defaultMaxiQuotaLogic() ||
@@ -359,5 +363,6 @@ export default function useQuota() {
     personalSpaceQuotaPerUserLogic,
     personalSpaceMaxSizeLogic,
     maxQuotaLogic,
+    isExceeded,
   };
 }

@@ -384,6 +384,14 @@
     "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Tổng hạn mức được phân bổ mặc định",
     "DEFAULT_MAX_FILE_SIZE": "Kích thước tệp tối đa mặc định",
     "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Phân bổ hạn mức cho một tài khoản người dùng cụ thể",
+    "QUOTA_EXCEEDED_ERROR":"Đã vượt quá hạn mức, giải phóng dung lượng lưu trữ hoặc phân bổ thêm hạn ngạch cho ",
+    "SPACES_LABEL": {
+      "CURRENT_DOMAIN": "Domain hiện tại",
+      "PERSONALS_SPACES": "Không gian cá nhân",
+      "SHARED_SPACE": "Không gian chia sẻ",
+      "SUB_DOMAINS": "Domain phụ"
+    },
+
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Phần này cho phép bạn quản lý kích thước hạn ngạch tên miền hiện tại và thiết lập nó theo nhu cầu của bạn.",
     "MAINTENANCE_MODE_ACTIVATED_ALERT":"Chế độ bảo trì được kích hoạt, do đó ngăn chặn mọi hoạt động tải lên được thực hiện trong miền hiện tại.",
     "DOMAIN_MAXIMUM_QUOTA":"Hạn mức tối đa của tên miền : ",

@@ -383,6 +383,13 @@
     "SHARED_SPACE_QUOTA": "Квота общего доступа",
     "DEFAULT_TOTAL_ALLOCATED_QUOTA": "По умолчанию общая сумма Sharedspaces, выделенная квотой ",
     "DEFAULT_MAX_FILE_SIZE": "Максимальный размер файла Sharedspace по умолчанию ",
+    "QUOTA_EXCEEDED_ERROR":"Превышение квоты, освобождение места для хранения или выделение большей квоты for the ",
+    "SPACES_LABEL": {
+      "CURRENT_DOMAIN": "текущий домен",
+      "PERSONALS_SPACES": "Моё пространство",
+      "SHARED_SPACE": "Общий доступ",
+      "SUB_DOMAINS": "субдомены"
+    },
     "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Выделить квоту для определенной учетной записи пользователя",
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Этот раздел позволяет вам управлять текущим размером квоты домена и настраивать его по своему усмотрению.",
     "MAINTENANCE_MODE_ACTIVATED_ALERT":"Активируется режим обслуживания, что предотвращает любые загрузки в пределах текущего домена.",

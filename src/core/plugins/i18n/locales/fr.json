@@ -384,6 +384,13 @@
     "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Quota total alloué pour l'Espace Commun",
     "DEFAULT_MAX_FILE_SIZE": "Taille max d'un fichier dans les Espaces Personnel",
     "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Définir le quota pour un utilisateur",
+    "QUOTA_EXCEEDED_ERROR":"Espace insuffisant, liberez ou allouez plus d'espace de stockage pour ",
+    "SPACES_LABEL": {
+      "CURRENT_DOMAIN": "le domaine courant",
+      "PERSONALS_SPACES": "les Espaces Personnel",
+      "SHARED_SPACE": "l'Espace Commun",
+      "SUB_DOMAINS": "les sous-domaines"
+    },
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Cette section vous permet de gérer le quota actuel du domaine et de le configurer en fonction de vos besoins.",
     "MAINTENANCE_MODE_ACTIVATED_ALERT":"Le mode maintenance est activé, empêchant ainsi tout téléchargement dans le domaine actuel.",
     "DOMAIN_MAXIMUM_QUOTA":"Quota maximal du domaine : ",

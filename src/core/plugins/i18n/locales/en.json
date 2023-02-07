@@ -387,6 +387,13 @@
     "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Default Total Allocated quota",
     "DEFAULT_MAX_FILE_SIZE": "Default max file size",
     "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Allocate quota a specific user account",
+    "QUOTA_EXCEEDED_ERROR":"Quota exceeded, free up storage space or allocate more quota for the ",
+    "SPACES_LABEL": {
+      "CURRENT_DOMAIN": "current domain",
+      "PERSONALS_SPACES": "Personal Spaces",
+      "SHARED_SPACE": "Sharedspace",
+      "SUB_DOMAINS": "subdomains"
+    },
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "This section allows you manage the current domain quota size and setup it as on your need.",
     "MAINTENANCE_MODE_ACTIVATED_ALERT":"Maintenance mode is activated, thereby preventing any uploads to be made within the current domain.",
     "DOMAIN_MAXIMUM_QUOTA":"Maximum Domain Quota : ",
