@@ -87,7 +87,7 @@ onMounted(() => {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    gap: 20px
+    gap: 20px;
   }
   &__actions {
     display: flex;

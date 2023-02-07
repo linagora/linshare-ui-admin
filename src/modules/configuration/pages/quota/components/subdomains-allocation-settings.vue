@@ -215,8 +215,9 @@ const disabledQuotaInput = computed(() => {
     defaultQuotaPerUser: !form.subdomain_allocation_settings.defaultAccountQuotaOverride && !isRootDomain.value,
     defaultPersonalQuotaMaxFileSize: !form.subdomain_allocation_settings.maxFileSizeOverride && !isRootDomain.value,
     defaultTotalAllocatedQuota: !form.subdomain_allocation_settings.defaultQuotaOverride && !isRootDomain.value,
-    defaultSharedspaceQuotaMaxFileSize: !form.subdomain_allocation_settings.defaultMaxFileSizeOverride && !isRootDomain.value,
-  }
+    defaultSharedspaceQuotaMaxFileSize:
+      !form.subdomain_allocation_settings.defaultMaxFileSizeOverride && !isRootDomain.value,
+  };
 });
 </script>
 
