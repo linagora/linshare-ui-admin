@@ -12,9 +12,11 @@
             v-model:model-unit="form.subdomain_allocation_settings.quotaUnit"
             v-model:model-value="form.subdomain_allocation_settings.quotaSpace"
             v-model:model-override="form.subdomain_allocation_settings.quotaOverride"
-            v-model:model-default-quota="defaultQuota"
-            v-model:model-default-value="defaultQuotaValue"
-            v-model:model-default-unit="defaultQuotaUnit"
+            :default-quota="defaultQuota"
+            :default-value="defaultQuotaValue"
+            :default-unit="defaultQuotaUnit"
+            :override-mode="overrideMode"
+            :disabled="disabledQuotaInput.quotaSpace"
             :label="$t('QUOTA.QUOTA_PER_SUB_DOMAIN')"
           ></quota-input>
           <div v-if="maxQuotaLogic()" class="quota-per-subdomain">
@@ -32,12 +34,14 @@
           <quota-input
             v-model:model-unit="form.subdomain_allocation_settings.personalQuotaUnit"
             v-model:model-value="form.subdomain_allocation_settings.personalQuota"
-            v-model:model-override="form.subdomain_allocation_settings.defaultQuotaOverride"
-            v-model:model-default-quota="personalSpaceQuota"
-            v-model:model-default-value="form.subdomain_allocation_settings.personalQuota"
-            v-model:model-default-unit="form.subdomain_allocation_settings.personalQuotaUnit"
-            class="input"
+            v-model:model-override="form.subdomain_allocation_settings.defaultAccountQuotaOverride"
+            :default-quota="personalSpaceQuota"
+            :default-value="form.subdomain_allocation_settings.personalQuota"
+            :default-unit="form.subdomain_allocation_settings.personalQuotaUnit"
+            :override-mode="overrideMode"
+            :disabled="disabledQuotaInput.personalQuota"
             :label="$t('QUOTA.ALL_SPACE_ALLOCATED_QUOTA')"
+            class="input"
           ></quota-input>
           <span v-if="personalSpaceQuotaLogic()" class="input-logic-alert">{{
             `${t('QUOTA.ERROR_MESSAGE_FIELD')}  ${personalQuotaAlert}`
@@ -45,12 +49,15 @@
           <quota-input
             v-model:model-unit="form.subdomain_allocation_settings.defaultQuotaPerUserUnit"
             v-model:model-value="form.subdomain_allocation_settings.defaultQuotaPerUser"
-            v-model:model-default-quota="personalSpaceQuotaPerUser"
-            v-model:model-default-value="form.subdomain_allocation_settings.defaultQuotaPerUser"
-            v-model:model-default-unit="form.subdomain_allocation_settings.defaultQuotaPerUserUnit"
-            class="input"
+            v-model:model-override="form.subdomain_allocation_settings.defaultAccountQuotaOverride"
+            :default-quota="personalSpaceQuotaPerUser"
+            :default-value="form.subdomain_allocation_settings.defaultQuotaPerUser"
+            :default-unit="form.subdomain_allocation_settings.defaultQuotaPerUserUnit"
+            :override-mode="overrideMode"
+            :disabled="disabledQuotaInput.defaultQuotaPerUser"
             :label="$t('QUOTA.DEFAULT_ALLOCATED_QUOTA_PER_USER')"
-            :note="$t('QUOTA.CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA')"
+            :hint="$t('QUOTA.CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA')"
+            class="input"
           ></quota-input>
           <span v-if="personalSpaceQuotaPerUserLogic()" class="input-logic-alert">{{
             `${t('QUOTA.ERROR_MESSAGE_FIELD')}  ${personalQuotaPerUserAlert}`
@@ -58,12 +65,15 @@
           <quota-input
             v-model:model-unit="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSizeUnit"
             v-model:model-value="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSize"
-            v-model:model-default-quota="personalSpaceMaxSize"
-            v-model:model-default-value="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSize"
-            v-model:model-default-unit="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSizeUnit"
-            class="input"
+            v-model:model-override="form.subdomain_allocation_settings.defaultMaxFileSizeOverride"
+            :default-quota="personalSpaceMaxSize"
+            :default-value="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSize"
+            :default-unit="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSizeUnit"
+            :override-mode="overrideMode"
+            :disabled="disabledQuotaInput.defaultPersonalQuotaMaxFileSize"
             :label="$t('QUOTA.DEFAULT_MAX_FILE_SIZE')"
-            :note="$t('QUOTA.CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA')"
+            :hint="$t('QUOTA.CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA')"
+            class="input"
           ></quota-input>
           <span v-if="personalSpaceMaxSizeLogic()" class="input-logic-alert">{{
             `${t('QUOTA.ERROR_MESSAGE_FIELD')}  ${personalQuotaMaxSizeAlert}`
@@ -73,14 +83,20 @@
           <quota-input
             v-model:model-unit="form.subdomain_allocation_settings.defaultTotalAllocatedQuotaUnit"
             v-model:model-value="form.subdomain_allocation_settings.defaultTotalAllocatedQuota"
-            class="input"
+            v-model:model-override="form.subdomain_allocation_settings.defaultQuotaOverride"
+            :override-mode="overrideMode"
+            :disabled="disabledQuotaInput.defaultTotalAllocatedQuota"
             :label="$t('QUOTA.DEFAULT_TOTAL_ALLOCATED_QUOTA')"
+            class="input"
           ></quota-input>
           <quota-input
             v-model:model-unit="form.subdomain_allocation_settings.defaultSharedspaceQuotaMaxFileSizeUnit"
             v-model:model-value="form.subdomain_allocation_settings.defaultSharedspaceQuotaMaxFileSize"
-            class="input"
+            v-model:model-override="form.subdomain_allocation_settings.defaultMaxFileSizeOverride"
+            :override-mode="overrideMode"
+            :disabled="disabledQuotaInput.defaultSharedspaceQuotaMaxFileSize"
             :label="$t('QUOTA.DEFAULT_MAX_FILE_SIZE')"
+            class="input"
           ></quota-input>
           <router-link :to="{ name: 'UsersList' }">
             <span>{{ $t('QUOTA.ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT') }} <PlusCircleOutlined /></span>
@@ -101,6 +117,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 import useQuota from '@/modules/configuration/pages/quota/hooks/useQuota';
 import { PlusCircleOutlined } from '@ant-design/icons-vue';
@@ -109,9 +126,12 @@ import CollapsePanel from '@/core/components/ls/ls-collapse-panel.vue';
 import QuotaVisualizeCard from '@/modules/configuration/pages/quota/components/quota-visualize.vue';
 import QuotaInput from '@/modules/configuration/pages/quota/components/quota-input.vue';
 import { byteTo, displayUnit, find, toByte } from '@/core/utils/unitStorage';
+import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
 
 const { t } = useI18n();
 const domainStore = useDomainStore();
+const { canDelete } = useDomainDelete();
+const { isRootDomain } = storeToRefs(domainStore);
 const {
   domainQuotaInformations,
   form,
@@ -123,6 +143,7 @@ const {
   maxQuotaLogic,
 } = useQuota();
 
+// computeds
 const subQuota = computed(() => {
   return domainQuotaInformations.defaultQuota * 2;
 });
@@ -181,6 +202,21 @@ const personalQuotaMaxSizeAlert = computed(() => {
     form.subdomain_allocation_settings.defaultQuotaPerUserUnit
   );
   return displayUnit(byteTo, value, undefined);
+});
+
+const overrideMode = computed(() => {
+  return !isRootDomain.value && canDelete.value;
+});
+
+const disabledQuotaInput = computed(() => {
+  return {
+    quotaSpace: !form.subdomain_allocation_settings.quotaOverride && !isRootDomain.value,
+    personalQuota: !form.subdomain_allocation_settings.defaultAccountQuotaOverride && !isRootDomain.value,
+    defaultQuotaPerUser: !form.subdomain_allocation_settings.defaultAccountQuotaOverride && !isRootDomain.value,
+    defaultPersonalQuotaMaxFileSize: !form.subdomain_allocation_settings.maxFileSizeOverride && !isRootDomain.value,
+    defaultTotalAllocatedQuota: !form.subdomain_allocation_settings.defaultQuotaOverride && !isRootDomain.value,
+    defaultSharedspaceQuotaMaxFileSize: !form.subdomain_allocation_settings.defaultMaxFileSizeOverride && !isRootDomain.value,
+  }
 });
 </script>
 

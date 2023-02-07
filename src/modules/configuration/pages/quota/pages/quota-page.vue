@@ -82,6 +82,13 @@ onMounted(() => {
 
 <style lang="less">
 .quota-page {
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 20px
+  }
   &__actions {
     display: flex;
     flex-direction: row;

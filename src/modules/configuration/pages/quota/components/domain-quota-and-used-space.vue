@@ -53,11 +53,13 @@
             v-model:model-unit="form.domain_quota_and_used_space.quotaUnit"
             v-model:model-value="form.domain_quota_and_used_space.quotaSpace"
             v-model:model-override="form.domain_quota_and_used_space.quotaOverride"
-            v-model:model-default-quota="defaultQuota"
-            v-model:model-default-value="defaultQuotaValue"
-            v-model:model-default-unit="defaultQuotaUnit"
+            :default-quota="defaultQuota"
+            :default-value="defaultQuotaValue"
+            :default-unit="defaultQuotaUnit"
             :label="$t('QUOTA.DOMAIN_QUOTA')"
-            :note="inputNote"
+            :hint="inputNote"
+            :override-mode="overrideMode"
+            :disabled="disabledQuotaInput"
           ></quota-input>
           <div v-if="currentDomain.type !== 'ROOTDOMAIN'" class="maximum-quota">
             <span v-if="!defaultMaxiQuotaLogic()">{{ $t('QUOTA.DOMAIN_MAXIMUM_QUOTA') }}</span>
@@ -115,6 +117,13 @@ const { isRootDomain } = storeToRefs(domainStore);
 const emits = defineEmits(['update:modeldomainSharedOverride']);
 
 // computed
+const disabledQuotaInput = computed(() => {
+  return !form.domain_quota_and_used_space.quotaOverride && !isRootDomain.value;
+});
+const overrideMode = computed(() => {
+  return !isRootDomain.value && canDelete.value;
+});
+
 const subQuota = computed(() => {
   return domainQuotaInformations.currentValueForSubdomains;
 });

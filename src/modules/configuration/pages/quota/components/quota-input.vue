@@ -6,61 +6,45 @@
     <div class="ls-quota-input__field">
       <a-input
         :value="modelValue"
-        :disabled="data.modelOverride && !isRootDomain"
+        :disabled="disabled"
         class="ls-quota-input__qty"
         @input="onChangeQuota($event.target.value)"
       />
       <a-select
         :value="modelUnit"
-        :disabled="data.modelOverride && !isRootDomain"
+        :disabled="disabled"
         class="ls-quota-input__unit"
         dropdown-class-name="ls-quota-input__unit--dropdown"
         @change="onChangeUnit($event)"
       >
-        <a-select-option v-for="(unit, index) in defaultQuotaUnits" :key="index + 'ls-quota-input'" :value="unit.value">
+        <a-select-option v-for="(unit, index) in quotaUnits" :key="index + 'ls-quota-input'" :value="unit.value">
           {{ unit.name }}</a-select-option
         >
       </a-select>
-      <a-tooltip
-        :title="data.modelOverride ? t('QUOTA.HINT_LABELS.HINT_UNLINK_TOOLTIP') : unlinkQuotaTooltip"
-        trigger="hover"
-      >
+      <a-tooltip v-if="overrideMode" :title="overrideTooltip" trigger="hover">
         <ls-button
-          v-if="!isRootDomain && canDelete"
           class="ant-btn ls-button ls-button-override ls-button--info"
           color="info"
-          @click="onClickToggleLockQuota"
+          @click="onChangeOverrideMode"
         >
-          <lock-icon v-show="data.modelOverride" class="icon"></lock-icon>
-          <unlock-icon v-show="!data.modelOverride" class="icon"></unlock-icon>
+          <lock-icon v-show="modelOverride" class="icon"></lock-icon>
+          <unlock-icon v-show="!modelOverride" class="icon"></unlock-icon>
         </ls-button>
       </a-tooltip>
     </div>
-    <div v-if="note" class="ls-quota-input__sub-label">
-      {{ note }}
+    <div v-if="hint" class="ls-quota-input__hint">
+      {{ hint }}
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { Unit } from '@/core/types/Unit';
 import LockIcon from '@/core/components/icons/lock-icon.vue';
 import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
-import useQuota from '@/modules/configuration/pages/quota/hooks/useQuota';
-import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
-import { useDomainStore } from '@/modules/domain/store';
-import { useAuthStore } from '@/modules/auth/store';
-import { storeToRefs } from 'pinia';
-import { Unit } from '@/core/types/Unit';
 
-const domainStore = useDomainStore();
-const authStore = useAuthStore();
-const { isRootDomain } = storeToRefs(domainStore);
-const { loggedUser } = storeToRefs(authStore);
-const { canDelete } = useDomainDelete();
-const { t } = useI18n();
-
-const defaultQuotaUnits: Unit[] = [
+const quotaUnits: Unit[] = [
   { name: 'Byte', value: 'B', factor: 0 },
   { name: 'KB', value: 'KB', factor: 3 },
   { name: 'MB', value: 'MB', factor: 6 },
@@ -71,33 +55,36 @@ const defaultQuotaUnits: Unit[] = [
   { name: 'ZB', value: 'ZB', factor: 21 },
   { name: 'YB', value: 'YB', factor: 24 },
 ];
+// composable
+const { t } = useI18n();
 
-const emits = defineEmits(['update:modelValue', 'update:modelUnit', 'update:modelLockQuota']);
+// data
+const emits = defineEmits(['update:modelValue', 'update:modelUnit', 'update:modelOverride', 'update:modelLock']);
 const props = defineProps<{
   modelValue?: number | string;
   modelUnit?: Unit | string | undefined;
+  modelOverride?: boolean | undefined;
+  modelLock?: boolean | undefined;
+  defaultValue?: string | number;
+  defaultQuota?: string | number;
+  defaultUnit?: Unit | string | undefined;
+  overrideMode?: boolean;
   label?: string;
-  note?: string;
-  unlinkQuotaTooltip: string;
-  modelOverride: boolean | undefined;
-  modelDefaultValue: string | number;
-  modelDefaultQuota: number;
-  modelDefaultUnit: Unit | string | undefined;
+  hint?: string;
+  disabled?: boolean;
 }>();
 
-// data
-const data = ref({
-  modelOverride: false,
+// computed
+const overrideTooltip = computed(() => {
+  return props.modelOverride
+    ? t('QUOTA.HINT_LABELS.HINT_UNLINK_TOOLTIP')
+    : t('QUOTA.HINT_LABELS.HINT_RESET_TOOLTIP', { value: props.defaultQuota });
 });
 
-const unlinkQuotaTooltip = t('QUOTA.HINT_LABELS.HINT_RESET_TOOLTIP', {
-  value: props.modelDefaultQuota,
-});
-
-function onClickToggleLockQuota() {
-  data.value.modelOverride = !data.value.modelOverride;
-  emits('update:modelValue', props.modelDefaultValue);
-  emits('update:modelUnit', props.modelDefaultUnit);
+// methods
+function handleResetQuotaDefault() {
+  emits('update:modelValue', props.defaultValue);
+  emits('update:modelUnit', props.defaultUnit);
 }
 
 function onChangeUnit(item: Event) {
@@ -106,6 +93,13 @@ function onChangeUnit(item: Event) {
 
 function onChangeQuota(item: number) {
   emits('update:modelValue', item);
+}
+
+function onChangeOverrideMode() {
+  if (!props.modelOverride) {
+    handleResetQuotaDefault();
+  }
+  emits('update:modelOverride', !props.modelOverride);
 }
 </script>
 <style lang="less">
@@ -124,7 +118,7 @@ function onChangeQuota(item: number) {
     color: #6d7885;
   }
 
-  &__sub-label {
+  &__hint {
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
@@ -143,7 +137,7 @@ function onChangeQuota(item: number) {
     height: 44px;
     background: #ffffff;
     border: 1px solid #e4e5f0;
-    border-radius: 10px;
+    border-radius: 10px !important;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -220,8 +214,17 @@ function onChangeQuota(item: number) {
     }
   }
 
-  .ls-button-override {
+  .ls-button-override,
+  .ls-button-lock {
+    min-height: 44px;
+    min-width: 44px;
     height: 44px;
+    width: 44px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
