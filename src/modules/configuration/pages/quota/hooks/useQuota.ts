@@ -269,16 +269,6 @@ export default function useQuota() {
     };
   }
 
-  function defaultSubdomainQuotaLogic() {
-    if (
-      toByte(form.domain_quota_and_used_space.quotaSpace, form.domain_quota_and_used_space.quotaUnit) <
-      domainQuotaInformations.defaultQuota
-    ) {
-      return true;
-    }
-    return false;
-  }
-
   function defaultMaxiQuotaLogic() {
     if (
       toByte(form.domain_quota_and_used_space.quotaSpace, form.domain_quota_and_used_space.quotaUnit) >
@@ -331,7 +321,7 @@ export default function useQuota() {
   function maxQuotaLogic() {
     if (
       toByte(form.subdomain_allocation_settings.quotaSpace, form.subdomain_allocation_settings.quotaUnit) >
-      domainQuotaInformations.quota
+      toByte(form.domain_quota_and_used_space.quotaSpace, form.domain_quota_and_used_space.quotaUnit)
     ) {
       return true;
     }
@@ -341,7 +331,6 @@ export default function useQuota() {
   watchEffect(() => {
     if (
       defaultMaxiQuotaLogic() ||
-      defaultSubdomainQuotaLogic() ||
       personalSpaceQuotaPerUserLogic() ||
       personalSpaceMaxSizeLogic() ||
       personalSpaceQuotaLogic() ||
@@ -362,7 +351,6 @@ export default function useQuota() {
     saveQuota,
     resetDomainQuotaInformation,
     defaultMaxiQuotaLogic,
-    defaultSubdomainQuotaLogic,
     parentDomainInformations,
     getSubdomainBlockInformations,
     AllocationContainerInformations,

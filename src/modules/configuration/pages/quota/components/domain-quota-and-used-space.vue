@@ -68,12 +68,8 @@
             <span v-else class="save-check-wrong">{{ maximumQuota }}</span>
           </div>
           <div v-if="currentDomain.type === 'TOPDOMAIN'" class="maximum-quota">
-            <span v-if="defaultSubdomainQuotaLogic()" class="save-check-wrong">{{
-              $t('QUOTA.DEFAULT_SUB_DOMAIN_QUOTA')
-            }}</span>
-            <span v-else>{{ $t('QUOTA.DEFAULT_SUB_DOMAIN_QUOTA') }}</span>
-            <span v-if="defaultSubdomainQuotaLogic()" class="save-check-wrong">{{ defaultQuota }}</span>
-            <span v-else class="maximum-quota-value">{{ defaultQuota }}</span>
+            <span>{{ $t('QUOTA.DEFAULT_SUB_DOMAIN_QUOTA') }}</span>
+            <span class="maximum-quota-value">{{ defaultQuota }}</span>
           </div>
         </div>
         <div class="domain-quota-and-used-space__chart">
@@ -110,8 +106,7 @@ import { storeToRefs } from 'pinia';
 const { t } = useI18n();
 const domainStore = useDomainStore();
 const currentDomain = domainStore.currentDomain;
-const { domainQuotaInformations, form, defaultMaxiQuotaLogic, defaultSubdomainQuotaLogic, parentDomainInformations } =
-  useQuota();
+const { domainQuotaInformations, form, defaultMaxiQuotaLogic, parentDomainInformations } = useQuota();
 const { canDelete } = useDomainDelete();
 const { isRootDomain } = storeToRefs(domainStore);
 const emits = defineEmits(['update:modeldomainSharedOverride']);

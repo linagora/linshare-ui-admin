@@ -156,7 +156,8 @@ const remainingQuota = computed(() => {
   return AllocationContainerInformations.defaultQuota;
 });
 const maximumQuota = computed(() => {
-  return displayUnit(byteTo, domainQuotaInformations.quota, undefined);
+  const value = toByte(form.domain_quota_and_used_space.quotaSpace, form.domain_quota_and_used_space.quotaUnit);
+  return displayUnit(byteTo, value, undefined);
 });
 
 const defaultQuotaValue = computed(() => {
