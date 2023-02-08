@@ -25,6 +25,7 @@ export default defineConfig({
       '^/linshare': {
         target: process.env.BACKEND_API_URL || 'http://localhost:28080',
         changeOrigin: true,
+        secure: false,
       },
     },
   },
