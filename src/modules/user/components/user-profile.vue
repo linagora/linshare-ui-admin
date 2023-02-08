@@ -244,5 +244,5 @@ checkGuestFeature();
   .user-profile-row {
     flex-direction: row-reverse;
   }
-} ;
+}
 </style>
