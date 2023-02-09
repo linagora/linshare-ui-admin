@@ -14,13 +14,16 @@ const manager = new UserManager({
   client_secret: oidcSetting.client_secret,
   scope: oidcSetting.scope,
   response_type: 'code',
-  redirect_uri: `${window.location.origin}${window.location.pathname}#/oidc/callback`,
+  redirect_uri: `${window.location.origin}${config.appContext}oidc/callback`,
   post_logout_redirect_uri: `${window.location.origin}${window.location.pathname}`,
+  loadUserInfo: oidcSetting.loadUserInfo,
 });
 
 interface OIDCBearerRequest extends AxiosRequestConfig {
   headers: {
     Authorization: string;
+    'X-LinShare-Client-App': string;
+    'X-LinShare-ID-Token': string;
   };
 }
 
@@ -29,13 +32,14 @@ export function signinRedirect(): void {
 }
 
 export async function signinCallback(): Promise<void> {
-  const { access_token } = await manager.signinRedirectCallback();
+  const user = await manager.signinRedirectCallback();
   const authRequestConfig: OIDCBearerRequest = {
     headers: {
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${user.access_token}`,
+      'X-LinShare-Client-App': 'Linshare-Web',
+      'X-LinShare-ID-Token': user.id_token,
     },
   };
-
   const authStore = useAuthStore();
   const appStore = useAppStore();
 
