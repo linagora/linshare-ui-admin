@@ -9,6 +9,7 @@ import { DOMAIN_TYPE } from '../types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
 
 type UsableDomainDelete = {
   canDelete: ComputedRef<boolean>;
@@ -20,6 +21,7 @@ type UsableDomainDelete = {
 export default function useDomainDelete(): UsableDomainDelete {
   const domainStore = useDomainStore();
   const authStore = useAuthStore();
+  const { push } = useRouter();
   const { t } = useI18n();
   const deleting = ref(false);
   const { currentDomain } = storeToRefs(domainStore);
@@ -61,6 +63,7 @@ export default function useDomainDelete(): UsableDomainDelete {
 
     try {
       await domainStore.deleteCurrentDomain();
+      goToRootDomain();
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
@@ -70,6 +73,11 @@ export default function useDomainDelete(): UsableDomainDelete {
     } finally {
       deleting.value = false;
     }
+  }
+
+  function goToRootDomain() {
+    const domainsTree = domainStore.domainsTree;
+    push({ name: 'ConfigurationDomainDetail', params: { domainUuid: domainsTree.uuid } });
   }
 
   return {
