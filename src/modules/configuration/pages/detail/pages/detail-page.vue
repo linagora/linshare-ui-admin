@@ -5,7 +5,7 @@
 
   <a-row v-else :gutter="24">
     <a-col :span="12">
-      <DomainForm :data="currentDomain" />
+      <domain-form :data="currentDomain"></domain-form>
     </a-col>
 
     <a-col :span="10" :offset="2">

@@ -3,14 +3,19 @@
     <a-form-item v-bind="validateInfos.name">
       <div class="input-container">
         <label>{{ $t('DOMAIN.FIELDS.NAME') }}</label>
-        <a-input v-model:value="formState.name" />
+        <a-input v-model:value="formState.name" :readonly="!isSuperAdmin" :disabled="!isSuperAdmin" />
       </div>
     </a-form-item>
 
     <a-form-item>
       <div class="input-container">
         <label>{{ $t('GENERAL.DESCRIPTION') }}</label>
-        <a-textarea v-model:value="formState.description" auto-size />
+        <a-textarea
+          v-model:value="formState.description"
+          :readonly="!isSuperAdmin"
+          :disabled="!isSuperAdmin"
+          auto-size
+        />
       </div>
     </a-form-item>
 
@@ -60,14 +65,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, watchEffect, PropType } from 'vue';
-import { useDomainStore } from '@/modules/domain/store';
+import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import { Form, message } from 'ant-design-vue';
-
-import Domain from '@/modules/domain/types/Domain';
 import { APIError } from '@/core/types/APIError';
-import { storeToRefs } from 'pinia';
+import Domain from '@/modules/domain/types/Domain';
+import { useAuthStore } from '@/modules/auth/store';
+import { useDomainStore } from '@/modules/domain/store';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
+import { defineComponent, ref, reactive, watchEffect, PropType, computed } from 'vue';
 
 const useForm = Form.useForm;
 
@@ -82,7 +88,9 @@ export default defineComponent({
   setup(props) {
     const { t, locale } = useI18n();
     const domainStore = useDomainStore();
+    const authStore = useAuthStore();
     const { isRootDomain } = storeToRefs(domainStore);
+    const { loggedUserRole } = storeToRefs(authStore);
     const saving = ref(false);
 
     const formState = reactive<Omit<Domain, 'uuid'>>({
@@ -104,6 +112,10 @@ export default defineComponent({
       ],
     });
     const { validate, validateInfos } = useForm(formState, formRules);
+
+    const isSuperAdmin = computed(() => {
+      return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
+    });
 
     watchEffect(() => {
       if (props.data.uuid) {
@@ -146,12 +158,13 @@ export default defineComponent({
     }
 
     return {
-      formState,
-      onSubmit,
       reset,
+      onSubmit,
       saving,
-      validateInfos,
+      formState,
       isRootDomain,
+      isSuperAdmin,
+      validateInfos,
     };
   },
 });

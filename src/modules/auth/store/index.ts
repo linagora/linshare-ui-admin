@@ -25,6 +25,7 @@ export const useAuthStore = defineStore('authStore', {
   getters: {
     loggedUserFullName: (state): string =>
       `${state.loggedUser?.firstName || ''} ${state.loggedUser?.lastName || ''}`.trim(),
+    loggedUserRole: (state) => state.loggedUser?.role,
   },
   actions: {
     async fetchLoggedUser(config?: AxiosRequestConfig) {
