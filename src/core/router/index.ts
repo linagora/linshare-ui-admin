@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from './routes';
+import config from '@/config';
 
 /**
  * We prefer hash routing for 2 reasons:
@@ -7,7 +8,7 @@ import routes from './routes';
  *  - Callback uri for OIDC authentication is fixed in the app
  */
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(config.appContext),
   routes,
 });
 
