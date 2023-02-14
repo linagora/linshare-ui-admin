@@ -96,7 +96,7 @@ const configurationTabs = reactive({
       name: 'ConfigurationDomainQuota',
       requiresCurrentDomain: true,
     },
-    legacy: false,
+    legacy: true,
     key: 'QUOTA',
     name: 'ConfigurationDomainQuota',
     visible: true,
