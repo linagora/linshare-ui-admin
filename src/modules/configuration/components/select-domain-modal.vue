@@ -68,7 +68,7 @@ const emits = defineEmits(['close']);
 const router = useRouter();
 const route = useRoute();
 const domainStore = useDomainStore();
-const { domainsTree, getCurrentDomain } = storeToRefs(domainStore);
+const { domainsTree, getCurrentDomain, getCurrentDomainParent, getDomainByUuid } = storeToRefs(domainStore);
 
 // data
 const selectedDomain = ref();
@@ -78,10 +78,22 @@ const searchBox = ref('');
 const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 
 const suggestedDomains = computed(() => {
-  if (domainsTree.value?.children) {
-    return [domainsTree.value, domainsTree.value?.children[0]];
+  let suggested: DomainTreeNode[] = [];
+  const SUGGESTED_LIMIT = 2
+
+  const currentDomainTree = getDomainByUuid.value(currentDomainUuid.value);
+
+  const suggestedSiblingDomains =
+    getCurrentDomainParent.value?.children?.filter((item) => item.uuid !== currentDomainUuid.value) || [];
+  suggested = [...suggestedSiblingDomains]
+
+  if(suggestedSiblingDomains?.length === 0){
+    const suggestedChildDomains = currentDomainTree?.children || [];
+    suggested = [...suggestedChildDomains];
   }
-  return [domainsTree.value];
+
+
+  return suggested.slice(0, SUGGESTED_LIMIT) || [];
 });
 
 const domainsTreeBySearch = computed(() => {
@@ -127,6 +139,7 @@ function filterDomainsTree(array: DomainTreeNode[], text: string) {
 
   return array.reduce(getNodes, []);
 }
+
 // hook
 watch(
   () => props.openModal,
@@ -165,11 +178,13 @@ watch(
   }
 
   &__content {
-    height: 500px;
+    height: 400px;
+    max-height: 400px;
     overflow: hidden;
     overflow-y: auto;
     margin: 16px 0 24px;
   }
+
   &__content .not-found {
     margin-top: 48px;
     display: flex;
@@ -177,6 +192,7 @@ watch(
     justify-content: center;
     align-items: center;
   }
+
   &__content .not-found span {
     font-size: 14px;
     opacity: 0.4;

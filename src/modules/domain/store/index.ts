@@ -32,6 +32,8 @@ export const useDomainStore = defineStore('domainStore', {
       (entity: 'currentDomain'): STATUS =>
         state.status[entity],
     getCurrentDomain: (state): Domain => state.currentDomain,
+    getCurrentDomainParent: (state): DomainTreeNode | undefined =>
+      _getParentNode(state.domainsTree, state.currentDomain.uuid),
     isRootDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.ROOT,
     isGuestDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.GUEST,
     isSubDomain: (state): boolean => state.currentDomain.type === DOMAIN_TYPE.SUB,
@@ -139,4 +141,20 @@ function _updateDomainName(domain: DomainTreeNode, updated: Domain) {
       _updateDomainName(domain.children[index], updated);
     }
   }
+}
+
+function _getParentNode(root: DomainTreeNode, uuid: string) {
+  let node;
+  if (root.uuid === uuid) {
+    return node;
+  }
+
+  root.children?.find(function (n) {
+    if (n.uuid === uuid) {
+      return (node = root);
+    } else if (n.children?.length) {
+      return (node = _getParentNode(n, uuid));
+    }
+  });
+  return node;
 }
