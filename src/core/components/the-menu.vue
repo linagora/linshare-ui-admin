@@ -2,9 +2,7 @@
 import config from '@/config';
 import useMenu from '@/core/hooks/useMenu';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
-import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
-import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import { useRoute, useRouter } from 'vue-router';
 import { computed } from 'vue';
 
@@ -50,10 +48,10 @@ function goToDefaultDomain() {
         {{ $t('NAVIGATOR.REPORTING') }}
       </router-link>
     </a-menu-item>
-    <a-menu-item key="activities" @click="redirect('NAVIGATOR.ACTIVITIES')">
-      <a name="activities">
+    <a-menu-item key="activities">
+      <router-link :to="{ name: 'Activities' }">
         {{ $t('NAVIGATOR.ACTIVITIES') }}
-      </a>
+      </router-link>
     </a-menu-item>
     <a-menu-item key="upgrades" @click="redirect('NAVIGATOR.UPGRADES')">
       <a name="upgrades">

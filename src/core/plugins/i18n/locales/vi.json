@@ -168,9 +168,9 @@
       "MULTIPLE_DELETE_CONFIRM": "Bạn đang trong quá trình xóa các users này khỏi hệ thống. Tiến trình này sẽ hủy tất cả các tài liệu liên quan tới users này. Bạn có muốn tiếp tục?",
       "SELECTED_USERS_NUMBER": "Users đã chọn: {number}",
       "SELECTED_USERS_DELETE": "Xóa các user đã chọn",
-      "SELECTED_USERS_UNLOCK":"{number} users đã được khóa thành công",
-      "SELECT_ALL":"Chọn tất cả",
-      "UNSELECT_ALL":"Bỏ chọn tất cả"
+      "SELECTED_USERS_UNLOCK": "{number} users đã được khóa thành công",
+      "SELECT_ALL": "Chọn tất cả",
+      "UNSELECT_ALL": "Bỏ chọn tất cả"
     },
     "DETAIL_USER": {
       "TITLE": "Quản lí người dùng",
@@ -188,7 +188,7 @@
       "ENABLED": "Kích hoạt",
       "DISABLED": "Vô hiệu hóa",
       "FIRST_NAME": "Tên",
-      "LAST_NAME":"Họ",
+      "LAST_NAME": "Họ",
       "NOTIFICATION_LANGUAGE": "Ngôn ngữ thông báo",
       "ROLE": "Vai trò",
       "ENABLE_PERSONAL_SPACE": "Cho phép không gian lưu trữ riêng",
@@ -239,15 +239,15 @@
     "COMMON_MESSAGE": "Đã có lỗi xảy ra. Vui lòng thử lại sau!",
     "UNKNOWN": "Lỗi bất ngờ đã xảy ra!",
     "AUTH": {
-     "1000": "Đã có lỗi xảy ra. Vui lòng thử lại sau!",
-     "1001": "Sai thông tin đăng nhập",
-     "1002": "Yếu tố xác thực thứ hai bắt buộc",
-     "1003": "Mã xác thực không đúng hoặc đã hết hạn",
-     "1004": "Tài khoản của bạn đã bị khóa vì đăng nhập thất bại",
-     "1006": "Xác thực SSO không thành công: {message}",
-     "1007": "Xác thực SSO không thành công: {message}",
-     "1008": "Xác thực SSO không thành công: {message}",
-     "1009": "Nhiều miền được tìm thấy"
+      "1000": "Đã có lỗi xảy ra. Vui lòng thử lại sau!",
+      "1001": "Sai thông tin đăng nhập",
+      "1002": "Yếu tố xác thực thứ hai bắt buộc",
+      "1003": "Mã xác thực không đúng hoặc đã hết hạn",
+      "1004": "Tài khoản của bạn đã bị khóa vì đăng nhập thất bại",
+      "1006": "Xác thực SSO không thành công: {message}",
+      "1007": "Xác thực SSO không thành công: {message}",
+      "1008": "Xác thực SSO không thành công: {message}",
+      "1009": "Nhiều miền được tìm thấy"
     },
     "55000": "Bộ lọc nhóm không được tìm thấy",
     "66000": "Không tìm thấy không gian chia sẻ",
@@ -347,7 +347,7 @@
       "NAME": "Tên"
     },
     "MEMBERS": {
-      "MEMBERS":"Các thành viên",
+      "MEMBERS": "Các thành viên",
       "TAB_TITLE": "Danh sách thành viên",
       "CONFIRM_DELETE": "Bạn có chắc chắn muốn xóa thành viên này khỏi không gian dùng chung không?",
       "FILTER_PLACEHOLDER": "Tìm kiếm hoặc lọc các thành viên không gian được chia sẻ",
@@ -357,7 +357,7 @@
       "DEFAULT_WORKGROUP_ROLE": "Vai trò nhóm làm việc mặc định",
       "FORCE_CHECKBOX": "Ghi đè vai trò này cho tất cả các nhóm làm việc con",
       "MEMBER_ADVANCED_RESEARCH": "Tìm kiếm nâng cao",
-      "DEFAULT_ROLE":"Vai trò mặc định",
+      "DEFAULT_ROLE": "Vai trò mặc định",
       "NO_DEFAULT_ROLE": "Không có vai trò mặc định",
       "DEFAULT_ROLE_TAG_PREFIX": "Vai trò mặc định:",
       "DEFAULT_ROLE_TAG_TOOLTIP": "Vai trò này sẽ áp dụng cho thành viên này  cho tất cả nhóm làm việc mới được tạo bên trong không gian làm việc này"
@@ -368,11 +368,11 @@
     "USED_SPACE": "Đã sử dụng {usedSpace} trên {computedQuota}",
     "USER_QUOTA": "Hạn ngạch được sử dụng cho không gian cá nhân của người dùng",
     "USER_MAX_FILE_SIZE": "Kích thước tệp tải lên tối đa của người dùng trong PersonalSpace",
-    "CURRENT DOMAIN QUOTA":"HẠN MỨC TÊN MIỀN HIỆN TẠI",
-    "MAINTENANCE_MODE":"Chế độ bảo trì",
-    "ALREADY_USED":"đã được sử dụng",
-    "QUOTA_AND_USED_SPACE":"Hạn mức tên miền và dung lượng đã sử dụng",
-  "SUBDOMAINS_ALLOCATION_SETTINGS": "Cài đặt phân bổ mặc định cho tên miền phụ",
+    "CURRENT DOMAIN QUOTA": "HẠN MỨC TÊN MIỀN HIỆN TẠI",
+    "MAINTENANCE_MODE": "Chế độ bảo trì",
+    "ALREADY_USED": "đã được sử dụng",
+    "QUOTA_AND_USED_SPACE": "Hạn mức tên miền và dung lượng đã sử dụng",
+    "SUBDOMAINS_ALLOCATION_SETTINGS": "Cài đặt phân bổ mặc định cho tên miền phụ",
     "SUBDOMAIN_QUOTA": "HẠN MỨC TÊN MIỀN PHỤ",
     "SHRAED_DOMAIN_QUOTA_ACTIVATION": "Kích hoạt chia sẻ hạn mức tên miền",
     "QUOTA_PER_SUB_DOMAIN": "Hạn mức trên mỗi TÊN MIỀN PHỤ",
@@ -384,7 +384,7 @@
     "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Tổng hạn mức được phân bổ mặc định",
     "DEFAULT_MAX_FILE_SIZE": "Kích thước tệp tối đa mặc định",
     "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Phân bổ hạn mức cho một tài khoản người dùng cụ thể",
-    "QUOTA_EXCEEDED_ERROR":"Đã vượt quá hạn mức, giải phóng dung lượng lưu trữ hoặc phân bổ thêm hạn ngạch cho ",
+    "QUOTA_EXCEEDED_ERROR": "Đã vượt quá hạn mức, giải phóng dung lượng lưu trữ hoặc phân bổ thêm hạn ngạch cho ",
     "SPACES_LABEL": {
       "CURRENT_DOMAIN": "Domain hiện tại",
       "PERSONALS_SPACES": "Không gian cá nhân",
@@ -393,31 +393,31 @@
     },
 
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Phần này cho phép bạn quản lý kích thước hạn ngạch tên miền hiện tại và thiết lập nó theo nhu cầu của bạn.",
-    "MAINTENANCE_MODE_ACTIVATED_ALERT":"Chế độ bảo trì được kích hoạt, do đó ngăn chặn mọi hoạt động tải lên được thực hiện trong miền hiện tại.",
-    "DOMAIN_MAXIMUM_QUOTA":"Hạn mức tối đa của tên miền : ",
+    "MAINTENANCE_MODE_ACTIVATED_ALERT": "Chế độ bảo trì được kích hoạt, do đó ngăn chặn mọi hoạt động tải lên được thực hiện trong miền hiện tại.",
+    "DOMAIN_MAXIMUM_QUOTA": "Hạn mức tối đa của tên miền : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Hạn mức mặc định của tên miền con : ",
-    "DOMAIN_QUOTA":"Hạn mức tên miền",
+    "DOMAIN_QUOTA": "Hạn mức tên miền",
     "QUOTA": {
       "QUOTA_LESS_THAN_FILE_SIZE": "Hạn ngạch bộ nhớ phải lớn hơn kích thước tệp tải lên tối đa",
       "FILE_SIZE_LARGER_THAN_QUOTA": "Kích thước tệp tải lên tối đa phải nhỏ hơn hạn ngạch bộ nhớ",
       "INVALID_FILE_SIZE": "Kích thước tệp tối đa không hợp lệ"
     },
-    "QUOTA_VISUALIZE":"Quota visualize",
-    "ROOT_DOMAIN_QUOTA":{
+    "QUOTA_VISUALIZE": "Quota visualize",
+    "ROOT_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại (Dung lượng cá nhân + dung lượng chia sẻ)",
-      "SUB_DOMAIN_USED_SPACE":"Dung lượng miền phụ",
-      "REMAINING_SPACE":"Dung lượng còn lại",
+      "SUB_DOMAIN_USED_SPACE": "Dung lượng miền phụ",
+      "REMAINING_SPACE": "Dung lượng còn lại",
       "QUOTA_PER_SUB_DOMAIN": "Hạn mức cho mỗi tên miền phụ"
     },
-    "TOP_DOMAIN_QUOTA":{
+    "TOP_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại",
-      "SUB_DOMAIN_USED_SPACE":"Dung lượng miền phụ",
-      "REMAINING_SPACE":"Dung lượng còn lại",
+      "SUB_DOMAIN_USED_SPACE": "Dung lượng miền phụ",
+      "REMAINING_SPACE": "Dung lượng còn lại",
       "QUOTA_PER_SUB_DOMAIN": "Dung lượng chưa phân bổ"
     },
-    "GUEST_DOMAIN_QUOTA":{
+    "GUEST_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại",
-      "REMAINING_SPACE":"Dung lượng còn lại",
+      "REMAINING_SPACE": "Dung lượng còn lại",
       "UNALLOCATED_SPACE": "Dung lượng chưa phân bổ"
     },
     "SAVE_CHANGE": "Lưu thay đổi",
@@ -468,7 +468,7 @@
       "BACK_TO_CONFIGURATION": "Đi tới Cấu hình"
     },
     "TYPES": {
-      "ROOTDOMAIN":"tên miền gốc",
+      "ROOTDOMAIN": "tên miền gốc",
       "TOPDOMAIN": "Tên miền hàng đầu",
       "SUBDOMAIN": "Tên miền phụ",
       "GUESTDOMAIN": "Tên miền khách"
@@ -675,8 +675,8 @@
     "NESTED_DOMAIN_DESCRIPTION": "Ở miền phụ, thông điệp chào mừng có thể tạo riêng hoặc sử dụng thông điệp được tạo trên miền cao hơn",
     "THE_WELCOME_MESSAGE": "Thông điệp chào mừng",
     "SET_FIELD": "Bạn cần đặt trường này",
-    "DELETE_CONFIRM":"Bạn sắp xóa thông điệp chào mừng này, quy trình này không thể hoàn tác. Bạn có muốn tiếp tục?",
-    "MESSAGE_PREVIEW":"Đây là bản xem trước của thông điệp chào mừng:",
+    "DELETE_CONFIRM": "Bạn sắp xóa thông điệp chào mừng này, quy trình này không thể hoàn tác. Bạn có muốn tiếp tục?",
+    "MESSAGE_PREVIEW": "Đây là bản xem trước của thông điệp chào mừng:",
     "ASSIGN_SUCCESS": "Đã gán thành công",
     "ASSIGN_CONFIRM": "Bạn sắp gán thông báo chào mừng này cho miền hiện tại. Bạn có muốn tiếp tục?"
   },
@@ -799,7 +799,7 @@
         "DESCRIPTION": "Cho phép đặt giới hạn về số lượng yêu cầu đã tải lên mà người dùng có thể tạo trong miền này.",
         "PARAMETER": {
           "TITLE_MAXIMUM": "Số lượng yêu cầu đã tải lên tối đa",
-          "DESCRIPTION_MAXIMUM":"Số lượng yêu cầu tải lên tối đa của một người dùng trong miền này. Số lượng được tính trên các yêu cầu tải lên có trạng thái: Đang chờ xử lý / Đang hoạt động / Đã đóng"
+          "DESCRIPTION_MAXIMUM": "Số lượng yêu cầu tải lên tối đa của một người dùng trong miền này. Số lượng được tính trên các yêu cầu tải lên có trạng thái: Đang chờ xử lý / Đang hoạt động / Đã đóng"
         }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
@@ -1352,7 +1352,7 @@
     "SELECT_DOMAIN": "Chọn domain",
     "VIEW_DETAIL": "Hiển thị chi tiết",
     "CANCEL": "Hủy",
-    "MANAGE_DOMAINS":"Quản lí miền",
+    "MANAGE_DOMAINS": "Quản lí miền",
     "CONFIGURATION": "Cấu hình",
     "SELECT_DOMAIN_TO_START": "Chọn domain để bắt đầu",
     "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Bạn cần chọn một tên miền bằng nút bên dưới trước khi bắt đầu thực hiện bất kỳ thay đổi nào đối với cài đặt của tên miền đó",
@@ -1360,7 +1360,11 @@
     "ENTER_DOMAIN_NAME": "Nhập tên domain",
     "SUGGESTED_DOMAINS": "Domain đề xuất:",
     "DOMAIN_NOT_FOUND": "Không tồn tại domain tương ứng"
-    },
+  },
+  "ACTIVITIES": {
+    "INTRODUCTION": "Logging all users activities on LinShare",
+    "ACTIVITY_LOG": "Activity Logs"
+  },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"
   },

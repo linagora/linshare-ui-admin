@@ -1366,6 +1366,10 @@
     "SUGGESTED_DOMAINS": "Suggested domains:",
     "DOMAIN_NOT_FOUND": "Domain not found"
   },
+  "ACTIVITIES": {
+    "INTRODUCTION": "Logging all users activities on LinShare",
+    "ACTIVITY_LOG": "Activity Logs"
+  },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Select your language"
   },

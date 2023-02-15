@@ -6,8 +6,8 @@ import { RemoteFilterRoutes } from '@/modules/remote-filter/router';
 import { RemoteServerRoutes } from '@/modules/remote-server/router';
 import { DomainConfigurationRoutes } from '@/modules/domain/router';
 import { ReportingRoute } from '@/modules/reporting/router';
-import { DesignSystemRoutes } from '@/modules/design-system/router';
 import { ConfigurationRoute } from '@/modules/configuration/router';
+import { ActivitiesRoute } from '@/modules/activities/router';
 import config from '@/config';
 
 import HomePage from '../layouts/home-page.vue';
@@ -36,7 +36,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       ReportingRoute,
       ManageSecondFactorAuthenticationRoute,
       ConfigurationRoute,
-      ...DesignSystemRoutes,
+      ActivitiesRoute,
     ],
   },
 ];
