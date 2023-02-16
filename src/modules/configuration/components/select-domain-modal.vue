@@ -79,19 +79,18 @@ const currentDomainUuid = computed(() => domainStore.currentDomain.uuid);
 
 const suggestedDomains = computed(() => {
   let suggested: DomainTreeNode[] = [];
-  const SUGGESTED_LIMIT = 2
+  const SUGGESTED_LIMIT = 2;
 
   const currentDomainTree = getDomainByUuid.value(currentDomainUuid.value);
 
   const suggestedSiblingDomains =
     getCurrentDomainParent.value?.children?.filter((item) => item.uuid !== currentDomainUuid.value) || [];
-  suggested = [...suggestedSiblingDomains]
+  suggested = [...suggestedSiblingDomains];
 
-  if(suggestedSiblingDomains?.length === 0){
+  if (suggestedSiblingDomains?.length === 0) {
     const suggestedChildDomains = currentDomainTree?.children || [];
     suggested = [...suggestedChildDomains];
   }
-
 
   return suggested.slice(0, SUGGESTED_LIMIT) || [];
 });
