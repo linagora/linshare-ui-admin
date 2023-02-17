@@ -1,5 +1,3 @@
 <template>
-  <div class="activities-table">
-
-</div>
+  <div class="activities-table"></div>
 </template>

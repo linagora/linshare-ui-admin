@@ -14,6 +14,6 @@ export const ActivitiesRoute: RouteRecordRaw = {
       name: 'ActivitiesEntries',
       path: '',
       component: () => import('../pages/index-page.vue'),
-    }
+    },
   ],
 };

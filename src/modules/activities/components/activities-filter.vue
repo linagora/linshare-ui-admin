@@ -1,5 +1,3 @@
 <template>
-  <div class="activities-filter">
-
-</div>
+  <div class="activities-filter"></div>
 </template>
