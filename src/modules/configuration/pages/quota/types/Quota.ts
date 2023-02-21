@@ -25,6 +25,7 @@ export default interface DomainQuota {
   batchModificationDate?: number;
   domainShared?: boolean;
   domainSharedOverride?: boolean;
+  containerUuids?: string[];
 }
 
 export const EMPTY_QUOTA: DomainQuota = {

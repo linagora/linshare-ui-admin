@@ -97,7 +97,7 @@ type size = {
 };
 
 function find(value: number) {
-  let length = value.toString().length;
+  let length = value?.toString()?.length;
   const multiple3: multiple3 = {
       1: 3,
       2: 3,

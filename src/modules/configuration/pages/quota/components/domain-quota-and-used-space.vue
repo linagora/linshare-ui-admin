@@ -10,11 +10,11 @@
       <div class="domain-quota-and-used-space">
         <div class="domain-quota-and-used-space__form">
           <div class="maintenance-mode">
-            <a-switch v-model:checked="form.domain_quota_and_used_space.maintenance" class="maintenance-switch" />
+            <a-switch v-model:checked="form.domainQuotaAndUsedSpace.maintenance" class="maintenance-switch" />
             <span>{{ $t('QUOTA.MAINTENANCE_MODE') }}</span>
           </div>
           <ls-alert
-            v-if="form.domain_quota_and_used_space.maintenance"
+            v-if="form.domainQuotaAndUsedSpace.maintenance"
             :message="$t('QUOTA.MAINTENANCE_MODE_ACTIVATED_ALERT')"
             type="warning"
             :border="true"
@@ -32,14 +32,14 @@
               <info-icon class="icon"></info-icon>
             </a-tooltip>
             <a-switch
-              v-model:checked="form.domain_quota_and_used_space.domainShared"
-              :disabled="form.domain_quota_and_used_space.domainSharedOverride && !isRootDomain"
+              v-model:checked="form.domainQuotaAndUsedSpace.domainShared"
+              :disabled="form.domainQuotaAndUsedSpace.domainSharedOverride && !isRootDomain"
               class="domain-shared-quota-switch"
             />
             <span>{{ $t('QUOTA.DOMAIN_SHARED_QUOTA.LABEL') }}</span>
             <a-tooltip
               :title="
-                form.domain_quota_and_used_space.domainSharedOverride
+                form.domainQuotaAndUsedSpace.domainSharedOverride
                   ? t('QUOTA.HINT_LABELS.HINT_DESACTIVATE_SHARING_TOOLTIP')
                   : t('QUOTA.HINT_LABELS.HINT_ACTIVATE_SHARING_TOOLTIP')
               "
@@ -51,15 +51,15 @@
                 color="info"
                 @click="onClickToggleLockDomainSharedQuota"
               >
-                <lock-icon v-show="form.domain_quota_and_used_space.domainSharedOverride" class="icon"></lock-icon>
-                <unlock-icon v-show="!form.domain_quota_and_used_space.domainSharedOverride" class="icon"></unlock-icon>
+                <lock-icon v-show="form.domainQuotaAndUsedSpace.domainSharedOverride" class="icon"></lock-icon>
+                <unlock-icon v-show="!form.domainQuotaAndUsedSpace.domainSharedOverride" class="icon"></unlock-icon>
               </ls-button>
             </a-tooltip>
           </div>
           <quota-input
-            v-model:model-unit="form.domain_quota_and_used_space.quotaUnit"
-            v-model:model-value="form.domain_quota_and_used_space.quotaSpace"
-            v-model:model-override="form.domain_quota_and_used_space.quotaOverride"
+            v-model:model-unit="form.domainQuotaAndUsedSpace.quotaUnit"
+            v-model:model-value="form.domainQuotaAndUsedSpace.quotaSpace"
+            v-model:model-override="form.domainQuotaAndUsedSpace.quotaOverride"
             :default-quota="defaultQuota"
             :default-value="defaultQuotaValue"
             :default-unit="defaultQuotaUnit"
@@ -76,16 +76,11 @@
           </div>
           <div v-if="currentDomain.type === 'TOPDOMAIN'" class="maximum-quota">
             <span>{{ $t('QUOTA.DEFAULT_SUB_DOMAIN_QUOTA') }}</span>
-            <span class="maximum-quota-value">{{ defaultQuota }}</span>
+            <span class="maximum-quota-value">{{ defaultSubdomainQuota }}</span>
           </div>
         </div>
         <div class="domain-quota-and-used-space__chart">
-          <quota-visualize-card
-            :used-space="usedQuota"
-            :remaining-quota="remainingQuota"
-            :unallocated-space="unAllocatedSpace"
-            :sub-quota="subQuota"
-          ></quota-visualize-card>
+          <quota-visualize-card :items="quotaVisualizeCardItems"></quota-visualize-card>
         </div>
       </div>
     </collapse-panel>
@@ -95,37 +90,44 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
-import useQuota from '@/modules/configuration/pages/quota/hooks/useQuota';
 import LsAlert from '@/core/components/ls/ls-alert.vue';
+import LsButton from '@/core/components/ls/ls-button.vue';
 import Collapse from '@/core/components/ls/ls-collapse.vue';
-import CollapsePanel from '@/core/components/ls/ls-collapse-panel.vue';
-import QuotaVisualizeCard from '@/modules/configuration/pages/quota/components/quota-visualize.vue';
-import QuotaInput from '@/modules/configuration/pages/quota/components/quota-input.vue';
-import { byteTo, displayUnit, find } from '@/core/utils/unitStorage';
+import InfoIcon from '@/core/components/icons/info-icon.vue';
 import LockIcon from '@/core/components/icons/lock-icon.vue';
 import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
-import InfoIcon from '@/core/components/icons/info-icon.vue';
 import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
-import { storeToRefs } from 'pinia';
+import { byteTo, displayUnit, find } from '@/core/utils/unitStorage';
+import CollapsePanel from '@/core/components/ls/ls-collapse-panel.vue';
+import useQuota from '@/modules/configuration/pages/quota/hooks/useQuota';
+import QuotaInput from '@/modules/configuration/pages/quota/components/quota-input.vue';
+import QuotaVisualizeCard from '@/modules/configuration/pages/quota/components/quota-visualize.vue';
 
 // composable
 const { t } = useI18n();
 const domainStore = useDomainStore();
 const currentDomain = domainStore.currentDomain;
-const { domainQuotaInformations, form, defaultMaxiQuotaLogic, parentDomainInformations, isExceeded } = useQuota();
+const {
+  domainQuotaInformations,
+  form,
+  defaultMaxiQuotaLogic,
+  parentDomainInformations,
+  isExceeded,
+  parentAllocationInformations,
+} = useQuota();
 const { canDelete } = useDomainDelete();
 const { isRootDomain } = storeToRefs(domainStore);
 const emits = defineEmits(['update:modeldomainSharedOverride']);
 
 // computed
 const disabledQuotaInput = computed(() => {
-  return !form.domain_quota_and_used_space.quotaOverride && !isRootDomain.value;
+  return !form.domainQuotaAndUsedSpace.quotaOverride && !isRootDomain.value;
 });
 const overrideMode = computed(() => {
   return !isRootDomain.value && canDelete.value;
 });
-
 const subQuota = computed(() => {
   return domainQuotaInformations.currentValueForSubdomains;
 });
@@ -155,6 +157,10 @@ const defaultQuota = computed(() => {
   return displayUnit(byteTo, domainQuotaInformations.defaultQuota, undefined);
 });
 
+const defaultSubdomainQuota = computed(() => {
+  return displayUnit(byteTo, parentDomainInformations.defaultQuota, undefined);
+});
+
 const inputNote = computed(() => {
   return `${displayUnit(byteTo, domainQuotaInformations.usedSpace, undefined)}/${displayUnit(
     byteTo,
@@ -169,9 +175,52 @@ const quotaExceeded = computed(() => {
   return isExceeded(domainQuotaInformations.usedSpace, domainQuotaInformations.quota);
 });
 
+const unallocatedQuota = computed(() => {
+  return domainQuotaInformations.quota > parentDomainInformations.defaultQuota
+    ? 0
+    : parentDomainInformations.defaultQuota - domainQuotaInformations.quota;
+});
+
+const quotaVisualizeCardItems = computed(() => {
+  const quotaItems = [
+    {
+      name:
+        currentDomain.type === 'ROOTDOMAIN'
+          ? t('QUOTA.ROOT_DOMAIN_QUOTA.CURRENT_DOMAIN_USED_SPACE')
+          : t('QUOTA.TOP_DOMAIN_QUOTA.CURRENT_DOMAIN_USED_SPACE'),
+      value: usedQuota.value,
+      color: '#007AFF',
+    },
+  ];
+
+  if (currentDomain.type !== 'GUESTDOMAIN') {
+    quotaItems.push({
+      name: t('QUOTA.ROOT_DOMAIN_QUOTA.SUB_DOMAIN_USED_SPACE'),
+      value: remainingQuota.value || 0,
+      color: '#FFA940',
+    });
+  }
+
+  quotaItems.push({
+    name: t('QUOTA.ROOT_DOMAIN_QUOTA.REMAINING_SPACE'),
+    value: unAllocatedSpace.value,
+    color: '#EA3C3C',
+  });
+
+  if (currentDomain.type !== 'ROOTDOMAIN') {
+    quotaItems.push({
+      name: t('QUOTA.GUEST_DOMAIN_QUOTA.UNALLOCATED_SPACE'),
+      value: unallocatedQuota.value,
+      color: '#30CD60',
+    });
+  }
+
+  return quotaItems;
+});
+
 function onClickToggleLockDomainSharedQuota() {
-  form.domain_quota_and_used_space.domainSharedOverride = !form.domain_quota_and_used_space.domainSharedOverride;
-  emits('update:modeldomainSharedOverride', form.domain_quota_and_used_space.domainSharedOverride);
+  form.domainQuotaAndUsedSpace.domainSharedOverride = !form.domainQuotaAndUsedSpace.domainSharedOverride;
+  emits('update:modeldomainSharedOverride', form.domainQuotaAndUsedSpace.domainSharedOverride);
 }
 </script>
 

@@ -31,7 +31,13 @@ interface Props {
   usedSpace?: number;
   remainingQuota?: number;
   unallocatedSpace?: number;
-  items?: { name: string; value: number; color: string }[];
+  allocatedPersonalSpace?: number | string;
+  allocatedSharedSpace?: number | string;
+  unassignedSpace?: number;
+  personalSpaceUsedSpace?: number | string;
+  unallocatedSharedSpace?: number;
+  remainingQuotaUsedSpace?: number;
+  items: { name: string; value: number; color: string }[];
 }
 
 const props = defineProps<Props>();
@@ -41,51 +47,58 @@ const domainStore = useDomainStore();
 const { currentDomain } = storeToRefs(domainStore);
 
 const quotas = computed(() => {
-  const items = [];
-  if (props.usedSpace) {
-    items.push({
-      name:
-        currentDomain.value.type === 'ROOTDOMAIN'
-          ? t('QUOTA.ROOT_DOMAIN_QUOTA.CURRENT_DOMAIN_USED_SPACE')
-          : t('QUOTA.TOP_DOMAIN_QUOTA.CURRENT_DOMAIN_USED_SPACE'),
-      value: props.usedSpace,
-      color: generateColor(1),
-    });
-  }
-  if (props.remainingQuota) {
-    items.push({
-      name:
-        (props.remainingQuota && currentDomain.value.type !== 'GUESTDOMAIN') || currentDomain.value.type !== 'SUBDOMAIN'
-          ? t('QUOTA.ROOT_DOMAIN_QUOTA.SUB_DOMAIN_USED_SPACE')
-          : t('QUOTA.GUEST_DOMAIN_QUOTA.REMAINING_SPACE'),
-      value: props.remainingQuota,
-      color: generateColor(2),
-    });
-  }
-  if (props.unallocatedSpace) {
-    items.push({
-      name:
-        (props.unallocatedSpace && currentDomain.value.type !== 'GUESTDOMAIN') ||
-        currentDomain.value.type !== 'SUBDOMAIN'
-          ? t('QUOTA.ROOT_DOMAIN_QUOTA.REMAINING_SPACE')
-          : t('QUOTA.GUEST_DOMAIN_QUOTA.UNALLOCATED_SPACE'),
-      value: props.unallocatedSpace,
-      color: generateColor(3),
-    });
-  }
-  return items;
-});
+  return props.items;
 
-// methods
-function generateColor(index = 0) {
-  const defaultColors = ['#007AFF', '#FFA940', '#EA3C3C', '#30CD60'];
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return index > defaultColors.length ? color : defaultColors[index - 1];
-}
+  // if (props.allocatedPersonalSpace) {
+  //   items.push({
+  //     name: t('QUOTA.GUEST_DOMAIN_QUOTA.PERSONAL_ALLOCATED_SPACE'),
+  //     value: props.allocatedPersonalSpace,
+  //     color: generateColor(1),
+  //   });
+  // }
+
+  // if (props.allocatedSharedSpace) {
+  //   items.push({
+  //     name: t('QUOTA.GUEST_DOMAIN_QUOTA.SHARED_SPACE_ALLOCATED'),
+  //     value: props.allocatedSharedSpace,
+  //     color: generateColor(2),
+  //   });
+  // }
+
+  // if (props.unassignedSpace) {
+  //   items.push({
+  //     name: t('QUOTA.GUEST_DOMAIN_QUOTA.UNASSIGNED_SPACE'),
+  //     value: props.unassignedSpace,
+  //     color: generateColor(3),
+  //   });
+  // }
+
+  // if (props.personalSpaceUsedSpace) {
+  //   items.push({
+  //     name: t('QUOTA.TOP_DOMAIN_QUOTA.USED'),
+  //     value: props.personalSpaceUsedSpace,
+  //     color: generateColor(1),
+  //   });
+  // }
+
+  // if (props.remainingQuotaUsedSpace) {
+  //   items.push({
+  //     name: t('QUOTA.TOP_DOMAIN_QUOTA.REMAINING_QUOTA'),
+  //     value: props.remainingQuotaUsedSpace,
+  //     color: generateColor(2),
+  //   });
+  // }
+
+  // if (props.unallocatedSharedSpace) {
+  //   items.push({
+  //     name: t('QUOTA.TOP_DOMAIN_QUOTA.QUOTA_PER_SUB_DOMAIN'),
+  //     value: props.unallocatedSharedSpace,
+  //     color: generateColor(3),
+  //   });
+  // }
+
+  // return items;
+});
 </script>
 <style lang="less">
 .quota-visualize {

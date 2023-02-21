@@ -1,8 +1,12 @@
 <template>
-  <div :key="data.key" class="quota-page">
+  <div v-if="loading.page" class="spinner">
+    <a-spin />
+  </div>
+  <div v-else class="quota-page">
     <div class="quota-page__tabs">
       <domain-quota-and-used-space> </domain-quota-and-used-space>
-      <subdomains-allocation-settings></subdomains-allocation-settings>
+      <allocation-within-the-current-domain></allocation-within-the-current-domain>
+      <subdomains-allocation-settings v-if="!isSubdomain()"></subdomains-allocation-settings>
     </div>
     <div class="quota-page__actions">
       <a-button
@@ -33,29 +37,28 @@ import { useRouter } from 'vue-router';
 import { onMounted, reactive, watch } from 'vue';
 import useQuota from '../hooks/useQuota';
 import { useDomainStore } from '@/modules/domain/store';
-import DomainQuotaAndUsedSpace from '../components/domain-quota-and-used-space.vue';
-import SubdomainsAllocationSettings from '../components/subdomains-allocation-settings.vue';
-
+import DomainQuotaAndUsedSpace from '@/modules/configuration/pages/quota/components/domain-quota-and-used-space.vue';
+import SubdomainsAllocationSettings from '@/modules/configuration/pages/quota/components/subdomains-allocation-settings.vue';
+import AllocationWithinTheCurrentDomain from '@/modules/configuration/pages/quota/components/allocation-within-the-current-domain.vue';
 // composabled
 const { currentRoute } = useRouter();
 const { t } = useI18n();
 const domainStore = useDomainStore();
 const {
+  form,
+  saveQuota,
   getInformations,
   resetDomainQuotaInformation,
   getSubdomainBlockInformations,
   getAllocationBlockInformations,
-  saveQuota,
-  form,
+  isSubdomain,
 } = useQuota();
 const { currentDomain } = storeToRefs(domainStore);
 
 // data
-const data = reactive({
-  key: 0,
-});
 const loading = reactive({
   reset: false,
+  page: false,
 });
 
 // methods
@@ -65,18 +68,23 @@ async function onResetDomainQuota() {
   loading.reset = false;
 }
 
+function refreshData() {
+  loading.page = true;
+  Promise.all([getInformations(currentDomain.value.uuid)]).finally(() => {
+    loading.page = false;
+  });
+}
+
 // hooks
 watch(currentRoute, (newRoute) => {
   if (newRoute) {
-    data.key += 1;
     resetDomainQuotaInformation(currentDomain.value.uuid);
+    refreshData();
   }
 });
 
-onMounted(() => {
-  getInformations(currentDomain.value.uuid);
-  getSubdomainBlockInformations(currentDomain.value.uuid);
-  getAllocationBlockInformations(currentDomain.value.uuid);
+onMounted(async () => {
+  refreshData();
 });
 </script>
 
@@ -89,6 +97,7 @@ onMounted(() => {
     align-items: stretch;
     gap: 20px;
   }
+
   &__actions {
     display: flex;
     flex-direction: row;
@@ -97,15 +106,31 @@ onMounted(() => {
     gap: 12px;
     padding: 20px 0;
   }
+
   &__actions .ls-button--reset {
     color: @error-color;
     background-color: #fafafa;
     border-color: #fafafa;
   }
+
   &__actions .ls-button--cancel {
     color: @link-color;
     background-color: #fafafa;
     border-color: #fafafa;
   }
+}
+
+.spinner {
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(f, f, f, 1);
+  backdrop-filter: blur(10px);
+  top: 0;
+  left: 0;
 }
 </style>

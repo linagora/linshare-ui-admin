@@ -1,6 +1,8 @@
 <template>
   <a-alert class="ls-alert" v-bind="$attrs" :class="{ 'ls-no-border': !border }">
-    <slot v-for="slot in Object.keys($slots)" :name="slot" />
+    <template v-for="slot in Object.keys($slots)" #[slot]>
+      <slot :name="slot" />
+    </template>
   </a-alert>
 </template>
 <script lang="ts" setup>

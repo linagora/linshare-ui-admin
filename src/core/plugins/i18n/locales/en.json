@@ -400,6 +400,18 @@
     "DEFAULT_SUB_DOMAIN_QUOTA": "Default Subdomain Quota : ",
     "DOMAIN_QUOTA":"Domain Quota",
     "ERROR_MESSAGE_FIELD": "The value should be below or equal to : ",
+    "ALLOCATION_WITHIN_THE_CURRENT_DOMAIN": "Allocation within the current domain {Containers}",
+    "PERSONAL SPACE QUOTA": "PERSONAL SPACE QUOTA",
+    "TOTAL_PERSONAL_SPACES_ALLOCATED_QUOTA": "Total Personal Spaces allocated quota",
+    "PERSONAL_SPACES_ALLOCATED_QUOTA": "Personal Spaces allocated quota",
+    "PERSONAL_SPACES_MAX_FILE_SIZE": "Personal Spaces max file size",
+    "TOTAL_SHAREDSPACE_ALLOCATED_QUOTA": "Total Sharedspace allocated quota",
+    "SHAREDSPACE_MAX_FILE_SIZE": "Sharedspace max file size",
+    "QUOTA_IN_DOMAIN_IS_MANAGED_BY_CONTAINERS": "Quota in domain is managed by containers. Currently we have 2 containers:",
+    "PERSONAL_SPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_USERS_SPACE": "Personal Space (P.P): Manage the allocated space for all users’s space",
+    "SHAREDSPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_SHAREDSPACE": "SharedSpace (S.P): Manage the allocated space for all sharedspace (workgroups & workspaces)",
+    "SHAREDSPACE_QUOTA": "SHAREDSPACE QUOTA",
+    "CONTRAINERS_VIRTUAL_ALLOCATION": "CONTRAINERS VIRTUAL ALLOCATION",
     "ERROR": {
       "QUOTA_LESS_THAN_FILE_SIZE": "Storage quota must be larger than max file size",
       "FILE_SIZE_LARGER_THAN_QUOTA": "Max file size must be smaller than storage quota",
@@ -415,13 +427,17 @@
     "TOP_DOMAIN_QUOTA":{
       "CURRENT_DOMAIN_USED_SPACE": "Current domain used space",
       "SUB_DOMAIN_USED_SPACE":"Sub-domain used space",
-      "REMAINING_SPACE":"Remaining space",
-      "QUOTA_PER_SUB_DOMAIN": "Unallocated space"
+      "REMAINING_QUOTA":"Remaining quota",
+      "QUOTA_PER_SUB_DOMAIN": "Unallocated space",
+      "USED": "Used space"
     },
     "GUEST_DOMAIN_QUOTA":{
       "CURRENT_DOMAIN_USED_SPACE": "Current domain used space",
       "REMAINING_SPACE":"Remaining space",
-      "UNALLOCATED_SPACE": "Unallocated space"
+      "UNALLOCATED_SPACE": "Unallocated space",
+      "PERSONAL_ALLOCATED_SPACE":"Personal Space allocated quota",
+      "SHARED_SPACE_ALLOCATED":"Sharedspace allocated quota",
+      "UNASSIGNED_SPACE":"Unassigned quota"
     },
     "SAVE_CHANGE": "Save change",
     "CANCEL": "Cancel",

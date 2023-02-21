@@ -396,7 +396,19 @@
     "MAINTENANCE_MODE_ACTIVATED_ALERT": "Chế độ bảo trì được kích hoạt, do đó ngăn chặn mọi hoạt động tải lên được thực hiện trong miền hiện tại.",
     "DOMAIN_MAXIMUM_QUOTA": "Hạn mức tối đa của tên miền : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Hạn mức mặc định của tên miền con : ",
-    "DOMAIN_QUOTA": "Hạn mức tên miền",
+    "DOMAIN_QUOTA":"Hạn mức tên miền",
+    "ALLOCATION_WITHIN_THE_CURRENT_DOMAIN": "Phân bổ trong miền hiện tại {Containers}",
+    "PERSONAL SPACE QUOTA": "HẠN CHẾ KHÔNG GIAN CÁ NHÂN",
+    "TOTAL_PERSONAL_SPACES_ALLOCATED_QUOTA": "Tổng hạn ngạch Không gian cá nhân được phân bổ",
+    "PERSONAL_SPACES_ALLOCATED_QUOTA": "Không gian cá nhân được phân bổ hạn ngạch",
+    "PERSONAL_SPACES_MAX_FILE_SIZE": "Kích thước tệp tối đa của Không gian cá nhân",
+    "TOTAL_SHAREDSPACE_ALLOCATED_QUOTA": "Tổng hạn ngạch được phân bổ cho Không gian chia sẻ",
+    "SHAREDSPACE_MAX_FILE_SIZE": "Kích thước tệp tối đa của không gian chia sẻ",
+    "QUOTA_IN_DOMAIN_IS_MANAGED_BY_CONTAINERS": "Hạn ngạch trong miền được quản lý bởi các vùng chứa. Hiện tại chúng tôi có 2 container:",
+    "PERSONAL_SPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_USERS_SPACE": "Không gian cá nhân (P.P): Quản lý không gian được phân bổ cho không gian của tất cả người dùng",
+    "SHAREDSPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_SHAREDSPACE": "SharedSpace (S.P): Quản lý không gian được phân bổ cho tất cả không gian dùng chung (nhóm làm việc & không gian làm việc)",
+    "SHAREDSPACE_QUOTA": "HẠN CHẾ KHÔNG GIAN CHIA SẺ",
+    "CONTRAINERS_VIRTUAL_ALLOCATION": "CONTRAINERS PHÂN PHỐI ẢO",
     "QUOTA": {
       "QUOTA_LESS_THAN_FILE_SIZE": "Hạn ngạch bộ nhớ phải lớn hơn kích thước tệp tải lên tối đa",
       "FILE_SIZE_LARGER_THAN_QUOTA": "Kích thước tệp tải lên tối đa phải nhỏ hơn hạn ngạch bộ nhớ",
@@ -411,14 +423,18 @@
     },
     "TOP_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại",
-      "SUB_DOMAIN_USED_SPACE": "Dung lượng miền phụ",
-      "REMAINING_SPACE": "Dung lượng còn lại",
-      "QUOTA_PER_SUB_DOMAIN": "Dung lượng chưa phân bổ"
+      "SUB_DOMAIN_USED_SPACE":"Dung lượng miền phụ",
+      "QUOTA_PER_SUB_DOMAIN": "Dung lượng chưa phân bổ",
+      "REMAINING_QUOTA":"Hạn mức còn lại",
+      "USED": "Không gian đã sử dụng"
     },
     "GUEST_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại",
-      "REMAINING_SPACE": "Dung lượng còn lại",
-      "UNALLOCATED_SPACE": "Dung lượng chưa phân bổ"
+      "REMAINING_SPACE":"Dung lượng còn lại",
+      "UNALLOCATED_SPACE": "Dung lượng chưa phân bổ",
+      "PERSONAL_ALLOCATED_SPACE":"Hạn mức phân bổ cá nhân",
+      "SHARED_SPACE_ALLOCATED":"Hạn mức phân bổ chia sẻ",
+      "UNASSIGNED_SPACE":"Hạn mức chưa được chỉ định"
     },
     "SAVE_CHANGE": "Lưu thay đổi",
     "CANCEL": "Hủy bỏ",

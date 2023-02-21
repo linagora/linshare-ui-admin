@@ -25,10 +25,11 @@
         <ls-button
           class="ant-btn ls-button ls-button-override ls-button--info"
           color="info"
+          :disabled="lockDisabled"
           @click="onChangeOverrideMode"
         >
-          <lock-icon v-show="modelOverride" class="icon"></lock-icon>
-          <unlock-icon v-show="!modelOverride" class="icon"></unlock-icon>
+          <lock-icon v-show="!modelOverride" class="icon"></lock-icon>
+          <unlock-icon v-show="modelOverride" class="icon"></unlock-icon>
         </ls-button>
       </a-tooltip>
     </div>
@@ -41,6 +42,7 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { Unit } from '@/core/types/Unit';
+import LsButton from '@/core/components/ls/ls-button.vue';
 import LockIcon from '@/core/components/icons/lock-icon.vue';
 import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
 
@@ -72,21 +74,17 @@ const props = defineProps<{
   label?: string;
   hint?: string;
   disabled?: boolean;
+  lockDisabled?: boolean;
 }>();
 
 // computed
 const overrideTooltip = computed(() => {
   return props.modelOverride
-    ? t('QUOTA.HINT_LABELS.HINT_UNLINK_TOOLTIP')
-    : t('QUOTA.HINT_LABELS.HINT_RESET_TOOLTIP', { value: props.defaultQuota });
+    ? t('QUOTA.HINT_LABELS.HINT_RESET_TOOLTIP', { value: props.defaultQuota })
+    : t('QUOTA.HINT_LABELS.HINT_UNLINK_TOOLTIP');
 });
 
 // methods
-function handleResetQuotaDefault() {
-  emits('update:modelValue', props.defaultValue);
-  emits('update:modelUnit', props.defaultUnit);
-}
-
 function onChangeUnit(item: Event) {
   emits('update:modelUnit', item);
 }
@@ -96,9 +94,8 @@ function onChangeQuota(item: number) {
 }
 
 function onChangeOverrideMode() {
-  if (!props.modelOverride) {
-    handleResetQuotaDefault();
-  }
+  emits('update:modelValue', props.defaultValue);
+  emits('update:modelUnit', props.defaultUnit);
   emits('update:modelOverride', !props.modelOverride);
 }
 </script>

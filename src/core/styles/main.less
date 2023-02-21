@@ -40,3 +40,94 @@ CUSTOME SCROLLBAR
     border-radius: 100px;
   }
 }
+
+
+.ls-button {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &--default {
+    color: @text-color;
+  }
+  &--info {
+    color: @link-color;
+  }
+
+  &--success {
+    color: @success-color;
+  }
+
+  &--warning {
+    color: @warning-color;
+  }
+
+  &--error {
+    color: @error-color;
+  }
+
+  &--default.ant-btn-primary {
+    background-color: @text-color;
+    color: #fff;
+  }
+
+  &--info.ant-btn-primary {
+    background-color: @link-color;
+    color: #fff;
+  }
+
+  &--success.ant-btn-primary {
+    background-color: @success-color;
+    color: #fff;
+  }
+
+  &--warning.ant-btn-primary {
+    background-color: @warning-color;
+    color: #fff;
+  }
+
+  &--error.ant-btn-primary {
+    background-color: @error-color;
+    color: #fff;
+  }
+
+  &.ant-btn {
+    border-radius: 8px;
+  }
+
+  &.ls-no-border {
+    border: none;
+  }
+
+  &.ant-btn-info {
+    .ant-btn-message,
+    .ant-btn-close-icon .anticon.anticon-close {
+      color: @link-color;
+    }
+  }
+
+  &.ant-btn-warning {
+    .ant-btn-message,
+    .ant-btn-close-icon .anticon.anticon-close {
+      color: @warning-color;
+    }
+  }
+
+  &.ant-btn-success {
+    .ant-btn-message,
+    .ant-btn-close-icon .anticon.anticon-close {
+      color: @success-color;
+    }
+  }
+
+  &.ant-btn-error {
+    .ant-btn-message,
+    .ant-btn-close-icon .anticon.anticon-close {
+      color: @error-color;
+    }
+  }
+}

@@ -397,6 +397,18 @@
     "DEFAULT_SUB_DOMAIN_QUOTA": "Quota par défaut des sous-domaines : ",
     "DOMAIN_QUOTA":"Quota du domaine",
     "ERROR_MESSAGE_FIELD": "La valeur doit etre inférieure ou égale à : ",
+    "ALLOCATION_WITHIN_THE_CURRENT_DOMAIN": "Quota des espaces pour {Containers}",
+    "PERSONAL SPACE QUOTA": "QUOTA DE L'ESPACE PERSONNEL",
+    "TOTAL_PERSONAL_SPACES_ALLOCATED_QUOTA": "Total des quotas des Espaces Personnel",
+    "PERSONAL_SPACES_ALLOCATED_QUOTA": "Quota d'un Espace Personel (par utilisateur)",
+    "PERSONAL_SPACES_MAX_FILE_SIZE": "Taille max d'un fichier dans les Espaces Personnel ",
+    "TOTAL_SHAREDSPACE_ALLOCATED_QUOTA": "Quota total de l'Espace Commun",
+    "SHAREDSPACE_MAX_FILE_SIZE": "Taille max d'un fichier dans l'Espace Commun",
+    "QUOTA_IN_DOMAIN_IS_MANAGED_BY_CONTAINERS": "Le quota dans le domaine est géré par des conteneurs. Actuellement nous avons 2 conteneurs :",
+    "PERSONAL_SPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_USERS_SPACE": "Espace personnel (E.P) : Gérer l'espace alloué pour l'espace de tous les utilisateurs",
+    "SHAREDSPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_SHAREDSPACE": "Espace partagés (E.P): Gérez l'espace alloué pour tous les espaces partagés (groupes de travail et espaces de travail)",
+    "SHAREDSPACE_QUOTA": "Quota de l'espace partagé",
+    "CONTRAINERS_VIRTUAL_ALLOCATION": "ATTRIBUTION VIRTUELLE DES CONTRAINTEURS",
     "ERROR": {
       "QUOTA_LESS_THAN_FILE_SIZE": "Le quota de stockage doit être supérieur à la taille maximale d'un fichier",
       "FILE_SIZE_LARGER_THAN_QUOTA": "La taille maximale du fichier doit être inférieure au quota de stockage",
@@ -412,13 +424,18 @@
     "TOP_DOMAIN_QUOTA":{
       "CURRENT_DOMAIN_USED_SPACE": "Espace utilisé par le domaine courant",
       "SUB_DOMAIN_USED_SPACE":"Espace utilisé par les sous-domaines ",
-      "REMAINING_SPACE":"Espace restant",
-      "UNALLOCATED_SPACE": "Espace non alloué"
+      "REMAINING_QUOTA":"Quota restant",
+      "QUOTA_PER_SUB_DOMAIN": "Espace non alloué",
+      "USED": "Espace utilisé"
     },
     "GUEST_DOMAIN_QUOTA":{
       "CURRENT_DOMAIN_USED_SPACE": "Espace utilisé par le domaine courant",
       "REMAINING_SPACE":"Espace restant",
-      "UNALLOCATED_SPACE": "Espace non alloué"
+      "UNALLOCATED_SPACE": "Espace non alloué",
+      "PERSONAL_ALLOCATED_SPACE":"Quota alloué pour l'Espace Personnel",
+      "SHARED_SPACE_ALLOCATED":"Quota alloué pour l'Espace Commun",
+      "UNASSIGNED_SPACE":"Quota non-alloué"
+
     },
     "SAVE_CHANGE": "Sauvegarder",
     "CANCEL": "Annuler",

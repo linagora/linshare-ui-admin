@@ -18,7 +18,7 @@ const classByColorProp = computed(() => {
   return `ls-button--${props.color}`;
 });
 </script>
-<style lang="less">
+<style lang="less" scoped>
 @import '@/core/styles/main.less';
 
 .ls-button {

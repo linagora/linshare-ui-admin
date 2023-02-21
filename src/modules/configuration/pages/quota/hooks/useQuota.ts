@@ -1,4 +1,4 @@
-import { reactive, ref, watch, watchEffect } from 'vue';
+import { reactive, ref, watchEffect } from 'vue';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import {
@@ -11,16 +11,21 @@ import {
 import Quota, { EMPTY_QUOTA } from '../types/Quota';
 import QuotaContainer, { EMPTY_CONTAINER } from '../types/Container';
 import { find, byteTo, toByte, StorageUnit } from '@/core/utils/unitStorage';
+import { storeToRefs } from 'pinia';
+import { useDomainStore } from '@/modules/domain/store';
 
+// hook data
+const subdomainContainerInformations = reactive<QuotaContainer>({ ...EMPTY_CONTAINER });
+const allocationContainerInformations = reactive<QuotaContainer>({ ...EMPTY_CONTAINER });
+const domainQuotaUuid = ref();
+const parentDomainQuotaUuid = ref();
 const domainQuotaInformations = reactive<Quota>({ ...EMPTY_QUOTA });
 const parentDomainInformations = reactive<Quota>({ ...EMPTY_QUOTA });
-const subdomainContainerInformations = reactive<QuotaContainer>({ ...EMPTY_CONTAINER });
-const AllocationContainerInformations = reactive<QuotaContainer>({ ...EMPTY_CONTAINER });
-const domainQuotaUuid = ref();
-const SubdomainContainerUuid = ref();
-const parentDomainQuotaUuid = ref();
+const parentSubdomainInformations = reactive<QuotaContainer>({ ...EMPTY_CONTAINER });
+const parentAllocationInformations = reactive<QuotaContainer>({ ...EMPTY_CONTAINER });
+
 const form = reactive<{
-  domain_quota_and_used_space: {
+  domainQuotaAndUsedSpace: {
     quotaSpace: number;
     quotaUnit: StorageUnit['label'] | string;
     maintenance: boolean | undefined;
@@ -28,34 +33,54 @@ const form = reactive<{
     domainSharedOverride: boolean | undefined;
     quotaOverride: boolean | undefined;
   };
-  allocation_container: {
-    quota: number;
-    accountQuota: number;
-    maxFileSize: number;
-  };
-  subdomain_allocation_settings: {
+  subdomainAllocationSettings: {
     quotaSpace: number;
     quotaUnit: StorageUnit['label'] | string;
-    personalQuota: number;
-    personalQuotaUnit: StorageUnit['label'] | string;
-    defaultQuotaPerUser: number;
-    defaultQuotaPerUserUnit: StorageUnit['label'] | string;
-    defaultPersonalQuotaMaxFileSize: number;
-    defaultPersonalQuotaMaxFileSizeUnit: StorageUnit['label'] | string;
-    defaultTotalAllocatedQuota: number;
-    defaultTotalAllocatedQuotaUnit: StorageUnit['label'] | string;
-    defaultSharedspaceQuotaMaxFileSize: number;
-    defaultSharedspaceQuotaMaxFileSizeUnit: StorageUnit['label'] | string;
+    personalSpacesAllocatedQuotaForAllPersonalSpaces: number;
+    personalSpacesAllocatedQuotaForAllPersonalSpacesUnit: StorageUnit['label'] | string;
+    personalSpacesAllocatedQuotaForAllPersonalSpacesOverride: boolean;
+    personalSpacesDefaultPersonalQuotaMaxFileSize: number;
+    personalSpacesDefaultPersonalQuotaMaxFileSizeUnit: StorageUnit['label'] | string;
+    sharedSpaceDefaultTotalAllocatedQuota: number;
+    sharedSpaceDefaultTotalAllocatedQuotaUnit: StorageUnit['label'] | string;
     shared: boolean | undefined;
-    quotaOverride: boolean | undefined;
-    defaultAccountQuotaOverride: boolean | undefined;
-    defaultMaxFileSizeOverride: boolean | undefined;
-    defaultQuotaOverride: boolean | undefined;
-    maxFileSizeOverride: boolean | undefined;
+    sharedSpaceAllocatedQuota: number;
+    sharedSpaceAllocatedQuotaUnit: StorageUnit['label'] | string;
+    sharedSpaceMaxFileSizeQuota: number;
+    sharedSpaceMaxFileSizeQuotaUnit: StorageUnit['label'] | string;
+    maxFileSizeOverride: boolean;
+    quotaOverride: boolean;
+    quotaSpaceOverride: boolean;
+    defaultQuotaOverride: boolean;
+    defaultMaxFileSizeOverride: boolean;
+  };
+  allocationWithinTheCurrentDomain: {
+    maintenance: boolean;
+    sharedSpaceMaintenance: boolean;
+    quota: number;
+    quotaOverride: boolean;
+    quotaUnit: StorageUnit['label'] | string;
+    defaultAccountQuota: number;
+    accountQuota: number;
+    defaultAccountQuotaUnit: StorageUnit['label'] | string;
+    accountQuotaOverride: boolean;
+    accountQuotaUnit: StorageUnit['label'] | string;
+    maxFileSize: number;
+    maxFileSizeOverride: boolean;
+    maxFileSizeUnit: StorageUnit['label'] | string;
+    sharedSpaceAllocatedOverride: boolean;
+
+    defaultMaxFileSize: number;
+    defaultMaxFileSizeUnit: StorageUnit['label'] | string;
+    personalSpacesAllocatedQuotaForAllPersonalSpaces: number;
+    personalSpacesAllocatedQuotaForAllPersonalSpacesUnit: StorageUnit['label'] | string;
+    personalSpacesAllocatedQuotaForAllPersonalSpacesOverride: boolean;
+    defaultAccountQuotaOverride: boolean;
+    defaultMaxFileSizeOverride: boolean;
   };
   saverCheck: boolean;
 }>({
-  domain_quota_and_used_space: {
+  domainQuotaAndUsedSpace: {
     quotaSpace: 0,
     quotaUnit: 'TB',
     maintenance: false,
@@ -63,30 +88,49 @@ const form = reactive<{
     domainSharedOverride: false,
     quotaOverride: false,
   },
-  allocation_container: {
-    quota: 0,
-    accountQuota: 0,
-    maxFileSize: 0,
-  },
-  subdomain_allocation_settings: {
+  subdomainAllocationSettings: {
     quotaSpace: 0,
     quotaUnit: 'TB',
-    personalQuota: 0,
-    personalQuotaUnit: 'TB',
-    defaultQuotaPerUser: 0,
-    defaultQuotaPerUserUnit: 'TB',
-    defaultPersonalQuotaMaxFileSize: 0,
-    defaultPersonalQuotaMaxFileSizeUnit: 'TB',
-    defaultTotalAllocatedQuota: 0,
-    defaultTotalAllocatedQuotaUnit: 'TB',
-    defaultSharedspaceQuotaMaxFileSize: 0,
-    defaultSharedspaceQuotaMaxFileSizeUnit: 'TB',
+    quotaSpaceOverride: false,
+    personalSpacesAllocatedQuotaForAllPersonalSpacesOverride: false,
+    personalSpacesAllocatedQuotaForAllPersonalSpaces: 0,
+    personalSpacesAllocatedQuotaForAllPersonalSpacesUnit: 'TB',
+    personalSpacesDefaultPersonalQuotaMaxFileSize: 0,
+    personalSpacesDefaultPersonalQuotaMaxFileSizeUnit: 'TB',
+    sharedSpaceDefaultTotalAllocatedQuota: 0,
+    sharedSpaceDefaultTotalAllocatedQuotaUnit: 'TB',
     shared: false,
     quotaOverride: false,
-    defaultAccountQuotaOverride: false,
     defaultMaxFileSizeOverride: false,
     defaultQuotaOverride: false,
     maxFileSizeOverride: false,
+    sharedSpaceAllocatedQuota: 0,
+    sharedSpaceAllocatedQuotaUnit: 'TB',
+    sharedSpaceMaxFileSizeQuota: 0,
+    sharedSpaceMaxFileSizeQuotaUnit: 'TB',
+  },
+  allocationWithinTheCurrentDomain: {
+    maintenance: false,
+    quota: 0,
+    quotaOverride: false,
+    quotaUnit: 'TB',
+    defaultAccountQuota: 0,
+    defaultAccountQuotaUnit: 'TB',
+    accountQuota: 0,
+    accountQuotaOverride: false,
+    accountQuotaUnit: 'TB',
+    maxFileSize: 0,
+    maxFileSizeOverride: false,
+    maxFileSizeUnit: 'TB',
+    sharedSpaceAllocatedOverride: false,
+    sharedSpaceMaintenance: false,
+    defaultMaxFileSize: 0,
+    defaultMaxFileSizeUnit: 'TB',
+    personalSpacesAllocatedQuotaForAllPersonalSpaces: 0,
+    personalSpacesAllocatedQuotaForAllPersonalSpacesUnit: 'TB',
+    personalSpacesAllocatedQuotaForAllPersonalSpacesOverride: false,
+    defaultAccountQuotaOverride: false,
+    defaultMaxFileSizeOverride: false,
   },
   saverCheck: false,
 });
@@ -94,6 +138,8 @@ const form = reactive<{
 export default function useQuota() {
   // local data
   const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  const domainStore = useDomainStore();
+  const { currentDomain } = storeToRefs(domainStore);
 
   // methods
   async function getInformations(domainUuid: string) {
@@ -101,39 +147,30 @@ export default function useQuota() {
       domainQuotaUuid.value = await getQuotaUuid(domainUuid);
       const message = await getQuotaInformations(domainQuotaUuid.value.quota);
       Object.assign(domainQuotaInformations, message);
-      if (domainQuotaInformations.parentDomain?.identifier) {
-        parentDomainQuotaUuid.value = await getQuotaUuid(domainQuotaInformations.parentDomain?.identifier);
-        const parent = await getQuotaInformations(parentDomainQuotaUuid.value.quota);
-        Object.assign(parentDomainInformations, parent);
-      }
       _generateFormData(domainQuotaInformations);
-    } catch (error) {
-      if (error instanceof APIError) {
-        message.error(error.getMessage());
+      for (const [key] of Object.entries(domainQuotaInformations.containerUuids)) {
+        const containerMessage = await getContainerInformations(domainQuotaInformations.containerUuids[key]);
+        if (containerMessage.type === 'WORK_GROUP') {
+          Object.assign(subdomainContainerInformations, containerMessage);
+          _generateFormDataSubdomain(subdomainContainerInformations);
+        } else if (containerMessage.type === 'USER') {
+          Object.assign(allocationContainerInformations, containerMessage);
+          _generateFormDataAllocationContainer(allocationContainerInformations);
+        }
+        if (domainQuotaInformations.parentDomain?.identifier) {
+          parentDomainQuotaUuid.value = await getQuotaUuid(domainQuotaInformations.parentDomain?.identifier);
+          const parent = await getQuotaInformations(parentDomainQuotaUuid.value.quota);
+          Object.assign(parentDomainInformations, parent);
+          for (const [key] of Object.entries(parentDomainInformations.containerUuids)) {
+            const containerMessage = await getContainerInformations(parentDomainInformations.containerUuids[key]);
+            if (containerMessage.type === 'WORK_GROUP') {
+              Object.assign(parentSubdomainInformations, containerMessage);
+            } else {
+              Object.assign(parentAllocationInformations, containerMessage);
+            }
+          }
+        }
       }
-    }
-  }
-
-  async function getSubdomainBlockInformations(domainUuid: string) {
-    try {
-      domainQuotaUuid.value = await getQuotaUuid(domainUuid);
-      SubdomainContainerUuid.value = await getQuotaInformations(domainQuotaUuid.value.quota);
-      const message = await getContainerInformations(SubdomainContainerUuid.value.containerUuids[1]);
-      Object.assign(subdomainContainerInformations, message);
-      _generateFormDataSubdomain(subdomainContainerInformations);
-    } catch (error) {
-      if (error instanceof APIError) {
-        message.error(error.getMessage());
-      }
-    }
-  }
-
-  async function getAllocationBlockInformations(domainUuid: string) {
-    try {
-      domainQuotaUuid.value = await getQuotaUuid(domainUuid);
-      SubdomainContainerUuid.value = await getQuotaInformations(domainQuotaUuid.value.quota);
-      const message = await getContainerInformations(SubdomainContainerUuid.value.containerUuids[0]);
-      Object.assign(AllocationContainerInformations, message);
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
@@ -145,21 +182,11 @@ export default function useQuota() {
     await getInformations(domainUuid);
   }
 
-  function niceBytes(x: any) {
-    let l = 0,
-      n = parseInt(x, 10) || 0;
-
-    while (n >= 1024 && ++l) {
-      n = n / 1024;
-    }
-
-    return n.toFixed(1) + ' ' + units[l];
-  }
-
   async function saveQuota(domainUuid: string, successMessage: string) {
     try {
-      await updateQuota(domainQuotaUuid.value.quota, savePaypload());
-      await updateSubdomainQuota(subdomainContainerInformations.uuid, saveSubdomainPaypload());
+      await updateQuota(domainQuotaUuid.value.quota, _generateQuotaPayload());
+      await updateSubdomainQuota(subdomainContainerInformations.uuid, _generateSubdomainPayload());
+      await updateSubdomainQuota(allocationContainerInformations.uuid, _generateAllocationContainerPaypload());
       message.success(successMessage);
     } catch (error) {
       if (error instanceof APIError) {
@@ -170,43 +197,77 @@ export default function useQuota() {
   }
 
   function _generateFormData(quota: Quota) {
-    form.domain_quota_and_used_space.maintenance = quota.maintenance;
-    form.domain_quota_and_used_space.quotaSpace = byteTo(domainQuotaInformations.quota, undefined);
-    form.domain_quota_and_used_space.quotaUnit = find(domainQuotaInformations.quota);
-    form.domain_quota_and_used_space.domainShared = domainQuotaInformations.domainShared;
-    form.domain_quota_and_used_space.domainSharedOverride = domainQuotaInformations.domainSharedOverride;
-    form.domain_quota_and_used_space.quotaOverride = domainQuotaInformations.quotaOverride;
+    form.domainQuotaAndUsedSpace.maintenance = quota.maintenance;
+    form.domainQuotaAndUsedSpace.quotaSpace = byteTo(domainQuotaInformations.quota, undefined);
+    form.domainQuotaAndUsedSpace.quotaUnit = find(domainQuotaInformations.quota);
+    form.domainQuotaAndUsedSpace.domainShared = domainQuotaInformations.domainShared;
+    form.domainQuotaAndUsedSpace.quotaOverride = domainQuotaInformations.quotaOverride;
   }
 
   function _generateFormDataSubdomain(quota: QuotaContainer) {
-    form.subdomain_allocation_settings.quotaUnit = find(domainQuotaInformations.defaultQuota);
-    form.subdomain_allocation_settings.quotaSpace = byteTo(domainQuotaInformations.defaultQuota, undefined);
-    form.subdomain_allocation_settings.personalQuota = byteTo(quota.defaultQuota, undefined);
-    form.subdomain_allocation_settings.personalQuotaUnit = find(quota.defaultQuota);
-    form.subdomain_allocation_settings.defaultQuotaPerUser = byteTo(quota.defaultAccountQuota, undefined);
-    form.subdomain_allocation_settings.defaultQuotaPerUserUnit = find(quota.defaultAccountQuota);
-    form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSize = byteTo(quota.defaultMaxFileSize, undefined);
-    form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSizeUnit = find(quota.defaultMaxFileSize);
-    form.subdomain_allocation_settings.defaultTotalAllocatedQuota = AllocationContainerInformations.defaultQuota;
-    form.subdomain_allocation_settings.shared = domainQuotaInformations.defaultDomainShared;
-    form.subdomain_allocation_settings.quotaOverride = quota.quotaOverride;
-    form.subdomain_allocation_settings.defaultAccountQuotaOverride = quota.defaultAccountQuotaOverride;
-    form.subdomain_allocation_settings.defaultMaxFileSizeOverride = quota.defaultMaxFileSizeOverride;
-    form.subdomain_allocation_settings.defaultQuotaOverride = quota.defaultQuotaOverride;
-    form.subdomain_allocation_settings.maxFileSizeOverride = quota.maxFileSizeOverride;
+    form.subdomainAllocationSettings.quotaOverride = quota.quotaOverride;
+    form.subdomainAllocationSettings.shared = domainQuotaInformations.defaultDomainShared;
+    form.subdomainAllocationSettings.quotaSpace = byteTo(domainQuotaInformations.defaultQuota, undefined);
+    form.subdomainAllocationSettings.quotaUnit = find(domainQuotaInformations.defaultQuota);
+    form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuota = byteTo(quota.defaultQuota, undefined);
+    form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuotaUnit = find(quota.defaultQuota);
+    form.subdomainAllocationSettings.maxFileSizeOverride = quota.maxFileSizeOverride;
+    form.subdomainAllocationSettings.sharedSpaceAllocatedQuota = byteTo(quota.defaultQuota, undefined);
+    form.subdomainAllocationSettings.sharedSpaceAllocatedQuotaUnit = find(quota.defaultQuota);
+    form.subdomainAllocationSettings.personalSpacesDefaultPersonalQuotaMaxFileSize = byteTo(
+      quota.defaultMaxFileSize,
+      undefined
+    );
+    form.subdomainAllocationSettings.personalSpacesDefaultPersonalQuotaMaxFileSizeUnit = find(quota.defaultMaxFileSize);
+    form.subdomainAllocationSettings.sharedSpaceMaxFileSizeQuota = byteTo(quota.maxFileSize, undefined);
+    form.subdomainAllocationSettings.sharedSpaceMaxFileSizeQuotaUnit = find(quota.maxFileSize);
+    form.subdomainAllocationSettings.defaultQuotaOverride = quota.defaultQuotaOverride;
+    form.subdomainAllocationSettings.defaultMaxFileSizeOverride = quota.defaultMaxFileSizeOverride;
+    form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpaces = byteTo(quota.quota, undefined);
+    form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit = find(quota.quota);
+    form.allocationWithinTheCurrentDomain.sharedSpaceMaintenance = quota.maintenance;
   }
 
-  function savePaypload() {
+  function _generateFormDataAllocationContainer(quota: QuotaContainer) {
+    form.allocationWithinTheCurrentDomain.maintenance = quota.maintenance;
+    form.allocationWithinTheCurrentDomain.quota = byteTo(quota.quota, undefined);
+    form.allocationWithinTheCurrentDomain.quotaUnit = find(quota.quota);
+    form.allocationWithinTheCurrentDomain.quotaOverride = quota.quotaOverride;
+    form.allocationWithinTheCurrentDomain.accountQuota = byteTo(quota.accountQuota, undefined);
+    form.allocationWithinTheCurrentDomain.accountQuotaUnit = find(quota.accountQuota);
+    form.allocationWithinTheCurrentDomain.defaultAccountQuota = byteTo(quota.defaultAccountQuota, undefined);
+    form.allocationWithinTheCurrentDomain.defaultAccountQuotaUnit = find(quota.defaultAccountQuota);
+    form.allocationWithinTheCurrentDomain.accountQuotaOverride = quota.accountQuotaOverride;
+    form.allocationWithinTheCurrentDomain.maxFileSize = byteTo(quota.maxFileSize, undefined);
+    form.allocationWithinTheCurrentDomain.maxFileSizeUnit = find(quota.maxFileSize);
+    form.allocationWithinTheCurrentDomain.defaultMaxFileSize = byteTo(quota.defaultMaxFileSize, undefined);
+    form.allocationWithinTheCurrentDomain.defaultMaxFileSizeUnit = find(quota.defaultMaxFileSize);
+    form.allocationWithinTheCurrentDomain.maxFileSizeOverride = quota.maxFileSizeOverride;
+    form.allocationWithinTheCurrentDomain.sharedSpaceAllocatedOverride = quota.quotaOverride;
+    form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpaces = byteTo(
+      quota.defaultQuota,
+      undefined
+    );
+    form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit = find(
+      quota.defaultQuota
+    );
+    form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesOverride =
+      quota.defaultQuotaOverride;
+    form.allocationWithinTheCurrentDomain.defaultAccountQuotaOverride = quota.defaultAccountQuotaOverride;
+    form.allocationWithinTheCurrentDomain.defaultMaxFileSizeOverride = quota.defaultMaxFileSizeOverride;
+  }
+
+  function _generateQuotaPayload() {
     return {
       creationDate: domainQuotaInformations.creationDate,
       currentValueForSubdomains: domainQuotaInformations.currentValueForSubdomains,
-      defaultDomainShared: form.subdomain_allocation_settings.shared,
-      defaultDomainSharedOverride: domainQuotaInformations.defaultDomainSharedOverride,
-      defaultQuota: toByte(form.subdomain_allocation_settings.quotaSpace, form.subdomain_allocation_settings.quotaUnit),
+      defaultDomainShared: domainQuotaInformations.defaultDomainShared,
+      defaultDomainSharedOverride: domainQuotaInformations.domainSharedOverride,
+      defaultQuota: toByte(form.subdomainAllocationSettings.quotaSpace, form.subdomainAllocationSettings.quotaUnit),
       defaultQuotaOverride: domainQuotaInformations.defaultDomainSharedOverride,
-      maintenance: form.domain_quota_and_used_space.maintenance,
+      maintenance: form.domainQuotaAndUsedSpace.maintenance,
       modificationDate: domainQuotaInformations.modificationDate,
-      quota: toByte(form.domain_quota_and_used_space.quotaSpace, form.domain_quota_and_used_space.quotaUnit),
+      quota: toByte(form.domainQuotaAndUsedSpace.quotaSpace, form.domainQuotaAndUsedSpace.quotaUnit),
       quotaOverride: domainQuotaInformations.quotaOverride,
       usedSpace: domainQuotaInformations.usedSpace,
       uuid: domainQuotaInformations.uuid,
@@ -221,57 +282,77 @@ export default function useQuota() {
         type: domainQuotaInformations.parentDomain?.type,
       },
       batchModificationDate: domainQuotaInformations.batchModificationDate,
-      domainShared: domainQuotaInformations.domainShared,
+      domainShared: form.domainQuotaAndUsedSpace.domainShared,
       domainSharedOverride: domainQuotaInformations.domainSharedOverride,
     };
   }
 
-  function saveSubdomainPaypload() {
+  function _generateSubdomainPayload() {
     return {
-      accountQuota: form.allocation_container.accountQuota,
-      accountQuotaOverride: form.subdomain_allocation_settings.quotaOverride,
-      batchModificationDate: subdomainContainerInformations.batchModificationDate,
-      creationDate: subdomainContainerInformations.creationDate,
-      defaultAccountQuota: toByte(
-        form.subdomain_allocation_settings.defaultQuotaPerUser,
-        form.subdomain_allocation_settings.defaultQuotaPerUserUnit
-      ),
-      defaultAccountQuotaOverride: form.subdomain_allocation_settings.defaultAccountQuotaOverride,
+      ...subdomainContainerInformations,
       defaultMaxFileSize: toByte(
-        form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSize,
-        form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSizeUnit
+        form.subdomainAllocationSettings.personalSpacesDefaultPersonalQuotaMaxFileSize,
+        form.subdomainAllocationSettings.personalSpacesDefaultPersonalQuotaMaxFileSizeUnit
       ),
-      defaultMaxFileSizeOverride: form.subdomain_allocation_settings.defaultMaxFileSizeOverride,
+      defaultMaxFileSizeOverride: form.subdomainAllocationSettings.defaultMaxFileSizeOverride,
       defaultQuota: toByte(
-        form.subdomain_allocation_settings.personalQuota,
-        form.subdomain_allocation_settings.personalQuotaUnit
+        form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuota,
+        form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuotaUnit
       ),
-      defaultQuotaOverride: form.subdomain_allocation_settings.defaultQuotaOverride,
-      domain: {
-        identifier: subdomainContainerInformations.domain.identifier,
-        label: subdomainContainerInformations.domain.label,
-        type: subdomainContainerInformations.domain.type,
-      },
-      parentDomain: {
-        identifier: parentDomainInformations.parentDomain?.identifier,
-        label: parentDomainInformations.parentDomain?.label,
-      },
-      maintenance: false,
-      maxFileSize: form.allocation_container.maxFileSize,
-      maxFileSizeOverride: form.subdomain_allocation_settings.maxFileSizeOverride,
+      defaultQuotaOverride: form.subdomainAllocationSettings.defaultQuotaOverride,
+      maxFileSize: toByte(
+        form.subdomainAllocationSettings.sharedSpaceMaxFileSizeQuota,
+        form.subdomainAllocationSettings.sharedSpaceMaxFileSizeQuotaUnit
+      ),
+      maxFileSizeOverride: form.subdomainAllocationSettings.maxFileSizeOverride,
       modificationDate: subdomainContainerInformations.modificationDate,
-      quota: form.allocation_container.quota,
-      quotaOverride: form.subdomain_allocation_settings.quotaOverride,
-      type: subdomainContainerInformations.type,
-      usedSpace: subdomainContainerInformations.usedSpace,
-      uuid: subdomainContainerInformations.uuid,
-      yersterdayUsedSpace: subdomainContainerInformations.yersterdayUsedSpace,
+      quota: toByte(
+        form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpaces,
+        form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
+      ),
+      quotaOverride: form.allocationWithinTheCurrentDomain.sharedSpaceAllocatedOverride,
+      maintenance: form.allocationWithinTheCurrentDomain.sharedSpaceMaintenance,
+    };
+  }
+
+  function _generateAllocationContainerPaypload() {
+    return {
+      ...allocationContainerInformations,
+      maintenance: form.allocationWithinTheCurrentDomain.maintenance,
+      quota: toByte(form.allocationWithinTheCurrentDomain.quota, form.allocationWithinTheCurrentDomain.quotaUnit),
+      quotaOverride: form.allocationWithinTheCurrentDomain.quotaOverride,
+      accountQuota: toByte(
+        form.allocationWithinTheCurrentDomain.accountQuota,
+        form.allocationWithinTheCurrentDomain.accountQuotaUnit
+      ),
+      accountQuotaOverride: form.allocationWithinTheCurrentDomain.accountQuotaOverride,
+      maxFileSize: toByte(
+        form.allocationWithinTheCurrentDomain.maxFileSize,
+        form.allocationWithinTheCurrentDomain.maxFileSizeUnit
+      ),
+      maxFileSizeOverride: form.allocationWithinTheCurrentDomain.maxFileSizeOverride,
+      defaultAccountQuota: toByte(
+        form.allocationWithinTheCurrentDomain.defaultAccountQuota,
+        form.allocationWithinTheCurrentDomain.defaultAccountQuotaUnit
+      ),
+      defaultAccountQuotaOverride: form.allocationWithinTheCurrentDomain.defaultAccountQuotaOverride,
+      defaultMaxFileSize: toByte(
+        form.allocationWithinTheCurrentDomain.defaultMaxFileSize,
+        form.allocationWithinTheCurrentDomain.defaultMaxFileSizeUnit
+      ),
+      defaultMaxFileSizeOverride: form.allocationWithinTheCurrentDomain.defaultMaxFileSizeOverride,
+      defaultQuota: toByte(
+        form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpaces,
+        form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
+      ),
+      defaultQuotaOverride:
+        form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesOverride,
     };
   }
 
   function defaultMaxiQuotaLogic() {
     if (
-      toByte(form.domain_quota_and_used_space.quotaSpace, form.domain_quota_and_used_space.quotaUnit) >
+      toByte(form.domainQuotaAndUsedSpace.quotaSpace, form.domainQuotaAndUsedSpace.quotaUnit) >
       parentDomainInformations.quota
     ) {
       return true;
@@ -279,10 +360,26 @@ export default function useQuota() {
     return false;
   }
 
-  function personalSpaceQuotaLogic() {
+  function defaultAllocatedMaxQuotaLogic() {
     if (
-      toByte(form.subdomain_allocation_settings.personalQuota, form.subdomain_allocation_settings.personalQuotaUnit) >
-      toByte(form.subdomain_allocation_settings.quotaSpace, form.subdomain_allocation_settings.quotaUnit)
+      toByte(form.allocationWithinTheCurrentDomain.quota, form.allocationWithinTheCurrentDomain.quotaUnit) >
+      toByte(form.domainQuotaAndUsedSpace.quotaSpace, form.domainQuotaAndUsedSpace.quotaUnit)
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  function personalSpaceQuotaLogic() {
+    if (isSubdomain) {
+      return false;
+    }
+
+    if (
+      toByte(
+        form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpaces,
+        form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
+      ) > toByte(form.subdomainAllocationSettings.quotaSpace, form.subdomainAllocationSettings.quotaUnit)
     ) {
       return true;
     }
@@ -290,11 +387,19 @@ export default function useQuota() {
   }
 
   function personalSpaceQuotaPerUserLogic() {
+    if (isSubdomain) {
+      return false;
+    }
+
     if (
       toByte(
-        form.subdomain_allocation_settings.defaultQuotaPerUser,
-        form.subdomain_allocation_settings.defaultQuotaPerUserUnit
-      ) > toByte(form.subdomain_allocation_settings.personalQuota, form.subdomain_allocation_settings.personalQuotaUnit)
+        form.allocationWithinTheCurrentDomain.defaultAccountQuota,
+        form.allocationWithinTheCurrentDomain.defaultAccountQuotaUnit
+      ) >
+      toByte(
+        form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpaces,
+        form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
+      )
     ) {
       return true;
     }
@@ -302,14 +407,18 @@ export default function useQuota() {
   }
 
   function personalSpaceMaxSizeLogic() {
+    if (isSubdomain) {
+      return false;
+    }
+
     if (
       toByte(
-        form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSize,
-        form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSizeUnit
+        form.allocationWithinTheCurrentDomain.defaultMaxFileSize,
+        form.allocationWithinTheCurrentDomain.defaultMaxFileSizeUnit
       ) >
       toByte(
-        form.subdomain_allocation_settings.defaultQuotaPerUser,
-        form.subdomain_allocation_settings.defaultQuotaPerUserUnit
+        form.allocationWithinTheCurrentDomain.defaultAccountQuota,
+        form.allocationWithinTheCurrentDomain.defaultAccountQuotaUnit
       )
     ) {
       return true;
@@ -319,9 +428,13 @@ export default function useQuota() {
   }
 
   function maxQuotaLogic() {
+    if (isSubdomain) {
+      return false;
+    }
+
     if (
-      toByte(form.subdomain_allocation_settings.quotaSpace, form.subdomain_allocation_settings.quotaUnit) >
-      toByte(form.domain_quota_and_used_space.quotaSpace, form.domain_quota_and_used_space.quotaUnit)
+      toByte(form.subdomainAllocationSettings.quotaSpace, form.subdomainAllocationSettings.quotaUnit) >
+      toByte(form.domainQuotaAndUsedSpace.quotaSpace, form.domainQuotaAndUsedSpace.quotaUnit)
     ) {
       return true;
     }
@@ -332,13 +445,110 @@ export default function useQuota() {
     return useSpace >= quota;
   }
 
+  function totalSharedSpaceQuotaLogic() {
+    if (isSubdomain) {
+      return false;
+    }
+
+    if (
+      toByte(
+        form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuota,
+        form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuotaUnit
+      ) > toByte(form.allocationWithinTheCurrentDomain.quota, form.allocationWithinTheCurrentDomain.quotaUnit)
+    ) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function shareSpaceDefaultMaxSizeLogic() {
+    if (isSubdomain) {
+      return false;
+    }
+
+    if (
+      toByte(
+        form.subdomainAllocationSettings.personalSpacesDefaultPersonalQuotaMaxFileSize,
+        form.subdomainAllocationSettings.personalSpacesDefaultPersonalQuotaMaxFileSizeUnit
+      ) >
+      toByte(
+        form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuota,
+        form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuotaUnit
+      )
+    ) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function personalAllocatedQuotaLogic() {
+    if (
+      toByte(form.allocationWithinTheCurrentDomain.quota, form.allocationWithinTheCurrentDomain.quotaUnit) <
+      toByte(form.allocationWithinTheCurrentDomain.accountQuota, form.allocationWithinTheCurrentDomain.accountQuotaUnit)
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  function personalAllocatedMaxFileSizeLogic() {
+    if (
+      toByte(form.allocationWithinTheCurrentDomain.maxFileSize, form.allocationWithinTheCurrentDomain.maxFileSizeUnit) >
+      toByte(form.allocationWithinTheCurrentDomain.accountQuota, form.allocationWithinTheCurrentDomain.accountQuotaUnit)
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  function totalSharedSpaceAllocatedQuotaLogic() {
+    if (
+      toByte(
+        form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpaces,
+        form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
+      ) > toByte(form.domainQuotaAndUsedSpace.quotaSpace, form.domainQuotaAndUsedSpace.quotaUnit)
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  function sharedSpaceMaxFileSizeLogic() {
+    if (
+      toByte(
+        form.subdomainAllocationSettings.sharedSpaceMaxFileSizeQuota,
+        form.subdomainAllocationSettings.sharedSpaceMaxFileSizeQuotaUnit
+      ) >
+      toByte(
+        form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpaces,
+        form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
+      )
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  function isSubdomain() {
+    return currentDomain.value.type === 'SUBDOMAIN' || currentDomain.value.type === 'GUESTDOMAIN';
+  }
+
   watchEffect(() => {
     if (
       defaultMaxiQuotaLogic() ||
       personalSpaceQuotaPerUserLogic() ||
       personalSpaceMaxSizeLogic() ||
       personalSpaceQuotaLogic() ||
-      maxQuotaLogic()
+      maxQuotaLogic() ||
+      totalSharedSpaceQuotaLogic() ||
+      shareSpaceDefaultMaxSizeLogic() ||
+      defaultAllocatedMaxQuotaLogic() ||
+      personalAllocatedQuotaLogic() ||
+      personalAllocatedMaxFileSizeLogic() ||
+      totalSharedSpaceAllocatedQuotaLogic() ||
+      sharedSpaceMaxFileSizeLogic()
     ) {
       form.saverCheck = true;
     } else {
@@ -349,20 +559,27 @@ export default function useQuota() {
   return {
     form,
     domainQuotaInformations,
-    subdomainContainerInformations,
-    niceBytes,
-    getInformations,
-    saveQuota,
-    resetDomainQuotaInformation,
-    defaultMaxiQuotaLogic,
     parentDomainInformations,
-    getSubdomainBlockInformations,
-    AllocationContainerInformations,
-    getAllocationBlockInformations,
-    personalSpaceQuotaLogic,
-    personalSpaceQuotaPerUserLogic,
-    personalSpaceMaxSizeLogic,
-    maxQuotaLogic,
+    subdomainContainerInformations,
+    allocationContainerInformations,
+    saveQuota,
     isExceeded,
+    maxQuotaLogic,
+    getInformations,
+    defaultMaxiQuotaLogic,
+    personalSpaceQuotaLogic,
+    personalSpaceMaxSizeLogic,
+    resetDomainQuotaInformation,
+    personalSpaceQuotaPerUserLogic,
+    parentSubdomainInformations,
+    totalSharedSpaceQuotaLogic,
+    parentAllocationInformations,
+    shareSpaceDefaultMaxSizeLogic,
+    defaultAllocatedMaxQuotaLogic,
+    personalAllocatedQuotaLogic,
+    totalSharedSpaceAllocatedQuotaLogic,
+    sharedSpaceMaxFileSizeLogic,
+    personalAllocatedMaxFileSizeLogic,
+    isSubdomain,
   };
 }

@@ -5,13 +5,13 @@
       <div class="subdomain-allocation-settings">
         <div class="subdomain-allocation-settings__form">
           <div class="shared-quota-mode">
-            <a-switch v-model:checked="form.subdomain_allocation_settings.shared" class="shared-quota-switch" />
+            <a-switch v-model:checked="form.subdomainAllocationSettings.shared" class="shared-quota-switch" />
             <span>{{ $t('QUOTA.SHRAED_DOMAIN_QUOTA_ACTIVATION') }}</span>
           </div>
           <quota-input
-            v-model:model-unit="form.subdomain_allocation_settings.quotaUnit"
-            v-model:model-value="form.subdomain_allocation_settings.quotaSpace"
-            v-model:model-override="form.subdomain_allocation_settings.quotaOverride"
+            v-model:model-unit="form.subdomainAllocationSettings.quotaUnit"
+            v-model:model-value="form.subdomainAllocationSettings.quotaSpace"
+            v-model:model-override="form.subdomainAllocationSettings.quotaSpaceOverride"
             :default-quota="defaultQuota"
             :default-value="defaultQuotaValue"
             :default-unit="defaultQuotaUnit"
@@ -32,14 +32,22 @@
           <div class="horizontal-line"></div>
           <span class="section-title">{{ $t('QUOTA.PERSONAL_SPACE_QUOTA') }}</span>
           <quota-input
-            v-model:model-unit="form.subdomain_allocation_settings.personalQuotaUnit"
-            v-model:model-value="form.subdomain_allocation_settings.personalQuota"
-            v-model:model-override="form.subdomain_allocation_settings.defaultAccountQuotaOverride"
-            :default-quota="personalSpaceQuota"
-            :default-value="form.subdomain_allocation_settings.personalQuota"
-            :default-unit="form.subdomain_allocation_settings.personalQuotaUnit"
+            v-model:model-unit="
+              form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
+            "
+            v-model:model-value="form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpaces"
+            v-model:model-override="
+              form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesOverride
+            "
+            :default-quota="defaultQuotaAllocated"
+            :default-value="defaultQuotaAllocatedValue"
+            :default-unit="defaultQuotaAllocatedUnit"
             :override-mode="overrideMode"
-            :disabled="disabledQuotaInput.personalQuota"
+            :disabled="
+              disabledQuotaInput.personalSpacesAllocatedQuotaForAllPersonalSpaces ||
+              form.subdomainAllocationSettings.shared
+            "
+            :lock-disabled="form.subdomainAllocationSettings.shared"
             :label="$t('QUOTA.ALL_SPACE_ALLOCATED_QUOTA')"
             class="input"
           ></quota-input>
@@ -47,14 +55,17 @@
             `${t('QUOTA.ERROR_MESSAGE_FIELD')}  ${personalQuotaAlert}`
           }}</span>
           <quota-input
-            v-model:model-unit="form.subdomain_allocation_settings.defaultQuotaPerUserUnit"
-            v-model:model-value="form.subdomain_allocation_settings.defaultQuotaPerUser"
-            v-model:model-override="form.subdomain_allocation_settings.defaultAccountQuotaOverride"
-            :default-quota="personalSpaceQuotaPerUser"
-            :default-value="form.subdomain_allocation_settings.defaultQuotaPerUser"
-            :default-unit="form.subdomain_allocation_settings.defaultQuotaPerUserUnit"
+            v-model:model-unit="form.allocationWithinTheCurrentDomain.defaultAccountQuotaUnit"
+            v-model:model-value="form.allocationWithinTheCurrentDomain.defaultAccountQuota"
+            v-model:model-override="form.allocationWithinTheCurrentDomain.defaultAccountQuotaOverride"
+            :default-quota="defaultPersonalSpaceQuota"
+            :default-value="defaultPersonalSpaceQuotaValue"
+            :default-unit="defaultPersonalSpaceQuotaUnit"
             :override-mode="overrideMode"
-            :disabled="disabledQuotaInput.defaultQuotaPerUser"
+            :disabled="
+              disabledQuotaInput.personalSpacesDefaultAllocatedQuotaPerUser || form.subdomainAllocationSettings.shared
+            "
+            :lock-disabled="form.subdomainAllocationSettings.shared"
             :label="$t('QUOTA.DEFAULT_ALLOCATED_QUOTA_PER_USER')"
             :hint="$t('QUOTA.CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA')"
             class="input"
@@ -63,14 +74,14 @@
             `${t('QUOTA.ERROR_MESSAGE_FIELD')}  ${personalQuotaPerUserAlert}`
           }}</span>
           <quota-input
-            v-model:model-unit="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSizeUnit"
-            v-model:model-value="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSize"
-            v-model:model-override="form.subdomain_allocation_settings.defaultMaxFileSizeOverride"
-            :default-quota="personalSpaceMaxSize"
-            :default-value="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSize"
-            :default-unit="form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSizeUnit"
+            v-model:model-unit="form.allocationWithinTheCurrentDomain.defaultMaxFileSizeUnit"
+            v-model:model-value="form.allocationWithinTheCurrentDomain.defaultMaxFileSize"
+            v-model:model-override="form.allocationWithinTheCurrentDomain.defaultMaxFileSizeOverride"
+            :default-quota="defaultPersonalSpaceQuotaMaxFileSize"
+            :default-value="defaultPersonalSpaceQuotaMaxFileSizeValue"
+            :default-unit="defaultPersonalSpaceQuotaMaxFileSizeUnit"
             :override-mode="overrideMode"
-            :disabled="disabledQuotaInput.defaultPersonalQuotaMaxFileSize"
+            :disabled="disabledQuotaInput.personalSpacesDefaultPersonalQuotaMaxFileSize"
             :label="$t('QUOTA.DEFAULT_MAX_FILE_SIZE')"
             :hint="$t('QUOTA.CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA')"
             class="input"
@@ -81,33 +92,46 @@
           <div class="horizontal-line"></div>
           <span class="section-title">{{ $t('QUOTA.SHARED_SPACE_QUOTA') }}</span>
           <quota-input
-            v-model:model-unit="form.subdomain_allocation_settings.defaultTotalAllocatedQuotaUnit"
-            v-model:model-value="form.subdomain_allocation_settings.defaultTotalAllocatedQuota"
-            v-model:model-override="form.subdomain_allocation_settings.defaultQuotaOverride"
+            v-model:model-unit="form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuotaUnit"
+            v-model:model-value="form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuota"
+            v-model:model-override="form.subdomainAllocationSettings.defaultQuotaOverride"
+            :default-quota="defaultTotalSharedSpaceAllocatedQuota"
+            :default-value="defaultTotalSharedSpaceAllocatedQuotaValue"
+            :default-unit="defaultTotalSharedSpaceAllocatedQuotaUnit"
             :override-mode="overrideMode"
-            :disabled="disabledQuotaInput.defaultTotalAllocatedQuota"
+            :disabled="
+              disabledQuotaInput.sharedSpaceDefaultTotalAllocatedQuota || form.subdomainAllocationSettings.shared
+            "
+            :lock-disabled="form.subdomainAllocationSettings.shared"
             :label="$t('QUOTA.DEFAULT_TOTAL_ALLOCATED_QUOTA')"
             class="input"
           ></quota-input>
+          <span v-if="totalSharedSpaceQuotaLogic()" class="input-logic-alert">{{
+            `${t('QUOTA.ERROR_MESSAGE_FIELD')}  ${totalSharedSpaceQuotaAlert}`
+          }}</span>
+
           <quota-input
-            v-model:model-unit="form.subdomain_allocation_settings.defaultSharedspaceQuotaMaxFileSizeUnit"
-            v-model:model-value="form.subdomain_allocation_settings.defaultSharedspaceQuotaMaxFileSize"
-            v-model:model-override="form.subdomain_allocation_settings.defaultMaxFileSizeOverride"
+            v-model:model-unit="form.subdomainAllocationSettings.personalSpacesDefaultPersonalQuotaMaxFileSizeUnit"
+            v-model:model-value="form.subdomainAllocationSettings.personalSpacesDefaultPersonalQuotaMaxFileSize"
+            v-model:model-override="form.subdomainAllocationSettings.defaultMaxFileSizeOverride"
+            :default-quota="defaultTotalSharedSpaceAllocatedQuotaMaxSize"
+            :default-value="defaultTotalSharedSpaceAllocatedQuotaMaxSizeValue"
+            :default-unit="defaultTotalSharedSpaceAllocatedQuotaMaxSizeUnit"
             :override-mode="overrideMode"
-            :disabled="disabledQuotaInput.defaultSharedspaceQuotaMaxFileSize"
+            :disabled="disabledQuotaInput.sharedSpaceDefaultQuotaMaxFileSize"
             :label="$t('QUOTA.DEFAULT_MAX_FILE_SIZE')"
             class="input"
           ></quota-input>
+          <span v-if="shareSpaceDefaultMaxSizeLogic()" class="input-logic-alert">{{
+            `${t('QUOTA.ERROR_MESSAGE_FIELD')}  ${shareSpaceDefaultMaxSizeAlert}`
+          }}</span>
+          <br />
           <router-link :to="{ name: 'UsersList' }">
             <span>{{ $t('QUOTA.ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT') }} <PlusCircleOutlined /></span>
           </router-link>
         </div>
         <div class="subdomain-allocation-settings__chart">
-          <quota-visualize-card
-            :used-space="usedQuota"
-            :remaining-quota="remainingQuota"
-            :unallocated-space="subQuota"
-          ></quota-visualize-card>
+          <quota-visualize-card :items="subsomainAllocatedQuotaVisualizeCardItems"></quota-visualize-card>
         </div>
       </div>
     </collapse-panel>
@@ -133,19 +157,23 @@ const domainStore = useDomainStore();
 const { canDelete } = useDomainDelete();
 const { isRootDomain } = storeToRefs(domainStore);
 const {
-  domainQuotaInformations,
   form,
-  personalSpaceQuotaLogic,
+  domainQuotaInformations,
   subdomainContainerInformations,
-  AllocationContainerInformations,
-  personalSpaceQuotaPerUserLogic,
-  personalSpaceMaxSizeLogic,
+  allocationContainerInformations,
   maxQuotaLogic,
+  personalSpaceQuotaLogic,
+  personalSpaceMaxSizeLogic,
+  personalSpaceQuotaPerUserLogic,
+  parentAllocationInformations,
+  parentSubdomainInformations,
+  totalSharedSpaceQuotaLogic,
+  shareSpaceDefaultMaxSizeLogic,
 } = useQuota();
 
 // computeds
 const subQuota = computed(() => {
-  return domainQuotaInformations.defaultQuota * 2;
+  return domainQuotaInformations.defaultQuota * 2 - (usedQuota.value + remainingQuota.value);
 });
 
 const usedQuota = computed(() => {
@@ -153,10 +181,10 @@ const usedQuota = computed(() => {
 });
 
 const remainingQuota = computed(() => {
-  return AllocationContainerInformations.defaultQuota;
+  return allocationContainerInformations.defaultQuota;
 });
 const maximumQuota = computed(() => {
-  const value = toByte(form.domain_quota_and_used_space.quotaSpace, form.domain_quota_and_used_space.quotaUnit);
+  const value = toByte(form.domainQuotaAndUsedSpace.quotaSpace, form.domainQuotaAndUsedSpace.quotaUnit);
   return displayUnit(byteTo, value, undefined);
 });
 
@@ -172,35 +200,36 @@ const defaultQuota = computed(() => {
   return displayUnit(byteTo, domainQuotaInformations.defaultQuota, undefined);
 });
 
-const personalSpaceQuota = computed(() => {
-  return displayUnit(byteTo, form.subdomain_allocation_settings.personalQuota, undefined);
-});
-
-const personalSpaceQuotaPerUser = computed(() => {
-  return displayUnit(byteTo, form.subdomain_allocation_settings.defaultQuotaPerUser, undefined);
-});
-
-const personalSpaceMaxSize = computed(() => {
-  return displayUnit(byteTo, form.subdomain_allocation_settings.defaultPersonalQuotaMaxFileSize, undefined);
-});
-
 const personalQuotaAlert = computed(() => {
-  const value = toByte(form.subdomain_allocation_settings.quotaSpace, form.subdomain_allocation_settings.quotaUnit);
+  const value = toByte(form.subdomainAllocationSettings.quotaSpace, form.subdomainAllocationSettings.quotaUnit);
   return displayUnit(byteTo, value, undefined);
 });
 
 const personalQuotaPerUserAlert = computed(() => {
   const value = toByte(
-    form.subdomain_allocation_settings.personalQuota,
-    form.subdomain_allocation_settings.personalQuotaUnit
+    form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpaces,
+    form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
   );
   return displayUnit(byteTo, value, undefined);
 });
 
 const personalQuotaMaxSizeAlert = computed(() => {
   const value = toByte(
-    form.subdomain_allocation_settings.defaultQuotaPerUser,
-    form.subdomain_allocation_settings.defaultQuotaPerUserUnit
+    form.allocationWithinTheCurrentDomain.defaultAccountQuota,
+    form.allocationWithinTheCurrentDomain.defaultAccountQuotaUnit
+  );
+  return displayUnit(byteTo, value, undefined);
+});
+
+const totalSharedSpaceQuotaAlert = computed(() => {
+  const value = toByte(form.allocationWithinTheCurrentDomain.quota, form.allocationWithinTheCurrentDomain.quotaUnit);
+  return displayUnit(byteTo, value, undefined);
+});
+
+const shareSpaceDefaultMaxSizeAlert = computed(() => {
+  const value = toByte(
+    form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuota,
+    form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuotaUnit
   );
   return displayUnit(byteTo, value, undefined);
 });
@@ -211,14 +240,100 @@ const overrideMode = computed(() => {
 
 const disabledQuotaInput = computed(() => {
   return {
-    quotaSpace: !form.subdomain_allocation_settings.quotaOverride && !isRootDomain.value,
-    personalQuota: !form.subdomain_allocation_settings.defaultAccountQuotaOverride && !isRootDomain.value,
-    defaultQuotaPerUser: !form.subdomain_allocation_settings.defaultAccountQuotaOverride && !isRootDomain.value,
-    defaultPersonalQuotaMaxFileSize: !form.subdomain_allocation_settings.maxFileSizeOverride && !isRootDomain.value,
-    defaultTotalAllocatedQuota: !form.subdomain_allocation_settings.defaultQuotaOverride && !isRootDomain.value,
-    defaultSharedspaceQuotaMaxFileSize:
-      !form.subdomain_allocation_settings.defaultMaxFileSizeOverride && !isRootDomain.value,
+    quotaSpace: !form.subdomainAllocationSettings.quotaSpaceOverride && !isRootDomain.value,
+    personalSpacesAllocatedQuotaForAllPersonalSpaces:
+      !form.allocationWithinTheCurrentDomain.personalSpacesAllocatedQuotaForAllPersonalSpacesOverride &&
+      !isRootDomain.value,
+    personalSpacesDefaultAllocatedQuotaPerUser:
+      !form.allocationWithinTheCurrentDomain.defaultAccountQuotaOverride && !isRootDomain.value,
+    personalSpacesDefaultPersonalQuotaMaxFileSize:
+      !form.allocationWithinTheCurrentDomain.defaultMaxFileSizeOverride && !isRootDomain.value,
+    sharedSpaceDefaultTotalAllocatedQuota:
+      !form.subdomainAllocationSettings.defaultQuotaOverride && !isRootDomain.value,
+    sharedSpaceDefaultQuotaMaxFileSize:
+      !form.subdomainAllocationSettings.defaultMaxFileSizeOverride && !isRootDomain.value,
   };
+});
+
+const defaultQuotaAllocatedValue = computed(() => {
+  return byteTo(parentAllocationInformations.defaultQuota, undefined);
+});
+
+const defaultQuotaAllocatedUnit = computed(() => {
+  return find(parentAllocationInformations.defaultQuota);
+});
+
+const defaultPersonalSpaceQuotaValue = computed(() => {
+  return byteTo(parentAllocationInformations.defaultAccountQuota, undefined);
+});
+
+const defaultPersonalSpaceQuotaUnit = computed(() => {
+  return find(parentAllocationInformations.defaultAccountQuota);
+});
+
+const defaultPersonalSpaceQuotaMaxFileSizeValue = computed(() => {
+  return byteTo(parentAllocationInformations.defaultMaxFileSize, undefined);
+});
+
+const defaultPersonalSpaceQuotaMaxFileSizeUnit = computed(() => {
+  return find(parentAllocationInformations.defaultMaxFileSize);
+});
+
+const defaultTotalSharedSpaceAllocatedQuotaValue = computed(() => {
+  return byteTo(parentSubdomainInformations.defaultQuota, undefined);
+});
+
+const defaultTotalSharedSpaceAllocatedQuotaUnit = computed(() => {
+  return find(parentSubdomainInformations.defaultQuota);
+});
+
+const defaultTotalSharedSpaceAllocatedQuotaMaxSizeValue = computed(() => {
+  return byteTo(parentSubdomainInformations.defaultMaxFileSize, undefined);
+});
+
+const defaultTotalSharedSpaceAllocatedQuotaMaxSizeUnit = computed(() => {
+  return find(parentSubdomainInformations.defaultMaxFileSize);
+});
+
+const defaultQuotaAllocated = computed(() => {
+  return displayUnit(byteTo, parentAllocationInformations.defaultQuota, undefined);
+});
+
+const defaultPersonalSpaceQuota = computed(() => {
+  return displayUnit(byteTo, parentAllocationInformations.defaultAccountQuota, undefined);
+});
+
+const defaultPersonalSpaceQuotaMaxFileSize = computed(() => {
+  return displayUnit(byteTo, parentAllocationInformations.defaultMaxFileSize, undefined);
+});
+
+const defaultTotalSharedSpaceAllocatedQuota = computed(() => {
+  return displayUnit(byteTo, parentSubdomainInformations.defaultQuota, undefined);
+});
+
+const defaultTotalSharedSpaceAllocatedQuotaMaxSize = computed(() => {
+  return displayUnit(byteTo, parentSubdomainInformations.defaultMaxFileSize, undefined);
+});
+
+const subsomainAllocatedQuotaVisualizeCardItems = computed(() => {
+  const quotaItems = [
+    {
+      name: t('QUOTA.GUEST_DOMAIN_QUOTA.PERSONAL_ALLOCATED_SPACE'),
+      value: remainingQuota.value,
+      color: '#007AFF',
+    },
+    {
+      name: t('QUOTA.GUEST_DOMAIN_QUOTA.SHARED_SPACE_ALLOCATED'),
+      value: usedQuota.value,
+      color: '#FFA940',
+    },
+    {
+      name: t('QUOTA.GUEST_DOMAIN_QUOTA.UNASSIGNED_SPACE'),
+      value: subQuota.value,
+      color: '#EA3C3C',
+    },
+  ];
+  return quotaItems;
 });
 </script>
 
@@ -231,6 +346,10 @@ const disabledQuotaInput = computed(() => {
   margin-top: 20px;
   &__form {
     width: 45%;
+  }
+  &__chart {
+    width: 50%;
+    max-width: 50%;
   }
 }
 
@@ -271,5 +390,6 @@ const disabledQuotaInput = computed(() => {
 }
 .input-logic-alert {
   color: red;
+  font-weight: bolder;
 }
 </style>
