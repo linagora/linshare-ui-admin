@@ -1,23 +1,66 @@
-import { ref } from 'vue';
+import { ref, reactive, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { message } from 'ant-design-vue';
+import Domain from '@/core/types/Domain';
 import { APIError } from '@/core/types/APIError';
-import { ActivityLog } from '@/modules/activities/types';
+import { ActivityLog, ActivityLogData } from '@/modules/activities/types';
 import { useActivitiesStore } from '@/modules/activities/store';
 import { getActivitiesLogs } from '@/modules/activities/services';
+import { getDomains } from '@/modules/domain/services/domain-api';
+import { useI18n } from 'vue-i18n';
+import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 
 const loading = ref(false);
 const activitiesLogs = ref<ActivityLog[]>([]);
+const domainList = ref<Domain[]>([]);
+const pagination = reactive({
+  total: 0,
+  current: 1,
+  pageSize: DEFAULT_PAGE_SIZE,
+});
 
 export function useActivities() {
+  const { t } = useI18n();
+
   // data
-  const { beginDate, endDate } = storeToRefs(useActivitiesStore());
+  const { beginDate, endDate, actions, types, domains, actors, resourceNames } = storeToRefs(useActivitiesStore());
+
+  // computed
+  const filteredListByPage = computed(() => {
+    const firstIndex = (pagination.current - 1) * pagination.pageSize;
+    const lastIndex = pagination.current * pagination.pageSize;
+    return activitiesLogsFormated.value.slice(firstIndex, lastIndex);
+  });
+
+  const activitiesLogsFormated = computed(() => {
+    const formatedData = activitiesLogs.value.map((item, index) => {
+      return {
+        number: index + 1,
+        domainName: item?.domain?.label || '-',
+        actor: item?.actor?.name || t('ACTIVITIES.ME'),
+        action: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
+        resourceType: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),
+        resourceName: item?.resource?.name || item?.resource?.label || t('ACTIVITIES.ME'),
+        dateTime: item?.creationDate,
+        detail: item?.message,
+      } as ActivityLogData;
+    });
+
+    let activities = _filterByActors(formatedData);
+    activities = _filterByResourceNames(activities);
+    return _filterByDomains(activities);
+  });
 
   //methods
   async function fetchActivities() {
     try {
       loading.value = true;
-      const data = await getActivitiesLogs(beginDate.value?.toISOString(), endDate.value?.toISOString());
+      const data: ActivityLog[] = await getActivitiesLogs(
+        beginDate.value?.toISOString(),
+        endDate.value?.toISOString(),
+        actions.value.join('&action='),
+        types.value.join('&type=')
+      );
       activitiesLogs.value = data;
     } catch (error) {
       if (error instanceof APIError) {
@@ -30,5 +73,62 @@ export function useActivities() {
     }
   }
 
-  return { activitiesLogs, fetchActivities, loading };
+  function _filterByDomains(logs: ActivityLogData[]) {
+    const filtedDomains = logs.filter((item) => {
+      return domains.value?.length
+        ? domains.value?.includes(item?.domainName) ||
+            domains.value?.some((domain) => {
+              return item?.domainName?.toLowerCase().includes(domain.toLowerCase());
+            })
+        : true;
+    });
+
+    return filtedDomains;
+  }
+
+  function _filterByActors(logs: ActivityLogData[]) {
+    const filtedActors = logs.filter((item) => {
+      return actors.value?.length
+        ? actors.value?.includes(item?.actor) ||
+            actors.value?.some((actor) => {
+              return item?.actor?.toLowerCase().includes(actor.toLowerCase());
+            })
+        : true;
+    });
+
+    return filtedActors;
+  }
+
+  function _filterByResourceNames(logs: ActivityLogData[]) {
+    const filtedNames = logs.filter((item) => {
+      return resourceNames.value?.length
+        ? resourceNames.value?.includes(item?.resourceName) ||
+            resourceNames.value?.some((name) => {
+              return item?.resourceName?.toLowerCase().includes(name.toLowerCase());
+            })
+        : true;
+    });
+
+    return filtedNames;
+  }
+
+  async function fetchDomains() {
+    const response = await getDomains({ params: { tree: false } });
+    domainList.value = response as Domain[];
+  }
+
+  watch(activitiesLogs, async (newVal) => {
+    pagination.total = newVal.length;
+  });
+
+  return {
+    activitiesLogs,
+    activitiesLogsFormated,
+    domainList,
+    fetchActivities,
+    fetchDomains,
+    loading,
+    pagination,
+    filteredListByPage,
+  };
 }

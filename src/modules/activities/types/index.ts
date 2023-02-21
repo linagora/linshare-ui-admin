@@ -48,5 +48,17 @@ export interface ActivityLog {
   resource?: {
     uuid: string;
     label: string;
+    name: string;
   };
+}
+
+export interface ActivityLogData {
+  number: number;
+  domainName: string;
+  actor: string;
+  action: string;
+  resourceType: string;
+  resourceName: string;
+  dateTime: number;
+  detail: string;
 }

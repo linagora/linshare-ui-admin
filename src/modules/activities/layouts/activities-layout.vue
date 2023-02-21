@@ -1,9 +1,25 @@
 <script lang="ts" setup>
+import { ref } from 'vue';
 import TheSubheader from '@/core/components/the-subheader.vue';
+import FilterIcon from '@/core/components/icons/filter-icon.vue';
+import ActivitiesFiltersList from '@/modules/activities/components/activities-filters-list.vue';
+import ActivitiesFiltersModal from '@/modules/activities/components/activities-filters-modal.vue';
+
+const showFilterModal = ref(false);
 </script>
 <template>
   <the-subheader :title="$t('NAVIGATOR.ACTIVITIES')" :detail="$t('ACTIVITIES.INTRODUCTION')">
-    <template #action> </template>
+    <template #action>
+      <a-button @click="showFilterModal = true">
+        <template #icon>
+          <filter-icon class="anticon"></filter-icon>
+        </template>
+        {{ $t('ACTIVITIES.FILTERS_BUTTON') }}
+      </a-button>
+    </template>
+    <template #extra>
+      <activities-filters-list></activities-filters-list>
+    </template>
   </the-subheader>
   <div class="activities-page">
     <div class="activities-page__wrapper">
@@ -19,6 +35,7 @@ import TheSubheader from '@/core/components/the-subheader.vue';
       </div>
     </div>
   </div>
+  <activities-filters-modal :visible="showFilterModal" @close="showFilterModal = false"></activities-filters-modal>
 </template>
 <style lang="less">
 .activities-page {

@@ -72,7 +72,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .pagination-ctn {
   display: flex;
   align-items: center;
@@ -124,6 +124,10 @@ export default defineComponent({
     margin-left: 20px;
     display: flex;
     align-items: center;
+  }
+
+  .ant-pagination-options {
+    display: none !important;
   }
 }
 </style>

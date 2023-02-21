@@ -1,37 +1,15 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { computed, onMounted } from 'vue';
 import { useActivities } from '@/modules/activities/hooks/use-activities';
+import { ActivityLogData } from '@/modules/activities/types';
+import ThePagination from '@/core/components/the-pagination.vue';
 
-interface ActivityLogData {
-  number: number;
-  domainName: string;
-  actor: string;
-  action: string;
-  resourceType: string;
-  resourceName: string;
-  dateTime: number;
-  detail: string;
-}
 // composable
 const { t } = useI18n();
-const { fetchActivities, activitiesLogs, loading } = useActivities();
+const { fetchActivities, loading, pagination, filteredListByPage } = useActivities();
 
 // computed
-const activitiesLogsData = computed((): ActivityLogData[] => {
-  return activitiesLogs.value.map((item, index) => {
-    return {
-      number: index + 1,
-      domainName: item?.domain?.label || '-',
-      actor: item?.actor?.name || t('ACTIVITIES.ME'),
-      action: item?.action,
-      resourceType: item?.type,
-      resourceName: item?.resource?.label || item?.actor?.name || t('ACTIVITIES.ME'),
-      dateTime: item?.creationDate,
-      detail: item?.message,
-    } as ActivityLogData;
-  });
-});
 const columns = computed(() => [
   {
     title: t('ACTIVITIES.NUMBER_COL'),
@@ -83,7 +61,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <a-table class="activities-data-table" :data-source="activitiesLogsData" :loading="loading" :columns="columns">
+  <a-table
+    class="activities-data-table"
+    :data-source="filteredListByPage"
+    :pagination="false"
+    :loading="loading"
+    :columns="columns"
+  >
     <template #bodyCell="{ column, record, index }">
       <template v-if="column.key === 'number'">
         {{ index + 1 }}
@@ -114,6 +98,7 @@ onMounted(() => {
       <template v-if="column.key === 'detail'"> </template>
     </template>
   </a-table>
+  <ThePagination v-model="pagination" class="pagination" :is-visible="!!filteredListByPage.length" />
 </template>
 
 <style lang="less">
