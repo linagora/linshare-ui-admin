@@ -294,10 +294,6 @@ const defaultTotalSharedSpaceAllocatedQuotaMaxSize = computed(() => {
 
 //#region share space visuallize
 
-const sharedSpaceUsedQuota = computed(() => {
-  return displayUnit(byteTo, allocationContainerInformations.usedSpace, undefined);
-});
-
 const sharedSpaceRemainingQuota = computed(() => {
   return toByte(
     form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpaces,
@@ -330,10 +326,6 @@ const personalSpaceUnAllocatedQuota = computed(() => {
     domainQuotaInformations.quota -
     toByte(form.allocationWithinTheCurrentDomain.quota, form.allocationWithinTheCurrentDomain.quotaUnit)
   );
-});
-
-const personalSpaceUsedQuota = computed(() => {
-  return displayUnit(byteTo, allocationContainerInformations.usedSpace, undefined);
 });
 
 const virtualUnallocatedSpace = computed(() => {

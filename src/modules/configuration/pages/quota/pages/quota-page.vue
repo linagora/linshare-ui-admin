@@ -44,15 +44,7 @@ import AllocationWithinTheCurrentDomain from '@/modules/configuration/pages/quot
 const { currentRoute } = useRouter();
 const { t } = useI18n();
 const domainStore = useDomainStore();
-const {
-  form,
-  saveQuota,
-  getInformations,
-  resetDomainQuotaInformation,
-  getSubdomainBlockInformations,
-  getAllocationBlockInformations,
-  isSubdomain,
-} = useQuota();
+const { form, saveQuota, getInformations, resetDomainQuotaInformation, isSubdomain } = useQuota();
 const { currentDomain } = storeToRefs(domainStore);
 
 // data

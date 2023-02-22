@@ -109,14 +109,7 @@ import QuotaVisualizeCard from '@/modules/configuration/pages/quota/components/q
 const { t } = useI18n();
 const domainStore = useDomainStore();
 const currentDomain = domainStore.currentDomain;
-const {
-  domainQuotaInformations,
-  form,
-  defaultMaxiQuotaLogic,
-  parentDomainInformations,
-  isExceeded,
-  parentAllocationInformations,
-} = useQuota();
+const { domainQuotaInformations, form, defaultMaxiQuotaLogic, parentDomainInformations, isExceeded } = useQuota();
 const { canDelete } = useDomainDelete();
 const { isRootDomain } = storeToRefs(domainStore);
 const emits = defineEmits(['update:modeldomainSharedOverride']);
