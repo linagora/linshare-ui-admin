@@ -1380,8 +1380,18 @@
     "DOMAIN_NOT_FOUND": "Domaine non trouvé"
   },
   "ACTIVITIES": {
-    "INTRODUCTION": "Journal de toutes les activités des utilisateurs sur LinShare",
-    "ACTIVITY_LOG": "Journal d'activité"
+    "INTRODUCTION": "Journal de toutes les activités des utilisateurs sur LinShare", 
+    "ACTIVITY_LOG": "Journal d'activité",
+    "NUMBER_COL": "Nombre",
+    "DOMAIN_NAME": "Nom du domaine",
+    "ACTOR": "Acteur",
+    "ACTION": "Action",
+    "RESOURCE_TYPE": "Type de la ressource",
+    "RESOURCE_NAME": "Nom de la ressource",
+    "DATE_TIME": "Date",
+    "DETAIL": "Detail",
+    "ME": "Moi"
+   
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"

@@ -91,8 +91,8 @@ function goToDefaultDomain() {
               <chevron-right-icon class="direction"></chevron-right-icon>
             </router-link>
           </a-menu-item>
-          <a-menu-item key="activities" @click="redirect('NAVIGATOR.ACTIVITIES')">
-            <router-link :to="{ name: 'Activities' }" class="link">
+          <a-menu-item key="activities" @click="onClose">
+            <router-link :to="{ name: 'ActivitiesEntries' }" class="link">
               <newsfeed-icon class="icon"></newsfeed-icon>
               <span class="name">{{ $t('NAVIGATOR.ACTIVITIES') }}</span>
               <chevron-right-icon class="direction"></chevron-right-icon>

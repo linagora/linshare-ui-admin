@@ -1121,7 +1121,16 @@
   },
   "ACTIVITIES": {
     "INTRODUCTION": "Logging all users activities on LinShare",
-    "ACTIVITY_LOG": "Activity Logs"
+    "ACTIVITY_LOG": "Activity Logs",
+    "NUMBER_COL": "Number",
+    "DOMAIN_NAME": "Domain name",
+    "ACTOR": "Actor",
+    "ACTION": "Action",
+    "RESOURCE_TYPE": "Resource type",
+    "RESOURCE_NAME": "Resource name",
+    "DATE_TIME": "Date time",
+    "DETAIL": "Detail",
+    "ME": "Me"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Выберите язык"

@@ -49,7 +49,7 @@ function goToDefaultDomain() {
       </router-link>
     </a-menu-item>
     <a-menu-item key="activities">
-      <router-link :to="{ name: 'Activities' }">
+      <router-link :to="{ name: 'ActivitiesEntries' }">
         {{ $t('NAVIGATOR.ACTIVITIES') }}
       </router-link>
     </a-menu-item>

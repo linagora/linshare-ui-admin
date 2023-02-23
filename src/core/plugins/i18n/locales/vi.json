@@ -1378,8 +1378,17 @@
     "DOMAIN_NOT_FOUND": "Không tồn tại domain tương ứng"
   },
   "ACTIVITIES": {
-    "INTRODUCTION": "Logging all users activities on LinShare",
-    "ACTIVITY_LOG": "Activity Logs"
+    "INTRODUCTION": "Ghi nhật ký tất cả các hoạt động của người dùng trên LinShare",
+    "ACTIVITY_LOG": "Nhật ký hoạt động",
+    "NUMBER_COL": "Số dòng",
+    "DOMAIN_NAME": "Tên miền",
+    "ACTOR": "Nhân tố",
+    "ACTION": "Hoạt động",
+    "RESOURCE_TYPE": "Loại tài nguyên",
+    "RESOURCE_NAME": "Tên tài nguyên",
+    "DATE_TIME": "Ngày giờ",
+    "DETAIL": "Chi tiết",
+    "ME": "Tôi"
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"

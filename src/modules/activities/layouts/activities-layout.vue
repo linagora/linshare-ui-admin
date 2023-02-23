@@ -27,7 +27,6 @@ import TheSubheader from '@/core/components/the-subheader.vue';
   justify-content: flex-start;
   align-items: stretch;
   width: 100%;
-  background-color: #f6f6f6;
   padding: 0;
 
   &__back {
