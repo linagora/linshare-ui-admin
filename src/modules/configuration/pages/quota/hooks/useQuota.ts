@@ -202,6 +202,7 @@ export default function useQuota() {
     form.domainQuotaAndUsedSpace.quotaUnit = find(domainQuotaInformations.quota);
     form.domainQuotaAndUsedSpace.domainShared = domainQuotaInformations.domainShared;
     form.domainQuotaAndUsedSpace.quotaOverride = domainQuotaInformations.quotaOverride;
+    form.domainQuotaAndUsedSpace.domainSharedOverride = domainQuotaInformations.domainSharedOverride;
   }
 
   function _generateFormDataSubdomain(quota: QuotaContainer) {
@@ -259,31 +260,13 @@ export default function useQuota() {
 
   function _generateQuotaPayload() {
     return {
-      creationDate: domainQuotaInformations.creationDate,
-      currentValueForSubdomains: domainQuotaInformations.currentValueForSubdomains,
-      defaultDomainShared: domainQuotaInformations.defaultDomainShared,
-      defaultDomainSharedOverride: domainQuotaInformations.domainSharedOverride,
+      ...domainQuotaInformations,
       defaultQuota: toByte(form.subdomainAllocationSettings.quotaSpace, form.subdomainAllocationSettings.quotaUnit),
-      defaultQuotaOverride: domainQuotaInformations.defaultDomainSharedOverride,
       maintenance: form.domainQuotaAndUsedSpace.maintenance,
-      modificationDate: domainQuotaInformations.modificationDate,
       quota: toByte(form.domainQuotaAndUsedSpace.quotaSpace, form.domainQuotaAndUsedSpace.quotaUnit),
-      quotaOverride: domainQuotaInformations.quotaOverride,
-      usedSpace: domainQuotaInformations.usedSpace,
-      uuid: domainQuotaInformations.uuid,
-      domain: {
-        label: domainQuotaInformations.domain?.label,
-        identifier: domainQuotaInformations.domain?.identifier,
-        type: domainQuotaInformations.domain?.type,
-      },
-      parentDomain: {
-        label: domainQuotaInformations.parentDomain?.label,
-        identifier: domainQuotaInformations.parentDomain?.identifier,
-        type: domainQuotaInformations.parentDomain?.type,
-      },
-      batchModificationDate: domainQuotaInformations.batchModificationDate,
+      quotaOverride: form.domainQuotaAndUsedSpace.quotaOverride,
       domainShared: form.domainQuotaAndUsedSpace.domainShared,
-      domainSharedOverride: domainQuotaInformations.domainSharedOverride,
+      domainSharedOverride: form.domainQuotaAndUsedSpace.domainSharedOverride,
     };
   }
 
@@ -371,7 +354,7 @@ export default function useQuota() {
   }
 
   function personalSpaceQuotaLogic() {
-    if (isSubdomain) {
+    if (isSubdomain()) {
       return false;
     }
 
@@ -387,7 +370,7 @@ export default function useQuota() {
   }
 
   function personalSpaceQuotaPerUserLogic() {
-    if (isSubdomain) {
+    if (isSubdomain()) {
       return false;
     }
 
@@ -407,7 +390,7 @@ export default function useQuota() {
   }
 
   function personalSpaceMaxSizeLogic() {
-    if (isSubdomain) {
+    if (isSubdomain()) {
       return false;
     }
 
@@ -428,10 +411,9 @@ export default function useQuota() {
   }
 
   function maxQuotaLogic() {
-    if (isSubdomain) {
+    if (isSubdomain()) {
       return false;
     }
-
     if (
       toByte(form.subdomainAllocationSettings.quotaSpace, form.subdomainAllocationSettings.quotaUnit) >
       toByte(form.domainQuotaAndUsedSpace.quotaSpace, form.domainQuotaAndUsedSpace.quotaUnit)
@@ -446,7 +428,7 @@ export default function useQuota() {
   }
 
   function totalSharedSpaceQuotaLogic() {
-    if (isSubdomain) {
+    if (isSubdomain()) {
       return false;
     }
 
@@ -463,7 +445,7 @@ export default function useQuota() {
   }
 
   function shareSpaceDefaultMaxSizeLogic() {
-    if (isSubdomain) {
+    if (isSubdomain()) {
       return false;
     }
 

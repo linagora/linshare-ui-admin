@@ -33,7 +33,7 @@
             </a-tooltip>
             <a-switch
               v-model:checked="form.domainQuotaAndUsedSpace.domainShared"
-              :disabled="form.domainQuotaAndUsedSpace.domainSharedOverride && !isRootDomain"
+              :disabled="!form.domainQuotaAndUsedSpace.domainSharedOverride && !isRootDomain"
               class="domain-shared-quota-switch"
             />
             <span>{{ $t('QUOTA.DOMAIN_SHARED_QUOTA.LABEL') }}</span>
@@ -51,8 +51,8 @@
                 color="info"
                 @click="onClickToggleLockDomainSharedQuota"
               >
-                <lock-icon v-show="form.domainQuotaAndUsedSpace.domainSharedOverride" class="icon"></lock-icon>
-                <unlock-icon v-show="!form.domainQuotaAndUsedSpace.domainSharedOverride" class="icon"></unlock-icon>
+                <lock-icon v-show="!form.domainQuotaAndUsedSpace.domainSharedOverride" class="icon"></lock-icon>
+                <unlock-icon v-show="form.domainQuotaAndUsedSpace.domainSharedOverride" class="icon"></unlock-icon>
               </ls-button>
             </a-tooltip>
           </div>
@@ -121,16 +121,13 @@ const disabledQuotaInput = computed(() => {
 const overrideMode = computed(() => {
   return !isRootDomain.value && canDelete.value;
 });
-const subQuota = computed(() => {
-  return domainQuotaInformations.currentValueForSubdomains;
-});
 
 const defaultQuotaValue = computed(() => {
-  return byteTo(domainQuotaInformations.defaultQuota, undefined);
+  return byteTo(parentDomainInformations.defaultQuota, undefined);
 });
 
 const defaultQuotaUnit = computed(() => {
-  return find(domainQuotaInformations.defaultQuota);
+  return find(parentDomainInformations.defaultQuota);
 });
 
 const unAllocatedSpace = computed(() => {
@@ -147,7 +144,7 @@ const maximumQuota = computed(() => {
   return displayUnit(byteTo, parentDomainInformations.quota, undefined);
 });
 const defaultQuota = computed(() => {
-  return displayUnit(byteTo, domainQuotaInformations.defaultQuota, undefined);
+  return displayUnit(byteTo, parentDomainInformations.defaultQuota, undefined);
 });
 
 const defaultSubdomainQuota = computed(() => {
