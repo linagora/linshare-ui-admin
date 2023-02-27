@@ -163,7 +163,7 @@
             $t(`QUOTA.CONTRAINERS_VIRTUAL_ALLOCATION`)
           }}</strong>
           <div class="allocation-within-the-current-domain__block-body">
-            <div class="allocation-within-the-current-domain__chart">
+            <div class="allocation-within-the-current-domain__full-chart">
               <quota-visualize-card :items="personalSpaceRemainingVisualizeCardItems"></quota-visualize-card>
             </div>
           </div>
@@ -509,6 +509,11 @@ const personalSpaceRemainingVisualizeCardItems = computed(() => {
   &__chart {
     width: 50%;
     max-width: 50%;
+  }
+
+  &__full-chart {
+    width: 100%;
+    max-width: 100%;
   }
 }
 

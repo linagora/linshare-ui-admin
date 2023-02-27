@@ -5,7 +5,7 @@
   <div v-else class="quota-page">
     <div class="quota-page__tabs">
       <domain-quota-and-used-space> </domain-quota-and-used-space>
-      <allocation-within-the-current-domain></allocation-within-the-current-domain>
+      <allocation-within-the-current-domain v-if="!isRootDomain"></allocation-within-the-current-domain>
       <subdomains-allocation-settings v-if="!isSubdomain()"></subdomains-allocation-settings>
     </div>
     <div class="quota-page__actions">
@@ -46,7 +46,7 @@ const { t } = useI18n();
 const domainStore = useDomainStore();
 const { form, saveQuota, getInformations, resetDomainQuotaInformation, isSubdomain } = useQuota();
 const { currentDomain } = storeToRefs(domainStore);
-
+const { isRootDomain } = storeToRefs(domainStore);
 // data
 const loading = reactive({
   reset: false,

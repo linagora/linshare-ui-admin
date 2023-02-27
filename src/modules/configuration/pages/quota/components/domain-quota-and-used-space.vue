@@ -27,15 +27,15 @@
             :border="true"
             :show-icon="false"
           ></ls-alert>
-          <div class="domain-shared-quota">
-            <a-tooltip :title="t('QUOTA.DOMAIN_SHARED_QUOTA.DESCRIPTION')" trigger="hover">
-              <info-icon class="icon"></info-icon>
-            </a-tooltip>
+          <div v-if="!isRootDomain" class="domain-shared-quota">
             <a-switch
               v-model:checked="form.domainQuotaAndUsedSpace.domainShared"
               :disabled="!form.domainQuotaAndUsedSpace.domainSharedOverride && !isRootDomain"
               class="domain-shared-quota-switch"
             />
+            <a-tooltip :title="t('QUOTA.DOMAIN_SHARED_QUOTA.DESCRIPTION')" trigger="hover">
+              <info-icon class="icon"></info-icon>
+            </a-tooltip>
             <span>{{ $t('QUOTA.DOMAIN_SHARED_QUOTA.LABEL') }}</span>
             <a-tooltip
               :title="
