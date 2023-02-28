@@ -258,6 +258,14 @@ function onClickToggleLockDomainSharedQuota() {
 }
 
 .domain-shared-quota-lock-button {
+  min-height: 44px;
+  min-width: 44px;
+  height: 44px;
+  width: 44px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
 </style>

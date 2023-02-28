@@ -53,6 +53,7 @@ const form = reactive<{
     quotaSpaceOverride: boolean;
     defaultQuotaOverride: boolean;
     defaultMaxFileSizeOverride: boolean;
+    defaultDomainSharedOverride: boolean;
   };
   allocationWithinTheCurrentDomain: {
     maintenance: boolean;
@@ -104,6 +105,7 @@ const form = reactive<{
     defaultMaxFileSizeOverride: false,
     defaultQuotaOverride: false,
     maxFileSizeOverride: false,
+    defaultDomainSharedOverride: false,
     sharedSpaceAllocatedQuota: 0,
     sharedSpaceAllocatedQuotaUnit: 'TB',
     sharedSpaceMaxFileSizeQuota: 0,
@@ -267,6 +269,8 @@ export default function useQuota() {
       quotaOverride: form.domainQuotaAndUsedSpace.quotaOverride,
       domainShared: form.domainQuotaAndUsedSpace.domainShared,
       domainSharedOverride: form.domainQuotaAndUsedSpace.domainSharedOverride,
+      defaultDomainShared: form.subdomainAllocationSettings.shared,
+      defaultDomainSharedOverride: form.subdomainAllocationSettings.defaultDomainSharedOverride,
     };
   }
 

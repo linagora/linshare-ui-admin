@@ -1,6 +1,9 @@
 <template>
   <collapse>
-    <collapse-panel :key="1" :header="$t('QUOTA.ALLOCATION_WITHIN_THE_CURRENT_DOMAIN')">
+    <collapse-panel
+      :key="1"
+      :header="$t('QUOTA.ALLOCATION_WITHIN_THE_CURRENT_DOMAIN', { Containers: domainStore.currentDomain.name })"
+    >
       <a-alert
         type="info"
         class="ls-alert ls-no-border allocation-within-the-current-domain__alert"

@@ -5,8 +5,36 @@
       <div class="subdomain-allocation-settings">
         <div class="subdomain-allocation-settings__form">
           <div class="shared-quota-mode">
-            <a-switch v-model:checked="form.subdomainAllocationSettings.shared" class="shared-quota-switch" />
+            <a-switch
+              v-model:checked="form.subdomainAllocationSettings.shared"
+              class="shared-quota-switch"
+              :disabled="!form.subdomainAllocationSettings.defaultDomainSharedOverride && !isRootDomain"
+            />
             <span>{{ $t('QUOTA.SHRAED_DOMAIN_QUOTA_ACTIVATION') }}</span>
+            <a-tooltip
+              :title="
+                form.domainQuotaAndUsedSpace.domainSharedOverride
+                  ? t('QUOTA.HINT_LABELS.HINT_DESACTIVATE_SHARING_TOOLTIP')
+                  : t('QUOTA.HINT_LABELS.HINT_ACTIVATE_SHARING_TOOLTIP')
+              "
+              trigger="hover"
+            >
+              <ls-button
+                v-if="!isRootDomain && canDelete"
+                class="ant-btn ls-button--info domain-shared-quota-lock-button"
+                color="info"
+                @click="onClickToggleLockDefaultDomainSharedQuota"
+              >
+                <lock-icon
+                  v-show="!form.subdomainAllocationSettings.defaultDomainSharedOverride"
+                  class="icon"
+                ></lock-icon>
+                <unlock-icon
+                  v-show="form.subdomainAllocationSettings.defaultDomainSharedOverride"
+                  class="icon"
+                ></unlock-icon>
+              </ls-button>
+            </a-tooltip>
           </div>
           <quota-input
             v-model:model-unit="form.subdomainAllocationSettings.quotaUnit"
@@ -151,6 +179,8 @@ import QuotaVisualizeCard from '@/modules/configuration/pages/quota/components/q
 import QuotaInput from '@/modules/configuration/pages/quota/components/quota-input.vue';
 import { byteTo, displayUnit, find, toByte } from '@/core/utils/unitStorage';
 import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
+import LockIcon from '@/core/components/icons/lock-icon.vue';
+import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
 
 const { t } = useI18n();
 const domainStore = useDomainStore();
@@ -333,8 +363,14 @@ const subsomainAllocatedQuotaVisualizeCardItems = computed(() => {
       color: '#EA3C3C',
     },
   ];
+
   return quotaItems;
 });
+
+function onClickToggleLockDefaultDomainSharedQuota() {
+  form.subdomainAllocationSettings.defaultDomainSharedOverride =
+    !form.subdomainAllocationSettings.defaultDomainSharedOverride;
+}
 </script>
 
 <style lang="less" scoped>
@@ -356,7 +392,9 @@ const subsomainAllocatedQuotaVisualizeCardItems = computed(() => {
 .shared-quota-mode {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
+  margin: 10px 0;
+  gap: 12px;
+  align-items: center;
 }
 
 .shared-quota-switch {
@@ -391,5 +429,18 @@ const subsomainAllocatedQuotaVisualizeCardItems = computed(() => {
 .input-logic-alert {
   color: red;
   font-weight: bolder;
+}
+
+.domain-shared-quota-lock-button {
+  min-height: 44px;
+  min-width: 44px;
+  height: 44px;
+  width: 44px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
 }
 </style>
