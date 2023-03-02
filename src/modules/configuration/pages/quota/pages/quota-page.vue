@@ -9,13 +9,9 @@
       <subdomains-allocation-settings v-if="!isSubdomain()"></subdomains-allocation-settings>
     </div>
     <div class="quota-page__actions">
-      <a-button
-        v-if="form.saverCheck && currentDomain.type !== 'ROOTDOMAIN'"
-        disabled
-        type="primary"
-        class="ls-button"
-        >{{ $t('QUOTA.SAVE_CHANGE') }}</a-button
-      >
+      <a-button v-if="form.saverCheck" disabled type="primary" class="ls-button">{{
+        $t('QUOTA.SAVE_CHANGE')
+      }}</a-button>
       <a-button
         v-else
         type="primary"
