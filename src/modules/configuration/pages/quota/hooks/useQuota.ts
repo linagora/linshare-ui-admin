@@ -440,7 +440,7 @@ export default function useQuota() {
       toByte(
         form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuota,
         form.subdomainAllocationSettings.sharedSpaceDefaultTotalAllocatedQuotaUnit
-      ) > toByte(form.allocationWithinTheCurrentDomain.quota, form.allocationWithinTheCurrentDomain.quotaUnit)
+      ) > toByte(form.subdomainAllocationSettings.quotaSpace, form.subdomainAllocationSettings.quotaUnit)
     ) {
       return true;
     }

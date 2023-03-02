@@ -252,7 +252,7 @@ const personalQuotaMaxSizeAlert = computed(() => {
 });
 
 const totalSharedSpaceQuotaAlert = computed(() => {
-  const value = toByte(form.allocationWithinTheCurrentDomain.quota, form.allocationWithinTheCurrentDomain.quotaUnit);
+  const value = toByte(form.subdomainAllocationSettings.quotaSpace, form.subdomainAllocationSettings.quotaUnit);
   return displayUnit(byteTo, value, undefined);
 });
 
