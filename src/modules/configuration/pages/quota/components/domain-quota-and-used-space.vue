@@ -40,8 +40,8 @@
             <a-tooltip
               :title="
                 form.domainQuotaAndUsedSpace.domainSharedOverride
-                  ? t('QUOTA.HINT_LABELS.HINT_DESACTIVATE_SHARING_TOOLTIP')
-                  : t('QUOTA.HINT_LABELS.HINT_ACTIVATE_SHARING_TOOLTIP')
+                  ? t('QUOTA.HINT_LABELS.HINT_RESET_SHARED_QUOTA_TOOLTIP')
+                  : t('QUOTA.HINT_LABELS.HINT_UNLINK_TOOLTIP')
               "
               trigger="hover"
             >
@@ -210,6 +210,9 @@ const quotaVisualizeCardItems = computed(() => {
 
 function onClickToggleLockDomainSharedQuota() {
   form.domainQuotaAndUsedSpace.domainSharedOverride = !form.domainQuotaAndUsedSpace.domainSharedOverride;
+  if (!form.domainQuotaAndUsedSpace.domainSharedOverride) {
+    form.domainQuotaAndUsedSpace.domainShared = domainQuotaInformations.domainShared;
+  }
   emits('update:modeldomainSharedOverride', form.domainQuotaAndUsedSpace.domainSharedOverride);
 }
 </script>

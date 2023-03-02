@@ -19,7 +19,6 @@
         @click="saveQuota(currentDomain.uuid, t('MESSAGES.UPDATE_SUCCESS'))"
         >{{ $t('QUOTA.SAVE_CHANGE') }}</a-button
       >
-      <a-button class="ls-button ls-button--cancel">{{ $t('QUOTA.CANCEL') }}</a-button>
       <a-button :loading="loading.reset" class="ls-button ls-button--reset" @click="onResetDomainQuota">{{
         $t('QUOTA.RESET')
       }}</a-button>

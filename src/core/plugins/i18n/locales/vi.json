@@ -442,6 +442,7 @@
     "HINT_LABELS": {
       "HINT_UNLINK_TOOLTIP": "Ghi đè giá trị mặc định",
       "HINT_RESET_TOOLTIP": "Đặt lại về giá trị mặc định: {value}",
+      "HINT_RESET_SHARED_QUOTA_TOOLTIP": "Đặt lại về giá trị mặc định",
       "HINT_ACTIVATE_SHARING_TOOLTIP": "Kích hoạt hạn mức chia sẻ miền",
       "HINT_DESACTIVATE_SHARING_TOOLTIP": "Vô hiệu hóa hạn mức chia sẻ tên miền"
     },

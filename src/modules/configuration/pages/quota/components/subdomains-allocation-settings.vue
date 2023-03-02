@@ -13,9 +13,9 @@
             <span>{{ $t('QUOTA.SHRAED_DOMAIN_QUOTA_ACTIVATION') }}</span>
             <a-tooltip
               :title="
-                form.domainQuotaAndUsedSpace.domainSharedOverride
-                  ? t('QUOTA.HINT_LABELS.HINT_DESACTIVATE_SHARING_TOOLTIP')
-                  : t('QUOTA.HINT_LABELS.HINT_ACTIVATE_SHARING_TOOLTIP')
+                form.subdomainAllocationSettings.defaultDomainSharedOverride
+                  ? t('QUOTA.HINT_LABELS.HINT_RESET_SHARED_QUOTA_TOOLTIP')
+                  : t('QUOTA.HINT_LABELS.HINT_UNLINK_TOOLTIP')
               "
               trigger="hover"
             >
@@ -370,6 +370,9 @@ const subsomainAllocatedQuotaVisualizeCardItems = computed(() => {
 function onClickToggleLockDefaultDomainSharedQuota() {
   form.subdomainAllocationSettings.defaultDomainSharedOverride =
     !form.subdomainAllocationSettings.defaultDomainSharedOverride;
+  if (!form.subdomainAllocationSettings.defaultDomainSharedOverride) {
+    form.subdomainAllocationSettings.shared = domainQuotaInformations.defaultDomainShared;
+  }
 }
 </script>
 

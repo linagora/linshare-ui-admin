@@ -443,6 +443,7 @@
     "HINT_LABELS": {
       "HINT_UNLINK_TOOLTIP": "Surcharger la valeur par défaut",
       "HINT_RESET_TOOLTIP": "Réinitialiser à la valeur par défaut : {value}",
+      "HINT_RESET_SHARED_QUOTA_TOOLTIP": "Réinitialiser à la valeur par défaut",
       "HINT_ACTIVATE_SHARING_TOOLTIP": "Désactiver le mode Domain Quota partagé",
       "HINT_DESACTIVATE_SHARING_TOOLTIP": "Activer le mode Domaine Quota partagé"
     },
@@ -1380,7 +1381,7 @@
     "DOMAIN_NOT_FOUND": "Domaine non trouvé"
   },
   "ACTIVITIES": {
-    "INTRODUCTION": "Journal de toutes les activités des utilisateurs sur LinShare", 
+    "INTRODUCTION": "Journal de toutes les activités des utilisateurs sur LinShare",
     "ACTIVITY_LOG": "Journal d'activité",
     "NUMBER_COL": "Nombre",
     "DOMAIN_NAME": "Nom du domaine",
@@ -1391,7 +1392,7 @@
     "DATE_TIME": "Date",
     "DETAIL": "Detail",
     "ME": "Moi"
-   
+
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"

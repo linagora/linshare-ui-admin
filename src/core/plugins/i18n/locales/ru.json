@@ -442,6 +442,7 @@
     "HINT_LABELS": {
       "HINT_UNLINK_TOOLTIP": "Переопределить значение по умолчанию",
       "HINT_RESET_TOOLTIP": "Сбросить значение по умолчанию: {value}",
+      "HINT_RESET_SHARED_QUOTA_TOOLTIP": "Сбросить значение по умолчанию",
       "HINT_ACTIVATE_SHARING_TOOLTIP": "Activate Domain shared Quota",
       "HINT_DESACTIVATE_SHARING_TOOLTIP": "Desactivate Domain shared Quota"
     },
