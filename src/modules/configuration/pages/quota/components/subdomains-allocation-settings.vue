@@ -1,6 +1,6 @@
 <template>
   <collapse
-    ><collapse-panel :header="$t('QUOTA.SUBDOMAINS_ALLOCATION_SETTINGS')">
+    ><collapse-panel :header="collapseHeader">
       <span class="section-title">{{ $t('QUOTA.SUBDOMAIN_QUOTA') }}</span>
       <div class="subdomain-allocation-settings">
         <div class="subdomain-allocation-settings__form">
@@ -199,6 +199,7 @@ const {
   parentSubdomainInformations,
   totalSharedSpaceQuotaLogic,
   shareSpaceDefaultMaxSizeLogic,
+  subDomainBlockHearderAlert,
 } = useQuota();
 
 // computeds
@@ -374,6 +375,14 @@ function onClickToggleLockDefaultDomainSharedQuota() {
     form.subdomainAllocationSettings.shared = domainQuotaInformations.defaultDomainShared;
   }
 }
+
+const collapseHeader = computed(() => {
+  if (subDomainBlockHearderAlert()) {
+    return `${t('QUOTA.SUBDOMAINS_ALLOCATION_SETTINGS')} 🛑`;
+  } else {
+    return t('QUOTA.SUBDOMAINS_ALLOCATION_SETTINGS');
+  }
+});
 </script>
 
 <style lang="less" scoped>

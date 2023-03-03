@@ -338,6 +338,9 @@ export default function useQuota() {
   }
 
   function defaultMaxiQuotaLogic() {
+    if (isRootDomain()) {
+      return false;
+    }
     if (
       toByte(form.domainQuotaAndUsedSpace.quotaSpace, form.domainQuotaAndUsedSpace.quotaUnit) >
       parentDomainInformations.quota
@@ -521,6 +524,35 @@ export default function useQuota() {
     return currentDomain.value.type === 'SUBDOMAIN' || currentDomain.value.type === 'GUESTDOMAIN';
   }
 
+  function isRootDomain() {
+    return currentDomain.value.type === 'ROOTDOMAIN';
+  }
+
+  function allocatedBlockHearderAlert() {
+    if (
+      defaultAllocatedMaxQuotaLogic() ||
+      personalAllocatedQuotaLogic() ||
+      personalAllocatedMaxFileSizeLogic() ||
+      totalSharedSpaceAllocatedQuotaLogic() ||
+      sharedSpaceMaxFileSizeLogic()
+    ) {
+      return true;
+    }
+  }
+
+  function subDomainBlockHearderAlert() {
+    if (
+      personalSpaceQuotaLogic() ||
+      personalSpaceMaxSizeLogic() ||
+      personalSpaceQuotaPerUserLogic() ||
+      totalSharedSpaceQuotaLogic() ||
+      shareSpaceDefaultMaxSizeLogic() ||
+      maxQuotaLogic()
+    ) {
+      return true;
+    }
+  }
+
   watchEffect(() => {
     if (
       defaultMaxiQuotaLogic() ||
@@ -566,6 +598,8 @@ export default function useQuota() {
     totalSharedSpaceAllocatedQuotaLogic,
     sharedSpaceMaxFileSizeLogic,
     personalAllocatedMaxFileSizeLogic,
+    allocatedBlockHearderAlert,
+    subDomainBlockHearderAlert,
     isSubdomain,
   };
 }

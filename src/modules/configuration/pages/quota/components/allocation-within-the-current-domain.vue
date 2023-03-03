@@ -1,9 +1,6 @@
 <template>
   <collapse>
-    <collapse-panel
-      :key="1"
-      :header="$t('QUOTA.ALLOCATION_WITHIN_THE_CURRENT_DOMAIN', { Containers: domainStore.currentDomain.name })"
-    >
+    <collapse-panel :key="1" :header="collapseHeader">
       <a-alert
         type="info"
         class="ls-alert ls-no-border allocation-within-the-current-domain__alert"
@@ -208,6 +205,7 @@ const {
   personalAllocatedMaxFileSizeLogic,
   totalSharedSpaceAllocatedQuotaLogic,
   sharedSpaceMaxFileSizeLogic,
+  allocatedBlockHearderAlert,
 } = useQuota();
 
 // computed
@@ -455,6 +453,14 @@ const personalSpaceRemainingVisualizeCardItems = computed(() => {
     },
   ];
   return quotaItems;
+});
+
+const collapseHeader = computed(() => {
+  if (allocatedBlockHearderAlert()) {
+    return `${t('QUOTA.ALLOCATION_WITHIN_THE_CURRENT_DOMAIN', { Containers: domainStore.currentDomain.name })} 🛑`;
+  } else {
+    return t('QUOTA.ALLOCATION_WITHIN_THE_CURRENT_DOMAIN', { Containers: domainStore.currentDomain.name });
+  }
 });
 </script>
 
