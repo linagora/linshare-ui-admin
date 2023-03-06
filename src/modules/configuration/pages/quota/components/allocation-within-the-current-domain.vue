@@ -404,7 +404,7 @@ const personalSpaceVisualizeCardItems = computed(() => {
       color: '#FFA940',
     },
     {
-      name: t('QUOTA.TOP_DOMAIN_QUOTA.REMAINING_QUOTA'),
+      name: t('QUOTA.TOP_DOMAIN_QUOTA.QUOTA_PER_SUB_DOMAIN'),
       value: personalSpaceUnAllocatedQuota.value,
       color: '#EA3C3C',
     },
@@ -426,7 +426,7 @@ const allocatedPersonalSpaceVisualizeCardItems = computed(() => {
       color: '#FFA940',
     },
     {
-      name: t('QUOTA.TOP_DOMAIN_QUOTA.REMAINING_QUOTA'),
+      name: t('QUOTA.TOP_DOMAIN_QUOTA.QUOTA_PER_SUB_DOMAIN'),
       value: sharedSpaceUnaloocatedSpace.value,
       color: '#EA3C3C',
     },
