@@ -41,7 +41,7 @@
           </a-form-item>
         </div>
 
-        <a-form-item :label="$t('GENERAL.NAME')" name="name">
+        <a-form-item :label="$t('GENERAL.NAME')" name="name" v-bind="validateInfos.name">
           <a-input v-model:value="formState.name" />
         </a-form-item>
 
@@ -53,12 +53,11 @@
           <h2 class="section__title">
             {{ $t('USER_FILTER.LDAP.FORM.AUTHENTICATION_QUERY') }}
           </h2>
-
-          <p class="section__helper">
-            {{ $t('USER_FILTER.LDAP.FORM.AUTHENTICATION_QUERY_HELPER') }}
-          </p>
-
-          <a-form-item name="authenticationQuery">
+          <a-form-item
+            :label="$t('USER_FILTER.LDAP.FORM.AUTHENTICATION_QUERY_HELPER')"
+            name="authenticationQuery"
+            v-bind="validateInfos.authenticationQuery"
+          >
             <a-textarea v-model:value="formState.authenticationQuery" auto-size />
           </a-form-item>
         </div>
@@ -71,19 +70,31 @@
             {{ $t('USER_FILTER.LDAP.FORM.SEARCH_USER_QUERY_HELPER') }}
           </p>
 
-          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.QUERY')" name="searchUserQuery">
+          <a-form-item
+            :label="$t('USER_FILTER.LDAP.FORM.QUERY')"
+            name="searchUserQuery"
+            v-bind="validateInfos.searchUserQuery"
+          >
             <a-textarea v-model:value="formState.searchUserQuery" auto-size />
           </a-form-item>
 
           <a-row :gutter="32">
             <a-col :span="12">
-              <a-form-item :label="$t('USER_FILTER.LDAP.FORM.PAGE_SIZE')" name="searchPageSize">
+              <a-form-item
+                :label="$t('USER_FILTER.LDAP.FORM.PAGE_SIZE')"
+                name="searchPageSize"
+                v-bind="validateInfos.searchPageSize"
+              >
                 <a-input v-model:value="formState.searchPageSize" type="number" />
               </a-form-item>
             </a-col>
 
             <a-col :span="12">
-              <a-form-item :label="$t('USER_FILTER.LDAP.FORM.LIMIT')" name="searchSizeLimit">
+              <a-form-item
+                :label="$t('USER_FILTER.LDAP.FORM.LIMIT')"
+                name="searchSizeLimit"
+                v-bind="validateInfos.searchSizeLimit"
+              >
                 <a-input v-model:value="formState.searchSizeLimit" type="number" />
               </a-form-item>
             </a-col>
@@ -101,23 +112,36 @@
           <a-form-item
             :label="$t('USER_FILTER.LDAP.FORM.QUERY_ON_ALL_ATTRIBUTES')"
             name="autoCompleteCommandOnAllAttributes"
+            v-bind="validateInfos.autoCompleteCommandOnAllAttributes"
           >
             <a-textarea v-model:value="formState.autoCompleteCommandOnAllAttributes" auto-size />
           </a-form-item>
 
-          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.QUERY_ON_NAMES')" name="autoCompleteCommandOnFirstAndLastName">
+          <a-form-item
+            :label="$t('USER_FILTER.LDAP.FORM.QUERY_ON_NAMES')"
+            name="autoCompleteCommandOnFirstAndLastName"
+            v-bind="validateInfos.autoCompleteCommandOnFirstAndLastName"
+          >
             <a-textarea v-model:value="formState.autoCompleteCommandOnFirstAndLastName" auto-size />
           </a-form-item>
 
           <a-row :gutter="32">
             <a-col :span="12">
-              <a-form-item :label="$t('USER_FILTER.LDAP.FORM.PAGE_SIZE')" name="completionPageSize">
+              <a-form-item
+                :label="$t('USER_FILTER.LDAP.FORM.PAGE_SIZE')"
+                name="completionPageSize"
+                v-bind="validateInfos.completionPageSize"
+              >
                 <a-input v-model:value="formState.completionPageSize" type="number" />
               </a-form-item>
             </a-col>
 
             <a-col :span="12">
-              <a-form-item :label="$t('USER_FILTER.LDAP.FORM.LIMIT')" name="completionSizeLimit">
+              <a-form-item
+                :label="$t('USER_FILTER.LDAP.FORM.LIMIT')"
+                name="completionSizeLimit"
+                v-bind="validateInfos.completionSizeLimit"
+              >
                 <a-input v-model:value="formState.completionSizeLimit" type="number" />
               </a-form-item>
             </a-col>
@@ -132,19 +156,35 @@
             {{ $t('USER_FILTER.LDAP.FORM.ATTRIBUTES_HELPER') }}
           </p>
 
-          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.UNIQUE_ID')" name="userUidAttribute">
+          <a-form-item
+            :label="$t('USER_FILTER.LDAP.FORM.UNIQUE_ID')"
+            name="userUidAttribute"
+            v-bind="validateInfos.userUidAttribute"
+          >
             <a-input v-model:value="formState.userUidAttribute" />
           </a-form-item>
 
-          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.MAIL')" name="userMailAttribute">
+          <a-form-item
+            :label="$t('USER_FILTER.LDAP.FORM.MAIL')"
+            name="userMailAttribute"
+            v-bind="validateInfos.userMailAttribute"
+          >
             <a-input v-model:value="formState.userMailAttribute" />
           </a-form-item>
 
-          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.FIRSTNAME')" name="userFirstNameAttribute">
+          <a-form-item
+            :label="$t('USER_FILTER.LDAP.FORM.FIRSTNAME')"
+            name="userFirstNameAttribute"
+            v-bind="validateInfos.userFirstNameAttribute"
+          >
             <a-input v-model:value="formState.userFirstNameAttribute" />
           </a-form-item>
 
-          <a-form-item :label="$t('USER_FILTER.LDAP.FORM.LASTNAME')" name="userLastNameAttribute">
+          <a-form-item
+            :label="$t('USER_FILTER.LDAP.FORM.LASTNAME')"
+            name="userLastNameAttribute"
+            v-bind="validateInfos.userLastNameAttribute"
+          >
             <a-input v-model:value="formState.userLastNameAttribute" />
           </a-form-item>
         </div>
@@ -171,9 +211,9 @@
 
 <script lang="ts" setup>
 import { computed, reactive, ref, onMounted } from 'vue';
-import { message } from 'ant-design-vue';
 import { SelectTypes } from 'ant-design-vue/es/select';
 import { useI18n } from 'vue-i18n';
+import { message, Form } from 'ant-design-vue';
 import { useRouter } from 'vue-router';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 import useNotification from '@/core/hooks/useNotification';
@@ -209,6 +249,7 @@ const userFilter = {};
 const fetchingData = ref(false);
 const formRef = ref();
 const formSubmitting = ref(false);
+const useForm = Form.useForm;
 const formState = reactive<Partial<UserFilter>>({});
 const formRules = computed(() => {
   const required = { required: true, message: t('GENERAL.FIELD_REQUIRED'), trigger: 'change' };
@@ -229,6 +270,8 @@ const formRules = computed(() => {
     completionSizeLimit: [required],
   };
 });
+
+const { validateInfos } = useForm(formState, formRules);
 
 async function prepareData() {
   fetchingData.value = true;
