@@ -1386,6 +1386,7 @@
     "DOMAIN_NOT_FOUND": "Không tồn tại domain tương ứng"
   },
   "ACTIVITIES": {
+    "THIS_ACTION_IS_PERFORMED_BY_TOOLTIP": "This action is performed by {by} on behalf of {of}",
     "INTRODUCTION": "Ghi nhật ký tất cả các hoạt động của người dùng trên LinShare",
     "ACTIVITY_LOG": "Nhật ký hoạt động",
     "NUMBER_COL": "Số dòng",

@@ -5,7 +5,7 @@ import { useActivities } from '@/modules/activities/hooks/use-activities';
 import { ActivityLogData } from '@/modules/activities/types';
 import ThePagination from '@/core/components/the-pagination.vue';
 import useRelativeTime from '@/core/hooks/useRelativeTime';
-
+import { InfoCircleFilled } from '@ant-design/icons-vue';
 // composable
 const { t } = useI18n();
 const { fetchActivities, loading, pagination, filteredListByPage } = useActivities();
@@ -83,7 +83,15 @@ onMounted(() => {
         {{ record.domainName }}
       </template>
       <template v-if="column.key === 'actor'">
-        {{ record.actor }}
+        <div class="activities-data-table__actor">
+          {{ record.actor }}
+          <a-tooltip v-if="record.actorId !== record.authorId">
+            <template #title>
+              {{ $t('ACTIVITIES.THIS_ACTION_IS_PERFORMED_BY_TOOLTIP', {by: record.author, of: record.actor}) }}
+            </template>
+            <InfoCircleFilled class="info-icon"/>
+          </a-tooltip>
+        </div>
       </template>
       <template v-if="column.key === 'action'">
         {{ record.action }}
@@ -114,6 +122,9 @@ onMounted(() => {
     border: 1px solid #f0f0f0;
     border-radius: 8px;
     overflow: hidden;
+  }
+  &__actor {
+    color: #007AFF;
   }
 }
 </style>

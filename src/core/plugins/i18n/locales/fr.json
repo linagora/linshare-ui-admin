@@ -1388,6 +1388,7 @@
     "DOMAIN_NOT_FOUND": "Domaine non trouvé"
   },
   "ACTIVITIES": {
+    "THIS_ACTION_IS_PERFORMED_BY_TOOLTIP": "This action is performed by {by} on behalf of {of}",
     "INTRODUCTION": "Journal de toutes les activités des utilisateurs sur LinShare",
     "ACTIVITY_LOG": "Journal d'activité",
     "NUMBER_COL": "Nombre",
