@@ -105,11 +105,19 @@ function onCloseModal() {
 }
 
 function onViewDomainDetail() {
-  domainStore.setCurrentDomain(selectedDomain.value);
-  if (route.params.domainUuid) {
-    router.push({ name: route.name || undefined, params: { domainUuid: selectedDomain.value.uuid } });
-  } else {
-    router.push({ name: 'ConfigurationDomainDetail', params: { domainUuid: currentDomainUuid.value } });
+  if (selectedDomain.value.uuid !== getCurrentDomain.value.uuid) {
+    domainStore.setCurrentDomain(selectedDomain.value);
+    if (route.params.domainUuid) {
+      router.push({
+        name: route.name || undefined,
+        params: { ...route.params, domainUuid: selectedDomain.value.uuid },
+      });
+    } else {
+      router.push({
+        name: 'ConfigurationDomainDetail',
+        params: { ...route.params, domainUuid: currentDomainUuid.value },
+      });
+    }
   }
   emits('close');
 }
