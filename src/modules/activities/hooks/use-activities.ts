@@ -117,7 +117,7 @@ export function useActivities() {
     domainList.value = response as Domain[];
   }
 
-  watch(activitiesLogs, async (newVal) => {
+  watch(activitiesLogsFormated, async (newVal) => {
     pagination.total = newVal.length;
   });
 
