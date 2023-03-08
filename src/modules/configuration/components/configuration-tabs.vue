@@ -18,6 +18,8 @@ import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '@/modules/auth/store';
 
 interface ConfigurationPage {
   key: string;
@@ -37,11 +39,12 @@ interface ConfigurationPage {
 
 // hooks
 const { redirect } = useLegacyFeatures();
+const authStore = useAuthStore();
 const { breadcrumbs } = useBreadcrumbs();
 const domainStore = useDomainStore();
 const router = useRouter();
 const route = useRoute();
-
+const { loggedUserRole } = storeToRefs(authStore);
 // computed
 const configurationTabsArray = computed(() => {
   const tabs = Object.values(configurationTabs);
@@ -99,7 +102,9 @@ const configurationTabs = reactive({
     legacy: false,
     key: 'QUOTA',
     name: 'ConfigurationDomainQuota',
-    visible: true,
+    visible: computed(() => {
+      return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
+    }),
   },
   ConfigurationDomainRemoteServers: {
     key: 'REMOTE_SERVERS',
