@@ -4,6 +4,7 @@ import { computed, onMounted } from 'vue';
 import { useActivities } from '@/modules/activities/hooks/use-activities';
 import { ActivityLogData } from '@/modules/activities/types';
 import ThePagination from '@/core/components/the-pagination.vue';
+import useRelativeTime from '@/core/hooks/useRelativeTime';
 
 // composable
 const { t } = useI18n();
@@ -54,6 +55,12 @@ const columns = computed(() => [
   },
 ]);
 
+// methods
+function relativeDate(date: number) {
+  const relativeTime = useRelativeTime(date);
+  return relativeTime?.value;
+}
+
 // hooks
 onMounted(() => {
   fetchActivities();
@@ -92,7 +99,7 @@ onMounted(() => {
           <template #title>
             {{ $d(record.dateTime, 'mediumDateTime') }}
           </template>
-          {{ $d(record.dateTime, 'mediumDate') }}
+          {{ relativeDate(record.dateTime) }}
         </a-tooltip>
       </template>
       <template v-if="column.key === 'detail'"> </template>

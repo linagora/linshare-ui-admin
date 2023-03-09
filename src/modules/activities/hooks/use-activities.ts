@@ -9,6 +9,7 @@ import { getActivitiesLogs } from '@/modules/activities/services';
 import { getDomains } from '@/modules/domain/services/domain-api';
 import { useI18n } from 'vue-i18n';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
+import { useAuthStore } from '@/modules/auth/store';
 
 const loading = ref(false);
 const activitiesLogs = ref<ActivityLog[]>([]);
@@ -24,7 +25,7 @@ export function useActivities() {
 
   // data
   const { beginDate, endDate, actions, types, domains, actors, resourceNames } = storeToRefs(useActivitiesStore());
-
+  const { loggedUser } = storeToRefs(useAuthStore());
   // computed
   const filteredListByPage = computed(() => {
     const firstIndex = (pagination.current - 1) * pagination.pageSize;
@@ -33,22 +34,31 @@ export function useActivities() {
   });
 
   const activitiesLogsFormated = computed(() => {
-    const formatedData = activitiesLogs.value.map((item, index) => {
-      return {
-        number: index + 1,
-        domainName: item?.domain?.label || '-',
-        actor: item?.actor?.name || t('ACTIVITIES.ME'),
-        action: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
-        resourceType: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),
-        resourceName: item?.resource?.name || item?.resource?.label || t('ACTIVITIES.ME'),
-        dateTime: item?.creationDate,
-        detail: item?.message,
-      } as ActivityLogData;
-    });
+    const formatedData = activitiesLogs.value
+      .map((item, index) => {
+        return {
+          number: index + 1,
+          domainName: item?.domain?.label || '-',
+          actor: loggedUser.value?.uuid === item?.actor?.uuid ? t('ACTIVITIES.ME') : item?.actor?.name,
+          action: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
+          resourceType: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),
+          resourceName:
+            loggedUser.value?.uuid === item?.resource?.uuid
+              ? t('ACTIVITIES.ME')
+              : item?.resource?.name || item?.resource?.label,
+          dateTime: item?.creationDate,
+          detail: item?.message,
+        } as ActivityLogData;
+      })
+      .sort((a: ActivityLogData, b: ActivityLogData) => b.dateTime - a.dateTime);
 
     let activities = _filterByActors(formatedData);
     activities = _filterByResourceNames(activities);
     return _filterByDomains(activities);
+  });
+
+  const loggedUserId = computed(() => {
+    return loggedUser.value?.uuid;
   });
 
   //methods
