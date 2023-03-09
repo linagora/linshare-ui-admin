@@ -129,7 +129,7 @@ const configurationTabs = reactive({
       requiresCurrentDomain: true,
     },
     visible: computed(() => {
-      return !isSelectingRootDomain.value;
+      return !isSelectingRootDomain.value && loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
     }),
   },
   ConfigurationDomainRemoteFilters: {
