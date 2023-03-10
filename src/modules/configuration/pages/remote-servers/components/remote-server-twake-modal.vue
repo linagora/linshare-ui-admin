@@ -2,6 +2,7 @@
   <a-modal
     :visible="visible"
     :title="editMode ? $t('REMOTE_SERVER.TWAKE.MODAL.EDIT_TITLE') : $t('REMOTE_SERVER.TWAKE.MODAL.CREATE_TITLE')"
+    :destroy-on-close="true"
     @cancel="$emit('cancel')"
   >
     <template #footer>
