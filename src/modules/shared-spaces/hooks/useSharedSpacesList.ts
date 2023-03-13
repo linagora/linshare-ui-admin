@@ -16,7 +16,7 @@ interface Pagination {
 const list = ref<SharedSpace[]>([]);
 const loading = ref(false);
 const filters = ref<SharedSpaceListFilters>({});
-const sorter = reactive<Sort>({ order: SORT_ORDER.ASC });
+const sorter = reactive<Sort>({ order: SORT_ORDER.DESC });
 const pagination = reactive<Pagination>({
   total: 0,
   current: 1,
