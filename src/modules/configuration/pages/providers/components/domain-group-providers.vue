@@ -54,6 +54,8 @@ import { listGroupFilters } from '@/modules/configuration/pages/remote-filters/s
 import { STATUS } from '@/core/types/Status';
 import { storeToRefs } from 'pinia';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
+import { useRouter } from 'vue-router';
+import useProviders from '../hooks/use-providers';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
@@ -63,6 +65,8 @@ interface State {
 }
 
 const domainStore = useDomainStore();
+const { currentRoute, push } = useRouter();
+const { isPageAccessible } = useProviders();
 const { currentDomain, getStatus } = storeToRefs(domainStore);
 const currentDomainStatus = computed<STATUS>(() => getStatus.value('currentDomain'));
 
@@ -109,6 +113,18 @@ async function prepareData() {
 }
 
 onMounted(prepareData);
+
+watch(
+  () => currentRoute.value.fullPath,
+  () => {
+    if (!isPageAccessible('DomainGroupProviders')) {
+      push({
+        name: 'ConfigurationDomainDetail',
+        params: { ...currentRoute.value.params },
+      });
+    }
+  }
+);
 
 watch(currentDomainStatus, async (status: STATUS) => {
   if (status === STATUS.LOADING) {

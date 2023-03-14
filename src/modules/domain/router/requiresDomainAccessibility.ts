@@ -15,7 +15,7 @@ export const requiresDomainAccessibility = (router: Router): void => {
     const { loggedUser } = storeToRefs(authStore);
     const page = findDomainPage(to.name);
 
-    if (page && !canAccessPage(page, loggedUser.value?.role, currentDomain.value.type)) {
+    if (page && !canAccessPage(page, loggedUser.value?.role, currentDomain.value.type) && !to.meta?.noAccessibility) {
       return '/';
     }
   });

@@ -53,6 +53,8 @@ import RemoteServer from '@/modules/configuration/pages/remote-servers/types/Rem
 import { LDAPWorkspaceProvider, EMPTY_PROVIDER } from '../types/WorkspaceProvider';
 import { STATUS } from '@/core/types/Status';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
+import { useRouter } from 'vue-router';
+import useProviders from '../hooks/use-providers';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
@@ -62,6 +64,8 @@ interface State {
 }
 
 const domainStore = useDomainStore();
+const { currentRoute, push } = useRouter();
+const { isPageAccessible } = useProviders();
 const currentDomain = domainStore.currentDomain;
 const currentDomainStatus = computed<STATUS>(() => domainStore.getStatus('currentDomain'));
 
@@ -108,6 +112,18 @@ async function prepareData() {
 }
 
 onMounted(prepareData);
+
+watch(
+  () => currentRoute.value.fullPath,
+  () => {
+    if (!isPageAccessible('DomainWorkspaceProviders')) {
+      push({
+        name: 'ConfigurationDomainDetail',
+        params: { ...currentRoute.value.params },
+      });
+    }
+  }
+);
 
 watch(currentDomainStatus, async (status: STATUS) => {
   if (status === STATUS.LOADING) {

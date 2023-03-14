@@ -29,6 +29,7 @@ export const ConfigurationDomainProvidersRoutes: RouteRecordRaw[] = [
       parentRoute: 'ConfigurationDomainProviders',
       label: 'NAVIGATOR.USER_PROVIDERS',
       requiresAuth: true,
+      noAccessibility: true,
     },
   },
   {
@@ -39,6 +40,7 @@ export const ConfigurationDomainProvidersRoutes: RouteRecordRaw[] = [
       parentRoute: 'ConfigurationDomainProviders',
       label: 'NAVIGATOR.GROUP_PROVIDERS',
       requiresAuth: true,
+      noAccessibility: true,
     },
   },
   {
@@ -49,6 +51,7 @@ export const ConfigurationDomainProvidersRoutes: RouteRecordRaw[] = [
       parentRoute: 'ConfigurationDomainProviders',
       label: 'NAVIGATOR.WORKSPACE_PROVIDERS',
       requiresAuth: true,
+      noAccessibility: true,
     },
   },
 ];
