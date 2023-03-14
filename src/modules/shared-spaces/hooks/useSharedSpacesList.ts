@@ -6,6 +6,8 @@ import { getSharedSpace, listSharedSpaces } from '../services/shared-space-api';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import Sort, { SORT_ORDER } from '@/core/types/Sort';
 import { APIError } from '@/core/types/APIError';
+import { useAuthStore } from '@/modules/auth/store';
+import { storeToRefs } from 'pinia';
 
 interface Pagination {
   total: number;
@@ -14,6 +16,8 @@ interface Pagination {
 }
 
 const list = ref<SharedSpace[]>([]);
+const authStore = useAuthStore();
+const { loggedUser } = storeToRefs(authStore);
 const loading = ref(false);
 const filters = ref<SharedSpaceListFilters>({});
 const sorter = reactive<Sort>({ order: SORT_ORDER.DESC });
@@ -84,7 +88,10 @@ export default function useSharedSpacesList(): UsableSharedSpacesList {
 
     parameters.size = pagination.pageSize;
     parameters.page = pagination.current ? pagination.current - 1 : 0;
-    parameters.account = filters.value.account;
+    parameters.account =
+      filters.value.account != undefined || loggedUser.value?.accountType === 'ROOT'
+        ? filters.value.account
+        : loggedUser.value?.uuid;
     parameters.domains = filters.value.domains;
     parameters.name = filters.value.name;
     parameters.nodeType = filters.value.nodeType;
