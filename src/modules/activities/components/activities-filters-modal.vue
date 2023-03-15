@@ -2,9 +2,11 @@
 import { storeToRefs } from 'pinia';
 import dayjs, { Dayjs } from 'dayjs';
 import { TimePeriod } from '@/core/types/TimePeriod';
-import { computed, reactive, ref, watchEffect } from 'vue';
+import { computed, onMounted, reactive, ref, watchEffect } from 'vue';
+import { getDomains } from '@/modules/domain/services/domain-api';
 import { getDatesFromPeriod, getPeriodFromDate } from '@/core/utils/date';
 import { useActivities } from '@/modules/activities//hooks/use-activities';
+
 import {
   useActivitiesStore,
   ACTIVITIES_ACTION,
@@ -13,6 +15,7 @@ import {
   ActivitiesType,
 } from '@/modules/activities/store';
 import { useI18n } from 'vue-i18n';
+import Domain from '@/modules/domain/types/Domain';
 
 // props & emits
 const emits = defineEmits(['close']);
@@ -44,17 +47,12 @@ const typeOptions = computed(() => {
 });
 
 const domainOptions = computed(() => {
-  const domainArr = activitiesLogsFormated.value
-    ?.filter((item) => {
-      return !!item?.domainName;
-    })
+  const formatedDomains = domainList.value
     ?.map((item) => {
-      return { name: item?.domainName, value: item?.domainName };
-    });
-
-  return domainArr.filter(
-    (value, index, self) => index === self.findIndex((t) => t.name === value.name && t.value === value.value)
-  );
+      return { name: item?.name, value: item?.name };
+    })
+    ?.filter((value, index, self) => index === self.findIndex((t) => t.name === value.name && t.value === value.value));
+  return formatedDomains ? [...formatedDomains] : [];
 });
 
 const actorOptions = computed(() => {
@@ -84,6 +82,7 @@ const resourceNameOptions = computed(() => {
     (value, index, self) => index === self.findIndex((t) => t.name === value.name && t.value === value.value)
   );
 });
+
 // data
 const period = ref<TimePeriod>(getPeriodFromDate(beginDate.value, endDate.value));
 const filterForm = reactive<{
@@ -105,6 +104,7 @@ const filterForm = reactive<{
 const disabledDate = (current: Dayjs) => {
   return current && current > dayjs().endOf('day');
 };
+const domainList = ref<Domain[]>();
 
 // methods
 function apply() {
@@ -136,6 +136,11 @@ function onDateOptionChange(option: TimePeriod) {
   }
 }
 
+async function fetchDomains() {
+  const response = await getDomains({ params: { tree: false } });
+  domainList.value = response as Domain[];
+}
+
 // hooks
 watchEffect(() => {
   if (filterForm.dateRange[0] && filterForm.dateRange[1]) {
@@ -146,6 +151,12 @@ watchEffect(() => {
   filterForm.actions = actions.value;
   filterForm.types = types.value;
   filterForm.resourceNames = resourceNames.value;
+  filterForm.domains = domains.value;
+  filterForm.actors = actors.value;
+});
+
+onMounted(async () => {
+  await fetchDomains();
 });
 </script>
 <template>
