@@ -126,6 +126,7 @@ onMounted(handleTableChange);
           :ok-text="$t('USERS.DETAIL_USER.YES')"
           :cancel-text="$t('USERS.DETAIL_USER.NO')"
           placement="bottom"
+          overlay-class-name="popconfirm-delete"
           @confirm="remove"
         >
           <a-button>{{ $t('USERS.DETAIL_USER.DELETE_USER') }}</a-button>
@@ -191,5 +192,11 @@ onMounted(handleTableChange);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+</style>
+<style lang="less">
+.popconfirm-delete {
+  max-width: 350px;
+  min-width: 350px;
 }
 </style>

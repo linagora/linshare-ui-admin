@@ -8,6 +8,7 @@
           :ok-text="$t('USERS.DETAIL_USER.YES')"
           :cancel-text="$t('USERS.DETAIL_USER.NO')"
           placement="bottom"
+          overlay-class-name="popconfirm-delete"
           @confirm="deleteSpace(sharedSpace)"
         >
           <a-button :loading="deleting">
@@ -262,5 +263,11 @@ watchEffect(() => {
     background: @primary-8;
     color: @text-color-inverse;
   }
+}
+</style>
+<style lang="less">
+.popconfirm-delete {
+  max-width: 350px;
+  min-width: 350px;
 }
 </style>
