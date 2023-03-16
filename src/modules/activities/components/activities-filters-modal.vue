@@ -269,6 +269,12 @@ onMounted(async () => {
 
 <style lang="less">
 .filter-modal {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 !important;
+  top: 0 !important;
   .ant-modal-header {
     border-radius: 16px;
     border-bottom: none;
