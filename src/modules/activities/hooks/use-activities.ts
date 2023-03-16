@@ -38,7 +38,7 @@ export function useActivities() {
       .map((item, index) => {
         return {
           number: index + 1,
-          domainName: item?.domain?.label || '-',
+          domainName: item?.actor?.domain?.label ?? item?.domain?.label ?? '-',
           actor: loggedUser.value?.uuid === item?.actor?.uuid ? t('ACTIVITIES.ME') : item?.actor?.name,
           action: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
           resourceType: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),
