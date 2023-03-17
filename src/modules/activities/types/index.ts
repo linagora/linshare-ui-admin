@@ -1,4 +1,5 @@
 import Domain from '@/modules/domain/types/Domain';
+import User from '@/modules/user/types/User';
 
 export interface ActivityLog {
   type:
@@ -9,21 +10,10 @@ export interface ActivityLog {
     | 'WORK_GROUP'
     | 'WORKGROUP_MEMBER'
     | 'WORKSPACE_FILTER'
-    | 'DOMAIN';
+    | 'DOMAIN'
+    | 'GUEST_MODERATOR';
   uuid: string;
-  authUser: {
-    firstName: string;
-    lastName: string;
-    name: string;
-    mail: string;
-    uuid: string;
-    role: 'SUPERADMIN' | 'ADMIN' | 'GUEST';
-    accountType: 'ROOT';
-    domain: {
-      uuid: string;
-      label: string;
-    };
-  };
+  authUser: User;
   resourceUuid: string;
   action: string;
   creationDate: string | number | Date;
@@ -49,6 +39,8 @@ export interface ActivityLog {
     uuid: string;
     label: string;
     name: string;
+    guest?: User;
+    account?: User;
   };
 }
 

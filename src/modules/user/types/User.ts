@@ -38,4 +38,5 @@ export default interface User {
   role: ACCOUNT_ROLE;
   restricted: boolean;
   authWithOIDC: boolean;
+  name?: string;
 }

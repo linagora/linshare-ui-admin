@@ -42,10 +42,7 @@ export function useActivities() {
           actor: loggedUser.value?.uuid === item?.actor?.uuid ? t('ACTIVITIES.ME') : item?.actor?.name,
           action: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
           resourceType: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),
-          resourceName:
-            loggedUser.value?.uuid === item?.resource?.uuid
-              ? t('ACTIVITIES.ME')
-              : item?.resource?.name || item?.resource?.label,
+          resourceName: _getResourceName(item),
           dateTime: item?.creationDate,
           detail: item?.message,
         } as ActivityLogData;
@@ -125,6 +122,22 @@ export function useActivities() {
   async function fetchDomains() {
     const response = await getDomains({ params: { tree: false } });
     domainList.value = response as Domain[];
+  }
+
+  function _getResourceName(activity: ActivityLog) {
+    if (activity?.type === 'GUEST_MODERATOR') {
+      return activity?.resource?.guest?.name;
+    }
+    switch (activity?.resourceUuid) {
+      case loggedUser.value?.uuid:
+        return t('ACTIVITIES.ME');
+      case activity.actor?.uuid:
+        return activity.actor.name;
+      case activity.domain?.uuid:
+        return activity.domain?.label;
+      default:
+        return activity.resource?.name;
+    }
   }
 
   watch(activitiesLogsFormated, async (newVal) => {
