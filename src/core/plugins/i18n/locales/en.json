@@ -700,6 +700,13 @@
     "ASSIGN_SUCCESS": "Assigned successfully",
     "ASSIGN_CONFIRM": "You are about to assign this welcome message to the current domain. Do you want to proceed?"
   },
+    "MIME_POLICIES": {
+    "CREATE_DESCRIPTION":"Click one the 'Create' button and give a name to your MIME type filter",
+    "FILTER_DESCRIPTION":"Choose the filter that you added than a list of available MIME types is displayed",
+    "ENABLED_DESCRIPTION":"Enable or disable the MIME type you want than save",
+    "MANAGE_DESCRIPTION":"You can than select this filter in <a href='{url}'>{domain_link}</a> menu when you create or edit a domain",
+    "MANAGE_DOMAIN":"Manage domain"
+  },
   "FUNCTIONALITIES": {
     "LIST": {
       "SEARCH_PLACEHOLDER": "Search functionalities by name",
