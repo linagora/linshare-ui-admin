@@ -47,6 +47,7 @@ const columns = computed(() => [
     title: t('ACTIVITIES.DATE_TIME'),
     key: 'dateTime',
     sorter: (a: ActivityLogData, b: ActivityLogData) => a.dateTime - b.dateTime,
+    defaultSortOrder: 'descend',
   },
   {
     title: t('ACTIVITIES.DETAIL'),
@@ -87,9 +88,9 @@ onMounted(() => {
           {{ record.actor }}
           <a-tooltip v-if="record.actorId !== record.authorId">
             <template #title>
-              {{ $t('ACTIVITIES.THIS_ACTION_IS_PERFORMED_BY_TOOLTIP', {by: record.author, of: record.actor}) }}
+              {{ $t('ACTIVITIES.THIS_ACTION_IS_PERFORMED_BY_TOOLTIP', { by: record.author, of: record.actor }) }}
             </template>
-            <InfoCircleFilled class="info-icon"/>
+            <InfoCircleFilled class="info-icon" />
           </a-tooltip>
         </div>
       </template>
@@ -124,7 +125,7 @@ onMounted(() => {
     overflow: hidden;
   }
   &__actor {
-    color: #007AFF;
+    color: #007aff;
   }
 }
 </style>
