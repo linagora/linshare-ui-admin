@@ -8,6 +8,7 @@ export const ConfigurationDomainTypeMinePoliciesRoutes: RouteRecordRaw[] = [
     meta: {
       requiresAuth: true,
       parentRoute: 'Configuration',
+      label: 'NAVIGATOR.TYPE_MIME',
     },
     children: [],
   },

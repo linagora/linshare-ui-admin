@@ -119,7 +119,7 @@
     "WELCOME_MESSAGES": "Messages d'accueil",
     "WELCOME_MESSAGES_MANAGE": "Gestion des messages d'accueil",
     "WELCOME_MESSAGES_NEW": "Nouveau message d'accueil",
-    "TYPE_MIME": "Politiques des types MIME",
+    "TYPE_MIME": "Règles de type MIME",
     "PROVIDERS": "Fournisseurs",
     "QUOTA": "Quota",
     "PUBLIC_KEYS": "Clés publiques (JWT)",

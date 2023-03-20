@@ -119,7 +119,7 @@
     "WELCOME_MESSAGES": "Приветственные сообщения",
     "WELCOME_MESSAGES_MANAGE": "Управление приветственным сообщением",
     "WELCOME_MESSAGES_NEW": "Новое приветственное сообщение",
-    "TYPE_MIME": "Введите политики MIME",
+    "TYPE_MIME": "Правила типа Mime",
     "PROVIDERS": "Провайдеры",
     "QUOTA": "Квота",
     "PUBLIC_KEYS": "Открытые ключи",

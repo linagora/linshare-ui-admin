@@ -121,7 +121,7 @@
     "WELCOME_MESSAGES": "Welcome messages",
     "WELCOME_MESSAGES_MANAGE": "Manage welcome message",
     "WELCOME_MESSAGES_NEW": "New welcome message",
-    "TYPE_MIME": "Type mime policies",
+    "TYPE_MIME": "Mime policies",
     "PROVIDERS": "Providers",
     "QUOTA": "Quota",
     "PUBLIC_KEYS": "Public keys (JWT)",
