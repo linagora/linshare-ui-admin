@@ -20,7 +20,7 @@
       </a-alert>
     </div>
     <div class="actions">
-      <a-input :placeholder="$t('GENERAL.SEARCH_BY_NAME')" class="searchbox" allow-clear>
+      <a-input v-model:value="filterText" :placeholder="$t('GENERAL.SEARCH_BY_NAME')" class="searchbox" allow-clear>
         <template #prefix>
           <SearchOutlined />
         </template>
@@ -33,14 +33,17 @@
       </a-button>
     </div>
   </div>
+  <MimesTable></MimesTable>
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
+import MimesTable from '../components/mime-plolicies-table.vue';
+import useMimesPolicies from '../hooks/useMimePolicies';
 
 const route = useRoute();
-const router = useRouter();
+const { filterText } = useMimesPolicies();
 const domainLink = window.location.origin;
 const currentDomainUuid = computed(() => {
   return route.params.domainUuid;
