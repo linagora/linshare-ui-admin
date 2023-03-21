@@ -44,12 +44,13 @@ export interface ActivityLog {
   };
 }
 
-export interface ActivityLogData {
+export interface ActivityLogData extends ActivityLog {
   number: number;
   domainName: string;
-  actor: string;
-  action: string;
-  resourceType: string;
+  actorName: string;
+  authorName: string;
+  actionName: string;
+  resourceTypeName: string;
   resourceName: string;
   dateTime: number;
   detail: string;

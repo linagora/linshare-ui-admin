@@ -1515,8 +1515,877 @@
       "FILTER_BEGINNING_DATE": "Beginning date",
       "FILTER_ENDING_DATE": "Ending date",
       "SEARCH": "Search"
+    },
+    "DETAILS_POPUP": {
+      "BY": "By {user}",
+      "MODIFICATIONS": "Modification(s)",
+      "SENTENCES": {
+        "ANONYMOUS_SHARE_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have shared the file : {resourceName} with {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has shared the file : {resourceName} with you.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the file share : {resourceName}, intended for {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the file share : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "VIEWER": {
+              "SENTENCE": "{authorName} has downloaded your file share : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "ADMIN": {
+              "SENTENCE": "{authorName} has downloaded the file share : {resourceName}, sent by {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Your file share : {resourceName} intended for {userVarious} has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName}'s file share : {resourceName} intended for {userVarious} has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "READ": {
+            "VIEWER": {
+              "SENTENCE": "{authorName} has viewed your file share sent the {dateVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.READ"
+            },
+            "ADMIN": {
+              "SENTENCE": "{authorName} has viewed the file share sent the {dateVarious}, by {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.READ"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the file share : {resourceName}, intended for {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the file share : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            }
+          }
+        },
+        "AUTHENTICATION": {
+          "FAILURE": {
+            "AUTHOR": {
+              "SENTENCE": "You have tried to login with bad credentials.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has tried to login with bad credentials.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            }
+          },
+          "SUCCESS": {
+            "AUTHOR": {
+              "SENTENCE": "You have successfully logged in.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has successfully logged in.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            }
+          }
+        },
+        "CONTACTS_LISTS": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new Contact List : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new Contact List : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the Contact List : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the Contact List : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the Contact List : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the Contact List : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "CONTACTS_LISTS_CONTACTS": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have added : {resourceName} to the Contact List {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has added : {resourceName} to the Contact List {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have removed : {resourceName} from the Contact List {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has removed : {resourceName} from the Contact List {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited : {resourceName} from the Contact List {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited : {resourceName} from the Contact List {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "DOCUMENT_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have uploaded a new file : {resourceName} into your Personal Space.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            }
+          },
+          "COPY": {
+            "AUTHOR": {
+              "SENTENCE": "You have transferred the file : {resourceName} into your Personal Space.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has transferred the file : {resourceName} into his Personal Space.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the file : {resourceName} from your Personal Space.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "AUTHOR": {
+              "SENTENCE": "You have downloaded the file : {resourceName} from your Personal Space.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Your document : {resourceName} has been removed from your Personal Space since the file has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName}'s document : {resourceName} has been removed from the Personal Space since the file has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "INCONSISTENCY": {
+            "AUTHOR": {
+              "SENTENCE": "Your document : {resourceName} has been removed from your Personal Space because the file could not be found.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{userVarious}'s document : {resourceName} has been removed from the Personal Space because the file could not be found.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the file : {resourceName} from your Personal Space.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "DRIVE": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new DRIVE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new DRIVE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the DRIVE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the DRIVE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the DRIVE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the DRIVE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "DRIVE_MEMBER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You added a new member: {resourceName} to the DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has added a new member: {resourceName} to the DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have removed the member: {resourceName} from the DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has removed the member: {resourceName} from the DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the member: {resourceName} from the DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the member: {resourceName} from the DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "DRIVE_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the Drive : {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the Drive : {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "WORK_SPACE": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new WORKSPACE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new WORKSPACE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the WORKSPACE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the WORKSPACE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the WORKSPACE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the WORKSPACE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORK_SPACE_MEMBER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You added a new member: {resourceName} to the WORKSPACE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has added a new member: {resourceName} to the WORKSPACE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have removed the member: {resourceName} from the WORKSPACE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has removed the member: {resourceName} from the WORKSPACE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the member: {resourceName} from the WORKSPACE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the member: {resourceName} from the WORKSPACE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "WORKSPACE_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the WORKSPACE : {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the WORKSPACE : {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "GUEST": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new Guest Account for : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new Guest Account for : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the Guest Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the Guest Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "The Guest Account of : {userVarious} has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName}'s Guest Account : {userVarious} has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the Guest Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the Guest Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "CHANGE_PASSWORD": {
+            "AUTHOR": {
+              "SENTENCE": "You have changed your account's password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has changed his account's password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "USER": {
+          "SECOND_FACTOR_SHARED_KEY_CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You enabled Second Factor authentication (shared key created): {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has enabled Second Factor authentication (shared key created): {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "SECOND_FACTOR_SHARED_KEY_DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You disabled Second Factor authentication (shared key removed): {userVarious}",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has disabled Second Factor authentication (shared key removed): {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new User Account for : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new User Account for : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the User Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the User Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "The User Account of : {userVarious} has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName}'s User Account : {userVarious} has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the User Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the User Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "CHANGE_PASSWORD": {
+            "AUTHOR": {
+              "SENTENCE": "You have changed your account's password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has changed his account's password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "JWT_PERMANENT_TOKEN": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created the permanent access token : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created the permanent access token : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the permanent access token : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the permanent access token : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have updated the permanent access token : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has updated the permanent access token : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "SHARE_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have shared the file : {resourceName} with {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has shared the file : {resourceName} with you.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            }
+          },
+          "COPY": {
+            "AUTHOR": {
+              "SENTENCE": "The file share : {resourceName} from {userVarious} has been removed from the Received Shares since you have transferred the file into your Personal Space.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            },
+            "VIEWER": {
+              "SENTENCE": "The file share : {resourceName} has been removed from the Received Shares since {authorName} has transferred the file into the Personal Space.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the file share : {resourceName}, intended for {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the file share : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "AUTHOR": {
+              "SENTENCE": "You have downloaded the file share : {resourceName}, sent by {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has downloaded your file share : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Your file share : {resourceName} intended for {userVarious} has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName}'s file share : {resourceName} intended for {userVarious} has expired.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the file share : {resourceName}, intended for {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the file share : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORK_GROUP": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the Workgroup : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP_DOCUMENT": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have uploaded a new file : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has uploaded a new file : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            }
+          },
+          "COPY": {
+            "AUTHOR": {
+              "SENTENCE": "You have copied the file : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has copied the file : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "AUTHOR": {
+              "SENTENCE": "You have downloaded the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has downloaded the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP_FOLDER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new folder : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new folder : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the folder : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the folder : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the folder : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the folder : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP_MEMBER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have added a new member : {resourceName} to the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has added a new member : {resourceName} to the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have removed the member : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has removed the member : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the member : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the member : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "WORKGROUP_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the Workgroup : {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the Workgroup : {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "UPLOAD_REQUEST": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created an upload request named : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created an upload request named: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have updated the upload request : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has updated the upload request: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "UPLOAD_REQUEST_URL": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "An upload request URL was created from the upload request : {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "An upload request URL was created from the upload request : {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          }
+        },
+        "UPLOAD_REQUEST_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "File {resourceName} has been uploaded.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "File {resourceName} has been uploaded.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the document : {resourceName}",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the document : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "DOMAIN": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        }
+      }  
     }
-
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Select your language"

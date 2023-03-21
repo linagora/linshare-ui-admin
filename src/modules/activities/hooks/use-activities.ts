@@ -37,13 +37,15 @@ export function useActivities() {
     const formatedData = activitiesLogs.value
       .map((item, index) => {
         return {
+          ...item,
           number: index + 1,
           domainName: item?.actor?.domain?.label ?? item?.domain?.label ?? '-',
-          actor: loggedUser.value?.uuid === item?.actor?.uuid ? t('ACTIVITIES.ME') : item?.actor?.name,
-          action: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
-          resourceType: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),
+          actorName: loggedUser.value?.uuid === item?.actor?.uuid ? t('ACTIVITIES.ME') : item?.actor?.name,
+          actionName: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
+          resourceTypeName: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),
           resourceName: _getResourceName(item),
           dateTime: item?.creationDate,
+          authorName: item?.authUser?.name,
           detail: item?.message,
         } as ActivityLogData;
       })
@@ -96,9 +98,9 @@ export function useActivities() {
   function _filterByActors(logs: ActivityLogData[]) {
     const filtedActors = logs.filter((item) => {
       return actors.value?.length
-        ? actors.value?.includes(item?.actor) ||
+        ? actors.value?.includes(item?.actorName) ||
             actors.value?.some((actor) => {
-              return item?.actor?.toLowerCase().includes(actor.toLowerCase());
+              return item?.actorName?.toLowerCase().includes(actor.toLowerCase());
             })
         : true;
     });
