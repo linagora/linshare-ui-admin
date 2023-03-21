@@ -1387,7 +1387,7 @@
     "DOMAIN_NOT_FOUND": "Không tồn tại domain tương ứng"
   },
   "ACTIVITIES": {
-    "THIS_ACTION_IS_PERFORMED_BY_TOOLTIP": "This action is performed by {by} on behalf of {of}",
+    "THIS_ACTION_IS_PERFORMED_BY_TOOLTIP": "This action is performed bởi {by} on behalf of {of}",
     "INTRODUCTION": "Ghi nhật ký tất cả các hoạt động của người dùng trên LinShare",
     "ACTIVITY_LOG": "Nhật ký hoạt động",
     "NUMBER_COL": "Số dòng",
@@ -1435,26 +1435,26 @@
     "ENABLED": "Kích hoạt",  
     "FILTERS_SELECT": {
       "ACTION": {
-        "ADDITION": "Addition",
-        "ALL": "All",
+        "ADDITION": "Phép cộng",
+        "ALL": "Tất cả",
         "COPY": "Sao chép",
         "CREATE": "Tạo",
-        "CREATE_SHARE": "Share sent",
+        "CREATE_SHARE": "chia sẻ đã gửi",
         "DELETE": "Xóa",
         "DOWNLOAD": "Lượt tải",
         "FAILURE": "Thất bại",
         "READ": "Đọc",
-        "RECEIVE_SHARE": "Received share",
+        "RECEIVE_SHARE": "Đã nhận được chia sẻ",
         "SUCCESS": "Thành công",
         "TRANSFER": "Transfer",
         "UPDATE": "Cập nhật",
         "UPLOAD": "Tải lên",
-        "VIEWED": "Viewed",
+        "VIEWED": "Đã xem",
         "PURGE": "Thanh lọc",
         "GET": "Truy vấn"
       },
       "TYPE": {
-        "ALL": "All",
+        "ALL": "Tất cả",
         "ANONYMOUS_SHARE_ENTRY": "Chia sẻ ẩn danh",
         "AUTHENTICATION": "Xác thực",
         "CONTACTS_LISTS": "Danh sách liên hệ",
@@ -1497,81 +1497,81 @@
     "TABLE_HEADER": {
       "ACTION": "Hoạt động",
       "ACTOR": "Nhân tố",
-      "DATE": "Date",
+      "DATE": "Ngày",
       "DETAIL": "Chi tiết",
-      "RECIPIENT": "Recipient",
+      "RECIPIENT": "Người nhận",
       "RESOURCE_NAME": "Tên tài nguyên",
       "RESOURCE_TYPE": "Loại tài nguyên"
     },
     "TOOLBAR": {
-      "ORDER_BY": "Order by",
-      "FILTER_BEGINNING_DATE": "Beginning date",
-      "FILTER_ENDING_DATE": "Ending date",
+      "ORDER_BY": "Đặt bởi",
+      "FILTER_BEGINNING_DATE": "Ngày bắt đầu",
+      "FILTER_ENDING_DATE": "Ngày kết thúc",
       "SEARCH": "Tìm kiếm"
     },
     
     "DETAILS_POPUP": {
-      "BY": "By {user}",
-      "MODIFICATIONS": "Modification(s)",
+      "BY": "Bởi {user}",
+      "MODIFICATIONS": "Sửa đổi(s)",
       "SENTENCES": {
         "ANONYMOUS_SHARE_ENTRY": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have shared the file : {resourceName} with {userVarious}.",
+              "SENTENCE": "Bạn đã chia sẻ tệp: {resourceName} với {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has shared the file : {resourceName} with you.",
+              "SENTENCE": "{authorName} đã chia sẻ tập tin: {resourceName} với bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the file share : {resourceName}, intended for {userVarious}.",
+              "SENTENCE": "Bạn đã xóa tệp chia sẻ: {resourceName}, dự định cho {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the file share : {resourceName}.",
+              "SENTENCE": "{authorName} đã xóa tệp chia sẻ: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "DOWNLOAD": {
             "VIEWER": {
-              "SENTENCE": "{authorName} has downloaded your file share : {resourceName}.",
+              "SENTENCE": "{authorName} đã tải xuống tệp chia sẻ của bạn: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "ADMIN": {
-              "SENTENCE": "{authorName} has downloaded the file share : {resourceName}, sent by {userVarious}.",
+              "SENTENCE": "{authorName} đã tải xuống tệp chia sẻ: {resourceName}, gửi bởi {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "Your file share : {resourceName} intended for {userVarious} has expired.",
+              "SENTENCE": "Chia sẻ tập tin của bạn: {resourceName} dự định cho {userVarious} đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName}'s file share : {resourceName} intended for {userVarious} has expired.",
+              "SENTENCE": "{authorName}chia sẻ tập tin : {resourceName} dự định cho {userVarious} đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "READ": {
             "VIEWER": {
-              "SENTENCE": "{authorName} has viewed your file share sent the {dateVarious}.",
+              "SENTENCE": "{authorName} đã xem tệp chia sẻ của bạn đã gửi {dateVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.READ"
             },
             "ADMIN": {
-              "SENTENCE": "{authorName} has viewed the file share sent the {dateVarious}, by {userVarious}.",
+              "SENTENCE": "{authorName} đã xem các tập tin chia sẻ gửi {dateVarious}, bởi {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.READ"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the file share : {resourceName}, intended for {userVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa tệp chia sẻ: {resourceName}, dự định cho {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the file share : {resourceName}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa tệp chia sẻ: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             }
           }
@@ -1579,21 +1579,21 @@
         "AUTHENTICATION": {
           "FAILURE": {
             "AUTHOR": {
-              "SENTENCE": "You have tried to login with bad credentials.",
+              "SENTENCE": "Bạn đã cố gắng đăng nhập bằng thông tin xác thực không hợp lệ.",
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has tried to login with bad credentials.",
+              "SENTENCE": "{authorName} đã cố gắng đăng nhập bằng thông tin xác thực không hợp lệ.",
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             }
           },
           "SUCCESS": {
             "AUTHOR": {
-              "SENTENCE": "You have successfully logged in.",
+              "SENTENCE": "Bạn đã đăng nhập thành công.",
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has successfully logged in.",
+              "SENTENCE": "{authorName} đã đăng nhập thành công.",
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             }
           }
@@ -1601,31 +1601,31 @@
         "CONTACTS_LISTS": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created a new Contact List : {resourceName}.",
+              "SENTENCE": "Bạn đã tạo Danh sách Liên hệ mới : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created a new Contact List : {resourceName}.",
+              "SENTENCE": "{authorName} đã tạo Danh sách Liên hệ mới : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the Contact List : {resourceName}.",
+              "SENTENCE": "Bạn đã xóa Danh sách Liên hệ : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the Contact List : {resourceName}.",
+              "SENTENCE": "{authorName} đã xóa Danh sách Liên hệ : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the Contact List : {resourceName}.",
+              "SENTENCE": "Bạn đã chỉnh sửa Danh sách liên hệ : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the Contact List : {resourceName}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa Danh sách Liên hệ: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1633,31 +1633,31 @@
         "CONTACTS_LISTS_CONTACTS": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have added : {resourceName} to the Contact List {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã thêm : {resourceName} vào Danh sách liên hệ {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has added : {resourceName} to the Contact List {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã thêm : {resourceName} vào Danh sách liên hệ {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have removed : {resourceName} from the Contact List {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã loại bỏ: {resourceName} từ Danh sách liên hệ {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has removed : {resourceName} from the Contact List {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã loại bỏ: {resourceName} từ Danh sách liên hệ {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited : {resourceName} from the Contact List {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa: {resourceName} từ Danh sách liên hệ {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited : {resourceName} from the Contact List {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa: {resourceName} từ Danh sách liên hệ {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1665,71 +1665,71 @@
         "DOCUMENT_ENTRY": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have uploaded a new file : {resourceName} into your Personal Space.",
+              "SENTENCE": "Bạn đã tải lên một tệp mới: {resourceName} vào Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} đã tải lên một tập tin mới: {resourceName} vào Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             }
           },
           "COPY": {
             "AUTHOR": {
-              "SENTENCE": "You have transferred the file : {resourceName} into your Personal Space.",
+              "SENTENCE": "Bạn đã chuyển tập tin: {resourceName} vào Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has transferred the file : {resourceName} into his Personal Space.",
+              "SENTENCE": "{authorName} đã chuyển tập tin: {resourceName} vào Không gian cá nhân của anh ấy.",
               "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the file : {resourceName} from your Personal Space.",
+              "SENTENCE": "Bạn đã xóa tệp: {resourceName} từ Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} đã xóa tập tin: {resourceName} từ Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "DOWNLOAD": {
             "AUTHOR": {
-              "SENTENCE": "You have downloaded the file : {resourceName} from your Personal Space.",
+              "SENTENCE": "Bạn đã tải xuống tệp: {resourceName} từ Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} đã tải xuống tệp: {resourceName} từ Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "Your document : {resourceName} has been removed from your Personal Space since the file has expired.",
+              "SENTENCE": "Tài liệu của bạn: {resourceName} đã bị xóa khỏi Không gian cá nhân của bạn kể từ khi tệp đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName}'s document : {resourceName} has been removed from the Personal Space since the file has expired.",
+              "SENTENCE": "{authorName}'s tài liệu : {resourceName} đã bị xóa khỏi Không gian cá nhân kể từ khi tệp đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "INCONSISTENCY": {
             "AUTHOR": {
-              "SENTENCE": "Your document : {resourceName} has been removed from your Personal Space because the file could not be found.",
+              "SENTENCE": "Tài liệu của bạn: {resourceName} đã bị xóa khỏi Không gian cá nhân của bạn vì không thể tìm thấy tệp.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{userVarious}'s document : {resourceName} has been removed from the Personal Space because the file could not be found.",
+              "SENTENCE": "{userVarious}'s tài liệu : {resourceName} đã bị xóa khỏi Không gian cá nhân vì không thể tìm thấy tệp.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the file : {resourceName} from your Personal Space.",
+              "SENTENCE": "Bạn đã chỉnh sửa tệp: {resourceName} từ Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} đã chỉnh sửa tập tin: {resourceName} từ Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1737,31 +1737,31 @@
         "DRIVE": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created a new DRIVE: {resourceName}.",
+              "SENTENCE": "Bạn đã tạo một DRIVE mới: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created a new DRIVE: {resourceName}.",
+              "SENTENCE": "{authorName} đã tạo một DRIVE mới: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the DRIVE: {resourceName}.",
+              "SENTENCE": "Bạn đã xóa DRIVE: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the DRIVE: {resourceName}.",
+              "SENTENCE": "{authorName} đã xóa DRIVE: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the DRIVE: {resourceName}.",
+              "SENTENCE": "Bạn đã chỉnh sửa DRIVE: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the DRIVE: {resourceName}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa DRIVE: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1769,41 +1769,41 @@
         "DRIVE_MEMBER": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You added a new member: {resourceName} to the DRIVE {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã thêm một thành viên mới: {resourceName} đến DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has added a new member: {resourceName} to the DRIVE {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã thêm một thành viên mới: {resourceName} đến DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have removed the member: {resourceName} from the DRIVE {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã xóa thành viên: {resourceName} từ DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has removed the member: {resourceName} from the DRIVE {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã xóa thành viên: {resourceName} từ DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the member: {resourceName} from the DRIVE {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa thành viên: {resourceName} từ DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the member: {resourceName} from the DRIVE {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa thành viên: {resourceName} từ DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "DRIVE_DELETION": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the Drive : {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã xóa Drive : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the Drive : {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã xóa Drive : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
@@ -1811,31 +1811,31 @@
         "WORK_SPACE": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created a new WORKSPACE: {resourceName}.",
+              "SENTENCE": "Bạn đã tạo một KHÔNG GIAN LÀM VIỆC mới: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created a new WORKSPACE: {resourceName}.",
+              "SENTENCE": "{authorName} đã tạo một KHÔNG GIAN LÀM VIỆC mới: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the WORKSPACE: {resourceName}.",
+              "SENTENCE": "Bạn đã xóa KHÔNG GIAN LÀM VIỆC: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the WORKSPACE: {resourceName}.",
+              "SENTENCE": "{authorName} đã xóa KHÔNG GIAN LÀM VIỆC: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the WORKSPACE: {resourceName}.",
+              "SENTENCE": "Bạn đã chỉnh sửa KHÔNG GIAN LÀM VIỆC: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the WORKSPACE: {resourceName}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa KHÔNG GIAN LÀM VIỆC: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1843,41 +1843,41 @@
         "WORK_SPACE_MEMBER": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You added a new member: {resourceName} to the WORKSPACE {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã thêm một thành viên mới: {resourceName} đến KHÔNG GIAN LÀM VIỆC {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has added a new member: {resourceName} to the WORKSPACE {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã thêm một thành viên mới: {resourceName} đến KHÔNG GIAN LÀM VIỆC {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have removed the member: {resourceName} from the WORKSPACE {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã xóa thành viên: {resourceName} từ KHÔNG GIAN LÀM VIỆC {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has removed the member: {resourceName} from the WORKSPACE {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã xóa thành viên: {resourceName} từ KHÔNG GIAN LÀM VIỆC {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the member: {resourceName} from the WORKSPACE {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa thành viên: {resourceName} từ KHÔNG GIAN LÀM VIỆC {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the member: {resourceName} from the WORKSPACE {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa thành viên: {resourceName} từ KHÔNG GIAN LÀM VIỆC {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "WORKSPACE_DELETION": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the WORKSPACE : {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã xóa KHÔNG GIAN LÀM VIỆC : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the WORKSPACE : {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã xóa KHÔNG GIAN LÀM VIỆC : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
@@ -1885,51 +1885,51 @@
         "GUEST": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created a new Guest Account for : {userVarious}.",
+              "SENTENCE": "Bạn đã tạo một Tài khoản khách mới cho: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created a new Guest Account for : {userVarious}.",
+              "SENTENCE": "{authorName} đã tạo Tài khoản khách mới cho: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the Guest Account of : {userVarious}.",
+              "SENTENCE": "Bạn đã xóa Tài khoản khách của: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the Guest Account of : {userVarious}.",
+              "SENTENCE": "{authorName} đã xóa Tài khoản khách của: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "The Guest Account of : {userVarious} has expired.",
+              "SENTENCE": "Tài khoản khách của: {userVarious} đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName}'s Guest Account : {userVarious} has expired.",
+              "SENTENCE": "{authorName}'s Tài khoản khách: {userVarious} đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the Guest Account of : {userVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa Tài khoản khách của: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the Guest Account of : {userVarious}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa Tài khoản khách của: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "CHANGE_PASSWORD": {
             "AUTHOR": {
-              "SENTENCE": "You have changed your account's password.",
+              "SENTENCE": "Bạn đã thay đổi mật khẩu tài khoản của mình.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has changed his account's password.",
+              "SENTENCE": "{authorName} đã thay đổi mật khẩu tài khoản của mình.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1937,71 +1937,71 @@
         "USER": {
           "SECOND_FACTOR_SHARED_KEY_CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You enabled Second Factor authentication (shared key created): {userVarious}.",
+              "SENTENCE": "Bạn đã bật xác thực Yếu tố thứ hai (đã tạo khóa chia sẻ): {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has enabled Second Factor authentication (shared key created): {userVarious}.",
+              "SENTENCE": "{authorName} đã bật xác thực Yếu tố thứ hai (đã tạo khóa chia sẻ): {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "SECOND_FACTOR_SHARED_KEY_DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You disabled Second Factor authentication (shared key removed): {userVarious}",
+              "SENTENCE": "Bạn đã tắt xác thực Yếu tố thứ hai (đã xóa khóa dùng chung): {userVarious}",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has disabled Second Factor authentication (shared key removed): {userVarious}.",
+              "SENTENCE": "{authorName} đã tắt xác thực Yếu tố thứ hai (đã xóa khóa dùng chung): {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created a new User Account for : {userVarious}.",
+              "SENTENCE": "Bạn đã tạo một Tài khoản người dùng mới cho: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created a new User Account for : {userVarious}.",
+              "SENTENCE": "{authorName} đã tạo Tài khoản người dùng mới cho: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the User Account of : {userVarious}.",
+              "SENTENCE": "Bạn đã xóa Tài khoản Người dùng của: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the User Account of : {userVarious}.",
+              "SENTENCE": "{authorName} đã xóa Tài khoản Người dùng của: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "The User Account of : {userVarious} has expired.",
+              "SENTENCE": "Tài khoản người dùng của: {userVarious} đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName}'s User Account : {userVarious} has expired.",
+              "SENTENCE": "{authorName}'s Tài khoản người dùng : {userVarious} đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the User Account of : {userVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa Tài khoản người dùng của: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the User Account of : {userVarious}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa Tài khoản Người dùng của: {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "CHANGE_PASSWORD": {
             "AUTHOR": {
-              "SENTENCE": "You have changed your account's password.",
+              "SENTENCE": "Bạn đã thay đổi mật khẩu tài khoản của mình.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has changed his account's password.",
+              "SENTENCE": "{authorName} đã thay đổi mật khẩu tài khoản của mình.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2009,31 +2009,31 @@
         "JWT_PERMANENT_TOKEN": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created the permanent access token : {resourceName}.",
+              "SENTENCE": "Bạn đã tạo mã thông báo truy cập vĩnh viễn: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created the permanent access token : {resourceName}.",
+              "SENTENCE": "{authorName} đã tạo mã thông báo truy cập vĩnh viễn: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the permanent access token : {resourceName}.",
+              "SENTENCE": "Bạn đã xóa mã thông báo truy cập vĩnh viễn : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the permanent access token : {resourceName}.",
+              "SENTENCE": "{authorName} đã xóa mã thông báo truy cập vĩnh viễn: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have updated the permanent access token : {resourceName}.",
+              "SENTENCE": "Bạn đã cập nhật mã thông báo truy cập vĩnh viễn: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has updated the permanent access token : {resourceName}.",
+              "SENTENCE": "{authorName} đã cập nhật mã thông báo truy cập vĩnh viễn: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2041,61 +2041,61 @@
         "SHARE_ENTRY": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have shared the file : {resourceName} with {userVarious}.",
+              "SENTENCE": "Bạn đã chia sẻ tệp: {resourceName} với {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has shared the file : {resourceName} with you.",
+              "SENTENCE": "{authorName} đã chia sẻ tập tin: {resourceName} với bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },
           "COPY": {
             "AUTHOR": {
-              "SENTENCE": "The file share : {resourceName} from {userVarious} has been removed from the Received Shares since you have transferred the file into your Personal Space.",
+              "SENTENCE": "Tệp chia sẻ: {resourceName} from {userVarious} đã bị xóa khỏi Các chia sẻ đã nhận kể từ khi bạn chuyển tệp vào Không gian cá nhân của bạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
             },
             "VIEWER": {
-              "SENTENCE": "The file share : {resourceName} has been removed from the Received Shares since {authorName} has transferred the file into the Personal Space.",
+              "SENTENCE": "Tệp chia sẻ: {resourceName} đã bị xóa khỏi Cổ phiếu đã nhận kể từ {authorName} đã chuyển tệp vào Không gian cá nhân.",
               "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the file share : {resourceName}, intended for {userVarious}.",
+              "SENTENCE": "Bạn đã xóa tệp chia sẻ: {resourceName}, dự định cho {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the file share : {resourceName}.",
+              "SENTENCE": "{authorName} đã xóa tệp chia sẻ: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "DOWNLOAD": {
             "AUTHOR": {
-              "SENTENCE": "You have downloaded the file share : {resourceName}, sent by {userVarious}.",
+              "SENTENCE": "Bạn đã tải xuống tệp chia sẻ: {resourceName}, gửi bởi {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has downloaded your file share : {resourceName}.",
+              "SENTENCE": "{authorName} đã tải xuống tệp chia sẻ của bạn: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "Your file share : {resourceName} intended for {userVarious} has expired.",
+              "SENTENCE": "Chia sẻ tập tin của bạn: {resourceName} dự định cho {userVarious} đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName}'s file share : {resourceName} intended for {userVarious} has expired.",
+              "SENTENCE": "{authorName} chia sẻ tập tin : {resourceName} dự định cho {userVarious} đã hết hạn.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the file share : {resourceName}, intended for {userVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa tệp chia sẻ: {resourceName}, dự định cho {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the file share : {resourceName}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa tệp chia sẻ: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2103,31 +2103,31 @@
         "WORKGROUP": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created a new Workgroup : {resourceName}.",
+              "SENTENCE": "Bạn đã tạo một Nhóm làm việc mới: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created a new Workgroup : {resourceName}.",
+              "SENTENCE": "{authorName} đã tạo một Nhóm làm việc mới: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the Workgroup : {resourceName}.",
+              "SENTENCE": "Bạn đã xóa Nhóm làm việc : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the Workgroup : {resourceName}.",
+              "SENTENCE": "{authorName} đã xóa Nhóm làm việc: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the Workgroup : {resourceName}.",
+              "SENTENCE": "Bạn đã chỉnh sửa Nhóm làm việc: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the Workgroup : {resourceName}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa Nhóm làm việc: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2135,31 +2135,31 @@
         "WORK_GROUP": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created a new Workgroup : {resourceName}.",
+              "SENTENCE": "Bạn đã tạo một Nhóm làm việc mới: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created a new Workgroup : {resourceName}.",
+              "SENTENCE": "{authorName} đã tạo một Nhóm làm việc mới: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the Workgroup : {resourceName}.",
+              "SENTENCE": "Bạn đã xóa Nhóm làm việc : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the Workgroup : {resourceName}.",
+              "SENTENCE": "{authorName} đã xóa Nhóm làm việc: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the Workgroup : {resourceName}.",
+              "SENTENCE": "Bạn đã chỉnh sửa Nhóm làm việc: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the Workgroup : {resourceName}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa Nhóm làm việc: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2167,51 +2167,51 @@
         "WORKGROUP_DOCUMENT": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have uploaded a new file : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã tải lên một tệp mới: {resourceName} đến nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has uploaded a new file : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã tải lên một tập tin mới: {resourceName} đến nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             }
           },
           "COPY": {
             "AUTHOR": {
-              "SENTENCE": "You have copied the file : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã sao chép tệp: {resourceName} đến nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has copied the file : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã sao chép tập tin: {resourceName} đến nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã xóa tệp: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã xóa tập tin: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "DOWNLOAD": {
             "AUTHOR": {
-              "SENTENCE": "You have downloaded the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã tải xuống tệp: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has downloaded the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã tải xuống tệp: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa tệp: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the file : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa tập tin: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2219,31 +2219,31 @@
         "WORKGROUP_FOLDER": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created a new folder : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã tạo một thư mục mới: {resourceName} đến nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created a new folder : {resourceName} into the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã tạo một thư mục mới: {resourceName} đến nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the folder : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã xóa thư mục: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the folder : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã xóa thư mục: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the folder : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa thư mục: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the folder : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa thư mục: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2251,41 +2251,41 @@
         "WORKGROUP_MEMBER": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have added a new member : {resourceName} to the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã thêm một thành viên mới: {resourceName} đến nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has added a new member : {resourceName} to the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã thêm một thành viên mới: {resourceName} đến nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have removed the member : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã xóa thành viên: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has removed the member : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã xóa thành viên: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have edited the member : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã chỉnh sửa thành viên: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has edited the member : {resourceName} from the Workgroup {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã chỉnh sửa thành viên: {resourceName} từ nhóm làm việc {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "WORKGROUP_DELETION": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the Workgroup : {resourceNameVarious}.",
+              "SENTENCE": "Bạn đã xóa Nhóm làm việc : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the Workgroup : {resourceNameVarious}.",
+              "SENTENCE": "{authorName} đã xóa Nhóm làm việc: {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
@@ -2293,21 +2293,21 @@
         "UPLOAD_REQUEST": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "You have created an upload request named : {resourceName}.",
+              "SENTENCE": "Bạn đã tạo một yêu cầu tải lên có tên: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has created an upload request named: {resourceName}.",
+              "SENTENCE": "{authorName} đã tạo một yêu cầu tải lên có tên: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "You have updated the upload request : {resourceName}.",
+              "SENTENCE": "Bạn đã cập nhật yêu cầu tải lên: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has updated the upload request: {resourceName}.",
+              "SENTENCE": "{authorName} đã cập nhật yêu cầu tải lên: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2315,11 +2315,11 @@
         "UPLOAD_REQUEST_URL": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "An upload request URL was created from the upload request : {resourceNameVarious}.",
+              "SENTENCE": "URL yêu cầu tải lên đã được tạo từ yêu cầu tải lên : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "An upload request URL was created from the upload request : {resourceNameVarious}.",
+              "SENTENCE": "URL yêu cầu tải lên đã được tạo từ yêu cầu tải lên : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           }
@@ -2327,22 +2327,54 @@
         "UPLOAD_REQUEST_ENTRY": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "File {resourceName} has been uploaded.",
+              "SENTENCE": "File {resourceName} dã được tải lên.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "File {resourceName} has been uploaded.",
+              "SENTENCE": "File {resourceName} dã được tải lên.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "You have deleted the document : {resourceName}",
+              "SENTENCE": "Bạn đã xóa tài liệu: {resourceName}",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has deleted the document : {resourceName}.",
+              "SENTENCE": "{authorName} đã xóa tài liệu: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "DOMAIN": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã tạo một tên miền mới: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã tạo một tên miền mới: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã xóa tên miền: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã xóa tên miền: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã chỉnh sửa tên miền: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã chỉnh sửa tên miền: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
         }

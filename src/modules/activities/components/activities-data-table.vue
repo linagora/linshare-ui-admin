@@ -21,10 +21,12 @@ const { fetchActivities, loading, pagination, filteredListByPage } = useActiviti
 const activeRecord = ref<ActivityLogData | null>(null);
 // computed
 const detailPopupContent = computed(() => {
-  const isActionByMe = loggedUser.value?.uuid === activeRecord.value?.actor?.uuid;
+  const isActionByMe =
+    loggedUser.value?.uuid === activeRecord.value?.actor?.uuid ||
+    loggedUser.value?.uuid === activeRecord.value?.authUser?.uuid;
   const translateParams = {
     resourceName: activeRecord?.value?.resourceName,
-    authorName: activeRecord?.value?.authorName ?? activeRecord?.value?.actorName,
+    authorName: activeRecord?.value?.actorName ?? activeRecord?.value?.authorName,
     userVarious: activeRecord?.value?.resourceName,
     dateVarious: relativeDate(activeRecord?.value?.dateTime ?? 0),
     resourceNameVarious: activeRecord?.value?.resourceName,

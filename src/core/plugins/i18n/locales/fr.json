@@ -1511,7 +1511,8 @@
       "FILTER_BEGINNING_DATE": "Date de début",
       "FILTER_ENDING_DATE": "Date de fin",
       "SEARCH": "Rechercher"
-    },"DETAILS_POPUP": {
+    },
+    "DETAILS_POPUP": {
       "BY": "Par {user}",
       "MODIFICATIONS": "Modification(s)",
       "SENTENCES": {
@@ -1584,7 +1585,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} a essayé de se connecter avec de mauvais accès.",
+              "SENTENCE": "{authorName} avez essayé de vous connecter avec des mauvais accès.",
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             }
           },
@@ -1690,7 +1691,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} avez supprimé le fichier : {resourceName} de votre Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
@@ -1700,7 +1701,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} avez téléchargé le fichier : {resourceName} de votre Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             }
           },
@@ -1730,7 +1731,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} avez modifié le fichier : {resourceName} de votre Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1844,11 +1845,11 @@
         "WORK_SPACE_MEMBER": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez ajouté un nouveau membre : {{resourceName}} à l'espace de travail {resourceNameVarious}.",
+              "SENTENCE": "Vous avez ajouté un nouveau membre : {resourceName} à l'espace de travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} a ajouté un nouveau membre : {{resourceName}} à l'espace de travail {resourceNameVarious}.",
+              "SENTENCE": "{authorName} a ajouté un nouveau membre : {resourceName} à l'espace de travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
@@ -2344,6 +2345,38 @@
             "VIEWER": {
               "SENTENCE": "{authorName} a supprimé le document : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "DOMAIN": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez créé un nouveau Domain de Travail : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a créé un nouveau Domain de Travail : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez supprimé le Domain de Travail : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a supprimé le Domain de Travail : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez modifié le Domain de Travail : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a modifié le Domain de Travail : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
         }

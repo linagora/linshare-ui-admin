@@ -1675,7 +1675,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} have uploaded a new file : {resourceName} into your Personal Space.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             }
           },
@@ -1695,7 +1695,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} have deleted the file : {resourceName} from your Personal Space.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
@@ -1705,7 +1705,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} have downloaded the file : {resourceName} from your Personal Space.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             }
           },
@@ -1735,7 +1735,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "",
+              "SENTENCE": "{authorName} have edited the file : {resourceName} from your Personal Space.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
