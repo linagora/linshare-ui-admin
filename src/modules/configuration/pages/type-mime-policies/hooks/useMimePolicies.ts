@@ -6,10 +6,15 @@ import { deleteMimePolicy, getMimiPolicies } from '../services/mime-policies-api
 import { MimePolicy } from '../types/MimeType';
 import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '@/modules/auth/store';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
+import { useDomainStore } from '@/modules/domain/store';
 
 const activeMimePolicy = ref<MimePolicy>();
+const selectedMimePolicies = ref<MimePolicy[]>();
 const modal = reactive<{
-  type: 'DELETE_MIME_MODAL';
+  type: 'DELETE_MIME_MODAL' | 'DELETE_MIME_POLICIES_MODAL' | 'DELETE_MIME_POLICIES_FAIL_MODAL';
   visible: boolean;
 }>({
   type: 'DELETE_MIME_MODAL',
@@ -40,6 +45,8 @@ const filteredListByPage = computed(() => {
 
 export default function useMimesPolicies() {
   const { t } = useI18n();
+  const { loggedUserRole } = storeToRefs(useAuthStore());
+  const { getDomainsList } = storeToRefs(useDomainStore());
   // data
   const loading = ref(false);
 
@@ -56,6 +63,23 @@ export default function useMimesPolicies() {
   function onDeleteMimePolicy(mime: MimePolicy) {
     activeMimePolicy.value = mime;
     modal.type = 'DELETE_MIME_MODAL';
+    modal.visible = true;
+  }
+
+  function onDeleteMimePolicies() {
+    const unAuthorizeDomain = selectedMimePolicies.value?.some((item) => !checkingMimePolicyDomainAuthorized(item));
+
+    if (unAuthorizeDomain) {
+      message.error(t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_MIME'));
+      return;
+    }
+
+    modal.type = 'DELETE_MIME_POLICIES_MODAL';
+    modal.visible = true;
+  }
+
+  function onShowDeleteMimePoliciesFail() {
+    modal.type = 'DELETE_MIME_POLICIES_FAIL_MODAL';
     modal.visible = true;
   }
 
@@ -85,6 +109,35 @@ export default function useMimesPolicies() {
     }
   }
 
+  async function handleDeleteMimePolicies() {
+    try {
+      if (!selectedMimePolicies?.value?.length) {
+        message.error(t('MIME_POLICIES.DELETE_MODAL.DELETE_MODAL_EMPTY'));
+        return false;
+      }
+
+      loading.value = true;
+      const deletePromises = selectedMimePolicies.value?.map((item) => {
+        return deleteMimePolicy(item?.uuid);
+      });
+      if (!deletePromises) {
+        return;
+      }
+      const responses = await Promise.all(deletePromises);
+
+      if (responses) {
+        message.success(t('MIME_POLICIES.DELETE_MODAL.DELETE_SUCCESS'));
+        return true;
+      }
+
+      return false;
+    } catch (error) {
+      return false;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   async function getMinePoliciesList(domainUuid: string) {
     status.value = STATUS.LOADING;
     try {
@@ -97,6 +150,8 @@ export default function useMimesPolicies() {
       if (error instanceof APIError) {
         message.error(error.getMessage());
       }
+    } finally {
+      clearSelectedMimePolicies();
     }
   }
 
@@ -114,13 +169,32 @@ export default function useMimesPolicies() {
     return false;
   }
 
+  function clearSelectedMimePolicies() {
+    selectedMimePolicies.value = [];
+  }
+
+  function checkingMimePolicyDomainAuthorized(record: MimePolicy) {
+    if (loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN) {
+      return true;
+    } else {
+      return (
+        getDomainsList.value.some((item) => {
+          return item.uuid === record.domainId;
+        }) && loggedUserRole?.value === ACCOUNT_ROLE.ADMIN
+      );
+    }
+  }
+
   return {
     isAssigned,
     isEditable,
     onCloseModal,
     onDeleteMimePolicy,
     getMinePoliciesList,
+    onDeleteMimePolicies,
     handleDeleteMimePolicy,
+    handleDeleteMimePolicies,
+    onShowDeleteMimePoliciesFail,
     modal,
     list,
     status,
@@ -129,5 +203,6 @@ export default function useMimesPolicies() {
     filterText,
     filteredList,
     filteredListByPage,
+    selectedMimePolicies,
   };
 }

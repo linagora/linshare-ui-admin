@@ -59,7 +59,9 @@
     "DATE_CUSTOM": "Plage personnalisée",
     "NUMBER_COL": "Non.",
     "EMPTY_MESSAGE": "Aucune donnée",
-    "CLEAR_FILTER": "Réinitialiser les filtres"
+    "CLEAR_FILTER": "Réinitialiser les filtres",
+    "ISOLATE": "Isoler",
+    "UNDO": "Annuler"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -69,7 +71,9 @@
   },
   "MESSAGES": {
     "CREATE_SUCCESS": "Créé avec succès",
+    "CREATE_FAILURE": "La création a échoué",
     "UPDATE_SUCCESS": "Mis à jour avec succès",
+    "UPDATE_FAILURE": "La mise à jour a échoué",
     "DELETE_SUCCESS": "Supprimé avec succès",
     "DELETE_FAILURE": "Échec de la suppression",
     "PROCESSING": "Traitement..."
@@ -715,7 +719,12 @@
       "DELETE_ACTION_CONFIRM": "Oui, supprimer",
       "DELETE_MODAL_EMPTY" : "Veuillez sélectionner le type Mime à supprimer",
       "DELETE_SUCCESS": "Supprimé avec succès",
-      "DELETE_SINGLE_FAIL": "Selected Mime policies is associated with at least one domain. You cannot delete"
+      "DELETE_SINGLE_FAIL": "La politique Mime sélectionnée est associée à au moins un domaine. Vous ne pouvez pas la supprimer",
+      "DELETE_MUTIPLE_MODAL_TITLE": "Supprimer les politiques Mime sélectionnées",
+      "DELETE_MUTIPLE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer [{qty}] politiques Mime, cette procédure est irréversible. Voulez-vous continuer ?",
+      "DELETE_FAILURE":"Échec de la suppression",
+      "DELETE_FAILURE_MESSAGE": "Certaines des politiques MIME ont été supprimées avec succès, mais les autres sont assignées à au moins un domaine et ne peuvent être supprimées.",
+      "UNABLE_DELETE_MIME": "Vous n'avez pas le droit de supprimer ces Politiques MIME"      
     }
   },
   "FUNCTIONALITIES": {

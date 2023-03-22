@@ -59,7 +59,9 @@
     "DATE_CUSTOM": "Пользовательский диапазон",
     "NUMBER_COL": "Нет.",
     "EMPTY_MESSAGE": "Нет данных",
-    "CLEAR_FILTER": "Clear filter"
+    "CLEAR_FILTER": "Сбросить фильтр",
+    "ISOLATE": "Изолировать",
+    "UNDO": "Отменить"
   },
   "LOCALE": {
     "ENGLISH": "Английский",
@@ -69,7 +71,9 @@
   },
   "MESSAGES": {
     "CREATE_SUCCESS": "Создано успешно",
+    "CREATE_FAILURE": "Create failed",
     "UPDATE_SUCCESS": "Обновление успешно",
+    "UPDATE_FAILURE": "Update failed",
     "DELETE_SUCCESS": "Удалить успешно",
     "DELETE_FAILURE": "Не удалось удалить",
     "PROCESSING": "Обработка..."
@@ -708,13 +712,18 @@
     "SEARCH_BY": "Поиск по имени или домену",
     "SYSTEM_INFORMATIONS":"Системная информация",
     "DELETE_MODAL": {
-      "DELETE_MODAL_TITLE": "Delete mime policy",
-      "DELETE_MODAL_SUBTITLE": "You are about to delete this Mime policy, this action is irreversible. Do you still want to proceed?",
-      "DELETE_ACTION_CANCEL": "Cancel",
-      "DELETE_ACTION_CONFIRM": "Yes, delete",
-      "DELETE_MODAL_EMPTY": "Please select mime type to delete",
+      "DELETE_MODAL_TITLE": "Удалить  политику MIME-типов",
+      "DELETE_MODAL_SUBTITLE": "Вы собираетесь удалить политику MIME-типов, это действие нельзя отменить. Продолжить?",
+      "DELETE_ACTION_CANCEL": "Отмена",
+      "DELETE_ACTION_CONFIRM": "Да, удалить",
+      "DELETE_MODAL_EMPTY": "Выберите политику MIME-типов для удаления",
       "DELETE_SUCCESS": "Удалить успешно",
-      "DELETE_SINGLE_FAIL": "Selected Mime policies is associated with at least one domain. You cannot delete"
+      "DELETE_SINGLE_FAIL": "Выбранная  политика MIME-типов связана по крайней мере с одним доменом. Удаление невозможно",
+      "DELETE_MUTIPLE_MODAL_TITLE": "Удалить выбранные политики MIME-типов",
+      "DELETE_MUTIPLE_MODAL_SUBTITLE": "Вы собираетесь удалить [{qty}] политик MIME-типов, это действие нельзя отменить. Продолжить?",
+      "DELETE_FAILURE":"Не удалось удалить",
+      "DELETE_FAILURE_MESSAGE": "Некоторые из политик MIME-типов успешно удалены. Удаление остальных невозможно, т.к. они привязаны к домену",
+      "UNABLE_DELETE_MIME": "Невозможно удалить эти политики MIME-типов"
     }
   },
   "FUNCTIONALITIES": {

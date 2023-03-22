@@ -59,7 +59,9 @@
     "DATE_CUSTOM": "Phạm vi tùy chỉnh",
     "NUMBER_COL": "STT",
     "EMPTY_MESSAGE": "Không có dữ liệu",
-    "CLEAR_FILTER": "Xoá bộ lọc"
+    "CLEAR_FILTER": "Xoá bộ lọc",
+    "ISOLATE": "Isolate",
+    "UNDO": "Undo"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -69,7 +71,9 @@
   },
   "MESSAGES": {
     "CREATE_SUCCESS": "Tạo thành công",
+    "CREATE_FAILURE": "Tạo thất bại",
     "UPDATE_SUCCESS": "Cập nhật thành công",
+    "UPDATE_FAILURE": "Cập nhật thất bại",
     "DELETE_SUCCESS": "Xóa thành công",
     "DELETE_FAILURE": "Xóa thất bại",
     "PROCESSING": "Đang xử lí..."
@@ -714,7 +718,12 @@
       "DELETE_ACTION_CONFIRM": "Có, xóa",
       "DELETE_MODAL_EMPTY": "Vui lòng chọn loại mime để xóa",
       "DELETE_SUCCESS": "Xóa thành công",
-      "DELETE_SINGLE_FAIL": "Chính sách Mime đã chọn được liên kết với ít nhất một miền. Bạn không thể xóa"
+      "DELETE_SINGLE_FAIL": "Chính sách Mime đã chọn được liên kết với ít nhất một miền. Bạn không thể xóa",
+      "DELETE_MUTIPLE_MODAL_TITLE": "Xóa các chính sách Mime đã chọn",
+      "DELETE_MUTIPLE_MODAL_SUBTITLE": "Bạn sắp xóa [{qty}] chính sách Mime, quy trình này là không thể đảo ngược. Bạn có muốn tiếp tục?",
+      "DELETE_FAILURE":"Xóa không thành công",
+      "DELETE_FAILURE_MESSAGE": "Một số chính sách MIME được xóa thành công nhưng những chính sách khác thì không vì chúng đã được chỉ định",
+      "UNABLE_DELETE_MIME": "Bạn không thể xóa các Chính sách MIME đó"
     }
   },
   "FUNCTIONALITIES": {

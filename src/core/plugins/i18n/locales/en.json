@@ -59,7 +59,9 @@
     "DATE_CUSTOM": "Custom range",
     "NUMBER_COL": "No.",
     "EMPTY_MESSAGE": "No data",
-    "CLEAR_FILTER": "Clear filter"
+    "CLEAR_FILTER": "Clear filter",
+    "ISOLATE": "Isolate",
+    "UNDO": "Undo"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -701,7 +703,7 @@
     "ASSIGN_SUCCESS": "Assigned successfully",
     "ASSIGN_CONFIRM": "You are about to assign this welcome message to the current domain. Do you want to proceed?"
   },
-    "MIME_POLICIES": {
+  "MIME_POLICIES": {
     "CREATE_DESCRIPTION":"Click one the 'Create' button and give a name to your MIME type filter",
     "FILTER_DESCRIPTION":"Choose the filter that you added than a list of available MIME types is displayed",
     "ENABLED_DESCRIPTION":"Enable or disable the MIME type you want than save",
@@ -717,7 +719,12 @@
       "DELETE_ACTION_CONFIRM": "Yes, delete",
       "DELETE_MODAL_EMPTY": "Please select mime type to delete",
       "DELETE_SUCCESS": "Deleted successfully",
-      "DELETE_SINGLE_FAIL": "Selected Mime policies is associated with at least one domain. You cannot delete"
+      "DELETE_SINGLE_FAIL": "Selected Mime policies is associated with at least one domain. You cannot delete",
+      "DELETE_MUTIPLE_MODAL_TITLE": "Delete selected mime policies",
+      "DELETE_MUTIPLE_MODAL_SUBTITLE": "You are about to delete [{qty}] Mime policies, this procedure is irreversible. Do you want to proceed?",
+      "DELETE_FAILURE":"Delete failed",
+      "DELETE_FAILURE_MESSAGE": "Some of MIME policies are deleted successfully but not others because they are already assigned to at least one domain",
+      "UNABLE_DELETE_MIME": "You are unable to delete those MIME Policies"
     }
   },
   "FUNCTIONALITIES": {

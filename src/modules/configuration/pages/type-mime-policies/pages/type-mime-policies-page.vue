@@ -25,12 +25,7 @@
           <SearchOutlined />
         </template>
       </a-input>
-      <a-button type="primary" @click="toggleModal()">
-        <template #icon>
-          <PlusCircleOutlined />
-        </template>
-        {{ $t('GENERAL.CREATE') }}
-      </a-button>
+      <mime-policies-actions @create="toggleModal"></mime-policies-actions>
     </div>
   </div>
   <MimesTable></MimesTable>
@@ -48,6 +43,15 @@
       @close="onCloseModal"
       @refresh="onFetchMimePolicies"
     ></delete-mime-policy-card>
+    <delete-mime-policies-card
+      v-if="modal.type === 'DELETE_MIME_POLICIES_MODAL'"
+      @close="onCloseModal"
+      @refresh="onFetchMimePolicies"
+    ></delete-mime-policies-card>
+    <delete-mime-policies-fail-card
+      v-if="modal.type === 'DELETE_MIME_POLICIES_FAIL_MODAL'"
+      @close="onCloseModal"
+    ></delete-mime-policies-fail-card>
   </a-modal>
 </template>
 <script lang="ts" setup>
@@ -55,20 +59,23 @@ import { reactive } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 import { computed, watch } from 'vue';
-import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
+import { SearchOutlined } from '@ant-design/icons-vue';
 import { useDomainStore } from '@/modules/domain/store';
-import MimesTable from '../components/mime-policies-table.vue';
 import ThePagination from '@/core/components/the-pagination.vue';
 import CreationModal from '../components/mime-policies-creation-modal.vue';
 import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 import DeleteMimePolicyCard from '@/modules/configuration/pages/type-mime-policies/components/delete-mime-policy-card.vue';
+import MimesTable from '@/modules/configuration/pages/type-mime-policies/components/mime-policies-table.vue';
+import MimePoliciesActions from '@/modules/configuration/pages/type-mime-policies/components/mime-policies-actions.vue';
+import DeleteMimePoliciesCard from '@/modules/configuration/pages/type-mime-policies/components/delete-mime-policies-card.vue';
+import DeleteMimePoliciesFailCard from '@/modules/configuration/pages/type-mime-policies/components/delete-mime-policies-fail-card.vue';
 
-// composables
+// composable
 const route = useRoute();
 const domainStore = useDomainStore();
 const domainLink = window.location.origin;
 const { currentDomain } = storeToRefs(domainStore);
-const { modal, filterText, pagination, filteredList, getMinePoliciesList, onCloseModal } = useMimesPolicies();
+const { modal, filterText, pagination, filteredList, onCloseModal, getMinePoliciesList } = useMimesPolicies();
 
 //data
 const currentDomainUuid = computed(() => {
@@ -107,6 +114,22 @@ watch(route, (newRoute) => {
 .actions > .searchbox {
   width: 500px;
   margin-right: 10px;
+}
+</style>
+<style lang="less">
+.type-mime-policies-page {
+  background-color: transparent;
+
+  &__modal .ant-modal-content {
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__modal .ant-modal-body {
+    padding: 0;
+  }
 }
 </style>
 <style lang="less">

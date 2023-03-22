@@ -4,6 +4,7 @@
     :data-source="filteredListByPage"
     :pagination="false"
     :loading="status === STATUS.LOADING"
+    :row-selection="rowSelection"
     row-key="uuid"
   >
     <template #bodyCell="{ column, record }">
@@ -61,10 +62,9 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
-import { computed, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { STATUS } from '@/core/types/Status';
-import { MimePolicy } from '../types/MimeType';
 import { useAuthStore } from '@/modules/auth/store';
 import { useDomainStore } from '@/modules/domain/store';
 import { EllipsisOutlined } from '@ant-design/icons-vue';
@@ -72,6 +72,7 @@ import EditIcon from '@/core/components/icons/edit-icon.vue';
 import AssignIcon from '@/core/components/icons/assign-icon.vue';
 import ViewIcon from '@/core/components/icons/view-mimes-icon.vue';
 import DeleteIcon from '@/core/components/icons/delete-mime-icon.vue';
+import { MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
 import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 
 const { t } = useI18n();
@@ -80,8 +81,30 @@ const { currentRoute } = useRouter();
 const domainStore = useDomainStore();
 const { loggedUser } = storeToRefs(authStore);
 const { currentDomain } = storeToRefs(domainStore);
-const { status, filteredListByPage, getMinePoliciesList, isAssigned, isEditable, onDeleteMimePolicy } =
-  useMimesPolicies();
+const {
+  status,
+  filteredListByPage,
+  selectedMimePolicies,
+  getMinePoliciesList,
+  isAssigned,
+  isEditable,
+  onDeleteMimePolicy,
+} = useMimesPolicies();
+
+// data
+const rowSelection = computed(() => ({
+  checkStrictly: false,
+  selectedRowKeys: selectedMimePolicies.value?.map((item) => item.uuid) ?? [],
+  onSelect: (record: MimePolicy, selected: boolean, selectedRows: MimePolicy[]) => {
+    selectedMimePolicies.value = selectedRows;
+  },
+  onSelectAll: (selected: boolean, selectedRows: MimePolicy[], changeRows: MimePolicy[]) => {
+    selectedMimePolicies.value = selectedRows;
+  },
+  onChange: (selected: boolean, selectedRows: MimePolicy[], changeRows: MimePolicy[]) => {
+    selectedMimePolicies.value = selectedRows;
+  },
+}));
 
 const columns = computed(() => [
   {
