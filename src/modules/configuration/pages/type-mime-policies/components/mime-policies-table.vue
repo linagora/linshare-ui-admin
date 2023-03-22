@@ -48,7 +48,7 @@
               <a-menu-item v-if="isEditable(record.domainId, currentDomain.uuid)" class="view-icon">
                 <ViewIcon></ViewIcon> {{ $t('GENERAL.VIEW') }}
               </a-menu-item>
-              <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)">
+              <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)" @click="onDeleteMimePolicy(record)">
                 <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
               </a-menu-item>
             </a-menu>
@@ -59,34 +59,35 @@
   </a-table>
 </template>
 <script lang="ts" setup>
-import { computed, watch } from 'vue';
-import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
+import { storeToRefs } from 'pinia';
+import { computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
-import { EllipsisOutlined } from '@ant-design/icons-vue';
-import { useDomainStore } from '@/modules/domain/store';
 import { STATUS } from '@/core/types/Status';
-import Mimes from '../types/MimeType';
-import useMimesPolicies from '../hooks/useMimePolicies';
-import AssignIcon from '@/core/components/icons/assign-icon.vue';
-import EditIcon from '@/core/components/icons/edit-icon.vue';
-import DeleteIcon from '@/core/components/icons/delete-mime-icon.vue';
+import { MimePolicy } from '../types/MimeType';
 import { useAuthStore } from '@/modules/auth/store';
+import { useDomainStore } from '@/modules/domain/store';
+import { EllipsisOutlined } from '@ant-design/icons-vue';
+import EditIcon from '@/core/components/icons/edit-icon.vue';
+import AssignIcon from '@/core/components/icons/assign-icon.vue';
 import ViewIcon from '@/core/components/icons/view-mimes-icon.vue';
+import DeleteIcon from '@/core/components/icons/delete-mime-icon.vue';
+import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 
-const authStore = useAuthStore();
-const { loggedUser } = storeToRefs(authStore);
-const { status, filteredListByPage, getMinePoliciesList, isAssigned, isEditable } = useMimesPolicies();
 const { t } = useI18n();
+const authStore = useAuthStore();
 const { currentRoute } = useRouter();
 const domainStore = useDomainStore();
+const { loggedUser } = storeToRefs(authStore);
 const { currentDomain } = storeToRefs(domainStore);
+const { status, filteredListByPage, getMinePoliciesList, isAssigned, isEditable, onDeleteMimePolicy } =
+  useMimesPolicies();
 
 const columns = computed(() => [
   {
     width: '350px',
     title: t('GENERAL.NAME'),
-    sorter: (a: Mimes, b: Mimes) => a.name.localeCompare(b.name),
+    sorter: (a: MimePolicy, b: MimePolicy) => a.name.localeCompare(b.name),
     key: 'name',
   },
   {
@@ -97,7 +98,7 @@ const columns = computed(() => [
   {
     title: t('GENERAL.DOMAIN'),
     align: 'center',
-    sorter: (a: Mimes, b: Mimes) => a.domainName.localeCompare(b.domainName),
+    sorter: (a: MimePolicy, b: MimePolicy) => a.domainName?.localeCompare(b.domainName),
     dataIndex: ['domain', 'name'],
     key: 'domain',
   },
@@ -105,13 +106,13 @@ const columns = computed(() => [
   {
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: ['creationDate'],
-    sorter: (a: Mimes, b: Mimes) => (a.creationDate || 0) - (b.creationDate || 0),
+    sorter: (a: MimePolicy, b: MimePolicy) => (a.creationDate || 0) - (b.creationDate || 0),
     key: 'creationDate',
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: ['modificationDate'],
-    sorter: (a: Mimes, b: Mimes) => (a.modificationDate || 0) - (b.modificationDate || 0),
+    sorter: (a: MimePolicy, b: MimePolicy) => (a.modificationDate || 0) - (b.modificationDate || 0),
     defaultSortOrder: 'descend',
     key: 'modificationDate',
   },
@@ -125,8 +126,8 @@ const columns = computed(() => [
   },
 ]);
 
-function domainRedirectionAuthorized(record: Mimes) {
-  return record.domainId === 'LinShareRootDomain' && loggedUser?.value.role === 'ADMIN';
+function domainRedirectionAuthorized(record: MimePolicy) {
+  return record.domainId === 'LinShareRootDomain' && loggedUser?.value?.role === 'ADMIN';
 }
 
 await getMinePoliciesList(currentDomain.value.uuid);

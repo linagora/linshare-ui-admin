@@ -707,7 +707,16 @@
     "MANAGE_DOMAIN":"Gérer le domaine",
     "CREATE_MIME_POLICY": "Créer une nouvelle politique MIME",
     "SEARCH_BY": "Recherche par nom ou par domain",
-    "SYSTEM_INFORMATIONS":"Informations système"
+    "SYSTEM_INFORMATIONS":"Informations système",
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "Supprimer la politique Mime",
+      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer cette politique Mime, cette action est irréversible. Voulez-vous toujours continuer ?",
+      "DELETE_ACTION_CANCEL": "Annuler",
+      "DELETE_ACTION_CONFIRM": "Oui, supprimer",
+      "DELETE_MODAL_EMPTY" : "Veuillez sélectionner le type Mime à supprimer",
+      "DELETE_SUCCESS": "Supprimé avec succès",
+      "DELETE_SINGLE_FAIL": "Selected Mime policies is associated with at least one domain. You cannot delete"
+    }
   },
   "FUNCTIONALITIES": {
     "LIST": {

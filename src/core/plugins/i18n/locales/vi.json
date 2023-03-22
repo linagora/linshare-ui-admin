@@ -397,7 +397,7 @@
     "MAINTENANCE_MODE_ACTIVATED_ALERT": "Chế độ bảo trì được kích hoạt, do đó ngăn chặn mọi hoạt động tải lên được thực hiện trong miền hiện tại.",
     "DOMAIN_MAXIMUM_QUOTA": "Hạn mức tối đa của tên miền : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Hạn mức mặc định của tên miền con : ",
-    "DOMAIN_QUOTA":"Hạn mức tên miền",
+    "DOMAIN_QUOTA": "Hạn mức tên miền",
     "ALLOCATION_WITHIN_THE_CURRENT_DOMAIN": "Phân bổ trong miền hiện tại {Containers}",
     "PERSONAL SPACE QUOTA": "HẠN CHẾ KHÔNG GIAN CÁ NHÂN",
     "TOTAL_PERSONAL_SPACES_ALLOCATED_QUOTA": "Tổng hạn ngạch Không gian cá nhân được phân bổ",
@@ -424,18 +424,18 @@
     },
     "TOP_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại",
-      "SUB_DOMAIN_USED_SPACE":"Dung lượng miền phụ",
+      "SUB_DOMAIN_USED_SPACE": "Dung lượng miền phụ",
       "QUOTA_PER_SUB_DOMAIN": "Dung lượng chưa phân bổ",
-      "REMAINING_QUOTA":"Hạn mức còn lại",
+      "REMAINING_QUOTA": "Hạn mức còn lại",
       "USED": "Không gian đã sử dụng"
     },
     "GUEST_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Dung lượng đã sử dụng của miền hiện tại",
-      "REMAINING_SPACE":"Dung lượng còn lại",
+      "REMAINING_SPACE": "Dung lượng còn lại",
       "UNALLOCATED_SPACE": "Dung lượng chưa phân bổ",
-      "PERSONAL_ALLOCATED_SPACE":"Hạn mức phân bổ cá nhân",
-      "SHARED_SPACE_ALLOCATED":"Hạn mức phân bổ chia sẻ",
-      "UNASSIGNED_SPACE":"Hạn mức chưa được chỉ định"
+      "PERSONAL_ALLOCATED_SPACE": "Hạn mức phân bổ cá nhân",
+      "SHARED_SPACE_ALLOCATED": "Hạn mức phân bổ chia sẻ",
+      "UNASSIGNED_SPACE": "Hạn mức chưa được chỉ định"
     },
     "SAVE_CHANGE": "Lưu thay đổi",
     "CANCEL": "Hủy bỏ",
@@ -698,16 +698,25 @@
     "ASSIGN_SUCCESS": "Đã gán thành công",
     "ASSIGN_CONFIRM": "Bạn sắp gán thông báo chào mừng này cho miền hiện tại. Bạn có muốn tiếp tục?"
   },
-   "MIME_POLICIES": {
-    "CREATE_DESCRIPTION":"Nhấp vào một nút 'Tạo' và đặt tên cho bộ lọc loại MIME của bạn",
-    "FILTER_DESCRIPTION":"Chọn bộ lọc mà bạn đã thêm để hiển thị danh sách các loại MIME khả dụng",
-    "ENABLED_DESCRIPTION":"Bật hoặc tắt loại MIME bạn muốn hơn",
-    "MANAGE_DESCRIPTION":"Bạn có thể chọn bộ lọc này trong menu <a href='{url}'>{domain_link}</a> khi tạo hoặc chỉnh sửa miền",
-    "MANAGE_DOMAIN":"Quản lý domain",
+  "MIME_POLICIES": {
+    "CREATE_DESCRIPTION": "Nhấp vào một nút 'Tạo' và đặt tên cho bộ lọc loại MIME của bạn",
+    "FILTER_DESCRIPTION": "Chọn bộ lọc mà bạn đã thêm để hiển thị danh sách các loại MIME khả dụng",
+    "ENABLED_DESCRIPTION": "Bật hoặc tắt loại MIME bạn muốn hơn",
+    "MANAGE_DESCRIPTION": "Bạn có thể chọn bộ lọc này trong menu <a href='{url}'>{domain_link}</a> khi tạo hoặc chỉnh sửa miền",
+    "MANAGE_DOMAIN": "Quản lý domain",
     "CREATE_MIME_POLICY": "Tạo chính sách MIME mới",
     "SEARCH_BY": "Tìm kiếm theo tên hoặc miền",
-    "SYSTEM_INFORMATIONS":"Thông tin hệ thống"
-   },
+    "SYSTEM_INFORMATIONS":"Thông tin hệ thống",
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "Xóa mime policy",
+      "DELETE_MODAL_SUBTITLE": "Bạn sắp xóa chính sách Mime này, hành động này là không thể đảo ngược. Bạn vẫn muốn tiếp tục?",
+      "DELETE_ACTION_CANCEL": "Huỷ",
+      "DELETE_ACTION_CONFIRM": "Có, xóa",
+      "DELETE_MODAL_EMPTY": "Vui lòng chọn loại mime để xóa",
+      "DELETE_SUCCESS": "Xóa thành công",
+      "DELETE_SINGLE_FAIL": "Chính sách Mime đã chọn được liên kết với ít nhất một miền. Bạn không thể xóa"
+    }
+  },
   "FUNCTIONALITIES": {
     "LIST": {
       "SEARCH_PLACEHOLDER": "Tìm kiếm các chức năng theo tên",
@@ -1435,7 +1444,7 @@
       "CATEGORIES_MY_SPACE": "Không gian của tôi"
     },
     "DISABLED": "Vô hiệu hóa",
-    "ENABLED": "Kích hoạt",  
+    "ENABLED": "Kích hoạt",
     "FILTERS_SELECT": {
       "ACTION": {
         "ADDITION": "Phép cộng",
@@ -1486,14 +1495,14 @@
         "UPLOAD_REQUEST_ENTRY": "Tài liệu (Yên cầu tải lên)",
         "GUEST_MODERATOR": "Người kiểm duyệt khách",
         "GROUP_FILTER": "Bộ lọc nhóm làm việc",
-        "WORKSPACE_FILTER":"Bộ lọc không gian làm việc",
+        "WORKSPACE_FILTER": "Bộ lọc không gian làm việc",
         "RESET_PASSWORD": "Đặt lại mật khẩu",
-        "USER_PREFERENCE":"Tùy chọn người dùng",
-        "SAFE_DETAIL":"Chi tiết an toàn",
-        "PUBLIC_KEY":"Khóa công khai",
-        "SHARED_SPACE_NODE" :"Nhóm làm việc (ghi chép cũ)",
-        "MAIL_ATTACHMENT" :"Tệp đính kèm thư",
-        "SHARED_SPACE_MEMBER" :"Thành viên không gian được chia sẻ",
+        "USER_PREFERENCE": "Tùy chọn người dùng",
+        "SAFE_DETAIL": "Chi tiết an toàn",
+        "PUBLIC_KEY": "Khóa công khai",
+        "SHARED_SPACE_NODE": "Nhóm làm việc (ghi chép cũ)",
+        "MAIL_ATTACHMENT": "Tệp đính kèm thư",
+        "SHARED_SPACE_MEMBER": "Thành viên không gian được chia sẻ",
         "UPLOAD_PROPOSITION": "Yêu cầu tải lên"
       }
     },

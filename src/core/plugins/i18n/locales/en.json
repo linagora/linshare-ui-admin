@@ -32,7 +32,7 @@
     "NO": "No",
     "FIELD_REQUIRED": "This field cannot be blank",
     "SELECT_MODEL": "Select a predefined model",
-    "TRY_AGAIN":"Try again",
+    "TRY_AGAIN": "Try again",
     "DOMAIN": "Domain",
     "OR": "Or",
     "AUTHOR": "Author",
@@ -171,9 +171,9 @@
       "MULTIPLE_DELETE_CONFIRM": "You are about to delete this or these users, this procedure is irreversible and destroys all documents. Do you want to continue?",
       "SELECTED_USERS_NUMBER": "Selected users: {number}",
       "SELECTED_USERS_DELETE": "Delete selected users",
-      "SELECTED_USERS_UNLOCK":"Locked users have been successfully unlocked",
-      "SELECT_ALL":"Select all",
-      "UNSELECT_ALL":"Unselect all"
+      "SELECTED_USERS_UNLOCK": "{number} users have been successfully unlocked",
+      "SELECT_ALL": "Select all",
+      "UNSELECT_ALL": "Unselect all"
     },
     "DETAIL_USER": {
       "TITLE": "Manage user",
@@ -191,7 +191,7 @@
       "ENABLED": "Enabled",
       "DISABLED": "Disabled",
       "FIRST_NAME": "First name",
-      "LAST_NAME":"Last name",
+      "LAST_NAME": "Last name",
       "NOTIFICATION_LANGUAGE": "Notification language",
       "ROLE": "Role",
       "ENABLE_PERSONAL_SPACE": "Enable personal space",
@@ -218,7 +218,7 @@
       "RESTRICTED_GUEST": "Restrict guest",
       "RESTRICTED_CONTACTS": "Accounts guest can contact",
       "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Guest expiration date must be between tomorrow and {date}",
-      "MAIL":"Mail",
+      "MAIL": "Mail",
       "ADVANCED_RESEARCH": "Advanced research"
     },
     "GUEST_MODERATOR": {
@@ -351,7 +351,7 @@
       "NAME": "Name"
     },
     "MEMBERS": {
-      "MEMBERS":"Members",
+      "MEMBERS": "Members",
       "TAB_TITLE": "Members list",
       "CONFIRM_DELETE": "Are you sure you want to remove this member from shared space?",
       "FILTER_PLACEHOLDER": "Search or filter shared space members",
@@ -361,7 +361,7 @@
       "DEFAULT_WORKGROUP_ROLE": "Default workgroup role",
       "FORCE_CHECKBOX": "Override this role for all nested workgroups",
       "MEMBER_ADVANCED_RESEARCH": "Advanced research",
-      "DEFAULT_ROLE":"Default role",
+      "DEFAULT_ROLE": "Default role",
       "NO_DEFAULT_ROLE": "No default role",
       "DEFAULT_ROLE_TAG_PREFIX": "Default role: ",
       "DEFAULT_ROLE_TAG_TOOLTIP": "This role will apply to this member for all newly created workgroup inside this workspace"
@@ -388,7 +388,7 @@
     "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Default Total Allocated quota",
     "DEFAULT_MAX_FILE_SIZE": "Default max file size",
     "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Allocate quota a specific user account",
-    "QUOTA_EXCEEDED_ERROR":"Quota exceeded, free up storage space or allocate more quota for the ",
+    "QUOTA_EXCEEDED_ERROR": "Quota exceeded, free up storage space or allocate more quota for the ",
     "SPACES_LABEL": {
       "CURRENT_DOMAIN": "current domain",
       "PERSONALS_SPACES": "Personal Spaces",
@@ -396,10 +396,10 @@
       "SUB_DOMAINS": "subdomains"
     },
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "This section allows you manage the current domain quota size and setup it as on your need.",
-    "MAINTENANCE_MODE_ACTIVATED_ALERT":"Maintenance mode is activated, thereby preventing any uploads to be made within the current domain.",
-    "DOMAIN_MAXIMUM_QUOTA":"Maximum Domain Quota : ",
+    "MAINTENANCE_MODE_ACTIVATED_ALERT": "Maintenance mode is activated, thereby preventing any uploads to be made within the current domain.",
+    "DOMAIN_MAXIMUM_QUOTA": "Maximum Domain Quota : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Default Subdomain Quota : ",
-    "DOMAIN_QUOTA":"Domain Quota",
+    "DOMAIN_QUOTA": "Domain Quota",
     "ERROR_MESSAGE_FIELD": "The value should be below or equal to : ",
     "ALLOCATION_WITHIN_THE_CURRENT_DOMAIN": "Allocation within the current domain {Containers}",
     "PERSONAL SPACE QUOTA": "PERSONAL SPACE QUOTA",
@@ -418,27 +418,27 @@
       "FILE_SIZE_LARGER_THAN_QUOTA": "Max file size must be smaller than storage quota",
       "INVALID_FILE_SIZE": "Invalid max file size"
     },
-    "QUOTA_VISUALIZE":"Quota visualize",
-    "ROOT_DOMAIN_QUOTA":{
+    "QUOTA_VISUALIZE": "Quota visualize",
+    "ROOT_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Current domain used space (Personal + Shared Space)",
-      "SUB_DOMAIN_USED_SPACE":"Sub-domain used space",
-      "REMAINING_SPACE":"Remaining space",
+      "SUB_DOMAIN_USED_SPACE": "Sub-domain used space",
+      "REMAINING_SPACE": "Remaining space",
       "QUOTA_PER_SUB_DOMAIN": "Quota per sub domain"
     },
-    "TOP_DOMAIN_QUOTA":{
+    "TOP_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Current domain used space",
-      "SUB_DOMAIN_USED_SPACE":"Sub-domain used space",
-      "REMAINING_QUOTA":"Remaining quota",
+      "SUB_DOMAIN_USED_SPACE": "Sub-domain used space",
+      "REMAINING_QUOTA": "Remaining quota",
       "QUOTA_PER_SUB_DOMAIN": "Unallocated space",
       "USED": "Used space"
     },
-    "GUEST_DOMAIN_QUOTA":{
+    "GUEST_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Current domain used space",
-      "REMAINING_SPACE":"Remaining space",
+      "REMAINING_SPACE": "Remaining space",
       "UNALLOCATED_SPACE": "Unallocated space",
-      "PERSONAL_ALLOCATED_SPACE":"Personal Space allocated quota",
-      "SHARED_SPACE_ALLOCATED":"Sharedspace allocated quota",
-      "UNASSIGNED_SPACE":"Unassigned quota"
+      "PERSONAL_ALLOCATED_SPACE": "Personal Space allocated quota",
+      "SHARED_SPACE_ALLOCATED": "Sharedspace allocated quota",
+      "UNASSIGNED_SPACE": "Unassigned quota"
     },
     "SAVE_CHANGE": "Save change",
     "CANCEL": "Cancel",
@@ -478,7 +478,7 @@
       "DEFAULT_USER_ROLE": "Default user role",
       "DEFAULT_USER_ROLE_HELPER": "This role will be assigned to all newly created users on this domain.",
       "WELCOME_MESSAGE": "Welcome message",
-      "MAIL_CONFIGURATION":"Emails configuration",
+      "MAIL_CONFIGURATION": "Emails configuration",
       "MIME_POLICY": "Mime types policy",
       "DOMAIN_POLICY": "Domain policy",
       "DOMAIN_POLICY_AUTO": "Create domain policy automatically",
@@ -489,7 +489,7 @@
       "BACK_TO_CONFIGURATION": "Go to Configuration"
     },
     "TYPES": {
-      "ROOTDOMAIN":"Root Domain",
+      "ROOTDOMAIN": "Root Domain",
       "TOPDOMAIN": "Top Domain",
       "SUBDOMAIN": "Sub Domain",
       "GUESTDOMAIN": "Guest Domain"
@@ -614,7 +614,7 @@
     "DELETE_ABORT": "This filter is associated with at least one group provider. You cannot delete.",
     "NO_ASSOCIATED_DOMAIN": "There is no domain using this group filter",
     "LDAP": {
-      "PAGE_HELPER_P1":"LinShare support automatical synchronization between LinShare workgroups and LDAP groups. Workgroups and workgroup members are therefore created and synchronized with their LDAP counterpart. By default, members are given reader role.",
+      "PAGE_HELPER_P1": "LinShare support automatical synchronization between LinShare workgroups and LDAP groups. Workgroups and workgroup members are therefore created and synchronized with their LDAP counterpart. By default, members are given reader role.",
       "PAGE_HELPER_P2": "LinShare requires the queries below to synchronize:",
       "PAGE_HELPER_P3": "LQL query (LDAP Query Language) to search all workgroups",
       "PAGE_HELPER_P4": "LQL query to search a workgroup",
@@ -655,7 +655,7 @@
     "DELETE_ABORT": "This filter is associated with at least one workspace provider. You cannot delete.",
     "NO_ASSOCIATED_DOMAIN": "There is no workspace provider using this filter",
     "LDAP": {
-      "PAGE_HELPER_P1":"LinShare support automatical synchronization between LinShare workspaces and LDAP workspaces. Workspaces and workspace members are therefore created and synchronized with their LDAP counterpart. By default, members are given reader role.",
+      "PAGE_HELPER_P1": "LinShare support automatical synchronization between LinShare workspaces and LDAP workspaces. Workspaces and workspace members are therefore created and synchronized with their LDAP counterpart. By default, members are given reader role.",
       "PAGE_HELPER_P2": "LinShare requires the queries below to synchronize:",
       "PAGE_HELPER_P3": "LQL query (LDAP Query Language) to search for all workspaces",
       "PAGE_HELPER_P4": "LQL query to search for a workspace",
@@ -694,10 +694,10 @@
     "DESCRIPTION": "In this view, you can select one domain in the domain trees and see list of welcome messages that you created or allowed to used",
     "ROOT_DOMAIN_DESCRIPTION": "Root domain can create welcome messages but cannot use any of them",
     "NESTED_DOMAIN_DESCRIPTION": "Nested domain can create welcome messages for its own use and can use welcome messages created by its highter domains",
-    "THE_WELCOME_MESSAGE":"The welcome message",
-    "SET_FIELD":"You need to set this field",
-    "DELETE_CONFIRM":"You are about to delete this welcome message, this procedure is irreversible. Do you want to proceed?",
-    "MESSAGE_PREVIEW":"Here is a preview of the welcome message:",
+    "THE_WELCOME_MESSAGE": "The welcome message",
+    "SET_FIELD": "You need to set this field",
+    "DELETE_CONFIRM": "You are about to delete this welcome message, this procedure is irreversible. Do you want to proceed?",
+    "MESSAGE_PREVIEW": "Here is a preview of the welcome message:",
     "ASSIGN_SUCCESS": "Assigned successfully",
     "ASSIGN_CONFIRM": "You are about to assign this welcome message to the current domain. Do you want to proceed?"
   },
@@ -709,7 +709,16 @@
     "MANAGE_DOMAIN":"Manage domain",
     "SEARCH_BY": "Search by name or domain",
     "CREATE_MIME_POLICY": "Create New Mime Policy",
-    "SYSTEM_INFORMATIONS":"System Informations"
+    "SYSTEM_INFORMATIONS":"System Informations",
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "Delete mime policy",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this Mime policy, this action is irreversible. Do you still want to proceed?",
+      "DELETE_ACTION_CANCEL": "Cancel",
+      "DELETE_ACTION_CONFIRM": "Yes, delete",
+      "DELETE_MODAL_EMPTY": "Please select mime type to delete",
+      "DELETE_SUCCESS": "Deleted successfully",
+      "DELETE_SINGLE_FAIL": "Selected Mime policies is associated with at least one domain. You cannot delete"
+    }
   },
   "FUNCTIONALITIES": {
     "LIST": {
@@ -831,7 +840,7 @@
         "DESCRIPTION": "Allows setting limitation of how many uploaded requests an user can create in this domain.",
         "PARAMETER": {
           "TITLE_MAXIMUM": "Max upload request count",
-          "DESCRIPTION_MAXIMUM":"Maximum number of upload requests a user can create in this domain. Only requests with status of Pending/Active/Closed are counted."
+          "DESCRIPTION_MAXIMUM": "Maximum number of upload requests a user can create in this domain. Only requests with status of Pending/Active/Closed are counted."
         }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
@@ -1042,7 +1051,6 @@
           "TITLE_MAXIMUM": "Max workspace count",
           "DESCRIPTION_MAXIMUM": "Max number of workspaces that an user can create in this domain"
         }
-
       },
       "SHARED_SPACE__NESTED_WORKGROUPS_LIMIT": {
         "NAME": "Limit number of nested workgroups",
@@ -1385,7 +1393,7 @@
     "SELECT_DOMAIN": "Select domain",
     "VIEW_DETAIL": "View detail",
     "CANCEL": "Cancel",
-    "MANAGE_DOMAINS":"Manage domains",
+    "MANAGE_DOMAINS": "Manage domains",
     "CONFIGURATION": "Configuration",
     "SELECT_DOMAIN_TO_START": "Select domain to start",
     "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "You need to choose one domain by the button below before start make any changes on its setting",
@@ -1492,14 +1500,14 @@
         "UPLOAD_REQUEST_ENTRY": "Upload Request entry",
         "GUEST_MODERATOR": "Guest moderators",
         "GROUP_FILTER": "Group filter",
-        "WORKSPACE_FILTER":"Workspace filters",
+        "WORKSPACE_FILTER": "Workspace filters",
         "RESET_PASSWORD": "Password resets",
-        "USER_PREFERENCE":"User preferences",
-        "SAFE_DETAIL":"Safe details",
-        "PUBLIC_KEY":"Public keys",
-        "SHARED_SPACE_NODE" :"Shared space nodes",
-        "MAIL_ATTACHMENT" :"Mail attachments",
-        "SHARED_SPACE_MEMBER" :"Shared space members",
+        "USER_PREFERENCE": "User preferences",
+        "SAFE_DETAIL": "Safe details",
+        "PUBLIC_KEY": "Public keys",
+        "SHARED_SPACE_NODE": "Shared space nodes",
+        "MAIL_ATTACHMENT": "Mail attachments",
+        "SHARED_SPACE_MEMBER": "Shared space members",
         "UPLOAD_PROPOSITION": "Upload propositions"
       }
     },

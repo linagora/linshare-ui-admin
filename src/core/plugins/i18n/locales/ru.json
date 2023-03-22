@@ -169,9 +169,9 @@
       "MULTIPLE_DELETE_CONFIRM": "Вы собираетесь удалить пользователей, процедура необратима и все их документы будут так же удалены. Хотите продолжить?",
       "SELECTED_USERS_NUMBER": "Выбрано пользователей: {number}",
       "SELECTED_USERS_DELETE": "Удалить выбранных пользователей",
-      "SELECTED_USERS_UNLOCK":"Заблокированные пользователи успешно разблокированы",
-      "SELECT_ALL":"Выбрать всех",
-      "UNSELECT_ALL":"Отенить выбор всех"
+      "SELECTED_USERS_UNLOCK": "{number} пользователей было успешно разюлокировано",
+      "SELECT_ALL": "Выбрать всех",
+      "UNSELECT_ALL": "Отенить выбор всех"
     },
     "DETAIL_USER": {
       "TITLE": "Управлять пользователем",
@@ -189,7 +189,7 @@
       "ENABLED": "Включено",
       "DISABLED": "инвалид",
       "FIRST_NAME": "Имя",
-      "LAST_NAME":"Фамилия",
+      "LAST_NAME": "Фамилия",
       "NOTIFICATION_LANGUAGE": "Язык уведомлений",
       "ROLE": "Роль",
       "ENABLE_PERSONAL_SPACE": "Включить личное пространство",
@@ -216,7 +216,7 @@
       "RESTRICTED_GUEST": "Ограничить гостя",
       "RESTRICTED_CONTACTS": "Гость может связаться с аккаунтами",
       "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Дата истечения срока действия гостя должна быть между завтра и {date}",
-      "MAIL":"Эл. адрес",
+      "MAIL": "Эл. адрес",
       "ADVANCED_RESEARCH": "Расширенные исследования"
     },
     "GUEST_MODERATOR": {
@@ -348,7 +348,7 @@
       "NAME": "Имя"
     },
     "MEMBERS": {
-      "MEMBERS":"члены",
+      "MEMBERS": "члены",
       "TAB_TITLE": "Список участников",
       "CONFIRM_DELETE": "Вы уверены, что хотите удалить этого участника из общего пространства?",
       "FILTER_PLACEHOLDER": "Поиск или фильтрация участников общего пространства",
@@ -358,7 +358,7 @@
       "DEFAULT_WORKGROUP_ROLE": "Роль рабочей группы по умолчанию",
       "FORCE_CHECKBOX": "Переопределить эту роль для всех вложенных рабочих групп",
       "MEMBER_ADVANCED_RESEARCH": "Расширенные исследования",
-      "DEFAULT_ROLE":"Роль по умолчанию",
+      "DEFAULT_ROLE": "Роль по умолчанию",
       "NO_DEFAULT_ROLE": "Нет роли по умолчанию",
       "DEFAULT_ROLE_TAG_PREFIX": "Роль по умолчанию:",
       "DEFAULT_ROLE_TAG_TOOLTIP": "Эта роль будет применяться к этому участнику для всех вновь созданных рабочих групп в этой рабочей области"
@@ -369,10 +369,10 @@
     "USED_SPACE": "Использовано {usedSpace} больше {computedQuota}",
     "USER_QUOTA": "Квота, выделенная на личное пространство пользователя",
     "USER_MAX_FILE_SIZE": "Максимальный размер загружаемого пользователем файла в личном пространстве",
-    "CURRENT DOMAIN QUOTA":"ТЕКУЩАЯ КВОТА ДОМЕНА",
-    "MAINTENANCE_MODE":"Режим обслуживания",
-    "ALREADY_USED":"уже использован",
-    "QUOTA_AND_USED_SPACE":"Квота домена и используемое пространство",
+    "CURRENT DOMAIN QUOTA": "ТЕКУЩАЯ КВОТА ДОМЕНА",
+    "MAINTENANCE_MODE": "Режим обслуживания",
+    "ALREADY_USED": "уже использован",
+    "QUOTA_AND_USED_SPACE": "Квота домена и используемое пространство",
     "SUBDOMAINS_ALLOCATION_SETTINGS": "Настройки распределения по умолчанию субдоменов",
     "SUBDOMAIN_QUOTA": "Квота субдоменов",
     "SHRAED_DOMAIN_QUOTA_ACTIVATION": "Активировать общую квоту домена",
@@ -384,7 +384,7 @@
     "SHARED_SPACE_QUOTA": "Квота общего доступа",
     "DEFAULT_TOTAL_ALLOCATED_QUOTA": "По умолчанию общая сумма Sharedspaces, выделенная квотой ",
     "DEFAULT_MAX_FILE_SIZE": "Максимальный размер файла Sharedspace по умолчанию ",
-    "QUOTA_EXCEEDED_ERROR":"Превышение квоты, освобождение места для хранения или выделение большей квоты for the ",
+    "QUOTA_EXCEEDED_ERROR": "Превышение квоты, освобождение места для хранения или выделение большей квоты for the ",
     "SPACES_LABEL": {
       "CURRENT_DOMAIN": "текущий домен",
       "PERSONALS_SPACES": "Моё пространство",
@@ -393,10 +393,10 @@
     },
     "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Выделить квоту для определенной учетной записи пользователя",
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Этот раздел позволяет вам управлять текущим размером квоты домена и настраивать его по своему усмотрению.",
-    "MAINTENANCE_MODE_ACTIVATED_ALERT":"Активируется режим обслуживания, что предотвращает любые загрузки в пределах текущего домена.",
-    "DOMAIN_MAXIMUM_QUOTA":"Максимальная квота домена : ",
+    "MAINTENANCE_MODE_ACTIVATED_ALERT": "Активируется режим обслуживания, что предотвращает любые загрузки в пределах текущего домена.",
+    "DOMAIN_MAXIMUM_QUOTA": "Максимальная квота домена : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Квота субдоменов по умолчанию : ",
-    "DOMAIN_QUOTA":"Квота домена",
+    "DOMAIN_QUOTA": "Квота домена",
     "ERROR_MESSAGE_FIELD": "Значение должно быть ниже или равно:",
     "ALLOCATION_WITHIN_THE_CURRENT_DOMAIN": "Allocation within the current domain {Containers}",
     "PERSONAL SPACE QUOTA": "Квоты личных пространств",
@@ -415,27 +415,27 @@
       "FILE_SIZE_LARGER_THAN_QUOTA": "Максимальный размер загружаемого файла должен быть меньше квоты хранилища",
       "INVALID_FILE_SIZE": "Неверный максимальный размер файла"
     },
-    "QUOTA_VISUALIZE":"Квота визуализировать",
-    "ROOT_DOMAIN_QUOTA":{
+    "QUOTA_VISUALIZE": "Квота визуализировать",
+    "ROOT_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Текущая область используемого пространства: (Personal + Shared Space)",
-      "SUB_DOMAIN_USED_SPACE":"Поддомены использовали пространство",
-      "REMAINING_SPACE":"Оставшееся пространство",
+      "SUB_DOMAIN_USED_SPACE": "Поддомены использовали пространство",
+      "REMAINING_SPACE": "Оставшееся пространство",
       "QUOTA_PER_SUB_DOMAIN": "Квота на поддомен"
     },
- "TOP_DOMAIN_QUOTA":{
+    "TOP_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Текущая область используемого пространства",
-      "SUB_DOMAIN_USED_SPACE":"Поддомены использовали пространство",
-      "REMAINING_QUOTA":"Remaining quota",
+      "SUB_DOMAIN_USED_SPACE": "Поддомены использовали пространство",
+      "REMAINING_QUOTA": "Remaining quota",
       "QUOTA_PER_SUB_DOMAIN": "Незанятое пространство",
       "USED": "Используемое пространство"
     },
-    "GUEST_DOMAIN_QUOTA":{
+    "GUEST_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Используемое пространство текущего домена",
-      "REMAINING_SPACE":"Оставшееся пространство",
+      "REMAINING_SPACE": "Оставшееся пространство",
       "UNALLOCATED_SPACE": "Незанятое пространство",
-      "PERSONAL_ALLOCATED_SPACE":"Выделенная квота личного пространства",
-      "SHARED_SPACE_ALLOCATED":"Выделенная квота общего пространства",
-      "UNASSIGNED_SPACE":"Неназначенная квота"
+      "PERSONAL_ALLOCATED_SPACE": "Выделенная квота личного пространства",
+      "SHARED_SPACE_ALLOCATED": "Выделенная квота общего пространства",
+      "UNASSIGNED_SPACE": "Неназначенная квота"
     },
     "SAVE_CHANGE": "Сохранять",
     "CANCEL": "Отмена",
@@ -486,7 +486,7 @@
       "BACK_TO_CONFIGURATION": "Перейти к конфигурации"
     },
     "TYPES": {
-        "ROOTDOMAIN":"Корневой домен",
+      "ROOTDOMAIN": "Корневой домен",
       "TOPDOMAIN": "Главный домен",
       "SUBDOMAIN": "Поддомен",
       "GUESTDOMAIN": "Гостевой домен"
@@ -690,24 +690,33 @@
   "WELCOME_MESSAGES": {
     "DESCRIPTION": "В этом представлении вы можете выбрать один домен в дереве доменов и просмотреть список приветственных сообщений, которые вы создали или разрешили использовать.",
     "ROOT_DOMAIN_DESCRIPTION": "Корневой домен может создавать приветственные сообщения, но не может использовать ни одно из них",
-    "NESTED_DOMAIN_DESCRIPTION": "Вложенный домен может создавать приветственные сообщения для собственного использования и может использовать приветственные сообщения, созданные его более высокими доменами.",    
-    "THE_WELCOME_MESSAGE":"Приветственное сообщение",
-    "SET_FIELD":"Вам нужно установить это поле",
-    "DELETE_CONFIRM":"Вы собираетесь удалить это приветственное сообщение, эта процедура необратима. Вы хотите продолжить?",
-    "MESSAGE_PREVIEW":"Вот предварительный просмотр приветственного сообщения:",
+    "NESTED_DOMAIN_DESCRIPTION": "Вложенный домен может создавать приветственные сообщения для собственного использования и может использовать приветственные сообщения, созданные его более высокими доменами.",
+    "THE_WELCOME_MESSAGE": "Приветственное сообщение",
+    "SET_FIELD": "Вам нужно установить это поле",
+    "DELETE_CONFIRM": "Вы собираетесь удалить это приветственное сообщение, эта процедура необратима. Вы хотите продолжить?",
+    "MESSAGE_PREVIEW": "Вот предварительный просмотр приветственного сообщения:",
     "ASSIGN_SUCCESS": "Назначено успешно",
     "ASSIGN_CONFIRM": "Вы собираетесь назначить это приветственное сообщение текущему домену. Вы хотите продолжить?"
   },
-"MIME_POLICIES": {
-  "CREATE_DESCRIPTION":"Нажмите на кнопку «Создать» и задайте имя для фильтра MIME-типов",
-  "FILTER_DESCRIPTION":"Выберите добавленный фильтр, чтобы увидеть список доступных MIME-типов",
-  "ENABLED_DESCRIPTION":"Активируйте или дезактивируйте MIME-тип, который необходимо сохранить",
-  "MANAGE_DESCRIPTION":"Далее, вы можете выбрать этот  фильтр в меню <a href='{url}'>{domain_link}</a> при создании или редактировании домена",
-  "MANAGE_DOMAIN":"Управление доменом",
-  "CREATE_MIME_POLICY": "Создать новую политику MIME",
-  "SEARCH_BY": "Поиск по имени или домену",
-  "SYSTEM_INFORMATIONS":"Системная информация"
-},
+  "MIME_POLICIES": {
+    "CREATE_DESCRIPTION": "Нажмите на кнопку «Создать» и задайте имя для фильтра MIME-типов",
+    "FILTER_DESCRIPTION": "Выберите добавленный фильтр, чтобы увидеть список доступных MIME-типов",
+    "ENABLED_DESCRIPTION": "Активируйте или дезактивируйте MIME-тип, который необходимо сохранить",
+    "MANAGE_DESCRIPTION": "Далее, вы можете выбрать этот  фильтр в меню <a href='{url}'>{domain_link}</a> при создании или редактировании домена",
+    "MANAGE_DOMAIN": "Управление доменом",
+    "CREATE_MIME_POLICY": "Создать новую политику MIME",
+    "SEARCH_BY": "Поиск по имени или домену",
+    "SYSTEM_INFORMATIONS":"Системная информация",
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "Delete mime policy",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this Mime policy, this action is irreversible. Do you still want to proceed?",
+      "DELETE_ACTION_CANCEL": "Cancel",
+      "DELETE_ACTION_CONFIRM": "Yes, delete",
+      "DELETE_MODAL_EMPTY": "Please select mime type to delete",
+      "DELETE_SUCCESS": "Удалить успешно",
+      "DELETE_SINGLE_FAIL": "Selected Mime policies is associated with at least one domain. You cannot delete"
+    }
+  },
   "FUNCTIONALITIES": {
     "LIST": {
       "SEARCH_PLACEHOLDER": "Поиск функций по названию",
@@ -825,7 +834,7 @@
         "DESCRIPTION": "Позволяет установить ограничение на количество загруженных запросов, которые пользователь может создать в этом домене.",
         "PARAMETER": {
           "TITLE_MAXIMUM": "Максимальное количество запросов на загрузку",
-          "DESCRIPTION_MAXIMUM":"Максимальное количество запросов на загрузку пользователя в этом домене. Количество учитывается для запросов на загрузку со статусом: Ожидание/Активно/Закрыто"
+          "DESCRIPTION_MAXIMUM": "Максимальное количество запросов на загрузку пользователя в этом домене. Количество учитывается для запросов на загрузку со статусом: Ожидание/Активно/Закрыто"
         }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
@@ -1119,7 +1128,7 @@
     "INTRODUCTION": "Showing all LinShare root domains",
     "VIEW_DETAILS": "Показать детали",
     "CREATE_CHILD_DOMAIN": "Create Child domain",
-    "MANAGE_DOMAINS":"Manage domains",
+    "MANAGE_DOMAINS": "Manage domains",
     "CONFIGURATION": "Configuration",
     "DELETE": "Удалить",
     "SELECT_DOMAIN": "Выбрать домен",
@@ -1227,14 +1236,14 @@
         "UPLOAD_REQUEST_ENTRY": "Запись запроса на загрузку",
         "GUEST_MODERATOR": "Приглашенные модераторы",
         "GROUP_FILTER": "Фильтры рабочей группы",
-        "WORKSPACE_FILTER":"Фильтры рабочей области",
+        "WORKSPACE_FILTER": "Фильтры рабочей области",
         "RESET_PASSWORD": "Сброс пароля",
-        "USER_PREFERENCE":"Настройки пользователя",
-        "SAFE_DETAIL":"Безопасные данные",
-        "PUBLIC_KEY":"Открытые ключи",
-        "SHARED_SPACE_NODE" :"Узлы общего пространства",
-        "MAIL_ATTACHMENT" :"Почтовые вложения",
-        "SHARED_SPACE_MEMBER" :"Участники общего пространства",
+        "USER_PREFERENCE": "Настройки пользователя",
+        "SAFE_DETAIL": "Безопасные данные",
+        "PUBLIC_KEY": "Открытые ключи",
+        "SHARED_SPACE_NODE": "Узлы общего пространства",
+        "MAIL_ATTACHMENT": "Почтовые вложения",
+        "SHARED_SPACE_MEMBER": "Участники общего пространства",
         "UPLOAD_PROPOSITION": "Загрузить предложения"
       }
     },
