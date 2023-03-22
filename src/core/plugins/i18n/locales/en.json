@@ -706,7 +706,8 @@
     "FILTER_DESCRIPTION":"Choose the filter that you added than a list of available MIME types is displayed",
     "ENABLED_DESCRIPTION":"Enable or disable the MIME type you want than save",
     "MANAGE_DESCRIPTION":"You can than select this filter in <a href='{url}'>{domain_link}</a> menu when you create or edit a domain",
-    "MANAGE_DOMAIN":"Manage domain"
+    "MANAGE_DOMAIN":"Manage domain",
+    "SEARCH_BY": "Search by name or domain"
   },
   "FUNCTIONALITIES": {
     "LIST": {
@@ -1438,7 +1439,7 @@
       "CATEGORIES_MY_SPACE": "My space"
     },
     "DISABLED": "Disabled",
-    "ENABLED": "Enabled",  
+    "ENABLED": "Enabled",
     "FILTERS_SELECT": {
       "ACTION": {
         "ADDITION": "Addition",
@@ -1515,7 +1516,7 @@
       "FILTER_ENDING_DATE": "Ending date",
       "SEARCH": "Search"
     }
-    
+
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Select your language"

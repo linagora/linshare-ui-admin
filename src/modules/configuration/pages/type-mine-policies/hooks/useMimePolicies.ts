@@ -1,4 +1,4 @@
-import { reactive, ref, computed } from 'vue';
+import { reactive, ref, computed, watch } from 'vue';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
@@ -16,7 +16,11 @@ const pagination = reactive({
 });
 
 const filteredList = computed(() =>
-  list.value.filter((mime) => mime.name.toLowerCase().includes(filterText.value.toLowerCase()))
+  list.value.filter(
+    (mime) =>
+      mime.name.toLowerCase().includes(filterText.value.toLowerCase()) ||
+      mime.domainName.toLowerCase().includes(filterText.value.toLowerCase())
+  )
 );
 const filteredListByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
@@ -25,10 +29,14 @@ const filteredListByPage = computed(() => {
 });
 
 export default function useMimesPolicies() {
+  watch(filteredList, async (newVal) => {
+    pagination.total = newVal.length;
+  });
+
   async function getMinePoliciesList(domainUuid: string) {
     status.value = STATUS.LOADING;
     try {
-      const mimes = await getMimiPolicies(domainUuid);
+      const mimes = await getMimiPolicies(domainUuid, false);
       list.value = mimes;
       status.value = STATUS.SUCCESS;
       return;
@@ -62,5 +70,7 @@ export default function useMimesPolicies() {
     filterText,
     isAssigned,
     isEditable,
+    filteredList,
+    pagination,
   };
 }

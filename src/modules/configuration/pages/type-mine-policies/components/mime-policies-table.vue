@@ -6,15 +6,20 @@
     :loading="status === STATUS.LOADING"
     row-key="uuid"
   >
-    <template #bodyCell="{ column, record, text }">
+    <template #bodyCell="{ column, record }">
       <template v-if="column.key === 'name'">
-        <span class="elipsis-name" :title="text">{{ text }}</span>
+        <span class="elipsis-name" :title="record.name">{{ record.name }}</span>
       </template>
       <template v-if="column.key === 'domain'">
-        <span>{{ record.domainId }}</span>
+        <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domainId } }">
+          <span>{{ record.domainName }}</span>
+        </router-link>
       </template>
-      <template v-else-if="column.key === 'date'">
-        <span>{{ $d(text, 'mediumDate') }}</span>
+      <template v-else-if="column.key === 'creationDate'">
+        <span>{{ $d(record.creationDate, 'mediumDate') }}</span>
+      </template>
+      <template v-else-if="column.key === 'modificationDate'">
+        <span>{{ $d(record.modificationDate, 'mediumDate') }}</span>
       </template>
       <template v-else-if="column.key === 'assigned'">
         <a-tag v-if="isAssigned(record.uuid, currentDomain.mimePolicy?.uuid)" color="success">
@@ -35,12 +40,7 @@
           <EllipsisOutlined />
           <template #overlay>
             <a-menu>
-              <a-menu-item
-                v-if="currentDomain.type !== DOMAIN_TYPE.ROOT"
-                :disabled="record.assignedToCurrentDomain === true"
-              >
-                <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
-              </a-menu-item>
+              <a-menu-item> <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }} </a-menu-item>
               <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)">
                 <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
               </a-menu-item>
@@ -64,7 +64,6 @@ import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { EllipsisOutlined } from '@ant-design/icons-vue';
 import { useDomainStore } from '@/modules/domain/store';
-import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import { STATUS } from '@/core/types/Status';
 import Mimes from '../types/MimeType';
 import useMimesPolicies from '../hooks/useMimePolicies';
@@ -81,8 +80,8 @@ const { currentDomain } = storeToRefs(domainStore);
 
 const columns = computed(() => [
   {
+    width: '350px',
     title: t('GENERAL.NAME'),
-    dataIndex: ['name'],
     sorter: (a: Mimes, b: Mimes) => a.name.localeCompare(b.name),
     key: 'name',
   },
@@ -94,6 +93,7 @@ const columns = computed(() => [
   {
     title: t('GENERAL.DOMAIN'),
     align: 'center',
+    sorter: (a: Mimes, b: Mimes) => a.domainName.localeCompare(b.domainName),
     dataIndex: ['domain', 'name'],
     key: 'domain',
   },
@@ -101,18 +101,18 @@ const columns = computed(() => [
   {
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: ['creationDate'],
-    key: 'date',
+    sorter: (a: Mimes, b: Mimes) => (a.creationDate || 0) - (b.creationDate || 0),
+    key: 'creationDate',
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     dataIndex: ['modificationDate'],
     sorter: (a: Mimes, b: Mimes) => (a.modificationDate || 0) - (b.modificationDate || 0),
     defaultSortOrder: 'descend',
-    key: 'date',
+    key: 'modificationDate',
   },
   {
     title: t('GENERAL.ASSIGNED'),
-    dataIndex: ['assignedToCurrentDomain'],
     key: 'assigned',
   },
   {
@@ -132,7 +132,7 @@ watch(currentRoute, (newRoute) => {
 
 <style lang="less" scoped>
 .elipsis-name {
-  min-width: 100px;
+  max-width: 350px;
   white-space: nowrap;
   overflow: hidden;
   display: block;

@@ -704,7 +704,8 @@
     "FILTER_DESCRIPTION":"Choisissez le filtre que vous avez ajouté et la liste des types MIME disponibles s'affiche",
     "ENABLED_DESCRIPTION":"Activez ou désactivez le type MIME que vous souhaitez puis cliquez sur enregistrer",
     "MANAGE_DESCRIPTION":"Vous pouvez ensuite sélectionner ce filtre dans le menu <a href='{url}'>{domain_link}</a> lorsque vous créez ou modifiez un domaine",
-    "MANAGE_DOMAIN":"Gérer le domaine"
+    "MANAGE_DOMAIN":"Gérer le domaine",
+    "SEARCH_BY": "Recherche par nom ou par domain"
   },
   "FUNCTIONALITIES": {
     "LIST": {
