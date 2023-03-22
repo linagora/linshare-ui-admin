@@ -725,7 +725,19 @@
       "DELETE_FAILURE":"Delete failed",
       "DELETE_FAILURE_MESSAGE": "Some of MIME policies are deleted successfully but not others because they are already assigned to at least one domain",
       "UNABLE_DELETE_MIME": "You are unable to delete those MIME Policies"
-    }
+    },
+    "MIME_TYPE_TABLE" : {
+      "MIME_TYPE_NAME": "Mime Type Name",
+      "EXTENTION": "Extention",
+      "STATUS": "Status",
+      "SEARCH": "Search by name, extention or status",
+      "ENABLE_ALL": "Enable All",
+      "DISABLE_ALL": "Disable All"
+    },
+    "UPDATE_MIME_TYPE_SUCCESS": "Saved changes for {name} ",
+    "MAMAGER_MIME_POLICY": "Manage mine policy",
+    "NAME": "Name",
+    "BACK_TO_LIST": "Back to list"
   },
   "FUNCTIONALITIES": {
     "LIST": {

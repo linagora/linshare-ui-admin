@@ -2,16 +2,29 @@ import { reactive, ref, computed, watch } from 'vue';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
-import { deleteMimePolicy, getMimePolicies } from '../services/mime-policies-api';
-import MimePolicy from '../types/MimeType';
+import {
+  deleteMimePolicy,
+  getMimePolicy,
+  enableAllTypeInMimePolicy,
+  disableAllTypeInMimePolicy,
+  updateMimeType,
+  updateMimePolicy,
+  getMimePolicies,
+} from '../services/mime-policies-api';
+import { MimePolicy, MimeType } from '../types/MimeType';
 import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { useDomainStore } from '@/modules/domain/store';
-
-const activeMimePolicy = ref<MimePolicy>();
+import { CONFIGURATION_MIME_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/type-mime-policies/router';
+import { useRoute, useRouter } from 'vue-router';
+import { useLocalStorage } from '@vueuse/core';
+const activeMimePolicy = useLocalStorage<MimePolicy>(
+  'configuration-type-mime-policies-activeMimePolicy',
+  {} as MimePolicy
+);
 const selectedMimePolicies = ref<MimePolicy[]>();
 const modal = reactive<{
   type: 'DELETE_MIME_MODAL' | 'DELETE_MIME_POLICIES_MODAL' | 'DELETE_MIME_POLICIES_FAIL_MODAL';
@@ -47,6 +60,9 @@ export default function useMimesPolicies() {
   const { t } = useI18n();
   const { loggedUserRole } = storeToRefs(useAuthStore());
   const { getDomainsList } = storeToRefs(useDomainStore());
+  const router = useRouter();
+  const route = useRoute();
+
   // data
   const loading = ref(false);
 
@@ -57,6 +73,18 @@ export default function useMimesPolicies() {
 
   function onCloseModal() {
     modal.visible = false;
+  }
+
+  function onEditMimePolicy(mime: MimePolicy) {
+    activeMimePolicy.value = mime;
+
+    router.push({
+      name: CONFIGURATION_MIME_POLICIES_ROUTE_NAMES.DETAIL,
+      params: {
+        ...route.params,
+        mimePolicyUuid: activeMimePolicy.value?.uuid,
+      },
+    });
   }
 
   function onDeleteMimePolicy(mime: MimePolicy) {
@@ -154,6 +182,70 @@ export default function useMimesPolicies() {
     }
   }
 
+  async function handleGetMimePolicy(mimePolicyUuid: string) {
+    status.value = STATUS.LOADING;
+    try {
+      const mimes = await getMimePolicy(mimePolicyUuid);
+      activeMimePolicy.value = mimes;
+      status.value = STATUS.SUCCESS;
+      return;
+    } catch (error) {
+      status.value = STATUS.ERROR;
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    }
+  }
+
+  async function enableAllMimeTypesInMimePolicy(mimePolicyUuid: string) {
+    status.value = STATUS.LOADING;
+    try {
+      const mimes = await enableAllTypeInMimePolicy(mimePolicyUuid);
+      activeMimePolicy.value = mimes;
+      status.value = STATUS.SUCCESS;
+      message.success(t('MIME_POLICIES.UPDATE_MIME_TYPE_SUCCESS', { name: activeMimePolicy.value?.name }));
+      return;
+    } catch (error) {
+      status.value = STATUS.ERROR;
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    }
+  }
+
+  async function disableAllMimeTypesInMimePolicy(mimePolicyUuid: string) {
+    status.value = STATUS.LOADING;
+    try {
+      const mimes = await disableAllTypeInMimePolicy(mimePolicyUuid);
+      activeMimePolicy.value = mimes;
+      status.value = STATUS.SUCCESS;
+      message.success(t('MIME_POLICIES.UPDATE_MIME_TYPE_SUCCESS', { name: activeMimePolicy.value?.name }));
+      return;
+    } catch (error) {
+      status.value = STATUS.ERROR;
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    }
+  }
+
+  async function handleUpdateMimeType(mimeType: MimeType) {
+    status.value = STATUS.LOADING;
+    try {
+      const mimes = await updateMimeType(mimeType);
+      status.value = STATUS.SUCCESS;
+      if (mimes) {
+        message.success(t('MIME_POLICIES.UPDATE_MIME_TYPE_SUCCESS', { name: mimeType.mimeType }));
+        return;
+      }
+    } catch (error) {
+      status.value = STATUS.ERROR;
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    }
+  }
+
   function isAssigned(MimeTypeUuid: string, currentDomainMimeTypeUuid: string | undefined) {
     if (MimeTypeUuid === currentDomainMimeTypeUuid) {
       return true;
@@ -172,7 +264,10 @@ export default function useMimesPolicies() {
     selectedMimePolicies.value = [];
   }
 
-  function checkingMimePolicyDomainAuthorized(record: MimePolicy) {
+  function checkingMimePolicyDomainAuthorized(record: MimePolicy | undefined) {
+    if (!record) {
+      return false;
+    }
     if (loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN) {
       return true;
     } else {
@@ -184,16 +279,42 @@ export default function useMimesPolicies() {
     }
   }
 
+  async function handleUpdateMimePolicy(payload: MimePolicy) {
+    loading.value = true;
+    try {
+      const mimes = await updateMimePolicy(payload);
+      if (mimes) {
+        message.success(t('MIME_POLICIES.UPDATE_MIME_TYPE_SUCCESS', { name: payload.name }));
+        return true;
+      }
+      return false;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   return {
     isAssigned,
     isEditable,
     onCloseModal,
+    onEditMimePolicy,
     onDeleteMimePolicy,
+    handleGetMimePolicy,
     getMimePoliciesList,
+    handleUpdateMimeType,
     onDeleteMimePolicies,
+    handleUpdateMimePolicy,
     handleDeleteMimePolicy,
     handleDeleteMimePolicies,
     onShowDeleteMimePoliciesFail,
+    enableAllMimeTypesInMimePolicy,
+    disableAllMimeTypesInMimePolicy,
+    checkingMimePolicyDomainAuthorized,
     modal,
     list,
     status,
@@ -201,6 +322,7 @@ export default function useMimesPolicies() {
     pagination,
     filterText,
     filteredList,
+    activeMimePolicy,
     filteredListByPage,
     selectedMimePolicies,
   };

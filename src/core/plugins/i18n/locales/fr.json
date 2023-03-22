@@ -725,7 +725,19 @@
       "DELETE_FAILURE":"Échec de la suppression",
       "DELETE_FAILURE_MESSAGE": "Certaines des politiques MIME ont été supprimées avec succès, mais les autres sont assignées à au moins un domaine et ne peuvent être supprimées.",
       "UNABLE_DELETE_MIME": "Vous n'avez pas le droit de supprimer ces Politiques MIME"      
-    }
+    },
+    "MIME_TYPE_TABLE" : {
+      "MIME_TYPE_NAME": "Nom du type MIME",
+      "EXTENTION": "Extension",
+      "STATUS": "Statut",
+      "SEARCH": "Rechercher par nom, extension ou statut",
+      "ENABLE_ALL": "Tout activer",
+      "DISABLE_ALL": "Tout désactiver"
+    },
+    "UPDATE_MIME_TYPE_SUCCESS": "Modifications enregistrées pour {name}",
+    "MAMAGER_MIME_POLICY": "Gérer la politique MIME",
+    "NAME": "Nom",
+    "BACK_TO_LIST": "Retour à la liste"
   },
   "FUNCTIONALITIES": {
     "LIST": {

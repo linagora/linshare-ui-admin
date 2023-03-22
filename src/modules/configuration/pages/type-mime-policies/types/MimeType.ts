@@ -1,4 +1,4 @@
-export default interface MimePolicies {
+export interface MimePolicy {
   uuid: string;
   creationDate?: number;
   name: string;
@@ -6,4 +6,13 @@ export default interface MimePolicies {
   domainId: string;
   domainName: string;
   mimeTypes?: boolean;
+}
+
+export interface MimeType {
+  uuid: string;
+  mimeType: string;
+  extensions: string;
+  enable: boolean;
+  creationDate: number;
+  modificationDate: number;
 }

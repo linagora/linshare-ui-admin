@@ -37,7 +37,7 @@
               <a-menu-item @click="MimePolicyAssignement(record.uuid)">
                 <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
               </a-menu-item>
-              <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)">
+              <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)" @click="onEditMimePolicy(record)">
                 <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
               </a-menu-item>
               <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)" @click="onDeleteMimePolicy(record)">
@@ -56,7 +56,7 @@ import { storeToRefs } from 'pinia';
 import { computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { STATUS } from '@/core/types/Status';
-import MimePolicy from '../types/MimeType';
+import { MimePolicy } from '../types/MimeType';
 import useMimesPolicies from '../hooks/useMimePolicies';
 import AssignIcon from '@/core/components/icons/assign-icon.vue';
 import EditIcon from '@/core/components/icons/edit-icon.vue';
@@ -82,6 +82,7 @@ const {
   getMimePoliciesList,
   isAssigned,
   isEditable,
+  onEditMimePolicy,
   onDeleteMimePolicy,
 } = useMimesPolicies();
 
@@ -139,7 +140,7 @@ const columns = computed(() => [
 ]);
 
 function domainRedirectionAuthorized(record: MimePolicy) {
-  return record.domainId === 'LinShareRootDomain' && loggedUser?.value.role === ACCOUNT_ROLE.ADMIN;
+  return record.domainId === 'LinShareRootDomain' && loggedUser?.value?.role === ACCOUNT_ROLE.ADMIN;
 }
 
 async function onFetchMimePolicies() {

@@ -724,7 +724,19 @@
       "DELETE_FAILURE":"Не удалось удалить",
       "DELETE_FAILURE_MESSAGE": "Некоторые из политик MIME-типов успешно удалены. Удаление остальных невозможно, т.к. они привязаны к домену",
       "UNABLE_DELETE_MIME": "Невозможно удалить эти политики MIME-типов"
-    }
+    },
+    "MIME_TYPE_TABLE" : {
+      "MIME_TYPE_NAME": "Название MIME-типа",
+      "EXTENTION": "Расширение",
+      "STATUS": "Статус",
+      "SEARCH": "Поиск по названию, расширению или статусу",
+      "ENABLE_ALL": "Активировать все",
+      "DISABLE_ALL": "Деактивировать все"
+      },
+    "UPDATE_MIME_TYPE_SUCCESS": "Сохранены изменения для {name} ",
+    "MAMAGER_MIME_POLICY": "Настройки политики MIME-типов",
+    "NAME": "Название",
+    "BACK_TO_LIST": "Вернуться к списку"
   },
   "FUNCTIONALITIES": {
     "LIST": {

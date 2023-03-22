@@ -724,7 +724,20 @@
       "DELETE_FAILURE":"Xóa không thành công",
       "DELETE_FAILURE_MESSAGE": "Một số chính sách MIME được xóa thành công nhưng những chính sách khác thì không vì chúng đã được chỉ định",
       "UNABLE_DELETE_MIME": "Bạn không thể xóa các Chính sách MIME đó"
-    }
+    },
+    
+    "MIME_TYPE_TABLE" : {
+      "MIME_TYPE_NAME": "Tên loại Mime",
+      "EXTENTION": "Sự mở rộng",
+      "STATUS": "Trạng thái",
+      "SEARCH": "Tìm kiếm theo tên, phần mở rộng hoặc trạng thái",
+      "ENABLE_ALL": "Cho phép tất cả",
+      "DISABLE_ALL": "Vô hiệu hóa tất cả"
+    },
+    "UPDATE_MIME_TYPE_SUCCESS": "Các thay đổi đã lưu cho {name}",
+    "MAMAGER_MIME_POLICY": "Quản lý chính sách mime",
+    "NAME": "Tên",
+    "BACK_TO_LIST": "Trở lại danh sách"
   },
   "FUNCTIONALITIES": {
     "LIST": {
