@@ -58,7 +58,8 @@
     "DATE_LAST_YEAR": "Năm ngoái",
     "DATE_CUSTOM": "Phạm vi tùy chỉnh",
     "NUMBER_COL": "STT",
-    "EMPTY_MESSAGE": "Không có dữ liệu"
+    "EMPTY_MESSAGE": "Không có dữ liệu",
+    "CLEAR_FILTER": "Xoá bộ lọc"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",

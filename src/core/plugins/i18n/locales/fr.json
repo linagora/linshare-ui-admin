@@ -58,7 +58,8 @@
     "DATE_LAST_YEAR": "L'année dernière",
     "DATE_CUSTOM": "Plage personnalisée",
     "NUMBER_COL": "Non.",
-    "EMPTY_MESSAGE": "Aucune donnée"
+    "EMPTY_MESSAGE": "Aucune donnée",
+    "CLEAR_FILTER": "Réinitialiser les filtres"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",

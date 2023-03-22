@@ -58,7 +58,8 @@
     "DATE_LAST_YEAR": "Last year",
     "DATE_CUSTOM": "Custom range",
     "NUMBER_COL": "No.",
-    "EMPTY_MESSAGE": "No data"
+    "EMPTY_MESSAGE": "No data",
+    "CLEAR_FILTER": "Clear filter"
   },
   "LOCALE": {
     "ENGLISH": "English",

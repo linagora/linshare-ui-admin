@@ -58,7 +58,8 @@
     "DATE_LAST_YEAR": "В прошлом году",
     "DATE_CUSTOM": "Пользовательский диапазон",
     "NUMBER_COL": "Нет.",
-    "EMPTY_MESSAGE": "Нет данных"
+    "EMPTY_MESSAGE": "Нет данных",
+    "CLEAR_FILTER": "Clear filter"
   },
   "LOCALE": {
     "ENGLISH": "Английский",

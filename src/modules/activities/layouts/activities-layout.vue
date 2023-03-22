@@ -10,7 +10,7 @@ const showFilterModal = ref(false);
 <template>
   <the-subheader :title="$t('NAVIGATOR.ACTIVITIES')" :detail="$t('ACTIVITIES.INTRODUCTION')">
     <template #action>
-      <a-button @click="showFilterModal = true">
+      <a-button class="ls-button" @click="showFilterModal = true">
         <template #icon>
           <filter-icon class="anticon"></filter-icon>
         </template>
