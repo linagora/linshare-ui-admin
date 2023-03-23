@@ -1512,67 +1512,67 @@
       "FILTER_ENDING_DATE": "Date de fin",
       "SEARCH": "Rechercher"
     },"DETAILS_POPUP": {
-      "BY": "Par",
+      "BY": "Par {user}",
       "MODIFICATIONS": "Modification(s)",
       "SENTENCES": {
         "ANONYMOUS_SHARE_ENTRY": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez partagé le fichier : {{resourceName}} à {{userVarious}}.",
+              "SENTENCE": "Vous avez partagé le fichier : {resourceName} à {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a partagé le fichier : {{resourceName}} avec vous.",
+              "SENTENCE": "{authorName} a partagé le fichier : {resourceName} avec vous.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le partage du fichier : {{resourceName}}, destiné à {{userVarious}}.",
+              "SENTENCE": "Vous avez supprimé le partage du fichier : {resourceName}, destiné à {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le partage : {{resourceName}}.",
+              "SENTENCE": "{authorName} a supprimé le partage : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "DOWNLOAD": {
             "ADMIN": {
-              "SENTENCE": "{{authorName}} a téléchargé le partage : {{resourceName}}, émis par {{userVarious}}.",
+              "SENTENCE": "{authorName} a téléchargé le partage : {resourceName}, émis par {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a téléchargé votre partage : {{resourceName}}.",
+              "SENTENCE": "{authorName} a téléchargé votre partage : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "Votre partage : {{resourceName}} destiné à {{userVarious}} a expiré.",
+              "SENTENCE": "Votre partage : {resourceName} destiné à {userVarious} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "Le partage : {{resourceName}} de {{authorName}} destiné à {{userVarious}} a expiré.",
+              "SENTENCE": "Le partage : {resourceName} de {authorName} destiné à {userVarious} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "READ": {
             "ADMIN": {
-              "SENTENCE": "{{authorName}} a consulté le partage du : {{dateVarious}}, émis par {{userVarious}}.",
+              "SENTENCE": "{authorName} a consulté le partage du : {dateVarious}, émis par {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.READ"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a consulté votre partage du {{dateVarious}}.",
+              "SENTENCE": "{authorName} a consulté votre partage du {dateVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.READ"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié votre partage du fichier : {{resourceName}}, destiné à {{userVarious}}.",
+              "SENTENCE": "Vous avez modifié votre partage du fichier : {resourceName}, destiné à {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le partage du fichier : {{resourceName}}.",
+              "SENTENCE": "{authorName} a modifié le partage du fichier : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             }
           }
@@ -1580,11 +1580,11 @@
         "AUTHENTICATION": {
           "FAILURE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez essayé de vous connecter avec des mauvais accès.",
+              "SENTENCE": "Vous avez essayé de vous connecter avec de mauvais accès.",
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a essayé de se connecter avec des mauvais accès.",
+              "SENTENCE": "{authorName} a essayé de se connecter avec de mauvais accès.",
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             }
           },
@@ -1594,7 +1594,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} s'est connecté avec succès.",
+              "SENTENCE": "{authorName} s'est connecté avec succès.",
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             }
           }
@@ -1602,31 +1602,31 @@
         "CONTACTS_LISTS": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez créé une nouvelle Liste de Contacts : {{resourceName}}.",
+              "SENTENCE": "Vous avez créé une nouvelle Liste de Contacts : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a créé une nouvelle Liste de Contacts : {{resourceName}}.",
+              "SENTENCE": "{authorName} a créé une nouvelle Liste de Contacts : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé la Liste de Contacts : {{resourceName}}.",
+              "SENTENCE": "Vous avez supprimé la Liste de Contacts : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé la Liste de Contacts : {{resourceName}}.",
+              "SENTENCE": "{authorName} a supprimé la Liste de Contacts : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié la Liste de Contacts : {{resourceName}}.",
+              "SENTENCE": "Vous avez modifié la Liste de Contacts : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié la Liste de Contacts : {{resourceName}}.",
+              "SENTENCE": "{authorName} a modifié la Liste de Contacts : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1634,31 +1634,31 @@
         "CONTACTS_LISTS_CONTACTS": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez ajouté : {{resourceName}} dans la Liste de Contacts {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez ajouté : {resourceName} dans la Liste de Contacts {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a ajouté : {{resourceName}} dans la Liste de Contacts {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a ajouté : {resourceName} dans la Liste de Contacts {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé : {{resourceName}} dans la Liste de Contacts {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez supprimé : {resourceName} dans la Liste de Contacts {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé : {{resourceName}} dans la Liste de Contacts {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a supprimé : {resourceName} dans la Liste de Contacts {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié : {{resourceName}} dans la Liste de Contacts {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez modifié : {resourceName} dans la Liste de Contacts {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié : {{resourceName}} dans la Liste de Contacts {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a modifié : {resourceName} dans la Liste de Contacts {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1666,27 +1666,27 @@
         "DOCUMENT_ENTRY": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez déposé un nouveau fichier : {{resourceName}} dans votre Espace Personnel.",
+              "SENTENCE": "Vous avez déposé un nouveau fichier : {resourceName} dans votre Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a déposé un nouveau fichier : {{resourceName}} dans son Espace Personnel.",
+              "SENTENCE": "{authorName} a déposé un nouveau fichier : {resourceName} dans son Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             }
           },
           "COPY": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez transféré le fichier : {{resourceName}} dans votre Espace Personnel.",
+              "SENTENCE": "Vous avez transféré le fichier : {resourceName} dans votre Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a transféré le fichier : {{resourceName}} dans son Espace Personnel.",
+              "SENTENCE": "{authorName} a transféré le fichier : {resourceName} dans son Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le fichier : {{resourceName}} de votre Espace Personnel.",
+              "SENTENCE": "Vous avez supprimé le fichier : {resourceName} de votre Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
@@ -1696,7 +1696,7 @@
           },
           "DOWNLOAD": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez téléchargé le fichier : {{resourceName}} de votre Espace Personnel.",
+              "SENTENCE": "Vous avez téléchargé le fichier : {resourceName} de votre Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "VIEWER": {
@@ -1706,27 +1706,27 @@
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "Le document : {{resourceName}} a été supprimé de votre Espace Personnel car il a expiré.",
+              "SENTENCE": "Le document : {resourceName} a été supprimé de votre Espace Personnel car il a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "Le document : {{resourceName}}, de {{authorName}} a été supprimé de son Espace Personnel car il a expiré.",
+              "SENTENCE": "Le document : {resourceName}, de {authorName} a été supprimé de son Espace Personnel car il a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "INCONSISTENCY": {
             "AUTHOR": {
-              "SENTENCE": "Le document : {{resourceName}} a été supprimé de votre Espace Personnel car il est introuvable sur le serveur.",
+              "SENTENCE": "Le document : {resourceName} a été supprimé de votre Espace Personnel car il est introuvable sur le serveur.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "Le document : {{resourceName}}, de {{authorName}} a été supprimé de son Espace Personnel car il est introuvable sur le serveur.",
+              "SENTENCE": "Le document : {resourceName}, de {authorName} a été supprimé de son Espace Personnel car il est introuvable sur le serveur.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le fichier : {{resourceName}} de votre Espace Personnel.",
+              "SENTENCE": "Vous avez modifié le fichier : {resourceName} de votre Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
@@ -1738,31 +1738,31 @@
         "DRIVE": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez créé un nouveau DRIVE : {{resourceName}}.",
+              "SENTENCE": "Vous avez créé un nouveau DRIVE : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a créé un nouveau DRIVE : {{resourceName}}.",
+              "SENTENCE": "{authorName} a créé un nouveau DRIVE : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le DRIVE : {{resourceName}}.",
+              "SENTENCE": "Vous avez supprimé le DRIVE : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le DRIVE : {{resourceName}}.",
+              "SENTENCE": "{authorName} a supprimé le DRIVE : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le DRIVE : {{resourceName}}.",
+              "SENTENCE": "Vous avez modifié le DRIVE : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le DRIVE : {{resourceName}}.",
+              "SENTENCE": "{authorName} a modifié le DRIVE : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1770,41 +1770,41 @@
         "DRIVE_MEMBER": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez ajouté un nouveau membre : {{resourceName}} au DRIVE {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez ajouté un nouveau membre : {resourceName} au DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a ajouté un nouveau membre : {{resourceName}} au DRIVE {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a ajouté un nouveau membre : {resourceName} au DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le membre : {{resourceName}} du DRIVE {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez supprimé le membre : {resourceName} du DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le membre : {{resourceName}} du DRIVE {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a supprimé le membre : {resourceName} du DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le membre : {{resourceName}} du DRIVE {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez modifié le membre : {resourceName} du DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le membre : {{resourceName}} du DRIVE {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a modifié le membre : {resourceName} du DRIVE {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "DRIVE_DELETION": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le DRIVE : {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez supprimé le DRIVE : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le DRIVE : {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a supprimé le DRIVE : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
@@ -1812,31 +1812,31 @@
         "WORK_SPACE": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez créé un nouvel espace de travail : {{resourceName}}.",
+              "SENTENCE": "Vous avez créé un nouvel espace de travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a créé un nouvel espace de travail : {{resourceName}}.",
+              "SENTENCE": "{authorName} a créé un nouvel espace de travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé l'espace de travail : {{resourceName}}.",
+              "SENTENCE": "Vous avez supprimé l'espace de travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé l'espace de travail : {{resourceName}}.",
+              "SENTENCE": "{authorName} a supprimé l'espace de travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié l'espace de travail : {{resourceName}}.",
+              "SENTENCE": "Vous avez modifié l'espace de travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié l'espace de travail : {{resourceName}}.",
+              "SENTENCE": "{authorName} a modifié l'espace de travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1844,41 +1844,41 @@
         "WORK_SPACE_MEMBER": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez ajouté un nouveau membre : {{resourceName}} à l'espace de travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez ajouté un nouveau membre : {{resourceName}} à l'espace de travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a ajouté un nouveau membre : {{resourceName}} à l'espace de travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a ajouté un nouveau membre : {{resourceName}} à l'espace de travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le membre : {{resourceName}} de l'espace de travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez supprimé le membre : {resourceName} de l'espace de travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le membre : {{resourceName}} de l'espace de travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a supprimé le membre : {resourceName} de l'espace de travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le membre : {{resourceName}} de l'espace de travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez modifié le membre : {resourceName} de l'espace de travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le membre : {{resourceName}} de l'espace de travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a modifié le membre : {resourceName} de l'espace de travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "WORKSPACE_DELETION": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé l'espace de travail : {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez supprimé l'espace de travail : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé l'espace de travail : {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a supprimé l'espace de travail : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
@@ -1886,41 +1886,41 @@
         "GUEST": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez créé un nouveau Compte Invité pour : {{userVarious}}.",
+              "SENTENCE": "Vous avez créé un nouveau Compte Invité pour : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a créé un nouveau Compte Invité pour : {{userVarious}}.",
+              "SENTENCE": "{authorName} a créé un nouveau Compte Invité pour : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le Compte Invité de : {{userVarious}}.",
+              "SENTENCE": "Vous avez supprimé le Compte Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le Compte Invité de : {{userVarious}}.",
+              "SENTENCE": "{authorName} a supprimé le Compte Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "Le Compte Invité : {{userVarious}} a expiré.",
+              "SENTENCE": "Le Compte Invité : {userVarious} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "Le Compte Invité : {{userVarious}} de {{authorName}} a expiré.",
+              "SENTENCE": "Le Compte Invité : {userVarious} de {authorName} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le Compte Invité de : {{userVarious}}.",
+              "SENTENCE": "Vous avez modifié le Compte Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le Compte Invité de : {{userVarious}}.",
+              "SENTENCE": "{authorName} a modifié le Compte Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
            },
@@ -1930,7 +1930,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié son mot de passe.",
+              "SENTENCE": "{authorName} a modifié son mot de passe.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -1938,61 +1938,61 @@
         "USER": {
           "SECOND_FACTOR_SHARED_KEY_CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez activé la double authentification (une clé partagée a été générée) : {{userVarious}}.",
+              "SENTENCE": "Vous avez activé la double authentification (une clé partagée a été générée) : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a activé la double authentification (une clé partagée a été générée): {{userVarious}}.",
+              "SENTENCE": "{authorName} a activé la double authentification (une clé partagée a été générée): {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "SECOND_FACTOR_SHARED_KEY_DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez désactivé la double authentification (la clé partagée a été supprimée ) : {{userVarious}}.",
+              "SENTENCE": "Vous avez désactivé la double authentification (la clé partagée a été supprimée ) : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}}  a désactivé la double authentification (la clé partagée a été supprimée ) : {{userVarious}}.",
+              "SENTENCE": "{authorName}  a désactivé la double authentification (la clé partagée a été supprimée ) : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez créé un nouveau Utilisateur Invité pour : {{userVarious}}.",
+              "SENTENCE": "Vous avez créé un nouveau Utilisateur Invité pour : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a créé un nouveau Utilisateur Invité pour : {{userVarious}}.",
+              "SENTENCE": "{authorName} a créé un nouveau Utilisateur Invité pour : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le Utilisateur Invité de : {{userVarious}}.",
+              "SENTENCE": "Vous avez supprimé le Utilisateur Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le Utilisateur Invité de : {{userVarious}}.",
+              "SENTENCE": "{authorName} a supprimé le Utilisateur Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "Le Utilisateur Invité : {{userVarious}} a expiré.",
+              "SENTENCE": "Le Utilisateur Invité : {userVarious} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "Le Utilisateur Invité : {{userVarious}} de {{authorName}} a expiré.",
+              "SENTENCE": "Le Utilisateur Invité : {userVarious} de {authorName} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le Utilisateur Invité de : {{userVarious}}.",
+              "SENTENCE": "Vous avez modifié le Utilisateur Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le Utilisateur Invité de : {{userVarious}}.",
+              "SENTENCE": "{authorName} a modifié le Utilisateur Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
            },
@@ -2002,7 +2002,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié son mot de passe.",
+              "SENTENCE": "{authorName} a modifié son mot de passe.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2010,31 +2010,31 @@
         "JWT_PERMANENT_TOKEN": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez créé le jeton d'accès permanent : {{resourceName}}.",
+              "SENTENCE": "Vous avez créé le jeton d'accès permanent : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{{authUserName}} a créé le jeton d'accès permanent : {{resourceName}}.",
+              "SENTENCE": "{authUserName} a créé le jeton d'accès permanent : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le jeton d'accès permanent : {{resourceName}}.",
+              "SENTENCE": "Vous avez supprimé le jeton d'accès permanent : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authUserName}} a supprimé le jeton d'accès permanent : {{resourceName}}.",
+              "SENTENCE": "{authUserName} a supprimé le jeton d'accès permanent : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le jeton d'accès permanent : {{resourceName}}.",
+              "SENTENCE": "Vous avez modifié le jeton d'accès permanent : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authUserName}} a modifié le jeton d'accès permanent : {{resourceName}}.",
+              "SENTENCE": "{authUserName} a modifié le jeton d'accès permanent : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2042,61 +2042,61 @@
         "SHARE_ENTRY": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez partagé le fichier : {{resourceName}} avec {{userVarious}}.",
+              "SENTENCE": "Vous avez partagé le fichier : {resourceName} avec {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a partagé le fichier : {{resourceName}} avec vous.",
+              "SENTENCE": "{authorName} a partagé le fichier : {resourceName} avec vous.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },
           "COPY": {
             "AUTHOR": {
-              "SENTENCE": "Le partage : {{resourceName}} a été supprimé, car vous avez transféré le fichier de {{userVarious}} dans votre Espace Personnel.",
+              "SENTENCE": "Le partage : {resourceName} a été supprimé, car vous avez transféré le fichier de {userVarious} dans votre Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a transféré le fichier : {{resourceName}} dans son Espace Personnel.",
+              "SENTENCE": "{authorName} a transféré le fichier : {resourceName} dans son Espace Personnel.",
               "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le partage du fichier : {{resourceName}}, destiné à {{userVarious}}.",
+              "SENTENCE": "Vous avez supprimé le partage du fichier : {resourceName}, destiné à {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le partage du fichier : {{resourceName}}.",
+              "SENTENCE": "{authorName} a supprimé le partage du fichier : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "DOWNLOAD": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez téléchargé le partage : {{resourceName}}, émis par {{userVarious}}.",
+              "SENTENCE": "Vous avez téléchargé le partage : {resourceName}, émis par {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a téléchargé votre partage : {{resourceName}}.",
+              "SENTENCE": "{authorName} a téléchargé votre partage : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "Votre partage : {{resourceName}} destiné à {{userVarious}} a expiré.",
+              "SENTENCE": "Votre partage : {resourceName} destiné à {userVarious} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "Le partage : {{resourceName}} de {{authorName}} destiné à {{userVarious}} a expiré.",
+              "SENTENCE": "Le partage : {resourceName} de {authorName} destiné à {userVarious} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le partage du fichier : {{resourceName}}, destiné à {{userVarious}}.",
+              "SENTENCE": "Vous avez modifié le partage du fichier : {resourceName}, destiné à {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le partage du fichier : {{resourceName}}.",
+              "SENTENCE": "{authorName} a modifié le partage du fichier : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2104,31 +2104,31 @@
         "WORKGROUP": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez créé un nouveau Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "Vous avez créé un nouveau Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a créé un nouveau Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "{authorName} a créé un nouveau Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "Vous avez supprimé le Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "{authorName} a supprimé le Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "Vous avez modifié le Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "{authorName} a modifié le Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2136,31 +2136,31 @@
         "WORK_GROUP": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez créé un nouveau Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "Vous avez créé un nouveau Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a créé un nouveau Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "{authorName} a créé un nouveau Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "Vous avez supprimé le Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "{authorName} a supprimé le Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "Vous avez modifié le Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le Groupe de Travail : {{resourceName}}.",
+              "SENTENCE": "{authorName} a modifié le Groupe de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2168,51 +2168,51 @@
         "WORKGROUP_DOCUMENT": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez déposé un nouveau fichier : {{resourceName}} dans le Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez déposé un nouveau fichier : {resourceName} dans le Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a déposé un nouveau fichier : {{resourceName}} dans le Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a déposé un nouveau fichier : {resourceName} dans le Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
             }
           },
           "COPY": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez copié le fichier : {{resourceName}} dans le Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez copié le fichier : {resourceName} dans le Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a copié le fichier : {{resourceName}} dans le Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a copié le fichier : {resourceName} dans le Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le fichier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez supprimé le fichier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le fichier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a supprimé le fichier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "DOWNLOAD": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez téléchargé le fichier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez téléchargé le fichier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a téléchargé le fichier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a téléchargé le fichier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le fichier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez modifié le fichier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le fichier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a modifié le fichier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2220,31 +2220,31 @@
         "WORKGROUP_FOLDER": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez créé un nouveau dossier : {{resourceName}} dans le Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez créé un nouveau dossier : {resourceName} dans le Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a créé un nouveau dossier : {{resourceName}} dans le Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a créé un nouveau dossier : {resourceName} dans le Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le dossier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez supprimé le dossier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le dossier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a supprimé le dossier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le dossier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez modifié le dossier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le dossier : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a modifié le dossier : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2252,41 +2252,41 @@
         "WORKGROUP_MEMBER": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez ajouté un nouveau membre : {{resourceName}} au Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez ajouté un nouveau membre : {resourceName} au Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a ajouté un nouveau membre : {{resourceName}} au Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a ajouté un nouveau membre : {resourceName} au Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le membre : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez supprimé le membre : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le membre : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a supprimé le membre : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le membre : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez modifié le membre : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a modifié le membre : {{resourceName}} du Groupe de Travail {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a modifié le membre : {resourceName} du Groupe de Travail {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
           "WORKGROUP_DELETION": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le Groupe de Travail : {{resourceNameVarious}}.",
+              "SENTENCE": "Vous avez supprimé le Groupe de Travail : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le Groupe de Travail : {{resourceNameVarious}}.",
+              "SENTENCE": "{authorName} a supprimé le Groupe de Travail : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
@@ -2294,21 +2294,21 @@
         "UPLOAD_REQUEST": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "L'invitation de dépôt a été créée : {{resourceName}}.",
+              "SENTENCE": "L'invitation de dépôt a été créée : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a créé une invitation de dépôt nommé: {{resourceName}}.",
+              "SENTENCE": "{authorName} a créé une invitation de dépôt nommé: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez mis à jour l'invitation de dépôt : {{resourceName}}.",
+              "SENTENCE": "Vous avez mis à jour l'invitation de dépôt : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} à mis à jour l'invitation de dépôt: {{resourceName}}.",
+              "SENTENCE": "{authorName} à mis à jour l'invitation de dépôt: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2316,11 +2316,11 @@
         "UPLOAD_REQUEST_URL": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Un e-mail de demande de téléchargement a été envoyé à : {{resourceName}}",
+              "SENTENCE": "Un e-mail de demande de téléchargement a été envoyé à : {resourceName}",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "Un e-mail de demande de téléchargement a été envoyé à : {{resourceName}}",
+              "SENTENCE": "Un e-mail de demande de téléchargement a été envoyé à : {resourceName}",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           }
@@ -2328,21 +2328,21 @@
         "UPLOAD_REQUEST_ENTRY": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Le fichier {{resourceName}} a été déposé.",
+              "SENTENCE": "Le fichier {resourceName} a été déposé.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "Le fichier {{resourceName}} a été déposé.",
+              "SENTENCE": "Le fichier {resourceName} a été déposé.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le fichier : {{resourceName}}",
+              "SENTENCE": "Vous avez supprimé le fichier : {resourceName}",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a supprimé le document : {{resourceName}}.",
+              "SENTENCE": "{authorName} a supprimé le document : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
