@@ -20,7 +20,7 @@
           <a-button class="multiple-delete-button" type="primary" danger @click="confirmDelete">
             <DeleteFilled /> {{ t('USERS.MANAGE_USERS.SELECTED_USERS_DELETE') }}</a-button
           >
-          <a-button type="primary" ghost @click="multipleUserUnlock"
+          <a-button v-if="isLockedUser()" type="primary" ghost @click="multipleUserUnlock"
             ><UnlockOutlined /> {{ t('USERS.DETAIL_USER.UNLOCK') }}</a-button
           >
         </div>
@@ -103,7 +103,6 @@ import { message } from 'ant-design-vue';
 import useRelativeTime from '@/core/hooks/useRelativeTime';
 import { deleteUser, updateUser } from '@/modules/user/services/user-api';
 import { APIError } from '@/core/types/APIError';
-import { checkboxGroupProps } from 'ant-design-vue/es/checkbox';
 
 const { t } = useI18n();
 const checkedUsers = ref<User[]>([]);
@@ -188,6 +187,14 @@ function selectOrUnselectAll() {
     checkAll.value = false;
     checkedUsers.value = [];
     checkBox.key += 1;
+  }
+}
+
+function isLockedUser() {
+  for (const user in checkedUsers.value) {
+    if (checkedUsers.value[user].locked === true) {
+      return true;
+    }
   }
 }
 

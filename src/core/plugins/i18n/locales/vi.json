@@ -169,7 +169,7 @@
       "MULTIPLE_DELETE_CONFIRM": "Bạn đang trong quá trình xóa các users này khỏi hệ thống. Tiến trình này sẽ hủy tất cả các tài liệu liên quan tới users này. Bạn có muốn tiếp tục?",
       "SELECTED_USERS_NUMBER": "Users đã chọn: {number}",
       "SELECTED_USERS_DELETE": "Xóa các user đã chọn",
-      "SELECTED_USERS_UNLOCK": "{number} users đã được khóa thành công",
+      "SELECTED_USERS_UNLOCK": "các tài khoản người dùng bị khoá đã được mở khoá thành công",
       "SELECT_ALL": "Chọn tất cả",
       "UNSELECT_ALL": "Bỏ chọn tất cả"
     },

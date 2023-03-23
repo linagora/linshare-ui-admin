@@ -169,7 +169,7 @@
       "MULTIPLE_DELETE_CONFIRM": "Vous êtes sur le point de supprimer cet ou ces utilisateurs, cette procédure est irréversible et detruira les documents. Souhaitez-vous continuer ?",
       "SELECTED_USERS_NUMBER": "Utilisateurs selectionnés: {number}",
       "SELECTED_USERS_DELETE": "Supprimer les utilisateurs selectionnés",
-      "SELECTED_USERS_UNLOCK":"{number} utilisateurs ont été déverrouillés avec succès",
+      "SELECTED_USERS_UNLOCK":"Les utilisateurs vérrouillés ont été déverrouillés avec succès",
       "SELECT_ALL":"Tout selectionner",
       "UNSELECT_ALL":"Tout déselectionner"
     },

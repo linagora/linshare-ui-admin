@@ -13,7 +13,7 @@
           <a-button class="multiple-delete-button" type="primary" danger @click="confirmDelete">
             <DeleteFilled /> {{ t('USERS.MANAGE_USERS.SELECTED_USERS_DELETE') }}</a-button
           >
-          <a-button type="primary" ghost @click="multipleUserUnlock"
+          <a-button v-if="isLockedUser()" type="primary" ghost @click="multipleUserUnlock"
             ><UnlockOutlined /> {{ t('USERS.DETAIL_USER.UNLOCK') }}</a-button
           >
         </div>
@@ -156,6 +156,14 @@ async function multipleUserUnlock() {
   } catch (error) {
     if (error instanceof APIError) {
       message.error(error.getMessage());
+    }
+  }
+}
+
+function isLockedUser() {
+  for (const user in selectedUsers.users) {
+    if (selectedUsers.users[user].locked === true) {
+      return true;
     }
   }
 }
