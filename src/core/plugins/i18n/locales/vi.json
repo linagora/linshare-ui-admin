@@ -703,7 +703,10 @@
     "FILTER_DESCRIPTION":"Chọn bộ lọc mà bạn đã thêm để hiển thị danh sách các loại MIME khả dụng",
     "ENABLED_DESCRIPTION":"Bật hoặc tắt loại MIME bạn muốn hơn",
     "MANAGE_DESCRIPTION":"Bạn có thể chọn bộ lọc này trong menu <a href='{url}'>{domain_link}</a> khi tạo hoặc chỉnh sửa miền",
-    "MANAGE_DOMAIN":"Quản lý domain"
+    "MANAGE_DOMAIN":"Quản lý domain",
+    "CREATE_MIME_POLICY": "Tạo chính sách MIME mới",
+    "SEARCH_BY": "Tìm kiếm theo tên hoặc miền",
+    "SYSTEM_INFORMATIONS":"Thông tin hệ thống"
    },
   "FUNCTIONALITIES": {
     "LIST": {

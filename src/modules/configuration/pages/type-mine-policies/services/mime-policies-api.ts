@@ -5,4 +5,7 @@ async function getMimiPolicies(domainUuid: string, currentDomainOnly: boolean): 
   return await apiv4.get(`mime_policies?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
 }
 
-export { getMimiPolicies };
+async function createMimePolicy(payload: { name: string; domainId: string }): Promise<MimePolicies> {
+  return await apiv4.post(`mime_policies`, payload);
+}
+export { getMimiPolicies, createMimePolicy };

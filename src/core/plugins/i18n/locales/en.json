@@ -707,7 +707,9 @@
     "ENABLED_DESCRIPTION":"Enable or disable the MIME type you want than save",
     "MANAGE_DESCRIPTION":"You can than select this filter in <a href='{url}'>{domain_link}</a> menu when you create or edit a domain",
     "MANAGE_DOMAIN":"Manage domain",
-    "SEARCH_BY": "Search by name or domain"
+    "SEARCH_BY": "Search by name or domain",
+    "CREATE_MIME_POLICY": "Create New Mime Policy",
+    "SYSTEM_INFORMATIONS":"System Informations"
   },
   "FUNCTIONALITIES": {
     "LIST": {
