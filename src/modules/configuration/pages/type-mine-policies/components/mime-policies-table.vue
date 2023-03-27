@@ -11,7 +11,8 @@
         <span class="elipsis-name" :title="record.name">{{ record.name }}</span>
       </template>
       <template v-if="column.key === 'domain'">
-        <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domainId } }">
+        <span v-if="domainRedirectionAuthorized(record)">{{ record.domainName }}</span>
+        <router-link v-else :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domainId } }">
           <span>{{ record.domainName }}</span>
         </router-link>
       </template>
@@ -70,8 +71,11 @@ import useMimesPolicies from '../hooks/useMimePolicies';
 import AssignIcon from '@/core/components/icons/assign-icon.vue';
 import EditIcon from '@/core/components/icons/edit-icon.vue';
 import DeleteIcon from '@/core/components/icons/delete-mime-icon.vue';
+import { useAuthStore } from '@/modules/auth/store';
 import ViewIcon from '@/core/components/icons/view-mimes-icon.vue';
 
+const authStore = useAuthStore();
+const { loggedUser } = storeToRefs(authStore);
 const { status, filteredListByPage, getMinePoliciesList, isAssigned, isEditable } = useMimesPolicies();
 const { t } = useI18n();
 const { currentRoute } = useRouter();
@@ -120,6 +124,10 @@ const columns = computed(() => [
     key: 'action',
   },
 ]);
+
+function domainRedirectionAuthorized(record: Mimes) {
+  return record.domainId === 'LinShareRootDomain' && loggedUser?.value.role === 'ADMIN';
+}
 
 await getMinePoliciesList(currentDomain.value.uuid);
 
