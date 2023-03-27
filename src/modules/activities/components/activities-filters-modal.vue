@@ -185,6 +185,7 @@ onMounted(async () => {
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.ACTION')">
         <a-select
           v-model:value="filterForm.actions"
+          :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="multiple"
           :options="actionOptions"
@@ -195,6 +196,7 @@ onMounted(async () => {
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.TYPE')">
         <a-select
           v-model:value="filterForm.types"
+          :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="multiple"
           :options="typeOptions"
@@ -205,6 +207,7 @@ onMounted(async () => {
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.DOMAIN')">
         <a-select
           v-model:value="filterForm.domains"
+          :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="tags"
           :options="domainOptions"
@@ -215,6 +218,7 @@ onMounted(async () => {
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.ACTOR')">
         <a-select
           v-model:value="filterForm.actors"
+          :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="tags"
           :options="actorOptions"
@@ -225,6 +229,7 @@ onMounted(async () => {
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.RESOURCE_NAME')">
         <a-select
           v-model:value="filterForm.resourceNames"
+          :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="tags"
           :options="resourceNameOptions"
@@ -269,12 +274,6 @@ onMounted(async () => {
 
 <style lang="less">
 .filter-modal {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 !important;
-  top: 0 !important;
   .ant-modal-header {
     border-radius: 16px;
     border-bottom: none;
