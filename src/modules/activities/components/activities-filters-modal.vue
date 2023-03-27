@@ -58,10 +58,10 @@ const domainOptions = computed(() => {
 const actorOptions = computed(() => {
   const actorArr = activitiesLogsFormated.value
     ?.filter((item) => {
-      return !!item?.actor;
+      return !!item?.actorName;
     })
     ?.map((item) => {
-      return { name: item?.actor, value: item?.actor };
+      return { name: item?.actorName, value: item?.actorName };
     });
 
   return actorArr.filter(
