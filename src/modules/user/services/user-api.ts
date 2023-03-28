@@ -5,7 +5,7 @@ import type { Guest } from '@/modules/user/types/GuestList';
 import { GuestListParameters } from '../types/GuestList';
 import UserQuota from '../types/UserQuota';
 import RestrictedContact from '../types/RestrictedContact';
-import type { UsersListParameters } from '../types/UsersList';
+import type { UsersListParameters, ModeratorsListParameters } from '../types/UsersList';
 import type { PaginatedList } from '@/core/types/PaginatedList';
 
 async function listUsers(options: UsersListParameters = {}): Promise<PaginatedList<User>> {
@@ -55,6 +55,10 @@ async function updateUserQuota(id: string, quota: UserQuota): Promise<UserQuota>
   return await api.put(`users/${id}/quota/${quota.uuid}`, quota);
 }
 
+async function listAllUsers(pattern: string, options: ModeratorsListParameters = {}): Promise<User[]> {
+  return await api.get(`users/autocomplete/${pattern}`, { params: options });
+}
+
 export {
   listUsers,
   getUser,
@@ -67,4 +71,5 @@ export {
   getUserQuota,
   listGuestsThatUserIsModeratorOf,
   updateUserQuota,
+  listAllUsers,
 };

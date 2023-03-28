@@ -7,7 +7,7 @@ import { APIError } from '@/core/types/APIError';
 import GuestModerator, { GUEST_MODERATOR_ROLE } from '../types/GuestModerator';
 import User from '@/modules/user/types/User';
 import { createGuestModerator } from '../services/guest-api';
-import UserSelect, { UserSelectOption } from '@/core/components/user-select.vue';
+import ModeratorSelect, { UserSelectOption } from '@/core/components/moderator-select.vue';
 
 interface Props {
   user: User;
@@ -61,6 +61,8 @@ function transform(user: User): GuestModerator {
     role: selectedRole.value,
     account: {
       uuid: user.uuid,
+      email: user.mail,
+      domain: user.domain,
     },
     guest: {
       uuid: props.user.uuid,
@@ -103,7 +105,12 @@ function reset() {
 
     <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
       <a-form-item :label="$t('SHARED_SPACES.MEMBERS.NEW')">
-        <UserSelect :disable-checker="disableExistingModerator" @select="onSelect" @deselect="onDeselect" />
+        <ModeratorSelect
+          :disable-checker="disableExistingModerator"
+          :user-domain="user.domain.uuid"
+          @select="onSelect"
+          @deselect="onDeselect"
+        />
       </a-form-item>
 
       <a-form-item :label="$t('GENERAL.ROLE')">

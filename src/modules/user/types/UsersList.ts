@@ -28,3 +28,9 @@ export interface UsersListParameters {
   sortOrder?: SORT_ORDER;
   sortField?: string;
 }
+
+export interface ModeratorsListParameters {
+  pattern?: string;
+  accountType?: string;
+  domain?: string;
+}
