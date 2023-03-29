@@ -76,15 +76,15 @@ const configurationTabs = reactive({
     },
     visible: true,
   },
-  ConfigurationDomainTypeMinePolicies: {
+  ConfigurationDomainTypeMimePolicies: {
     title: 'NAVIGATOR.TYPE_MIME',
     legacy: false,
     route: {
-      name: 'ConfigurationDomainTypeMinePolicies',
+      name: 'ConfigurationDomainTypeMimePolicies',
       requiresCurrentDomain: true,
     },
     key: 'TYPE_MIME_POLICIES',
-    name: 'ConfigurationDomainTypeMinePolicies',
+    name: 'ConfigurationDomainTypeMimePolicies',
     visible: true,
   },
   ConfigurationDomainWelcomeMessages: {

@@ -2,8 +2,8 @@ import { reactive, ref, computed, watch } from 'vue';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
-import { deleteMimePolicy, getMimiPolicies } from '../services/mime-policies-api';
-import { MimePolicy } from '../types/MimeType';
+import { deleteMimePolicy, getMimePolicies } from '../services/mime-policies-api';
+import MimePolicy from '../types/MimeType';
 import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
@@ -55,7 +55,6 @@ export default function useMimesPolicies() {
     pagination.total = newVal.length;
   });
 
-  // methods
   function onCloseModal() {
     modal.visible = false;
   }
@@ -138,10 +137,10 @@ export default function useMimesPolicies() {
     }
   }
 
-  async function getMinePoliciesList(domainUuid: string) {
+  async function getMimePoliciesList(domainUuid: string) {
     status.value = STATUS.LOADING;
     try {
-      const mimes = await getMimiPolicies(domainUuid, false);
+      const mimes = await getMimePolicies(domainUuid, false);
       list.value = mimes;
       status.value = STATUS.SUCCESS;
       return;
@@ -190,7 +189,7 @@ export default function useMimesPolicies() {
     isEditable,
     onCloseModal,
     onDeleteMimePolicy,
-    getMinePoliciesList,
+    getMimePoliciesList,
     onDeleteMimePolicies,
     handleDeleteMimePolicy,
     handleDeleteMimePolicies,

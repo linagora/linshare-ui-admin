@@ -71,11 +71,11 @@ import DeleteMimePoliciesCard from '@/modules/configuration/pages/type-mime-poli
 import DeleteMimePoliciesFailCard from '@/modules/configuration/pages/type-mime-policies/components/delete-mime-policies-fail-card.vue';
 
 // composable
+const domainLink = window.location.origin;
 const route = useRoute();
 const domainStore = useDomainStore();
-const domainLink = window.location.origin;
 const { currentDomain } = storeToRefs(domainStore);
-const { modal, filterText, pagination, filteredList, onCloseModal, getMinePoliciesList } = useMimesPolicies();
+const { modal, filterText, pagination, filteredList, onCloseModal, getMimePoliciesList } = useMimesPolicies();
 
 //data
 const currentDomainUuid = computed(() => {
@@ -91,7 +91,7 @@ function toggleModal() {
 }
 
 async function onFetchMimePolicies() {
-  await getMinePoliciesList(currentDomainUuid.value);
+  await getMimePoliciesList(currentDomainUuid.value);
 }
 
 // hooks

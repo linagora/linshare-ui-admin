@@ -1,10 +1,10 @@
 import { RouteRecordRaw } from 'vue-router';
-import TypeMinePoliciesPage from '../pages/type-mime-policies-page.vue';
-export const ConfigurationDomainTypeMinePoliciesRoutes: RouteRecordRaw[] = [
+import TypeMimePoliciesPage from '../pages/type-mime-policies-page.vue';
+export const ConfigurationDomainTypeMimePoliciesRoutes: RouteRecordRaw[] = [
   {
-    name: 'ConfigurationDomainTypeMinePolicies',
+    name: 'ConfigurationDomainTypeMimePolicies',
     path: ':domainUuid/type-mime-policies',
-    component: TypeMinePoliciesPage,
+    component: TypeMimePoliciesPage,
     meta: {
       requiresAuth: true,
       parentRoute: 'Configuration',

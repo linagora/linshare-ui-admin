@@ -42,7 +42,9 @@
           <EllipsisOutlined />
           <template #overlay>
             <a-menu>
-              <a-menu-item> <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }} </a-menu-item>
+              <a-menu-item @click="MimePolicyAssignement(record.uuid)">
+                <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
+              </a-menu-item>
               <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)">
                 <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
               </a-menu-item>
@@ -62,31 +64,34 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
-import { computed, ref, watch } from 'vue';
+import { computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { STATUS } from '@/core/types/Status';
+import MimePolicy from '../types/MimeType';
+import useMimesPolicies from '../hooks/useMimePolicies';
+import AssignIcon from '@/core/components/icons/assign-icon.vue';
+import EditIcon from '@/core/components/icons/edit-icon.vue';
+import DeleteIcon from '@/core/components/icons/delete-mime-icon.vue';
 import { useAuthStore } from '@/modules/auth/store';
 import { useDomainStore } from '@/modules/domain/store';
 import { EllipsisOutlined } from '@ant-design/icons-vue';
-import EditIcon from '@/core/components/icons/edit-icon.vue';
-import AssignIcon from '@/core/components/icons/assign-icon.vue';
 import ViewIcon from '@/core/components/icons/view-mimes-icon.vue';
-import DeleteIcon from '@/core/components/icons/delete-mime-icon.vue';
-import { MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
-import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
+import { message } from 'ant-design-vue';
+import { assignMimePolicy } from '../services/mime-policies-api';
+import { APIError } from '@/core/types/APIError';
 
-const { t } = useI18n();
 const authStore = useAuthStore();
+const { loggedUser } = storeToRefs(authStore);
+const { t } = useI18n();
 const { currentRoute } = useRouter();
 const domainStore = useDomainStore();
-const { loggedUser } = storeToRefs(authStore);
 const { currentDomain } = storeToRefs(domainStore);
 const {
   status,
   filteredListByPage,
   selectedMimePolicies,
-  getMinePoliciesList,
+  getMimePoliciesList,
   isAssigned,
   isEditable,
   onDeleteMimePolicy,
@@ -122,7 +127,7 @@ const columns = computed(() => [
   {
     title: t('GENERAL.DOMAIN'),
     align: 'center',
-    sorter: (a: MimePolicy, b: MimePolicy) => a.domainName?.localeCompare(b.domainName),
+    sorter: (a: MimePolicy, b: MimePolicy) => a.domainName.localeCompare(b.domainName),
     dataIndex: ['domain', 'name'],
     key: 'domain',
   },
@@ -151,14 +156,32 @@ const columns = computed(() => [
 ]);
 
 function domainRedirectionAuthorized(record: MimePolicy) {
-  return record.domainId === 'LinShareRootDomain' && loggedUser?.value?.role === ACCOUNT_ROLE.ADMIN;
+  return record.domainId === 'LinShareRootDomain' && loggedUser?.value.role === ACCOUNT_ROLE.ADMIN;
 }
 
-await getMinePoliciesList(currentDomain.value.uuid);
+async function onFetchMimePolicies() {
+  await getMimePoliciesList(currentDomain.value.uuid);
+}
+
+async function MimePolicyAssignement(mimeUuid: string) {
+  status.value = STATUS.LOADING;
+  try {
+    await assignMimePolicy(currentDomain.value.uuid, mimeUuid);
+    status.value = STATUS.SUCCESS;
+    domainStore.fetchDomain();
+  } catch (error) {
+    status.value = STATUS.ERROR;
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+    }
+  }
+}
+
+onFetchMimePolicies();
 
 watch(currentRoute, (newRoute) => {
   if (newRoute) {
-    getMinePoliciesList(currentDomain.value.uuid);
+    onFetchMimePolicies();
   }
 });
 </script>

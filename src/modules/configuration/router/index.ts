@@ -10,7 +10,7 @@ import {
   ConfigurationDomainWelcomeMessagesRoutes,
   CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES,
 } from '@/modules/configuration/pages/welcome-messages/router';
-import { ConfigurationDomainTypeMinePoliciesRoutes } from '@/modules/configuration/pages/type-mime-policies/router';
+import { ConfigurationDomainTypeMimePoliciesRoutes } from '@/modules/configuration/pages/type-mime-policies/router';
 import { ConfigurationDomainProviderManagementRoutes } from '@/modules/configuration/pages/domain-provider-management/router';
 import { ConfigurationDomainDomainUserProvidersRoutes } from '@/modules/configuration/pages/domain-user-providers/router';
 import { ConfigurationDomainDomainWorkspaceProvidersRoutes } from '@/modules/configuration/pages/domain-workspace-providers/router';
@@ -38,7 +38,7 @@ export const ConfigurationRoute: RouteRecordRaw = {
     ...ConfigurationDomainRemoteFiltersRoutes,
     ...ConfigurationDomainGroupProvidersRoutes,
     ...ConfigurationDomainWelcomeMessagesRoutes,
-    ...ConfigurationDomainTypeMinePoliciesRoutes,
+    ...ConfigurationDomainTypeMimePoliciesRoutes,
     ...ConfigurationDomainProviderManagementRoutes,
     ...ConfigurationDomainDomainUserProvidersRoutes,
     ...ConfigurationDomainDomainWorkspaceProvidersRoutes,
