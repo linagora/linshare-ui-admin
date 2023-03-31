@@ -89,7 +89,7 @@ const formState = reactive({
 const formRules = computed(() => ({
   name: [{ required: true, message: t('GENERAL.FIELD_REQUIRED'), trigger: 'change' }],
 }));
-const { validate, validateInfos } = useForm(formState, formRules);
+const { validate, validateInfos, resetFields } = useForm(formState, formRules);
 
 async function MimePolicyCreation() {
   status.value = STATUS.LOADING;
@@ -113,7 +113,7 @@ async function MimePolicyCreation() {
 }
 
 function reset() {
-  formState.name = '';
+  resetFields();
 }
 </script>
 

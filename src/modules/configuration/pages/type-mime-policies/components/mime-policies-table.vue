@@ -74,6 +74,7 @@ import ViewIcon from '@/core/components/icons/view-mimes-icon.vue';
 import DeleteIcon from '@/core/components/icons/delete-mime-icon.vue';
 import { MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
 import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 
 const { t } = useI18n();
 const authStore = useAuthStore();
@@ -150,7 +151,7 @@ const columns = computed(() => [
 ]);
 
 function domainRedirectionAuthorized(record: MimePolicy) {
-  return record.domainId === 'LinShareRootDomain' && loggedUser?.value?.role === 'ADMIN';
+  return record.domainId === 'LinShareRootDomain' && loggedUser?.value?.role === ACCOUNT_ROLE.ADMIN;
 }
 
 await getMinePoliciesList(currentDomain.value.uuid);
