@@ -29,14 +29,6 @@
         </a-tag>
         <a-tag v-else color="red"> {{ $t('GENERAL.UNASSIGNED') }}</a-tag>
       </template>
-      <template v-else-if="column.key === 'readOnly'">
-        <a-tag v-if="isEditable(record.domainId, currentDomain.uuid)" color="red">
-          {{ $t('GENERAL.READ_ONLY') }}
-        </a-tag>
-        <a-tag v-else color="success">
-          {{ $t('GENERAL.EDITABLE') }}
-        </a-tag>
-      </template>
       <template v-else-if="column.key === 'action'">
         <a-dropdown>
           <EllipsisOutlined />
@@ -47,9 +39,6 @@
               </a-menu-item>
               <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)">
                 <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
-              </a-menu-item>
-              <a-menu-item v-if="isEditable(record.domainId, currentDomain.uuid)" class="view-icon">
-                <ViewIcon></ViewIcon> {{ $t('GENERAL.VIEW') }}
               </a-menu-item>
               <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)" @click="onDeleteMimePolicy(record)">
                 <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
@@ -75,7 +64,6 @@ import DeleteIcon from '@/core/components/icons/delete-mime-icon.vue';
 import { useAuthStore } from '@/modules/auth/store';
 import { useDomainStore } from '@/modules/domain/store';
 import { EllipsisOutlined } from '@ant-design/icons-vue';
-import ViewIcon from '@/core/components/icons/view-mimes-icon.vue';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { message } from 'ant-design-vue';
 import { assignMimePolicy } from '../services/mime-policies-api';
@@ -118,11 +106,6 @@ const columns = computed(() => [
     title: t('GENERAL.NAME'),
     sorter: (a: MimePolicy, b: MimePolicy) => a.name.localeCompare(b.name),
     key: 'name',
-  },
-  {
-    title: t('GENERAL.READ_ONLY'),
-    dataIndex: ['readOnly'],
-    key: 'readOnly',
   },
   {
     title: t('GENERAL.DOMAIN'),
