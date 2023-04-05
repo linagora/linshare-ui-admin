@@ -177,10 +177,14 @@ function onClearFilter() {
     display: flex;
     align-items: center;
     margin-top: 5px;
+    flex-wrap: wrap;
+    gap: 5px;
 
     &__type {
       color: #6d7885;
-      margin-right: 5px;
+    }
+    .ls-tag {
+      margin-right: 0;
     }
   }
 
