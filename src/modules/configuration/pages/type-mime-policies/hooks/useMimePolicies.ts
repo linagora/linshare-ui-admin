@@ -16,11 +16,14 @@ import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
+import { assignMimePolicy } from '../services/mime-policies-api';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { useDomainStore } from '@/modules/domain/store';
 import { CONFIGURATION_MIME_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/type-mime-policies/router';
 import { useRoute, useRouter } from 'vue-router';
 import { useLocalStorage } from '@vueuse/core';
+import Domain from '@/core/types/Domain';
+
 const activeMimePolicy = useLocalStorage<MimePolicy>(
   'configuration-type-mime-policies-activeMimePolicy',
   {} as MimePolicy
@@ -31,6 +34,12 @@ const modal = reactive<{
   visible: boolean;
 }>({
   type: 'DELETE_MIME_MODAL',
+  visible: false,
+});
+
+const assignModal = reactive<{
+  visible: boolean;
+}>({
   visible: false,
 });
 
@@ -75,6 +84,10 @@ export default function useMimesPolicies() {
     modal.visible = false;
   }
 
+  function onCloseAssignModal() {
+    assignModal.visible = false;
+  }
+
   function onEditMimePolicy(mime: MimePolicy) {
     activeMimePolicy.value = mime;
 
@@ -91,6 +104,29 @@ export default function useMimesPolicies() {
     activeMimePolicy.value = mime;
     modal.type = 'DELETE_MIME_MODAL';
     modal.visible = true;
+  }
+
+  function onAssignMimePolicy(mime: MimePolicy) {
+    activeMimePolicy.value = mime;
+    assignModal.visible = true;
+  }
+
+  async function handleAssignMimePolicy(currentDomain: Domain) {
+    try {
+      if (!activeMimePolicy?.value) {
+        return false;
+      }
+      loading.value = true;
+      await assignMimePolicy(currentDomain.uuid, activeMimePolicy.value?.uuid);
+      message.success(t('MIME_POLICIES.ASSIGN_MODAL.ASSIGN_SUCCESS'));
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    } finally {
+      loading.value = false;
+    }
   }
 
   function onDeleteMimePolicies() {
@@ -300,7 +336,10 @@ export default function useMimesPolicies() {
 
   return {
     isAssigned,
+    assignModal,
+    handleAssignMimePolicy,
     isEditable,
+    onAssignMimePolicy,
     onCloseModal,
     onEditMimePolicy,
     onDeleteMimePolicy,
@@ -315,6 +354,7 @@ export default function useMimesPolicies() {
     enableAllMimeTypesInMimePolicy,
     disableAllMimeTypesInMimePolicy,
     checkingMimePolicyDomainAuthorized,
+    onCloseAssignModal,
     modal,
     list,
     status,

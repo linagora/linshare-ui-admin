@@ -726,6 +726,11 @@
       "DELETE_FAILURE_MESSAGE": "Certaines des politiques MIME ont été supprimées avec succès, mais les autres sont assignées à au moins un domaine et ne peuvent être supprimées.",
       "UNABLE_DELETE_MIME": "Vous n'avez pas le droit de supprimer ces Politiques MIME"      
     },
+    "ASSIGN_MODAL": {
+      "ASSIGN_MODAL_TITLE": "Assigner une politique MIME",
+      "ASSIGN_MODAL_SUBTITLE": "Vous êtes sur le point d'assigner cette politique MIME pour {currentDomain}. Voulez-vous continuer ?",
+      "ASSIGN_SUCCESS": "Assignation réussie"
+    },
     "MIME_TYPE_TABLE" : {
       "MIME_TYPE_NAME": "Nom du type MIME",
       "EXTENTION": "Extension",

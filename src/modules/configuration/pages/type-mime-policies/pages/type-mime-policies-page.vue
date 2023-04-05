@@ -53,6 +53,14 @@
       @close="onCloseModal"
     ></delete-mime-policies-fail-card>
   </a-modal>
+  <a-modal
+    v-model:visible="assignModal.visible"
+    :closable="false"
+    :footer="null"
+    wrap-class-name="type-mime-policies-page__modal"
+  >
+    <AssignMinePolicyCard @close="onCloseAssignModal" @refresh="assignReload"></AssignMinePolicyCard>
+  </a-modal>
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
@@ -69,13 +77,23 @@ import MimesTable from '@/modules/configuration/pages/type-mime-policies/compone
 import MimePoliciesActions from '@/modules/configuration/pages/type-mime-policies/components/mime-policies-actions.vue';
 import DeleteMimePoliciesCard from '@/modules/configuration/pages/type-mime-policies/components/delete-mime-policies-card.vue';
 import DeleteMimePoliciesFailCard from '@/modules/configuration/pages/type-mime-policies/components/delete-mime-policies-fail-card.vue';
+import AssignMinePolicyCard from '@/modules/configuration/pages/type-mime-policies/components/assign-mime-policy-card.vue';
 
 // composable
 const domainLink = window.location.origin;
 const route = useRoute();
 const domainStore = useDomainStore();
 const { currentDomain } = storeToRefs(domainStore);
-const { modal, filterText, pagination, filteredList, onCloseModal, getMimePoliciesList } = useMimesPolicies();
+const {
+  modal,
+  filterText,
+  pagination,
+  filteredList,
+  onCloseModal,
+  getMimePoliciesList,
+  assignModal,
+  onCloseAssignModal,
+} = useMimesPolicies();
 
 //data
 const currentDomainUuid = computed(() => {
@@ -92,6 +110,10 @@ function toggleModal() {
 
 async function onFetchMimePolicies() {
   await getMimePoliciesList(currentDomainUuid.value);
+}
+
+function assignReload() {
+  domainStore.fetchDomain();
 }
 
 // hooks

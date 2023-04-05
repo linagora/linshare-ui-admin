@@ -726,6 +726,11 @@
       "DELETE_FAILURE_MESSAGE": "Some of MIME policies are deleted successfully but not others because they are already assigned to at least one domain",
       "UNABLE_DELETE_MIME": "You are unable to delete those MIME Policies"
     },
+    "ASSIGN_MODAL":{
+      "ASSIGN_MODAL_TITLE": "Assign mime policy",
+      "ASSIGN_MODAL_SUBTITLE": "You are about to assign this mime policy for {currentDomain}. Do you want to proceed?",
+      "ASSIGN_SUCCESS": "Assigned successfully"
+    },
     "MIME_TYPE_TABLE" : {
       "MIME_TYPE_NAME": "Mime Type Name",
       "EXTENTION": "Extention",

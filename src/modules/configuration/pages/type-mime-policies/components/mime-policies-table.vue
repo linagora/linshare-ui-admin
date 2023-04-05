@@ -34,7 +34,10 @@
           <EllipsisOutlined />
           <template #overlay>
             <a-menu>
-              <a-menu-item @click="MimePolicyAssignement(record.uuid)">
+              <a-menu-item
+                :disabled="isAssigned(record.uuid, currentDomain.mimePolicy?.uuid)"
+                @click="onAssignMimePolicy(record)"
+              >
                 <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
               </a-menu-item>
               <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)" @click="onEditMimePolicy(record)">
@@ -65,9 +68,6 @@ import { useAuthStore } from '@/modules/auth/store';
 import { useDomainStore } from '@/modules/domain/store';
 import { EllipsisOutlined } from '@ant-design/icons-vue';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
-import { message } from 'ant-design-vue';
-import { assignMimePolicy } from '../services/mime-policies-api';
-import { APIError } from '@/core/types/APIError';
 
 const authStore = useAuthStore();
 const { loggedUser } = storeToRefs(authStore);
@@ -83,6 +83,7 @@ const {
   isAssigned,
   isEditable,
   onEditMimePolicy,
+  onAssignMimePolicy,
   onDeleteMimePolicy,
 } = useMimesPolicies();
 
@@ -145,20 +146,6 @@ function domainRedirectionAuthorized(record: MimePolicy) {
 
 async function onFetchMimePolicies() {
   await getMimePoliciesList(currentDomain.value.uuid);
-}
-
-async function MimePolicyAssignement(mimeUuid: string) {
-  status.value = STATUS.LOADING;
-  try {
-    await assignMimePolicy(currentDomain.value.uuid, mimeUuid);
-    status.value = STATUS.SUCCESS;
-    domainStore.fetchDomain();
-  } catch (error) {
-    status.value = STATUS.ERROR;
-    if (error instanceof APIError) {
-      message.error(error.getMessage());
-    }
-  }
 }
 
 onFetchMimePolicies();

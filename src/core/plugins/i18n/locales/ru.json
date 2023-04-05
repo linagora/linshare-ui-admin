@@ -725,6 +725,11 @@
       "DELETE_FAILURE_MESSAGE": "Некоторые из политик MIME-типов успешно удалены. Удаление остальных невозможно, т.к. они привязаны к домену",
       "UNABLE_DELETE_MIME": "Невозможно удалить эти политики MIME-типов"
     },
+    "ASSIGN_MODAL": {
+      "ASSIGN_MODAL_TITLE": "Назначить политику MIME",
+      "ASSIGN_MODAL_SUBTITLE": "Вы собираетесь назначить эту политику MIME для {currentDomain}. Хотите продолжить?",
+      "ASSIGN_SUCCESS": "Успешно назначено"
+    },
     "MIME_TYPE_TABLE" : {
       "MIME_TYPE_NAME": "Название MIME-типа",
       "EXTENTION": "Расширение",

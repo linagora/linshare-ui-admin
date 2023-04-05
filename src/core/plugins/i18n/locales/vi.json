@@ -725,7 +725,11 @@
       "DELETE_FAILURE_MESSAGE": "Một số chính sách MIME được xóa thành công nhưng những chính sách khác thì không vì chúng đã được chỉ định",
       "UNABLE_DELETE_MIME": "Bạn không thể xóa các Chính sách MIME đó"
     },
-    
+    "ASSIGN_MODAL": {
+      "ASSIGN_MODAL_TITLE": "Phân bổ chính sách MIME",
+      "ASSIGN_MODAL_SUBTITLE": "Bạn đang chuẩn bị phân bổ chính sách MIME này cho {currentDomain}. Bạn có muốn tiếp tục không?",
+      "ASSIGN_SUCCESS": "Phân bổ thành công"
+    },
     "MIME_TYPE_TABLE" : {
       "MIME_TYPE_NAME": "Tên loại Mime",
       "EXTENTION": "Sự mở rộng",
