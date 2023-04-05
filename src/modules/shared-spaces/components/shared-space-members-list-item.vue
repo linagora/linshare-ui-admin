@@ -13,6 +13,7 @@
         :ok-text="$t('GENERAL.YES')"
         :cancel-text="$t('GENERAL.NO')"
         placement="top"
+        overlay-class-name="popconfirm-delete"
         @confirm="handleDelete"
       >
         <template #icon>
@@ -114,5 +115,11 @@ async function handleDelete() {
 .avatar {
   background-color: @primary-color;
   color: @component-background;
+}
+</style>
+<style lang="less">
+.popconfirm-delete {
+  max-width: 350px;
+  min-width: 350px;
 }
 </style>

@@ -70,6 +70,7 @@
                 :ok-text="$t('GENERAL.YES')"
                 :cancel-text="$t('GENERAL.NO')"
                 placement="top"
+                overlay-class-name="popconfirm-delete"
                 @confirm="handleDelete(member)"
               >
                 <a-button
@@ -211,5 +212,11 @@ function onMemberUpdate(updated: SharedSpaceMember) {
   .edit-button {
     margin-right: 2px;
   }
+}
+</style>
+<style lang="less">
+.popconfirm-delete {
+  max-width: 350px;
+  min-width: 350px;
 }
 </style>

@@ -152,6 +152,7 @@ function onMemberUpdate(updated: SharedSpaceMember) {
           :ok-text="$t('GENERAL.YES')"
           :cancel-text="$t('GENERAL.NO')"
           placement="top"
+          overlay-class-name="popconfirm-delete"
           @confirm="handleDelete(record)"
         >
           <template #icon>
@@ -204,5 +205,11 @@ function onMemberUpdate(updated: SharedSpaceMember) {
 }
 .member-table {
   margin-top: 15px;
+}
+</style>
+<style lang="less">
+.popconfirm-delete {
+  max-width: 350px;
+  min-width: 350px;
 }
 </style>
