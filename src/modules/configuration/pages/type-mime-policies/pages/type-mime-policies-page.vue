@@ -1,20 +1,13 @@
 <template>
   <div class="type-mime-policies-page">
     <div>
-      <a-alert closable>
+      <a-alert closable class="type-mime-policies-page__help-text">
         <template #description>
           <ul>
-            <li>{{ $t('MIME_POLICIES.CREATE_DESCRIPTION') }}</li>
+            <li v-html="$t('MIME_POLICIES.CREATE_DESCRIPTION')"></li>
             <li>{{ $t('MIME_POLICIES.FILTER_DESCRIPTION') }}</li>
             <li>{{ $t('MIME_POLICIES.ENABLED_DESCRIPTION') }}</li>
-            <li
-              v-html="
-                $t('MIME_POLICIES.MANAGE_DESCRIPTION', {
-                  domain_link: `${$t('MIME_POLICIES.MANAGE_DOMAIN')}`,
-                  url: `${domainLink}/configuration/${currentDomain.uuid}/detail`,
-                })
-              "
-            ></li>
+            <li>{{ $t('MIME_POLICIES.MANAGE_DESCRIPTION') }}</li>
           </ul>
         </template>
       </a-alert>
@@ -142,6 +135,18 @@ watch(route, (newRoute) => {
 <style lang="less">
 .type-mime-policies-page {
   background-color: transparent;
+
+  &__help-text.ant-alert-info {
+    background: #f2f8ff;
+    border-radius: 8px;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    color: #6d7885;
+  }
 
   &__modal .ant-modal-content {
     background: #ffffff;

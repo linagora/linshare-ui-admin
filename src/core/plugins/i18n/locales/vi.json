@@ -703,10 +703,10 @@
     "ASSIGN_CONFIRM": "Bạn sắp gán thông báo chào mừng này cho miền hiện tại. Bạn có muốn tiếp tục?"
   },
   "MIME_POLICIES": {
-    "CREATE_DESCRIPTION": "Nhấp vào một nút 'Tạo' và đặt tên cho bộ lọc loại MIME của bạn",
+    "CREATE_DESCRIPTION": "Nhấp vào một nút <span style='color: #007AFF'>“Tạo +”</span> và đặt tên cho bộ lọc loại MIME của bạn",
     "FILTER_DESCRIPTION": "Chọn bộ lọc mà bạn đã thêm để hiển thị danh sách các loại MIME khả dụng",
     "ENABLED_DESCRIPTION": "Bật hoặc tắt loại MIME bạn muốn hơn",
-    "MANAGE_DESCRIPTION": "Bạn có thể chọn bộ lọc này trong menu <a href='{url}'>{domain_link}</a> khi tạo hoặc chỉnh sửa miền",
+    "MANAGE_DESCRIPTION": "Bạn có thể chỉ định bộ lọc này cho miền hoặc các miền lồng nhau của miền đó.",
     "MANAGE_DOMAIN": "Quản lý domain",
     "CREATE_MIME_POLICY": "Tạo chính sách MIME mới",
     "SEARCH_BY": "Tìm kiếm theo tên hoặc miền",

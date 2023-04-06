@@ -704,10 +704,10 @@
     "ASSIGN_CONFIRM": "You are about to assign this welcome message to the current domain. Do you want to proceed?"
   },
   "MIME_POLICIES": {
-    "CREATE_DESCRIPTION":"Click one the 'Create' button and give a name to your MIME type filter",
-    "FILTER_DESCRIPTION":"Choose the filter that you added than a list of available MIME types is displayed",
-    "ENABLED_DESCRIPTION":"Enable or disable the MIME type you want than save",
-    "MANAGE_DESCRIPTION":"You can than select this filter in <a href='{url}'>{domain_link}</a> menu when you create or edit a domain",
+    "CREATE_DESCRIPTION":"Click one the <span style='color: #007AFF'>“Create +”</span> button and give a name to your MIME type filter",
+    "FILTER_DESCRIPTION":"Choose the filter that you added then a list of available MIME types is displayed",
+    "ENABLED_DESCRIPTION":"Enable or disable the MIME type you want then save",
+    "MANAGE_DESCRIPTION":"You can then assign this filter for the domain or its nested domains.",
     "MANAGE_DOMAIN":"Manage domain",
     "SEARCH_BY": "Search by name or domain",
     "CREATE_MIME_POLICY": "Create New Mime Policy",

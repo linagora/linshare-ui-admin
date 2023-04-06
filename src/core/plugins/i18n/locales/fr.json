@@ -704,10 +704,10 @@
     "ASSIGN_CONFIRM": "Vous êtes sur le point d'attribuer ce message d'accueil au domaine actuel, souhaitez-vous continuer ?"
   },
   "MIME_POLICIES": {
-    "CREATE_DESCRIPTION":"Cliquez sur le bouton 'Créer' et donnez un nom à votre filtre de type MIME",
-    "FILTER_DESCRIPTION":"Choisissez le filtre que vous avez ajouté et la liste des types MIME disponibles s'affiche",
-    "ENABLED_DESCRIPTION":"Activez ou désactivez le type MIME que vous souhaitez puis cliquez sur enregistrer",
-    "MANAGE_DESCRIPTION":"Vous pouvez ensuite sélectionner ce filtre dans le menu <a href='{url}'>{domain_link}</a> lorsque vous créez ou modifiez un domaine",
+    "CREATE_DESCRIPTION":"Cliquez sur le bouton <span style='color: #007AFF'>“Créer +”</span> et donnez un nom à votre filtre de type MIME.",
+    "FILTER_DESCRIPTION":"Choisissez le filtre que vous avez ajouté, puis une liste de types MIME disponibles s'affiche.",
+    "ENABLED_DESCRIPTION":"Activez ou désactivez le type MIME que vous souhaitez, puis enregistrez.",
+    "MANAGE_DESCRIPTION":"Vous pouvez ensuite attribuer ce filtre au domaine ou à ses sous-domaines.",
     "MANAGE_DOMAIN":"Gérer le domaine",
     "CREATE_MIME_POLICY": "Créer une nouvelle politique MIME",
     "SEARCH_BY": "Recherche par nom ou par domain",
