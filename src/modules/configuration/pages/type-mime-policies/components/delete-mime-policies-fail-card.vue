@@ -5,7 +5,7 @@
     </span>
     <div class="delete-mime-policies-fail-card__content">
       <strong>{{ $t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE') }}</strong>
-      <span v-html="$t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE_MESSAGE')"></span>
+      <span>{{ deleteMessage }}</span>
     </div>
     <div class="delete-mime-policies-fail-card__actions">
       <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{
@@ -16,12 +16,25 @@
 </template>
 <script lang="ts" setup>
 import WarningIcon from '@/core/components/icons/warning-icon.vue';
+import { computed } from 'vue';
+import useMimesPolicies from '../hooks/useMimePolicies';
+import { useI18n } from 'vue-i18n';
 
 // composable
+const { t } = useI18n();
+const { selectedMimePolicies } = useMimesPolicies();
+//props & emits
+const emits = defineEmits(['close', 'refresh']);
 
-const emits = defineEmits(['close']);
+//computed
+const deleteMessage = computed(() => {
+  return selectedMimePolicies?.value?.length === 1
+    ? t('MIME_POLICIES.DELETE_MODAL.DELETE_SINGLE_FAIL')
+    : t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE_MESSAGE');
+});
 
 function onCloseModal() {
+  emits('refresh');
   emits('close');
 }
 </script>

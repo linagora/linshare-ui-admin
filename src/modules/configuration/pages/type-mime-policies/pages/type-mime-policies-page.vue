@@ -51,6 +51,7 @@
     <delete-mime-policies-fail-card
       v-if="modal.type === 'DELETE_MIME_POLICIES_FAIL_MODAL'"
       @close="onCloseModal"
+      @refresh="onFetchMimePolicies"
     ></delete-mime-policies-fail-card>
   </a-modal>
   <a-modal

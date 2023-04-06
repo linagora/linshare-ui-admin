@@ -34,8 +34,8 @@ function onCloseModal() {
 }
 async function onConfirmDelete() {
   const result = await handleDeleteMimePolicies();
-  emits('refresh');
   if (result) {
+    emits('refresh');
     emits('close');
   } else {
     onShowDeleteMimePoliciesFail();
