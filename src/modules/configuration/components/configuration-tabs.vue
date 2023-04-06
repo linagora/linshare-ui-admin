@@ -118,7 +118,9 @@ const configurationTabs = reactive({
     route: {
       name: 'ConfigurationDomainRemoteServers',
     },
-    visible: true,
+    visible: computed(() => {
+      return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
+    }),
   },
   ConfigurationDomainProviders: {
     key: 'PROVIDERS',
@@ -144,7 +146,9 @@ const configurationTabs = reactive({
     route: {
       name: 'ConfigurationDomainRemoteFilters',
     },
-    visible: true,
+    visible: computed(() => {
+      return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
+    }),
   },
   PublicKeysJwt: {
     title: 'NAVIGATOR.PUBLIC_KEYS',
