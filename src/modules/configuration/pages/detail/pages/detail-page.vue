@@ -54,7 +54,13 @@
             {{ $t('DOMAIN.FIELDS.MIME_POLICY') }}
           </div>
           <div class="value">
-            <a href="">{{ currentDomain.mimePolicy?.name }}</a>
+            <router-link
+              :to="{
+                name: CONFIGURATION_MIME_POLICIES_ROUTE_NAMES.ENTRIES,
+              }"
+            >
+              <a href="">{{ currentDomain.mimePolicy?.name }}</a>
+            </router-link>
           </div>
         </div>
         <div v-if="!isRootDomain" class="info-block">
@@ -85,6 +91,7 @@ import { STATUS } from '@/core/types/Status';
 import { useDomainStore } from '@/modules/domain/store';
 import DomainForm from '@/modules/configuration/pages/detail/components/domain-form.vue';
 import { CONFIGURATION_ROUTE_NAMES } from '@/modules/configuration/router/index';
+import { CONFIGURATION_MIME_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/type-mime-policies/router';
 
 // composable
 const domainStore = useDomainStore();
