@@ -40,10 +40,16 @@
               >
                 <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
               </a-menu-item>
-              <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)" @click="onEditMimePolicy(record)">
+              <a-menu-item
+                v-if="!isEditable(record.domainId, currentDomain.uuid) || loggedUser?.role === ACCOUNT_ROLE.SUPERADMIN"
+                @click="onEditMimePolicy(record)"
+              >
                 <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
               </a-menu-item>
-              <a-menu-item v-if="!isEditable(record.domainId, currentDomain.uuid)" @click="onDeleteMimePolicy(record)">
+              <a-menu-item
+                v-if="!isEditable(record.domainId, currentDomain.uuid) || loggedUser?.role === ACCOUNT_ROLE.SUPERADMIN"
+                @click="onDeleteMimePolicy(record)"
+              >
                 <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
               </a-menu-item>
             </a-menu>
