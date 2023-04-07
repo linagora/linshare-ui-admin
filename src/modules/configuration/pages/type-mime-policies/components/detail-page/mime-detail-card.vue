@@ -53,6 +53,7 @@ function onSave() {
 }
 
 function onCancel() {
+  onReset();
   emits('cancel');
 }
 
