@@ -724,7 +724,9 @@
       "DELETE_MUTIPLE_MODAL_SUBTITLE": "You are about to delete [{qty}] Mime policies, this procedure is irreversible. Do you want to proceed?",
       "DELETE_FAILURE":"Delete failed",
       "DELETE_FAILURE_MESSAGE": "Some of MIME policies are deleted successfully but not others because they are already assigned to at least one domain",
-      "UNABLE_DELETE_MIME": "You are unable to delete those MIME Policies"
+      "UNABLE_DELETE_ALL_MIME": "You are unable to delete those MIME Policies",
+      "UNABLE_DELETE_ONE_MIME": "You are unable to delete this mime policy",
+      "UNABLE_DELETE_SOME_MIME": "Some of MIME policies are deleted successfully but not others because you dont have permission to delete them"
     },
     "ASSIGN_MODAL":{
       "ASSIGN_MODAL_TITLE": "Assign mime policy",

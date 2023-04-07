@@ -723,7 +723,9 @@
       "DELETE_MUTIPLE_MODAL_SUBTITLE": "Bạn sắp xóa [{qty}] chính sách Mime, quy trình này là không thể đảo ngược. Bạn có muốn tiếp tục?",
       "DELETE_FAILURE":"Xóa không thành công",
       "DELETE_FAILURE_MESSAGE": "Một số chính sách MIME được xóa thành công nhưng những chính sách khác thì không vì chúng đã được chỉ định",
-      "UNABLE_DELETE_MIME": "Bạn không thể xóa các Chính sách MIME đó"
+      "UNABLE_DELETE_ALL_MIME": "Bạn không thể xóa các Chính sách MIME đó",
+      "UNABLE_DELETE_ONE_MIME": "You are unable to delete this mime policy",
+      "UNABLE_DELETE_SOME_MIME": "Một số chính sách MIME đã được xóa thành công nhưng những chính sách khác thì không vì bạn không có quyền xóa chúng"
     },
     "ASSIGN_MODAL": {
       "ASSIGN_MODAL_TITLE": "Phân bổ chính sách MIME",

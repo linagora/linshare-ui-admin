@@ -130,13 +130,6 @@ export default function useMimesPolicies() {
   }
 
   function onDeleteMimePolicies() {
-    const unAuthorizeDomain = selectedMimePolicies.value?.some((item) => !checkingMimePolicyDomainAuthorized(item));
-
-    if (unAuthorizeDomain) {
-      message.error(t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_MIME'));
-      return;
-    }
-
     modal.type = 'DELETE_MIME_POLICIES_MODAL';
     modal.visible = true;
   }
@@ -205,7 +198,12 @@ export default function useMimesPolicies() {
     status.value = STATUS.LOADING;
     try {
       const mimes = await getMimePolicies(domainUuid, false);
-      list.value = mimes;
+      list.value = mimes.map((item) => {
+        return {
+          ...item,
+          assigned: isAssigned(item.uuid, domainUuid),
+        };
+      });
       status.value = STATUS.SUCCESS;
       return;
     } catch (error) {

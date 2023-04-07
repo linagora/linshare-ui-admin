@@ -22,15 +22,34 @@ import { useI18n } from 'vue-i18n';
 
 // composable
 const { t } = useI18n();
-const { selectedMimePolicies } = useMimesPolicies();
+const { selectedMimePolicies, checkingMimePolicyDomainAuthorized } = useMimesPolicies();
 //props & emits
 const emits = defineEmits(['close', 'refresh']);
 
 //computed
+
+const totalAssignedMime = computed(() => {
+  return selectedMimePolicies.value?.filter((item) => item.assigned)?.length ?? 0;
+});
+const totalUnAuthorizeDomainMimes = computed(() => {
+  return selectedMimePolicies.value?.filter((item) => !checkingMimePolicyDomainAuthorized(item))?.length ?? 0;
+});
+const totalSelectedMimes = computed(() => {
+  return selectedMimePolicies?.value?.length ?? 0;
+});
 const deleteMessage = computed(() => {
-  return selectedMimePolicies?.value?.length === 1
-    ? t('MIME_POLICIES.DELETE_MODAL.DELETE_SINGLE_FAIL')
-    : t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE_MESSAGE');
+  if (totalSelectedMimes.value === 1 && totalUnAuthorizeDomainMimes.value === 1) {
+    return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_ONE_MIME');
+  } else if (totalSelectedMimes.value === 1) {
+    return t('MIME_POLICIES.DELETE_MODAL.DELETE_SINGLE_FAIL');
+  } else if (totalUnAuthorizeDomainMimes.value === totalSelectedMimes?.value) {
+    return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_ALL_MIME');
+  } else if (totalAssignedMime.value > 0) {
+    return t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE_MESSAGE');
+  } else if (totalAssignedMime.value === 0 && totalUnAuthorizeDomainMimes.value > 0) {
+    return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_SOME_MIME');
+  }
+  return t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE');
 });
 
 function onCloseModal() {

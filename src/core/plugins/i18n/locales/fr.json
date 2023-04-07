@@ -724,7 +724,9 @@
       "DELETE_MUTIPLE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer [{qty}] politiques Mime, cette procédure est irréversible. Voulez-vous continuer ?",
       "DELETE_FAILURE":"Échec de la suppression",
       "DELETE_FAILURE_MESSAGE": "Certaines des politiques MIME ont été supprimées avec succès, mais les autres sont assignées à au moins un domaine et ne peuvent être supprimées.",
-      "UNABLE_DELETE_MIME": "Vous n'avez pas le droit de supprimer ces Politiques MIME"      
+      "UNABLE_DELETE_ALL_MIME": "Vous n'avez pas le droit de supprimer ces Politiques MIME",
+      "UNABLE_DELETE_ONE_MIME": "Vous n'êtes pas autorisé à supprimer cette politique MIME",
+      "UNABLE_DELETE_SOME_MIME": "Certaines politiques MIME sont supprimées avec succès, mais pas d'autres car vous n'êtes pas autorisé à les supprimer"        
     },
     "ASSIGN_MODAL": {
       "ASSIGN_MODAL_TITLE": "Assigner une politique MIME",

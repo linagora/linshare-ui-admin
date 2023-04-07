@@ -6,6 +6,7 @@ export interface MimePolicy {
   domainId: string;
   domainName: string;
   mimeTypes?: boolean;
+  assigned?: boolean;
 }
 
 export interface MimeType {

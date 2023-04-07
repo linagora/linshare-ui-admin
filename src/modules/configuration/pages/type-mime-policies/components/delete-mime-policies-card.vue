@@ -21,10 +21,12 @@
   </a-card>
 </template>
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import DeleteIcon from '@/core/components/icons/delete-icon.vue';
 import useMimeType from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 
 // composable
+const { t } = useI18n();
 const { handleDeleteMimePolicies, onShowDeleteMimePoliciesFail, selectedMimePolicies, loading } = useMimeType();
 
 const emits = defineEmits(['close', 'refresh']);
@@ -32,6 +34,7 @@ const emits = defineEmits(['close', 'refresh']);
 function onCloseModal() {
   emits('close');
 }
+
 async function onConfirmDelete() {
   const result = await handleDeleteMimePolicies();
   if (result) {
