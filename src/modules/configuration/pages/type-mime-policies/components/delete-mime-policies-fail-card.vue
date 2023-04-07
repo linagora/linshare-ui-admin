@@ -8,9 +8,7 @@
       <span>{{ deleteMessage }}</span>
     </div>
     <div class="delete-mime-policies-fail-card__actions">
-      <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{
-        $t('MIME_POLICIES.DELETE_MODAL.DELETE_ACTION_CANCEL')
-      }}</a-button>
+      <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.OK') }}</a-button>
     </div>
   </a-card>
 </template>
@@ -38,18 +36,26 @@ const totalSelectedMimes = computed(() => {
   return selectedMimePolicies?.value?.length ?? 0;
 });
 const deleteMessage = computed(() => {
-  if (totalSelectedMimes.value === 1 && totalUnAuthorizeDomainMimes.value === 1) {
-    return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_ONE_MIME');
-  } else if (totalSelectedMimes.value === 1) {
-    return t('MIME_POLICIES.DELETE_MODAL.DELETE_SINGLE_FAIL');
-  } else if (totalUnAuthorizeDomainMimes.value === totalSelectedMimes?.value) {
-    return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_ALL_MIME');
-  } else if (totalAssignedMime.value > 0) {
-    return t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE_MESSAGE');
-  } else if (totalAssignedMime.value === 0 && totalUnAuthorizeDomainMimes.value > 0) {
-    return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_SOME_MIME');
+  if (totalSelectedMimes.value === 1) {
+    if (totalAssignedMime.value === 1) {
+      return t('MIME_POLICIES.DELETE_MODAL.DELETE_SINGLE_FAIL');
+    } else if (totalUnAuthorizeDomainMimes.value === 1) {
+      return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_ONE_MIME');
+    } else {
+      return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_ONE_MIME');
+    }
+  } else {
+    if (totalAssignedMime.value + totalUnAuthorizeDomainMimes.value === totalSelectedMimes?.value) {
+      return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_ALL_MIME');
+    } else if (totalAssignedMime.value > 0) {
+      return t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE_MESSAGE');
+    } else if (totalAssignedMime.value === 0 && totalUnAuthorizeDomainMimes.value > 0) {
+      return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_SOME_MIME');
+    } else if (totalUnAuthorizeDomainMimes.value === totalSelectedMimes?.value) {
+      return t('MIME_POLICIES.DELETE_MODAL.UNABLE_DELETE_ALL_MIME');
+    }
+    return t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE');
   }
-  return t('MIME_POLICIES.DELETE_MODAL.DELETE_FAILURE');
 });
 
 function onCloseModal() {

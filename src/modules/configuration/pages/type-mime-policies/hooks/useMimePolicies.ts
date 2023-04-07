@@ -68,7 +68,7 @@ const filteredListByPage = computed(() => {
 export default function useMimesPolicies() {
   const { t } = useI18n();
   const { loggedUserRole } = storeToRefs(useAuthStore());
-  const { getDomainsList } = storeToRefs(useDomainStore());
+  const { getDomainsList, currentDomain } = storeToRefs(useDomainStore());
   const router = useRouter();
   const route = useRoute();
 
@@ -201,7 +201,7 @@ export default function useMimesPolicies() {
       list.value = mimes.map((item) => {
         return {
           ...item,
-          assigned: isAssigned(item.uuid, domainUuid),
+          assigned: isAssigned(item.uuid, currentDomain?.value?.mimePolicy?.uuid),
         };
       });
       status.value = STATUS.SUCCESS;
