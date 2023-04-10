@@ -50,11 +50,9 @@ async function fetchFunctionalities() {
 }
 
 watch(
-  () => route.params.identifier,
-  (identifier) => {
-    if (identifier) {
-      fetchFunctionalities();
-    }
+  () => route.params,
+  () => {
+    fetchFunctionalities();
   }
 );
 
