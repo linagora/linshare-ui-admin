@@ -1405,7 +1405,7 @@
     },
     "USER_USED_STORAGE": {
       "TITLE": "Người dùng & Bộ nhớ lưu trữ",
-      "DESCRIPTION": "Hiển thị 100 người dùng hàng đầu có bộ nhớ đã sử dụng lớn nhất",
+      "DESCRIPTION": "Hiển thị 100 người dùng / không gian chia sẻ có dung lượng lưu trữ được sử dụng lớn nhất.",
       "TABLE_STORAGE_COLUMN_HEADER": "Đã sử dụng"
     }
   },

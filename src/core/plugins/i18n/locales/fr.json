@@ -1407,7 +1407,7 @@
     },
     "USER_USED_STORAGE": {
       "TITLE": "Statistiques sur les utilisateurs et le stockage",
-      "DESCRIPTION": "Afficher les 100 premiers utilisateurs avec le plus grand espace de stockage utilisé",
+      "DESCRIPTION": "Afficher les 100 meilleurs utilisateurs/espaces partagés avec le plus grand espace de stockage utilisé.",
       "TABLE_STORAGE_COLUMN_HEADER": "Espace de stockage utilisé"
     }
   },

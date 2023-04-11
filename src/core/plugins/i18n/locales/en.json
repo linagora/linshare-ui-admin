@@ -1407,7 +1407,7 @@
     },
     "USER_USED_STORAGE": {
       "TITLE": "User & Storage statistic",
-      "DESCRIPTION": "Showing top 100 users with largest used storage",
+      "DESCRIPTION": "Showing top 100 users/shared  spaces with largest used storage",
       "TABLE_STORAGE_COLUMN_HEADER": "Used storage"
     }
   },
