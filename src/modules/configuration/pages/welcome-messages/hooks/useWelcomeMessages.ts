@@ -77,6 +77,7 @@ export default function useWelcomeMessages(): UsableWelcomeMessages {
   async function assign(welcomeMessage: WelcomeMessage) {
     try {
       await assignWelcomeMessage(currentDomain.value.uuid, welcomeMessage.uuid);
+      await domainStore.fetchDomain();
       message.success(t('WELCOME_MESSAGES.ASSIGN_SUCCESS'));
       list.value.forEach((element) => {
         if (element.uuid === welcomeMessage.uuid) {
