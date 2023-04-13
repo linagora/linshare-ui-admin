@@ -141,7 +141,8 @@
     "LDAP_GROUP_FILTER": "LDAP group filter",
     "LDAP_WORKSPACE_FILTER": "LDAP workspace filter",
     "SHARED_SPACE_DETAILS": "Shared space details",
-    "WELCOME_MESSAGE_DETAIL": "Welcome message detail"
+    "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
+    "EMAIL_TEMPLATES": "Email templates"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",
@@ -2421,6 +2422,15 @@
           }
         }
       }  
+    }
+  },
+  "EMAIL_TEMPLATES": {
+    "VERTICAL_TABS": {
+      "CONFIGURATION": "Mail Configuration",
+      "FOOTER": "Mail Footer",
+      "ACTIVATION": "Mail Activation",
+      "CONTENT": "Mail Content",
+      "LAYOUT": "Mail Layout"
     }
   },
   "LANGUAGE": {

@@ -2161,6 +2161,15 @@
       }
     }  
   },
+  "EMAIL_TEMPLATES": {
+    "VERTICAL_TABS": {
+      "CONFIGURATION": "Настройки письма",
+      "FOOTER": "Футер письма",
+      "ACTIVATION": "Активация письма",
+      "CONTENT": "Содержание письма",
+      "LAYOUT": "Макет письма"
+    }
+  },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Выберите язык"
   },

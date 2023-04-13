@@ -2422,6 +2422,16 @@
       }
     }
   },
+  "EMAIL_TEMPLATES": {
+    "VERTICAL_TABS": {
+      "CONFIGURATION": "Configuration du courriel",
+       "FOOTER": "Pied de page du courriel",
+       "ACTIVATION": "Activation des notifications",
+       "CONTENT": "Contenu du courriel",
+       "LAYOUT": "Structure du courriel"
+
+    }
+  },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"
   },

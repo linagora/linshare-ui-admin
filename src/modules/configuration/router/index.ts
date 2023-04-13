@@ -12,6 +12,7 @@ import {
 } from '@/modules/configuration/pages/welcome-messages/router';
 import { ConfigurationDomainTypeMimePoliciesRoutes } from '@/modules/configuration/pages/type-mime-policies/router';
 import { ConfigurationDomainProviderManagementRoutes } from '@/modules/configuration/pages/domain-provider-management/router';
+import { ConfigurationDomainEmailTemplatesRoutes } from '@/modules/configuration/pages/email-templates/router';
 import { ConfigurationDomainDomainUserProvidersRoutes } from '@/modules/configuration/pages/domain-user-providers/router';
 import { ConfigurationDomainDomainWorkspaceProvidersRoutes } from '@/modules/configuration/pages/domain-workspace-providers/router';
 
@@ -42,6 +43,7 @@ export const ConfigurationRoute: RouteRecordRaw = {
     ...ConfigurationDomainProviderManagementRoutes,
     ...ConfigurationDomainDomainUserProvidersRoutes,
     ...ConfigurationDomainDomainWorkspaceProvidersRoutes,
+    ...ConfigurationDomainEmailTemplatesRoutes,
   ],
 };
 

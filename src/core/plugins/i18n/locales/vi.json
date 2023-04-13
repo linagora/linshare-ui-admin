@@ -2421,6 +2421,15 @@
       }  
     }
   },
+  "EMAIL_TEMPLATES": {
+    "VERTICAL_TABS": {
+      "CONFIGURATION": "Cấu hình mail",
+      "FOOTER": "Chân trang mail",
+      "ACTIVATION": "Kích hoạt mail",
+      "CONTENT": "Nội dung mail",
+      "LAYOUT": "Bố cục mail"
+    }
+  },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"
   },
