@@ -141,7 +141,8 @@
     "LDAP_GROUP_FILTER": "Bộ lọc nhóm trên LDAP",
     "LDAP_WORKSPACE_FILTER": "Bộ lọc không gian làm việc trên LDAP",
     "SHARED_SPACE_DETAILS": "Chi tiết về không gian chung",
-    "WELCOME_MESSAGE_DETAIL": "Chi tiết tin nhắn chào mừng"
+    "WELCOME_MESSAGE_DETAIL": "Chi tiết tin nhắn chào mừng",
+    "EMAIL_TEMPLATES": "Mẫu email"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -2422,13 +2423,24 @@
     }
   },
   "EMAIL_TEMPLATES": {
+    "VISIBILITY": "Tầm nhìn",
+    "PUBLIC": "Công khai",
+    "PRIVATE": "Riêng tư",
+    "EDITABLE": "Có thể sửa",
+    "READ_ONLY": "Chỉ đọc",
     "VERTICAL_TABS": {
       "CONFIGURATION": "Cấu hình mail",
       "FOOTER": "Chân trang mail",
       "ACTIVATION": "Kích hoạt mail",
       "CONTENT": "Nội dung mail",
       "LAYOUT": "Bố cục mail"
-    }
+    },
+    "CONFIGURATION_PAGE": {
+      "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>“Bố cục thư”</span> cho phép tạo bố cục thư tùy chỉnh.",
+      "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>“Chân trang thư”</span> để chỉnh sửa mẫu chân trang thư.",
+      "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>“Nội dung thư”</span> để quản lý nội dung thông báo thư được gửi đến người dùng LinShare.",
+      "MAIL_ASSIGN_DESCRIPTION": "Sau khi tạo và điều chỉnh mẫu thư, bạn có thể gán mẫu thư này cho miền hoặc các miền con của nó."
+}
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"

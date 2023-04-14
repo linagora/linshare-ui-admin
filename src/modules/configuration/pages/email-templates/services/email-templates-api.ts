@@ -1,8 +1,8 @@
 import apiv4 from '@/apiv4';
+import { MailConfiguration } from '../types/MailConfiguration';
 
-// this is for sample, can update it
-async function getEmailTemplates(domainUuid: string): Promise<never[]> {
-  return await apiv4.get(`email-templates?domainId=${domainUuid}`);
+async function getMailConfigurationList(domainUuid: string, currentDomainOnly: boolean): Promise<MailConfiguration[]> {
+  return await apiv4.get(`mail_configs?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
 }
 
-export { getEmailTemplates };
+export { getMailConfigurationList };

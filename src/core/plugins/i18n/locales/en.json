@@ -2425,12 +2425,23 @@
     }
   },
   "EMAIL_TEMPLATES": {
-    "VERTICAL_TABS": {
+    "VISIBILITY": "Visibility",
+    "PUBLIC":"Public",
+    "PRIVATE":"Private",
+    "EDITABLE":"Editable",
+    "READ_ONLY": "Read-only",
+   "VERTICAL_TABS": {
       "CONFIGURATION": "Mail Configuration",
       "FOOTER": "Mail Footer",
       "ACTIVATION": "Mail Activation",
       "CONTENT": "Mail Content",
       "LAYOUT": "Mail Layout"
+    },
+    "CONFIGURATION_PAGE":{
+      "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>“Mail layout”</span> allow to create a custom mail layout.",
+      "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>“Mail footer”</span> to edit the mail footer template.",
+      "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>“Mail content”</span> to manage mail notification content, sent to LinShare users.",
+      "MAIL_ASSIGN_DESCRIPTION": "After creating then adjust a mail template, you can assign this mail template for the domain or its nested domains."
     }
   },
   "LANGUAGE": {

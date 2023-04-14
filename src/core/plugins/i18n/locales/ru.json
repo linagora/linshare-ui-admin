@@ -141,7 +141,8 @@
     "LDAP_GROUP_FILTER": "Фильтр группы LDAP",
     "LDAP_WORKSPACE_FILTER": "Фильтр рабочей области LDAP",
     "SHARED_SPACE_DETAILS": "Сведения об общем пространстве",
-    "WELCOME_MESSAGE_DETAIL": "Welcome message detail"
+    "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
+    "EMAIL_TEMPLATES": "Шаблоны электронной почты"
   },
   "DASHBOARD": {
     "TITLE": "Приборная доска",
@@ -2162,13 +2163,24 @@
     }  
   },
   "EMAIL_TEMPLATES": {
-    "VERTICAL_TABS": {
-      "CONFIGURATION": "Настройки письма",
-      "FOOTER": "Футер письма",
-      "ACTIVATION": "Активация письма",
-      "CONTENT": "Содержание письма",
-      "LAYOUT": "Макет письма"
-    }
+   "VISIBILITY": "Видимость", 
+   "PUBLIC":"Публичный", 
+   "PRIVATE":"Приватный", 
+   "EDITABLE":"Редактируемый", 
+   "READ_ONLY": "Только для чтения", 
+   "VERTICAL_TABS": { 
+      "CONFIGURATION": "Настройки письма", 
+      "FOOTER": "Футер письма", 
+      "ACTIVATION": "Активация письма", 
+      "CONTENT": "Содержание письма", 
+      "LAYOUT": "Макет письма" 
+   }, 
+   "CONFIGURATION_PAGE":{ 
+      "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>«Макет письма»</span> позволяет создавать пользовательский макет письма.", 
+      "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>«Футер письма»</span> позволяет редактировать шаблон футера письма.", 
+      "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>«Содержание письма»</span> используется для управления содержанием уведомлений в письмах, отправляемых пользователям LinShare.", 
+      "MAIL_ASSIGN_DESCRIPTION": "После создания и настройки шаблона электронной почты вы можете назначить этот шаблон электронной почты для домена или его вложенных доменов." 
+   }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Выберите язык"
