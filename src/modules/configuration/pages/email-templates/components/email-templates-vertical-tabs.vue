@@ -9,7 +9,7 @@
   </a-tabs>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from 'vue';
+import { computed, reactive, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../router';
@@ -18,7 +18,7 @@ const { t } = useI18n();
 const router = useRouter();
 //data
 const activeKey = ref<'configuration' | 'layout' | 'footer' | 'content' | 'activation'>('configuration');
-const tabs = reactive({
+const tabs = computed(() => ({
   configuration: {
     name: t('EMAIL_TEMPLATES.VERTICAL_TABS.CONFIGURATION'),
     key: 'configuration',
@@ -44,11 +44,11 @@ const tabs = reactive({
     key: 'activation',
     to: { name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ACTIVATION },
   },
-});
+}));
 
 //methods
 function onSelectTemplateTab() {
-  router.push(tabs[activeKey.value].to);
+  router.push(tabs.value[activeKey.value].to);
 }
 </script>
 <style lang="less">

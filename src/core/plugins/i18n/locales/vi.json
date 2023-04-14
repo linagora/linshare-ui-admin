@@ -2440,7 +2440,17 @@
       "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>“Chân trang thư”</span> để chỉnh sửa mẫu chân trang thư.",
       "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>“Nội dung thư”</span> để quản lý nội dung thông báo thư được gửi đến người dùng LinShare.",
       "MAIL_ASSIGN_DESCRIPTION": "Sau khi tạo và điều chỉnh mẫu thư, bạn có thể gán mẫu thư này cho miền hoặc các miền con của nó."
-}
+    },
+    "EMAIL_LAYOUT": {
+      "PUBLIC": "Công khai",
+      "PRIVATE": "Riêng tư",
+      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>${'mailSubject'}</span> Tiêu đề / Chủ đề email",
+      "SECOND_HELP_TEXT": "<span style='color: #007AFF'>${'image'}</span> Log LinShare, có thể được thiết lập trong cấu hình (Nếu bạn có quyền hạn cần thiết)",
+      "THIRD_HELP_TEXT": "personalMessageAcustommessageaddedtothedefaultmessage <span style='color: #007AFF'>${'body'}</span>",
+      "FOUR_HELP_TEXT": "<span style='color: #007AFF'>${'greetings'}</span> Lời chào",
+      "FIVE_HELP_TEXT": "<span style='color: #007AFF'>${'body'}</span> Nội dung mà bạn đưa vào 'Nội dung email'",
+      "SIX_HELP_TEXT": "<span style='color: #007AFF'>${'footer'}</span> Nội dung mà bạn đưa vào 'Chân trang email'"
+    }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"

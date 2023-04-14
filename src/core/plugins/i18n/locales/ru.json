@@ -2163,24 +2163,34 @@
     }  
   },
   "EMAIL_TEMPLATES": {
-   "VISIBILITY": "Видимость", 
-   "PUBLIC":"Публичный", 
-   "PRIVATE":"Приватный", 
-   "EDITABLE":"Редактируемый", 
-   "READ_ONLY": "Только для чтения", 
-   "VERTICAL_TABS": { 
+    "VISIBILITY": "Видимость", 
+    "PUBLIC":"Публичный", 
+    "PRIVATE":"Приватный", 
+    "EDITABLE":"Редактируемый", 
+    "READ_ONLY": "Только для чтения", 
+    "VERTICAL_TABS": { 
       "CONFIGURATION": "Настройки письма", 
       "FOOTER": "Футер письма", 
       "ACTIVATION": "Активация письма", 
       "CONTENT": "Содержание письма", 
       "LAYOUT": "Макет письма" 
    }, 
-   "CONFIGURATION_PAGE":{ 
+    "CONFIGURATION_PAGE":{ 
       "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>«Макет письма»</span> позволяет создавать пользовательский макет письма.", 
       "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>«Футер письма»</span> позволяет редактировать шаблон футера письма.", 
       "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>«Содержание письма»</span> используется для управления содержанием уведомлений в письмах, отправляемых пользователям LinShare.", 
       "MAIL_ASSIGN_DESCRIPTION": "После создания и настройки шаблона электронной почты вы можете назначить этот шаблон электронной почты для домена или его вложенных доменов." 
-   }
+   },
+    "EMAIL_LAYOUT": {
+      "PUBLIC": "Публичный",
+      "PRIVATE": "Приватный",
+      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>${'mailSubject'}</span> Название / Тема письма",
+      "SECOND_HELP_TEXT":"<span style='color: #007AFF'>${'image'}</span> Журнал LinShare, который можно изменить в настройках (Если у вас есть необходимые полномочия)",
+      "THIRD_HELP_TEXT": "personalMessageAcustommessageaddedtothedefaultmessage <span style='color: #007AFF'>${'body'}</span>",
+      "FOUR_HELP_TEXT":"<span style='color: #007AFF'>${'greetings'}</span> Приветственное сообщение",
+      "FIVE_HELP_TEXT":"<span style='color: #007AFF'>${'body'}</span> Текст, добавленный в 'Содержание письма'",
+      "SIX_HELP_TEXT":"<span style='color: #007AFF'>${'footer'}</span> Текст, добавленный в 'Футер письма'"    
+    }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Выберите язык"

@@ -61,7 +61,8 @@
     "EMPTY_MESSAGE": "No data",
     "CLEAR_FILTER": "Clear filter",
     "ISOLATE": "Isolate",
-    "UNDO": "Undo"
+    "UNDO": "Undo",
+    "DUPPLICATE": "Duplicate"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -2442,6 +2443,16 @@
       "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>“Mail footer”</span> to edit the mail footer template.",
       "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>“Mail content”</span> to manage mail notification content, sent to LinShare users.",
       "MAIL_ASSIGN_DESCRIPTION": "After creating then adjust a mail template, you can assign this mail template for the domain or its nested domains."
+    },
+    "EMAIL_LAYOUT": {
+      "PUBLIC": "Public",
+      "PRIVATE": "Private",
+      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>${'mailSubject'}</span> Title / Mail subject",
+      "SECOND_HELP_TEXT":"<span style='color: #007AFF'>${'image'}</span> LinShare log, that can be set in the configuration (If you have the required authorities)",
+      "THIRD_HELP_TEXT": "personalMessageAcustommessageaddedtothedefaultmessage <span style='color: #007AFF'>${'body'}</span>",
+      "FOUR_HELP_TEXT":"<span style='color: #007AFF'>${'greetings'}</span> Greeting message",
+      "FIVE_HELP_TEXT":"<span style='color: #007AFF'>${'body'}</span> Content that you put in 'Mail content'",
+      "SIX_HELP_TEXT":"<span style='color: #007AFF'>${'footer'}</span> Content that you put in 'Mail footer'"
     }
   },
   "LANGUAGE": {
