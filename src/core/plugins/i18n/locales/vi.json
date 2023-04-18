@@ -1550,7 +1550,7 @@
       "FILTER_ENDING_DATE": "Ngày kết thúc",
       "SEARCH": "Tìm kiếm"
     },
-    
+
     "DETAILS_POPUP": {
       "BY": "Bởi {user}",
       "MODIFICATIONS": "Sửa đổi(s)",
@@ -2419,7 +2419,7 @@
             }
           }
         }
-      }  
+      }
     }
   },
   "EMAIL_TEMPLATES": {
@@ -2450,7 +2450,12 @@
       "FOUR_HELP_TEXT": "<span style='color: #007AFF'>${'greetings'}</span> Lời chào",
       "FIVE_HELP_TEXT": "<span style='color: #007AFF'>${'body'}</span> Nội dung mà bạn đưa vào 'Nội dung email'",
       "SIX_HELP_TEXT": "<span style='color: #007AFF'>${'footer'}</span> Nội dung mà bạn đưa vào 'Chân trang email'"
-    }
+    },
+    "ASSIGN_MODAL":{
+      "ASSIGN_MODAL_TITLE": "Chỉ định Cấu hình Thư",
+      "ASSIGN_MODAL_SUBTITLE": "Bạn đang chuẩn bị chỉ định cấu hình thư này cho {currentDomain}. Bạn có muốn tiếp tục không?",
+      "ASSIGN_SUCCESS": "Đã chỉ định thành công"
+      }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"

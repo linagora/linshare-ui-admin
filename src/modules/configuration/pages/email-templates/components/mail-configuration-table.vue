@@ -44,7 +44,10 @@
           <EllipsisOutlined />
           <template #overlay>
             <a-menu>
-              <a-menu-item :disabled="isAssigned(record.uuid, currentDomain.mailConfiguration?.uuid)">
+              <a-menu-item
+                :disabled="isAssigned(record.uuid, currentDomain.mailConfiguration?.uuid)"
+                @click="onAssignMimePolicy(record)"
+              >
                 <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
               </a-menu-item>
               <a-menu-item> <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }} </a-menu-item>
@@ -69,7 +72,7 @@ import { EllipsisOutlined } from '@ant-design/icons-vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 import { MailConfiguration } from '../types/MailConfiguration';
 
-const { status, filteredListByPage, isAssigned } = useEmailTemplatesConfiguration();
+const { status, filteredListByPage, isAssigned, onAssignMimePolicy } = useEmailTemplatesConfiguration();
 const { t } = useI18n();
 const domainStore = useDomainStore();
 const { currentDomain } = storeToRefs(domainStore);

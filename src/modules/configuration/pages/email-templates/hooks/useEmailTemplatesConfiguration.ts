@@ -4,10 +4,17 @@ import { MailConfiguration } from '../types/MailConfiguration';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { STATUS } from '@/core/types/Status';
-import { getMailConfigurationList } from '../services/email-templates-api';
+import { useI18n } from 'vue-i18n';
+import { getMailConfigurationList, assignMailConfiguration } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
+import Domain from '@/core/types/Domain';
+import { useLocalStorage } from '@vueuse/core';
 
+const activeMailConfig = useLocalStorage<MailConfiguration>(
+  'configuration-type-mail-config-activeMailConfig',
+  {} as MailConfiguration
+);
 const list = ref<MailConfiguration[]>([]);
 const filterText = ref('');
 const status = ref(STATUS.LOADING);
@@ -15,6 +22,12 @@ const pagination = reactive({
   total: 0,
   current: 1,
   pageSize: DEFAULT_PAGE_SIZE,
+});
+
+const assignModal = reactive<{
+  visible: boolean;
+}>({
+  visible: false,
 });
 
 const filteredList = computed(() =>
@@ -28,6 +41,7 @@ const filteredListByPage = computed(() => {
 
 export default function useEmailTemplatesConfiguration() {
   const { currentDomain } = storeToRefs(useDomainStore());
+  const { t } = useI18n();
 
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
@@ -55,14 +69,46 @@ export default function useEmailTemplatesConfiguration() {
     return false;
   }
 
+  function onAssignMimePolicy(MailConfig: MailConfiguration) {
+    activeMailConfig.value = MailConfig;
+    assignModal.visible = true;
+  }
+
+  function onCloseAssignModal() {
+    assignModal.visible = false;
+  }
+
+  async function handleAssignMailConfiguration(currentDomain: Domain) {
+    try {
+      if (!activeMailConfig?.value) {
+        return false;
+      }
+
+      status.value = STATUS.LOADING;
+      await assignMailConfiguration(currentDomain.uuid, activeMailConfig.value?.uuid);
+      message.success(t('EMAIL_TEMPLATES.ASSIGN_MODAL.ASSIGN_SUCCESS'));
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    } finally {
+      status.value = STATUS.SUCCESS;
+    }
+  }
+
   return {
     list,
     fetchMailConfiguration,
+    handleAssignMailConfiguration,
     status,
     isAssigned,
     pagination,
     filterText,
     filteredList,
     filteredListByPage,
+    onCloseAssignModal,
+    onAssignMimePolicy,
+    assignModal,
   };
 }

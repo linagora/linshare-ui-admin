@@ -2160,26 +2160,26 @@
           }
         }
       }
-    }  
+    }
   },
   "EMAIL_TEMPLATES": {
-    "VISIBILITY": "Видимость", 
-    "PUBLIC":"Публичный", 
-    "PRIVATE":"Приватный", 
-    "EDITABLE":"Редактируемый", 
-    "READ_ONLY": "Только для чтения", 
-    "VERTICAL_TABS": { 
-      "CONFIGURATION": "Настройки письма", 
-      "FOOTER": "Футер письма", 
-      "ACTIVATION": "Активация письма", 
-      "CONTENT": "Содержание письма", 
-      "LAYOUT": "Макет письма" 
-   }, 
-    "CONFIGURATION_PAGE":{ 
-      "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>«Макет письма»</span> позволяет создавать пользовательский макет письма.", 
-      "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>«Футер письма»</span> позволяет редактировать шаблон футера письма.", 
-      "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>«Содержание письма»</span> используется для управления содержанием уведомлений в письмах, отправляемых пользователям LinShare.", 
-      "MAIL_ASSIGN_DESCRIPTION": "После создания и настройки шаблона электронной почты вы можете назначить этот шаблон электронной почты для домена или его вложенных доменов." 
+    "VISIBILITY": "Видимость",
+    "PUBLIC":"Публичный",
+    "PRIVATE":"Приватный",
+    "EDITABLE":"Редактируемый",
+    "READ_ONLY": "Только для чтения",
+    "VERTICAL_TABS": {
+      "CONFIGURATION": "Настройки письма",
+      "FOOTER": "Футер письма",
+      "ACTIVATION": "Активация письма",
+      "CONTENT": "Содержание письма",
+      "LAYOUT": "Макет письма"
+   },
+    "CONFIGURATION_PAGE":{
+      "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>«Макет письма»</span> позволяет создавать пользовательский макет письма.",
+      "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>«Футер письма»</span> позволяет редактировать шаблон футера письма.",
+      "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>«Содержание письма»</span> используется для управления содержанием уведомлений в письмах, отправляемых пользователям LinShare.",
+      "MAIL_ASSIGN_DESCRIPTION": "После создания и настройки шаблона электронной почты вы можете назначить этот шаблон электронной почты для домена или его вложенных доменов."
    },
     "EMAIL_LAYOUT": {
       "PUBLIC": "Публичный",
@@ -2189,7 +2189,12 @@
       "THIRD_HELP_TEXT": "personalMessageAcustommessageaddedtothedefaultmessage <span style='color: #007AFF'>${'body'}</span>",
       "FOUR_HELP_TEXT":"<span style='color: #007AFF'>${'greetings'}</span> Приветственное сообщение",
       "FIVE_HELP_TEXT":"<span style='color: #007AFF'>${'body'}</span> Текст, добавленный в 'Содержание письма'",
-      "SIX_HELP_TEXT":"<span style='color: #007AFF'>${'footer'}</span> Текст, добавленный в 'Футер письма'"    
+      "SIX_HELP_TEXT":"<span style='color: #007AFF'>${'footer'}</span> Текст, добавленный в 'Футер письма'"
+    },
+   "ASSIGN_MODAL":{
+     "ASSIGN_MODAL_TITLE": "Назначить конфигурацию почты",
+     "ASSIGN_MODAL_SUBTITLE": "Вы собираетесь назначить эту конфигурацию почты для {currentDomain}. Хотите продолжить?",
+     "ASSIGN_SUCCESS": "Успешно назначено"
     }
   },
   "LANGUAGE": {

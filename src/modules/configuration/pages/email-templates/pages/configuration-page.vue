@@ -28,6 +28,14 @@
   </div>
   <MailConfigurationTable></MailConfigurationTable>
   <ThePagination v-model="pagination" class="pagination" :is-visible="!!filteredList.length" />
+  <a-modal
+    v-model:visible="assignModal.visible"
+    :closable="false"
+    :footer="null"
+    wrap-class-name="type-mime-policies-page__modal"
+  >
+    <AssignMailConfigurationCard @close="onCloseAssignModal" @refresh="assignReload"></AssignMailConfigurationCard>
+  </a-modal>
 </template>
 
 <script lang="ts" setup>
@@ -35,14 +43,22 @@ import { useRoute } from 'vue-router';
 import { watch } from 'vue';
 import MailConfigurationTable from '../components/mail-configuration-table.vue';
 import ThePagination from '@/core/components/the-pagination.vue';
+import { useDomainStore } from '@/modules/domain/store';
 import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
+import AssignMailConfigurationCard from '../components/assign-mail-configuration-card.vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 
-const { filterText, fetchMailConfiguration, pagination, filteredList } = useEmailTemplatesConfiguration();
+const { filterText, fetchMailConfiguration, pagination, filteredList, onCloseAssignModal, assignModal } =
+  useEmailTemplatesConfiguration();
 const route = useRoute();
+const domainStore = useDomainStore();
 
 async function onFetchMailConfiguration() {
   await fetchMailConfiguration();
+}
+
+function assignReload() {
+  domainStore.fetchDomain();
 }
 
 onFetchMailConfiguration();

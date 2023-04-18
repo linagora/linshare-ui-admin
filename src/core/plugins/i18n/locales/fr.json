@@ -727,7 +727,7 @@
       "DELETE_FAILURE_MESSAGE": "Certaines des politiques MIME ont été supprimées avec succès, mais les autres sont assignées à au moins un domaine et ne peuvent être supprimées.",
       "UNABLE_DELETE_ALL_MIME": "Vous n'avez pas le droit de supprimer ces Politiques MIME",
       "UNABLE_DELETE_ONE_MIME": "Vous n'êtes pas autorisé à supprimer cette politique MIME",
-      "UNABLE_DELETE_SOME_MIME": "Certaines politiques MIME sont supprimées avec succès, mais pas d'autres car vous n'êtes pas autorisé à les supprimer"        
+      "UNABLE_DELETE_SOME_MIME": "Certaines politiques MIME sont supprimées avec succès, mais pas d'autres car vous n'êtes pas autorisé à les supprimer"
     },
     "ASSIGN_MODAL": {
       "ASSIGN_MODAL_TITLE": "Assigner une politique MIME",
@@ -2451,7 +2451,12 @@
       "FOUR_HELP_TEXT":"<span style='color: #007AFF'>${'greetings'}</span> Message de salutation",
       "FIVE_HELP_TEXT":"<span style='color: #007AFF'>${'body'}</span> Contenu que vous mettez dans 'Contenu du courriel'",
       "SIX_HELP_TEXT":"<span style='color: #007AFF'>${'footer'}</span> Contenu que vous mettez dans 'Pied de page du courriel'"
-    }
+    },
+    "ASSIGN_MODAL":{
+      "ASSIGN_MODAL_TITLE": "Attribuer la configuration du courriel",
+      "ASSIGN_MODAL_SUBTITLE": "Vous êtes sur le point d'attribuer cette configuration de courriel au domaine {currentDomain}. Voulez-vous continuer ?",
+      "ASSIGN_SUCCESS": "Attribué avec succès"
+      }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"
