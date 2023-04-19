@@ -115,6 +115,7 @@ const columns = computed(() => [
     title: t('MIME_POLICIES.MIME_TYPE_TABLE.STATUS'),
     key: 'enable',
     align: 'center',
+    sorter: (a: MimeType, b: MimeType) => Number(b.enable) - Number(a.enable),
   },
 ]);
 
