@@ -369,6 +369,12 @@
       "DEFAULT_ROLE_TAG_TOOLTIP": "Vai trò này sẽ áp dụng cho thành viên này  cho tất cả nhóm làm việc mới được tạo bên trong không gian làm việc này"
     }
   },
+  "INCONSISTENT_USERS": {
+    "TITLE": "Người dùng không nhất quán",
+    "SCRUTINY": {
+      "TITLE": "Chẩn đoán người dùng"
+    }
+  },
   "QUOTA": {
     "USER_TAB": "Hạn ngạch Không gian cá nhân",
     "USED_SPACE": "Đã sử dụng {usedSpace} trên {computedQuota}",

@@ -369,6 +369,12 @@
       "DEFAULT_ROLE_TAG_TOOLTIP": "Ce rôle s'appliquera à ce membre pour tous les groupes de travail nouvellement créés dans cet espace de travail"
     }
   },
+  "INCONSISTENT_USERS": {
+    "TITLE": "Utilisateurs incohérents",
+    "SCRUTINY": {
+      "TITLE": "Diagnostic utilisateur"
+    }
+  },
   "QUOTA": {
     "USER_TAB": "Quota d'espace personnel",
     "USED_SPACE": "A utilisé {usedSpace} sur {computedQuota}",

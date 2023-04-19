@@ -18,10 +18,12 @@
           <span>{{ $t('NAVIGATOR.MY_CONTACT_LIST') }}</span>
           <RightOutlined />
         </div>
-        <div class="page__menu-item" @click="redirect('NAVIGATOR.INCONSISTENT_USERS')">
-          <span>{{ $t('NAVIGATOR.INCONSISTENT_USERS') }}</span>
-          <RightOutlined />
-        </div>
+        <router-link :to="{ name: 'InconsistentUsers' }">
+          <div class="page__menu-item">
+            <span>{{ $t('NAVIGATOR.INCONSISTENT_USERS') }}</span>
+            <RightOutlined />
+          </div>
+        </router-link>
         <div class="page__menu-item">
           <span>{{ $t('NAVIGATOR.LOGGERS') }}</span>
         </div>
