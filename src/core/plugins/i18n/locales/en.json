@@ -2453,12 +2453,12 @@
     "EMAIL_LAYOUT": {
       "PUBLIC": "Public",
       "PRIVATE": "Private",
-      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>${'mailSubject'}</span> Title / Mail subject",
-      "SECOND_HELP_TEXT":"<span style='color: #007AFF'>${'image'}</span> LinShare log, that can be set in the configuration (If you have the required authorities)",
-      "THIRD_HELP_TEXT": "personalMessageAcustommessageaddedtothedefaultmessage <span style='color: #007AFF'>${'body'}</span>",
-      "FOUR_HELP_TEXT":"<span style='color: #007AFF'>${'greetings'}</span> Greeting message",
-      "FIVE_HELP_TEXT":"<span style='color: #007AFF'>${'body'}</span> Content that you put in 'Mail content'",
-      "SIX_HELP_TEXT":"<span style='color: #007AFF'>${'footer'}</span> Content that you put in 'Mail footer'"
+      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>mailSubject</span> Title / Mail subject",
+      "SECOND_HELP_TEXT":"<span style='color: #007AFF'>image</span> LinShare log, that can be set in the configuration (If you have the required authorities)",
+      "THIRD_HELP_TEXT": "<span style='color: #007AFF'>personalMessage</span> A custom message added to the default message <span style='color: #007AFF'>body</span>",
+      "FOUR_HELP_TEXT":"<span style='color: #007AFF'>greetings</span> Greeting message",
+      "FIVE_HELP_TEXT":"<span style='color: #007AFF'>body</span> Content that you put in 'Mail content'",
+      "SIX_HELP_TEXT":"<span style='color: #007AFF'>footer</span> Content that you put in 'Mail footer'"
     },
     "ASSIGN_MODAL":{
       "ASSIGN_MODAL_TITLE": "Assign Mail Configuration",

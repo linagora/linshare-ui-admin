@@ -19,12 +19,12 @@
           <a-tag v-else color="success"> {{ $t('EMAIL_TEMPLATES.EDITABLE') }}</a-tag>
         </template>
         <template v-if="column.key === 'domain'">
-          <span v-if="!checkingMimePolicyDomainAuthorized(record.domain)">{{ record.domain }}</span>
+          <span v-if="!checkingMimePolicyDomainAuthorized(record.domain?.uuid)">{{ record.domain?.name }}</span>
           <router-link
             v-else-if="status === STATUS.SUCCESS"
-            :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domain } }"
+            :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domain?.uuid } }"
           >
-            <span>{{ record.domain }}</span>
+            <span>{{ record.domain?.name }}</span>
           </router-link>
         </template>
         <template v-if="column.key === 'creationDate'">
@@ -47,13 +47,13 @@
             <template #overlay>
               <a-menu>
                 <a-menu-item> <CopyOutlined></CopyOutlined> {{ $t('GENERAL.DUPPLICATE') }} </a-menu-item>
-                <a-menu-item v-if="!checkingMimePolicyDomainAuthorized(record.domain)">
+                <a-menu-item v-if="!checkingMimePolicyDomainAuthorized(record.domain?.uuid)">
                   <ViewIcon></ViewIcon> {{ $t('GENERAL.VIEW') }}
                 </a-menu-item>
-                <a-menu-item v-if="checkingMimePolicyDomainAuthorized(record.domain)">
+                <a-menu-item v-if="checkingMimePolicyDomainAuthorized(record.domain?.uuid)">
                   <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
                 </a-menu-item>
-                <a-menu-item v-if="checkingMimePolicyDomainAuthorized(record.domain)" class="delete">
+                <a-menu-item v-if="checkingMimePolicyDomainAuthorized(record.domain?.uuid)" class="delete">
                   <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
                 </a-menu-item>
               </a-menu>
@@ -113,12 +113,12 @@ const columns = computed(() => [
   {
     title: t('EMAIL_TEMPLATES.READ_ONLY'),
     key: 'readonly',
-    sorter: (a: MailLayout, b: MailLayout) => a.readonly,
+    sorter: (a: MailLayout, b: MailLayout) => Number(b.readonly) - Number(a.readonly),
   },
   {
     title: t('GENERAL.DOMAIN'),
     key: 'domain',
-    sorter: (a: MailLayout, b: MailLayout) => a.domain?.localeCompare(b.domain),
+    sorter: (a: MailLayout, b: MailLayout) => a.domain?.name?.localeCompare(b.domain?.name),
   },
   {
     title: t('GENERAL.CREATION_DATE'),
@@ -133,7 +133,7 @@ const columns = computed(() => [
   {
     title: t('EMAIL_TEMPLATES.VISIBILITY'),
     key: 'visibility',
-    sorter: (a: MailLayout, b: MailLayout) => a.domain?.localeCompare(b.domain),
+    sorter: (a: MailLayout, b: MailLayout) => Number(b.visible) - Number(a.visible),
   },
   {
     title: t('GENERAL.ACTIONS'),

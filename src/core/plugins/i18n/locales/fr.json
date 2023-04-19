@@ -2451,18 +2451,18 @@
     "EMAIL_LAYOUT": {
       "PUBLIC": "Public",
       "PRIVATE": "Privé",
-      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>${'mailSubject'}</span> Titre / Objet du courriel",
-      "SECOND_HELP_TEXT":"<span style='color: #007AFF'>${'image'}</span> Logo LinShare, qui peut être défini dans la configuration (si vous avez les autorisations requises)",
-      "THIRD_HELP_TEXT": "message Personnalisé Un Message Personnalisé Ajouté Au Message Par Défaut <span style='color: #007AFF'>${'body'}</span>",
-      "FOUR_HELP_TEXT":"<span style='color: #007AFF'>${'greetings'}</span> Message de salutation",
-      "FIVE_HELP_TEXT":"<span style='color: #007AFF'>${'body'}</span> Contenu que vous mettez dans 'Contenu du courriel'",
-      "SIX_HELP_TEXT":"<span style='color: #007AFF'>${'footer'}</span> Contenu que vous mettez dans 'Pied de page du courriel'"
+      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>mailSubject</span> Titre / Objet du courriel",
+      "SECOND_HELP_TEXT":"<span style='color: #007AFF'>image</span> Logo LinShare, qui peut être défini dans la configuration (si vous avez les autorisations requises)",
+      "THIRD_HELP_TEXT": "<span style='color: #007AFF'>personalMessage</span>  Un Message Personnalisé Ajouté Au Message Par Défaut <span style='color: #007AFF'>body</span>",
+      "FOUR_HELP_TEXT":"<span style='color: #007AFF'>greetings</span> Message de salutation",
+      "FIVE_HELP_TEXT":"<span style='color: #007AFF'>body</span> Contenu que vous mettez dans 'Contenu du courriel'",
+      "SIX_HELP_TEXT":"<span style='color: #007AFF'>footer</span> Contenu que vous mettez dans 'Pied de page du courriel'"
     },
     "ASSIGN_MODAL":{
       "ASSIGN_MODAL_TITLE": "Attribuer la configuration du courriel",
       "ASSIGN_MODAL_SUBTITLE": "Vous êtes sur le point d'attribuer cette configuration de courriel au domaine {currentDomain}. Voulez-vous continuer ?",
       "ASSIGN_SUCCESS": "Attribué avec succès"
-      }
+    }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"

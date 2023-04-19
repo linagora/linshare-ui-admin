@@ -2450,18 +2450,18 @@
     "EMAIL_LAYOUT": {
       "PUBLIC": "Công khai",
       "PRIVATE": "Riêng tư",
-      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>${'mailSubject'}</span> Tiêu đề / Chủ đề email",
-      "SECOND_HELP_TEXT": "<span style='color: #007AFF'>${'image'}</span> Log LinShare, có thể được thiết lập trong cấu hình (Nếu bạn có quyền hạn cần thiết)",
-      "THIRD_HELP_TEXT": "personalMessageAcustommessageaddedtothedefaultmessage <span style='color: #007AFF'>${'body'}</span>",
-      "FOUR_HELP_TEXT": "<span style='color: #007AFF'>${'greetings'}</span> Lời chào",
-      "FIVE_HELP_TEXT": "<span style='color: #007AFF'>${'body'}</span> Nội dung mà bạn đưa vào 'Nội dung email'",
-      "SIX_HELP_TEXT": "<span style='color: #007AFF'>${'footer'}</span> Nội dung mà bạn đưa vào 'Chân trang email'"
+      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>mailSubject</span> Tiêu đề / Chủ đề email",
+      "SECOND_HELP_TEXT": "<span style='color: #007AFF'>image</span> Log LinShare, có thể được thiết lập trong cấu hình (Nếu bạn có quyền hạn cần thiết)",
+      "THIRD_HELP_TEXT": "<span style='color: #007AFF'>personalMessage</span> Một thông điệp tùy chỉnh được thêm vào thông điệp mặc định. <span style='color: #007AFF'>body</span>",
+      "FOUR_HELP_TEXT": "<span style='color: #007AFF'>greetings</span> Lời chào",
+      "FIVE_HELP_TEXT": "<span style='color: #007AFF'>body</span> Nội dung mà bạn đưa vào 'Nội dung email'",
+      "SIX_HELP_TEXT": "<span style='color: #007AFF'>footer</span> Nội dung mà bạn đưa vào 'Chân trang email'"
     },
     "ASSIGN_MODAL":{
       "ASSIGN_MODAL_TITLE": "Chỉ định Cấu hình Thư",
       "ASSIGN_MODAL_SUBTITLE": "Bạn đang chuẩn bị chỉ định cấu hình thư này cho {currentDomain}. Bạn có muốn tiếp tục không?",
       "ASSIGN_SUCCESS": "Đã chỉ định thành công"
-      }
+    }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"
