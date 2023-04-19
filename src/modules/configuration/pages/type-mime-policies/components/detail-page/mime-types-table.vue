@@ -79,7 +79,7 @@ const { t } = useI18n();
 
 // computed
 const mimeTypesBySearch = computed(() => {
-  return props.items.filter((item) => item.mimeType.includes(form.searchText));
+  return props.items.filter((item) => `${item.mimeType}-${item.extensions}`.includes(form.searchText));
 });
 const mimeTypesByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
