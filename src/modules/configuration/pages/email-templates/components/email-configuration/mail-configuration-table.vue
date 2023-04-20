@@ -3,14 +3,14 @@
     <a-table
       key="uuid"
       class="email-configuration-table__table"
-      :pagination="false"
       :columns="columns"
+      :pagination="false"
       :data-source="filteredListByPage"
       :loading="status === STATUS.LOADING"
     >
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'name'">
-          <span :title="record.name">{{ record.name }}</span>
+          <span class="elipsis-name" :title="record.name">{{ record.name }}</span>
         </template>
         <template v-else-if="column.key === 'readOnly'">
           <a-tag v-if="record.readOnly" color="success">
@@ -19,7 +19,8 @@
           <a-tag v-else color="red"> {{ $t('EMAIL_TEMPLATES.READ_ONLY') }}</a-tag>
         </template>
         <template v-if="column.key === 'domain'">
-          <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domain } }">
+          <span v-if="domainRedirectionAuthorized(record)">{{ record.domainName }}</span>
+          <router-link v-else :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domain } }">
             <span>{{ record.domainName }}</span>
           </router-link>
         </template>
@@ -73,21 +74,26 @@ import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
 import { computed } from 'vue';
 import { STATUS } from '@/core/types/Status';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import AssignIcon from '@/core/components/icons/assign-icon.vue';
 import EditIcon from '@/core/components/icons/edit-icon.vue';
 import DeleteIcon from '@/core/components/icons/delete-mime-icon.vue';
-import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import { useDomainStore } from '@/modules/domain/store';
+import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import useEmailTemplatesConfiguration from '../../hooks/useEmailTemplatesConfiguration';
 import { MailConfiguration } from '../../types/MailConfiguration';
+import { useAuthStore } from '@/modules/auth/store';
 
 const { status, filteredListByPage, isAssigned, onAssignMimePolicy } = useEmailTemplatesConfiguration();
 const { t } = useI18n();
+const authStore = useAuthStore();
 const domainStore = useDomainStore();
 const { currentDomain } = storeToRefs(domainStore);
+const { loggedUser } = storeToRefs(authStore);
 
 const columns = computed(() => [
   {
+    width: '300px',
     title: t('GENERAL.NAME'),
     sorter: (a: MailConfiguration, b: MailConfiguration) => a.name.localeCompare(b.name),
     key: 'name',
@@ -100,8 +106,10 @@ const columns = computed(() => [
     title: t('GENERAL.DOMAIN'),
     align: 'center',
     dataIndex: ['domain', 'name'],
+    sorter: (a: MailConfiguration, b: MailConfiguration) => a.domainName.localeCompare(b.domainName),
     key: 'domain',
   },
+
   {
     title: t('GENERAL.CREATION_DATE'),
     dataIndex: ['creationDate'],
@@ -128,6 +136,10 @@ const columns = computed(() => [
     key: 'action',
   },
 ]);
+
+function domainRedirectionAuthorized(record: MailConfiguration) {
+  return record.domain === 'LinShareRootDomain' && loggedUser?.value?.role === ACCOUNT_ROLE.ADMIN;
+}
 </script>
 
 <style lang="less">

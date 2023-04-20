@@ -1,6 +1,7 @@
 export interface MailConfiguration {
   creationDate?: number;
   domain: string;
+  domainName: string;
   mailContentLangs: {
     language: string;
     mailConfig: string;
