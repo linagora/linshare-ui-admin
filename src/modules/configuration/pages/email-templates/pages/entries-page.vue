@@ -4,7 +4,7 @@
       <email-templates-vertical-tabs></email-templates-vertical-tabs>
     </div>
     <div class="email-templates-page__content">
-      <RouterView />
+      <router-view></router-view>
     </div>
   </div>
 </template>

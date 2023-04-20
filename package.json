@@ -47,7 +47,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev": "vite --host",
-    "build": "vite build"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",

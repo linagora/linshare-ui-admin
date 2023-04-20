@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-
+import EmailTemplatePage from '@/modules/configuration/pages/email-templates/pages/entries-page.vue';
 export const CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES = {
   ENTRIES: 'ConfigurationDomainEmailTemplates',
   CONFIGURATION: 'ConfigurationDomainEmailTemplatesConfiguration',
@@ -13,7 +13,7 @@ export const ConfigurationDomainEmailTemplatesRoutes: RouteRecordRaw[] = [
   {
     name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ENTRIES,
     path: ':domainUuid/email-templates',
-    component: import('@/modules/configuration/pages/email-templates/pages/entries-page.vue'),
+    component: EmailTemplatePage,
     meta: {
       requiresAuth: true,
       parentRoute: 'Configuration',
