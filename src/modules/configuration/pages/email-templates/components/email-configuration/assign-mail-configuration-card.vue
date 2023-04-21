@@ -17,7 +17,7 @@
 </template>
 <script lang="ts" setup>
 import AssignIcon from '@/core/components/icons/assign-mime-icon.vue';
-import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
+import useEmailTemplatesConfiguration from '../../hooks/useEmailTemplatesConfiguration';
 import { useDomainStore } from '@/modules/domain/store';
 import { storeToRefs } from 'pinia';
 
