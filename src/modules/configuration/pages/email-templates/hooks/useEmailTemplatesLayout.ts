@@ -40,7 +40,7 @@ export default function useEmailTemplatesLayout() {
     }
   }
 
-  function checkingMimePolicyDomainAuthorized(domainUuid: string) {
+  function checkingEmailLayoutsDomainAuthorized(domainUuid: string) {
     if (!domainUuid) {
       return false;
     }
@@ -61,6 +61,6 @@ export default function useEmailTemplatesLayout() {
     pagination,
     filterText,
     handleGetEmailLayoutTemplates,
-    checkingMimePolicyDomainAuthorized,
+    checkingEmailLayoutsDomainAuthorized,
   };
 }

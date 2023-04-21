@@ -19,12 +19,12 @@
           <a-tag v-else color="success"> {{ $t('EMAIL_TEMPLATES.EDITABLE') }}</a-tag>
         </template>
         <template v-if="column.key === 'domain'">
-          <span v-if="!checkingMimePolicyDomainAuthorized(record.domain?.uuid)">{{ record.domain?.name }}</span>
+          <span v-if="!checkingEmailLayoutsDomainAuthorized(record.domain)">{{ record.domainName }}</span>
           <router-link
             v-else-if="status === STATUS.SUCCESS"
-            :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domain?.uuid } }"
+            :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domain } }"
           >
-            <span>{{ record.domain?.name }}</span>
+            <span>{{ record.domainName }}</span>
           </router-link>
         </template>
         <template v-if="column.key === 'creationDate'">
@@ -47,13 +47,13 @@
             <template #overlay>
               <a-menu>
                 <a-menu-item> <CopyOutlined></CopyOutlined> {{ $t('GENERAL.DUPPLICATE') }} </a-menu-item>
-                <a-menu-item v-if="!checkingMimePolicyDomainAuthorized(record.domain?.uuid)">
+                <a-menu-item v-if="!checkingEmailLayoutsDomainAuthorized(record.domain)">
                   <ViewIcon></ViewIcon> {{ $t('GENERAL.VIEW') }}
                 </a-menu-item>
-                <a-menu-item v-if="checkingMimePolicyDomainAuthorized(record.domain?.uuid)">
+                <a-menu-item v-if="checkingEmailLayoutsDomainAuthorized(record.domain)">
                   <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
                 </a-menu-item>
-                <a-menu-item v-if="checkingMimePolicyDomainAuthorized(record.domain?.uuid)" class="delete">
+                <a-menu-item v-if="checkingEmailLayoutsDomainAuthorized(record.domain)" class="delete">
                   <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
                 </a-menu-item>
               </a-menu>
@@ -95,7 +95,7 @@ const pagination = reactive({
 
 // composable
 const { t } = useI18n();
-const { checkingMimePolicyDomainAuthorized } = useEmailTemplatesLayout();
+const { checkingEmailLayoutsDomainAuthorized } = useEmailTemplatesLayout();
 // computed
 const mimeTypesByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
@@ -118,7 +118,7 @@ const columns = computed(() => [
   {
     title: t('GENERAL.DOMAIN'),
     key: 'domain',
-    sorter: (a: MailLayout, b: MailLayout) => a.domain?.name?.localeCompare(b.domain?.name),
+    sorter: (a: MailLayout, b: MailLayout) => a.domainName?.localeCompare(b.domainName),
   },
   {
     title: t('GENERAL.CREATION_DATE'),

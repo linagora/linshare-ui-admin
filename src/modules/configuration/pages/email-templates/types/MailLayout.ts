@@ -1,9 +1,7 @@
 export interface MailLayout {
   uuid: string;
-  domain: {
-    name: string;
-    uuid: string;
-  };
+  domain: string;
+  domainName: string;
   description: string;
   layout: string;
   visible: boolean;
