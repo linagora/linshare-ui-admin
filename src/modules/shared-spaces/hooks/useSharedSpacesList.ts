@@ -88,10 +88,7 @@ export default function useSharedSpacesList(): UsableSharedSpacesList {
 
     parameters.size = pagination.pageSize;
     parameters.page = pagination.current ? pagination.current - 1 : 0;
-    parameters.account =
-      filters.value.account != undefined || loggedUser.value?.accountType === 'ROOT'
-        ? filters.value.account
-        : loggedUser.value?.uuid;
+    parameters.account = filters.value.account;
     parameters.domains = filters.value.domains;
     parameters.name = filters.value.name;
     parameters.nodeType = filters.value.nodeType;
