@@ -3,6 +3,7 @@ import { computed, ComputedRef } from 'vue';
 interface Breadcrumb {
   label: string;
   path: string;
+  disableAction?: boolean;
 }
 
 type UsableBreadcrumbs = {
@@ -16,6 +17,7 @@ export default function useBreadcrumbs(customs?: Breadcrumb[]): UsableBreadcrumb
       {
         label: currentRoute.value.meta.label as string,
         path: currentRoute.value.name as string,
+        disableAction: !!currentRoute.value.meta.disableAction,
       },
     ];
 

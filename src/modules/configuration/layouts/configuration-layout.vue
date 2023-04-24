@@ -98,7 +98,7 @@ watch(currentDomainUuid, async (newVal) => {
             <strong class="title">{{ $t('CONFIGURATION.MANAGE_DOMAINS') }}</strong>
             <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">
               <template #itemRender="{ route, routes }">
-                <span v-if="routes.indexOf(route) === routes.length - 1" class="current">
+                <span v-if="routes.indexOf(route) === routes.length - 1 || route.disableAction" class="current">
                   {{ $t(route.label) }}
                 </span>
 

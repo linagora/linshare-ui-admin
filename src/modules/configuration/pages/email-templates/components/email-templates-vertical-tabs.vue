@@ -9,12 +9,13 @@
   </a-tabs>
 </template>
 <script lang="ts" setup>
-import { computed, reactive, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../router';
 
 const { t } = useI18n();
+const route = useRoute();
 const router = useRouter();
 //data
 const activeKey = ref<'configuration' | 'layout' | 'footer' | 'content' | 'activation'>('configuration');
@@ -50,6 +51,22 @@ const tabs = computed(() => ({
 function onSelectTemplateTab() {
   router.push(tabs.value[activeKey.value].to);
 }
+
+watch(
+  () => route.path,
+  (newVal) => {
+    const mailTypeRouter = newVal?.split('/');
+    activeKey.value = mailTypeRouter[mailTypeRouter?.length - 1] as
+      | 'configuration'
+      | 'layout'
+      | 'footer'
+      | 'content'
+      | 'activation';
+  },
+  {
+    immediate: true,
+  }
+);
 </script>
 <style lang="less">
 .email-templates-vertical-tabs {

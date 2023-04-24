@@ -19,6 +19,7 @@ export const ConfigurationDomainEmailTemplatesRoutes: RouteRecordRaw[] = [
       parentRoute: 'Configuration',
       label: 'NAVIGATOR.EMAIL_TEMPLATES',
     },
+    redirect: { name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION },
     children: [
       {
         name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION,
