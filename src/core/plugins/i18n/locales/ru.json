@@ -371,8 +371,60 @@
   },
   "INCONSISTENT_USERS": {
     "TITLE": "непоследовательных пользователей",
+    "DESCRIPTION": "Несогласованный пользователь — это пользователь, который больше не входит ни в один LDAP, связанный с другими доменами. Это представление включает домен непоследовательного пользователя, чтобы он стал обычным пользователем. Через результат пользователя вы можете редактировать информацию, связанную с ним. Выбрав группу пользователей, вы можете удалить их всех сразу или изменить их домен",
+    "COLUMNS": {
+      "NUMBER_COL" : "Нет",
+      "FIRSTNAME" : "Имя",
+      "LASTNAME" : "Фамилия",
+      "EMAIL" : "Электронная почта",
+      "DOMAIN_ID" : "Идентификатор домена"
+    },
+    "TOKEN_INPUT_PLACEHOLDER": "Поиск или фильтрация непоследовательных пользователей",
+    "BOX_FORM": {
+      "LABEL_TARGET_DOMAIN": "Целевой домен",
+      "LABEL_STATUS": "Статус",
+      "LABEL_CREATION_DATE": "Дата создания",
+      "LABEL_MODIFICATION_DATE": "Дата модификации",
+      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+      "LABEL_DOMAIN": "Текущий домен",
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+      }
+    },
+    "BOX_LIST": {
+      "TITLE": "Список непоследовательных пользователей",
+      "TABLE": {
+        "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
+        "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
+        "HEADER_EMAIL": "E-mail",
+        "HEADER_DOMAIN": "Домен",
+        "HEADER_ROLE": "Роль",
+        "HEADER_CHECKBOX": "Выбрать"
+      },
+      "MULTIPLE_UPDATE": "Несколько действий"
+    },
     "SCRUTINY": {
-      "TITLE": "Пользовательская диагностика"
+      "TITLE": "Пользовательская диагностика",
+      "SEARCH_LEGEND": "Найдите учетные записи пользователя, указав адрес электронной почты",
+      "PLACEHOLDER": "Почта",
+      "DOMAIN_HEADER": "ДОМЕННОЕ ИМЯ",
+      "DOMAIN_HEADER_LABEL": "Список доменов",
+      "LDAP_HEADER": "LDAP",
+      "LDAP_HEADER_LABEL": "Наличие пользователя в LDAP",
+      "DATABASE_HEADER": "DATABASE",
+      "DATABASE_HEADER_LABEL": "Наличие пользователя в базе данных",
+      "GUEST_HEADER": "ГОСТЬ",
+      "GUEST_HEADER_LABEL": "Является ли пользователь гостем",
+      "NOT_FOUND_MESSAGE": "Нет результата для: ",
+      "CURRENT_USER_FOUND": "Результат поиска для : ",
+      "WARNING_OUT_OF_DATE_REFRESH": "Отображаемые данные больше не обновляются",
+      "REFRESH": "Обновить"
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Вы собираетесь удалить этого пользователя, эта процедура необратима и уничтожит весь его документ. Вы хотите продолжить?"
     }
   },
   "QUOTA": {

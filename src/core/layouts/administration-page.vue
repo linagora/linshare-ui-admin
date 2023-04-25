@@ -18,7 +18,7 @@
           <span>{{ $t('NAVIGATOR.MY_CONTACT_LIST') }}</span>
           <RightOutlined />
         </div>
-        <router-link :to="{ name: 'InconsistentUsers' }">
+        <router-link :to="{ name: 'InconsistentUserList' }">
           <div class="page__menu-item">
             <span>{{ $t('NAVIGATOR.INCONSISTENT_USERS') }}</span>
             <RightOutlined />

@@ -371,8 +371,60 @@
   },
   "INCONSISTENT_USERS": {
     "TITLE": "Utilisateurs incohérents",
+    "BOX_FORM": {
+      "LABEL_TARGET_DOMAIN": "Domaine cible",
+      "LABEL_STATUS": "Statut",
+      "LABEL_CREATION_DATE": "Date de création",
+      "LABEL_MODIFICATION_DATE": "Date de modification",
+      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
+      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
+      "LABEL_DOMAIN": "Domaine courant",
+      "FORM_ACTIONS": {
+        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
+        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
+        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+      }
+    },
+    "BOX_LIST": {
+      "TITLE": "Liste des utilisateurs incohérents",
+      "DESCRIPTION": "Un utilisateur incohérent est un utilisateur qui n'est plus dans aucun LDAP associé à différents domaines. Cette vue active le domaine d'un utilisateur incohérent afin qu'il devienne un utilisateur régulier. Grâce au résultat d'un utilisateur, vous pouvez modifier les informations qui le concernent. En sélectionnant un groupe d'utilisateurs, vous pouvez les supprimer tous d'un coup ou changer leur domaine",
+      "COLUMNS": {
+        "NUMBER_COL" : "Nu.",
+        "FIRSTNAME" : "Prénom",
+        "LASTNAME" : "Nom",
+        "EMAIL" : "Email",
+        "DOMAIN_ID" : "Domaine Id"
+      },
+      "TOKEN_INPUT_PLACEHOLDER": "Rechercher ou filtrer les utilisateurs incohérents",
+      "TABLE": {
+        "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
+        "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
+        "HEADER_EMAIL": "Courriel",
+        "HEADER_DOMAIN": "Domaine",
+        "HEADER_ROLE": "Rôle",
+        "HEADER_CHECKBOX": "Sélection"
+      },
+      "MULTIPLE_UPDATE": "Actions multiples"
+    },
     "SCRUTINY": {
-      "TITLE": "Diagnostic utilisateur"
+      "TITLE": "Diagnostic utilisateur",
+      "SEARCH_LEGEND": "Rechercher tous les comptes d'une personne avec son courriel",
+      "PLACEHOLDER": "Courriel",
+      "DOMAIN_HEADER": "NOM DU DOMAINE",
+      "DOMAIN_HEADER_LABEL": "List des domaines",
+      "LDAP_HEADER": "LDAP",
+      "LDAP_HEADER_LABEL": "Utilisateur présent dans le LDAP",
+      "DATABASE_HEADER": "BASE DE DONNÉES",
+      "DATABASE_HEADER_LABEL": "Utilisateur présent dans la base de données",
+      "GUEST_HEADER": "INVITÉ",
+      "GUEST_HEADER_LABEL": "L'utilisateur est un invité",
+      "NOT_FOUND_MESSAGE": "Aucun résultat pour: ",
+      "CURRENT_USER_FOUND": "Résultat pour: ",
+      "WARNING_OUT_OF_DATE_REFRESH": "Les données affichées ne sont plus à jour",
+      "REFRESH": "Actualiser"
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"
     }
   },
   "QUOTA": {
