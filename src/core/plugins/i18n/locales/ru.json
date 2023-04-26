@@ -2253,6 +2253,15 @@
      "ASSIGN_MODAL_TITLE": "Назначить конфигурацию почты",
      "ASSIGN_MODAL_SUBTITLE": "Вы собираетесь назначить эту конфигурацию почты для {currentDomain}. Хотите продолжить?",
      "ASSIGN_SUCCESS": "Успешно назначено"
+    },
+    "CREATE_MODAL": {
+      "CREATE_EMAIL_CONFIGURATION": "Создать конфигурацию электронной почты",
+      "NAME": "Название",
+      "EMAIL_CONFIGURATION_NAME": "Название конфигурации электронной почты",
+      "TARGET_DOMAIN": "Целевой домен",
+      "MODEL": "Модель",
+      "VISIBLE": "Видимая",
+      "CREATE_SUCCESS": "Успешно создана"
     }
   },
   "LANGUAGE": {

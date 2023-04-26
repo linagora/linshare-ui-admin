@@ -5,7 +5,11 @@ import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
-import { getMailConfigurationList, assignMailConfiguration } from '../services/email-templates-api';
+import {
+  getMailConfigurationList,
+  assignMailConfiguration,
+  createMailConfiguration,
+} from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 import Domain from '@/core/types/Domain';
@@ -23,10 +27,11 @@ const pagination = reactive({
   current: 1,
   pageSize: DEFAULT_PAGE_SIZE,
 });
-
-const assignModal = reactive<{
+const modal = reactive<{
+  type: 'CREATE_CONFIGURATION_EMAIL' | 'ASSIGN_CONFIGURATION_EMAIL';
   visible: boolean;
 }>({
+  type: 'CREATE_CONFIGURATION_EMAIL',
   visible: false,
 });
 
@@ -40,12 +45,26 @@ const filteredListByPage = computed(() => {
 });
 
 export default function useEmailTemplatesConfiguration() {
-  const { currentDomain } = storeToRefs(useDomainStore());
+  // composable
   const { t } = useI18n();
+  const { currentDomain } = storeToRefs(useDomainStore());
+
+  // data
+  const loading = ref(false);
 
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
   });
+
+  function onCloseModal() {
+    modal.visible = false;
+  }
+
+  function onCreateMailConfiguration(email: MailConfiguration) {
+    activeMailConfig.value = email;
+    modal.type = 'CREATE_CONFIGURATION_EMAIL';
+    modal.visible = true;
+  }
 
   async function fetchMailConfiguration() {
     status.value = STATUS.LOADING;
@@ -71,11 +90,8 @@ export default function useEmailTemplatesConfiguration() {
 
   function onAssignMimePolicy(MailConfig: MailConfiguration) {
     activeMailConfig.value = MailConfig;
-    assignModal.visible = true;
-  }
-
-  function onCloseAssignModal() {
-    assignModal.visible = false;
+    modal.type = 'ASSIGN_CONFIGURATION_EMAIL';
+    modal.visible = true;
   }
 
   async function handleAssignMailConfiguration(currentDomain: Domain) {
@@ -97,18 +113,46 @@ export default function useEmailTemplatesConfiguration() {
     }
   }
 
+  async function handleCreateMailConfiguration(payload: {
+    name: string;
+    domain: string | null;
+    domainName: string | undefined;
+    mailContentLangs: any[];
+    mailFooterLangs: any;
+    mailLayout: string | undefined;
+    visible: boolean;
+    readonly: boolean;
+  }) {
+    try {
+      loading.value = true;
+      await createMailConfiguration(payload);
+      message.success(t('EMAIL_TEMPLATES.CREATE_MODAL.CREATE_SUCCESS'));
+      return true;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   return {
     list,
-    fetchMailConfiguration,
-    handleAssignMailConfiguration,
+    modal,
     status,
-    isAssigned,
+    loading,
     pagination,
     filterText,
     filteredList,
     filteredListByPage,
-    onCloseAssignModal,
+    isAssigned,
+    onCloseModal,
     onAssignMimePolicy,
-    assignModal,
+    fetchMailConfiguration,
+    onCreateMailConfiguration,
+    handleAssignMailConfiguration,
+    handleCreateMailConfiguration,
   };
 }

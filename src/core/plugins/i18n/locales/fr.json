@@ -2514,6 +2514,15 @@
       "ASSIGN_MODAL_TITLE": "Attribuer la configuration du courriel",
       "ASSIGN_MODAL_SUBTITLE": "Vous êtes sur le point d'attribuer cette configuration de courriel au domaine {currentDomain}. Voulez-vous continuer ?",
       "ASSIGN_SUCCESS": "Attribué avec succès"
+    },
+    "CREATE_MODAL": {
+      "CREATE_EMAIL_CONFIGURATION": "Créer une configuration de courriel ",
+      "NAME": "Nom",
+      "EMAIL_CONFIGURATION_NAME": "Nom de la configuration de courriel",
+      "TARGET_DOMAIN": "Domain cible",
+      "MODEL": "Modèle",
+      "VISIBLE": "Visible",
+      "CREATE_SUCCESS": "Créé avec succès"    
     }
   },
   "LANGUAGE": {

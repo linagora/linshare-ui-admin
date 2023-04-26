@@ -2516,6 +2516,15 @@
       "ASSIGN_MODAL_TITLE": "Assign Mail Configuration",
       "ASSIGN_MODAL_SUBTITLE": "You are about to assign this mail configuration for {currentDomain}. Do you want to proceed?",
       "ASSIGN_SUCCESS": "Assigned successfully"
+    },
+    "CREATE_MODAL": {
+      "CREATE_EMAIL_CONFIGURATION": "Create Email configuration",
+      "NAME": "Name",
+      "EMAIL_CONFIGURATION_NAME": "Email configuration name",
+      "TARGET_DOMAIN": "Target domain",
+      "MODEL": "Model",
+      "VISIBLE": "Visible",
+      "CREATE_SUCCESS": "Created successfully"
     }
   },
   "LANGUAGE": {

@@ -2519,6 +2519,15 @@
       "ASSIGN_MODAL_TITLE": "Chỉ định Cấu hình Thư",
       "ASSIGN_MODAL_SUBTITLE": "Bạn đang chuẩn bị chỉ định cấu hình thư này cho {currentDomain}. Bạn có muốn tiếp tục không?",
       "ASSIGN_SUCCESS": "Đã chỉ định thành công"
+    },
+    "CREATE_MODAL": {
+      "CREATE_EMAIL_CONFIGURATION": "Tạo cấu hình Email",
+      "NAME": "Tên",
+      "EMAIL_CONFIGURATION_NAME": "Tên cấu hình Email",
+      "TARGET_DOMAIN": "Tên miền đích",
+      "MODEL": "Mô hình",
+      "VISIBLE": "Hiển thị",
+      "CREATE_SUCCESS": "Đã tạo thành công"
     }
   },
   "LANGUAGE": {

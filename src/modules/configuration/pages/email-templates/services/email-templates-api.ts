@@ -15,4 +15,17 @@ async function assignMailConfiguration(domainUuid: string, MailConfigurationUuid
   return await api.post(`domains/${domainUuid}/mail_config/${MailConfigurationUuid}/assign`);
 }
 
-export { getMailConfigurationList, assignMailConfiguration, getLayoutEmailTemplates };
+async function createMailConfiguration(payload: {
+  name: string;
+  domain: string | null;
+  domainName: string | undefined;
+  mailContentLangs: any[];
+  mailFooterLangs: any;
+  mailLayout: string | undefined;
+  visible: boolean;
+  readonly: boolean;
+}) {
+  return await apiv4.post(`mail_configs`, payload);
+}
+
+export { getMailConfigurationList, assignMailConfiguration, getLayoutEmailTemplates, createMailConfiguration };

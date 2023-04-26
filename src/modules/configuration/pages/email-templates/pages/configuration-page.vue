@@ -21,7 +21,7 @@
           <SearchOutlined />
         </template>
       </a-input>
-      <a-button type="primary">
+      <a-button type="primary" @click="onCreateMailConfiguration">
         <template #icon>
           <PlusCircleOutlined />
         </template>
@@ -32,12 +32,21 @@
     <ThePagination v-model="pagination" class="pagination" :is-visible="!!filteredList.length" />
   </div>
   <a-modal
-    v-model:visible="assignModal.visible"
+    v-model:visible="modal.visible"
     :closable="false"
     :footer="null"
-    wrap-class-name="type-mime-policies-page__modal"
+    wrap-class-name="email-templates-configuration-page__modal"
   >
-    <AssignMailConfigurationCard @close="onCloseAssignModal" @refresh="assignReload"></AssignMailConfigurationCard>
+    <create-mail-configuration-card
+      v-if="modal.type === 'CREATE_CONFIGURATION_EMAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchMailConfiguration"
+    ></create-mail-configuration-card>
+    <AssignMailConfigurationCard
+      v-else-if="modal.type === 'ASSIGN_CONFIGURATION_EMAIL'"
+      @close="onCloseModal"
+      @refresh="assignReload"
+    ></AssignMailConfigurationCard>
   </a-modal>
 </template>
 
@@ -45,13 +54,15 @@
 import { useRoute } from 'vue-router';
 import { watch } from 'vue';
 import MailConfigurationTable from '../components/email-configuration/mail-configuration-table.vue';
+import CreateMailConfigurationCard from '../components/email-configuration/create-mail-configuration-card.vue';
+
 import ThePagination from '@/core/components/the-pagination.vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 import AssignMailConfigurationCard from '../components/email-configuration/assign-mail-configuration-card.vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 
-const { filterText, fetchMailConfiguration, pagination, filteredList, onCloseAssignModal, assignModal } =
+const { modal, filterText, pagination, filteredList, onCloseModal, fetchMailConfiguration, onCreateMailConfiguration } =
   useEmailTemplatesConfiguration();
 const route = useRoute();
 const domainStore = useDomainStore();
@@ -125,6 +136,16 @@ watch(route, (newRoute) => {
     line-height: 20px;
     letter-spacing: -0.02em;
     color: #434657;
+  }
+  &__modal .ant-modal-content {
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__modal .ant-modal-body {
+    padding: 0;
   }
 }
 .ls-detail {
