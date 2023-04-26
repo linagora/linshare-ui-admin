@@ -2525,6 +2525,13 @@
       "MODEL": "Model",
       "VISIBLE": "Visible",
       "CREATE_SUCCESS": "Created successfully"
+    },
+    "DELETE_MODAL":{
+      "DELETE_MODAL_TITLE": "Delete Mail Configuration",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail configuration for {currentDomain}. Do you want to proceed?",
+      "DELETE_SUCCESS": "Deleted successfully",
+      "DELETE_ERROR_ASSIGNED": "Selected mail configuration is associated with at least one domain. You cannot delete",
+      "DELETE_ERROR_UNAUTHORIZED": "You do not have the rights to delete this mail configuration"
     }
   },
   "LANGUAGE": {

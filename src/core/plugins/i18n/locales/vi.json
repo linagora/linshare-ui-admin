@@ -2528,6 +2528,13 @@
       "MODEL": "Mô hình",
       "VISIBLE": "Hiển thị",
       "CREATE_SUCCESS": "Đã tạo thành công"
+    },
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "Xóa cấu hình thư",
+      "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa cấu hình thư này cho {currentDomain}. Bạn có muốn tiếp tục?",
+      "DELETE_SUCCESS": "Đã xóa thành công",
+      "DELETE_ERROR_ASSIGNED": "Cấu hình thư đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
+      "DELETE_ERROR_UNAUTHORIZED": "Bạn không có quyền xóa cấu hình thư này"
     }
   },
   "LANGUAGE": {

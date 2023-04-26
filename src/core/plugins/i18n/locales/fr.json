@@ -2523,7 +2523,14 @@
       "MODEL": "Modèle",
       "VISIBLE": "Visible",
       "CREATE_SUCCESS": "Créé avec succès"    
-    }
+    },
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "Supprimer la configuration du courriel",
+      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer cette configuration du courriel pour {currentDomain}. Voulez-vous continuer?",
+      "DELETE_SUCCESS": "Supprimé avec succès",
+      "DELETE_ERROR_ASSIGNED": "La configuration de courriel sélectionnée est associée à au moins un domaine. Vous ne pouvez pas la supprimer",
+      "DELETE_ERROR_UNAUTHORIZED": "Vous n'avez pas les droits pour supprimer cette configuration de courriel"
+      }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"

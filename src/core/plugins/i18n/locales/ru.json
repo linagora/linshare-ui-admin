@@ -2247,7 +2247,7 @@
       "THIRD_HELP_TEXT": "<span style='color: #007AFF'>personalMessage</span> Пользовательское сообщение, добавленное к стандартному сообщению. <span style='color: #007AFF'>body</span>",
       "FOUR_HELP_TEXT":"<span style='color: #007AFF'>greetings</span> Приветственное сообщение",
       "FIVE_HELP_TEXT":"<span style='color: #007AFF'>body</span> Текст, добавленный в 'Содержание письма'",
-      "SIX_HELP_TEXT":"<span style='color: #007AFF'>footer</span> Текст, добавленный в 'Футер письма'"    
+      "SIX_HELP_TEXT":"<span style='color: #007AFF'>footer</span> Текст, добавленный в 'Футер письма'"
     },
    "ASSIGN_MODAL":{
      "ASSIGN_MODAL_TITLE": "Назначить конфигурацию почты",
@@ -2262,7 +2262,14 @@
       "MODEL": "Модель",
       "VISIBLE": "Видимая",
       "CREATE_SUCCESS": "Успешно создана"
-    }
+    },
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "Удалить настройку почты",
+      "DELETE_MODAL_SUBTITLE": "Вы собираетесь удалить эту настройку почты для {currentDomain}. Хотите продолжить?",
+      "DELETE_SUCCESS": "Успешно удалено",
+      "DELETE_ERROR_ASSIGNED": "Выбранная настройка почты связана как минимум с одним доменом. Удаление невозможно",
+      "DELETE_ERROR_UNAUTHORIZED": "У вас нет прав на удаление этой настройки почты"
+      }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Выберите язык"

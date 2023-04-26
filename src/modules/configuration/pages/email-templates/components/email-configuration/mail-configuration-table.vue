@@ -43,11 +43,7 @@
           <a-tag v-else color="default"> {{ $t('EMAIL_TEMPLATES.PRIVATE') }}</a-tag>
         </template>
         <template v-else-if="column.key === 'action'">
-          <a-dropdown
-            overlay-class-name="email-configuration-table__dropdown"
-            placement="bottomRight"
-            :trigger="['click']"
-          >
+          <a-dropdown>
             <a-button class="ls-detail ls-button ls-primary">
               <detail-icon width="16px" height="16px"></detail-icon>
             </a-button>
@@ -55,12 +51,14 @@
               <a-menu>
                 <a-menu-item
                   :disabled="isAssigned(record.uuid, currentDomain.mailConfiguration?.uuid)"
-                  @click="onAssignMimePolicy(record)"
+                  @click="onAssignMailConfiguration(record)"
                 >
                   <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
                 </a-menu-item>
                 <a-menu-item> <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }} </a-menu-item>
-                <a-menu-item> <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }} </a-menu-item>
+                <a-menu-item @click="onDeleteMailConfiguration(record.uuid)">
+                  <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
+                </a-menu-item>
               </a-menu>
             </template>
           </a-dropdown>
@@ -84,7 +82,8 @@ import useEmailTemplatesConfiguration from '../../hooks/useEmailTemplatesConfigu
 import { MailConfiguration } from '../../types/MailConfiguration';
 import { useAuthStore } from '@/modules/auth/store';
 
-const { status, filteredListByPage, isAssigned, onAssignMimePolicy } = useEmailTemplatesConfiguration();
+const { status, filteredListByPage, isAssigned, onAssignMailConfiguration, onDeleteMailConfiguration } =
+  useEmailTemplatesConfiguration();
 const { t } = useI18n();
 const authStore = useAuthStore();
 const domainStore = useDomainStore();

@@ -28,4 +28,14 @@ async function createMailConfiguration(payload: {
   return await apiv4.post(`mail_configs`, payload);
 }
 
-export { getMailConfigurationList, assignMailConfiguration, getLayoutEmailTemplates, createMailConfiguration };
+async function deleteMailConfiguration(payload: { uuid: string }): Promise<MailConfiguration> {
+  return await apiv4.delete('mail_configs', { data: payload });
+}
+
+export {
+  getMailConfigurationList,
+  assignMailConfiguration,
+  getLayoutEmailTemplates,
+  deleteMailConfiguration,
+  createMailConfiguration,
+};

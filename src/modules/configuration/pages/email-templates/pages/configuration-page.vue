@@ -47,6 +47,11 @@
       @close="onCloseModal"
       @refresh="assignReload"
     ></AssignMailConfigurationCard>
+    <DeleteMailConfigurationCard
+      v-else-if="modal.type === 'DELETE_CONFIGURATION_EMAIL'"
+      @close="onCloseModal"
+      @refresh="assignReload"
+    ></DeleteMailConfigurationCard>
   </a-modal>
 </template>
 
@@ -60,6 +65,7 @@ import ThePagination from '@/core/components/the-pagination.vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 import AssignMailConfigurationCard from '../components/email-configuration/assign-mail-configuration-card.vue';
+import DeleteMailConfigurationCard from '../components/email-configuration/delete-mail-configuration-card.vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 
 const { modal, filterText, pagination, filteredList, onCloseModal, fetchMailConfiguration, onCreateMailConfiguration } =

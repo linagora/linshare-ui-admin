@@ -9,6 +9,7 @@ import {
   getMailConfigurationList,
   assignMailConfiguration,
   createMailConfiguration,
+  deleteMailConfiguration,
 } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
@@ -27,8 +28,16 @@ const pagination = reactive({
   current: 1,
   pageSize: DEFAULT_PAGE_SIZE,
 });
+const loading = ref(false);
+
+const MailConfigurationUuid = reactive<{
+  uuid: string;
+}>({
+  uuid: '',
+});
+
 const modal = reactive<{
-  type: 'CREATE_CONFIGURATION_EMAIL' | 'ASSIGN_CONFIGURATION_EMAIL';
+  type: 'CREATE_CONFIGURATION_EMAIL' | 'ASSIGN_CONFIGURATION_EMAIL' | 'DELETE_CONFIGURATION_EMAIL';
   visible: boolean;
 }>({
   type: 'CREATE_CONFIGURATION_EMAIL',
@@ -48,9 +57,6 @@ export default function useEmailTemplatesConfiguration() {
   // composable
   const { t } = useI18n();
   const { currentDomain } = storeToRefs(useDomainStore());
-
-  // data
-  const loading = ref(false);
 
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
@@ -88,9 +94,15 @@ export default function useEmailTemplatesConfiguration() {
     return false;
   }
 
-  function onAssignMimePolicy(MailConfig: MailConfiguration) {
+  function onAssignMailConfiguration(MailConfig: MailConfiguration) {
     activeMailConfig.value = MailConfig;
     modal.type = 'ASSIGN_CONFIGURATION_EMAIL';
+    modal.visible = true;
+  }
+
+  function onDeleteMailConfiguration(MailConfigUuid: string) {
+    MailConfigurationUuid.uuid = MailConfigUuid;
+    modal.type = 'DELETE_CONFIGURATION_EMAIL';
     modal.visible = true;
   }
 
@@ -137,22 +149,50 @@ export default function useEmailTemplatesConfiguration() {
       loading.value = false;
     }
   }
-
+  async function handleDeleteMailConfiguration() {
+    try {
+      if (!activeMailConfig?.value) {
+        return false;
+      }
+      loading.value = true;
+      await deleteMailConfiguration(MailConfigurationUuid);
+      onCloseModal();
+      message.success(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_SUCCESS'));
+      fetchMailConfiguration();
+    } catch (error) {
+      if (error instanceof APIError) {
+        if (error.errorCode === 16666) {
+          onCloseModal();
+          message.error(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ERROR_ASSIGNED'));
+        } else if (error.errorCode === 166678) {
+          onCloseModal();
+          message.error(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ERROR_UNAUTHORIZED'));
+        } else {
+          onCloseModal();
+          message.error(error.getMessage());
+        }
+      }
+    } finally {
+      loading.value = false;
+    }
+  }
   return {
     list,
+    fetchMailConfiguration,
     modal,
+    handleAssignMailConfiguration,
+    handleDeleteMailConfiguration,
     status,
     loading,
     pagination,
+    isAssigned,
+    onDeleteMailConfiguration,
     filterText,
     filteredList,
     filteredListByPage,
-    isAssigned,
+    onAssignMailConfiguration,
     onCloseModal,
-    onAssignMimePolicy,
-    fetchMailConfiguration,
     onCreateMailConfiguration,
-    handleAssignMailConfiguration,
     handleCreateMailConfiguration,
   };
 }
