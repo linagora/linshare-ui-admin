@@ -69,20 +69,27 @@ const form = reactive<{
   mailLayout: string | undefined;
   visible: boolean;
   readonly: boolean;
-}>({
-  name: '',
-  domain: null,
-  domainName: '',
-  mailContentLangs: [],
-  mailFooterLangs: {},
-  mailLayout: '',
-  visible: true,
-  readonly: false,
-});
+}>(getInitialFormData());
+
 const models = ref<{ label: string | undefined; value: string; subject: MailConfiguration }[]>([]);
 const domains = ref<{ label: string | undefined; value: string; subject: Domain }[]>([]);
 
 // methods
+function getInitialFormData() {
+  return {
+    name: '',
+    domain: null,
+    domainName: '',
+    mailContentLangs: [],
+    mailFooterLangs: {},
+    mailLayout: '',
+    visible: true,
+    readonly: false,
+  };
+}
+function resetFormData() {
+  Object.assign(form, getInitialFormData());
+}
 async function onSelectDomain(value: string, domain: { key: string | undefined; label: string }) {
   form.domainName = domain.key;
   await fetchMailConfiguration();
@@ -105,6 +112,7 @@ async function onCreateEmailConfiguration() {
 }
 
 async function onCloseModal() {
+  resetFormData();
   emits('close');
 }
 
