@@ -77,7 +77,9 @@ export default function useEmailTemplatesConfiguration() {
     try {
       const messages = await getMailConfigurationList(currentDomain.value.uuid, false);
       status.value = STATUS.SUCCESS;
-      list.value = messages;
+      list.value = messages?.map((item) => {
+        return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailConfiguration?.uuid) };
+      });
     } catch (error) {
       status.value = STATUS.ERROR;
 
@@ -100,8 +102,9 @@ export default function useEmailTemplatesConfiguration() {
     modal.visible = true;
   }
 
-  function onDeleteMailConfiguration(MailConfigUuid: string) {
-    MailConfigurationUuid.uuid = MailConfigUuid;
+  function onDeleteMailConfiguration(MailConfig: MailConfiguration) {
+    activeMailConfig.value = MailConfig;
+    MailConfigurationUuid.uuid = MailConfig.uuid;
     modal.type = 'DELETE_CONFIGURATION_EMAIL';
     modal.visible = true;
   }
@@ -155,6 +158,11 @@ export default function useEmailTemplatesConfiguration() {
         return false;
       }
       loading.value = true;
+      if (activeMailConfig.value?.assigned) {
+        message.error(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ERROR_ASSIGNED'));
+        loading.value = false;
+        return false;
+      }
       await deleteMailConfiguration(MailConfigurationUuid);
       onCloseModal();
       message.success(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_SUCCESS'));

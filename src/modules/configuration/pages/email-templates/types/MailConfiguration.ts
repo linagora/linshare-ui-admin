@@ -29,4 +29,5 @@ export interface MailConfiguration {
   readonly: string;
   uuid: string;
   visible: boolean;
+  assigned?: boolean;
 }

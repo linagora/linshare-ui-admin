@@ -31,7 +31,7 @@
           <span>{{ $d(record.modificationDate, 'mediumDate') }}</span>
         </template>
         <template v-else-if="column.key === 'assigned'">
-          <a-tag v-if="isAssigned(record.uuid, currentDomain.mailConfiguration?.uuid)" color="success">
+          <a-tag v-if="record.assigned" color="success">
             {{ $t('GENERAL.ASSIGNED') }}
           </a-tag>
           <a-tag v-else color="red"> {{ $t('GENERAL.UNASSIGNED') }}</a-tag>
@@ -49,14 +49,11 @@
             </a-button>
             <template #overlay>
               <a-menu>
-                <a-menu-item
-                  :disabled="isAssigned(record.uuid, currentDomain.mailConfiguration?.uuid)"
-                  @click="onAssignMailConfiguration(record)"
-                >
+                <a-menu-item :disabled="record.assigned" @click="onAssignMailConfiguration(record)">
                   <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
                 </a-menu-item>
                 <a-menu-item> <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }} </a-menu-item>
-                <a-menu-item @click="onDeleteMailConfiguration(record.uuid)">
+                <a-menu-item @click="onDeleteMailConfiguration(record)">
                   <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
                 </a-menu-item>
               </a-menu>
@@ -82,7 +79,7 @@ import useEmailTemplatesConfiguration from '../../hooks/useEmailTemplatesConfigu
 import { MailConfiguration } from '../../types/MailConfiguration';
 import { useAuthStore } from '@/modules/auth/store';
 
-const { status, filteredListByPage, isAssigned, onAssignMailConfiguration, onDeleteMailConfiguration } =
+const { status, filteredListByPage, onAssignMailConfiguration, onDeleteMailConfiguration } =
   useEmailTemplatesConfiguration();
 const { t } = useI18n();
 const authStore = useAuthStore();
