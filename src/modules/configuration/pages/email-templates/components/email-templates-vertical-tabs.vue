@@ -53,15 +53,29 @@ function onSelectTemplateTab() {
 }
 
 watch(
-  () => route.path,
+  () => route.fullPath,
   (newVal) => {
-    const mailTypeRouter = newVal?.split('/');
-    activeKey.value = mailTypeRouter[mailTypeRouter?.length - 1] as
-      | 'configuration'
-      | 'layout'
-      | 'footer'
-      | 'content'
-      | 'activation';
+    switch (route.name) {
+      case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION:
+      case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION_DETAIL:
+        activeKey.value = 'configuration';
+        break;
+      case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT:
+        activeKey.value = 'layout';
+        break;
+      case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ACTIVATION:
+        activeKey.value = 'activation';
+        break;
+      case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONTENT:
+        activeKey.value = 'content';
+        break;
+      case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.FOOTER:
+        activeKey.value = 'footer';
+        break;
+      default:
+        activeKey.value = 'configuration';
+        break;
+    }
   },
   {
     immediate: true,
@@ -71,6 +85,7 @@ watch(
 <style lang="less">
 .email-templates-vertical-tabs {
   text-transform: capitalize;
+
   .ant-tabs-tab {
     padding: 12px 16px;
     height: 44px;
@@ -79,6 +94,7 @@ watch(
     width: 280px;
     color: #6d7885;
   }
+
   .ant-tabs-tab-active {
     background-color: @primary-color;
     color: #fff;
@@ -91,12 +107,15 @@ watch(
   .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: #fff !important;
   }
+
   .ant-tabs-ink-bar {
     display: none;
   }
+
   .ant-tabs-nav-list {
     border-right: none;
   }
+
   .ant-tabs-content-holder {
     display: none;
   }

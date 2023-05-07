@@ -3,6 +3,7 @@ import EmailTemplatePage from '@/modules/configuration/pages/email-templates/pag
 export const CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES = {
   ENTRIES: 'ConfigurationDomainEmailTemplates',
   CONFIGURATION: 'ConfigurationDomainEmailTemplatesConfiguration',
+  CONFIGURATION_DETAIL: 'ConfigurationDomainEmailTemplatesConfigurationDetail',
   LAYOUT: 'ConfigurationDomainEmailTemplatesLayout',
   FOOTER: 'ConfigurationDomainEmailTemplatesFooter',
   CONTENT: 'ConfigurationDomainEmailTemplatesContent',
@@ -25,6 +26,16 @@ export const ConfigurationDomainEmailTemplatesRoutes: RouteRecordRaw[] = [
         name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION,
         path: 'configuration',
         component: () => import('@/modules/configuration/pages/email-templates/pages/configuration-page.vue'),
+        meta: {
+          requiresAuth: true,
+          parentRoute: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ENTRIES,
+          label: 'EMAIL_TEMPLATES.VERTICAL_TABS.CONFIGURATION',
+        },
+      },
+      {
+        name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION_DETAIL,
+        path: 'configuration/:id',
+        component: () => import('@/modules/configuration/pages/email-templates/pages/configuration-detail-page.vue'),
         meta: {
           requiresAuth: true,
           parentRoute: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ENTRIES,

@@ -52,7 +52,9 @@
                 <a-menu-item :disabled="record.assigned" @click="onAssignMailConfiguration(record)">
                   <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
                 </a-menu-item>
-                <a-menu-item> <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }} </a-menu-item>
+                <a-menu-item @click="onEditMailConfiguration(record)">
+                  <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
+                </a-menu-item>
                 <a-menu-item @click="onDeleteMailConfiguration(record)">
                   <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
                 </a-menu-item>
@@ -78,6 +80,8 @@ import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import useEmailTemplatesConfiguration from '../../hooks/useEmailTemplatesConfiguration';
 import { MailConfiguration } from '../../types/MailConfiguration';
 import { useAuthStore } from '@/modules/auth/store';
+import router from '@/core/router';
+import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../../router';
 
 const { status, filteredListByPage, onAssignMailConfiguration, onDeleteMailConfiguration } =
   useEmailTemplatesConfiguration();
@@ -135,6 +139,10 @@ const columns = computed(() => [
 
 function domainRedirectionAuthorized(record: MailConfiguration) {
   return record.domain === 'LinShareRootDomain' && loggedUser?.value?.role === ACCOUNT_ROLE.ADMIN;
+}
+
+function onEditMailConfiguration(record: MailConfiguration) {
+  router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION_DETAIL, params: { id: record?.uuid } });
 }
 </script>
 
@@ -222,6 +230,7 @@ function domainRedirectionAuthorized(record: MailConfiguration) {
       justify-content: flex-start;
       letter-spacing: -0.02em;
     }
+
     .ant-dropdown-menu-title-content {
       display: flex;
       align-items: center;
@@ -232,6 +241,7 @@ function domainRedirectionAuthorized(record: MailConfiguration) {
     svg {
       color: #007aff;
     }
+
     .delete svg {
       color: #ea3c3c;
     }
