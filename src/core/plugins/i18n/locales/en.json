@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "BACK_TO_LIST": "Back to list",
     "ENABLED": "Enabled",
     "DISABLED": "Disabled",
     "CANCEL": "Cancel",
@@ -2543,6 +2544,18 @@
       "DELETE_ERROR_ASSIGNED_ALL": "You are unable to delete those mail configurations",
       "DELETE_ERROR_ONE": "You are unable to delete this mail configuration",
       "DELETE_ERROR_ALL": "You are unable to delete those mail configurations"
+    },
+    "EDIT_FORM" : {
+      "EDIT_HEADER": "Edit mail configuration",
+      "EDIT_SUBHEADER": "Mail configuration name",
+      "NAME_LABEL": "Name",
+      "NAME_PLACEHOLDER": "Mail configuration name",
+      "VISIBLE_LABEL" :"Visible",
+      "LAYOUT_LABEL": "Mail layout",
+      "LAYOUT_PLACEHOLDER": "Mail configuration layout",
+      "FOOTER_LABEL": "Mail footer",
+      "FOOTER_PLACEHOLDER": "Mail configuration footer",
+      "LANGUAGE_LABEL": "Main content language"
     }
   },
   "LANGUAGE": {

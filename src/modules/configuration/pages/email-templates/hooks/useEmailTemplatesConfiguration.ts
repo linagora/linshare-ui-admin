@@ -10,11 +10,14 @@ import {
   assignMailConfiguration,
   createMailConfiguration,
   deleteMailConfiguration,
+  getMailConfigurationDetail,
 } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 import Domain from '@/core/types/Domain';
 import { useLocalStorage } from '@vueuse/core';
+import { useRouter } from 'vue-router';
+import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../router';
 
 const activeMailConfig = useLocalStorage<MailConfiguration>(
   'configuration-type-mail-config-activeMailConfig',
@@ -70,12 +73,14 @@ const filteredListByPage = computed(() => {
 export default function useEmailTemplatesConfiguration() {
   // composable
   const { t } = useI18n();
+  const router = useRouter();
   const { currentDomain } = storeToRefs(useDomainStore());
 
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
   });
 
+  //methods
   function onCloseModal() {
     modal.visible = false;
   }
@@ -138,6 +143,11 @@ export default function useEmailTemplatesConfiguration() {
     MailConfigurationUuid.uuid = MailConfig.uuid;
     modal.type = 'DELETE_CONFIGURATION_EMAIL';
     modal.visible = true;
+  }
+
+  function onEditMailConfiguration(record: MailConfiguration) {
+    activeMailConfig.value = record;
+    router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION_DETAIL, params: { id: record?.uuid } });
   }
 
   async function handleAssignMailConfiguration(currentDomain: Domain) {
@@ -265,6 +275,20 @@ export default function useEmailTemplatesConfiguration() {
       loading.value = false;
     }
   }
+  async function handleGetMailConfigurationDetail(uuid: string) {
+    status.value = STATUS.LOADING;
+    try {
+      const messages = await getMailConfigurationDetail(uuid, currentDomain.value.uuid);
+      status.value = STATUS.SUCCESS;
+      activeMailConfig.value = messages;
+    } catch (error) {
+      status.value = STATUS.ERROR;
+
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    }
+  }
 
   return {
     list,
@@ -274,11 +298,12 @@ export default function useEmailTemplatesConfiguration() {
     pagination,
     filterText,
     filteredList,
+    activeMailConfig,
     filteredListByPage,
     selectedMailConfigs,
-    activeMailConfig,
     isAssigned,
     onCloseModal,
+    onEditMailConfiguration,
     fetchMailConfiguration,
     onDeleteMailConfiguration,
     onAssignMailConfiguration,
@@ -289,5 +314,6 @@ export default function useEmailTemplatesConfiguration() {
     handleCreateMailConfiguration,
     handleDeleteMailConfigurations,
     onDeleteMailConfigurationsFail,
+    handleGetMailConfigurationDetail,
   };
 }

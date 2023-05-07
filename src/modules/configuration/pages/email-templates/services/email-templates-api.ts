@@ -2,9 +2,22 @@ import apiv4 from '@/apiv4';
 import api from '@/api';
 import { MailConfiguration } from '../types/MailConfiguration';
 import { MailLayout } from '../types/MailLayout';
+import { MailFooter } from '../types/MailFooter';
 
 async function getMailConfigurationList(domainUuid: string, currentDomainOnly: boolean): Promise<MailConfiguration[]> {
   return await apiv4.get(`mail_configs?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
+}
+
+async function getMailConfigurationFooterList(domainUuid: string): Promise<MailFooter[]> {
+  return await apiv4.get(`mail_configs/${domainUuid}/mail_footers`);
+}
+
+async function getMailConfigurationDetail(uuid: string, domainUuid: string): Promise<MailConfiguration> {
+  return await apiv4.get(`mail_configs/${uuid}?domainId=${domainUuid}`);
+}
+
+async function getMailConfigurationLanguageList(): Promise<string[]> {
+  return await apiv4.get(`enums/language`);
 }
 
 async function getLayoutEmailTemplates(domainUuid: string, onlyCurrentDomain: boolean): Promise<MailLayout[]> {
@@ -33,9 +46,12 @@ async function deleteMailConfiguration(payload: { uuid: string }): Promise<MailC
 }
 
 export {
+  getMailConfigurationDetail,
   getMailConfigurationList,
   assignMailConfiguration,
   getLayoutEmailTemplates,
   deleteMailConfiguration,
   createMailConfiguration,
+  getMailConfigurationFooterList,
+  getMailConfigurationLanguageList,
 };

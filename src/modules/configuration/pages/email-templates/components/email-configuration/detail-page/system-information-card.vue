@@ -37,16 +37,16 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import GlobeIcon from '@/core/components/icons/globe-icon.vue';
 import CalendarIcon from '@/core/components/icons/calendar-icon.vue';
-import { MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
+import { MailConfiguration } from '@/modules/configuration/pages/email-templates/types/MailConfiguration';
 
 const route = useRoute();
 
 const props = defineProps<{
-  item: MimePolicy | undefined;
+  item: MailConfiguration | undefined;
 }>();
 
 const domainUuid = computed(() => {
-  return props.item?.domainId ?? route?.params?.domainUuid;
+  return props.item?.domain;
 });
 </script>
 <style lang="less">

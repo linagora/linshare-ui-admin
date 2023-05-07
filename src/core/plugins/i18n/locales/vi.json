@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "BACK_TO_LIST": "Trở lại danh sách",
     "ENABLED": "Bật",
     "DISABLED": "Tắt",
     "CANCEL": "Hủy",
@@ -2546,6 +2547,18 @@
       "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các cấu hình thư đó",
       "DELETE_ERROR_ONE": "Bạn không thể xóa cấu hình thư này",
       "DELETE_ERROR_ALL": "Bạn không thể xóa các cấu hình thư đó"      
+    },
+    "EDIT_FORM" : {
+      "EDIT_HEADER": "Chỉnh sửa cấu hình thư",
+      "EDIT_SUBHEADER": "Tên cấu hình thư",
+      "NAME_LABEL": "Tên",
+      "NAME_PLACEHOLDER": "Tên cấu hình thư",
+      "VISIBLE_LABEL" :"Hiển thị",
+      "LAYOUT_LABEL": "Giao diện thư",
+      "LAYOUT_PLACEHOLDER": "Giao diện cấu hình thư",
+      "FOOTER_LABEL": "Chân trang thư",
+      "FOOTER_PLACEHOLDER": "Chân trang cấu hình thư",
+      "LANGUAGE_LABEL": "Ngôn ngữ nội dung chính"
     }
   },
   "LANGUAGE": {

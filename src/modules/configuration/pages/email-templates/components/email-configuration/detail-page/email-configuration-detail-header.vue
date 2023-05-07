@@ -1,15 +1,15 @@
 <template>
   <div class="email-configuration-detail-header">
     <div class="email-configuration-detail-header__title">
-      <strong>Edit mail configuration</strong>
-      <span>Mail configuration name</span>
+      <strong>{{ $t('EMAIL_TEMPLATES.EDIT_FORM.EDIT_HEADER') }}</strong>
+      <span>{{ $t('EMAIL_TEMPLATES.EDIT_FORM.EDIT_SUBHEADER') }}</span>
     </div>
     <div class="email-configuration-detail-header__action">
       <a-button class="ls-button" @click="onBackToMimePolicies">
         <template #icon>
           <ArrowLeftOutlined />
         </template>
-        {{ $t('MIME_POLICIES.BACK_TO_LIST') }}
+        {{ $t('GENERAL.BACK_TO_LIST') }}
       </a-button>
       <a-button
         v-if="editable && !editing"
@@ -86,7 +86,7 @@ function onEditEmailConfiguration() {
     gap: 12px;
     .ls-button {
       padding: 0px 20px;
-      width: 151px;
+      min-width: 151px;
       height: 44px;
       background: #f3f3f7;
       border-radius: 8px;

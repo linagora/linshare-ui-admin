@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "BACK_TO_LIST": "Retour à la liste",
     "ENABLED": "Activé",
     "DISABLED": "Désactivé",
     "CANCEL": "Annuler",
@@ -2541,8 +2542,19 @@
       "DELETE_ERROR_ASSIGNED_ALL": "Vous ne pouvez pas supprimer ces configurations de courriel",
       "DELETE_ERROR_ONE": "Vous ne pouvez pas supprimer cette configuration de courriel",
       "DELETE_ERROR_ALL": "Vous ne pouvez pas supprimer ces configurations de courriel"
-      
-      }
+      },
+      "EDIT_FORM" : {
+        "EDIT_HEADER": "Modifier la configuration de courriel",
+        "EDIT_SUBHEADER": "Nom de la configuration de courriel",
+        "NAME_LABEL": "Nom",
+        "NAME_PLACEHOLDER": "Nom de la configuration de courriel",
+        "VISIBLE_LABEL" :"Visible",
+        "LAYOUT_LABEL": "Mise en page du courriel",
+        "LAYOUT_PLACEHOLDER": "Mise en page de la configuration de courriel",
+        "FOOTER_LABEL": "Pied de page du courriel",
+        "FOOTER_PLACEHOLDER": "Pied de page de la configuration de courriel",
+        "LANGUAGE_LABEL": "Langue du contenu principal"
+      }        
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"

@@ -82,14 +82,13 @@ import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import useEmailTemplatesConfiguration from '../../hooks/useEmailTemplatesConfiguration';
 import { MailConfiguration } from '../../types/MailConfiguration';
 import { useAuthStore } from '@/modules/auth/store';
-import router from '@/core/router';
-import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../../router';
 
 const {
   status,
   filteredListByPage,
   selectedMailConfigs,
   isAssigned,
+  onEditMailConfiguration,
   onAssignMailConfiguration,
   onDeleteMailConfiguration,
 } = useEmailTemplatesConfiguration();
@@ -163,10 +162,6 @@ const columns = computed(() => [
 
 function domainRedirectionAuthorized(record: MailConfiguration) {
   return record.domain === 'LinShareRootDomain' && loggedUser?.value?.role === ACCOUNT_ROLE.ADMIN;
-}
-
-function onEditMailConfiguration(record: MailConfiguration) {
-  router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION_DETAIL, params: { id: record?.uuid } });
 }
 </script>
 
