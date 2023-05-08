@@ -1,62 +1,79 @@
 <template>
-  <a-card flat :bordered="false" class="create-mail-configuration-card">
-    <div class="create-mail-configuration-card__title">Create Email configuration</div>
-    <div class="create-mail-configuration-card__form">
-      <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.NAME')">
-        <a-input
-          id="name"
-          v-model:value="form.name"
-          class="ls-input"
-          :placeholder="$t('EMAIL_TEMPLATES.CREATE_MODAL.EMAIL_CONFIGURATION_NAME')"
-        ></a-input>
-      </a-form-item>
-      <a-form-item class="ls-form-title" for="name" :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.TARGET_DOMAIN')">
-        <a-select v-model:value="form.domain" class="ls-input" :bordered="false" @change="onSelectDomain">
-          <a-select-option v-for="s in domains" :key="s.label" :value="s.value">
-            {{ s.label }}
-          </a-select-option>
-        </a-select>
-      </a-form-item>
-      <a-form-item class="ls-form-title" for="name" :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.MODEL')">
-        <a-select
-          v-model:value="form.mailLayout"
-          :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
-          class="ls-input"
-          :bordered="false"
-          @change="onSelectModel"
+  <a-form ref="formRef">
+    <a-card flat :bordered="false" class="create-mail-configuration-card">
+      <div class="create-mail-configuration-card__title">Create Email configuration</div>
+      <div class="create-mail-configuration-card__form">
+        <a-form-item class="ls-form-title" v-bind="validateInfos.name" :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.NAME')">
+          <a-input
+            id="name"
+            v-model:value="form.name"
+            class="ls-input"
+            :placeholder="$t('EMAIL_TEMPLATES.CREATE_MODAL.EMAIL_CONFIGURATION_NAME')"
+          ></a-input>
+        </a-form-item>
+        <a-form-item
+          v-bind="validateInfos.domain"
+          class="ls-form-title"
+          for="name"
+          :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.TARGET_DOMAIN')"
         >
-          <a-select-option v-for="s in models" :key="s" :value="s.value">
-            {{ s.label }}
-          </a-select-option>
-        </a-select>
-      </a-form-item>
-      <a-form-item class="ls-form-title ls-form-title-switch" for="visible">
-        <a-switch id="visible" v-model:checked="form.visible" class="ls-switch" />
-        <span>{{ $t('EMAIL_TEMPLATES.CREATE_MODAL.VISIBLE') }}</span>
-      </a-form-item>
-    </div>
-    <div class="create-mail-configuration-card__actions">
-      <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>
-      <a-button class="ls-button ls-save" type="primary" @click="onCreateEmailConfiguration">
-        <a-spin v-if="loading" />
-        <span v-else>{{ $t('GENERAL.CREATE') }}</span>
-      </a-button>
-    </div>
-  </a-card>
+          <a-select v-model:value="form.domain" class="ls-input" :bordered="false" @change="onSelectDomain">
+            <a-select-option v-for="s in domains" :key="s.label" :value="s.value">
+              {{ s.label }}
+            </a-select-option>
+          </a-select>
+        </a-form-item>
+        <a-form-item
+          v-bind="validateInfos.mailLayout"
+          class="ls-form-title"
+          for="name"
+          :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.MODEL')"
+        >
+          <a-select
+            v-model:value="form.mailLayout"
+            :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
+            class="ls-input"
+            :bordered="false"
+            @change="onSelectModel"
+          >
+            <a-select-option v-for="s in models" :key="s" :value="s.value">
+              {{ s.label }}
+            </a-select-option>
+          </a-select>
+        </a-form-item>
+        <a-form-item class="ls-form-title ls-form-title-switch" for="visible">
+          <a-switch id="visible" v-model:checked="form.visible" class="ls-switch" />
+          <span>{{ $t('EMAIL_TEMPLATES.CREATE_MODAL.VISIBLE') }}</span>
+        </a-form-item>
+      </div>
+      <div class="create-mail-configuration-card__actions">
+        <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>
+        <a-button class="ls-button ls-save" type="primary" @click="onCreateEmailConfiguration">
+          <a-spin v-if="loading" />
+          <span v-else>{{ $t('GENERAL.CREATE') }}</span>
+        </a-button>
+      </div>
+    </a-card>
+  </a-form>
 </template>
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue';
+import { computed, onMounted, reactive, ref } from 'vue';
 import useEmailTemplatesConfiguration from '../../hooks/useEmailTemplatesConfiguration';
 import { getDomains } from '@/modules/domain/services/domain-api';
 import { getMailConfigurationList } from '../../services/email-templates-api';
-import { message } from 'ant-design-vue';
+import { message, Form, FormInstance } from 'ant-design-vue';
 import Domain from '@/core/types/Domain';
 import { MailConfiguration } from '../../types/MailConfiguration';
 import { APIError } from '@/core/types/APIError';
+import { useDomainStore } from '@/modules/domain/store';
+import { useI18n } from 'vue-i18n';
 
 // props
 const emits = defineEmits(['refresh', 'close']);
 // composable
+const { t } = useI18n();
+const useForm = Form.useForm;
+const domainStore = useDomainStore();
 const { loading, handleCreateMailConfiguration } = useEmailTemplatesConfiguration();
 
 //data
@@ -70,15 +87,39 @@ const form = reactive<{
   visible: boolean;
   readonly: boolean;
 }>(getInitialFormData());
-
+const formRef = ref<FormInstance>();
 const models = ref<{ label: string | undefined; value: string; subject: MailConfiguration }[]>([]);
 const domains = ref<{ label: string | undefined; value: string; subject: Domain }[]>([]);
 
+const formRules = computed(() => ({
+  name: [
+    {
+      required: true,
+      message: t('DOMAIN.FIELDS.NAME_REQUIRED'),
+      trigger: 'blur',
+    },
+  ],
+  mailLayout: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+      trigger: 'blur',
+    },
+  ],
+  domain: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+      trigger: 'blur',
+    },
+  ],
+}));
+const { validate, validateInfos, resetFields } = useForm(form, formRules);
 // methods
 function getInitialFormData() {
   return {
     name: '',
-    domain: null,
+    domain: domainStore.currentDomain?.uuid,
     domainName: '',
     mailContentLangs: [],
     mailFooterLangs: {},
@@ -89,6 +130,7 @@ function getInitialFormData() {
 }
 function resetFormData() {
   Object.assign(form, getInitialFormData());
+  resetFields();
 }
 async function onSelectDomain(value: string, domain: { key: string | undefined; label: string }) {
   form.domainName = domain.key;
@@ -104,6 +146,11 @@ function onSelectModel(
 }
 
 async function onCreateEmailConfiguration() {
+  try {
+    await validate();
+  } catch (error) {
+    return;
+  }
   const result = await handleCreateMailConfiguration(form);
   if (result) {
     emits('refresh');
@@ -145,8 +192,17 @@ async function fetchMailConfiguration() {
   }
 }
 
-onMounted(() => {
-  fetchDomains();
+function formValidate() {
+  if (!form.name || !form.domain || !form.mailLayout) {
+    message.error(t('GENERAL.FIELD_REQUIRED'));
+    return false;
+  }
+  return true;
+}
+
+onMounted(async () => {
+  await fetchDomains();
+  await fetchMailConfiguration();
 });
 </script>
 <style lang="less">
@@ -224,6 +280,12 @@ onMounted(() => {
     letter-spacing: -0.01em;
     color: #6d7885;
   }
+  .ant-form-item-control-input {
+    min-height: 42px;
+  }
+  .ant-col {
+    min-height: unset;
+  }
 
   .ls-form-title-switch .ant-form-item-control-input-content {
     display: flex;
@@ -250,6 +312,11 @@ onMounted(() => {
     line-height: 20px;
     letter-spacing: -0.02em;
     color: #434657;
+  }
+
+  .ant-select-selector {
+    height: 100% !important;
+    border-radius: 10px;
   }
 }
 </style>
