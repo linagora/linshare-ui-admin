@@ -57,7 +57,7 @@
   </a-form>
 </template>
 <script lang="ts" setup>
-import { computed, onMounted, reactive, ref } from 'vue';
+import { onMounted, reactive, ref, watch, computed } from 'vue';
 import useEmailTemplatesConfiguration from '../../hooks/useEmailTemplatesConfiguration';
 import { getDomains } from '@/modules/domain/services/domain-api';
 import { getMailConfigurationList } from '../../services/email-templates-api';
@@ -67,15 +67,18 @@ import { MailConfiguration } from '../../types/MailConfiguration';
 import { APIError } from '@/core/types/APIError';
 import { useDomainStore } from '@/modules/domain/store';
 import { useI18n } from 'vue-i18n';
+import { storeToRefs } from 'pinia';
+import { useRoute } from 'vue-router';
 
 // props
 const emits = defineEmits(['refresh', 'close']);
 // composable
 const { t } = useI18n();
 const useForm = Form.useForm;
-const domainStore = useDomainStore();
 const { loading, handleCreateMailConfiguration } = useEmailTemplatesConfiguration();
-
+const domainStore = useDomainStore();
+const route = useRoute();
+const { currentDomain } = storeToRefs(domainStore);
 //data
 const form = reactive<{
   name: string;
@@ -203,8 +206,21 @@ function formValidate() {
 onMounted(async () => {
   await fetchDomains();
   await fetchMailConfiguration();
+  const domainToLoad = {
+    key: currentDomain.value.uuid,
+    label: currentDomain.value.name,
+  };
+  form.domain = currentDomain.value.uuid;
+  onSelectDomain(currentDomain.value.uuid, domainToLoad);
+});
+
+watch(route, (newRoute) => {
+  if (newRoute) {
+    form.domain = currentDomain.value.name;
+  }
 });
 </script>
+
 <style lang="less">
 .create-mail-configuration-card {
   .ant-card-body {
