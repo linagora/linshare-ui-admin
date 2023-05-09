@@ -264,16 +264,21 @@ onMounted(async () => {
     align-items: center;
   }
 
+  .ls-input .ant-select-dropdown {
+    top: 0 !important;
+    bottom: auto !important;
+  }
+
   .ls-form-title {
     display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     margin-bottom: 0;
   }
 
   .ant-form-item-label {
-    text-align: left !important;
+    text-align: left;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
