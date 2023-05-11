@@ -21,12 +21,7 @@
           <SearchOutlined />
         </template>
       </a-input>
-      <a-button type="primary" @click="onCreateMailConfiguration">
-        <template #icon>
-          <PlusCircleOutlined />
-        </template>
-        {{ $t('GENERAL.CREATE') }}
-      </a-button>
+      <mail-configuration-actions @create="onCreateMailConfiguration"></mail-configuration-actions>
     </div>
     <MailConfigurationTable></MailConfigurationTable>
     <ThePagination v-model="pagination" class="pagination" :is-visible="!!filteredList.length" />
@@ -52,6 +47,16 @@
       @close="onCloseModal"
       @refresh="assignReload"
     ></DeleteMailConfigurationCard>
+    <DeleteMailConfigurationsCard
+      v-else-if="modal.type === 'DELETE_CONFIGURATIONS_EMAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchMailConfiguration"
+    ></DeleteMailConfigurationsCard>
+    <DeleteMailConfigurationsFailCard
+      v-else-if="modal.type === 'DELETE_CONFIGURATIONS_FAIL_EMAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchMailConfiguration"
+    ></DeleteMailConfigurationsFailCard>
   </a-modal>
 </template>
 
@@ -63,11 +68,13 @@ import CreateMailConfigurationCard from '../components/email-configuration/creat
 
 import ThePagination from '@/core/components/the-pagination.vue';
 import { useDomainStore } from '@/modules/domain/store';
-import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
+import { SearchOutlined } from '@ant-design/icons-vue';
 import AssignMailConfigurationCard from '../components/email-configuration/assign-mail-configuration-card.vue';
 import DeleteMailConfigurationCard from '../components/email-configuration/delete-mail-configuration-card.vue';
+import DeleteMailConfigurationsCard from '../components/email-configuration/delete-mail-configurations-card.vue';
+import DeleteMailConfigurationsFailCard from '../components/email-configuration/delete-mail-configurations-fail-card.vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
-
+import MailConfigurationActions from '../components/email-configuration/mail-configuration-actions.vue';
 const { modal, filterText, pagination, filteredList, onCloseModal, fetchMailConfiguration, onCreateMailConfiguration } =
   useEmailTemplatesConfiguration();
 const route = useRoute();

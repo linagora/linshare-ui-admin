@@ -20,6 +20,8 @@ const activeMailConfig = useLocalStorage<MailConfiguration>(
   'configuration-type-mail-config-activeMailConfig',
   {} as MailConfiguration
 );
+const selectedMailConfigs = ref<MailConfiguration[]>();
+
 const list = ref<MailConfiguration[]>([]);
 const filterText = ref('');
 const status = ref(STATUS.LOADING);
@@ -37,8 +39,20 @@ const MailConfigurationUuid = reactive<{
 });
 
 const modal = reactive<{
-  type: 'CREATE_CONFIGURATION_EMAIL' | 'ASSIGN_CONFIGURATION_EMAIL' | 'DELETE_CONFIGURATION_EMAIL';
+  type:
+    | 'CREATE_CONFIGURATION_EMAIL'
+    | 'ASSIGN_CONFIGURATION_EMAIL'
+    | 'DELETE_CONFIGURATION_EMAIL'
+    | 'DELETE_CONFIGURATIONS_EMAIL'
+    | 'DELETE_CONFIGURATIONS_FAIL_EMAIL';
   visible: boolean;
+  multipleDeleteResponse?: {
+    total: number;
+    totalSuccess: number;
+    totalFail: number;
+    totalAssignCases: number;
+    totalUnAuthoCases: number;
+  };
 }>({
   type: 'CREATE_CONFIGURATION_EMAIL',
   visible: false,
@@ -70,6 +84,23 @@ export default function useEmailTemplatesConfiguration() {
     activeMailConfig.value = email;
     modal.type = 'CREATE_CONFIGURATION_EMAIL';
     modal.visible = true;
+  }
+
+  function onDeleteMailConfigurations() {
+    modal.type = 'DELETE_CONFIGURATIONS_EMAIL';
+    modal.visible = true;
+  }
+
+  function onDeleteMailConfigurationsFail(response: {
+    total: number;
+    totalSuccess: number;
+    totalFail: number;
+    totalAssignCases: number;
+    totalUnAuthoCases: number;
+  }) {
+    modal.type = 'DELETE_CONFIGURATIONS_FAIL_EMAIL';
+    modal.visible = true;
+    modal.multipleDeleteResponse = response;
   }
 
   async function fetchMailConfiguration() {
@@ -152,21 +183,20 @@ export default function useEmailTemplatesConfiguration() {
       loading.value = false;
     }
   }
-  async function handleDeleteMailConfiguration() {
+  async function handleDeleteMailConfiguration(activeMailConfig: MailConfiguration) {
     try {
-      if (!activeMailConfig?.value) {
+      if (!activeMailConfig || !activeMailConfig?.uuid) {
         return false;
       }
       loading.value = true;
-      if (activeMailConfig.value?.assigned) {
+      if (activeMailConfig?.assigned) {
         message.error(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ERROR_ASSIGNED'));
         loading.value = false;
         return false;
       }
       await deleteMailConfiguration(MailConfigurationUuid);
       onCloseModal();
-      message.success(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_SUCCESS'));
-      fetchMailConfiguration();
+      return true;
     } catch (error) {
       if (error instanceof APIError) {
         if (error.errorCode === 16666) {
@@ -184,23 +214,80 @@ export default function useEmailTemplatesConfiguration() {
       loading.value = false;
     }
   }
+
+  async function handleDeleteMailConfigurations() {
+    try {
+      if (!selectedMailConfigs?.value?.length) {
+        message.error(t('MIME_POLICIES.DELETE_MODAL.DELETE_MODAL_EMPTY'));
+        return {
+          total: selectedMailConfigs?.value?.length,
+          totalSuccess: 0,
+          totalFail: selectedMailConfigs?.value?.length,
+          totalAssignCases: 0,
+          totalUnAuthoCases: 0,
+        };
+      }
+
+      loading.value = true;
+      const deletePromises = selectedMailConfigs.value?.map((item) => {
+        return deleteMailConfiguration({ uuid: item?.uuid });
+      });
+      if (!deletePromises) {
+        return {
+          total: selectedMailConfigs?.value?.length,
+          totalSuccess: 0,
+          totalFail: selectedMailConfigs?.value?.length,
+          totalAssignCases: 0,
+          totalUnAuthoCases: 0,
+        };
+      }
+
+      return await Promise.allSettled(deletePromises).then((results) => {
+        return {
+          total: selectedMailConfigs?.value?.length,
+          totalSuccess: results.filter((item) => item.status === 'fulfilled')?.length ?? 0,
+          totalFail: results.filter((item) => item.status === 'rejected')?.length ?? 0,
+          totalAssignCases:
+            results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 16666)?.length ?? 0,
+          totalUnAuthoCases:
+            results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 166678)?.length ?? 0,
+        };
+      });
+    } catch (error) {
+      return {
+        total: selectedMailConfigs?.value?.length,
+        totalSuccess: 0,
+        totalFail: selectedMailConfigs?.value?.length,
+        totalAssignCases: 0,
+        totalUnAuthoCases: 0,
+      };
+    } finally {
+      loading.value = false;
+    }
+  }
+
   return {
     list,
-    fetchMailConfiguration,
     modal,
-    handleAssignMailConfiguration,
-    handleDeleteMailConfiguration,
     status,
     loading,
     pagination,
-    isAssigned,
-    onDeleteMailConfiguration,
     filterText,
     filteredList,
     filteredListByPage,
-    onAssignMailConfiguration,
+    selectedMailConfigs,
+    activeMailConfig,
+    isAssigned,
     onCloseModal,
+    fetchMailConfiguration,
+    onDeleteMailConfiguration,
+    onAssignMailConfiguration,
     onCreateMailConfiguration,
+    onDeleteMailConfigurations,
+    handleAssignMailConfiguration,
+    handleDeleteMailConfiguration,
     handleCreateMailConfiguration,
+    handleDeleteMailConfigurations,
+    onDeleteMailConfigurationsFail,
   };
 }

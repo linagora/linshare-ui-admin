@@ -6,6 +6,8 @@
       :columns="columns"
       :pagination="false"
       :data-source="filteredListByPage"
+      :row-selection="rowSelection"
+      row-key="uuid"
       :loading="status === STATUS.LOADING"
     >
       <template #bodyCell="{ column, record }">
@@ -83,13 +85,35 @@ import { useAuthStore } from '@/modules/auth/store';
 import router from '@/core/router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../../router';
 
-const { status, filteredListByPage, onAssignMailConfiguration, onDeleteMailConfiguration } =
-  useEmailTemplatesConfiguration();
+const {
+  status,
+  filteredListByPage,
+  selectedMailConfigs,
+  isAssigned,
+  onAssignMailConfiguration,
+  onDeleteMailConfiguration,
+} = useEmailTemplatesConfiguration();
+
 const { t } = useI18n();
 const authStore = useAuthStore();
 const domainStore = useDomainStore();
 const { currentDomain } = storeToRefs(domainStore);
 const { loggedUser } = storeToRefs(authStore);
+
+// computed
+const rowSelection = computed(() => ({
+  checkStrictly: false,
+  selectedRowKeys: selectedMailConfigs.value?.map((item) => item.uuid) ?? [],
+  onSelect: (record: MailConfiguration, selected: boolean, selectedRows: MailConfiguration[]) => {
+    selectedMailConfigs.value = selectedRows;
+  },
+  onSelectAll: (selected: boolean, selectedRows: MailConfiguration[], changeRows: MailConfiguration[]) => {
+    selectedMailConfigs.value = selectedRows;
+  },
+  onChange: (selected: boolean, selectedRows: MailConfiguration[], changeRows: MailConfiguration[]) => {
+    selectedMailConfigs.value = selectedRows;
+  },
+}));
 
 const columns = computed(() => [
   {

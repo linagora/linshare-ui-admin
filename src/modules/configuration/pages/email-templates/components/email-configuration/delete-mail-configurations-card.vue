@@ -1,56 +1,61 @@
 <template>
-  <a-card flat :bordered="false" class="delete-mail-configuration-card">
-    <span class="delete-mail-configuration-card__icon">
-      <DeleteIcon width="28" height="28" />
+  <a-card flat :bordered="false" class="delete-mail-configurations-card">
+    <span class="delete-mail-configurations-card__icon">
+      <DeleteIcon />
     </span>
-    <div class="delete-mail-configuration-card__content">
-      <strong>{{ $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_MODAL_TITLE') }}</strong>
-      <span>{{ $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_MODAL_SUBTITLE', { currentDomain: currentDomain.name }) }}</span>
+    <div class="delete-mail-configurations-card__content">
+      <strong>{{ $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_SELECTED_MAIL_CONFIGURATION') }}</strong>
+      <span>{{
+        $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE', {
+          qty: selectedMailConfigs?.length ?? 0,
+        })
+      }}</span>
     </div>
-    <div class="delete-mail-configuration-card__actions">
-      <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>
+    <div class="delete-mail-configurations-card__actions">
+      <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{
+        $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ACTION_CANCEL')
+      }}</a-button>
       <a-button class="ls-button ls-save" type="primary" danger @click="onConfirmDelete">
         <a-spin v-if="loading" />
-        <span v-else>{{ $t('GENERAL.YES') }}</span>
+        <span v-else>{{ $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ACTION_CONFIRM') }}</span>
       </a-button>
     </div>
   </a-card>
 </template>
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import DeleteIcon from '@/core/components/icons/delete-icon.vue';
 import useEmailTemplatesConfiguration from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesConfiguration';
-import { useDomainStore } from '@/modules/domain/store';
-import { storeToRefs } from 'pinia';
-import { message } from 'ant-design-vue';
-import { useI18n } from 'vue-i18n';
 
 // composable
 const { t } = useI18n();
-const { loading, handleDeleteMailConfiguration, activeMailConfig } = useEmailTemplatesConfiguration();
-const domainStore = useDomainStore();
-const { currentDomain } = storeToRefs(domainStore);
+const { handleDeleteMailConfigurations, onDeleteMailConfigurationsFail, selectedMailConfigs, loading } =
+  useEmailTemplatesConfiguration();
 
 const emits = defineEmits(['close', 'refresh']);
 
 function onCloseModal() {
   emits('close');
 }
+
 async function onConfirmDelete() {
-  const result = await handleDeleteMailConfiguration(activeMailConfig.value);
-  if (result) {
-    message.success(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_SUCCESS'));
+  const result = await handleDeleteMailConfigurations();
+  if (result.totalSuccess === result.total) {
     emits('refresh');
     emits('close');
+  } else {
+    onDeleteMailConfigurationsFail(result);
   }
 }
 </script>
 <style lang="less">
-.delete-mail-configuration-card {
+.delete-mail-configurations-card {
   .ant-card-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
+    gap: 24px;
     border: none;
   }
 
@@ -59,7 +64,6 @@ async function onConfirmDelete() {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 24px;
 
     strong {
       font-weight: 600;
@@ -89,7 +93,6 @@ async function onConfirmDelete() {
     background: #fbecec;
     border-radius: 16px;
     margin: 0 auto;
-    margin-bottom: 24px;
   }
 
   &__actions {
