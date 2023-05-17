@@ -27,8 +27,13 @@ async function getMailContentList(
 async function getMailConfigurationLanguagesSupport(): Promise<string[]> {
   return await apiv4.post(`enums/language`);
 }
+
 async function updateMailConfigurationMailContent(payload: MailLang): Promise<MailLangDetail> {
   return await apiv4.put(`mail_content_langs`, payload);
+}
+
+async function getMailLayoutList(domainUuid: string, currentDomainOnly: boolean): Promise<MailLayout[]> {
+  return await apiv4.get(`mail_layouts?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
 }
 
 async function getLayoutEmailTemplates(domainUuid: string, onlyCurrentDomain: boolean): Promise<MailLayout[]> {
@@ -56,6 +61,20 @@ async function updateMailConfiguration(payload: MailConfiguration) {
   return await apiv4.put(`mail_configs`, payload);
 }
 
+async function createMailLayout(payload: {
+  description: string;
+  domain: string;
+  domainName: string;
+  layout: string;
+  messagesEnglish: string;
+  messagesFrench: string;
+  messagesRussian: string;
+  visible: boolean;
+  readonly: boolean;
+}) {
+  return await apiv4.post(`mail_layouts`, payload);
+}
+
 async function deleteMailConfiguration(payload: { uuid: string }): Promise<MailConfiguration> {
   return await apiv4.delete('mail_configs', { data: payload });
 }
@@ -72,4 +91,6 @@ export {
   getMailConfigurationFooterList,
   getMailConfigurationLanguagesSupport,
   updateMailConfigurationMailContent,
+  getMailLayoutList,
+  createMailLayout,
 };

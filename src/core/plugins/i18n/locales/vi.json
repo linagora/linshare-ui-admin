@@ -2528,7 +2528,9 @@
       "TARGET_DOMAIN": "Tên miền đích",
       "MODEL": "Mô hình",
       "VISIBLE": "Hiển thị",
-      "CREATE_SUCCESS": "Đã tạo thành công"
+      "CREATE_SUCCESS": "Đã tạo thành công",
+      "EMAIL_LAYOUT_NAME": "Tên bố cục email",
+      "CREATE_EMAIL_LAYOUT": "Tạo bố cục email"
     },
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Xóa cấu hình thư",

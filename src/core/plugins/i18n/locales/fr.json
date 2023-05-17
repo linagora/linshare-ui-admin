@@ -2523,7 +2523,9 @@
       "TARGET_DOMAIN": "Domain cible",
       "MODEL": "Modèle",
       "VISIBLE": "Visible",
-      "CREATE_SUCCESS": "Créé avec succès"    
+      "CREATE_SUCCESS": "Créé avec succès",
+      "EMAIL_LAYOUT_NAME": "Nom de la structure du courriel",
+      "CREATE_EMAIL_LAYOUT": "Créer une structure de courriel"
     },
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Supprimer la configuration du courriel",

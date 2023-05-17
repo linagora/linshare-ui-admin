@@ -2262,7 +2262,9 @@
       "TARGET_DOMAIN": "Целевой домен",
       "MODEL": "Модель",
       "VISIBLE": "Видимая",
-      "CREATE_SUCCESS": "Успешно создана"
+      "CREATE_SUCCESS": "Успешно создана",
+      "EMAIL_LAYOUT_NAME": "Название макета электронной почты",
+      "CREATE_EMAIL_LAYOUT": "Создать макет электронной почты"
     },
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Удалить настройку почты",

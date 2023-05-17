@@ -2525,7 +2525,9 @@
       "TARGET_DOMAIN": "Target domain",
       "MODEL": "Model",
       "VISIBLE": "Visible",
-      "CREATE_SUCCESS": "Created successfully"
+      "CREATE_SUCCESS": "Created successfully",
+      "EMAIL_LAYOUT_NAME": "Email layout name",
+      "CREATE_EMAIL_LAYOUT": "Create Email Layout"
     },
     "DELETE_MODAL":{
       "DELETE_MODAL_TITLE": "Delete Mail Configuration",

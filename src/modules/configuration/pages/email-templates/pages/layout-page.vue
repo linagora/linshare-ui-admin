@@ -22,7 +22,7 @@
           <SearchOutlined />
         </template>
       </a-input>
-      <a-button type="primary" class="ls-filled">
+      <a-button type="primary" class="ls-filled" @click="openCreateModal">
         <template #icon>
           <PlusCircleOutlined />
         </template>
@@ -31,6 +31,19 @@
     </div>
     <email-layout-table :status="status" :items="templatesBySearch"></email-layout-table>
   </div>
+  <a-modal
+    v-model:visible="modal.visible"
+    :closable="false"
+    :footer="null"
+    wrap-class-name="email-templates-layout-page__modal"
+    :destroy-on-close="true"
+  >
+    <create-mail-layout-modal
+      v-if="modal.type === 'CREATE_LAYOUT_EMAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchMailLayout"
+    ></create-mail-layout-modal>
+  </a-modal>
 </template>
 <script lang="ts" setup>
 import { computed, watch } from 'vue';
@@ -40,11 +53,11 @@ import { useDomainStore } from '@/modules/domain/store';
 import useEmailTemplatesLayout from '../hooks/useEmailTemplatesLayout';
 import EmailLayoutTable from '../components/email-layout/email-layout-table.vue';
 import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
-
+import createMailLayoutModal from '../components/email-layout/email-layout-creation-modal.vue';
 //composable
 const route = useRoute();
 const { currentDomain } = storeToRefs(useDomainStore());
-const { status, list, filterText, handleGetEmailLayoutTemplates } = useEmailTemplatesLayout();
+const { status, list, filterText, handleGetEmailLayoutTemplates, modal, onCloseModal } = useEmailTemplatesLayout();
 
 //computed
 
@@ -66,15 +79,18 @@ const currentDomainUuid = computed(() => {
 });
 
 // methods
-async function onFetchMimePolicies() {
+async function onFetchMailLayout() {
   await handleGetEmailLayoutTemplates(currentDomainUuid.value);
 }
 
+function openCreateModal() {
+  modal.visible = true;
+}
 watch(
   route,
   (newRoute) => {
     if (newRoute) {
-      onFetchMimePolicies();
+      onFetchMailLayout();
     }
   },
   {
@@ -135,19 +151,28 @@ watch(
     letter-spacing: -0.02em;
     color: #434657;
   }
-
-  .ls-detail {
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f2f8ff;
-    border: 1px solid #a3dcff;
-    color: #007aff;
-    border-radius: 7px;
-    transform: rotate(90deg);
+  &__modal .ant-modal-content {
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    overflow: hidden;
   }
+
+  &__modal .ant-modal-body {
+    padding: 0;
+  }
+}
+.ls-detail {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f8ff;
+  border: 1px solid #a3dcff;
+  color: #007aff;
+  border-radius: 7px;
+  transform: rotate(90deg);
 }
 </style>
