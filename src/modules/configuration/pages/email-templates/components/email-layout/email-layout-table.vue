@@ -53,7 +53,11 @@
                 <a-menu-item v-if="checkingEmailLayoutsDomainAuthorized(record.domain)">
                   <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
                 </a-menu-item>
-                <a-menu-item v-if="checkingEmailLayoutsDomainAuthorized(record.domain)" class="delete">
+                <a-menu-item
+                  v-if="checkingEmailLayoutsDomainAuthorized(record.domain)"
+                  class="delete"
+                  @click="onDeleteMailLayout(record)"
+                >
                   <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
                 </a-menu-item>
               </a-menu>
@@ -95,7 +99,7 @@ const pagination = reactive({
 
 // composable
 const { t } = useI18n();
-const { checkingEmailLayoutsDomainAuthorized } = useEmailTemplatesLayout();
+const { checkingEmailLayoutsDomainAuthorized, onDeleteMailLayout } = useEmailTemplatesLayout();
 // computed
 const mimeTypesByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;

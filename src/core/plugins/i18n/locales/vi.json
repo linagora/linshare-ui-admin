@@ -2550,6 +2550,24 @@
       "DELETE_ERROR_ONE": "Bạn không thể xóa cấu hình thư này",
       "DELETE_ERROR_ALL": "Bạn không thể xóa các cấu hình thư đó"      
     },
+    "DELETE_LAYOUT_MODAL": {
+      "DELETE_MODAL_TITLE": "Xóa bố cục thư",
+      "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa bố cục thư này cho {currentDomain}. Bạn có muốn tiếp tục?",
+      "DELETE_SUCCESS": "Đã xóa thành công",
+      "DELETE_ERROR_ASSIGNED": "Bố cục thư đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
+      "DELETE_ERROR_UNAUTHORIZED": "Bạn không có quyền xóa bố cục thư này",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Xóa các bố cục thư được chọn",
+      "DELETE_ACTION_CANCEL": "Hủy",
+      "DELETE_ACTION_CONFIRM": "Có, xóa",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Bạn đang chuẩn bị xóa {qty} bố cục thư. Thao tác này không thể hoàn tác. Bạn có muốn tiếp tục?",
+      "DELETE_FAILURE": "Xóa thất bại",
+      "DELETE_ERROR_ASSIGNED_SOME": "Một số bố cục thư đã bị xóa thành công, trong khi các bố cục khác không bị xóa do đã được gán cho ít nhất một tên miền",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Một số bố cục thư đã bị xóa thành công, trong khi các bố cục khác không bị xóa do bạn không có quyền xóa chúng",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "Bạn không có quyền xóa các bố cục thư đó",
+      "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các bố cục thư đó",
+      "DELETE_ERROR_ONE": "Bạn không thể xóa bố cục thư này",
+      "DELETE_ERROR_ALL": "Bạn không thể xóa các bố cục thư đó"      
+    },
     "EDIT_FORM" : {
       "EDIT_HEADER": "Chỉnh sửa cấu hình thư",
       "EDIT_SUBHEADER": "Tên cấu hình thư",

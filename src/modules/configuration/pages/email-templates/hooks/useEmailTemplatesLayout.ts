@@ -5,41 +5,70 @@ import { MailLayout } from '../types/MailLayout';
 import message from 'ant-design-vue/lib/message';
 import { APIError } from '@/core/types/APIError';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
-import { createMailLayout, getLayoutEmailTemplates } from '../services/email-templates-api';
+import { createMailLayout, getLayoutEmailTemplates, deleteMailLayout } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { useDomainStore } from '@/modules/domain/store';
+import { useLocalStorage } from '@vueuse/core';
 
 const list = ref<MailLayout[]>([]);
-const status = ref(STATUS.LOADING);
 const loading = ref(false);
+const activeMailLayout = useLocalStorage<MailLayout>(
+  'configuration-type-mail-layout-activeMailLayout',
+  {} as MailLayout
+);
+const status = ref(STATUS.LOADING);
 const pagination = reactive({
   total: 0,
   current: 1,
   pageSize: DEFAULT_PAGE_SIZE,
 });
 const filterText = ref('');
-
 const modal = reactive<{
-  type: 'CREATE_LAYOUT_EMAIL';
-
+  type:
+    | 'CREATE_LAYOUT_EMAIL'
+    | 'ASSIGN_LAYOUT_EMAIL'
+    | 'DELETE_LAYOUT_EMAIL'
+    | 'DELETE_LAYOUTS_EMAIL'
+    | 'DELETE_LAYOUTS_FAIL_EMAIL';
   visible: boolean;
+  multipleDeleteResponse?: {
+    total: number;
+    totalSuccess: number;
+    totalFail: number;
+    totalAssignCases: number;
+    totalUnAuthoCases: number;
+  };
 }>({
   type: 'CREATE_LAYOUT_EMAIL',
   visible: false,
 });
-
 export default function useEmailTemplatesLayout() {
-  const { loggedUserRole } = storeToRefs(useAuthStore());
-  const { getDomainsList } = storeToRefs(useDomainStore());
+  //composable
   const { t } = useI18n();
+  const { loggedUserRole } = storeToRefs(useAuthStore());
+  const { getDomainsList, currentDomain } = storeToRefs(useDomainStore());
+
+  //methods
+
+  function onCloseModal() {
+    modal.visible = false;
+  }
+
+  function onDeleteMailLayout(mailLayout: MailLayout) {
+    activeMailLayout.value = mailLayout;
+    modal.type = 'DELETE_LAYOUT_EMAIL';
+    modal.visible = true;
+  }
 
   async function handleGetEmailLayoutTemplates(domainUuid: string) {
     try {
       status.value = STATUS.LOADING;
       const templates = await getLayoutEmailTemplates(domainUuid, true);
-      list.value = templates;
+      list.value = templates?.map((item) => {
+        return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailConfiguration?.uuid) };
+      });
       status.value = STATUS.SUCCESS;
       return;
     } catch (error) {
@@ -49,6 +78,43 @@ export default function useEmailTemplatesLayout() {
       }
     } finally {
       status.value = STATUS.SUCCESS;
+    }
+  }
+  function isAssigned(mailLayoutUuid: string, currentDomainMailLayoutUuid: string | undefined) {
+    if (mailLayoutUuid === currentDomainMailLayoutUuid) {
+      return true;
+    }
+    return false;
+  }
+  async function handleDeleteMailLayout(activeMailLayout: MailLayout) {
+    try {
+      if (!activeMailLayout || !activeMailLayout?.uuid) {
+        return false;
+      }
+      loading.value = true;
+      if (activeMailLayout?.assigned) {
+        message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_ASSIGNED'));
+        loading.value = false;
+        return false;
+      }
+      await deleteMailLayout({ uuid: activeMailLayout?.uuid });
+      onCloseModal();
+      return true;
+    } catch (error) {
+      if (error instanceof APIError) {
+        if (error.errorCode === 16666) {
+          onCloseModal();
+          message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_ASSIGNED'));
+        } else if (error.errorCode === 166678) {
+          onCloseModal();
+          message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_UNAUTHORIZED'));
+        } else {
+          onCloseModal();
+          message.error(error.getMessage());
+        }
+      }
+    } finally {
+      loading.value = false;
     }
   }
 
@@ -93,20 +159,19 @@ export default function useEmailTemplatesLayout() {
     }
   }
 
-  function onCloseModal() {
-    modal.visible = false;
-  }
-
   return {
-    status,
     list,
-    pagination,
+    modal,
+    status,
+    loading,
     filterText,
+    pagination,
+    activeMailLayout,
+    onCloseModal,
+    onDeleteMailLayout,
+    handleDeleteMailLayout,
     handleGetEmailLayoutTemplates,
     checkingEmailLayoutsDomainAuthorized,
-    modal,
-    onCloseModal,
     handleCreateMailLayout,
-    loading,
   };
 }

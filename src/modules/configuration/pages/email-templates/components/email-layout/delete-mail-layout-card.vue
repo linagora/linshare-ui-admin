@@ -1,13 +1,15 @@
 <template>
-  <a-card flat :bordered="false" class="delete-mail-configuration-card">
-    <span class="delete-mail-configuration-card__icon">
+  <a-card flat :bordered="false" class="delete-mail-layout-card">
+    <span class="delete-mail-layout-card__icon">
       <DeleteIcon width="28" height="28" />
     </span>
-    <div class="delete-mail-configuration-card__content">
-      <strong>{{ $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_MODAL_TITLE') }}</strong>
-      <span>{{ $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_MODAL_SUBTITLE', { currentDomain: currentDomain.name }) }}</span>
+    <div class="delete-mail-layout-card__content">
+      <strong>{{ $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_MODAL_TITLE') }}</strong>
+      <span>{{
+        $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_MODAL_SUBTITLE', { currentDomain: currentDomain.name })
+      }}</span>
     </div>
-    <div class="delete-mail-configuration-card__actions">
+    <div class="delete-mail-layout-card__actions">
       <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>
       <a-button class="ls-button ls-save" type="primary" danger @click="onConfirmDelete">
         <a-spin v-if="loading" />
@@ -17,16 +19,16 @@
   </a-card>
 </template>
 <script lang="ts" setup>
-import DeleteIcon from '@/core/components/icons/delete-icon.vue';
-import useEmailTemplatesConfiguration from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesConfiguration';
-import { useDomainStore } from '@/modules/domain/store';
+import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
 import { message } from 'ant-design-vue';
-import { useI18n } from 'vue-i18n';
+import { useDomainStore } from '@/modules/domain/store';
+import DeleteIcon from '@/core/components/icons/delete-icon.vue';
+import useEmailTemplatesLayout from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesLayout';
 
 // composable
 const { t } = useI18n();
-const { loading, handleDeleteMailConfiguration, activeMailConfig } = useEmailTemplatesConfiguration();
+const { loading, handleDeleteMailLayout, activeMailLayout } = useEmailTemplatesLayout();
 const domainStore = useDomainStore();
 const { currentDomain } = storeToRefs(domainStore);
 
@@ -36,19 +38,16 @@ function onCloseModal() {
   emits('close');
 }
 async function onConfirmDelete() {
-  const result = await handleDeleteMailConfiguration(activeMailConfig.value);
+  const result = await handleDeleteMailLayout(activeMailLayout.value);
   if (result) {
-    message.success(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_SUCCESS'));
+    message.success(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_SUCCESS'));
     emits('refresh');
     emits('close');
   }
 }
 </script>
 <style lang="less">
-.delete-mail-configuration-card {
-  .ant-modal-body {
-    padding: 0;
-  }
+.delete-mail-layout-card {
   .ant-card-body {
     display: flex;
     flex-direction: column;

@@ -2547,6 +2547,24 @@
       "DELETE_ERROR_ONE": "You are unable to delete this mail configuration",
       "DELETE_ERROR_ALL": "You are unable to delete those mail configurations"
     },
+    "DELETE_LAYOUT_MODAL":{
+      "DELETE_MODAL_TITLE": "Delete Mail Layout",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail layout for {currentDomain}. Do you want to proceed?",
+      "DELETE_SUCCESS": "Deleted successfully",
+      "DELETE_ERROR_ASSIGNED": "Selected mail layout is associated with at least one domain. You cannot delete",
+      "DELETE_ERROR_UNAUTHORIZED": "You do not have the rights to delete this mail layout",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Delete selected mail layouts",
+      "DELETE_ACTION_CANCEL": "Cancel",
+      "DELETE_ACTION_CONFIRM": "Yes, delete",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "You are about to delete {qty} mail layouts, this procedure is irreversible. Do you want to proceed?",
+      "DELETE_FAILURE": "Delete failed",
+      "DELETE_ERROR_ASSIGNED_SOME": "Some of mail layout are deleted successfully but not others because they are already assigned to at least one domain",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Some of mail layout are deleted successfully but not others because you do not have the rights to delete them",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "You do not have the rights to delete those mail layouts",
+      "DELETE_ERROR_ASSIGNED_ALL": "You are unable to delete those mail layouts",
+      "DELETE_ERROR_ONE": "You are unable to delete this mail layout",
+      "DELETE_ERROR_ALL": "You are unable to delete those mail layouts"
+    },
     "EDIT_FORM" : {
       "EDIT_HEADER": "Edit mail configuration",
       "EDIT_SUBHEADER": "Mail configuration name",

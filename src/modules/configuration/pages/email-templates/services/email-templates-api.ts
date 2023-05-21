@@ -79,7 +79,12 @@ async function deleteMailConfiguration(payload: { uuid: string }): Promise<MailC
   return await apiv4.delete('mail_configs', { data: payload });
 }
 
+async function deleteMailLayout(payload: { uuid: string }): Promise<MailLayout> {
+  return await apiv4.delete('mail_layouts', { data: payload });
+}
+
 export {
+  deleteMailLayout,
   getMailContentList,
   updateMailConfiguration,
   assignMailConfiguration,

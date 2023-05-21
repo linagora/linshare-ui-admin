@@ -41,8 +41,14 @@
     <create-mail-layout-modal
       v-if="modal.type === 'CREATE_LAYOUT_EMAIL'"
       @close="onCloseModal"
-      @refresh="onFetchMailLayout"
+      @refresh="onFetchEmailLayouts"
     ></create-mail-layout-modal>
+    >
+    <DeleteMailLayoutCard
+      v-if="modal.type === 'DELETE_LAYOUT_EMAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchEmailLayouts"
+    ></DeleteMailLayoutCard>
   </a-modal>
 </template>
 <script lang="ts" setup>
@@ -54,6 +60,7 @@ import useEmailTemplatesLayout from '../hooks/useEmailTemplatesLayout';
 import EmailLayoutTable from '../components/email-layout/email-layout-table.vue';
 import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 import createMailLayoutModal from '../components/email-layout/email-layout-creation-modal.vue';
+import DeleteMailLayoutCard from '../components/email-layout/delete-mail-layout-card.vue';
 //composable
 const route = useRoute();
 const { currentDomain } = storeToRefs(useDomainStore());
@@ -79,7 +86,7 @@ const currentDomainUuid = computed(() => {
 });
 
 // methods
-async function onFetchMailLayout() {
+async function onFetchEmailLayouts() {
   await handleGetEmailLayoutTemplates(currentDomainUuid.value);
 }
 
@@ -90,7 +97,7 @@ watch(
   route,
   (newRoute) => {
     if (newRoute) {
-      onFetchMailLayout();
+      onFetchEmailLayouts();
     }
   },
   {
@@ -150,6 +157,16 @@ watch(
     line-height: 20px;
     letter-spacing: -0.02em;
     color: #434657;
+  }
+  &__modal .ant-modal-content {
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__modal .ant-modal-body {
+    padding: 0;
   }
   &__modal .ant-modal-content {
     background: #ffffff;

@@ -2284,6 +2284,24 @@
       "DELETE_ERROR_ONE": "Невозможно удалить настройку почты",
       "DELETE_ERROR_ALL": "Удаление настроек почты невозможно"   
     },
+    "DELETE_LAYOUT_MODAL": {
+      "DELETE_MODAL_TITLE": "Удалить mакет почты",
+      "DELETE_MODAL_SUBTITLE": "Вы собираетесь удалить эту mакет почты для {currentDomain}. Хотите продолжить?",
+      "DELETE_SUCCESS": "Успешно удалено",
+      "DELETE_ERROR_ASSIGNED": "Выбранная настройка почты связана как минимум с одним доменом. Удаление невозможно",
+      "DELETE_ERROR_UNAUTHORIZED": "У вас нет прав на удаление этой mакет почты",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Удалить выбранные mакет почты",
+      "DELETE_ACTION_CANCEL": "Отменить",
+      "DELETE_ACTION_CONFIRM": "Да, удалить",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Вы собираетесь удалить {qty} mакет почты, это действие нельзя отменить. Продолжить?",
+      "DELETE_FAILURE": "Ошибка удаления",
+      "DELETE_ERROR_ASSIGNED_SOME": "Некоторые mакет почты были успешно удалены; удаление остальных невозможно, так как они привязаны по крайней мере к одному домену",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": " Некоторые mакет почты были успешно удалены; удаление остальных невозможно, так как у вас не хватает прав доступа",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "У вас не хватает прав доступа, чтобы удалить эти mакет почты",
+      "DELETE_ERROR_ASSIGNED_ALL": "Удаление настроек почты невозможно",
+      "DELETE_ERROR_ONE": "Невозможно удалить mакет почты",
+      "DELETE_ERROR_ALL": "Удаление настроек почты невозможно"   
+    },
     "EDIT_FORM" : {
       "EDIT_HEADER": "Редактировать настройки электронной почты",
       "EDIT_SUBHEADER": "Название настройки электронной почты",
