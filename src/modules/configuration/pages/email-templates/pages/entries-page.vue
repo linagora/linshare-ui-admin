@@ -17,9 +17,13 @@ import emailTemplatesVerticalTabs from '../components/email-templates-vertical-t
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
+  &__vertical-tabs {
+    width: 20%;
+  }
   &__content {
     flex-grow: 1;
     padding-left: 40px;
+    width: 80%;
   }
 }
 </style>

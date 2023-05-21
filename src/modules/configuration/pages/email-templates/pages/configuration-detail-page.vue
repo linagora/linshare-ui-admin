@@ -15,7 +15,6 @@
             :editing="editing"
             :layouts="list"
             :footers="footerList"
-            @select-language="onChangeLanguage"
           ></email-configuration-detail-card>
           <!-- Top left section (email configuration) -->
         </div>
@@ -26,6 +25,7 @@
       </div>
       <div class="configuration-detail-page__body-table">
         <!-- Bottom table -->
+        <email-configuration-content-table :editable="true" :editing="editing"></email-configuration-content-table>
       </div>
     </div>
   </div>
@@ -34,6 +34,8 @@
       :editable="true"
       :editing="editing"
       @cancel="onToggleEditState"
+      @save="onUpdateEmailConfiguration"
+      @reset="onResetEmailConfiguration"
     ></email-configuration-detail-action>
   </div>
 </template>
@@ -42,44 +44,43 @@ import EmailConfigurationDetailHeader from '@/modules/configuration/pages/email-
 import EmailConfigurationDetailAction from '@/modules/configuration/pages/email-templates/components/email-configuration/detail-page/email-configuration-detail-action.vue';
 import SystemInformationCard from '@/modules/configuration/pages/email-templates/components/email-configuration/detail-page/system-information-card.vue';
 import EmailConfigurationDetailCard from '@/modules/configuration/pages/email-templates/components/email-configuration/detail-page/email-configuration-detail-card.vue';
-import { onMounted, reactive, ref } from 'vue';
+import EmailConfigurationContentTable from '@/modules/configuration/pages/email-templates/components/email-configuration/detail-page/email-configuration-content-table.vue';
+
+import { onMounted, ref } from 'vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 import useEmailTemplatesLayout from '../hooks/useEmailTemplatesLayout';
 import useEmailTemplatesFooter from '../hooks/useEmailTemplatesFooter';
+import { MailConfiguration } from '../types/MailConfiguration';
 
 // composables
-const { activeMailConfig, handleGetMailConfigurationDetail } = useEmailTemplatesConfiguration();
+const {
+  activeMailConfig,
+  activeEmailConfigForm,
+  mailFooterLangsForm,
+  handleGetMailConfigurationDetail,
+  handleUpdateMailConfiguration,
+  handleResetEmailConfiguration,
+} = useEmailTemplatesConfiguration();
 const { list, handleGetEmailLayoutTemplates } = useEmailTemplatesLayout();
 const { list: footerList, handleGetEmailFootersTemplates } = useEmailTemplatesFooter();
 // data
 const editing = ref(false);
-const form = reactive<{
-  name?: string;
-  mailLayout?: string;
-  mailFooter?: {
-    English: string;
-    French: string;
-    Russian: string;
-  };
-  selectLanguage?: string;
-  visible?: boolean;
-}>({
-  name: activeMailConfig?.value?.name,
-  mailLayout: activeMailConfig?.value?.mailLayout,
-  mailFooter: {
-    English: '',
-    French: '',
-    Russian: '',
-  },
-  selectLanguage: 'ENGLISH',
-  visible: activeMailConfig?.value?.visible,
-});
 // methods
 function onToggleEditState() {
   editing.value = !editing.value;
 }
-function onChangeLanguage(language: string) {
-  form.selectLanguage = language;
+
+async function onUpdateEmailConfiguration() {
+  const payload: MailConfiguration = {
+    ...activeMailConfig.value,
+    ...activeEmailConfigForm.value,
+    mailFooterLangs: { ...mailFooterLangsForm.value },
+  };
+  await handleUpdateMailConfiguration(payload);
+}
+
+function onResetEmailConfiguration() {
+  handleResetEmailConfiguration();
 }
 
 onMounted(async () => {
@@ -164,6 +165,7 @@ onMounted(async () => {
 
   &__body-table {
     width: 100%;
+    margin-top: 20px;
   }
 
   &__action {

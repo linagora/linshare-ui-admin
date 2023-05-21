@@ -1,16 +1,20 @@
 import { reactive, ref, computed, watch } from 'vue';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
-import { MailConfiguration } from '../types/MailConfiguration';
+import { MailConfiguration, MailLang, MailFooterLangs } from '../types/MailConfiguration';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
 import {
+  getMailContentList,
+  updateMailConfiguration,
   getMailConfigurationList,
   assignMailConfiguration,
   createMailConfiguration,
   deleteMailConfiguration,
   getMailConfigurationDetail,
+  updateMailConfigurationMailContent,
+  getMailConfigurationLanguagesSupport,
 } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
@@ -23,6 +27,9 @@ const activeMailConfig = useLocalStorage<MailConfiguration>(
   'configuration-type-mail-config-activeMailConfig',
   {} as MailConfiguration
 );
+const activeEmailConfigForm = ref<Partial<MailConfiguration>>({});
+const defaultMailConfigurationForm = ref<Partial<MailConfiguration>>({});
+const mailFooterLangsForm = ref<MailFooterLangs>({});
 const selectedMailConfigs = ref<MailConfiguration[]>();
 
 const list = ref<MailConfiguration[]>([]);
@@ -78,6 +85,16 @@ export default function useEmailTemplatesConfiguration() {
 
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
+  });
+
+  // computed
+  const languageOptions = computed(() => {
+    return [
+      { label: t(`LOCALE.ENGLISH`), value: 'ENGLISH' },
+      { label: t(`LOCALE.FRENCH`), value: 'FRENCH' },
+      { label: t(`LOCALE.RUSSIAN`), value: 'RUSSIAN' },
+      { label: t(`LOCALE.VIETNAMESE`), value: 'VIETNAMESE' },
+    ];
   });
 
   //methods
@@ -281,6 +298,19 @@ export default function useEmailTemplatesConfiguration() {
       const messages = await getMailConfigurationDetail(uuid, currentDomain.value.uuid);
       status.value = STATUS.SUCCESS;
       activeMailConfig.value = messages;
+      activeMailConfig.value.selectLanguage = 'ENGLISH';
+      languageOptions.value.forEach((item) => {
+        mailFooterLangsForm.value[item.value] = activeMailConfig.value.mailFooterLangs[item.value] ?? {};
+      });
+
+      activeEmailConfigForm.value = {
+        uuid: messages?.uuid ?? activeMailConfig.value?.uuid,
+        name: messages?.name,
+        visible: messages?.visible,
+        mailLayout: messages?.mailLayout,
+        selectLanguage: activeMailConfig.value.selectLanguage,
+      };
+      defaultMailConfigurationForm.value = { ...activeEmailConfigForm.value };
     } catch (error) {
       status.value = STATUS.ERROR;
 
@@ -288,6 +318,61 @@ export default function useEmailTemplatesConfiguration() {
         message.error(error.getMessage());
       }
     }
+  }
+  async function handleGetMailContentList(
+    uuid: string | undefined,
+    language: string | undefined,
+    mailContentType: string | undefined
+  ) {
+    try {
+      const messages = await getMailContentList(uuid, language, mailContentType);
+      return messages;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return [];
+    }
+  }
+
+  async function handleUpdateMailContentLang(payload: MailLang) {
+    try {
+      await updateMailConfigurationMailContent(payload);
+      message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return [];
+    }
+  }
+
+  async function handleGetLanguageSupport() {
+    try {
+      const result = await getMailConfigurationLanguagesSupport();
+      return result;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return [];
+    }
+  }
+
+  async function handleUpdateMailConfiguration(payload: MailConfiguration) {
+    try {
+      const result = await updateMailConfiguration(payload);
+      message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return [];
+    }
+  }
+
+  function handleResetEmailConfiguration() {
+    activeEmailConfigForm.value = { ...defaultMailConfigurationForm.value };
   }
 
   return {
@@ -299,16 +384,24 @@ export default function useEmailTemplatesConfiguration() {
     filterText,
     filteredList,
     activeMailConfig,
+    mailFooterLangsForm,
+    activeEmailConfigForm,
     filteredListByPage,
     selectedMailConfigs,
+    languageOptions,
     isAssigned,
     onCloseModal,
-    onEditMailConfiguration,
     fetchMailConfiguration,
+    onEditMailConfiguration,
+    handleGetLanguageSupport,
+    handleGetMailContentList,
     onDeleteMailConfiguration,
     onAssignMailConfiguration,
     onCreateMailConfiguration,
     onDeleteMailConfigurations,
+    handleUpdateMailContentLang,
+    handleResetEmailConfiguration,
+    handleUpdateMailConfiguration,
     handleAssignMailConfiguration,
     handleDeleteMailConfiguration,
     handleCreateMailConfiguration,

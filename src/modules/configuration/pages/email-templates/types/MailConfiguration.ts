@@ -1,28 +1,10 @@
+export type MailFooterLangs = { [key: string]: MailLang };
 export interface MailConfiguration {
   creationDate?: number;
   domain: string;
   domainName: string;
-  mailContentLangs: {
-    language: string;
-    mailConfig: string;
-    mailContent: string;
-    mailContentype: string;
-    readonly: boolean;
-    uuid: string;
-  };
-  mailFooterLangs: {
-    entry: {
-      key: string;
-      value: {
-        language: string;
-        mailConfig: string;
-        mailContent: string;
-        mailContentype: string;
-        readonly: boolean;
-        uuid: string;
-      };
-    };
-  };
+  mailContentLangs: MailLang[];
+  mailFooterLangs: MailFooterLangs;
   mailLayout: string;
   modificationDate: number;
   name: string;
@@ -30,4 +12,31 @@ export interface MailConfiguration {
   uuid: string;
   visible: boolean;
   assigned?: boolean;
+  selectLanguage?: string;
+}
+
+export interface MailLang {
+  language: string;
+  mailConfig: string;
+  mailContent: string;
+  mailContentType: string;
+  mailFooter?: string;
+  readonly: boolean;
+  uuid: string;
+}
+
+export interface MailLangDetail {
+  description: string;
+  domain: string;
+  visible: boolean;
+  mailContentType: string;
+  subject: string;
+  body: string;
+  creationDate: number;
+  modificationDate: number;
+  uuid: string;
+  readonly: boolean;
+  messagesFrench: string;
+  messagesEnglish: string;
+  messagesRussian: string;
 }

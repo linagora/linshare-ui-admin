@@ -1,6 +1,6 @@
 import apiv4 from '@/apiv4';
 import api from '@/api';
-import { MailConfiguration } from '../types/MailConfiguration';
+import { MailConfiguration, MailLangDetail, MailLang } from '../types/MailConfiguration';
 import { MailLayout } from '../types/MailLayout';
 import { MailFooter } from '../types/MailFooter';
 
@@ -16,8 +16,19 @@ async function getMailConfigurationDetail(uuid: string, domainUuid: string): Pro
   return await apiv4.get(`mail_configs/${uuid}?domainId=${domainUuid}`);
 }
 
-async function getMailConfigurationLanguageList(): Promise<string[]> {
-  return await apiv4.get(`enums/language`);
+async function getMailContentList(
+  uuid: string | undefined,
+  language: string | undefined,
+  mailContentType: string | undefined
+): Promise<MailLangDetail[]> {
+  return await apiv4.get(`mail_configs/${uuid}/mail_contents?language=${language}&mailContentType=${mailContentType}`);
+}
+
+async function getMailConfigurationLanguagesSupport(): Promise<string[]> {
+  return await apiv4.post(`enums/language`);
+}
+async function updateMailConfigurationMailContent(payload: MailLang): Promise<MailLangDetail> {
+  return await apiv4.put(`mail_content_langs`, payload);
 }
 
 async function getLayoutEmailTemplates(domainUuid: string, onlyCurrentDomain: boolean): Promise<MailLayout[]> {
@@ -41,17 +52,24 @@ async function createMailConfiguration(payload: {
   return await apiv4.post(`mail_configs`, payload);
 }
 
+async function updateMailConfiguration(payload: MailConfiguration) {
+  return await apiv4.put(`mail_configs`, payload);
+}
+
 async function deleteMailConfiguration(payload: { uuid: string }): Promise<MailConfiguration> {
   return await apiv4.delete('mail_configs', { data: payload });
 }
 
 export {
-  getMailConfigurationDetail,
-  getMailConfigurationList,
+  getMailContentList,
+  updateMailConfiguration,
   assignMailConfiguration,
   getLayoutEmailTemplates,
   deleteMailConfiguration,
   createMailConfiguration,
+  getMailConfigurationList,
+  getMailConfigurationDetail,
   getMailConfigurationFooterList,
-  getMailConfigurationLanguageList,
+  getMailConfigurationLanguagesSupport,
+  updateMailConfigurationMailContent,
 };

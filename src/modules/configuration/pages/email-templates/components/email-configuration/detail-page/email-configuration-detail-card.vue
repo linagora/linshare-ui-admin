@@ -3,7 +3,7 @@
     <div class="email-configuration-detail-card__form">
       <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_LABEL')">
         <a-input
-          v-model:value="activeMailConfig.name"
+          v-model:value="activeEmailConfigForm.name"
           :disabled="!editable || !editing"
           :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_PLACEHOLDER')"
           class="ls-input"
@@ -14,11 +14,11 @@
         for="visible"
         :label="$t('EMAIL_TEMPLATES.EDIT_FORM.VISIBLE_LABEL')"
       >
-        <a-switch v-model:checked="activeMailConfig.visible" :disabled="!editable || !editing" class="ls-switch" />
+        <a-switch v-model:checked="activeEmailConfigForm.visible" :disabled="!editable || !editing" class="ls-switch" />
       </a-form-item>
       <a-form-item class="ls-form-title" for="layout" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_LABEL')">
         <a-select
-          v-model:value="activeMailConfig.mailLayout"
+          v-model:value="activeEmailConfigForm.mailLayout"
           :disabled="!editable || !editing"
           class="ls-input"
           :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_PLACEHOLDER')"
@@ -32,13 +32,14 @@
       <a-form-item class="ls-form-title" for="footer" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.FOOTER_LABEL')">
         <div v-for="language in languageOptions" :key="language?.label" class="ls-form-footer-language">
           <a-select
-            v-model:value="activeMailConfig.mailFooterLangs[language.value].uuid"
+            v-if="mailFooterLangsForm[language.value]"
+            v-model:value="mailFooterLangsForm[language.value].mailFooter"
             :disabled="!editable || !editing"
             class="ls-input ls-select-field"
             :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.FOOTER_PLACEHOLDER')"
             :bordered="false"
           >
-            <a-select-option v-for="s in footerOptions" :key="s?.label" :value="s?.value">
+            <a-select-option v-for="s in footerOptions" :key="s?.value" :value="s?.value">
               {{ s?.label }}
             </a-select-option>
           </a-select>
@@ -48,22 +49,12 @@
       <a-form-item class="ls-form-title" for="language" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LANGUAGE_LABEL')">
         <div class="ls-languages">
           <a-button
+            v-for="language in languageOptions"
+            :key="language?.label"
             class="select-language"
-            :class="{ selected: selectLanguage === 'ENGLISH' }"
-            @click="onSelectLanguage('ENGLISH')"
-            >English</a-button
-          >
-          <a-button
-            class="select-language"
-            :class="{ selected: selectLanguage === 'FRENCH' }"
-            @click="onSelectLanguage('FRENCH')"
-            >French</a-button
-          >
-          <a-button
-            class="select-language"
-            :class="{ selected: selectLanguage === 'RUSSIAN' }"
-            @click="onSelectLanguage('RUSSIAN')"
-            >Russian</a-button
+            :class="{ selected: activeEmailConfigForm.selectLanguage === language.value }"
+            @click="onSelectLanguage(language.value)"
+            >{{ language.label }}</a-button
           >
         </div>
       </a-form-item>
@@ -80,20 +71,17 @@ import useEmailTemplatesConfiguration from '../../../hooks/useEmailTemplatesConf
 
 // composable
 const { t } = useI18n();
-const { activeMailConfig } = useEmailTemplatesConfiguration();
+const { activeEmailConfigForm, languageOptions, mailFooterLangsForm } = useEmailTemplatesConfiguration();
 
 // props & emits
 const props = defineProps<{
   editable?: boolean;
   editing?: boolean;
-  item?: MailConfiguration;
   layouts?: MailLayout[];
   footers?: MailFooter[];
 }>();
 const emits = defineEmits(['update:modelValue', 'select-language']);
 
-//data
-const selectLanguage = ref('ENGLISH');
 //computed
 const layoutOptions = computed(() => {
   return (
@@ -116,18 +104,9 @@ const footerOptions = computed(() => {
     }) ?? []
   );
 });
-
-const languageOptions = computed(() => {
-  return [
-    { label: 'English', value: 'ENGLISH' },
-    { label: 'French', value: 'FRENCH' },
-    { label: 'Russian', value: 'RUSSIAN' },
-  ];
-});
 // methods
 function onSelectLanguage(language: string) {
-  selectLanguage.value = language;
-  emits('select-language', language);
+  activeEmailConfigForm.value.selectLanguage = language;
 }
 </script>
 <style lang="less">
@@ -281,7 +260,7 @@ function onSelectLanguage(language: string) {
     align-items: flex-start;
     padding: 8px 16px;
     gap: 8px;
-    width: 89px;
+    min-width: 89px;
     height: 36px;
     background: #ffffff;
     border: 1px solid #dfe1e6;
@@ -319,10 +298,12 @@ function onSelectLanguage(language: string) {
     gap: 12px;
     margin-bottom: 12px;
   }
+
   .ls-form-footer-language .ls-input-field {
     width: 30%;
     min-width: 30%;
   }
+
   .ls-form-footer-language .ls-select-field {
     flex-grow: 1;
     flex-shrink: 1;
