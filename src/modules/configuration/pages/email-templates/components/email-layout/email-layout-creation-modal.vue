@@ -147,11 +147,9 @@ async function onCreateEmailLayout() {
   } catch (error) {
     return;
   }
-  const result = await handleCreateMailLayout(form);
-  if (result) {
-    emits('refresh');
-    onCloseModal();
-  }
+  await handleCreateMailLayout(form);
+  emits('refresh');
+  onCloseModal();
 }
 
 async function fetchDomains() {
