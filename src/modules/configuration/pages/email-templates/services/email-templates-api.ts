@@ -16,6 +16,10 @@ async function getMailConfigurationDetail(uuid: string, domainUuid: string): Pro
   return await apiv4.get(`mail_configs/${uuid}?domainId=${domainUuid}`);
 }
 
+async function getMailLayoutDetail(uuid: string, domainUuid: string): Promise<MailLayout> {
+  return await apiv4.get(`mail_layouts/${uuid}?domainId=${domainUuid}`);
+}
+
 async function getMailContentList(
   uuid: string | undefined,
   language: string | undefined,
@@ -98,4 +102,5 @@ export {
   updateMailConfigurationMailContent,
   getMailLayoutList,
   createMailLayout,
+  getMailLayoutDetail,
 };

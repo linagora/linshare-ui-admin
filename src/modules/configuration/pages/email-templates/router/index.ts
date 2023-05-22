@@ -5,6 +5,7 @@ export const CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES = {
   CONFIGURATION: 'ConfigurationDomainEmailTemplatesConfiguration',
   CONFIGURATION_DETAIL: 'ConfigurationDomainEmailTemplatesConfigurationDetail',
   LAYOUT: 'ConfigurationDomainEmailTemplatesLayout',
+  LAYOUT_DETAIL: 'ConfigurationDomainEmailTemplatesLayoutDetail',
   FOOTER: 'ConfigurationDomainEmailTemplatesFooter',
   CONTENT: 'ConfigurationDomainEmailTemplatesContent',
   ACTIVATION: 'ConfigurationDomainEmailTemplatesActivation',
@@ -46,6 +47,16 @@ export const ConfigurationDomainEmailTemplatesRoutes: RouteRecordRaw[] = [
         name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT,
         path: 'layout',
         component: () => import('@/modules/configuration/pages/email-templates/pages/layout-page.vue'),
+        meta: {
+          requiresAuth: true,
+          parentRoute: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ENTRIES,
+          label: 'EMAIL_TEMPLATES.VERTICAL_TABS.LAYOUT',
+        },
+      },
+      {
+        name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT_DETAIL,
+        path: 'layout/:id',
+        component: () => import('@/modules/configuration/pages/email-templates/pages/layout-detail-page.vue'),
         meta: {
           requiresAuth: true,
           parentRoute: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ENTRIES,

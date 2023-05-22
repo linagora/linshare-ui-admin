@@ -49,10 +49,16 @@
             <template #overlay>
               <a-menu>
                 <a-menu-item> <CopyOutlined></CopyOutlined> {{ $t('GENERAL.DUPPLICATE') }} </a-menu-item>
-                <a-menu-item v-if="!checkingEmailLayoutsDomainAuthorized(record.domain)">
+                <a-menu-item
+                  v-if="!checkingEmailLayoutsDomainAuthorized(record.domain)"
+                  @click="onEditMailLayout(record)"
+                >
                   <ViewIcon></ViewIcon> {{ $t('GENERAL.VIEW') }}
                 </a-menu-item>
-                <a-menu-item v-if="checkingEmailLayoutsDomainAuthorized(record.domain)">
+                <a-menu-item
+                  v-if="checkingEmailLayoutsDomainAuthorized(record.domain)"
+                  @click="onEditMailLayout(record)"
+                >
                   <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
                 </a-menu-item>
                 <a-menu-item
@@ -101,7 +107,8 @@ const pagination = reactive({
 
 // composable
 const { t } = useI18n();
-const { selectedMailLayouts, checkingEmailLayoutsDomainAuthorized, onDeleteMailLayout } = useEmailTemplatesLayout();
+const { selectedMailLayouts, checkingEmailLayoutsDomainAuthorized, onDeleteMailLayout, onEditMailLayout } =
+  useEmailTemplatesLayout();
 
 // computed
 const rowSelection = computed(() => ({
