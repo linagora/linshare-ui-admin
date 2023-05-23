@@ -30,6 +30,7 @@
     v-model:visible="modal.visible"
     :closable="false"
     :footer="null"
+    :destroy-on-close="true"
     wrap-class-name="email-templates-configuration-page__modal"
   >
     <create-mail-configuration-card
