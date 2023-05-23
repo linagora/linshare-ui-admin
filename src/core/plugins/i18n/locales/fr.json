@@ -62,7 +62,9 @@
     "EMPTY_MESSAGE": "Aucune donnée",
     "CLEAR_FILTER": "Réinitialiser les filtres",
     "ISOLATE": "Isoler",
-    "UNDO": "Annuler"
+    "UNDO": "Annuler",
+    "DUPPLICATE": "Dupliquer",
+    "MIGRATE": "Migrer"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -372,41 +374,16 @@
   },
   "INCONSISTENT_USERS": {
     "TITLE": "Utilisateurs incohérents",
-    "BOX_FORM": {
-      "LABEL_TARGET_DOMAIN": "Domaine cible",
-      "LABEL_STATUS": "Statut",
-      "LABEL_CREATION_DATE": "Date de création",
-      "LABEL_MODIFICATION_DATE": "Date de modification",
-      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
-      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
-      "LABEL_DOMAIN": "Domaine courant",
-      "FORM_ACTIONS": {
-        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
-        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
-      }
-    },
-    "BOX_LIST": {
-      "TITLE": "Liste des utilisateurs incohérents",
       "DESCRIPTION": "Un utilisateur incohérent est un utilisateur qui n'est plus dans aucun LDAP associé à différents domaines. Cette vue active le domaine d'un utilisateur incohérent afin qu'il devienne un utilisateur régulier. Grâce au résultat d'un utilisateur, vous pouvez modifier les informations qui le concernent. En sélectionnant un groupe d'utilisateurs, vous pouvez les supprimer tous d'un coup ou changer leur domaine",
       "COLUMNS": {
         "NUMBER_COL" : "Nu.",
         "FIRSTNAME" : "Prénom",
         "LASTNAME" : "Nom",
         "EMAIL" : "Email",
-        "DOMAIN_ID" : "Domaine Id"
-      },
-      "TOKEN_INPUT_PLACEHOLDER": "Rechercher ou filtrer les utilisateurs incohérents",
-      "TABLE": {
-        "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
-        "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
-        "HEADER_EMAIL": "Courriel",
-        "HEADER_DOMAIN": "Domaine",
-        "HEADER_ROLE": "Rôle",
-        "HEADER_CHECKBOX": "Sélection"
-      },
-      "MULTIPLE_UPDATE": "Actions multiples"
+        "DOMAIN_ID" : "Domaine Id",
+      "ROLE": "Rôle"
     },
+    "TOKEN_INPUT_PLACEHOLDER": "Rechercher ou filtrer les utilisateurs incohérents",
     "SCRUTINY": {
       "TITLE": "Diagnostic utilisateur",
       "SEARCH_LEGEND": "Rechercher tous les comptes d'une personne avec son courriel",

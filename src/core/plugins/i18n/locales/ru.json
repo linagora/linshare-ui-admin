@@ -62,7 +62,9 @@
     "EMPTY_MESSAGE": "Нет данных",
     "CLEAR_FILTER": "Сбросить фильтр",
     "ISOLATE": "Изолировать",
-    "UNDO": "Отменить"
+    "UNDO": "Отменить",
+    "DUPPLICATE": "Дублировать",
+    "MIGRATE": "Перенести"
   },
   "LOCALE": {
     "ENGLISH": "Английский",
@@ -378,35 +380,10 @@
       "FIRSTNAME" : "Имя",
       "LASTNAME" : "Фамилия",
       "EMAIL" : "Электронная почта",
-      "DOMAIN_ID" : "Идентификатор домена"
+      "DOMAIN_ID" : "Идентификатор домена",
+      "ROLE": "Роль"
     },
     "TOKEN_INPUT_PLACEHOLDER": "Поиск или фильтрация непоследовательных пользователей",
-    "BOX_FORM": {
-      "LABEL_TARGET_DOMAIN": "Целевой домен",
-      "LABEL_STATUS": "Статус",
-      "LABEL_CREATION_DATE": "Дата создания",
-      "LABEL_MODIFICATION_DATE": "Дата модификации",
-      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
-      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
-      "LABEL_DOMAIN": "Текущий домен",
-      "FORM_ACTIONS": {
-        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
-        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
-      }
-    },
-    "BOX_LIST": {
-      "TITLE": "Список непоследовательных пользователей",
-      "TABLE": {
-        "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
-        "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
-        "HEADER_EMAIL": "E-mail",
-        "HEADER_DOMAIN": "Домен",
-        "HEADER_ROLE": "Роль",
-        "HEADER_CHECKBOX": "Выбрать"
-      },
-      "MULTIPLE_UPDATE": "Несколько действий"
-    },
     "SCRUTINY": {
       "TITLE": "Пользовательская диагностика",
       "SEARCH_LEGEND": "Найдите учетные записи пользователя, указав адрес электронной почты",

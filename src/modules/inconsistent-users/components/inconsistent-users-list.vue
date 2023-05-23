@@ -15,7 +15,6 @@ const columns = computed(() => [
     dataIndex: 'no',
     key: 'number',
     title: t('INCONSISTENT_USERS.COLUMNS.NUMBER_COL'),
-    width: 200,
   },
   {
     dataIndex: 'firstName',
@@ -31,19 +30,21 @@ const columns = computed(() => [
     dataIndex: 'email',
     key: 'email',
     title: t('INCONSISTENT_USERS.COLUMNS.EMAIL'),
-    width: 200,
   },
   {
     dataIndex: 'domain',
     key: 'domain',
     title: t('GENERAL.DOMAIN'),
-    width: 200,
   },
   {
     dataIndex: 'domainId',
     key: 'domainId',
     title: t('INCONSISTENT_USERS.COLUMNS.DOMAIN_ID'),
-    width: 200,
+  },
+  {
+    dataIndex: 'role',
+    key: 'role',
+    title: t('INCONSISTENT_USERS.COLUMNS.ROLE'),
   },
 ]);
 
@@ -79,6 +80,10 @@ onMounted(fetchInconsistentUsersList);
 
       <template v-if="column.key === 'domainId'">
         <span class="name">{{ record.domain }}</span>
+      </template>
+
+      <template v-if="column.key === 'role'">
+        <span class="name">{{ record.role }}</span>
       </template>
     </template>
   </a-table>

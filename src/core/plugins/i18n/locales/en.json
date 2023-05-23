@@ -63,7 +63,8 @@
     "CLEAR_FILTER": "Clear filter",
     "ISOLATE": "Isolate",
     "UNDO": "Undo",
-    "DUPPLICATE": "Duplicate"
+    "DUPPLICATE": "Duplicate",
+    "MIGRATE": "Migrate"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -378,37 +379,12 @@
     "COLUMNS": {
       "NUMBER_COL" : "No.",
       "FIRSTNAME" : "First Name",
-      "LASTNAME" : "Last Name.",
+      "LASTNAME" : "Last Name",
       "EMAIL" : "Email",
-      "DOMAIN_ID" : "Domain Id"
+      "DOMAIN_ID" : "Domain Id",
+      "ROLE": "Role"
     },
     "TOKEN_INPUT_PLACEHOLDER": "Search or filter inconsistent users",
-    "BOX_FORM": {
-      "LABEL_TARGET_DOMAIN": "Target domain",
-      "LABEL_STATUS": "Status",
-      "LABEL_CREATION_DATE": "Creation date",
-      "LABEL_MODIFICATION_DATE": "Modification date",
-      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
-      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
-      "LABEL_DOMAIN": "Current domain",
-      "FORM_ACTIONS": {
-        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
-        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
-      }
-    },
-    "BOX_LIST": {
-      "TITLE": "Inconsistent users list",
-      "TABLE": {
-        "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
-        "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
-        "HEADER_EMAIL": "Email",
-        "HEADER_DOMAIN": "Domain",
-        "HEADER_ROLE": "Role",
-        "HEADER_CHECKBOX": "Select"
-      },
-      "MULTIPLE_UPDATE": "Multiple actions"
-    },
     "SCRUTINY": {
       "TITLE": "User diagnostic",
       "SEARCH_LEGEND": "Find a person's accounts by giving his email address",

@@ -62,7 +62,9 @@
     "EMPTY_MESSAGE": "Không có dữ liệu",
     "CLEAR_FILTER": "Xoá bộ lọc",
     "ISOLATE": "Isolate",
-    "UNDO": "Undo"
+    "UNDO": "Undo",
+    "DUPPLICATE": "Sao chép",
+    "MIGRATE": "Di chuyển"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -372,66 +374,35 @@
   },
   "INCONSISTENT_USERS": {
     "TITLE": "Người dùng không nhất quán",
-    "SCRUTINY": {
-      "TITLE": "Chẩn đoán người dùng"
-    }
-  },
-  "INCONSISTENT_USERS": {
-    "TITLE": "Inconsistent users",
-    "DESCRIPTION": "An inconsistent user is a user who is no longer in any LDAP associated to different domains. This view enables the domain of an inconsistent user so that he become a regular user. Through a user's result, you can edit the information related to him. By selection of a group of users, you can delete them all at one or change their domain",
+    "DESCRIPTION": "Người dùng không nhất quán là người dùng không còn trong bất kỳ LDAP nào được liên kết với các miền khác nhau. Chế độ xem này cho phép miền của người dùng không nhất quán để anh ta trở thành người dùng thông thường. Thông qua kết quả của người dùng, bạn có thể chỉnh sửa thông tin liên quan đến anh ta. Bằng cách chọn một nhóm người dùng, bạn có thể xóa tất cả họ cùng một lúc hoặc thay đổi tên miền của họ",
     "COLUMNS": {
-      "NUMBER_COL" : "No.",
-      "FIRSTNAME" : "First Name",
-      "LASTNAME" : "Last Name.",
-      "EMAIL" : "Email",
-      "DOMAIN_ID" : "Domain Id"
+      "NUMBER_COL" : "Số dòng.",
+      "FIRSTNAME" : "Tên",
+      "LASTNAME" : "Họ",
+      "EMAIL" : "Thư",
+      "DOMAIN_ID" : "Id miền",
+      "ROLE": "Vai trò"
     },
-    "TOKEN_INPUT_PLACEHOLDER": "Search or filter inconsistent users",
-    "BOX_FORM": {
-      "LABEL_TARGET_DOMAIN": "Target domain",
-      "LABEL_STATUS": "Status",
-      "LABEL_CREATION_DATE": "Creation date",
-      "LABEL_MODIFICATION_DATE": "Modification date",
-      "LABEL_FIRST_NAME": "@:COMMON.BASIC_FORM.LABEL_FIRST_NAME",
-      "LABEL_LAST_NAME": "@:COMMON.BASIC_FORM.LABEL_LAST_NAME",
-      "LABEL_DOMAIN": "Current domain",
-      "FORM_ACTIONS": {
-        "BUTTON_DELETE": "@:COMMON.BASIC_FORM.BUTTON_DELETE",
-        "BUTTON_SUBMIT": "@:COMMON.BASIC_FORM.BUTTON_SUBMIT",
-        "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
-      }
-    },
-    "BOX_LIST": {
-      "TITLE": "Inconsistent users list",
-      "TABLE": {
-        "HEADER_FIRST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_FIRST_NAME",
-        "HEADER_LAST_NAME": "@:INCONSISTENT_USERS.BOX_FORM.LABEL_LAST_NAME",
-        "HEADER_EMAIL": "Email",
-        "HEADER_DOMAIN": "Domain",
-        "HEADER_ROLE": "Role",
-        "HEADER_CHECKBOX": "Select"
-      },
-      "MULTIPLE_UPDATE": "Multiple actions"
-    },
+    "TOKEN_INPUT_PLACEHOLDER": "Tìm kiếm hoặc lọc người dùng không nhất quán",
     "SCRUTINY": {
-      "TITLE": "User diagnostic",
-      "SEARCH_LEGEND": "Find a person's accounts by giving his email address",
+      "TITLE": "Chẩn đoán người dùng",
+      "SEARCH_LEGEND": "Tìm tài khoản của một người bằng cách cung cấp địa chỉ email của người đó",
       "PLACEHOLDER": "Email",
-      "DOMAIN_HEADER": "DOMAIN NAME",
-      "DOMAIN_HEADER_LABEL": "List of DOMAINS",
+      "DOMAIN_HEADER": "TÊN MIỀN",
+      "DOMAIN_HEADER_LABEL": "Danh sách MIỀN",
       "LDAP_HEADER": "LDAP",
-      "LDAP_HEADER_LABEL": "Presence of the user in the LDAP",
-      "DATABASE_HEADER": "DATABASE",
-      "DATABASE_HEADER_LABEL": "Presence of the user in the database",
-      "GUEST_HEADER": "GUEST",
-      "GUEST_HEADER_LABEL": "Whether the user is a guest",
-      "NOT_FOUND_MESSAGE": "No result for: ",
-      "CURRENT_USER_FOUND": "Search result for : ",
-      "WARNING_OUT_OF_DATE_REFRESH": "The displayed data are no longer uptodate",
-      "REFRESH": "Refresh"
+      "LDAP_HEADER_LABEL": "Sự hiện diện của người dùng trong LDAP",
+      "DATABASE_HEADER": "CƠ SỞ DỮ LIỆU",
+      "DATABASE_HEADER_LABEL": "Có người dùng trong cơ sở dữ liệu",
+      "GUEST_HEADER": "KHÁCH",
+      "GUEST_HEADER_LABEL": "Người dùng có phải là khách không",
+      "NOT_FOUND_MESSAGE": "Không có kết quả cho: ",
+      "CURRENT_USER_FOUND": "Kết quả tìm kiếm cho : ",
+      "WARNING_OUT_OF_DATE_REFRESH": "Dữ liệu hiển thị không còn được cập nhật",
+      "REFRESH": "Làm mới"
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
+      "PARAGRAPH": "Bạn sắp xóa người dùng này, quy trình này là không thể đảo ngược và hủy tất cả tài liệu của anh ấy. Bạn có muốn tiếp tục không?"
     }
   },
   "QUOTA": {
