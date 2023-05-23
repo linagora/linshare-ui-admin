@@ -76,13 +76,22 @@ import DeleteMailConfigurationsCard from '../components/email-configuration/dele
 import DeleteMailConfigurationsFailCard from '../components/email-configuration/delete-mail-configurations-fail-card.vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 import MailConfigurationActions from '../components/email-configuration/mail-configuration-actions.vue';
-const { modal, filterText, pagination, filteredList, onCloseModal, fetchMailConfiguration, onCreateMailConfiguration } =
-  useEmailTemplatesConfiguration();
+const {
+  modal,
+  filterText,
+  pagination,
+  filteredList,
+  onCloseModal,
+  fetchMailConfiguration,
+  onCreateMailConfiguration,
+  resetSelectEmailConfiguration,
+} = useEmailTemplatesConfiguration();
 const route = useRoute();
 const domainStore = useDomainStore();
 
 async function onFetchMailConfiguration() {
   await fetchMailConfiguration();
+  resetSelectEmailConfiguration();
 }
 
 function assignReload() {

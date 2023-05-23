@@ -374,6 +374,9 @@ export default function useEmailTemplatesConfiguration() {
   function handleResetEmailConfiguration() {
     activeEmailConfigForm.value = { ...defaultMailConfigurationForm.value };
   }
+  function resetSelectEmailConfiguration() {
+    selectedMailConfigs.value = [];
+  }
 
   return {
     list,
@@ -400,6 +403,7 @@ export default function useEmailTemplatesConfiguration() {
     onCreateMailConfiguration,
     onDeleteMailConfigurations,
     handleUpdateMailContentLang,
+    resetSelectEmailConfiguration,
     handleResetEmailConfiguration,
     handleUpdateMailConfiguration,
     handleAssignMailConfiguration,
