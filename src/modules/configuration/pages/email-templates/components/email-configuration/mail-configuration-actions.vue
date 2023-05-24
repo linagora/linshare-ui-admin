@@ -8,7 +8,7 @@
         {{ $t('GENERAL.DELETE') }}
       </a-button>
     </div>
-    <a-button type="primary" @click="emits('create')">
+    <a-button v-else type="primary" @click="emits('create')">
       <template #icon>
         <PlusCircleOutlined />
       </template>
