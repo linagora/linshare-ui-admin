@@ -2,7 +2,6 @@
   <div class="email-configuration-detail-header">
     <div class="email-configuration-detail-header__title">
       <strong>{{ $t('EMAIL_TEMPLATES.EDIT_FORM.EDIT_HEADER') }}</strong>
-      <span>{{ $t('EMAIL_TEMPLATES.EDIT_FORM.EDIT_SUBHEADER') }}</span>
     </div>
     <div class="email-configuration-detail-header__action">
       <a-button class="ls-button" @click="onBackToMimePolicies">
