@@ -16,6 +16,7 @@ const pagination = reactive({
   current: 1,
   pageSize: DEFAULT_PAGE_SIZE,
 });
+const loading = ref(false);
 
 const filteredList = computed(() =>
   list.value.filter((inconsistentUser) =>
@@ -55,6 +56,7 @@ export default function useInconsistentUsers() {
     fetchInconsistentUsersList,
     list,
     status,
+    loading,
     pagination,
     filterText,
     filteredList,

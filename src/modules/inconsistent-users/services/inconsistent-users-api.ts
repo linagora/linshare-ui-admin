@@ -5,4 +5,8 @@ async function getInconsistentUsersList(): Promise<InconsistentUsers[]> {
   return await apiv4.get('users/inconsistent');
 }
 
-export { getInconsistentUsersList };
+async function deleteUser(payload: InconsistentUsers): Promise<InconsistentUsers> {
+  return await apiv4.delete('users', { data: payload });
+}
+
+export { getInconsistentUsersList, deleteUser };
