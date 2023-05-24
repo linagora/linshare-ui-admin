@@ -132,7 +132,8 @@ const columns = computed(() => [
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     key: 'modificationDate',
-    sorter: (a: MailLayout, b: MailLayout) => (a.modificationDate || 0) - (b.modificationDate || 0),
+    sorter: (a: MailLayout, b: MailLayout) => (b.modificationDate || 0) - (a.modificationDate || 0),
+    defaultSortOrder: 'descend',
   },
   {
     title: t('EMAIL_TEMPLATES.VISIBILITY'),
