@@ -98,21 +98,18 @@ export default function useEmailTemplatesLayout() {
         return false;
       }
       await deleteMailLayout({ uuid: activeMailLayout?.uuid });
-      onCloseModal();
       return true;
     } catch (error) {
       if (error instanceof APIError) {
         if (error.errorCode === 16666) {
-          onCloseModal();
           message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_ASSIGNED'));
         } else if (error.errorCode === 166678) {
-          onCloseModal();
           message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_UNAUTHORIZED'));
         } else {
-          onCloseModal();
           message.error(error.getMessage());
         }
       }
+      return false;
     } finally {
       loading.value = false;
     }
