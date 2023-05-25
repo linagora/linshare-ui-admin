@@ -339,5 +339,9 @@ watch(route, (newRoute) => {
     height: 100% !important;
     border-radius: 10px;
   }
+  .ant-select-single .ant-select-selector .ant-select-selection-item,
+  .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+    line-height: 40px;
+  }
 }
 </style>
