@@ -98,7 +98,7 @@ const formRules = computed(() => ({
   name: [
     {
       required: true,
-      message: t('DOMAIN.FIELDS.NAME_REQUIRED'),
+      message: t('GENERAL.FIELD_REQUIRED'),
       trigger: 'blur',
     },
   ],
