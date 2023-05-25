@@ -35,8 +35,8 @@
         <template v-if="column.key === 'modificationDate'">
           <span>{{ $d(record.modificationDate, 'mediumDate') }}</span>
         </template>
-        <template v-if="column.key === 'visibility'">
-          <a-tag v-if="record.visibility" color="success">
+        <template v-if="column.key === 'visible'">
+          <a-tag v-if="record.visible" color="success">
             {{ $t('EMAIL_TEMPLATES.EMAIL_LAYOUT.PUBLIC') }}
           </a-tag>
           <a-tag v-else color="default"> {{ $t('EMAIL_TEMPLATES.EMAIL_LAYOUT.PRIVATE') }}</a-tag>
@@ -160,7 +160,7 @@ const columns = computed(() => [
   },
   {
     title: t('EMAIL_TEMPLATES.VISIBILITY'),
-    key: 'visibility',
+    key: 'visible',
     sorter: (a: MailLayout, b: MailLayout) => Number(b.visible) - Number(a.visible),
   },
   {
