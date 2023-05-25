@@ -10,13 +10,20 @@
           }}
         </h3>
         <div>
-          <a-button class="multipselectedUsersle-delete-button" type="primary" danger @click="confirmDelete">
+          <a-button class="multiple-delete-button" type="primary" danger @click="confirmDelete">
             {{ t('GENERAL.DELETE') }}</a-button
           >
+          <a-button type="primary" ghost @click="showFilterModal = true">{{ t('GENERAL.MIGRATE') }}</a-button>
         </div>
       </div>
     </a-card>
   </div>
+
+  <inconsistent-users-migration-modal
+    :visible="showFilterModal"
+    :selected-users="selectedUsers.users"
+    @close="showFilterModal = false"
+  ></inconsistent-users-migration-modal>
 
   <a-table
     :columns="columns"
@@ -70,7 +77,12 @@ import { message } from 'ant-design-vue';
 import useRelativeTime from '@/core/hooks/useRelativeTime';
 import { useDomainStore } from '@/modules/domain/store';
 import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
-import { getInconsistentUsersList, deleteUser } from '@/modules/inconsistent-users/services/inconsistent-users-api';
+import InconsistentUsersMigrationModal from './inconsistent-users-migration-modal.vue';
+import {
+  getInconsistentUsersList,
+  deleteUser,
+  migrateUser,
+} from '@/modules/inconsistent-users/services/inconsistent-users-api';
 import useNotification from '@/core/hooks/useNotification';
 import User from '@/modules/user/types/User';
 import { APIError } from '@/core/types/APIError';

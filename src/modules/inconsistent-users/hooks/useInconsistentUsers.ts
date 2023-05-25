@@ -5,8 +5,7 @@ import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
-import { getInconsistentUsersList } from '../services/inconsistent-users-api';
-import { storeToRefs } from 'pinia';
+import { getInconsistentUsersList, migrateUser } from '../services/inconsistent-users-api';
 
 const list = ref<InconsistentUsers[]>([]);
 const filterText = ref('');
@@ -51,9 +50,39 @@ export default function useInconsistentUsers() {
     }
   }
 
+  async function handleMigrateInconsistentUsers(payload: InconsistentUsers[], domain: string) {
+    try {
+      loading.value = true;
+
+      const migratePromises = payload.map((item) => {
+        item.domain = domain;
+
+        return migrateUser(item);
+      });
+      if (!migratePromises) {
+        return;
+      }
+      const responses = await Promise.all(migratePromises);
+
+      if (responses) {
+        message.success(t('MESSAGES.UPDATE_SUCCESS'));
+        return true;
+      }
+      return false;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   return {
     useInconsistentUsers,
     fetchInconsistentUsersList,
+    handleMigrateInconsistentUsers,
     list,
     status,
     loading,

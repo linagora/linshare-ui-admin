@@ -9,4 +9,8 @@ async function deleteUser(payload: InconsistentUsers): Promise<InconsistentUsers
   return await apiv4.delete('users', { data: payload });
 }
 
-export { getInconsistentUsersList, deleteUser };
+async function migrateUser(payload: InconsistentUsers): Promise<InconsistentUsers> {
+  return await apiv4.put('users/inconsistent', payload);
+}
+
+export { getInconsistentUsersList, deleteUser, migrateUser };
