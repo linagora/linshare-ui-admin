@@ -2522,6 +2522,7 @@
       "DELETE_ERROR_ALL": "Bạn không thể xóa các cấu hình thư đó"      
     },
     "DELETE_LAYOUT_MODAL": {
+      "DELETE_MODAL_EMPTY": "Vui lòng chọn bố cục để xóa",
       "DELETE_MODAL_TITLE": "Xóa bố cục thư",
       "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa bố cục thư này cho {currentDomain}. Bạn có muốn tiếp tục?",
       "DELETE_SUCCESS": "Đã xóa thành công",

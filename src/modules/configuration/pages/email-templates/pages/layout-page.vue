@@ -22,12 +22,7 @@
           <SearchOutlined />
         </template>
       </a-input>
-      <a-button type="primary" class="ls-filled" @click="openCreateModal">
-        <template #icon>
-          <PlusCircleOutlined />
-        </template>
-        {{ $t('GENERAL.CREATE') }}
-      </a-button>
+      <mail-layout-actions @create="onCreateMailLayout"></mail-layout-actions>
     </div>
     <email-layout-table :status="status" :items="templatesBySearch"></email-layout-table>
   </div>
@@ -49,22 +44,37 @@
       @close="onCloseModal"
       @refresh="onFetchEmailLayouts"
     ></DeleteMailLayoutCard>
+    <DeleteMailLayoutsCard
+      v-else-if="modal.type === 'DELETE_LAYOUTS_EMAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchEmailLayouts"
+    ></DeleteMailLayoutsCard>
+    <DeleteMailLayoutsFailCard
+      v-else-if="modal.type === 'DELETE_LAYOUTS_FAIL_EMAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchEmailLayouts"
+    ></DeleteMailLayoutsFailCard>
   </a-modal>
 </template>
 <script lang="ts" setup>
-import { computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
+import { computed, watch } from 'vue';
+import { SearchOutlined } from '@ant-design/icons-vue';
 import { useDomainStore } from '@/modules/domain/store';
 import useEmailTemplatesLayout from '../hooks/useEmailTemplatesLayout';
 import EmailLayoutTable from '../components/email-layout/email-layout-table.vue';
-import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 import createMailLayoutModal from '../components/email-layout/email-layout-creation-modal.vue';
+import MailLayoutActions from '../components/email-layout/mail-layout-actions.vue';
 import DeleteMailLayoutCard from '../components/email-layout/delete-mail-layout-card.vue';
+import DeleteMailLayoutsCard from '../components/email-layout/delete-mail-layouts-card.vue';
+import DeleteMailLayoutsFailCard from '../components/email-layout/delete-mail-layouts-fail-card.vue';
+
 //composable
 const route = useRoute();
 const { currentDomain } = storeToRefs(useDomainStore());
-const { status, list, filterText, handleGetEmailLayoutTemplates, modal, onCloseModal } = useEmailTemplatesLayout();
+const { modal, status, list, filterText, onCreateMailLayout, onCloseModal, handleGetEmailLayoutTemplates } =
+  useEmailTemplatesLayout();
 
 //computed
 
@@ -157,6 +167,16 @@ watch(
     line-height: 20px;
     letter-spacing: -0.02em;
     color: #434657;
+  }
+  &__modal .ant-modal-content {
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__modal .ant-modal-body {
+    padding: 0;
   }
   &__modal .ant-modal-content {
     background: #ffffff;

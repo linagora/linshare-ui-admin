@@ -18,6 +18,7 @@ const activeMailLayout = useLocalStorage<MailLayout>(
   'configuration-type-mail-layout-activeMailLayout',
   {} as MailLayout
 );
+const selectedMailLayouts = ref<MailLayout[]>();
 const status = ref(STATUS.LOADING);
 const pagination = reactive({
   total: 0,
@@ -56,9 +57,32 @@ export default function useEmailTemplatesLayout() {
     modal.visible = false;
   }
 
+  function onCreateMailLayout(email: MailLayout) {
+    activeMailLayout.value = email;
+    modal.type = 'CREATE_LAYOUT_EMAIL';
+    modal.visible = true;
+  }
+
   function onDeleteMailLayout(mailLayout: MailLayout) {
     activeMailLayout.value = mailLayout;
     modal.type = 'DELETE_LAYOUT_EMAIL';
+    modal.visible = true;
+  }
+
+  function onDeleteMailLayoutsFail(response: {
+    total: number;
+    totalSuccess: number;
+    totalFail: number;
+    totalAssignCases: number;
+    totalUnAuthoCases: number;
+  }) {
+    modal.type = 'DELETE_LAYOUTS_FAIL_EMAIL';
+    modal.visible = true;
+    modal.multipleDeleteResponse = response;
+  }
+
+  function onDeleteMailLayouts() {
+    modal.type = 'DELETE_LAYOUTS_EMAIL';
     modal.visible = true;
   }
 
@@ -67,7 +91,7 @@ export default function useEmailTemplatesLayout() {
       status.value = STATUS.LOADING;
       const templates = await getLayoutEmailTemplates(domainUuid, true);
       list.value = templates?.map((item) => {
-        return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailConfiguration?.uuid) };
+        return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailLayout?.uuid) };
       });
       status.value = STATUS.SUCCESS;
       return;
@@ -86,6 +110,7 @@ export default function useEmailTemplatesLayout() {
     }
     return false;
   }
+
   async function handleDeleteMailLayout(activeMailLayout: MailLayout) {
     try {
       if (!activeMailLayout || !activeMailLayout?.uuid) {
@@ -113,6 +138,57 @@ export default function useEmailTemplatesLayout() {
           message.error(error.getMessage());
         }
       }
+    } finally {
+      loading.value = false;
+    }
+  }
+
+  async function handleDeleteMailLayouts() {
+    try {
+      if (!selectedMailLayouts?.value?.length) {
+        message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_MODAL_EMPTY'));
+        return {
+          total: selectedMailLayouts?.value?.length,
+          totalSuccess: 0,
+          totalFail: selectedMailLayouts?.value?.length,
+          totalAssignCases: 0,
+          totalUnAuthoCases: 0,
+        };
+      }
+
+      loading.value = true;
+      const deletePromises = selectedMailLayouts.value?.map((item) => {
+        return deleteMailLayout({ uuid: item?.uuid });
+      });
+      if (!deletePromises) {
+        return {
+          total: selectedMailLayouts?.value?.length,
+          totalSuccess: 0,
+          totalFail: selectedMailLayouts?.value?.length,
+          totalAssignCases: 0,
+          totalUnAuthoCases: 0,
+        };
+      }
+
+      return await Promise.allSettled(deletePromises).then((results) => {
+        return {
+          total: selectedMailLayouts?.value?.length,
+          totalSuccess: results.filter((item) => item.status === 'fulfilled')?.length ?? 0,
+          totalFail: results.filter((item) => item.status === 'rejected')?.length ?? 0,
+          totalAssignCases:
+            results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 16666)?.length ?? 0,
+          totalUnAuthoCases:
+            results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 166678)?.length ?? 0,
+        };
+      });
+    } catch (error) {
+      return {
+        total: selectedMailLayouts?.value?.length,
+        totalSuccess: 0,
+        totalFail: selectedMailLayouts?.value?.length,
+        totalAssignCases: 0,
+        totalUnAuthoCases: 0,
+      };
     } finally {
       loading.value = false;
     }
@@ -167,9 +243,14 @@ export default function useEmailTemplatesLayout() {
     filterText,
     pagination,
     activeMailLayout,
+    selectedMailLayouts,
     onCloseModal,
     onDeleteMailLayout,
+    onCreateMailLayout,
+    onDeleteMailLayouts,
     handleDeleteMailLayout,
+    handleDeleteMailLayouts,
+    onDeleteMailLayoutsFail,
     handleGetEmailLayoutTemplates,
     checkingEmailLayoutsDomainAuthorized,
     handleCreateMailLayout,

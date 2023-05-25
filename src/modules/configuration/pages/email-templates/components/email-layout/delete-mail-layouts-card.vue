@@ -1,17 +1,17 @@
 <template>
-  <a-card flat :bordered="false" class="delete-mail-layouts-card">
-    <span class="delete-mail-layouts-card__icon">
+  <a-card flat :bordered="false" class="delete-mail-configurations-card">
+    <span class="delete-mail-configurations-card__icon">
       <DeleteIcon />
     </span>
-    <div class="delete-mail-layouts-card__content">
+    <div class="delete-mail-configurations-card__content">
       <strong>{{ $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_SELECTED_MAIL_CONFIGURATION') }}</strong>
       <span>{{
         $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE', {
-          qty: selectedMailConfigs?.length ?? 0,
+          qty: selectedMailLayouts?.length ?? 0,
         })
       }}</span>
     </div>
-    <div class="delete-mail-layouts-card__actions">
+    <div class="delete-mail-configurations-card__actions">
       <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{
         $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ACTION_CANCEL')
       }}</a-button>
@@ -24,13 +24,13 @@
 </template>
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
+import { message } from 'ant-design-vue';
 import DeleteIcon from '@/core/components/icons/delete-icon.vue';
-import useEmailTemplatesConfiguration from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesConfiguration';
+import useEmailTemplatesLayout from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesLayout';
 
 // composable
 const { t } = useI18n();
-const { handleDeleteMailConfigurations, onDeleteMailConfigurationsFail, selectedMailConfigs, loading } =
-  useEmailTemplatesConfiguration();
+const { handleDeleteMailLayouts, onDeleteMailLayoutsFail, selectedMailLayouts, loading } = useEmailTemplatesLayout();
 
 const emits = defineEmits(['close', 'refresh']);
 
@@ -39,17 +39,18 @@ function onCloseModal() {
 }
 
 async function onConfirmDelete() {
-  const result = await handleDeleteMailConfigurations();
+  const result = await handleDeleteMailLayouts();
   if (result.totalSuccess === result.total) {
+    message.success(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_SUCCESS'));
     emits('refresh');
     emits('close');
   } else {
-    onDeleteMailConfigurationsFail(result);
+    onDeleteMailLayoutsFail(result);
   }
 }
 </script>
 <style lang="less">
-.delete-mail-layouts-card {
+.delete-mail-configurations-card {
   .ant-card-body {
     display: flex;
     flex-direction: column;
