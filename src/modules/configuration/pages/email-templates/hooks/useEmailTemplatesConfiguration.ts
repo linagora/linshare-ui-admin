@@ -221,18 +221,14 @@ export default function useEmailTemplatesConfiguration() {
         return false;
       }
       await deleteMailConfiguration(MailConfigurationUuid);
-      onCloseModal();
       return true;
     } catch (error) {
       if (error instanceof APIError) {
         if (error.errorCode === 16666) {
-          onCloseModal();
           message.error(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ERROR_ASSIGNED'));
         } else if (error.errorCode === 166678) {
-          onCloseModal();
           message.error(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ERROR_UNAUTHORIZED'));
         } else {
-          onCloseModal();
           message.error(error.getMessage());
         }
       }
