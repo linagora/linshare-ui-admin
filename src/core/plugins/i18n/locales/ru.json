@@ -2262,6 +2262,7 @@
       "DELETE_ERROR_ALL": "Удаление настроек почты невозможно"   
     },
     "DELETE_LAYOUT_MODAL": {
+      "DELETE_MODAL_EMPTY": "Выберите политику удалить для удаления",
       "DELETE_MODAL_TITLE": "Удалить mакет почты",
       "DELETE_MODAL_SUBTITLE": "Вы собираетесь удалить эту mакет почты для {currentDomain}. Хотите продолжить?",
       "DELETE_SUCCESS": "Успешно удалено",

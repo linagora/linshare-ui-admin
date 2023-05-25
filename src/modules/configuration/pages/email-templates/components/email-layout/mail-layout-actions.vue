@@ -1,14 +1,14 @@
 <template>
   <div class="mail-configuration-actions">
     <div v-if="isShowSubActions" class="mail-configuration-actions__sub-action">
-      <a-button type="default" outline class="ls-button__delete" @click="onDeleteMailConfigurations">
+      <a-button type="default" outline class="ls-button__delete" @click="onDeleteMailLayouts">
         <template #icon>
           <DeleteFilled />
         </template>
         {{ $t('GENERAL.DELETE') }}
       </a-button>
     </div>
-    <a-button v-else type="primary" @click="emits('create')">
+    <a-button type="primary" @click="emits('create')">
       <template #icon>
         <PlusCircleOutlined />
       </template>
@@ -19,16 +19,16 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { PlusCircleOutlined, DeleteFilled } from '@ant-design/icons-vue';
-import useEmailTemplatesConfiguration from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesConfiguration';
+import useEmailTemplatesLayout from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesLayout';
 
 // props & emits
 const emits = defineEmits(['create']);
 // composables
-const { selectedMailConfigs, onDeleteMailConfigurations } = useEmailTemplatesConfiguration();
+const { selectedMailLayouts, onDeleteMailLayouts } = useEmailTemplatesLayout();
 
 // computed
 const isShowSubActions = computed(() => {
-  return !!selectedMailConfigs?.value?.length;
+  return !!selectedMailLayouts?.value?.length;
 });
 </script>
 <style lang="less">

@@ -2524,6 +2524,7 @@
       "DELETE_ERROR_ALL": "You are unable to delete those mail configurations"
     },
     "DELETE_LAYOUT_MODAL":{
+      "DELETE_MODAL_EMPTY": "Please select mail layout to delete",
       "DELETE_MODAL_TITLE": "Delete Mail Layout",
       "DELETE_MODAL_SUBTITLE": "You are about to delete this mail layout for {currentDomain}. Do you want to proceed?",
       "DELETE_SUCCESS": "Deleted successfully",

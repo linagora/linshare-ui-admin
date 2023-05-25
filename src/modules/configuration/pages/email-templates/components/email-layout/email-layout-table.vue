@@ -6,6 +6,8 @@
       :data-source="mimeTypesByPage"
       :pagination="false"
       :loading="status === STATUS.LOADING"
+      :row-selection="rowSelection"
+      row-key="uuid"
       :columns="columns"
     >
       <template #bodyCell="{ column, record }">
@@ -99,8 +101,22 @@ const pagination = reactive({
 
 // composable
 const { t } = useI18n();
-const { checkingEmailLayoutsDomainAuthorized, onDeleteMailLayout } = useEmailTemplatesLayout();
+const { selectedMailLayouts, checkingEmailLayoutsDomainAuthorized, onDeleteMailLayout } = useEmailTemplatesLayout();
+
 // computed
+const rowSelection = computed(() => ({
+  checkStrictly: false,
+  selectedRowKeys: selectedMailLayouts.value?.map((item) => item.uuid) ?? [],
+  onSelect: (record: MailLayout, selected: boolean, selectedRows: MailLayout[]) => {
+    selectedMailLayouts.value = selectedRows;
+  },
+  onSelectAll: (selected: boolean, selectedRows: MailLayout[], changeRows: MailLayout[]) => {
+    selectedMailLayouts.value = selectedRows;
+  },
+  onChange: (selected: boolean, selectedRows: MailLayout[], changeRows: MailLayout[]) => {
+    selectedMailLayouts.value = selectedRows;
+  },
+}));
 const mimeTypesByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
   const lastIndex = pagination.current * pagination.pageSize;
