@@ -76,6 +76,7 @@ async function onUpdateEmailConfiguration() {
     ...activeEmailConfigForm.value,
     mailFooterLangs: { ...mailFooterLangsForm.value },
   };
+  delete payload.selectLanguage;
   await handleUpdateMailConfiguration(payload);
 }
 
