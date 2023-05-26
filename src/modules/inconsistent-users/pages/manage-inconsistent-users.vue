@@ -84,15 +84,6 @@ const filterOptions = [
     })),
   },
 ];
-
-// const handleSubmit = async function (options: TokenSubmitPayload<SharedSpaceListFilters>) {
-//   if (options.sort) {
-//     Object.assign(sorter, options.sort);
-//   }
-//   filters.value = options.filters;
-
-//   await handleTableChange();
-// };
 </script>
 
 <style lang="less">

@@ -5,11 +5,18 @@ import { MailLayout } from '../types/MailLayout';
 import message from 'ant-design-vue/lib/message';
 import { APIError } from '@/core/types/APIError';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
-import { createMailLayout, getLayoutEmailTemplates, deleteMailLayout } from '../services/email-templates-api';
+import {
+  createMailLayout,
+  getLayoutEmailTemplates,
+  deleteMailLayout,
+  getMailLayoutDetail,
+} from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { useDomainStore } from '@/modules/domain/store';
+import { useRouter } from 'vue-router';
+import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../router';
 import { useLocalStorage } from '@vueuse/core';
 
 const list = ref<MailLayout[]>([]);
@@ -19,6 +26,7 @@ const activeMailLayout = useLocalStorage<MailLayout>(
   {} as MailLayout
 );
 const selectedMailLayouts = ref<MailLayout[]>();
+const activeEmailLayoutForm = ref<Partial<MailLayout>>({});
 const status = ref(STATUS.LOADING);
 const pagination = reactive({
   total: 0,
@@ -45,11 +53,13 @@ const modal = reactive<{
   type: 'CREATE_LAYOUT_EMAIL',
   visible: false,
 });
+
 export default function useEmailTemplatesLayout() {
   //composable
   const { t } = useI18n();
   const { loggedUserRole } = storeToRefs(useAuthStore());
   const { getDomainsList, currentDomain } = storeToRefs(useDomainStore());
+  const router = useRouter();
 
   //methods
 
@@ -104,6 +114,7 @@ export default function useEmailTemplatesLayout() {
       status.value = STATUS.SUCCESS;
     }
   }
+
   function isAssigned(mailLayoutUuid: string, currentDomainMailLayoutUuid: string | undefined) {
     if (mailLayoutUuid === currentDomainMailLayoutUuid) {
       return true;
@@ -232,6 +243,34 @@ export default function useEmailTemplatesLayout() {
     }
   }
 
+  function onEditMailLayout(record: MailLayout) {
+    router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT_DETAIL, params: { id: record?.uuid } });
+  }
+
+  async function handleGetMailLayoutDetail(uuid: string) {
+    status.value = STATUS.LOADING;
+    try {
+      const messages = await getMailLayoutDetail(uuid, currentDomain.value.uuid);
+      status.value = STATUS.SUCCESS;
+      activeMailLayout.value = messages;
+
+      activeEmailLayoutForm.value = {
+        uuid: messages?.uuid ?? activeMailLayout.value?.uuid,
+        description: messages?.description,
+        visible: messages?.visible,
+        layout: messages?.layout,
+        messagesEnglish: messages?.messagesEnglish,
+        messagesFrench: messages?.messagesFrench,
+        messagesRussian: messages?.messagesRussian,
+      };
+    } catch (error) {
+      status.value = STATUS.ERROR;
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    }
+  }
+
   return {
     list,
     modal,
@@ -251,5 +290,8 @@ export default function useEmailTemplatesLayout() {
     handleGetEmailLayoutTemplates,
     checkingEmailLayoutsDomainAuthorized,
     handleCreateMailLayout,
+    onEditMailLayout,
+    handleGetMailLayoutDetail,
+    activeEmailLayoutForm,
   };
 }

@@ -1,21 +1,17 @@
 <template>
-  <div class="email-configuration-detail-header">
-    <div class="email-configuration-detail-header__title">
-      <strong>{{ $t('EMAIL_TEMPLATES.EDIT_FORM.EDIT_HEADER') }}</strong>
+  <div class="email-layout-detail-header">
+    <div class="email-layout-detail-header__title">
+      <strong>{{ $t('EMAIL_TEMPLATES.EMAIL_LAYOUT.EMAIL_LAYOUT_DETAIL_PAGE.PAGE_HEADER') }}</strong>
+      <span> {{ activeMailLayout.description }} </span>
     </div>
-    <div class="email-configuration-detail-header__action">
-      <a-button class="ls-button" @click="onBackToMimePolicies">
+    <div class="email-layout-detail-header__action">
+      <a-button class="ls-button" @click="onBackToMailLayoutList">
         <template #icon>
           <ArrowLeftOutlined />
         </template>
         {{ $t('GENERAL.BACK_TO_LIST') }}
       </a-button>
-      <a-button
-        v-if="editable && !editing"
-        type="primary"
-        class="ls-button ls-filled"
-        @click="onEditEmailConfiguration"
-      >
+      <a-button type="primary" class="ls-button ls-filled">
         <template #icon>
           <EditOutlined />
         </template>
@@ -25,30 +21,20 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 import { ArrowLeftOutlined, EditOutlined } from '@ant-design/icons-vue';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '@/modules/configuration/pages/email-templates/router';
+import useEmailTemplatesLayout from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesLayout';
 
 const router = useRouter();
-const route = useRoute();
-
-// props & emits
-const props = defineProps<{
-  editable?: boolean;
-  editing?: boolean;
-}>();
-const emits = defineEmits(['edit-toggle']);
+const { activeMailLayout } = useEmailTemplatesLayout();
 // methods
-function onBackToMimePolicies() {
-  router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION });
-}
-
-function onEditEmailConfiguration() {
-  emits('edit-toggle');
+function onBackToMailLayoutList() {
+  router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT });
 }
 </script>
 <style lang="less">
-.email-configuration-detail-header {
+.email-layout-detail-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

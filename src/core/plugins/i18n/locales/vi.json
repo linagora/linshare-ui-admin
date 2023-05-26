@@ -2485,7 +2485,11 @@
       "THIRD_HELP_TEXT": "<span style='color: #007AFF'>personalMessage</span> Một thông điệp tùy chỉnh được thêm vào thông điệp mặc định. <span style='color: #007AFF'>body</span>",
       "FOUR_HELP_TEXT": "<span style='color: #007AFF'>greetings</span> Lời chào",
       "FIVE_HELP_TEXT": "<span style='color: #007AFF'>body</span> Nội dung mà bạn đưa vào 'Nội dung email'",
-      "SIX_HELP_TEXT": "<span style='color: #007AFF'>footer</span> Nội dung mà bạn đưa vào 'Chân trang email'"
+      "SIX_HELP_TEXT": "<span style='color: #007AFF'>footer</span> Nội dung mà bạn đưa vào 'Chân trang email'",
+      "EMAIL_LAYOUT_DETAIL_PAGE":{
+        "PAGE_HEADER": "Chi tiết bố cục email",
+        "NAME_PLACEHOLDER": "Tên bố cục email"
+        }
     },
     "ASSIGN_MODAL":{
       "ASSIGN_MODAL_TITLE": "Chỉ định Cấu hình Thư",
@@ -2519,7 +2523,7 @@
       "DELETE_ERROR_UNAUTHORIZED_ALL": "Bạn không có quyền xóa các cấu hình thư đó",
       "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các cấu hình thư đó",
       "DELETE_ERROR_ONE": "Bạn không thể xóa cấu hình thư này",
-      "DELETE_ERROR_ALL": "Bạn không thể xóa các cấu hình thư đó"      
+      "DELETE_ERROR_ALL": "Bạn không thể xóa các cấu hình thư đó"
     },
     "DELETE_LAYOUT_MODAL": {
       "DELETE_MODAL_EMPTY": "Vui lòng chọn bố cục để xóa",
