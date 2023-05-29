@@ -49,9 +49,9 @@
       </div>
       <div class="create-mail-layout-card__actions">
         <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>
-        <a-button class="ls-button ls-save" type="primary">
+        <a-button class="ls-button ls-save" type="primary" @click="onCreateEmailLayout">
           <a-spin v-if="loading" />
-          <span v-else @click="onCreateEmailLayout">{{ $t('GENERAL.CREATE') }}</span>
+          <span v-else>{{ $t('GENERAL.CREATE') }}</span>
         </a-button>
       </div>
     </a-card>
