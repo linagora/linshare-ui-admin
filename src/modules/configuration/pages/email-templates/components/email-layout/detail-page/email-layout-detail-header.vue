@@ -11,7 +11,7 @@
         </template>
         {{ $t('GENERAL.BACK_TO_LIST') }}
       </a-button>
-      <a-button type="primary" class="ls-button ls-filled">
+      <a-button v-if="editable && !editing" type="primary" class="ls-button ls-filled" @click="onEditEmailLayout">
         <template #icon>
           <EditOutlined />
         </template>
@@ -26,11 +26,24 @@ import { ArrowLeftOutlined, EditOutlined } from '@ant-design/icons-vue';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '@/modules/configuration/pages/email-templates/router';
 import useEmailTemplatesLayout from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesLayout';
 
+// composables
 const router = useRouter();
 const { activeMailLayout } = useEmailTemplatesLayout();
+
+// props & emits
+const props = defineProps<{
+  editable?: boolean;
+  editing?: boolean;
+}>();
+const emits = defineEmits(['edit-toggle']);
+
 // methods
 function onBackToMailLayoutList() {
   router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT });
+}
+
+function onEditEmailLayout() {
+  emits('edit-toggle');
 }
 </script>
 <style lang="less">

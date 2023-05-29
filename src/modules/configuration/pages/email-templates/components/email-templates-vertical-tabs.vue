@@ -61,6 +61,7 @@ watch(
         activeKey.value = 'configuration';
         break;
       case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT:
+      case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT_DETAIL:
         activeKey.value = 'layout';
         break;
       case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ACTIVATION:

@@ -45,7 +45,7 @@
           <a-tag v-else color="default"> {{ $t('EMAIL_TEMPLATES.PRIVATE') }}</a-tag>
         </template>
         <template v-else-if="column.key === 'action'">
-          <a-dropdown>
+          <a-dropdown overlay-class-name="email-layout-table__dropdown" placement="bottomRight" :trigger="['click']">
             <a-button class="ls-detail ls-button ls-primary">
               <detail-icon width="16px" height="16px"></detail-icon>
             </a-button>

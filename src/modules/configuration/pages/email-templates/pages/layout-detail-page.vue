@@ -1,12 +1,16 @@
 <template>
   <div class="layout-detail-page">
     <div class="layout-detail-page__title">
-      <email-layout-detail-header :editable="true"></email-layout-detail-header>
+      <email-layout-detail-header
+        :editable="true"
+        :editing="editing"
+        @edit-toggle="onToggleEditState"
+      ></email-layout-detail-header>
     </div>
     <div class="layout-detail-page__body">
       <div class="layout-detail-page__body-summary">
         <div class="layout-detail-page__body-summary-config">
-          <email-layout-detail-card :editable="true"></email-layout-detail-card>
+          <email-layout-detail-card :editable="true" :editing="editing"></email-layout-detail-card>
         </div>
       </div>
       <div class="layout-detail-page__body-summary-system">
@@ -14,18 +18,52 @@
       </div>
     </div>
   </div>
+  <div class="layout-detail-page__action">
+    <email-layout-detail-actions
+      :editable="true"
+      :editing="editing"
+      @cancel="onToggleEditState"
+      @save="onUpdateEmailConfiguration"
+      @reset="onResetEmailConfiguration"
+    ></email-layout-detail-actions>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import EmailLayoutDetailHeader from '@/modules/configuration/pages/email-templates/components/email-layout/detail-page/email-layout-detail-header.vue';
 import EmailLayoutDetailCard from '@/modules/configuration/pages/email-templates/components/email-layout/detail-page/email-layout-detail-card.vue';
+import EmailLayoutDetailActions from '@/modules/configuration/pages/email-templates/components/email-layout/detail-page/email-layout-detail-actions.vue';
 import SystemInformationCard from '@/modules/configuration/pages/email-templates/components/email-layout/detail-page/email-layout-information-card.vue';
 import useEmailTemplatesLayout from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesLayout';
 import router from '@/core/router';
+import { MailLayout } from '../types/MailLayout';
 
-const { activeMailLayout, handleGetMailLayoutDetail } = useEmailTemplatesLayout();
+const { activeMailLayout, handleGetMailLayoutDetail, handleUpdateMailLayout, handleResetEmailLayout } =
+  useEmailTemplatesLayout();
 
+// data
+const editing = ref(false);
+
+// methods
+function onToggleEditState() {
+  editing.value = !editing.value;
+}
+
+async function onUpdateEmailConfiguration() {
+  const payload: MailLayout = {
+    ...activeMailLayout.value,
+  };
+
+  const result = await handleUpdateMailLayout(payload);
+  if (result) {
+    onToggleEditState();
+  }
+}
+
+function onResetEmailConfiguration() {
+  handleResetEmailLayout();
+}
 onMounted(async () => {
   handleGetMailLayoutDetail(router.currentRoute.value.params.id.toString());
 });

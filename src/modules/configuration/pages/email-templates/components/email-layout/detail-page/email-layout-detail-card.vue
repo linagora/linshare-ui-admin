@@ -3,7 +3,8 @@
     <div class="email-layout-detail-card__form">
       <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_LABEL')">
         <a-input
-          v-model:value="activeEmailLayoutForm.description"
+          v-model:value="activeMailLayout.description"
+          :disabled="!editable || !editing"
           :placeholder="$t('EMAIL_TEMPLATES.EMAIL_LAYOUT.EMAIL_LAYOUT_DETAIL_PAGE.NAME_PLACEHOLDER')"
           class="ls-input"
         />
@@ -13,36 +14,26 @@
         for="visible"
         :label="$t('EMAIL_TEMPLATES.EDIT_FORM.VISIBLE_LABEL')"
       >
-        <a-switch v-model:checked="activeEmailLayoutForm.visible" class="ls-switch" />
+        <a-switch v-model:checked="activeMailLayout.visible" :disabled="!editable || !editing" class="ls-switch" />
       </a-form-item>
       <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_LABEL')">
-        <a-textarea v-model:value="activeEmailLayoutForm.layout" :rows="12" />
+        <a-textarea v-model:value="activeMailLayout.layout" :disabled="!editable || !editing" :rows="12" />
       </a-form-item>
     </div>
     <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LANGUAGE_LABEL')">
       <div class="ls-languages">
         <a-button
+          v-for="language in languageOptions"
+          :key="language?.label"
           class="select-language"
-          :class="{ selected: selectedLanguage === 'messagesEnglish' }"
-          @click="selectedLanguage = 'messagesEnglish'"
-          >{{ $t('LOCALE.ENGLISH') }}</a-button
-        >
-        <a-button
-          class="select-language"
-          :class="{ selected: selectedLanguage === 'messagesFrench' }"
-          @click="selectedLanguage = 'messagesFrench'"
-          >{{ $t('LOCALE.FRENCH') }}</a-button
-        >
-        <a-button
-          class="select-language"
-          :class="{ selected: selectedLanguage === 'messagesRussian' }"
-          @click="selectedLanguage = 'messagesRussian'"
-          >{{ $t('LOCALE.RUSSIAN') }}</a-button
+          :class="{ selected: selectedLanguage === language.value }"
+          @click="onSelectLanguage(language.value)"
+          >{{ language.label }}</a-button
         >
       </div>
     </a-form-item>
     <a-form-item class="ls-form-title">
-      <a-textarea v-model:value="activeEmailLayoutForm[selectedLanguage]" :rows="6" />
+      <a-textarea v-model:value="activeMailLayout[selectedLanguage]" :disabled="!editable || !editing" :rows="6" />
     </a-form-item>
   </div>
 </template>
@@ -51,9 +42,17 @@ import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import useEmailTemplatesLayout from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesLayout';
 
+const props = defineProps<{
+  editable?: boolean;
+  editing?: boolean;
+}>();
 const { t } = useI18n();
-const { activeEmailLayoutForm } = useEmailTemplatesLayout();
+const { activeMailLayout, languageOptions } = useEmailTemplatesLayout();
 const selectedLanguage = ref('messagesEnglish');
+
+function onSelectLanguage(language: string) {
+  selectedLanguage.value = language;
+}
 </script>
 <style lang="less">
 .email-layout-detail-card {

@@ -65,6 +65,10 @@ async function updateMailConfiguration(payload: MailConfiguration) {
   return await apiv4.put(`mail_configs`, payload);
 }
 
+async function updateMailLayout(payload: MailLayout) {
+  return await apiv4.put(`mail_layouts`, payload);
+}
+
 async function createMailLayout(payload: {
   description: string;
   domain: string;
@@ -102,5 +106,6 @@ export {
   updateMailConfigurationMailContent,
   getMailLayoutList,
   createMailLayout,
+  updateMailLayout,
   getMailLayoutDetail,
 };

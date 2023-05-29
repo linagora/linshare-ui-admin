@@ -1,4 +1,4 @@
-import { reactive, ref } from 'vue';
+import { computed, reactive, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { STATUS } from '@/core/types/Status';
 import { MailLayout } from '../types/MailLayout';
@@ -10,6 +10,7 @@ import {
   getLayoutEmailTemplates,
   deleteMailLayout,
   getMailLayoutDetail,
+  updateMailLayout,
 } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
@@ -26,7 +27,7 @@ const activeMailLayout = useLocalStorage<MailLayout>(
   {} as MailLayout
 );
 const selectedMailLayouts = ref<MailLayout[]>();
-const activeEmailLayoutForm = ref<Partial<MailLayout>>({});
+const defaultMailLayout = ref<MailLayout>();
 const status = ref(STATUS.LOADING);
 const pagination = reactive({
   total: 0,
@@ -60,6 +61,15 @@ export default function useEmailTemplatesLayout() {
   const { loggedUserRole } = storeToRefs(useAuthStore());
   const { getDomainsList, currentDomain } = storeToRefs(useDomainStore());
   const router = useRouter();
+
+  // computed
+  const languageOptions = computed(() => {
+    return [
+      { label: t(`LOCALE.ENGLISH`), value: 'messagesEnglish' },
+      { label: t(`LOCALE.FRENCH`), value: 'messagesFrench' },
+      { label: t(`LOCALE.RUSSIAN`), value: 'messagesRussian' },
+    ];
+  });
 
   //methods
 
@@ -202,6 +212,23 @@ export default function useEmailTemplatesLayout() {
     }
   }
 
+  function handleResetEmailLayout() {
+    activeMailLayout.value = { ...defaultMailLayout.value };
+  }
+
+  async function handleUpdateMailLayout(payload: MailLayout) {
+    try {
+      const result = await updateMailLayout(payload);
+      message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
+      return true;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    }
+  }
+
   function checkingEmailLayoutsDomainAuthorized(domainUuid: string) {
     if (!domainUuid) {
       return false;
@@ -244,6 +271,7 @@ export default function useEmailTemplatesLayout() {
   }
 
   function onEditMailLayout(record: MailLayout) {
+    activeMailLayout.value = record;
     router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT_DETAIL, params: { id: record?.uuid } });
   }
 
@@ -253,16 +281,7 @@ export default function useEmailTemplatesLayout() {
       const messages = await getMailLayoutDetail(uuid, currentDomain.value.uuid);
       status.value = STATUS.SUCCESS;
       activeMailLayout.value = messages;
-
-      activeEmailLayoutForm.value = {
-        uuid: messages?.uuid ?? activeMailLayout.value?.uuid,
-        description: messages?.description,
-        visible: messages?.visible,
-        layout: messages?.layout,
-        messagesEnglish: messages?.messagesEnglish,
-        messagesFrench: messages?.messagesFrench,
-        messagesRussian: messages?.messagesRussian,
-      };
+      defaultMailLayout.value = { ...messages };
     } catch (error) {
       status.value = STATUS.ERROR;
       if (error instanceof APIError) {
@@ -278,20 +297,22 @@ export default function useEmailTemplatesLayout() {
     loading,
     filterText,
     pagination,
+    languageOptions,
     activeMailLayout,
     selectedMailLayouts,
     onCloseModal,
     onDeleteMailLayout,
     onCreateMailLayout,
     onDeleteMailLayouts,
+    handleResetEmailLayout,
     handleDeleteMailLayout,
     handleDeleteMailLayouts,
     onDeleteMailLayoutsFail,
     handleGetEmailLayoutTemplates,
     checkingEmailLayoutsDomainAuthorized,
     handleCreateMailLayout,
+    handleUpdateMailLayout,
     onEditMailLayout,
     handleGetMailLayoutDetail,
-    activeEmailLayoutForm,
   };
 }
