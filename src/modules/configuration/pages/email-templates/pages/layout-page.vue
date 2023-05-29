@@ -73,8 +73,16 @@ import DeleteMailLayoutsFailCard from '../components/email-layout/delete-mail-la
 //composable
 const route = useRoute();
 const { currentDomain } = storeToRefs(useDomainStore());
-const { modal, status, list, filterText, onCreateMailLayout, onCloseModal, handleGetEmailLayoutTemplates } =
-  useEmailTemplatesLayout();
+const {
+  modal,
+  status,
+  list,
+  filterText,
+  onCreateMailLayout,
+  onCloseModal,
+  handleGetEmailLayoutTemplates,
+  resetSelectEmailLayouts,
+} = useEmailTemplatesLayout();
 
 //computed
 
@@ -98,11 +106,9 @@ const currentDomainUuid = computed(() => {
 // methods
 async function onFetchEmailLayouts() {
   await handleGetEmailLayoutTemplates(currentDomainUuid.value);
+  resetSelectEmailLayouts();
 }
 
-function openCreateModal() {
-  modal.visible = true;
-}
 watch(
   route,
   (newRoute) => {

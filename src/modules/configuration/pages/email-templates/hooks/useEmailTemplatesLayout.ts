@@ -289,6 +289,9 @@ export default function useEmailTemplatesLayout() {
       }
     }
   }
+  function resetSelectEmailLayouts() {
+    selectedMailLayouts.value = [];
+  }
 
   return {
     list,
@@ -301,18 +304,19 @@ export default function useEmailTemplatesLayout() {
     activeMailLayout,
     selectedMailLayouts,
     onCloseModal,
+    onEditMailLayout,
     onDeleteMailLayout,
     onCreateMailLayout,
     onDeleteMailLayouts,
     handleResetEmailLayout,
     handleDeleteMailLayout,
-    handleDeleteMailLayouts,
-    onDeleteMailLayoutsFail,
-    handleGetEmailLayoutTemplates,
-    checkingEmailLayoutsDomainAuthorized,
     handleCreateMailLayout,
     handleUpdateMailLayout,
-    onEditMailLayout,
+    handleDeleteMailLayouts,
+    onDeleteMailLayoutsFail,
+    resetSelectEmailLayouts,
     handleGetMailLayoutDetail,
+    handleGetEmailLayoutTemplates,
+    checkingEmailLayoutsDomainAuthorized,
   };
 }
