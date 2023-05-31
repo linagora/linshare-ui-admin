@@ -1,15 +1,47 @@
-import { reactive, ref, computed, watch } from 'vue';
+import { reactive, ref, computed, watch, Ref, UnwrapRef } from 'vue';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
-import { InconsistentUsers } from '../types/InconsistentUsers';
+import {
+  InconsistentUsers,
+  InconsistentUsersListFilters,
+  InconsistentUsersListParameters,
+} from '../types/InconsistentUsers';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
 import { getInconsistentUsersList, migrateUser } from '../services/inconsistent-users-api';
+import Sort, { SORT_ORDER } from '@/core/types/Sort';
+import { filter } from 'lodash-es';
+
+type UsableUsersList = {
+  list: Ref<InconsistentUsers[]>;
+  sorter: UnwrapRef<Sort>;
+  filters: Ref<InconsistentUsersListFilters>;
+  pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
+  handleTableChange: () => Promise<void>;
+  fetchInconsistentUsersList: () => Promise<void>;
+  handleMigrateInconsistentUsers: (payload: InconsistentUsers[], domain: string) => Promise<boolean | undefined>;
+  reset: () => void;
+  filterText: UnwrapRef<{
+    lastName: string | undefined;
+    firstName: string | undefined;
+    domain: string | undefined;
+    mail: string | undefined;
+  }>;
+  filteredList: Ref<InconsistentUsers[]>;
+  loading: Ref<boolean>;
+  filteredListByPage: Ref<InconsistentUsers[]>;
+};
 
 const list = ref<InconsistentUsers[]>([]);
-const filterText = ref('');
-const status = ref(STATUS.LOADING);
+const filters = ref<InconsistentUsersListFilters>({});
+const sorter = reactive<Sort>({ order: SORT_ORDER.ASC });
+const filterText = reactive({
+  lastName: '',
+  firstName: '',
+  domain: '',
+  mail: '',
+});
 const pagination = reactive({
   total: 0,
   current: 1,
@@ -17,18 +49,36 @@ const pagination = reactive({
 });
 const loading = ref(false);
 
-const filteredList = computed(() =>
-  list.value.filter((inconsistentUser) =>
-    inconsistentUser.lastName.toLowerCase().includes(filterText.value.toLowerCase())
-  )
-);
+const filteredList = computed(() => {
+  return list.value.filter((inconsistentUser) => {
+    const lastNameMatch =
+      filterText.lastName !== '' && filterText.lastName !== undefined
+        ? inconsistentUser.lastName.toLowerCase().includes(filterText.lastName.toLowerCase())
+        : true;
+    const firstNameMatch =
+      filterText.firstName !== '' && filterText.firstName !== undefined
+        ? inconsistentUser.firstName.toLowerCase().includes(filterText.firstName.toLowerCase())
+        : true;
+    const mailMatch =
+      filterText.mail !== '' && filterText.mail !== undefined
+        ? inconsistentUser.mail.toLowerCase().includes(filterText.mail.toLowerCase())
+        : true;
+    const domainMatch =
+      filterText.domain !== '' && filterText.domain !== undefined
+        ? inconsistentUser.domain.toLowerCase().includes(filterText.domain.toLowerCase())
+        : true;
+
+    return lastNameMatch && firstNameMatch && mailMatch && domainMatch;
+  });
+});
+
 const filteredListByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
   const lastIndex = pagination.current * pagination.pageSize;
   return filteredList.value.slice(firstIndex, lastIndex);
 });
 
-export default function useInconsistentUsers() {
+export default function useInconsistentUsers(): UsableUsersList {
   const { t } = useI18n();
 
   watch(filteredList, async (newVal) => {
@@ -36,14 +86,12 @@ export default function useInconsistentUsers() {
   });
 
   async function fetchInconsistentUsersList() {
-    status.value = STATUS.LOADING;
+    loading.value = true;
     try {
       const datas = await getInconsistentUsersList();
-      status.value = STATUS.SUCCESS;
       list.value = datas;
+      loading.value = false;
     } catch (error) {
-      status.value = STATUS.ERROR;
-
       if (error instanceof APIError) {
         message.error(error.getMessage());
       }
@@ -79,13 +127,33 @@ export default function useInconsistentUsers() {
     }
   }
 
+  async function handleTableChange() {
+    const parameters: InconsistentUsersListParameters = {};
+
+    parameters.size = pagination.pageSize;
+    parameters.page = pagination.current ? pagination.current - 1 : 0;
+    parameters.domainId = filters.value.domains;
+    parameters.firstName = filters.value.firstName;
+    parameters.lastName = filters.value.lastName;
+    parameters.mail = filters.value.email;
+    parameters.sortField = sorter.field;
+    parameters.sortOrder = sorter.order;
+  }
+
+  function reset() {
+    filters.value = {};
+    sorter.order = SORT_ORDER.ASC;
+  }
+
   return {
-    useInconsistentUsers,
     fetchInconsistentUsersList,
     handleMigrateInconsistentUsers,
     list,
-    status,
+    filters,
+    sorter,
+    handleTableChange,
     loading,
+    reset,
     pagination,
     filterText,
     filteredList,

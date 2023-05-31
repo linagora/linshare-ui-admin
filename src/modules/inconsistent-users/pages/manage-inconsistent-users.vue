@@ -10,7 +10,7 @@
     :sorts="sortOptions"
     :placeholder="$t('INCONSISTENT_USERS.TOKEN_INPUT_PLACEHOLDER')"
     @submit="handleSubmit"
-    @unmount="reset"
+    @reset="reset"
   />
   <div class="list">
     <InconsistentUsersList />
@@ -30,11 +30,11 @@ import ThePagination from '@/core/components/the-pagination.vue';
 import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
 import { listUsers } from '@/modules/user/services/user-api';
 import Domain from '@/modules/domain/types/Domain';
-import { SharedSpaceListFilters } from '@/modules/shared-spaces/types/ShareSpaceList';
 import { storeToRefs } from 'pinia';
+import { InconsistentUsersListFilters } from '../types/InconsistentUsers';
 
 const { locale, t } = useI18n();
-const { pagination, list } = useInconsistentUsers();
+const { pagination, list, sorter, filters, handleTableChange, reset, filterText } = useInconsistentUsers();
 const domainStore = useDomainStore();
 const { getDomainsList: domainsList } = storeToRefs(domainStore);
 
@@ -42,8 +42,33 @@ const searchForAccounts = async function (mail: string) {
   const data = await listUsers({ mail });
 
   return data.data.map((user) => ({
-    label: user.mail,
-    value: user.uuid,
+    label: user.uuid,
+    value: user.mail,
+    key: user.uuid,
+    data: user,
+    optionComponent: shallowRef(AccountAutocompleteItem),
+  }));
+};
+
+const searchFirstName = async function (mail: string) {
+  const data = await listUsers({ mail });
+
+  return data.data.map((user) => ({
+    label: user.firstName,
+    value: user.firstName,
+    key: user.uuid,
+    data: user,
+    optionComponent: shallowRef(AccountAutocompleteItem),
+  }));
+};
+
+const searchLastName = async function (mail: string) {
+  const data = await listUsers({ mail });
+
+  return data.data.map((user) => ({
+    label: user.lastName,
+    value: user.lastName,
+    key: user.uuid,
     data: user,
     optionComponent: shallowRef(AccountAutocompleteItem),
   }));
@@ -51,7 +76,7 @@ const searchForAccounts = async function (mail: string) {
 
 const sortOptions = [
   {
-    key: 'name',
+    key: 'lastName',
     label: 'SHARED_SPACES.TOKEN_INPUT.NAME',
   },
   {
@@ -67,13 +92,20 @@ const sortOptions = [
 
 const filterOptions = [
   {
-    key: 'name',
-    displayKey: computed(() => t('GENERAL.SEARCH_BY_NAME', locale.value)),
+    key: 'lastName',
+    displayKey: computed(() => t('INCONSISTENT_USERS.COLUMNS.LASTNAME')),
+    asyncAutocomplete: searchLastName,
     default: true,
+  },
+  {
+    key: 'firstName',
+    displayKey: computed(() => t('INCONSISTENT_USERS.COLUMNS.FIRSTNAME')),
+    asyncAutocomplete: searchFirstName,
   },
   {
     key: 'email',
     displayKey: computed(() => t('INCONSISTENT_USERS.COLUMNS.EMAIL', locale.value)),
+    asyncAutocomplete: searchForAccounts,
   },
   {
     key: 'domains',
@@ -84,6 +116,19 @@ const filterOptions = [
     })),
   },
 ];
+
+const handleSubmit = async function (options: TokenSubmitPayload<InconsistentUsersListFilters>) {
+  if (options.sort) {
+    Object.assign(sorter, options.sort);
+  }
+  filters.value = options.filters;
+  filterText.domain = filters.value.domains;
+  filterText.lastName = filters.value.lastName;
+  filterText.firstName = filters.value.firstName;
+  filterText.mail = filters.value.email;
+
+  await handleTableChange();
+};
 </script>
 
 <style lang="less">

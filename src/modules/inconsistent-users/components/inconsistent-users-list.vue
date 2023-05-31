@@ -27,8 +27,8 @@
 
   <a-table
     :columns="columns"
-    :data-source="list"
-    :loading="status"
+    :data-source="filteredListByPage"
+    :loading="loading"
     :pagination="false"
     row-key="uuid"
     :row-selection="{ selectedRowKeys: selectedUsers.userKey, onChange: onSelectChange }"
@@ -70,26 +70,18 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
 import { computed, reactive, ref, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
-import useRelativeTime from '@/core/hooks/useRelativeTime';
-import { useDomainStore } from '@/modules/domain/store';
 import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
 import InconsistentUsersMigrationModal from './inconsistent-users-migration-modal.vue';
-import {
-  getInconsistentUsersList,
-  deleteUser,
-  migrateUser,
-} from '@/modules/inconsistent-users/services/inconsistent-users-api';
+import { deleteUser } from '@/modules/inconsistent-users/services/inconsistent-users-api';
 import useNotification from '@/core/hooks/useNotification';
 import User from '@/modules/user/types/User';
 import { APIError } from '@/core/types/APIError';
 
 const { t } = useI18n();
-const { fetchInconsistentUsersList, status, list } = useInconsistentUsers();
-const domainStore = useDomainStore();
+const { fetchInconsistentUsersList, filteredListByPage, loading } = useInconsistentUsers();
 const { confirmModal } = useNotification();
 
 const columns = computed(() => [
