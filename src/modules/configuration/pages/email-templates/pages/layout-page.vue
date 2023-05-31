@@ -105,7 +105,7 @@ const currentDomainUuid = computed(() => {
 
 // methods
 async function onFetchEmailLayouts() {
-  await handleGetEmailLayoutTemplates(currentDomainUuid.value);
+  await handleGetEmailLayoutTemplates(currentDomainUuid.value, false);
   resetSelectEmailLayouts();
 }
 

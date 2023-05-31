@@ -86,7 +86,7 @@ function onResetEmailConfiguration() {
 
 onMounted(async () => {
   handleGetMailConfigurationDetail(activeMailConfig?.value?.uuid);
-  handleGetEmailLayoutTemplates(activeMailConfig?.value?.domain);
+  handleGetEmailLayoutTemplates(activeMailConfig?.value?.domain, false);
   handleGetEmailFootersTemplates(activeMailConfig?.value?.uuid);
 });
 </script>

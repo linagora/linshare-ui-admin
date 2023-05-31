@@ -106,10 +106,10 @@ export default function useEmailTemplatesLayout() {
     modal.visible = true;
   }
 
-  async function handleGetEmailLayoutTemplates(domainUuid: string) {
+  async function handleGetEmailLayoutTemplates(domainUuid: string, onlyCurrentDomain = true) {
     try {
       status.value = STATUS.LOADING;
-      const templates = await getLayoutEmailTemplates(domainUuid, true);
+      const templates = await getLayoutEmailTemplates(domainUuid, onlyCurrentDomain);
       list.value = templates?.map((item) => {
         return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailLayout?.uuid) };
       });

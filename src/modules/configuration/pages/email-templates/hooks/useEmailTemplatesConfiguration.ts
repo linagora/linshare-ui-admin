@@ -124,10 +124,10 @@ export default function useEmailTemplatesConfiguration() {
     modal.multipleDeleteResponse = response;
   }
 
-  async function fetchMailConfiguration() {
+  async function fetchMailConfiguration(onlyCurrentDomain = true) {
     status.value = STATUS.LOADING;
     try {
-      const messages = await getMailConfigurationList(currentDomain.value.uuid, false);
+      const messages = await getMailConfigurationList(currentDomain.value.uuid, onlyCurrentDomain);
       status.value = STATUS.SUCCESS;
       list.value = messages?.map((item) => {
         return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailConfiguration?.uuid) };
