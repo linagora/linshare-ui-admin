@@ -48,7 +48,6 @@
             </a-button>
             <template #overlay>
               <a-menu>
-                <a-menu-item> <CopyOutlined></CopyOutlined> {{ $t('GENERAL.DUPPLICATE') }} </a-menu-item>
                 <a-menu-item
                   v-if="!checkingEmailLayoutsDomainAuthorized(record.domain)"
                   @click="onEditMailLayout(record)"
@@ -89,7 +88,6 @@ import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import EditIcon from '@/core/components/icons/edit-icon.vue';
 import ViewIcon from '@/core/components/icons/view-icon.vue';
 import DeleteIcon from '@/core/components/icons/delete-icon.vue';
-import { CopyOutlined } from '@ant-design/icons-vue';
 
 // props
 const props = defineProps<{
@@ -241,21 +239,12 @@ watch(
     box-shadow: none !important;
 
     .ant-dropdown-menu {
-      padding: 8px;
-      gap: 8px;
-      width: 301px;
-      height: 164px;
       background: #ffffff;
       box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.08), 0px 8px 24px rgba(0, 0, 0, 0.08);
       border-radius: 8px;
     }
 
     .ant-dropdown-menu-item {
-      height: 48px;
-      border-radius: 8px;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -265,7 +254,7 @@ watch(
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      gap: 16px;
+      gap: 4px;
     }
 
     svg {
