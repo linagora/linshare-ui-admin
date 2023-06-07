@@ -3,7 +3,7 @@
     <a-table
       key="uuid"
       class="email-layout-table__table"
-      :data-source="mimeTypesByPage"
+      :data-source="mailLayoutByPage"
       :pagination="false"
       :loading="status === STATUS.LOADING"
       :row-selection="rowSelection"
@@ -77,11 +77,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, reactive, watch } from 'vue';
+import { computed, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { STATUS } from '@/core/types/Status';
 import ThePagination from '@/core/components/the-pagination.vue';
-import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 import { MailLayout } from '../../types/MailLayout';
 import useEmailTemplatesLayout from '../../hooks/useEmailTemplatesLayout';
 import DetailIcon from '@/core/components/icons/detail-icon.vue';
@@ -97,15 +96,9 @@ const props = defineProps<{
 }>();
 const emits = defineEmits(['toggle', 'toggle-all']);
 
-const pagination = reactive({
-  total: 0,
-  current: 1,
-  pageSize: DEFAULT_PAGE_SIZE,
-});
-
 // composable
 const { t } = useI18n();
-const { selectedMailLayouts, checkingEmailLayoutsDomainAuthorized, onDeleteMailLayout, onEditMailLayout } =
+const { selectedMailLayouts, checkingEmailLayoutsDomainAuthorized, onDeleteMailLayout, onEditMailLayout, pagination } =
   useEmailTemplatesLayout();
 
 // computed
@@ -122,10 +115,10 @@ const rowSelection = computed(() => ({
     selectedMailLayouts.value = selectedRows;
   },
 }));
-const mimeTypesByPage = computed(() => {
+
+const mailLayoutByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
   const lastIndex = pagination.current * pagination.pageSize;
-
   return props.items.slice(firstIndex, lastIndex);
 });
 
