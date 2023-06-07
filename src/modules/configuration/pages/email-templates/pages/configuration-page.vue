@@ -90,7 +90,7 @@ const route = useRoute();
 const domainStore = useDomainStore();
 
 async function onFetchMailConfiguration() {
-  await fetchMailConfiguration();
+  await fetchMailConfiguration(false);
   resetSelectEmailConfiguration();
 }
 
