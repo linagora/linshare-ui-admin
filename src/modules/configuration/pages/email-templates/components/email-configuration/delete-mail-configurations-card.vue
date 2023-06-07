@@ -4,20 +4,20 @@
       <DeleteIcon />
     </span>
     <div class="delete-mail-layouts-card__content">
-      <strong>{{ $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_SELECTED_MAIL_CONFIGURATION') }}</strong>
+      <strong>{{ $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_SELECTED_MAIL_CONFIGURATION') }}</strong>
       <span>{{
-        $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE', {
+        $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE', {
           qty: selectedMailConfigs?.length ?? 0,
         })
       }}</span>
     </div>
     <div class="delete-mail-layouts-card__actions">
       <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{
-        $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ACTION_CANCEL')
+        $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ACTION_CANCEL')
       }}</a-button>
       <a-button class="ls-button ls-save" type="primary" danger @click="onConfirmDelete">
         <a-spin v-if="loading" />
-        <span v-else>{{ $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ACTION_CONFIRM') }}</span>
+        <span v-else>{{ $t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ACTION_CONFIRM') }}</span>
       </a-button>
     </div>
   </a-card>
