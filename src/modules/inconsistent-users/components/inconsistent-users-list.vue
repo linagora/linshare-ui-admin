@@ -82,7 +82,7 @@ import { APIError } from '@/core/types/APIError';
 import { InconsistentUsers } from '../types/InconsistentUsers';
 
 const { t } = useI18n();
-const { fetchInconsistentUsersList, filteredListByPage, loading } = useInconsistentUsers();
+const { fetchInconsistentUsersList, filteredListByPage, loading, pagination } = useInconsistentUsers();
 const { confirmModal } = useNotification();
 
 const columns = computed(() => [
@@ -166,6 +166,7 @@ async function multipleUserDeletion() {
       );
       selectedUsers.userKey = [];
       selectedUsers.users = [];
+      pagination.current--;
       fetchInconsistentUsersList();
 
       return true;
