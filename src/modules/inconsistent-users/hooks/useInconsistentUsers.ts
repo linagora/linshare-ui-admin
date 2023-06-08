@@ -22,6 +22,7 @@ type UsableUsersList = {
   fetchInconsistentUsersList: () => Promise<void>;
   handleMigrateInconsistentUsers: (payload: InconsistentUsers[], domain: string) => Promise<boolean | undefined>;
   reset: () => void;
+  resetFilters: () => void;
   filterText: UnwrapRef<{
     lastName: string | undefined;
     firstName: string | undefined;
@@ -146,6 +147,14 @@ export default function useInconsistentUsers(): UsableUsersList {
     sorter.order = SORT_ORDER.ASC;
   }
 
+  function resetFilters() {
+    filters.value = {};
+    filterText.lastName = '';
+    filterText.firstName = '';
+    filterText.domain = '';
+    filterText.mail = '';
+  }
+
   return {
     fetchInconsistentUsersList,
     handleMigrateInconsistentUsers,
@@ -155,6 +164,7 @@ export default function useInconsistentUsers(): UsableUsersList {
     handleTableChange,
     loading,
     reset,
+    resetFilters,
     pagination,
     filterText,
     filteredList,

@@ -70,7 +70,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref, onMounted } from 'vue';
+import { computed, reactive, ref, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { message } from 'ant-design-vue';
 import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
@@ -79,11 +79,12 @@ import { deleteUser } from '@/modules/inconsistent-users/services/inconsistent-u
 import useNotification from '@/core/hooks/useNotification';
 import User from '@/modules/user/types/User';
 import { APIError } from '@/core/types/APIError';
-import { InconsistentUsers } from '../types/InconsistentUsers';
+import { useRouter } from 'vue-router';
 
 const { t } = useI18n();
-const { fetchInconsistentUsersList, filteredListByPage, loading, pagination } = useInconsistentUsers();
+const { fetchInconsistentUsersList, resetFilters, filteredListByPage, loading, pagination } = useInconsistentUsers();
 const { confirmModal } = useNotification();
+const { currentRoute } = useRouter();
 
 const columns = computed(() => [
   {
@@ -180,6 +181,10 @@ async function multipleUserDeletion() {
 }
 
 onMounted(fetchInconsistentUsersList);
+
+watch(currentRoute, () => {
+  resetFilters();
+});
 </script>
 
 <style lang="less" scoped>
