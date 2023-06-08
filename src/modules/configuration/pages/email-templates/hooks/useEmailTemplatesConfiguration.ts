@@ -22,6 +22,7 @@ import Domain from '@/core/types/Domain';
 import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../router';
+import { EMAIL_DEFAULT_UUID } from '@/core/constants/emails';
 
 const activeMailConfig = useLocalStorage<MailConfiguration>(
   'configuration-type-mail-config-activeMailConfig',
@@ -97,6 +98,9 @@ export default function useEmailTemplatesConfiguration() {
   });
 
   //methods
+  function onCheckDefaultEmailConfiguration(email: MailConfiguration) {
+    return EMAIL_DEFAULT_UUID.CONFIGURATION === email.uuid;
+  }
   function onCloseModal() {
     modal.visible = false;
   }
@@ -406,6 +410,7 @@ export default function useEmailTemplatesConfiguration() {
     handleCreateMailConfiguration,
     handleDeleteMailConfigurations,
     onDeleteMailConfigurationsFail,
+    onCheckDefaultEmailConfiguration,
     handleGetMailConfigurationDetail,
   };
 }

@@ -55,7 +55,9 @@
                   <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
                 </a-menu-item>
                 <a-menu-item @click="onEditMailConfiguration(record)">
-                  <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
+                  <EditIcon v-if="!onCheckDefaultEmailConfiguration(record)"></EditIcon>
+                  <EyeOutlined v-else :style="{ color: '#007AFF' }" />
+                  {{ onCheckDefaultEmailConfiguration(record) ? $t('GENERAL.VIEW') : $t('GENERAL.EDIT') }}
                 </a-menu-item>
                 <a-menu-item @click="onDeleteMailConfiguration(record)">
                   <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
@@ -82,6 +84,7 @@ import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import useEmailTemplatesConfiguration from '../../hooks/useEmailTemplatesConfiguration';
 import { MailConfiguration } from '../../types/MailConfiguration';
 import { useAuthStore } from '@/modules/auth/store';
+import { EyeOutlined } from '@ant-design/icons-vue';
 
 const {
   status,
@@ -91,6 +94,7 @@ const {
   onEditMailConfiguration,
   onAssignMailConfiguration,
   onDeleteMailConfiguration,
+  onCheckDefaultEmailConfiguration,
 } = useEmailTemplatesConfiguration();
 
 const { t } = useI18n();

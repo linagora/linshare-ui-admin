@@ -2,7 +2,7 @@
   <div class="configuration-detail-page">
     <div class="configuration-detail-page__title">
       <email-configuration-detail-header
-        :editable="true"
+        :editable="!isDefaultEmailConfiguration"
         :editing="editing"
         @edit-toggle="onToggleEditState"
       ></email-configuration-detail-header>
@@ -11,7 +11,7 @@
       <div class="configuration-detail-page__body-summary">
         <div class="configuration-detail-page__body-summary-config">
           <email-configuration-detail-card
-            :editable="true"
+            :editable="!isDefaultEmailConfiguration"
             :editing="editing"
             :layouts="list"
             :footers="footerList"
@@ -25,13 +25,16 @@
       </div>
       <div class="configuration-detail-page__body-table">
         <!-- Bottom table -->
-        <email-configuration-content-table :editable="true" :editing="editing"></email-configuration-content-table>
+        <email-configuration-content-table
+          :editable="!isDefaultEmailConfiguration"
+          :editing="editing"
+        ></email-configuration-content-table>
       </div>
     </div>
   </div>
   <div class="configuration-detail-page__action">
     <email-configuration-detail-action
-      :editable="true"
+      :editable="!isDefaultEmailConfiguration"
       :editing="editing"
       @cancel="onToggleEditState"
       @save="onUpdateEmailConfiguration"
@@ -46,7 +49,7 @@ import SystemInformationCard from '@/modules/configuration/pages/email-templates
 import EmailConfigurationDetailCard from '@/modules/configuration/pages/email-templates/components/email-configuration/detail-page/email-configuration-detail-card.vue';
 import EmailConfigurationContentTable from '@/modules/configuration/pages/email-templates/components/email-configuration/detail-page/email-configuration-content-table.vue';
 
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 import useEmailTemplatesLayout from '../hooks/useEmailTemplatesLayout';
 import useEmailTemplatesFooter from '../hooks/useEmailTemplatesFooter';
@@ -60,11 +63,19 @@ const {
   handleGetMailConfigurationDetail,
   handleUpdateMailConfiguration,
   handleResetEmailConfiguration,
+  onCheckDefaultEmailConfiguration,
 } = useEmailTemplatesConfiguration();
 const { list, handleGetEmailLayoutTemplates } = useEmailTemplatesLayout();
 const { list: footerList, handleGetEmailFootersTemplates } = useEmailTemplatesFooter();
+
 // data
 const editing = ref(false);
+
+//computed
+const isDefaultEmailConfiguration = computed(() => {
+  return onCheckDefaultEmailConfiguration(activeMailConfig.value);
+});
+
 // methods
 function onToggleEditState() {
   editing.value = !editing.value;
