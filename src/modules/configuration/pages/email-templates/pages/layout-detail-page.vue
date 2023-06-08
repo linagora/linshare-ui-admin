@@ -36,9 +36,10 @@ import EmailLayoutDetailCard from '@/modules/configuration/pages/email-templates
 import EmailLayoutDetailActions from '@/modules/configuration/pages/email-templates/components/email-layout/detail-page/email-layout-detail-actions.vue';
 import SystemInformationCard from '@/modules/configuration/pages/email-templates/components/email-layout/detail-page/email-layout-information-card.vue';
 import useEmailTemplatesLayout from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesLayout';
-import router from '@/core/router';
 import { MailLayout } from '../types/MailLayout';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const { activeMailLayout, handleGetMailLayoutDetail, handleUpdateMailLayout, handleResetEmailLayout } =
   useEmailTemplatesLayout();
 
@@ -65,7 +66,7 @@ function onResetEmailConfiguration() {
   handleResetEmailLayout();
 }
 onMounted(async () => {
-  handleGetMailLayoutDetail(router.currentRoute.value.params.id.toString());
+  handleGetMailLayoutDetail(route.params.id.toString());
 });
 </script>
 
