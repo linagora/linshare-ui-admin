@@ -29,7 +29,7 @@
         <a-input ref="autocomplete" :placeholder="placeholder" @keydown="handleKeyPress" />
       </a-auto-complete>
     </div>
-    <div class="token-input__inner-box token-input__sort-ctn">
+    <div v-if="sort.field" class="token-input__inner-box token-input__sort-ctn">
       <a-select
         v-model:value="sort.field"
         :bordered="false"
@@ -82,7 +82,7 @@ interface SortOption {
 
 interface TokenInputProps {
   filters: FilterOption[];
-  sorts: SortOption[];
+  sorts?: SortOption[];
   placeholder: string;
 }
 

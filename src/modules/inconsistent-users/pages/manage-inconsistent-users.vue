@@ -7,7 +7,6 @@
 
   <TokenInput
     :filters="filterOptions"
-    :sorts="sortOptions"
     :placeholder="$t('INCONSISTENT_USERS.TOKEN_INPUT_PLACEHOLDER')"
     @submit="handleSubmit"
     @reset="reset"
@@ -74,32 +73,16 @@ const searchLastName = async function (mail: string) {
   }));
 };
 
-const sortOptions = [
-  {
-    key: 'lastName',
-    label: 'SHARED_SPACES.TOKEN_INPUT.NAME',
-  },
-  {
-    key: 'creationDate',
-    label: 'SHARED_SPACES.TOKEN_INPUT.CREATION_DATE',
-  },
-  {
-    key: 'modificationDate',
-    label: 'SHARED_SPACES.TOKEN_INPUT.MODIFICATION_DATE',
-    default: true,
-  },
-];
-
 const filterOptions = [
   {
     key: 'lastName',
-    displayKey: computed(() => t('INCONSISTENT_USERS.COLUMNS.LASTNAME')),
+    displayKey: computed(() => t('INCONSISTENT_USERS.COLUMNS.LASTNAME', locale.value)),
     asyncAutocomplete: searchLastName,
     default: true,
   },
   {
     key: 'firstName',
-    displayKey: computed(() => t('INCONSISTENT_USERS.COLUMNS.FIRSTNAME')),
+    displayKey: computed(() => t('INCONSISTENT_USERS.COLUMNS.FIRSTNAME', locale.value)),
     asyncAutocomplete: searchFirstName,
   },
   {

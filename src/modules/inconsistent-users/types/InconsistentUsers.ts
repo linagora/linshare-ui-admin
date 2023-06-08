@@ -3,6 +3,7 @@ import { SORT_ORDER } from '@/core/types/Sort';
 export interface InconsistentUsers {
   creationDate?: number;
   domain: string;
+  domainName: string;
   externalMailLocale: string;
   locale: string;
   modificationDate: number;

@@ -79,6 +79,7 @@ import { deleteUser } from '@/modules/inconsistent-users/services/inconsistent-u
 import useNotification from '@/core/hooks/useNotification';
 import User from '@/modules/user/types/User';
 import { APIError } from '@/core/types/APIError';
+import { InconsistentUsers } from '../types/InconsistentUsers';
 
 const { t } = useI18n();
 const { fetchInconsistentUsersList, filteredListByPage, loading } = useInconsistentUsers();
@@ -94,21 +95,25 @@ const columns = computed(() => [
     dataIndex: 'firstName',
     key: 'firstName',
     title: t('INCONSISTENT_USERS.COLUMNS.FIRSTNAME'),
+    sorter: (a: InconsistentUsers, b: InconsistentUsers) => a.firstName.localeCompare(b.firstName),
   },
   {
     dataIndex: 'lastName',
     key: 'lastName',
     title: t('INCONSISTENT_USERS.COLUMNS.LASTNAME'),
+    sorter: (a: InconsistentUsers, b: InconsistentUsers) => a.lastName.localeCompare(b.lastName),
   },
   {
     dataIndex: 'email',
     key: 'email',
     title: t('INCONSISTENT_USERS.COLUMNS.EMAIL'),
+    sorter: (a: InconsistentUsers, b: InconsistentUsers) => a.mail.localeCompare(b.mail),
   },
   {
     dataIndex: 'domain',
     key: 'domain',
     title: t('GENERAL.DOMAIN'),
+    sorter: (a: InconsistentUsers, b: InconsistentUsers) => a.domainName.localeCompare(b.domainName),
   },
   {
     dataIndex: 'domainId',
