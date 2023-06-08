@@ -402,7 +402,7 @@
       "REFRESH": "Actualiser"
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible et va détruire ses documents. Souhaitez-vous continuer ?"
+      "PARAGRAPH": "Vous êtes sur le point de supprimer ces utilisateurs, cette procédure est irréversible et va détruire tous leurs documents. Souhaitez-vous continuer ?"
     },
     "MIGRATE_FORM": {
       "TITLE": "Sélectionner le domaine à migrer"

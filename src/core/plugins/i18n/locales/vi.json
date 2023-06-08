@@ -402,7 +402,7 @@
       "REFRESH": "Làm mới"
     },
     "CONFIRM_DELETE_FORM": {
-      "PARAGRAPH": "Bạn sắp xóa người dùng này, quy trình này là không thể đảo ngược và hủy tất cả tài liệu của anh ấy. Bạn có muốn tiếp tục không?"
+      "PARAGRAPH": "Bạn sắp xóa những người dùng này, quy trình này là không thể đảo ngược và sẽ hủy tất cả tài liệu của họ. Bạn có muốn tiếp tục?"
     },
     "MIGRATE_FORM": {
       "TITLE": "Chọn miền để di chuyển"
