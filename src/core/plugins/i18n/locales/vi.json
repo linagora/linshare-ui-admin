@@ -403,6 +403,9 @@
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Bạn sắp xóa người dùng này, quy trình này là không thể đảo ngược và hủy tất cả tài liệu của anh ấy. Bạn có muốn tiếp tục không?"
+    },
+    "MIGRATE_FORM": {
+      "TITLE": "Chọn miền để di chuyển"
     }
   },
   "QUOTA": {

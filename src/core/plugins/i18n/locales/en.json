@@ -404,6 +404,9 @@
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete this user, this procedure is irreversible and destroy all his document. Do you want to proceed?"
+    },
+    "MIGRATE_FORM": {
+      "TITLE": "Select domain to migrate"
     }
   },
   "QUOTA": {

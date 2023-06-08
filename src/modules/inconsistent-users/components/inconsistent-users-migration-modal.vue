@@ -3,7 +3,7 @@
     class="filter-modal"
     :destroy-on-close="true"
     :visible="visible"
-    :title="$t('GENERAL.MIGRATE')"
+    :title="$t('INCONSISTENT_USERS.MIGRATE_FORM.TITLE')"
     @cancel="
       reset();
       $emit('close');
@@ -22,7 +22,7 @@
     <template #footer>
       <div class="footer">
         <a-button class="ls-button ls-reset" type="primary" @click="reset">
-          {{ $t('GENERAL.RESET') }}
+          {{ $t('GENERAL.CANCEL') }}
         </a-button>
         <a-button :disabled="!filterForm.domain" class="ls-button ls-ok" type="primary" @click="apply">
           <a-spin v-if="loading" />
