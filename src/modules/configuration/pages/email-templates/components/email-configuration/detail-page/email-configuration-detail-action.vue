@@ -4,7 +4,7 @@
       <a-spin v-if="loading"></a-spin>
       <span v-else>{{ $t('GENERAL.SAVE') }}</span>
     </a-button>
-    <a-button class="ls-button ls-cancel" @click="emits('cancel')">
+    <a-button class="ls-button ls-cancel" @click="onCancel">
       {{ $t('GENERAL.CANCEL') }}
     </a-button>
     <a-button class="ls-button ls-reset" @click="emits('reset')">
@@ -20,6 +20,11 @@ const props = defineProps<{
   editing?: boolean;
   loading?: boolean;
 }>();
+
+function onCancel() {
+  emits('cancel');
+  emits('reset');
+}
 </script>
 <style lang="less">
 .email-configuration-detail-action {
