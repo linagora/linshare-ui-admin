@@ -125,7 +125,7 @@ export default function useInconsistentUsers(): UsableUsersList {
       return false;
     } finally {
       loading.value = false;
-      pagination.current--;
+      pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
     }
   }
 

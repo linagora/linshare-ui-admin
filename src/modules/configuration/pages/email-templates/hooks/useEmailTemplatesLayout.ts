@@ -75,7 +75,7 @@ export default function useEmailTemplatesLayout() {
 
   function onCloseModal() {
     modal.visible = false;
-    pagination.current--;
+    pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
   }
 
   function onCreateMailLayout(email: MailLayout) {
