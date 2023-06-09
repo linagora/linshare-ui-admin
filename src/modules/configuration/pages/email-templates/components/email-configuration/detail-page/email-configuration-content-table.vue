@@ -63,6 +63,7 @@ import { SearchOutlined } from '@ant-design/icons-vue';
 import { MailLang } from '../../../types/MailConfiguration';
 import ThePagination from '@/core/components/the-pagination.vue';
 import useEmailTemplatesConfiguration from '../../../hooks/useEmailTemplatesConfiguration';
+import { useDebounceFn } from '@vueuse/core';
 
 const { t } = useI18n();
 const {
@@ -79,7 +80,7 @@ const props = defineProps<{
   editable?: boolean;
   editing?: boolean;
 }>();
-
+const emits = defineEmits(['refresh']);
 // data
 const search = reactive({
   contentType: '',
@@ -122,7 +123,16 @@ const mailContentLangsByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
   const lastIndex = pagination.current * pagination.pageSize;
 
-  return mailContentLangs.value.slice(firstIndex, lastIndex);
+  return mailContentLangsBySearch.value.slice(firstIndex, lastIndex);
+});
+const mailContentLangsBySearch = computed(() => {
+  return mailContentLangs.value.filter((item) => {
+    return (
+      item.legend.includes(search.legend) &&
+      item.mailContent.includes(search.mailContent) &&
+      item.mailContentType.includes(search.contentType)
+    );
+  });
 });
 // methods
 async function onGetMailContentOptions(item: MailLang) {
@@ -148,6 +158,7 @@ async function onChangeMailContent(content: MailLang, value: string) {
   } as MailLang;
 
   await handleUpdateMailContentLang(payload);
+  emits('refresh');
 }
 
 // hooks

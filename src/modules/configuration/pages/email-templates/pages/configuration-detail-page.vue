@@ -28,6 +28,7 @@
         <email-configuration-content-table
           :editable="!isDefaultEmailConfiguration"
           :editing="editing"
+          @refresh="onFetchingEmailConfig"
         ></email-configuration-content-table>
       </div>
     </div>
@@ -95,10 +96,18 @@ function onResetEmailConfiguration() {
   handleResetEmailConfiguration();
 }
 
-onMounted(async () => {
+function onFetchingData() {
   handleGetMailConfigurationDetail(activeMailConfig?.value?.uuid);
   handleGetEmailLayoutTemplates(activeMailConfig?.value?.domain, false);
   handleGetEmailFootersTemplates(activeMailConfig?.value?.uuid);
+}
+
+function onFetchingEmailConfig() {
+  handleGetMailConfigurationDetail(activeMailConfig?.value?.uuid);
+}
+
+onMounted(async () => {
+  onFetchingData();
 });
 </script>
 
