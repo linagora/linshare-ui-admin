@@ -66,7 +66,8 @@ const filteredList = computed(() => {
         : true;
     const domainMatch =
       filterText.domain !== '' && filterText.domain !== undefined
-        ? inconsistentUser.domain.toLowerCase().includes(filterText.domain.toLowerCase())
+        ? inconsistentUser.domain.toLowerCase().includes(filterText.domain.toLowerCase()) ||
+          inconsistentUser.domainName.toLowerCase().includes(filterText.domain.toLowerCase())
         : true;
 
     return lastNameMatch && firstNameMatch && mailMatch && domainMatch;
