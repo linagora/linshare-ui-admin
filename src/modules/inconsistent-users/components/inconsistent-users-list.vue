@@ -22,7 +22,8 @@
   <inconsistent-users-migration-modal
     :visible="showFilterModal"
     :selected-users="selectedUsers.users"
-    @close="showFilterModal = false"
+    @close="onCloseMigrationModal"
+    @refresh="onRefreshSelectedData"
   ></inconsistent-users-migration-modal>
 
   <a-table
@@ -178,6 +179,18 @@ async function multipleUserDeletion() {
       message.error(error.getMessage());
     }
   }
+}
+
+function onCloseMigrationModal() {
+  showFilterModal.value = false;
+}
+
+function onRefreshSelectedData() {
+  selectedUsers.userKey = [];
+  selectedUsers.users = [];
+  onCloseMigrationModal();
+  fetchInconsistentUsersList();
+  pagination.current = 1;
 }
 
 onMounted(fetchInconsistentUsersList);

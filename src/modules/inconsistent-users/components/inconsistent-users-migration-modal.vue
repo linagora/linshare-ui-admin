@@ -21,7 +21,7 @@
 
     <template #footer>
       <div class="footer">
-        <a-button class="ls-button ls-reset" type="primary" @click="reset">
+        <a-button class="ls-button ls-reset" type="primary" @click="onCloseModal">
           {{ $t('GENERAL.CANCEL') }}
         </a-button>
         <a-button :disabled="!filterForm.domain" class="ls-button ls-ok" type="primary" @click="apply">
@@ -54,7 +54,7 @@ const props = withDefaults(defineProps<Props>(), {
 // composable
 const { loading, handleMigrateInconsistentUsers } = useInconsistentUsers();
 
-const emits = defineEmits(['close']);
+const emits = defineEmits(['close', 'refresh']);
 const { domains } = storeToRefs(useReportingStore());
 const { getDomainsList: domainsList } = storeToRefs(useDomainStore());
 const domainOptions = computed(() =>
@@ -72,8 +72,8 @@ const filterForm = reactive<{
 async function apply() {
   const result = await handleMigrateInconsistentUsers(props.selectedUsers, filterForm.domain);
   if (result) {
-    // emits('refresh');
-    onCloseModal();
+    emits('refresh');
+    reset();
   }
 }
 

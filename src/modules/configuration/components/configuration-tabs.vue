@@ -80,6 +80,7 @@ const configurationTabs = reactive({
   ConfigurationDomainEmailTemplates: {
     key: 'PARAMETERS',
     name: 'ConfigurationDomainEmailTemplates',
+    legacy: true,
     title: 'NAVIGATOR.EMAIL_TEMPLATES',
     route: {
       name: 'ConfigurationDomainEmailTemplates',
