@@ -12,9 +12,10 @@
     <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
       <a-form-item :label="$t('GENERAL.DOMAIN')">
         <a-select
-          v-model:value="filterForm.domain"
+          v-model:value="filterForm.domainId"
           :options="domainOptions"
           :placeholder="$t('REPORTING.FILTERS_MODAL.DOMAIN_SELECT_PLACEHOLDER')"
+          @change="onChangeDomain()"
         ></a-select>
       </a-form-item>
     </a-form>
@@ -24,7 +25,7 @@
         <a-button class="ls-button ls-reset" type="primary" @click="onCloseModal">
           {{ $t('GENERAL.CANCEL') }}
         </a-button>
-        <a-button :disabled="!filterForm.domain" class="ls-button ls-ok" type="primary" @click="apply">
+        <a-button :disabled="!filterForm.domainId" class="ls-button ls-ok" type="primary" @click="apply">
           <a-spin v-if="loading" />
           <span v-else>{{ $t('GENERAL.APPLY') }}</span>
         </a-button>
@@ -64,16 +65,17 @@ const domainOptions = computed(() =>
   }))
 );
 const filterForm = reactive<{
-  domain: string;
+  domainId: string;
+  domain: { label: string; value: string };
 }>({
-  domain: '',
+  domainId: '',
+  domain: { label: '', value: '' },
 });
 
 async function apply() {
   const result = await handleMigrateInconsistentUsers(props.selectedUsers, filterForm.domain);
   if (result) {
-    emits('refresh');
-    reset();
+    onCloseModal();
   }
 }
 
@@ -83,7 +85,14 @@ async function onCloseModal() {
 }
 
 function reset() {
-  filterForm.domain = '';
+  filterForm.domainId = '';
+  filterForm.domain = { label: '', value: '' };
+}
+
+function onChangeDomain() {
+  filterForm.domain = domainOptions.value.find((domain) => {
+    return domain.value === filterForm.domainId;
+  });
 }
 </script>
 

@@ -20,7 +20,10 @@ type UsableUsersList = {
   pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
   handleTableChange: () => Promise<void>;
   fetchInconsistentUsersList: () => Promise<void>;
-  handleMigrateInconsistentUsers: (payload: InconsistentUsers[], domain: string) => Promise<boolean | undefined>;
+  handleMigrateInconsistentUsers: (
+    payload: InconsistentUsers[],
+    domain: { label: string; value: string }
+  ) => Promise<boolean | undefined>;
   reset: () => void;
   resetFilters: () => void;
   filterText: UnwrapRef<{
@@ -100,12 +103,13 @@ export default function useInconsistentUsers(): UsableUsersList {
     }
   }
 
-  async function handleMigrateInconsistentUsers(payload: InconsistentUsers[], domain: string) {
+  async function handleMigrateInconsistentUsers(payload: InconsistentUsers[], domain: object) {
     try {
       loading.value = true;
 
       const migratePromises = payload.map((item) => {
-        item.domain = domain;
+        item.domain = domain.value;
+        item.domainName = domain.label;
 
         return migrateUser(item);
       });
