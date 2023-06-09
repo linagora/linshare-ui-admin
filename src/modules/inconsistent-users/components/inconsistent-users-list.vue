@@ -81,9 +81,11 @@ import useNotification from '@/core/hooks/useNotification';
 import User from '@/modules/user/types/User';
 import { APIError } from '@/core/types/APIError';
 import { useRouter } from 'vue-router';
+import { InconsistentUsers } from '../types/InconsistentUsers';
 
 const { t } = useI18n();
-const { fetchInconsistentUsersList, resetFilters, filteredListByPage, loading, pagination } = useInconsistentUsers();
+const { fetchInconsistentUsersList, resetFilters, filteredListByPage, loading, pagination, filterText } =
+  useInconsistentUsers();
 const { confirmModal } = useNotification();
 const { currentRoute } = useRouter();
 
@@ -197,6 +199,11 @@ onMounted(fetchInconsistentUsersList);
 
 watch(currentRoute, () => {
   resetFilters();
+});
+
+watch(filterText, () => {
+  selectedUsers.userKey = [];
+  selectedUsers.users = [];
 });
 </script>
 
