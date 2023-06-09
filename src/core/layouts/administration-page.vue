@@ -18,7 +18,7 @@
           <span>{{ $t('NAVIGATOR.MY_CONTACT_LIST') }}</span>
           <RightOutlined />
         </div>
-        <router-link :to="{ name: 'InconsistentUserList' }">
+        <router-link v-if="isSuperAdmin" :to="{ name: 'InconsistentUserList' }">
           <div class="page__menu-item">
             <span>{{ $t('NAVIGATOR.INCONSISTENT_USERS') }}</span>
             <RightOutlined />
@@ -33,9 +33,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { RightOutlined } from '@ant-design/icons-vue';
 import useLegacyFeatures from '../hooks/useLegacyFeatures';
+import { useAuthStore } from '@/modules/auth/store';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
+import { storeToRefs } from 'pinia';
 
 export default defineComponent({
   name: 'AdministrationPage',
@@ -43,10 +46,18 @@ export default defineComponent({
     RightOutlined,
   },
   setup() {
+    const authStore = useAuthStore();
+    const { loggedUserRole } = storeToRefs(authStore);
+
+    const isSuperAdmin = computed(() => {
+      return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
+    });
+
     const { redirect } = useLegacyFeatures();
 
     return {
       redirect,
+      isSuperAdmin,
     };
   },
 });
