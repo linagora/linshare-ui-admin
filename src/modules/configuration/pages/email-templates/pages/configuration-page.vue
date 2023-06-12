@@ -46,7 +46,7 @@
     <DeleteMailConfigurationCard
       v-else-if="modal.type === 'DELETE_CONFIGURATION_EMAIL'"
       @close="onCloseModal"
-      @refresh="assignReload"
+      @refresh="onFetchMailConfiguration"
     ></DeleteMailConfigurationCard>
     <DeleteMailConfigurationsCard
       v-else-if="modal.type === 'DELETE_CONFIGURATIONS_EMAIL'"
