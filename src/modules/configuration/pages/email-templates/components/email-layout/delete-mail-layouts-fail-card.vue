@@ -52,7 +52,7 @@ const deleteMessage = computed(() => {
     ) {
       return t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_UNAUTHORIZED_SOME');
     } else {
-      return t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_ALL');
+      return t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_SOME_OF_THEM');
     }
   }
 });

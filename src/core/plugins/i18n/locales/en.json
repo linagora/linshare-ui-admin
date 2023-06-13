@@ -2547,7 +2547,8 @@
       "DELETE_ERROR_UNAUTHORIZED_ALL": "You do not have the rights to delete those mail layouts",
       "DELETE_ERROR_ASSIGNED_ALL": "You are unable to delete those mail layouts",
       "DELETE_ERROR_ONE": "You are unable to delete this mail layout",
-      "DELETE_ERROR_ALL": "You are unable to delete those mail layouts"
+      "DELETE_ERROR_ALL": "You are unable to delete those mail layouts",
+      "DELETE_ERROR_SOME_OF_THEM": "Some of the mail layouts are deleted successfully but not others because you don't have permission to delete them"
     },
     "EDIT_FORM" : {
       "EDIT_HEADER": "Edit mail configuration",

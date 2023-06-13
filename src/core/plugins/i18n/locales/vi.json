@@ -2545,7 +2545,8 @@
       "DELETE_ERROR_UNAUTHORIZED_ALL": "Bạn không có quyền xóa các bố cục thư đó",
       "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các bố cục thư đó",
       "DELETE_ERROR_ONE": "Bạn không thể xóa bố cục thư này",
-      "DELETE_ERROR_ALL": "Bạn không thể xóa các bố cục thư đó"      
+      "DELETE_ERROR_ALL": "Bạn không thể xóa các bố cục thư đó",
+      "DELETE_ERROR_SOME_OF_THEM": "Một số bố cục thư đã bị xóa thành công, nhưng những bố cục khác không được xóa vì bạn không có quyền xóa chúng."      
     },
     "EDIT_FORM" : {
       "EDIT_HEADER": "Chỉnh sửa cấu hình thư",

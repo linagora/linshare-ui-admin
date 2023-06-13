@@ -2546,7 +2546,8 @@
       "DELETE_ERROR_UNAUTHORIZED_ALL": "Vous n'avez pas les droits nécessaires pour supprimer ces structures de courriel",
       "DELETE_ERROR_ASSIGNED_ALL": "Vous ne pouvez pas supprimer ces structures de courriel",
       "DELETE_ERROR_ONE": "Vous ne pouvez pas supprimer cette structure de courriel",
-      "DELETE_ERROR_ALL": "Vous ne pouvez pas supprimer ces structures de courriel"
+      "DELETE_ERROR_ALL": "Vous ne pouvez pas supprimer ces structures de courriel",
+      "DELETE_ERROR_SOME_OF_THEM": "Certains des formats de courrier ont été supprimés avec succès, mais d'autres ne l'ont pas été car vous n'avez pas l'autorisation de les supprimer."
     },
     "EDIT_FORM" : {
       "EDIT_HEADER": "Modifier la configuration de courriel",
