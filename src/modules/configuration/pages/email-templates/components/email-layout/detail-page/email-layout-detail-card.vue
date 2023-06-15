@@ -1,45 +1,56 @@
 <template>
-  <div class="email-layout-detail-card">
-    <div class="email-layout-detail-card__form">
-      <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_LABEL')">
-        <a-input
-          v-model:value="activeMailLayout.description"
-          :disabled="!editable || !editing"
-          :placeholder="$t('EMAIL_TEMPLATES.EMAIL_LAYOUT.EMAIL_LAYOUT_DETAIL_PAGE.NAME_PLACEHOLDER')"
-          class="ls-input"
-        />
+  <a-form ref="formRef">
+    <div class="email-layout-detail-card">
+      <div class="email-layout-detail-card__form">
+        <a-form-item
+          class="ls-form-title"
+          v-bind="validateInfos.description"
+          :label="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_LABEL')"
+        >
+          <a-input
+            v-model:value="activeMailLayout.description"
+            :disabled="!editable || !editing"
+            :placeholder="$t('EMAIL_TEMPLATES.EMAIL_LAYOUT.EMAIL_LAYOUT_DETAIL_PAGE.NAME_PLACEHOLDER')"
+            class="ls-input"
+          />
+        </a-form-item>
+        <a-form-item
+          class="ls-form-title ls-form-switch"
+          for="visible"
+          :label="$t('EMAIL_TEMPLATES.EDIT_FORM.VISIBLE_LABEL')"
+        >
+          <a-switch v-model:checked="activeMailLayout.visible" :disabled="!editable || !editing" class="ls-switch" />
+        </a-form-item>
+        <a-form-item
+          class="ls-form-title"
+          :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_LABEL')"
+          v-bind="validateInfos.layout"
+        >
+          <a-textarea v-model:value="activeMailLayout.layout" :disabled="!editable || !editing" :rows="12" />
+        </a-form-item>
+      </div>
+      <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LANGUAGE_LABEL')">
+        <div class="ls-languages">
+          <a-button
+            v-for="language in languageOptions"
+            :key="language?.label"
+            class="select-language"
+            :class="{ selected: selectedLanguage === language.value }"
+            @click="onSelectLanguage(language.value)"
+            >{{ language.label }}</a-button
+          >
+        </div>
       </a-form-item>
-      <a-form-item
-        class="ls-form-title ls-form-switch"
-        for="visible"
-        :label="$t('EMAIL_TEMPLATES.EDIT_FORM.VISIBLE_LABEL')"
-      >
-        <a-switch v-model:checked="activeMailLayout.visible" :disabled="!editable || !editing" class="ls-switch" />
-      </a-form-item>
-      <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_LABEL')">
-        <a-textarea v-model:value="activeMailLayout.layout" :disabled="!editable || !editing" :rows="12" />
+      <a-form-item class="ls-form-title">
+        <a-textarea v-model:value="activeMailLayout[selectedLanguage]" :disabled="!editable || !editing" :rows="6" />
       </a-form-item>
     </div>
-    <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LANGUAGE_LABEL')">
-      <div class="ls-languages">
-        <a-button
-          v-for="language in languageOptions"
-          :key="language?.label"
-          class="select-language"
-          :class="{ selected: selectedLanguage === language.value }"
-          @click="onSelectLanguage(language.value)"
-          >{{ language.label }}</a-button
-        >
-      </div>
-    </a-form-item>
-    <a-form-item class="ls-form-title">
-      <a-textarea v-model:value="activeMailLayout[selectedLanguage]" :disabled="!editable || !editing" :rows="6" />
-    </a-form-item>
-  </div>
+  </a-form>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { Form, FormInstance } from 'ant-design-vue';
 import useEmailTemplatesLayout from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesLayout';
 
 const props = defineProps<{
@@ -49,6 +60,31 @@ const props = defineProps<{
 const { t } = useI18n();
 const { activeMailLayout, languageOptions } = useEmailTemplatesLayout();
 const selectedLanguage = ref('messagesEnglish');
+const formRef = ref<FormInstance>();
+const useForm = Form.useForm;
+
+const formRules = computed(() => ({
+  description: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+  layout: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+  domainName: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+}));
+
+const { validate, validateInfos, resetFields } = useForm(activeMailLayout, formRules);
 
 function onSelectLanguage(language: string) {
   selectedLanguage.value = language;
@@ -254,6 +290,7 @@ function onSelectLanguage(language: string) {
     flex-shrink: 1;
   }
 }
+
 .layout-preview-card {
   overflow: auto;
   max-height: 300px;

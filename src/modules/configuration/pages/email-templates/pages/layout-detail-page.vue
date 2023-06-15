@@ -2,7 +2,7 @@
   <div class="layout-detail-page">
     <div class="layout-detail-page__title">
       <email-layout-detail-header
-        :editable="true"
+        :editable="isEditable"
         :editing="editing"
         @edit-toggle="onToggleEditState"
       ></email-layout-detail-header>
@@ -10,7 +10,7 @@
     <div class="layout-detail-page__body">
       <div class="layout-detail-page__body-summary">
         <div class="layout-detail-page__body-summary-config">
-          <email-layout-detail-card :editable="true" :editing="editing"></email-layout-detail-card>
+          <email-layout-detail-card :editable="isEditable" :editing="editing"></email-layout-detail-card>
         </div>
       </div>
       <div class="layout-detail-page__body-summary-system">
@@ -20,8 +20,9 @@
   </div>
   <div class="layout-detail-page__action">
     <email-layout-detail-actions
-      :editable="true"
+      :editable="isEditable"
       :editing="editing"
+      :loading="loading"
       @cancel="onToggleEditState"
       @save="onUpdateEmailConfiguration"
       @reset="onResetEmailConfiguration"
@@ -30,7 +31,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import EmailLayoutDetailHeader from '@/modules/configuration/pages/email-templates/components/email-layout/detail-page/email-layout-detail-header.vue';
 import EmailLayoutDetailCard from '@/modules/configuration/pages/email-templates/components/email-layout/detail-page/email-layout-detail-card.vue';
 import EmailLayoutDetailActions from '@/modules/configuration/pages/email-templates/components/email-layout/detail-page/email-layout-detail-actions.vue';
@@ -40,12 +41,22 @@ import { MailLayout } from '../types/MailLayout';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const { activeMailLayout, handleGetMailLayoutDetail, handleUpdateMailLayout, handleResetEmailLayout } =
-  useEmailTemplatesLayout();
+const {
+  loading,
+  activeMailLayout,
+  handleGetMailLayoutDetail,
+  handleUpdateMailLayout,
+  handleResetEmailLayout,
+  checkingEmailLayoutsDomainAuthorized,
+} = useEmailTemplatesLayout();
 
 // data
 const editing = ref(false);
 
+// computed
+const isEditable = computed(() => {
+  return checkingEmailLayoutsDomainAuthorized(activeMailLayout.value.domain);
+});
 // methods
 function onToggleEditState() {
   editing.value = !editing.value;

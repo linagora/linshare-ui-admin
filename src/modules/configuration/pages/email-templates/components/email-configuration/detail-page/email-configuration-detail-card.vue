@@ -1,70 +1,80 @@
 <template>
-  <div class="email-configuration-detail-card">
-    <div class="email-configuration-detail-card__form">
-      <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_LABEL')">
-        <a-input
-          v-model:value="activeEmailConfigForm.name"
-          :disabled="!editable || !editing"
-          :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_PLACEHOLDER')"
-          class="ls-input"
-        />
-      </a-form-item>
-      <a-form-item
-        class="ls-form-title ls-form-switch"
-        for="visible"
-        :label="$t('EMAIL_TEMPLATES.EDIT_FORM.VISIBLE_LABEL')"
-      >
-        <a-switch v-model:checked="activeEmailConfigForm.visible" :disabled="!editable || !editing" class="ls-switch" />
-      </a-form-item>
-      <a-form-item class="ls-form-title" for="layout" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_LABEL')">
-        <a-select
-          v-model:value="activeEmailConfigForm.mailLayout"
-          :disabled="!editable || !editing"
-          class="ls-input"
-          :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_PLACEHOLDER')"
-          :bordered="false"
+  <a-form ref="formRef">
+    <div class="email-configuration-detail-card">
+      <div class="email-configuration-detail-card__form">
+        <a-form-item
+          class="ls-form-title"
+          v-bind="validateInfos.name"
+          :label="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_LABEL')"
         >
-          <a-select-option v-for="s in layoutOptions" :key="s?.label" :value="s?.value">
-            {{ s?.label }}
-          </a-select-option>
-        </a-select>
-      </a-form-item>
-      <a-form-item class="ls-form-title" for="footer" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.FOOTER_LABEL')">
-        <div v-for="language in languageOptions" :key="language?.label" class="ls-form-footer-language">
-          <a-select
-            v-if="mailFooterLangsForm[language.value]"
-            v-model:value="mailFooterLangsForm[language.value].mailFooter"
+          <a-input
+            v-model:value="activeEmailConfigForm.name"
             :disabled="!editable || !editing"
-            class="ls-input ls-select-field"
-            :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.FOOTER_PLACEHOLDER')"
+            :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_PLACEHOLDER')"
+            class="ls-input"
+          />
+        </a-form-item>
+        <a-form-item
+          class="ls-form-title ls-form-switch"
+          for="visible"
+          :label="$t('EMAIL_TEMPLATES.EDIT_FORM.VISIBLE_LABEL')"
+        >
+          <a-switch
+            v-model:checked="activeEmailConfigForm.visible"
+            :disabled="!editable || !editing"
+            class="ls-switch"
+          />
+        </a-form-item>
+        <a-form-item class="ls-form-title" for="layout" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_LABEL')">
+          <a-select
+            v-model:value="activeEmailConfigForm.mailLayout"
+            :disabled="!editable || !editing"
+            class="ls-input"
+            :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_PLACEHOLDER')"
             :bordered="false"
           >
-            <a-select-option v-for="s in footerOptions" :key="s?.value" :value="s?.value">
+            <a-select-option v-for="s in layoutOptions" :key="s?.label" :value="s?.value">
               {{ s?.label }}
             </a-select-option>
           </a-select>
-          <a-input :value="language.label" :disabled="true" class="ls-input ls-input-field" />
-        </div>
-      </a-form-item>
-      <a-form-item class="ls-form-title" for="language" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LANGUAGE_LABEL')">
-        <div class="ls-languages">
-          <a-button
-            v-for="language in languageOptions"
-            :key="language?.label"
-            class="select-language"
-            :class="{ selected: activeEmailConfigForm.selectLanguage === language.value }"
-            @click="onSelectLanguage(language.value)"
-            >{{ language.label }}</a-button
-          >
-        </div>
-      </a-form-item>
+        </a-form-item>
+        <a-form-item class="ls-form-title" for="footer" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.FOOTER_LABEL')">
+          <div v-for="language in languageOptions" :key="language?.label" class="ls-form-footer-language">
+            <a-select
+              v-if="mailFooterLangsForm[language.value]"
+              v-model:value="mailFooterLangsForm[language.value].mailFooter"
+              :disabled="!editable || !editing"
+              class="ls-input ls-select-field"
+              :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.FOOTER_PLACEHOLDER')"
+              :bordered="false"
+            >
+              <a-select-option v-for="s in footerOptions" :key="s?.value" :value="s?.value">
+                {{ s?.label }}
+              </a-select-option>
+            </a-select>
+            <a-input :value="language.label" :disabled="true" class="ls-input ls-input-field" />
+          </div>
+        </a-form-item>
+        <a-form-item class="ls-form-title" for="language" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LANGUAGE_LABEL')">
+          <div class="ls-languages">
+            <a-button
+              v-for="language in languageOptions"
+              :key="language?.label"
+              class="select-language"
+              :class="{ selected: activeEmailConfigForm.selectLanguage === language.value }"
+              @click="onSelectLanguage(language.value)"
+              >{{ language.label }}</a-button
+            >
+          </div>
+        </a-form-item>
+      </div>
     </div>
-  </div>
+  </a-form>
 </template>
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { MailConfiguration } from '../../../types/MailConfiguration';
+import { Form, FormInstance } from 'ant-design-vue';
 import { MailLayout } from '../../../types/MailLayout';
 import { MailFooter } from '../../../types/MailFooter';
 import useEmailTemplatesConfiguration from '../../../hooks/useEmailTemplatesConfiguration';
@@ -72,7 +82,30 @@ import useEmailTemplatesConfiguration from '../../../hooks/useEmailTemplatesConf
 // composable
 const { t } = useI18n();
 const { activeEmailConfigForm, languageOptions, mailFooterLangsForm } = useEmailTemplatesConfiguration();
+const formRef = ref<FormInstance>();
+const useForm = Form.useForm;
 
+const formRules = computed(() => ({
+  name: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+  layout: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+  domainName: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+}));
+const { validate, validateInfos, resetFields } = useForm(activeEmailConfigForm, formRules);
 // props & emits
 const props = defineProps<{
   editable?: boolean;

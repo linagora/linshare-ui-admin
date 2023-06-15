@@ -37,6 +37,7 @@
     <email-configuration-detail-action
       :editable="!isDefaultEmailConfiguration"
       :editing="editing"
+      :loading="loading"
       @cancel="onToggleEditState"
       @save="onUpdateEmailConfiguration"
       @reset="onResetEmailConfiguration"
@@ -58,6 +59,7 @@ import { MailConfiguration } from '../types/MailConfiguration';
 
 // composables
 const {
+  loading,
   activeMailConfig,
   activeEmailConfigForm,
   mailFooterLangsForm,
