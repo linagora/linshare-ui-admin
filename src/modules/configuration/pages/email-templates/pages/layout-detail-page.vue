@@ -67,10 +67,8 @@ async function onUpdateEmailConfiguration() {
     ...activeMailLayout.value,
   };
 
-  const result = await handleUpdateMailLayout(payload);
-  if (result) {
-    onToggleEditState();
-  }
+  await handleUpdateMailLayout(payload);
+  onToggleEditState();
 }
 
 function onResetEmailConfiguration() {

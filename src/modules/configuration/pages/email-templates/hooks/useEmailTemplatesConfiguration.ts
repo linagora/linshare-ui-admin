@@ -364,7 +364,7 @@ export default function useEmailTemplatesConfiguration() {
 
   async function handleUpdateMailConfiguration(payload: MailConfiguration) {
     try {
-      const result = await updateMailConfiguration(payload);
+      await updateMailConfiguration(payload);
       message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {

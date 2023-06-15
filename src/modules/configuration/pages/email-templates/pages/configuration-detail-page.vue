@@ -92,6 +92,7 @@ async function onUpdateEmailConfiguration() {
   };
   delete payload.selectLanguage;
   await handleUpdateMailConfiguration(payload);
+  onToggleEditState();
 }
 
 function onResetEmailConfiguration() {

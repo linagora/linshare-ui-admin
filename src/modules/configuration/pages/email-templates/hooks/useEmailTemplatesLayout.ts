@@ -219,14 +219,12 @@ export default function useEmailTemplatesLayout() {
 
   async function handleUpdateMailLayout(payload: MailLayout) {
     try {
-      const result = await updateMailLayout(payload);
+      await updateMailLayout(payload);
       message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
-      return true;
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
       }
-      return false;
     }
   }
 
