@@ -2608,6 +2608,11 @@
       "WORK_SPACE_WARN_DELETED_MEMBER": "Một thành viên đã bị xóa khỏi không gian làm việc",
       "WORK_SPACE_WARN_NEW_MEMBER": "Một người dùng đã được thêm vào không gian làm việc",
       "WORK_SPACE_WARN_UPDATED_MEMBER": "Quyền của một thành viên trong không gian làm việc đã được cập nhật"
+      },
+      "EMAIL_FOOTER": {
+        "PUBLIC": "Công khai",
+        "PRIVATE": "Riêng tư",
+        "HELP_TEXT": "Chế độ xem này cho phép bạn tạo mẫu cho chân trang thư của mình. Bạn nên tạo một HTML & mô hình văn bản. Trong chế độ xem <span style='color: #007AFF'>'cấu hình thư'</span>, bạn có thể tạo mẫu thư và liên kết mẫu đó với bố cục thư và chân trang thư. (Lưu ý: Bố cục thư phải chứa biến ${footer} để đặt ở chân trang thư."
       }
   },
   "LANGUAGE": {

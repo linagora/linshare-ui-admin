@@ -2610,6 +2610,11 @@
       "WORK_SPACE_WARN_DELETED_MEMBER": "A member was removed from the Workspace",
       "WORK_SPACE_WARN_NEW_MEMBER": "A user has been added to the Workspace",
       "WORK_SPACE_WARN_UPDATED_MEMBER": "The rights of a member on the Workspace has been updated"
+    },
+    "EMAIL_FOOTER": {
+      "PUBLIC": "Public",
+      "PRIVATE": "Private",
+      "HELP_TEXT": "This view allows you to create templates for your mails footer. You should create a HTML & text model. In the view <span style='color: #007AFF'>'Mail configuration'</span> you can create a mail template and associate it to a mail layout and mail footer. (NB: Mail layout should contain ${footer} variable in order to set in the mail footer."
     }
   },
   "LANGUAGE": {

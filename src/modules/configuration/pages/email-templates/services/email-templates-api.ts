@@ -91,6 +91,39 @@ async function deleteMailLayout(payload: { uuid: string }): Promise<MailLayout> 
   return await apiv4.delete('mail_layouts', { data: payload });
 }
 
+// EMAIL FOOTER
+
+async function getMailFooterDetail(uuid: string, domainUuid: string): Promise<MailFooter> {
+  return await apiv4.get(`mail_footers/${uuid}?domainId=${domainUuid}`);
+}
+async function getMailFooterList(domainUuid: string, currentDomainOnly: boolean): Promise<MailFooter[]> {
+  return await apiv4.get(`mail_footers?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
+}
+
+async function getFooterEmailTemplates(domainUuid: string, onlyCurrentDomain: boolean): Promise<MailFooter[]> {
+  return await apiv4.get(`mail_footers?domainId=${domainUuid}&onlyCurrentDomain=${onlyCurrentDomain}`);
+}
+async function updateMailFooter(payload: MailFooter) {
+  return await apiv4.put(`mail_footers`, payload);
+}
+
+async function createMailFooter(payload: {
+  description: string;
+  domain: string;
+  domainName: string;
+  footer: string;
+  messagesEnglish: string;
+  messagesFrench: string;
+  messagesRussian: string;
+  visible: boolean;
+  readonly: boolean;
+}) {
+  return await apiv4.post(`mail_footers`, payload);
+}
+async function deleteMailFooter(payload: { uuid: string }): Promise<MailFooter> {
+  return await apiv4.delete('mail_footers', { data: payload });
+}
+
 export {
   deleteMailLayout,
   getMailContentList,
@@ -108,4 +141,10 @@ export {
   createMailLayout,
   updateMailLayout,
   getMailLayoutDetail,
+  getFooterEmailTemplates,
+  deleteMailFooter,
+  getMailFooterList,
+  createMailFooter,
+  updateMailFooter,
+  getMailFooterDetail,
 };

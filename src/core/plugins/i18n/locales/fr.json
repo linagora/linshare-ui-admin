@@ -2609,7 +2609,13 @@
       "WORK_SPACE_WARN_DELETED_MEMBER": "Un membre a été supprimé de l'espace de travail",
       "WORK_SPACE_WARN_NEW_MEMBER": "Un utilisateur a été ajouté à l'espace de travail",
       "WORK_SPACE_WARN_UPDATED_MEMBER": "Les droits d'un membre sur l'espace de travail ont été mis à jour"
-    }      
+    },
+    "EMAIL_FOOTER": {
+      "PUBLIC": "Public",
+      "PRIVATE": "Privé",
+      "HELP_TEXT": "Cette vue vous permet de créer des modèles pour le pied de page de vos mails. Vous devez créer un modèle HTML et texte. Dans la vue <span style='color: #007AFF'>'Configuration des mails'</span>, vous pouvez créer un modèle de mail et l'associer à une mise en page de mail et à un pied de page de mail. (NB : La mise en page de mail doit contenir la variable ${footer} pour l'insérer dans le pied de page du mail."
+    }
+    
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"
