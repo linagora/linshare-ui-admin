@@ -386,6 +386,7 @@
     "TOKEN_INPUT_PLACEHOLDER": "Tìm kiếm hoặc lọc người dùng không nhất quán",
     "SCRUTINY": {
       "TITLE": "Chẩn đoán người dùng",
+      "DESCRIPTION":"Cho một địa chỉ email cụ thể, chế độ xem này hiển thị báo cáo đầy đủ về người dùng tương ứng trên sự hiện diện của họ trong LDAP với miền liên quan và cũng trong cơ sở dữ liệu. Do đó, chế độ xem này hữu ích khi kiểm tra xem một người dùng có ở trong miền đúng hay không, hoặc nếu họ thuộc về nhiều miền cùng một lúc, v.v... Hơn nữa, trong chế độ xem này, bạn có thể hiển thị tất cả thông tin liên quan đến một người dùng và chỉnh sửa chúng như thay đổi miền của người dùng sang miền khác.",
       "SEARCH_LEGEND": "Tìm tài khoản của một người bằng cách cung cấp địa chỉ email của người đó",
       "PLACEHOLDER": "Email",
       "DOMAIN_HEADER": "TÊN MIỀN",

@@ -386,6 +386,7 @@
     "TOKEN_INPUT_PLACEHOLDER": "Rechercher ou filtrer les utilisateurs incohérents",
     "SCRUTINY": {
       "TITLE": "Diagnostic utilisateur",
+      "DESCRIPTION": "Choisissez une adresse email afin d'afficher un rapport complet de l'utilisateur correspondant sur sa présence dans le LDAP avec le domaine associé et également dans la base de données. Cette vue est donc utile pour tester si un utilisateur se trouve dans le bon domaine ou s'il appartient à plusieurs domaines en même temps, etc. De plus, dans cette vue, vous pouvez afficher toutes les informations relatives à un utilisateur et les modifier, comme changer le domaine de l'utilisateur vers un autre.",
       "SEARCH_LEGEND": "Rechercher tous les comptes d'une personne avec son courriel",
       "PLACEHOLDER": "Courriel",
       "DOMAIN_HEADER": "NOM DU DOMAINE",

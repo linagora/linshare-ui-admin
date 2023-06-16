@@ -40,11 +40,6 @@ import { useDomainStore } from '@/modules/domain/store';
 import inconsistentUsersTabs from '../components/inconsistent-users-tabs.vue';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 
-// composables
-const domainStore = useDomainStore();
-const currentDomainName = computed(() => domainStore.currentDomain.name);
-const topMostDomain = computed(() => domainStore.topMostDomain);
-
 const breadcrumbsWithDomain = computed(() => {
   const newBreadcrumbs = [
     {
@@ -59,4 +54,8 @@ const breadcrumbsWithDomain = computed(() => {
   return newBreadcrumbs;
 });
 </script>
-<style lang="less"></style>
+<style lang="less" scoped>
+.title {
+  margin-left: 10px;
+}
+</style>
