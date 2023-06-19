@@ -2269,7 +2269,9 @@
       "VISIBLE": "Видимая",
       "CREATE_SUCCESS": "Успешно создана",
       "EMAIL_LAYOUT_NAME": "Название макета электронной почты",
-      "CREATE_EMAIL_LAYOUT": "Создать макет электронной почты"
+      "CREATE_EMAIL_LAYOUT": "Создать макет электронной почты",
+      "EMAIL_FOOTER_NAME": "Ваше имя (Vashe imya)",
+      "CREATE_EMAIL_FOOTER": "Создать нижний колонтитул электронной почты"
     },
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Удалить настройку почты",

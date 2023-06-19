@@ -2531,7 +2531,9 @@
       "VISIBLE": "Visible",
       "CREATE_SUCCESS": "Created successfully",
       "EMAIL_LAYOUT_NAME": "Email layout name",
-      "CREATE_EMAIL_LAYOUT": "Create Email Layout"
+      "CREATE_EMAIL_LAYOUT": "Create Email Layout",
+      "EMAIL_FOOTER_NAME": "Email footer name",
+      "CREATE_EMAIL_FOOTER": "Create Email Footer"
     },
     "DELETE_MODAL":{
       "DELETE_MODAL_TITLE": "Delete Mail Configuration",

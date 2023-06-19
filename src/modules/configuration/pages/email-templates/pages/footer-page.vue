@@ -41,12 +41,11 @@
       @close="onCloseModal"
       @refresh="onFetchEmailFooters"
     ></DeleteMailFootersFailCard>
-    <!-- <create-mail-footer-modal
+    <create-mail-footer-card
       v-if="modal.type === 'CREATE_FOOTER_EMAIL'"
       @close="onCloseModal"
       @refresh="onFetchEmailFooters"
-    ></create-mail-footer-modal>
-    >-->
+    ></create-mail-footer-card>
   </a-modal>
 </template>
 <script lang="ts" setup>
@@ -58,7 +57,7 @@ import { useDomainStore } from '@/modules/domain/store';
 import useEmailTemplatesFooter from '../hooks/useEmailTemplatesFooter';
 import EmailFooterTable from '../components/email-footer/email-footer-table.vue';
 import EmailFooterActions from '../components/email-footer/email-footer-actions.vue';
-// import createMailFooterModal from '../components/email-footer/email-footer-creation-modal.vue';
+import CreateMailFooterCard from '../components/email-footer/create-mail-footer-card.vue';
 import DeleteMailFooterCard from '../components/email-footer/delete-mail-footer-card.vue';
 import DeleteMailFootersCard from '../components/email-footer/delete-mail-footers-card.vue';
 import DeleteMailFootersFailCard from '../components/email-footer/delete-mail-footers-fail-card.vue';

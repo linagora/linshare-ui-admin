@@ -110,7 +110,7 @@ async function updateMailFooter(payload: MailFooter) {
 async function createMailFooter(payload: {
   description: string;
   domain: string;
-  domainName: string;
+  domainName?: string;
   footer: string;
   messagesEnglish: string;
   messagesFrench: string;

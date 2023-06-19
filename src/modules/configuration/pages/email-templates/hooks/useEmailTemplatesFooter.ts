@@ -255,7 +255,7 @@ export default function useEmailTemplatesFooter() {
   async function handleCreateMailFooter(payload: {
     description: string;
     domain: string;
-    domainName: string;
+    domainName?: string;
     footer: string;
     messagesEnglish: string;
     messagesFrench: string;
@@ -265,6 +265,7 @@ export default function useEmailTemplatesFooter() {
   }) {
     try {
       loading.value = true;
+      delete payload.domainName;
       await createMailFooter(payload);
       message.success(t('EMAIL_TEMPLATES.CREATE_MODAL.CREATE_SUCCESS'));
       return true;

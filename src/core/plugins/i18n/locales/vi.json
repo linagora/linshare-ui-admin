@@ -2529,7 +2529,9 @@
       "VISIBLE": "Hiển thị",
       "CREATE_SUCCESS": "Đã tạo thành công",
       "EMAIL_LAYOUT_NAME": "Tên bố cục email",
-      "CREATE_EMAIL_LAYOUT": "Tạo bố cục email"
+      "CREATE_EMAIL_LAYOUT": "Tạo bố cục email",
+      "EMAIL_FOOTER_NAME": "Tên chân trang email",
+      "CREATE_EMAIL_FOOTER": "Tạo chân trang email"
     },
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Xóa cấu hình thư",

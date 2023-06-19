@@ -2530,7 +2530,9 @@
       "VISIBLE": "Visible",
       "CREATE_SUCCESS": "Créé avec succès",
       "EMAIL_LAYOUT_NAME": "Nom de la structure du courriel",
-      "CREATE_EMAIL_LAYOUT": "Créer une structure de courriel"
+      "CREATE_EMAIL_LAYOUT": "Créer une structure de courriel",
+      "EMAIL_FOOTER_NAME": "Nom du footer du courriel",
+      "CREATE_EMAIL_FOOTER": "Créer le footer du courriel"
     },
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Supprimer la configuration du courriel",
