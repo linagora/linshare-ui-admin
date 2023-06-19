@@ -2614,8 +2614,27 @@
       "PUBLIC": "Public",
       "PRIVATE": "Privé",
       "HELP_TEXT": "Cette vue vous permet de créer des modèles pour le pied de page de vos mails. Vous devez créer un modèle HTML et texte. Dans la vue <span style='color: #007AFF'>'Configuration des mails'</span>, vous pouvez créer un modèle de mail et l'associer à une mise en page de mail et à un pied de page de mail. (NB : La mise en page de mail doit contenir la variable ${footer} pour l'insérer dans le pied de page du mail."
+    },
+    "DELETE_FOOTER_MODAL": {
+      "DELETE_MODAL_EMPTY": "Veuillez sélectionner le footer à supprimer",
+      "DELETE_MODAL_TITLE": "Supprimer le footer du courriel",
+      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer ce footer de courriel pour {currentDomain}. Voulez-vous continuer?",
+      "DELETE_SUCCESS": "Supprimé avec succès",
+      "DELETE_ERROR_ASSIGNED": "La footer de courriel sélectionné est associé à au moins un domaine. Vous ne pouvez pas le supprimer",
+      "DELETE_ERROR_UNAUTHORIZED": "Vous n'avez pas les droits pour supprimer ce footer de courriel",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Supprimer les footers de courriel sélectionnés",
+      "DELETE_ACTION_CANCEL": "Annuler",
+      "DELETE_ACTION_CONFIRM": "Oui, supprimer",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Vous êtes sur le point de supprimer {qty} footers de courriel. Cette procédure est irréversible. Souhaitez-vous continuer ?",
+      "DELETE_FAILURE": "Échec de la suppression",
+      "DELETE_ERROR_ASSIGNED_SOME": "Certains footers de courriel ont été supprimées avec succès, mais d'autres ne l'ont pas été car ils sont déjà assignés à au moins un domaine",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Certains footers de courriel ont été supprimées avec succès, mais d'autres ne l'ont pas été car vous n'avez pas les droits nécessaires pour les supprimer",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "Vous n'avez pas les droits nécessaires pour supprimer ces footers de courriel",
+      "DELETE_ERROR_ASSIGNED_ALL": "Vous ne pouvez pas supprimer ces footers de courriel",
+      "DELETE_ERROR_ONE": "Vous ne pouvez pas supprimer ce footer de courriel",
+      "DELETE_ERROR_ALL": "Vous ne pouvez pas supprimer ces footers de courriel",
+      "DELETE_ERROR_SOME_OF_THEM": "Certains des footer de courriel ont été supprimés avec succès, mais d'autres ne l'ont pas été car vous n'avez pas l'autorisation de les supprimer."
     }
-    
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Sélectionnez votre langue"

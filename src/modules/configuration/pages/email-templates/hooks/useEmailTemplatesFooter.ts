@@ -37,11 +37,11 @@ const pagination = reactive({
 const filterText = ref('');
 const modal = reactive<{
   type:
-    | 'CREATE_LAYOUT_EMAIL'
-    | 'ASSIGN_LAYOUT_EMAIL'
-    | 'DELETE_LAYOUT_EMAIL'
-    | 'DELETE_LAYOUTS_EMAIL'
-    | 'DELETE_LAYOUTS_FAIL_EMAIL';
+    | 'CREATE_FOOTER_EMAIL'
+    | 'ASSIGN_FOOTER_EMAIL'
+    | 'DELETE_FOOTER_EMAIL'
+    | 'DELETE_FOOTERS_EMAIL'
+    | 'DELETE_FOOTERS_FAIL_EMAIL';
   visible: boolean;
   multipleDeleteResponse?: {
     total: number;
@@ -51,7 +51,7 @@ const modal = reactive<{
     totalUnAuthoCases: number;
   };
 }>({
-  type: 'CREATE_LAYOUT_EMAIL',
+  type: 'CREATE_FOOTER_EMAIL',
   visible: false,
 });
 
@@ -80,13 +80,13 @@ export default function useEmailTemplatesFooter() {
 
   function onCreateMailFooter(email: MailFooter) {
     activeMailFooter.value = email;
-    modal.type = 'CREATE_LAYOUT_EMAIL';
+    modal.type = 'CREATE_FOOTER_EMAIL';
     modal.visible = true;
   }
 
   function onDeleteMailFooter(mailFooter: MailFooter) {
     activeMailFooter.value = mailFooter;
-    modal.type = 'DELETE_LAYOUT_EMAIL';
+    modal.type = 'DELETE_FOOTER_EMAIL';
     modal.visible = true;
   }
 
@@ -97,13 +97,13 @@ export default function useEmailTemplatesFooter() {
     totalAssignCases: number;
     totalUnAuthoCases: number;
   }) {
-    modal.type = 'DELETE_LAYOUTS_FAIL_EMAIL';
+    modal.type = 'DELETE_FOOTERS_FAIL_EMAIL';
     modal.visible = true;
     modal.multipleDeleteResponse = response;
   }
 
   function onDeleteMailFooters() {
-    modal.type = 'DELETE_LAYOUTS_EMAIL';
+    modal.type = 'DELETE_FOOTERS_EMAIL';
     modal.visible = true;
   }
 
@@ -140,7 +140,7 @@ export default function useEmailTemplatesFooter() {
       }
       loading.value = true;
       if (activeMailFooter?.assigned) {
-        message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_ASSIGNED'));
+        message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_ERROR_ASSIGNED'));
         loading.value = false;
         return false;
       }
@@ -149,9 +149,9 @@ export default function useEmailTemplatesFooter() {
     } catch (error) {
       if (error instanceof APIError) {
         if (error.errorCode === 16666) {
-          message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_ASSIGNED'));
+          message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_ERROR_ASSIGNED'));
         } else if (error.errorCode === 166678) {
-          message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_UNAUTHORIZED'));
+          message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_ERROR_UNAUTHORIZED'));
         } else {
           message.error(error.getMessage());
         }
@@ -165,7 +165,7 @@ export default function useEmailTemplatesFooter() {
   async function handleDeleteMailFooters() {
     try {
       if (!selectedMailFooters?.value?.length) {
-        message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_MODAL_EMPTY'));
+        message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_MODAL_EMPTY'));
         return {
           total: selectedMailFooters?.value?.length,
           totalSuccess: 0,
@@ -271,7 +271,7 @@ export default function useEmailTemplatesFooter() {
 
   function onEditMailFooter(record: MailFooter) {
     activeMailFooter.value = record;
-    router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.LAYOUT_DETAIL, params: { id: record?.uuid } });
+    router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.FOOTER_DETAIL, params: { id: record?.uuid } });
   }
 
   async function handleGetMailFooterDetail(uuid: string) {

@@ -26,17 +26,18 @@
     wrap-class-name="email-templates-footer-page__modal"
     :destroy-on-close="true"
   >
+    <DeleteMailFooterCard
+      v-if="modal.type === 'DELETE_FOOTER_EMAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchEmailFooters"
+    ></DeleteMailFooterCard>
     <!-- <create-mail-footer-modal
       v-if="modal.type === 'CREATE_FOOTER_EMAIL'"
       @close="onCloseModal"
       @refresh="onFetchEmailFooters"
     ></create-mail-footer-modal>
     >
-    <DeleteMailFooterCard
-      v-if="modal.type === 'DELETE_FOOTER_EMAIL'"
-      @close="onCloseModal"
-      @refresh="onFetchEmailFooters"
-    ></DeleteMailFooterCard>
+
     <DeleteMailFootersCard
       v-else-if="modal.type === 'DELETE_FOOTERS_EMAIL'"
       @close="onCloseModal"
@@ -59,7 +60,7 @@ import useEmailTemplatesFooter from '../hooks/useEmailTemplatesFooter';
 import EmailFooterTable from '../components/email-footer/email-footer-table.vue';
 import EmailFooterActions from '../components/email-footer/email-footer-actions.vue';
 // import createMailFooterModal from '../components/email-footer/email-footer-creation-modal.vue';
-// import DeleteMailFooterCard from '../components/email-footer/delete-mail-footer-card.vue';
+import DeleteMailFooterCard from '../components/email-footer/delete-mail-footer-card.vue';
 // import DeleteMailFootersCard from '../components/email-footer/delete-mail-footers-card.vue';
 // import DeleteMailFootersFailCard from '../components/email-footer/delete-mail-footers-fail-card.vue';
 

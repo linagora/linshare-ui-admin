@@ -2613,6 +2613,26 @@
         "PUBLIC": "Công khai",
         "PRIVATE": "Riêng tư",
         "HELP_TEXT": "Chế độ xem này cho phép bạn tạo mẫu cho chân trang thư của mình. Bạn nên tạo một HTML & mô hình văn bản. Trong chế độ xem <span style='color: #007AFF'>'cấu hình thư'</span>, bạn có thể tạo mẫu thư và liên kết mẫu đó với bố cục thư và chân trang thư. (Lưu ý: Bố cục thư phải chứa biến ${footer} để đặt ở chân trang thư."
+      },
+      "DELETE_FOOTER_MODAL": {
+        "DELETE_MODAL_EMPTY": "Vui lòng chọn chân trang để xóa",
+        "DELETE_MODAL_TITLE": "Xóa chân trang thư",
+        "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa chân trang thư này cho {currentDomain}. Bạn có muốn tiếp tục?",
+        "DELETE_SUCCESS": "Đã xóa thành công",
+        "DELETE_ERROR_ASSIGNED": "Bố cục thư đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
+        "DELETE_ERROR_UNAUTHORIZED": "Bạn không có quyền xóa chân trang thư này",
+        "DELETE_SELECTED_MAIL_CONFIGURATION": "Xóa các chân trang thư được chọn",
+        "DELETE_ACTION_CANCEL": "Hủy",
+        "DELETE_ACTION_CONFIRM": "Có, xóa",
+        "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Bạn đang chuẩn bị xóa {qty} chân trang thư. Thao tác này không thể hoàn tác. Bạn có muốn tiếp tục?",
+        "DELETE_FAILURE": "Xóa thất bại",
+        "DELETE_ERROR_ASSIGNED_SOME": "Một số chân trang thư đã bị xóa thành công, trong khi các chân trang khác không bị xóa do đã được gán cho ít nhất một tên miền",
+        "DELETE_ERROR_UNAUTHORIZED_SOME": "Một số chân trang thư đã bị xóa thành công, trong khi các chân trang khác không bị xóa do bạn không có quyền xóa chúng",
+        "DELETE_ERROR_UNAUTHORIZED_ALL": "Bạn không có quyền xóa các chân trang thư đó",
+        "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các chân trang thư đó",
+        "DELETE_ERROR_ONE": "Bạn không thể xóa chân trang thư này",
+        "DELETE_ERROR_ALL": "Bạn không thể xóa các chân trang thư đó",
+        "DELETE_ERROR_SOME_OF_THEM": "Một số chân trang thư đã bị xóa thành công, nhưng những chân trang khác không được xóa vì bạn không có quyền xóa chúng."      
       }
   },
   "LANGUAGE": {
