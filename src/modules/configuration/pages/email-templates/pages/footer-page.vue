@@ -31,13 +31,6 @@
       @close="onCloseModal"
       @refresh="onFetchEmailFooters"
     ></DeleteMailFooterCard>
-    <!-- <create-mail-footer-modal
-      v-if="modal.type === 'CREATE_FOOTER_EMAIL'"
-      @close="onCloseModal"
-      @refresh="onFetchEmailFooters"
-    ></create-mail-footer-modal>
-    >
-
     <DeleteMailFootersCard
       v-else-if="modal.type === 'DELETE_FOOTERS_EMAIL'"
       @close="onCloseModal"
@@ -47,7 +40,13 @@
       v-else-if="modal.type === 'DELETE_FOOTERS_FAIL_EMAIL'"
       @close="onCloseModal"
       @refresh="onFetchEmailFooters"
-    ></DeleteMailFootersFailCard> -->
+    ></DeleteMailFootersFailCard>
+    <!-- <create-mail-footer-modal
+      v-if="modal.type === 'CREATE_FOOTER_EMAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchEmailFooters"
+    ></create-mail-footer-modal>
+    >-->
   </a-modal>
 </template>
 <script lang="ts" setup>
@@ -61,8 +60,8 @@ import EmailFooterTable from '../components/email-footer/email-footer-table.vue'
 import EmailFooterActions from '../components/email-footer/email-footer-actions.vue';
 // import createMailFooterModal from '../components/email-footer/email-footer-creation-modal.vue';
 import DeleteMailFooterCard from '../components/email-footer/delete-mail-footer-card.vue';
-// import DeleteMailFootersCard from '../components/email-footer/delete-mail-footers-card.vue';
-// import DeleteMailFootersFailCard from '../components/email-footer/delete-mail-footers-fail-card.vue';
+import DeleteMailFootersCard from '../components/email-footer/delete-mail-footers-card.vue';
+import DeleteMailFootersFailCard from '../components/email-footer/delete-mail-footers-fail-card.vue';
 
 //composable
 const route = useRoute();
