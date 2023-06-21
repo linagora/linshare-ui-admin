@@ -265,7 +265,10 @@
     "36004": "Welcome message not found",
     "36006": "Welcome message is currently assigned with at least one domain.",
     "14004": "Functionality not found",
-    "2200": "User not found"
+    "2200": "User not found",
+    "MAIL_CONFIGURATION":{
+      "1000": "You cannot set to private a mail configuration assigned to other domains"
+    }
   },
   "AUTH": {
     "TAGLINE": "Secure file sharing app in open source",

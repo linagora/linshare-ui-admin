@@ -96,6 +96,7 @@ async function onFetchMailConfiguration() {
 
 function assignReload() {
   domainStore.fetchDomain();
+  onFetchMailConfiguration();
 }
 
 onFetchMailConfiguration();

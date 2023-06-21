@@ -368,7 +368,11 @@ export default function useEmailTemplatesConfiguration() {
       message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {
-        message.error(error.getMessage());
+        if (error.errorCode === 1000) {
+          message.error(t('ERRORS.MAIL_CONFIGURATION.1000'));
+        } else {
+          message.error(error.getMessage());
+        }
       }
       return [];
     }

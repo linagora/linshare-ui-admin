@@ -264,7 +264,10 @@
     "36004": "Không tìm thấy thông điệp chào mừng",
     "36006": "Thông điệp chào mừng hiện đang được gán cho ít nhất một miền.",
     "14004": "Chức năng không được tìm thấy",
-    "2200": "Không tìm thấy ngươì dùng"
+    "2200": "Không tìm thấy ngươì dùng",
+    "MAIL_CONFIGURATION": {
+      "1000": "Bạn không thể đặt cấu hình thư riêng tư cho một cấu hình thư được gán cho các miền khác"
+    }
   },
   "AUTH": {
     "TAGLINE": "Phần mềm chia sẻ dữ liệu bảo mật bằng công nghệ nguồn mở",

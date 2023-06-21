@@ -264,7 +264,10 @@
     "36004": "Ce message d'accueil n'existe pas",
     "36006": "Un des messages d'accueil selectionnés est associé à au moins un domaine, vous ne pouvez pas le supprimer.",
     "14004": "Fonctionnalité introuvable",
-    "2200": "Utilisateur introuvable"
+    "2200": "Utilisateur introuvable",
+    "MAIL_CONFIGURATION": {
+      "1000": "Vous ne pouvez pas définir comme privée une configuration de messagerie attribuée à d'autres domaines"
+    }
   },
   "AUTH": {
     "TAGLINE": "Partage sécurisé de fichiers en open source",

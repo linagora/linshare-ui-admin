@@ -37,7 +37,6 @@ function onCancel() {
 
   .ls-button {
     padding: 0px 20px;
-    width: 88px;
     min-width: 88px;
     height: 44px;
     border-radius: 8px;
