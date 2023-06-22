@@ -1,16 +1,23 @@
-import apiv4 from '@/apiv4';
+import api from '@/api';
 
 async function getActivitiesLogs(
   beginDate: string | undefined,
   endDate: string | undefined,
   actions?: string,
-  types?: string
+  types?: string,
+  domain?: string
 ) {
-  let queryUrl = `audit?beginDate=${beginDate}&endDate=${endDate}`;
-  queryUrl = actions ? `${queryUrl}&action=${actions}` : queryUrl;
-  queryUrl = types ? `${queryUrl}&type=${types}` : queryUrl;
+  const queryUrl = `domains/LinShareRootDomain/audit`;
 
-  return await apiv4.get(queryUrl);
+  return await api.get(queryUrl, {
+    params: {
+      beginDate,
+      endDate,
+      actions,
+      types,
+      domain,
+    },
+  });
 }
 
 export { getActivitiesLogs };

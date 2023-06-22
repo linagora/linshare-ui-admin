@@ -35,7 +35,7 @@ export function useActivities() {
 
   const activitiesLogsFormated = computed(() => {
     const formatedData = activitiesLogs.value
-      .map((item, index) => {
+      ?.map((item, index) => {
         return {
           ...item,
           number: index + 1,
@@ -58,26 +58,22 @@ export function useActivities() {
       })
       .sort((a: ActivityLogData, b: ActivityLogData) => b.dateTime - a.dateTime);
 
-    let activities = _filterByActors(formatedData);
-    activities = _filterByResourceNames(activities);
-    return _filterByDomains(activities);
-  });
-
-  const loggedUserId = computed(() => {
-    return loggedUser.value?.uuid;
+    const activities = _filterByActors(formatedData);
+    return _filterByResourceNames(activities);
   });
 
   //methods
   async function fetchActivities() {
     try {
       loading.value = true;
-      const data: ActivityLog[] = await getActivitiesLogs(
-        beginDate.value?.toISOString(),
-        endDate.value?.toISOString(),
+      const data = await getActivitiesLogs(
+        beginDate.value?.format('YYYY-MM-DD'),
+        endDate.value?.format('YYYY-MM-DD'),
         actions.value.join('&action='),
-        types.value.join('&type=')
+        types.value.join('&type='),
+        domains.value.join('&domain=')
       );
-      activitiesLogs.value = data;
+      activitiesLogs.value = data?.data;
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
@@ -87,19 +83,6 @@ export function useActivities() {
     } finally {
       loading.value = false;
     }
-  }
-
-  function _filterByDomains(logs: ActivityLogData[]) {
-    const filtedDomains = logs.filter((item) => {
-      return domains.value?.length
-        ? domains.value?.includes(item?.domainName) ||
-            domains.value?.some((domain) => {
-              return item?.domainName?.toLowerCase().includes(domain.toLowerCase());
-            })
-        : true;
-    });
-
-    return filtedDomains;
   }
 
   function _filterByActors(logs: ActivityLogData[]) {

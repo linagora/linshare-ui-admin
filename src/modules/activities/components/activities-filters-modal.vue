@@ -49,7 +49,7 @@ const typeOptions = computed(() => {
 const domainOptions = computed(() => {
   const formatedDomains = domainList.value
     ?.map((item) => {
-      return { name: item?.name, value: item?.name };
+      return { name: item?.name, value: item?.uuid };
     })
     ?.filter((value, index, self) => index === self.findIndex((t) => t.name === value.name && t.value === value.value));
   return formatedDomains ? [...formatedDomains] : [];
@@ -161,7 +161,7 @@ onMounted(async () => {
 </script>
 <template>
   <a-modal
-    class="filter-modal"
+    class="activities-filters-modal"
     :destroy-on-close="true"
     :visible="visible"
     :title="$t('ACTIVITIES.FILTERS_MODAL.TITLE')"
@@ -207,12 +207,15 @@ onMounted(async () => {
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.DOMAIN')">
         <a-select
           v-model:value="filterForm.domains"
+          mode="tags"
           :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
-          mode="tags"
-          :options="domainOptions"
           :placeholder="$t('ACTIVITIES.FILTERS_MODAL.DOMAIN_SELECT_PLACEHOLDER')"
-        ></a-select>
+        >
+          <a-select-option v-for="domain in domainOptions" :key="domain.value" :value="domain.value">
+            {{ domain?.name }}
+          </a-select-option>
+        </a-select>
       </a-form-item>
 
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.ACTOR')">
@@ -273,7 +276,7 @@ onMounted(async () => {
 </template>
 
 <style lang="less">
-.filter-modal {
+.activities-filters-modal {
   .ant-modal-header {
     border-radius: 16px;
     border-bottom: none;
@@ -319,6 +322,12 @@ onMounted(async () => {
     .ok {
       flex: 1;
     }
+  }
+  .ant-select-selection-item {
+    justify-content: flex-start;
+  }
+  .ant-select-selector {
+    align-items: center;
   }
 }
 </style>
