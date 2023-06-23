@@ -405,6 +405,18 @@
       "WARNING_OUT_OF_DATE_REFRESH": "Dữ liệu hiển thị không còn được cập nhật",
       "REFRESH": "Làm mới"
     },
+    "MIGRATE_USERS_CARD": {
+      "UPLOAD_PERMISSION": "Quyền tải lên",
+      "GUEST_PERMISSION": "Quyền tạo khách",
+      "ROLE": "Vai trò",
+      "FIRST_NAME": "Tên",
+      "LAST_NAME": "Họ",
+      "DEFAULT_LANGUAGE": "Ngôn ngữ mặc định của trang web",
+      "NOTIFICATION_LANGUAGE": "Ngôn ngữ thông báo",
+      "STATUS": "Trạng thái",
+      "CREATION_MODAL_TITLE": "Tạo hồ sơ",
+      "CREATION_MODAL_DESCRIPTION": "Người dùng này chưa có hồ sơ LinShare. Bạn có muốn tạo nó trong cơ sở dữ liệu không?"
+    },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Bạn sắp xóa những người dùng này, quy trình này là không thể đảo ngược và sẽ hủy tất cả tài liệu của họ. Bạn có muốn tiếp tục?"
     },
@@ -2550,7 +2562,7 @@
       "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các bố cục thư đó",
       "DELETE_ERROR_ONE": "Bạn không thể xóa bố cục thư này",
       "DELETE_ERROR_ALL": "Bạn không thể xóa các bố cục thư đó",
-      "DELETE_ERROR_SOME_OF_THEM": "Một số bố cục thư đã bị xóa thành công, nhưng những bố cục khác không được xóa vì bạn không có quyền xóa chúng."      
+      "DELETE_ERROR_SOME_OF_THEM": "Một số bố cục thư đã bị xóa thành công, nhưng những bố cục khác không được xóa vì bạn không có quyền xóa chúng."
     },
     "EDIT_FORM" : {
       "EDIT_HEADER": "Chỉnh sửa cấu hình thư",
@@ -2636,7 +2648,7 @@
         "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các chân trang thư đó",
         "DELETE_ERROR_ONE": "Bạn không thể xóa chân trang thư này",
         "DELETE_ERROR_ALL": "Bạn không thể xóa các chân trang thư đó",
-        "DELETE_ERROR_SOME_OF_THEM": "Một số chân trang thư đã bị xóa thành công, nhưng những chân trang khác không được xóa vì bạn không có quyền xóa chúng."      
+        "DELETE_ERROR_SOME_OF_THEM": "Một số chân trang thư đã bị xóa thành công, nhưng những chân trang khác không được xóa vì bạn không có quyền xóa chúng."
       }
   },
   "LANGUAGE": {

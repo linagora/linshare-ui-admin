@@ -12,7 +12,7 @@
         :class="{
           'selected-row': selectedRow === record,
         }"
-        @click="selectedRow = record"
+        @click="setUserDiagnosticInformations(record)"
       >
         <template v-if="column.key === 'number'">
           <span>{{ index + 1 }}</span>
@@ -45,8 +45,26 @@ import CancelCrossIcon from '@/core/components/icons/cancel-cross-icon.vue';
 import SuccessIcon from '@/core/components/icons/success-icon.vue';
 
 const { t } = useI18n();
-const { filteredListByPage, loading } = useUsersDiagnostic();
-const selectedRow = ref(null);
+const {
+  filteredListByPage,
+  loading,
+  activeUserDiagnostic,
+  getDiagnosticUserInformations,
+  userCreateModal,
+  UserDiagnosticToSave,
+} = useUsersDiagnostic();
+const selectedRow = ref();
+
+async function getSelectedUserDiagnostic(record: UserDiagnostic) {
+  if (record.database) {
+    activeUserDiagnostic.value = record;
+    await getDiagnosticUserInformations();
+  } else {
+    UserDiagnosticToSave.value = record;
+    userCreateModal.open = true;
+    return;
+  }
+}
 
 const columns = computed(() => [
   {
@@ -76,6 +94,13 @@ const columns = computed(() => [
     align: 'center',
   },
 ]);
+
+function setUserDiagnosticInformations(record: UserDiagnostic) {
+  getSelectedUserDiagnostic(record);
+  record.database ? (selectedRow.value = record) : (selectedRow.value = null);
+}
+
+activeUserDiagnostic.value = undefined;
 </script>
 <style lang="less">
 .diagnostic_table {
@@ -86,6 +111,9 @@ const columns = computed(() => [
       background-color: whitesmoke;
       padding: 10px;
       border-radius: 8px;
+    }
+    .ant-table-cell {
+      cursor: pointer;
     }
   }
 }

@@ -11,10 +11,24 @@
     @submit="handleSubmit"
     @reset="resetFilters"
   />
-  <div class="list">
-    <usersDiagnosticTable></usersDiagnosticTable>
+  <div class="diagnotic-elements">
+    <div class="list">
+      <usersDiagnosticTable></usersDiagnosticTable>
+      <ThePagination v-model="pagination" class="inconsistent-users-list__pagination" :is-visible="!!list.length" />
+    </div>
+    <div v-if="activeUserDiagnostic !== undefined" class="users-diagnostic-detail-block">
+      <usersDiagnosticDetail></usersDiagnosticDetail>
+    </div>
   </div>
-  <ThePagination v-model="pagination" class="inconsistent-users-list__pagination" :is-visible="!!list.length" />
+  <a-modal
+    v-model:visible="userCreateModal.open"
+    :closable="false"
+    :footer="null"
+    :destroy-on-close="true"
+    class="diagnostic-creation-modal"
+  >
+    <profilCreationModal @close="onCloseModal"></profilCreationModal>
+  </a-modal>
 </template>
 
 <script lang="ts" setup>
@@ -27,18 +41,32 @@ import ThePagination from '@/core/components/the-pagination.vue';
 import { listUsers } from '@/modules/user/services/user-api';
 import { UserDiagnosticFilters } from '../types/UserDiagnotic';
 import usersDiagnosticTable from '../components/users-diagnostic-table.vue';
+import usersDiagnosticDetail from '../components/users-diagnostic-detail-card.vue';
 import useUsersDiagnostic from '../hooks/useUsersDiagnostic';
 import { useRouter } from 'vue-router';
+import profilCreationModal from '../components/profil-creation-modal.vue';
+import User from '@/modules/user/types/User';
 
 const { t } = useI18n();
-const { pagination, list, handleTableChange, resetFilters } = useUsersDiagnostic();
+const { pagination, list, handleTableChange, resetFilters, activeUserDiagnostic, userCreateModal } =
+  useUsersDiagnostic();
 const { currentRoute } = useRouter();
 
 const searchForAccounts = async function (mail: string) {
   const data = await listUsers({ mail });
 
-  return data.data.map((user) => ({
-    label: user.uuid,
+  const uniqueEmails = new Set<string>();
+  const uniqueUsers: User[] = [];
+
+  data.data.forEach((user) => {
+    if (!uniqueEmails.has(user.mail)) {
+      uniqueEmails.add(user.mail);
+      uniqueUsers.push(user);
+    }
+  });
+
+  return uniqueUsers.map((user: User) => ({
+    label: user.mail,
     value: user.mail,
     key: user.uuid,
     data: user,
@@ -56,11 +84,17 @@ const filterOptions = [
 ];
 
 const handleSubmit = async function (options: TokenSubmitPayload<UserDiagnosticFilters>) {
+  activeUserDiagnostic.value = undefined;
   if (!options.filters.email) {
+    list.value = [];
     return;
   }
   await handleTableChange(options.filters.email);
 };
+
+function onCloseModal() {
+  userCreateModal.open = false;
+}
 
 watch(currentRoute, (newRoute) => {
   list.value = [];
@@ -68,7 +102,24 @@ watch(currentRoute, (newRoute) => {
 </script>
 
 <style lang="less">
+.diagnotic-elements {
+  display: flex;
+  flex-direction: row;
+}
+
+.users-diagnostic-detail-block {
+  flex: 1;
+}
 .list {
   margin-top: 20px;
+  margin-right: 30px;
+  flex: 1;
+}
+
+.ant-modal-content {
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
+  border-radius: 16px;
+  overflow: hidden;
 }
 </style>

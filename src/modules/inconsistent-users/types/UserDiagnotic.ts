@@ -12,5 +12,27 @@ export interface UserDiagnostic {
 }
 
 export interface UserDiagnosticFilters extends Filters {
-  email: string;
+  email?: string;
+}
+
+export interface UsersDiagnosticDetail {
+  uuid: string;
+  creationDate: number;
+  modificationDate: number;
+  locale: string;
+  externalMailLocale: string;
+  domain: string;
+  domainName: string;
+  secondFAUuid: boolean;
+  secondFAEnabled: boolean;
+  secondFARequired: boolean;
+  locked: boolean;
+  firstName: string;
+  lastName: string;
+  mail: string;
+  role: string;
+  canUpload: boolean;
+  canCreateGuest: boolean;
+  accountType: string;
+  quotaUuid: string;
 }

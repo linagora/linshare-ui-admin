@@ -406,6 +406,18 @@
       "WARNING_OUT_OF_DATE_REFRESH": "The displayed data are no longer uptodate",
       "REFRESH": "Refresh"
     },
+    "MIGRATE_USERS_CARD": {
+      "UPLOAD_PERMISSION": "Upload permission",
+      "GUEST_PERMISSION": "Guest create permission",
+      "ROLE": "Role",
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last name",
+      "DEFAULT_LANGUAGE": "Default language of site",
+      "NOTIFICATION_LANGUAGE":"Notification language",
+      "STATUS":"Status",
+      "CREATION_MODAL_TITLE": "Create profil",
+      "CREATION_MODAL_DESCRIPTION": "This user does not have a LinShare profile. Would you like to create it in the database ?"
+    },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "You are about to delete these users, this procedure is irreversible and destroys all their documents. Do you want to proceed?"
     },

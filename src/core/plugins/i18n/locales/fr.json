@@ -183,7 +183,7 @@
     },
     "DETAIL_USER": {
       "TITLE": "Configuration de l'utilisateur",
-      "CONFIRM_DELETE": "Vous êtes sur le point de supprimer ce modèle de domaine, cette procédure est irréversible. Souhaitez-vous continuer ?",
+      "CONFIRM_DELETE": "Vous êtes sur le point de supprimer cet utilisateur, cette procédure est irréversible. Souhaitez-vous continuer ?",
       "DELETE_USER": "Supprimer l'utilisateur",
       "YES": "Oui",
       "NO": "Non",
@@ -404,6 +404,18 @@
       "CURRENT_USER_FOUND": "Résultat pour: ",
       "WARNING_OUT_OF_DATE_REFRESH": "Les données affichées ne sont plus à jour",
       "REFRESH": "Actualiser"
+    },
+    "MIGRATE_USERS_CARD": {
+      "UPLOAD_PERMISSION": "Autorisation de téléchargement",
+      "GUEST_PERMISSION": "Autorisation de création d'invité",
+      "ROLE": "Rôle",
+      "FIRST_NAME": "Prénom",
+      "LAST_NAME": "Nom de famille",
+      "DEFAULT_LANGUAGE": "Langue par défaut du site",
+      "NOTIFICATION_LANGUAGE": "Langue des notifications",
+      "STATUS": "Statut",
+      "CREATION_MODAL_TITLE": "Créer un profil",
+      "CREATION_MODAL_DESCRIPTION": "Cet utilisateur n'a pas de profil LinShare. Souhaitez-vous le créer dans la base de données ?"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer ces utilisateurs, cette procédure est irréversible et va détruire tous leurs documents. Souhaitez-vous continuer ?"

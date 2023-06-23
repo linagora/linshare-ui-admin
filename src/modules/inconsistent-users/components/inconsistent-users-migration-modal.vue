@@ -39,6 +39,7 @@ import { computed, reactive, watchEffect } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
+import useUsersDiagnostic from '@/modules/inconsistent-users/hooks/useUsersDiagnostic';
 import Domain from '@/modules/domain/types/Domain';
 import { useReportingStore } from '../store';
 import { InconsistentUsers } from '../types/InconsistentUsers';
@@ -54,6 +55,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 // composable
 const { loading, handleMigrateInconsistentUsers } = useInconsistentUsers();
+const { activeUserDiagnostic } = useUsersDiagnostic();
 
 const emits = defineEmits(['close', 'refresh']);
 const { domains } = storeToRefs(useReportingStore());
@@ -76,6 +78,7 @@ async function apply() {
   const result = await handleMigrateInconsistentUsers(props.selectedUsers, filterForm.domain);
   if (result) {
     onCloseModal();
+    activeUserDiagnostic.value = undefined;
   }
 }
 
