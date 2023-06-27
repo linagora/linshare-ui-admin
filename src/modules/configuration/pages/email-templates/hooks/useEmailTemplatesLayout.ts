@@ -19,6 +19,7 @@ import { useDomainStore } from '@/modules/domain/store';
 import { useRouter } from 'vue-router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../router';
 import { useLocalStorage } from '@vueuse/core';
+import { EMAIL_DEFAULT_UUID } from '@/core/constants/emails';
 
 const list = ref<MailLayout[]>([]);
 const loading = ref(false);
@@ -73,6 +74,9 @@ export default function useEmailTemplatesLayout() {
 
   //methods
 
+  function onCheckDefaultEmailLayout(email: MailLayout) {
+    return EMAIL_DEFAULT_UUID.LAYOUT === email.uuid;
+  }
   function onCloseModal() {
     modal.visible = false;
     pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
@@ -316,6 +320,7 @@ export default function useEmailTemplatesLayout() {
     resetSelectEmailLayouts,
     handleGetMailLayoutDetail,
     handleGetEmailLayoutTemplates,
+    onCheckDefaultEmailLayout,
     checkingEmailLayoutsDomainAuthorized,
   };
 }

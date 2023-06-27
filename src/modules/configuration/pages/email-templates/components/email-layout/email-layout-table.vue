@@ -49,13 +49,13 @@
             <template #overlay>
               <a-menu>
                 <a-menu-item
-                  v-if="!checkingEmailLayoutsDomainAuthorized(record.domain)"
+                  v-if="!checkingEmailLayoutsDomainAuthorized(record.domain) || onCheckDefaultEmailLayout(record)"
                   @click="onEditMailLayout(record)"
                 >
                   <ViewIcon></ViewIcon> {{ $t('GENERAL.VIEW') }}
                 </a-menu-item>
                 <a-menu-item
-                  v-if="checkingEmailLayoutsDomainAuthorized(record.domain)"
+                  v-if="checkingEmailLayoutsDomainAuthorized(record.domain) && !onCheckDefaultEmailLayout(record)"
                   @click="onEditMailLayout(record)"
                 >
                   <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
@@ -98,8 +98,14 @@ const emits = defineEmits(['toggle', 'toggle-all']);
 
 // composable
 const { t } = useI18n();
-const { selectedMailLayouts, checkingEmailLayoutsDomainAuthorized, onDeleteMailLayout, onEditMailLayout, pagination } =
-  useEmailTemplatesLayout();
+const {
+  selectedMailLayouts,
+  checkingEmailLayoutsDomainAuthorized,
+  onDeleteMailLayout,
+  onEditMailLayout,
+  onCheckDefaultEmailLayout,
+  pagination,
+} = useEmailTemplatesLayout();
 
 // computed
 const rowSelection = computed(() => ({

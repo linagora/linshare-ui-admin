@@ -48,14 +48,19 @@ const {
   handleUpdateMailLayout,
   handleResetEmailLayout,
   checkingEmailLayoutsDomainAuthorized,
+  onCheckDefaultEmailLayout,
 } = useEmailTemplatesLayout();
 
 // data
 const editing = ref(false);
 
 // computed
+
+const isDefaultEmailLayout = computed(() => {
+  return onCheckDefaultEmailLayout(activeMailLayout.value);
+});
 const isEditable = computed(() => {
-  return checkingEmailLayoutsDomainAuthorized(activeMailLayout.value.domain);
+  return checkingEmailLayoutsDomainAuthorized(activeMailLayout.value.domain) && !isDefaultEmailLayout.value;
 });
 // methods
 function onToggleEditState() {
