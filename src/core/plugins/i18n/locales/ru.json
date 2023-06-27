@@ -2275,7 +2275,7 @@
     "DELETE_LAYOUT_MODAL": {
       "DELETE_MODAL_EMPTY": "Выберите политику удалить для удаления",
       "DELETE_MODAL_TITLE": "Удалить mакет почты",
-      "DELETE_MODAL_SUBTITLE": "Вы собираетесь удалить эту mакет почты для {currentDomain}. Хотите продолжить?",
+      "DELETE_MODAL_SUBTITLE": "Вы собираетесь удалить эту mакет почты. Хотите продолжить?",
       "DELETE_SUCCESS": "Успешно удалено",
       "DELETE_ERROR_ASSIGNED": "Выбранная настройка почты связана как минимум с одним доменом. Удаление невозможно",
       "DELETE_ERROR_UNAUTHORIZED": "У вас нет прав на удаление этой mакет почты",

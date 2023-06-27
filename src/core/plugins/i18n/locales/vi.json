@@ -2535,7 +2535,7 @@
     "DELETE_LAYOUT_MODAL": {
       "DELETE_MODAL_EMPTY": "Vui lòng chọn bố cục để xóa",
       "DELETE_MODAL_TITLE": "Xóa bố cục thư",
-      "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa bố cục thư này cho {currentDomain}. Bạn có muốn tiếp tục?",
+      "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa bố cục thư này. Bạn có muốn tiếp tục?",
       "DELETE_SUCCESS": "Đã xóa thành công",
       "DELETE_ERROR_ASSIGNED": "Bố cục thư đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
       "DELETE_ERROR_UNAUTHORIZED": "Bạn không có quyền xóa bố cục thư này",

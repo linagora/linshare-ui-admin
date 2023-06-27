@@ -5,9 +5,7 @@
     </span>
     <div class="delete-mail-layout-card__content">
       <strong>{{ $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_MODAL_TITLE') }}</strong>
-      <span>{{
-        $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_MODAL_SUBTITLE', { currentDomain: currentDomain.name })
-      }}</span>
+      <span>{{ $t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_MODAL_SUBTITLE') }}</span>
     </div>
     <div class="delete-mail-layout-card__actions">
       <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>

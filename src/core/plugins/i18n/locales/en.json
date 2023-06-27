@@ -2537,7 +2537,7 @@
     "DELETE_LAYOUT_MODAL":{
       "DELETE_MODAL_EMPTY": "Please select mail layout to delete",
       "DELETE_MODAL_TITLE": "Delete Mail Layout",
-      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail layout for {currentDomain}. Do you want to proceed?",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail layout. Do you want to proceed?",
       "DELETE_SUCCESS": "Deleted successfully",
       "DELETE_ERROR_ASSIGNED": "Selected mail layout is associated with at least one domain. You cannot delete",
       "DELETE_ERROR_UNAUTHORIZED": "You do not have the rights to delete this mail layout",
