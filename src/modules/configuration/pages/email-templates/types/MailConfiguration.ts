@@ -23,6 +23,9 @@ export interface MailLang {
   mailFooter?: string;
   readonly: boolean;
   uuid: string;
+  mailContentDomainName?: string;
+  mailContentName?: string;
+  mailContentModificationDate?: string | number;
 }
 
 export interface MailLangDetail {

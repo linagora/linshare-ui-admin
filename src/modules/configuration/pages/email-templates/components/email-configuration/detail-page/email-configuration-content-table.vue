@@ -34,7 +34,7 @@
         </template>
         <template v-else-if="column.key === 'mailContent'">
           <a-select
-            :value="record.mailContentName"
+            :value="record.mailContentString"
             class="ls-input"
             placeholder="Please select mail content"
             :bordered="false"
@@ -64,6 +64,7 @@ import { MailLang } from '../../../types/MailConfiguration';
 import ThePagination from '@/core/components/the-pagination.vue';
 import useEmailTemplatesConfiguration from '../../../hooks/useEmailTemplatesConfiguration';
 import { useDebounceFn } from '@vueuse/core';
+import dayjs from 'dayjs';
 
 const { t } = useI18n();
 const {
@@ -99,6 +100,9 @@ const mailContentLangs = computed(() => {
       return {
         ...item,
         legend: t(`EMAIL_TEMPLATES.MAIL_CONTENT_TYPE.${item?.mailContentType}`),
+        mailContentString: `${item.mailContentDomainName}-Updated the: ${dayjs(item.mailContentModificationDate).format(
+          'MMM D, YYYY'
+        )}-${item.mailContentName}`,
       };
     });
 });

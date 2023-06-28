@@ -69,7 +69,7 @@ const {
   onCheckDefaultEmailConfiguration,
 } = useEmailTemplatesConfiguration();
 const { list, handleGetEmailLayoutTemplates } = useEmailTemplatesLayout();
-const { list: footerList, handleGetEmailFootersTemplates } = useEmailTemplatesFooter();
+const { list: footerList, handleGetEmailFooterTemplates } = useEmailTemplatesFooter();
 
 // data
 const editing = ref(false);
@@ -102,7 +102,7 @@ function onResetEmailConfiguration() {
 function onFetchingData() {
   handleGetMailConfigurationDetail(activeMailConfig?.value?.uuid);
   handleGetEmailLayoutTemplates(activeMailConfig?.value?.domain, false);
-  handleGetEmailFootersTemplates(activeMailConfig?.value?.uuid);
+  handleGetEmailFooterTemplates(activeMailConfig?.value?.uuid);
 }
 
 function onFetchingEmailConfig() {
