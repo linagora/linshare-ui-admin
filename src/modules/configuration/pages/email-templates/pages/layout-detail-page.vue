@@ -23,9 +23,9 @@
       :editable="isEditable"
       :editing="editing"
       :loading="loading"
-      @cancel="onToggleEditState"
-      @save="onUpdateEmailConfiguration"
-      @reset="onResetEmailConfiguration"
+      @cancel="onCancelEmailLayout"
+      @save="onUpdateEmailLayout"
+      @reset="onResetEmailLayout"
     ></email-layout-detail-actions>
   </div>
 </template>
@@ -67,7 +67,7 @@ function onToggleEditState() {
   editing.value = !editing.value;
 }
 
-async function onUpdateEmailConfiguration() {
+async function onUpdateEmailLayout() {
   const payload: MailLayout = {
     ...activeMailLayout.value,
   };
@@ -76,8 +76,12 @@ async function onUpdateEmailConfiguration() {
   onToggleEditState();
 }
 
-function onResetEmailConfiguration() {
+function onResetEmailLayout() {
   handleResetEmailLayout();
+}
+function onCancelEmailLayout() {
+  handleGetMailLayoutDetail(route.params.id.toString());
+  onToggleEditState();
 }
 onMounted(async () => {
   handleGetMailLayoutDetail(route.params.id.toString());

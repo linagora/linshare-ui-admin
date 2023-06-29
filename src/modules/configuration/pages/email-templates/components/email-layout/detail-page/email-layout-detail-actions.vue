@@ -23,7 +23,6 @@ const props = defineProps<{
 
 function onCancel() {
   emits('cancel');
-  emits('reset');
 }
 </script>
 <style lang="less">
