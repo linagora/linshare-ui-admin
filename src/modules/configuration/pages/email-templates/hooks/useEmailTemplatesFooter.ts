@@ -19,6 +19,7 @@ import { useDomainStore } from '@/modules/domain/store';
 import { useRouter } from 'vue-router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../router';
 import { useLocalStorage } from '@vueuse/core';
+import { EMAIL_DEFAULT_UUID } from '@/core/constants/emails';
 
 const list = ref<MailFooter[]>([]);
 const loading = ref(false);
@@ -73,6 +74,9 @@ export default function useEmailTemplatesFooter() {
 
   //methods
 
+  function onCheckDefaultEmailFooter(email: MailFooter) {
+    return EMAIL_DEFAULT_UUID.FOOTER === email.uuid;
+  }
   function onCloseModal() {
     modal.visible = false;
     pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
@@ -136,6 +140,11 @@ export default function useEmailTemplatesFooter() {
   async function handleDeleteMailFooter(activeMailFooter: MailFooter) {
     try {
       if (!activeMailFooter || !activeMailFooter?.uuid) {
+        return false;
+      }
+      if (onCheckDefaultEmailFooter(activeMailFooter)) {
+        message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_ERROR_UNAUTHORIZED'));
+        loading.value = false;
         return false;
       }
       loading.value = true;
