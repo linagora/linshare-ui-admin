@@ -102,9 +102,10 @@
       </a-button>
     </div>
   </div>
+  <userDiagnosticQuotaCard></userDiagnosticQuotaCard>
 </template>
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import GlobeIcon from '@/core/components/icons/globe-icon.vue';
 import CalendarIcon from '@/core/components/icons/calendar-icon.vue';
 import StatusIcon from '@/core/components/icons/status-icon.vue';
@@ -113,6 +114,7 @@ import InconsistentUsersMigrationModal from './inconsistent-users-migration-moda
 import { InconsistentUsers } from '../types/InconsistentUsers';
 import useNotification from '@/core/hooks/useNotification';
 import { useI18n } from 'vue-i18n';
+import userDiagnosticQuotaCard from '../components/user-diagnostic-quota.vue';
 
 const {
   selectedUser,

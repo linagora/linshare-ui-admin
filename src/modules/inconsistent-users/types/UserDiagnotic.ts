@@ -36,3 +36,38 @@ export interface UsersDiagnosticDetail {
   accountType: string;
   quotaUuid: string;
 }
+
+export interface UserDiagnosticQuota {
+  uuid: string;
+  domain: {
+    label: string;
+    identifier: string;
+    type: string;
+  };
+  parentDomain: {
+    label: string;
+    identifier: string;
+  };
+  quota: number;
+  quotaOverride: boolean;
+  defaultQuota: number;
+  defaultQuotaOverride: null;
+  usedSpace: number;
+  yersterdayUsedSpace: number;
+  maintenance: boolean;
+  creationDate: number;
+  modificationDate: number;
+  batchModificationDate: number;
+  maxFileSize: number;
+  defaultMaxFileSize: number;
+  maxFileSizeOverride: boolean;
+  account: {
+    uuid: string;
+    creationDate: number;
+    modificationDate: number;
+    locale: string;
+    externalMailLocale: string;
+    domain: string;
+    domainName: string;
+  };
+}

@@ -143,6 +143,7 @@ const remainingQuota = computed(() => {
 const maximumQuota = computed(() => {
   return displayUnit(byteTo, parentDomainInformations.quota, undefined);
 });
+
 const defaultQuota = computed(() => {
   return displayUnit(byteTo, parentDomainInformations.defaultQuota, undefined);
 });

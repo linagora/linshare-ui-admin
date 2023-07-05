@@ -415,7 +415,12 @@
       "NOTIFICATION_LANGUAGE": "Ngôn ngữ thông báo",
       "STATUS": "Trạng thái",
       "CREATION_MODAL_TITLE": "Tạo hồ sơ",
-      "CREATION_MODAL_DESCRIPTION": "Người dùng này chưa có hồ sơ LinShare. Bạn có muốn tạo nó trong cơ sở dữ liệu không?"
+      "CREATION_MODAL_DESCRIPTION": "Người dùng này chưa có hồ sơ LinShare. Bạn có muốn tạo nó trong cơ sở dữ liệu không?",
+      "QUOTA SETTING" : "THIẾT LẬP HẠN QUỐC GIA",
+      "PERSONAL_SPACE_QUOTA" : "Hạn mức không gian cá nhân được cấp cho người dùng",
+      "MAX_SIZE_QUOTA" : "Kích thước tệp tối đa cho phép trong không gian cá nhân của người dùng",
+      "REMAINING_QUOTA" : "Hạn mức còn lại",
+      "USED_QUOTA" : "Không gian đã sử dụng"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Bạn sắp xóa những người dùng này, quy trình này là không thể đảo ngược và sẽ hủy tất cả tài liệu của họ. Bạn có muốn tiếp tục?"

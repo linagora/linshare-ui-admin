@@ -415,7 +415,12 @@
       "NOTIFICATION_LANGUAGE": "Langue des notifications",
       "STATUS": "Statut",
       "CREATION_MODAL_TITLE": "Créer un profil",
-      "CREATION_MODAL_DESCRIPTION": "Cet utilisateur n'a pas de profil LinShare. Souhaitez-vous le créer dans la base de données ?"
+      "CREATION_MODAL_DESCRIPTION": "Cet utilisateur n'a pas de profil LinShare. Souhaitez-vous le créer dans la base de données ?",
+      "QUOTA SETTING": "CONFIGURATION DE QUOTA",
+      "PERSONAL_SPACE_QUOTA" : "Quota d'espace personnel alloué à l'utilisateur",
+      "MAX_SIZE_QUOTA" : "Taille maximale de fichier autorisée dans l'espace personnel de l'utilisateur",
+      "REMAINING_QUOTA" : "Quota restant",
+      "USED_QUOTA" : "Quota utilisé"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer ces utilisateurs, cette procédure est irréversible et va détruire tous leurs documents. Souhaitez-vous continuer ?"
