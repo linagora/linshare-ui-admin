@@ -63,7 +63,6 @@ import { SearchOutlined } from '@ant-design/icons-vue';
 import { MailLang } from '../../../types/MailConfiguration';
 import ThePagination from '@/core/components/the-pagination.vue';
 import useEmailTemplatesConfiguration from '../../../hooks/useEmailTemplatesConfiguration';
-import { useDebounceFn } from '@vueuse/core';
 import dayjs from 'dayjs';
 
 const { t } = useI18n();
@@ -111,15 +110,18 @@ const columns = computed(() => [
     width: '30%',
     title: t('GENERAL.NAME'),
     key: 'mailContentType',
+    sorter: (a: MailLang, b: MailLang) => a.mailContentType.localeCompare(b.mailContentType),
   },
   {
     width: '30%',
     title: t('EMAIL_TEMPLATES.READ_ONLY'),
+    sorter: (a: MailLang, b: MailLang) => a.mailContent.localeCompare(b.mailContent),
     key: 'mailContent',
   },
   {
     width: '30%',
     title: t('EMAIL_TEMPLATES.READ_ONLY'),
+    sorter: (a: MailLang, b: MailLang) => a.legend.localeCompare(b.legend),
     key: 'legend',
   },
 ]);
@@ -189,6 +191,19 @@ watch(
     border-radius: 8px;
     overflow: hidden;
     max-width: 100%;
+
+    td:nth-child(1),
+    th:nth-child(1) {
+      max-width: 20vw;
+    }
+    td:nth-child(2),
+    th:nth-child(2) {
+      max-width: 20vw;
+    }
+    td:nth-child(3),
+    th:nth-child(3) {
+      max-width: 30vw;
+    }
   }
 
   .ant-table-container,

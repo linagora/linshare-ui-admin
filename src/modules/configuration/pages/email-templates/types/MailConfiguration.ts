@@ -26,6 +26,7 @@ export interface MailLang {
   mailContentDomainName?: string;
   mailContentName?: string;
   mailContentModificationDate?: string | number;
+  legend: string;
 }
 
 export interface MailLangDetail {
