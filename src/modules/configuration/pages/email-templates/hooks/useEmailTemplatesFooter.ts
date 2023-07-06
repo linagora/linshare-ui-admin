@@ -325,6 +325,7 @@ export default function useEmailTemplatesFooter() {
     onDeleteMailFootersFail,
     resetSelectEmailFooters,
     handleGetMailFooterDetail,
+    onCheckDefaultEmailFooter,
     handleGetEmailFooterTemplates,
     checkingEmailFootersDomainAuthorized,
   };

@@ -7,6 +7,7 @@ export const CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES = {
   LAYOUT: 'ConfigurationDomainEmailTemplatesLayout',
   LAYOUT_DETAIL: 'ConfigurationDomainEmailTemplatesLayoutDetail',
   FOOTER: 'ConfigurationDomainEmailTemplatesFooter',
+  FOOTER_DETAIL: 'ConfigurationDomainEmailTemplatesFooterDetail',
   CONTENT: 'ConfigurationDomainEmailTemplatesContent',
   ACTIVATION: 'ConfigurationDomainEmailTemplatesActivation',
 };
@@ -67,6 +68,16 @@ export const ConfigurationDomainEmailTemplatesRoutes: RouteRecordRaw[] = [
         name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.FOOTER,
         path: 'footer',
         component: () => import('@/modules/configuration/pages/email-templates/pages/footer-page.vue'),
+        meta: {
+          requiresAuth: true,
+          parentRoute: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ENTRIES,
+          label: 'EMAIL_TEMPLATES.VERTICAL_TABS.FOOTER',
+        },
+      },
+      {
+        name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.FOOTER_DETAIL,
+        path: 'footer/:id',
+        component: () => import('@/modules/configuration/pages/email-templates/pages/footer-detail-page.vue'),
         meta: {
           requiresAuth: true,
           parentRoute: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ENTRIES,

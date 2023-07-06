@@ -71,6 +71,7 @@ watch(
         activeKey.value = 'content';
         break;
       case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.FOOTER:
+      case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.FOOTER_DETAIL:
         activeKey.value = 'footer';
         break;
       default:
