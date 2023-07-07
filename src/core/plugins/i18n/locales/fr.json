@@ -2536,7 +2536,7 @@
     },
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Supprimer la configuration du courriel",
-      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer cette configuration du courriel pour {currentDomain}. Voulez-vous continuer?",
+      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer cette configuration du courriel. Voulez-vous continuer?",
       "DELETE_SUCCESS": "Supprimé avec succès",
       "DELETE_ERROR_ASSIGNED": "La configuration de courriel sélectionnée est associée à au moins un domaine. Vous ne pouvez pas la supprimer",
       "DELETE_ERROR_UNAUTHORIZED": "Vous n'avez pas les droits pour supprimer cette configuration de courriel",
@@ -2636,12 +2636,16 @@
     "EMAIL_FOOTER": {
       "PUBLIC": "Public",
       "PRIVATE": "Privé",
-      "HELP_TEXT": "Cette vue vous permet de créer des modèles pour le pied de page de vos mails. Vous devez créer un modèle HTML et texte. Dans la vue <span style='color: #007AFF'>'Configuration des mails'</span>, vous pouvez créer un modèle de mail et l'associer à une mise en page de mail et à un pied de page de mail. (NB : La mise en page de mail doit contenir la variable ${footer} pour l'insérer dans le pied de page du mail."
+      "HELP_TEXT": "Cette vue vous permet de créer des modèles pour le pied de page de vos mails. Vous devez créer un modèle HTML et texte. Dans la vue <span style='color: #007AFF'>'Configuration des mails'</span>, vous pouvez créer un modèle de mail et l'associer à une mise en page de mail et à un pied de page de mail. (NB : La mise en page de mail doit contenir la variable ${footer} pour l'insérer dans le pied de page du mail.",
+      "EMAIL_FOOTER_DETAIL_PAGE":{
+        "PAGE_HEADER": "Détails du pied de page du courrier",
+        "NAME_PLACEHOLDER": "Nom du pied de page du courrier"
+      }
     },
     "DELETE_FOOTER_MODAL": {
       "DELETE_MODAL_EMPTY": "Veuillez sélectionner le footer à supprimer",
       "DELETE_MODAL_TITLE": "Supprimer le footer du courriel",
-      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer ce footer de courriel pour {currentDomain}. Voulez-vous continuer?",
+      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer ce footer de courriel. Voulez-vous continuer?",
       "DELETE_SUCCESS": "Supprimé avec succès",
       "DELETE_ERROR_ASSIGNED": "La footer de courriel sélectionné est associé à au moins un domaine. Vous ne pouvez pas le supprimer",
       "DELETE_ERROR_UNAUTHORIZED": "Vous n'avez pas les droits pour supprimer ce footer de courriel",

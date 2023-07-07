@@ -2537,7 +2537,7 @@
     },
     "DELETE_MODAL":{
       "DELETE_MODAL_TITLE": "Delete Mail Configuration",
-      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail configuration for {currentDomain}. Do you want to proceed?",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail configuration. Do you want to proceed?",
       "DELETE_SUCCESS": "Deleted successfully",
       "DELETE_ERROR_ASSIGNED": "Selected mail configuration is associated with at least one domain. You cannot delete",
       "DELETE_ERROR_UNAUTHORIZED": "You do not have the rights to delete this mail configuration",
@@ -2637,12 +2637,16 @@
     "EMAIL_FOOTER": {
       "PUBLIC": "Public",
       "PRIVATE": "Private",
-      "HELP_TEXT": "This view allows you to create templates for your mails footer. You should create a HTML & text model. In the view <span style='color: #007AFF'>'Mail configuration'</span> you can create a mail template and associate it to a mail layout and mail footer. (NB: Mail layout should contain ${footer} variable in order to set in the mail footer."
+      "HELP_TEXT": "This view allows you to create templates for your mails footer. You should create a HTML & text model. In the view <span style='color: #007AFF'>'Mail configuration'</span> you can create a mail template and associate it to a mail layout and mail footer. (NB: Mail layout should contain ${footer} variable in order to set in the mail footer.",
+      "EMAIL_FOOTER_DETAIL_PAGE":{
+        "PAGE_HEADER": "Mail Footer details",
+        "NAME_PLACEHOLDER": "Mail Footer name"
+      }
     },
     "DELETE_FOOTER_MODAL":{
       "DELETE_MODAL_EMPTY": "Please select mail footer to delete",
       "DELETE_MODAL_TITLE": "Delete Mail Footer",
-      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail footer for {currentDomain}. Do you want to proceed?",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail footer. Do you want to proceed?",
       "DELETE_SUCCESS": "Deleted successfully",
       "DELETE_ERROR_ASSIGNED": "Selected mail footer is associated with at least one domain. You cannot delete",
       "DELETE_ERROR_UNAUTHORIZED": "You do not have the rights to delete this mail footer",

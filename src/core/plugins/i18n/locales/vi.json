@@ -2535,7 +2535,7 @@
     },
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Xóa cấu hình thư",
-      "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa cấu hình thư này cho {currentDomain}. Bạn có muốn tiếp tục?",
+      "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa cấu hình thư này. Bạn có muốn tiếp tục?",
       "DELETE_SUCCESS": "Đã xóa thành công",
       "DELETE_ERROR_ASSIGNED": "Cấu hình thư đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
       "DELETE_ERROR_UNAUTHORIZED": "Bạn không có quyền xóa cấu hình thư này",
@@ -2635,12 +2635,16 @@
       "EMAIL_FOOTER": {
         "PUBLIC": "Công khai",
         "PRIVATE": "Riêng tư",
-        "HELP_TEXT": "Chế độ xem này cho phép bạn tạo mẫu cho chân trang thư của mình. Bạn nên tạo một HTML & mô hình văn bản. Trong chế độ xem <span style='color: #007AFF'>'cấu hình thư'</span>, bạn có thể tạo mẫu thư và liên kết mẫu đó với bố cục thư và chân trang thư. (Lưu ý: Bố cục thư phải chứa biến ${footer} để đặt ở chân trang thư."
+        "HELP_TEXT": "Chế độ xem này cho phép bạn tạo mẫu cho chân trang thư của mình. Bạn nên tạo một HTML & mô hình văn bản. Trong chế độ xem <span style='color: #007AFF'>'cấu hình thư'</span>, bạn có thể tạo mẫu thư và liên kết mẫu đó với bố cục thư và chân trang thư. (Lưu ý: Bố cục thư phải chứa biến ${footer} để đặt ở chân trang thư.",
+        "EMAIL_FOOTER_DETAIL_PAGE":{
+          "PAGE_HEADER": "Chi tiết Chân trang Thư",
+          "NAME_PLACEHOLDER": "Tên Chân trang Thư"
+        }
       },
       "DELETE_FOOTER_MODAL": {
         "DELETE_MODAL_EMPTY": "Vui lòng chọn chân trang để xóa",
         "DELETE_MODAL_TITLE": "Xóa chân trang thư",
-        "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa chân trang thư này cho {currentDomain}. Bạn có muốn tiếp tục?",
+        "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa chân trang thư này. Bạn có muốn tiếp tục?",
         "DELETE_SUCCESS": "Đã xóa thành công",
         "DELETE_ERROR_ASSIGNED": "Bố cục thư đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
         "DELETE_ERROR_UNAUTHORIZED": "Bạn không có quyền xóa chân trang thư này",

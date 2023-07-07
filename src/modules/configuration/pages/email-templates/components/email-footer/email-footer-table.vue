@@ -49,13 +49,13 @@
             <template #overlay>
               <a-menu>
                 <a-menu-item
-                  v-if="!checkingEmailFootersDomainAuthorized(record.domain)"
+                  v-if="!checkingEmailFootersDomainAuthorized(record.domain) || onCheckDefaultEmailFooter(record)"
                   @click="onEditMailFooter(record)"
                 >
                   <ViewIcon></ViewIcon> {{ $t('GENERAL.VIEW') }}
                 </a-menu-item>
                 <a-menu-item
-                  v-if="checkingEmailFootersDomainAuthorized(record.domain)"
+                  v-if="checkingEmailFootersDomainAuthorized(record.domain) && !onCheckDefaultEmailFooter(record)"
                   @click="onEditMailFooter(record)"
                 >
                   <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
@@ -98,8 +98,14 @@ const emits = defineEmits(['toggle', 'toggle-all']);
 
 // composable
 const { t } = useI18n();
-const { selectedMailFooters, checkingEmailFootersDomainAuthorized, onDeleteMailFooter, onEditMailFooter, pagination } =
-  useEmailTemplatesFooter();
+const {
+  selectedMailFooters,
+  checkingEmailFootersDomainAuthorized,
+  onDeleteMailFooter,
+  onEditMailFooter,
+  onCheckDefaultEmailFooter,
+  pagination,
+} = useEmailTemplatesFooter();
 
 // computed
 const rowSelection = computed(() => ({
