@@ -69,6 +69,7 @@ export default function useEmailTemplatesLayout() {
       { label: t(`LOCALE.ENGLISH`), value: 'messagesEnglish' },
       { label: t(`LOCALE.FRENCH`), value: 'messagesFrench' },
       { label: t(`LOCALE.RUSSIAN`), value: 'messagesRussian' },
+      { label: t(`LOCALE.VIETNAMESE`), value: 'messagesVietnamese' },
     ];
   });
 

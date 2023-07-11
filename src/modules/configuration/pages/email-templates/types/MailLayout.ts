@@ -11,5 +11,6 @@ export interface MailLayout {
   messagesFrench: string;
   messagesEnglish: string;
   messagesRussian: string;
+  messagesVietnamese: string;
   assigned?: boolean;
 }

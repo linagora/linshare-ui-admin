@@ -89,6 +89,7 @@ const form = reactive<{
   messagesEnglish: string;
   messagesFrench: string;
   messagesRussian: string;
+  messagesVietnamese: string;
   visible: boolean;
   readonly: boolean;
 }>(getInitialFormData());
@@ -126,6 +127,7 @@ function getInitialFormData() {
     messagesEnglish: '',
     messagesFrench: '',
     messagesRussian: '',
+    messagesVietnamese: '',
     footer: '',
     visible: true,
     readonly: false,
@@ -194,6 +196,7 @@ function onSelectModel(
   form.messagesEnglish = model.key.subject.messagesEnglish;
   form.messagesFrench = model.key.subject.messagesFrench;
   form.messagesRussian = model.key.subject.messagesRussian;
+  form.messagesVietnamese = model.key.subject.messagesVietnamese;
 }
 
 onMounted(async () => {
