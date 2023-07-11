@@ -42,7 +42,13 @@
     <a-button v-if="quotaLoading" class="ls-button">
       <a-spin></a-spin>
     </a-button>
-    <a-button v-else type="primary" class="ls-button" @click="saveQuotaInformations(userDiagnosticQuotaInformations)">
+    <a-button
+      v-else
+      :disabled="quotasUnits.saverCheck"
+      type="primary"
+      class="ls-button"
+      @click="saveQuotaInformations(userDiagnosticQuotaInformations)"
+    >
       <span>{{ $t('GENERAL.SAVE') }}</span>
     </a-button>
     <a-button class="ls-button ls-reset" @click="resetQuota">

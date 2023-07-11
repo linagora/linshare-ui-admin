@@ -1,4 +1,4 @@
-import { reactive, ref, computed, watch } from 'vue';
+import { reactive, ref, computed, watch, watchEffect } from 'vue';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import { UserDiagnostic } from '../types/UserDiagnotic';
 import { message } from 'ant-design-vue';
@@ -27,6 +27,7 @@ const quotasUnits = reactive({
   maxFileSizeUnit: '',
   defaultPersonalAllocatedQuotaUnit: '',
   defaultMaxFileSizeUnit: '',
+  saverCheck: false,
 });
 
 const list = ref<UserDiagnostic[]>([]);
@@ -198,6 +199,14 @@ export default function useUsersDiagnostic() {
     }
     return false;
   }
+
+  watchEffect(() => {
+    if (maxQuotaLogic()) {
+      quotasUnits.saverCheck = true;
+    } else {
+      quotasUnits.saverCheck = false;
+    }
+  });
 
   return {
     getUserInformations,
