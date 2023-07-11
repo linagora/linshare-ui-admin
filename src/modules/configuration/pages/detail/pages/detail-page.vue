@@ -46,7 +46,14 @@
             {{ $t('DOMAIN.FIELDS.MAIL_CONFIGURATION') }}
           </div>
           <div class="value">
-            <a href="">{{ currentDomain.mailConfiguration?.name }}</a>
+            <router-link
+              :to="{
+                name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION_DETAIL,
+                params: { id: currentDomain?.mailConfiguration?.uuid || '', domainUuid: currentDomain.uuid },
+              }"
+            >
+              {{ currentDomain.mailConfiguration?.name }}
+            </router-link>
           </div>
         </div>
         <div v-if="!isRootDomain" class="info-block">
@@ -92,6 +99,7 @@ import { useDomainStore } from '@/modules/domain/store';
 import DomainForm from '@/modules/configuration/pages/detail/components/domain-form.vue';
 import { CONFIGURATION_ROUTE_NAMES } from '@/modules/configuration/router/index';
 import { CONFIGURATION_MIME_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/type-mime-policies/router';
+import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '@/modules/configuration/pages/email-templates/router';
 
 // composable
 const domainStore = useDomainStore();
