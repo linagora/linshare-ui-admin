@@ -1,6 +1,7 @@
 export interface MailFooter {
   description: string;
   domain: string;
+  domainName?: string;
   visible: boolean;
   footer: string;
   creationDate: number;

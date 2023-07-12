@@ -6,7 +6,8 @@
       <div>
         <div class="title">{{ $t('GENERAL.DOMAIN') }}</div>
         <div class="value">
-          <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: props.item.domain } }">
+          <span v-if="!checkingEmailFootersDomainAuthorized(item.domain)"> {{ item?.domainName }} </span>
+          <router-link v-else :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: props.item.domain } }">
             <a>{{ item?.domainName }}</a>
           </router-link>
         </div>
@@ -33,10 +34,12 @@ import { computed } from 'vue';
 import GlobeIcon from '@/core/components/icons/globe-icon.vue';
 import CalendarIcon from '@/core/components/icons/calendar-icon.vue';
 import { MailFooter } from '@/modules/configuration/pages/email-templates/types/MailFooter';
+import useEmailTemplatesFooter from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesFooter';
 
 const props = defineProps<{
   item: MailFooter;
 }>();
+const { checkingEmailFootersDomainAuthorized } = useEmailTemplatesFooter();
 </script>
 <style lang="less">
 .email-footer-information-card {
