@@ -157,6 +157,8 @@ export default function useEmailTemplatesLayout() {
           message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_ASSIGNED'));
         } else if (error.errorCode === 166678) {
           message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_UNAUTHORIZED'));
+        } else if (activeMailLayout?.uuid === EMAIL_DEFAULT_UUID.LAYOUT) {
+          message.error(t('EMAIL_TEMPLATES.DELETE_LAYOUT_MODAL.DELETE_ERROR_UNAUTHORIZED'));
         } else {
           message.error(error.getMessage());
         }
