@@ -2,7 +2,7 @@ import { computed, reactive, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { STATUS } from '@/core/types/Status';
 import { MailFooter } from '../types/MailFooter';
-import message from 'ant-design-vue/lib/message';
+import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import {
