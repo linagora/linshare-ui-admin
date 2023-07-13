@@ -98,6 +98,7 @@ export default function useEmailTemplatesConfiguration() {
       { label: t(`LOCALE.ENGLISH`), value: 'ENGLISH' },
       { label: t(`LOCALE.FRENCH`), value: 'FRENCH' },
       { label: t(`LOCALE.RUSSIAN`), value: 'RUSSIAN' },
+      { label: t(`LOCALE.VIETNAMESE`), value: 'VIETNAMESE' },
     ];
   });
 
