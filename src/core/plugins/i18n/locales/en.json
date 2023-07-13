@@ -2640,7 +2640,8 @@
       "HELP_TEXT": "This view allows you to create templates for your mails footer. You should create a HTML & text model. In the view <span style='color: #007AFF'>'Mail configuration'</span> you can create a mail template and associate it to a mail layout and mail footer. (NB: Mail layout should contain ${footer} variable in order to set in the mail footer.",
       "EMAIL_FOOTER_DETAIL_PAGE":{
         "PAGE_HEADER": "Mail Footer details",
-        "NAME_PLACEHOLDER": "Mail Footer name"
+        "NAME_PLACEHOLDER": "Mail Footer name",
+        "FOOTER_LABEL": "Mail footer"
       }
     },
     "DELETE_FOOTER_MODAL":{

@@ -1,7 +1,7 @@
 <template>
   <div class="email-footer-detail-header">
     <div class="email-footer-detail-header__title">
-      <strong>{{ $t('EMAIL_TEMPLATES.EMAIL_FOOTER.e.PAGE_HEADER') }}</strong>
+      <strong>{{ $t('EMAIL_TEMPLATES.EMAIL_FOOTER.EMAIL_FOOTER_DETAIL_PAGE.PAGE_HEADER') }}</strong>
       <span> {{ activeMailFooter.description }} </span>
     </div>
     <div class="email-footer-detail-header__action">

@@ -10,7 +10,7 @@
           <a-input
             v-model:value="activeMailFooter.description"
             :disabled="!editable || !editing"
-            :placeholder="$t('EMAIL_TEMPLATES.EMAIL_LAYOUT.EMAIL_LAYOUT_DETAIL_PAGE.NAME_PLACEHOLDER')"
+            :placeholder="$t('EMAIL_TEMPLATES.EMAIL_FOOTER.EMAIL_FOOTER_DETAIL_PAGE.NAME_PLACEHOLDER')"
             class="ls-input"
           />
         </a-form-item>
@@ -23,7 +23,7 @@
         </a-form-item>
         <a-form-item
           class="ls-form-title"
-          :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_LABEL')"
+          :label="$t('EMAIL_TEMPLATES.EMAIL_FOOTER.EMAIL_FOOTER_DETAIL_PAGE.FOOTER_LABEL')"
           v-bind="validateInfos.footer"
         >
           <a-textarea v-model:value="activeMailFooter.footer" :disabled="!editable || !editing" :rows="12" />

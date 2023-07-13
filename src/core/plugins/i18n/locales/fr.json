@@ -2639,7 +2639,8 @@
       "HELP_TEXT": "Cette vue vous permet de créer des modèles pour le pied de page de vos mails. Vous devez créer un modèle HTML et texte. Dans la vue <span style='color: #007AFF'>'Configuration des mails'</span>, vous pouvez créer un modèle de mail et l'associer à une mise en page de mail et à un pied de page de mail. (NB : La mise en page de mail doit contenir la variable ${footer} pour l'insérer dans le pied de page du mail.",
       "EMAIL_FOOTER_DETAIL_PAGE":{
         "PAGE_HEADER": "Détails du pied de page du courrier",
-        "NAME_PLACEHOLDER": "Nom du pied de page du courrier"
+        "NAME_PLACEHOLDER": "Nom du pied de page du courrier",
+        "FOOTER_LABEL": "Pied de courriel"
       }
     },
     "DELETE_FOOTER_MODAL": {

@@ -2638,7 +2638,8 @@
         "HELP_TEXT": "Chế độ xem này cho phép bạn tạo mẫu cho chân trang thư của mình. Bạn nên tạo một HTML & mô hình văn bản. Trong chế độ xem <span style='color: #007AFF'>'cấu hình thư'</span>, bạn có thể tạo mẫu thư và liên kết mẫu đó với bố cục thư và chân trang thư. (Lưu ý: Bố cục thư phải chứa biến ${footer} để đặt ở chân trang thư.",
         "EMAIL_FOOTER_DETAIL_PAGE":{
           "PAGE_HEADER": "Chi tiết Chân trang Thư",
-          "NAME_PLACEHOLDER": "Tên Chân trang Thư"
+          "NAME_PLACEHOLDER": "Tên Chân trang Thư",
+          "FOOTER_LABEL": "Chân trang mail"
         }
       },
       "DELETE_FOOTER_MODAL": {
