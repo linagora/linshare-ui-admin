@@ -1,6 +1,6 @@
 import apiv4 from '@/apiv4';
 import api from '@/api';
-import { MailConfiguration, MailLangDetail, MailLang } from '../types/MailConfiguration';
+import { MailConfiguration, MailLangDetail, MailLang, MailFooterLangs } from '../types/MailConfiguration';
 import { MailLayout } from '../types/MailLayout';
 import { MailFooter } from '../types/MailFooter';
 
@@ -46,6 +46,10 @@ async function getLayoutEmailTemplates(domainUuid: string, onlyCurrentDomain: bo
 
 async function assignMailConfiguration(domainUuid: string, MailConfigurationUuid: string) {
   return await api.post(`domains/${domainUuid}/mail_config/${MailConfigurationUuid}/assign`);
+}
+
+async function assignMailFooterToMailConfiguration(payload: MailLang) {
+  return await apiv4.put(`mail_footer_langs`, payload);
 }
 
 async function createMailConfiguration(payload: {
@@ -147,4 +151,5 @@ export {
   createMailFooter,
   updateMailFooter,
   getMailFooterDetail,
+  assignMailFooterToMailConfiguration,
 };

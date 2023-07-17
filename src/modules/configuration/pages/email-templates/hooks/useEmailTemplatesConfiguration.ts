@@ -15,6 +15,8 @@ import {
   getMailConfigurationDetail,
   updateMailConfigurationMailContent,
   getMailConfigurationLanguagesSupport,
+  getMailConfigurationFooterList,
+  assignMailFooterToMailConfiguration,
 } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
@@ -23,6 +25,7 @@ import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../router';
 import { EMAIL_DEFAULT_UUID } from '@/core/constants/emails';
+import { MailFooter } from '../types/MailFooter';
 
 const activeMailConfig = useLocalStorage<MailConfiguration>(
   'configuration-type-mail-config-activeMailConfig',
@@ -31,9 +34,11 @@ const activeMailConfig = useLocalStorage<MailConfiguration>(
 const activeEmailConfigForm = ref<Partial<MailConfiguration>>({});
 const defaultMailConfigurationForm = ref<Partial<MailConfiguration>>({});
 const mailFooterLangsForm = ref<MailFooterLangs>({});
+const defaultMailFooterLangsForm = ref<MailFooterLangs>({});
 const selectedMailConfigs = ref<MailConfiguration[]>();
 
 const list = ref<MailConfiguration[]>([]);
+const footerList = ref<MailFooter[]>([]);
 const filterText = ref('');
 const status = ref(STATUS.LOADING);
 const pagination = reactive({
@@ -131,6 +136,23 @@ export default function useEmailTemplatesConfiguration() {
     modal.type = 'DELETE_CONFIGURATIONS_FAIL_EMAIL';
     modal.visible = true;
     modal.multipleDeleteResponse = response;
+  }
+
+  async function handleGetEmailFooterTemplates(domainUuid: string, onlyCurrentDomain = true) {
+    try {
+      status.value = STATUS.LOADING;
+      const templates = await getMailConfigurationFooterList(domainUuid);
+      footerList.value = templates?.map((item) => {
+        return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailFooter?.uuid) };
+      });
+    } catch (error) {
+      status.value = STATUS.ERROR;
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    } finally {
+      status.value = STATUS.SUCCESS;
+    }
   }
 
   async function fetchMailConfiguration(onlyCurrentDomain = true) {
@@ -304,7 +326,8 @@ export default function useEmailTemplatesConfiguration() {
       activeMailConfig.value = messages;
       activeMailConfig.value.selectLanguage = 'ENGLISH';
       languageOptions.value.forEach((item) => {
-        mailFooterLangsForm.value[item.value] = activeMailConfig.value.mailFooterLangs[item.value] ?? {};
+        mailFooterLangsForm.value[item.value] = { ...activeMailConfig.value.mailFooterLangs[item.value] } ?? {};
+        defaultMailFooterLangsForm.value[item.value] = { ...activeMailConfig.value.mailFooterLangs[item.value] } ?? {};
       });
 
       activeEmailConfigForm.value = {
@@ -351,6 +374,17 @@ export default function useEmailTemplatesConfiguration() {
     }
   }
 
+  async function handleUpdateMailFooterLang(payload: MailLang) {
+    try {
+      await assignMailFooterToMailConfiguration(payload);
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return [];
+    }
+  }
+
   async function handleGetLanguageSupport() {
     try {
       const result = await getMailConfigurationLanguagesSupport();
@@ -365,6 +399,11 @@ export default function useEmailTemplatesConfiguration() {
 
   async function handleUpdateMailConfiguration(payload: MailConfiguration) {
     try {
+      Object.keys(mailFooterLangsForm.value).forEach((key) => {
+        if (mailFooterLangsForm.value[key].mailFooter !== defaultMailFooterLangsForm.value[key].mailFooter) {
+          handleUpdateMailFooterLang(mailFooterLangsForm.value[key]);
+        }
+      });
       await updateMailConfiguration(payload);
       message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
@@ -380,7 +419,8 @@ export default function useEmailTemplatesConfiguration() {
   }
 
   function handleResetEmailConfiguration() {
-    activeEmailConfigForm.value = { ...defaultMailConfigurationForm.value };
+    activeEmailConfigForm.value = JSON.parse(JSON.stringify(defaultMailConfigurationForm.value));
+    mailFooterLangsForm.value = JSON.parse(JSON.stringify(defaultMailFooterLangsForm.value));
   }
   function resetSelectEmailConfiguration() {
     selectedMailConfigs.value = [];
@@ -391,6 +431,7 @@ export default function useEmailTemplatesConfiguration() {
     modal,
     status,
     loading,
+    footerList,
     pagination,
     filterText,
     filteredList,
@@ -407,10 +448,12 @@ export default function useEmailTemplatesConfiguration() {
     handleGetLanguageSupport,
     handleGetMailContentList,
     onDeleteMailConfiguration,
+    handleUpdateMailFooterLang,
     onAssignMailConfiguration,
     onCreateMailConfiguration,
     onDeleteMailConfigurations,
     handleUpdateMailContentLang,
+    handleGetEmailFooterTemplates,
     resetSelectEmailConfiguration,
     handleResetEmailConfiguration,
     handleUpdateMailConfiguration,

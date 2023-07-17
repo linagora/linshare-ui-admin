@@ -113,7 +113,7 @@ const props = defineProps<{
   layouts?: MailLayout[];
   footers?: MailFooter[];
 }>();
-const emits = defineEmits(['update:modelValue', 'select-language']);
+const emits = defineEmits(['update:modelValue', 'select-language', 'refresh']);
 
 //computed
 const layoutOptions = computed(() => {

@@ -15,6 +15,7 @@
             :editing="editing"
             :layouts="list"
             :footers="footerList"
+            @refresh="onFetchingEmailConfig"
           ></email-configuration-detail-card>
           <!-- Top left section (email configuration) -->
         </div>
@@ -54,7 +55,6 @@ import EmailConfigurationContentTable from '@/modules/configuration/pages/email-
 import { computed, onMounted, ref } from 'vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 import useEmailTemplatesLayout from '../hooks/useEmailTemplatesLayout';
-import useEmailTemplatesFooter from '../hooks/useEmailTemplatesFooter';
 import { MailConfiguration } from '../types/MailConfiguration';
 
 // composables
@@ -67,9 +67,10 @@ const {
   handleUpdateMailConfiguration,
   handleResetEmailConfiguration,
   onCheckDefaultEmailConfiguration,
+  footerList,
+  handleGetEmailFooterTemplates,
 } = useEmailTemplatesConfiguration();
 const { list, handleGetEmailLayoutTemplates } = useEmailTemplatesLayout();
-const { list: footerList, handleGetEmailFooterTemplates } = useEmailTemplatesFooter();
 
 // data
 const editing = ref(false);
