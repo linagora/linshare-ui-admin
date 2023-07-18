@@ -32,6 +32,7 @@
           :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.MODEL')"
         >
           <a-select
+            v-model:value="form.footer"
             :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
             class="ls-input"
             :bordered="false"
@@ -192,7 +193,6 @@ function onSelectModel(
   value: string,
   model: { key: { label: string | undefined; value: string; subject: MailFooter }; label: string }
 ) {
-  form.footer = model.key.subject.footer;
   form.messagesEnglish = model.key.subject.messagesEnglish;
   form.messagesFrench = model.key.subject.messagesFrench;
   form.messagesRussian = model.key.subject.messagesRussian;
