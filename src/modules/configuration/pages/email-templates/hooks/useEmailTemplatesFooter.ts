@@ -229,12 +229,15 @@ export default function useEmailTemplatesFooter() {
 
   async function handleUpdateMailFooter(payload: MailFooter) {
     try {
+      loading.value = true;
       await updateMailFooter(payload);
       message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
       }
+    } finally {
+      loading.value = false;
     }
   }
 

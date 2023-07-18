@@ -24,7 +24,6 @@
         <a-form-item
           class="ls-form-title"
           :label="$t('EMAIL_TEMPLATES.EMAIL_FOOTER.EMAIL_FOOTER_DETAIL_PAGE.FOOTER_LABEL')"
-          v-bind="validateInfos.footer"
         >
           <a-textarea v-model:value="activeMailFooter.footer" :disabled="!editable || !editing" :rows="12" />
         </a-form-item>
