@@ -51,15 +51,22 @@
             </a-button>
             <template #overlay>
               <a-menu>
-                <a-menu-item :disabled="record.assigned" @click="onAssignMailConfiguration(record)">
+                <a-menu-item
+                  v-if="allowAssigned(record)"
+                  :disabled="record.assigned"
+                  @click="onAssignMailConfiguration(record)"
+                >
                   <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
                 </a-menu-item>
-                <a-menu-item @click="onEditMailConfiguration(record)">
-                  <EditIcon v-if="!onCheckDefaultEmailConfiguration(record)"></EditIcon>
-                  <EyeOutlined v-else :style="{ color: '#007AFF' }" />
-                  {{ onCheckDefaultEmailConfiguration(record) ? $t('GENERAL.VIEW') : $t('GENERAL.EDIT') }}
+                <a-menu-item v-if="allowView(record)" @click="onEditMailConfiguration(record)">
+                  <EyeOutlined :style="{ color: '#007AFF' }" />
+                  {{ $t('GENERAL.VIEW') }}
                 </a-menu-item>
-                <a-menu-item @click="onDeleteMailConfiguration(record)">
+                <a-menu-item v-if="allowEdit(record)" @click="onEditMailConfiguration(record)">
+                  <EditIcon></EditIcon>
+                  {{ $t('GENERAL.EDIT') }}
+                </a-menu-item>
+                <a-menu-item v-if="allowDelete(record)" @click="onDeleteMailConfiguration(record)">
                   <DeleteIcon></DeleteIcon> {{ $t('GENERAL.DELETE') }}
                 </a-menu-item>
               </a-menu>
@@ -104,6 +111,10 @@ const { currentDomain } = storeToRefs(domainStore);
 const { loggedUser } = storeToRefs(authStore);
 
 // computed
+const isSuperAdmin = computed(() => {
+  return loggedUser.value?.role === ACCOUNT_ROLE.SUPERADMIN;
+});
+
 const rowSelection = computed(() => ({
   checkStrictly: false,
   selectedRowKeys: selectedMailConfigs.value?.map((item) => item.uuid) ?? [],
@@ -166,6 +177,26 @@ const columns = computed(() => [
 
 function domainRedirectionAuthorized(record: MailConfiguration) {
   return record.domain === 'LinShareRootDomain' && loggedUser?.value?.role === ACCOUNT_ROLE.ADMIN;
+}
+
+function hasRootDomain(record: MailConfiguration) {
+  return record.domain === 'LinShareRootDomain';
+}
+
+function allowEdit(record: MailConfiguration) {
+  return isSuperAdmin.value || (!onCheckDefaultEmailConfiguration(record) && !hasRootDomain(record));
+}
+
+function allowDelete(record: MailConfiguration) {
+  return isSuperAdmin.value || (!onCheckDefaultEmailConfiguration(record) && !hasRootDomain(record));
+}
+
+function allowView(record: MailConfiguration) {
+  return !allowEdit(record);
+}
+
+function allowAssigned(record: MailConfiguration) {
+  return isSuperAdmin.value || (!isSuperAdmin.value && !onCheckDefaultEmailConfiguration(record));
 }
 </script>
 

@@ -2,7 +2,7 @@
   <div class="configuration-detail-page">
     <div class="configuration-detail-page__title">
       <email-configuration-detail-header
-        :editable="!isDefaultEmailConfiguration"
+        :editable="allowEdit"
         :editing="editing"
         @edit-toggle="onToggleEditState"
       ></email-configuration-detail-header>
@@ -11,7 +11,7 @@
       <div class="configuration-detail-page__body-summary">
         <div class="configuration-detail-page__body-summary-config">
           <email-configuration-detail-card
-            :editable="!isDefaultEmailConfiguration"
+            :editable="allowEdit"
             :editing="editing"
             :layouts="list"
             :footers="footerList"
@@ -27,7 +27,7 @@
       <div class="configuration-detail-page__body-table">
         <!-- Bottom table -->
         <email-configuration-content-table
-          :editable="!isDefaultEmailConfiguration"
+          :editable="allowEdit"
           :editing="editing"
           @refresh="onFetchingEmailConfig"
         ></email-configuration-content-table>
@@ -36,7 +36,7 @@
   </div>
   <div class="configuration-detail-page__action">
     <email-configuration-detail-action
-      :editable="!isDefaultEmailConfiguration"
+      :editable="allowEdit"
       :editing="editing"
       :loading="loading"
       @cancel="onToggleEditState"
@@ -56,6 +56,9 @@ import { computed, onMounted, ref } from 'vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 import useEmailTemplatesLayout from '../hooks/useEmailTemplatesLayout';
 import { MailConfiguration } from '../types/MailConfiguration';
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '@/modules/auth/store';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 
 // composables
 const {
@@ -71,16 +74,25 @@ const {
   handleGetEmailFooterTemplates,
 } = useEmailTemplatesConfiguration();
 const { list, handleGetEmailLayoutTemplates } = useEmailTemplatesLayout();
+const { loggedUserRole } = storeToRefs(useAuthStore());
 
 // data
 const editing = ref(false);
 
 //computed
-const isDefaultEmailConfiguration = computed(() => {
-  return onCheckDefaultEmailConfiguration(activeMailConfig.value);
-});
 
+const isSuperAdmin = computed(() => {
+  return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
+});
+const allowEdit = computed(() => {
+  return isSuperAdmin.value || (!onCheckDefaultEmailConfiguration(activeMailConfig.value) && !hasRootDomain());
+});
 // methods
+
+function hasRootDomain() {
+  return activeMailConfig.value.domain === 'LinShareRootDomain';
+}
+
 function onToggleEditState() {
   editing.value = !editing.value;
 }
