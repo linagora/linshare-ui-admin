@@ -116,9 +116,11 @@ export default function useEmailTemplatesLayout() {
     try {
       status.value = STATUS.LOADING;
       const templates = await getLayoutEmailTemplates(domainUuid, onlyCurrentDomain);
-      list.value = templates?.map((item) => {
-        return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailLayout?.uuid) };
-      });
+      list.value = templates
+        ?.map((item) => {
+          return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailLayout?.uuid) };
+        })
+        .sort((a: MailLayout, b: MailLayout) => (b.modificationDate || 0) - (a.modificationDate || 0));
       status.value = STATUS.SUCCESS;
       return;
     } catch (error) {

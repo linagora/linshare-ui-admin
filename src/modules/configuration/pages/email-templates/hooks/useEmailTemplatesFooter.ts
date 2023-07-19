@@ -116,9 +116,11 @@ export default function useEmailTemplatesFooter() {
     try {
       status.value = STATUS.LOADING;
       const templates = await getFooterEmailTemplates(domainUuid, onlyCurrentDomain);
-      list.value = templates?.map((item) => {
-        return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailFooter?.uuid) };
-      });
+      list.value = templates
+        ?.map((item) => {
+          return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailFooter?.uuid) };
+        })
+        .sort((a: MailFooter, b: MailFooter) => (b.modificationDate || 0) - (a.modificationDate || 0));
       status.value = STATUS.SUCCESS;
       return;
     } catch (error) {
