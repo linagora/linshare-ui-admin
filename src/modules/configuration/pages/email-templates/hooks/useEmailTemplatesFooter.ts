@@ -207,7 +207,10 @@ export default function useEmailTemplatesFooter() {
           totalAssignCases:
             results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 16666)?.length ?? 0,
           totalUnAuthoCases:
-            results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 166678)?.length ?? 0,
+            results.filter(
+              (item) =>
+                item.status === 'rejected' && (item.reason?.errorCode === 166678 || item.reason?.errorCode === 18670)
+            )?.length ?? 0,
         };
       });
     } catch (error) {
