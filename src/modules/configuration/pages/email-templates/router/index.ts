@@ -106,16 +106,6 @@ export const ConfigurationDomainEmailTemplatesRoutes: RouteRecordRaw[] = [
         },
       },
       {
-        name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONTENT_DETAIL,
-        path: 'content/:id',
-        component: () => import('@/modules/configuration/pages/email-templates/pages/content-detail-page.vue'),
-        meta: {
-          requiresAuth: true,
-          parentRoute: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ENTRIES,
-          label: 'EMAIL_TEMPLATES.VERTICAL_TABS.CONTENT',
-        },
-      },
-      {
         name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.ACTIVATION,
         path: 'activation',
         component: () => import('@/modules/configuration/pages/email-templates/pages/activation-page.vue'),
