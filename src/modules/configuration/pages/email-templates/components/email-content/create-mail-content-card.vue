@@ -1,7 +1,7 @@
 <template>
   <a-form ref="formRef">
     <a-card flat :bordered="false" class="create-mail-content-card">
-      <div class="create-mail-content-card__title">{{ $t('EMAIL_TEMPLATES.CREATE_MODAL.CREATE_EMAIL_CONTENT') }}</div>
+      <div class="create-mail-content-card__title">{{ $t('EMAIL_TEMPLATES.EMAIL_CONTENT.CREATE_EMAIL_CONTENT') }}</div>
       <div class="create-mail-content-card__form">
         <a-form-item
           class="ls-form-title"
@@ -12,25 +12,30 @@
             id="description"
             v-model:value="form.description"
             class="ls-input"
-            :placeholder="$t('EMAIL_TEMPLATES.CREATE_MODAL.EMAIL_CONTENT_NAME')"
+            :placeholder="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.EMAIL_CONTENT_NAME')"
           ></a-input>
         </a-form-item>
-        <a-form-item
-          v-bind="validateInfos.domainName"
-          class="ls-form-title"
-          :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.TARGET_DOMAIN')"
-        >
+        <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.TARGET_DOMAIN')">
           <a-select v-model:value="form.domainName" class="ls-input" :bordered="false" @change="onSelectDomain">
             <a-select-option v-for="s in domains" :key="s.value" :value="s.label">
               {{ s.label }}
             </a-select-option>
           </a-select>
         </a-form-item>
-        <a-form-item
-          v-bind="validateInfos.content"
-          class="ls-form-title"
-          :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.MODEL')"
-        >
+        <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.CONTENT_TYPE')">
+          <a-select
+            v-model:value="form.content"
+            :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
+            class="ls-input"
+            :bordered="false"
+            @change="onSelectModel"
+          >
+            <a-select-option v-for="s in models" :key="s" :value="s.value">
+              {{ s.label }}
+            </a-select-option>
+          </a-select>
+        </a-form-item>
+        <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.DUPPLICATE_FROM')">
           <a-select
             v-model:value="form.content"
             :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
