@@ -3,6 +3,7 @@ import api from '@/api';
 import { MailConfiguration, MailLangDetail, MailLang, MailFooterLangs } from '../types/MailConfiguration';
 import { MailLayout } from '../types/MailLayout';
 import { MailFooter } from '../types/MailFooter';
+import { MailContent } from '../types/MailContent';
 
 async function getMailConfigurationList(domainUuid: string, currentDomainOnly: boolean): Promise<MailConfiguration[]> {
   return await apiv4.get(`mail_configs?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
@@ -128,6 +129,39 @@ async function deleteMailFooter(payload: { uuid: string }): Promise<MailFooter> 
   return await apiv4.delete('mail_footers', { data: payload });
 }
 
+// EMAIL CONTENT
+
+async function getMailContentDetail(uuid: string, domainUuid: string): Promise<MailContent> {
+  return await apiv4.get(`mail_contents/${uuid}?domainId=${domainUuid}`);
+}
+async function getMailContentLists(domainUuid: string, currentDomainOnly: boolean): Promise<MailContent[]> {
+  return await apiv4.get(`mail_contents?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
+}
+
+async function getContentEmailTemplates(domainUuid: string, onlyCurrentDomain: boolean): Promise<MailContent[]> {
+  return await apiv4.get(`mail_contents?domainId=${domainUuid}&onlyCurrentDomain=${onlyCurrentDomain}`);
+}
+async function updateMailContent(payload: MailContent) {
+  return await apiv4.put(`mail_contents`, payload);
+}
+
+async function createMailContent(payload: {
+  description: string;
+  domain: string;
+  domainName?: string;
+  content: string;
+  messagesEnglish: string;
+  messagesFrench: string;
+  messagesRussian: string;
+  visible: boolean;
+  readonly: boolean;
+}) {
+  return await apiv4.post(`mail_contents`, payload);
+}
+async function deleteMailContent(payload: { uuid: string }): Promise<MailContent> {
+  return await apiv4.delete('mail_contents', { data: payload });
+}
+
 export {
   deleteMailLayout,
   getMailContentList,
@@ -152,4 +186,10 @@ export {
   updateMailFooter,
   getMailFooterDetail,
   assignMailFooterToMailConfiguration,
+  getContentEmailTemplates,
+  deleteMailContent,
+  getMailContentLists,
+  createMailContent,
+  updateMailContent,
+  getMailContentDetail,
 };

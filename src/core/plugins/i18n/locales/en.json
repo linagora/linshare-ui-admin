@@ -266,7 +266,7 @@
     "36006": "Welcome message is currently assigned with at least one domain.",
     "14004": "Functionality not found",
     "2200": "User not found",
-    "MAIL_CONFIGURATION":{
+    "MAIL_CONFIGURATION": {
       "1000": "You cannot set to private a mail configuration assigned to other domains"
     }
   },
@@ -380,17 +380,17 @@
     "TITLE": "Inconsistent users",
     "DESCRIPTION": "An inconsistent user is a user who is no longer in any LDAP associated to different domains. This view enables the domain of an inconsistent user so that he become a regular user. Through a user's result, you can edit the information related to him. By selection of a group of users, you can delete them all at one or change their domain",
     "COLUMNS": {
-      "NUMBER_COL" : "No.",
-      "FIRSTNAME" : "First Name",
-      "LASTNAME" : "Last Name",
-      "EMAIL" : "Email",
-      "DOMAIN_ID" : "Domain Id",
+      "NUMBER_COL": "No.",
+      "FIRSTNAME": "First Name",
+      "LASTNAME": "Last Name",
+      "EMAIL": "Email",
+      "DOMAIN_ID": "Domain Id",
       "ROLE": "Role"
     },
     "TOKEN_INPUT_PLACEHOLDER": "Search or filter inconsistent users",
     "SCRUTINY": {
       "TITLE": "User diagnostic",
-      "DESCRIPTION":"For a given email address, this view shows a full report of the matching user on his presence in the LDAP with the associated domain and also in the database. So this view is useful when testing if a user is in the right domain or if he belongs to multiple domains in the same time, etc ... Furthermore, in this view you can show all related information to a user and edit them such as changing the user's domain to another.",
+      "DESCRIPTION": "For a given email address, this view shows a full report of the matching user on his presence in the LDAP with the associated domain and also in the database. So this view is useful when testing if a user is in the right domain or if he belongs to multiple domains in the same time, etc ... Furthermore, in this view you can show all related information to a user and edit them such as changing the user's domain to another.",
       "SEARCH_LEGEND": "Find a person's accounts by giving his email address",
       "PLACEHOLDER": "Email",
       "DOMAIN_HEADER": "DOMAIN NAME",
@@ -413,13 +413,13 @@
       "FIRST_NAME": "First Name",
       "LAST_NAME": "Last name",
       "DEFAULT_LANGUAGE": "Default language of site",
-      "NOTIFICATION_LANGUAGE":"Notification language",
-      "STATUS":"Status",
+      "NOTIFICATION_LANGUAGE": "Notification language",
+      "STATUS": "Status",
       "CREATION_MODAL_TITLE": "Create profil",
       "CREATION_MODAL_DESCRIPTION": "This user does not have a LinShare profile. Would you like to create it in the database ?",
-      "QUOTA SETTING":"QUOTA SETTING",
-      "PERSONAL_SPACE_QUOTA":"User’s Personal Space allocated quota",
-      "MAX_SIZE_QUOTA":"User’s max upload file size in Personal Space",
+      "QUOTA SETTING": "QUOTA SETTING",
+      "PERSONAL_SPACE_QUOTA": "User’s Personal Space allocated quota",
+      "MAX_SIZE_QUOTA": "User’s max upload file size in Personal Space",
       "REMAINING_QUOTA": "Remaining quota",
       "USED_QUOTA": "Used Quota"
     },
@@ -765,14 +765,14 @@
     "ASSIGN_CONFIRM": "You are about to assign this welcome message to the current domain. Do you want to proceed?"
   },
   "MIME_POLICIES": {
-    "CREATE_DESCRIPTION":"Click one the <span style='color: #007AFF'>“Create +”</span> button and give a name to your MIME type filter",
-    "FILTER_DESCRIPTION":"Choose the filter that you added then a list of available MIME types is displayed",
-    "ENABLED_DESCRIPTION":"Enable or disable the MIME type you want then save",
-    "MANAGE_DESCRIPTION":"You can then assign this filter for the domain or its nested domains.",
-    "MANAGE_DOMAIN":"Manage domain",
+    "CREATE_DESCRIPTION": "Click one the <span style='color: #007AFF'>“Create +”</span> button and give a name to your MIME type filter",
+    "FILTER_DESCRIPTION": "Choose the filter that you added then a list of available MIME types is displayed",
+    "ENABLED_DESCRIPTION": "Enable or disable the MIME type you want then save",
+    "MANAGE_DESCRIPTION": "You can then assign this filter for the domain or its nested domains.",
+    "MANAGE_DOMAIN": "Manage domain",
     "SEARCH_BY": "Search by name or domain",
     "CREATE_MIME_POLICY": "Create New Mime Policy",
-    "SYSTEM_INFORMATIONS":"System Informations",
+    "SYSTEM_INFORMATIONS": "System Informations",
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Delete mime policy",
       "DELETE_MODAL_SUBTITLE": "You are about to delete this Mime policy, this action is irreversible. Do you still want to proceed?",
@@ -783,18 +783,18 @@
       "DELETE_SINGLE_FAIL": "Selected Mime policies is associated with at least one domain. You cannot delete",
       "DELETE_MUTIPLE_MODAL_TITLE": "Delete selected mime policies",
       "DELETE_MUTIPLE_MODAL_SUBTITLE": "You are about to delete [{qty}] Mime policies, this procedure is irreversible. Do you want to proceed?",
-      "DELETE_FAILURE":"Delete failed",
+      "DELETE_FAILURE": "Delete failed",
       "DELETE_FAILURE_MESSAGE": "Some of MIME policies are deleted successfully but not others because they are already assigned to at least one domain",
       "UNABLE_DELETE_ALL_MIME": "You are unable to delete those MIME Policies",
       "UNABLE_DELETE_ONE_MIME": "You are unable to delete this mime policy",
       "UNABLE_DELETE_SOME_MIME": "Some of MIME policies are deleted successfully but not others because you dont have permission to delete them"
     },
-    "ASSIGN_MODAL":{
+    "ASSIGN_MODAL": {
       "ASSIGN_MODAL_TITLE": "Assign mime policy",
       "ASSIGN_MODAL_SUBTITLE": "You are about to assign this mime policy for {currentDomain}. Do you want to proceed?",
       "ASSIGN_SUCCESS": "Assigned successfully"
     },
-    "MIME_TYPE_TABLE" : {
+    "MIME_TYPE_TABLE": {
       "MIME_TYPE_NAME": "Mime Type Name",
       "EXTENTION": "Extention",
       "STATUS": "Status",
@@ -2486,18 +2486,19 @@
   },
   "EMAIL_TEMPLATES": {
     "VISIBILITY": "Visibility",
-    "PUBLIC":"Public",
-    "PRIVATE":"Private",
-    "EDITABLE":"Editable",
+    "PUBLIC": "Public",
+    "PRIVATE": "Private",
+    "EDITABLE": "Editable",
     "READ_ONLY": "Read-only",
-   "VERTICAL_TABS": {
+    "MAIL_CONTENT_TYPE_NAME": "Mail content type",
+    "VERTICAL_TABS": {
       "CONFIGURATION": "Mail Configuration",
       "FOOTER": "Mail Footer",
       "ACTIVATION": "Mail Activation",
       "CONTENT": "Mail Content",
       "LAYOUT": "Mail Layout"
     },
-    "CONFIGURATION_PAGE":{
+    "CONFIGURATION_PAGE": {
       "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>“Mail layout”</span> allow to create a custom mail layout.",
       "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>“Mail footer”</span> to edit the mail footer template.",
       "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>“Mail content”</span> to manage mail notification content, sent to LinShare users.",
@@ -2507,17 +2508,17 @@
       "PUBLIC": "Public",
       "PRIVATE": "Private",
       "FIRST_HELP_TEXT": "<span style='color: #007AFF'>mailSubject</span> Title / Mail subject",
-      "SECOND_HELP_TEXT":"<span style='color: #007AFF'>image</span> LinShare log, that can be set in the configuration (If you have the required authorities)",
+      "SECOND_HELP_TEXT": "<span style='color: #007AFF'>image</span> LinShare log, that can be set in the configuration (If you have the required authorities)",
       "THIRD_HELP_TEXT": "<span style='color: #007AFF'>personalMessage</span> A custom message added to the default message <span style='color: #007AFF'>body</span>",
-      "FOUR_HELP_TEXT":"<span style='color: #007AFF'>greetings</span> Greeting message",
-      "FIVE_HELP_TEXT":"<span style='color: #007AFF'>body</span> Content that you put in 'Mail content'",
-      "SIX_HELP_TEXT":"<span style='color: #007AFF'>footer</span> Content that you put in 'Mail footer'",
-      "EMAIL_LAYOUT_DETAIL_PAGE":{
+      "FOUR_HELP_TEXT": "<span style='color: #007AFF'>greetings</span> Greeting message",
+      "FIVE_HELP_TEXT": "<span style='color: #007AFF'>body</span> Content that you put in 'Mail content'",
+      "SIX_HELP_TEXT": "<span style='color: #007AFF'>footer</span> Content that you put in 'Mail footer'",
+      "EMAIL_LAYOUT_DETAIL_PAGE": {
         "PAGE_HEADER": "Mail Layout details",
         "NAME_PLACEHOLDER": "Mail Layout name"
-          }
+      }
     },
-    "ASSIGN_MODAL":{
+    "ASSIGN_MODAL": {
       "ASSIGN_MODAL_TITLE": "Assign Mail Configuration",
       "ASSIGN_MODAL_SUBTITLE": "You are about to assign this mail configuration for {currentDomain}. Do you want to proceed?",
       "ASSIGN_SUCCESS": "Assigned successfully"
@@ -2535,7 +2536,7 @@
       "EMAIL_FOOTER_NAME": "Email footer name",
       "CREATE_EMAIL_FOOTER": "Create Email Footer"
     },
-    "DELETE_MODAL":{
+    "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Delete Mail Configuration",
       "DELETE_MODAL_SUBTITLE": "You are about to delete this mail configuration. Do you want to proceed?",
       "DELETE_SUCCESS": "Deleted successfully",
@@ -2553,7 +2554,7 @@
       "DELETE_ERROR_ONE": "You are unable to delete this mail configuration",
       "DELETE_ERROR_ALL": "You are unable to delete those mail configurations"
     },
-    "DELETE_LAYOUT_MODAL":{
+    "DELETE_LAYOUT_MODAL": {
       "DELETE_MODAL_EMPTY": "Please select mail layout to delete",
       "DELETE_MODAL_TITLE": "Delete Mail Layout",
       "DELETE_MODAL_SUBTITLE": "You are about to delete this mail layout. Do you want to proceed?",
@@ -2573,12 +2574,12 @@
       "DELETE_ERROR_ALL": "You are unable to delete those mail layouts",
       "DELETE_ERROR_SOME_OF_THEM": "Some of the mail layouts are deleted successfully but not others because you don't have permission to delete them"
     },
-    "EDIT_FORM" : {
+    "EDIT_FORM": {
       "EDIT_HEADER": "Edit mail configuration",
       "EDIT_SUBHEADER": "Mail configuration name",
       "NAME_LABEL": "Name",
       "NAME_PLACEHOLDER": "Mail configuration name",
-      "VISIBLE_LABEL" :"Visible",
+      "VISIBLE_LABEL": "Visible",
       "LAYOUT_LABEL": "Mail layout",
       "LAYOUT_PLACEHOLDER": "Mail configuration layout",
       "FOOTER_LABEL": "Mail footer",
@@ -2638,13 +2639,13 @@
       "PUBLIC": "Public",
       "PRIVATE": "Private",
       "HELP_TEXT": "This view allows you to create templates for your mails footer. You should create a HTML & text model. In the view <span style='color: #007AFF'>'Mail configuration'</span> you can create a mail template and associate it to a mail layout and mail footer. (NB: Mail layout should contain ${footer} variable in order to set in the mail footer.",
-      "EMAIL_FOOTER_DETAIL_PAGE":{
+      "EMAIL_FOOTER_DETAIL_PAGE": {
         "PAGE_HEADER": "Mail Footer details",
         "NAME_PLACEHOLDER": "Mail Footer name",
         "FOOTER_LABEL": "Mail footer"
       }
     },
-    "DELETE_FOOTER_MODAL":{
+    "DELETE_FOOTER_MODAL": {
       "DELETE_MODAL_EMPTY": "Please select mail footer to delete",
       "DELETE_MODAL_TITLE": "Delete Mail Footer",
       "DELETE_MODAL_SUBTITLE": "You are about to delete this mail footer. Do you want to proceed?",
@@ -2663,6 +2664,39 @@
       "DELETE_ERROR_ONE": "You are unable to delete this mail footer",
       "DELETE_ERROR_ALL": "You are unable to delete those mail footers",
       "DELETE_ERROR_SOME_OF_THEM": "Some of the mail footers are deleted successfully but not others because you don't have permission to delete them"
+    },
+    "EMAIL_CONTENT": {
+      "PUBLIC": "Public",
+      "PRIVATE": "Private",
+      "HELP_TEXT": "This view allows you to create templates for your mails content. You should create a HTML & text model. In the view <span style='color: #007AFF'>'Mail configuration'</span> you can create a mail template and associate it to a mail layout and mail content. (NB: Mail layout should contain ${content} variable in order to set in the mail content.",
+      "EMAIL_CONTENT_DETAIL_PAGE": {
+        "PAGE_HEADER": "Mail Content details",
+        "NAME_PLACEHOLDER": "Mail Content name",
+        "CONTENT_LABEL": "Mail content"
+      },
+      "FIRST_HELP_TEXT": "This view allows you to set the mail notification content sent automatically to the application's users. You can write a messages in english, french, vietnamese or russian.",
+      "SECOND_HELP_TEXT": "You can write a messages in english, french, vietnamese or russian. You can also create a several versions of this messages. you can then in the tab 'Mail configuration', choose the right content of the configuration.",
+      "THIRD_HELP_TEXT": "The fields <span style='color: #007AFF'>'Subject'</span>, <span style='color: #007AFF'>'Greetings'</span> and <span style='color: #007AFF'>'Body'</span>, replace <span style='color: #007AFF'>$`{subject}`</span>, <span style='color: #007AFF'>$`{greetings`}</span> and <span style='color: #007AFF'>$`{body}`</span> that you have added to a 'Mail layout"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_EMPTY": "Please select mail content to delete",
+      "DELETE_MODAL_TITLE": "Delete Mail Content",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail content. Do you want to proceed?",
+      "DELETE_SUCCESS": "Deleted successfully",
+      "DELETE_ERROR_ASSIGNED": "Selected mail content is associated with at least one domain. You cannot delete",
+      "DELETE_ERROR_UNAUTHORIZED": "You do not have the rights to delete this mail content",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Delete selected mail contents",
+      "DELETE_ACTION_CANCEL": "Cancel",
+      "DELETE_ACTION_CONFIRM": "Yes, delete",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "You are about to delete {qty} mail contents, this procedure is irreversible. Do you want to proceed?",
+      "DELETE_FAILURE": "Delete failed",
+      "DELETE_ERROR_ASSIGNED_SOME": "Some of mail content are deleted successfully but not others because they are already assigned to at least one domain",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Some of mail content are deleted successfully but not others because you do not have the rights to delete them",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "You do not have the rights to delete those mail contents",
+      "DELETE_ERROR_ASSIGNED_ALL": "You are unable to delete those mail contents",
+      "DELETE_ERROR_ONE": "You are unable to delete this mail content",
+      "DELETE_ERROR_ALL": "You are unable to delete those mail contents",
+      "DELETE_ERROR_SOME_OF_THEM": "Some of the mail contents are deleted successfully but not others because you don't have permission to delete them"
     }
   },
   "LANGUAGE": {

@@ -177,9 +177,9 @@
       "MULTIPLE_DELETE_CONFIRM": "Vous êtes sur le point de supprimer cet ou ces utilisateurs, cette procédure est irréversible et detruira les documents. Souhaitez-vous continuer ?",
       "SELECTED_USERS_NUMBER": "Utilisateurs selectionnés: {number}",
       "SELECTED_USERS_DELETE": "Supprimer les utilisateurs selectionnés",
-      "SELECTED_USERS_UNLOCK":"Les utilisateurs vérrouillés ont été déverrouillés avec succès",
-      "SELECT_ALL":"Tout selectionner",
-      "UNSELECT_ALL":"Tout déselectionner"
+      "SELECTED_USERS_UNLOCK": "Les utilisateurs vérrouillés ont été déverrouillés avec succès",
+      "SELECT_ALL": "Tout selectionner",
+      "UNSELECT_ALL": "Tout déselectionner"
     },
     "DETAIL_USER": {
       "TITLE": "Configuration de l'utilisateur",
@@ -197,7 +197,7 @@
       "ENABLED": "Activé",
       "DISABLED": "Désactivé",
       "FIRST_NAME": "Prénom",
-      "LAST_NAME":"Nom",
+      "LAST_NAME": "Nom",
       "NOTIFICATION_LANGUAGE": "Language de Notification",
       "ROLE": "Rôle utilisateur",
       "ENABLE_PERSONAL_SPACE": "Activer l'espace personnel",
@@ -224,7 +224,7 @@
       "RESTRICTED_GUEST": "Restreindre l'invité",
       "RESTRICTED_CONTACTS": "Comptes que l'invité peut contacter",
       "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "La date d'expiration de l'invité doit être comprise entre demain et le {date}",
-      "MAIL":"E-mail",
+      "MAIL": "E-mail",
       "ADVANCED_RESEARCH": "Recherche avancée"
     },
     "GUEST_MODERATOR": {
@@ -359,7 +359,7 @@
       "NAME": "Nom"
     },
     "MEMBERS": {
-      "MEMBERS":"Membres",
+      "MEMBERS": "Membres",
       "TAB_TITLE": "Liste des membres",
       "CONFIRM_DELETE": "Êtes-vous sûr de vouloir supprimer ce membre de l'espace partagé ?",
       "FILTER_PLACEHOLDER": "Rechercher ou filtrer les membres de l'espace partagé",
@@ -369,7 +369,7 @@
       "DEFAULT_WORKGROUP_ROLE": "Rôle de groupe de travail par défaut",
       "FORCE_CHECKBOX": "Remplacer ce rôle pour tous les groupes de travail imbriqués",
       "MEMBER_ADVANCED_RESEARCH": "Recherche avancée",
-      "DEFAULT_ROLE":"Rôle par défaut",
+      "DEFAULT_ROLE": "Rôle par défaut",
       "NO_DEFAULT_ROLE": "Aucun rôle par défaut",
       "DEFAULT_ROLE_TAG_PREFIX": "Rôle par défaut :",
       "DEFAULT_ROLE_TAG_TOOLTIP": "Ce rôle s'appliquera à ce membre pour tous les groupes de travail nouvellement créés dans cet espace de travail"
@@ -377,13 +377,13 @@
   },
   "INCONSISTENT_USERS": {
     "TITLE": "Utilisateurs incohérents",
-      "DESCRIPTION": "Un utilisateur incohérent est un utilisateur qui n'est plus dans aucun LDAP associé à différents domaines. Cette vue active le domaine d'un utilisateur incohérent afin qu'il devienne un utilisateur régulier. Grâce au résultat d'un utilisateur, vous pouvez modifier les informations qui le concernent. En sélectionnant un groupe d'utilisateurs, vous pouvez les supprimer tous d'un coup ou changer leur domaine",
-      "COLUMNS": {
-        "NUMBER_COL" : "Nu.",
-        "FIRSTNAME" : "Prénom",
-        "LASTNAME" : "Nom",
-        "EMAIL" : "Email",
-        "DOMAIN_ID" : "Domaine Id",
+    "DESCRIPTION": "Un utilisateur incohérent est un utilisateur qui n'est plus dans aucun LDAP associé à différents domaines. Cette vue active le domaine d'un utilisateur incohérent afin qu'il devienne un utilisateur régulier. Grâce au résultat d'un utilisateur, vous pouvez modifier les informations qui le concernent. En sélectionnant un groupe d'utilisateurs, vous pouvez les supprimer tous d'un coup ou changer leur domaine",
+    "COLUMNS": {
+      "NUMBER_COL": "Nu.",
+      "FIRSTNAME": "Prénom",
+      "LASTNAME": "Nom",
+      "EMAIL": "Email",
+      "DOMAIN_ID": "Domaine Id",
       "ROLE": "Rôle"
     },
     "TOKEN_INPUT_PLACEHOLDER": "Rechercher ou filtrer les utilisateurs incohérents",
@@ -417,10 +417,10 @@
       "CREATION_MODAL_TITLE": "Créer un profil",
       "CREATION_MODAL_DESCRIPTION": "Cet utilisateur n'a pas de profil LinShare. Souhaitez-vous le créer dans la base de données ?",
       "QUOTA SETTING": "CONFIGURATION DE QUOTA",
-      "PERSONAL_SPACE_QUOTA" : "Quota d'espace personnel alloué à l'utilisateur",
-      "MAX_SIZE_QUOTA" : "Taille maximale de fichier autorisée dans l'espace personnel de l'utilisateur",
-      "REMAINING_QUOTA" : "Quota restant",
-      "USED_QUOTA" : "Quota utilisé"
+      "PERSONAL_SPACE_QUOTA": "Quota d'espace personnel alloué à l'utilisateur",
+      "MAX_SIZE_QUOTA": "Taille maximale de fichier autorisée dans l'espace personnel de l'utilisateur",
+      "REMAINING_QUOTA": "Quota restant",
+      "USED_QUOTA": "Quota utilisé"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Vous êtes sur le point de supprimer ces utilisateurs, cette procédure est irréversible et va détruire tous leurs documents. Souhaitez-vous continuer ?"
@@ -434,10 +434,10 @@
     "USED_SPACE": "A utilisé {usedSpace} sur {computedQuota}",
     "USER_QUOTA": "Quota alloué à l'espace personnel de l'utilisateur",
     "USER_MAX_FILE_SIZE": "Taille maximale d'un fichier dans l'espace personnel",
-    "CURRENT DOMAIN QUOTA":"QUOTA ACTUEL DU DOMAINE",
-    "MAINTENANCE_MODE":"Mode maintenance",
-    "ALREADY_USED":"utilisés sur",
-    "QUOTA_AND_USED_SPACE":"Quota du domaine et espace utilisé",
+    "CURRENT DOMAIN QUOTA": "QUOTA ACTUEL DU DOMAINE",
+    "MAINTENANCE_MODE": "Mode maintenance",
+    "ALREADY_USED": "utilisés sur",
+    "QUOTA_AND_USED_SPACE": "Quota du domaine et espace utilisé",
     "SUBDOMAINS_ALLOCATION_SETTINGS": "Paramètres d'attribution par défaut des sous-domaines",
     "SUBDOMAIN_QUOTA": "QUOTA DES SOUS-DOMAINES",
     "SHRAED_DOMAIN_QUOTA_ACTIVATION": "Activer le mode Domaine Quota partagé",
@@ -450,7 +450,7 @@
     "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Quota total alloué pour l'Espace Commun",
     "DEFAULT_MAX_FILE_SIZE": "Taille max d'un fichier dans les Espaces Personnel",
     "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Définir le quota pour un utilisateur",
-    "QUOTA_EXCEEDED_ERROR":"Espace insuffisant, liberez ou allouez plus d'espace de stockage pour ",
+    "QUOTA_EXCEEDED_ERROR": "Espace insuffisant, liberez ou allouez plus d'espace de stockage pour ",
     "SPACES_LABEL": {
       "CURRENT_DOMAIN": "le domaine courant",
       "PERSONALS_SPACES": "les Espaces Personnel",
@@ -458,10 +458,10 @@
       "SUB_DOMAINS": "les sous-domaines"
     },
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Cette section vous permet de gérer le quota actuel du domaine et de le configurer en fonction de vos besoins.",
-    "MAINTENANCE_MODE_ACTIVATED_ALERT":"Le mode maintenance est activé, empêchant ainsi tout téléchargement dans le domaine actuel.",
-    "DOMAIN_MAXIMUM_QUOTA":"Quota maximal du domaine : ",
+    "MAINTENANCE_MODE_ACTIVATED_ALERT": "Le mode maintenance est activé, empêchant ainsi tout téléchargement dans le domaine actuel.",
+    "DOMAIN_MAXIMUM_QUOTA": "Quota maximal du domaine : ",
     "DEFAULT_SUB_DOMAIN_QUOTA": "Quota par défaut des sous-domaines : ",
-    "DOMAIN_QUOTA":"Quota du domaine",
+    "DOMAIN_QUOTA": "Quota du domaine",
     "ERROR_MESSAGE_FIELD": "La valeur doit etre inférieure ou égale à : ",
     "ALLOCATION_WITHIN_THE_CURRENT_DOMAIN": "Quota des espaces pour {Containers}",
     "PERSONAL SPACE QUOTA": "QUOTA DE L'ESPACE PERSONNEL",
@@ -480,28 +480,27 @@
       "FILE_SIZE_LARGER_THAN_QUOTA": "La taille maximale du fichier doit être inférieure au quota de stockage",
       "INVALID_FILE_SIZE": "La taille maximale du fichier non valide"
     },
-    "QUOTA_VISUALIZE":"Visualisation des quotas",
-    "ROOT_DOMAIN_QUOTA":{
+    "QUOTA_VISUALIZE": "Visualisation des quotas",
+    "ROOT_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Espace utilisé par le domaine courant (Personel + espaces partagés)",
-      "SUB_DOMAIN_USED_SPACE":"Espace utilisé par les sous-domaines ",
-      "REMAINING_SPACE":"Espace restant",
+      "SUB_DOMAIN_USED_SPACE": "Espace utilisé par les sous-domaines ",
+      "REMAINING_SPACE": "Espace restant",
       "QUOTA_PER_SUB_DOMAIN": "Quota per sub domain"
     },
-    "TOP_DOMAIN_QUOTA":{
+    "TOP_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Espace utilisé par le domaine courant",
-      "SUB_DOMAIN_USED_SPACE":"Espace utilisé par les sous-domaines ",
-      "REMAINING_QUOTA":"Quota restant",
+      "SUB_DOMAIN_USED_SPACE": "Espace utilisé par les sous-domaines ",
+      "REMAINING_QUOTA": "Quota restant",
       "QUOTA_PER_SUB_DOMAIN": "Espace non alloué",
       "USED": "Espace utilisé"
     },
-    "GUEST_DOMAIN_QUOTA":{
+    "GUEST_DOMAIN_QUOTA": {
       "CURRENT_DOMAIN_USED_SPACE": "Espace utilisé par le domaine courant",
-      "REMAINING_SPACE":"Espace restant",
+      "REMAINING_SPACE": "Espace restant",
       "UNALLOCATED_SPACE": "Espace non alloué",
-      "PERSONAL_ALLOCATED_SPACE":"Quota alloué pour l'Espace Personnel",
-      "SHARED_SPACE_ALLOCATED":"Quota alloué pour l'Espace Commun",
-      "UNASSIGNED_SPACE":"Quota non-alloué"
-
+      "PERSONAL_ALLOCATED_SPACE": "Quota alloué pour l'Espace Personnel",
+      "SHARED_SPACE_ALLOCATED": "Quota alloué pour l'Espace Commun",
+      "UNASSIGNED_SPACE": "Quota non-alloué"
     },
     "SAVE_CHANGE": "Sauvegarder",
     "CANCEL": "Annuler",
@@ -552,7 +551,7 @@
       "BACK_TO_CONFIGURATION": "Retour à la configuration"
     },
     "TYPES": {
-          "ROOTDOMAIN":"Domain racine",
+      "ROOTDOMAIN": "Domain racine",
       "TOPDOMAIN": "Domaine principal",
       "SUBDOMAIN": "Sous-domaine",
       "GUESTDOMAIN": "Domaine invité"
@@ -677,7 +676,7 @@
     "DELETE_ABORT": "Ce filtre est associé à au moins un fournisseur de groupe. Vous ne pouvez pas le supprimer.",
     "NO_ASSOCIATED_DOMAIN": "Aucun domaine n'utilise ce filtre de groupe",
     "LDAP": {
-      "PAGE_HELPER_P1":"LinShare prend en charge la synchronisation automatique entre les groupes de travail LinShare et les groupes LDAP. Les groupes de travail et les membres du groupe de travail sont donc créés et synchronisés avec leur homologue LDAP. Par défaut, les membres ont le rôle d'espace de travail .",
+      "PAGE_HELPER_P1": "LinShare prend en charge la synchronisation automatique entre les groupes de travail LinShare et les groupes LDAP. Les groupes de travail et les membres du groupe de travail sont donc créés et synchronisés avec leur homologue LDAP. Par défaut, les membres ont le rôle d'espace de travail .",
       "PAGE_HELPER_P2": "LinShare nécessite les requêtes ci-dessous pour se synchroniser :",
       "PAGE_HELPER_P3": "Requête LQL (LDAP Query Language) pour rechercher tous les groupes de travail",
       "PAGE_HELPER_P4": "Requête LQL pour rechercher un groupe de travail",
@@ -718,7 +717,7 @@
     "DELETE_ABORT": "Ce filtre est associé à au moins un fournisseur d'espace de travail. Vous ne pouvez pas le supprimer.",
     "NO_ASSOCIATED_DOMAIN": "Aucun fournisseur d'espace de travail  n'utilise ce filtre",
     "LDAP": {
-      "PAGE_HELPER_P1":"LinShare prend en charge la synchronisation automatique entre les espaces de travail  LinShare et les espaces de travail LDAP. Les espaces de travail et les membres des espaces de travail sont donc créés et synchronisés avec leur homologue LDAP. Par défaut, les membres ont le rôle d'espace de travail.",
+      "PAGE_HELPER_P1": "LinShare prend en charge la synchronisation automatique entre les espaces de travail  LinShare et les espaces de travail LDAP. Les espaces de travail et les membres des espaces de travail sont donc créés et synchronisés avec leur homologue LDAP. Par défaut, les membres ont le rôle d'espace de travail.",
       "PAGE_HELPER_P2": "LinShare nécessite les requêtes ci-dessous pour se synchroniser :",
       "PAGE_HELPER_P3": "Requête LQL (LDAP Query Language) pour rechercher tous les espaces de travail ",
       "PAGE_HELPER_P4": "Requête LQL pour rechercher un espace de travail",
@@ -757,33 +756,33 @@
     "DESCRIPTION": "Sur cette page, vous pouvez sélectionner un domaine et voir la liste des messages d'accueil que vous avez créés ou autorisés à utiliser",
     "ROOT_DOMAIN_DESCRIPTION": "Le domaine racine peut créer des messages d'accueil mais ne peut pas en utiliser",
     "NESTED_DOMAIN_DESCRIPTION": "Un domaine peut créer des messages d'accueil pour son propre usage et peut utiliser les messages créés par ses domaines supérieurs",
-    "THE_WELCOME_MESSAGE":"Le message d'accueil",
-    "SET_FIELD":"Vous devez renseigner ce champ",
-    "DELETE_CONFIRM":"Vous êtes sur le point de supprimer ce message d'accueil, cette action est irréversible, souhaitez-vous continuer ?",
-    "MESSAGE_PREVIEW":"Voici un aperçu du message d'accueil :",
+    "THE_WELCOME_MESSAGE": "Le message d'accueil",
+    "SET_FIELD": "Vous devez renseigner ce champ",
+    "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce message d'accueil, cette action est irréversible, souhaitez-vous continuer ?",
+    "MESSAGE_PREVIEW": "Voici un aperçu du message d'accueil :",
     "ASSIGN_SUCCESS": "Assigné avec succès",
     "ASSIGN_CONFIRM": "Vous êtes sur le point d'attribuer ce message d'accueil au domaine actuel, souhaitez-vous continuer ?"
   },
   "MIME_POLICIES": {
-    "CREATE_DESCRIPTION":"Cliquez sur le bouton <span style='color: #007AFF'>“Créer +”</span> et donnez un nom à votre filtre de type MIME.",
-    "FILTER_DESCRIPTION":"Choisissez le filtre que vous avez ajouté, puis une liste de types MIME disponibles s'affiche.",
-    "ENABLED_DESCRIPTION":"Activez ou désactivez le type MIME que vous souhaitez, puis enregistrez.",
-    "MANAGE_DESCRIPTION":"Vous pouvez ensuite attribuer ce filtre au domaine ou à ses sous-domaines.",
-    "MANAGE_DOMAIN":"Gérer le domaine",
+    "CREATE_DESCRIPTION": "Cliquez sur le bouton <span style='color: #007AFF'>“Créer +”</span> et donnez un nom à votre filtre de type MIME.",
+    "FILTER_DESCRIPTION": "Choisissez le filtre que vous avez ajouté, puis une liste de types MIME disponibles s'affiche.",
+    "ENABLED_DESCRIPTION": "Activez ou désactivez le type MIME que vous souhaitez, puis enregistrez.",
+    "MANAGE_DESCRIPTION": "Vous pouvez ensuite attribuer ce filtre au domaine ou à ses sous-domaines.",
+    "MANAGE_DOMAIN": "Gérer le domaine",
     "CREATE_MIME_POLICY": "Créer une nouvelle politique MIME",
     "SEARCH_BY": "Recherche par nom ou par domain",
-    "SYSTEM_INFORMATIONS":"Informations système",
+    "SYSTEM_INFORMATIONS": "Informations système",
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Supprimer la politique Mime",
       "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer cette politique Mime, cette action est irréversible. Voulez-vous toujours continuer ?",
       "DELETE_ACTION_CANCEL": "Annuler",
       "DELETE_ACTION_CONFIRM": "Oui, supprimer",
-      "DELETE_MODAL_EMPTY" : "Veuillez sélectionner le type Mime à supprimer",
+      "DELETE_MODAL_EMPTY": "Veuillez sélectionner le type Mime à supprimer",
       "DELETE_SUCCESS": "Supprimé avec succès",
       "DELETE_SINGLE_FAIL": "La politique Mime sélectionnée est associée à au moins un domaine. Vous ne pouvez pas la supprimer",
       "DELETE_MUTIPLE_MODAL_TITLE": "Supprimer les politiques Mime sélectionnées",
       "DELETE_MUTIPLE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer [{qty}] politiques Mime, cette procédure est irréversible. Voulez-vous continuer ?",
-      "DELETE_FAILURE":"Échec de la suppression",
+      "DELETE_FAILURE": "Échec de la suppression",
       "DELETE_FAILURE_MESSAGE": "Certaines des politiques MIME ont été supprimées avec succès, mais les autres sont assignées à au moins un domaine et ne peuvent être supprimées.",
       "UNABLE_DELETE_ALL_MIME": "Vous n'avez pas le droit de supprimer ces Politiques MIME",
       "UNABLE_DELETE_ONE_MIME": "Vous n'êtes pas autorisé à supprimer cette politique MIME",
@@ -794,7 +793,7 @@
       "ASSIGN_MODAL_SUBTITLE": "Vous êtes sur le point d'assigner cette politique MIME pour {currentDomain}. Voulez-vous continuer ?",
       "ASSIGN_SUCCESS": "Assignation réussie"
     },
-    "MIME_TYPE_TABLE" : {
+    "MIME_TYPE_TABLE": {
       "MIME_TYPE_NAME": "Nom du type MIME",
       "EXTENTION": "Extension",
       "STATUS": "Statut",
@@ -912,9 +911,9 @@
         "DESCRIPTION": "L'invitation de dépôt est une fonctionnalité par laquelle une personne (identifiée par e-mail) peut téléverser des fichiers pour un utilisateur LinShare, de manière temporaire et réglementée. Les documents téléversés prendront de la place dans l'espace personnel de l'émetteur. Lorsque cette fonctionnalité est désactivée, les sous-fonctionnalités ne fonctionneront pas.",
         "PARAMETER": {
           "TITLE": "URL de base du portail de l'invitation de dépôt",
-          "DESCRIPTION":"Le destinataire de l'invitation de dépot gérera ses téléversements à partir d'un portail séparé. L'URL de ce portail est intégrée dans les e-mails de notification envoyés par le serveur."
-      }
-    },
+          "DESCRIPTION": "Le destinataire de l'invitation de dépot gérera ses téléversements à partir d'un portail séparé. L'URL de ce portail est intégrée dans les e-mails de notification envoyés par le serveur."
+        }
+      },
       "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
         "NAME": "Langue d'émission des courriels",
         "DESCRIPTION": "",
@@ -927,7 +926,7 @@
         "DESCRIPTION": "Permet de définir la limitation du nombre d'invitation de dépôt qu'un utilisateur peut créer dans ce domaine.",
         "PARAMETER": {
           "TITLE_MAXIMUM": "Nombre maximal de d'invitations de dépôt'",
-          "DESCRIPTION_MAXIMUM":"Nombre maximal d'invitations de dépôt d'un utilisateur dans ce domaine. Ce nombre correspond aux invitations de dépôt avec le statut : En attente/Actif/Fermé"
+          "DESCRIPTION_MAXIMUM": "Nombre maximal d'invitations de dépôt d'un utilisateur dans ce domaine. Ce nombre correspond aux invitations de dépôt avec le statut : En attente/Actif/Fermé"
         }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
@@ -1480,7 +1479,7 @@
     "SELECT_DOMAIN": "Sélectionner un domaine",
     "VIEW_DETAIL": "Afficher le détail",
     "CANCEL": "Annuler",
-    "MANAGE_DOMAINS":"Gérer les domaines",
+    "MANAGE_DOMAINS": "Gérer les domaines",
     "CONFIGURATION": "Configuration",
     "SELECT_DOMAIN_TO_START": "Sélectionner un domaine pour commencer",
     "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Vous devez choisir un domaine en cliquant sur le bouton ci-dessous avant de pouvoir modifier ses paramètres.",
@@ -1567,8 +1566,8 @@
         "GUEST": "Compte Invité",
         "SHARE_ENTRY": "Partage",
         "USER": "Utilisateur",
-        "DRIVE" : "Drive",
-        "DRIVE_MEMBER" : "Drive - Member",
+        "DRIVE": "Drive",
+        "DRIVE_MEMBER": "Drive - Member",
         "WORKGROUP": "Groupe de Travail",
         "WORK_GROUP": "Groupe de Travail",
         "WORK_SPACE": "Espace de Travail",
@@ -1578,22 +1577,22 @@
         "WORKGROUP_FOLDER": "Groupe de Travail - Dossier",
         "WORKGROUP_MEMBER": "Groupe de Travail - Membre",
         "JWT_PERMANENT_TOKEN": "Jeton d'accès permanent (JWT)",
-        "DOMAIN":"Domaine",
-        "DOMAIN_PATTERN":"Modèle de domaine",
+        "DOMAIN": "Domaine",
+        "DOMAIN_PATTERN": "Modèle de domaine",
         "UPLOAD_REQUEST": "Invitation de dépôt",
         "UPLOAD_REQUEST_GROUP": "Invitation de dépôt - Paramétrage collectif",
         "UPLOAD_REQUEST_URL": "Invitation de dépôt - Lien",
         "UPLOAD_REQUEST_ENTRY": "Invitation de dépôt - Document",
         "GUEST_MODERATOR": "Modérateurs d’invité",
         "GROUP_FILTER": "Filtres de groupes de travail",
-        "WORKSPACE_FILTER":" Filtres d’espace de travail ",
+        "WORKSPACE_FILTER": " Filtres d’espace de travail ",
         "RESET_PASSWORD": " Réinitialisation du mot de passe ",
-        "USER_PREFERENCE":" Préférences de l'utilisateur",
-        "SAFE_DETAIL":"Détail d'un coffre",
-        "PUBLIC_KEY":" Clés publiques ",
-        "SHARED_SPACE_NODE" :"Nœuds d'espace partagé ",
-        "MAIL_ATTACHMENT" :" Pièces jointes ",
-        "SHARED_SPACE_MEMBER" :" Membres de l'espace partagé",
+        "USER_PREFERENCE": " Préférences de l'utilisateur",
+        "SAFE_DETAIL": "Détail d'un coffre",
+        "PUBLIC_KEY": " Clés publiques ",
+        "SHARED_SPACE_NODE": "Nœuds d'espace partagé ",
+        "MAIL_ATTACHMENT": " Pièces jointes ",
+        "SHARED_SPACE_MEMBER": " Membres de l'espace partagé",
         "UPLOAD_PROPOSITION": "Propositions d’invitations de dépôt"
       }
     },
@@ -2024,7 +2023,7 @@
               "SENTENCE": "{authorName} a modifié le Compte Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
-           },
+          },
           "CHANGE_PASSWORD": {
             "AUTHOR": {
               "SENTENCE": "Vous avez modifié le mot de passe de votre compte.",
@@ -2096,7 +2095,7 @@
               "SENTENCE": "{authorName} a modifié le Utilisateur Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
-           },
+          },
           "CHANGE_PASSWORD": {
             "AUTHOR": {
               "SENTENCE": "Vous avez modifié le mot de passe de votre compte.",
@@ -2485,18 +2484,19 @@
   },
   "EMAIL_TEMPLATES": {
     "VISIBILITY": "Visibilité",
-    "PUBLIC":"Public",
-    "PRIVATE":"Privé",
-    "EDITABLE":"Editable",
+    "PUBLIC": "Public",
+    "PRIVATE": "Privé",
+    "EDITABLE": "Editable",
     "READ_ONLY": "Lecture seule",
+    "MAIL_CONTENT_TYPE_NAME": "Type de contenu de messagerie",
     "VERTICAL_TABS": {
       "CONFIGURATION": "Configuration du courriel",
-       "FOOTER": "Pied de page du courriel",
-       "ACTIVATION": "Activation des notifications",
-       "CONTENT": "Contenu du courriel",
-       "LAYOUT": "Structure du courriel"
+      "FOOTER": "Pied de page du courriel",
+      "ACTIVATION": "Activation des notifications",
+      "CONTENT": "Contenu du courriel",
+      "LAYOUT": "Structure du courriel"
     },
-    "CONFIGURATION_PAGE":{
+    "CONFIGURATION_PAGE": {
       "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>“Structure du courriel”</span> permet de créer des modèles de structure de courriel, des mises en pages différentes.",
       "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>“Pied de page du courriel”</span> pour la mise en page du pied de page du courriel.",
       "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>“Contenu du courriel”</span> pour gérer le contenu des notifications envoyées automatiquement aux utilisateurs de l'application.",
@@ -2506,17 +2506,17 @@
       "PUBLIC": "Public",
       "PRIVATE": "Privé",
       "FIRST_HELP_TEXT": "<span style='color: #007AFF'>mailSubject</span> Titre / Objet du courriel",
-      "SECOND_HELP_TEXT":"<span style='color: #007AFF'>image</span> Logo LinShare, qui peut être défini dans la configuration (si vous avez les autorisations requises)",
+      "SECOND_HELP_TEXT": "<span style='color: #007AFF'>image</span> Logo LinShare, qui peut être défini dans la configuration (si vous avez les autorisations requises)",
       "THIRD_HELP_TEXT": "<span style='color: #007AFF'>personalMessage</span>  Un Message Personnalisé Ajouté Au Message Par Défaut <span style='color: #007AFF'>body</span>",
-      "FOUR_HELP_TEXT":"<span style='color: #007AFF'>greetings</span> Message de salutation",
-      "FIVE_HELP_TEXT":"<span style='color: #007AFF'>body</span> Contenu que vous mettez dans 'Contenu du courriel'",
-      "SIX_HELP_TEXT":"<span style='color: #007AFF'>footer</span> Contenu que vous mettez dans 'Pied de page du courriel'",
-      "EMAIL_LAYOUT_DETAIL_PAGE":{
+      "FOUR_HELP_TEXT": "<span style='color: #007AFF'>greetings</span> Message de salutation",
+      "FIVE_HELP_TEXT": "<span style='color: #007AFF'>body</span> Contenu que vous mettez dans 'Contenu du courriel'",
+      "SIX_HELP_TEXT": "<span style='color: #007AFF'>footer</span> Contenu que vous mettez dans 'Pied de page du courriel'",
+      "EMAIL_LAYOUT_DETAIL_PAGE": {
         "PAGE_HEADER": "Détails de la structure du courriel",
         "NAME_PLACEHOLDER": "Nom de la la structure du courriel"
-        }
+      }
     },
-    "ASSIGN_MODAL":{
+    "ASSIGN_MODAL": {
       "ASSIGN_MODAL_TITLE": "Attribuer la configuration du courriel",
       "ASSIGN_MODAL_SUBTITLE": "Vous êtes sur le point d'attribuer cette configuration de courriel au domaine {currentDomain}. Voulez-vous continuer ?",
       "ASSIGN_SUCCESS": "Attribué avec succès"
@@ -2572,12 +2572,12 @@
       "DELETE_ERROR_ALL": "Vous ne pouvez pas supprimer ces structures de courriel",
       "DELETE_ERROR_SOME_OF_THEM": "Certains des formats de courrier ont été supprimés avec succès, mais d'autres ne l'ont pas été car vous n'avez pas l'autorisation de les supprimer."
     },
-    "EDIT_FORM" : {
+    "EDIT_FORM": {
       "EDIT_HEADER": "Modifier la configuration de courriel",
       "EDIT_SUBHEADER": "Nom de la configuration de courriel",
       "NAME_LABEL": "Nom",
       "NAME_PLACEHOLDER": "Nom de la configuration de courriel",
-      "VISIBLE_LABEL" :"Visible",
+      "VISIBLE_LABEL": "Visible",
       "LAYOUT_LABEL": "Mise en page du courriel",
       "LAYOUT_PLACEHOLDER": "Mise en page de la configuration de courriel",
       "FOOTER_LABEL": "Pied de page du courriel",
@@ -2609,7 +2609,7 @@
       "UPLOAD_REQUEST_UPLOADED_FILE": "Un destinataire a déposé un fichier dans une invitation de dépôt",
       "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "Une invitation de dépôt sera prochainement clôturée",
       "UPLOAD_REQUEST_WARN_EXPIRY": "Une invitation de dépôt a été clôturée",
-      "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER" : "L'invitation de dêpot est activée pour le créateur",
+      "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": "L'invitation de dêpot est activée pour le créateur",
       "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": "L'invitation de dépôt est activée pour le destinataire",
       "UPLOAD_REQUEST_CLOSED_BY_OWNER": "L'invitation de dépôt a été cloturée par son créateur",
       "UPLOAD_REQUEST_CREATED": "Une invitation de dêpot a été crée",
@@ -2627,7 +2627,7 @@
       "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "L'utilisateur reçoit une notification lorsqu'un administrateur supprime un jeton d'accès permanent (JWT) à son compte",
       "DRIVE_WARN_DELETED_MEMBER": "Notification de suppression d'un membre d'un DRIVE",
       "DRIVE_WARN_NEW_MEMBER": "Notification d'ajout d'un nouveau membre à un DRIVE",
-      "DRIVE_WARN_UPDATED_MEMBER":"Notification de modification des droits d'un membre du DRIVE",
+      "DRIVE_WARN_UPDATED_MEMBER": "Notification de modification des droits d'un membre du DRIVE",
       "WORK_SPACE_WARN_DELETED": "Un espace de travail a été supprimé",
       "WORK_SPACE_WARN_DELETED_MEMBER": "Un membre a été supprimé de l'espace de travail",
       "WORK_SPACE_WARN_NEW_MEMBER": "Un utilisateur a été ajouté à l'espace de travail",
@@ -2637,7 +2637,7 @@
       "PUBLIC": "Public",
       "PRIVATE": "Privé",
       "HELP_TEXT": "Cette vue vous permet de créer des modèles pour le pied de page de vos mails. Vous devez créer un modèle HTML et texte. Dans la vue <span style='color: #007AFF'>'Configuration des mails'</span>, vous pouvez créer un modèle de mail et l'associer à une mise en page de mail et à un pied de page de mail. (NB : La mise en page de mail doit contenir la variable ${footer} pour l'insérer dans le pied de page du mail.",
-      "EMAIL_FOOTER_DETAIL_PAGE":{
+      "EMAIL_FOOTER_DETAIL_PAGE": {
         "PAGE_HEADER": "Détails du pied de page du courrier",
         "NAME_PLACEHOLDER": "Nom du pied de page du courrier",
         "FOOTER_LABEL": "Pied de courriel"
@@ -2662,6 +2662,39 @@
       "DELETE_ERROR_ONE": "Vous ne pouvez pas supprimer ce footer de courriel",
       "DELETE_ERROR_ALL": "Vous ne pouvez pas supprimer ces footers de courriel",
       "DELETE_ERROR_SOME_OF_THEM": "Certains des footer de courriel ont été supprimés avec succès, mais d'autres ne l'ont pas été car vous n'avez pas l'autorisation de les supprimer."
+    },
+    "EMAIL_CONTENT": {
+      "PUBLIC": "Public",
+      "PRIVÉ": "Privé",
+      "HELP_TEXT": "Cette vue vous permet de créer des modèles pour le contenu de vos e-mails. Vous devez créer un modèle HTML et texte. Dans la vue 'Configuration des e-mails' vous pouvez créer un modèle d'e-mail et l'associer à une mise en page et un contenu d'e-mail. (NB : la mise en page des e-mails doit contenir la variable ${content} afin de la définir dans le contenu de l'e-mail.",
+      "EMAIL_CONTENT_DETAIL_PAGE": {
+        "PAGE_HEADER": "Détails du contenu de l'e-mail",
+        "NAME_PLACEHOLDER": "Nom du contenu de l'e-mail",
+        "CONTENT_LABEL": "Contenu de l'e-mail"
+      },
+      "FIRST_HELP_TEXT": "Cette vue vous permet de définir le contenu des notifications par e-mail envoyées automatiquement aux utilisateurs de l'application. Vous pouvez rédiger un message en anglais, français, vietnamien ou russe.",
+      "SECOND_HELP_TEXT": "Vous pouvez rédiger un message en anglais, français, vietnamien ou russe. Vous pouvez également créer plusieurs versions de ce message. Vous pouvez ensuite dans l'onglet 'Configuration de la messagerie', choisir le bon contenu de la configuration.",
+      "THIRD_HELP_TEXT": "Les champs 'Subject', 'Greetings' et 'Body', remplacent ${subject}, ${greetings} et ${body} que vous avez ajoutés à un 'Mail layout"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_EMPTY": "Veuillez sélectionner le contenu de l'e-mail à supprimer",
+      "DELETE_MODAL_TITLE": "Supprimer le contenu du courrier",
+      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer le contenu de cet e-mail. Voulez-vous continuer ?",
+      "DELETE_SUCCESS": "Supprimé avec succès",
+      "DELETE_ERROR_ASSIGNED": "Le contenu de messagerie sélectionné est associé à au moins un domaine. Vous ne pouvez pas supprimer",
+      "DELETE_ERROR_UNAUTHORIZED": "Vous n'avez pas le droit de supprimer ce contenu de courrier",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Supprimer le contenu du courrier sélectionné",
+      "DELETE_ACTION_CANCEL": "Annuler",
+      "DELETE_ACTION_CONFIRM": "Oui, supprimer",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Vous êtes sur le point de supprimer {qty} contenu de courrier, cette procédure est irréversible. Voulez-vous continuer ?",
+      "DELETE_FAILURE": "La suppression a échoué",
+      "DELETE_ERROR_ASSIGNED_SOME": "Certains contenus de messagerie sont supprimés avec succès mais pas d'autres car ils sont déjà affectés à au moins un domaine",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Certains contenus de messagerie sont supprimés avec succès mais pas d'autres car vous n'avez pas les droits pour les supprimer",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "Vous n'avez pas le droit de supprimer ces contenus de courrier",
+      "DELETE_ERROR_ASSIGNED_ALL": "Vous ne parvenez pas à supprimer le contenu de ces e-mails",
+      "DELETE_ERROR_ONE": "Vous ne parvenez pas à supprimer ce contenu d'e-mail",
+      "DELETE_ERROR_ALL": "Vous ne parvenez pas à supprimer le contenu de ces e-mails",
+      "DELETE_ERROR_SOME_OF_THEM": "Certains contenus des e-mails ont été supprimés avec succès, mais pas d'autres car vous n'êtes pas autorisé à les supprimer"
     }
   },
   "LANGUAGE": {

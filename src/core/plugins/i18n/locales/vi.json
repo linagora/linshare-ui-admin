@@ -379,17 +379,17 @@
     "TITLE": "Người dùng không nhất quán",
     "DESCRIPTION": "Người dùng không nhất quán là người dùng không còn trong bất kỳ LDAP nào được liên kết với các miền khác nhau. Chế độ xem này cho phép miền của người dùng không nhất quán để anh ta trở thành người dùng thông thường. Thông qua kết quả của người dùng, bạn có thể chỉnh sửa thông tin liên quan đến anh ta. Bằng cách chọn một nhóm người dùng, bạn có thể xóa tất cả họ cùng một lúc hoặc thay đổi tên miền của họ",
     "COLUMNS": {
-      "NUMBER_COL" : "Số dòng.",
-      "FIRSTNAME" : "Tên",
-      "LASTNAME" : "Họ",
-      "EMAIL" : "Thư",
-      "DOMAIN_ID" : "Id miền",
+      "NUMBER_COL": "Số dòng.",
+      "FIRSTNAME": "Tên",
+      "LASTNAME": "Họ",
+      "EMAIL": "Thư",
+      "DOMAIN_ID": "Id miền",
       "ROLE": "Vai trò"
     },
     "TOKEN_INPUT_PLACEHOLDER": "Tìm kiếm hoặc lọc người dùng không nhất quán",
     "SCRUTINY": {
       "TITLE": "Chẩn đoán người dùng",
-      "DESCRIPTION":"Cho một địa chỉ email cụ thể, chế độ xem này hiển thị báo cáo đầy đủ về người dùng tương ứng trên sự hiện diện của họ trong LDAP với miền liên quan và cũng trong cơ sở dữ liệu. Do đó, chế độ xem này hữu ích khi kiểm tra xem một người dùng có ở trong miền đúng hay không, hoặc nếu họ thuộc về nhiều miền cùng một lúc, v.v... Hơn nữa, trong chế độ xem này, bạn có thể hiển thị tất cả thông tin liên quan đến một người dùng và chỉnh sửa chúng như thay đổi miền của người dùng sang miền khác.",
+      "DESCRIPTION": "Cho một địa chỉ email cụ thể, chế độ xem này hiển thị báo cáo đầy đủ về người dùng tương ứng trên sự hiện diện của họ trong LDAP với miền liên quan và cũng trong cơ sở dữ liệu. Do đó, chế độ xem này hữu ích khi kiểm tra xem một người dùng có ở trong miền đúng hay không, hoặc nếu họ thuộc về nhiều miền cùng một lúc, v.v... Hơn nữa, trong chế độ xem này, bạn có thể hiển thị tất cả thông tin liên quan đến một người dùng và chỉnh sửa chúng như thay đổi miền của người dùng sang miền khác.",
       "SEARCH_LEGEND": "Tìm tài khoản của một người bằng cách cung cấp địa chỉ email của người đó",
       "PLACEHOLDER": "Email",
       "DOMAIN_HEADER": "TÊN MIỀN",
@@ -416,11 +416,11 @@
       "STATUS": "Trạng thái",
       "CREATION_MODAL_TITLE": "Tạo hồ sơ",
       "CREATION_MODAL_DESCRIPTION": "Người dùng này chưa có hồ sơ LinShare. Bạn có muốn tạo nó trong cơ sở dữ liệu không?",
-      "QUOTA SETTING" : "THIẾT LẬP HẠN QUỐC GIA",
-      "PERSONAL_SPACE_QUOTA" : "Hạn mức không gian cá nhân được cấp cho người dùng",
-      "MAX_SIZE_QUOTA" : "Kích thước tệp tối đa cho phép trong không gian cá nhân của người dùng",
-      "REMAINING_QUOTA" : "Hạn mức còn lại",
-      "USED_QUOTA" : "Không gian đã sử dụng"
+      "QUOTA SETTING": "THIẾT LẬP HẠN QUỐC GIA",
+      "PERSONAL_SPACE_QUOTA": "Hạn mức không gian cá nhân được cấp cho người dùng",
+      "MAX_SIZE_QUOTA": "Kích thước tệp tối đa cho phép trong không gian cá nhân của người dùng",
+      "REMAINING_QUOTA": "Hạn mức còn lại",
+      "USED_QUOTA": "Không gian đã sử dụng"
     },
     "CONFIRM_DELETE_FORM": {
       "PARAGRAPH": "Bạn sắp xóa những người dùng này, quy trình này là không thể đảo ngược và sẽ hủy tất cả tài liệu của họ. Bạn có muốn tiếp tục?"
@@ -457,7 +457,6 @@
       "SHARED_SPACE": "Không gian chia sẻ",
       "SUB_DOMAINS": "Domain phụ"
     },
-
     "QUOTA_AND_USED_INFORMATIONS_ALERT": "Phần này cho phép bạn quản lý kích thước hạn ngạch tên miền hiện tại và thiết lập nó theo nhu cầu của bạn.",
     "MAINTENANCE_MODE_ACTIVATED_ALERT": "Chế độ bảo trì được kích hoạt, do đó ngăn chặn mọi hoạt động tải lên được thực hiện trong miền hiện tại.",
     "DOMAIN_MAXIMUM_QUOTA": "Hạn mức tối đa của tên miền : ",
@@ -771,7 +770,7 @@
     "MANAGE_DOMAIN": "Quản lý domain",
     "CREATE_MIME_POLICY": "Tạo chính sách MIME mới",
     "SEARCH_BY": "Tìm kiếm theo tên hoặc miền",
-    "SYSTEM_INFORMATIONS":"Thông tin hệ thống",
+    "SYSTEM_INFORMATIONS": "Thông tin hệ thống",
     "DELETE_MODAL": {
       "DELETE_MODAL_TITLE": "Xóa mime policy",
       "DELETE_MODAL_SUBTITLE": "Bạn sắp xóa chính sách Mime này, hành động này là không thể đảo ngược. Bạn vẫn muốn tiếp tục?",
@@ -782,7 +781,7 @@
       "DELETE_SINGLE_FAIL": "Chính sách Mime đã chọn được liên kết với ít nhất một miền. Bạn không thể xóa",
       "DELETE_MUTIPLE_MODAL_TITLE": "Xóa các chính sách Mime đã chọn",
       "DELETE_MUTIPLE_MODAL_SUBTITLE": "Bạn sắp xóa [{qty}] chính sách Mime, quy trình này là không thể đảo ngược. Bạn có muốn tiếp tục?",
-      "DELETE_FAILURE":"Xóa không thành công",
+      "DELETE_FAILURE": "Xóa không thành công",
       "DELETE_FAILURE_MESSAGE": "Một số chính sách MIME được xóa thành công nhưng những chính sách khác thì không vì chúng đã được chỉ định",
       "UNABLE_DELETE_ALL_MIME": "Bạn không thể xóa các Chính sách MIME đó",
       "UNABLE_DELETE_ONE_MIME": "You are unable to delete this mime policy",
@@ -793,7 +792,7 @@
       "ASSIGN_MODAL_SUBTITLE": "Bạn đang chuẩn bị phân bổ chính sách MIME này cho {currentDomain}. Bạn có muốn tiếp tục không?",
       "ASSIGN_SUCCESS": "Phân bổ thành công"
     },
-    "MIME_TYPE_TABLE" : {
+    "MIME_TYPE_TABLE": {
       "MIME_TYPE_NAME": "Tên loại Mime",
       "EXTENTION": "Sự mở rộng",
       "STATUS": "Trạng thái",
@@ -1610,7 +1609,6 @@
       "FILTER_ENDING_DATE": "Ngày kết thúc",
       "SEARCH": "Tìm kiếm"
     },
-
     "DETAILS_POPUP": {
       "BY": "Bởi {user}",
       "MODIFICATIONS": "Sửa đổi(s)",
@@ -2488,6 +2486,7 @@
     "PRIVATE": "Riêng tư",
     "EDITABLE": "Có thể sửa",
     "READ_ONLY": "Chỉ đọc",
+    "MAIL_CONTENT_TYPE_NAME": "Type de contenu de messagerie",
     "VERTICAL_TABS": {
       "CONFIGURATION": "Cấu hình mail",
       "FOOTER": "Chân trang mail",
@@ -2510,12 +2509,12 @@
       "FOUR_HELP_TEXT": "<span style='color: #007AFF'>greetings</span> Lời chào",
       "FIVE_HELP_TEXT": "<span style='color: #007AFF'>body</span> Nội dung mà bạn đưa vào 'Nội dung email'",
       "SIX_HELP_TEXT": "<span style='color: #007AFF'>footer</span> Nội dung mà bạn đưa vào 'Chân trang email'",
-      "EMAIL_LAYOUT_DETAIL_PAGE":{
+      "EMAIL_LAYOUT_DETAIL_PAGE": {
         "PAGE_HEADER": "Chi tiết bố cục email",
         "NAME_PLACEHOLDER": "Tên bố cục email"
-        }
+      }
     },
-    "ASSIGN_MODAL":{
+    "ASSIGN_MODAL": {
       "ASSIGN_MODAL_TITLE": "Chỉ định Cấu hình Thư",
       "ASSIGN_MODAL_SUBTITLE": "Bạn đang chuẩn bị chỉ định cấu hình thư này cho {currentDomain}. Bạn có muốn tiếp tục không?",
       "ASSIGN_SUCCESS": "Đã chỉ định thành công"
@@ -2571,12 +2570,12 @@
       "DELETE_ERROR_ALL": "Bạn không thể xóa các bố cục thư đó",
       "DELETE_ERROR_SOME_OF_THEM": "Một số bố cục thư đã bị xóa thành công, nhưng những bố cục khác không được xóa vì bạn không có quyền xóa chúng."
     },
-    "EDIT_FORM" : {
+    "EDIT_FORM": {
       "EDIT_HEADER": "Chỉnh sửa cấu hình thư",
       "EDIT_SUBHEADER": "Tên cấu hình thư",
       "NAME_LABEL": "Tên",
       "NAME_PLACEHOLDER": "Tên cấu hình thư",
-      "VISIBLE_LABEL" :"Hiển thị",
+      "VISIBLE_LABEL": "Hiển thị",
       "LAYOUT_LABEL": "Giao diện thư",
       "LAYOUT_PLACEHOLDER": "Giao diện cấu hình thư",
       "FOOTER_LABEL": "Chân trang thư",
@@ -2631,37 +2630,70 @@
       "WORK_SPACE_WARN_DELETED_MEMBER": "Một thành viên đã bị xóa khỏi không gian làm việc",
       "WORK_SPACE_WARN_NEW_MEMBER": "Một người dùng đã được thêm vào không gian làm việc",
       "WORK_SPACE_WARN_UPDATED_MEMBER": "Quyền của một thành viên trong không gian làm việc đã được cập nhật"
-      },
-      "EMAIL_FOOTER": {
-        "PUBLIC": "Công khai",
-        "PRIVATE": "Riêng tư",
-        "HELP_TEXT": "Chế độ xem này cho phép bạn tạo mẫu cho chân trang thư của mình. Bạn nên tạo một HTML & mô hình văn bản. Trong chế độ xem <span style='color: #007AFF'>'cấu hình thư'</span>, bạn có thể tạo mẫu thư và liên kết mẫu đó với bố cục thư và chân trang thư. (Lưu ý: Bố cục thư phải chứa biến ${footer} để đặt ở chân trang thư.",
-        "EMAIL_FOOTER_DETAIL_PAGE":{
-          "PAGE_HEADER": "Chi tiết Chân trang Thư",
-          "NAME_PLACEHOLDER": "Tên Chân trang Thư",
-          "FOOTER_LABEL": "Chân trang mail"
-        }
-      },
-      "DELETE_FOOTER_MODAL": {
-        "DELETE_MODAL_EMPTY": "Vui lòng chọn chân trang để xóa",
-        "DELETE_MODAL_TITLE": "Xóa chân trang thư",
-        "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa chân trang thư này. Bạn có muốn tiếp tục?",
-        "DELETE_SUCCESS": "Đã xóa thành công",
-        "DELETE_ERROR_ASSIGNED": "Bố cục thư đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
-        "DELETE_ERROR_UNAUTHORIZED": "Bạn không có quyền xóa chân trang thư này",
-        "DELETE_SELECTED_MAIL_CONFIGURATION": "Xóa các chân trang thư được chọn",
-        "DELETE_ACTION_CANCEL": "Hủy",
-        "DELETE_ACTION_CONFIRM": "Có, xóa",
-        "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Bạn đang chuẩn bị xóa {qty} chân trang thư. Thao tác này không thể hoàn tác. Bạn có muốn tiếp tục?",
-        "DELETE_FAILURE": "Xóa thất bại",
-        "DELETE_ERROR_ASSIGNED_SOME": "Một số chân trang thư đã bị xóa thành công, trong khi các chân trang khác không bị xóa do đã được gán cho ít nhất một tên miền",
-        "DELETE_ERROR_UNAUTHORIZED_SOME": "Một số chân trang thư đã bị xóa thành công, trong khi các chân trang khác không bị xóa do bạn không có quyền xóa chúng",
-        "DELETE_ERROR_UNAUTHORIZED_ALL": "Bạn không có quyền xóa các chân trang thư đó",
-        "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các chân trang thư đó",
-        "DELETE_ERROR_ONE": "Bạn không thể xóa chân trang thư này",
-        "DELETE_ERROR_ALL": "Bạn không thể xóa các chân trang thư đó",
-        "DELETE_ERROR_SOME_OF_THEM": "Một số chân trang thư đã bị xóa thành công, nhưng những chân trang khác không được xóa vì bạn không có quyền xóa chúng."
+    },
+    "EMAIL_FOOTER": {
+      "PUBLIC": "Công khai",
+      "PRIVATE": "Riêng tư",
+      "HELP_TEXT": "Chế độ xem này cho phép bạn tạo mẫu cho chân trang thư của mình. Bạn nên tạo một HTML & mô hình văn bản. Trong chế độ xem <span style='color: #007AFF'>'cấu hình thư'</span>, bạn có thể tạo mẫu thư và liên kết mẫu đó với bố cục thư và chân trang thư. (Lưu ý: Bố cục thư phải chứa biến ${footer} để đặt ở chân trang thư.",
+      "EMAIL_FOOTER_DETAIL_PAGE": {
+        "PAGE_HEADER": "Chi tiết Chân trang Thư",
+        "NAME_PLACEHOLDER": "Tên Chân trang Thư",
+        "FOOTER_LABEL": "Chân trang mail"
       }
+    },
+    "DELETE_FOOTER_MODAL": {
+      "DELETE_MODAL_EMPTY": "Vui lòng chọn chân trang để xóa",
+      "DELETE_MODAL_TITLE": "Xóa chân trang thư",
+      "DELETE_MODAL_SUBTITLE": "Bạn đang chuẩn bị xóa chân trang thư này. Bạn có muốn tiếp tục?",
+      "DELETE_SUCCESS": "Đã xóa thành công",
+      "DELETE_ERROR_ASSIGNED": "Bố cục thư đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
+      "DELETE_ERROR_UNAUTHORIZED": "Bạn không có quyền xóa chân trang thư này",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Xóa các chân trang thư được chọn",
+      "DELETE_ACTION_CANCEL": "Hủy",
+      "DELETE_ACTION_CONFIRM": "Có, xóa",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Bạn đang chuẩn bị xóa {qty} chân trang thư. Thao tác này không thể hoàn tác. Bạn có muốn tiếp tục?",
+      "DELETE_FAILURE": "Xóa thất bại",
+      "DELETE_ERROR_ASSIGNED_SOME": "Một số chân trang thư đã bị xóa thành công, trong khi các chân trang khác không bị xóa do đã được gán cho ít nhất một tên miền",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Một số chân trang thư đã bị xóa thành công, trong khi các chân trang khác không bị xóa do bạn không có quyền xóa chúng",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "Bạn không có quyền xóa các chân trang thư đó",
+      "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các chân trang thư đó",
+      "DELETE_ERROR_ONE": "Bạn không thể xóa chân trang thư này",
+      "DELETE_ERROR_ALL": "Bạn không thể xóa các chân trang thư đó",
+      "DELETE_ERROR_SOME_OF_THEM": "Một số chân trang thư đã bị xóa thành công, nhưng những chân trang khác không được xóa vì bạn không có quyền xóa chúng."
+    },
+    "EMAIL_CONTENT": {
+      "PUBLIC": "Công khai",
+      "PRIVATE": "Riêng tư",
+      "HELP_TEXT": "Trang này cho phép bạn tạo các mẫu cho nội dung email của mình. Bạn nên tạo một mô hình HTML và văn bản. Trong chế độ xem 'Cấu hình email', bạn có thể tạo một mẫu email và liên kết nó với bố cục và nội dung email. (Lưu ý: bố cục email phải chứa biến ${content} để có thể đặt nó trong nội dung email.)",
+      "EMAIL_CONTENT_DETAIL_PAGE": {
+        "PAGE_HEADER": "Chi tiết nội dung email",
+        "NAME_PLACEHOLDER": "Tên nội dung email",
+        "CONTENT_LABEL": "Nội dung email"
+      },
+      "FIRST_HELP_TEXT": "Trang này cho phép bạn đặt nội dung thông báo email được gửi tự động cho người dùng ứng dụng. Bạn có thể viết tin nhắn bằng tiếng Anh, Pháp, Việt hoặc Nga.",
+      "SECOND_HELP_TEXT": "Bạn có thể viết tin nhắn bằng tiếng Anh, Pháp, Việt hoặc Nga. Bạn cũng có thể tạo một số phiên bản của các tin nhắn này. Sau đó, trong tab 'Cấu hình email', bạn có thể chọn nội dung cấu hình chính xác.",
+      "THIRD_HELP_TEXT": "Các trường <span style='color: #007AFF'>'Chủ đề'</span>, <span style='color: #007AFF'>'Lời chào'</span> và <span style='color: #007AFF'>'Nội dung'</span> thay thế <span style='color: #007AFF'>$`{subject}`</span>, <span style='color: #007AFF'>$`{greetings}`</span> và <span style='color: #007AFF'>$`{body}`</span> mà bạn đã thêm vào bố cục email"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_EMPTY": "Vui lòng chọn nội dung email để xóa",
+      "DELETE_MODAL_TITLE": "Xóa nội dung email",
+      "DELETE_MODAL_SUBTITLE": "Bạn sắp xóa nội dung email này. Bạn có muốn tiếp tục không?",
+      "DELETE_SUCCESS": "Đã xóa thành công",
+      "DELETE_ERROR_ASSIGNED": "Nội dung email đã chọn được liên kết với ít nhất một miền. Bạn không thể xóa",
+      "DELETE_ERROR_UNAUTHORIZED": "Bạn không có quyền xóa nội dung email này",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Xóa nội dung email đã chọn",
+      "DELETE_ACTION_CANCEL": "Hủy bỏ",
+      "DELETE_ACTION_CONFIRM": "Có, xóa",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Bạn sắp xóa {qty} nội dung email, quy trình này không thể đảo ngược. Bạn có muốn tiếp tục không?",
+      "DELETE_FAILURE": "Xóa thất bại",
+      "DELETE_ERROR_ASSIGNED_SOME": "Một số nội dung email đã được xóa thành công nhưng những nội dung khác thì không vì chúng đã được liên kết với ít nhất một miền",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Một số nội dung email đã được xóa thành công nhưng những nội dung khác thì không vì bạn không có quyền xóa chúng",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "Bạn không có quyền xóa nội dung email này",
+      "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa nội dung email này",
+      "DELETE_ERROR_ONE": "Bạn không thể xóa nội dung email này",
+      "DELETE_ERROR_ALL": "Bạn không thể xóa nội dung email này",
+      "DELETE_ERROR_SOME_OF_THEM": "Một số nội dung email đã được xóa thành công nhưng những nội dung khác thì không vì bạn không có quyền xóa chúng"
+    }
   },
   "LANGUAGE": {
     "SELECT_YOUR_LANGUAGE": "Chọn ngôn ngữ của bạn"
