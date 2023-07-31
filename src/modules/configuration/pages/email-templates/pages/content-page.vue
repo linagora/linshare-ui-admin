@@ -26,16 +26,16 @@
   <a-modal
     v-model:visible="modal.visible"
     :closable="false"
-    :content="null"
+    :footer="null"
     wrap-class-name="email-templates-content-page__modal"
     :destroy-on-close="true"
   >
-    <!-- <DeleteMailContentCard
+    <DeleteMailContentCard
       v-if="modal.type === 'DELETE_CONTENT_EMAIL'"
       @close="onCloseModal"
       @refresh="onFetchEmailContents"
     ></DeleteMailContentCard>
-    <DeleteMailContentsCard
+    <!-- <DeleteMailContentsCard
       v-else-if="modal.type === 'DELETE_CONTENTS_EMAIL'"
       @close="onCloseModal"
       @refresh="onFetchEmailContents"
@@ -62,7 +62,7 @@ import useEmailTemplatesContent from '@/modules/configuration/pages/email-templa
 import EmailContentTable from '@/modules/configuration/pages/email-templates/components/email-content/email-content-table.vue';
 import EmailContentActions from '@/modules/configuration/pages/email-templates/components/email-content/email-content-actions.vue';
 // import CreateMailContentCard from '@/modules/configuration/pages/email-templates/components/email-content/create-mail-content-card.vue';
-// import DeleteMailContentCard from '@/modules/configuration/pages/email-templates/components/email-content/delete-mail-content-card.vue';
+import DeleteMailContentCard from '@/modules/configuration/pages/email-templates/components/email-content/delete-mail-content-card.vue';
 // import DeleteMailContentsCard from '@/modules/configuration/pages/email-templates/components/email-content/delete-mail-contents-card.vue';
 // import DeleteMailContentsFailCard from '@/modules/configuration/pages/email-templates/components/email-content/delete-mail-contents-fail-card.vue';
 
