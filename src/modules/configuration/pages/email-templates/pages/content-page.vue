@@ -35,7 +35,7 @@
       @close="onCloseModal"
       @refresh="onFetchEmailContents"
     ></DeleteMailContentCard>
-    <!-- <DeleteMailContentsCard
+    <DeleteMailContentsCard
       v-else-if="modal.type === 'DELETE_CONTENTS_EMAIL'"
       @close="onCloseModal"
       @refresh="onFetchEmailContents"
@@ -49,7 +49,7 @@
       v-if="modal.type === 'CREATE_CONTENT_EMAIL'"
       @close="onCloseModal"
       @refresh="onFetchEmailContents"
-    ></create-mail-content-card> -->
+    ></create-mail-content-card>
   </a-modal>
 </template>
 <script lang="ts" setup>
@@ -63,8 +63,8 @@ import EmailContentTable from '@/modules/configuration/pages/email-templates/com
 import EmailContentActions from '@/modules/configuration/pages/email-templates/components/email-content/email-content-actions.vue';
 // import CreateMailContentCard from '@/modules/configuration/pages/email-templates/components/email-content/create-mail-content-card.vue';
 import DeleteMailContentCard from '@/modules/configuration/pages/email-templates/components/email-content/delete-mail-content-card.vue';
-// import DeleteMailContentsCard from '@/modules/configuration/pages/email-templates/components/email-content/delete-mail-contents-card.vue';
-// import DeleteMailContentsFailCard from '@/modules/configuration/pages/email-templates/components/email-content/delete-mail-contents-fail-card.vue';
+import DeleteMailContentsCard from '@/modules/configuration/pages/email-templates/components/email-content/delete-mail-contents-card.vue';
+import DeleteMailContentsFailCard from '@/modules/configuration/pages/email-templates/components/email-content/delete-mail-contents-fail-card.vue';
 
 //composable
 const route = useRoute();
