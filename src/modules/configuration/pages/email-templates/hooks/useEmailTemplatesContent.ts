@@ -76,7 +76,7 @@ export default function useEmailTemplatesContent() {
   //methods
 
   function onCheckDefaultEmailContent(email: MailContent) {
-    return EMAIL_DEFAULT_UUID.CONTENT === email.uuid;
+    return 'LinShareRootDomain' === email.domain;
   }
   function onCloseModal() {
     modal.visible = false;
@@ -118,7 +118,14 @@ export default function useEmailTemplatesContent() {
       const templates = await getContentEmailTemplates(domainUuid, onlyCurrentDomain);
       list.value = templates
         ?.map((item) => {
-          return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailContent?.uuid) };
+          return {
+            ...item,
+            assigned: isAssigned(item.uuid, currentDomain.value.mailContent?.uuid),
+            description:
+              item?.description || onCheckDefaultEmailContent(item)
+                ? t('EMAIL_TEMPLATES.EMAIL_CONTENT.DEFAULT_MAIL_CONTENT')
+                : '',
+          };
         })
         .sort((a: MailContent, b: MailContent) => (b.modificationDate || 0) - (a.modificationDate || 0));
       status.value = STATUS.SUCCESS;

@@ -90,7 +90,8 @@ const templatesBySearch = computed(() => {
       list.value?.filter(
         (content) =>
           content.domain.toLowerCase().includes(filterText.value.toLowerCase()) ||
-          content.description?.toLowerCase().includes(filterText.value.toLowerCase())
+          content.description?.toLowerCase().includes(filterText.value.toLowerCase()) ||
+          content.mailContentType?.toLowerCase().includes(filterText.value.toLowerCase())
       ) ?? []
     );
   }
