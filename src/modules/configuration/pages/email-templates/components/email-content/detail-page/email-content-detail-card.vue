@@ -54,7 +54,29 @@
               </a-select-option>
             </a-select>
           </a-form-item>
-          <a-button class="show-context">Show more</a-button>
+          <a-button class="show-context" @click="isShowContext = !isShowContext">{{
+            isShowContext
+              ? $t('EMAIL_TEMPLATES.EMAIL_CONTENT.SHOW_LESS')
+              : $t('EMAIL_TEMPLATES.EMAIL_CONTENT.SHOW_MORE')
+          }}</a-button>
+        </div>
+        <div v-if="isShowContext" class="ls-form-context context-detail">
+          <ul v-if="emailContexts[Number(activeMailContent?.context)].variables">
+            <li
+              v-for="(variable, index) in emailContexts[Number(activeMailContent.context)].variables"
+              :key="index + '__context-detail-variables'"
+            >
+              {{ variable.name }} ({{ variable.type }}): {{ variable.stringValue }}
+              <ul v-if="variable?.variables">
+                <li
+                  v-for="(nestedVariable, nestIndex) in variable?.variables"
+                  :key="nestIndex + '__context-detail-variables-nest'"
+                >
+                  {{ nestedVariable.name }} ({{ nestedVariable.type }}): {{ nestedVariable.stringValue }}
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
         <div class="ls-form-context">
           <a-form-item
@@ -108,6 +130,7 @@ const props = defineProps<{
 const { t } = useI18n();
 const { activeMailContent, languageOptions, handleGetMailContentContext } = useEmailTemplatesContent();
 const selectedLanguage = ref('messagesEnglish');
+const isShowContext = ref(false);
 const formRef = ref<FormInstance>();
 const useForm = Form.useForm;
 const emailContexts = ref<MailContext[]>([]);
@@ -115,7 +138,7 @@ const emailContextOptions = computed(() => {
   return [
     {
       label: 'Default scenario',
-      value: '1',
+      value: 0,
     },
   ];
 });
@@ -148,7 +171,7 @@ function onSelectLanguage(language: string) {
 }
 async function onGetEmailContext() {
   emailContexts.value = await handleGetMailContentContext(activeMailContent.value?.uuid);
-  activeMailContent.value.context = '1';
+  activeMailContent.value.context = 0;
 }
 
 onMounted(() => {
@@ -224,6 +247,12 @@ onMounted(() => {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+  }
+  .context-detail {
+    background: #fff;
+    border: 1px solid #e4e5f0;
+    border-radius: 10px;
+    padding: 8px;
   }
 
   .ls-input .ant-select-dropdown {

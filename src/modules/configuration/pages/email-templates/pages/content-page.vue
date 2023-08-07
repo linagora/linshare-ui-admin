@@ -45,11 +45,6 @@
       @close="onCloseModal"
       @refresh="onFetchEmailContents"
     ></DeleteMailContentsFailCard>
-    <create-mail-content-card
-      v-if="modal.type === 'CREATE_CONTENT_EMAIL'"
-      @close="onCloseModal"
-      @refresh="onFetchEmailContents"
-    ></create-mail-content-card>
   </a-modal>
 </template>
 <script lang="ts" setup>

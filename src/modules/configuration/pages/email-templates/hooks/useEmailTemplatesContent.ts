@@ -243,6 +243,7 @@ export default function useEmailTemplatesContent() {
   async function handleUpdateMailContent(payload: MailContent) {
     try {
       loading.value = true;
+      delete payload.context;
       await updateMailContent(payload);
       message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
