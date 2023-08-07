@@ -4,6 +4,7 @@ import { MailConfiguration, MailLangDetail, MailLang, MailFooterLangs } from '..
 import { MailLayout } from '../types/MailLayout';
 import { MailFooter } from '../types/MailFooter';
 import { MailContent } from '../types/MailContent';
+import { MailContext } from '../types/MailContext';
 
 async function getMailConfigurationList(domainUuid: string, currentDomainOnly: boolean): Promise<MailConfiguration[]> {
   return await apiv4.get(`mail_configs?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
@@ -141,6 +142,9 @@ async function getMailContentLists(domainUuid: string, currentDomainOnly: boolea
 async function getContentEmailTemplates(domainUuid: string, onlyCurrentDomain: boolean): Promise<MailContent[]> {
   return await apiv4.get(`mail_contents?domainId=${domainUuid}&onlyCurrentDomain=${onlyCurrentDomain}`);
 }
+async function getEmailContext(uuid: string): Promise<MailContext[]> {
+  return await apiv4.get(`mail_contents/${uuid}/vars`);
+}
 async function updateMailContent(payload: MailContent) {
   return await apiv4.put(`mail_contents`, payload);
 }
@@ -192,4 +196,5 @@ export {
   createMailContent,
   updateMailContent,
   getMailContentDetail,
+  getEmailContext,
 };

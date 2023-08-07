@@ -16,4 +16,5 @@ export interface MailContent {
   body: string;
   mailContentType: string;
   subject: string;
+  context?: string;
 }

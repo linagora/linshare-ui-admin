@@ -11,6 +11,7 @@ import {
   deleteMailContent,
   getMailContentDetail,
   updateMailContent,
+  getEmailContext,
 } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
@@ -252,6 +253,17 @@ export default function useEmailTemplatesContent() {
       loading.value = false;
     }
   }
+  async function handleGetMailContentContext(uuid: string) {
+    try {
+      loading.value = true;
+      const contexts = await getEmailContext(uuid);
+      return contexts;
+    } catch (error) {
+      return [];
+    } finally {
+      loading.value = false;
+    }
+  }
 
   function checkingEmailContentsDomainAuthorized(domainUuid: string) {
     if (!domainUuid) {
@@ -342,6 +354,7 @@ export default function useEmailTemplatesContent() {
     resetSelectEmailContents,
     handleGetMailContentDetail,
     onCheckDefaultEmailContent,
+    handleGetMailContentContext,
     handleGetEmailContentTemplates,
     checkingEmailContentsDomainAuthorized,
   };

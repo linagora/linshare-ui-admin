@@ -68,6 +68,7 @@ watch(
         activeKey.value = 'activation';
         break;
       case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONTENT:
+      case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONTENT_DETAIL:
         activeKey.value = 'content';
         break;
       case CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.FOOTER:
