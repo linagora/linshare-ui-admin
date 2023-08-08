@@ -97,7 +97,7 @@ const currentDomainUuid = computed(() => {
 
 // methods
 async function onFetchEmailContents() {
-  await handleGetEmailContentTemplates(currentDomainUuid.value, false);
+  await handleGetEmailContentTemplates(currentDomainUuid.value, true);
   resetSelectEmailContents();
 }
 

@@ -58,6 +58,10 @@ const { checkingEmailContentsDomainAuthorized } = useEmailTemplatesContent();
 
   .title {
     color: #6d7885;
+    white-space: pre-wrap;
+  }
+  .value {
+    white-space: pre-wrap;
   }
 }
 
@@ -66,6 +70,7 @@ const { checkingEmailContentsDomainAuthorized } = useEmailTemplatesContent();
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .system-icon {

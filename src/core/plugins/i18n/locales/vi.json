@@ -2672,8 +2672,10 @@
       },
       "FIRST_HELP_TEXT": "Trang này cho phép bạn đặt nội dung thông báo email được gửi tự động cho người dùng ứng dụng. Bạn có thể viết tin nhắn bằng tiếng Anh, Pháp, Việt hoặc Nga.",
       "SECOND_HELP_TEXT": "Bạn có thể viết tin nhắn bằng tiếng Anh, Pháp, Việt hoặc Nga. Bạn cũng có thể tạo một số phiên bản của các tin nhắn này. Sau đó, trong tab 'Cấu hình email', bạn có thể chọn nội dung cấu hình chính xác.",
-      "THIRD_HELP_TEXT": "Các trường <span style='color: #007AFF'>'Chủ đề'</span>, <span style='color: #007AFF'>'Lời chào'</span> và <span style='color: #007AFF'>'Nội dung'</span> thay thế <span style='color: #007AFF'>$`{subject}`</span>, <span style='color: #007AFF'>$`{greetings}`</span> và <span style='color: #007AFF'>$`{body}`</span> mà bạn đã thêm vào bố cục email",
-      "DEFAULT_MAIL_CONTENT": "Nội dung thư mặc định."
+      "THIRD_HELP_TEXT": "Các trường <span style='color: #007AFF'>Chủ đề</span>, <span style='color: #007AFF'>Lời chào</span> và <span style='color: #007AFF'>Nội dung</span> thay thế <span style='color: #007AFF'>subject</span>, <span style='color: #007AFF'>greetings</span> và <span style='color: #007AFF'>body</span> mà bạn đã thêm vào bố cục email",
+      "DEFAULT_MAIL_CONTENT": "Nội dung thư mặc định.",
+      "SHOW_MORE": "Hiển thị thêm",
+      "SHOW_LESS": "Hiển thị ít hơn"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_EMPTY": "Vui lòng chọn nội dung email để xóa",

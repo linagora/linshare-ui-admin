@@ -12,6 +12,7 @@ import {
   getMailContentDetail,
   updateMailContent,
   getEmailContext,
+  getMailConfigurationList,
 } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
@@ -113,7 +114,7 @@ export default function useEmailTemplatesContent() {
     modal.visible = true;
   }
 
-  async function handleGetEmailContentTemplates(domainUuid: string, onlyCurrentDomain = true) {
+  async function handleGetEmailContentTemplates(domainUuid: string, onlyCurrentDomain = false) {
     try {
       status.value = STATUS.LOADING;
       const templates = await getContentEmailTemplates(domainUuid, onlyCurrentDomain);
@@ -121,11 +122,9 @@ export default function useEmailTemplatesContent() {
         ?.map((item) => {
           return {
             ...item,
-            assigned: isAssigned(item.uuid, currentDomain.value.mailContent?.uuid),
             description:
-              item?.description || onCheckDefaultEmailContent(item)
-                ? t('EMAIL_TEMPLATES.EMAIL_CONTENT.DEFAULT_MAIL_CONTENT')
-                : '',
+              item?.description ||
+              (onCheckDefaultEmailContent(item) ? t('EMAIL_TEMPLATES.EMAIL_CONTENT.DEFAULT_MAIL_CONTENT') : ''),
           };
         })
         .sort((a: MailContent, b: MailContent) => (b.modificationDate || 0) - (a.modificationDate || 0));
@@ -244,6 +243,7 @@ export default function useEmailTemplatesContent() {
     try {
       loading.value = true;
       delete payload.context;
+      delete payload.config;
       await updateMailContent(payload);
       message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
@@ -259,6 +259,17 @@ export default function useEmailTemplatesContent() {
       loading.value = true;
       const contexts = await getEmailContext(uuid);
       return contexts;
+    } catch (error) {
+      return [];
+    } finally {
+      loading.value = false;
+    }
+  }
+  async function handleGetMailConfigContext(domainUuid: string) {
+    try {
+      loading.value = true;
+      const configs = await getMailConfigurationList(domainUuid, true);
+      return configs;
     } catch (error) {
       return [];
     } finally {
@@ -353,6 +364,7 @@ export default function useEmailTemplatesContent() {
     handleDeleteMailContents,
     onDeleteMailContentsFail,
     resetSelectEmailContents,
+    handleGetMailConfigContext,
     handleGetMailContentDetail,
     onCheckDefaultEmailContent,
     handleGetMailContentContext,

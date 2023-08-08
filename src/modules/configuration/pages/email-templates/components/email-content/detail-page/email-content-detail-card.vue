@@ -66,13 +66,14 @@
               v-for="(variable, index) in emailContexts[Number(activeMailContent.context)].variables"
               :key="index + '__context-detail-variables'"
             >
-              {{ variable.name }} ({{ variable.type }}): {{ variable.stringValue }}
+              <strong>{{ variable.name }}</strong> ({{ variable.type }}): {{ variable.stringValue }}
               <ul v-if="variable?.variables">
                 <li
                   v-for="(nestedVariable, nestIndex) in variable?.variables"
                   :key="nestIndex + '__context-detail-variables-nest'"
                 >
-                  {{ nestedVariable.name }} ({{ nestedVariable.type }}): {{ nestedVariable.stringValue }}
+                  <strong>{{ nestedVariable.name }}</strong> ({{ nestedVariable.type }}):
+                  {{ nestedVariable.stringValue }}
                 </li>
               </ul>
             </li>
@@ -85,14 +86,14 @@
             :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.EMAIL_CONTENT_DETAIL_PAGE.MAIL_CONFIGURATION_LIST')"
           >
             <a-select
-              v-model:value="activeMailContent.mailLayout"
+              v-model:value="activeMailContent.config"
               :disabled="!editable || !editing"
               class="ls-input"
               :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_PLACEHOLDER')"
               :bordered="false"
             >
-              <a-select-option v-for="s in activeMailContent" :key="s?.label" :value="s?.value">
-                {{ s?.label }}
+              <a-select-option v-for="s in emailConfigs" :key="s?.name" :value="s?.uuid">
+                {{ s?.name }}
               </a-select-option>
             </a-select>
           </a-form-item>
@@ -122,18 +123,21 @@ import { useI18n } from 'vue-i18n';
 import { Form, FormInstance } from 'ant-design-vue';
 import useEmailTemplatesContent from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesContent';
 import { MailContext } from '../../../types/MailContext';
+import { MailConfiguration } from '../../../types/MailConfiguration';
 
 const props = defineProps<{
   editable?: boolean;
   editing?: boolean;
 }>();
 const { t } = useI18n();
-const { activeMailContent, languageOptions, handleGetMailContentContext } = useEmailTemplatesContent();
+const { activeMailContent, languageOptions, handleGetMailContentContext, handleGetMailConfigContext } =
+  useEmailTemplatesContent();
 const selectedLanguage = ref('messagesEnglish');
 const isShowContext = ref(false);
 const formRef = ref<FormInstance>();
 const useForm = Form.useForm;
 const emailContexts = ref<MailContext[]>([]);
+const emailConfigs = ref<MailConfiguration[]>([]);
 const emailContextOptions = computed(() => {
   return [
     {
@@ -173,9 +177,13 @@ async function onGetEmailContext() {
   emailContexts.value = await handleGetMailContentContext(activeMailContent.value?.uuid);
   activeMailContent.value.context = 0;
 }
+async function onGetEmailConfig() {
+  emailConfigs.value = await handleGetMailConfigContext(activeMailContent.value?.domain);
+}
 
 onMounted(() => {
   onGetEmailContext();
+  onGetEmailConfig();
 });
 </script>
 <style lang="less">

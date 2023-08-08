@@ -2680,7 +2680,7 @@
       },
       "FIRST_HELP_TEXT": "This view allows you to set the mail notification content sent automatically to the application's users. You can write a messages in english, french, vietnamese or russian.",
       "SECOND_HELP_TEXT": "You can write a messages in english, french, vietnamese or russian. You can also create a several versions of this messages. you can then in the tab 'Mail configuration', choose the right content of the configuration.",
-      "THIRD_HELP_TEXT": "The fields <span style='color: #007AFF'>'Subject'</span>, <span style='color: #007AFF'>'Greetings'</span> and <span style='color: #007AFF'>'Body'</span>, replace <span style='color: #007AFF'>$`{subject}`</span>, <span style='color: #007AFF'>$`{greetings`}</span> and <span style='color: #007AFF'>$`{body}`</span> that you have added to a 'Mail layout",
+      "THIRD_HELP_TEXT": "The fields <span style='color: #007AFF'>Subject</span>, <span style='color: #007AFF'>Greetings</span> and <span style='color: #007AFF'>Body</span>, replace <span style='color: #007AFF'>subject</span>, <span style='color: #007AFF'>greetings</span> and <span style='color: #007AFF'>body</span> that you have added to a Mail layout",
       "DEFAULT_MAIL_CONTENT": "Default mail content",
       "SHOW_MORE": "Show more",
       "SHOW_LESS": "Show less"
