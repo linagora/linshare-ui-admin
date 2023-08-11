@@ -2673,7 +2673,7 @@
         "CONTENT_LABEL": "Contenu de l'e-mail"
       },
       "FIRST_HELP_TEXT": "Cette vue vous permet de définir le contenu des notifications par e-mail envoyées automatiquement aux utilisateurs de l'application. Vous pouvez rédiger un message en anglais, français, vietnamien ou russe.",
-      "SECOND_HELP_TEXT": "Vous pouvez rédiger un message en anglais, français, vietnamien ou russe. Vous pouvez également créer plusieurs versions de ce message. Vous pouvez ensuite dans l'onglet 'Configuration de la messagerie', choisir le bon contenu de la configuration.",
+      "SECOND_HELP_TEXT": "Vous pouvez également créer plusieurs versions de ce message. Vous pouvez ensuite dans l'onglet 'Configuration de la messagerie', choisir le bon contenu de la configuration.",
       "THIRD_HELP_TEXT": "Les champs 'Subject', 'Greetings' et 'Body', remplacent subject, greetings et body que vous avez ajoutés à un Mail layout",
       "DEFAULT_MAIL_CONTENT": "Contenu du message par défaut",
       "SHOW_MORE": "Voir plus",
