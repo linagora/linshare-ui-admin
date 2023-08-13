@@ -23,6 +23,12 @@
           </a-tag>
           <a-tag v-else color="success"> {{ $t('EMAIL_TEMPLATES.EDITABLE') }}</a-tag>
         </template>
+        <template v-if="column.key === 'visible'">
+          <a-tag v-if="record.visible" color="success">
+            {{ $t('EMAIL_TEMPLATES.EMAIL_FOOTER.PUBLIC') }}
+          </a-tag>
+          <a-tag v-else color="default"> {{ $t('EMAIL_TEMPLATES.EMAIL_FOOTER.PRIVATE') }}</a-tag>
+        </template>
         <template v-if="column.key === 'domain'">
           <span v-if="!checkingEmailContentsDomainAuthorized(record.domain)">{{ record.domainName }}</span>
           <router-link
@@ -140,6 +146,11 @@ const columns = computed(() => [
     title: t('EMAIL_TEMPLATES.READ_ONLY'),
     key: 'readonly',
     sorter: (a: MailContent, b: MailContent) => Number(b.readonly) - Number(a.readonly),
+  },
+  {
+    title: t('EMAIL_TEMPLATES.VISIBILITY'),
+    key: 'visible',
+    sorter: (a: MailContent, b: MailContent) => Number(b.visible) - Number(a.visible),
   },
   {
     title: t('GENERAL.DOMAIN'),

@@ -45,7 +45,6 @@
       @close="onCloseModal"
       @refresh="onFetchEmailContents"
     ></DeleteMailContentsFailCard>
-    -->
     <create-mail-content-card
       v-if="modal.type === 'CREATE_CONTENT_EMAIL'"
       @close="onCloseModal"
@@ -103,7 +102,7 @@ const currentDomainUuid = computed(() => {
 
 // methods
 async function onFetchEmailContents() {
-  await handleGetEmailContentTemplates(currentDomainUuid.value, true);
+  await handleGetEmailContentTemplates(currentDomainUuid.value, false);
   resetSelectEmailContents();
 }
 
