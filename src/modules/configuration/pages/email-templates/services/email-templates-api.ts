@@ -153,7 +153,9 @@ async function createMailContent(payload: {
   description: string;
   domain: string;
   domainName?: string;
-  content: string;
+  content?: string;
+  body?: string;
+  subject?: string;
   messagesEnglish: string;
   messagesFrench: string;
   messagesRussian: string;

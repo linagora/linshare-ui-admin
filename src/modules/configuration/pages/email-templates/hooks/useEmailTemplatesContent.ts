@@ -21,7 +21,6 @@ import { useDomainStore } from '@/modules/domain/store';
 import { useRouter } from 'vue-router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '../router';
 import { useLocalStorage } from '@vueuse/core';
-import { EMAIL_DEFAULT_UUID } from '@/core/constants/emails';
 
 const list = ref<MailContent[]>([]);
 const loading = ref(false);
@@ -296,7 +295,7 @@ export default function useEmailTemplatesContent() {
     description: string;
     domain: string;
     domainName?: string;
-    content: string;
+    content?: string;
     messagesEnglish: string;
     messagesFrench: string;
     messagesRussian: string;
@@ -306,6 +305,7 @@ export default function useEmailTemplatesContent() {
     try {
       loading.value = true;
       delete payload.domainName;
+      delete payload.content;
       await createMailContent(payload);
       message.success(t('EMAIL_TEMPLATES.CREATE_MODAL.CREATE_SUCCESS'));
       return true;

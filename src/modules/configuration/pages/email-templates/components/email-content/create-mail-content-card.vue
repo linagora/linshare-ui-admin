@@ -24,13 +24,12 @@
         </a-form-item>
         <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.CONTENT_TYPE')">
           <a-select
-            v-model:value="form.content"
+            v-model:value="form.mailContentType"
             :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
             class="ls-input"
             :bordered="false"
-            @change="onSelectModel"
           >
-            <a-select-option v-for="s in models" :key="s" :value="s.value">
+            <a-select-option v-for="s in mailContentTypeOptions" :key="s" :value="s.value">
               {{ s.label }}
             </a-select-option>
           </a-select>
@@ -43,7 +42,7 @@
             :bordered="false"
             @change="onSelectModel"
           >
-            <a-select-option v-for="s in models" :key="s" :value="s.value">
+            <a-select-option v-for="s in dupplicateFromOptions" :key="s" :value="s.value">
               {{ s.label }}
             </a-select-option>
           </a-select>
@@ -67,7 +66,6 @@
 import { onMounted, reactive, ref, watch, computed } from 'vue';
 import useEmailTemplatesContent from '../../hooks/useEmailTemplatesContent';
 import { getDomains } from '@/modules/domain/services/domain-api';
-import { getMailContentList } from '../../services/email-templates-api';
 import { message, Form, FormInstance } from 'ant-design-vue';
 import Domain from '@/core/types/Domain';
 import { APIError } from '@/core/types/APIError';
@@ -76,7 +74,8 @@ import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 import { MailContent } from '../../types/MailContent';
-
+import { MAIL_CONTENT_TYPE } from '../../utils/mail-content-types';
+import { getContentEmailTemplates } from '../../services/email-templates-api';
 // props
 const emits = defineEmits(['refresh', 'close']);
 // composable
@@ -92,6 +91,9 @@ const form = reactive<{
   domain: string;
   domainName: string;
   content: string;
+  body: string;
+  subject: string;
+  mailContentType: string;
   messagesEnglish: string;
   messagesFrench: string;
   messagesRussian: string;
@@ -100,9 +102,10 @@ const form = reactive<{
   readonly: boolean;
 }>(getInitialFormData());
 const formRef = ref<FormInstance>();
-const models = ref<{ label: string | undefined; value: string; subject: MailContent }[]>([]);
+const models = ref<{ label: string | undefined; value: string; mailContentType: string; subject: MailContent }[]>([]);
 const domains = ref<{ label: string | undefined; value: string; subject: Domain }[]>([]);
 
+// computed
 const formRules = computed(() => ({
   description: [
     {
@@ -124,12 +127,28 @@ const formRules = computed(() => ({
   ],
 }));
 const { validate, validateInfos, resetFields } = useForm(form, formRules);
+
+const mailContentTypeOptions = computed(() => {
+  return Object.keys(MAIL_CONTENT_TYPE).map((key) => {
+    return {
+      label: t(`EMAIL_TEMPLATES.MAIL_CONTENT_TYPE.${key}`),
+      value: key,
+    };
+  });
+});
+
+const dupplicateFromOptions = computed(() => {
+  return models.value.filter((item) => item.mailContentType === form.mailContentType);
+});
 // methods
 function getInitialFormData() {
   return {
     description: '',
     domain: '',
+    body: '',
+    subject: '',
     domainName: '',
+    mailContentType: '',
     messagesEnglish: '',
     messagesFrench: '',
     messagesRussian: '',
@@ -138,6 +157,24 @@ function getInitialFormData() {
     visible: true,
     readonly: false,
   };
+}
+
+async function getDupplicateFrom() {
+  try {
+    const templates = await getContentEmailTemplates(form.domain, false);
+    models.value = templates.map((item) => {
+      return {
+        label: item?.description,
+        value: item?.uuid,
+        mailContentType: item?.mailContentType,
+        subject: item,
+      };
+    });
+  } catch (error) {
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+    }
+  }
 }
 function resetFormData() {
   Object.assign(form, getInitialFormData());
@@ -173,35 +210,21 @@ async function fetchDomains() {
   }
 }
 
-async function fetchMailContentList() {
-  try {
-    if (!form.domain) {
-      return;
-    }
-    const messages = await getMailContentList(form.domain, false);
-    models.value = messages.map((item) => {
-      return { label: item.description, value: item?.uuid, subject: item };
-    });
-  } catch (error) {
-    if (error instanceof APIError) {
-      message.error(error.getMessage());
-    }
-  }
-}
-
 async function onSelectDomain(value: string, domain: { key: string; label: string }) {
   form.domain = domain.key;
-  await fetchMailContentList();
+  getDupplicateFrom();
 }
 
 function onSelectModel(
   value: string,
   model: { key: { label: string | undefined; value: string; subject: MailContent }; label: string }
 ) {
-  form.messagesEnglish = model.key.subject.messagesEnglish;
-  form.messagesFrench = model.key.subject.messagesFrench;
-  form.messagesRussian = model.key.subject.messagesRussian;
-  form.messagesVietnamese = model.key.subject.messagesVietnamese;
+  form.messagesEnglish = model.key.subject?.messagesEnglish;
+  form.messagesFrench = model.key.subject?.messagesFrench;
+  form.messagesRussian = model.key.subject?.messagesRussian;
+  form.messagesVietnamese = model.key.subject?.messagesVietnamese;
+  form.body = model.key.subject?.body;
+  form.subject = model.key.subject?.subject;
 }
 
 onMounted(async () => {
@@ -212,7 +235,6 @@ onMounted(async () => {
   };
   form.domain = currentDomain.value.uuid;
   form.domainName = currentDomain.value.name;
-  await fetchMailContentList();
   onSelectDomain(currentDomain.value.uuid, domainToLoad);
 });
 watch(route, (newRoute) => {
