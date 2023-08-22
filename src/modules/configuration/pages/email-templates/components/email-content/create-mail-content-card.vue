@@ -34,7 +34,11 @@
             </a-select-option>
           </a-select>
         </a-form-item>
-        <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.DUPPLICATE_FROM')">
+        <a-form-item
+          v-if="form.mailContentType"
+          class="ls-form-title"
+          :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.DUPPLICATE_FROM')"
+        >
           <a-select
             v-model:value="form.content"
             :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"

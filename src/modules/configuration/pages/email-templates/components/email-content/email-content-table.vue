@@ -30,12 +30,12 @@
           <a-tag v-else color="default"> {{ $t('EMAIL_TEMPLATES.EMAIL_FOOTER.PRIVATE') }}</a-tag>
         </template>
         <template v-if="column.key === 'domain'">
-          <span v-if="!checkingEmailContentsDomainAuthorized(record.domain)">{{ record.domainName }}</span>
+          <span v-if="!checkingEmailContentsDomainAuthorized(record.domain)">{{ record.domainLabel }}</span>
           <router-link
             v-else-if="status === STATUS.SUCCESS"
             :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: record.domain } }"
           >
-            <span>{{ record.domainName }}</span>
+            <span>{{ record.domainLabel }}</span>
           </router-link>
         </template>
         <template v-if="column.key === 'creationDate'">

@@ -2672,7 +2672,7 @@
       "CREATE_EMAIL_CONTENT": "Create Email Content",
       "EMAIL_CONTENT_NAME": "Email content name",
       "CONTENT_TYPE": "Content type",
-      "DUPPLICATE_FROM": "Dupplicate from",
+      "DUPPLICATE_FROM": "Duplicate from",
       "EMAIL_CONTENT_DETAIL_PAGE": {
         "PAGE_HEADER": "Mail Content details",
         "NAME_PLACEHOLDER": "Mail Content name",
