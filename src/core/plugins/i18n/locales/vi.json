@@ -2700,7 +2700,283 @@
     "EMAIL_ACTIVATION": {
       "ACTIVE": "Đang hoạt động",
       "INACTIVE": "Chưa hoạt động",
-      "SHOW_SETTING": "Hiển thị cài đặt"
+      "SHOW_SETTING": "Hiển thị cài đặt",
+      "ENABLE_NOTIFICATION": "Bật thông báo",
+      "ALLOW_OVERRIDE_SETTING": "Cho phép quản trị viên lồng nhau ghi đè “Bật thông báo”",
+      "RESET_BUTTON": "Cài đặt lại về miền gốc"
+    },
+    "MAIL_ACTIVATION": {
+      "BOX_LIST": {
+        "TABLE": {
+          "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS",
+          "HEADER_DESCRIPTION": "Chú giải",
+          "HEADER_NAME": "Loại kích hoạt thư"
+        }
+      },
+      "BOX_FORM": {
+        "LABEL_ENABLE": "Bật thông báo này",
+        "VIEW_SIMPLE": "Đơn giản",
+        "VIEW_ADVANCED": "Nâng cao",
+        "LEGEND_ACTIVATION_POLICY": "Chính sách kích hoạt",
+        "LEGEND_CONFIGURATION_POLICY": "Chính sách cấu hình",
+        "LEGEND_DELEGATION_POLICY": "Chính sách ủy quyền",
+        "LEGEND_PARAMETERS": "Tham số",
+        "RADIO_FORBIDDEN": "Cấm",
+        "RADIO_ALLOWED": "Cho phép",
+        "RADIO_MANDATORY": "Bắt buộc",
+        "LABEL_SAVED": "Đã lưu",
+        "LABEL_STATUS": "Bật",
+        "LABEL_DISABLE": "Tắt thông báo này",
+        "LEGEND_NEXT": "Tiếp theo",
+        "LEGEND_PREVIOUS": "Trước",
+        "FORM_ACTIONS": {
+          "BUTTON_RESET": "Đặt lại giá trị cha",
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+        }
+      },
+      "DETAILS": {
+        "_COMMENT:NAME_OF_THE_MAIL_ACTIVATION": {
+          "NAME": "Đây là tên của kích hoạt thư bằng tiếng Pháp hoặc tiếng Anh",
+          "USE_EXTENDED_DESCRIPTION": "0 nếu không có mô tả cho thông báo, 1 để chỉ hiển thị mô tả, 2 để hiển thị cả mô tả và mô tả nâng cao, 3 để tải một mẫu bên ngoài",
+          "DESCRIPTION": "Mô tả loại kích hoạt thư",
+          "ADVANCED_DESCRIPTION": "Mô tả nâng cao của kích hoạt thư"
+        },
+        "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.FILE_WARN_OWNER_BEFORE_FILE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi cho người phát hành tệp trước khi tệp hết hạn và bị xóa bởi hệ thống."
+        },
+        "GUEST_ACCOUNT_NEW_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_NEW_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi tạo người dùng khách mới, nó chứa thông tin đăng nhập của họ."
+        },
+        "GUEST_ACCOUNT_RESET_PASSWORD_LINK": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_LINK",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi đặt lại mật khẩu người dùng khách."
+        },
+        "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người dùng khách khi mật khẩu của họ được thay đổi."
+        },
+        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người tạo người dùng khách khi tài khoản khách sắp hết hạn."
+        },
+        "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người dùng khách để đặt lại mật khẩu của họ do cải thiện bảo mật."
+        },
+        "GUEST_MODERATOR_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Người dùng nhận được thông báo qua email khi họ được thêm vào danh sách người kiểm duyệt khách."
+        },
+        "GUEST_MODERATOR_DELETION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_DELETION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Người dùng nhận được thông báo qua email khi họ bị xóa khỏi danh sách người kiểm duyệt khách."
+        },
+        "GUEST_MODERATOR_UPDATE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_UPDATE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Người dùng nhận được thông báo qua email khi vai trò kiểm duyệt của họ được cập nhật."
+        },
+        "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi tài khoản khách hết hạn."
+        },
+        "SHARE_ANONYMOUS_RESET_PASSWORD": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_ANONYMOUS_RESET_PASSWORD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi một mật khẩu mới được tạo cho việc chia sẻ ẩn danh đã tồn tại."
+        },
+        "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi để cảnh báo chủ sở hữu việc người dùng bên ngoài tải xuống tài liệu đã chia sẻ."
+        },
+        "SHARE_FILE_DOWNLOAD_USERS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi cho chủ sở hữu chia sẻ khi người dùng nội bộ hoặc người dùng khách tải xuống tài liệu đã chia sẻ."
+        },
+        "SHARE_FILE_SHARE_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_SHARE_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận chia sẻ khi tài liệu đã chia sẻ bị xóa bởi chủ sở hữu chia sẻ."
+        },
+        "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người dùng đang tạo chia sẻ với tùy chọn 'Xác nhận việc tạo chia sẻ' được bật. Nó chứa tóm tắt của chia sẻ."
+        },
+        "SHARE_NEW_SHARE_FOR_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_FOR_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến tất cả người nhận (người dùng nội bộ, khách hoặc người dùng bên ngoài) khi người dùng chia sẻ tài liệu."
+        },
+        "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận chia sẻ khi tài liệu đã chia sẻ sắp hết hạn."
+        },
+        "SHARE_WARN_UNDOWNLOADED_FILESHARES": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_UNDOWNLOADED_FILESHARES",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người dùng đang tạo chia sẻ với tùy chọn 'Cảnh báo tài liệu chia sẻ chưa được tải xuống' được bật. Nó chứa tóm tắt các chia sẻ đã tải xuống."
+        },
+        "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến chủ sở hữu chia sẻ khi chia sẻ của họ sẽ sớm hết hạn mà không được người nhận tải xuống."
+        },
+        "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận chia sẻ khi chia sẻ đã hết hạn và bị xóa bởi hệ thống."
+        },
+        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người dùng nội bộ hoặc khách khi yêu cầu tải lên được đóng bởi người nhận."
+        },
+        "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người dùng nội bộ hoặc khách khi yêu cầu tải lên được kích hoạt."
+        },
+        "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận khi yêu cầu tải lên được kích hoạt."
+        },
+        "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận khi yêu cầu tải lên được đóng bởi người gửi yêu cầu."
+        },
+        "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận khi một tệp bị xóa khỏi yêu cầu tải lên bởi người gửi yêu cầu."
+        },
+        "UPLOAD_REQUEST_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận khi yêu cầu tải lên được tạo và chưa được kích hoạt."
+        },
+        "UPLOAD_REQUEST_PASSWORD_RENEWAL": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_PASSWORD_RENEWAL",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận để cho phép họ đặt lại mật khẩu truy cập yêu cầu tải lên."
+        },
+        "UPLOAD_REQUEST_RECIPIENT_REMOVED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_RECIPIENT_REMOVED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận khi người gửi yêu cầu xóa họ khỏi yêu cầu tải lên."
+        },
+        "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người gửi yêu cầu tải lên khi người nhận xóa tệp."
+        },
+        "UPLOAD_REQUEST_REMINDER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_REMINDER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi để nhắc nhở người nhận tải lên tệp lên yêu cầu trước khi nó hết hạn."
+        },
+        "UPLOAD_REQUEST_UPDATED_SETTINGS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPDATED_SETTINGS",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người nhận yêu cầu tải lên khi các tham số của yêu cầu tải lên đã được cập nhật."
+        },
+        "UPLOAD_REQUEST_UNAVAILABLE_SPACE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UNAVAILABLE_SPACE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người gửi yêu cầu tải lên khi người nhận không thể hoàn thành việc tải lên do không đủ không gian trong Không gian Cá nhân của người gửi."
+        },
+        "UPLOAD_REQUEST_UPLOADED_FILE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPLOADED_FILE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người dùng nội bộ hoặc khách khi người dùng bên ngoài tải lên tệp vào yêu cầu tải lên."
+        },
+        "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người gửi yêu cầu hoặc người nhận yêu cầu trước khi yêu cầu tải lên hết hạn."
+        },
+        "UPLOAD_REQUEST_WARN_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người gửi yêu cầu hoặc người nhận yêu cầu khi yêu cầu tải lên đã hết hạn."
+        },
+        "WORKGROUP_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến thành viên nhóm làm việc mới."
+        },
+        "WORKGROUP_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến thành viên nhóm làm việc khi quyền của họ được cập nhật."
+        },
+        "WORKGROUP_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến các thành viên bị loại khỏi nhóm làm việc."
+        },
+        "WORKGROUP_WARN_DELETED_WORKGROUP": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_WORKGROUP",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi một nhóm làm việc bị xóa"
+        },
+        "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi một tài liệu được thêm vào nhóm làm việc"
+        },
+        "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi một tài liệu nhóm làm việc đã được cập nhật"
+        },
+        "WORKGROUP_COM_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến thành viên nhóm làm việc khi họ bị loại bỏ khỏi một nhóm làm việc."
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người dùng khi một quản trị viên tạo một mã thông báo truy cập cố định (JWT) cho tài khoản của họ."
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi đến người dùng khi một mã thông báo truy cập cố định (JWT) bị xóa khỏi tài khoản của họ."
+        },
+        "EXTERNAL_CONTACT_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.EXTERNAL_CONTACT_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi một liên hệ bên ngoài mới được tạo."
+        },
+        "EXTERNAL_CONTACT_UPDATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.EXTERNAL_CONTACT_UPDATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi một liên hệ bên ngoài đã được cập nhật."
+        },
+        "EXTERNAL_CONTACT_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.EXTERNAL_CONTACT_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Thông báo này được gửi khi một liên hệ bên ngoài đã bị xóa."
+        }
+      }
     }
   },
   "LANGUAGE": {

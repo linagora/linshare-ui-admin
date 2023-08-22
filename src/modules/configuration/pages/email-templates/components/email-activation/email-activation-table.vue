@@ -27,23 +27,11 @@
       </template>
       <template #bodyCell="{ column, record, index }">
         <template v-if="column.key === 'identifier'">
-          <div class="email-activation-table__item">
-            <div class="email-activation-table__item-header">
-              <div class="email-activation-table__item-status">
-                <a-tag v-if="record.enable" color="success">
-                  {{ $t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.ACTIVE') }}
-                </a-tag>
-                <a-tag v-else color="red"> {{ $t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.INACTIVE') }}</a-tag>
-              </div>
-              <div class="email-activation-table__item-identifier">
-                {{ record.identifier }}
-              </div>
-              <a-button type="text" class="email-activation-table__item-expand">
-                <span v-if="index === 0">Show setting</span>
-                <chevron-right-icon width="20px" height="20px"></chevron-right-icon>
-              </a-button>
-            </div>
-          </div>
+          <email-activation-detail
+            :index="index"
+            :item="record"
+            @expand="activeRecord = $event"
+          ></email-activation-detail>
         </template>
       </template>
     </a-table>
@@ -51,20 +39,14 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, watch, reactive } from 'vue';
+import { computed, ref, watch, reactive } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { STATUS } from '@/core/types/Status';
 import ThePagination from '@/core/components/the-pagination.vue';
 import { MailActivation } from '../../types/MailActivation';
 import useEmailTemplatesActivation from '../../hooks/useEmailTemplatesActivation';
-import DetailIcon from '@/core/components/icons/detail-icon.vue';
-import EditIcon from '@/core/components/icons/edit-icon.vue';
-import ViewIcon from '@/core/components/icons/view-icon.vue';
-import DeleteIcon from '@/core/components/icons/delete-icon.vue';
-import ChevronRightIcon from '@/core/components/icons/chevron-right-icon.vue';
+import EmailActivationDetail from './email-activation-detail.vue';
 import { SearchOutlined } from '@ant-design/icons-vue';
-import { includes } from 'lodash-es';
-import { filter } from 'lodash-es';
 
 // props
 const props = defineProps<{
@@ -72,18 +54,10 @@ const props = defineProps<{
   status: STATUS;
   editable?: boolean;
 }>();
-const emits = defineEmits(['toggle', 'toggle-all']);
-
+const activeRecord = ref<MailActivation | null>(null);
 // composable
 const { t } = useI18n();
-const {
-  selectedMailActivations,
-  checkingEmailActivationsDomainAuthorized,
-  onDeleteMailActivation,
-  onEditMailActivation,
-  onCheckDefaultEmailActivation,
-  pagination,
-} = useEmailTemplatesActivation();
+const { pagination } = useEmailTemplatesActivation();
 
 const search = reactive({
   identifier: '',
@@ -127,7 +101,12 @@ watch(
   &__table .ant-table {
     border: 1px solid #f0f0f0;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: scroll;
+    width: 100%;
+    min-width: 100%;
+  }
+  .ant-table-cell {
+    padding: 0 !important;
   }
 
   .ant-tag.ant-tag-success {
@@ -247,6 +226,7 @@ watch(
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+    padding: 16px;
   }
 
   .ls-input {

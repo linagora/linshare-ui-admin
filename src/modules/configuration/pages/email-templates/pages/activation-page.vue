@@ -1,79 +1,22 @@
 <template>
   <div class="email-templates-activation-page">
-    <email-activation-table :status="status" :items="templatesBySearch"></email-activation-table>
+    <email-activation-table :status="status" :items="list"></email-activation-table>
   </div>
-  <a-modal
-    v-model:visible="modal.visible"
-    :closable="false"
-    :activation="null"
-    wrap-class-name="email-templates-activation-page__modal"
-    :destroy-on-close="true"
-  >
-    <!-- <DeleteMailActivationCard
-      v-if="modal.type === 'DELETE_FOOTER_EMAIL'"
-      @close="onCloseModal"
-      @refresh="onFetchEmailActivations"
-    ></DeleteMailActivationCard>
-    <DeleteMailActivationsCard
-      v-else-if="modal.type === 'DELETE_FOOTERS_EMAIL'"
-      @close="onCloseModal"
-      @refresh="onFetchEmailActivations"
-    ></DeleteMailActivationsCard>
-    <DeleteMailActivationsFailCard
-      v-else-if="modal.type === 'DELETE_FOOTERS_FAIL_EMAIL'"
-      @close="onCloseModal"
-      @refresh="onFetchEmailActivations"
-    ></DeleteMailActivationsFailCard>
-    <create-mail-activation-card
-      v-if="modal.type === 'CREATE_FOOTER_EMAIL'"
-      @close="onCloseModal"
-      @refresh="onFetchEmailActivations"
-    ></create-mail-activation-card> -->
-  </a-modal>
 </template>
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 import { computed, watch } from 'vue';
-import { SearchOutlined } from '@ant-design/icons-vue';
 import { useDomainStore } from '@/modules/domain/store';
 import useEmailTemplatesActivation from '../hooks/useEmailTemplatesActivation';
 import EmailActivationTable from '../components/email-activation/email-activation-table.vue';
-import EmailActivationActions from '../components/email-activation/email-activation-actions.vue';
-// import CreateMailActivationCard from '../components/email-activation/create-mail-activation-card.vue';
-// import DeleteMailActivationCard from '../components/email-activation/delete-mail-activation-card.vue';
-// import DeleteMailActivationsCard from '../components/email-activation/delete-mail-activations-card.vue';
-// import DeleteMailActivationsFailCard from '../components/email-activation/delete-mail-activations-fail-card.vue';
 
 //composable
 const route = useRoute();
 const { currentDomain } = storeToRefs(useDomainStore());
-const {
-  modal,
-  status,
-  list,
-  filterText,
-  onCreateMailActivation,
-  onCloseModal,
-  handleGetEmailActivationTemplates,
-  resetSelectEmailActivations,
-} = useEmailTemplatesActivation();
+const { status, list, handleGetEmailActivationTemplates, resetSelectEmailActivations } = useEmailTemplatesActivation();
 
 //computed
-
-const templatesBySearch = computed(() => {
-  if (!filterText.value) {
-    return list.value;
-  } else {
-    return (
-      list.value?.filter(
-        (activation) =>
-          activation.domain.toLowerCase().includes(filterText.value.toLowerCase()) ||
-          activation.description?.toLowerCase().includes(filterText.value.toLowerCase())
-      ) ?? []
-    );
-  }
-});
 const currentDomainUuid = computed(() => {
   return route.params.domainUuid.toString() ?? currentDomain.value.uuid;
 });

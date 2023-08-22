@@ -2442,7 +2442,302 @@
     "EMAIL_ACTIVATION": {
       "ACTIVE": "Активный",
       "INACTIVE": "Неактивный",
-      "SHOW_SETTING": "Показать настройки"
+      "SHOW_SETTING": "Показать настройки",
+      "ENABLE_NOTIFICATION": "Включить уведомление",
+      "ALLOW_OVERRIDE_SETTING": "Разрешить вложенному администратору переопределить «Включить уведомление»",
+      "RESET_BUTTON": "Сбросить до родительской домена"
+    },
+    "MAIL_ACTIVATION": {
+      "BOX_LIST": {
+        "TABLE": {
+          "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS",
+          "HEADER_DESCRIPTION": "Легенда",
+          "HEADER_NAME": "Тип активации почты"
+        }
+      },
+      "BOX_FORM": {
+        "LABEL_ENABLE": "Включить это уведомление",
+        "VIEW_SIMPLE": "просто",
+        "VIEW_ADVANCED": "продвинутый",
+        "LEGEND_ACTIVATION_POLICY": "Политика активации",
+        "LEGEND_CONFIGURATION_POLICY": "Политика настройки",
+        "LEGEND_DELEGATION_POLICY": "Политика представительства",
+        "LEGEND_PARAMETERS": "Параметры",
+        "RADIO_FORBIDDEN": "запрещено",
+        "RADIO_ALLOWED": "Разрешено",
+        "RADIO_MANDATORY": "Обязательный",
+        "LABEL_SAVED": "Сохраненный",
+        "LABEL_STATUS": "включить",
+        "LABEL_DISABLE": "Отключить это уведомление",
+        "LEGEND_NEXT": "следующий",
+        "LEGEND_PREVIOUS": "предыдущий",
+        "FORM_ACTIONS": {
+          "BUTTON_RESET": "Сбросить родительское значение",
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+        }
+      },
+      "DETAILS": {
+        "_COMMENT:NAME_OF_THE_MAIL_ACTIVATION": {
+          "NAME": "Это имя активации почты на французском или английском языках",
+          "USE_EXTENDED_DESCRIPTION": "0, если нет описания для уведомления, 1, чтобы показать только описание, 2, чтобы показать описание и расширенное описание, 3 загрузить внешний шаблон ",
+          "DESCRIPTION": "Описание типа активации почты",
+          "ADVANCED_DESCRIPTION": "расширенное описание активации почты"
+        },
+        "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.FILE_WARN_OWNER_BEFORE_FILE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу файла до истечения срока его действия и удаления."
+        },
+        "GUEST_ACCOUNT_NEW_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_NEW_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при создании нового гостя, оно содержит его учетные данные."
+        },
+        "GUEST_ACCOUNT_RESET_PASSWORD_LINK": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_LINK",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при сбрасывании пароля гостя."
+        },
+        "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется гостю, когда его пароль был изменен."
+        },
+        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется создателю гостя, когда истечет срок действия гостевой учетной записи."
+        },
+        "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This notification is sent to guests to reset their passwords due to security enhancement."
+        },
+        "GUEST_MODERATOR_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Пользователь получает уведомление по электронной почте, когда его добавляют в список приглашенных модераторов"
+        },
+        "GUEST_MODERATOR_DELETION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_DELETION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Пользователь получает уведомление по электронной почте, когда он удаляется из списка приглашенных модераторов"
+        },
+        "GUEST_MODERATOR_UPDATE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_UPDATE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Пользователь получает уведомление по электронной почте, когда его роль модератора обновляется"
+        },
+        "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, когда срок действия учетной записи гостя истек."
+        },
+        "SHARE_ANONYMOUS_RESET_PASSWORD": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_ANONYMOUS_RESET_PASSWORD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This notification is sent when a new password is generated for an existing anonymous sharing."
+        },
+        "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, чтобы предупредить владельца совместного доступа, когда внешний пользователь загружает общий документ."
+        },
+        "SHARE_FILE_DOWNLOAD_USERS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу совместного доступа, когда внутренний пользователь или гость загружает полученные общие документы."
+        },
+        "SHARE_FILE_SHARE_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_SHARE_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется для совместного использования получателей при удалении общего документа владельцем рассылки."
+        },
+        "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется пользователю, который создает общий ресурс, с включенной опцией «Подтверждение создания совместного доступа». Он содержит резюме доли."
+        },
+        "SHARE_NEW_SHARE_FOR_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_FOR_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется всем получателям (внутренним пользователям, гостям или внешним пользователям), когда пользователь разделяет документ."
+        },
+        "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется для совместного использования получателей при истечении срока действия общего документа."
+        },
+        "SHARE_WARN_UNDOWNLOADED_FILESHARES": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_UNDOWNLOADED_FILESHARES",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется пользователю, который создает общий ресурс, с включенной опцией «Undownloaded shared document alert». Он содержит резюме загруженных акций."
+        },
+        "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу рассылки, когда его доля истекает в ближайшее время, не будучи загруженным получателем."
+        },
+        "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется получателю общего доступа, когда ресурс истек и удаляется системой."
+        },
+        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This notification is sent to the internal user or guest when the upload request is closed by the recipient."
+        },
+        "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This notification is sent to the internal user or guest when the upload request is activated."
+        },
+        "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This notification is sent to the recipient when the upload request is activated."
+        },
+        "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "This notification is sent to the recipient when the upload request is closed by the issuer."
+        },
+        "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется получателю, когда файл удаляется из запроса на загрузку эмитентом."
+        },
+        "UPLOAD_REQUEST_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется получателю, когда запрос на загрузку создан и еще не активирован."
+        },
+        "UPLOAD_REQUEST_PASSWORD_RENEWAL": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_PASSWORD_RENEWAL",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется получателю, чтобы позволить ему сбросить пароль доступа к запросу на загрузку."
+        },
+        "UPLOAD_REQUEST_RECIPIENT_REMOVED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_RECIPIENT_REMOVED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется получателю, когда эмитент удаляет его из запроса на загрузку."
+        },
+        "UPLOAD_REQUEST_REMINDER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_REMINDER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, чтобы напомнить получателю о необходимости загрузки документов по запросу на загрузку до истечения срока его действия."
+        },
+        "UPLOAD_REQUEST_UPDATED_SETTINGS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPDATED_SETTINGS",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется получателю запроса на загрузку, когда параметры запроса на загрузку были изменены."
+        },
+        "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу запроса на загрузку, когда получатель удаляет документы, которые он уже загрузил."
+        },
+        "UPLOAD_REQUEST_UNAVAILABLE_SPACE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UNAVAILABLE_SPACE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу запроса на отправку, когда получатель не может завершить загрузку из-за недостаточного места владельца в своем Личном пространстве."
+        },
+        "UPLOAD_REQUEST_UPLOADED_FILE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPLOADED_FILE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется внутреннему пользователю или гостю, когда внешний пользователь загружает файл в запрос на загрузку."
+        },
+        "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу или получателю запроса на загрузку до истечения срока действия запроса на загрузку."
+        },
+        "UPLOAD_REQUEST_WARN_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется владельцу или получателю запроса на загрузку по истечении срока действия запроса на загрузку."
+        },
+        "WORKGROUP_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется новому члену рабочей группы"
+        },
+        "WORKGROUP_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется члену рабочей группы, когда его право было обновлено."
+        },
+        "WORKGROUP_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется члену рабочей группы, когда он был удален из рабочей группы."
+        },
+        "WORKGROUP_WARN_DELETED_WORKGROUP": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_WORKGROUP",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при удалении рабочей группы"
+        },
+        "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, когда документ был добавлен в рабочую группу"
+        },
+        "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при обновлении документа рабочей группы"
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется пользователю, когда администратор создает постоянный токен доступа (ПЖД) для своей учетной записи."
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется пользователю, когда администратор удаляет постоянный токен доступа (ПЖД) для своей учетной записи."
+        },
+        "DRIVE_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется члену DRIVE, который удален."
+        },
+        "DRIVE_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, когда новый участник добавляется в DRIVE."
+        },
+        "DRIVE_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется участнику DRIVE, когда его права были обновлены."
+        },
+        "WORK_SPACE_WARN_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется при удалении рабочей области"
+        },
+        "WORK_SPACE_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется удаленному члену рабочей области."
+        },
+        "WORK_SPACE_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется, когда новый участник добавляется в рабочую область."
+        },
+        "WORK_SPACE_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Это уведомление отправляется участнику рабочей области, когда его право было обновлено."
+        }
+      },
+      "PARAMETERS": {
+        "BOOLEAN_false": "Это уведомление отключено.",
+        "BOOLEAN_true": "Это уведомление включено."
+      }
     }
   },
   "LANGUAGE": {
