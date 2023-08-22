@@ -5,6 +5,7 @@ import { MailLayout } from '../types/MailLayout';
 import { MailFooter } from '../types/MailFooter';
 import { MailContent } from '../types/MailContent';
 import { MailContext } from '../types/MailContext';
+import { MailActivation } from '../types/MailActivation';
 
 async function getMailConfigurationList(domainUuid: string, currentDomainOnly: boolean): Promise<MailConfiguration[]> {
   return await apiv4.get(`mail_configs?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
@@ -168,6 +169,39 @@ async function deleteMailContent(payload: { uuid: string }): Promise<MailContent
   return await apiv4.delete('mail_contents', { data: payload });
 }
 
+// EMAIL FOOTER
+
+async function getMailActivationDetail(uuid: string, domainUuid: string): Promise<MailActivation> {
+  return await apiv4.get(`mail_activations/${uuid}?domainId=${domainUuid}`);
+}
+async function getMailActivationList(domainUuid: string, currentDomainOnly: boolean): Promise<MailActivation[]> {
+  return await apiv4.get(`mail_activations?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
+}
+
+async function getActivationEmailTemplates(domainUuid: string, onlyCurrentDomain: boolean): Promise<MailActivation[]> {
+  return await apiv4.get(`mail_activations?domainId=${domainUuid}&onlyCurrentDomain=${onlyCurrentDomain}`);
+}
+async function updateMailActivation(payload: MailActivation) {
+  return await apiv4.put(`mail_activations`, payload);
+}
+
+async function createMailActivation(payload: {
+  description: string;
+  domain: string;
+  domainName?: string;
+  activation: string;
+  messagesEnglish: string;
+  messagesFrench: string;
+  messagesRussian: string;
+  visible: boolean;
+  readonly: boolean;
+}) {
+  return await apiv4.post(`mail_activations`, payload);
+}
+async function deleteMailActivation(payload: { uuid: string }): Promise<MailActivation> {
+  return await apiv4.delete('mail_activations', { data: payload });
+}
+
 export {
   deleteMailLayout,
   getMailContentList,
@@ -199,4 +233,10 @@ export {
   updateMailContent,
   getMailContentDetail,
   getEmailContext,
+  getMailActivationDetail,
+  getMailActivationList,
+  getActivationEmailTemplates,
+  updateMailActivation,
+  createMailActivation,
+  deleteMailActivation,
 };

@@ -2698,6 +2698,11 @@
       "DELETE_ERROR_ONE": "Vous ne parvenez pas à supprimer ce contenu d'e-mail",
       "DELETE_ERROR_ALL": "Vous ne parvenez pas à supprimer le contenu de ces e-mails",
       "DELETE_ERROR_SOME_OF_THEM": "Certains contenus des e-mails ont été supprimés avec succès, mais pas d'autres car vous n'êtes pas autorisé à les supprimer"
+    },
+    "EMAIL_ACTIVATION": {
+      "ACTIVE": "Actif",
+      "INACTIVE": "Inactif",
+      "SHOW_SETTING": "Afficher les paramètres"
     }
   },
   "LANGUAGE": {

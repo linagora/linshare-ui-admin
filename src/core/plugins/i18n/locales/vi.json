@@ -2696,6 +2696,11 @@
       "DELETE_ERROR_ONE": "Bạn không thể xóa nội dung email này",
       "DELETE_ERROR_ALL": "Bạn không thể xóa nội dung email này",
       "DELETE_ERROR_SOME_OF_THEM": "Một số nội dung email đã được xóa thành công nhưng những nội dung khác thì không vì bạn không có quyền xóa chúng"
+    },
+    "EMAIL_ACTIVATION": {
+      "ACTIVE": "Đang hoạt động",
+      "INACTIVE": "Chưa hoạt động",
+      "SHOW_SETTING": "Hiển thị cài đặt"
     }
   },
   "LANGUAGE": {
