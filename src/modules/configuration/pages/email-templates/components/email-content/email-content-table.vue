@@ -15,7 +15,9 @@
           {{ record.description }}
         </template>
         <template v-if="column.key === 'mailContentType'">
-          {{ record.mailContentType }}
+          <a-tooltip :title="t(`EMAIL_TEMPLATES.MAIL_CONTENT_TYPE.${record?.mailContentType}`)" trigger="hover">
+            {{ record.mailContentType }}
+          </a-tooltip>
         </template>
         <template v-if="column.key === 'readonly'">
           <a-tag v-if="record.readonly" color="red">

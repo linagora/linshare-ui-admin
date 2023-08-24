@@ -85,7 +85,7 @@ const emits = defineEmits(['refresh', 'close']);
 // composable
 const { t } = useI18n();
 const useForm = Form.useForm;
-const { loading, handleCreateMailContent } = useEmailTemplatesContent();
+const { loading, handleCreateMailContent, onCheckDefaultEmailContent } = useEmailTemplatesContent();
 const domainStore = useDomainStore();
 const route = useRoute();
 const { currentDomain } = storeToRefs(domainStore);
@@ -168,7 +168,9 @@ async function getDupplicateFrom() {
     const templates = await getContentEmailTemplates(form.domain, false);
     models.value = templates.map((item) => {
       return {
-        label: item?.description,
+        label:
+          item?.description ||
+          (onCheckDefaultEmailContent(item) ? t('EMAIL_TEMPLATES.EMAIL_CONTENT.DEFAULT_MAIL_CONTENT') : ''),
         value: item?.uuid,
         mailContentType: item?.mailContentType,
         subject: item,
