@@ -31,6 +31,7 @@
             :index="index"
             :item="record"
             @expand="activeRecord = $event"
+            @reload="emits('reload')"
           ></email-activation-detail>
         </template>
       </template>
@@ -47,6 +48,8 @@ import { MailActivation } from '../../types/MailActivation';
 import useEmailTemplatesActivation from '../../hooks/useEmailTemplatesActivation';
 import EmailActivationDetail from './email-activation-detail.vue';
 import { SearchOutlined } from '@ant-design/icons-vue';
+import { includes } from 'lodash-es';
+import { filter } from 'lodash-es';
 
 // props
 const props = defineProps<{
@@ -54,6 +57,7 @@ const props = defineProps<{
   status: STATUS;
   editable?: boolean;
 }>();
+const emits = defineEmits(['reload']);
 const activeRecord = ref<MailActivation | null>(null);
 // composable
 const { t } = useI18n();

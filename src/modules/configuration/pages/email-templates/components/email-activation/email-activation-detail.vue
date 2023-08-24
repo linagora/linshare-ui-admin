@@ -23,7 +23,12 @@
           $t(`EMAIL_TEMPLATES.MAIL_CONTENT_TYPE.${item.identifier}`)
         }}</strong>
         <a-form-item class="ls-form-title ls-form-title-switch" for="visible">
-          <a-switch id="visible" v-model:checked="form.enableNotification" class="ls-switch" />
+          <a-switch
+            id="visible"
+            v-model:checked="form.enableNotification"
+            class="ls-switch"
+            @change="onUpdateEmailActivation"
+          />
           <span>
             {{ $t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.ENABLE_NOTIFICATION') }}
             <a-tooltip>
@@ -35,11 +40,16 @@
           </span>
         </a-form-item>
         <a-form-item class="ls-form-title ls-form-title-switch" for="visible">
-          <a-switch id="visible" v-model:checked="form.overrideEnableNotification" class="ls-switch" />
+          <a-switch
+            id="visible"
+            v-model:checked="form.overrideEnableNotification"
+            class="ls-switch"
+            @change="onUpdateEmailActivation"
+          />
           <span>{{ $t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.ALLOW_OVERRIDE_SETTING') }}</span>
         </a-form-item>
       </div>
-      <a-button class="email-activation-item__reset">
+      <a-button class="email-activation-item__reset" @click="onResetEmailActivation">
         <replay-icon width="16px" height="16px"></replay-icon> {{ $t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.RESET_BUTTON') }}
       </a-button>
     </div>
@@ -48,6 +58,7 @@
 <script setup lang="ts">
 import { MailActivation } from '../../types/MailActivation';
 import ChevronRightIcon from '@/core/components/icons/chevron-right-icon.vue';
+import useEmailTemplatesActivation from '../../hooks/useEmailTemplatesActivation';
 import ReplayIcon from '@/core/components/icons/replay-icon.vue';
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
 import { reactive, ref } from 'vue';
@@ -57,8 +68,9 @@ const props = defineProps<{
   index: number | string;
 }>();
 
-const emits = defineEmits(['expand']);
+const emits = defineEmits(['expand', 'reload']);
 
+const { handleUpdateMailActivation, handleResetMailActivation } = useEmailTemplatesActivation();
 const form = reactive({
   enableNotification: false,
   overrideEnableNotification: false,
@@ -70,9 +82,33 @@ function onExpandItem() {
   isExpand.value = !isExpand.value;
   if (isExpand.value) {
     emits('expand', props.item);
+    form.enableNotification = props.item.enable;
+    form.overrideEnableNotification = props.item.configurationPolicy.parentAllowUpdate;
   } else {
     emits('expand', null);
   }
+}
+
+async function onUpdateEmailActivation() {
+  const payload: MailActivation = {
+    ...props.item,
+    configurationPolicy: { ...props.item.configurationPolicy, parentAllowUpdate: form.overrideEnableNotification },
+    enable: form.enableNotification,
+  };
+
+  await handleUpdateMailActivation(payload);
+  emits('reload');
+}
+
+async function onResetEmailActivation() {
+  const payload: MailActivation = {
+    ...props.item,
+    configurationPolicy: { ...props.item.configurationPolicy, parentAllowUpdate: form.overrideEnableNotification },
+    enable: form.enableNotification,
+  };
+
+  await handleResetMailActivation(payload);
+  emits('reload');
 }
 </script>
 <style lang="less">

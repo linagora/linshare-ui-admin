@@ -185,6 +185,10 @@ async function updateMailActivation(payload: MailActivation) {
   return await apiv4.put(`mail_activations`, payload);
 }
 
+async function deleteMailActivation(payload: MailActivation) {
+  return await apiv4.delete(`mail_activations`, { data: payload });
+}
+
 async function createMailActivation(payload: {
   description: string;
   domain: string;
@@ -197,9 +201,6 @@ async function createMailActivation(payload: {
   readonly: boolean;
 }) {
   return await apiv4.post(`mail_activations`, payload);
-}
-async function deleteMailActivation(payload: { uuid: string }): Promise<MailActivation> {
-  return await apiv4.delete('mail_activations', { data: payload });
 }
 
 export {

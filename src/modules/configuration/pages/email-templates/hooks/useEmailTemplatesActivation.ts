@@ -37,12 +37,7 @@ const pagination = reactive({
 });
 const filterText = ref('');
 const modal = reactive<{
-  type:
-    | 'CREATE_FOOTER_EMAIL'
-    | 'ASSIGN_FOOTER_EMAIL'
-    | 'DELETE_FOOTER_EMAIL'
-    | 'DELETE_FOOTERS_EMAIL'
-    | 'DELETE_FOOTERS_FAIL_EMAIL';
+  type: 'CREATE_FOOTER_EMAIL' | 'ASSIGN_FOOTER_EMAIL';
   visible: boolean;
   multipleDeleteResponse?: {
     total: number;
@@ -89,38 +84,11 @@ export default function useEmailTemplatesActivation() {
     modal.visible = true;
   }
 
-  function onDeleteMailActivation(mailActivation: MailActivation) {
-    activeMailActivation.value = mailActivation;
-    modal.type = 'DELETE_FOOTER_EMAIL';
-    modal.visible = true;
-  }
-
-  function onDeleteMailActivationsFail(response: {
-    total: number;
-    totalSuccess: number;
-    totalFail: number;
-    totalAssignCases: number;
-    totalUnAuthoCases: number;
-  }) {
-    modal.type = 'DELETE_FOOTERS_FAIL_EMAIL';
-    modal.visible = true;
-    modal.multipleDeleteResponse = response;
-  }
-
-  function onDeleteMailActivations() {
-    modal.type = 'DELETE_FOOTERS_EMAIL';
-    modal.visible = true;
-  }
-
   async function handleGetEmailActivationTemplates(domainUuid: string, onlyCurrentDomain = true) {
     try {
       status.value = STATUS.LOADING;
       const templates = await getActivationEmailTemplates(domainUuid, onlyCurrentDomain);
-      list.value = templates
-        ?.map((item) => {
-          return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailActivation?.uuid) };
-        })
-        .sort((a: MailActivation, b: MailActivation) => (b.modificationDate || 0) - (a.modificationDate || 0));
+      list.value = templates;
       status.value = STATUS.SUCCESS;
       return;
     } catch (error) {
@@ -140,103 +108,25 @@ export default function useEmailTemplatesActivation() {
     return false;
   }
 
-  async function handleDeleteMailActivation(activeMailActivation: MailActivation) {
-    try {
-      if (!activeMailActivation || !activeMailActivation?.uuid) {
-        return false;
-      }
-      if (onCheckDefaultEmailActivation(activeMailActivation)) {
-        message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_ERROR_UNAUTHORIZED'));
-        loading.value = false;
-        return false;
-      }
-      loading.value = true;
-      if (activeMailActivation?.assigned) {
-        message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_ERROR_ASSIGNED'));
-        loading.value = false;
-        return false;
-      }
-      await deleteMailActivation({ uuid: activeMailActivation?.uuid });
-      return true;
-    } catch (error) {
-      if (error instanceof APIError) {
-        if (error.errorCode === 16666) {
-          message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_ERROR_ASSIGNED'));
-        } else if (error.errorCode === 166678) {
-          message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_ERROR_UNAUTHORIZED'));
-        } else {
-          message.error(error.getMessage());
-        }
-      }
-      return false;
-    } finally {
-      loading.value = false;
-    }
-  }
-
-  async function handleDeleteMailActivations() {
-    try {
-      if (!selectedMailActivations?.value?.length) {
-        message.error(t('EMAIL_TEMPLATES.DELETE_FOOTER_MODAL.DELETE_MODAL_EMPTY'));
-        return {
-          total: selectedMailActivations?.value?.length,
-          totalSuccess: 0,
-          totalFail: selectedMailActivations?.value?.length,
-          totalAssignCases: 0,
-          totalUnAuthoCases: 0,
-        };
-      }
-
-      loading.value = true;
-      const deletePromises = selectedMailActivations.value?.map((item) => {
-        return deleteMailActivation({ uuid: item?.uuid });
-      });
-      if (!deletePromises) {
-        return {
-          total: selectedMailActivations?.value?.length,
-          totalSuccess: 0,
-          totalFail: selectedMailActivations?.value?.length,
-          totalAssignCases: 0,
-          totalUnAuthoCases: 0,
-        };
-      }
-
-      return await Promise.allSettled(deletePromises).then((results) => {
-        return {
-          total: selectedMailActivations?.value?.length,
-          totalSuccess: results.filter((item) => item.status === 'fulfilled')?.length ?? 0,
-          totalFail: results.filter((item) => item.status === 'rejected')?.length ?? 0,
-          totalAssignCases:
-            results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 16666)?.length ?? 0,
-          totalUnAuthoCases:
-            results.filter(
-              (item) =>
-                item.status === 'rejected' && (item.reason?.errorCode === 166678 || item.reason?.errorCode === 18670)
-            )?.length ?? 0,
-        };
-      });
-    } catch (error) {
-      return {
-        total: selectedMailActivations?.value?.length,
-        totalSuccess: 0,
-        totalFail: selectedMailActivations?.value?.length,
-        totalAssignCases: 0,
-        totalUnAuthoCases: 0,
-      };
-    } finally {
-      loading.value = false;
-    }
-  }
-
-  function handleResetEmailActivation() {
-    activeMailActivation.value = { ...defaultMailActivation.value };
-  }
-
   async function handleUpdateMailActivation(payload: MailActivation) {
     try {
       loading.value = true;
       await updateMailActivation(payload);
       message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    } finally {
+      loading.value = false;
+    }
+  }
+
+  async function handleResetMailActivation(payload: MailActivation) {
+    try {
+      loading.value = true;
+      await deleteMailActivation(payload);
+      message.success(t('EMAIL_TEMPLATES.EDIT_FORM.RESET_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
@@ -322,16 +212,10 @@ export default function useEmailTemplatesActivation() {
     activeMailActivation,
     selectedMailActivations,
     onCloseModal,
-    onEditMailActivation,
-    onDeleteMailActivation,
     onCreateMailActivation,
-    onDeleteMailActivations,
-    handleResetEmailActivation,
-    handleDeleteMailActivation,
+    handleResetMailActivation,
     handleCreateMailActivation,
     handleUpdateMailActivation,
-    handleDeleteMailActivations,
-    onDeleteMailActivationsFail,
     resetSelectEmailActivations,
     handleGetMailActivationDetail,
     onCheckDefaultEmailActivation,

@@ -1,6 +1,6 @@
 <template>
   <div class="email-templates-activation-page">
-    <email-activation-table :status="status" :items="list"></email-activation-table>
+    <email-activation-table :status="status" :items="list" @reload="onFetchEmailActivations"></email-activation-table>
   </div>
 </template>
 <script lang="ts" setup>
