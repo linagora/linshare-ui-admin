@@ -61,9 +61,9 @@
           }}</a-button>
         </div>
         <div v-if="isShowContext" class="ls-form-context context-detail">
-          <ul v-if="emailContexts[Number(activeMailContent?.context)].variables">
+          <ul v-if="emailContexts[Number(activeMailContent?.context)]?.variables">
             <li
-              v-for="(variable, index) in emailContexts[Number(activeMailContent.context)].variables"
+              v-for="(variable, index) in emailContexts[Number(activeMailContent.context)]?.variables"
               :key="index + '__context-detail-variables'"
             >
               <strong>{{ variable.name }}</strong> ({{ variable.type }}): {{ variable.stringValue }}

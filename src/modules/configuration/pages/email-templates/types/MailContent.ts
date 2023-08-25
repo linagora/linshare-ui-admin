@@ -2,6 +2,7 @@ export interface MailContent {
   description: string;
   domain: string;
   domainName?: string;
+  domainLabel: string;
   visible: boolean;
   footer: string;
   creationDate: number;

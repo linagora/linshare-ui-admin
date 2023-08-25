@@ -54,13 +54,13 @@
             <template #overlay>
               <a-menu>
                 <a-menu-item
-                  v-if="!checkingEmailContentsDomainAuthorized(record.domain) || onCheckDefaultEmailContent(record)"
+                  v-if="!checkingEmailContentsDomainAuthorized(record.domain)"
                   @click="onEditMailContent(record)"
                 >
                   <ViewIcon></ViewIcon> {{ $t('GENERAL.VIEW') }}
                 </a-menu-item>
                 <a-menu-item
-                  v-if="checkingEmailContentsDomainAuthorized(record.domain) && !onCheckDefaultEmailContent(record)"
+                  v-if="checkingEmailContentsDomainAuthorized(record.domain)"
                   @click="onEditMailContent(record)"
                 >
                   <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
@@ -157,7 +157,7 @@ const columns = computed(() => [
   {
     title: t('GENERAL.DOMAIN'),
     key: 'domain',
-    sorter: (a: MailContent, b: MailContent) => a.domainName?.localeCompare(b.domainName),
+    sorter: (a: MailContent, b: MailContent) => a.domainLabel?.localeCompare(b.domainLabel),
   },
   {
     title: t('GENERAL.CREATION_DATE'),
@@ -195,7 +195,7 @@ watch(
   &__table .ant-table {
     border: 1px solid #f0f0f0;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: auto;
   }
 
   .ant-tag.ant-tag-success {

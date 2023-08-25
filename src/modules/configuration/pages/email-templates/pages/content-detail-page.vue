@@ -60,7 +60,7 @@ const isDefaultEmailContent = computed(() => {
   return onCheckDefaultEmailContent(activeMailContent.value);
 });
 const isEditable = computed(() => {
-  return checkingEmailContentsDomainAuthorized(activeMailContent.value.domain) && !isDefaultEmailContent.value;
+  return checkingEmailContentsDomainAuthorized(activeMailContent.value.domain);
 });
 // methods
 function onToggleEditState() {
@@ -73,6 +73,7 @@ async function onUpdateEmailContent() {
   };
 
   await handleUpdateMailContent(payload);
+  handleGetMailContentDetail(route.params.id.toString());
   onToggleEditState();
 }
 

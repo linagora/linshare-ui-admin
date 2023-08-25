@@ -151,17 +151,7 @@ export default function useEmailTemplatesContent() {
       if (!activeMailContent || !activeMailContent?.uuid) {
         return false;
       }
-      if (onCheckDefaultEmailContent(activeMailContent)) {
-        message.error(t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_UNAUTHORIZED'));
-        loading.value = false;
-        return false;
-      }
       loading.value = true;
-      if (activeMailContent?.assigned) {
-        message.error(t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_ASSIGNED'));
-        loading.value = false;
-        return false;
-      }
       await deleteMailContent({ uuid: activeMailContent?.uuid });
       return true;
     } catch (error) {
