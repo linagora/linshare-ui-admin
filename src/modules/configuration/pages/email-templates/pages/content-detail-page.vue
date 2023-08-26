@@ -10,7 +10,11 @@
     <div class="content-detail-page__body">
       <div class="content-detail-page__body-summary">
         <div class="content-detail-page__body-summary-config">
-          <email-content-detail-card :editable="isEditable" :editing="editing"></email-content-detail-card>
+          <email-content-detail-card
+            ref="detailCard"
+            :editable="isEditable"
+            :editing="editing"
+          ></email-content-detail-card>
         </div>
       </div>
       <div class="content-detail-page__body-summary-system">
@@ -53,14 +57,14 @@ const {
 
 // data
 const editing = ref(false);
-
+const detailCard = ref(null);
 // computed
 
 const isDefaultEmailContent = computed(() => {
   return onCheckDefaultEmailContent(activeMailContent.value);
 });
 const isEditable = computed(() => {
-  return checkingEmailContentsDomainAuthorized(activeMailContent.value.domain);
+  return checkingEmailContentsDomainAuthorized(activeMailContent.value.domain) && !activeMailContent.value.readonly;
 });
 // methods
 function onToggleEditState() {
@@ -68,6 +72,11 @@ function onToggleEditState() {
 }
 
 async function onUpdateEmailContent() {
+  try {
+    await detailCard.value?.validate();
+  } catch (error) {
+    return;
+  }
   const payload: MailContent = {
     ...activeMailContent.value,
   };

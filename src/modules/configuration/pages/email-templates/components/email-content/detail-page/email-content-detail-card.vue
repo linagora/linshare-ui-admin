@@ -23,7 +23,7 @@
         </a-form-item>
         <a-form-item
           class="ls-form-title"
-          v-bind="validateInfos.description"
+          v-bind="validateInfos.subject"
           :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.EMAIL_CONTENT_DETAIL_PAGE.SUBJECT')"
         >
           <a-input
@@ -184,6 +184,10 @@ async function onGetEmailConfig() {
 onMounted(() => {
   onGetEmailContext();
   onGetEmailConfig();
+});
+
+defineExpose({
+  validate,
 });
 </script>
 <style lang="less">
