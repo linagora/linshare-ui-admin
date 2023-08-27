@@ -54,19 +54,19 @@
             <template #overlay>
               <a-menu>
                 <a-menu-item
-                  v-if="!checkingEmailContentsDomainAuthorized(record.domain) || !record.value.readonly"
+                  v-if="!checkingEmailContentsDomainAuthorized(record.domain) || record.readonly"
                   @click="onEditMailContent(record)"
                 >
                   <ViewIcon></ViewIcon> {{ $t('GENERAL.VIEW') }}
                 </a-menu-item>
                 <a-menu-item
-                  v-if="checkingEmailContentsDomainAuthorized(record.domain) && !record.value.readonly"
+                  v-if="checkingEmailContentsDomainAuthorized(record.domain) && !record.readonly"
                   @click="onEditMailContent(record)"
                 >
                   <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
                 </a-menu-item>
                 <a-menu-item
-                  v-if="checkingEmailContentsDomainAuthorized(record.domain) && !record.value.readonly"
+                  v-if="checkingEmailContentsDomainAuthorized(record.domain) && !record.readonly"
                   class="delete"
                   @click="onDeleteMailContent(record)"
                 >
