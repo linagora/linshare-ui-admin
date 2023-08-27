@@ -2629,7 +2629,13 @@
       "WORK_SPACE_WARN_DELETED": "Một không gian làm việc đã bị xóa",
       "WORK_SPACE_WARN_DELETED_MEMBER": "Một thành viên đã bị xóa khỏi không gian làm việc",
       "WORK_SPACE_WARN_NEW_MEMBER": "Một người dùng đã được thêm vào không gian làm việc",
-      "WORK_SPACE_WARN_UPDATED_MEMBER": "Quyền của một thành viên trong không gian làm việc đã được cập nhật"
+      "WORK_SPACE_WARN_UPDATED_MEMBER": "Quyền của một thành viên trong không gian làm việc đã được cập nhật",
+      "GUEST_MODERATOR_CREATION": "Người dùng nhận được thông báo qua email khi họ được thêm vào danh sách người kiểm duyệt khách.",
+      "GUEST_MODERATOR_DELETION": "Người dùng nhận được thông báo qua email khi họ bị xóa khỏi danh sách người kiểm duyệt khách.",
+      "GUEST_MODERATOR_UPDATE": "Người dùng nhận được thông báo qua email khi vai trò kiểm duyệt của họ được cập nhật.",
+      "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "Thông báo này được gửi khi tài khoản khách hết hạn.",
+      "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "Thông báo này được gửi khi một tài liệu được thêm vào nhóm làm việc",
+      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "Thông báo này được gửi khi một tài liệu nhóm làm việc đã được cập nhật"
     },
     "EMAIL_FOOTER": {
       "PUBLIC": "Công khai",

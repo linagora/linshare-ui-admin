@@ -2633,7 +2633,13 @@
       "WORK_SPACE_WARN_DELETED": "A workspace has been deleted",
       "WORK_SPACE_WARN_DELETED_MEMBER": "A member was removed from the Workspace",
       "WORK_SPACE_WARN_NEW_MEMBER": "A user has been added to the Workspace",
-      "WORK_SPACE_WARN_UPDATED_MEMBER": "The rights of a member on the Workspace has been updated"
+      "WORK_SPACE_WARN_UPDATED_MEMBER": "The rights of a member on the Workspace has been updated",
+      "GUEST_MODERATOR_CREATION": "A user receives an email notification when he is added to a guest moderators list",
+      "GUEST_MODERATOR_DELETION": "A user receives an email notification when he is deleted from a guest moderators list",
+      "GUEST_MODERATOR_UPDATE": "A user receives an email notification when his moderator role is updated",
+      "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "This notification is sent when a guest account has expired",
+      "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "This notification is sent when a document has been added to the workgroup",
+      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "This notification is sent when a workgroup document has been updated"
     },
     "EMAIL_FOOTER": {
       "PUBLIC": "Public",
