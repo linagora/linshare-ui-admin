@@ -117,12 +117,6 @@ const formRules = computed(() => ({
       message: t('GENERAL.FIELD_REQUIRED'),
     },
   ],
-  content: [
-    {
-      required: true,
-      message: t('GENERAL.FIELD_REQUIRED'),
-    },
-  ],
   domainName: [
     {
       required: true,
