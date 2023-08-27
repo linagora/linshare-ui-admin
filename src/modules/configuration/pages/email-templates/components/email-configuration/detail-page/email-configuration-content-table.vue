@@ -148,7 +148,7 @@ async function onGetMailContentOptions(item: MailLang) {
     item?.mailContentType
   );
   mailContentOptions.value = result.map((item) => {
-    return { label: `${item.domain}-${item.description}`, value: item.uuid };
+    return { label: `${item.domainLabel}-${item.description}`, value: item.uuid };
   });
 }
 

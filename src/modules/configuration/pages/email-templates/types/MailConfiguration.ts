@@ -32,6 +32,7 @@ export interface MailLang {
 export interface MailLangDetail {
   description: string;
   domain: string;
+  domainLabel?: string;
   visible: boolean;
   mailContentType: string;
   subject: string;
