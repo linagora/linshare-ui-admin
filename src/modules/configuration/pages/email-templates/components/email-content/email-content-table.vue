@@ -108,7 +108,6 @@ const {
   checkingEmailContentsDomainAuthorized,
   onDeleteMailContent,
   onEditMailContent,
-  onCheckDefaultEmailContent,
   pagination,
 } = useEmailTemplatesContent();
 

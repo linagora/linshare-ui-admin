@@ -81,7 +81,6 @@ export default function useEmailTemplatesContent() {
   }
   function onCloseModal() {
     modal.visible = false;
-    pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
   }
 
   function onCreateMailContent(email: MailContent) {
@@ -306,6 +305,7 @@ export default function useEmailTemplatesContent() {
       return false;
     } finally {
       loading.value = false;
+      pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
     }
   }
 
