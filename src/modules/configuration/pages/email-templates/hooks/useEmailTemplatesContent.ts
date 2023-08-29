@@ -319,8 +319,22 @@ export default function useEmailTemplatesContent() {
     try {
       const messages = await getMailContentDetail(uuid, currentDomain.value.uuid);
       status.value = STATUS.SUCCESS;
-      activeMailContent.value = messages;
-      defaultMailContent.value = { ...messages };
+      activeMailContent.value = {
+        ...messages,
+        description:
+          messages.description ||
+          (onCheckDefaultEmailContent(messages) && messages.readonly
+            ? t('EMAIL_TEMPLATES.EMAIL_CONTENT.DEFAULT_MAIL_CONTENT')
+            : ''),
+      };
+      defaultMailContent.value = {
+        ...messages,
+        description:
+          messages.description ||
+          (onCheckDefaultEmailContent(messages) && messages.readonly
+            ? t('EMAIL_TEMPLATES.EMAIL_CONTENT.DEFAULT_MAIL_CONTENT')
+            : ''),
+      };
     } catch (error) {
       status.value = STATUS.ERROR;
       if (error instanceof APIError) {
