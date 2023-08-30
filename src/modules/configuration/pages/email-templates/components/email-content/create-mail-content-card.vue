@@ -32,6 +32,7 @@
             :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
             class="ls-input"
             :bordered="false"
+            @change="onSelectMailContentType"
           >
             <a-select-option v-for="s in mailContentTypeOptions" :key="s" :value="s.value">
               {{ s.label }}
@@ -235,6 +236,10 @@ function onSelectModel(
   form.messagesVietnamese = model.key.subject?.messagesVietnamese;
   form.body = model.key.subject?.body;
   form.subject = model.key.subject?.subject;
+}
+
+function onSelectMailContentType() {
+  form.content = '';
 }
 
 onMounted(async () => {
