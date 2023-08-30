@@ -32,7 +32,7 @@
           :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.MODEL')"
         >
           <a-select
-            v-model:value="form.footer"
+            v-model:value="form.footerUuid"
             :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
             class="ls-input"
             :bordered="false"
@@ -87,6 +87,7 @@ const form = reactive<{
   domain: string;
   domainName: string;
   footer: string;
+  footerUuid: string;
   messagesEnglish: string;
   messagesFrench: string;
   messagesRussian: string;
@@ -125,6 +126,7 @@ function getInitialFormData() {
     description: '',
     domain: '',
     domainName: '',
+    footerUuid: '',
     messagesEnglish: '',
     messagesFrench: '',
     messagesRussian: '',
@@ -197,6 +199,7 @@ function onSelectModel(
   form.messagesFrench = model.key.subject.messagesFrench;
   form.messagesRussian = model.key.subject.messagesRussian;
   form.messagesVietnamese = model.key.subject.messagesVietnamese;
+  form.footer = model.key.subject.footer;
 }
 
 onMounted(async () => {

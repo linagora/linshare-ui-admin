@@ -271,10 +271,12 @@ export default function useEmailTemplatesFooter() {
     messagesRussian: string;
     visible: boolean;
     readonly: boolean;
+    footerUuid?: string;
   }) {
     try {
       loading.value = true;
       delete payload.domainName;
+      delete payload.footerUuid;
       await createMailFooter(payload);
       message.success(t('EMAIL_TEMPLATES.CREATE_MODAL.CREATE_SUCCESS'));
       return true;
