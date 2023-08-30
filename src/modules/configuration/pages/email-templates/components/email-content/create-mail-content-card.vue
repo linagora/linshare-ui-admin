@@ -22,7 +22,11 @@
             </a-select-option>
           </a-select>
         </a-form-item>
-        <a-form-item class="ls-form-title" :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.CONTENT_TYPE')">
+        <a-form-item
+          v-bind="validateInfos.mailContentType"
+          class="ls-form-title"
+          :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.CONTENT_TYPE')"
+        >
           <a-select
             v-model:value="form.mailContentType"
             :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
@@ -118,6 +122,12 @@ const formRules = computed(() => ({
     },
   ],
   domainName: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+  mailContentType: [
     {
       required: true,
       message: t('GENERAL.FIELD_REQUIRED'),
