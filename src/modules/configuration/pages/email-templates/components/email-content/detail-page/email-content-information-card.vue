@@ -6,9 +6,9 @@
       <div>
         <div class="title">{{ $t('GENERAL.DOMAIN') }}</div>
         <div class="value">
-          <span v-if="!checkingEmailContentsDomainAuthorized(item.domain)"> {{ item?.domainName }} </span>
+          <span v-if="!checkingEmailContentsDomainAuthorized(item.domain)"> {{ item?.domainLabel }} </span>
           <router-link v-else :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: props.item.domain } }">
-            <a>{{ item?.domainName }}</a>
+            <a>{{ item?.domainLabel }}</a>
           </router-link>
         </div>
       </div>
