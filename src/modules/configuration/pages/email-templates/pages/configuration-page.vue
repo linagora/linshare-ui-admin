@@ -13,7 +13,7 @@
     <div class="email-templates-configuration-page__action">
       <a-input
         v-model:value="filterText"
-        :placeholder="$t('GENERAL.SEARCH_BY_NAME')"
+        :placeholder="$t('GENERAL.SEARCH_BY')"
         class="email-templates-configuration-page__action-input"
         allow-clear
       >

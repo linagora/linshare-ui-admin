@@ -15,7 +15,7 @@
     <div class="email-templates-layout-page__action">
       <a-input
         v-model:value="filterText"
-        :placeholder="$t('GENERAL.SEARCH_BY_NAME')"
+        :placeholder="$t('GENERAL.SEARCH_BY')"
         class="email-templates-layout-page__action-input"
       >
         <template #prefix>
@@ -93,7 +93,7 @@ const templatesBySearch = computed(() => {
     return (
       list.value?.filter(
         (layout) =>
-          layout.domain.toLowerCase().includes(filterText.value.toLowerCase()) ||
+          layout.domainName?.toLowerCase().includes(filterText.value.toLowerCase()) ||
           layout.description?.toLowerCase().includes(filterText.value.toLowerCase())
       ) ?? []
     );

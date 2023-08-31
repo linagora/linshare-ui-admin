@@ -27,6 +27,7 @@
     "VIEW_ASSOCIATED_DOMAINS": "Afficher les domaines associés",
     "OK": "D’accord",
     "SEARCH_BY_NAME": "Recherche par nom",
+    "SEARCH_BY": "Recherche par nom ou par domain",
     "DESCRIPTION": "Description",
     "TYPES": "Types",
     "YES": "Oui",

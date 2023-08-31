@@ -75,7 +75,11 @@ const modal = reactive<{
 });
 
 const filteredList = computed(() =>
-  list.value.filter((mailConfig) => mailConfig.name.toLowerCase().includes(filterText.value.toLowerCase()))
+  list.value.filter(
+    (mailConfig) =>
+      mailConfig.name.toLowerCase().includes(filterText.value.toLowerCase()) ||
+      mailConfig.domainName?.toLowerCase().includes(filterText.value.toLowerCase())
+  )
 );
 const filteredListByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;

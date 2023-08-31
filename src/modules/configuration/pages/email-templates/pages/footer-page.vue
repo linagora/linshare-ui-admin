@@ -8,7 +8,7 @@
     <div class="email-templates-footer-page__action">
       <a-input
         v-model:value="filterText"
-        :placeholder="$t('GENERAL.SEARCH_BY_NAME')"
+        :placeholder="$t('GENERAL.SEARCH_BY')"
         class="email-templates-footer-page__action-input"
       >
         <template #prefix>
@@ -85,7 +85,7 @@ const templatesBySearch = computed(() => {
     return (
       list.value?.filter(
         (footer) =>
-          footer.domain.toLowerCase().includes(filterText.value.toLowerCase()) ||
+          footer.domainName?.toLowerCase().includes(filterText.value.toLowerCase()) ||
           footer.description?.toLowerCase().includes(filterText.value.toLowerCase())
       ) ?? []
     );
