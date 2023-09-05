@@ -41,6 +41,7 @@
         </a-form-item>
         <a-form-item
           v-if="form.mailContentType"
+          v-bind="validateInfos.content"
           class="ls-form-title"
           :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.DUPPLICATE_FROM')"
         >
@@ -129,6 +130,12 @@ const formRules = computed(() => ({
     },
   ],
   mailContentType: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+  content: [
     {
       required: true,
       message: t('GENERAL.FIELD_REQUIRED'),
