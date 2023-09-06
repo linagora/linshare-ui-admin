@@ -61,7 +61,7 @@ import ChevronRightIcon from '@/core/components/icons/chevron-right-icon.vue';
 import useEmailTemplatesActivation from '../../hooks/useEmailTemplatesActivation';
 import ReplayIcon from '@/core/components/icons/replay-icon.vue';
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
-import { reactive, ref } from 'vue';
+import { reactive, ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 
@@ -113,6 +113,14 @@ async function onResetEmailActivation() {
   await handleResetMailActivation(payload);
   emits('reload');
 }
+
+watch(
+  () => props.item,
+  () => {
+    form.enableNotification = props.item.enable;
+    form.overrideEnableNotification = props.item.configurationPolicy.parentAllowUpdate;
+  }
+);
 </script>
 <style lang="less">
 .email-activation-item {
