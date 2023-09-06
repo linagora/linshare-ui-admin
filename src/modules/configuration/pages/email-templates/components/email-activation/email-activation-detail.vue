@@ -49,7 +49,7 @@
           <span>{{ $t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.ALLOW_OVERRIDE_SETTING') }}</span>
         </a-form-item>
       </div>
-      <a-button class="email-activation-item__reset" @click="onResetEmailActivation">
+      <a-button v-if="!isRootDomain" class="email-activation-item__reset" @click="onResetEmailActivation">
         <replay-icon width="16px" height="16px"></replay-icon> {{ $t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.RESET_BUTTON') }}
       </a-button>
     </div>
@@ -62,11 +62,14 @@ import useEmailTemplatesActivation from '../../hooks/useEmailTemplatesActivation
 import ReplayIcon from '@/core/components/icons/replay-icon.vue';
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
 import { reactive, ref } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useDomainStore } from '@/modules/domain/store';
 
 const props = defineProps<{
   item: MailActivation;
   index: number | string;
 }>();
+const { isRootDomain } = storeToRefs(useDomainStore());
 
 const emits = defineEmits(['expand', 'reload']);
 
