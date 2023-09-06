@@ -73,7 +73,7 @@ const { isRootDomain } = storeToRefs(useDomainStore());
 
 const emits = defineEmits(['expand', 'reload']);
 
-const { handleUpdateMailActivation, handleResetMailActivation } = useEmailTemplatesActivation();
+const { handleUpdateMailActivation, handleResetMailActivation, pagination } = useEmailTemplatesActivation();
 const form = reactive({
   enableNotification: false,
   overrideEnableNotification: false,
@@ -119,6 +119,15 @@ watch(
   () => {
     form.enableNotification = props.item.enable;
     form.overrideEnableNotification = props.item.configurationPolicy.parentAllowUpdate;
+  }
+);
+
+watch(
+  () => pagination.current,
+  (newCurrent, oldCurrent) => {
+    if (newCurrent !== oldCurrent) {
+      isExpand.value = false;
+    }
   }
 );
 </script>
