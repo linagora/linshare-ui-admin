@@ -17,11 +17,18 @@
                 <SearchOutlined />
               </template>
             </a-input>
-            <a-input v-model:value="search.type" placeholder="State" class="ls-input">
+            <!-- <a-input v-model:value="search.type" placeholder="State" class="ls-input">
               <template #prefix>
                 <SearchOutlined />
               </template>
-            </a-input>
+            </a-input> -->
+            <a-select
+              v-model:value="search.type"
+              placeholder="State"
+              :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
+              class="ls-input ls-selector"
+              :options="typeOptions"
+            ></a-select>
           </div>
         </template>
       </template>
@@ -48,8 +55,6 @@ import { MailActivation } from '../../types/MailActivation';
 import useEmailTemplatesActivation from '../../hooks/useEmailTemplatesActivation';
 import EmailActivationDetail from './email-activation-detail.vue';
 import { SearchOutlined } from '@ant-design/icons-vue';
-import { includes } from 'lodash-es';
-import { filter } from 'lodash-es';
 
 // props
 const props = defineProps<{
@@ -65,9 +70,16 @@ const { pagination } = useEmailTemplatesActivation();
 
 const search = reactive({
   identifier: '',
-  type: '',
+  type: null,
 });
 // computed
+
+const typeOptions = computed(() => {
+  return [
+    { label: t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.ACTIVE'), value: true },
+    { label: t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.INACTIVE'), value: false },
+  ];
+});
 
 const mailActivationByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
@@ -76,7 +88,13 @@ const mailActivationByPage = computed(() => {
 });
 
 const mailActivationsBySearch = computed(() => {
-  return props.items.filter((item) => item.identifier.includes(search.identifier)) || [];
+  return (
+    props.items.filter(
+      (item) =>
+        item.identifier?.toLowerCase().includes(search.identifier?.toLowerCase()) &&
+        (search.type == null || item.enable === search.type)
+    ) || []
+  );
 });
 
 const columns = computed(() => [
@@ -235,6 +253,7 @@ watch(
 
   .ls-input {
     height: 44px;
+    min-width: 40%;
     background: #fff;
     border: 1px solid #e4e5f0;
     border-radius: 10px;
@@ -242,6 +261,17 @@ watch(
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    .ant-select-selection-item,
+    .ant-select-selection-placeholder {
+      height: 100% !important;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+  .ls-select {
+    width: 30%;
+    min-width: 30%;
   }
 
   .ls-input .ant-select-dropdown {
