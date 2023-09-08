@@ -21,9 +21,19 @@ check_author:
       - master@linagora/lgs/linshare/products/linshare-ui-admin
       - tags@linagora/lgs/linshare/products/linshare-ui-admin
       - /^release-.*/@linagora/lgs/linshare/products/linshare-ui-admin
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
 
 build:
   <<: *curl-tpl
   stage: build
   script:
     - echo skip
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
