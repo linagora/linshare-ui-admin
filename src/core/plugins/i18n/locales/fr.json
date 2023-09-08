@@ -2684,7 +2684,10 @@
       "THIRD_HELP_TEXT": "Les champs 'Subject', 'Greetings' et 'Body', remplacent subject, greetings et body que vous avez ajoutés à un Mail layout",
       "DEFAULT_MAIL_CONTENT": "Contenu du message par défaut",
       "SHOW_MORE": "Voir plus",
-      "SHOW_LESS": "Voir moins"
+      "SHOW_LESS": "Voir moins",
+      "PREVIEW": "Aperçu",
+      "PREVIEW_LIVE": "Aperçu en direct",
+      "NO_PREVIEW": "Aucun aperçu, veuillez cliquer sur le bouton Aperçu"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_EMPTY": "Veuillez sélectionner le contenu de l'e-mail à supprimer",
@@ -2712,7 +2715,9 @@
       "SHOW_SETTING": "Afficher les paramètres",
       "ENABLE_NOTIFICATION": "Activer la notification",
       "ALLOW_OVERRIDE_SETTING": "Autoriser l'administrateur imbriqué à remplacer «Activer la notification»",
-      "RESET_BUTTON": "Réinitialiser au domaine parent"
+      "RESET_BUTTON": "Réinitialiser au domaine parent",
+      "STATE": "État",
+      "CONTENT_TYPE_NAME": "Nom du type de contenu"
     },
     "MAIL_ACTIVATION": {
       "BOX_LIST": {

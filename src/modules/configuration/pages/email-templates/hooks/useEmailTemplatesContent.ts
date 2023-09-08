@@ -13,6 +13,8 @@ import {
   updateMailContent,
   getEmailContext,
   getMailConfigurationList,
+  getPreviewMailContent,
+  getPreviewLiveMailContent,
 } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
@@ -29,6 +31,7 @@ const activeMailContent = useLocalStorage<MailContent>(
   {} as MailContent
 );
 const selectedMailContents = ref<MailContent[]>();
+const selectedLanguage = ref('messagesEnglish');
 const defaultMailContent = ref<MailContent>();
 const status = ref(STATUS.LOADING);
 const pagination = reactive({
@@ -72,6 +75,21 @@ export default function useEmailTemplatesContent() {
       { label: t(`LOCALE.RUSSIAN`), value: 'messagesRussian' },
       { label: t(`LOCALE.VIETNAMESE`), value: 'messagesVietnamese' },
     ];
+  });
+
+  const activeLanguageCode = computed(() => {
+    switch (selectedLanguage.value) {
+      case 'messagesEnglish':
+        return 'ENGLISH';
+      case 'messagesFrench':
+        return 'FRENCH';
+      case 'messagesRussian':
+        return 'RUSSIAN';
+      case 'messagesVietnamese':
+        return 'VIETNAMESE';
+      default:
+        return 'ENGLISH';
+    }
   });
 
   //methods
@@ -265,6 +283,48 @@ export default function useEmailTemplatesContent() {
     }
   }
 
+  async function handleGetPreviewMailContent(uuid: string, mailConfigUuid: string, language: string) {
+    try {
+      loading.value = true;
+      const configs: {
+        subject: string;
+        content: string;
+        language: string;
+        type: string;
+      } = await getPreviewMailContent(uuid, mailConfigUuid, language);
+      return configs;
+    } catch (error) {
+      return null;
+    } finally {
+      loading.value = false;
+    }
+  }
+
+  async function handleGetPreviewLiveMailContent(
+    uuid: string,
+    mailConfigUuid: string,
+    language: string,
+    mailContent: MailContent
+  ) {
+    try {
+      loading.value = true;
+      const mailContentPayload = { ...mailContent };
+      delete mailContentPayload.config;
+      delete mailContentPayload.context;
+      const configs: {
+        subject: string;
+        content: string;
+        language: string;
+        type: string;
+      } = await getPreviewLiveMailContent(uuid, mailConfigUuid, language, mailContentPayload);
+      return configs;
+    } catch (error) {
+      return null;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   function checkingEmailContentsDomainAuthorized(domainUuid: string) {
     if (!domainUuid) {
       return false;
@@ -356,6 +416,8 @@ export default function useEmailTemplatesContent() {
     languageOptions,
     activeMailContent,
     selectedMailContents,
+    selectedLanguage,
+    activeLanguageCode,
     onCloseModal,
     onEditMailContent,
     onDeleteMailContent,
@@ -374,5 +436,7 @@ export default function useEmailTemplatesContent() {
     handleGetMailContentContext,
     handleGetEmailContentTemplates,
     checkingEmailContentsDomainAuthorized,
+    handleGetPreviewMailContent,
+    handleGetPreviewLiveMailContent,
   };
 }

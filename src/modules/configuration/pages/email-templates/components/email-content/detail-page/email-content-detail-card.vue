@@ -87,7 +87,6 @@
           >
             <a-select
               v-model:value="activeMailContent.config"
-              :disabled="!editable || !editing"
               class="ls-input"
               :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_PLACEHOLDER')"
               :bordered="false"
@@ -130,9 +129,13 @@ const props = defineProps<{
   editing?: boolean;
 }>();
 const { t } = useI18n();
-const { activeMailContent, languageOptions, handleGetMailContentContext, handleGetMailConfigContext } =
-  useEmailTemplatesContent();
-const selectedLanguage = ref('messagesEnglish');
+const {
+  activeMailContent,
+  selectedLanguage,
+  languageOptions,
+  handleGetMailContentContext,
+  handleGetMailConfigContext,
+} = useEmailTemplatesContent();
 const isShowContext = ref(false);
 const formRef = ref<FormInstance>();
 const useForm = Form.useForm;

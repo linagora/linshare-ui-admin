@@ -12,7 +12,11 @@
       <template #headerCell="{ column }">
         <template v-if="column.key === 'identifier'">
           <div class="email-activation-table__search">
-            <a-input v-model:value="search.identifier" placeholder="Content type name" class="ls-input">
+            <a-input
+              v-model:value="search.identifier"
+              :placeholder="$t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.CONTENT_TYPE_NAME')"
+              class="ls-input"
+            >
               <template #prefix>
                 <SearchOutlined />
               </template>
@@ -24,7 +28,8 @@
             </a-input> -->
             <a-select
               v-model:value="search.type"
-              placeholder="State"
+              :placeholder="$t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.STATE')"
+              allow-clear
               :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
               class="ls-input ls-selector"
               :options="typeOptions"

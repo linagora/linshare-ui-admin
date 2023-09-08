@@ -2694,7 +2694,10 @@
       "THIRD_HELP_TEXT": "The fields <span style='color: #007AFF'>Subject</span>, <span style='color: #007AFF'>Greetings</span> and <span style='color: #007AFF'>Body</span>, replace <span style='color: #007AFF'>subject</span>, <span style='color: #007AFF'>greetings</span> and <span style='color: #007AFF'>body</span> that you have added to a Mail layout",
       "DEFAULT_MAIL_CONTENT": "Default mail content",
       "SHOW_MORE": "Show more",
-      "SHOW_LESS": "Show less"
+      "SHOW_LESS": "Show less",
+      "PREVIEW": "Preview",
+      "PREVIEW_LIVE": "Preview live",
+      "NO_PREVIEW": "No preview, please click 'Preview' button"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_EMPTY": "Please select mail content to delete",
@@ -2722,7 +2725,9 @@
       "SHOW_SETTING": "Show setting",
       "ENABLE_NOTIFICATION": "Enable notification",
       "ALLOW_OVERRIDE_SETTING": "Allow nested admin to override “Enable notification”",
-      "RESET_BUTTON": "Reset to parent domain"
+      "RESET_BUTTON": "Reset to parent domain",
+      "STATE": "State",
+      "CONTENT_TYPE_NAME": "Content type name"
     },
     "MAIL_ACTIVATION": {
       "BOX_LIST": {

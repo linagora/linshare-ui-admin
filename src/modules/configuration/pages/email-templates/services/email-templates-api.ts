@@ -150,6 +150,18 @@ async function updateMailContent(payload: MailContent) {
   return await apiv4.put(`mail_contents`, payload);
 }
 
+async function getPreviewMailContent(uuid: string, mailConfigUuid: string, language: string) {
+  return await apiv4.get(`mail_contents/${uuid}/build?flavor=0&language=${language}&mailConfig=${mailConfigUuid}`);
+}
+
+async function getPreviewLiveMailContent(
+  uuid: string,
+  mailConfigUuid: string,
+  language: string,
+  newContent: MailContent
+) {
+  return await apiv4.post(`mail_contents/build?flavor=0&language=${language}&mailConfig=${mailConfigUuid}`, newContent);
+}
 async function createMailContent(payload: {
   description: string;
   domain: string;
@@ -240,4 +252,6 @@ export {
   updateMailActivation,
   createMailActivation,
   deleteMailActivation,
+  getPreviewMailContent,
+  getPreviewLiveMailContent,
 };

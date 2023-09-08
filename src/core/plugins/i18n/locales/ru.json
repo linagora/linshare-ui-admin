@@ -2424,7 +2424,10 @@
       "THIRD_HELP_TEXT": "Поля <span style='color: #007AFF'>Тема</span>, <span style='color: #007AFF'>Приветствия</span> и <span style='color: #007AFF'>Тело</span> заменяют <span style='color: #007AFF'>subject</span>, <span style='color: #007AFF'>greetings</span> и <span style='color: #007AFF'>body</span>, которые вы добавили в макет письма",
       "DEFAULT_MAIL_CONTENT": "Содержание стандартного письма",
       "SHOW_MORE": "Показать больше",
-      "SHOW_LESS": "Показать меньше"
+      "SHOW_LESS": "Показать меньше",
+      "PREVIEW": "Предварительный просмотр",
+      "PREVIEW_LIVE": "Предварительный просмотр в реальном времени",
+      "NO_PREVIEW": "Нет предварительного просмотра, пожалуйста, нажмите кнопку Предварительный просмотр"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_EMPTY": "Пожалуйста, выберите контент письма для удаления",
@@ -2452,7 +2455,9 @@
       "SHOW_SETTING": "Показать настройки",
       "ENABLE_NOTIFICATION": "Включить уведомление",
       "ALLOW_OVERRIDE_SETTING": "Разрешить вложенному администратору переопределить «Включить уведомление»",
-      "RESET_BUTTON": "Сбросить до родительской домена"
+      "RESET_BUTTON": "Сбросить до родительской домена",
+      "STATE": "Состояние",
+      "CONTENT_TYPE_NAME": "Название типа контента"
     },
     "MAIL_ACTIVATION": {
       "BOX_LIST": {

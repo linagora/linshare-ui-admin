@@ -19,6 +19,7 @@
       </div>
       <div class="content-detail-page__body-summary-system">
         <system-information-card :item="activeMailContent"></system-information-card>
+        <email-content-preview-card></email-content-preview-card>
       </div>
     </div>
   </div>
@@ -38,6 +39,7 @@
 import { computed, onMounted, ref } from 'vue';
 import EmailContentDetailHeader from '@/modules/configuration/pages/email-templates/components/email-content/detail-page/email-content-detail-header.vue';
 import EmailContentDetailCard from '@/modules/configuration/pages/email-templates/components/email-content/detail-page/email-content-detail-card.vue';
+import EmailContentPreviewCard from '@/modules/configuration/pages/email-templates/components/email-content/detail-page/email-content-preview-card.vue';
 import EmailContentDetailActions from '@/modules/configuration/pages/email-templates/components/email-content/detail-page/email-content-detail-actions.vue';
 import SystemInformationCard from '@/modules/configuration/pages/email-templates/components/email-content/detail-page/email-content-information-card.vue';
 import useEmailTemplatesContent from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesContent';

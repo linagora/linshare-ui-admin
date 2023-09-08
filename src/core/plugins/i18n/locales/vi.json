@@ -2682,7 +2682,10 @@
       "THIRD_HELP_TEXT": "Các trường <span style='color: #007AFF'>Chủ đề</span>, <span style='color: #007AFF'>Lời chào</span> và <span style='color: #007AFF'>Nội dung</span> thay thế <span style='color: #007AFF'>subject</span>, <span style='color: #007AFF'>greetings</span> và <span style='color: #007AFF'>body</span> mà bạn đã thêm vào bố cục email",
       "DEFAULT_MAIL_CONTENT": "Nội dung thư mặc định.",
       "SHOW_MORE": "Hiển thị thêm",
-      "SHOW_LESS": "Hiển thị ít hơn"
+      "SHOW_LESS": "Hiển thị ít hơn",
+      "PREVIEW": "Xem trước",
+      "PREVIEW_LIVE": "Xem trước trực tiếp",
+      "NO_PREVIEW": "Không có bản xem trước, vui lòng nhấn nút Xem trước"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_EMPTY": "Vui lòng chọn nội dung email để xóa",
@@ -2710,7 +2713,9 @@
       "SHOW_SETTING": "Hiển thị cài đặt",
       "ENABLE_NOTIFICATION": "Bật thông báo",
       "ALLOW_OVERRIDE_SETTING": "Cho phép quản trị viên lồng nhau ghi đè “Bật thông báo”",
-      "RESET_BUTTON": "Cài đặt lại về miền gốc"
+      "RESET_BUTTON": "Cài đặt lại về miền gốc",
+      "STATE": "Trạng thái",
+      "CONTENT_TYPE_NAME": "Tên loại nội dung"
     },
     "MAIL_ACTIVATION": {
       "BOX_LIST": {
