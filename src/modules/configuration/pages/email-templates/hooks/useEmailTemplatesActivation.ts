@@ -126,7 +126,7 @@ export default function useEmailTemplatesActivation() {
     try {
       loading.value = true;
       await deleteMailActivation(payload);
-      message.success(t('EMAIL_TEMPLATES.EDIT_FORM.RESET_SUCCESS'));
+      message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());

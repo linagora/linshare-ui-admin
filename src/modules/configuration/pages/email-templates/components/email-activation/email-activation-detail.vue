@@ -39,14 +39,16 @@
             </a-tooltip>
           </span>
         </a-form-item>
-        <a-form-item class="ls-form-title ls-form-title-switch" for="visible">
-          <a-switch
-            id="visible"
-            v-model:checked="form.overrideEnableNotification"
-            class="ls-switch"
-            @change="onUpdateEmailActivation"
-          />
-          <span>{{ $t('EMAIL_TEMPLATES.EMAIL_ACTIVATION.ALLOW_OVERRIDE_SETTING') }}</span>
+        <a-form-item v-if="item.configurationPolicy.parentAllowUpdate" for="visible">
+          <span class="policy-title">{{
+            $t('EMAIL_TEMPLATES.MAIL_ACTIVATION.BOX_FORM.LEGEND_CONFIGURATION_POLICY')
+          }}</span
+          ><br /><br />
+          <a-radio-group v-model:value="form.overrideEnableNotification" @change="onUpdateEmailActivation()">
+            <a-radio value="MANDATORY">{{ $t('EMAIL_TEMPLATES.MAIL_ACTIVATION.BOX_FORM.RADIO_MANDATORY') }}</a-radio>
+            <a-radio value="ALLOWED">{{ $t('EMAIL_TEMPLATES.MAIL_ACTIVATION.BOX_FORM.RADIO_ALLOWED') }}</a-radio>
+            <a-radio value="FORBIDDEN">{{ $t('EMAIL_TEMPLATES.MAIL_ACTIVATION.BOX_FORM.RADIO_FORBIDDEN') }}</a-radio>
+          </a-radio-group>
         </a-form-item>
       </div>
       <a-button v-if="!isRootDomain" class="email-activation-item__reset" @click="onResetEmailActivation">
@@ -76,7 +78,7 @@ const emits = defineEmits(['expand', 'reload']);
 const { handleUpdateMailActivation, handleResetMailActivation, pagination } = useEmailTemplatesActivation();
 const form = reactive({
   enableNotification: false,
-  overrideEnableNotification: false,
+  overrideEnableNotification: '',
 });
 
 const isExpand = ref(false);
@@ -86,7 +88,7 @@ function onExpandItem() {
   if (isExpand.value) {
     emits('expand', props.item);
     form.enableNotification = props.item.enable;
-    form.overrideEnableNotification = props.item.configurationPolicy.parentAllowUpdate;
+    form.overrideEnableNotification = props.item.configurationPolicy.policy;
   } else {
     emits('expand', null);
   }
@@ -95,10 +97,9 @@ function onExpandItem() {
 async function onUpdateEmailActivation() {
   const payload: MailActivation = {
     ...props.item,
-    configurationPolicy: { ...props.item.configurationPolicy, parentAllowUpdate: form.overrideEnableNotification },
+    configurationPolicy: { ...props.item.configurationPolicy, policy: form.overrideEnableNotification },
     enable: form.enableNotification,
   };
-
   await handleUpdateMailActivation(payload);
   emits('reload');
 }
@@ -106,19 +107,18 @@ async function onUpdateEmailActivation() {
 async function onResetEmailActivation() {
   const payload: MailActivation = {
     ...props.item,
-    configurationPolicy: { ...props.item.configurationPolicy, parentAllowUpdate: form.overrideEnableNotification },
+    configurationPolicy: { ...props.item.configurationPolicy, policy: form.overrideEnableNotification },
     enable: form.enableNotification,
   };
 
   await handleResetMailActivation(payload);
-  emits('reload');
 }
 
 watch(
   () => props.item,
   () => {
     form.enableNotification = props.item.enable;
-    form.overrideEnableNotification = props.item.configurationPolicy.parentAllowUpdate;
+    form.overrideEnableNotification = props.item.configurationPolicy.policy;
   }
 );
 
@@ -292,5 +292,10 @@ watch(
 .highlight {
   color: @primary-color;
   margin-left: 4px;
+}
+
+.policy-title {
+  font-weight: 500;
+  color: #888;
 }
 </style>
