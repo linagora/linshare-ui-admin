@@ -19,6 +19,8 @@ import {
   assignMailFooterToMailConfiguration,
 } from '../services/email-templates-api';
 import { storeToRefs } from 'pinia';
+import { useAuthStore } from '@/modules/auth/store';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { useDomainStore } from '@/modules/domain/store';
 import Domain from '@/core/types/Domain';
 import { useLocalStorage } from '@vueuse/core';
@@ -91,7 +93,8 @@ export default function useEmailTemplatesConfiguration() {
   // composable
   const { t } = useI18n();
   const router = useRouter();
-  const { currentDomain } = storeToRefs(useDomainStore());
+  const { loggedUserRole } = storeToRefs(useAuthStore());
+  const { getDomainsList, currentDomain } = storeToRefs(useDomainStore());
 
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
@@ -430,6 +433,21 @@ export default function useEmailTemplatesConfiguration() {
     selectedMailConfigs.value = [];
   }
 
+  function checkingEmailConfigurationDomainAuthorized(domainUuid: string) {
+    if (!domainUuid) {
+      return false;
+    }
+    if (loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN) {
+      return true;
+    } else {
+      return (
+        getDomainsList.value.some((item) => {
+          return item.uuid === domainUuid;
+        }) && loggedUserRole?.value === ACCOUNT_ROLE.ADMIN
+      );
+    }
+  }
+
   return {
     list,
     modal,
@@ -468,5 +486,6 @@ export default function useEmailTemplatesConfiguration() {
     onDeleteMailConfigurationsFail,
     onCheckDefaultEmailConfiguration,
     handleGetMailConfigurationDetail,
+    checkingEmailConfigurationDomainAuthorized,
   };
 }

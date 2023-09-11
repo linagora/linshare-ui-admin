@@ -6,7 +6,8 @@
       <div>
         <div class="title">{{ $t('GENERAL.DOMAIN') }}</div>
         <div class="value">
-          <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: domainUuid } }">
+          <span v-if="!checkingEmailConfigurationDomainAuthorized(item?.domain)"> {{ item?.domainName }} </span>
+          <router-link v-else :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: domainUuid } }">
             <a href="">{{ item?.domainName }}</a>
           </router-link>
         </div>
@@ -38,12 +39,15 @@ import { useRoute } from 'vue-router';
 import GlobeIcon from '@/core/components/icons/globe-icon.vue';
 import CalendarIcon from '@/core/components/icons/calendar-icon.vue';
 import { MailConfiguration } from '@/modules/configuration/pages/email-templates/types/MailConfiguration';
+import useEmailTemplatesConfiguration from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesConfiguration';
 
 const route = useRoute();
 
 const props = defineProps<{
   item: MailConfiguration | undefined;
 }>();
+
+const { checkingEmailConfigurationDomainAuthorized } = useEmailTemplatesConfiguration();
 
 const domainUuid = computed(() => {
   return props.item?.domain;
