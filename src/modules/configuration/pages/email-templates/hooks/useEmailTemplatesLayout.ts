@@ -115,7 +115,7 @@ export default function useEmailTemplatesLayout() {
   async function handleGetEmailLayoutTemplates(domainUuid: string, onlyCurrentDomain = true) {
     try {
       status.value = STATUS.LOADING;
-      const templates = await getLayoutEmailTemplates(domainUuid, onlyCurrentDomain);
+      const templates = await getLayoutEmailTemplates(currentDomain.value.uuid, onlyCurrentDomain);
       list.value = templates
         ?.map((item) => {
           return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.mailLayout?.uuid) };
