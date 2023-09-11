@@ -211,7 +211,7 @@ function allowAssigned(record: MailConfiguration) {
   &__table .ant-table {
     border: 1px solid #f0f0f0;
     border-radius: 8px;
-    overflow: auto;
+    overflow-x: auto;
   }
 
   .ant-tag.ant-tag-success {
