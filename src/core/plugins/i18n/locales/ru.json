@@ -146,7 +146,8 @@
     "LDAP_WORKSPACE_FILTER": "Фильтр рабочей области LDAP",
     "SHARED_SPACE_DETAILS": "Сведения об общем пространстве",
     "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
-    "EMAIL_TEMPLATES": "Шаблоны электронной почты"
+    "EMAIL_TEMPLATES": "Шаблоны электронной почты",
+    "CONFIGURATION_DOMAIN_POLICIES": "Политики доменов"
   },
   "DASHBOARD": {
     "TITLE": "Приборная доска",

@@ -146,7 +146,8 @@
     "LDAP_WORKSPACE_FILTER": "Bộ lọc không gian làm việc trên LDAP",
     "SHARED_SPACE_DETAILS": "Chi tiết về không gian chung",
     "WELCOME_MESSAGE_DETAIL": "Chi tiết tin nhắn chào mừng",
-    "EMAIL_TEMPLATES": "Mẫu email"
+    "EMAIL_TEMPLATES": "Mẫu email",
+    "CONFIGURATION_DOMAIN_POLICIES": "Chính sách tên miền"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",

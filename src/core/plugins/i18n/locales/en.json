@@ -146,7 +146,8 @@
     "LDAP_WORKSPACE_FILTER": "LDAP workspace filter",
     "SHARED_SPACE_DETAILS": "Shared space details",
     "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
-    "EMAIL_TEMPLATES": "Email templates"
+    "EMAIL_TEMPLATES": "Email templates",
+    "CONFIGURATION_DOMAIN_POLICIES": "Domain policies"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",

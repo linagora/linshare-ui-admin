@@ -15,6 +15,10 @@ import { ConfigurationDomainProviderManagementRoutes } from '@/modules/configura
 import { ConfigurationDomainEmailTemplatesRoutes } from '@/modules/configuration/pages/email-templates/router';
 import { ConfigurationDomainDomainUserProvidersRoutes } from '@/modules/configuration/pages/domain-user-providers/router';
 import { ConfigurationDomainDomainWorkspaceProvidersRoutes } from '@/modules/configuration/pages/domain-workspace-providers/router';
+import {
+  ConfigurationDomainPoliciesRoutes,
+  DOMAIN_POLICIES_ROUTE_NAMES,
+} from '@/modules/configuration/pages/domain-policies/router';
 
 export const ConfigurationRoute: RouteRecordRaw = {
   name: 'Configuration',
@@ -44,9 +48,11 @@ export const ConfigurationRoute: RouteRecordRaw = {
     ...ConfigurationDomainDomainUserProvidersRoutes,
     ...ConfigurationDomainDomainWorkspaceProvidersRoutes,
     ...ConfigurationDomainEmailTemplatesRoutes,
+    ...ConfigurationDomainPoliciesRoutes,
   ],
 };
 
 export const CONFIGURATION_ROUTE_NAMES = {
   ...CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES,
+  DOMAIN_POLICIES_ROUTE_NAMES,
 };

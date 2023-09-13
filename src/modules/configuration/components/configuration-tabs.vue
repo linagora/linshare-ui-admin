@@ -20,6 +20,7 @@ import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
+import { CONFIGURATION_ROUTE_NAMES } from '../router';
 
 interface ConfigurationPage {
   key: string;
@@ -168,6 +169,18 @@ const configurationTabs = reactive({
     name: 'PublicKeysJwt',
     legacy: true,
     visible: true,
+  },
+  ConfigurationDomainPolicies: {
+    key: 'CONFIGURATION_DOMAIN_POLICIES',
+    name: 'ConfigurationDomainPolicies',
+    title: 'NAVIGATOR.CONFIGURATION_DOMAIN_POLICIES',
+    accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
+    route: {
+      name: CONFIGURATION_ROUTE_NAMES.DOMAIN_POLICIES_ROUTE_NAMES.POLICIES,
+    },
+    visible: computed(() => {
+      return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
+    }),
   },
 });
 
