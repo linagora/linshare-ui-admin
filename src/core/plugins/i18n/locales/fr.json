@@ -1368,6 +1368,13 @@
       "CATEGORIES_SHARED_SPACE": "Espace partagé",
       "CATEGORIES_MY_SPACE": "Mon espace"
     },
+    "TOP_RECEIVERS": {
+      "FILE_COUNT": {
+        "TITLE": "Top 50 des destinataires par nombre de fichiers partagés",
+        "RECEIVER_MAIL": "ADRESSE EMAIL DU DESTINATAIRE",
+        "NUMBER_OF_SHARED_FILES": "NOMBRE DE FICHIERS PARTAGÉS"
+      }
+    },
     "CHART_FIELD": {
       "DELETE": "Suppressions",
       "UPLOAD": "Téléversements",

@@ -1110,6 +1110,13 @@
       "CATEGORIES_SHARED_SPACE": "Общее пространство",
       "CATEGORIES_MY_SPACE": "Мое пространство"
     },
+    "TOP_RECEIVERS": {
+      "FILE_COUNT": {
+        "TITLE": "Топ-50 получателей по количеству общих файлов",
+        "RECEIVER_MAIL": "АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ ПОЛУЧАТЕЛЯ",
+        "NUMBER_OF_SHARED_FILES": "КОЛИЧЕСТВО ОБЩИХ ФАЙЛОВ"
+      }
+    },
     "CHART_FIELD": {
       "DELETE": "Удалить",
       "UPLOAD": "Загрузить",

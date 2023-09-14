@@ -11,8 +11,11 @@ import ReportingStatisticUserUsedStorage from './reporting-statistic-user-used-s
 import ReportingStatisticSummary from './reporting-statistic-summary.vue';
 import ReportingStatisticTotalStorage from './reporting-statistic-total-storage.vue';
 import ReportingStatisticMostUploaded from './reporting-statistic-most-uploaded.vue';
+import TopSharesByFileCount from './top-shares-by-file-count.vue';
+import { useTopSharesFilesCount } from '../hooks/useTopSharesFiles';
 
 const showFilterModal = ref(false);
+const { topSharesFileCountPagination } = useTopSharesFilesCount();
 </script>
 <template>
   <the-subheader :title="$t('NAVIGATOR.REPORTING')" :detail="$t('REPORTING.INTRODUCTION')">
@@ -124,6 +127,14 @@ const showFilterModal = ref(false);
 
     <div class="content">
       <reporting-statistic-generics></reporting-statistic-generics>
+    </div>
+  </div>
+  <div class="card">
+    <div class="header">
+      <span class="title">{{ $t('REPORTING.TOP_RECEIVERS.FILE_COUNT.TITLE') }}</span>
+    </div>
+    <div class="content">
+      <top-shares-by-file-count></top-shares-by-file-count>
     </div>
   </div>
 </template>

@@ -1366,6 +1366,13 @@
       "CATEGORIES_SHARED_SPACE": "Không gian được chia sẻ",
       "CATEGORIES_MY_SPACE": "Không gian của tôi"
     },
+    "TOP_RECEIVERS": {
+      "FILE_COUNT": {
+        "TITLE": "Top 50 người nhận hàng đầu theo số lượng tệp được chia sẻ",
+        "RECEIVER_MAIL": "ĐỊA CHỈ EMAIL NGƯỜI NHẬN",
+        "NUMBER_OF_SHARED_FILES": "SỐ LƯỢNG TỆP ĐƯỢC CHIA SẺ"
+      }
+    },
     "CHART_FIELD": {
       "DELETE": "Xóa",
       "UPLOAD": "Tải lên",
