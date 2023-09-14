@@ -1374,7 +1374,12 @@
         "TITLE":"Top 50 receivers by shared file count",
         "RECEIVER_MAIL":"RECEIVER EMAIL",
         "NUMBER_OF_SHARED_FILES": "NO. OF SHARED FILES"
-    }
+      },
+      "FILE_SIZE": {
+        "TITLE":"Top 50 receivers by shared file size",
+        "RECEIVER_MAIL":"RECEIVER EMAIL",
+        "SIZE_OF_SHARED_FILES": "SIZE OF SHARED FILES"
+      }
   },
     "CHART_FIELD": {
       "DELETE": "Delete",

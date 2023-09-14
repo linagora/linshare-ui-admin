@@ -1371,6 +1371,11 @@
         "TITLE": "Top 50 người nhận hàng đầu theo số lượng tệp được chia sẻ",
         "RECEIVER_MAIL": "ĐỊA CHỈ EMAIL NGƯỜI NHẬN",
         "NUMBER_OF_SHARED_FILES": "SỐ LƯỢNG TỆP ĐƯỢC CHIA SẺ"
+      },
+      "FILE_SIZE": {
+        "TITLE":"Top 50 người nhận theo kích thước tệp được chia sẻ",
+        "RECEIVER_MAIL":"ĐỊA CHỈ EMAIL NGƯỜI NHẬN",
+        "SIZE_OF_SHARED_FILES": "KÍCH THƯỚC TỆP CHIA SẺ"
       }
     },
     "CHART_FIELD": {

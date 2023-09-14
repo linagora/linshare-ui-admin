@@ -13,9 +13,12 @@ import ReportingStatisticTotalStorage from './reporting-statistic-total-storage.
 import ReportingStatisticMostUploaded from './reporting-statistic-most-uploaded.vue';
 import TopSharesByFileCount from './top-shares-by-file-count.vue';
 import { useTopSharesFilesCount } from '../hooks/useTopSharesFiles';
+import TopSharesByFileSize from './top-shares-by-file-size.vue';
+import { useTopSharesFilesSize } from '../hooks/useTopSharesFilesSize';
 
 const showFilterModal = ref(false);
 const { topSharesFileCountPagination } = useTopSharesFilesCount();
+const { topSharesFileSizePagination } = useTopSharesFilesSize();
 </script>
 <template>
   <the-subheader :title="$t('NAVIGATOR.REPORTING')" :detail="$t('REPORTING.INTRODUCTION')">
@@ -129,13 +132,34 @@ const { topSharesFileCountPagination } = useTopSharesFilesCount();
       <reporting-statistic-generics></reporting-statistic-generics>
     </div>
   </div>
-  <div class="card">
-    <div class="header">
-      <span class="title">{{ $t('REPORTING.TOP_RECEIVERS.FILE_COUNT.TITLE') }}</span>
-    </div>
-    <div class="content">
-      <top-shares-by-file-count></top-shares-by-file-count>
-    </div>
+
+  <div class="page-wrapper">
+    <a-row>
+      <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
+        <div class="first-row">
+          <div class="card">
+            <div class="header">
+              <span class="title">{{ $t('REPORTING.TOP_RECEIVERS.FILE_COUNT.TITLE') }}</span>
+            </div>
+            <div class="content">
+              <top-shares-by-file-count></top-shares-by-file-count>
+            </div>
+          </div>
+        </div>
+      </a-col>
+      <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
+        <div class="second-row">
+          <div class="card">
+            <div class="header">
+              <span class="title">{{ $t('REPORTING.TOP_RECEIVERS.FILE_SIZE.TITLE') }}</span>
+            </div>
+            <div class="content">
+              <top-shares-by-file-size></top-shares-by-file-size>
+            </div>
+          </div>
+        </div>
+      </a-col>
+    </a-row>
   </div>
 </template>
 

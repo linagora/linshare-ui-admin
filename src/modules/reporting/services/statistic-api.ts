@@ -9,6 +9,7 @@ import type {
 } from '../types/StorageConsumptionStatistic';
 import { MimeTypeStatistic } from '../types/MimeTypeStatistic';
 import { TopSharesFileCount } from '../types/TopSharesFileCount';
+import { TopSharesFileSize } from '../types/TopSharesFileSize';
 
 type SumableField = 'action' | 'statisticDate' | 'resourceType';
 
@@ -103,6 +104,15 @@ interface TopSharesByFileCount {
   size?: number;
 }
 
+interface TopSharesByFileSize {
+  sortOrder?: SORT_ORDER;
+  domainUuid?: string;
+  beginDate?: string;
+  endDate?: string;
+  page?: number;
+  size?: number;
+}
+
 async function getGenericStatistics(
   domainUuid: string,
   params: GenericStatisticParameters = {}
@@ -135,10 +145,15 @@ async function getTopSharesByFileCount(params: TopSharesByFileCount = {}): Promi
   return await api.get(`shares/topSharesByFileCount`, { params });
 }
 
+async function getTopSharesByFileSize(params: TopSharesByFileSize = {}): Promise<TopSharesFileSize> {
+  return await api.get(`shares/topSharesByFileSize`, { params });
+}
+
 export {
   getAccountQuotaStatistics,
   getGenericStatistics,
   getStorageConsumptionStatistics,
   getMimeTypeStatistics,
   getTopSharesByFileCount,
+  getTopSharesByFileSize,
 };

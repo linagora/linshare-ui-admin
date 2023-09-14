@@ -1373,6 +1373,11 @@
         "TITLE": "Top 50 des destinataires par nombre de fichiers partagés",
         "RECEIVER_MAIL": "ADRESSE EMAIL DU DESTINATAIRE",
         "NUMBER_OF_SHARED_FILES": "NOMBRE DE FICHIERS PARTAGÉS"
+      },
+      "FILE_SIZE": {
+        "TITLE":"Top 50 des destinataires par taille de fichiers partagés",
+        "RECEIVER_MAIL":"ADRESSE EMAIL DU DESTINATAIRE",
+        "SIZE_OF_SHARED_FILES": "TAILLE DES FICHIERS PARTAGÉS"
       }
     },
     "CHART_FIELD": {
