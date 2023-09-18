@@ -5,10 +5,10 @@ import { message } from 'ant-design-vue';
 import { TopSharesFileCountItem } from '../types/TopSharesFileCount';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 import { storeToRefs } from 'pinia';
-import { useReportingStore } from '../store';
+import { useReportingSharesStore } from '../store';
 
 const loading = ref(false);
-const { endDate, beginDate } = storeToRefs(useReportingStore());
+const { endDate, beginDate, top, domains } = storeToRefs(useReportingSharesStore());
 const list = ref<TopSharesFileCountItem[]>([]);
 const topSharesFileCountPagination = reactive({
   total: 0,
@@ -25,10 +25,11 @@ const filteredListByPage = computed(() => {
 
 async function getSharesByFileCountInformations() {
   const parameters = {
+    domainUuids: [domains.value.map((domainUuids) => domainUuids.uuid)],
     beginDate: beginDate.value?.format('YYYY-MM-DD'),
     endDate: endDate.value?.format('YYYY-MM-DD'),
     page: topSharesFileCountPagination.current - 1,
-    size: 50,
+    size: top.value,
   };
   try {
     loading.value = true;

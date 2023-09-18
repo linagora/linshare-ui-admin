@@ -97,7 +97,7 @@ interface MimeTypeParameter {
 
 interface TopSharesByFileCount {
   sortOrder?: SORT_ORDER;
-  domainUuid?: string;
+  domainUuids?: object;
   beginDate?: string;
   endDate?: string;
   page?: number;
@@ -106,7 +106,7 @@ interface TopSharesByFileCount {
 
 interface TopSharesByFileSize {
   sortOrder?: SORT_ORDER;
-  domainUuid?: string;
+  domainUuids?: object;
   beginDate?: string;
   endDate?: string;
   page?: number;

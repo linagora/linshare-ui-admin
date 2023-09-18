@@ -122,6 +122,9 @@ watchEffect(() => {
             <a-select-option value="ALL_TIME">
               {{ $t('GENERAL.DATE_ALL_TIME') }}
             </a-select-option>
+            <a-select-option value="LAST_DAY">
+              {{ $t('GENERAL.DATE_LAST_DAY') }}
+            </a-select-option>
             <a-select-option value="LAST_7_DAYS">
               {{ $t('GENERAL.DATE_LAST_7_DAYS') }}
             </a-select-option>

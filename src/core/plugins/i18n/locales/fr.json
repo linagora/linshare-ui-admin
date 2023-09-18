@@ -54,6 +54,7 @@
     "REQUEST_RELOAD_DATA": "Veuillez cliquer sur Actualiser pour charger les données manquantes.",
     "APPLY": "Appliquer",
     "DATE_ALL_TIME": "Tout le temps",
+    "DATE_LAST_DAY" : "Dernier jour",
     "DATE_LAST_7_DAYS": "7 derniers jours",
     "DATE_LAST_30_DAYS": "30 derniers jours",
     "DATE_LAST_6_MONTHS": "6 derniers mois",
@@ -1356,26 +1357,30 @@
     "FILTERS_BAR": {
       "DOMAIN_FILTER": "Domaine :",
       "CATEGORY_FILTER": "Catégorie :",
+      "TOP":"Top",
       "TIME_RANGE_FILTER": "Plage horaire :",
       "ALL_DOMAINS": "Tous"
     },
+    "STORAGE_STATISTICS" : "Statistiques de stockage",
+    "SHARE_STATISTICS" : "Statistiques de partage",
     "FILTERS_MODAL": {
       "TITLE": "Réglage des filtres",
       "TIME_RANGE": "Plage horaire",
       "DOMAIN_SELECT_PLACEHOLDER": "Sélectionnez les domaines à filtrer, laissez vide pour sélectionner tous les domaines",
       "CATEGORIES": "Catégories",
+      "TOP":"Top",
       "CATEGORIES_WHOLE_DOMAIN": "Domaine entier",
       "CATEGORIES_SHARED_SPACE": "Espace partagé",
       "CATEGORIES_MY_SPACE": "Mon espace"
     },
     "TOP_RECEIVERS": {
       "FILE_COUNT": {
-        "TITLE": "Top 50 des destinataires par nombre de fichiers partagés",
+        "TITLE": "Top {pageNumber} des destinataires par nombre de fichiers partagés",
         "RECEIVER_MAIL": "ADRESSE EMAIL DU DESTINATAIRE",
         "NUMBER_OF_SHARED_FILES": "NOMBRE DE FICHIERS PARTAGÉS"
       },
       "FILE_SIZE": {
-        "TITLE":"Top 50 des destinataires par taille de fichiers partagés",
+        "TITLE":"Top {pageNumber} des destinataires par taille de fichiers partagés",
         "RECEIVER_MAIL":"ADRESSE EMAIL DU DESTINATAIRE",
         "SIZE_OF_SHARED_FILES": "TAILLE DES FICHIERS PARTAGÉS"
       }

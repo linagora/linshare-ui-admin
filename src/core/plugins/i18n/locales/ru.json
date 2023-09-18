@@ -54,6 +54,7 @@
     "REQUEST_RELOAD_DATA": "Please click Refresh to reload missing data.",
     "APPLY": "Подать заявление",
     "DATE_ALL_TIME": "Все время",
+     "DATE_LAST_DAY" : "Последний день",
     "DATE_LAST_7_DAYS": "Последние 7 дней",
     "DATE_LAST_30_DAYS": "Последние 30 дней",
     "DATE_LAST_6_MONTHS": "Последние 6 месяцев",
@@ -1098,26 +1099,30 @@
     "FILTERS_BAR": {
       "DOMAIN_FILTER": "Домен:",
       "CATEGORY_FILTER": "Категория:",
+      "TOP": "Топ",
       "TIME_RANGE_FILTER": "Диапазон времени:",
       "ALL_DOMAINS": "Все"
     },
+    "STORAGE_STATISTICS" : "Статистика хранения",
+    "SHARE_STATISTICS" : "Статистика общего доступа",
     "FILTERS_MODAL": {
       "TITLE": "Настройка фильтров",
       "TIME_RANGE": "Временной диапазон",
       "DOMAIN_SELECT_PLACEHOLDER": "Выберите домены для фильтрации, оставьте поле пустым, чтобы выбрать все домены",
-      "КАТЕГОРИИ": "Категории",
+      "CATEGORIES": "Категории",
+      "TOP": "Топ",
       "CATEGORIES_WHOLE_DOMAIN": "Весь домен",
       "CATEGORIES_SHARED_SPACE": "Общее пространство",
       "CATEGORIES_MY_SPACE": "Мое пространство"
     },
     "TOP_RECEIVERS": {
       "FILE_COUNT": {
-        "TITLE": "Топ-50 получателей по количеству общих файлов",
+        "TITLE": "Топ {pageNumber} получателей по количеству общих файлов",
         "RECEIVER_MAIL": "АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ ПОЛУЧАТЕЛЯ",
         "NUMBER_OF_SHARED_FILES": "КОЛИЧЕСТВО ОБЩИХ ФАЙЛОВ"
       },
       "FILE_SIZE": {
-        "TITLE":"Топ-50 получатели по размеру общего файла",
+        "TITLE":"Топ {pageNumber} получатели по размеру общего файла",
         "RECEIVER_MAIL":"АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ ПОЛУЧАТЕЛЯ",
         "SIZE_OF_SHARED_FILES": "РАЗМЕР ОБЩИХ ФАЙЛОВ"
       }

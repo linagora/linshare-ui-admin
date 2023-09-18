@@ -54,6 +54,7 @@
     "REQUEST_RELOAD_DATA": "Please click Refresh to reload missing data.",
     "APPLY": "Apply",
     "DATE_ALL_TIME": "All time",
+    "DATE_LAST_DAY": "Last Day",
     "DATE_LAST_7_DAYS": "Last 7 days",
     "DATE_LAST_30_DAYS": "Last 30 days",
     "DATE_LAST_6_MONTHS": "Last 6 months",
@@ -1357,26 +1358,30 @@
     "FILTERS_BAR": {
       "DOMAIN_FILTER": "Domain:",
       "CATEGORY_FILTER": "Category:",
+      "TOP": "Top",
       "TIME_RANGE_FILTER": "Time range:",
       "ALL_DOMAINS": "All"
     },
+    "STORAGE_STATISTICS":"Storage statistics",
+    "SHARE_STATISTICS":"Share statistics",
     "FILTERS_MODAL": {
       "TITLE": "Filters setting",
       "TIME_RANGE": "Time range",
       "DOMAIN_SELECT_PLACEHOLDER": "Select domains to filter, leave blank to select all domains",
       "CATEGORIES": "Categories",
+      "TOP": "Top",
       "CATEGORIES_WHOLE_DOMAIN": "Whole domain",
       "CATEGORIES_SHARED_SPACE": "Shared space",
       "CATEGORIES_MY_SPACE": "My space"
     },
     "TOP_RECEIVERS":{
       "FILE_COUNT":{
-        "TITLE":"Top 50 receivers by shared file count",
+        "TITLE":"Top {pageNumber} receivers by shared file count",
         "RECEIVER_MAIL":"RECEIVER EMAIL",
         "NUMBER_OF_SHARED_FILES": "NO. OF SHARED FILES"
       },
       "FILE_SIZE": {
-        "TITLE":"Top 50 receivers by shared file size",
+        "TITLE":"Top {pageNumber} receivers by shared file size",
         "RECEIVER_MAIL":"RECEIVER EMAIL",
         "SIZE_OF_SHARED_FILES": "SIZE OF SHARED FILES"
       }

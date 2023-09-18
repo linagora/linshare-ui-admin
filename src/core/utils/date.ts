@@ -29,6 +29,8 @@ function isValid(d: Date): boolean {
 function getPeriodFromDate(beginDate: Dayjs | null, endDate: Dayjs | null): TimePeriod {
   if (!beginDate && !endDate) {
     return 'ALL_TIME';
+  } else if (endDate?.diff(beginDate, 'day') === 1) {
+    return 'LAST_DAY';
   } else if (endDate?.diff(beginDate, 'day') === 7) {
     return 'LAST_7_DAYS';
   } else if (endDate?.diff(beginDate, 'day') === 30) {
@@ -44,6 +46,8 @@ function getPeriodFromDate(beginDate: Dayjs | null, endDate: Dayjs | null): Time
 
 function getDatesFromPeriod(option: TimePeriod): [Dayjs, Dayjs] | undefined {
   switch (option) {
+    case 'LAST_DAY':
+      return [dayjs().subtract(1, 'days'), dayjs()];
     case 'LAST_7_DAYS':
       return [dayjs().subtract(7, 'days'), dayjs()];
     case 'LAST_30_DAYS':
