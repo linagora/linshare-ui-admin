@@ -3050,5 +3050,23 @@
   },
   "PROFILE": {
     "SETTING": "Setting"
+  },
+  "DOMAIN_POLICY": {
+    "CREATE_MODAL": {
+      "CREATE_MODAL_TITLE": "Create domain policy",
+      "DETAIL_TAB": "Detail",
+      "RULES_TAB": "Rules",
+      "NAME": "Name",
+      "DESCRIPTION": "Description",
+      "PLACEHOLDER_NAME": "Domain policy name",
+      "TYPE": "Type",
+      "SELECT_DOMAIN": "Select domain",
+      "ADD": "Add",
+      "ALLOW": "Allow",
+      "ALLOW_ALL":"Allow all",
+      "DENY": "Deny",
+      "DENY_ALL": "Deny all",
+      "POLICY_LIST": "Policies list"
+    }
   }
 }

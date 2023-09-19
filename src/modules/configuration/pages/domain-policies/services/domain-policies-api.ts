@@ -1,5 +1,6 @@
 import apiv4 from '@/apiv4';
 import { DomainPolicy } from '../types/DomainPolicy';
+import Domain from '@/core/types/Domain';
 
 async function getDomainPolicyList(domainUuid: string, currentDomainOnly: boolean): Promise<DomainPolicy[]> {
   return await apiv4.get(`domain_policies?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
@@ -17,17 +18,16 @@ async function deleteDomainPolicy(payload: { uuid: string }): Promise<DomainPoli
   return await apiv4.delete('domain_policies', { data: payload });
 }
 async function createDomainPolicy(payload: {
+  accessPolicy: {
+    rules: {
+      type: 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL';
+      domain: Domain;
+    }[];
+  };
+  label: string;
   description: string;
-  domain: string;
-  domainName?: string;
-  footer: string;
-  messagesEnglish: string;
-  messagesFrench: string;
-  messagesRussian: string;
-  visible: boolean;
-  readonly: boolean;
 }) {
-  return await apiv4.post(`mail_footers`, payload);
+  return await apiv4.post(`domain_policies`, payload);
 }
 
 async function updateDomainPolicy(payload: DomainPolicy) {

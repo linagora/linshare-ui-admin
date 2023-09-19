@@ -1,5 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import api from '@/api';
+import apiv4 from '@/apiv4';
+
 import Domain from '@/modules/domain/types/Domain';
 import DomainTreeNode from '../types/DomainTreeNode';
 import { PaginatedList } from '@/core/types/PaginatedList';
@@ -10,6 +12,9 @@ async function listDomainsR2(config?: AxiosRequestConfig): Promise<PaginatedList
 
 async function getDomains(config?: AxiosRequestConfig): Promise<Domain[] | DomainTreeNode[]> {
   return await api.get('domains', config);
+}
+async function getDomainsV4(config?: AxiosRequestConfig): Promise<Domain[] | DomainTreeNode[]> {
+  return await apiv4.get('domains', config);
 }
 
 async function getDomain(uuid: string, configs?: AxiosRequestConfig): Promise<Domain> {
@@ -30,4 +35,4 @@ async function deleteDomain(domain: Domain): Promise<Domain> {
   return await api.delete(`domains/${domain.uuid}`);
 }
 
-export { createDomain, deleteDomain, getDomain, getDomains, listDomainsR2, updateDomain };
+export { createDomain, getDomainsV4, deleteDomain, getDomain, getDomains, listDomainsR2, updateDomain };

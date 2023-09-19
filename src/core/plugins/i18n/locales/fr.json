@@ -3033,5 +3033,23 @@
   },
   "PROFILE": {
     "SETTING": "Réglages"
+  },
+  "DOMAIN_POLICY": {
+    "CREATE_MODAL": {
+      "CREATE_MODAL_TITLE": "Créer une politique de domaine",
+      "DETAIL_TAB": "Détail",
+      "RULES_TAB": "Règles",
+      "NAME": "Nom",
+      "DESCRIPTION": "Description",
+      "PLACEHOLDER_NAME": "Nom de la politique de domaine",
+      "TYPE": "Type",
+      "SELECT_DOMAIN": "Sélectionner un domaine",
+      "ADD": "Ajouter",
+      "ALLOW": "Autoriser",
+      "ALLOW_ALL": "Autoriser tout",
+      "DENY": "Refuser",
+      "DENY_ALL": "Refuser tout",
+      "POLICY_LIST": "Liste des politiques"
+    }
   }
 }

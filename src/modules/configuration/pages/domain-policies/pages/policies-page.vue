@@ -23,6 +23,11 @@
     :destroy-on-close="true"
     wrap-class-name="domain-policies-page__modal"
   >
+    <creation-domain-policy-modal
+      v-if="modal.type === 'CREATE_DOMAIN_POLICY'"
+      @close="onCloseModal"
+      @refresh="onFetchDomainPolicy"
+    ></creation-domain-policy-modal>
   </a-modal>
 </template>
 
@@ -35,6 +40,7 @@ import { useDomainStore } from '@/modules/domain/store';
 import { SearchOutlined } from '@ant-design/icons-vue';
 import useDomainPolicies from '../hooks/useDomainPolicies';
 import DomainPolicyActions from '../components/domain-policy-actions.vue';
+import CreationDomainPolicyModal from '../components/creation-domain-policy-modal.vue';
 const {
   modal,
   list,

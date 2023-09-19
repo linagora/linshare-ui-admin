@@ -2775,5 +2775,23 @@
   },
   "PROFILE": {
     "SETTING": "Настройки"
+  },
+  "DOMAIN_POLICY": {
+    "CREATE_MODAL": {
+    "CREATE_MODAL_TITLE": "Создать политику домена",
+    "DETAIL_TAB": "Деталь",
+    "RULES_TAB": "Правила",
+    "NAME": "Имя",
+    "DESCRIPTION": "Описание",
+    "PLACEHOLDER_NAME": "Имя политики домена",
+    "TYPE": "Тип",
+    "SELECT_DOMAIN": "Выбрать домен",
+    "ADD": "Добавить",
+    "ALLOW": "Разрешить",
+    "ALLOW_ALL":"Разрешить все",
+    "DENY": "Отказать",
+    "DENY_ALL": "Отказать во всем",
+    "POLICY_LIST": "Список политик"
+    }
   }
 }

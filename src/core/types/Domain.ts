@@ -4,4 +4,6 @@ export default interface Domain {
   children?: Domain[];
   type?: string;
   uuid: string;
+  label?: string;
+  identifier?: string;
 }

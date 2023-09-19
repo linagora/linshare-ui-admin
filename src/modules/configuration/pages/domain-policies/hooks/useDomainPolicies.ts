@@ -44,11 +44,11 @@ const DomainPolicyUuid = reactive<{
 
 const modal = reactive<{
   type:
-    | 'CREATE_CONFIGURATION_EMAIL'
-    | 'ASSIGN_CONFIGURATION_EMAIL'
-    | 'DELETE_CONFIGURATION_EMAIL'
-    | 'DELETE_CONFIGURATIONS_EMAIL'
-    | 'DELETE_CONFIGURATIONS_FAIL_EMAIL';
+    | 'CREATE_DOMAIN_POLICY'
+    | 'ASSIGN_DOMAIN_POLICY'
+    | 'DELETE_DOMAIN_POLICY'
+    | 'DELETE_DOMAIN_POLICY'
+    | 'DELETE_DOMAIN_POLICY_FAIL';
   visible: boolean;
   multipleDeleteResponse?: {
     total: number;
@@ -58,7 +58,7 @@ const modal = reactive<{
     totalUnAuthoCases: number;
   };
 }>({
-  type: 'CREATE_CONFIGURATION_EMAIL',
+  type: 'CREATE_DOMAIN_POLICY',
   visible: false,
 });
 
@@ -75,7 +75,7 @@ const filteredListByPage = computed(() => {
   return filteredList.value.slice(firstIndex, lastIndex);
 });
 
-export default function useEmailTemplatesConfiguration() {
+export default function useDomainPolicies() {
   // composable
   const { t } = useI18n();
   const router = useRouter();
@@ -109,12 +109,12 @@ export default function useEmailTemplatesConfiguration() {
 
   function onCreateDomainPolicy(email: DomainPolicy) {
     activeDomainPolicy.value = email;
-    modal.type = 'CREATE_CONFIGURATION_EMAIL';
+    modal.type = 'CREATE_DOMAIN_POLICY';
     modal.visible = true;
   }
 
   function onDeleteDomainPolicies() {
-    modal.type = 'DELETE_CONFIGURATIONS_EMAIL';
+    modal.type = 'DELETE_DOMAIN_POLICY';
     modal.visible = true;
   }
 
@@ -125,7 +125,7 @@ export default function useEmailTemplatesConfiguration() {
     totalAssignCases: number;
     totalUnAuthoCases: number;
   }) {
-    modal.type = 'DELETE_CONFIGURATIONS_FAIL_EMAIL';
+    modal.type = 'DELETE_DOMAIN_POLICY_FAIL';
     modal.visible = true;
     modal.multipleDeleteResponse = response;
   }
@@ -156,14 +156,14 @@ export default function useEmailTemplatesConfiguration() {
 
   function onAssignDomainPolicy(DomainPolicy: DomainPolicy) {
     activeDomainPolicy.value = DomainPolicy;
-    modal.type = 'ASSIGN_CONFIGURATION_EMAIL';
+    modal.type = 'ASSIGN_DOMAIN_POLICY';
     modal.visible = true;
   }
 
   function onDeleteDomainPolicy(DomainPolicy: DomainPolicy) {
     activeDomainPolicy.value = DomainPolicy;
     DomainPolicyUuid.uuid = DomainPolicy.uuid;
-    modal.type = 'DELETE_CONFIGURATION_EMAIL';
+    modal.type = 'DELETE_DOMAIN_POLICY';
     modal.visible = true;
   }
 
@@ -192,14 +192,14 @@ export default function useEmailTemplatesConfiguration() {
   }
 
   async function handleCreateDomainPolicy(payload: {
-    name: string;
-    domain: string | null;
-    domainName: string | undefined;
-    mailContentLangs: any[];
-    mailFooterLangs: any;
-    mailLayout: string | undefined;
-    visible: boolean;
-    readonly: boolean;
+    accessPolicy: {
+      rules: {
+        type: 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL';
+        domain: Domain;
+      }[];
+    };
+    label: string;
+    description: string;
   }) {
     try {
       loading.value = true;
