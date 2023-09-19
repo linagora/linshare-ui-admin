@@ -25,7 +25,7 @@ const filteredListByPage = computed(() => {
 
 async function getSharesByFileCountInformations() {
   const parameters = {
-    domainUuids: [domains.value.map((domainUuids) => domainUuids.uuid)],
+    domainUuids: domains.value.map((domainUuids) => domainUuids.uuid),
     beginDate: beginDate.value?.format('YYYY-MM-DD'),
     endDate: endDate.value?.format('YYYY-MM-DD'),
     page: topSharesFileCountPagination.current - 1,
