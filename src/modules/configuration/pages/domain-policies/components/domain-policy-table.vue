@@ -1,13 +1,13 @@
 <template>
   <div class="domain-policy-table">
     <a-table
-      key="uuid"
+      key="identifier"
       class="domain-policy-table__table"
       :columns="columns"
       :pagination="false"
       :data-source="filteredListByPage"
       :row-selection="rowSelection"
-      row-key="uuid"
+      row-key="identifier"
       :loading="status === STATUS.LOADING"
     >
       <template #bodyCell="{ column, record }">
@@ -102,7 +102,7 @@ const isSuperAdmin = computed(() => {
 
 const rowSelection = computed(() => ({
   checkStrictly: false,
-  selectedRowKeys: selectedDomainPolicies.value?.map((item) => item.uuid) ?? [],
+  selectedRowKeys: selectedDomainPolicies.value?.map((item) => item.identifier) ?? [],
   onSelect: (record: DomainPolicy, selected: boolean, selectedRows: DomainPolicy[]) => {
     selectedDomainPolicies.value = selectedRows;
   },

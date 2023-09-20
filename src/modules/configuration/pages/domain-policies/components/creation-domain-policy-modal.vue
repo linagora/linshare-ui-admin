@@ -1,10 +1,10 @@
 <template>
   <a-form ref="formRef">
-    <a-card flat :bordered="false" class="create-mail-content-card">
-      <div class="create-mail-content-card__title">{{ $t('DOMAIN_POLICY.CREATE_MODAL.CREATE_MODAL_TITLE') }}</div>
+    <a-card flat :bordered="false" class="create-domain-policy-card">
+      <div class="create-domain-policy-card__title">{{ $t('DOMAIN_POLICY.CREATE_MODAL.CREATE_MODAL_TITLE') }}</div>
       <a-tabs centered>
         <a-tab-pane key="1" :tab="$t('DOMAIN_POLICY.CREATE_MODAL.DETAIL_TAB')">
-          <div class="create-mail-content-card__form">
+          <div class="create-domain-policy-card__form">
             <a-form-item
               class="ls-form-title"
               v-bind="validateInfos.label"
@@ -28,7 +28,7 @@
           </div>
         </a-tab-pane>
         <a-tab-pane key="2" :tab="$t('DOMAIN_POLICY.CREATE_MODAL.RULES_TAB')">
-          <div class="create-mail-content-card__rule-form">
+          <div class="create-domain-policy-card__rule-form">
             <a-form-item style="width: 100px" class="ls-form-title" :label="$t('DOMAIN_POLICY.CREATE_MODAL.TYPE')">
               <a-select v-model:value="selectRule.rule" class="ls-input" :bordered="false">
                 <a-select-option v-for="s in rules" :key="s.value" :value="s.value">
@@ -52,12 +52,12 @@
               {{ $t('DOMAIN_POLICY.CREATE_MODAL.ADD') }}
             </a-button>
           </div>
-          <div class="create-mail-content-card__rule-list">
+          <div class="create-domain-policy-card__rule-list">
             <span>{{ $t('DOMAIN_POLICY.CREATE_MODAL.POLICY_LIST') }}</span>
             <div
               v-for="(item, index) in form.accessPolicy.rules"
               :key="index + '__rule-item'"
-              class="create-mail-content-card__rule-item"
+              class="create-domain-policy-card__rule-item"
             >
               <a-button class="ls-button ls-add">
                 <UpOutlined />
@@ -65,7 +65,7 @@
               <a-button class="ls-button ls-add">
                 <DownOutlined />
               </a-button>
-              <div class="create-mail-content-card__rule-item-content">
+              <div class="create-domain-policy-card__rule-item-content">
                 <span>{{ $t(`DOMAIN_POLICY.CREATE_MODAL.${item.type}`) }}</span>
                 <span>{{ item.domain.label }}</span>
               </div>
@@ -76,7 +76,7 @@
           </div>
         </a-tab-pane>
       </a-tabs>
-      <div class="create-mail-content-card__actions">
+      <div class="create-domain-policy-card__actions">
         <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>
         <a-button class="ls-button ls-save" type="primary" @click="onCreateEmailContent">
           <a-spin v-if="loading" />

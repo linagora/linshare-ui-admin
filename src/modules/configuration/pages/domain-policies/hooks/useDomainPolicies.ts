@@ -135,9 +135,7 @@ export default function useDomainPolicies() {
     try {
       const messages = await getDomainPolicyList(currentDomain.value.uuid, onlyCurrentDomain);
       status.value = STATUS.SUCCESS;
-      list.value = messages?.map((item) => {
-        return { ...item, assigned: isAssigned(item.uuid, currentDomain.value.DomainPolicy?.uuid) };
-      });
+      list.value = messages;
     } catch (error) {
       status.value = STATUS.ERROR;
 
@@ -217,23 +215,18 @@ export default function useDomainPolicies() {
   }
   async function handleDeleteDomainPolicy(activeDomainPolicy: DomainPolicy) {
     try {
-      if (!activeDomainPolicy || !activeDomainPolicy?.uuid) {
+      if (!activeDomainPolicy) {
         return false;
       }
       loading.value = true;
-      if (activeDomainPolicy?.assigned) {
-        message.error(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ERROR_ASSIGNED'));
-        loading.value = false;
-        return false;
-      }
-      await deleteDomainPolicy(DomainPolicyUuid);
+      await deleteDomainPolicy(activeDomainPolicy);
       return true;
     } catch (error) {
       if (error instanceof APIError) {
         if (error.errorCode === 16666) {
-          message.error(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ERROR_ASSIGNED'));
+          message.error(t('DOMAIN_POLICY.DELETE_MODAL.DELETE_ERROR_ASSIGNED'));
         } else if (error.errorCode === 166678) {
-          message.error(t('EMAIL_TEMPLATES.DELETE_MODAL.DELETE_ERROR_UNAUTHORIZED'));
+          message.error(t('DOMAIN_POLICY.DELETE_MODAL.DELETE_ERROR_UNAUTHORIZED'));
         } else {
           message.error(error.getMessage());
         }

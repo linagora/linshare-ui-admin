@@ -14,7 +14,7 @@ async function assignDomainPolicy(domainUuid: string, DomainPolicyUuid: string) 
   return await apiv4.post(`domain_policies/${domainUuid}/mail_config/${DomainPolicyUuid}/assign`);
 }
 
-async function deleteDomainPolicy(payload: { uuid: string }): Promise<DomainPolicy> {
+async function deleteDomainPolicy(payload: DomainPolicy): Promise<DomainPolicy> {
   return await apiv4.delete('domain_policies', { data: payload });
 }
 async function createDomainPolicy(payload: {

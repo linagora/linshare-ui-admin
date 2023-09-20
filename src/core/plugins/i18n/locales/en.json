@@ -3067,6 +3067,11 @@
       "DENY": "Deny",
       "DENY_ALL": "Deny all",
       "POLICY_LIST": "Policies list"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_TITLE": "Delete domain policy",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this domain policy, and this procedure is irreversible. Do you want to proceed?",
+      "DELETE_SUCCESS":"Deleted successfully"
     }
   }
 }

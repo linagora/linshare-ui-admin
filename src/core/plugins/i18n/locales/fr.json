@@ -3050,6 +3050,11 @@
       "DENY": "Refuser",
       "DENY_ALL": "Refuser tout",
       "POLICY_LIST": "Liste des politiques"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_TITLE": "Supprimer la politique de domaine",
+      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer cette politique de domaine, et cette procédure est irréversible. Voulez-vous continuer ?",
+      "DELETE_SUCCESS": "Supprimé avec succès"
     }
   }
 }

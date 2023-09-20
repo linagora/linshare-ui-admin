@@ -3017,20 +3017,25 @@
   },
   "DOMAIN_POLICY": {
     "CREATE_MODAL": {
-    "CREATE_MODAL_TITLE": "Tạo chính sách miền",
-    "DETAIL_TAB": "Chi tiết",
-    "RULES_TAB": "Quy tắc",
-    "NAME": "Tên",
-    "DESCRIPTION": "Mô tả",
-    "PLACEHOLDER_NAME": "Tên chính sách miền",
-    "TYPE": "Loại",
-    "SELECT_DOMAIN": "Chọn miền",
-    "ADD": "Thêm",
-    "ALLOW": "Cho phép",
-    "ALLOW_ALL":"Cho phép tất cả",
-    "DENY": "Từ chối",
-    "DENY_ALL": "Từ chối tất cả",
-    "POLICY_LIST": "Danh sách chính sách"
+      "CREATE_MODAL_TITLE": "Tạo chính sách miền",
+      "DETAIL_TAB": "Chi tiết",
+      "RULES_TAB": "Quy tắc",
+      "NAME": "Tên",
+      "DESCRIPTION": "Mô tả",
+      "PLACEHOLDER_NAME": "Tên chính sách miền",
+      "TYPE": "Loại",
+      "SELECT_DOMAIN": "Chọn miền",
+      "ADD": "Thêm",
+      "ALLOW": "Cho phép",
+      "ALLOW_ALL": "Cho phép tất cả",
+      "DENY": "Từ chối",
+      "DENY_ALL": "Từ chối tất cả",
+      "POLICY_LIST": "Danh sách chính sách"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_TITLE": "Xóa chính sách miền",
+      "DELETE_MODAL_SUBTITLE": "Bạn sắp xóa chính sách miền này và thủ tục này không thể đảo ngược. Bạn có muốn tiếp tục?",
+      "DELETE_SUCCESS": "Xóa thành công"
     }
   }
 }

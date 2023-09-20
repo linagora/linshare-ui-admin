@@ -2778,20 +2778,25 @@
   },
   "DOMAIN_POLICY": {
     "CREATE_MODAL": {
-    "CREATE_MODAL_TITLE": "Создать политику домена",
-    "DETAIL_TAB": "Деталь",
-    "RULES_TAB": "Правила",
-    "NAME": "Имя",
-    "DESCRIPTION": "Описание",
-    "PLACEHOLDER_NAME": "Имя политики домена",
-    "TYPE": "Тип",
-    "SELECT_DOMAIN": "Выбрать домен",
-    "ADD": "Добавить",
-    "ALLOW": "Разрешить",
-    "ALLOW_ALL":"Разрешить все",
-    "DENY": "Отказать",
-    "DENY_ALL": "Отказать во всем",
-    "POLICY_LIST": "Список политик"
+      "CREATE_MODAL_TITLE": "Создать политику домена",
+      "DETAIL_TAB": "Деталь",
+      "RULES_TAB": "Правила",
+      "NAME": "Имя",
+      "DESCRIPTION": "Описание",
+      "PLACEHOLDER_NAME": "Имя политики домена",
+      "TYPE": "Тип",
+      "SELECT_DOMAIN": "Выбрать домен",
+      "ADD": "Добавить",
+      "ALLOW": "Разрешить",
+      "ALLOW_ALL": "Разрешить все",
+      "DENY": "Отказать",
+      "DENY_ALL": "Отказать во всем",
+      "POLICY_LIST": "Список политик"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_TITLE": "Удалить политику домена",
+      "DELETE_MODAL_SUBTITLE": "Вы собираетесь удалить эту политику домена, и эта процедура является необратимой. Хотите продолжить?",
+      "DELETE_SUCCESS": "Успешно удалено"
     }
   }
 }

@@ -28,6 +28,11 @@
       @close="onCloseModal"
       @refresh="onFetchDomainPolicy"
     ></creation-domain-policy-modal>
+    <delete-domain-policy-card
+      v-if="modal.type === 'DELETE_DOMAIN_POLICY'"
+      @close="onCloseModal"
+      @refresh="onFetchDomainPolicy"
+    ></delete-domain-policy-card>
   </a-modal>
 </template>
 
@@ -41,6 +46,7 @@ import { SearchOutlined } from '@ant-design/icons-vue';
 import useDomainPolicies from '../hooks/useDomainPolicies';
 import DomainPolicyActions from '../components/domain-policy-actions.vue';
 import CreationDomainPolicyModal from '../components/creation-domain-policy-modal.vue';
+import DeleteDomainPolicyCard from '../components/delete-domain-policy-card.vue';
 const {
   modal,
   list,
