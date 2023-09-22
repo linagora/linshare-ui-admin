@@ -8,6 +8,8 @@ export interface DomainPolicy {
     rules: DomainPolicyRule[];
   };
   assigned?: boolean;
+  creationDate?: number;
+  modificationDate?: number;
 }
 
 export interface DomainPolicyRule {

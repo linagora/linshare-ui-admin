@@ -20,12 +20,12 @@
           </a-tag>
           <a-tag v-else color="red"> {{ $t('EMAIL_TEMPLATES.READ_ONLY') }}</a-tag>
         </template>
-        <!-- <template v-else-if="column.key === 'creationDate'">
+        <template v-else-if="column.key === 'creationDate'">
           <span>{{ $d(record?.creationDate, 'mediumDate') }}</span>
         </template>
         <template v-else-if="column.key === 'modificationDate'">
           <span>{{ $d(record?.modificationDate, 'mediumDate') }}</span>
-        </template> -->
+        </template>
         <template v-else-if="column.key === 'assigned'">
           <a-tag v-if="record.assigned" color="success">
             {{ $t('GENERAL.ASSIGNED') }}
@@ -128,20 +128,19 @@ const columns = computed(() => [
     sorter: (a: DomainPolicy, b: DomainPolicy) => a.description.localeCompare(b.description),
     key: 'description',
   },
-
-  // {
-  //   title: t('GENERAL.CREATION_DATE'),
-  //   dataIndex: ['creationDate'],
-  //   sorter: (a: DomainPolicy, b: DomainPolicy) => (a.creationDate || 0) - (b.creationDate || 0),
-  //   key: 'creationDate',
-  // },
-  // {
-  //   title: t('GENERAL.MODIFICATION_DATE'),
-  //   dataIndex: ['modificationDate'],
-  //   sorter: (a: DomainPolicy, b: DomainPolicy) => (a.modificationDate || 0) - (b.modificationDate || 0),
-  //   defaultSortOrder: 'descend',
-  //   key: 'modificationDate',
-  // },
+  {
+    title: t('GENERAL.CREATION_DATE'),
+    dataIndex: ['creationDate'],
+    sorter: (a: DomainPolicy, b: DomainPolicy) => (a.creationDate || 0) - (b.creationDate || 0),
+    key: 'creationDate',
+  },
+  {
+    title: t('GENERAL.MODIFICATION_DATE'),
+    dataIndex: ['modificationDate'],
+    sorter: (a: DomainPolicy, b: DomainPolicy) => (a.modificationDate || 0) - (b.modificationDate || 0),
+    defaultSortOrder: 'descend',
+    key: 'modificationDate',
+  },
   {
     title: t('GENERAL.ASSIGNED'),
     key: 'assigned',
