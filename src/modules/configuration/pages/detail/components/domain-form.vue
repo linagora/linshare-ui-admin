@@ -38,14 +38,8 @@
       <div class="input-container">
         <label>{{ $t('DOMAIN.FIELDS.NOTIFICATION_LANGUAGE') }}</label>
         <a-select v-model:value="formState.defaultEmailLanguage">
-          <a-select-option value="ENGLISH">
-            {{ $t('LOCALE.ENGLISH') }}
-          </a-select-option>
-          <a-select-option value="FRENCH">
-            {{ $t('LOCALE.FRENCH') }}
-          </a-select-option>
-          <a-select-option value="SHIET">
-            {{ $t('LOCALE.RUSSIAN') }}
+          <a-select-option v-for="option in languageOptions" :key="option" :value="option">
+            {{ $t(`LOCALE.${option}`) }}
           </a-select-option>
         </a-select>
         <small>{{ $t('DOMAIN.FIELDS.NOTIFICATION_LANGUAGE_HELPER') }}</small>
@@ -117,6 +111,15 @@ export default defineComponent({
       return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
     });
 
+    const languageOptions = computed(() => {
+      return [
+        { label: t(`LOCALE.ENGLISH`), value: 'ENGLISH' },
+        { label: t(`LOCALE.FRENCH`), value: 'FRENCH' },
+        { label: t(`LOCALE.RUSSIAN`), value: 'RUSSIAN' },
+        { label: t(`LOCALE.VIETNAMESE`), value: 'VIETNAMESE' },
+      ];
+    });
+
     watchEffect(() => {
       if (props.data.uuid) {
         formState.name = props.data.name;
@@ -165,6 +168,7 @@ export default defineComponent({
       isRootDomain,
       isSuperAdmin,
       validateInfos,
+      languageOptions,
     };
   },
 });

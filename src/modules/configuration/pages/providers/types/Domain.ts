@@ -9,7 +9,7 @@ export default interface Domain {
   uuid: string;
   name: string;
   description?: string;
-  language?: 'RUSSIAN' | 'ENGLISH' | 'FRENCH';
+  language?: 'RUSSIAN' | 'ENGLISH' | 'FRENCH' | 'VIETNAMESE';
   creationDate?: number;
   modificationDate?: number;
   defaultEmailLanguage?: string;

@@ -51,6 +51,8 @@ const formRules = reactive({
 });
 const { validate, validateInfos } = Form.useForm(formModel, formRules);
 
+const languageNotificationOptions = ['ENGLISH', 'FRENCH', 'RUSSIAN', 'VIETNAMESE'];
+
 async function checkGuestFeature() {
   if (!isGuestUser.value) {
     try {
@@ -162,11 +164,8 @@ checkGuestFeature();
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.NOTIFICATION_LANGUAGE') }}</label>
           <a-select v-model:value="formModel.externalMailLocale">
-            <a-select-option value="ENGLISH">
-              {{ $t('LOCALE.ENGLISH') }}
-            </a-select-option>
-            <a-select-option value="FRENCH">
-              {{ $t('LOCALE.FRENCH') }}
+            <a-select-option v-for="option in languageNotificationOptions" :key="option" :value="option">
+              {{ $t(`LOCALE.${option}`) }}
             </a-select-option>
           </a-select>
         </div>

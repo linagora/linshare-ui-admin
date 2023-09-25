@@ -125,7 +125,7 @@ const {
   handleTableChange,
 } = useUsersDiagnostic();
 const defaultLanguageOptions = ['ENGLISH', 'FRENCH', 'RUSSIAN', 'VIETNAMESE'];
-const languageNotificationOptions = ['ENGLISH', 'FRENCH', 'RUSSIAN'];
+const languageNotificationOptions = ['ENGLISH', 'FRENCH', 'RUSSIAN', 'VIETNAMESE'];
 const showMigrationModal = ref(false);
 const { t } = useI18n();
 const { confirmModal } = useNotification();
