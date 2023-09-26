@@ -1,13 +1,13 @@
 <template>
-  <a-card flat :bordered="false" class="delete-mail-contents-fail-card">
-    <span class="delete-mail-contents-fail-card__icon">
+  <a-card flat :bordered="false" class="delete-domain-policies-fail-card">
+    <span class="delete-domain-policies-fail-card__icon">
       <warning-icon width="36" height="36"></warning-icon>
     </span>
-    <div class="delete-mail-contents-fail-card__content">
-      <strong>{{ $t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_FAILURE') }}</strong>
+    <div class="delete-domain-policies-fail-card__content">
+      <strong>{{ $t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_FAILURE') }}</strong>
       <span>{{ deleteMessage }}</span>
     </div>
-    <div class="delete-mail-contents-fail-card__actions">
+    <div class="delete-domain-policies-fail-card__actions">
       <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.OK') }}</a-button>
     </div>
   </a-card>
@@ -16,11 +16,11 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import WarningIcon from '@/core/components/icons/warning-icon.vue';
-import useEmailTemplatesContent from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesContent';
+import useDomainPolicies from '@/modules/configuration/pages/domain-policies/hooks/useDomainPolicies';
 
 // composable
 const { t } = useI18n();
-const { modal } = useEmailTemplatesContent();
+const { modal } = useDomainPolicies();
 //props & emits
 const emits = defineEmits(['close', 'refresh']);
 
@@ -29,30 +29,30 @@ const emits = defineEmits(['close', 'refresh']);
 const deleteMessage = computed(() => {
   if (modal.multipleDeleteResponse?.total === 1) {
     if (modal.multipleDeleteResponse?.totalAssignCases === 1) {
-      return t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_ASSIGNED');
+      return t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_ERROR_ASSIGNED');
     } else if (modal.multipleDeleteResponse?.totalUnAuthoCases === 1) {
-      return t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_UNAUTHORIZED');
+      return t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_ERROR_UNAUTHORIZED');
     } else {
-      return t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_ONE');
+      return t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_ERROR_ONE');
     }
   } else if (modal.multipleDeleteResponse?.total === modal?.multipleDeleteResponse?.totalFail) {
     if (modal.multipleDeleteResponse?.totalAssignCases === modal.multipleDeleteResponse?.totalFail) {
-      return t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_ASSIGNED_ALL');
+      return t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_ERROR_ASSIGNED_ALL');
     } else if (modal.multipleDeleteResponse?.totalUnAuthoCases === modal.multipleDeleteResponse?.totalFail) {
-      return t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_UNAUTHORIZED_ALL');
+      return t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_ERROR_UNAUTHORIZED_ALL');
     } else {
-      return t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_ALL');
+      return t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_ERROR_ALL');
     }
   } else {
     if (modal?.multipleDeleteResponse?.totalAssignCases && modal?.multipleDeleteResponse?.totalAssignCases > 0) {
-      return t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_ASSIGNED_SOME');
+      return t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_ERROR_ASSIGNED_SOME');
     } else if (
       modal?.multipleDeleteResponse?.totalUnAuthoCases &&
       modal?.multipleDeleteResponse?.totalUnAuthoCases > 0
     ) {
-      return t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_UNAUTHORIZED_SOME');
+      return t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_ERROR_UNAUTHORIZED_SOME');
     } else {
-      return t('EMAIL_TEMPLATES.DELETE_CONTENT_MODAL.DELETE_ERROR_SOME_OF_THEM');
+      return t('DOMAIN_POLICY.DELETE_CONTENT_MODAL.DELETE_ERROR_SOME_OF_THEM');
     }
   }
 });
@@ -63,7 +63,7 @@ function onCloseModal() {
 }
 </script>
 <style lang="less">
-.delete-mail-contents-fail-card {
+.delete-domain-policies-fail-card {
   .ant-card-body {
     display: flex;
     flex-direction: column;

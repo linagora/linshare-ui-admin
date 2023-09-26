@@ -29,10 +29,22 @@
       @refresh="onFetchDomainPolicy"
     ></creation-domain-policy-modal>
     <delete-domain-policy-card
-      v-if="modal.type === 'DELETE_DOMAIN_POLICY'"
+      v-else-if="modal.type === 'DELETE_DOMAIN_POLICY'"
       @close="onCloseModal"
       @refresh="onFetchDomainPolicy"
     ></delete-domain-policy-card>
+    <delete-domain-policies-card
+      v-else-if="modal.type === 'DELETE_DOMAIN_POLICIES'"
+      @close="onCloseModal"
+      @refresh="onFetchDomainPolicy"
+    >
+    </delete-domain-policies-card>
+    <delete-domain-policy-fail-card
+      v-else-if="modal.type === 'DELETE_DOMAIN_POLICY_FAIL'"
+      @close="onCloseModal"
+      @refresh="onFetchDomainPolicy"
+    >
+    </delete-domain-policy-fail-card>
   </a-modal>
 </template>
 
@@ -47,6 +59,9 @@ import useDomainPolicies from '../hooks/useDomainPolicies';
 import DomainPolicyActions from '../components/domain-policy-actions.vue';
 import CreationDomainPolicyModal from '../components/creation-domain-policy-modal.vue';
 import DeleteDomainPolicyCard from '../components/delete-domain-policy-card.vue';
+import DeleteDomainPoliciesCard from '../components/delete-domain-policies-card.vue';
+import DeleteDomainPolicyFailCard from '../components/delete-domain-policy-fail-card.vue';
+
 const {
   modal,
   list,

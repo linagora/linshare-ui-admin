@@ -3071,7 +3071,14 @@
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_TITLE": "Delete domain policy",
       "DELETE_MODAL_SUBTITLE": "You are about to delete this domain policy, and this procedure is irreversible. Do you want to proceed?",
-      "DELETE_SUCCESS":"Deleted successfully"
+      "DELETE_SUCCESS":"Deleted successfully",
+      "DELETE_SELECTED_DOMAIN_POLICIES": "Delete selected domain policies",
+      "DELETE_SELECTED_DOMAIN_POLICIES_SUBTITLE": "You are about to delete {qty} domain policies. This procedure is irreversible. Do you want to proceed?",
+      "DELETE_ACTION_CANCEL": "Cancel",
+      "DELETE_ACTION_CONFIRM": "Yes, delete",
+      "DELETE_FAILURE": "Delete failed",
+      "DELETE_ERROR_ASSIGNED": "Selected domain is associated with at least one domain. You cannot delete",
+      "DELETE_ERROR_ASSIGNED_ALL": "You are unable to delete those domain policies"
     }
   }
 }

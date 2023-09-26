@@ -47,7 +47,7 @@ const modal = reactive<{
     | 'CREATE_DOMAIN_POLICY'
     | 'ASSIGN_DOMAIN_POLICY'
     | 'DELETE_DOMAIN_POLICY'
-    | 'DELETE_DOMAIN_POLICY'
+    | 'DELETE_DOMAIN_POLICIES'
     | 'DELETE_DOMAIN_POLICY_FAIL';
   visible: boolean;
   multipleDeleteResponse?: {
@@ -114,7 +114,7 @@ export default function useDomainPolicies() {
   }
 
   function onDeleteDomainPolicies() {
-    modal.type = 'DELETE_DOMAIN_POLICY';
+    modal.type = 'DELETE_DOMAIN_POLICIES';
     modal.visible = true;
   }
 
@@ -251,7 +251,7 @@ export default function useDomainPolicies() {
 
       loading.value = true;
       const deletePromises = selectedDomainPolicies.value?.map((item) => {
-        return deleteDomainPolicy({ uuid: item?.uuid });
+        return deleteDomainPolicy(item);
       });
       if (!deletePromises) {
         return {
@@ -269,7 +269,7 @@ export default function useDomainPolicies() {
           totalSuccess: results.filter((item) => item.status === 'fulfilled')?.length ?? 0,
           totalFail: results.filter((item) => item.status === 'rejected')?.length ?? 0,
           totalAssignCases:
-            results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 16666)?.length ?? 0,
+            results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 1000)?.length ?? 0,
           totalUnAuthoCases:
             results.filter((item) => item.status === 'rejected' && item.reason?.errorCode === 166678)?.length ?? 0,
         };
@@ -292,14 +292,10 @@ export default function useDomainPolicies() {
       const messages = await getDomainPolicyDetail(uuid, currentDomain.value.uuid);
       status.value = STATUS.SUCCESS;
       activeDomainPolicy.value = messages;
-      activeDomainPolicy.value.selectLanguage = 'ENGLISH';
 
       activeDomainPolicyForm.value = {
-        uuid: messages?.uuid ?? activeDomainPolicy.value?.uuid,
-        name: messages?.name,
-        visible: messages?.visible,
-        mailLayout: messages?.mailLayout,
-        selectLanguage: activeDomainPolicy.value.selectLanguage,
+        label: messages?.label,
+        description: messages?.description,
       };
       defaultDomainPolicyForm.value = { ...activeDomainPolicyForm.value };
     } catch (error) {

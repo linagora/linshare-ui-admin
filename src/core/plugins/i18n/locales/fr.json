@@ -3054,7 +3054,14 @@
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_TITLE": "Supprimer la politique de domaine",
       "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer cette politique de domaine, et cette procédure est irréversible. Voulez-vous continuer ?",
-      "DELETE_SUCCESS": "Supprimé avec succès"
+      "DELETE_SUCCESS": "Supprimé avec succès",
+      "DELETE_SELECTED_DOMAIN_POLICIES": "Supprimer les politiques de domaine sélectionnées",
+      "DELETE_SELECTED_DOMAIN_POLICIES_SUBTITLE": "Vous êtes sur le point de supprimer {qty} politiques de domaine. Cette procédure est irréversible. Voulez-vous continuer ?",
+      "DELETE_ACTION_CANCEL": "Annuler",
+      "DELETE_ACTION_CONFIRM": "Oui, supprimer",
+      "DELETE_FAILURE": "Échec de la suppression",
+      "DELETE_ERROR_ASSIGNED": "Le domaine sélectionné est associé à au moins un autre domaine. Vous ne pouvez pas le supprimer.",
+      "DELETE_ERROR_ASSIGNED_ALL": "Vous ne pouvez pas supprimer ces politiques de domaine"
     }
   }
 }

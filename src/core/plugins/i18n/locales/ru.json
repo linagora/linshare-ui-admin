@@ -2796,7 +2796,14 @@
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_TITLE": "Удалить политику домена",
       "DELETE_MODAL_SUBTITLE": "Вы собираетесь удалить эту политику домена, и эта процедура является необратимой. Хотите продолжить?",
-      "DELETE_SUCCESS": "Успешно удалено"
+      "DELETE_SUCCESS": "Успешно удалено",
+      "DELETE_SELECTED_DOMAIN_POLICIES": "Удалить выбранные политики домена",
+      "DELETE_SELECTED_DOMAIN_POLICIES_SUBTITLE": "Вы собираетесь удалить {qty} политик домена. Эта процедура является необратимой. Хотите продолжить?",
+      "DELETE_ACTION_CANCEL": "Отменить",
+      "DELETE_ACTION_CONFIRM": "Да, удалить",
+      "DELETE_FAILURE": "Удаление не удалось",
+      "DELETE_ERROR_ASSIGNED": "Выбранный домен связан с по крайней мере еще одним доменом. Вы не можете его удалить. ",
+      "DELETE_ERROR_ASSIGNED_ALL": "Вы не можете удалить эти политики домена"
     }
   }
 }

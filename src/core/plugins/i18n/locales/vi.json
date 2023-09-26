@@ -3035,7 +3035,14 @@
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_TITLE": "Xóa chính sách miền",
       "DELETE_MODAL_SUBTITLE": "Bạn sắp xóa chính sách miền này và thủ tục này không thể đảo ngược. Bạn có muốn tiếp tục?",
-      "DELETE_SUCCESS": "Xóa thành công"
+      "DELETE_SUCCESS": "Xóa thành công",
+      "DELETE_SELECTED_DOMAIN_POLICIES": "Xóa các chính sách miền đã chọn",
+      "DELETE_SELECTED_DOMAIN_POLICIES_SUBTITLE": "Bạn sắp xóa {qty} chính sách miền. Thủ tục này không thể đảo ngược. Bạn có muốn tiếp tục?",
+      "DELETE_ACTION_CANCEL": "Hủy",
+      "DELETE_ACTION_CONFIRM": "Vâng, xóa",
+      "DELETE_FAILURE": "Xóa thất bại",
+      "DELETE_ERROR_ASSIGNED": "Chính sách miền đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
+      "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các chính sách miền đó"
     }
   }
 }
