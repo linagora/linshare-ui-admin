@@ -3062,6 +3062,10 @@
       "DELETE_FAILURE": "Échec de la suppression",
       "DELETE_ERROR_ASSIGNED": "Le domaine sélectionné est associé à au moins un autre domaine. Vous ne pouvez pas le supprimer.",
       "DELETE_ERROR_ASSIGNED_ALL": "Vous ne pouvez pas supprimer ces politiques de domaine"
-    }
+    },
+    "ASSIGN_MODAL": {
+      "TITLE": "Assigner une politique de domaine",
+      "ASSIGN_CONFIRM": "Vous êtes sur le point d'assigner cette politique de domaine au domaine actuel. Souhaitez-vous continuer ?"
+      }
   }
 }

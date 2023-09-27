@@ -3043,6 +3043,10 @@
       "DELETE_FAILURE": "Xóa thất bại",
       "DELETE_ERROR_ASSIGNED": "Chính sách miền đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
       "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các chính sách miền đó"
-    }
+    },
+    "ASSIGN_MODAL": {
+      "TITLE": "Gán một Chính sách miền",
+      "ASSIGN_CONFIRM": "Bạn đang chuẩn bị gán chính sách miền này cho miền hiện tại. Bạn có muốn tiếp tục không?"
+      }
   }
 }

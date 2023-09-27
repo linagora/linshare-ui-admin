@@ -3079,6 +3079,10 @@
       "DELETE_FAILURE": "Delete failed",
       "DELETE_ERROR_ASSIGNED": "Selected domain is associated with at least one domain. You cannot delete",
       "DELETE_ERROR_ASSIGNED_ALL": "You are unable to delete those domain policies"
+    },
+    "ASSIGN_MODAL":{
+      "TITLE": "Assign a Domain Policy",
+      "ASSIGN_CONFIRM": "You are about to assign this domain policy to the current domain. Do you want to proceed?"
     }
   }
 }

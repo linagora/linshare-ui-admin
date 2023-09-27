@@ -45,6 +45,11 @@
       @refresh="onFetchDomainPolicy"
     >
     </delete-domain-policy-fail-card>
+    <assign-domain-policy-card
+      v-if="modal.type === 'ASSIGN_DOMAIN_POLICY'"
+      @close="onCloseModal"
+      @refresh="onFetchDomainPolicy"
+    ></assign-domain-policy-card>
   </a-modal>
 </template>
 
@@ -61,7 +66,7 @@ import CreationDomainPolicyModal from '../components/creation-domain-policy-moda
 import DeleteDomainPolicyCard from '../components/delete-domain-policy-card.vue';
 import DeleteDomainPoliciesCard from '../components/delete-domain-policies-card.vue';
 import DeleteDomainPolicyFailCard from '../components/delete-domain-policy-fail-card.vue';
-
+import AssignDomainPolicyCard from '../components/assign-domain-policy-card.vue';
 const {
   modal,
   list,

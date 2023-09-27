@@ -39,11 +39,7 @@
             </a-button>
             <template #overlay>
               <a-menu>
-                <a-menu-item
-                  v-if="allowAssigned(record)"
-                  :disabled="record.assigned"
-                  @click="onAssignDomainPolicy(record)"
-                >
+                <a-menu-item v-if="allowAssigned()" :disabled="record.assigned" @click="onAssignDomainPolicy(record)">
                   <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
                 </a-menu-item>
                 <a-menu-item v-if="allowView(record)" @click="onEditDomainPolicy(record)">
@@ -94,6 +90,7 @@ const { t } = useI18n();
 const authStore = useAuthStore();
 const domainStore = useDomainStore();
 const { loggedUser } = storeToRefs(authStore);
+const { isRootDomain } = storeToRefs(domainStore);
 
 // computed
 const isSuperAdmin = computed(() => {
@@ -171,8 +168,8 @@ function allowView(record: DomainPolicy) {
   return !allowEdit(record);
 }
 
-function allowAssigned(record: DomainPolicy) {
-  return isSuperAdmin.value;
+function allowAssigned() {
+  return !isRootDomain.value && isSuperAdmin.value;
 }
 </script>
 

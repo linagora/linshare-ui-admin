@@ -1,4 +1,5 @@
 import apiv4 from '@/apiv4';
+import api from '@/api';
 import { DomainPolicy } from '../types/DomainPolicy';
 import Domain from '@/core/types/Domain';
 
@@ -8,10 +9,6 @@ async function getDomainPolicyList(domainUuid: string, currentDomainOnly: boolea
 
 async function getDomainPolicyDetail(uuid: string, domainUuid: string): Promise<DomainPolicy> {
   return await apiv4.get(`domain_policies/${uuid}?domainId=${domainUuid}`);
-}
-
-async function assignDomainPolicy(domainUuid: string, DomainPolicyUuid: string) {
-  return await apiv4.post(`domain_policies/${domainUuid}/mail_config/${DomainPolicyUuid}/assign`);
 }
 
 async function deleteDomainPolicy(payload: DomainPolicy): Promise<DomainPolicy> {
@@ -32,6 +29,10 @@ async function createDomainPolicy(payload: {
 
 async function updateDomainPolicy(payload: DomainPolicy) {
   return await apiv4.put(`mail_contents`, payload);
+}
+
+async function assignDomainPolicy(domainUuid: string, PolicyUuid: string) {
+  return await api.post(`domains/${domainUuid}/domain_policy/${PolicyUuid}/assign`);
 }
 
 export {

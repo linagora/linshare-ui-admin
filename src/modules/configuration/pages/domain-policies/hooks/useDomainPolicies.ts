@@ -177,7 +177,7 @@ export default function useDomainPolicies() {
       }
 
       status.value = STATUS.LOADING;
-      await assignDomainPolicy(currentDomain.uuid, activeDomainPolicy.value?.uuid);
+      await assignDomainPolicy(currentDomain.uuid, activeDomainPolicy.value?.identifier);
       message.success(t('EMAIL_TEMPLATES.ASSIGN_MODAL.ASSIGN_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {
