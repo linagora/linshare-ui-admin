@@ -3048,7 +3048,8 @@
     },
     "ASSIGN_MODAL": {
       "TITLE": "Gán một Chính sách miền",
-      "ASSIGN_CONFIRM": "Bạn đang chuẩn bị gán chính sách miền này cho miền hiện tại. Bạn có muốn tiếp tục không?"
+      "ASSIGN_CONFIRM": "Bạn đang chuẩn bị gán chính sách miền này cho miền hiện tại. Bạn có muốn tiếp tục không?",
+      "ASSIGN_SUCCESS": "Đã gán thành công"
       }
   }
 }

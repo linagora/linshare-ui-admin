@@ -3092,7 +3092,8 @@
     },
     "ASSIGN_MODAL":{
       "TITLE": "Assign a Domain Policy",
-      "ASSIGN_CONFIRM": "You are about to assign this domain policy to the current domain. Do you want to proceed?"
+      "ASSIGN_CONFIRM": "You are about to assign this domain policy to the current domain. Do you want to proceed?",
+      "ASSIGN_SUCCESS": "Assigned successfully"
     }
   }
 }

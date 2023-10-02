@@ -79,7 +79,8 @@ export default function useDomainPolicies() {
   // composable
   const { t } = useI18n();
   const router = useRouter();
-  const { currentDomain } = storeToRefs(useDomainStore());
+  const domainStore = useDomainStore();
+  const { currentDomain } = storeToRefs(domainStore);
 
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
@@ -173,15 +174,16 @@ export default function useDomainPolicies() {
     router.push({ name: DOMAIN_POLICIES_ROUTE_NAMES.POLICY_DETAIL, params: { id: record?.identifier } });
   }
 
-  async function handleAssignDomainPolicy(currentDomain: Domain) {
+  async function handleAssignDomainPolicy(domain: Domain) {
     try {
       if (!activeDomainPolicy?.value) {
         return false;
       }
 
       status.value = STATUS.LOADING;
-      await assignDomainPolicy(currentDomain.uuid, activeDomainPolicy.value?.identifier);
+      await assignDomainPolicy(domain.uuid, activeDomainPolicy.value?.identifier);
       message.success(t('DOMAIN_POLICY.ASSIGN_MODAL.ASSIGN_SUCCESS'));
+      assignReload();
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
@@ -357,6 +359,11 @@ export default function useDomainPolicies() {
   }
   function resetSelectDomainPolicy() {
     selectedDomainPolicies.value = [];
+  }
+
+  function assignReload() {
+    domainStore.fetchDomain();
+    fetchDomainPolicy();
   }
 
   return {

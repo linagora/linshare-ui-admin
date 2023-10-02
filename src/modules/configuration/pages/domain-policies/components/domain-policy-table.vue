@@ -27,7 +27,7 @@
           <span>{{ $d(record?.modificationDate, 'mediumDate') }}</span>
         </template>
         <template v-else-if="column.key === 'assigned'">
-          <a-tag v-if="record.assigned" color="success">
+          <a-tag v-if="isAssigned(record.identifier, currentDomain.domainPolicy?.uuid)" color="success">
             {{ $t('GENERAL.ASSIGNED') }}
           </a-tag>
           <a-tag v-else color="red"> {{ $t('GENERAL.UNASSIGNED') }}</a-tag>
@@ -89,6 +89,7 @@ const {
   status,
   filteredListByPage,
   selectedDomainPolicies,
+  isAssigned,
   onEditDomainPolicy,
   onAssignDomainPolicy,
   onDeleteDomainPolicy,
@@ -99,7 +100,7 @@ const { t } = useI18n();
 const authStore = useAuthStore();
 const domainStore = useDomainStore();
 const { loggedUser } = storeToRefs(authStore);
-const { isRootDomain } = storeToRefs(domainStore);
+const { isRootDomain, currentDomain } = storeToRefs(domainStore);
 
 // computed
 const isSuperAdmin = computed(() => {

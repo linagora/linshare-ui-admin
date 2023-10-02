@@ -92,11 +92,6 @@ async function onFetchDomainPolicy() {
   resetSelectDomainPolicy();
 }
 
-function assignReload() {
-  domainStore.fetchDomain();
-  fetchDomainPolicy();
-}
-
 onFetchDomainPolicy();
 
 watch(route, (newRoute) => {
