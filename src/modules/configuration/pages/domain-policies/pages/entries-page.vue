@@ -11,5 +11,8 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
+  &__content {
+    width: 100%;
+  }
 }
 </style>

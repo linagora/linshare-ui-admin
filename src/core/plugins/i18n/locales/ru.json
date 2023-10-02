@@ -2791,7 +2791,9 @@
       "ALLOW_ALL": "Разрешить все",
       "DENY": "Отказать",
       "DENY_ALL": "Отказать во всем",
-      "POLICY_LIST": "Список политик"
+      "POLICY_LIST": "Список политик",
+      "CREATE_SUCCESS":"Создано успешно",
+      "DUPLICATE_SUCCESS": "Скопировано успешно"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_TITLE": "Удалить политику домена",

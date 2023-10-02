@@ -1,36 +1,43 @@
 <template>
   <div class="domain-policy-detail-header">
     <div class="domain-policy-detail-header__title">
-      <strong>{{ $t('EMAIL_TEMPLATES.EDIT_FORM.EDIT_HEADER') }}</strong>
+      <strong>{{ activeDomainPolicy.label }}</strong>
     </div>
     <div class="domain-policy-detail-header__action">
-      <a-button class="ls-button" @click="onBackToMimePolicies">
-        <template #icon>
-          <ArrowLeftOutlined />
-        </template>
-        {{ $t('GENERAL.BACK_TO_LIST') }}
-      </a-button>
-      <a-button
-        v-if="editable && !editing"
-        type="primary"
-        class="ls-button ls-filled"
-        @click="onEditEmailConfiguration"
-      >
-        <template #icon>
-          <EditOutlined />
-        </template>
-        {{ $t('GENERAL.EDIT') }}
-      </a-button>
+      <template v-if="!editing">
+        <a-button class="ls-button" @click="onBackToDomainPolicies">
+          <template #icon>
+            <ArrowLeftOutlined />
+          </template>
+          {{ $t('GENERAL.BACK_TO_LIST') }}
+        </a-button>
+        <a-button v-if="editable && !editing" type="primary" class="ls-button ls-filled" @click="onEditDomainPolicy">
+          <template #icon>
+            <EditOutlined />
+          </template>
+          {{ $t('GENERAL.EDIT') }}
+        </a-button>
+      </template>
+      <domain-policy-detail-action
+        v-else
+        :editable="editable"
+        :editing="editing"
+        :loading="loading"
+        @cancel="onEditDomainPolicy"
+        @save="onUpdateDomainPolicy"
+        @reset="onResetDomainPolicy"
+      ></domain-policy-detail-action>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 import { ArrowLeftOutlined, EditOutlined } from '@ant-design/icons-vue';
-import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '@/modules/configuration/pages/email-templates/router';
-
+import { DOMAIN_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/domain-policies/router';
+import DomainPolicyDetailAction from '@/modules/configuration/pages/domain-policies/components/detail-page/domain-policy-detail-action.vue';
+import { DomainPolicy } from '../../types/DomainPolicy';
+import useDomainPolicies from '../../hooks/useDomainPolicies';
 const router = useRouter();
-const route = useRoute();
 
 // props & emits
 const props = defineProps<{
@@ -38,13 +45,28 @@ const props = defineProps<{
   editing?: boolean;
 }>();
 const emits = defineEmits(['edit-toggle']);
+
+const { loading, activeDomainPolicy, handleUpdateDomainPolicy, handleResetDomainPolicy } = useDomainPolicies();
+
 // methods
-function onBackToMimePolicies() {
-  router.push({ name: CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES.CONFIGURATION });
+function onBackToDomainPolicies() {
+  router.push({ name: DOMAIN_POLICIES_ROUTE_NAMES.POLICIES });
 }
 
-function onEditEmailConfiguration() {
+function onEditDomainPolicy() {
   emits('edit-toggle');
+}
+
+async function onUpdateDomainPolicy() {
+  const payload: DomainPolicy = {
+    ...activeDomainPolicy.value,
+  };
+  await handleUpdateDomainPolicy(payload);
+  onEditDomainPolicy();
+}
+
+function onResetDomainPolicy() {
+  handleResetDomainPolicy();
 }
 </script>
 <style lang="less">

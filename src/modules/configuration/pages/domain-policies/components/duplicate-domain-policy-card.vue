@@ -1,10 +1,10 @@
 <template>
   <a-form ref="formRef">
-    <a-card flat :bordered="false" class="create-domain-policy-card">
-      <div class="create-domain-policy-card__title">{{ $t('DOMAIN_POLICY.CREATE_MODAL.CREATE_MODAL_TITLE') }}</div>
+    <a-card flat :bordered="false" class="duplicate-domain-policy-card">
+      <div class="duplicate-domain-policy-card__title">{{ $t('DOMAIN_POLICY.CREATE_MODAL.CREATE_MODAL_TITLE') }}</div>
       <a-tabs centered>
         <a-tab-pane key="1" :tab="$t('DOMAIN_POLICY.CREATE_MODAL.DETAIL_TAB')">
-          <div class="create-domain-policy-card__form">
+          <div class="duplicate-domain-policy-card__form">
             <a-form-item
               class="ls-form-title"
               v-bind="validateInfos.label"
@@ -28,7 +28,7 @@
           </div>
         </a-tab-pane>
         <a-tab-pane key="2" :tab="$t('DOMAIN_POLICY.CREATE_MODAL.RULES_TAB')">
-          <div class="create-domain-policy-card__rule-form">
+          <div class="duplicate-domain-policy-card__rule-form">
             <a-form-item style="width: 100px" class="ls-form-title" :label="$t('DOMAIN_POLICY.CREATE_MODAL.TYPE')">
               <a-select v-model:value="selectRule.rule" class="ls-input" :bordered="false">
                 <a-select-option v-for="s in rules" :key="s.value" :value="s.value">
@@ -52,12 +52,12 @@
               {{ $t('DOMAIN_POLICY.CREATE_MODAL.ADD') }}
             </a-button>
           </div>
-          <div class="create-domain-policy-card__rule-list">
+          <div class="duplicate-domain-policy-card__rule-list">
             <span>{{ $t('DOMAIN_POLICY.CREATE_MODAL.POLICY_LIST') }}</span>
             <div
               v-for="(item, index) in form.accessPolicy.rules"
               :key="index + '__rule-item'"
-              class="create-domain-policy-card__rule-item"
+              class="duplicate-domain-policy-card__rule-item"
             >
               <a-button class="ls-button ls-add">
                 <UpOutlined />
@@ -65,9 +65,9 @@
               <a-button class="ls-button ls-add">
                 <DownOutlined />
               </a-button>
-              <div class="create-domain-policy-card__rule-item-content">
-                <span>{{ $t(`DOMAIN_POLICY.CREATE_MODAL.${item.type}`) }}</span>
-                <span>{{ item.domain.label }}</span>
+              <div class="duplicate-domain-policy-card__rule-item-content">
+                <span v-if="item.type">{{ $t(`DOMAIN_POLICY.CREATE_MODAL.${item.type}`) }}</span>
+                <span v-if="item.domain">{{ item.domain?.label }}</span>
               </div>
               <a-button class="ls-button ls-add" style="color: red" @click="onRemoveRule(index)">
                 <DeleteFilled />
@@ -76,9 +76,9 @@
           </div>
         </a-tab-pane>
       </a-tabs>
-      <div class="create-domain-policy-card__actions">
+      <div class="duplicate-domain-policy-card__actions">
         <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>
-        <a-button class="ls-button ls-save" type="primary" @click="onCreateDomainPolicy">
+        <a-button class="ls-button ls-save" type="primary" @click="onDupplicateDomainPolicy">
           <a-spin v-if="loading" />
           <span v-else>{{ $t('GENERAL.CREATE') }}</span>
         </a-button>
@@ -95,19 +95,20 @@ import { useI18n } from 'vue-i18n';
 import { PlusOutlined, UpOutlined, DownOutlined, DeleteFilled } from '@ant-design/icons-vue';
 import useDomainPolicies from '@/modules/configuration/pages/domain-policies/hooks/useDomainPolicies';
 import Domain from '@/core/types/Domain';
+import { DomainPolicyRule } from '../types/DomainPolicy';
+
 // props
 const emits = defineEmits(['refresh', 'close']);
+
 // composable
 const { t } = useI18n();
 const useForm = Form.useForm;
-const { loading, handleCreateDomainPolicy } = useDomainPolicies();
+const { activeDomainPolicy, loading, handleDupplicateDomainPolicy } = useDomainPolicies();
+
 //data
 const form = reactive<{
   accessPolicy: {
-    rules: {
-      type: 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL';
-      domain: Domain;
-    }[];
+    rules: DomainPolicyRule[];
   };
   label: string;
   description: string;
@@ -156,7 +157,6 @@ const formRules = computed(() => ({
 const { validate, validateInfos, resetFields } = useForm(form, formRules);
 
 // methods
-
 function onSelectDomain(
   value: string,
   model: { key: { label: string | undefined; value: string; subject: Domain }; label: string; subject: Domain }
@@ -180,10 +180,10 @@ function onRemoveRule(index: number) {
 function getInitialFormData() {
   return {
     accessPolicy: {
-      rules: [],
+      rules: [...activeDomainPolicy.value.accessPolicy.rules] as DomainPolicyRule[],
     },
-    label: '',
-    description: '',
+    label: activeDomainPolicy.value.label,
+    description: activeDomainPolicy.value.description,
   };
 }
 
@@ -197,13 +197,13 @@ async function onCloseModal() {
   emits('close');
 }
 
-async function onCreateDomainPolicy() {
+async function onDupplicateDomainPolicy() {
   try {
     await validate();
   } catch (error) {
     return;
   }
-  await handleCreateDomainPolicy(form);
+  await handleDupplicateDomainPolicy(form);
   emits('refresh');
   onCloseModal();
 }
@@ -227,7 +227,7 @@ onMounted(async () => {
 </script>
 
 <style lang="less">
-.create-mail-content-card {
+.duplicate-domain-policy-card {
   border-radius: 25px;
   .ant-card-body {
     display: flex;

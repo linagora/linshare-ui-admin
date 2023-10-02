@@ -1,14 +1,14 @@
 <template>
   <div v-if="editing && editable" class="domain-policy-detail-action">
-    <a-button :disabled="loading" type="primary" class="ls-button" @click="emits('save')">
-      <a-spin v-if="loading"></a-spin>
-      <span v-else>{{ $t('GENERAL.SAVE') }}</span>
-    </a-button>
     <a-button class="ls-button ls-cancel" @click="onCancel">
       {{ $t('GENERAL.CANCEL') }}
     </a-button>
     <a-button class="ls-button ls-reset" @click="emits('reset')">
       {{ $t('GENERAL.RESET') }}
+    </a-button>
+    <a-button :disabled="loading" type="primary" class="ls-button ls-filled" @click="emits('save')">
+      <a-spin v-if="loading"></a-spin>
+      <span v-else>{{ $t('GENERAL.SAVE') }}</span>
     </a-button>
   </div>
 </template>
@@ -33,7 +33,6 @@ function onCancel() {
   justify-content: flex-start;
   align-items: center;
   gap: 12px;
-  margin-top: 20px;
 
   .ls-button {
     padding: 0px 20px;

@@ -3049,7 +3049,9 @@
       "ALLOW_ALL": "Autoriser tout",
       "DENY": "Refuser",
       "DENY_ALL": "Refuser tout",
-      "POLICY_LIST": "Liste des politiques"
+      "POLICY_LIST": "Liste des politiques",
+      "CREATE_SUCCESS":"Créé avec succès",
+      "DUPLICATE_SUCCESS": "Dupliqué avec succès"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_TITLE": "Supprimer la politique de domaine",

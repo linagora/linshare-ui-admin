@@ -2,71 +2,42 @@
   <a-form ref="formRef">
     <div class="domain-policy-detail-card">
       <div class="domain-policy-detail-card__form">
-        <a-form-item
-          class="ls-form-title"
-          v-bind="validateInfos.name"
-          :label="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_LABEL')"
-        >
+        <a-form-item class="ls-form-title" v-bind="validateInfos.label" :label="$t('DOMAIN_POLICY.CREATE_MODAL.NAME')">
           <a-input
-            v-model:value="activeDomainPolicyForm.name"
-            :disabled="!editable || !editing"
-            :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.NAME_PLACEHOLDER')"
+            id="name"
+            v-model:value="activeDomainPolicyForm.label"
             class="ls-input"
-          />
+            :placeholder="$t('DOMAIN_POLICY.CREATE_MODAL.PLACEHOLDER_NAME')"
+          ></a-input>
         </a-form-item>
-        <a-form-item
-          class="ls-form-title ls-form-switch"
-          for="visible"
-          :label="$t('EMAIL_TEMPLATES.EDIT_FORM.VISIBLE_LABEL')"
-        >
-          <a-switch
-            v-model:checked="activeDomainPolicyForm.visible"
-            :disabled="!editable || !editing"
-            class="ls-switch"
-          />
-        </a-form-item>
-        <a-form-item class="ls-form-title" for="layout" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_LABEL')">
-          <a-select
-            v-model:value="activeDomainPolicyForm.mailLayout"
-            :disabled="!editable || !editing"
+        <a-form-item class="ls-form-title" :label="$t('DOMAIN_POLICY.CREATE_MODAL.DESCRIPTION')">
+          <a-textarea
+            id="name"
+            v-model:value="activeDomainPolicyForm.description"
             class="ls-input"
-            :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_PLACEHOLDER')"
-            :bordered="false"
-          >
-            <a-select-option v-for="s in layoutOptions" :key="s?.label" :value="s?.value">
-              {{ s?.label }}
-            </a-select-option>
-          </a-select>
+            :auto-size="{ minRows: 4, maxRows: 8 }"
+          ></a-textarea>
         </a-form-item>
-        <a-form-item class="ls-form-title" for="footer" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.FOOTER_LABEL')">
-          <div v-for="language in languageOptions" :key="language?.label" class="ls-form-footer-language">
-            <a-select
-              v-if="mailFooterLangsForm[language.value]"
-              v-model:value="mailFooterLangsForm[language.value].mailFooter"
-              :disabled="!editable || !editing"
-              class="ls-input ls-select-field"
-              :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.FOOTER_PLACEHOLDER')"
-              :bordered="false"
-            >
-              <a-select-option v-for="s in footerOptions" :key="s?.value" :value="s?.value">
-                {{ s?.label }}
-              </a-select-option>
-            </a-select>
-            <a-input :value="language.label" :disabled="true" class="ls-input ls-input-field" />
+      </div>
+      <div class="domain-policy-detail-card__date">
+        <div class="info-block">
+          <CalendarIcon class="system-icon"></CalendarIcon>
+          <div>
+            <div class="title">{{ $t('GENERAL.CREATION_DATE') }}</div>
+            <div class="value">
+              {{ $d(activeDomainPolicy?.creationDate ?? 0, 'mediumDate') }}
+            </div>
           </div>
-        </a-form-item>
-        <a-form-item class="ls-form-title" for="language" :label="$t('EMAIL_TEMPLATES.EDIT_FORM.LANGUAGE_LABEL')">
-          <div class="ls-languages">
-            <a-button
-              v-for="language in languageOptions"
-              :key="language?.label"
-              class="select-language"
-              :class="{ selected: activeDomainPolicyForm.selectLanguage === language.value }"
-              @click="onSelectLanguage(language.value)"
-              >{{ language.label }}</a-button
-            >
+        </div>
+        <div class="info-block">
+          <CalendarIcon class="system-icon"></CalendarIcon>
+          <div>
+            <div class="title">{{ $t('GENERAL.MODIFICATION_DATE') }}</div>
+            <div class="value">
+              {{ $d(activeDomainPolicy?.modificationDate ?? 0, 'mediumDate') }}
+            </div>
           </div>
-        </a-form-item>
+        </div>
       </div>
     </div>
   </a-form>
@@ -76,27 +47,22 @@ import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { Form, FormInstance } from 'ant-design-vue';
 import useDomainPolicies from '../../hooks/useDomainPolicies';
+import CalendarIcon from '@/core/components/icons/calendar-icon.vue';
 
 // composable
 const { t } = useI18n();
-const { activeDomainPolicyForm, languageOptions } = useDomainPolicies();
+const { activeDomainPolicyForm, activeDomainPolicy } = useDomainPolicies();
 const formRef = ref<FormInstance>();
 const useForm = Form.useForm;
 
 const formRules = computed(() => ({
-  name: [
+  description: [
     {
       required: true,
       message: t('GENERAL.FIELD_REQUIRED'),
     },
   ],
-  layout: [
-    {
-      required: true,
-      message: t('GENERAL.FIELD_REQUIRED'),
-    },
-  ],
-  domainName: [
+  label: [
     {
       required: true,
       message: t('GENERAL.FIELD_REQUIRED'),
@@ -110,33 +76,6 @@ const props = defineProps<{
   editing?: boolean;
 }>();
 const emits = defineEmits(['update:modelValue', 'select-language', 'refresh']);
-
-//computed
-const layoutOptions = computed(() => {
-  return (
-    props.layouts?.map((item) => {
-      return {
-        label: item?.description,
-        value: item?.uuid,
-      };
-    }) ?? []
-  );
-});
-
-const footerOptions = computed(() => {
-  return (
-    props.footers?.map((item) => {
-      return {
-        label: item?.description,
-        value: item?.uuid,
-      };
-    }) ?? []
-  );
-});
-// methods
-function onSelectLanguage(language: string) {
-  activeDomainPolicyForm.value.selectLanguage = language;
-}
 </script>
 <style lang="less">
 .domain-policy-detail-card {
@@ -336,6 +275,51 @@ function onSelectLanguage(language: string) {
   .ls-form-footer-language .ls-select-field {
     flex-grow: 1;
     flex-shrink: 1;
+  }
+  &__date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 32px;
+    align-items: flex-start;
+    gap: 28px;
+    align-self: stretch;
+    border-radius: 12px;
+    margin-top: 24px;
+    background: var(--neutral-colors-color-table-header, #fafafa);
+    .info-block {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 20px;
+    }
+    .info-block .title {
+      color: var(--neutral-colors-color-text-secondary, #6d7885);
+      /* Desktop/Body 2 - Regular */
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 142.857% */
+      letter-spacing: -0.14px;
+    }
+    .info-block .value {
+      color: var(--neutral-colors-color-text-primary, #343745);
+      /* Desktop/Body 1 - Regular */
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 125% */
+      letter-spacing: -0.32px;
+    }
+
+    .system-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      color: #6d7885;
+    }
   }
 }
 </style>

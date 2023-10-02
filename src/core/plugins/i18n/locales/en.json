@@ -3052,6 +3052,14 @@
     "SETTING": "Setting"
   },
   "DOMAIN_POLICY": {
+    "POSITION": "Postition",
+    "DOMAIN": "Domain",
+    "TYPE": "Type",
+    "ACTIONS": "Actions",
+    "RULES_LIST": "Rule list",
+    "EDIT_FORM": {
+
+    },
     "CREATE_MODAL": {
       "CREATE_MODAL_TITLE": "Create domain policy",
       "DETAIL_TAB": "Detail",
@@ -3066,7 +3074,9 @@
       "ALLOW_ALL":"Allow all",
       "DENY": "Deny",
       "DENY_ALL": "Deny all",
-      "POLICY_LIST": "Policies list"
+      "POLICY_LIST": "Policies list",
+      "CREATE_SUCCESS":"Created successfully",
+      "DUPLICATE_SUCCESS": "Duplicated successfully"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_TITLE": "Delete domain policy",

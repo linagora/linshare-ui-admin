@@ -13,44 +13,32 @@
           <domain-policy-detail-card
             :editable="allowEdit"
             :editing="editing"
-            @refresh="onFetchingDomainPolicy"
+            @refresh="onFetchingData"
           ></domain-policy-detail-card>
+        </div>
+        <div class="domain-policy-detail-page__body-summary-rule">
+          <domain-policy-rules-table
+            :editable="allowEdit"
+            :editing="editing"
+            @refresh="onFetchingData"
+          ></domain-policy-rules-table>
         </div>
       </div>
     </div>
   </div>
-  <div class="domain-policy-detail-page__action">
-    <domain-policy-detail-action
-      :editable="allowEdit"
-      :editing="editing"
-      :loading="loading"
-      @cancel="onToggleEditState"
-      @save="onUpdateDomainPolicy"
-      @reset="onResetDomainPolicy"
-    ></domain-policy-detail-action>
-  </div>
 </template>
 <script lang="ts" setup>
 import DomainPolicyDetailHeader from '@/modules/configuration/pages/domain-policies/components/detail-page/domain-policy-detail-header.vue';
-import DomainPolicyDetailAction from '@/modules/configuration/pages/domain-policies/components/detail-page/domain-policy-detail-action.vue';
 import DomainPolicyDetailCard from '@/modules/configuration/pages/domain-policies/components/detail-page/domain-policy-detail-card.vue';
-
+import DomainPolicyRulesTable from '@/modules/configuration/pages/domain-policies/components/detail-page/domain-policy-rules-table.vue';
 import { computed, onMounted, ref } from 'vue';
 import useDomainPolicies from '../hooks/useDomainPolicies';
-import { DomainPolicy } from '../types/DomainPolicy';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 
 // composables
-const {
-  loading,
-  activeDomainPolicy,
-  handleGetDomainPolicyDetail,
-  handleUpdateDomainPolicy,
-  handleResetDomainPolicy,
-  onCheckDefaultDomainPolicy,
-} = useDomainPolicies();
+const { activeDomainPolicy, handleGetDomainPolicyDetail } = useDomainPolicies();
 const { loggedUserRole } = storeToRefs(useAuthStore());
 
 // data
@@ -62,36 +50,16 @@ const isSuperAdmin = computed(() => {
   return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
 });
 const allowEdit = computed(() => {
-  return isSuperAdmin.value || (!onCheckDefaultDomainPolicy(activeDomainPolicy.value) && !hasRootDomain());
+  return isSuperAdmin.value;
 });
 // methods
-
-function hasRootDomain() {
-  return activeDomainPolicy.value.domain === 'LinShareRootDomain';
-}
 
 function onToggleEditState() {
   editing.value = !editing.value;
 }
 
-async function onUpdateDomainPolicy() {
-  const payload: DomainPolicy = {
-    ...activeDomainPolicy.value,
-  };
-  await handleUpdateDomainPolicy(payload);
-  onToggleEditState();
-}
-
-function onResetDomainPolicy() {
-  handleResetDomainPolicy();
-}
-
 function onFetchingData() {
-  handleGetDomainPolicyDetail(activeDomainPolicy?.value?.uuid);
-}
-
-function onFetchingDomainPolicy() {
-  handleGetDomainPolicyDetail(activeDomainPolicy?.value?.uuid);
+  handleGetDomainPolicyDetail(activeDomainPolicy?.value?.identifier);
 }
 
 onMounted(async () => {
@@ -165,7 +133,13 @@ onMounted(async () => {
   }
 
   &__body-summary-config {
-    width: 50%;
+    border-right: 2px solid #fafafa;
+    padding-right: 20px;
+    width: 35%;
+  }
+
+  &__body-summary-rule {
+    width: 65%;
   }
 
   &__body-summary-system {

@@ -7,8 +7,8 @@ async function getDomainPolicyList(domainUuid: string, currentDomainOnly: boolea
   return await apiv4.get(`domain_policies?domainId=${domainUuid}&onlyCurrentDomain=${currentDomainOnly}`);
 }
 
-async function getDomainPolicyDetail(uuid: string, domainUuid: string): Promise<DomainPolicy> {
-  return await apiv4.get(`domain_policies/${uuid}?domainId=${domainUuid}`);
+async function getDomainPolicyDetail(uuid: string): Promise<DomainPolicy> {
+  return await apiv4.get(`domain_policies/${uuid}`);
 }
 
 async function deleteDomainPolicy(payload: DomainPolicy): Promise<DomainPolicy> {

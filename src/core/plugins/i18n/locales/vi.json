@@ -3030,7 +3030,9 @@
       "ALLOW_ALL": "Cho phép tất cả",
       "DENY": "Từ chối",
       "DENY_ALL": "Từ chối tất cả",
-      "POLICY_LIST": "Danh sách chính sách"
+      "POLICY_LIST": "Danh sách chính sách",
+      "CREATE_SUCCESS": "Tạo thành công",
+      "DUPLICATE_SUCCESS": "Sao chép thành công"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_TITLE": "Xóa chính sách miền",

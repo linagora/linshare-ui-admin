@@ -19,7 +19,6 @@ import Domain from '@/core/types/Domain';
 import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
 import { DOMAIN_POLICIES_ROUTE_NAMES } from '../router';
-import { EMAIL_DEFAULT_UUID } from '@/core/constants/emails';
 
 const activeDomainPolicy = useLocalStorage<DomainPolicy>('configuration-domain-policies', {} as DomainPolicy);
 const activeDomainPolicyForm = ref<Partial<DomainPolicy>>({});
@@ -45,6 +44,7 @@ const DomainPolicyUuid = reactive<{
 const modal = reactive<{
   type:
     | 'CREATE_DOMAIN_POLICY'
+    | 'DUPLICATED_DOMAIN_POLICY'
     | 'ASSIGN_DOMAIN_POLICY'
     | 'DELETE_DOMAIN_POLICY'
     | 'DELETE_DOMAIN_POLICIES'
@@ -100,16 +100,19 @@ export default function useDomainPolicies() {
   });
 
   //methods
-  function onCheckDefaultDomainPolicy(email: DomainPolicy) {
-    return EMAIL_DEFAULT_UUID.CONFIGURATION === email.uuid;
-  }
   function onCloseModal() {
     modal.visible = false;
   }
 
-  function onCreateDomainPolicy(email: DomainPolicy) {
-    activeDomainPolicy.value = email;
+  function onCreateDomainPolicy(domainpolicy: DomainPolicy) {
+    activeDomainPolicy.value = domainpolicy;
     modal.type = 'CREATE_DOMAIN_POLICY';
+    modal.visible = true;
+  }
+
+  function onDuplicateDomainPolicy(domainpolicy: DomainPolicy) {
+    activeDomainPolicy.value = domainpolicy;
+    modal.type = 'DUPLICATED_DOMAIN_POLICY';
     modal.visible = true;
   }
 
@@ -167,7 +170,7 @@ export default function useDomainPolicies() {
 
   function onEditDomainPolicy(record: DomainPolicy) {
     activeDomainPolicy.value = record;
-    router.push({ name: DOMAIN_POLICIES_ROUTE_NAMES.POLICY_DETAIL, params: { id: record?.uuid } });
+    router.push({ name: DOMAIN_POLICIES_ROUTE_NAMES.POLICY_DETAIL, params: { id: record?.identifier } });
   }
 
   async function handleAssignDomainPolicy(currentDomain: Domain) {
@@ -178,7 +181,7 @@ export default function useDomainPolicies() {
 
       status.value = STATUS.LOADING;
       await assignDomainPolicy(currentDomain.uuid, activeDomainPolicy.value?.identifier);
-      message.success(t('EMAIL_TEMPLATES.ASSIGN_MODAL.ASSIGN_SUCCESS'));
+      message.success(t('DOMAIN_POLICY.ASSIGN_MODAL.ASSIGN_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
@@ -202,7 +205,7 @@ export default function useDomainPolicies() {
     try {
       loading.value = true;
       await createDomainPolicy(payload);
-      message.success(t('EMAIL_TEMPLATES.CREATE_MODAL.CREATE_SUCCESS'));
+      message.success(t('DOMAIN_POLICY.CREATE_MODAL.CREATE_SUCCESS'));
       return true;
     } catch (error) {
       if (error instanceof APIError) {
@@ -213,6 +216,32 @@ export default function useDomainPolicies() {
       loading.value = false;
     }
   }
+
+  async function handleDupplicateDomainPolicy(payload: {
+    accessPolicy: {
+      rules: {
+        type: 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL';
+        domain: Domain;
+      }[];
+    };
+    label: string;
+    description: string;
+  }) {
+    try {
+      loading.value = true;
+      await createDomainPolicy(payload);
+      message.success(t('DOMAIN_POLICY.CREATE_MODAL.DUPLICATE_SUCCESS'));
+      return true;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   async function handleDeleteDomainPolicy(activeDomainPolicy: DomainPolicy) {
     try {
       if (!activeDomainPolicy) {
@@ -310,7 +339,7 @@ export default function useDomainPolicies() {
   async function handleUpdateDomainPolicy(payload: DomainPolicy) {
     try {
       await updateDomainPolicy(payload);
-      message.success(t('EMAIL_TEMPLATES.EDIT_FORM.UPDATE_SUCCESS'));
+      message.success(t('DOMAIN_POLICY.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {
         if (error.errorCode === 1000) {
@@ -351,6 +380,7 @@ export default function useDomainPolicies() {
     onAssignDomainPolicy,
     onCreateDomainPolicy,
     onDeleteDomainPolicies,
+    onDuplicateDomainPolicy,
     resetSelectDomainPolicy,
     handleResetDomainPolicy,
     handleUpdateDomainPolicy,
@@ -359,7 +389,7 @@ export default function useDomainPolicies() {
     handleCreateDomainPolicy,
     handleDeleteDomainPolicies,
     onDeleteDomainPoliciesFail,
-    onCheckDefaultDomainPolicy,
     handleGetDomainPolicyDetail,
+    handleDupplicateDomainPolicy,
   };
 }

@@ -39,7 +39,15 @@
             </a-button>
             <template #overlay>
               <a-menu>
-                <a-menu-item v-if="allowAssigned()" :disabled="record.assigned" @click="onAssignDomainPolicy(record)">
+                <a-menu-item v-if="allowDuplicate(record)" @click="onDuplicateDomainPolicy(record)">
+                  <CopyOutlined :style="{ color: '#007AFF' }" />
+                  {{ $t('GENERAL.DUPLICATE') }}
+                </a-menu-item>
+                <a-menu-item
+                  v-if="allowAssigned(record)"
+                  :disabled="record.assigned"
+                  @click="onAssignDomainPolicy(record)"
+                >
                   <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
                 </a-menu-item>
                 <a-menu-item v-if="allowView(record)" @click="onEditDomainPolicy(record)">
@@ -75,7 +83,7 @@ import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import useDomainPolicies from '../hooks/useDomainPolicies';
 import { DomainPolicy } from '../types/DomainPolicy';
 import { useAuthStore } from '@/modules/auth/store';
-import { EyeOutlined } from '@ant-design/icons-vue';
+import { EyeOutlined, CopyOutlined } from '@ant-design/icons-vue';
 
 const {
   status,
@@ -84,6 +92,7 @@ const {
   onEditDomainPolicy,
   onAssignDomainPolicy,
   onDeleteDomainPolicy,
+  onDuplicateDomainPolicy,
 } = useDomainPolicies();
 
 const { t } = useI18n();
@@ -161,6 +170,10 @@ function allowEdit(record: DomainPolicy) {
 }
 
 function allowDelete(record: DomainPolicy) {
+  return isSuperAdmin.value;
+}
+
+function allowDuplicate(record: DomainPolicy) {
   return isSuperAdmin.value;
 }
 

@@ -13,6 +13,6 @@ export interface DomainPolicy {
 }
 
 export interface DomainPolicyRule {
-  type: string;
+  type: 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL';
   domain: Domain;
 }

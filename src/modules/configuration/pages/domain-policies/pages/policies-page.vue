@@ -28,6 +28,11 @@
       @close="onCloseModal"
       @refresh="onFetchDomainPolicy"
     ></creation-domain-policy-modal>
+    <duplicate-domain-policy-card
+      v-if="modal.type === 'DUPLICATED_DOMAIN_POLICY'"
+      @close="onCloseModal"
+      @refresh="onFetchDomainPolicy"
+    ></duplicate-domain-policy-card>
     <delete-domain-policy-card
       v-else-if="modal.type === 'DELETE_DOMAIN_POLICY'"
       @close="onCloseModal"
@@ -67,6 +72,7 @@ import DeleteDomainPolicyCard from '../components/delete-domain-policy-card.vue'
 import DeleteDomainPoliciesCard from '../components/delete-domain-policies-card.vue';
 import DeleteDomainPolicyFailCard from '../components/delete-domain-policy-fail-card.vue';
 import AssignDomainPolicyCard from '../components/assign-domain-policy-card.vue';
+import DuplicateDomainPolicyCard from '../components/duplicate-domain-policy-card.vue';
 const {
   modal,
   list,
