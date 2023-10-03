@@ -28,7 +28,6 @@ async function getSharesByFileSizeInformations() {
     domainUuids: domains.value.map((domainUuids) => domainUuids.uuid),
     beginDate: beginDate.value?.format('YYYY-MM-DD'),
     endDate: endDate.value?.format('YYYY-MM-DD'),
-    page: topSharesFileSizePagination.current - 1,
     size: top.value,
   };
   try {
