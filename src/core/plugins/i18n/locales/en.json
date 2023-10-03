@@ -1521,6 +1521,8 @@
     "RESOURCE_NAME": "Resource name",
     "DATE_TIME": "Date time",
     "DETAIL": "Detail",
+    "FILE_SIZE": "File Size",
+    "RECEIVER": "Receiver",
     "ME": "Me",
     "FILTERS_BUTTON": "Filters",
     "FILTERS_BAR": {

@@ -41,6 +41,43 @@ export interface ActivityLog {
     name: string;
     guest?: User;
     account?: User;
+    size?: number;
+    type?: string;
+    sha256Sum?: string;
+    shareUuid?: string;
+    resourceUuid?: string;
+    creationDate?: string | number | Date;
+    downloaded?: number;
+    expirationDate?: string | number | Date;
+    humanMimeType?: string;
+    modificationDate?: string | number | Date;
+    recipient?: {
+      firstName: string;
+      lastName: string;
+      name: string;
+      mail: string;
+      uuid: string;
+      role: 'SUPERADMIN' | 'ADMIN' | 'GUEST';
+      accountType: 'ROOT';
+      domain: {
+        uuid: string;
+        label: string;
+      };
+    };
+    sender?: {
+      firstName: string;
+      lastName: string;
+      name: string;
+      mail: string;
+      uuid: string;
+      role: 'SUPERADMIN' | 'ADMIN' | 'GUEST';
+      accountType: 'ROOT';
+      domain: {
+        uuid: string;
+        label: string;
+      };
+    };
+    recipientMail: string;
   };
 }
 
@@ -52,6 +89,8 @@ export interface ActivityLogData extends ActivityLog {
   actionName: string;
   resourceTypeName: string;
   resourceName: string;
+  resourceSize: number;
+  resourceRecipientName: string;
   dateTime: number;
   detail: string;
 }

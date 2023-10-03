@@ -47,6 +47,11 @@ export function useActivities() {
           dateTime: item?.creationDate,
           authorName: item?.authUser?.name,
           detail: item?.message,
+          resourceSize: item?.resource?.size || 0,
+          resourceRecipientName:
+            loggedUser.value?.uuid === item?.resource?.recipient?.uuid
+              ? t('ACTIVITIES.ME')
+              : item?.resource?.recipient?.name || item?.recipientMail || '',
         } as ActivityLogData;
       })
       .sort((a: ActivityLogData, b: ActivityLogData) => b.dateTime - a.dateTime);

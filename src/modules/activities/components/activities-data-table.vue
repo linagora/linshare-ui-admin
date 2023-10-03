@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watchEffect, watch } from 'vue';
 import { useActivities } from '@/modules/activities/hooks/use-activities';
 import { ActivityLogData } from '@/modules/activities/types';
 import ThePagination from '@/core/components/the-pagination.vue';
@@ -12,10 +12,14 @@ import FileIcon from '@/core/components/icons/file-icon.vue';
 import ActorIcon from '@/core/components/icons/actor-icon.vue';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
+import { useActivitiesStore, ActivitiesType, ACTIVITIES_TYPE } from '@/modules/activities/store';
+import { getReadableSize } from '@/core/utils/unitStorage';
 // composable
 const { t } = useI18n();
 const { loggedUser } = storeToRefs(useAuthStore());
 const { fetchActivities, loading, pagination, filteredListByPage } = useActivities();
+const activitiesStore = useActivitiesStore();
+const { types } = storeToRefs(activitiesStore);
 
 // data
 const activeRecord = ref<ActivityLogData | null>(null);
@@ -30,6 +34,8 @@ const detailPopupContent = computed(() => {
     userVarious: activeRecord?.value?.resourceName,
     dateVarious: relativeDate(activeRecord?.value?.dateTime ?? 0),
     resourceNameVarious: activeRecord?.value?.resourceName,
+    resourceSize: activeRecord?.value?.resourceSize,
+    resourceRecipientName: activeRecord?.value?.resourceRecipientName,
   };
   return t(
     `ACTIVITIES.DETAILS_POPUP.SENTENCES.${activeRecord.value?.type}.${activeRecord.value?.action}.${
@@ -53,48 +59,78 @@ const detailPopupIcon = computed(() => {
 
   return isUserActivities ? ActorIcon : isWorkspaceActivities ? FolderIcon : FileIcon;
 });
-const columns = computed(() => [
+const columns = computed(() => {
+  let defaultColumns = [
+    {
+      title: t('ACTIVITIES.NUMBER_COL'),
+      width: '100px',
+      key: 'number',
+      align: 'center',
+    },
+    {
+      title: t('ACTIVITIES.DOMAIN_NAME'),
+      key: 'domainName',
+      sorter: (a: ActivityLogData, b: ActivityLogData) => a.domainName?.localeCompare(b.domainName),
+    },
+    {
+      title: t('ACTIVITIES.ACTOR'),
+      key: 'actor',
+      sorter: (a: ActivityLogData, b: ActivityLogData) => a.actorName?.localeCompare(b.actorName),
+    },
+    {
+      title: t('ACTIVITIES.ACTION'),
+      key: 'action',
+      sorter: (a: ActivityLogData, b: ActivityLogData) => a.actionName?.localeCompare(b.actionName),
+    },
+    {
+      title: t('ACTIVITIES.RESOURCE_TYPE'),
+      key: 'resourceType',
+      sorter: (a: ActivityLogData, b: ActivityLogData) => a.resourceTypeName?.localeCompare(b.resourceTypeName),
+    },
+    {
+      title: t('ACTIVITIES.RESOURCE_NAME'),
+      key: 'resourceName',
+      sorter: (a: ActivityLogData, b: ActivityLogData) => a.resourceName?.localeCompare(b.resourceName),
+    },
+    {
+      title: t('ACTIVITIES.DATE_TIME'),
+      key: 'dateTime',
+      sorter: (a: ActivityLogData, b: ActivityLogData) => a.dateTime - b.dateTime,
+      defaultSortOrder: 'descend',
+    },
+    {
+      title: t('ACTIVITIES.DETAIL'),
+      key: 'detail',
+      align: 'center',
+    },
+  ];
+
+  if (isFilterTypes(types.value)) {
+    columnsShareType.value.map((columnsShareType) => {
+      defaultColumns.splice(6, 0, columnsShareType);
+    });
+  }
+
+  return defaultColumns;
+});
+
+const filtersTypes = computed(() => {
+  return types.value;
+});
+
+const columnsShareType = computed(() => [
   {
-    title: t('ACTIVITIES.NUMBER_COL'),
-    width: '100px',
-    key: 'number',
-    align: 'center',
-  },
-  {
-    title: t('ACTIVITIES.DOMAIN_NAME'),
-    key: 'domainName',
-    sorter: (a: ActivityLogData, b: ActivityLogData) => a.domainName?.localeCompare(b.domainName),
-  },
-  {
-    title: t('ACTIVITIES.ACTOR'),
-    key: 'actor',
-    sorter: (a: ActivityLogData, b: ActivityLogData) => a.actorName?.localeCompare(b.actorName),
-  },
-  {
-    title: t('ACTIVITIES.ACTION'),
-    key: 'action',
-    sorter: (a: ActivityLogData, b: ActivityLogData) => a.actionName?.localeCompare(b.actionName),
-  },
-  {
-    title: t('ACTIVITIES.RESOURCE_TYPE'),
-    key: 'resourceType',
-    sorter: (a: ActivityLogData, b: ActivityLogData) => a.resourceTypeName?.localeCompare(b.resourceTypeName),
-  },
-  {
-    title: t('ACTIVITIES.RESOURCE_NAME'),
-    key: 'resourceName',
-    sorter: (a: ActivityLogData, b: ActivityLogData) => a.resourceName?.localeCompare(b.resourceName),
-  },
-  {
-    title: t('ACTIVITIES.DATE_TIME'),
-    key: 'dateTime',
-    sorter: (a: ActivityLogData, b: ActivityLogData) => a.dateTime - b.dateTime,
+    title: t('ACTIVITIES.FILE_SIZE'),
+    key: 'fileSize',
+    width: '150px',
+    sorter: (a: ActivityLogData, b: ActivityLogData) => a.resourceSize - b.resourceSize,
     defaultSortOrder: 'descend',
   },
   {
-    title: t('ACTIVITIES.DETAIL'),
-    key: 'detail',
-    align: 'center',
+    title: t('ACTIVITIES.RECEIVER'),
+    key: 'receiver',
+    width: '150px',
+    sorter: (a: ActivityLogData, b: ActivityLogData) => a.resourceRecipientName?.localeCompare(b.resourceRecipientName),
   },
 ]);
 
@@ -108,10 +144,32 @@ function onViewDetail(record: ActivityLogData) {
   activeRecord.value = record;
 }
 
+function isFilterTypes(types: ActivitiesType) {
+  return types.length > 0 && types.filter((type) => type.includes(ACTIVITIES_TYPE.SHARE_ENTRY));
+}
+
 // hooks
 onMounted(() => {
   fetchActivities();
 });
+
+// watch
+watch(
+  () => types.value,
+  (newValue: string, oldValue: string) => {
+    if (newValue !== oldValue && oldValue.length > 0) {
+      loading.value = true;
+
+      columnsShareType.value.map((columnShareType) => {
+        const index = columns.value.map((column) => column.key).indexOf(columnShareType.key);
+        if (index !== -1) {
+          columns.value.splice(index, 1);
+        }
+      });
+      loading.value = false;
+    }
+  }
+);
 </script>
 
 <template>
@@ -150,6 +208,14 @@ onMounted(() => {
       </template>
       <template v-if="column.key === 'resourceName'">
         {{ record.resourceName }}
+      </template>
+      <template v-if="column.key === 'fileSize' && isFilterTypes(types)">
+        {{ getReadableSize(record?.resourceSize).getText() }}
+      </template>
+      <template v-if="column.key === 'receiver' && isFilterTypes(types)">
+        <div class="activities-data-table__receiver">
+          {{ record?.resourceRecipientName }}
+        </div>
       </template>
       <template v-if="column.key === 'dateTime'">
         <a-tooltip>
@@ -190,10 +256,11 @@ onMounted(() => {
   .ant-table {
     border: 1px solid #f0f0f0;
     border-radius: 8px;
-    overflow: hidden;
+    overflow-x: auto;
   }
 
-  &__actor {
+  &__actor,
+  &__receiver {
     color: #007aff;
   }
 
