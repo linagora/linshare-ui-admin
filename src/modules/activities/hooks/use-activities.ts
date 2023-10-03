@@ -41,11 +41,13 @@ export function useActivities() {
           number: index + 1,
           domainName: item?.actor?.domain?.label ?? item?.domain?.label ?? '-',
           actorName: loggedUser.value?.uuid === item?.actor?.uuid ? t('ACTIVITIES.ME') : item?.actor?.name,
+          actorId: item?.actor?.uuid,
           actionName: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
           resourceTypeName: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),
           resourceName: _getResourceName(item),
           dateTime: item?.creationDate,
           authorName: item?.authUser?.name,
+          authorId: item?.authUser?.uuid,
           detail: item?.message,
           resourceSize: item?.resource?.size || 0,
           resourceRecipientName:
