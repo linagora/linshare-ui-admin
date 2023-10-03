@@ -40,6 +40,7 @@ const columns = computed(() => [
     title: t('REPORTING.TOP_RECEIVERS.FILE_SIZE.SIZE_OF_SHARED_FILES'),
     key: 'numberOfFiles',
     sorter: (a: TopSharesFileSizeItem, b: TopSharesFileSizeItem) => a.shareTotalSize - b.shareTotalSize,
+    defaultSortOrder: 'descend',
   },
 ]);
 
