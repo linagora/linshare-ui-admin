@@ -3052,13 +3052,15 @@
     "SETTING": "Setting"
   },
   "DOMAIN_POLICY": {
+    "EDITABLE": "Editable",
+    "READ_ONLY": "Read-only",
     "POSITION": "Postition",
     "DOMAIN": "Domain",
     "TYPE": "Type",
     "ACTIONS": "Actions",
     "RULES_LIST": "Rule list",
     "EDIT_FORM": {
-
+      "UPDATE_SUCCESS":"Updated successfully"
     },
     "CREATE_MODAL": {
       "CREATE_MODAL_TITLE": "Create domain policy",
@@ -3088,7 +3090,8 @@
       "DELETE_ACTION_CONFIRM": "Yes, delete",
       "DELETE_FAILURE": "Delete failed",
       "DELETE_ERROR_ASSIGNED": "Selected domain is associated with at least one domain. You cannot delete",
-      "DELETE_ERROR_ASSIGNED_ALL": "You are unable to delete those domain policies"
+      "DELETE_ERROR_ASSIGNED_ALL": "You are unable to delete those domain policies",
+      "DELETE_ERROR_ASSIGNED_SOME": "Some of domain policy are deleted successfully but not others because they are already assigned to at least one domain"
     },
     "ASSIGN_MODAL":{
       "TITLE": "Assign a Domain Policy",

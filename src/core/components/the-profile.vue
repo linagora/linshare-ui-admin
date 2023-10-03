@@ -2,26 +2,34 @@
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
-import UserProfileIcon from '@/core/components/icons/user-profile-icon.vue';
 import useProfile from '@/core/hooks/useProfile';
 import { useAuthStore } from '@/modules/auth/store';
-import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
-import { logout } from '@/modules/auth/services/basic';
 import { isEnable } from '@/core/utils/functionality';
+import { logout } from '@/modules/auth/services/basic';
+import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
+import UserProfileIcon from '@/core/components/icons/user-profile-icon.vue';
+import { useReportingSharesStore, useReportingStore } from '@/modules/reporting/store';
 
+// composables
+const { push } = useRouter();
 const authStore = useAuthStore();
 const { current, onClose } = useProfile();
+const reportingStore = useReportingStore();
+const reportingSharesStore = useReportingSharesStore();
 const { loggedUser, loggedUserFullName, functionalities } = storeToRefs(authStore);
-const { push } = useRouter();
+
+// computed
 const secondFAEnabled = computed(() => isEnable(functionalities.value.SECOND_FACTOR_AUTHENTICATION));
 
+// methods
 async function logOut() {
   if (loggedUser.value?.authWithOIDC) {
     await logoutOIDC();
   } else {
     await logout();
   }
-
+  reportingStore.$reset();
+  reportingSharesStore.$reset();
   push({ name: 'Login' });
 }
 </script>

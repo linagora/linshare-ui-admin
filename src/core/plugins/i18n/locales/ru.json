@@ -54,7 +54,7 @@
     "REQUEST_RELOAD_DATA": "Please click Refresh to reload missing data.",
     "APPLY": "Подать заявление",
     "DATE_ALL_TIME": "Все время",
-     "DATE_LAST_DAY" : "Последний день",
+    "DATE_LAST_DAY": "Последний день",
     "DATE_LAST_7_DAYS": "Последние 7 дней",
     "DATE_LAST_30_DAYS": "Последние 30 дней",
     "DATE_LAST_6_MONTHS": "Последние 6 месяцев",
@@ -1103,8 +1103,8 @@
       "TIME_RANGE_FILTER": "Диапазон времени:",
       "ALL_DOMAINS": "Все"
     },
-    "STORAGE_STATISTICS" : "Статистика хранения",
-    "SHARE_STATISTICS" : "Статистика общего доступа",
+    "STORAGE_STATISTICS": "Статистика хранения",
+    "SHARE_STATISTICS": "Статистика общего доступа",
     "FILTERS_MODAL": {
       "TITLE": "Настройка фильтров",
       "TIME_RANGE": "Временной диапазон",
@@ -1122,8 +1122,8 @@
         "NUMBER_OF_SHARED_FILES": "КОЛИЧЕСТВО ОБЩИХ ФАЙЛОВ"
       },
       "FILE_SIZE": {
-        "TITLE":"Топ {pageNumber} получатели по размеру общего файла",
-        "RECEIVER_MAIL":"АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ ПОЛУЧАТЕЛЯ",
+        "TITLE": "Топ {pageNumber} получатели по размеру общего файла",
+        "RECEIVER_MAIL": "АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ ПОЛУЧАТЕЛЯ",
         "SIZE_OF_SHARED_FILES": "РАЗМЕР ОБЩИХ ФАЙЛОВ"
       }
     },
@@ -2777,6 +2777,16 @@
     "SETTING": "Настройки"
   },
   "DOMAIN_POLICY": {
+    "EDITABLE": "Редактируемый",
+    "READ_ONLY": "Только для чтения",
+    "POSITION": "Позиция",
+    "DOMAIN": "Домен",
+    "TYPE": "Тип",
+    "ACTIONS": "Действия",
+    "RULES_LIST": "Список правил",
+    "EDIT_FORM": {
+      "UPDATE_SUCCESS": "Обновлено успешно"
+    },
     "CREATE_MODAL": {
       "CREATE_MODAL_TITLE": "Создать политику домена",
       "DETAIL_TAB": "Деталь",
@@ -2792,7 +2802,7 @@
       "DENY": "Отказать",
       "DENY_ALL": "Отказать во всем",
       "POLICY_LIST": "Список политик",
-      "CREATE_SUCCESS":"Создано успешно",
+      "CREATE_SUCCESS": "Создано успешно",
       "DUPLICATE_SUCCESS": "Скопировано успешно"
     },
     "DELETE_CONTENT_MODAL": {
@@ -2805,7 +2815,8 @@
       "DELETE_ACTION_CONFIRM": "Да, удалить",
       "DELETE_FAILURE": "Удаление не удалось",
       "DELETE_ERROR_ASSIGNED": "Выбранный домен связан с по крайней мере еще одним доменом. Вы не можете его удалить. ",
-      "DELETE_ERROR_ASSIGNED_ALL": "Вы не можете удалить эти политики домена"
+      "DELETE_ERROR_ASSIGNED_ALL": "Вы не можете удалить эти политики домена",
+      "DELETE_ERROR_ASSIGNED_SOME": "Некоторые политики домена были успешно удалены, но не другие, поскольку они уже назначены по крайней мере одному домену."
     },
     "ASSIGN_MODAL": {
       "TITLE": "Назначить политику домена",

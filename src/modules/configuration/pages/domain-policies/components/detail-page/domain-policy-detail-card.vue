@@ -6,6 +6,7 @@
           <a-input
             id="name"
             v-model:value="activeDomainPolicyForm.label"
+            :disabled="!editing || !editable"
             class="ls-input"
             :placeholder="$t('DOMAIN_POLICY.CREATE_MODAL.PLACEHOLDER_NAME')"
           ></a-input>
@@ -14,6 +15,7 @@
           <a-textarea
             id="name"
             v-model:value="activeDomainPolicyForm.description"
+            :disabled="!editing || !editable"
             class="ls-input"
             :auto-size="{ minRows: 4, maxRows: 8 }"
           ></a-textarea>

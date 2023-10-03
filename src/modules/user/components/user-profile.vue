@@ -167,6 +167,12 @@ checkGuestFeature();
             <a-select-option v-for="option in languageNotificationOptions" :key="option" :value="option">
               {{ $t(`LOCALE.${option}`) }}
             </a-select-option>
+            <a-select-option value="RUSSIAN">
+              {{ $t('LOCALE.RUSSIAN') }}
+            </a-select-option>
+            <a-select-option value="VIETNAMESE">
+              {{ $t('LOCALE.VIETNAMESE') }}
+            </a-select-option>
           </a-select>
         </div>
         <div v-if="isGuestUser" class="input-container">

@@ -11,7 +11,12 @@
           </template>
           {{ $t('GENERAL.BACK_TO_LIST') }}
         </a-button>
-        <a-button v-if="editable && !editing" type="primary" class="ls-button ls-filled" @click="onEditDomainPolicy">
+        <a-button
+          v-if="editable && !editing"
+          type="primary"
+          class="ls-button ls-filled"
+          @click="onToggleEditDomainPolicy"
+        >
           <template #icon>
             <EditOutlined />
           </template>
@@ -23,7 +28,7 @@
         :editable="editable"
         :editing="editing"
         :loading="loading"
-        @cancel="onEditDomainPolicy"
+        @cancel="onToggleEditDomainPolicy"
         @save="onUpdateDomainPolicy"
         @reset="onResetDomainPolicy"
       ></domain-policy-detail-action>
@@ -53,7 +58,7 @@ function onBackToDomainPolicies() {
   router.push({ name: DOMAIN_POLICIES_ROUTE_NAMES.POLICIES });
 }
 
-function onEditDomainPolicy() {
+function onToggleEditDomainPolicy() {
   emits('edit-toggle');
 }
 
@@ -62,7 +67,7 @@ async function onUpdateDomainPolicy() {
     ...activeDomainPolicy.value,
   };
   await handleUpdateDomainPolicy(payload);
-  onEditDomainPolicy();
+  onToggleEditDomainPolicy();
 }
 
 function onResetDomainPolicy() {

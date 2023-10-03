@@ -1,6 +1,6 @@
 <template>
   <a-modal
-    class="creation-modal"
+    class="mime-policies-creation-modal"
     :visible="props.visible"
     :title="$t('MIME_POLICIES.CREATE_MIME_POLICY')"
     :destroy-on-close="true"
@@ -118,7 +118,7 @@ function reset() {
 </script>
 
 <style lang="less">
-.creation-modal {
+.mime-policies-creation-modal {
   height: 100vh;
   display: flex;
   flex-direction: column;

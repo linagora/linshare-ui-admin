@@ -3,23 +3,26 @@ import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import useProfile from '@/core/hooks/useProfile';
-import ChevronRightIcon from '@/core/components/icons/chevron-right-icon.vue';
-import CloseIcon from '@/core/components/icons/close-icon.vue';
-import UserProfileIcon from '@/core/components/icons/user-profile-icon.vue';
-import GlobeIcon from '@/core/components/icons/globe-icon.vue';
+import { useAuthStore } from '@/modules/auth/store';
+import { logout } from '@/modules/auth/services/basic';
+import { isEnable } from '@/core/utils/functionality';
 import LockIcon from '@/core/components/icons/lock-icon.vue';
 import DoorIcon from '@/core/components/icons/door-icon.vue';
 import useLanguageModal from '@/core/hooks/useLanguageModal';
+import CloseIcon from '@/core/components/icons/close-icon.vue';
+import GlobeIcon from '@/core/components/icons/globe-icon.vue';
 import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
-import { logout } from '@/modules/auth/services/basic';
-import { useAuthStore } from '@/modules/auth/store';
-import { isEnable } from '@/core/utils/functionality';
+import UserProfileIcon from '@/core/components/icons/user-profile-icon.vue';
+import ChevronRightIcon from '@/core/components/icons/chevron-right-icon.vue';
+import { useReportingSharesStore, useReportingStore } from '@/modules/reporting/store';
 
+const { push } = useRouter();
 const authStore = useAuthStore();
+const reportingStore = useReportingStore();
+const { toogleLanguage } = useLanguageModal();
+const reportingSharesStore = useReportingSharesStore();
 const { visible, current, showDrawer, onClose } = useProfile();
 const { loggedUser, loggedUserFullName, functionalities } = storeToRefs(authStore);
-const { toogleLanguage } = useLanguageModal();
-const { push } = useRouter();
 
 const firstFullNameCharacter = computed(() => {
   return loggedUserFullName.value.charAt(0);
@@ -38,6 +41,8 @@ async function logOut() {
     await logout();
   }
 
+  reportingStore.$reset();
+  reportingSharesStore.$reset();
   push({ name: 'Login' });
 }
 </script>

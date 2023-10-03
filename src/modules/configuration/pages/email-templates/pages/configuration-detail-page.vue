@@ -52,15 +52,17 @@ import SystemInformationCard from '@/modules/configuration/pages/email-templates
 import EmailConfigurationDetailCard from '@/modules/configuration/pages/email-templates/components/email-configuration/detail-page/email-configuration-detail-card.vue';
 import EmailConfigurationContentTable from '@/modules/configuration/pages/email-templates/components/email-configuration/detail-page/email-configuration-content-table.vue';
 
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import useEmailTemplatesConfiguration from '../hooks/useEmailTemplatesConfiguration';
 import useEmailTemplatesLayout from '../hooks/useEmailTemplatesLayout';
 import { MailConfiguration } from '../types/MailConfiguration';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
+import { useRoute } from 'vue-router';
 
 // composables
+const route = useRoute();
 const {
   loading,
   activeMailConfig,
@@ -113,7 +115,7 @@ function onResetEmailConfiguration() {
 }
 
 function onFetchingData() {
-  handleGetMailConfigurationDetail(activeMailConfig?.value?.uuid);
+  handleGetMailConfigurationDetail(route.params.id?.toString());
   handleGetEmailLayoutTemplates(activeMailConfig?.value?.domain, false);
   handleGetEmailFooterTemplates(activeMailConfig?.value?.uuid);
 }
@@ -122,9 +124,17 @@ function onFetchingEmailConfig() {
   handleGetMailConfigurationDetail(activeMailConfig?.value?.uuid);
 }
 
-onMounted(async () => {
-  onFetchingData();
-});
+watch(
+  () => route.fullPath,
+  () => {
+    if (route.params.id?.toString()) {
+      onFetchingData();
+    }
+  },
+  {
+    immediate: true,
+  }
+);
 </script>
 
 <style lang="less">

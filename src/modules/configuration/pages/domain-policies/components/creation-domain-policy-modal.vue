@@ -227,7 +227,7 @@ onMounted(async () => {
 </script>
 
 <style lang="less">
-.create-mail-content-card {
+.create-domain-policy-card {
   border-radius: 25px;
   .ant-card-body {
     display: flex;

@@ -71,7 +71,6 @@ import DeleteDomainPoliciesCard from '../components/delete-domain-policies-card.
 import DeleteDomainPolicyFailCard from '../components/delete-domain-policy-fail-card.vue';
 import AssignDomainPolicyCard from '../components/assign-domain-policy-card.vue';
 import DuplicateDomainPolicyCard from '../components/duplicate-domain-policy-card.vue';
-
 const {
   modal,
   filterText,

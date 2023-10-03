@@ -320,13 +320,12 @@ export default function useDomainPolicies() {
   async function handleGetDomainPolicyDetail(identifier: string) {
     status.value = STATUS.LOADING;
     try {
-      const messages = await getDomainPolicyDetail(identifier, currentDomain.value.uuid);
+      const messages = await getDomainPolicyDetail(identifier);
       status.value = STATUS.SUCCESS;
       activeDomainPolicy.value = messages;
 
       activeDomainPolicyForm.value = {
-        label: messages?.label,
-        description: messages?.description,
+        ...messages,
       };
       defaultDomainPolicyForm.value = { ...activeDomainPolicyForm.value };
     } catch (error) {
@@ -344,11 +343,7 @@ export default function useDomainPolicies() {
       message.success(t('DOMAIN_POLICY.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
       if (error instanceof APIError) {
-        if (error.errorCode === 1000) {
-          message.error(t('ERRORS.MAIL_CONFIGURATION.1000'));
-        } else {
-          message.error(error.getMessage());
-        }
+        message.error(error.getMessage());
       }
       return [];
     }

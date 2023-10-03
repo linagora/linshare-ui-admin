@@ -16,9 +16,9 @@
         </template>
         <template v-else-if="column.key === 'readOnly'">
           <a-tag v-if="record.readOnly" color="success">
-            {{ $t('EMAIL_TEMPLATES.EDITABLE') }}
+            {{ $t('DOMAIN_POLICY.EDITABLE') }}
           </a-tag>
-          <a-tag v-else color="red"> {{ $t('EMAIL_TEMPLATES.READ_ONLY') }}</a-tag>
+          <a-tag v-else color="red"> {{ $t('DOMAIN_POLICY.READ_ONLY') }}</a-tag>
         </template>
         <template v-else-if="column.key === 'creationDate'">
           <span>{{ $d(record?.creationDate, 'mediumDate') }}</span>
@@ -33,7 +33,7 @@
           <a-tag v-else color="red"> {{ $t('GENERAL.UNASSIGNED') }}</a-tag>
         </template>
         <template v-else-if="column.key === 'action'">
-          <a-dropdown overlay-class-name="email-layout-table__dropdown" placement="bottomRight" :trigger="['click']">
+          <a-dropdown overlay-class-name="domain-policy-table__dropdown" placement="bottomRight" :trigger="['click']">
             <a-button class="ls-detail ls-button ls-primary">
               <detail-icon width="16px" height="16px"></detail-icon>
             </a-button>

@@ -54,7 +54,7 @@
     "REQUEST_RELOAD_DATA": "Click nút làm mới để tải lại dữ liệu.",
     "APPLY": "Áp dụng",
     "DATE_ALL_TIME": "Mọi lúc",
-    "DATE_LAST_DAY" : "Ngày cuối cùng",
+    "DATE_LAST_DAY": "Ngày cuối cùng",
     "DATE_LAST_7_DAYS": "7 ngày qua",
     "DATE_LAST_30_DAYS": "30 ngày qua",
     "DATE_LAST_6_MONTHS": "6 tháng trước",
@@ -1355,18 +1355,18 @@
     "FILTERS_BAR": {
       "DOMAIN_FILTER": "Tên miền:",
       "CATEGORY_FILTER": "Danh mục:",
-      "TOP":"Top",
+      "TOP": "Top",
       "TIME_RANGE_FILTER": "Giai đoạn:",
       "ALL_DOMAINS": "Tất cả các"
     },
-    "STORAGE_STATISTICS" : "Thống kê lưu trữ",
-    "SHARE_STATISTICS" : "Thống kê chia sẻ",
+    "STORAGE_STATISTICS": "Thống kê lưu trữ",
+    "SHARE_STATISTICS": "Thống kê chia sẻ",
     "FILTERS_MODAL": {
       "TITLE": "Cài đặt bộ lọc",
       "TIME_RANGE": "Giai đoạn",
       "DOMAIN_SELECT_PLACEHOLDER": "Chọn các miền để lọc, để trống để chọn tất cả các miền",
       "CATEGORIES": "Danh mục",
-      "TOP":"Top",
+      "TOP": "Top",
       "CATEGORIES_WHOLE_DOMAIN": "Toàn bộ miền",
       "CATEGORIES_SHARED_SPACE": "Không gian được chia sẻ",
       "CATEGORIES_MY_SPACE": "Không gian của tôi"
@@ -1378,8 +1378,8 @@
         "NUMBER_OF_SHARED_FILES": "SỐ LƯỢNG TỆP ĐƯỢC CHIA SẺ"
       },
       "FILE_SIZE": {
-        "TITLE":"Top {pageNumber} người nhận theo kích thước tệp được chia sẻ",
-        "RECEIVER_MAIL":"ĐỊA CHỈ EMAIL NGƯỜI NHẬN",
+        "TITLE": "Top {pageNumber} người nhận theo kích thước tệp được chia sẻ",
+        "RECEIVER_MAIL": "ĐỊA CHỈ EMAIL NGƯỜI NHẬN",
         "SIZE_OF_SHARED_FILES": "KÍCH THƯỚC TỆP CHIA SẺ"
       }
     },
@@ -3016,6 +3016,16 @@
     "SETTING": "Cài đặt"
   },
   "DOMAIN_POLICY": {
+    "EDITABLE": "Có thể sửa",
+    "READ_ONLY": "Chỉ đọc",
+    "POSITION": "Vị trí",
+    "DOMAIN": "Tên miền",
+    "TYPE": "Loại",
+    "ACTIONS": "Hành động",
+    "RULES_LIST": "Danh sách quy tắc",
+    "EDIT_FORM": {
+      "UPDATE_SUCCESS": "Cập nhật thành công"
+    },
     "CREATE_MODAL": {
       "CREATE_MODAL_TITLE": "Tạo chính sách miền",
       "DETAIL_TAB": "Chi tiết",
@@ -3044,7 +3054,8 @@
       "DELETE_ACTION_CONFIRM": "Vâng, xóa",
       "DELETE_FAILURE": "Xóa thất bại",
       "DELETE_ERROR_ASSIGNED": "Chính sách miền đã chọn được liên kết với ít nhất một tên miền. Bạn không thể xóa",
-      "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các chính sách miền đó"
+      "DELETE_ERROR_ASSIGNED_ALL": "Bạn không thể xóa các chính sách miền đó",
+      "DELETE_ERROR_ASSIGNED_SOME": "Một số chính sách miền đã được xóa thành công nhưng một số khác thì không vì chúng đã được gán cho ít nhất một miền."
     },
     "ASSIGN_MODAL": {
       "TITLE": "Gán một Chính sách miền",

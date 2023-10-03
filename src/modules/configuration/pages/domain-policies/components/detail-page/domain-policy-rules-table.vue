@@ -3,6 +3,26 @@
     <span class="title">
       {{ $t('DOMAIN_POLICY.RULES_LIST') }}
     </span>
+    <div v-if="editing" class="domain-policy-rules-table__rule-form">
+      <a-form-item style="width: 100px" class="ls-form-title" :label="$t('DOMAIN_POLICY.CREATE_MODAL.TYPE')">
+        <a-select v-model:value="selectRule.rule" class="ls-input" :bordered="false">
+          <a-select-option v-for="s in rules" :key="s.value" :value="s.value">
+            {{ s.label }}
+          </a-select-option>
+        </a-select>
+      </a-form-item>
+      <a-form-item style="width: 300px" class="ls-form-title" :label="$t('DOMAIN_POLICY.CREATE_MODAL.SELECT_DOMAIN')">
+        <a-select v-model:value="selectRule.domainId" class="ls-input" :bordered="false" @select="onSelectDomain">
+          <a-select-option v-for="s in domains" :key="s" :value="s.value">
+            {{ s.label }}
+          </a-select-option>
+        </a-select>
+      </a-form-item>
+      <a-button :disabled="!editing || !editable" class="ls-button ls-add" @click="onAddRule">
+        <PlusOutlined />
+        {{ $t('DOMAIN_POLICY.CREATE_MODAL.ADD') }}
+      </a-button>
+    </div>
     <a-table
       key="uuid"
       class="domain-policy-rules-table__table"
@@ -12,13 +32,13 @@
       row-key="uuid"
       :loading="status === STATUS.LOADING"
     >
-      <template #bodyCell="{ column, record }">
+      <template #bodyCell="{ column, record, index }">
         <template v-if="column.key === 'position'">
           <div class="positon">
-            <a-button class="ls-button ls-position-button">
+            <a-button :disabled="!editing || !editable" class="ls-button ls-position-button">
               <UpOutlined />
             </a-button>
-            <a-button class="ls-button ls-position-button">
+            <a-button :disabled="!editing || !editable" class="ls-button ls-position-button">
               <DownOutlined />
             </a-button>
           </div>
@@ -31,7 +51,7 @@
           <CloseOutlined v-else class="type-deny" />
         </template>
         <template v-if="column.key === 'actions'">
-          <a-button class="ls-button ls-position-button">
+          <a-button :disabled="!editing || !editable" class="ls-button ls-position-button" @click="onRemoveRule(index)">
             <DeleteFilled class="type-deny" />
           </a-button>
         </template>
@@ -41,11 +61,22 @@
 </template>
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
+import { computed, onMounted, reactive, ref } from 'vue';
+import Domain from '@/core/types/Domain';
 import { STATUS } from '@/core/types/Status';
-import { computed } from 'vue';
+import { message } from 'ant-design-vue';
 import { DomainPolicyRule } from '../../types/DomainPolicy';
 import useDomainPolicies from '../../hooks/useDomainPolicies';
-import { CheckOutlined, CloseOutlined, UpOutlined, DownOutlined, DeleteFilled } from '@ant-design/icons-vue';
+import {
+  CheckOutlined,
+  PlusOutlined,
+  CloseOutlined,
+  UpOutlined,
+  DownOutlined,
+  DeleteFilled,
+} from '@ant-design/icons-vue';
+import { getDomainsV4 } from '@/modules/domain/services/domain-api';
+import { APIError } from '@/core/types/APIError';
 
 const { t } = useI18n();
 const { status, activeDomainPolicy } = useDomainPolicies();
@@ -56,7 +87,33 @@ const props = defineProps<{
   editing?: boolean;
 }>();
 
+//data
+const selectRule = reactive<{ rule?: 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL'; domain?: Domain; domainId?: string }>(
+  {}
+);
+const domains = ref<{ label: string | undefined; value: string; subject: Domain }[]>([]);
+
 // computed
+const rules = computed(() => {
+  return [
+    {
+      label: t('DOMAIN_POLICY.CREATE_MODAL.ALLOW'),
+      value: 'ALLOW',
+    },
+    {
+      label: t('DOMAIN_POLICY.CREATE_MODAL.ALLOW_ALL'),
+      value: 'ALLOW_ALL',
+    },
+    {
+      label: t('DOMAIN_POLICY.CREATE_MODAL.DENY'),
+      value: 'DENY',
+    },
+    {
+      label: t('DOMAIN_POLICY.CREATE_MODAL.DENY_ALL'),
+      value: 'DENY_ALL',
+    },
+  ];
+});
 const columns = computed(() => [
   {
     width: '15%',
@@ -84,6 +141,42 @@ const columns = computed(() => [
 const rulesByPage = computed(() => {
   return activeDomainPolicy.value.accessPolicy.rules;
 });
+
+function onAddRule() {
+  if (selectRule.domainId && selectRule.rule) {
+    activeDomainPolicy.value.accessPolicy.rules.push({
+      domain: { ...selectRule.domain } as Domain,
+      type: selectRule.rule as 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL',
+    });
+  }
+}
+function onSelectDomain(
+  value: string,
+  model: { key: { label: string | undefined; value: string; subject: Domain }; label: string; subject: Domain }
+) {
+  selectRule.domain = model.key.subject;
+}
+
+function onRemoveRule(index: number) {
+  activeDomainPolicy.value.accessPolicy.rules.splice(index, 1);
+}
+
+async function fetchDomains() {
+  try {
+    const response = await getDomainsV4({ params: { tree: false } });
+    domains.value = (response as Domain[]).map((item) => {
+      return { label: item?.label, value: item?.identifier, subject: item };
+    });
+  } catch (error) {
+    if (error instanceof APIError) {
+      message.error(error.getMessage());
+    }
+  }
+}
+
+onMounted(() => {
+  fetchDomains();
+});
 </script>
 
 <style lang="less">
@@ -95,6 +188,14 @@ const rulesByPage = computed(() => {
   gap: 14px;
   width: 100%;
   max-width: 100%;
+
+  &__rule-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 8px;
+  }
 
   .title {
     color: #000;
@@ -135,6 +236,22 @@ const rulesByPage = computed(() => {
     overflow-x: scroll;
   }
 
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .ls-form-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-bottom: 0;
+  }
+
   .ls-input {
     height: 44px;
     background: #fff;
@@ -149,6 +266,21 @@ const rulesByPage = computed(() => {
   .ls-input .ant-select-dropdown {
     top: 0 !important;
     bottom: auto !important;
+  }
+
+  .ant-form-item-label {
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    color: #6d7885;
+  }
+  .ant-form-item-control-input {
+    min-height: 42px;
+  }
+  .ant-col {
+    min-height: unset;
   }
 
   &__dropdown {
@@ -201,6 +333,11 @@ const rulesByPage = computed(() => {
     justify-content: flex-start;
     align-items: center;
     gap: 4px;
+  }
+  .ls-add {
+    height: 44px !important;
+    color: #007aff;
+    font-size: 14px;
   }
   .ls-position-button {
     height: 32px !important;

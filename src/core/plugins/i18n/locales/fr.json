@@ -54,7 +54,7 @@
     "REQUEST_RELOAD_DATA": "Veuillez cliquer sur Actualiser pour charger les données manquantes.",
     "APPLY": "Appliquer",
     "DATE_ALL_TIME": "Tout le temps",
-    "DATE_LAST_DAY" : "Dernier jour",
+    "DATE_LAST_DAY": "Dernier jour",
     "DATE_LAST_7_DAYS": "7 derniers jours",
     "DATE_LAST_30_DAYS": "30 derniers jours",
     "DATE_LAST_6_MONTHS": "6 derniers mois",
@@ -1357,18 +1357,18 @@
     "FILTERS_BAR": {
       "DOMAIN_FILTER": "Domaine :",
       "CATEGORY_FILTER": "Catégorie :",
-      "TOP":"Top",
+      "TOP": "Top",
       "TIME_RANGE_FILTER": "Plage horaire :",
       "ALL_DOMAINS": "Tous"
     },
-    "STORAGE_STATISTICS" : "Statistiques de stockage",
-    "SHARE_STATISTICS" : "Statistiques de partage",
+    "STORAGE_STATISTICS": "Statistiques de stockage",
+    "SHARE_STATISTICS": "Statistiques de partage",
     "FILTERS_MODAL": {
       "TITLE": "Réglage des filtres",
       "TIME_RANGE": "Plage horaire",
       "DOMAIN_SELECT_PLACEHOLDER": "Sélectionnez les domaines à filtrer, laissez vide pour sélectionner tous les domaines",
       "CATEGORIES": "Catégories",
-      "TOP":"Top",
+      "TOP": "Top",
       "CATEGORIES_WHOLE_DOMAIN": "Domaine entier",
       "CATEGORIES_SHARED_SPACE": "Espace partagé",
       "CATEGORIES_MY_SPACE": "Mon espace"
@@ -1380,8 +1380,8 @@
         "NUMBER_OF_SHARED_FILES": "NOMBRE DE FICHIERS PARTAGÉS"
       },
       "FILE_SIZE": {
-        "TITLE":"Top {pageNumber} des destinataires par taille de fichiers partagés",
-        "RECEIVER_MAIL":"ADRESSE EMAIL DU DESTINATAIRE",
+        "TITLE": "Top {pageNumber} des destinataires par taille de fichiers partagés",
+        "RECEIVER_MAIL": "ADRESSE EMAIL DU DESTINATAIRE",
         "SIZE_OF_SHARED_FILES": "TAILLE DES FICHIERS PARTAGÉS"
       }
     },
@@ -3035,6 +3035,16 @@
     "SETTING": "Réglages"
   },
   "DOMAIN_POLICY": {
+    "EDITABLE": "Editable",
+    "READ_ONLY": "Lecture seule",
+    "POSITION": "Position",
+    "DOMAIN": "Domaine",
+    "TYPE": "Type",
+    "ACTIONS": "Actions",
+    "RULES_LIST": "Liste des règles",
+    "EDIT_FORM": {
+      "UPDATE_SUCCESS": "Mis à jour avec succès"
+    },
     "CREATE_MODAL": {
       "CREATE_MODAL_TITLE": "Créer une politique de domaine",
       "DETAIL_TAB": "Détail",
@@ -3050,7 +3060,7 @@
       "DENY": "Refuser",
       "DENY_ALL": "Refuser tout",
       "POLICY_LIST": "Liste des politiques",
-      "CREATE_SUCCESS":"Créé avec succès",
+      "CREATE_SUCCESS": "Créé avec succès",
       "DUPLICATE_SUCCESS": "Dupliqué avec succès"
     },
     "DELETE_CONTENT_MODAL": {
@@ -3063,7 +3073,8 @@
       "DELETE_ACTION_CONFIRM": "Oui, supprimer",
       "DELETE_FAILURE": "Échec de la suppression",
       "DELETE_ERROR_ASSIGNED": "Le domaine sélectionné est associé à au moins un autre domaine. Vous ne pouvez pas le supprimer.",
-      "DELETE_ERROR_ASSIGNED_ALL": "Vous ne pouvez pas supprimer ces politiques de domaine"
+      "DELETE_ERROR_ASSIGNED_ALL": "Vous ne pouvez pas supprimer ces politiques de domaine",
+      "DELETE_ERROR_ASSIGNED_SOME": "Certaines politiques de domaine ont été supprimées avec succès, mais pas d'autres, car elles sont déjà attribuées à au moins un domaine."
     },
     "ASSIGN_MODAL": {
       "TITLE": "Assigner une politique de domaine",
