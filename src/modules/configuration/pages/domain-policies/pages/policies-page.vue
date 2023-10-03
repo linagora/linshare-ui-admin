@@ -14,7 +14,6 @@
       <domain-policy-actions @create="onCreateDomainPolicy"></domain-policy-actions>
     </div>
     <domain-policy-table></domain-policy-table>
-    <ThePagination v-model="pagination" class="pagination" :is-visible="!!filteredList.length" />
   </div>
   <a-modal
     v-model:visible="modal.visible"
@@ -62,7 +61,6 @@
 import { useRoute } from 'vue-router';
 import { watch } from 'vue';
 import DomainPolicyTable from '../components/domain-policy-table.vue';
-import ThePagination from '@/core/components/the-pagination.vue';
 import { useDomainStore } from '@/modules/domain/store';
 import { SearchOutlined } from '@ant-design/icons-vue';
 import useDomainPolicies from '../hooks/useDomainPolicies';
@@ -73,12 +71,11 @@ import DeleteDomainPoliciesCard from '../components/delete-domain-policies-card.
 import DeleteDomainPolicyFailCard from '../components/delete-domain-policy-fail-card.vue';
 import AssignDomainPolicyCard from '../components/assign-domain-policy-card.vue';
 import DuplicateDomainPolicyCard from '../components/duplicate-domain-policy-card.vue';
+
 const {
   modal,
-  list,
   filterText,
   pagination,
-  filteredList,
   onCloseModal,
   fetchDomainPolicy,
   onCreateDomainPolicy,

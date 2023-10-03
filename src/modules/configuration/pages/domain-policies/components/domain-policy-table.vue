@@ -43,11 +43,7 @@
                   <CopyOutlined :style="{ color: '#007AFF' }" />
                   {{ $t('GENERAL.DUPLICATE') }}
                 </a-menu-item>
-                <a-menu-item
-                  v-if="allowAssigned(record)"
-                  :disabled="record.assigned"
-                  @click="onAssignDomainPolicy(record)"
-                >
+                <a-menu-item v-if="allowAssigned()" :disabled="record.assigned" @click="onAssignDomainPolicy(record)">
                   <AssignIcon></AssignIcon> {{ $t('GENERAL.ASSIGN') }}
                 </a-menu-item>
                 <a-menu-item v-if="allowView(record)" @click="onEditDomainPolicy(record)">

@@ -35,7 +35,7 @@ const pagination = reactive({
 });
 const loading = ref(false);
 
-const DomainPolicyUuid = reactive<{
+const domainPolicyUuid = reactive<{
   uuid: string;
 }>({
   uuid: '',
@@ -149,22 +149,22 @@ export default function useDomainPolicies() {
     }
   }
 
-  function isAssigned(DomainPolicyUuid: string, currentDomainDomainPolicyUuid: string | undefined) {
-    if (DomainPolicyUuid === currentDomainDomainPolicyUuid) {
+  function isAssigned(domainPolicyUuid: string, currentDomainDomainPolicyUuid: string | undefined) {
+    if (domainPolicyUuid === currentDomainDomainPolicyUuid) {
       return true;
     }
     return false;
   }
 
-  function onAssignDomainPolicy(DomainPolicy: DomainPolicy) {
-    activeDomainPolicy.value = DomainPolicy;
+  function onAssignDomainPolicy(domainPolicy: DomainPolicy) {
+    activeDomainPolicy.value = domainPolicy;
     modal.type = 'ASSIGN_DOMAIN_POLICY';
     modal.visible = true;
   }
 
-  function onDeleteDomainPolicy(DomainPolicy: DomainPolicy) {
-    activeDomainPolicy.value = DomainPolicy;
-    DomainPolicyUuid.uuid = DomainPolicy.uuid;
+  function onDeleteDomainPolicy(domainPolicy: DomainPolicy) {
+    activeDomainPolicy.value = domainPolicy;
+    domainPolicyUuid.uuid = domainPolicy.identifier;
     modal.type = 'DELETE_DOMAIN_POLICY';
     modal.visible = true;
   }
@@ -317,10 +317,10 @@ export default function useDomainPolicies() {
       loading.value = false;
     }
   }
-  async function handleGetDomainPolicyDetail(uuid: string) {
+  async function handleGetDomainPolicyDetail(identifier: string) {
     status.value = STATUS.LOADING;
     try {
-      const messages = await getDomainPolicyDetail(uuid, currentDomain.value.uuid);
+      const messages = await getDomainPolicyDetail(identifier, currentDomain.value.uuid);
       status.value = STATUS.SUCCESS;
       activeDomainPolicy.value = messages;
 
