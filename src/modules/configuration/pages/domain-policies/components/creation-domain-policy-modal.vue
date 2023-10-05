@@ -59,10 +59,10 @@
               :key="index + '__rule-item'"
               class="create-domain-policy-card__rule-item"
             >
-              <a-button class="ls-button ls-add">
+              <a-button class="ls-button ls-add" @click="moveUp(index)">
                 <UpOutlined />
               </a-button>
-              <a-button class="ls-button ls-add">
+              <a-button class="ls-button ls-add" @click="moveDown(index)">
                 <DownOutlined />
               </a-button>
               <div class="create-domain-policy-card__rule-item-content">
@@ -140,12 +140,6 @@ const rules = computed(() => {
   ];
 });
 const formRules = computed(() => ({
-  description: [
-    {
-      required: true,
-      message: t('GENERAL.FIELD_REQUIRED'),
-    },
-  ],
   label: [
     {
       required: true,
@@ -219,6 +213,24 @@ async function fetchDomains() {
       message.error(error.getMessage());
     }
   }
+}
+
+function moveRule(from: number, to: number) {
+  form.accessPolicy.rules.splice(to, 0, form.accessPolicy.rules.splice(from, 1)[0]);
+}
+
+function moveUp(index: number) {
+  if (index < 1) {
+    return;
+  }
+  moveRule(index, index - 1);
+}
+
+function moveDown(index: number) {
+  if (index === form.accessPolicy.rules?.length - 1) {
+    return;
+  }
+  moveRule(index, index + 1);
 }
 
 onMounted(async () => {

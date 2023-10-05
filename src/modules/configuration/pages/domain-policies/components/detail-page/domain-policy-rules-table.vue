@@ -35,10 +35,10 @@
       <template #bodyCell="{ column, record, index }">
         <template v-if="column.key === 'position'">
           <div class="positon">
-            <a-button :disabled="!editing || !editable" class="ls-button ls-position-button">
+            <a-button :disabled="!editing || !editable" class="ls-button ls-position-button" @click="moveUp(index)">
               <UpOutlined />
             </a-button>
-            <a-button :disabled="!editing || !editable" class="ls-button ls-position-button">
+            <a-button :disabled="!editing || !editable" class="ls-button ls-position-button" @click="moveDown(index)">
               <DownOutlined />
             </a-button>
           </div>
@@ -172,6 +172,28 @@ async function fetchDomains() {
       message.error(error.getMessage());
     }
   }
+}
+
+function moveRule(from: number, to: number) {
+  activeDomainPolicy.value.accessPolicy.rules.splice(
+    to,
+    0,
+    activeDomainPolicy.value.accessPolicy.rules.splice(from, 1)[0]
+  );
+}
+
+function moveUp(index: number) {
+  if (index < 1) {
+    return;
+  }
+  moveRule(index, index - 1);
+}
+
+function moveDown(index: number) {
+  if (index === activeDomainPolicy.value.accessPolicy.rules?.length - 1) {
+    return;
+  }
+  moveRule(index, index + 1);
 }
 
 onMounted(() => {
