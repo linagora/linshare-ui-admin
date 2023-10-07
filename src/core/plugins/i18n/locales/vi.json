@@ -3024,6 +3024,7 @@
     "ACTIONS": "Hành động",
     "RULES_LIST": "Danh sách quy tắc",
     "SEARCH_BY": "Tìm kiếm theo tên hoặc mô tả",
+    "ALL_DOMAIN": "Tất cả",
     "EDIT_FORM": {
       "UPDATE_SUCCESS": "Cập nhật thành công"
     },

@@ -44,10 +44,13 @@
           </div>
         </template>
         <template v-if="column.key === 'domain'">
-          <span class="elipsis-name">{{ record?.domain?.label }}</span>
+          <span class="elipsis-name">{{
+            record?.type === 'ALLOW_ALL' ? $t('DOMAIN_POLICY.ALL_DOMAIN') : record?.domain?.label
+          }}</span>
         </template>
         <template v-if="column.key === 'type'">
-          <CheckOutlined v-if="record?.type === 'ALLOW' || record?.type === 'ALLOW_ALL'" class="type-allow" />
+          <CheckOutlined v-if="record?.type === 'ALLOW'" class="type-allow" />
+          <CheckCircleOutlined v-else-if="record?.type === 'ALLOW_ALL'" class="type-allow" />
           <CloseOutlined v-else class="type-deny" />
         </template>
         <template v-if="column.key === 'actions'">
@@ -74,6 +77,7 @@ import {
   UpOutlined,
   DownOutlined,
   DeleteFilled,
+  CheckCircleOutlined,
 } from '@ant-design/icons-vue';
 import { getDomainsV4 } from '@/modules/domain/services/domain-api';
 import { APIError } from '@/core/types/APIError';

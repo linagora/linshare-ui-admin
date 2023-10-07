@@ -3043,6 +3043,7 @@
     "ACTIONS": "Actions",
     "RULES_LIST": "Liste des règles",
     "SEARCH_BY": "Rechercher par nom ou description",
+    "ALL_DOMAIN": "Tous",
     "EDIT_FORM": {
       "UPDATE_SUCCESS": "Mis à jour avec succès"
     },

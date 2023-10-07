@@ -2785,6 +2785,7 @@
     "ACTIONS": "Действия",
     "RULES_LIST": "Список правил",
     "SEARCH_BY": "Поиск по имени или описанию",
+    "ALL_DOMAIN": "All",
     "EDIT_FORM": {
       "UPDATE_SUCCESS": "Обновлено успешно"
     },
