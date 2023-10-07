@@ -139,7 +139,9 @@ export default function useDomainPolicies() {
     try {
       const messages = await getDomainPolicyList(currentDomain.value.uuid, onlyCurrentDomain);
       status.value = STATUS.SUCCESS;
-      list.value = messages;
+      list.value = messages.sort(
+        (a: DomainPolicy, b: DomainPolicy) => (b.modificationDate || 0) - (a.modificationDate || 0)
+      );
     } catch (error) {
       status.value = STATUS.ERROR;
 
