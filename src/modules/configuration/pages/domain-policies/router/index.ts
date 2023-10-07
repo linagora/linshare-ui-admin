@@ -32,7 +32,6 @@ export const ConfigurationDomainPoliciesRoutes: RouteRecordRaw[] = [
         component: () => import('@/modules/configuration/pages/domain-policies/pages/policy-detail-page.vue'),
         meta: {
           requiresAuth: true,
-          parentRoute: CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES.ENTRIES,
         },
       },
     ],
