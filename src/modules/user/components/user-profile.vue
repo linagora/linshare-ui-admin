@@ -173,6 +173,12 @@ checkGuestFeature();
             <a-select-option value="VIETNAMESE">
               {{ $t('LOCALE.VIETNAMESE') }}
             </a-select-option>
+            <a-select-option value="RUSSIAN">
+              {{ $t('LOCALE.RUSSIAN') }}
+            </a-select-option>
+            <a-select-option value="VIETNAMESE">
+              {{ $t('LOCALE.VIETNAMESE') }}
+            </a-select-option>
           </a-select>
         </div>
         <div v-if="isGuestUser" class="input-container">
