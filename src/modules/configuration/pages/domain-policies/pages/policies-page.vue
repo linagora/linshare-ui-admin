@@ -3,7 +3,7 @@
     <div class="domain-policies-page__action">
       <a-input
         v-model:value="filterText"
-        :placeholder="$t('GENERAL.SEARCH_BY')"
+        :placeholder="$t('DOMAIN_POLICY.SEARCH_BY')"
         class="domain-policies-page__action-input"
         allow-clear
       >

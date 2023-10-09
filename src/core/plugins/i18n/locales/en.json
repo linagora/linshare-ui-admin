@@ -3061,6 +3061,7 @@
     "TYPE": "Type",
     "ACTIONS": "Actions",
     "RULES_LIST": "Rule list",
+    "SEARCH_BY": "Search by name or description",
     "EDIT_FORM": {
       "UPDATE_SUCCESS":"Updated successfully"
     },
