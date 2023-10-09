@@ -38,7 +38,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router';
 import { ArrowLeftOutlined, EditOutlined } from '@ant-design/icons-vue';
-import { DOMAIN_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/domain-policies/router';
+import { CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/domain-policies/router';
 import DomainPolicyDetailAction from '@/modules/configuration/pages/domain-policies/components/detail-page/domain-policy-detail-action.vue';
 import { DomainPolicy } from '../../types/DomainPolicy';
 import useDomainPolicies from '../../hooks/useDomainPolicies';
@@ -55,7 +55,7 @@ const { loading, activeDomainPolicy, handleUpdateDomainPolicy, handleResetDomain
 
 // methods
 function onBackToDomainPolicies() {
-  router.push({ name: DOMAIN_POLICIES_ROUTE_NAMES.POLICIES });
+  router.push({ name: CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES.POLICIES });
 }
 
 function onToggleEditDomainPolicy() {

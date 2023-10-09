@@ -17,7 +17,7 @@ import { ConfigurationDomainDomainUserProvidersRoutes } from '@/modules/configur
 import { ConfigurationDomainDomainWorkspaceProvidersRoutes } from '@/modules/configuration/pages/domain-workspace-providers/router';
 import {
   ConfigurationDomainPoliciesRoutes,
-  DOMAIN_POLICIES_ROUTE_NAMES,
+  CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES,
 } from '@/modules/configuration/pages/domain-policies/router';
 
 export const ConfigurationRoute: RouteRecordRaw = {
@@ -54,5 +54,5 @@ export const ConfigurationRoute: RouteRecordRaw = {
 
 export const CONFIGURATION_ROUTE_NAMES = {
   ...CONFIGURATION_DOMAIN_WELCOME_MESSAGES_ROUTE_NAMES,
-  DOMAIN_POLICIES_ROUTE_NAMES,
+  CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES,
 };

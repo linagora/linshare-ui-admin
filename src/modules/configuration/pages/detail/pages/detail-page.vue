@@ -76,7 +76,14 @@
               {{ $t('DOMAIN.FIELDS.DOMAIN_POLICY') }}
             </div>
             <div class="value">
-              <a href="">{{ currentDomain.domainPolicy?.name }}</a>
+              <router-link
+                :to="{
+                  name: CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES.POLICY_DETAIL,
+                  params: { id: currentDomain?.domainPolicy?.uuid || '', domainUuid: currentDomain.uuid },
+                }"
+              >
+                <a href="">{{ currentDomain.domainPolicy?.name }}</a>
+              </router-link>
             </div>
           </div>
           <div class="info-block">
@@ -102,6 +109,7 @@ import { CONFIGURATION_ROUTE_NAMES } from '@/modules/configuration/router/index'
 import DomainForm from '@/modules/configuration/pages/detail/components/domain-form.vue';
 import { CONFIGURATION_MIME_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/type-mime-policies/router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '@/modules/configuration/pages/email-templates/router';
+import { CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/domain-policies/router';
 
 // composable
 const domainStore = useDomainStore();

@@ -176,7 +176,7 @@ const configurationTabs = reactive({
     title: 'NAVIGATOR.CONFIGURATION_DOMAIN_POLICIES',
     accessibility: { userRoles: [ACCOUNT_ROLE.SUPERADMIN] },
     route: {
-      name: CONFIGURATION_ROUTE_NAMES.DOMAIN_POLICIES_ROUTE_NAMES.POLICIES,
+      name: CONFIGURATION_ROUTE_NAMES.CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES.POLICIES,
     },
     visible: computed(() => {
       return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;

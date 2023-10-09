@@ -18,7 +18,7 @@ import { useDomainStore } from '@/modules/domain/store';
 import Domain from '@/core/types/Domain';
 import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
-import { DOMAIN_POLICIES_ROUTE_NAMES } from '../router';
+import { CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES } from '../router';
 
 const activeDomainPolicy = useLocalStorage<DomainPolicy>('configuration-domain-policies', {} as DomainPolicy);
 const activeDomainPolicyForm = ref<Partial<DomainPolicy>>({});
@@ -171,7 +171,7 @@ export default function useDomainPolicies() {
 
   function onEditDomainPolicy(record: DomainPolicy) {
     activeDomainPolicy.value = record;
-    router.push({ name: DOMAIN_POLICIES_ROUTE_NAMES.POLICY_DETAIL, params: { id: record?.identifier } });
+    router.push({ name: CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES.POLICY_DETAIL, params: { id: record?.identifier } });
   }
 
   async function handleAssignDomainPolicy(domain: Domain) {
