@@ -26,7 +26,7 @@ const tabs = reactive({
   inconsistent: {
     name: 'INCONSISTENT_USERS.TITLE',
     key: 'inconsistent',
-    to: { name: INCONSISTENT_USERS_ROUTE_NAMES.INCONSISTENT },
+    to: { name: INCONSISTENT_USERS_ROUTE_NAMES.INCONSISTENT_LIST },
   },
 });
 

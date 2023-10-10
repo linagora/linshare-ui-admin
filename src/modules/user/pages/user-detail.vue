@@ -23,6 +23,7 @@ import { useMediaQuery } from '@vueuse/core';
 import { LARGE_SCREEN_BREAK_POINT } from '@/core/constants/breakpoint';
 import CurrentUserGuestSmallTable from '../components/current-user-guests-small-table.vue';
 import TokenInput, { TokenSubmitPayload } from '@/core/components/token-input.vue';
+import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router';
 
 const { push, currentRoute, replace } = useRouter();
 const isLargeScreen = useMediaQuery(LARGE_SCREEN_BREAK_POINT);
@@ -43,7 +44,7 @@ async function remove() {
   try {
     await deleteUser(user.value);
     message.success(t('MESSAGES.DELETE_SUCCESS'));
-    push({ name: 'UsersList' });
+    push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_USERS_ROUTE_NAMES.USER_LIST });
   } catch (error) {
     if (error instanceof APIError) {
       message.error(error.getMessage());
@@ -92,7 +93,7 @@ async function prepare() {
       message.error(error.getMessage());
 
       if (error.errorCode === 2200) {
-        replace({ name: 'UsersList' });
+        replace({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_USERS_ROUTE_NAMES.USER_LIST });
       }
     }
   }

@@ -3,7 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 export const INCONSISTENT_USERS_ROUTE_NAMES = {
   ENTRIES: 'InconsistentUsers',
   DIAGNOSIC: 'InconsistentUsersDiagnostic',
-  INCONSISTENT: 'InconsistentUserList',
+  INCONSISTENT_LIST: 'InconsistentUserList',
 };
 
 export const InconsistentUsersRoutes: Array<RouteRecordRaw> = [
@@ -28,7 +28,7 @@ export const InconsistentUsersRoutes: Array<RouteRecordRaw> = [
         },
       },
       {
-        name: INCONSISTENT_USERS_ROUTE_NAMES.INCONSISTENT,
+        name: INCONSISTENT_USERS_ROUTE_NAMES.INCONSISTENT_LIST,
         path: 'inconsistent',
         component: () => import('../pages/manage-inconsistent-users.vue'),
         meta: {

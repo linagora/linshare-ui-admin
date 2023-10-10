@@ -133,6 +133,7 @@ import SharedSpace, { EMPTY_SHARED_SPACE } from '../types/SharedSpace';
 import { useI18n } from 'vue-i18n';
 import { useDomainStore } from '@/modules/domain/store';
 import { EMPTY_DOMAIN_NODE } from '@/modules/domain/types/DomainTreeNode';
+import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router';
 
 interface SharedSpaceForm {
   name: string;
@@ -183,12 +184,12 @@ async function deleteSpace(sharedSpace: SharedSpace) {
   try {
     await deleteSharedSpace(sharedSpace);
     message.success(t('MESSAGES.DELETE_SUCCESS'));
-    router.push({ name: 'SharedSpacesList' });
+    router.push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_LIST });
   } catch (error) {
     if (error instanceof APIError) {
       message.error(error.getMessage());
       if (error.errorCode === 66000) {
-        router.push({ name: 'SharedSpacesList' });
+        router.push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_LIST });
       }
     } else {
       console.error(error);
@@ -222,7 +223,7 @@ async function prepare() {
       console.error(error);
     }
 
-    push({ name: 'SharedSpacesList' });
+    push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_LIST });
   }
 }
 

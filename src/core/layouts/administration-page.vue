@@ -1,64 +1,176 @@
-<template>
-  <a-row>
-    <a-col :md="{ span: 16, offset: 4 }">
-      <div class="page">
-        <router-link :to="{ name: 'UsersList' }">
-          <div class="page__menu-item">
-            <span>{{ $t('NAVIGATOR.MY_USERS') }}</span>
-            <RightOutlined />
-          </div>
-        </router-link>
-        <router-link :to="{ name: 'SharedSpacesList' }">
-          <div class="page__menu-item">
-            <span>{{ $t('NAVIGATOR.MY_SHARED_SPACES') }}</span>
-            <RightOutlined />
-          </div>
-        </router-link>
-        <div class="page__menu-item" @click="redirect('NAVIGATOR.MY_CONTACT_LIST')">
-          <span>{{ $t('NAVIGATOR.MY_CONTACT_LIST') }}</span>
-          <RightOutlined />
-        </div>
-        <router-link v-if="isSuperAdmin" :to="{ name: 'InconsistentUserList' }">
-          <div class="page__menu-item">
-            <span>{{ $t('NAVIGATOR.INCONSISTENT_USERS') }}</span>
-            <RightOutlined />
-          </div>
-        </router-link>
-        <div class="page__menu-item">
-          <span>{{ $t('NAVIGATOR.LOGGERS') }}</span>
-        </div>
-      </div>
-    </a-col>
-  </a-row>
-</template>
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { useDomainStore } from '@/modules/domain/store';
+import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
+import TheSubheader from '@/core/components/the-subheader.vue';
+import { useRoute } from 'vue-router';
 
-<script lang="ts">
-import { defineComponent, computed } from 'vue';
-import { RightOutlined } from '@ant-design/icons-vue';
-import useLegacyFeatures from '../hooks/useLegacyFeatures';
-import { useAuthStore } from '@/modules/auth/store';
-import { ACCOUNT_ROLE } from '@/modules/user/types/User';
-import { storeToRefs } from 'pinia';
+// composables
+const route = useRoute();
+const domainStore = useDomainStore();
+const { breadcrumbs } = useBreadcrumbs();
 
-export default defineComponent({
-  name: 'AdministrationPage',
-  components: {
-    RightOutlined,
-  },
-  setup() {
-    const authStore = useAuthStore();
-    const { loggedUserRole } = storeToRefs(authStore);
+// computed
+const currentDomainName = computed(() => domainStore.currentDomain.name);
+const topMostDomain = computed(() => domainStore.topMostDomain);
 
-    const isSuperAdmin = computed(() => {
-      return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
-    });
+const breadcrumbsWithDomain = computed(() => {
+  const newBreadcrumbs = [
+    {
+      label: 'NAVIGATOR.ADMINISTRATION',
+      path: 'AdministrationEntries',
+    },
+    ...breadcrumbs.value.slice(1),
+  ];
+  return newBreadcrumbs;
+});
 
-    const { redirect } = useLegacyFeatures();
-
-    return {
-      redirect,
-      isSuperAdmin,
-    };
-  },
+const blankPage = computed(() => {
+  return route.meta.blankPage;
 });
 </script>
+<template>
+  <the-subheader :title="$t('NAVIGATOR.ADMINISTRATION')" :detail="$t('ADMINISTRATION.INTRODUCTION')"> </the-subheader>
+  <div class="administration-page">
+    <div v-if="!blankPage" class="administration-page__wrapper">
+      <div class="administration-page__header">
+        <div class="administration-page__header-title">
+          <div class="administration-page__header-title-content">
+            <strong class="title">{{ $t('ADMINISTRATION.NAVIGATOR.MY_CONTACT_LIST') }}</strong>
+            <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">
+              <template #itemRender="{ route, routes }">
+                <span v-if="routes.indexOf(route) === routes.length - 1 || route.disableAction" class="current">
+                  {{ $t(route.label) }}
+                </span>
+
+                <router-link v-else :to="{ name: route.path, params: route?.params }">
+                  {{ $t(route.label) }}
+                </router-link>
+              </template>
+            </a-breadcrumb>
+          </div>
+        </div>
+      </div>
+      <div class="administration-page__body">
+        <router-view></router-view>
+      </div>
+    </div>
+    <router-view v-else></router-view>
+  </div>
+</template>
+<style lang="less">
+.administration-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  background-color: #f6f6f6;
+  padding: 0;
+
+  &__back {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 4px;
+    padding-right: 17px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 16px;
+    background: #ffffff;
+    border-radius: 10px;
+    min-height: 68vh;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e4e5f0;
+    gap: 12px;
+  }
+
+  &__header-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-grow: 1;
+
+    .title {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      color: #434657;
+    }
+
+    .breakcrumb {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 20px;
+      color: #989cb1;
+    }
+
+    .current {
+      color: #434657;
+    }
+  }
+
+  .action {
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-right: 4px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  &__header-title-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .administration-page {
+    padding: 20px;
+
+    &__wrapper {
+      padding: 32px;
+    }
+
+    .action {
+      .icon {
+        margin-right: 8px;
+      }
+
+      .desktop {
+        display: block;
+      }
+    }
+  }
+}
+</style>

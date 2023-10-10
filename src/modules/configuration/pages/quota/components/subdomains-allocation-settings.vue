@@ -154,7 +154,7 @@
             `${t('QUOTA.ERROR_MESSAGE_FIELD')}  ${shareSpaceDefaultMaxSizeAlert}`
           }}</span>
           <br />
-          <router-link :to="{ name: 'UsersList' }">
+          <router-link :to="{ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_USERS_ROUTE_NAMES.USER_LIST }">
             <span>{{ $t('QUOTA.ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT') }} <PlusCircleOutlined /></span>
           </router-link>
         </div>
@@ -181,6 +181,7 @@ import { byteTo, displayUnit, find, toByte } from '@/core/utils/unitStorage';
 import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
 import LockIcon from '@/core/components/icons/lock-icon.vue';
 import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
+import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router';
 
 const { t } = useI18n();
 const domainStore = useDomainStore();

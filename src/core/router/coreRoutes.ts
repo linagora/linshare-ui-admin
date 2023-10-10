@@ -6,6 +6,8 @@ import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 import { ReportingRoute } from '@/modules/reporting/router';
 import { ConfigurationRoute } from '@/modules/configuration/router';
 import { ActivitiesRoute } from '@/modules/activities/router';
+import { AdministrationRoute } from '@/modules/administration/router';
+
 import config from '@/config';
 
 import HomePage from '../layouts/home-page.vue';
@@ -20,15 +22,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       requiresAuth: true,
     },
     children: [
-      {
-        name: 'Administration',
-        path: 'administration',
-        component: () => import('../layouts/administration-page.vue'),
-        meta: {
-          label: 'NAVIGATOR.ADMINISTRATION',
-          requiresAuth: true,
-        },
-      },
+      AdministrationRoute,
       ...UserRoutes,
       ...SharedSpacesRoutes,
       ...InconsistentUsersRoutes,

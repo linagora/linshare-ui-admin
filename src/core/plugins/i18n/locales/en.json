@@ -66,7 +66,12 @@
     "ISOLATE": "Isolate",
     "UNDO": "Undo",
     "DUPPLICATE": "Duplicate",
-    "MIGRATE": "Migrate"
+    "MIGRATE": "Migrate",
+    "CONTACT_NAME_AND_OWNER": "Contact Name & Owner",
+    "VISIBILITY": "Visibility",
+    "PUBLIC": "Public",
+    "PRIVATE": "Private",
+    "SORT": "Sort"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -148,7 +153,8 @@
     "SHARED_SPACE_DETAILS": "Shared space details",
     "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
     "EMAIL_TEMPLATES": "Email templates",
-    "CONFIGURATION_DOMAIN_POLICIES": "Domain policies"
+    "CONFIGURATION_DOMAIN_POLICIES": "Domain policies",
+    "ADMINISTRATION_CONTACT_LIST": "Contact list"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",
@@ -3102,5 +3108,23 @@
       "ASSIGN_CONFIRM": "You are about to assign this domain policy to the current domain. Do you want to proceed?",
       "ASSIGN_SUCCESS": "Assigned successfully"
     }
+  },
+  "ADMINISTRATION": {
+    "INTRODUCTION": "You are using the Open Source and free version of LinShare",
+    "NAVIGATOR": {
+      "MY_USERS":"My Users",
+      "MY_USRES_SUBTITLE": "Show list of Users",
+      "MY_DRIVE": "My Drive",
+      "MY_DRIVE_SUBTITLE": "Manage your Drive & Workgroups",
+      "MY_CONTACT_LIST": "My Contacts List",
+      "MY_CONTACT_LIST_SUBTITLE": "Show all contacts",
+      "INCONSISTENT_USERS" : "Inconsistent users",
+      "INCONSISTENT_USERS_SUBTITLE" : "Show list of Servers",
+      "LOGGERS" : "Loggers",
+      "LOGGERS_SUBTITLE": "This can be used by any domain"
+    }
+  },
+  "CONTACT_LIST": {
+    "NOTE": "This view allows you to manage the contact list (a mailing list permit to send a mail to registered users on it ). By clicking in a list, you can manage the users and edit their information.(description, make the list visible or hidden , delete or add a user ...)"
   }
 }

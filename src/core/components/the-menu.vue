@@ -5,6 +5,7 @@ import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 import { useDomainStore } from '@/modules/domain/store';
 import { useRoute, useRouter } from 'vue-router';
 import { computed } from 'vue';
+import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router';
 
 const { redirect } = useLegacyFeatures();
 const router = useRouter();
@@ -39,7 +40,7 @@ function goToDefaultDomain() {
       </a>
     </a-menu-item>
     <a-menu-item key="administration">
-      <router-link :to="{ name: 'Administration' }">
+      <router-link :to="{ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.ENTRIES }">
         {{ $t('NAVIGATOR.ADMINISTRATION') }}
       </router-link>
     </a-menu-item>

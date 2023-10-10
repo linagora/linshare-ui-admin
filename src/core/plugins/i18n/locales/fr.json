@@ -66,7 +66,10 @@
     "ISOLATE": "Isoler",
     "UNDO": "Annuler",
     "DUPPLICATE": "Dupliquer",
-    "MIGRATE": "Migrer"
+    "MIGRATE": "Migrer",
+    "PUBLIC": "Public",
+    "PRIVATE": "Privé",
+    "SORT": "Trier"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -3082,6 +3085,9 @@
       "TITLE": "Assigner une politique de domaine",
       "ASSIGN_CONFIRM": "Vous êtes sur le point d'assigner cette politique de domaine au domaine actuel. Souhaitez-vous continuer ?",
       "ASSIGN_SUCCESS": "Assigné avec succès"
-      }
+    }
+  },
+  "ADMINISTRATION": {
+    "INTRODUCTION": "Vous utilisez la version libre et gratuite de LinShare™"
   }
 }

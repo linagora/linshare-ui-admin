@@ -4,7 +4,6 @@ import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
 import { useRoute, useRouter } from 'vue-router';
 import { useDomainStore } from '@/modules/domain/store';
-import { DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import useLegacyFeatures from '@/core/hooks/useLegacyFeatures';
 import useMenu from '@/core/hooks/useMenu';
 import config from '@/config';
@@ -17,12 +16,12 @@ import SwitchIcon from '@/core/components/icons/switch-icon.vue';
 import UsersIcon from '@/core/components/icons/users-icon.vue';
 import CloseIcon from '@/core/components/icons/close-icon.vue';
 import MenuIcon from '@/core/components/icons/menu-icon.vue';
+import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router';
 
 const authStore = useAuthStore();
 const router = useRouter();
 const route = useRoute();
 const domainStore = useDomainStore();
-const { domainsTree } = storeToRefs(domainStore);
 const { redirect } = useLegacyFeatures();
 const { visible, current, showDrawer, onClose } = useMenu();
 const { loggedUserFullName } = storeToRefs(authStore);
@@ -78,7 +77,7 @@ function goToDefaultDomain() {
             </a>
           </a-menu-item>
           <a-menu-item key="administration" @click="onClose">
-            <router-link :to="{ name: 'Administration' }" class="link">
+            <router-link :to="{ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.ENTRIES }" class="link">
               <users-icon class="icon"></users-icon>
               <span class="name">{{ $t('NAVIGATOR.ADMINISTRATION') }}</span>
               <chevron-right-icon class="direction"></chevron-right-icon>

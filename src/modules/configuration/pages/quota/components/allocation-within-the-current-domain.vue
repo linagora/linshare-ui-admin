@@ -85,7 +85,7 @@
                 }}</span>
               </div>
               <div class="allocation-within-the-current-domain__form-row">
-                <router-link :to="{ name: 'UsersList' }">
+                <router-link :to="{ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_USERS_ROUTE_NAMES.USER_LIST }">
                   <span>{{ $t('QUOTA.ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT') }} <PlusCircleOutlined /></span>
                 </router-link>
               </div>
@@ -187,6 +187,7 @@ import QuotaInput from '@/modules/configuration/pages/quota/components/quota-inp
 import QuotaVisualizeCard from '@/modules/configuration/pages/quota/components/quota-visualize.vue';
 import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
 import LsAlert from '@/core/components/ls/ls-alert.vue';
+import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router';
 
 // composable
 const { t } = useI18n();
