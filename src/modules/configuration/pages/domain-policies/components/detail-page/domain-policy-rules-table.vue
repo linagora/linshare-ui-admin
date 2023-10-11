@@ -5,14 +5,20 @@
     </span>
     <div v-if="editing" class="domain-policy-rules-table__rule-form">
       <a-form-item style="width: 100px" class="ls-form-title" :label="$t('DOMAIN_POLICY.CREATE_MODAL.TYPE')">
-        <a-select v-model:value="selectRule.rule" class="ls-input" :bordered="false">
+        <a-select v-model:value="selectRule.rule" class="ls-input" :bordered="false" @select="onSelectRule">
           <a-select-option v-for="s in rules" :key="s.value" :value="s.value">
             {{ s.label }}
           </a-select-option>
         </a-select>
       </a-form-item>
       <a-form-item style="width: 300px" class="ls-form-title" :label="$t('DOMAIN_POLICY.CREATE_MODAL.SELECT_DOMAIN')">
-        <a-select v-model:value="selectRule.domainId" class="ls-input" :bordered="false" @select="onSelectDomain">
+        <a-select
+          v-model:value="selectRule.domainId"
+          class="ls-input"
+          :disabled="isAllRule"
+          :bordered="false"
+          @select="onSelectDomain"
+        >
           <a-select-option v-for="s in domains" :key="s" :value="s.value">
             {{ s.label }}
           </a-select-option>
@@ -49,8 +55,7 @@
           }}</span>
         </template>
         <template v-if="column.key === 'type'">
-          <CheckOutlined v-if="record?.type === 'ALLOW'" class="type-allow" />
-          <CheckCircleOutlined v-else-if="record?.type === 'ALLOW_ALL'" class="type-allow" />
+          <CheckOutlined v-if="record?.type === 'ALLOW' || record?.type === 'ALLOW_ALL'" class="type-allow" />
           <CloseOutlined v-else class="type-deny" />
         </template>
         <template v-if="column.key === 'actions'">
@@ -146,8 +151,28 @@ const rulesByPage = computed(() => {
   return activeDomainPolicy.value.accessPolicy.rules;
 });
 
+const isAllRule = computed(() => {
+  return selectRule.rule === 'ALLOW_ALL' || selectRule.rule === 'DENY_ALL';
+});
+
+// methods
+function onSelectRule() {
+  if (isAllRule.value) {
+    selectRule.domain = {
+      label: t('DOMAIN_POLICY.ALL_DOMAIN'),
+      value: 'ALL',
+    };
+
+    selectRule.domainId = 'ALL';
+  }
+}
 function onAddRule() {
-  if (selectRule.domainId && selectRule.rule) {
+  if (selectRule.rule === 'ALLOW_ALL' || selectRule.rule === 'DENY_ALL') {
+    activeDomainPolicy.value.accessPolicy.rules.push({
+      domain: { label: t('DOMAIN_POLICY.ALL_DOMAIN') } as Domain,
+      type: selectRule.rule as 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL',
+    });
+  } else if (selectRule.domainId && selectRule.rule) {
     activeDomainPolicy.value.accessPolicy.rules.push({
       domain: { ...selectRule.domain } as Domain,
       type: selectRule.rule as 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL',

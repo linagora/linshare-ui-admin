@@ -3068,7 +3068,7 @@
     "ACTIONS": "Actions",
     "RULES_LIST": "Rule list",
     "SEARCH_BY": "Search by name or description",
-    "ALL_DOMAIN": "All",
+    "ALL_DOMAIN": "All domains",
     "EDIT_FORM": {
       "UPDATE_SUCCESS":"Updated successfully"
     },

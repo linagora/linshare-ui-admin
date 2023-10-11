@@ -341,6 +341,7 @@ export default function useDomainPolicies() {
 
   async function handleUpdateDomainPolicy(payload: DomainPolicy) {
     try {
+      loading.value = true;
       await updateDomainPolicy(payload);
       message.success(t('DOMAIN_POLICY.EDIT_FORM.UPDATE_SUCCESS'));
     } catch (error) {
@@ -348,6 +349,8 @@ export default function useDomainPolicies() {
         message.error(error.getMessage());
       }
       return [];
+    } finally {
+      loading.value = false;
     }
   }
 

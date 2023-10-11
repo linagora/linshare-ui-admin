@@ -3046,7 +3046,7 @@
     "ACTIONS": "Actions",
     "RULES_LIST": "Liste des règles",
     "SEARCH_BY": "Rechercher par nom ou description",
-    "ALL_DOMAIN": "Tous",
+    "ALL_DOMAIN": "Tous les domaines",
     "EDIT_FORM": {
       "UPDATE_SUCCESS": "Mis à jour avec succès"
     },
