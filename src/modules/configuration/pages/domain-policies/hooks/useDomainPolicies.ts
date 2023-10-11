@@ -63,11 +63,13 @@ const modal = reactive<{
 });
 
 const filteredList = computed(() =>
-  list.value.filter(
-    (domainPolicy: DomainPolicy) =>
-      domainPolicy?.label?.toLowerCase().includes(filterText.value.toLowerCase()) ||
-      domainPolicy?.description?.toLowerCase().includes(filterText.value.toLowerCase())
-  )
+  list.value
+    .filter(
+      (domainPolicy: DomainPolicy) =>
+        domainPolicy?.label?.toLowerCase().includes(filterText.value.toLowerCase()) ||
+        domainPolicy?.description?.toLowerCase().includes(filterText.value.toLowerCase())
+    )
+    .sort((a: DomainPolicy, b: DomainPolicy) => (b.modificationDate || 0) - (a.modificationDate || 0))
 );
 const filteredListByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
@@ -137,11 +139,9 @@ export default function useDomainPolicies() {
   async function fetchDomainPolicy(onlyCurrentDomain = true) {
     status.value = STATUS.LOADING;
     try {
-      const messages = await getDomainPolicyList(currentDomain.value.uuid, onlyCurrentDomain);
+      const policies = await getDomainPolicyList(currentDomain.value.uuid, onlyCurrentDomain);
       status.value = STATUS.SUCCESS;
-      list.value = messages.sort(
-        (a: DomainPolicy, b: DomainPolicy) => (b.modificationDate || 0) - (a.modificationDate || 0)
-      );
+      list.value = policies || [];
     } catch (error) {
       status.value = STATUS.ERROR;
 
