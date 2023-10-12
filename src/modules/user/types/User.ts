@@ -33,6 +33,7 @@ export default interface User {
   domain: {
     name: string;
     uuid: string;
+    label?: string;
   };
   accountType: 'INTERNAL' | 'GUEST' | 'TECHNICAL_ACCOUNT' | 'THREAD' | 'ROOT' | 'SYSTEM';
   role: ACCOUNT_ROLE;

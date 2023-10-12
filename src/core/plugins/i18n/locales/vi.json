@@ -2498,6 +2498,38 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
+        },
+        "FUNCTIONALITY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã tạo một chức năng mới: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã tạo chức năng mới: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã xóa chức năng: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã xóa chức năng: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã chỉnh sửa chức năng: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã chỉnh sửa chức năng: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
         }
       }
     }

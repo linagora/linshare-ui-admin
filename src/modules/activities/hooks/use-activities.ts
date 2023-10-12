@@ -39,8 +39,11 @@ export function useActivities() {
         return {
           ...item,
           number: index + 1,
-          domainName: item?.actor?.domain?.label ?? item?.domain?.label ?? '-',
-          actorName: loggedUser.value?.uuid === item?.actor?.uuid ? t('ACTIVITIES.ME') : item?.actor?.name,
+          domainName: item?.actor?.domain?.label ?? item?.domain?.label ?? item?.resource?.domain?.label ?? '-',
+          actorName:
+            loggedUser.value?.uuid === item?.actor?.uuid || loggedUser.value?.uuid === item?.authUser?.uuid
+              ? t('ACTIVITIES.ME')
+              : item?.actor?.name ?? item?.authUser?.name,
           actorId: item?.actor?.uuid,
           actionName: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
           resourceTypeName: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),
@@ -53,7 +56,7 @@ export function useActivities() {
           resourceRecipientName:
             loggedUser.value?.uuid === item?.resource?.recipient?.uuid
               ? t('ACTIVITIES.ME')
-              : item?.resource?.recipient?.name || item?.recipientMail || '',
+              : item?.resource?.recipient?.name || item?.recipientMail || t(`${item?.resourceUuid}`) || '',
         } as ActivityLogData;
       })
       .sort((a: ActivityLogData, b: ActivityLogData) => b.dateTime - a.dateTime);

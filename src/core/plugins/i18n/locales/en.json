@@ -2507,6 +2507,38 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
+        },
+        "FUNCTIONALITY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have created a new functionality : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has created a new functionality : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "You have deleted the functionality : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted the functionality : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the functionality : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the functionality : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
         }
       }
     }

@@ -2240,6 +2240,38 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
+        },
+        "FUNCTIONALITY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы создали новую функциональность: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} создал новую функциональность: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы удалили функциональность: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} удалил функциональность: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы отредактировали функциональность: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "Пользователь {authorName} отредактировал функциональность: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
         }
       }
     }

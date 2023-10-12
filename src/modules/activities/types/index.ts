@@ -77,8 +77,12 @@ export interface ActivityLog {
         label: string;
       };
     };
-    recipientMail: string;
+    domain?: {
+      uuid: string;
+      label: string;
+    };
   };
+  recipientMail?: string;
 }
 
 export interface ActivityLogData extends ActivityLog {

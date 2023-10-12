@@ -2500,6 +2500,38 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
+        },
+        "FUNCTIONALITY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez créé une functionalitité : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a créé une functionalitité : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez supprimé une functionalitité : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has deleted functionalitité : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez modifié une functionalitité : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a modifié une functionalitité : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
         }
       }
     }
