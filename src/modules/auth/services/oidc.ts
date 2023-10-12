@@ -14,7 +14,7 @@ const manager = new UserManager({
   client_secret: oidcSetting.client_secret,
   scope: oidcSetting.scope,
   response_type: 'code',
-  redirect_uri: `${window.location.origin}${config.appContext}oidc/callback`,
+  redirect_uri: `${window.location.origin}${config.appContext}/oidc/callback`,
   post_logout_redirect_uri: `${window.location.origin}${window.location.pathname}`,
   loadUserInfo: oidcSetting.loadUserInfo,
 });
