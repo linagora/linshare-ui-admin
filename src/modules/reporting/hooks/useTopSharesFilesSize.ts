@@ -33,8 +33,8 @@ async function getSharesByFileSizeInformations() {
   try {
     loading.value = true;
     const topSharesInformations = await getTopSharesByFileSize(parameters as any);
-    list.value = topSharesInformations.list;
-    topSharesFileSizePagination.total = topSharesInformations.totalElements;
+    list.value = topSharesInformations?.data || [];
+    topSharesFileSizePagination.total = topSharesInformations.total;
     loading.value = false;
   } catch (error) {
     if (error instanceof APIError) {

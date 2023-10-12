@@ -12,14 +12,14 @@ export interface TopSharesFileSize {
   pageNumber: number;
   pageSize: number;
   pageResponse: {
-    totalElements: number;
+    total: number;
     totalPages: number;
     content: TopSharesFileSizeItem[];
     first: boolean;
     last: boolean;
   };
-  totalElements: number;
-  list: TopSharesFileSizeItem[];
+  total: number;
+  data: TopSharesFileSizeItem[];
   defaultPageRequest: {
     sort: {
       empty: boolean;
