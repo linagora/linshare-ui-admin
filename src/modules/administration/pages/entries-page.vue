@@ -19,6 +19,7 @@ import { storeToRefs } from 'pinia';
 import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router';
 import { useRouter } from 'vue-router';
 import MyUsers from '@/core/components/icons/my-users.vue';
+import MyTechnicalAccount from '@/core/components/icons/my-technical-account.vue';
 import MyDrive from '@/core/components/icons/my-drive.vue';
 import MyContact from '@/core/components/icons/my-contact.vue';
 import InconsistentUsers from '@/core/components/icons/inconsistent-users.vue';
@@ -44,10 +45,20 @@ export default defineComponent({
       return [
         {
           name: t('ADMINISTRATION.NAVIGATOR.MY_USERS'),
-          subTitle: t('ADMINISTRATION.NAVIGATOR.MY_USRES_SUBTITLE'),
+          subTitle: t('ADMINISTRATION.NAVIGATOR.MY_USERS_SUBTITLE'),
           icon: MyUsers,
           to: () => {
             router.push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_USERS_ROUTE_NAMES.USER_LIST });
+          },
+        },
+        {
+          name: t('ADMINISTRATION.NAVIGATOR.TECHNICAL_ACCOUNTS'),
+          subTitle: t('ADMINISTRATION.NAVIGATOR.TECHNICAL_ACCOUNTS_SUBTITLE'),
+          icon: MyTechnicalAccount,
+          to: () => {
+            router.push({
+              name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_TECHNICAL_USERS_ROUTE_NAMES.TECHNICAL_USER_LIST,
+            });
           },
         },
         {

@@ -3069,6 +3069,36 @@
     }
   },
   "ADMINISTRATION": {
-    "INTRODUCTION": "Bạn đang sử dụng phiên bản miễn phí và mã nguồn mở của LinShare™"
+    "INTRODUCTION": "Bạn đang sử dụng phiên bản miễn phí và mã nguồn mở của LinShare™",
+    "NAVIGATOR": {
+      "MY_USERS":"Người dùng của tôi",
+      "MY_USERS_SUBTITLE": "Hiển thị danh sách người dùng",
+      "TECHNICAL_ACCOUNTS":"Tài khoản kỹ thuật",
+      "TECHNICAL_ACCOUNTS_SUBTITLE": "Hiển thị danh sách tài khoản kỹ thuật",
+      "MY_DRIVE": "Ổ đĩa của tôi",
+      "MY_DRIVE_SUBTITLE": "Quản lý ổ đĩa và các nhóm làm việc của bạn",
+      "MY_CONTACT_LIST": "Danh sách liên hệ của tôi",
+      "MY_CONTACT_LIST_SUBTITLE": "Hiển thị tất cả các liên hệ",
+      "INCONSISTENT_USERS" : "Người dùng không đồng nhất",
+      "INCONSISTENT_USERS_SUBTITLE" : "Hiển thị danh sách máy chủ",
+      "LOGGERS" : "Bộ ghi chép",
+      "LOGGERS_SUBTITLE": "Điều này có thể được sử dụng bởi bất kỳ miền nào"
+    }
+  },
+
+  "TECHNICAL_ACCOUNTS": {
+    "PAGE_TITLE": "Tất cả tài khoản",
+    "ACCOUNT": "Tài khoản",
+    "MAIL": "Thư",
+    "ROLE": "Vai trò",
+    "STATUS": "Trạng thái",
+    "CREATION_DATE": "Ngày tạo",
+    "MODIFICATION_DATE": "Ngày sửa đổi",
+    "LOCKED": "Trạng thái khóa",
+    "ENABLE": "Kích hoạt",
+    "DISABLE": "Vô hiệu hóa",
+    "TECHNICAL_ACCOUNTS_HELPER": "Chế độ này cho phép bạn tạo tài khoản mới với quyền ủy quyền cụ thể. Chi tiết về quyền :",
+    "TECHNICAL_ACCOUNTS_HELPER_DELEGATION": "'Ủy quyền': cho phép thực hiện các hoạt động cho người dùng khác thông qua API ủy quyền. Để làm điều đó, bạn cần chọn các quyền mà bạn cấp cho tài khoản này (quyền). Theo mặc định, không có quyền nào được cấp. Để biết thêm chi tiết, bạn có thể xem tại :",
+    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Đề nghị tải lên' : Đề nghị tải lên là một mô-đun bên ngoài. Vì vậy, nó cần một tài khoản đặc biệt để truy cập LinShare và khôi phục cấu hình của nó"
   }
 }

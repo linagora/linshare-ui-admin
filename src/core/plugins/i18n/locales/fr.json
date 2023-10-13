@@ -3088,6 +3088,36 @@
     }
   },
   "ADMINISTRATION": {
-    "INTRODUCTION": "Vous utilisez la version libre et gratuite de LinShare™"
+    "INTRODUCTION": "Vous utilisez la version libre et gratuite de LinShare™",
+    "NAVIGATOR": {
+      "MY_USERS":"Mes utilisateurs",
+      "MY_USERS_SUBTITLE": "Afficher la liste des utilisateurs",
+      "TECHNICAL_ACCOUNTS":"Comptes techniques",
+      "TECHNICAL_ACCOUNTS_SUBTITLE": "Afficher la liste des comptes techniques",
+      "MY_DRIVE": "Mon lecteur",
+      "MY_DRIVE_SUBTITLE": "Gérez votre lecteur et vos groupes de travail",
+      "MY_CONTACT_LIST": "Ma liste de contacts",
+      "MY_CONTACT_LIST_SUBTITLE": "Afficher tous les contacts",
+      "INCONSISTENT_USERS" : "Utilisateurs incohérents",
+      "INCONSISTENT_USERS_SUBTITLE" : "Afficher la liste des serveurs",
+      "LOGGERS" : "Enregistreurs",
+      "LOGGERS_SUBTITLE": "Ceci peut être utilisé par n'importe quel domaine"
+    }
+  },
+
+  "TECHNICAL_ACCOUNTS": {
+    "PAGE_TITLE": "Tous les comptes",
+    "ACCOUNT": "Compte",
+    "MAIL": "Courrier",
+    "ROLE": "Rôle",
+    "STATUS": "Statut",
+    "CREATION_DATE":"Date de création",
+    "MODIFICATION_DATE":"Date de modification",
+    "LOCKED": "État de verrouillage",
+    "ENABLE": "Activé",
+    "DISABLE": "Désactivé",
+    "TECHNICAL_ACCOUNTS_HELPER": "Cette vue vous permet de créer de nouveaux comptes avec des droits de délégation spécifiques. Détails des autorisations :",
+    "TECHNICAL_ACCOUNTS_HELPER_DELEGATION": "'Délégation' : permet d'effectuer des opérations pour d'autres utilisateurs via l'API de délégation. Pour ce faire, vous devez sélectionner les autorisations que vous accordez à ce compte (droits). Par défaut, aucune autorisation n'est accordée. Pour plus d'indications, vous pouvez consulter :",
+    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Proposition de téléchargement' : La proposition de téléchargement est un module externe. Il nécessite donc un compte spécial pour accéder à LinShare et récupérer sa configuration"
   }
 }

@@ -3113,7 +3113,9 @@
     "INTRODUCTION": "You are using the Open Source and free version of LinShare",
     "NAVIGATOR": {
       "MY_USERS":"My Users",
-      "MY_USRES_SUBTITLE": "Show list of Users",
+      "MY_USERS_SUBTITLE": "Show list of Users",
+      "TECHNICAL_ACCOUNTS":"Technical accounts",
+      "TECHNICAL_ACCOUNTS_SUBTITLE": "Show list of Technical accounts",
       "MY_DRIVE": "My Drive",
       "MY_DRIVE_SUBTITLE": "Manage your Drive & Workgroups",
       "MY_CONTACT_LIST": "My Contacts List",
@@ -3136,5 +3138,20 @@
     "DESCRIPTION": "Description",
     "OWNER": "Owner",
     "VISIBILITY": "Visibility"
+  },
+  "TECHNICAL_ACCOUNTS": {
+    "PAGE_TITLE": "All accounts",
+    "ACCOUNT": "Account",
+    "MAIL": "Mail",
+    "ROLE": "Role",
+    "STATUS": "Status",
+    "CREATION_DATE":"Creation date",
+    "MODIFICATION_DATE":"Modification date",
+    "LOCKED": "Lock Status",
+    "ENABLE": "Enable",
+    "DISABLE": "Disable",
+    "TECHNICAL_ACCOUNTS_HELPER": "This view allows you to create new accounts with specific delegation rights.Permissions details:",
+    "TECHNICAL_ACCOUNTS_HELPER_DELEGATION": "'Delegation': allows to make operations for other users via the delegation API. To do that you should select the permissions that you give to this account. (rights). By default any permission is given to it. For more indication you can see :",
+    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Upload proposition' : Upload proposition is an external module. So it requires a special account to get access to LinShare and recover its configuration"
   }
 }
