@@ -5,9 +5,15 @@ export interface Contact {
   identifier: string;
   description: string;
   owner: User;
-  contacts: User[];
+  contacts: ContactInfo[];
   uuid: string;
   domainId: string;
   domain: Domain;
   public: boolean;
+}
+
+export interface ContactInfo {
+  email: string;
+  firstName: string;
+  lastName: string;
 }

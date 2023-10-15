@@ -4,8 +4,10 @@ import { Contact } from '../types/Contact';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { STATUS } from '@/core/types/Status';
-import { getContactList } from '../services/contact-list-api';
+import { getContactList, getContactListDetail } from '../services/contact-list-api';
 import { useLocalStorage } from '@vueuse/core';
+import { CONTACT_LISTS_ROUTE_NAMES } from '../router';
+import { useRouter } from 'vue-router';
 
 const activeContactList = useLocalStorage<Contact>('configuration-contact-list', {} as Contact);
 const activeContactListForm = ref<Partial<Contact>>({});
@@ -56,6 +58,8 @@ const filteredListByPage = computed(() => {
 });
 
 export default function useContactList() {
+  const router = useRouter();
+
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
     pagination.current =
@@ -84,9 +88,35 @@ export default function useContactList() {
     }
   }
 
+  function onEditContactList(record: Contact) {
+    activeContactList.value = record;
+    router.push({ name: CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST_DETAIL, params: { id: record?.uuid } });
+  }
+
   function handleResetContactList() {
     activeContactListForm.value = JSON.parse(JSON.stringify(defaultContactListForm.value));
   }
+
+  async function handleGetContactListDetail(identifier: string) {
+    status.value = STATUS.LOADING;
+    try {
+      const messages = await getContactListDetail(identifier);
+      status.value = STATUS.SUCCESS;
+      activeContactList.value = messages;
+
+      activeContactListForm.value = {
+        ...messages,
+      };
+      defaultContactListForm.value = { ...activeContactListForm.value };
+    } catch (error) {
+      status.value = STATUS.ERROR;
+
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    }
+  }
+
   function resetSelectContactList() {
     selectedContactLists.value = [];
   }
@@ -105,7 +135,9 @@ export default function useContactList() {
     selectedContactLists,
     onCloseModal,
     fetchContactList,
+    onEditContactList,
     resetSelectContactList,
     handleResetContactList,
+    handleGetContactListDetail,
   };
 }

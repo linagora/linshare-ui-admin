@@ -3125,6 +3125,16 @@
     }
   },
   "CONTACT_LIST": {
-    "NOTE": "This view allows you to manage the contact list (a mailing list permit to send a mail to registered users on it ). By clicking in a list, you can manage the users and edit their information.(description, make the list visible or hidden , delete or add a user ...)"
+    "NOTE": "This view allows you to manage the contact list (a mailing list permit to send a mail to registered users on it ). By clicking in a list, you can manage the users and edit their information.(description, make the list visible or hidden , delete or add a user ...)",
+    "CONTACT_LIST": "Contact list",
+    "EMAIL": "Email",
+    "FIRST_NAME":"First Name",
+    "LAST_NAME":"Last name",
+    "ADD_CONTACT":"Add contact",
+    "ACTIONS": "Actions",
+    "NAME": "List name",
+    "DESCRIPTION": "Description",
+    "OWNER": "Owner",
+    "VISIBILITY": "Visibility"
   }
 }

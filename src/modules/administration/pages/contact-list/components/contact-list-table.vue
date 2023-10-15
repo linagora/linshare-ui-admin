@@ -12,7 +12,7 @@
     >
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'identifier'">
-          <div class="identifier">
+          <div class="identifier" @click="onEditContactList(record)">
             <div class="icon"></div>
             <div class="infor">
               <strong class="elipsis-name" :title="record.identifier">{{ record.identifier }}</strong>
@@ -40,7 +40,7 @@ import { Contact } from '../types/Contact';
 import { STATUS } from '@/core/types/Status';
 import useContactList from '../hooks/useContactList';
 
-const { status, list, filteredListByPage, selectedContactLists } = useContactList();
+const { status, list, filteredListByPage, selectedContactLists, onEditContactList } = useContactList();
 
 const { t } = useI18n();
 
@@ -96,6 +96,7 @@ const columns = computed(() => [
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
+    cursor: pointer;
 
     .infor {
       display: flex;
