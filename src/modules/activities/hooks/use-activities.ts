@@ -56,7 +56,7 @@ export function useActivities() {
           resourceRecipientName:
             loggedUser.value?.uuid === item?.resource?.recipient?.uuid
               ? t('ACTIVITIES.ME')
-              : item?.resource?.recipient?.name || item?.recipientMail || t(`${item?.resourceUuid}`) || '',
+              : item?.resource?.recipient?.name || item?.recipientMail || '',
         } as ActivityLogData;
       })
       .sort((a: ActivityLogData, b: ActivityLogData) => b.dateTime - a.dateTime);
@@ -122,6 +122,8 @@ export function useActivities() {
   function _getResourceName(activity: ActivityLog) {
     if (activity?.type === 'GUEST_MODERATOR') {
       return activity?.resource?.guest?.name;
+    } else if (activity?.type === 'FUNCTIONALITY') {
+      return t(`FUNCTIONALITIES.DETAILS.${activity?.resourceUuid}.NAME`);
     }
     switch (activity?.resourceUuid) {
       case loggedUser.value?.uuid:
