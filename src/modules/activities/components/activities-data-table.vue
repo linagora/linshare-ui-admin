@@ -190,7 +190,9 @@ watch(
       <template v-if="column.key === 'actor'">
         <div class="activities-data-table__actor">
           {{ record.actorName }}
-          <a-tooltip v-if="record.actorId !== record.authorId">
+          <a-tooltip
+            v-if="(record?.actorId && record?.actorId !== record?.authorId) || record?.authorId !== loggedUser?.uuid"
+          >
             <template #title>
               {{
                 $t('ACTIVITIES.THIS_ACTION_IS_PERFORMED_BY_TOOLTIP', { by: record.authorName, of: record.actorName })
