@@ -39,7 +39,7 @@
         <label>{{ $t('DOMAIN.FIELDS.NOTIFICATION_LANGUAGE') }}</label>
         <a-select v-model:value="formState.defaultEmailLanguage">
           <a-select-option v-for="option in languageOptions" :key="option" :value="option">
-            {{ $t(`LOCALE.${option}`) }}
+            {{ option.label }}
           </a-select-option>
         </a-select>
         <small>{{ $t('DOMAIN.FIELDS.NOTIFICATION_LANGUAGE_HELPER') }}</small>
