@@ -6,13 +6,16 @@
     <a-button class="ls-button ls-reset" @click="emits('reset')">
       {{ $t('GENERAL.RESET') }}
     </a-button>
-    <a-button :disabled="loading" type="primary" class="ls-button ls-filled" @click="emits('save')">
+    <a-button :disabled="loading || !isValidated" type="primary" class="ls-button ls-filled" @click="emits('save')">
       <a-spin v-if="loading"></a-spin>
       <span v-else>{{ $t('GENERAL.SAVE') }}</span>
     </a-button>
   </div>
 </template>
 <script setup lang="ts">
+import { computed } from 'vue';
+import useDomainPolicies from '../../hooks/useDomainPolicies';
+
 // props & emits
 const emits = defineEmits(['save', 'cancel', 'reset']);
 const props = defineProps<{
@@ -20,6 +23,11 @@ const props = defineProps<{
   editing?: boolean;
   loading?: boolean;
 }>();
+const { activeDomainPolicyForm } = useDomainPolicies();
+
+const isValidated = computed(() => {
+  return !!activeDomainPolicyForm.value.label && activeDomainPolicyForm.value.label?.length > 0;
+});
 
 function onCancel() {
   emits('cancel');
@@ -52,6 +60,12 @@ function onCancel() {
     .ant-spin-dot-item {
       background-color: #f3f3f7;
     }
+  }
+  .ls-filled[disabled],
+  .ls-filled[disabled]:hover {
+    background-color: #007aff;
+    color: #f3f3f7;
+    opacity: 0.5;
   }
 
   .ls-reset {

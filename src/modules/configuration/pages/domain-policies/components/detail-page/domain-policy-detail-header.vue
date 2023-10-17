@@ -51,7 +51,14 @@ const props = defineProps<{
 }>();
 const emits = defineEmits(['edit-toggle']);
 
-const { loading, activeDomainPolicy, handleUpdateDomainPolicy, handleResetDomainPolicy } = useDomainPolicies();
+const {
+  loading,
+  activeDomainPolicyForm,
+  activeDomainPolicy,
+  handleUpdateDomainPolicy,
+  handleResetDomainPolicy,
+  handleGetDomainPolicyDetail,
+} = useDomainPolicies();
 
 // methods
 function onBackToDomainPolicies() {
@@ -64,9 +71,10 @@ function onToggleEditDomainPolicy() {
 
 async function onUpdateDomainPolicy() {
   const payload: DomainPolicy = {
-    ...activeDomainPolicy.value,
+    ...activeDomainPolicyForm.value,
   };
   await handleUpdateDomainPolicy(payload);
+  await handleGetDomainPolicyDetail(activeDomainPolicyForm?.value?.identifier || activeDomainPolicy?.value?.identifier);
   onToggleEditDomainPolicy();
 }
 
@@ -110,6 +118,7 @@ function onResetDomainPolicy() {
     justify-content: flex-end;
     align-items: center;
     gap: 12px;
+
     .ls-button {
       padding: 0px 20px;
       min-width: 151px;
@@ -118,6 +127,7 @@ function onResetDomainPolicy() {
       border-radius: 8px;
       color: #007aff;
     }
+
     .ls-filled {
       background-color: #007aff;
       color: #f3f3f7;

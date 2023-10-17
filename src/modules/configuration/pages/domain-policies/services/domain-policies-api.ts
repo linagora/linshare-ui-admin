@@ -31,7 +31,7 @@ async function createDomainPolicy(payload: {
   return await apiv4.post(`domain_policies`, payload);
 }
 
-async function updateDomainPolicy(payload: DomainPolicy) {
+async function updateDomainPolicy(payload: Partial<DomainPolicy>) {
   return await apiv4.put(`domain_policies`, payload);
 }
 
