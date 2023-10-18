@@ -3177,7 +3177,9 @@
       "DELETE_MODAL_TITLE":"Delete Mail Contact",
       "DELETE_MODAL_SUBTITLE":"You are about to delete this mail contact. Do you want to proceed?",
       "DELETE_SUCCESS": "Deleted successfully"
-    }
+    },
+    "MEMBER": "Member",
+    "OWNER_FILTER": "Owner (of the contact list)"
   },
   "TECHNICAL_ACCOUNTS": {
     "PAGE_TITLE": "All accounts",

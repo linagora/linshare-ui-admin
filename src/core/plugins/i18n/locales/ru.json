@@ -69,7 +69,9 @@
     "MIGRATE": "Перенести",
     "PUBLIC": "Публичный",
     "PRIVATE": "Приватный",
-    "SORT": "Сортировать"
+    "SORT": "Сортировать",
+    "CONTACT_NAME_AND_OWNER": "Имя контакта и владелец",
+    "VISIBILITY": "Видимость"
   },
   "LOCALE": {
     "ENGLISH": "Английский",
@@ -2891,6 +2893,8 @@
     "DESCRIPTION": "Описание",
     "OWNER": "Владелец",
     "VISIBILITY": "Видимость",
+    "MEMBER": "Участник",
+    "OWNER_FILTER": "Владелец (списка контактов)",
     "SETTING": "Настройка",
     "SEARCH_BY": "Поиск по имени или почта",
     "DELETE_CONTACT_MODAL": {
@@ -2899,6 +2903,7 @@
       "DELETE_SUCCESS": "Успешно удалено"
     }
   },
+    
   "TECHNICAL_ACCOUNTS": {
     "PAGE_TITLE": "Все учетные записи",
     "ACCOUNT": "Учетная запись",

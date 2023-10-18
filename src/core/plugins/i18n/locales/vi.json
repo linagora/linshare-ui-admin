@@ -69,7 +69,9 @@
     "MIGRATE": "Di chuyển",
     "PUBLIC": "Công khai",
     "PRIVATE": "Riêng tư",
-    "SORT": "Sắp xếp"
+    "SORT": "Sắp xếp",
+    "CONTACT_NAME_AND_OWNER": "Tên liên hệ và chủ sở hữu",
+    "VISIBILITY": "Tính hiển thị"
   },
   "LOCALE": {
     "ENGLISH": "Tiếng Anh",
@@ -3130,8 +3132,11 @@
     "DESCRIPTION": "Mô tả",
     "OWNER": "Chủ sở hữu",
     "VISIBILITY": "Hiển thị",
+    "MEMBER": "Thành viên",
+    "OWNER_FILTER": "Chủ sở hữu (của danh sách liên hệ)",
     "SETTING": "Cài đặt",
     "SEARCH_BY": "Tìm kiếm theo tên hoặc email",
+    
     "DELETE_CONTACT_MODAL": {
       "DELETE_MODAL_TITLE": "Xóa liên hệ",
       "DELETE_MODAL_SUBTITLE": "Bạn sắp xóa liên hệ email này. Bạn có muốn tiếp tục?",

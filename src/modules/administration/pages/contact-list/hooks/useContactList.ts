@@ -14,11 +14,15 @@ import { useLocalStorage } from '@vueuse/core';
 import { CONTACT_LISTS_ROUTE_NAMES } from '../router';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
+import Sort, { SORT_ORDER } from '@/core/types/Sort';
+import { ContactListFilters, ContactListParameters } from '../types/Contact';
 
 const activeContactList = useLocalStorage<Contact>('configuration-contact-list', {} as Contact);
 const activeContactListForm = ref<Partial<Contact>>({});
 const defaultContactListForm = ref<Partial<Contact>>({});
 const selectedContactLists = ref<Contact[]>();
+const filters = ref<ContactListFilters>({});
+const sorter = reactive<Sort>({ order: SORT_ORDER.ASC });
 
 const list = ref<Contact[]>([]);
 const filterText = ref('');
@@ -87,10 +91,10 @@ export default function useContactList() {
     modal.type = 'DELETE_CONTACT_LIST';
   }
 
-  async function fetchContactList() {
+  async function fetchContactList(options: ContactListParameters) {
     status.value = STATUS.LOADING;
     try {
-      const messages = await getContactList();
+      const messages = await getContactList(options);
       status.value = STATUS.SUCCESS;
       list.value = messages;
     } catch (error) {
@@ -166,7 +170,17 @@ export default function useContactList() {
   }
 
   function resetSelectContactList() {
+    filters.value = {};
+    sorter.order = SORT_ORDER.ASC;
     selectedContactLists.value = [];
+  }
+
+  async function handleTableChange() {
+    const parameters: ContactListParameters = {};
+    parameters.domainUuid = filters.value.domainUuid;
+    parameters.ownerUuid = filters.value.ownerUuid;
+    parameters.memberMail = filters.value.memberMail;
+    await fetchContactList(parameters);
   }
 
   return {
@@ -190,5 +204,8 @@ export default function useContactList() {
     handleResetContactList,
     handleDeleteContactList,
     handleGetContactListDetail,
+    handleTableChange,
+    filters,
+    sorter,
   };
 }

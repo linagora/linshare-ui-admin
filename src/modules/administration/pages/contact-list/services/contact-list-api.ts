@@ -1,10 +1,9 @@
 import apiv4 from '@/apiv4';
-import api from '@/api';
-import { Contact } from '../types/Contact';
+import { Contact, ContactListParameters } from '../types/Contact';
 import Domain from '@/core/types/Domain';
 
-async function getContactList(): Promise<Contact[]> {
-  return await apiv4.get(`lists`);
+async function getContactList(options: ContactListParameters = {}): Promise<Contact> {
+  return await apiv4.get(`lists`, { params: options });
 }
 
 async function getContactListDetail(uuid: string): Promise<Contact> {

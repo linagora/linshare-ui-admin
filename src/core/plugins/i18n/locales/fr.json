@@ -69,7 +69,9 @@
     "MIGRATE": "Migrer",
     "PUBLIC": "Public",
     "PRIVATE": "Privé",
-    "SORT": "Trier"
+    "SORT": "Trier",
+    "CONTACT_NAME_AND_OWNER": "Nom du contact et propriétaire",
+    "VISIBILITY": "Visibilité"
   },
   "LOCALE": {
     "ENGLISH": "Anglais",
@@ -3138,7 +3140,7 @@
     }
   },
   "CONTACT_LIST": {
-    "NOTE": "Cette vue vous permet de gérer la liste de contacts (une liste de diffusion permettant d'envoyer un e-mail aux utilisateurs enregistrés). En cliquant sur une liste, vous pouvez gérer les utilisateurs et modifier leurs informations (description, rendre la liste visible ou cachée, supprimer ou ajouter un utilisateur...).",
+    "NOTE": "Cette vue vous permet de gérer la liste de contacts (une liste de diffusion permet d'envoyer un e-mail aux utilisateurs enregistrés). En cliquant sur une liste, vous pouvez gérer les utilisateurs et modifier leurs informations (description, rendre la liste visible ou masquée, supprimer ou ajouter un utilisateur, etc.)",
     "CONTACT_LIST": "Liste de contacts",
     "EMAIL": "E-mail",
     "FIRST_NAME": "Prénom",
@@ -3155,7 +3157,9 @@
       "DELETE_MODAL_TITLE": "Supprimer le contact",
       "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer ce contact e-mail. Voulez-vous continuer ?",
       "DELETE_SUCCESS": "Supprimé avec succès"
-    }
+    },
+    "MEMBER": "Membre",
+    "OWNER_FILTER": "Propriétaire (de la liste de contacts)"
   },
   "TECHNICAL_ACCOUNTS": {
     "PAGE_TITLE": "Tous les comptes",
