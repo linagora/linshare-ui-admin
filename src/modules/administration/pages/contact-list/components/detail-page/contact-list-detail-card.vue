@@ -1,12 +1,15 @@
 <template>
   <a-form ref="formRef">
     <div class="contact-list-detail-card">
+      <span class="title">
+        {{ $t('CONTACT_LIST.SETTING') }}
+      </span>
       <div class="contact-list-detail-card__form">
         <a-form-item class="ls-form-title" v-bind="validateInfos.identifier" :label="$t('CONTACT_LIST.NAME')">
           <a-input
             id="name"
             v-model:value="activeContactListForm.identifier"
-            :disabled="!editing || !editable"
+            :disabled="!editable"
             class="ls-input"
           ></a-input>
         </a-form-item>
@@ -14,7 +17,7 @@
           <a-textarea
             id="name"
             v-model:value="activeContactListForm.description"
-            :disabled="!editing || !editable"
+            :disabled="!editable"
             class="ls-input"
             :auto-size="{ minRows: 4, maxRows: 8 }"
           ></a-textarea>
@@ -25,13 +28,13 @@
       </div>
 
       <contact-list-detail-action
-        v-if="editing"
         :editable="editable"
         :editing="editing"
         :loading="loading"
         @cancel="onToggleEditContactList"
         @save="onUpdateContactList"
         @reset="onResetContactList"
+        @delete="onDeleteContact"
       ></contact-list-detail-action>
       <div class="contact-list-detail-card__owner">
         <div class="owner">
@@ -53,15 +56,22 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { Contact } from '../../types/Contact';
 import { Form, FormInstance } from 'ant-design-vue';
-import useContactList from '../../hooks/useContactList';
-import CalendarIcon from '@/core/components/icons/calendar-icon.vue';
+import { Contact } from '@/modules/administration/pages/contact-list/types/Contact';
+import useContactList from '@/modules/administration/pages/contact-list/hooks/useContactList';
 import ContactListDetailAction from '@/modules/administration/pages/contact-list/components/detail-page/contact-list-detail-action.vue';
 
 // composable
 const { t } = useI18n();
-const { loading, activeContactListForm, activeContactList, handleResetContactList } = useContactList();
+const {
+  loading,
+  activeContactListForm,
+  activeContactList,
+  handleResetContactList,
+  onDeleteContact,
+  handleEditContactList,
+  handleGetContactListDetail,
+} = useContactList();
 const formRef = ref<FormInstance>();
 const useForm = Form.useForm;
 
@@ -81,9 +91,10 @@ function onToggleEditContactList() {
 
 async function onUpdateContactList() {
   const payload: Contact = {
-    ...activeContactList.value,
+    ...activeContactListForm.value,
   };
-  onToggleEditContactList();
+  await handleEditContactList(payload);
+  await handleGetContactListDetail(activeContactList.value.uuid);
 }
 
 function onResetContactList() {
@@ -103,6 +114,16 @@ const emits = defineEmits(['update:modelValue', 'select-language', 'refresh']);
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  gap: 16px;
+
+  .title {
+    color: var(--neutral-colors-color-text-title, #1b1d29);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
 
   &__name {
     .aterisk {

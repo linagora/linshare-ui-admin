@@ -1,12 +1,5 @@
 <template>
   <div class="contact-list-detail-page">
-    <div class="contact-list-detail-page__title">
-      <contact-list-detail-header
-        :editable="allowEdit"
-        :editing="editing"
-        @edit-toggle="onToggleEditState"
-      ></contact-list-detail-header>
-    </div>
     <div class="contact-list-detail-page__body">
       <div class="contact-list-detail-page__body-summary">
         <div class="contact-list-detail-page__body-summary-config">
@@ -21,26 +14,43 @@
             :editable="allowEdit"
             :editing="editing"
             @refresh="onFetchingData"
+            @edit-toggle="onToggleEditState"
           ></contact-list-email-table>
         </div>
       </div>
     </div>
   </div>
+  <a-modal
+    v-model:visible="modal.visible"
+    :closable="false"
+    :footer="null"
+    wrap-class-name="contact-list-detail-page__modal"
+    :destroy-on-close="true"
+  >
+    <DeleteContactCard
+      v-if="modal.type === 'DELETE_CONTACT_LIST'"
+      @close="onCloseModal"
+      @deleted="onDeleteContactSuccess"
+    ></DeleteContactCard>
+  </a-modal>
 </template>
 <script lang="ts" setup>
-import ContactListDetailHeader from '@/modules/administration/pages/contact-list/components/detail-page/contact-list-detail-header.vue';
 import ContactListDetailCard from '@/modules/administration/pages/contact-list/components/detail-page/contact-list-detail-card.vue';
 import ContactListEmailTable from '@/modules/administration/pages/contact-list/components/detail-page/contact-list-email-table.vue';
+import DeleteContactCard from '@/modules/administration/pages/contact-list/components/delete-contact-card.vue';
 import { computed, onMounted, ref } from 'vue';
 import useContactList from '../hooks/useContactList';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
+import { CONTACT_LISTS_ROUTE_NAMES } from '../router';
 
 // composables
 const route = useRoute();
-const { activeContactList, handleGetContactListDetail } = useContactList();
+const router = useRouter();
+const { modal, activeContactList, handleGetContactListDetail, onCloseModal } = useContactList();
 const { loggedUserRole } = storeToRefs(useAuthStore());
 
 // data
@@ -63,6 +73,10 @@ function onToggleEditState() {
 function onFetchingData() {
   const id = route.params?.id?.toString();
   handleGetContactListDetail(id ?? activeContactList?.value?.uuid);
+}
+
+function onDeleteContactSuccess() {
+  router.push({ name: CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST });
 }
 
 onMounted(async () => {

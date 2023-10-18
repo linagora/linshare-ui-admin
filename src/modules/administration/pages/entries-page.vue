@@ -138,7 +138,6 @@ export default defineComponent({
   &-content span {
     color: var(--neutral-colors-color-placeholder, #989cb1);
     text-align: center;
-    /* Desktop/Body 2 - Regular */
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
@@ -149,7 +148,6 @@ export default defineComponent({
   &-content strong {
     color: var(--neutral-colors-color-text-primary, #343745);
     text-align: center;
-    /* Desktop/Title 3 - Semibold */
     font-family: Inter;
     font-size: 20px;
     font-style: normal;

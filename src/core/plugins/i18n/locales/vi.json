@@ -3117,7 +3117,26 @@
       "LOGGERS_SUBTITLE": "Điều này có thể được sử dụng bởi bất kỳ miền nào"
     }
   },
-
+  "CONTACT_LIST": {
+    "NOTE": "Xem này cho phép bạn quản lý danh sách liên hệ (danh sách gửi thư cho phép gửi thư đến người dùng đã đăng ký). Bằng cách nhấp vào danh sách, bạn có thể quản lý người dùng và chỉnh sửa thông tin của họ (mô tả, làm cho danh sách hiển thị hoặc ẩn, xóa hoặc thêm người dùng ...)",
+    "CONTACT_LIST": "Danh sách liên hệ",
+    "EMAIL": "Email",
+    "FIRST_NAME":"Tên",
+    "LAST_NAME":"Họ",
+    "ADD_CONTACT":"Thêm liên hệ",
+    "ACTIONS": "Thao tác",
+    "NAME": "Tên danh sách",
+    "DESCRIPTION": "Mô tả",
+    "OWNER": "Chủ sở hữu",
+    "VISIBILITY": "Hiển thị",
+    "SETTING": "Cài đặt",
+    "SEARCH_BY": "Tìm kiếm theo tên hoặc email",
+    "DELETE_CONTACT_MODAL": {
+      "DELETE_MODAL_TITLE": "Xóa liên hệ",
+      "DELETE_MODAL_SUBTITLE": "Bạn sắp xóa liên hệ email này. Bạn có muốn tiếp tục?",
+      "DELETE_SUCCESS": "Xóa thành công"
+    }
+  },
   "TECHNICAL_ACCOUNTS": {
     "PAGE_TITLE": "Tất cả tài khoản",
     "ACCOUNT": "Tài khoản",

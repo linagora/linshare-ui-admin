@@ -3169,7 +3169,14 @@
     "NAME": "List name",
     "DESCRIPTION": "Description",
     "OWNER": "Owner",
-    "VISIBILITY": "Visibility"
+    "VISIBILITY": "Visibility",
+    "SETTING": "Setting",
+    "SEARCH_BY":"Search by name or email",
+    "DELETE_CONTACT_MODAL": {
+      "DELETE_MODAL_TITLE":"Delete Mail Contact",
+      "DELETE_MODAL_SUBTITLE":"You are about to delete this mail contact. Do you want to proceed?",
+      "DELETE_SUCCESS": "Deleted successfully"
+    }
   },
   "TECHNICAL_ACCOUNTS": {
     "PAGE_TITLE": "All accounts",

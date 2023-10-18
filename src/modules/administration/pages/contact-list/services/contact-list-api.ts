@@ -28,7 +28,7 @@ async function createContactList(payload: {
 }
 
 async function updateContactList(payload: Contact) {
-  return await apiv4.put(`mail_contents`, payload);
+  return await apiv4.put(`lists`, payload);
 }
 
 export { getContactList, getContactListDetail, deleteContactList, createContactList, updateContactList };

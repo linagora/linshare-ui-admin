@@ -4,10 +4,16 @@ import { Contact } from '../types/Contact';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { STATUS } from '@/core/types/Status';
-import { getContactList, getContactListDetail } from '../services/contact-list-api';
+import {
+  getContactList,
+  getContactListDetail,
+  deleteContactList,
+  updateContactList,
+} from '../services/contact-list-api';
 import { useLocalStorage } from '@vueuse/core';
 import { CONTACT_LISTS_ROUTE_NAMES } from '../router';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 
 const activeContactList = useLocalStorage<Contact>('configuration-contact-list', {} as Contact);
 const activeContactListForm = ref<Partial<Contact>>({});
@@ -45,11 +51,13 @@ const modal = reactive<{
 });
 
 const filteredList = computed(() =>
-  list.value.filter(
-    (contactList: Contact) =>
-      contactList?.identifier?.toLowerCase().includes(filterText.value.toLowerCase()) ||
-      contactList?.description?.toLowerCase().includes(filterText.value.toLowerCase())
-  )
+  list.value
+    .filter(
+      (contactList: Contact) =>
+        contactList?.identifier?.toLowerCase().includes(filterText.value.toLowerCase()) ||
+        contactList?.description?.toLowerCase().includes(filterText.value.toLowerCase())
+    )
+    .sort((a: Contact, b: Contact) => a.identifier.localeCompare(b.identifier))
 );
 const filteredListByPage = computed(() => {
   const firstIndex = (pagination.current - 1) * pagination.pageSize;
@@ -59,6 +67,7 @@ const filteredListByPage = computed(() => {
 
 export default function useContactList() {
   const router = useRouter();
+  const { t } = useI18n();
 
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
@@ -71,6 +80,11 @@ export default function useContactList() {
   //methods
   function onCloseModal() {
     modal.visible = false;
+  }
+
+  function onDeleteContact() {
+    modal.visible = true;
+    modal.type = 'DELETE_CONTACT_LIST';
   }
 
   async function fetchContactList() {
@@ -117,6 +131,40 @@ export default function useContactList() {
     }
   }
 
+  async function handleDeleteContactList(contact: Contact) {
+    status.value = STATUS.LOADING;
+    try {
+      const messages = await deleteContactList(contact);
+      status.value = STATUS.SUCCESS;
+      onCloseModal();
+      router.push({ name: CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST });
+    } catch (error) {
+      status.value = STATUS.ERROR;
+
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    }
+  }
+
+  async function handleEditContactList(contact: Contact) {
+    loading.value = true;
+    status.value = STATUS.LOADING;
+    try {
+      await updateContactList(contact);
+      status.value = STATUS.SUCCESS;
+      message.success(t(`MESSAGES.UPDATE_SUCCESS`));
+    } catch (error) {
+      status.value = STATUS.ERROR;
+
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    } finally {
+      loading.value = false;
+    }
+  }
+
   function resetSelectContactList() {
     selectedContactLists.value = [];
   }
@@ -136,8 +184,11 @@ export default function useContactList() {
     onCloseModal,
     fetchContactList,
     onEditContactList,
+    onDeleteContact,
+    handleEditContactList,
     resetSelectContactList,
     handleResetContactList,
+    handleDeleteContactList,
     handleGetContactListDetail,
   };
 }

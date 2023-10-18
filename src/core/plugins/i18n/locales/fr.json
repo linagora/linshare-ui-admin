@@ -3122,29 +3122,48 @@
   "ADMINISTRATION": {
     "INTRODUCTION": "Vous utilisez la version libre et gratuite de LinShare™",
     "NAVIGATOR": {
-      "MY_USERS":"Mes utilisateurs",
+      "MY_USERS": "Mes utilisateurs",
       "MY_USERS_SUBTITLE": "Afficher la liste des utilisateurs",
-      "TECHNICAL_ACCOUNTS":"Comptes techniques",
+      "TECHNICAL_ACCOUNTS": "Comptes techniques",
       "TECHNICAL_ACCOUNTS_SUBTITLE": "Afficher la liste des comptes techniques",
       "MY_DRIVE": "Mon lecteur",
       "MY_DRIVE_SUBTITLE": "Gérez votre lecteur et vos groupes de travail",
       "MY_CONTACT_LIST": "Ma liste de contacts",
       "MY_CONTACT_LIST_SUBTITLE": "Afficher tous les contacts",
-      "INCONSISTENT_USERS" : "Utilisateurs incohérents",
-      "INCONSISTENT_USERS_SUBTITLE" : "Afficher la liste des serveurs",
-      "LOGGERS" : "Enregistreurs",
+      "INCONSISTENT_USERS": "Utilisateurs incohérents",
+      "INCONSISTENT_USERS_SUBTITLE": "Afficher la liste des serveurs",
+      "LOGGERS": "Enregistreurs",
       "LOGGERS_SUBTITLE": "Ceci peut être utilisé par n'importe quel domaine"
     }
   },
-
+  "CONTACT_LIST": {
+    "NOTE": "Cette vue vous permet de gérer la liste de contacts (une liste de diffusion permettant d'envoyer un e-mail aux utilisateurs enregistrés). En cliquant sur une liste, vous pouvez gérer les utilisateurs et modifier leurs informations (description, rendre la liste visible ou cachée, supprimer ou ajouter un utilisateur...).",
+    "CONTACT_LIST": "Liste de contacts",
+    "EMAIL": "E-mail",
+    "FIRST_NAME": "Prénom",
+    "LAST_NAME": "Nom de famille",
+    "ADD_CONTACT": "Ajouter un contact",
+    "ACTIONS": "Actions",
+    "NAME": "Nom de la liste",
+    "DESCRIPTION": "Description",
+    "OWNER": "Propriétaire",
+    "VISIBILITY": "Visibilité",
+    "SETTING": "Réglage",
+    "SEARCH_BY": "Recherche par nom ou par email",
+    "DELETE_CONTACT_MODAL": {
+      "DELETE_MODAL_TITLE": "Supprimer le contact",
+      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer ce contact e-mail. Voulez-vous continuer ?",
+      "DELETE_SUCCESS": "Supprimé avec succès"
+    }
+  },
   "TECHNICAL_ACCOUNTS": {
     "PAGE_TITLE": "Tous les comptes",
     "ACCOUNT": "Compte",
     "MAIL": "Courrier",
     "ROLE": "Rôle",
     "STATUS": "Statut",
-    "CREATION_DATE":"Date de création",
-    "MODIFICATION_DATE":"Date de modification",
+    "CREATION_DATE": "Date de création",
+    "MODIFICATION_DATE": "Date de modification",
     "LOCKED": "État de verrouillage",
     "ENABLE": "Activé",
     "DISABLE": "Désactivé",

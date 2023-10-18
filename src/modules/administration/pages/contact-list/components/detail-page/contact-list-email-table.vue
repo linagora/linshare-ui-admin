@@ -1,8 +1,10 @@
 <template>
   <div class="contact-list-email-table">
-    <span class="title">
-      {{ $t('CONTACT_LIST.CONTACT_LIST') }}
-    </span>
+    <contact-list-detail-header
+      :editable="editable"
+      :editing="editing"
+      @edit-toggle="emits('edit-toggle')"
+    ></contact-list-detail-header>
     <div v-if="editing" class="contact-list-email-table__rule-form">
       <a-form-item style="width: 30%" class="ls-form-title" :label="$t('CONTACT_LIST.EMAIL')">
         <a-select v-model:value="selectRule.rule" class="ls-input" :bordered="false">
@@ -41,7 +43,7 @@
     >
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'email'">
-          <span class="elipsis-name">{{ record?.email }}</span>
+          <span class="elipsis-name">{{ record?.mail }}</span>
         </template>
         <template v-if="column.key === 'firstName'">
           <span class="elipsis-name">{{ record?.firstName }}</span>
@@ -66,6 +68,7 @@ import { STATUS } from '@/core/types/Status';
 import { ContactInfo } from '../../types/Contact';
 import useContactList from '../../hooks/useContactList';
 import { PlusOutlined, DeleteFilled } from '@ant-design/icons-vue';
+import ContactListDetailHeader from './contact-list-detail-header.vue';
 
 const { t } = useI18n();
 const { status, activeContactList } = useContactList();
@@ -76,6 +79,7 @@ const props = defineProps<{
   editing?: boolean;
 }>();
 
+const emits = defineEmits(['edit-toggle']);
 //data
 const selectRule = reactive<{ rule?: 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL'; domain?: Domain; domainId?: string }>(
   {}
@@ -152,14 +156,12 @@ const rulesByPage = computed(() => {
   }
 
   .title {
-    color: #000;
-    /* Desktop/Subtitle 4 - Medium */
+    color: var(--neutral-colors-color-text-title, #1b1d29);
     font-family: Inter;
-    font-size: 15px;
+    font-size: 20px;
     font-style: normal;
-    font-weight: 500;
-    line-height: 20px;
-    /* 133.333% */
+    font-weight: 600;
+    line-height: 24px;
   }
 
   &__table .ant-table {
