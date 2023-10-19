@@ -10,6 +10,7 @@ import { getDomains } from '@/modules/domain/services/domain-api';
 import { useI18n } from 'vue-i18n';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 import { useAuthStore } from '@/modules/auth/store';
+import { useDomainStore } from '@/modules/domain/store';
 
 const loading = ref(false);
 const activitiesLogs = ref<ActivityLog[]>([]);
@@ -69,7 +70,10 @@ export function useActivities() {
   async function fetchActivities() {
     try {
       loading.value = true;
+      const domainUuid = currentDomain.value.uuid;
+
       const data = await getActivitiesLogs(
+        domainUuid,
         beginDate.value?.format('YYYY-MM-DD'),
         endDate.value?.format('YYYY-MM-DD'),
         actions.value.join('&action='),
