@@ -1,23 +1,19 @@
 <template>
-  <PageTitle :title="$t('NAVIGATOR.SHARED_SPACE_DETAILS')" :subtitle="sharedSpace.name" :breadcrumbs="breadcrumbs">
-    <template #subTitlePostfix>
-      <div class="delete-button-container">
-        <a-popconfirm
-          v-if="loaded"
-          :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
-          :ok-text="$t('USERS.DETAIL_USER.YES')"
-          :cancel-text="$t('USERS.DETAIL_USER.NO')"
-          placement="bottom"
-          overlay-class-name="popconfirm-delete"
-          @confirm="deleteSpace(sharedSpace)"
-        >
-          <a-button :loading="deleting">
-            {{ $t(`SHARED_SPACES.DELETE_${sharedSpace.nodeType}`) }}
-          </a-button>
-        </a-popconfirm>
-      </div>
-    </template>
-  </PageTitle>
+  <div class="delete-button-container">
+    <a-popconfirm
+      v-if="loaded"
+      :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
+      :ok-text="$t('USERS.DETAIL_USER.YES')"
+      :cancel-text="$t('USERS.DETAIL_USER.NO')"
+      placement="bottom"
+      overlay-class-name="popconfirm-delete"
+      @confirm="deleteSpace(sharedSpace)"
+    >
+      <a-button :loading="deleting">
+        {{ $t(`SHARED_SPACES.DELETE_${sharedSpace.nodeType}`) }}
+      </a-button>
+    </a-popconfirm>
+  </div>
 
   <div v-if="!loaded" class="spinner">
     <a-spin />
@@ -67,7 +63,9 @@
             {{ $t('SHARED_SPACES.NODE_TYPE.WORK_SPACE') }}
           </div>
           <div class="value">
-            <router-link :to="{ name: 'SharedSpaceDetails', params: { id: sharedSpace.parentUuid } }">
+            <router-link
+              :to="{ name: MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_DETAIL, params: { id: sharedSpace.parentUuid } }"
+            >
               {{ parentSpace.name }}
             </router-link>
           </div>
@@ -134,6 +132,7 @@ import { useI18n } from 'vue-i18n';
 import { useDomainStore } from '@/modules/domain/store';
 import { EMPTY_DOMAIN_NODE } from '@/modules/domain/types/DomainTreeNode';
 import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router';
+import { MY_SHARED_SPACES_ROUTE_NAMES } from '@/modules/shared-spaces/router/index';
 
 interface SharedSpaceForm {
   name: string;
@@ -228,7 +227,7 @@ async function prepare() {
 }
 
 watchEffect(() => {
-  if (currentRoute.value.params.id && currentRoute.value.name === 'SharedSpaceDetails') {
+  if (currentRoute.value.params.id && currentRoute.value.name === MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_DETAIL) {
     prepare();
   }
 });

@@ -1,22 +1,18 @@
 <template>
   <div class="manage-users">
-    <PageTitle
-      :title="$t('USERS.MANAGE_USERS.TITLE')"
-      :subtitle="$t('USERS.MANAGE_USERS.SUBTITLE')"
-      :breadcrumbs="breadcrumbs"
-    >
-      <template #helperContent>
-        <div class="alert-message-in-description">
+    <a-alert closable class="manage-users__help-text">
+      <template #description>
+        <strong class="alert-message-in-description">
           {{ $t('NAVIGATOR.USERS') }}
-        </div>
+        </strong>
         <div>{{ $t('USERS.MANAGE_USERS.DESCRIPTION') }}</div>
-        <div class="alert-message-in-description">
+        <strong class="alert-message-in-description">
           {{ $t('USERS.MANAGE_USERS.OPERATION') }}
-        </div>
+        </strong>
         <div>{{ $t('USERS.MANAGE_USERS.SEARCH_GUIDE') }}</div>
         <div>{{ $t('USERS.MANAGE_USERS.NAVIGATE_GUIDE') }}</div>
       </template>
-    </PageTitle>
+    </a-alert>
 
     <div class="users-list">
       <TokenInput
@@ -183,6 +179,20 @@ const filterOptions = [
 
 <style lang="less" scoped>
 .manage-users {
+  &__help-text {
+    padding: 12px 24px 12px 16px;
+    gap: 6px;
+    background: #f2f8ff;
+    border-radius: 8px;
+    border: none;
+    content: '\2022';
+    color: #007aff;
+    display: block;
+    margin-left: -1em;
+    display: flex;
+    flex-direction: row;
+  }
+
   .users-list {
     margin-top: 30px;
 

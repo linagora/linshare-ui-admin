@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 import { useDomainStore } from '@/modules/domain/store';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import TheSubheader from '@/core/components/the-subheader.vue';
-import { useRoute } from 'vue-router';
+import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
+import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router/index';
 
 // composables
 const route = useRoute();
@@ -11,9 +13,9 @@ const domainStore = useDomainStore();
 const { breadcrumbs } = useBreadcrumbs();
 
 // computed
-const currentDomainName = computed(() => domainStore.currentDomain.name);
-const topMostDomain = computed(() => domainStore.topMostDomain);
-
+const routeTitle = computed(() => {
+  return route.meta.label?.toString();
+});
 const breadcrumbsWithDomain = computed(() => {
   const newBreadcrumbs = [
     {
@@ -35,8 +37,14 @@ const blankPage = computed(() => {
     <div v-if="!blankPage" class="administration-page__wrapper">
       <div class="administration-page__header">
         <div class="administration-page__header-title">
+          <router-link
+            :to="{ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.ENTRIES }"
+            class="administration-page__header-back"
+          >
+            <ArrowLeftIcon></ArrowLeftIcon>
+          </router-link>
           <div class="administration-page__header-title-content">
-            <strong class="title">{{ $t('ADMINISTRATION.NAVIGATOR.MY_CONTACT_LIST') }}</strong>
+            <strong class="title">{{ $t(routeTitle || '') }}</strong>
             <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">
               <template #itemRender="{ route, routes }">
                 <span v-if="routes.indexOf(route) === routes.length - 1 || route.disableAction" class="current">
@@ -105,6 +113,7 @@ const blankPage = computed(() => {
     justify-content: flex-start;
     align-items: flex-start;
     flex-grow: 1;
+    gap: 12px;
 
     .title {
       font-style: normal;
@@ -147,6 +156,14 @@ const blankPage = computed(() => {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 8px;
+  }
+  &__header-back {
+    padding: 4px;
+  }
+  &__header-back svg {
+    width: 20px;
+    height: 20px;
+    color: #6d7885;
   }
 
   .desktop {

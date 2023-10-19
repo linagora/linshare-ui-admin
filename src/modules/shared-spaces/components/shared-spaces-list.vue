@@ -8,6 +8,7 @@ import useSharedSpacesList from '@/modules/shared-spaces/hooks/useSharedSpacesLi
 import { SHARED_SPACE_TYPE } from '../types/SharedSpace';
 import WorkgroupIcon from './workgroup-icon.vue';
 import WorkspaceIcon from './workspace-icon.vue';
+import { MY_SHARED_SPACES_ROUTE_NAMES } from '@/modules/shared-spaces/router/index';
 
 const { t } = useI18n();
 const { loading, list, handleTableChange } = useSharedSpacesList();
@@ -58,7 +59,7 @@ onMounted(handleTableChange);
   <a-table :columns="columns" :data-source="list" :loading="loading" :pagination="false" row-key="uuid">
     <template #bodyCell="{ column, record, text }">
       <template v-if="column.key === 'name'">
-        <router-link :to="{ name: 'SharedSpaceDetails', params: { id: record.uuid } }">
+        <router-link :to="{ name: MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_DETAIL, params: { id: record.uuid } }">
           <div class="shared-space">
             <div class="icon">
               <WorkgroupIcon v-if="record.nodeType === SHARED_SPACE_TYPE.WORKGROUP" />

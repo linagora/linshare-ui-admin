@@ -1,8 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-import { UserRoutes } from '@/modules/user/router';
 import { technicalUserRoutes } from '@/modules/administration/pages/technical-accounts/router';
-import { SharedSpacesRoutes } from '@/modules/shared-spaces/router';
-import { InconsistentUsersRoutes } from '@/modules/inconsistent-users/router';
 import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 import { ReportingRoute } from '@/modules/reporting/router';
 import { ConfigurationRoute } from '@/modules/configuration/router';
@@ -24,10 +21,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
     },
     children: [
       AdministrationRoute,
-      ...UserRoutes,
       ...technicalUserRoutes,
-      ...SharedSpacesRoutes,
-      ...InconsistentUsersRoutes,
       ReportingRoute,
       ManageSecondFactorAuthenticationRoute,
       ConfigurationRoute,

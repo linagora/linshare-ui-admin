@@ -3153,6 +3153,7 @@
       "MY_CONTACT_LIST": "My Contacts List",
       "MY_CONTACT_LIST_SUBTITLE": "Show all contacts",
       "INCONSISTENT_USERS" : "Inconsistent users",
+      "DIAGNOSIC": "User diagnostic",
       "INCONSISTENT_USERS_SUBTITLE" : "Show list of Servers",
       "LOGGERS" : "Loggers",
       "LOGGERS_SUBTITLE": "This can be used by any domain"

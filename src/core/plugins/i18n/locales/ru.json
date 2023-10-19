@@ -2873,6 +2873,7 @@
       "MY_CONTACT_LIST": "Мой список контактов",
       "MY_CONTACT_LIST_SUBTITLE": "Показать все контакты",
       "INCONSISTENT_USERS" : "Непоследовательные пользователи",
+      "DIAGNOSIC": "Диагностика пользователя",
       "INCONSISTENT_USERS_SUBTITLE" : "Показать список серверов",
       "LOGGERS" : "Логгеры",
       "LOGGERS_SUBTITLE": "Это может использоваться любым доменом"

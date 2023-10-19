@@ -1,27 +1,6 @@
 <template>
   <div class="configuration-page">
     <div class="configuration-page__wrapper">
-      <div class="configuration-page__header">
-        <div class="configuration-page__header-title">
-          <div class="configuration-page__header-title-content">
-            <router-link :to="{ name: 'Administration' }">
-              <ArrowLeftIcon></ArrowLeftIcon>
-            </router-link>
-            <strong class="title">{{ $t('INCONSISTENT_USERS.TITLE') }}</strong>
-            <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">
-              <template #itemRender="{ route, routes }">
-                <span v-if="routes.indexOf(route) === routes.length - 1" class="current">
-                  {{ $t(route.label) }}
-                </span>
-
-                <router-link v-else :to="{ name: route.path, params: route?.params }">
-                  {{ $t(route.label) }}
-                </router-link>
-              </template>
-            </a-breadcrumb>
-          </div>
-        </div>
-      </div>
       <div class="inconsistent-users-page">
         <div class="inconsistent-users-page-tabs">
           <inconsistent-users-tabs></inconsistent-users-tabs>
@@ -57,5 +36,9 @@ const breadcrumbsWithDomain = computed(() => {
 <style lang="less" scoped>
 .title {
   margin-left: 10px;
+}
+.inconsistent-users-page {
+  display: flex;
+  flex-direction: column;
 }
 </style>

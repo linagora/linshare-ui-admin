@@ -5,7 +5,7 @@ import { getReadableSize } from '@/core/utils/unitStorage';
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { AccountQuotaStatistic } from '../types/AccountQuotaStatistic';
-
+import { MY_SHARED_SPACES_ROUTE_NAMES } from '@/modules/shared-spaces/router/index';
 const props = defineProps<{
   data: AccountQuotaStatistic[];
   loading: boolean;
@@ -54,7 +54,7 @@ const columns = computed<LsTableColumn[]>(() => [
         <div class="account-name">
           <router-link
             :to="{
-              name: isEmail(row.account.email) ? 'UserDetail' : 'SharedSpaceDetails',
+              name: isEmail(row.account.email) ? 'UserDetail' : MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_DETAIL,
               params: {
                 id: row.account.uuid,
               },

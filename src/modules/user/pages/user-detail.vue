@@ -119,8 +119,14 @@ onMounted(handleTableChange);
 </script>
 
 <template>
-  <PageTitle :title="$t('USERS.DETAIL_USER.TITLE')" :subtitle="pageSubtitle" :breadcrumbs="breadcrumbs">
-    <template #subTitlePostfix>
+  <div v-if="pageStatus === STATUS.LOADING" class="spinner">
+    <a-spin />
+  </div>
+
+  <div v-if="user && pageStatus === STATUS.SUCCESS" class="user-detail">
+    <div class="user-detail__header">
+      <UserLockedAlert :user="user" @unlock="user && (user.locked = false)" />
+      <UserSharedKeyAlert :user="user" @delete="user && (user.secondFAEnabled = false)" />
       <div v-if="pageStatus === STATUS.SUCCESS" class="delete-user-container">
         <a-popconfirm
           :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
@@ -133,18 +139,9 @@ onMounted(handleTableChange);
           <a-button>{{ $t('USERS.DETAIL_USER.DELETE_USER') }}</a-button>
         </a-popconfirm>
       </div>
-    </template>
-  </PageTitle>
+    </div>
 
-  <div v-if="pageStatus === STATUS.LOADING" class="spinner">
-    <a-spin />
-  </div>
-
-  <div v-if="user && pageStatus === STATUS.SUCCESS">
-    <UserLockedAlert :user="user" @unlock="user && (user.locked = false)" />
-    <UserSharedKeyAlert :user="user" @delete="user && (user.secondFAEnabled = false)" />
-
-    <div class="user-detail">
+    <div class="user-detail__content">
       <a-tabs>
         <a-tab-pane key="1" :tab="$t('USERS.DETAIL_USER.USER_PROFILE')">
           <UserProfile :user="user" @update="(updated) => (user = updated)" />
@@ -176,7 +173,16 @@ onMounted(handleTableChange);
 
 <style lang="less" scoped>
 .user-detail {
-  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 }
 
 .delete-user-container {

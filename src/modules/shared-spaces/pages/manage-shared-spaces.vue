@@ -1,27 +1,28 @@
 <template>
-  <PageTitle :title="$t('SHARED_SPACES.MANAGE_SHARED_SPACES.TITLE')" :breadcrumbs="breadcrumbs">
-    <template #helperContent>
-      <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.TITLE') }}</div>
-      <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.DESCRIPTION') }}</div>
-    </template>
-  </PageTitle>
-
-  <TokenInput
-    :filters="filterOptions"
-    :sorts="sortOptions"
-    :placeholder="$t('SHARED_SPACES.TOKEN_INPUT.PLACEHOLDER')"
-    @submit="handleSubmit"
-    @unmount="reset"
-  />
-  <div class="list">
-    <SharedSpacesList />
+  <div class="shared-spaces-list">
+    <a-alert closable class="shared-spaces-list__help-text">
+      <template #description>
+        <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.TITLE') }}</div>
+        <div>{{ $t('SHARED_SPACES.MANAGE_SHARED_SPACES.DESCRIPTION') }}</div>
+      </template>
+    </a-alert>
+    <TokenInput
+      :filters="filterOptions"
+      :sorts="sortOptions"
+      :placeholder="$t('SHARED_SPACES.TOKEN_INPUT.PLACEHOLDER')"
+      @submit="handleSubmit"
+      @unmount="reset"
+    />
+    <div class="list">
+      <SharedSpacesList />
+    </div>
+    <ThePagination
+      v-model="pagination"
+      class="shared-spaces-list__pagination"
+      :is-visible="!!list.length"
+      @change="() => handleTableChange()"
+    />
   </div>
-  <ThePagination
-    v-model="pagination"
-    class="shared-spaces-list__pagination"
-    :is-visible="!!list.length"
-    @change="() => handleTableChange()"
-  />
 </template>
 
 <script lang="ts" setup>
@@ -119,6 +120,22 @@ const handleSubmit = async function (options: TokenSubmitPayload<SharedSpaceList
 </script>
 
 <style lang="less">
+.shared-spaces-list {
+  &__help-text {
+    padding: 12px 24px 12px 16px;
+    gap: 6px;
+    background: #f2f8ff;
+    border-radius: 8px;
+    border: none;
+    content: '\2022';
+    color: #007aff;
+    display: block;
+    margin-left: -1em;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 .list {
   margin-top: 20px;
 }

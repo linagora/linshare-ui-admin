@@ -9,10 +9,10 @@ export const INCONSISTENT_USERS_ROUTE_NAMES = {
 export const InconsistentUsersRoutes: Array<RouteRecordRaw> = [
   {
     name: INCONSISTENT_USERS_ROUTE_NAMES.ENTRIES,
-    path: 'administration/InconsistentUsers',
+    path: 'inconsistent-users',
     component: () => import('../pages/inconsistent-users-entries-page.vue'),
     meta: {
-      parentRoute: INCONSISTENT_USERS_ROUTE_NAMES.ENTRIES,
+      parentRoute: 'Administration',
       label: 'INCONSISTENT_USERS_ROUTE_NAMES.ENTRIES',
       requiresAuth: true,
     },
@@ -22,8 +22,7 @@ export const InconsistentUsersRoutes: Array<RouteRecordRaw> = [
         path: 'diagnostic',
         component: () => import('../pages/manage-diagnostic-users.vue'),
         meta: {
-          parentRoute: INCONSISTENT_USERS_ROUTE_NAMES.ENTRIES,
-          label: 'INCONSISTENT_USERS_ROUTE_NAMES.DIAGNOSIC',
+          label: 'ADMINISTRATION.NAVIGATOR.DIAGNOSIC',
           requiresAuth: true,
         },
       },
@@ -32,8 +31,7 @@ export const InconsistentUsersRoutes: Array<RouteRecordRaw> = [
         path: 'inconsistent',
         component: () => import('../pages/manage-inconsistent-users.vue'),
         meta: {
-          parentRoute: INCONSISTENT_USERS_ROUTE_NAMES.ENTRIES,
-          label: 'INCONSISTENT_USERS_ROUTE_NAMES.INCONSISTENT',
+          label: 'ADMINISTRATION.NAVIGATOR.INCONSISTENT_USERS',
           requiresAuth: true,
         },
       },
