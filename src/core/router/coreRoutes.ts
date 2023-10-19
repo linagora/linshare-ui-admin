@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-import { technicalUserRoutes } from '@/modules/administration/pages/technical-accounts/router';
+import { technicalAccountRoutes } from '@/modules/administration/pages/technical-accounts/router';
 import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 import { ReportingRoute } from '@/modules/reporting/router';
 import { ConfigurationRoute } from '@/modules/configuration/router';
@@ -21,7 +21,6 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
     },
     children: [
       AdministrationRoute,
-      ...technicalUserRoutes,
       ReportingRoute,
       ManageSecondFactorAuthenticationRoute,
       ConfigurationRoute,

@@ -1,7 +1,5 @@
 <template>
   <div class="technical-accounts">
-    <the-subheader :title="$t('NAVIGATOR.ADMINISTRATION')" :detail="$t('ADMINISTRATION.INTRODUCTION')" class="header">
-    </the-subheader>
     <PageTitle :title="$t('TECHNICAL_ACCOUNTS.PAGE_TITLE')">
       <template #helperContent>
         <div class="alert-message-in-description">
@@ -106,9 +104,5 @@ const descriptionLink = 'http://download.linshare.org';
   &__modal .ant-modal-body {
     padding: 0;
   }
-}
-
-.header {
-  border-radius: 12px;
 }
 </style>

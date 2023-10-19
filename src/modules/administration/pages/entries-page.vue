@@ -57,7 +57,7 @@ export default defineComponent({
           icon: MyTechnicalAccount,
           to: () => {
             router.push({
-              name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_TECHNICAL_USERS_ROUTE_NAMES.TECHNICAL_USER_LIST,
+              name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_TECHNICAL_ACCOUNTS_ROUTE_NAMES.TECHNICAL_ACCOUNT_LIST,
             });
           },
         },
