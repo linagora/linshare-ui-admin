@@ -3146,6 +3146,8 @@
     "FIRST_NAME": "Prénom",
     "LAST_NAME": "Nom de famille",
     "ADD_CONTACT": "Ajouter un contact",
+    "CREATE_CONTACT": "Créer un contact",
+    "ADD_CONTACT_SUCCESS": "Contact ajouté avec succès",
     "ACTIONS": "Actions",
     "NAME": "Nom de la liste",
     "DESCRIPTION": "Description",

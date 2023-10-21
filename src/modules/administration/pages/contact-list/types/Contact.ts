@@ -16,7 +16,8 @@ export interface Contact {
 }
 
 export interface ContactInfo {
-  email: string;
+  mail?: string;
+  email?: string;
   firstName: string;
   lastName: string;
 }

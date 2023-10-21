@@ -1,5 +1,5 @@
 import apiv4 from '@/apiv4';
-import { Contact, ContactListParameters } from '../types/Contact';
+import { Contact, ContactInfo, ContactListParameters } from '../types/Contact';
 import Domain from '@/core/types/Domain';
 
 async function getContactList(options: ContactListParameters = {}): Promise<Contact> {
@@ -30,4 +30,15 @@ async function updateContactList(payload: Contact) {
   return await apiv4.put(`lists`, payload);
 }
 
-export { getContactList, getContactListDetail, deleteContactList, createContactList, updateContactList };
+async function addContactListEmail(uuid: string, payload: ContactInfo) {
+  return await apiv4.post(`lists/${uuid}/contacts`, payload);
+}
+
+export {
+  getContactList,
+  getContactListDetail,
+  deleteContactList,
+  createContactList,
+  updateContactList,
+  addContactListEmail,
+};

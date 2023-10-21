@@ -4,34 +4,8 @@
       :editable="editable"
       :editing="editing"
       @edit-toggle="emits('edit-toggle')"
+      @refresh="emits('refresh')"
     ></contact-list-detail-header>
-    <div v-if="editing" class="contact-list-email-table__rule-form">
-      <a-form-item style="width: 30%" class="ls-form-title" :label="$t('CONTACT_LIST.EMAIL')">
-        <a-select v-model:value="selectRule.rule" class="ls-input" :bordered="false">
-          <a-select-option v-for="s in rules" :key="s.value" :value="s.value">
-            {{ s.label }}
-          </a-select-option>
-        </a-select>
-      </a-form-item>
-      <a-form-item style="width: 30%" class="ls-form-title" :label="$t('CONTACT_LIST.FIRST_NAME')">
-        <a-select v-model:value="selectRule.domainId" class="ls-input" :bordered="false">
-          <a-select-option v-for="s in domains" :key="s" :value="s.value">
-            {{ s.label }}
-          </a-select-option>
-        </a-select>
-      </a-form-item>
-      <a-form-item style="width: 30%" class="ls-form-title" :label="$t('CONTACT_LIST.LAST_NAME')">
-        <a-select v-model:value="selectRule.domainId" class="ls-input" :bordered="false">
-          <a-select-option v-for="s in domains" :key="s" :value="s.value">
-            {{ s.label }}
-          </a-select-option>
-        </a-select>
-      </a-form-item>
-      <a-button :disabled="!editing || !editable" class="ls-button ls-add">
-        <PlusOutlined />
-        {{ $t('CONTACT_LIST.ADD_CONTACT') }}
-      </a-button>
-    </div>
     <a-table
       key="uuid"
       class="contact-list-email-table__table"
@@ -71,7 +45,7 @@ import { PlusOutlined, DeleteFilled } from '@ant-design/icons-vue';
 import ContactListDetailHeader from './contact-list-detail-header.vue';
 
 const { t } = useI18n();
-const { status, activeContactList } = useContactList();
+const { status, activeContactList, filterMail } = useContactList();
 
 // props & emits
 const props = defineProps<{
@@ -79,7 +53,7 @@ const props = defineProps<{
   editing?: boolean;
 }>();
 
-const emits = defineEmits(['edit-toggle']);
+const emits = defineEmits(['edit-toggle', 'refresh']);
 //data
 const selectRule = reactive<{ rule?: 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL'; domain?: Domain; domainId?: string }>(
   {}
@@ -133,7 +107,13 @@ const columns = computed(() => [
   },
 ]);
 const rulesByPage = computed(() => {
-  return activeContactList.value.contacts;
+  return activeContactList.value.contacts.filter((item) => {
+    return (
+      item.mail?.includes(filterMail.value) ||
+      item.firstName?.includes(filterMail.value) ||
+      item.lastName?.includes(filterMail.value)
+    );
+  });
 });
 </script>
 

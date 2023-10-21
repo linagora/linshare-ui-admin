@@ -5,7 +5,7 @@
     </div>
     <div class="contact-list-detail-header__action">
       <a-input
-        v-model:value="filterText"
+        v-model:value="filterMail"
         :placeholder="$t('CONTACT_LIST.SEARCH_BY')"
         class="contact-list-detail-header__action-input ls-input"
         allow-clear
@@ -14,29 +14,105 @@
           <SearchOutlined />
         </template>
       </a-input>
-      <template v-if="!editing">
-        <a-button v-if="editable && !editing" class="ls-button ls-cancel">
+      <div>
+        <a-button v-if="editable && !editing" class="ls-button ls-add" @click="editing = true">
           <PlusOutlined />
           {{ $t('CONTACT_LIST.ADD_CONTACT') }}
         </a-button>
-      </template>
+        <a-button v-if="editable && editing" class="ls-button ls-cancel" @click="editing = false">
+          {{ $t('GENERAL.CANCEL') }}
+        </a-button>
+      </div>
+    </div>
+
+    <div v-if="editing" class="contact-list-detail-header__rule-form">
+      <a-form-item style="width: 30%" v-bind="validateInfos.mail" class="ls-form-title">
+        <a-input v-model:value="form.mail" :placeholder="$t('CONTACT_LIST.EMAIL')" class="ls-input" allow-clear>
+        </a-input>
+      </a-form-item>
+      <a-form-item style="width: 30%" v-bind="validateInfos.firstName" class="ls-form-title">
+        <a-input
+          v-model:value="form.firstName"
+          :placeholder="$t('CONTACT_LIST.FIRST_NAME')"
+          class="ls-input"
+          allow-clear
+        >
+        </a-input>
+      </a-form-item>
+      <a-form-item style="width: 30%" v-bind="validateInfos.lastName" class="ls-form-title">
+        <a-input v-model:value="form.lastName" :placeholder="$t('CONTACT_LIST.LAST_NAME')" class="ls-input" allow-clear>
+        </a-input>
+      </a-form-item>
+      <a-button :disabled="!editing || !editable" class="ls-button ls-save" @click="onAddContactListEmail">
+        {{ $t('CONTACT_LIST.CREATE_CONTACT') }}
+      </a-button>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import useContactList from '../../hooks/useContactList';
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons-vue';
+import { computed, reactive, ref } from 'vue';
+import { ContactInfo } from '../../types/Contact';
+import { message, Form, FormInstance } from 'ant-design-vue';
+import { useI18n } from 'vue-i18n';
 
-const router = useRouter();
+const route = useRoute();
+const useForm = Form.useForm;
+const { t } = useI18n();
 
 // props & emits
 const props = defineProps<{
   editable?: boolean;
-  editing?: boolean;
 }>();
 
-const { filterText } = useContactList();
+const emits = defineEmits(['refresh']);
+
+const form = reactive<ContactInfo>({
+  mail: '',
+  firstName: '',
+  lastName: '',
+});
+
+const formRules = computed(() => ({
+  mail: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+  firstName: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+  lastName: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+}));
+const { validate, validateInfos, resetFields } = useForm(form, formRules);
+
+const { filterMail, activeContactList, handleAddContactListEmail } = useContactList();
+const editing = ref(false);
+
+async function onAddContactListEmail() {
+  try {
+    await validate();
+  } catch (error) {
+    return;
+  }
+  const uuid = route.params.id?.toString() || activeContactList.value.uuid?.toString();
+  const result = await handleAddContactListEmail(uuid, form);
+  if (result) {
+    editing.value = false;
+    emits('refresh');
+  }
+}
 </script>
 <style lang="less">
 .contact-list-detail-header {
@@ -47,6 +123,14 @@ const { filterText } = useContactList();
   padding-bottom: 28px;
   width: 100%;
   gap: 16px;
+
+  &__rule-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+  }
 
   &__title {
     color: var(--neutral-colors-color-text-title, #1b1d29);
@@ -82,6 +166,7 @@ const { filterText } = useContactList();
   &__action-input {
     width: 380px;
   }
+
   .ls-input {
     height: 44px;
     background: #fff;
@@ -91,6 +176,25 @@ const { filterText } = useContactList();
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+  }
+
+  .ls-save {
+    height: 44px !important;
+    background-color: #007aff;
+    color: #fff;
+    font-size: 14px;
+  }
+  .ls-save:disabled,
+  .ls-save:disabled:hover {
+    background-color: #007aff;
+    color: #fff;
+    opacity: 0.3;
+  }
+
+  .ls-cancel {
+    background: var(--lin-share-branding-color-primary-50, #f2f8ff);
+    border: none;
+    min-width: 50px !important;
   }
 }
 </style>

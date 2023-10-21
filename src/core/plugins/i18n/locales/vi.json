@@ -3105,18 +3105,18 @@
   "ADMINISTRATION": {
     "INTRODUCTION": "Bạn đang sử dụng phiên bản miễn phí và mã nguồn mở của LinShare™",
     "NAVIGATOR": {
-      "MY_USERS":"Người dùng của tôi",
+      "MY_USERS": "Người dùng của tôi",
       "MY_USERS_SUBTITLE": "Hiển thị danh sách người dùng",
-      "TECHNICAL_ACCOUNTS":"Tài khoản kỹ thuật",
+      "TECHNICAL_ACCOUNTS": "Tài khoản kỹ thuật",
       "TECHNICAL_ACCOUNTS_SUBTITLE": "Hiển thị danh sách tài khoản kỹ thuật",
       "MY_DRIVE": "Ổ đĩa của tôi",
       "MY_DRIVE_SUBTITLE": "Quản lý ổ đĩa và các nhóm làm việc của bạn",
       "MY_CONTACT_LIST": "Danh sách liên hệ của tôi",
       "MY_CONTACT_LIST_SUBTITLE": "Hiển thị tất cả các liên hệ",
-      "INCONSISTENT_USERS" : "Người dùng không đồng nhất",
+      "INCONSISTENT_USERS": "Người dùng không đồng nhất",
       "DIAGNOSIC": "Chẩn đoán người dùng",
-      "INCONSISTENT_USERS_SUBTITLE" : "Hiển thị danh sách máy chủ",
-      "LOGGERS" : "Bộ ghi chép",
+      "INCONSISTENT_USERS_SUBTITLE": "Hiển thị danh sách máy chủ",
+      "LOGGERS": "Bộ ghi chép",
       "LOGGERS_SUBTITLE": "Điều này có thể được sử dụng bởi bất kỳ miền nào"
     }
   },
@@ -3124,9 +3124,11 @@
     "NOTE": "Xem này cho phép bạn quản lý danh sách liên hệ (danh sách gửi thư cho phép gửi thư đến người dùng đã đăng ký). Bằng cách nhấp vào danh sách, bạn có thể quản lý người dùng và chỉnh sửa thông tin của họ (mô tả, làm cho danh sách hiển thị hoặc ẩn, xóa hoặc thêm người dùng ...)",
     "CONTACT_LIST": "Danh sách liên hệ",
     "EMAIL": "Email",
-    "FIRST_NAME":"Tên",
-    "LAST_NAME":"Họ",
-    "ADD_CONTACT":"Thêm liên hệ",
+    "FIRST_NAME": "Tên",
+    "LAST_NAME": "Họ",
+    "ADD_CONTACT": "Thêm liên hệ",
+    "CREATE_CONTACT": "Tạo liên hệ",
+    "ADD_CONTACT_SUCCESS": "Thêm liên hệ thành công",
     "ACTIONS": "Thao tác",
     "NAME": "Tên danh sách",
     "DESCRIPTION": "Mô tả",
@@ -3136,7 +3138,6 @@
     "OWNER_FILTER": "Chủ sở hữu (của danh sách liên hệ)",
     "SETTING": "Cài đặt",
     "SEARCH_BY": "Tìm kiếm theo tên hoặc email",
-    
     "DELETE_CONTACT_MODAL": {
       "DELETE_MODAL_TITLE": "Xóa liên hệ",
       "DELETE_MODAL_SUBTITLE": "Bạn sắp xóa liên hệ email này. Bạn có muốn tiếp tục?",

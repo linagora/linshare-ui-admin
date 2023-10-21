@@ -1,6 +1,6 @@
 import { reactive, ref, computed, watch } from 'vue';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
-import { Contact } from '../types/Contact';
+import { Contact, ContactInfo } from '../types/Contact';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { STATUS } from '@/core/types/Status';
@@ -9,6 +9,7 @@ import {
   getContactListDetail,
   deleteContactList,
   updateContactList,
+  addContactListEmail,
 } from '../services/contact-list-api';
 import { useLocalStorage } from '@vueuse/core';
 import { CONTACT_LISTS_ROUTE_NAMES } from '../router';
@@ -26,6 +27,7 @@ const sorter = reactive<Sort>({ order: SORT_ORDER.ASC });
 
 const list = ref<Contact[]>([]);
 const filterText = ref('');
+const filterMail = ref('');
 const status = ref(STATUS.LOADING);
 const pagination = reactive({
   total: 0,
@@ -169,6 +171,26 @@ export default function useContactList() {
     }
   }
 
+  async function handleAddContactListEmail(uuid: string, contact: ContactInfo) {
+    loading.value = true;
+    status.value = STATUS.LOADING;
+    try {
+      await addContactListEmail(uuid, contact);
+      status.value = STATUS.SUCCESS;
+      message.success(t(`CONTACT_LIST.ADD_CONTACT_SUCCESS`));
+      return true;
+    } catch (error) {
+      status.value = STATUS.ERROR;
+
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   function resetSelectContactList() {
     filters.value = {};
     sorter.order = SORT_ORDER.ASC;
@@ -205,7 +227,9 @@ export default function useContactList() {
     handleDeleteContactList,
     handleGetContactListDetail,
     handleTableChange,
+    handleAddContactListEmail,
     filters,
     sorter,
+    filterMail,
   };
 }

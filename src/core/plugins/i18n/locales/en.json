@@ -3166,6 +3166,8 @@
     "FIRST_NAME":"First Name",
     "LAST_NAME":"Last name",
     "ADD_CONTACT":"Add contact",
+    "CREATE_CONTACT": "Create contact",
+    "ADD_CONTACT_SUCCESS": "Added contact successfully",
     "ACTIONS": "Actions",
     "NAME": "List name",
     "DESCRIPTION": "Description",
