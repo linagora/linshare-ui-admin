@@ -6,7 +6,6 @@
       :columns="columns"
       :pagination="false"
       :data-source="filteredListByPage"
-      :row-selection="rowSelection"
       row-key="identifier"
       :loading="status === STATUS.LOADING"
     >
