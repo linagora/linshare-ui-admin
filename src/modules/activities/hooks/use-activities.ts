@@ -20,6 +20,7 @@ const pagination = reactive({
   current: 1,
   pageSize: DEFAULT_PAGE_SIZE,
 });
+const { currentDomain } = storeToRefs(useDomainStore());
 
 export function useActivities() {
   const { t } = useI18n();
