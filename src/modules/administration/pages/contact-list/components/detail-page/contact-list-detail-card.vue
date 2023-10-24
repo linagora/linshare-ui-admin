@@ -22,7 +22,7 @@
             :auto-size="{ minRows: 4, maxRows: 8 }"
           ></a-textarea>
         </a-form-item>
-        <a-form-item class="ls-form-title" v-bind="validateInfos.identifier" :label="$t('CONTACT_LIST.VISIBILITY')">
+        <a-form-item class="ls-form-title" v-bind="validateInfos.public" :label="$t('CONTACT_LIST.VISIBILITY')">
           <a-checkbox v-model:checked="activeContactListForm.public"> </a-checkbox>
           <span>{{ activeContactListForm.public ? $t('GENERAL.PUBLIC') : $t('GENERAL.PRIVATE') }}</span>
         </a-form-item>
@@ -80,6 +80,12 @@ const useForm = Form.useForm;
 
 const formRules = computed(() => ({
   identifier: [
+    {
+      required: true,
+      message: t('GENERAL.FIELD_REQUIRED'),
+    },
+  ],
+  public: [
     {
       required: true,
       message: t('GENERAL.FIELD_REQUIRED'),
