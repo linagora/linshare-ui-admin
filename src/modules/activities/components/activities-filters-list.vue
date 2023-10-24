@@ -12,9 +12,8 @@ import CloseCircleIcon from '@/core/components/icons/close-circle-icon.vue';
 // composable
 const { t, d } = useI18n();
 const activitiesStore = useActivitiesStore();
-const { actions, types, beginDate, endDate, actors, domains, resourceNames, isDefaultFilter } =
-  storeToRefs(activitiesStore);
-const { fetchActivities } = useActivities();
+const { action, type, beginDate, endDate, actor, domain, resourceName, isDefaultFilter } = storeToRefs(activitiesStore);
+const { handleTableChange } = useActivities();
 
 // computed
 const dateRange = computed(() => {
@@ -32,52 +31,52 @@ const isShowFilter = computed(() => {
 });
 // methods
 function removeActionFromFilter(removeItem: ActivitiesAction) {
-  actions.value = actions.value.filter((item) => {
+  action.value = action.value.filter((item) => {
     return item !== removeItem;
   });
-  fetchActivities();
+  handleTableChange();
 }
 function removeTypeFromFilter(removeItem: ActivitiesType) {
-  types.value = types.value.filter((item) => {
+  type.value = type.value.filter((item) => {
     return item !== removeItem;
   });
-  fetchActivities();
+  handleTableChange();
 }
 
 function removeActorFromFilter(removeItem: string) {
-  actors.value = actors.value.filter((item) => {
+  actor.value = actor.value.filter((item) => {
     return item !== removeItem;
   });
-  fetchActivities();
+  handleTableChange();
 }
 
 function removeDomainFromFilter(removeItem: string) {
-  domains.value = domains.value.filter((item) => {
+  domain.value = domain.value.filter((item) => {
     return item !== removeItem;
   });
-  fetchActivities();
+  handleTableChange();
 }
 
 function removeResourceNameFromFilter(removeItem: string) {
-  resourceNames.value = resourceNames.value.filter((item) => {
+  resourceName.value = resourceName.value.filter((item) => {
     return item !== removeItem;
   });
-  fetchActivities();
+  handleTableChange();
 }
 
 function onClearFilter() {
   activitiesStore.$reset();
-  fetchActivities();
+  handleTableChange();
 }
 </script>
 
 <template>
   <div class="filter-list">
     <div class="list">
-      <div v-if="actions.length > 0" class="filter">
+      <div v-if="action.length > 0" class="filter">
         <span class="filter__type">{{ $t('ACTIVITIES.FILTERS_BAR.ACTION_FILTER') }}</span>
         <ls-tag
-          v-for="item in actions"
+          v-for="item in action"
           :key="item"
           :value="$t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item}`)"
           :closable="true"
@@ -89,10 +88,10 @@ function onClearFilter() {
         <ls-tag :value="$t('ACTIVITIES.FILTERS_BAR.ALL_ACTION')"></ls-tag>
       </div>
 
-      <div v-if="types.length > 0" class="filter">
+      <div v-if="type.length > 0" class="filter">
         <span class="filter__type">{{ $t('ACTIVITIES.FILTERS_BAR.TYPE_FILTER') }}</span>
         <ls-tag
-          v-for="item in types"
+          v-for="item in type"
           :key="item"
           :value="$t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item}`)"
           :closable="true"
@@ -104,10 +103,10 @@ function onClearFilter() {
         <ls-tag :value="$t('ACTIVITIES.FILTERS_BAR.ALL_TYPE')"></ls-tag>
       </div>
 
-      <div v-if="domains.length > 0" class="filter">
+      <div v-if="domain.length > 0" class="filter">
         <span class="filter__type">{{ $t('ACTIVITIES.FILTERS_BAR.DOMAIN_FILTER') }}</span>
         <ls-tag
-          v-for="item in domains"
+          v-for="item in domain"
           :key="item"
           :value="item"
           :closable="true"
@@ -119,10 +118,10 @@ function onClearFilter() {
         <ls-tag :value="$t('ACTIVITIES.FILTERS_BAR.ALL_DOMAIN')"></ls-tag>
       </div>
 
-      <div v-if="actors.length > 0" class="filter">
+      <div v-if="actor.length > 0" class="filter">
         <span class="filter__type">{{ $t('ACTIVITIES.FILTERS_BAR.ACTOR_FILTER') }}</span>
         <ls-tag
-          v-for="item in actors"
+          v-for="item in actor"
           :key="item"
           :value="item"
           :closable="true"
@@ -134,10 +133,10 @@ function onClearFilter() {
         <ls-tag :value="$t('ACTIVITIES.FILTERS_BAR.ALL_ACTOR')"></ls-tag>
       </div>
 
-      <div v-if="resourceNames.length > 0" class="filter">
+      <div v-if="resourceName.length > 0" class="filter">
         <span class="filter__type">{{ $t('ACTIVITIES.FILTERS_BAR.RESOURCE_NAME_FILTER') }}</span>
         <ls-tag
-          v-for="item in resourceNames"
+          v-for="item in resourceName"
           :key="item"
           :value="item"
           :closable="true"

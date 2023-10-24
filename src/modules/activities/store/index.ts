@@ -1,6 +1,7 @@
 import Domain from '@/modules/domain/types/Domain';
 import dayjs, { Dayjs } from 'dayjs';
 import { defineStore } from 'pinia';
+import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 
 export enum ACTIVITIES_TYPE {
   SHARE_ENTRY = 'SHARE_ENTRY',
@@ -57,42 +58,42 @@ export type ActivitiesAction = keyof typeof ACTIVITIES_ACTION;
 
 export type ActivitiesType = keyof typeof ACTIVITIES_TYPE;
 interface ActivitiesStore {
-  actions: ActivitiesAction[];
-  types: ActivitiesType[];
+  action: ActivitiesAction[];
+  type: ActivitiesType[];
   beginDate: Dayjs | null;
   endDate: Dayjs | null;
-  domains: string[];
-  actors: string[];
-  resourceNames: string[];
+  domain: string[];
+  actor: string[];
+  resourceName: string[];
 }
 
 const defaultState = {
   beginDate: dayjs().subtract(7, 'days'),
   endDate: dayjs(),
-  actions: [],
-  types: [],
-  domains: [],
-  actors: [],
-  resourceNames: [],
+  action: [],
+  type: [],
+  domain: [],
+  actor: [],
+  resourceName: [],
 };
 export const useActivitiesStore = defineStore('activitiesStore', {
   state: (): ActivitiesStore => ({
     beginDate: dayjs().subtract(7, 'days'),
     endDate: dayjs(),
-    actions: [],
-    types: [],
-    domains: [],
-    actors: [],
-    resourceNames: [],
+    action: [],
+    type: [],
+    domain: [],
+    actor: [],
+    resourceName: [],
   }),
   getters: {
     isDefaultFilter: (state) => {
       return (
-        state?.actions?.length == 0 &&
-        state?.types?.length == 0 &&
-        state?.domains?.length == 0 &&
-        state?.actors?.length == 0 &&
-        state?.resourceNames?.length == 0 &&
+        state?.action?.length == 0 &&
+        state?.type?.length == 0 &&
+        state?.domain?.length == 0 &&
+        state?.actor?.length == 0 &&
+        state?.resourceName?.length == 0 &&
         dayjs().isSame(state?.endDate, 'day') &&
         dayjs().subtract(7, 'days').isSame(state?.beginDate, 'days')
       );

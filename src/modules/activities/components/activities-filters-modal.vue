@@ -23,19 +23,19 @@ withDefaults(defineProps<{ visible: boolean }>(), { visible: false });
 
 // composables
 const { t } = useI18n();
-const { beginDate, endDate, actions, types, domains, actors, resourceNames } = storeToRefs(useActivitiesStore());
-const { fetchActivities, activitiesLogsFormated } = useActivities();
+const { beginDate, endDate, action, type, domain, actor, resourceName } = storeToRefs(useActivitiesStore());
+const { handleTableChange, activitiesLogsFormated } = useActivities();
 
 // computed
 const actionOptions = computed(() => {
-  const actionsArr = [];
+  const actionArr = [];
   for (let key in ACTIVITIES_ACTION) {
-    actionsArr.push({
+    actionArr.push({
       label: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${key}`),
       value: ACTIVITIES_ACTION[key as ActivitiesAction],
     });
   }
-  return actionsArr;
+  return actionArr;
 });
 
 const typeOptions = computed(() => {
@@ -87,19 +87,19 @@ const resourceNameOptions = computed(() => {
 const period = ref<TimePeriod>(getPeriodFromDate(beginDate.value, endDate.value));
 const filterForm = reactive<{
   dateRange: [Dayjs, Dayjs];
-  actions: ActivitiesAction[];
-  types: ActivitiesType[];
+  action: ActivitiesAction[];
+  type: ActivitiesType[];
   period?: TimePeriod;
-  domains: string[];
-  actors: string[];
-  resourceNames: string[];
+  domain: string[];
+  actor: string[];
+  resourceName: string[];
 }>({
-  actions: actions.value,
-  types: types.value,
+  action: action.value,
+  type: type.value,
   dateRange: [dayjs(beginDate.value), dayjs(endDate.value)],
-  domains: domains.value,
-  actors: actors.value,
-  resourceNames: resourceNames.value,
+  domain: domain.value,
+  actor: actor.value,
+  resourceName: resourceName.value,
 });
 const disabledDate = (current: Dayjs) => {
   return current && current > dayjs().endOf('day');
@@ -108,24 +108,24 @@ const domainList = ref<Domain[]>();
 
 // methods
 function apply() {
-  types.value = filterForm.types;
-  actors.value = filterForm.actors;
-  actions.value = filterForm.actions;
-  domains.value = filterForm.domains;
-  resourceNames.value = filterForm.resourceNames;
+  type.value = filterForm.type;
+  actor.value = filterForm.actor;
+  action.value = filterForm.action;
+  domain.value = filterForm.domain;
+  resourceName.value = filterForm.resourceName;
   beginDate.value = period.value === 'ALL_TIME' ? null : filterForm.dateRange[0];
   endDate.value = period.value === 'ALL_TIME' ? null : filterForm.dateRange[1];
-  fetchActivities();
+  handleTableChange();
   emits('close');
 }
 
 function reset() {
   filterForm.dateRange = [dayjs(beginDate.value), dayjs(endDate.value)];
-  filterForm.actions = actions.value;
-  filterForm.types = types.value;
-  filterForm.actors = actors.value;
-  filterForm.domains = domains.value;
-  filterForm.resourceNames = resourceNames.value;
+  filterForm.action = action.value;
+  filterForm.type = type.value;
+  filterForm.actor = actor.value;
+  filterForm.domain = domain.value;
+  filterForm.resourceName = resourceName.value;
 }
 
 function onDateOptionChange(option: TimePeriod) {
@@ -148,11 +148,11 @@ watchEffect(() => {
   }
 });
 watchEffect(() => {
-  filterForm.actions = actions.value;
-  filterForm.types = types.value;
-  filterForm.resourceNames = resourceNames.value;
-  filterForm.domains = domains.value;
-  filterForm.actors = actors.value;
+  filterForm.action = action.value;
+  filterForm.type = type.value;
+  filterForm.resourceName = resourceName.value;
+  filterForm.domain = domain.value;
+  filterForm.actor = actor.value;
 });
 
 onMounted(async () => {
@@ -184,7 +184,7 @@ onMounted(async () => {
     <a-form :label-col="{ span: 24 }" :wrapper-col="{ span: 24 }">
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.ACTION')">
         <a-select
-          v-model:value="filterForm.actions"
+          v-model:value="filterForm.action"
           :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="multiple"
@@ -195,7 +195,7 @@ onMounted(async () => {
 
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.TYPE')">
         <a-select
-          v-model:value="filterForm.types"
+          v-model:value="filterForm.type"
           :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="multiple"
@@ -206,7 +206,7 @@ onMounted(async () => {
 
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.DOMAIN')">
         <a-select
-          v-model:value="filterForm.domains"
+          v-model:value="filterForm.domain"
           mode="tags"
           :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
@@ -220,7 +220,7 @@ onMounted(async () => {
 
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.ACTOR')">
         <a-select
-          v-model:value="filterForm.actors"
+          v-model:value="filterForm.actor"
           :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="tags"
@@ -231,7 +231,7 @@ onMounted(async () => {
 
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.RESOURCE_NAME')">
         <a-select
-          v-model:value="filterForm.resourceNames"
+          v-model:value="filterForm.resourceName"
           :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="tags"

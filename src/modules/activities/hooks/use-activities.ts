@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia';
 import { message } from 'ant-design-vue';
 import Domain from '@/core/types/Domain';
 import { APIError } from '@/core/types/APIError';
-import { ActivityLog, ActivityLogData } from '@/modules/activities/types';
+import { ActivityLog, ActivityLogData, ActivityLogParameters, SORT_FIELD } from '@/modules/activities/types';
 import { useActivitiesStore } from '@/modules/activities/store';
 import { getActivitiesLogs } from '@/modules/activities/services';
 import { getDomains } from '@/modules/domain/services/domain-api';
@@ -11,6 +11,7 @@ import { useI18n } from 'vue-i18n';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 import { useAuthStore } from '@/modules/auth/store';
 import { useDomainStore } from '@/modules/domain/store';
+import Sort, { SORT_ORDER } from '@/core/types/Sort';
 
 const loading = ref(false);
 const activitiesLogs = ref<ActivityLog[]>([]);
@@ -21,26 +22,22 @@ const pagination = reactive({
   pageSize: DEFAULT_PAGE_SIZE,
 });
 const { currentDomain } = storeToRefs(useDomainStore());
+const domainUuid = currentDomain.value.uuid;
 
 export function useActivities() {
   const { t } = useI18n();
 
   // data
-  const { beginDate, endDate, actions, types, domains, actors, resourceNames } = storeToRefs(useActivitiesStore());
+  const { beginDate, endDate, action, type, domain, actor, resourceName } = storeToRefs(useActivitiesStore());
   const { loggedUser } = storeToRefs(useAuthStore());
   // computed
-  const filteredListByPage = computed(() => {
-    const firstIndex = (pagination.current - 1) * pagination.pageSize;
-    const lastIndex = pagination.current * pagination.pageSize;
-    return activitiesLogsFormated.value.slice(firstIndex, lastIndex);
-  });
-
   const activitiesLogsFormated = computed(() => {
     const formatedData = activitiesLogs.value
+      .sort((a: ActivityLogData, b: ActivityLogData) => b.creationDate - a.creationDate)
       ?.map((item, index) => {
         return {
           ...item,
-          number: index + 1,
+          number: (pagination.current - 1) * pagination.pageSize + index + 1,
           domainName: item?.actor?.domain?.label ?? item?.domain?.label ?? item?.resource?.domain?.label ?? '-',
           actorName:
             loggedUser.value?.uuid === item?.actor?.uuid || loggedUser.value?.uuid === item?.authUser?.uuid
@@ -60,28 +57,31 @@ export function useActivities() {
               ? t('ACTIVITIES.ME')
               : item?.resource?.recipient?.name || item?.recipientMail || '',
         } as ActivityLogData;
-      })
-      .sort((a: ActivityLogData, b: ActivityLogData) => b.dateTime - a.dateTime);
-
+      });
     const activities = _filterByActors(formatedData);
     return _filterByResourceNames(activities);
   });
 
   //methods
-  async function fetchActivities() {
+  async function fetchActivities(options: ActivityLogParameters) {
     try {
       loading.value = true;
-      const domainUuid = currentDomain.value.uuid;
 
-      const data = await getActivitiesLogs(
-        domainUuid,
-        beginDate.value?.format('YYYY-MM-DD'),
-        endDate.value?.format('YYYY-MM-DD'),
-        actions.value.join('&action='),
-        types.value.join('&type='),
-        domains.value.join('&domain=')
+      const { data, total, current } = await getActivitiesLogs(
+        options.domainUuid,
+        options.beginDate,
+        options.endDate,
+        options.action,
+        options.type,
+        options.domain,
+        options.size,
+        options.page,
+        options.sortField,
+        options.sortOrder
       );
-      activitiesLogs.value = data?.data;
+      activitiesLogs.value = data;
+      pagination.total = total;
+      pagination.current = current + 1;
     } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
@@ -95,9 +95,9 @@ export function useActivities() {
 
   function _filterByActors(logs: ActivityLogData[]) {
     const filtedActors = logs.filter((item) => {
-      return actors.value?.length
-        ? actors.value?.includes(item?.actorName) ||
-            actors.value?.some((actor) => {
+      return actor.value?.length
+        ? actor.value?.includes(item?.actorName) ||
+            actor.value?.some((actor) => {
               return item?.actorName?.toLowerCase().includes(actor.toLowerCase());
             })
         : true;
@@ -108,9 +108,9 @@ export function useActivities() {
 
   function _filterByResourceNames(logs: ActivityLogData[]) {
     const filtedNames = logs.filter((item) => {
-      return resourceNames.value?.length
-        ? resourceNames.value?.includes(item?.resourceName) ||
-            resourceNames.value?.some((name) => {
+      return resourceName.value?.length
+        ? resourceName.value?.includes(item?.resourceName) ||
+            resourceName.value?.some((name) => {
               return item?.resourceName?.toLowerCase().includes(name.toLowerCase());
             })
         : true;
@@ -142,9 +142,24 @@ export function useActivities() {
     }
   }
 
-  watch(activitiesLogsFormated, async (newVal) => {
-    pagination.total = newVal.length;
-  });
+  async function handleTableChange() {
+    const parameters: ActivityLogParameters = {};
+
+    parameters.size = pagination.pageSize;
+    parameters.page = pagination.current - 1;
+    parameters.domainUuid = domainUuid;
+    parameters.beginDate = beginDate.value?.format('YYYY-MM-DD');
+    parameters.endDate = endDate.value?.format('YYYY-MM-DD');
+    parameters.action = action.value.join('&action=');
+    parameters.type = type.value.join('&type=');
+    parameters.domain = domain.value.join('&domain=');
+    parameters.actor = actor.value.join('&domain=');
+    parameters.resourceName = resourceName.value.join('&domain=');
+    parameters.sortField = SORT_FIELD.CREATIONDATE;
+    parameters.sortOrder = SORT_ORDER.ASC;
+
+    await fetchActivities(parameters);
+  }
 
   return {
     activitiesLogs,
@@ -154,6 +169,6 @@ export function useActivities() {
     fetchDomains,
     loading,
     pagination,
-    filteredListByPage,
+    handleTableChange,
   };
 }

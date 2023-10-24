@@ -1,22 +1,32 @@
 import api from '@/api';
+import type { PaginatedList } from '@/core/types/PaginatedList';
+import { ActivityLogParameters } from '@/modules/activities/types';
 
 async function getActivitiesLogs(
   domainUuid: string,
   beginDate: string | undefined,
   endDate: string | undefined,
-  actions?: string,
-  types?: string,
-  domain?: string
-) {
+  action?: string,
+  type?: string,
+  domain?: string,
+  size?: number,
+  page?: number,
+  sortField?: string,
+  sortOrder?: string
+): Promise<PaginatedList<ActivityLogParameters>> {
   const queryUrl = `domains/${domainUuid}/audit`;
 
   return await api.get(queryUrl, {
     params: {
       beginDate,
       endDate,
-      actions,
-      types,
+      action,
+      type,
       domain,
+      size,
+      page,
+      sortField,
+      sortOrder,
     },
   });
 }

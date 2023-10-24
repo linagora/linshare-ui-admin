@@ -17,9 +17,9 @@ import { getReadableSize } from '@/core/utils/unitStorage';
 // composable
 const { t } = useI18n();
 const { loggedUser } = storeToRefs(useAuthStore());
-const { fetchActivities, loading, pagination, filteredListByPage } = useActivities();
+const { loading, pagination, activitiesLogsFormated, handleTableChange } = useActivities();
 const activitiesStore = useActivitiesStore();
-const { types } = storeToRefs(activitiesStore);
+const { type } = storeToRefs(activitiesStore);
 
 // data
 const activeRecord = ref<ActivityLogData | null>(null);
@@ -105,7 +105,7 @@ const columns = computed(() => {
     },
   ];
 
-  if (isFilterTypes(types.value)) {
+  if (isFilterTypes(type.value)) {
     columnsShareType.value.map((columnsShareType) => {
       defaultColumns.splice(6, 0, columnsShareType);
     });
@@ -115,7 +115,7 @@ const columns = computed(() => {
 });
 
 const filtersTypes = computed(() => {
-  return types.value;
+  return type.value;
 });
 
 const columnsShareType = computed(() => [
@@ -144,18 +144,18 @@ function onViewDetail(record: ActivityLogData) {
   activeRecord.value = record;
 }
 
-function isFilterTypes(types: ActivitiesType) {
-  return types.length > 0 && types.filter((type) => type.includes(ACTIVITIES_TYPE.SHARE_ENTRY));
+function isFilterTypes(type: ActivitiesType) {
+  return type.length > 0 && type.filter((type) => type.includes(ACTIVITIES_TYPE.SHARE_ENTRY));
 }
 
 // hooks
 onMounted(() => {
-  fetchActivities();
+  handleTableChange();
 });
 
 // watch
 watch(
-  () => types.value,
+  () => type.value,
   (newValue: string, oldValue: string) => {
     if (newValue !== oldValue && oldValue.length > 0) {
       loading.value = true;
@@ -175,14 +175,14 @@ watch(
 <template>
   <a-table
     class="activities-data-table"
-    :data-source="filteredListByPage"
+    :data-source="activitiesLogsFormated"
     :pagination="false"
     :loading="loading"
     :columns="columns"
   >
-    <template #bodyCell="{ column, record, index }">
+    <template #bodyCell="{ column, record }">
       <template v-if="column.key === 'number'">
-        {{ index + 1 }}
+        {{ record.number }}
       </template>
       <template v-if="column.key === 'domainName'">
         {{ record.domainName }}
@@ -211,10 +211,10 @@ watch(
       <template v-if="column.key === 'resourceName'">
         {{ record.resourceName }}
       </template>
-      <template v-if="column.key === 'fileSize' && isFilterTypes(types)">
+      <template v-if="column.key === 'fileSize' && isFilterTypes(type)">
         {{ getReadableSize(record?.resourceSize).getText() }}
       </template>
-      <template v-if="column.key === 'receiver' && isFilterTypes(types)">
+      <template v-if="column.key === 'receiver' && isFilterTypes(type)">
         <div class="activities-data-table__receiver">
           {{ record?.resourceRecipientName }}
         </div>
@@ -250,7 +250,12 @@ watch(
       </template>
     </template>
   </a-table>
-  <ThePagination v-model="pagination" class="pagination" :is-visible="!!filteredListByPage.length" />
+  <ThePagination
+    v-model="pagination"
+    class="pagination"
+    :is-visible="!!activitiesLogsFormated.length"
+    @change="() => handleTableChange()"
+  />
 </template>
 
 <style lang="less">

@@ -1,5 +1,9 @@
 import Domain from '@/modules/domain/types/Domain';
 import User from '@/modules/user/types/User';
+import { SORT_ORDER } from '@/core/types/Sort';
+// import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
+import dayjs, { Dayjs } from 'dayjs';
+import { ActivitiesType, ActivitiesAction } from '@/modules/activities/store';
 
 export interface ActivityLog {
   type:
@@ -11,7 +15,8 @@ export interface ActivityLog {
     | 'WORKGROUP_MEMBER'
     | 'WORKSPACE_FILTER'
     | 'DOMAIN'
-    | 'GUEST_MODERATOR';
+    | 'GUEST_MODERATOR'
+    | 'FUNCTIONALITY';
   uuid: string;
   authUser: User;
   resourceUuid: string;
@@ -97,4 +102,23 @@ export interface ActivityLogData extends ActivityLog {
   resourceRecipientName: string;
   dateTime: number;
   detail: string;
+}
+
+export interface ActivityLogParameters {
+  action: string;
+  type: string;
+  beginDate: string | undefined;
+  endDate: string | undefined;
+  domain: string;
+  actor: string;
+  resourceName: string;
+  size: number;
+  page: number;
+  sortOrder?: SORT_ORDER;
+  sortField?: SORT_FIELD.CREATIONDATE;
+  domainUuid: string;
+}
+
+export enum SORT_FIELD {
+  CREATIONDATE = 'creationDate',
 }
