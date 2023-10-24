@@ -3174,6 +3174,18 @@
     "DISABLE": "Désactivé",
     "TECHNICAL_ACCOUNTS_HELPER": "Cette vue vous permet de créer de nouveaux comptes avec des droits de délégation spécifiques. Détails des autorisations :",
     "TECHNICAL_ACCOUNTS_HELPER_DELEGATION": "'Délégation' : permet d'effectuer des opérations pour d'autres utilisateurs via l'API de délégation. Pour ce faire, vous devez sélectionner les autorisations que vous accordez à ce compte (droits). Par défaut, aucune autorisation n'est accordée. Pour plus d'indications, vous pouvez consulter :",
-    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Proposition de téléchargement' : La proposition de téléchargement est un module externe. Il nécessite donc un compte spécial pour accéder à LinShare et récupérer sa configuration"
+    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Proposition de téléchargement' : La proposition de téléchargement est un module externe. Il nécessite donc un compte spécial pour accéder à LinShare et récupérer sa configuration",
+    "CREATE_MODAL": {
+      "TITLE": "Création de compte technique",
+      "NAME": "Nom",
+      "MAIL": "Adresse e-mail",
+      "STATUS": "Statut",
+      "ROLE": "Rôle",
+      "NEW_PASSWORD": "Nouveau mot de passe",
+      "NEW_PASSWORD_CONFIRM": "Confirmer le nouveau mot de passe",
+      "DELEGATION": "Délégation",
+      "UPLOAD_PROPOSITION": "Télécharger la proposition",
+      "PASSWORD_REQUIREMENT": "Le mot de passe doit comporter au moins 12 caractères et doit contenir au moins une majuscule, un chiffre et un caractère spécial"
+    }
   }
 }

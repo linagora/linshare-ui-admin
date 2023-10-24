@@ -9,3 +9,11 @@ export interface TechnicalAccount {
   domain: string;
   domainName: string;
 }
+
+export interface TechnicalAccountCreation {
+  enable: boolean;
+  mail: string;
+  name: string;
+  password: string;
+  role: string;
+}

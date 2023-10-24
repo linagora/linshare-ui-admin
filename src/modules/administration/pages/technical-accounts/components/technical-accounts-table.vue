@@ -6,7 +6,7 @@
           <SearchOutlined />
         </template>
       </a-input>
-      <a-button type="primary">
+      <a-button type="primary" @click="onCreateTechnicalAccount">
         <template #icon>
           <PlusCircleOutlined />
         </template>
@@ -60,7 +60,7 @@ import useTechnicalAccount from '../hooks/useTechnicalAccount';
 import { TechnicalAccount } from '../types/TechnicalAccount';
 
 const { t } = useI18n();
-const { filteredListByPage, loading, filterText } = useTechnicalAccount();
+const { filteredListByPage, loading, filterText, onCreateTechnicalAccount } = useTechnicalAccount();
 
 const columns = computed(() => [
   {

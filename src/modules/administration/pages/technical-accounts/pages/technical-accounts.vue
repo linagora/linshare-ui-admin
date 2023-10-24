@@ -27,16 +27,29 @@
     <TechnicalAccountTable />
   </div>
   <ThePagination v-model="pagination" :is-visible="!!filteredList.length" />
+  <a-modal
+    v-model:visible="modal.visible"
+    :closable="false"
+    :footer="null"
+    :destroy-on-close="true"
+    wrap-class-name="email-templates-configuration-page__modal"
+  >
+    <create-technical-account-card
+      v-if="modal.type === 'CREATE_TECHNICAL_ACCOUNT'"
+      @close="onCloseModal"
+      @refresh="fetchTechnicalUserList"
+    ></create-technical-account-card>
+  </a-modal>
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue';
 import TechnicalAccountTable from '../components/technical-accounts-table.vue';
 import PageTitle from '@/core/components/page-title.vue';
 import ThePagination from '@/core/components/the-pagination.vue';
-import TheSubheader from '@/core/components/the-subheader.vue';
 import useTechnicalAccount from '../hooks/useTechnicalAccount';
+import createTechnicalAccountCard from '../components/create-technical-account-card.vue';
 
-const { pagination, filteredList } = useTechnicalAccount();
+const { pagination, filteredList, modal, onCloseModal, fetchTechnicalUserList } = useTechnicalAccount();
 
 const breadcrumbsWithDomain = computed(() => {
   const newBreadcrumbs = [

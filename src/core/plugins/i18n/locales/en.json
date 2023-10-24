@@ -3194,6 +3194,18 @@
     "DISABLE": "Disable",
     "TECHNICAL_ACCOUNTS_HELPER": "This view allows you to create new accounts with specific delegation rights.Permissions details:",
     "TECHNICAL_ACCOUNTS_HELPER_DELEGATION": "'Delegation': allows to make operations for other users via the delegation API. To do that you should select the permissions that you give to this account. (rights). By default any permission is given to it. For more indication you can see :",
-    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Upload proposition' : Upload proposition is an external module. So it requires a special account to get access to LinShare and recover its configuration"
+    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Upload proposition' : Upload proposition is an external module. So it requires a special account to get access to LinShare and recover its configuration",
+    "CREATE_MODAL": {
+      "TITLE": "Technical Acccount Creation",
+      "NAME": "Name",
+      "MAIL": "Mail",
+      "STATUS": "Status",
+      "ROLE": "Role",
+      "NEW_PASSWORD":"New password",
+      "NEW_PASSWORD_CONFIRM":"Confirm new password",
+      "DELEGATION": "Delegation",
+      "UPLOAD_PROPOSITION": "Upload proposition",
+      "PASSWORD_REQUIEREMENT": "Password must have at least 12 characters in length and must contain uppercase characters, digits and special characters"
+    }
   }
 }

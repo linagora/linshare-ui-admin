@@ -3156,6 +3156,18 @@
     "DISABLE": "Vô hiệu hóa",
     "TECHNICAL_ACCOUNTS_HELPER": "Chế độ này cho phép bạn tạo tài khoản mới với quyền ủy quyền cụ thể. Chi tiết về quyền :",
     "TECHNICAL_ACCOUNTS_HELPER_DELEGATION": "'Ủy quyền': cho phép thực hiện các hoạt động cho người dùng khác thông qua API ủy quyền. Để làm điều đó, bạn cần chọn các quyền mà bạn cấp cho tài khoản này (quyền). Theo mặc định, không có quyền nào được cấp. Để biết thêm chi tiết, bạn có thể xem tại :",
-    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Đề nghị tải lên' : Đề nghị tải lên là một mô-đun bên ngoài. Vì vậy, nó cần một tài khoản đặc biệt để truy cập LinShare và khôi phục cấu hình của nó"
+    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Đề nghị tải lên' : Đề nghị tải lên là một mô-đun bên ngoài. Vì vậy, nó cần một tài khoản đặc biệt để truy cập LinShare và khôi phục cấu hình của nó",
+    "CREATE_MODAL": {
+      "TITLE": "Tạo tài khoản kỹ thuật",
+      "NAME": "Tên",
+      "MAIL": "Email",
+      "STATUS": "Trạng thái",
+      "ROLE": "Vai trò",
+      "NEW_PASSWORD": "Mật khẩu mới",
+      "NEW_PASSWORD_CONFIRM": "Xác nhận mật khẩu mới",
+      "DELEGATION": "Uỷ quyền",
+      "UPLOAD_PROPOSITION": "Tải lên đề xuất",
+      "PASSWORD_REQUIREMENT": "Mật khẩu phải có ít nhất 12 ký tự và phải chứa chữ in hoa, chữ số và ký tự đặc biệt"
+    }
   }
 }
