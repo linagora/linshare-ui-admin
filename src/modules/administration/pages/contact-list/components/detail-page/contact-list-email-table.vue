@@ -111,7 +111,7 @@ const columns = computed(() => [
   {
     width: '30%',
     title: t('CONTACT_LIST.EMAIL'),
-    sorter: (a: ContactInfo, b: ContactInfo) => a?.email.localeCompare(b?.email || ''),
+    sorter: (a: ContactInfo, b: ContactInfo) => a?.mail.localeCompare(b?.mail || ''),
     key: 'email',
   },
   {

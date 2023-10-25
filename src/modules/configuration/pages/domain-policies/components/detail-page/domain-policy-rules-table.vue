@@ -88,7 +88,7 @@ import { getDomainsV4 } from '@/modules/domain/services/domain-api';
 import { APIError } from '@/core/types/APIError';
 
 const { t } = useI18n();
-const { status, activeDomainPolicy } = useDomainPolicies();
+const { status, activeDomainPolicyForm } = useDomainPolicies();
 
 // props & emits
 const props = defineProps<{
@@ -148,7 +148,7 @@ const columns = computed(() => [
   },
 ]);
 const rulesByPage = computed(() => {
-  return activeDomainPolicy.value.accessPolicy.rules;
+  return activeDomainPolicyForm.value?.accessPolicy?.rules;
 });
 
 const isAllRule = computed(() => {
@@ -168,12 +168,12 @@ function onSelectRule() {
 }
 function onAddRule() {
   if (selectRule.rule === 'ALLOW_ALL' || selectRule.rule === 'DENY_ALL') {
-    activeDomainPolicy.value.accessPolicy.rules.push({
+    activeDomainPolicyForm.value?.accessPolicy?.rules.push({
       domain: { label: t('DOMAIN_POLICY.ALL_DOMAIN') } as Domain,
       type: selectRule.rule as 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL',
     });
   } else if (selectRule.domainId && selectRule.rule) {
-    activeDomainPolicy.value.accessPolicy.rules.push({
+    activeDomainPolicyForm.value?.accessPolicy?.rules.push({
       domain: { ...selectRule.domain } as Domain,
       type: selectRule.rule as 'ALLOW' | 'ALLOW_ALL' | 'DENY' | 'DENY_ALL',
     });
@@ -187,7 +187,7 @@ function onSelectDomain(
 }
 
 function onRemoveRule(index: number) {
-  activeDomainPolicy.value.accessPolicy.rules.splice(index, 1);
+  activeDomainPolicyForm.value?.accessPolicy?.rules.splice(index, 1);
 }
 
 async function fetchDomains() {
@@ -204,10 +204,10 @@ async function fetchDomains() {
 }
 
 function moveRule(from: number, to: number) {
-  activeDomainPolicy.value.accessPolicy.rules.splice(
+  activeDomainPolicyForm.value?.accessPolicy?.rules.splice(
     to,
     0,
-    activeDomainPolicy.value.accessPolicy.rules.splice(from, 1)[0]
+    activeDomainPolicyForm.value?.accessPolicy?.rules.splice(from, 1)[0]
   );
 }
 
@@ -219,7 +219,7 @@ function moveUp(index: number) {
 }
 
 function moveDown(index: number) {
-  if (index === activeDomainPolicy.value.accessPolicy.rules?.length - 1) {
+  if (index === activeDomainPolicyForm.value?.accessPolicy?.rules?.length || 0 - 1) {
     return;
   }
   moveRule(index, index + 1);

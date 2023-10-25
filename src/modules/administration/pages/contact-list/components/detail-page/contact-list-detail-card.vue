@@ -41,7 +41,9 @@
           {{ $t('CONTACT_LIST.OWNER') }}
         </div>
         <div class="identifier">
-          <div class="icon"></div>
+          <a-avatar shape="circle" :size="46" class="profile-avatar">
+            <span> {{ activeContactList.owner?.firstName.charAt(0) }}</span>
+          </a-avatar>
           <div class="infor">
             <strong class="elipsis-name"
               >{{ activeContactList?.owner?.firstName }} {{ activeContactList?.owner?.lastName }}</strong
@@ -115,6 +117,12 @@ const emits = defineEmits(['update:modelValue', 'select-language', 'refresh']);
   justify-content: flex-start;
   align-items: stretch;
   gap: 16px;
+
+  .profile-avatar {
+    background-color: @primary-color;
+    color: @component-background;
+    margin-right: 10px;
+  }
 
   .title {
     color: var(--neutral-colors-color-text-title, #1b1d29);
