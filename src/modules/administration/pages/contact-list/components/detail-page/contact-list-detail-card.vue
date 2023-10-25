@@ -24,6 +24,7 @@
         </a-form-item>
         <a-form-item class="ls-form-title" v-bind="validateInfos.identifier" :label="$t('CONTACT_LIST.VISIBILITY')">
           <a-checkbox v-model:checked="activeContactListForm.public"> </a-checkbox>
+          <span>{{ activeContactListForm.public ? $t('GENERAL.PUBLIC') : $t('GENERAL.PRIVATE') }}</span>
         </a-form-item>
       </div>
 

@@ -3150,7 +3150,7 @@
     "NAME": "Nom de la liste",
     "DESCRIPTION": "Description",
     "OWNER": "Propriétaire",
-    "VISIBILITY": "Visibilité",
+    "VISIBILITY": "Paramètre de visibilité",
     "SETTING": "Réglage",
     "SEARCH_BY": "Recherche par nom ou par email",
     "DELETE_CONTACT_MODAL": {

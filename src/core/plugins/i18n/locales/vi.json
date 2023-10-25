@@ -3131,7 +3131,7 @@
     "NAME": "Tên danh sách",
     "DESCRIPTION": "Mô tả",
     "OWNER": "Chủ sở hữu",
-    "VISIBILITY": "Hiển thị",
+    "VISIBILITY": "Cài đặt hiển thị",
     "MEMBER": "Thành viên",
     "OWNER_FILTER": "Chủ sở hữu (của danh sách liên hệ)",
     "SETTING": "Cài đặt",

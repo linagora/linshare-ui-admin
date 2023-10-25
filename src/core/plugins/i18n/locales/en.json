@@ -3170,7 +3170,7 @@
     "NAME": "List name",
     "DESCRIPTION": "Description",
     "OWNER": "Owner",
-    "VISIBILITY": "Visibility",
+    "VISIBILITY": "Visibility setting",
     "SETTING": "Setting",
     "SEARCH_BY":"Search by name or email",
     "DELETE_CONTACT_MODAL": {
