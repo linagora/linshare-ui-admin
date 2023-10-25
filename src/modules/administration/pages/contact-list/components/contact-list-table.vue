@@ -83,6 +83,7 @@ const columns = computed(() => [
   },
   {
     title: t('GENERAL.VISIBILITY'),
+    sorter: (a: Contact, b: Contact) => a.public?.toString().localeCompare(b.public?.toString()),
     align: 'center',
     key: 'public',
   },
