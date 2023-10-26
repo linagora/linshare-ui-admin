@@ -3172,6 +3172,18 @@
       "DELEGATION": "Uỷ quyền",
       "UPLOAD_PROPOSITION": "Tải lên đề xuất",
       "PASSWORD_REQUIREMENT": "Mật khẩu phải có ít nhất 12 ký tự và phải chứa chữ in hoa, chữ số và ký tự đặc biệt"
+    },
+    "DETAIL_PAGE": {
+      "USER_INFORMATIONS_TITLE": "Thông tin người dùng và quyền truy cập",
+      "CHANGE_PASSWORD": "Thay đổi mật khẩu",
+      "USER_INFORMATIONS_SUB_TITLE": "Thông tin chung",
+      "PERMISSION_TITLE":"Quyền truy cập",
+      "USER_NAME": "Tên người dùng",
+      "EMAIL": "E-mail",
+      "STATUS": "Trạng thái tài khoản",
+      "UNLOCK": "Mở khóa",
+      "IDENTIFIER":"Nhận dạng (đăng nhập)",
+      "EMAIL_VALIDATION": "Địa chỉ email này không hợp lệ"
     }
   }
 }

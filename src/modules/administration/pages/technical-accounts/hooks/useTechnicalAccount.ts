@@ -2,12 +2,22 @@ import { reactive, ref, computed, watch } from 'vue';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
-import { getTechnicalAccountsList, createTechnicalAccount } from '../services/technical-account-api';
-import { TechnicalAccount, TechnicalAccountCreation } from '../types/TechnicalAccount';
+import {
+  getTechnicalAccountsList,
+  createTechnicalAccount,
+  getTechnicalAccountDetail,
+} from '../services/technical-account-api';
+import {
+  TechnicalAccount,
+  TechnicalAccountCreation,
+  TechnicalAccountDetails,
+  PermissionType,
+} from '../types/TechnicalAccount';
 import { useI18n } from 'vue-i18n';
 
 const list = ref<TechnicalAccount[]>([]);
 const filterText = ref('');
+const filteredPermissionsText = ref('');
 const pagination = reactive({
   total: 0,
   current: 1,
@@ -23,6 +33,22 @@ const creationForm = reactive({
   password_confirmation: '',
   role: '',
 });
+
+const technicalAccountDetails = reactive<TechnicalAccountDetails>({
+  uuid: '',
+  creationDate: 0,
+  modificationDate: 0,
+  domain: '',
+  domainName: '',
+  locked: false,
+  enable: false,
+  name: '',
+  mail: '',
+  permissions: [],
+  role: '',
+});
+
+const permissionsArray: PermissionType[] = Object.values(PermissionType);
 
 const modal = reactive<{
   type: 'CREATE_TECHNICAL_ACCOUNT';
@@ -61,6 +87,12 @@ export default function useTechnicalAccount() {
     const firstIndex = (pagination.current - 1) * pagination.pageSize;
     const lastIndex = pagination.current * pagination.pageSize;
     return filteredList.value.slice(firstIndex, lastIndex);
+  });
+
+  const filteredPermissions = computed(() => {
+    return permissionsArray.filter((permission) => {
+      return permission.toLowerCase().includes(filteredPermissionsText.value.toLowerCase());
+    });
   });
 
   function onCreateTechnicalAccount() {
@@ -111,10 +143,8 @@ export default function useTechnicalAccount() {
     },
   ];
 
-  // Create a ref for the password and strength
   const strength = ref(0);
 
-  // Create a function to calculate the strength score
   const calculateStrength = (password: string) => {
     let score = 0;
     rules.forEach((rule) => {
@@ -144,6 +174,31 @@ export default function useTechnicalAccount() {
     }
   );
 
+  async function getTechnicalAccountDetailInformation(uuid: string | string[]) {
+    try {
+      loading.value = true;
+      const technicalAccountInformations = await getTechnicalAccountDetail(uuid);
+      technicalAccountDetails.uuid = technicalAccountInformations.uuid;
+      technicalAccountDetails.creationDate = technicalAccountInformations.creationDate;
+      technicalAccountDetails.modificationDate = technicalAccountInformations.modificationDate;
+      technicalAccountDetails.domain = technicalAccountInformations.domain;
+      technicalAccountDetails.domainName = technicalAccountInformations.domainName;
+      technicalAccountDetails.locked = technicalAccountInformations.locked;
+      technicalAccountDetails.enable = technicalAccountInformations.enable;
+      technicalAccountDetails.name = technicalAccountInformations.name;
+      technicalAccountDetails.mail = technicalAccountInformations.mail;
+      technicalAccountDetails.permissions = technicalAccountInformations.permissions;
+      technicalAccountDetails.role = technicalAccountInformations.role;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   fetchTechnicalUserList();
 
   return {
@@ -161,5 +216,9 @@ export default function useTechnicalAccount() {
     creationForm,
     strength,
     passwordStrengthClass,
+    technicalAccountDetails,
+    getTechnicalAccountDetailInformation,
+    filteredPermissions,
+    filteredPermissionsText,
   };
 }

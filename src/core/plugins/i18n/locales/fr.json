@@ -3191,6 +3191,18 @@
       "DELEGATION": "Délégation",
       "UPLOAD_PROPOSITION": "Télécharger la proposition",
       "PASSWORD_REQUIREMENT": "Le mot de passe doit comporter au moins 12 caractères et doit contenir au moins une majuscule, un chiffre et un caractère spécial"
+    },
+    "DETAIL_PAGE": {
+      "USER_INFORMATIONS_TITLE": "Informations utilisateur et permissions",
+      "CHANGE_PASSWORD": "Changer de mot de passe",
+      "USER_INFORMATIONS_SUB_TITLE": "Informations générales",
+      "PERMISSION_TITLE":"Permissions",
+      "USER_NAME": "Nom d'utilisateur",
+      "EMAIL": "E-mail",
+      "STATUS": "Statut du compte",
+      "UNLOCK": "Déverrouiller",
+      "IDENTIFIER":"Identifiant (connexion)",
+      "EMAIL_VALIDATION": "Cet email n'est pas valide"
     }
   }
 }

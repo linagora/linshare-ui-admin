@@ -3211,6 +3211,18 @@
       "DELEGATION": "Delegation",
       "UPLOAD_PROPOSITION": "Upload proposition",
       "PASSWORD_REQUIEREMENT": "Password must have at least 12 characters in length and must contain uppercase characters, digits and special characters"
+    },
+    "DETAIL_PAGE": {
+      "USER_INFORMATIONS_TITLE": "User Information & Permission",
+      "CHANGE_PASSWORD": "Change Password",
+      "USER_INFORMATIONS_SUB_TITLE": "General Information",
+      "PERMISSION_TITLE":"Permission",
+      "USER_NAME": "User Name",
+      "EMAIL": "Email",
+      "STATUS": "Account status",
+      "UNLOCK": "Unlock",
+      "IDENTIFIER":"Identifier (login)",
+      "EMAIL_VALIDATION": "Email is not valid"
     }
   }
 }

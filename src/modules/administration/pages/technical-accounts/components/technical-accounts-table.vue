@@ -16,16 +16,20 @@
     <a-table :columns="columns" :pagination="false" :data-source="filteredListByPage" :loading="loading">
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'account'">
-          <div class="user-infos">
-            <div>
-              <a-avatar shape="circle" :size="46" class="profile-avatar">
-                <span> {{ record.name.charAt(0) }}</span>
-              </a-avatar>
+          <router-link
+            :to="{ name: MY_TECHNICAL_ACCOUNTS_ROUTE_NAMES.TECHNICAL_ACCOUNT_DETAIL, params: { id: record?.uuid } }"
+          >
+            <div class="user-infos">
+              <div>
+                <a-avatar shape="circle" :size="46" class="profile-avatar">
+                  <span> {{ record.name.charAt(0) }}</span>
+                </a-avatar>
+              </div>
+              <div class="account-name">
+                <strong :title="record.name">{{ record.name }}</strong>
+              </div>
             </div>
-            <div class="account-name">
-              <strong :title="record.name">{{ record.name }}</strong>
-            </div>
-          </div>
+          </router-link>
         </template>
         <template v-else-if="column.key === 'mail'">
           <span>{{ record.mail }}</span>
@@ -58,6 +62,7 @@ import { useI18n } from 'vue-i18n';
 import { PlusCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 import useTechnicalAccount from '../hooks/useTechnicalAccount';
 import { TechnicalAccount } from '../types/TechnicalAccount';
+import { MY_TECHNICAL_ACCOUNTS_ROUTE_NAMES } from '../router';
 
 const { t } = useI18n();
 const { filteredListByPage, loading, filterText, onCreateTechnicalAccount } = useTechnicalAccount();
