@@ -10,6 +10,7 @@ import {
   deleteContactList,
   updateContactList,
   addContactListEmail,
+  deleteContactListEmail,
 } from '../services/contact-list-api';
 import { useLocalStorage } from '@vueuse/core';
 import { CONTACT_LISTS_ROUTE_NAMES } from '../router';
@@ -19,6 +20,7 @@ import Sort, { SORT_ORDER } from '@/core/types/Sort';
 import { ContactListFilters, ContactListParameters } from '../types/Contact';
 
 const activeContactList = useLocalStorage<Contact>('configuration-contact-list', {} as Contact);
+const activeMail = ref<ContactInfo | null>(null);
 const activeContactListForm = ref<Partial<Contact>>({});
 const defaultContactListForm = ref<Partial<Contact>>({});
 const selectedContactLists = ref<Contact[]>();
@@ -42,7 +44,8 @@ const modal = reactive<{
     | 'ASSIGN_CONTACT_LIST'
     | 'DELETE_CONTACT_LIST'
     | 'DELETE_CONTACT_LISTS'
-    | 'DELETE_CONTACT_LIST_FAIL';
+    | 'DELETE_CONTACT_LIST_FAIL'
+    | 'DELETE_MAIL_LIST';
   visible: boolean;
   multipleDeleteResponse?: {
     total: number;
@@ -91,6 +94,12 @@ export default function useContactList() {
   function onDeleteContact() {
     modal.visible = true;
     modal.type = 'DELETE_CONTACT_LIST';
+  }
+
+  function onDeleteContactMail(mail: ContactInfo) {
+    activeMail.value = mail;
+    modal.visible = true;
+    modal.type = 'DELETE_MAIL_LIST';
   }
 
   async function fetchContactList(options: ContactListParameters) {
@@ -152,7 +161,6 @@ export default function useContactList() {
       }
     }
   }
-
   async function handleEditContactList(contact: Contact) {
     loading.value = true;
     status.value = STATUS.LOADING;
@@ -188,6 +196,19 @@ export default function useContactList() {
       return false;
     } finally {
       loading.value = false;
+    }
+  }
+
+  async function handleDeleteContactListEmail(uuid: string, contact: ContactInfo | null) {
+    status.value = STATUS.LOADING;
+    try {
+      await deleteContactListEmail(uuid, contact);
+      return true;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
     }
   }
 
@@ -228,6 +249,9 @@ export default function useContactList() {
     handleGetContactListDetail,
     handleTableChange,
     handleAddContactListEmail,
+    handleDeleteContactListEmail,
+    onDeleteContactMail,
+    activeMail,
     filters,
     sorter,
     filterMail,

@@ -34,6 +34,10 @@ async function addContactListEmail(uuid: string, payload: ContactInfo) {
   return await apiv4.post(`lists/${uuid}/contacts`, payload);
 }
 
+async function deleteContactListEmail(uuid: string, payload: ContactInfo | null) {
+  return await apiv4.delete(`lists/${uuid}/contacts`, { data: payload });
+}
+
 export {
   getContactList,
   getContactListDetail,
@@ -41,4 +45,5 @@ export {
   createContactList,
   updateContactList,
   addContactListEmail,
+  deleteContactListEmail,
 };

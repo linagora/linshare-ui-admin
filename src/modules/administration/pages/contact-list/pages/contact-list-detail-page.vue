@@ -32,12 +32,15 @@
       @close="onCloseModal"
       @deleted="onDeleteContactSuccess"
     ></DeleteContactCard>
+    <DeleteMailCard v-if="modal.type === 'DELETE_MAIL_LIST'" @close="onCloseModal" @deleted="onFetchingData">
+    </DeleteMailCard>
   </a-modal>
 </template>
 <script lang="ts" setup>
 import ContactListDetailCard from '@/modules/administration/pages/contact-list/components/detail-page/contact-list-detail-card.vue';
 import ContactListEmailTable from '@/modules/administration/pages/contact-list/components/detail-page/contact-list-email-table.vue';
 import DeleteContactCard from '@/modules/administration/pages/contact-list/components/delete-contact-card.vue';
+import DeleteMailCard from '@/modules/administration/pages/contact-list/components/detail-page/delete-mail-card.vue';
 import { computed, onMounted, ref } from 'vue';
 import useContactList from '../hooks/useContactList';
 import { storeToRefs } from 'pinia';

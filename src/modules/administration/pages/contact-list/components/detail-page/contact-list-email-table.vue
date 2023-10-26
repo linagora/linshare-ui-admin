@@ -26,7 +26,7 @@
           <span class="elipsis-name">{{ record?.lastName }}</span>
         </template>
         <template v-if="column.key === 'actions'">
-          <a-button :disabled="!editing || !editable" class="ls-button ls-position-button">
+          <a-button :disabled="!editable" class="ls-button ls-position-button" @click="onDeleteContactMail(record)">
             <DeleteFilled class="type-deny" />
           </a-button>
         </template>
@@ -41,11 +41,11 @@ import Domain from '@/core/types/Domain';
 import { STATUS } from '@/core/types/Status';
 import { ContactInfo } from '../../types/Contact';
 import useContactList from '../../hooks/useContactList';
-import { PlusOutlined, DeleteFilled } from '@ant-design/icons-vue';
+import { DeleteFilled } from '@ant-design/icons-vue';
 import ContactListDetailHeader from './contact-list-detail-header.vue';
 
 const { t } = useI18n();
-const { status, activeContactList, filterMail } = useContactList();
+const { status, activeContactList, filterMail, onDeleteContactMail } = useContactList();
 
 // props & emits
 const props = defineProps<{
