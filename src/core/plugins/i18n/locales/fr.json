@@ -2092,31 +2092,31 @@
           },
           "DELETE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez supprimé le Utilisateur Invité de : {userVarious}.",
+              "SENTENCE": "Vous avez supprimé l'Utilisateur Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} a supprimé le Utilisateur Invité de : {userVarious}.",
+              "SENTENCE": "{authorName} a supprimé l'Utilisateur Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "EXPIRATION": {
             "AUTHOR": {
-              "SENTENCE": "Le Utilisateur Invité : {userVarious} a expiré.",
+              "SENTENCE": "L'Utilisateur Invité : {userVarious} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "Le Utilisateur Invité : {userVarious} de {authorName} a expiré.",
+              "SENTENCE": "L'Utilisateur Invité : {userVarious} de {authorName} a expiré.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
           "UPDATE": {
             "AUTHOR": {
-              "SENTENCE": "Vous avez modifié le Utilisateur Invité de : {userVarious}.",
+              "SENTENCE": "Vous avez modifié l'Utilisateur Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} a modifié le Utilisateur Invité de : {userVarious}.",
+              "SENTENCE": "{authorName} a modifié l'Utilisateur Invité de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           },
@@ -2128,6 +2128,16 @@
             "VIEWER": {
               "SENTENCE": "{authorName} a modifié son mot de passe.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez purgé l'Utilisateur Invité de : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a purgé le compte utilisateur de : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
         },
@@ -2500,6 +2510,16 @@
             "VIEWER": {
               "SENTENCE": "{authorName} a modifié le Domain de Travail : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez purgé le Domain de Travail : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a purgé le Domain de Travail : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
         },

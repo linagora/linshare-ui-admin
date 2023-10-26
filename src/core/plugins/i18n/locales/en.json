@@ -2134,6 +2134,16 @@
               "SENTENCE": "{authorName} has changed his account's password.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "You have purged the User Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has purged the User Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
           }
         },
         "JWT_PERMANENT_TOKEN": {
@@ -2505,6 +2515,16 @@
             "VIEWER": {
               "SENTENCE": "{authorName} has edited the domain : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "You have purge the domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has purged the domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
         },

@@ -1869,6 +1869,16 @@
               "SENTENCE": "{authorName} изменил пароль учетной записи.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы очистили пользовательский аккаунт : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} очистил пользовательский аккаунт : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
           }
         },
         "JWT_PERMANENT_TOKEN": {
@@ -2240,6 +2250,16 @@
             "VIEWER": {
               "SENTENCE": "{authorName} изменил рабочую domain: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы очистили domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} очистил domain : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
         },

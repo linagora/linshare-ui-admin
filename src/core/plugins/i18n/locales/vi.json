@@ -2127,6 +2127,16 @@
               "SENTENCE": "{authorName} đã thay đổi mật khẩu tài khoản của mình.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã xóa Tài khoản người dùng của : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã xóa Tài khoản người dùng của : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
           }
         },
         "JWT_PERMANENT_TOKEN": {
@@ -2498,6 +2508,16 @@
             "VIEWER": {
               "SENTENCE": "{authorName} đã chỉnh sửa tên miền: {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã xóa miền : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã xóa miền : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           }
         },
