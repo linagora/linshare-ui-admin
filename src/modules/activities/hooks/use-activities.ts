@@ -156,7 +156,7 @@ export function useActivities() {
     parameters.actor = actor.value.join('&domain=');
     parameters.resourceName = resourceName.value.join('&domain=');
     parameters.sortField = SORT_FIELD.CREATIONDATE;
-    parameters.sortOrder = SORT_ORDER.ASC;
+    parameters.sortOrder = SORT_ORDER.DESC;
 
     await fetchActivities(parameters);
   }
