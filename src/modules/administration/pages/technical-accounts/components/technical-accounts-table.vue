@@ -49,8 +49,11 @@
           </a-tag>
           <a-tag v-else color="default"> {{ $t('TECHNICAL_ACCOUNTS.DISABLE') }}</a-tag>
         </template>
-        <template v-else-if="column.key === 'lock'">
-          <span>{{ record.lock }}</span>
+        <template v-else-if="column.key === 'locked'">
+          <a-tag v-if="record.locked" color="red">
+            {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.LOCKED') }}
+          </a-tag>
+          <a-tag v-else color="success"> {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.UNLOCK') }}</a-tag>
         </template>
       </template>
     </a-table>
@@ -96,11 +99,13 @@ const columns = computed(() => [
   },
   {
     title: t('TECHNICAL_ACCOUNTS.STATUS'),
+    sorter: (a: TechnicalAccount, b: TechnicalAccount) => a.enable.toString().localeCompare(b.enable.toString()),
     key: 'status',
   },
   {
     title: t('TECHNICAL_ACCOUNTS.LOCKED'),
-    key: 'lock',
+    sorter: (a: TechnicalAccount, b: TechnicalAccount) => a.locked.toString().localeCompare(b.locked.toString()),
+    key: 'locked',
   },
 ]);
 </script>

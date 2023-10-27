@@ -8,6 +8,7 @@ export interface TechnicalAccount {
   creationDate: number;
   domain: string;
   domainName: string;
+  locked: boolean;
 }
 
 export interface TechnicalAccountDetails {
