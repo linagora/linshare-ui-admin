@@ -26,6 +26,32 @@
     </a-form>
 
     <div class="separator"></div>
+    <div class="technical-account-locked__actions">
+      <div v-show="!technicalAccountDetails.locked" class="red">
+        {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.LOCKED_TITLE') }}
+      </div>
+      <div v-show="technicalAccountDetails.locked" class="blue">
+        {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.UNLOCK_TITLE') }}
+      </div>
+      <ls-button
+        v-if="technicalAccountDetails.locked"
+        class="ant-btn ls-button--error config-menu"
+        color="error"
+        @click="onClickToggleLockTechnicalAccount"
+      >
+        <lock-icon class="icon"></lock-icon>
+        {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.LOCKED') }}
+      </ls-button>
+      <ls-button
+        v-if="!technicalAccountDetails.locked"
+        class="ant-btn ls-button--info config-menu"
+        color="info"
+        @click="onClickToggleLockTechnicalAccount"
+      >
+        <unlock-icon class="icon"></unlock-icon>
+        {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.UNLOCK') }}
+      </ls-button>
+    </div>
     <div class="technical-account-informations__actions">
       <a-button :disabled="loading" type="primary" class="ls-button ls-filled">
         <a-spin v-if="loading"></a-spin>
@@ -42,9 +68,15 @@ import { ref, computed, reactive } from 'vue';
 import useTechnicalAccount from '../../hooks/useTechnicalAccount';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
+import LockIcon from '@/core/components/icons/lock-icon.vue';
+import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
 
+// props
+const emits = defineEmits(['refresh', 'close']);
+// composable
 const router = useRouter();
-const { technicalAccountDetails, loading, getTechnicalAccountDetailInformation } = useTechnicalAccount();
+const { technicalAccountDetails, loading, getTechnicalAccountDetailInformation, handleUpdateTechnicalAccount } =
+  useTechnicalAccount();
 const { t } = useI18n();
 
 const validateMessages = {
@@ -52,6 +84,20 @@ const validateMessages = {
     email: t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.EMAIL_VALIDATION'),
   },
 };
+
+async function onClickToggleLockTechnicalAccount() {
+  technicalAccountDetails.locked = !technicalAccountDetails.locked;
+
+  const result = await handleUpdateTechnicalAccount(technicalAccountDetails);
+  if (result) {
+    emits('refresh');
+    onCloseModal();
+  }
+}
+
+async function onCloseModal() {
+  emits('close');
+}
 
 getTechnicalAccountDetailInformation(router.currentRoute.value.params.id);
 </script>
@@ -88,6 +134,14 @@ getTechnicalAccountDetailInformation(router.currentRoute.value.params.id);
       color: #007aff;
       border-color: #f3f3f7;
     }
+  }
+
+  .red {
+    color: #eb0707;
+  }
+
+  .blue {
+    color: #007aff;
   }
 
   &__form {
@@ -155,5 +209,45 @@ getTechnicalAccountDetailInformation(router.currentRoute.value.params.id);
   height: 1px;
   background-color: #ccc;
   margin: 10px 0;
+}
+
+.technical-account-locked {
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .config-menu {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+      height: 38px;
+      gap: 4px;
+      padding: 7px;
+    }
+
+    .config-menu .action {
+      text-align: left;
+    }
+
+    .desktop {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .technical-account-locked {
+    .action {
+      .icon {
+        margin-right: 8px;
+      }
+
+      .desktop {
+        display: flex;
+      }
+    }
+  }
 }
 </style>

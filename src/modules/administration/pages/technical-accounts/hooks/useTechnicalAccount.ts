@@ -6,6 +6,7 @@ import {
   getTechnicalAccountsList,
   createTechnicalAccount,
   getTechnicalAccountDetail,
+  updateTechnicalAccount,
 } from '../services/technical-account-api';
 import {
   TechnicalAccount,
@@ -199,6 +200,22 @@ export default function useTechnicalAccount() {
     }
   }
 
+  async function handleUpdateTechnicalAccount(payload: TechnicalAccountDetails) {
+    try {
+      loading.value = true;
+      await updateTechnicalAccount(payload);
+      message.success(t('MESSAGES.UPDATE_SUCCESS'));
+      return true;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return false;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   fetchTechnicalUserList();
 
   return {
@@ -210,6 +227,7 @@ export default function useTechnicalAccount() {
     filteredListByPage,
     fetchTechnicalUserList,
     handleCreateTechnicalAccount,
+    handleUpdateTechnicalAccount,
     modal,
     onCloseModal,
     onCreateTechnicalAccount,

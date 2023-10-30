@@ -3221,6 +3221,9 @@
       "EMAIL": "E-mail",
       "STATUS": "Statut du compte",
       "UNLOCK": "Déverrouiller",
+      "LOCKED": "Verrouiller",
+      "LOCKED_TITLE": "Cet utilisateur est verrouillé en raison de nombreuses tentatives de connexion infructueuses",
+      "UNLOCK_TITLE": "Cet utilisateur est déverrouillé, vous pouvez verrouiller cet utilisateur",
       "IDENTIFIER":"Identifiant (connexion)",
       "EMAIL_VALIDATION": "Cet email n'est pas valide"
     }

@@ -13,4 +13,8 @@ async function getTechnicalAccountDetail(uuid: string | string[]): Promise<Techn
   return await apiv4.get(`/technical_accounts/${uuid}`);
 }
 
-export { getTechnicalAccountsList, createTechnicalAccount, getTechnicalAccountDetail };
+async function updateTechnicalAccount(payload: TechnicalAccountDetails): Promise<TechnicalAccount> {
+  return await apiv4.put(`/technical_accounts`, payload);
+}
+
+export { getTechnicalAccountsList, createTechnicalAccount, getTechnicalAccountDetail, updateTechnicalAccount };
