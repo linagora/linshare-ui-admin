@@ -16,27 +16,28 @@
       </a-input>
     </div>
     <a-table
-      :data-source="filteredPermissions"
+      :data-source="sortedPermissions"
       :columns="columns"
       :pagination="false"
       class="technical-account-table__table"
     >
       <template #bodyCell="{ column, record }">
-        <template v-if="column.key === 'permission'"> {{ record }} </template>
+        <template v-if="column.key === 'permission'">
+          <a-checkbox :checked="isChecked(record)" @change="handleCheckboxChange(record)">
+            {{ $t(`TECHNICAL_ACCOUNTS.DETAIL_PAGE.TECHNICAL_ACCOUNT_PERMISSION_TYPE.${record}`) }}
+          </a-checkbox>
+        </template>
       </template>
     </a-table>
   </div>
 </template>
+
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { SearchOutlined } from '@ant-design/icons-vue';
 import { PermissionType } from '../../types/TechnicalAccount';
 import useTechnicalAccount from '../../hooks/useTechnicalAccount';
-
-const { filteredPermissions, filteredPermissionsText } = useTechnicalAccount();
-
-const { t } = useI18n();
 
 const columns = computed(() => [
   {
@@ -45,6 +46,46 @@ const columns = computed(() => [
     key: 'permission',
   },
 ]);
+
+const { filteredPermissionsText, filteredPermissions, technicalAccountDetails } = useTechnicalAccount();
+
+const { t } = useI18n();
+
+const selectedPermissions = ref([] as PermissionType[]);
+
+const isChecked = (permission: PermissionType) => {
+  return selectedPermissions.value.includes(permission);
+};
+
+const handleCheckboxChange = (permission: PermissionType) => {
+  if (isChecked(permission)) {
+    selectedPermissions.value = selectedPermissions.value.filter((p) => p !== permission);
+    technicalAccountDetails.permissions = selectedPermissions.value;
+  } else {
+    selectedPermissions.value.push(permission);
+    technicalAccountDetails.permissions = selectedPermissions.value;
+  }
+};
+
+const sortedPermissions = computed(() => {
+  return filteredPermissions.value.slice().sort((permissionA, permissionB) => {
+    const isSelectedA = selectedPermissions.value.includes(permissionA);
+    const isSelectedB = selectedPermissions.value.includes(permissionB);
+    if (isSelectedA && !isSelectedB) {
+      return -1;
+    } else if (!isSelectedA && isSelectedB) {
+      return 1;
+    }
+    return 0;
+  });
+});
+
+watch(
+  () => technicalAccountDetails.permissions,
+  (newPermissions) => {
+    selectedPermissions.value = newPermissions.filter((permission) => filteredPermissions.value.includes(permission));
+  }
+);
 </script>
 
 <style lang="less" scoped>

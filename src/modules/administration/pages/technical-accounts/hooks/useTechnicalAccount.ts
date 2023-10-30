@@ -90,9 +90,13 @@ export default function useTechnicalAccount() {
     return filteredList.value.slice(firstIndex, lastIndex);
   });
 
+  const getPermissionTranslation = (permission: string) => {
+    return t(`TECHNICAL_ACCOUNTS.DETAIL_PAGE.TECHNICAL_ACCOUNT_PERMISSION_TYPE.${permission}`);
+  };
+
   const filteredPermissions = computed(() => {
     return permissionsArray.filter((permission) => {
-      return permission.toLowerCase().includes(filteredPermissionsText.value.toLowerCase());
+      return getPermissionTranslation(permission).toLowerCase().includes(filteredPermissionsText.value.toLowerCase());
     });
   });
 

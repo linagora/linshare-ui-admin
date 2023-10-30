@@ -21,7 +21,7 @@ export interface TechnicalAccountDetails {
   enable: boolean;
   name: string;
   mail: string;
-  permissions: string[];
+  permissions: PermissionType[];
   role: string;
 }
 
