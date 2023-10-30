@@ -11,7 +11,7 @@
       class="contact-list-email-table__table"
       :columns="columns"
       :pagination="false"
-      :data-source="rulesByPage"
+      :data-source="filteredListByPage"
       row-key="uuid"
       :loading="status === STATUS.LOADING"
     >
@@ -32,17 +32,20 @@
         </template>
       </template>
     </a-table>
+    <ThePagination v-model="pagination" class="pagination" :is-visible="!!filteredList.length" />
   </div>
 </template>
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
-import { computed, reactive, ref } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 import Domain from '@/core/types/Domain';
 import { STATUS } from '@/core/types/Status';
 import { ContactInfo } from '../../types/Contact';
 import useContactList from '../../hooks/useContactList';
 import { DeleteFilled } from '@ant-design/icons-vue';
 import ContactListDetailHeader from './contact-list-detail-header.vue';
+import ThePagination from '@/core/components/the-pagination.vue';
+import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 
 const { t } = useI18n();
 const { status, activeContactList, filterMail, onDeleteContactMail } = useContactList();
@@ -106,7 +109,7 @@ const columns = computed(() => [
     key: 'actions',
   },
 ]);
-const rulesByPage = computed(() => {
+const filteredList = computed(() => {
   return activeContactList.value.contacts.filter((item) => {
     return (
       item.mail?.includes(filterMail.value) ||
@@ -114,6 +117,26 @@ const rulesByPage = computed(() => {
       item.lastName?.includes(filterMail.value)
     );
   });
+});
+
+const filteredListByPage = computed(() => {
+  const firstIndex = (pagination.current - 1) * pagination.pageSize;
+  const lastIndex = pagination.current * pagination.pageSize;
+  return filteredList.value.slice(firstIndex, lastIndex);
+});
+
+const pagination = reactive({
+  total: 0,
+  current: 1,
+  pageSize: DEFAULT_PAGE_SIZE,
+});
+
+watch(filteredList, async (newVal) => {
+  pagination.total = newVal.length;
+  pagination.current =
+    pagination.current * pagination.pageSize > pagination.total
+      ? Math.floor(pagination.total / pagination.pageSize) || 1
+      : pagination.current;
 });
 </script>
 
