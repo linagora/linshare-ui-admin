@@ -65,7 +65,8 @@ const isSuperAdmin = computed(() => {
   return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
 });
 const allowEdit = computed(() => {
-  return isSuperAdmin.value;
+  return true;
+  // return isSuperAdmin.value;
 });
 // methods
 
