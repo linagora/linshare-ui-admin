@@ -1,5 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import ContactListsEntries from '@/modules/administration/pages/contact-list/pages/entries-page.vue';
+
 export const CONTACT_LISTS_ROUTE_NAMES = {
   ENTRIES: 'AdministrationContactListsEntries',
   CONTACT_LIST: 'AdministrationContactLists',
@@ -13,7 +14,7 @@ export const AdministrationContactListsRoutes: RouteRecordRaw[] = [
     component: ContactListsEntries,
     meta: {
       requiresAuth: true,
-      parentRoute: 'Administration',
+      parentRoute: 'AdministrationEntries',
       label: 'NAVIGATOR.ADMINISTRATION_CONTACT_LIST',
     },
     children: [
@@ -23,6 +24,8 @@ export const AdministrationContactListsRoutes: RouteRecordRaw[] = [
         component: () => import('@/modules/administration/pages/contact-list/pages/contact-list-page.vue'),
         meta: {
           requiresAuth: true,
+          parentRoute: 'AdministrationEntries',
+          label: 'NAVIGATOR.ADMINISTRATION_CONTACT_LIST',
         },
       },
       {
@@ -31,7 +34,8 @@ export const AdministrationContactListsRoutes: RouteRecordRaw[] = [
         component: () => import('@/modules/administration/pages/contact-list/pages/contact-list-detail-page.vue'),
         meta: {
           requiresAuth: true,
-          parentRoute: CONTACT_LISTS_ROUTE_NAMES.ENTRIES,
+          parentRoute: CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST,
+          label: 'NAVIGATOR.ADMINISTRATION_CONTACT_LIST',
         },
       },
     ],

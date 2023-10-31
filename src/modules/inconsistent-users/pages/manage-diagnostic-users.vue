@@ -1,23 +1,25 @@
 <template>
-  <PageTitle>
-    <template #helperContent>
-      <div>{{ $t('INCONSISTENT_USERS.SCRUTINY.DESCRIPTION') }}</div>
-    </template>
-  </PageTitle>
+  <div class="manage-diagnotic-users">
+    <a-alert closable class="manage-diagnotic-users__help-text">
+      <template #description>
+        <div>{{ $t('INCONSISTENT_USERS.SCRUTINY.DESCRIPTION') }}</div>
+      </template>
+    </a-alert>
 
-  <TokenInput
-    :filters="filterOptions"
-    :placeholder="$t('USERS.MANAGE_USERS.EMAIL')"
-    @submit="handleSubmit"
-    @reset="resetFilters"
-  />
-  <div class="diagnotic-elements">
-    <div class="list">
-      <usersDiagnosticTable></usersDiagnosticTable>
-      <ThePagination v-model="pagination" class="inconsistent-users-list__pagination" :is-visible="!!list.length" />
-    </div>
-    <div v-if="activeUserDiagnostic !== undefined" class="users-diagnostic-detail-block">
-      <usersDiagnosticDetail></usersDiagnosticDetail>
+    <TokenInput
+      :filters="filterOptions"
+      :placeholder="$t('USERS.MANAGE_USERS.EMAIL')"
+      @submit="handleSubmit"
+      @reset="resetFilters"
+    />
+    <div class="diagnotic-elements">
+      <div class="list">
+        <usersDiagnosticTable></usersDiagnosticTable>
+        <ThePagination v-model="pagination" class="manage-diagnotic-users__pagination" :is-visible="!!list.length" />
+      </div>
+      <div v-if="activeUserDiagnostic !== undefined" class="users-diagnostic-detail-block">
+        <usersDiagnosticDetail></usersDiagnosticDetail>
+      </div>
     </div>
   </div>
   <a-modal
@@ -35,7 +37,6 @@
 import { computed, shallowRef, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import TokenInput, { TokenSubmitPayload } from '@/core/components/token-input.vue';
-import PageTitle from '@/core/components/page-title.vue';
 import AccountAutocompleteItem from '@/modules/user/components/account-autocomplete-item.vue';
 import ThePagination from '@/core/components/the-pagination.vue';
 import { listUsers } from '@/modules/user/services/user-api';
@@ -102,24 +103,42 @@ watch(currentRoute, (newRoute) => {
 </script>
 
 <style lang="less">
-.diagnotic-elements {
+.manage-diagnotic-users {
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 16px;
 
-.users-diagnostic-detail-block {
-  flex: 1;
-}
-.list {
-  margin-top: 20px;
-  margin-right: 30px;
-  flex: 1;
-}
+  &__help-text {
+    padding: 12px 24px 12px 16px;
+    background: #f2f8ff;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+  }
 
-.ant-modal-content {
-  background: #ffffff;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
-  border-radius: 16px;
-  overflow: hidden;
+  .diagnotic-elements {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .users-diagnostic-detail-block {
+    flex: 1;
+  }
+
+  .list {
+    margin-top: 20px;
+    margin-right: 30px;
+    flex: 1;
+  }
+
+  .ant-modal-content {
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    overflow: hidden;
+  }
 }
 </style>

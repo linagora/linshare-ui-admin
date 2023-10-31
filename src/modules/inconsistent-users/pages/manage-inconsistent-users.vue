@@ -1,20 +1,20 @@
 <template>
-  <PageTitle>
-    <template #helperContent>
-      <div>{{ $t('INCONSISTENT_USERS.DESCRIPTION') }}</div>
-    </template>
-  </PageTitle>
+  <div class="inconsistent-users-list">
+    <a-alert closable class="inconsistent-users-list__help-text">
+      <template #description>
+        <div>{{ $t('INCONSISTENT_USERS.DESCRIPTION') }}</div>
+      </template>
+    </a-alert>
 
-  <TokenInput
-    :filters="filterOptions"
-    :placeholder="$t('INCONSISTENT_USERS.TOKEN_INPUT_PLACEHOLDER')"
-    @submit="handleSubmit"
-    @reset="reset"
-  />
-  <div class="list">
+    <TokenInput
+      :filters="filterOptions"
+      :placeholder="$t('INCONSISTENT_USERS.TOKEN_INPUT_PLACEHOLDER')"
+      @submit="handleSubmit"
+      @reset="reset"
+    />
     <InconsistentUsersList />
+    <ThePagination v-model="pagination" class="inconsistent-users-list__pagination" :is-visible="!!list.length" />
   </div>
-  <ThePagination v-model="pagination" class="inconsistent-users-list__pagination" :is-visible="!!list.length" />
 </template>
 
 <script lang="ts" setup>
@@ -115,7 +115,24 @@ const handleSubmit = async function (options: TokenSubmitPayload<InconsistentUse
 </script>
 
 <style lang="less">
-.list {
-  margin-top: 20px;
+.inconsistent-users-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 16px;
+
+  &__help-text {
+    padding: 12px 24px 12px 16px;
+    background: #f2f8ff;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .list {
+    margin-top: 20px;
+  }
 }
 </style>

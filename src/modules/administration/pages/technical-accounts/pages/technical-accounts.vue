@@ -1,7 +1,7 @@
 <template>
   <div class="technical-accounts">
-    <PageTitle :title="$t('TECHNICAL_ACCOUNTS.PAGE_TITLE')">
-      <template #helperContent>
+    <a-alert closable class="technical-accounts__help-text">
+      <template #description>
         <div class="alert-message-in-description">
           {{ $t('ADMINISTRATION.NAVIGATOR.TECHNICAL_ACCOUNTS') }}
         </div>
@@ -12,18 +12,7 @@
         </div>
         <div>{{ $t('TECHNICAL_ACCOUNTS.TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION') }}</div>
       </template>
-    </PageTitle>
-    <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">
-      <template #itemRender="{ route, routes }">
-        <span v-if="routes.indexOf(route) === routes.length - 1" class="current">
-          {{ $t(route.label) }}
-        </span>
-
-        <router-link v-else :to="{ name: route.path, params: route?.params }">
-          {{ $t(route.label) }}
-        </router-link>
-      </template>
-    </a-breadcrumb>
+    </a-alert>
     <TechnicalAccountTable />
   </div>
   <ThePagination v-model="pagination" :is-visible="!!filteredList.length" />
@@ -42,28 +31,12 @@
   </a-modal>
 </template>
 <script lang="ts" setup>
-import { computed } from 'vue';
 import TechnicalAccountTable from '../components/technical-accounts-table.vue';
-import PageTitle from '@/core/components/page-title.vue';
 import ThePagination from '@/core/components/the-pagination.vue';
 import useTechnicalAccount from '../hooks/useTechnicalAccount';
 import createTechnicalAccountCard from '../components/create-technical-account-card.vue';
 
 const { pagination, filteredList, modal, onCloseModal, fetchTechnicalUserList } = useTechnicalAccount();
-
-const breadcrumbsWithDomain = computed(() => {
-  const newBreadcrumbs = [
-    {
-      label: 'NAVIGATOR.ADMINISTRATION',
-      path: 'Administration',
-    },
-    {
-      label: 'ADMINISTRATION.NAVIGATOR.TECHNICAL_ACCOUNTS',
-      path: 'administration/technical-accounts',
-    },
-  ];
-  return newBreadcrumbs;
-});
 
 const descriptionLink = 'http://download.linshare.org';
 </script>
@@ -81,6 +54,11 @@ const descriptionLink = 'http://download.linshare.org';
     background: #f2f8ff;
     border-radius: 8px;
     border: none;
+    content: '\2022';
+    display: block;
+    margin-left: -1em;
+    display: flex;
+    flex-direction: row;
 
     ul {
       list-style: none;

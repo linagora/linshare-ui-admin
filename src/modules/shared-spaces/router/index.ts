@@ -13,7 +13,7 @@ export const SharedSpacesRoutes: Array<RouteRecordRaw> = [
     component: SharedSpacesListEntries,
     meta: {
       requiresAuth: true,
-      parentRoute: 'Administration',
+      parentRoute: 'AdministrationEntries',
       label: 'NAVIGATOR.ADMINISTRATION_CONTACT_LIST',
     },
     children: [

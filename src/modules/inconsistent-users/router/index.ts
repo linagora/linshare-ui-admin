@@ -12,7 +12,7 @@ export const InconsistentUsersRoutes: Array<RouteRecordRaw> = [
     path: 'inconsistent-users',
     component: () => import('../pages/inconsistent-users-entries-page.vue'),
     meta: {
-      parentRoute: 'Administration',
+      parentRoute: 'AdministrationEntries',
       label: 'INCONSISTENT_USERS_ROUTE_NAMES.ENTRIES',
       requiresAuth: true,
     },

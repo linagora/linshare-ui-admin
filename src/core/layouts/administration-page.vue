@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useDomainStore } from '@/modules/domain/store';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
@@ -8,28 +8,47 @@ import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router/index';
 
 // composables
-const route = useRoute();
-const domainStore = useDomainStore();
+const routeInstance = useRoute();
 const { breadcrumbs } = useBreadcrumbs();
 
 // computed
 const routeTitle = computed(() => {
-  return route.meta.label?.toString();
+  return routeInstance.meta.label?.toString();
 });
 const breadcrumbsWithDomain = computed(() => {
-  const newBreadcrumbs = [
-    {
-      label: 'NAVIGATOR.ADMINISTRATION',
-      path: 'AdministrationEntries',
-    },
-    ...breadcrumbs.value.slice(1),
-  ];
+  const newBreadcrumbs = [...breadcrumbs.value];
+  if (
+    routeInstance.name?.toString() ==
+    ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST_DETAIL?.toString()
+  ) {
+    newBreadcrumbs[newBreadcrumbs.length - 1].label = routeInstance.meta.label?.toString() || '';
+  }
   return newBreadcrumbs;
 });
 
-const blankPage = computed(() => {
-  return route.meta.blankPage;
+const prevRoute = computed(() => {
+  return breadcrumbsWithDomain.value[breadcrumbsWithDomain.value?.length - 2];
 });
+
+const blankPage = computed(() => {
+  return routeInstance.meta.blankPage;
+});
+
+watch(
+  () => routeInstance,
+  () => {
+    if (
+      routeInstance.name?.toString() ==
+      ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST_DETAIL?.toString()
+    ) {
+      breadcrumbs.value[breadcrumbs.value.length - 1].label = routeInstance.meta.label?.toString() || '';
+    }
+  },
+  {
+    immediate: true,
+    deep: true,
+  }
+);
 </script>
 <template>
   <the-subheader :title="$t('NAVIGATOR.ADMINISTRATION')" :detail="$t('ADMINISTRATION.INTRODUCTION')"> </the-subheader>
@@ -37,10 +56,7 @@ const blankPage = computed(() => {
     <div v-if="!blankPage" class="administration-page__wrapper">
       <div class="administration-page__header">
         <div class="administration-page__header-title">
-          <router-link
-            :to="{ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.ENTRIES }"
-            class="administration-page__header-back"
-          >
+          <router-link :to="{ name: prevRoute.path }" class="administration-page__header-back">
             <ArrowLeftIcon></ArrowLeftIcon>
           </router-link>
           <div class="administration-page__header-title-content">

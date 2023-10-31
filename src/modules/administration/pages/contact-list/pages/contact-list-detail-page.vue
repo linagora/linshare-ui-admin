@@ -41,7 +41,7 @@ import ContactListDetailCard from '@/modules/administration/pages/contact-list/c
 import ContactListEmailTable from '@/modules/administration/pages/contact-list/components/detail-page/contact-list-email-table.vue';
 import DeleteContactCard from '@/modules/administration/pages/contact-list/components/delete-contact-card.vue';
 import DeleteMailCard from '@/modules/administration/pages/contact-list/components/detail-page/delete-mail-card.vue';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onBeforeMount, ref } from 'vue';
 import useContactList from '../hooks/useContactList';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/modules/auth/store';
@@ -76,13 +76,14 @@ function onToggleEditState() {
 function onFetchingData() {
   const id = route.params?.id?.toString();
   handleGetContactListDetail(id ?? activeContactList?.value?.uuid);
+  route.meta.label = activeContactList.value?.identifier;
 }
 
 function onDeleteContactSuccess() {
   router.push({ name: CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST });
 }
 
-onMounted(async () => {
+onBeforeMount(async () => {
   onFetchingData();
 });
 </script>

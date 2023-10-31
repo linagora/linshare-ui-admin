@@ -1,5 +1,4 @@
 import { RouteRecordRaw } from 'vue-router';
-import { technicalAccountRoutes } from '@/modules/administration/pages/technical-accounts/router';
 import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 import { ReportingRoute } from '@/modules/reporting/router';
 import { ConfigurationRoute } from '@/modules/configuration/router';

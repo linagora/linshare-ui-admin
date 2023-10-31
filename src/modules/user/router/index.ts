@@ -13,7 +13,7 @@ export const UserRoutes: Array<RouteRecordRaw> = [
     component: UserListsEntries,
     meta: {
       requiresAuth: true,
-      parentRoute: 'Administration',
+      parentRoute: 'AdministrationEntries',
       label: 'NAVIGATOR.ADMINISTRATION_CONTACT_LIST',
     },
     children: [
@@ -22,7 +22,7 @@ export const UserRoutes: Array<RouteRecordRaw> = [
         path: '',
         component: () => import('../pages/manage-users.vue'),
         meta: {
-          parentRoute: 'Administration',
+          parentRoute: 'AdministrationEntries',
           label: 'NAVIGATOR.MANAGE_USERS',
           requiresAuth: true,
         },

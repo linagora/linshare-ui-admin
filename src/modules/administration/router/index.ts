@@ -38,6 +38,7 @@ export const AdministrationRoute: RouteRecordRaw = {
       component: () => import('@/modules/administration/pages/entries-page.vue'),
       meta: {
         blankPage: true,
+        label: 'NAVIGATOR.ADMINISTRATION',
       },
     },
     ...AdministrationContactListsRoutes,

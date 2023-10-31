@@ -12,7 +12,7 @@ export const technicalAccountRoutes: Array<RouteRecordRaw> = [
     path: 'technical-accounts',
     component: TechnicalAccountListEntries,
     meta: {
-      parentRoute: 'Administration',
+      parentRoute: 'AdministrationEntries',
       label: 'NAVIGATOR.TECHNICAL_ACCOUNTS',
       requiresAuth: true,
     },
