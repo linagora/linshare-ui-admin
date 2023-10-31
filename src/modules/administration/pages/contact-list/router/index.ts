@@ -35,7 +35,7 @@ export const AdministrationContactListsRoutes: RouteRecordRaw[] = [
         meta: {
           requiresAuth: true,
           parentRoute: CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST,
-          label: 'NAVIGATOR.ADMINISTRATION_CONTACT_LIST',
+          label: 'NAVIGATOR.ADMINISTRATION_CONTACT_LIST_DETAIL',
         },
       },
     ],

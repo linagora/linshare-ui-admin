@@ -116,6 +116,7 @@
     "MANAGE_USERS": "Quản lí người dùng",
     "INCONSISTENT_USERS": "Người dùng không nhất quán",
     "TECHNICAL_ACCOUNTS": "Tài khoản kỹ thuật",
+    "TECHNICAL_ACCOUNTS_DETAIL": "Chi tiết tài khoản kỹ thuật",
     "WORKGROUPS": "Nhóm làm việc",
     "MAILING_LISTS": "Danh sách gửi mail",
     "HISTORY": "Lịch sử",
@@ -153,7 +154,9 @@
     "SHARED_SPACE_DETAILS": "Chi tiết về không gian chung",
     "WELCOME_MESSAGE_DETAIL": "Chi tiết tin nhắn chào mừng",
     "EMAIL_TEMPLATES": "Mẫu email",
-    "CONFIGURATION_DOMAIN_POLICIES": "Chính sách tên miền"
+    "CONFIGURATION_DOMAIN_POLICIES": "Chính sách tên miền",
+    "ADMINISTRATION_CONTACT_LIST": "Danh sách liên hệ",
+    "ADMINISTRATION_CONTACT_LIST_DETAIL": "Chi tiết danh sách liên hệ"
   },
   "DASHBOARD": {
     "TITLE": "Trang điều khiển",
@@ -3197,7 +3200,7 @@
       "USER_INFORMATIONS_TITLE": "Thông tin người dùng và quyền truy cập",
       "CHANGE_PASSWORD": "Thay đổi mật khẩu",
       "USER_INFORMATIONS_SUB_TITLE": "Thông tin chung",
-      "PERMISSION_TITLE":"Quyền truy cập",
+      "PERMISSION_TITLE": "Quyền truy cập",
       "USER_NAME": "Tên người dùng",
       "EMAIL": "E-mail",
       "STATUS": "Trạng thái tài khoản",
@@ -3205,7 +3208,7 @@
       "LOCKED": "Đã khóa",
       "LOCKED_TITLE": "Người dùng này bị khóa do đăng nhập thất bại nhiều lần",
       "UNLOCK_TITLE": "Người dùng này đã được mở khóa, bạn có thể khóa người dùng này",
-      "IDENTIFIER":"Nhận dạng (đăng nhập)",
+      "IDENTIFIER": "Nhận dạng (đăng nhập)",
       "EMAIL_VALIDATION": "Địa chỉ email này không hợp lệ",
       "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {
         "ANONYMOUS_SHARE_ENTRIES_CREATE": "Tạo đường dẫn ẩn danh",

@@ -116,6 +116,7 @@
     "MANAGE_USERS": "Configuration des utilisateurs",
     "INCONSISTENT_USERS": "Utilisateurs incohérents",
     "TECHNICAL_ACCOUNTS": "Comptes techniques",
+    "TECHNICAL_ACCOUNTS_DETAIL": "Détails du compte technique",
     "WORKGROUPS": "l'Espace Commun",
     "MAILING_LISTS": "Listes de diffusion",
     "HISTORY": "Historique",
@@ -153,7 +154,9 @@
     "SHARED_SPACE_DETAILS": "Détails de l'espace partagé",
     "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
     "EMAIL_TEMPLATES": "Modèles de courriel",
-    "CONFIGURATION_DOMAIN_POLICIES": "Politiques de domaine"
+    "CONFIGURATION_DOMAIN_POLICIES": "Politiques de domaine",
+    "ADMINISTRATION_CONTACT_LIST": "Liste de contacts",
+    "ADMINISTRATION_CONTACT_LIST_DETAIL": "Détails de la liste de contacts"
   },
   "DASHBOARD": {
     "TITLE": "Panneau de contrôle",

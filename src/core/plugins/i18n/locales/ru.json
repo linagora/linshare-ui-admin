@@ -116,6 +116,7 @@
     "MANAGE_USERS": "Управление пользователями",
     "INCONSISTENT_USERS": "Непоследовательные пользователи",
     "TECHNICAL_ACCOUNTS": "Технические счета",
+    "TECHNICAL_ACCOUNTS_DETAIL": "Детали технического аккаунта",
     "WORKGROUPS": "Рабочие группы",
     "MAILING_LISTS": "Списки рассылки",
     "HISTORY": "История",
@@ -153,7 +154,9 @@
     "SHARED_SPACE_DETAILS": "Сведения об общем пространстве",
     "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
     "EMAIL_TEMPLATES": "Шаблоны электронной почты",
-    "CONFIGURATION_DOMAIN_POLICIES": "Политики доменов"
+    "CONFIGURATION_DOMAIN_POLICIES": "Политики доменов",
+    "ADMINISTRATION_CONTACT_LIST": "Список контактов",
+    "ADMINISTRATION_CONTACT_LIST_DETAIL": "Детали списка контактов"
   },
   "DASHBOARD": {
     "TITLE": "Приборная доска",
@@ -2886,18 +2889,18 @@
   "ADMINISTRATION": {
     "INTRODUCTION": "Вы используете бесплатную и открытую версию LinShare™",
     "NAVIGATOR": {
-      "MY_USERS":"Мои пользователи",
+      "MY_USERS": "Мои пользователи",
       "MY_USERS_SUBTITLE": "Показать список пользователей",
-      "TECHNICAL_ACCOUNTS":"Технические аккаунты",
+      "TECHNICAL_ACCOUNTS": "Технические аккаунты",
       "TECHNICAL_ACCOUNTS_SUBTITLE": "Показать список технических аккаунтов",
       "MY_DRIVE": "Мой диск",
       "MY_DRIVE_SUBTITLE": "Управление вашим диском и рабочими группами",
       "MY_CONTACT_LIST": "Мой список контактов",
       "MY_CONTACT_LIST_SUBTITLE": "Показать все контакты",
-      "INCONSISTENT_USERS" : "Непоследовательные пользователи",
+      "INCONSISTENT_USERS": "Непоследовательные пользователи",
       "DIAGNOSIC": "Диагностика пользователя",
-      "INCONSISTENT_USERS_SUBTITLE" : "Показать список серверов",
-      "LOGGERS" : "Логгеры",
+      "INCONSISTENT_USERS_SUBTITLE": "Показать список серверов",
+      "LOGGERS": "Логгеры",
       "LOGGERS_SUBTITLE": "Это может использоваться любым доменом"
     }
   },
@@ -2905,9 +2908,9 @@
     "NOTE": "Этот вид позволяет управлять списком контактов (почтовым списком, позволяющим отправлять электронные письма зарегистрированным пользователям). Нажав на список, вы можете управлять пользователями и редактировать их информацию (описание, делать список видимым или скрытым, удалять или добавлять пользователя...).",
     "CONTACT_LIST": "Список контактов",
     "EMAIL": "Электронная почта",
-    "FIRST_NAME":"Имя",
-    "LAST_NAME":"Фамилия",
-    "ADD_CONTACT":"Добавить контакт",
+    "FIRST_NAME": "Имя",
+    "LAST_NAME": "Фамилия",
+    "ADD_CONTACT": "Добавить контакт",
     "CREATE_CONTACT": "Создать контакт",
     "ADD_CONTACT_SUCCESS": "Контакт успешно добавлен",
     "DELETE_CONTACT": "Удалить контакт",
@@ -2928,15 +2931,14 @@
       "DELETE_SUCCESS": "Успешно удалено"
     }
   },
-
   "TECHNICAL_ACCOUNTS": {
     "PAGE_TITLE": "Все учетные записи",
     "ACCOUNT": "Учетная запись",
     "MAIL": "Почта",
     "ROLE": "Роль",
     "STATUS": "Статус",
-    "CREATION_DATE":"Дата создания",
-    "MODIFICATION_DATE":"Дата изменения",
+    "CREATION_DATE": "Дата создания",
+    "MODIFICATION_DATE": "Дата изменения",
     "LOCKED": "Статус блокировки",
     "ENABLE": "Включить",
     "DISABLE": "Выключить",
@@ -2959,7 +2961,7 @@
       "USER_INFORMATIONS_TITLE": "Информация о пользователе и разрешения",
       "CHANGE_PASSWORD": "Изменить пароль",
       "USER_INFORMATIONS_SUB_TITLE": "Общая информация",
-      "PERMISSION_TITLE":"Разрешение",
+      "PERMISSION_TITLE": "Разрешение",
       "USER_NAME": "Имя пользователя",
       "EMAIL": "Электронная почта",
       "STATUS": "Статус учетной записи",
@@ -2967,7 +2969,7 @@
       "LOCKED": "Заблокировано",
       "LOCKED_TITLE": "Этот пользователь заблокирован из-за множества неудачных попыток входа в систему",
       "UNLOCK_TITLE": "Этот пользователь разблокирован, вы можете заблокировать этого пользователя",
-      "IDENTIFIER":"Идентификатор (логин)",
+      "IDENTIFIER": "Идентификатор (логин)",
       "EMAIL_VALIDATION": "Этот адрес электронной почты не действителен",
       "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {
         "ANONYMOUS_SHARE_ENTRIES_CREATE": "Создать анонимную ссылку",
@@ -3110,11 +3112,11 @@
         "UPLOAD_REQUEST_TEMPLATE_GET": "Получить шаблон запроса на загрузку",
         "UPLOAD_REQUEST_TEMPLATE_LIST": "Список шаблонов запроса на загрузку",
         "UPLOAD_REQUEST_TEMPLATE_UPDATE": "Обновить шаблон запроса на загрузку",
-        "GUESTS_MODERATOR_CREATE":"Создать модератора гостей",
-        "GUESTS_MODERATOR_DELETE":"Удалить модератора гостей",
-        "GUESTS_MODERATOR_GET":"Получить модератора гостей",
-        "GUESTS_MODERATOR_LIST":"Список модераторов гостей",
-        "GUESTS_MODERATOR_UPDATE":"Обновить модератора гостей"
+        "GUESTS_MODERATOR_CREATE": "Создать модератора гостей",
+        "GUESTS_MODERATOR_DELETE": "Удалить модератора гостей",
+        "GUESTS_MODERATOR_GET": "Получить модератора гостей",
+        "GUESTS_MODERATOR_LIST": "Список модераторов гостей",
+        "GUESTS_MODERATOR_UPDATE": "Обновить модератора гостей"
       }
     }
   }

@@ -24,6 +24,7 @@ export const technicalAccountRoutes: Array<RouteRecordRaw> = [
         meta: {
           label: 'NAVIGATOR.TECHNICAL_ACCOUNTS',
           requiresAuth: true,
+          parentRoute: 'AdministrationEntries',
         },
       },
       {
@@ -31,8 +32,9 @@ export const technicalAccountRoutes: Array<RouteRecordRaw> = [
         path: ':id',
         component: () => import('@/modules/administration/pages/technical-accounts/pages/technical-account-detail.vue'),
         meta: {
+          label: 'NAVIGATOR.TECHNICAL_ACCOUNTS_DETAIL',
           requiresAuth: true,
-          parentRoute: MY_TECHNICAL_ACCOUNTS_ROUTE_NAMES.ENTRIES,
+          parentRoute: MY_TECHNICAL_ACCOUNTS_ROUTE_NAMES.TECHNICAL_ACCOUNT_LIST,
         },
       },
     ],

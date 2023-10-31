@@ -116,6 +116,7 @@
     "MANAGE_USERS": "Manage users",
     "INCONSISTENT_USERS": "Inconsistent users",
     "TECHNICAL_ACCOUNTS": "Technical accounts",
+    "TECHNICAL_ACCOUNTS_DETAIL": "Technical account detail",
     "WORKGROUPS": "Workgroups",
     "MAILING_LISTS": "Mailing lists",
     "HISTORY": "History",
@@ -154,7 +155,8 @@
     "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
     "EMAIL_TEMPLATES": "Email templates",
     "CONFIGURATION_DOMAIN_POLICIES": "Domain policies",
-    "ADMINISTRATION_CONTACT_LIST": "Contact list"
+    "ADMINISTRATION_CONTACT_LIST": "Contact list",
+    "ADMINISTRATION_CONTACT_LIST_DETAIL": "Contact detail"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",
