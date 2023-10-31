@@ -53,11 +53,16 @@
       </ls-button>
     </div>
     <div class="technical-account-informations__actions">
-      <a-button :disabled="loading" type="primary" class="ls-button ls-filled">
+      <a-button
+        :disabled="loading"
+        type="primary"
+        class="ls-button ls-filled"
+        @click="updateTechnicalAccountInformations"
+      >
         <a-spin v-if="loading"></a-spin>
         <span v-else>{{ $t('GENERAL.SAVE') }}</span>
       </a-button>
-      <a-button class="ls-button ls-delete">
+      <a-button class="ls-button ls-cancel" @click="getAccountInformation">
         {{ $t('GENERAL.CANCEL') }}
       </a-button>
     </div>
@@ -99,7 +104,14 @@ async function onCloseModal() {
   emits('close');
 }
 
-getTechnicalAccountDetailInformation(router.currentRoute.value.params.id);
+async function updateTechnicalAccountInformations() {
+  await handleUpdateTechnicalAccount(technicalAccountDetails);
+}
+
+function getAccountInformation() {
+  getTechnicalAccountDetailInformation(router.currentRoute.value.params.id);
+}
+getAccountInformation();
 </script>
 <style lang="less">
 .technical-account-informations {
