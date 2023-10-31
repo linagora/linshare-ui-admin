@@ -51,7 +51,9 @@
         </template>
         <template v-if="column.key === 'domain'">
           <span class="elipsis-name">{{
-            record?.type === 'ALLOW_ALL' ? $t('DOMAIN_POLICY.ALL_DOMAIN') : record?.domain?.label
+            record?.type === 'ALLOW_ALL' || record?.type === 'DENY_ALL'
+              ? $t('DOMAIN_POLICY.ALL_DOMAIN')
+              : record?.domain?.label
           }}</span>
         </template>
         <template v-if="column.key === 'type'">
