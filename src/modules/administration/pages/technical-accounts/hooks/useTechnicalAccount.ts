@@ -7,6 +7,7 @@ import {
   createTechnicalAccount,
   getTechnicalAccountDetail,
   updateTechnicalAccount,
+  deleteTechnicalAccount,
 } from '../services/technical-account-api';
 import {
   TechnicalAccount,
@@ -15,6 +16,8 @@ import {
   PermissionType,
 } from '../types/TechnicalAccount';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
+import { MY_TECHNICAL_ACCOUNTS_ROUTE_NAMES } from '../router';
 
 const list = ref<TechnicalAccount[]>([]);
 const filterText = ref('');
@@ -52,7 +55,7 @@ const technicalAccountDetails = reactive<TechnicalAccountDetails>({
 const permissionsArray: PermissionType[] = Object.values(PermissionType);
 
 const modal = reactive<{
-  type: 'CREATE_TECHNICAL_ACCOUNT';
+  type: 'CREATE_TECHNICAL_ACCOUNT' | 'DELETE_TECHNICAL_ACCOUNT';
   visible: boolean;
 }>({
   type: 'CREATE_TECHNICAL_ACCOUNT',
@@ -65,6 +68,7 @@ function onCloseModal() {
 
 export default function useTechnicalAccount() {
   const { t } = useI18n();
+  const router = useRouter();
 
   async function fetchTechnicalUserList() {
     loading.value = true;
@@ -222,6 +226,27 @@ export default function useTechnicalAccount() {
 
   fetchTechnicalUserList();
 
+  function onShowDeleteTechnicalAccount() {
+    modal.type = 'DELETE_TECHNICAL_ACCOUNT';
+    modal.visible = true;
+  }
+
+  async function handleDeleteTechnicalAccount(technicalAccountDetails: TechnicalAccount) {
+    try {
+      loading.value = true;
+      await deleteTechnicalAccount(technicalAccountDetails);
+      message.success(t('TECHNICAL_ACCOUNTS.DELETE_MODAL.DELETE_SUCCESS'));
+      onCloseModal();
+      router.push({ name: MY_TECHNICAL_ACCOUNTS_ROUTE_NAMES.TECHNICAL_ACCOUNT_LIST });
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    } finally {
+      loading.value = false;
+    }
+  }
+
   return {
     list,
     loading,
@@ -242,5 +267,7 @@ export default function useTechnicalAccount() {
     getTechnicalAccountDetailInformation,
     filteredPermissions,
     filteredPermissionsText,
+    onShowDeleteTechnicalAccount,
+    handleDeleteTechnicalAccount,
   };
 }

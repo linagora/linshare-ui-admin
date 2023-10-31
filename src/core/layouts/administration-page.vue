@@ -5,12 +5,13 @@ import { useDomainStore } from '@/modules/domain/store';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import TheSubheader from '@/core/components/the-subheader.vue';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
+import useAdministrationPage from '../hooks/useAdministrationPage';
 import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router/index';
 
 // composables
 const routeInstance = useRoute();
 const { breadcrumbs } = useBreadcrumbs();
-
+const { actions } = useAdministrationPage();
 // computed
 const routeTitle = computed(() => {
   return routeInstance.meta.label?.toString();
@@ -51,27 +52,40 @@ watch(
 );
 </script>
 <template>
-  <the-subheader :title="$t('NAVIGATOR.ADMINISTRATION')" :detail="$t('ADMINISTRATION.INTRODUCTION')"> </the-subheader>
-  <div class="administration-page">
-    <div v-if="!blankPage" class="administration-page__wrapper">
-      <div class="administration-page__header">
-        <div class="administration-page__header-title">
-          <router-link :to="{ name: prevRoute.path }" class="administration-page__header-back">
-            <ArrowLeftIcon></ArrowLeftIcon>
-          </router-link>
-          <div class="administration-page__header-title-content">
-            <strong class="title">{{ $t(routeTitle || '') }}</strong>
-            <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">
-              <template #itemRender="{ route, routes }">
-                <span v-if="routes.indexOf(route) === routes.length - 1 || route.disableAction" class="current">
-                  {{ $t(route.label) }}
-                </span>
-
-                <router-link v-else :to="{ name: route.path, params: route?.params }">
-                  {{ $t(route.label) }}
-                </router-link>
-              </template>
-            </a-breadcrumb>
+  <div>
+    <the-subheader :title="$t('NAVIGATOR.ADMINISTRATION')" :detail="$t('ADMINISTRATION.INTRODUCTION')"> </the-subheader>
+    <div v-if="!blankPage" class="administration-page">
+      <div class="administration-page__wrapper">
+        <div class="administration-page__header">
+          <div class="administration-page__header-title">
+            <router-link :to="{ name: prevRoute.path }" class="administration-page__header-back">
+              <ArrowLeftIcon></ArrowLeftIcon>
+            </router-link>
+            <div class="administration-page__header-title-content">
+              <strong class="title">{{ $t(routeTitle || '') }}</strong>
+              <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">
+                <template #itemRender="{ route, routes }">
+                  <span v-if="routes.indexOf(route) === routes.length - 1 || route.disableAction" class="current">
+                    {{ $t(route.label) }}
+                  </span>
+                  <router-link v-else :to="{ name: route.path, params: route?.params }">
+                    {{ $t(route.label) }}
+                  </router-link>
+                </template>
+              </a-breadcrumb>
+            </div>
+          </div>
+          <div class="administration-page__header-title-action">
+            <a-button
+              v-for="(action, index) in actions"
+              :key="index + 'administration-action-header'"
+              class="ls-button"
+              :class="action.class"
+              @click="action.action"
+            >
+              <component :is="action.icon" v-if="action.icon" />
+              {{ action.label }}
+            </a-button>
           </div>
         </div>
       </div>
@@ -79,7 +93,7 @@ watch(
         <router-view></router-view>
       </div>
     </div>
-    <router-view v-else></router-view>
+    <router-view v-else class="administration-page"></router-view>
   </div>
 </template>
 <style lang="less">
@@ -124,6 +138,15 @@ watch(
   }
 
   &__header-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 1;
+    gap: 12px;
+  }
+
+  &__header-title-left {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -173,9 +196,11 @@ watch(
     align-items: flex-start;
     gap: 8px;
   }
+
   &__header-back {
     padding: 4px;
   }
+
   &__header-back svg {
     width: 20px;
     height: 20px;

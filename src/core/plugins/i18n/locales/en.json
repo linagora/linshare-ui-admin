@@ -1368,8 +1368,8 @@
       "TIME_RANGE_FILTER": "Time range:",
       "ALL_DOMAINS": "All"
     },
-    "STORAGE_STATISTICS":"Storage statistics",
-    "SHARE_STATISTICS":"Share statistics",
+    "STORAGE_STATISTICS": "Storage statistics",
+    "SHARE_STATISTICS": "Share statistics",
     "FILTERS_MODAL": {
       "TITLE": "Filters setting",
       "TIME_RANGE": "Time range",
@@ -1380,18 +1380,18 @@
       "CATEGORIES_SHARED_SPACE": "Shared space",
       "CATEGORIES_MY_SPACE": "My space"
     },
-    "TOP_RECEIVERS":{
-      "FILE_COUNT":{
-        "TITLE":"Top {pageNumber} receivers by shared file count",
-        "RECEIVER_MAIL":"RECEIVER EMAIL",
+    "TOP_RECEIVERS": {
+      "FILE_COUNT": {
+        "TITLE": "Top {pageNumber} receivers by shared file count",
+        "RECEIVER_MAIL": "RECEIVER EMAIL",
         "NUMBER_OF_SHARED_FILES": "NO. OF SHARED FILES"
       },
       "FILE_SIZE": {
-        "TITLE":"Top {pageNumber} receivers by shared file size",
-        "RECEIVER_MAIL":"RECEIVER EMAIL",
+        "TITLE": "Top {pageNumber} receivers by shared file size",
+        "RECEIVER_MAIL": "RECEIVER EMAIL",
         "SIZE_OF_SHARED_FILES": "SIZE OF SHARED FILES"
       }
-  },
+    },
     "CHART_FIELD": {
       "DELETE": "Delete",
       "UPLOAD": "Upload",
@@ -3122,7 +3122,7 @@
     "SEARCH_BY": "Search by name or description",
     "ALL_DOMAIN": "All domains",
     "EDIT_FORM": {
-      "UPDATE_SUCCESS":"Updated successfully"
+      "UPDATE_SUCCESS": "Updated successfully"
     },
     "CREATE_MODAL": {
       "CREATE_MODAL_TITLE": "Create domain policy",
@@ -3135,17 +3135,17 @@
       "SELECT_DOMAIN": "Select domain",
       "ADD": "Add",
       "ALLOW": "Allow",
-      "ALLOW_ALL":"Allow all",
+      "ALLOW_ALL": "Allow all",
       "DENY": "Deny",
       "DENY_ALL": "Deny all",
       "POLICY_LIST": "Policies list",
-      "CREATE_SUCCESS":"Created successfully",
+      "CREATE_SUCCESS": "Created successfully",
       "DUPLICATE_SUCCESS": "Duplicated successfully"
     },
     "DELETE_CONTENT_MODAL": {
       "DELETE_MODAL_TITLE": "Delete domain policy",
       "DELETE_MODAL_SUBTITLE": "You are about to delete this domain policy, and this procedure is irreversible. Do you want to proceed?",
-      "DELETE_SUCCESS":"Deleted successfully",
+      "DELETE_SUCCESS": "Deleted successfully",
       "DELETE_SELECTED_DOMAIN_POLICIES": "Delete selected domain policies",
       "DELETE_SELECTED_DOMAIN_POLICIES_SUBTITLE": "You are about to delete {qty} domain policies. This procedure is irreversible. Do you want to proceed?",
       "DELETE_ACTION_CANCEL": "Cancel",
@@ -3155,7 +3155,7 @@
       "DELETE_ERROR_ASSIGNED_ALL": "You are unable to delete those domain policies",
       "DELETE_ERROR_ASSIGNED_SOME": "Some of domain policy are deleted successfully but not others because they are already assigned to at least one domain"
     },
-    "ASSIGN_MODAL":{
+    "ASSIGN_MODAL": {
       "TITLE": "Assign a Domain Policy",
       "ASSIGN_CONFIRM": "You are about to assign this domain policy to the current domain. Do you want to proceed?",
       "ASSIGN_SUCCESS": "Assigned successfully"
@@ -3164,18 +3164,18 @@
   "ADMINISTRATION": {
     "INTRODUCTION": "You are using the Open Source and free version of LinShare",
     "NAVIGATOR": {
-      "MY_USERS":"My Users",
+      "MY_USERS": "My Users",
       "MY_USERS_SUBTITLE": "Show list of Users",
-      "TECHNICAL_ACCOUNTS":"Technical accounts",
+      "TECHNICAL_ACCOUNTS": "Technical accounts",
       "TECHNICAL_ACCOUNTS_SUBTITLE": "Show list of Technical accounts",
       "MY_DRIVE": "My Drive",
       "MY_DRIVE_SUBTITLE": "Manage your Drive & Workgroups",
       "MY_CONTACT_LIST": "My Contacts List",
       "MY_CONTACT_LIST_SUBTITLE": "Show all contacts",
-      "INCONSISTENT_USERS" : "Inconsistent users",
+      "INCONSISTENT_USERS": "Inconsistent users",
       "DIAGNOSIC": "User diagnostic",
-      "INCONSISTENT_USERS_SUBTITLE" : "Show list of Servers",
-      "LOGGERS" : "Loggers",
+      "INCONSISTENT_USERS_SUBTITLE": "Show list of Servers",
+      "LOGGERS": "Loggers",
       "LOGGERS_SUBTITLE": "This can be used by any domain"
     }
   },
@@ -3183,9 +3183,9 @@
     "NOTE": "This view allows you to manage the contact list (a mailing list permit to send a mail to registered users on it ). By clicking in a list, you can manage the users and edit their information.(description, make the list visible or hidden , delete or add a user ...)",
     "CONTACT_LIST": "Contact list",
     "EMAIL": "Email",
-    "FIRST_NAME":"First Name",
-    "LAST_NAME":"Last name",
-    "ADD_CONTACT":"Add contact",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last name",
+    "ADD_CONTACT": "Add contact",
     "CREATE_CONTACT": "Create contact",
     "ADD_CONTACT_SUCCESS": "Added contact successfully",
     "DELETE_CONTACT": "Delete contact",
@@ -3197,10 +3197,10 @@
     "OWNER": "Owner",
     "VISIBILITY": "Visibility setting",
     "SETTING": "Setting",
-    "SEARCH_BY":"Search by name or email",
+    "SEARCH_BY": "Search by name or email",
     "DELETE_CONTACT_MODAL": {
-      "DELETE_MODAL_TITLE":"Delete Mail Contact",
-      "DELETE_MODAL_SUBTITLE":"You are about to delete this mail contact. Do you want to proceed?",
+      "DELETE_MODAL_TITLE": "Delete Mail Contact",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete this mail contact. Do you want to proceed?",
       "DELETE_SUCCESS": "Deleted successfully"
     },
     "MEMBER": "Member",
@@ -3212,8 +3212,8 @@
     "MAIL": "Mail",
     "ROLE": "Role",
     "STATUS": "Status",
-    "CREATION_DATE":"Creation date",
-    "MODIFICATION_DATE":"Modification date",
+    "CREATION_DATE": "Creation date",
+    "MODIFICATION_DATE": "Modification date",
     "LOCKED": "Lock Status",
     "ENABLE": "Enable",
     "DISABLE": "Disable",
@@ -3226,8 +3226,8 @@
       "MAIL": "Mail",
       "STATUS": "Status",
       "ROLE": "Role",
-      "NEW_PASSWORD":"New password",
-      "NEW_PASSWORD_CONFIRM":"Confirm new password",
+      "NEW_PASSWORD": "New password",
+      "NEW_PASSWORD_CONFIRM": "Confirm new password",
       "DELEGATION": "Delegation",
       "UPLOAD_PROPOSITION": "Upload proposition",
       "PASSWORD_REQUIEREMENT": "Password must have at least 12 characters in length and must contain uppercase characters, digits and special characters"
@@ -3236,7 +3236,7 @@
       "USER_INFORMATIONS_TITLE": "User Information & Permission",
       "CHANGE_PASSWORD": "Change Password",
       "USER_INFORMATIONS_SUB_TITLE": "General Information",
-      "PERMISSION_TITLE":"Permission",
+      "PERMISSION_TITLE": "Permission",
       "USER_NAME": "User Name",
       "EMAIL": "Email",
       "STATUS": "Account status",
@@ -3244,7 +3244,7 @@
       "LOCKED": "Locked",
       "LOCKED_TITLE": "This user is locked due to many failed login attempts",
       "UNLOCK_TITLE": "This user is unlock, you can lock this user",
-      "IDENTIFIER":"Identifier (login)",
+      "IDENTIFIER": "Identifier (login)",
       "EMAIL_VALIDATION": "Email is not valid",
       "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {
         "ANONYMOUS_SHARE_ENTRIES_CREATE": "Create anonymous url",
@@ -3387,12 +3387,19 @@
         "UPLOAD_REQUEST_TEMPLATE_GET": "Get upload request template",
         "UPLOAD_REQUEST_TEMPLATE_LIST": "List upload request template",
         "UPLOAD_REQUEST_TEMPLATE_UPDATE": "Update upload request template",
-        "GUESTS_MODERATOR_CREATE":"Create guests moderator",
-        "GUESTS_MODERATOR_DELETE":"Delete guests moderator",
-        "GUESTS_MODERATOR_GET":"Get guests moderator",
-        "GUESTS_MODERATOR_LIST":"List guests moderator",
-        "GUESTS_MODERATOR_UPDATE":"Update guests moderator"
+        "GUESTS_MODERATOR_CREATE": "Create guests moderator",
+        "GUESTS_MODERATOR_DELETE": "Delete guests moderator",
+        "GUESTS_MODERATOR_GET": "Get guests moderator",
+        "GUESTS_MODERATOR_LIST": "List guests moderator",
+        "GUESTS_MODERATOR_UPDATE": "Update guests moderator"
       }
+    },
+    "DELETE_MODAL": {
+      "DELETE_ACCOUNT": "Delete account",
+      "DELETE_MODAL_TITLE": "Delete account",
+      "DELETE_MODAL_SUBTITLE": "You are about to delete permanently this technical accounts. This procedure is irreversible Do you still want to proceed?",
+      "DELETE_ACTION_CONFIRM": "Yes, delete",
+      "DELETE_SUCCESS": "Account deleted successfully"
     }
   }
 }

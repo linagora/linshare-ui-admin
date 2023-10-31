@@ -17,4 +17,14 @@ async function updateTechnicalAccount(payload: TechnicalAccountDetails): Promise
   return await apiv4.put(`/technical_accounts`, payload);
 }
 
-export { getTechnicalAccountsList, createTechnicalAccount, getTechnicalAccountDetail, updateTechnicalAccount };
+async function deleteTechnicalAccount(payload: TechnicalAccount): Promise<TechnicalAccount> {
+  return await apiv4.delete(`technical_accounts`, { data: payload });
+}
+
+export {
+  getTechnicalAccountsList,
+  createTechnicalAccount,
+  getTechnicalAccountDetail,
+  updateTechnicalAccount,
+  deleteTechnicalAccount,
+};
