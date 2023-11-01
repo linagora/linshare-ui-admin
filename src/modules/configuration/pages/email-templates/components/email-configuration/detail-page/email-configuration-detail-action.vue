@@ -1,6 +1,6 @@
 <template>
   <div v-if="editing && editable" class="email-configuration-detail-action">
-    <a-button :disabled="loading" type="primary" class="ls-button" @click="emits('save')">
+    <a-button :disabled="loading || !isEnableSaveButton" type="primary" class="ls-button" @click="emits('save')">
       <a-spin v-if="loading"></a-spin>
       <span v-else>{{ $t('GENERAL.SAVE') }}</span>
     </a-button>
@@ -13,6 +13,9 @@
   </div>
 </template>
 <script setup lang="ts">
+import { computed } from 'vue';
+import useEmailTemplatesConfiguration from '../../../hooks/useEmailTemplatesConfiguration';
+
 // props & emits
 const emits = defineEmits(['save', 'cancel', 'reset']);
 const props = defineProps<{
@@ -20,6 +23,11 @@ const props = defineProps<{
   editing?: boolean;
   loading?: boolean;
 }>();
+const { activeEmailConfigForm } = useEmailTemplatesConfiguration();
+
+const isEnableSaveButton = computed(() => {
+  return activeEmailConfigForm.value.name && activeEmailConfigForm.value.name?.trim()?.length > 0;
+});
 
 function onCancel() {
   emits('cancel');
