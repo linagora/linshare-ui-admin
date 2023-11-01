@@ -1,5 +1,24 @@
 <template>
   <div class="email-configuration-content-table">
+    <div class="email-configuration-content-table__filter">
+      <div class="email-configuration-content-table__filter-item">
+        <a-input v-model:value="search.contentType" placeholder="Main content type" class="ls-input">
+          <template #prefix>
+            <SearchOutlined />
+          </template>
+        </a-input>
+      </div>
+      <div class="email-configuration-content-table__filter-item">
+        <a-input v-model:value="search.mailContent" placeholder="Selected mail content" class="ls-input" />
+      </div>
+      <div class="email-configuration-content-table__filter-item">
+        <a-input v-model:value="search.legend" placeholder="Legend" class="ls-input">
+          <template #prefix>
+            <SearchOutlined />
+          </template>
+        </a-input>
+      </div>
+    </div>
     <a-table
       key="uuid"
       class="email-configuration-content-table__table"
@@ -9,25 +28,6 @@
       row-key="uuid"
       :loading="status === STATUS.LOADING"
     >
-      <template #headerCell="{ column }">
-        <template v-if="column.key === 'mailContentType'">
-          <a-input v-model:value="search.contentType" placeholder="Main content type" class="ls-input">
-            <template #prefix>
-              <SearchOutlined />
-            </template>
-          </a-input>
-        </template>
-        <template v-if="column.key === 'mailContent'">
-          <a-input v-model:value="search.mailContent" placeholder="Selected mail content" class="ls-input" />
-        </template>
-        <template v-if="column.key === 'legend'">
-          <a-input v-model:value="search.legend" placeholder="Legend" class="ls-input">
-            <template #prefix>
-              <SearchOutlined />
-            </template>
-          </a-input>
-        </template>
-      </template>
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'mailContentType'">
           <span class="elipsis-name">{{ record.mailContentType }}</span>
@@ -186,6 +186,17 @@ watch(
   width: 100%;
   max-width: 100%;
 
+  &__filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  &__filter-item {
+    flex-grow: 1;
+  }
+
   &__table .ant-table {
     border: 1px solid #f0f0f0;
     border-radius: 8px;
@@ -196,10 +207,12 @@ watch(
     th:nth-child(1) {
       max-width: 20vw;
     }
+
     td:nth-child(2),
     th:nth-child(2) {
       max-width: 20vw;
     }
+
     td:nth-child(3),
     th:nth-child(3) {
       max-width: 30vw;
