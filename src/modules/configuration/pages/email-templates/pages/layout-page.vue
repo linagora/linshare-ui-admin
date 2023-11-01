@@ -38,7 +38,6 @@
       @close="onCloseModal"
       @refresh="onFetchEmailLayouts"
     ></create-mail-layout-modal>
-    >
     <DeleteMailLayoutCard
       v-if="modal.type === 'DELETE_LAYOUT_EMAIL'"
       @close="onCloseModal"
