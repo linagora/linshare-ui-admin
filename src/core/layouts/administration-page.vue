@@ -54,8 +54,8 @@ watch(
 <template>
   <div>
     <the-subheader :title="$t('NAVIGATOR.ADMINISTRATION')" :detail="$t('ADMINISTRATION.INTRODUCTION')"> </the-subheader>
-    <div v-if="!blankPage" class="administration-page">
-      <div class="administration-page__wrapper">
+    <div class="administration-page">
+      <div v-if="!blankPage" class="administration-page__wrapper">
         <div class="administration-page__header">
           <div class="administration-page__header-title">
             <router-link :to="{ name: prevRoute.path }" class="administration-page__header-back">
@@ -88,12 +88,12 @@ watch(
             </a-button>
           </div>
         </div>
+        <div class="administration-page__body">
+          <router-view></router-view>
+        </div>
       </div>
-      <div class="administration-page__body">
-        <router-view></router-view>
-      </div>
+      <router-view v-else class="administration-page"></router-view>
     </div>
-    <router-view v-else class="administration-page"></router-view>
   </div>
 </template>
 <style lang="less">
@@ -140,39 +140,10 @@ watch(
   &__header-title {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-grow: 1;
-    gap: 12px;
-  }
-
-  &__header-title-left {
-    display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     flex-grow: 1;
     gap: 12px;
-
-    .title {
-      font-style: normal;
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 28px;
-      color: #434657;
-    }
-
-    .breakcrumb {
-      font-style: normal;
-      font-weight: 500;
-      font-size: 15px;
-      line-height: 20px;
-      color: #989cb1;
-    }
-
-    .current {
-      color: #434657;
-    }
   }
 
   .action {
@@ -195,6 +166,26 @@ watch(
     justify-content: flex-start;
     align-items: flex-start;
     gap: 8px;
+
+    .title {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      color: #434657;
+    }
+
+    .breakcrumb {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 20px;
+      color: #989cb1;
+    }
+
+    .current {
+      color: #434657;
+    }
   }
 
   &__header-back {
