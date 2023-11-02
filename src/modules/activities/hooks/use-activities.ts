@@ -40,7 +40,8 @@ export function useActivities() {
           number: (pagination.current - 1) * pagination.pageSize + index + 1,
           domainName: item?.actor?.domain?.label ?? item?.domain?.label ?? item?.resource?.domain?.label ?? '-',
           actorName:
-            loggedUser.value?.uuid === item?.actor?.uuid || loggedUser.value?.uuid === item?.authUser?.uuid
+            loggedUser.value?.uuid === item?.actor?.uuid ||
+            (loggedUser.value?.uuid === item?.authUser?.uuid && !item?.actor?.uuid)
               ? t('ACTIVITIES.ME')
               : item?.actor?.name ?? item?.authUser?.name,
           actorId: item?.actor?.uuid,
