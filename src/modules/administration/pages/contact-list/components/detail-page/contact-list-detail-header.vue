@@ -110,8 +110,16 @@ async function onAddContactListEmail() {
   const result = await handleAddContactListEmail(uuid, form);
   if (result) {
     editing.value = false;
+    initFormData();
     emits('refresh');
   }
+}
+
+function initFormData() {
+  form.mail = '';
+  form.firstName = '';
+  form.lastName = '';
+  resetFields();
 }
 </script>
 <style lang="less">
@@ -184,6 +192,7 @@ async function onAddContactListEmail() {
     color: #fff;
     font-size: 14px;
   }
+
   .ls-save:disabled,
   .ls-save:disabled:hover {
     background-color: #007aff;
