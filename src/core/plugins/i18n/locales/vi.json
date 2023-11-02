@@ -3357,6 +3357,18 @@
         "GUESTS_MODERATOR_LIST": "Danh sách người điều hành khách mời",
         "GUESTS_MODERATOR_UPDATE": "Cập nhật người điều hành khách mời"
       }
+    },
+    "PASSWORD_TAB":{
+      "PASSWORD": "Mật khẩu",
+      "RECENT_PASSWORD": "Mật khẩu gần đây",
+      "NEW_PASSWORD": "Mật khẩu mới",
+      "CONFIRM_PASSWORD": "Xác nhận mật khẩu",
+      "PASSWORD_RULES":"Quy tắc mật khẩu",
+      "FIRST_RULE":"Phải có ít nhất 12 ký tự",
+      "SECOND_RULE":"Ít nhất 1 ký tự viết hoa",
+      "THIRD_RULE":"Ít nhất 1 ký tự viết thường",
+      "FOURTH_RULE":"Ít nhất 1 ký tự đặc biệt",
+      "SAVE_PASSWORD": "Thay đổi mật khẩu"
     }
   }
 }

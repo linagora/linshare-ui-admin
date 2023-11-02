@@ -3402,6 +3402,18 @@
       "DELETE_MODAL_SUBTITLE": "You are about to delete permanently this technical accounts. This procedure is irreversible Do you still want to proceed?",
       "DELETE_ACTION_CONFIRM": "Yes, delete",
       "DELETE_SUCCESS": "Account deleted successfully"
+    },
+    "PASSWORD_TAB":{
+      "PASSWORD": "Password",
+      "RECENT_PASSWORD": "Recent Password",
+      "NEW_PASSWORD": "New Password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "PASSWORD_RULES":"Password Rules",
+      "FIRST_RULE":"Have at least 12 characters",
+      "SECOND_RULE":"At least 1 upper case character",
+      "THIRD_RULE":"At least 1 downer case character",
+      "FOURTH_RULE":"At least 1 special character",
+      "SAVE_PASSWORD": "Change Password"
     }
   }
 }

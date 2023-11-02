@@ -21,10 +21,15 @@ async function deleteTechnicalAccount(payload: TechnicalAccount): Promise<Techni
   return await apiv4.delete(`technical_accounts`, { data: payload });
 }
 
+async function changeTechnicalAccountPassword(uuid: string | string[], payload: { newPwd: string; oldPwd: string }) {
+  return await apiv4.post(`/technical_accounts/${uuid}/change_password`, payload);
+}
+
 export {
   getTechnicalAccountsList,
   createTechnicalAccount,
   getTechnicalAccountDetail,
   updateTechnicalAccount,
   deleteTechnicalAccount,
+  changeTechnicalAccountPassword,
 };

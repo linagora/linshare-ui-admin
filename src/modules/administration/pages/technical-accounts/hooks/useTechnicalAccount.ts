@@ -52,6 +52,12 @@ const technicalAccountDetails = reactive<TechnicalAccountDetails>({
   role: '',
 });
 
+const changePassword = reactive({
+  oldPassword: '',
+  newPassword: '',
+  confirmNewPassword: '',
+});
+
 const permissionsArray: PermissionType[] = Object.values(PermissionType);
 
 const modal = reactive<{
@@ -176,12 +182,9 @@ export default function useTechnicalAccount() {
     }
   });
 
-  watch(
-    () => creationForm.password,
-    (newPassword) => {
-      calculateStrength(newPassword);
-    }
-  );
+  function passwordToEvaluate(password: string) {
+    calculateStrength(password);
+  }
 
   async function getTechnicalAccountDetailInformation(uuid: string | string[]) {
     try {
@@ -269,5 +272,7 @@ export default function useTechnicalAccount() {
     filteredPermissionsText,
     onShowDeleteTechnicalAccount,
     handleDeleteTechnicalAccount,
+    changePassword,
+    passwordToEvaluate,
   };
 }

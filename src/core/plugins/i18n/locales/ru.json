@@ -3118,6 +3118,18 @@
         "GUESTS_MODERATOR_LIST": "Список модераторов гостей",
         "GUESTS_MODERATOR_UPDATE": "Обновить модератора гостей"
       }
+    },
+    "PASSWORD_TAB":{
+      "PASSWORD": "Пароль",
+      "RECENT_PASSWORD": "Недавний пароль",
+      "NEW_PASSWORD": "Новый пароль",
+      "CONFIRM_PASSWORD": "Подтвердите пароль",
+      "PASSWORD_RULES":"Правила пароля",
+      "FIRST_RULE":"Должен содержать не менее 12 символов",
+      "SECOND_RULE":"По крайней мере 1 прописная буква",
+      "THIRD_RULE":"По крайней мере 1 строчная буква",
+      "FOURTH_RULE":"По крайней мере 1 специальный символ",
+      "SAVE_PASSWORD": "Изменить пароль"
     }
   }
 }

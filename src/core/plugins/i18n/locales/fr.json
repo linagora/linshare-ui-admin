@@ -3376,6 +3376,18 @@
         "GUESTS_MODERATOR_LIST":"Lister des modérateurs d'invités",
         "GUESTS_MODERATOR_UPDATE":"Mettre à jour un modérateur d'invités"
       }
+    },
+    "PASSWORD_TAB":{
+      "PASSWORD": "Mot de passe",
+      "RECENT_PASSWORD": "Mot de passe récent",
+      "NEW_PASSWORD": "Nouveau mot de passe",
+      "CONFIRM_PASSWORD": "Confirmer le mot de passe",
+      "PASSWORD_RULES":"Règles du mot de passe",
+      "FIRST_RULE":"Doit avoir au moins 12 caractères",
+      "SECOND_RULE":"Au moins 1 lettre majuscule",
+      "THIRD_RULE":"Au moins 1 lettre minuscule",
+      "FOURTH_RULE":"Au moins 1 caractère spécial",
+      "SAVE_PASSWORD": "Changer le mot de passe"
     }
   }
 }

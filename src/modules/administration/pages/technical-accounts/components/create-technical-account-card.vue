@@ -71,7 +71,7 @@
   </a-form>
 </template>
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import useTechnicalAccount from '../hooks/useTechnicalAccount';
 import { Form, FormInstance } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
@@ -81,7 +81,8 @@ const emits = defineEmits(['refresh', 'close']);
 // composable
 const { t } = useI18n();
 const useForm = Form.useForm;
-const { loading, handleCreateTechnicalAccount, creationForm, passwordStrengthClass, strength } = useTechnicalAccount();
+const { loading, handleCreateTechnicalAccount, creationForm, passwordStrengthClass, strength, passwordToEvaluate } =
+  useTechnicalAccount();
 
 const formRef = ref<FormInstance>();
 
@@ -151,6 +152,13 @@ async function onCloseModal() {
   resetFormData();
   emits('close');
 }
+
+watch(
+  () => creationForm.password,
+  (newPassword) => {
+    passwordToEvaluate(newPassword);
+  }
+);
 </script>
 
 <style lang="less">

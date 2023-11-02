@@ -4,7 +4,7 @@
       <a-tab-pane key="1" :tab="$t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.USER_INFORMATIONS_TITLE')">
         <UserInformations />
       </a-tab-pane>
-      <a-tab-pane key="2" :tab="$t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.CHANGE_PASSWORD')">Password tab</a-tab-pane>
+      <a-tab-pane key="2" :tab="$t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.CHANGE_PASSWORD')"> <ChangePassword /></a-tab-pane>
     </a-tabs>
     <a-modal
       v-model:visible="modal.visible"
@@ -23,6 +23,7 @@ import { onMounted, ref, onBeforeUnmount } from 'vue';
 import useAdministrationPage from '@/core/hooks/useAdministrationPage';
 import useTechnicalAccount from '../hooks/useTechnicalAccount';
 import UserInformations from '../components/detail-page/user-informations.vue';
+import ChangePassword from '../components/detail-page/change-password-tab.vue';
 import DeleteTechnicalAccountCard from '../components/delete-technical-account-card.vue';
 import { DeleteOutlined } from '@ant-design/icons-vue';
 import { useI18n } from 'vue-i18n';
