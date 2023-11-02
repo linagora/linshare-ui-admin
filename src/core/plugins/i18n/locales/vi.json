@@ -3207,7 +3207,6 @@
       "UNLOCK": "Mở khóa",
       "LOCKED": "Đã khóa",
       "LOCKED_TITLE": "Người dùng này bị khóa do đăng nhập thất bại nhiều lần",
-      "UNLOCK_TITLE": "Người dùng này đã được mở khóa, bạn có thể khóa người dùng này",
       "IDENTIFIER": "Nhận dạng (đăng nhập)",
       "EMAIL_VALIDATION": "Địa chỉ email này không hợp lệ",
       "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {

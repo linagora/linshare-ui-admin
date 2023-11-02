@@ -3245,7 +3245,6 @@
       "UNLOCK": "Unlock",
       "LOCKED": "Locked",
       "LOCKED_TITLE": "This user is locked due to many failed login attempts",
-      "UNLOCK_TITLE": "This user is unlock, you can lock this user",
       "IDENTIFIER": "Identifier (login)",
       "EMAIL_VALIDATION": "Email is not valid",
       "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {

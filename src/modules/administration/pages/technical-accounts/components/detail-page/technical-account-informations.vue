@@ -26,28 +26,11 @@
     </a-form>
 
     <div class="separator"></div>
-    <div class="technical-account-locked__actions">
-      <div v-show="!technicalAccountDetails.locked" class="red">
+    <div v-if="technicalAccountDetails.locked" class="technical-account-locked__actions">
+      <div class="red">
         {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.LOCKED_TITLE') }}
       </div>
-      <div v-show="technicalAccountDetails.locked" class="blue">
-        {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.UNLOCK_TITLE') }}
-      </div>
-      <ls-button
-        v-if="technicalAccountDetails.locked"
-        class="ant-btn ls-button--error config-menu"
-        color="error"
-        @click="onClickToggleLockTechnicalAccount"
-      >
-        <lock-icon class="icon"></lock-icon>
-        {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.LOCKED') }}
-      </ls-button>
-      <ls-button
-        v-if="!technicalAccountDetails.locked"
-        class="ant-btn ls-button--info config-menu"
-        color="info"
-        @click="onClickToggleLockTechnicalAccount"
-      >
+      <ls-button class="ant-btn ls-button--info config-menu" color="info" @click="onClickToggleLockTechnicalAccount">
         <unlock-icon class="icon"></unlock-icon>
         {{ $t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.UNLOCK') }}
       </ls-button>
@@ -73,7 +56,6 @@ import { ref, computed, reactive } from 'vue';
 import useTechnicalAccount from '../../hooks/useTechnicalAccount';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import LockIcon from '@/core/components/icons/lock-icon.vue';
 import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
 
 // props
@@ -150,10 +132,6 @@ getAccountInformation();
 
   .red {
     color: #eb0707;
-  }
-
-  .blue {
-    color: #007aff;
   }
 
   &__form {
