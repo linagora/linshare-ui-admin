@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "EMAIL_VALIDATION":"Email is not valid",
     "BACK_TO_LIST": "Back to list",
     "ENABLED": "Enabled",
     "DISABLED": "Disabled",

@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "EMAIL_VALIDATION":"Địa chỉ email này không hợp lệ",
     "BACK_TO_LIST": "Trở lại danh sách",
     "ENABLED": "Bật",
     "DISABLED": "Tắt",

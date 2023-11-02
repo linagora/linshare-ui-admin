@@ -61,7 +61,6 @@ import { useI18n } from 'vue-i18n';
 const route = useRoute();
 const useForm = Form.useForm;
 const { t } = useI18n();
-
 // props & emits
 const props = defineProps<{
   editable?: boolean;
@@ -80,6 +79,10 @@ const formRules = computed(() => ({
     {
       required: true,
       message: t('GENERAL.FIELD_REQUIRED'),
+    },
+    {
+      message: t('GENERAL.EMAIL_VALIDATION'),
+      pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
     },
   ],
   firstName: [
