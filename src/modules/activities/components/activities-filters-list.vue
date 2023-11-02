@@ -8,10 +8,12 @@ import { getPeriodFromDate } from '@/core/utils/date';
 import { useActivities } from '@/modules/activities/hooks/use-activities';
 import { ActivitiesAction, ActivitiesType, useActivitiesStore } from '@/modules/activities/store';
 import CloseCircleIcon from '@/core/components/icons/close-circle-icon.vue';
+import { useDomainStore } from '@/modules/domain/store';
 
 // composable
 const { t, d } = useI18n();
 const activitiesStore = useActivitiesStore();
+const domainStore = useDomainStore();
 const { action, type, beginDate, endDate, actor, domain, resourceName, isDefaultFilter } = storeToRefs(activitiesStore);
 const { handleTableChange } = useActivities();
 
@@ -108,7 +110,7 @@ function onClearFilter() {
         <ls-tag
           v-for="item in domain"
           :key="item"
-          :value="item"
+          :value="domainStore.getDomainByUuid(item).name"
           :closable="true"
           @close="removeDomainFromFilter(item)"
         ></ls-tag>
