@@ -142,11 +142,11 @@ export function useActivities() {
     }
   }
 
-  async function handleTableChange() {
+  async function handleTableChange(resetPagination: boolean) {
     const parameters: ActivityLogParameters = {};
 
     parameters.size = pagination.pageSize;
-    parameters.page = pagination.current - 1;
+    parameters.page = resetPagination ? 0 : pagination.current - 1;
     parameters.domainUuid = domainUuid;
     parameters.beginDate = beginDate.value?.format('YYYY-MM-DD');
     parameters.endDate = endDate.value?.format('YYYY-MM-DD');

@@ -36,39 +36,39 @@ function removeActionFromFilter(removeItem: ActivitiesAction) {
   action.value = action.value.filter((item) => {
     return item !== removeItem;
   });
-  handleTableChange();
+  handleTableChange(true);
 }
 function removeTypeFromFilter(removeItem: ActivitiesType) {
   type.value = type.value.filter((item) => {
     return item !== removeItem;
   });
-  handleTableChange();
+  handleTableChange(true);
 }
 
 function removeActorFromFilter(removeItem: string) {
   actor.value = actor.value.filter((item) => {
     return item !== removeItem;
   });
-  handleTableChange();
+  handleTableChange(true);
 }
 
 function removeDomainFromFilter(removeItem: string) {
   domain.value = domain.value.filter((item) => {
     return item !== removeItem;
   });
-  handleTableChange();
+  handleTableChange(true);
 }
 
 function removeResourceNameFromFilter(removeItem: string) {
   resourceName.value = resourceName.value.filter((item) => {
     return item !== removeItem;
   });
-  handleTableChange();
+  handleTableChange(true);
 }
 
 function onClearFilter() {
   activitiesStore.$reset();
-  handleTableChange();
+  handleTableChange(true);
 }
 </script>
 

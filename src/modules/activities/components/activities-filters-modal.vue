@@ -115,7 +115,7 @@ function apply() {
   resourceName.value = filterForm.resourceName;
   beginDate.value = period.value === 'ALL_TIME' ? null : filterForm.dateRange[0];
   endDate.value = period.value === 'ALL_TIME' ? null : filterForm.dateRange[1];
-  handleTableChange();
+  handleTableChange(true);
   emits('close');
 }
 

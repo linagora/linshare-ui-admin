@@ -150,7 +150,7 @@ function isFilterTypes(type: ActivitiesType) {
 
 // hooks
 onMounted(() => {
-  handleTableChange();
+  handleTableChange(false);
 });
 
 // watch
@@ -254,7 +254,7 @@ watch(
     v-model="pagination"
     class="pagination"
     :is-visible="!!activitiesLogsFormated.length"
-    @change="() => handleTableChange()"
+    @change="() => handleTableChange(false)"
   />
 </template>
 
