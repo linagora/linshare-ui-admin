@@ -188,6 +188,7 @@ async function onGetEmailContext() {
 }
 async function onGetEmailConfig() {
   emailConfigs.value = await handleGetMailConfigContext(activeMailContent.value?.domain);
+  activeMailContent.value.config = emailConfigs.value[0].uuid;
 }
 
 onMounted(() => {
