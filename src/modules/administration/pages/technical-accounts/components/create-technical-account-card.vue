@@ -62,7 +62,12 @@
       </div>
       <div class="create-technical-account-card__actions">
         <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>
-        <a-button :disabled="strength < 80" class="ls-button ls-save" type="primary" @click="onCreateTechnicalAccount">
+        <a-button
+          :disabled="strength < 80 || creationForm.password !== creationForm.password_confirmation"
+          class="ls-button ls-save"
+          type="primary"
+          @click="onCreateTechnicalAccount"
+        >
           <a-spin v-if="loading" />
           <span v-else>{{ $t('GENERAL.CREATE') }}</span>
         </a-button>
