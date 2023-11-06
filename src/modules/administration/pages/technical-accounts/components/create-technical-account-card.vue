@@ -36,7 +36,7 @@
         >
           <a-input-password v-model:value="creationForm.password" class="ls-input"></a-input-password>
           <span :class="passwordStrengthClass"></span>
-          <span class="password-requierement"> {{ $t('TECHNICAL_ACCOUNTS.CREATE_MODAL.PASSWORD_REQUIEREMENT') }}</span>
+          <span class="password-requierement"> {{ $t('TECHNICAL_ACCOUNTS.CREATE_MODAL.PASSWORD_REQUIREMENT') }}</span>
         </a-form-item>
         <a-form-item
           class="ls-form-title"
