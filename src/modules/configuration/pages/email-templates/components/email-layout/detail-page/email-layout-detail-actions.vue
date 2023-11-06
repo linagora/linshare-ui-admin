@@ -26,7 +26,12 @@ const props = defineProps<{
 
 const { activeMailLayout } = useEmailTemplatesLayout();
 const isEnableSaveButton = computed(() => {
-  return activeMailLayout.value.description && activeMailLayout.value.description?.trim()?.length > 0;
+  return (
+    activeMailLayout.value.description &&
+    activeMailLayout.value.description?.trim()?.length > 0 &&
+    activeMailLayout.value.layout &&
+    activeMailLayout.value.layout?.trim()?.length > 0
+  );
 });
 
 function onCancel() {
