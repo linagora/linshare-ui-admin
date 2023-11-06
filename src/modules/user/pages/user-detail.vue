@@ -6,7 +6,6 @@ import { message } from 'ant-design-vue';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import { APIError } from '@/core/types/APIError';
 import { deleteUser, getUser } from '@/modules/user/services/user-api';
-import PageTitle from '@/core/components/page-title.vue';
 import UserProfile from '@/modules/user/components/user-profile.vue';
 import UserRestrictedContacts from '@/modules/user/components/user-restricted-contacts.vue';
 import UserPersonalSpaceQuota from '@/modules/user/components/user-personal-space-quota.vue';
@@ -125,8 +124,10 @@ onMounted(handleTableChange);
 
   <div v-if="user && pageStatus === STATUS.SUCCESS" class="user-detail">
     <div class="user-detail__header">
-      <UserLockedAlert :user="user" @unlock="user && (user.locked = false)" />
-      <UserSharedKeyAlert :user="user" @delete="user && (user.secondFAEnabled = false)" />
+      <div class="user-detail__header-noti">
+        <UserLockedAlert :user="user" @unlock="user && (user.locked = false)" />
+        <UserSharedKeyAlert :user="user" @delete="user && (user.secondFAEnabled = false)" />
+      </div>
       <div v-if="pageStatus === STATUS.SUCCESS" class="delete-user-container">
         <a-popconfirm
           :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
@@ -136,7 +137,9 @@ onMounted(handleTableChange);
           overlay-class-name="popconfirm-delete"
           @confirm="remove"
         >
-          <a-button>{{ $t('USERS.DETAIL_USER.DELETE_USER') }}</a-button>
+          <a-button class="ls-button ls-cancel" type="primary" danger>{{
+            $t('USERS.DETAIL_USER.DELETE_USER')
+          }}</a-button>
         </a-popconfirm>
       </div>
     </div>
@@ -179,19 +182,24 @@ onMounted(handleTableChange);
   align-items: stretch;
   &__header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  &__header-noti {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 4px;
+    width: 100%;
   }
 }
 
 .delete-user-container {
   display: inline-block;
-
-  .ant-btn {
-    background: @primary-8;
-    color: @text-color-inverse;
-  }
+  align-self: flex-end;
 }
 
 .spinner {

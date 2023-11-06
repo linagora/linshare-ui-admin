@@ -6,7 +6,7 @@ import { APIError } from '@/core/types/APIError';
 import { listGuestsThatUserIsModeratorOf } from '../services/user-api';
 import { GuestListFilters, GuestListParameters } from '../types/GuestList';
 import type { Guest } from '@/modules/user/types/GuestList';
-import router from '@/core/router';
+import { useRoute } from 'vue-router';
 
 const list = ref<Guest[]>([]);
 const loading = ref(false);
@@ -28,8 +28,10 @@ type UsableGuestList = {
 };
 
 export default function useGuestList(): UsableGuestList {
+  const route = useRoute();
+
   async function updateGuestList(options: GuestListParameters) {
-    const currentUser = router.currentRoute.value.params.id;
+    const currentUser = route.params.id;
     if (loading.value) {
       return;
     }

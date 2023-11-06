@@ -36,27 +36,56 @@ function confirmRemoveSharedKey() {
 
 <template>
   <div class="second-factor-authentication">
-    <div>
-      <span>{{ $t('2FA.TITLE') }}</span>
-      <a-tag :color="user?.secondFAEnabled ? 'green' : 'red'">
-        {{ user?.secondFAEnabled ? $t('USERS.DETAIL_USER.ENABLED') : $t('USERS.DETAIL_USER.DISABLED') }}
-      </a-tag>
+    <div class="second-factor-authentication__name">
+      <strong>{{ user?.name || `${user.firstName} ${user.lastName}` }}</strong>
+      <span>{{ user.mail }}</span>
     </div>
-    <a-button v-if="user.secondFAEnabled" class="delete-shared-key-button" @click="confirmRemoveSharedKey">
-      {{ $t('2FA.KEY_REMOVAL.BUTTON') }}
-    </a-button>
+    <div class="second-factor-authentication__auth">
+      <div>
+        <span>{{ $t('2FA.TITLE') }}</span>
+        <a-tag :color="user?.secondFAEnabled ? 'green' : 'red'">
+          {{ user?.secondFAEnabled ? $t('USERS.DETAIL_USER.ENABLED') : $t('USERS.DETAIL_USER.DISABLED') }}
+        </a-tag>
+      </div>
+      <a-button v-if="user.secondFAEnabled" class="delete-shared-key-button" @click="confirmRemoveSharedKey">
+        {{ $t('2FA.KEY_REMOVAL.BUTTON') }}
+      </a-button>
+    </div>
   </div>
 </template>
 
 <style lang="less" scoped>
 .second-factor-authentication {
-  margin-top: 30px;
   border: 1px solid #eee;
   padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   border-radius: 4px;
+  gap: 8px;
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4px;
+    line-height: 16px;
+  }
+  &__name strong {
+    font-size: 20px;
+  }
+  &__name span {
+    opacity: 0.6;
+  }
+
+  &__auth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 
   @media (max-width: 575px) {
     display: block;
