@@ -14,7 +14,8 @@ import EmailActivationTable from '../components/email-activation/email-activatio
 //composable
 const route = useRoute();
 const { currentDomain } = storeToRefs(useDomainStore());
-const { status, list, handleGetEmailActivationTemplates, resetSelectEmailActivations } = useEmailTemplatesActivation();
+const { status, list, handleGetEmailActivationTemplates, resetSelectEmailActivations, resetMailActivationPaging } =
+  useEmailTemplatesActivation();
 
 //computed
 const currentDomainUuid = computed(() => {
@@ -31,6 +32,7 @@ watch(
   route,
   (newRoute) => {
     if (newRoute) {
+      resetMailActivationPaging();
       onFetchEmailActivations();
     }
   },

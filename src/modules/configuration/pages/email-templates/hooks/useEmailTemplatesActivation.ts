@@ -201,6 +201,12 @@ export default function useEmailTemplatesActivation() {
     selectedMailActivations.value = [];
   }
 
+  function resetMailActivationPaging() {
+    pagination.current = 1;
+    pagination.total = 0;
+    pagination.pageSize = DEFAULT_PAGE_SIZE;
+  }
+
   return {
     list,
     modal,
@@ -221,5 +227,6 @@ export default function useEmailTemplatesActivation() {
     onCheckDefaultEmailActivation,
     handleGetEmailActivationTemplates,
     checkingEmailActivationsDomainAuthorized,
+    resetMailActivationPaging,
   };
 }
