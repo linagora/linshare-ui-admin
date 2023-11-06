@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import LsTable, { LsTableColumn } from '@/core/components/ls/ls-table.vue';
 import { isEmail } from '@/core/utils/is-email';
 import { getReadableSize } from '@/core/utils/unitStorage';
 import { computed } from 'vue';
@@ -14,7 +13,7 @@ const usedSpaceData = computed(() => {
   return props.data.filter((data) => data.usedSpace !== 0);
 });
 const { t } = useI18n();
-const columns = computed<LsTableColumn[]>(() => [
+const columns = computed(() => [
   {
     title: t('GENERAL.NUMBER_COL'),
     width: '70px',
@@ -45,8 +44,14 @@ const columns = computed<LsTableColumn[]>(() => [
 </script>
 
 <template>
-  <ls-table class="used-storage-table" :data-source="usedSpaceData" :loading="loading" :columns="columns">
-    <template #bodyCell="{ column, row, index }">
+  <a-table
+    class="used-storage-table"
+    :data-source="usedSpaceData"
+    :pagination="false"
+    :loading="loading"
+    :columns="columns"
+  >
+    <template #bodyCell="{ column, record, index }">
       <template v-if="column.key === 'number'">
         {{ index + 1 }}
       </template>
@@ -54,43 +59,43 @@ const columns = computed<LsTableColumn[]>(() => [
         <div class="account-name">
           <router-link
             :to="{
-              name: isEmail(row.account.email) ? 'UserDetail' : MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_DETAIL,
+              name: isEmail(record.account.email) ? 'UserDetail' : MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_DETAIL,
               params: {
-                id: row.account.uuid,
+                id: record.account.uuid,
               },
             }"
           >
-            {{ row.account.name }}
+            {{ record.account.name }}
           </router-link>
 
           <span class="email">
-            {{ isEmail(row.account.email) ? row.account.email : 'N/A' }}
+            {{ isEmail(record.account.email) ? record.account.email : 'N/A' }}
           </span>
         </div>
       </template>
       <template v-else-if="column.key === 'email'">
-        {{ isEmail(row.account.email) ? row.account.email : 'N/A' }}
+        {{ isEmail(record.account.email) ? record.account.email : 'N/A' }}
       </template>
       <template v-else-if="column.key === 'domain'">
-        {{ row.domain.name }}
+        {{ record.domain.name }}
       </template>
       <template v-else-if="column.key === 'usedSpace'">
-        {{ getReadableSize(row.usedSpace).getText() }}
+        {{ getReadableSize(record.usedSpace).getText() }}
       </template>
     </template>
-  </ls-table>
+  </a-table>
 </template>
 
-<style lang="less" scoped>
+<style lang="less">
 .used-storage-table {
-  :deep(th:nth-child(3)) {
-    display: none;
-  }
-
-  :deep(td:nth-child(3)) {
-    display: none;
+  .ant-table {
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    overflow-x: auto;
   }
 }
+</style>
+<style lang="less" scoped>
 .account-name {
   display: flex;
   flex-direction: column;

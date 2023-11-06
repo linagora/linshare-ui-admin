@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { GenericResourceStatistic } from '../types/GenericStatistic';
-import LsTable, { LsTableColumn } from '@/core/components/ls/ls-table.vue';
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
@@ -10,7 +9,7 @@ defineProps<{
 }>();
 
 const { t } = useI18n();
-const columns = computed<LsTableColumn[]>(() => [
+const columns = computed(() => [
   {
     title: t('GENERAL.NUMBER_COL'),
     width: '70px',
@@ -74,38 +73,48 @@ const columns = computed<LsTableColumn[]>(() => [
 </script>
 
 <template>
-  <ls-table :data-source="data" :loading="loading" :columns="columns">
-    <template #bodyCell="{ column, row, index }">
+  <a-table class="reporting-statistic-generics-table" :data-source="data" :loading="loading" :columns="columns">
+    <template #bodyCell="{ column, record, index }">
       <template v-if="column.key === 'number'">
         {{ index + 1 }}
       </template>
       <template v-else-if="column.key === 'resource'">
-        {{ $t(`REPORTING.GENERICS.RESOURCE.${row.resource}`) }}
+        {{ $t(`REPORTING.GENERICS.RESOURCE.${record.resource}`) }}
       </template>
       <template v-else-if="column.key === 'CREATE'">
-        {{ row.CREATE }}
+        {{ record.CREATE }}
       </template>
       <template v-else-if="column.key === 'DELETE'">
-        {{ row.DELETE }}
+        {{ record.DELETE }}
       </template>
       <template v-else-if="column.key === 'DOWNLOAD'">
-        {{ row.DOWNLOAD }}
+        {{ record.DOWNLOAD }}
       </template>
       <template v-else-if="column.key === 'GET'">
-        {{ row.GET }}
+        {{ record.GET }}
       </template>
       <template v-else-if="column.key === 'UPDATE'">
-        {{ row.UPDATE }}
+        {{ record.UPDATE }}
       </template>
       <template v-else-if="column.key === 'SUCCESS'">
-        {{ row.SUCCESS }}
+        {{ record.SUCCESS }}
       </template>
       <template v-else-if="column.key === 'FAILURE'">
-        {{ row.FAILURE }}
+        {{ record.FAILURE }}
       </template>
       <template v-else-if="column.key === 'PURGE'">
-        {{ row.PURGE }}
+        {{ record.PURGE }}
       </template>
     </template>
-  </ls-table>
+  </a-table>
 </template>
+
+<style lang="less">
+.reporting-statistic-generics-table {
+  .ant-table {
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+}
+</style>
