@@ -152,7 +152,7 @@ checkGuestFeature();
         </div>
         <div class="input-container">
           <label>{{ $t('USERS.DETAIL_USER.ROLE') }}</label>
-          <a-select v-model:value="formModel.role">
+          <a-select v-model:value="formModel.role" :disabled="isGuestUser">
             <a-select-option value="SIMPLE">
               {{ $t('USERS.DETAIL_USER.ROLE_SIMPLE') }}
             </a-select-option>
