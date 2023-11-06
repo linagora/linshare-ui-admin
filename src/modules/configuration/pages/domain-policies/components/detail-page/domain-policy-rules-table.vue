@@ -221,7 +221,8 @@ function moveUp(index: number) {
 }
 
 function moveDown(index: number) {
-  if (index === activeDomainPolicyForm.value?.accessPolicy?.rules?.length || 0 - 1) {
+  const rules = activeDomainPolicyForm.value?.accessPolicy?.rules;
+  if (!rules || index < 0 || index >= rules.length - 1) {
     return;
   }
   moveRule(index, index + 1);
