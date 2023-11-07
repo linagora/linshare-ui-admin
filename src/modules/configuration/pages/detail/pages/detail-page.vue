@@ -71,7 +71,7 @@
               </router-link>
             </div>
           </div>
-          <div v-if="!isRootDomain" class="info-block">
+          <div v-if="!isRootDomain && isSuperAdmin" class="info-block">
             <div class="title">
               {{ $t('DOMAIN.FIELDS.DOMAIN_POLICY') }}
             </div>
@@ -97,7 +97,9 @@
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { STATUS } from '@/core/types/Status';
+import { useAuthStore } from '@/modules/auth/store';
 import { useDomainStore } from '@/modules/domain/store';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 import { CONFIGURATION_ROUTE_NAMES } from '@/modules/configuration/router/index';
 import DomainForm from '@/modules/configuration/pages/detail/components/domain-form.vue';
 import { CONFIGURATION_MIME_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/type-mime-policies/router';
@@ -126,6 +128,11 @@ function getDomainPolicyDetail(domainPolicy: { uuid: string; name: string }) {
 
   return onEditDomainPolicy(domainPolicyDetail);
 }
+// is Super admin
+const { loggedUserRole } = storeToRefs(useAuthStore());
+const isSuperAdmin = computed(() => {
+  return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
+});
 </script>
 
 <style lang="less">
