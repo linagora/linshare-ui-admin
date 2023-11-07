@@ -1,6 +1,11 @@
 <template>
   <div v-if="editable" class="contact-list-detail-action">
-    <a-button :disabled="loading" type="primary" class="ls-button ls-filled" @click="emits('save')">
+    <a-button
+      :disabled="loading || !isEnableSaveButton"
+      type="primary"
+      class="ls-button ls-filled"
+      @click="emits('save')"
+    >
       <a-spin v-if="loading"></a-spin>
       <span v-else>{{ $t('GENERAL.SAVE') }}</span>
     </a-button>
@@ -13,6 +18,9 @@
   </div>
 </template>
 <script setup lang="ts">
+import { computed } from 'vue';
+import useContactList from '../../hooks/useContactList';
+
 // props & emits
 const emits = defineEmits(['save', 'cancel', 'reset', 'delete']);
 const props = defineProps<{
@@ -25,6 +33,11 @@ function onCancel() {
   emits('cancel');
   emits('reset');
 }
+
+const { activeContactListForm } = useContactList();
+const isEnableSaveButton = computed(() => {
+  return activeContactListForm.value?.identifier?.trim() && activeContactListForm.value?.identifier?.trim()?.length > 0;
+});
 </script>
 <style lang="less">
 .contact-list-detail-action {
@@ -52,6 +65,12 @@ function onCancel() {
     .ant-spin-dot-item {
       background-color: #f3f3f7;
     }
+  }
+  .ls-filled[disabled],
+  .ls-filled[disabled]:hover {
+    background-color: #007aff;
+    color: #f3f3f7;
+    opacity: 0.5;
   }
 
   .ls-delete {
