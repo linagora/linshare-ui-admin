@@ -423,7 +423,6 @@
       "ROLE": "Rôle",
       "FIRST_NAME": "Prénom",
       "LAST_NAME": "Nom de famille",
-      "DEFAULT_LANGUAGE": "Langue par défaut du site",
       "NOTIFICATION_LANGUAGE": "Langue des notifications",
       "STATUS": "Statut",
       "CREATION_MODAL_TITLE": "Créer un profil",

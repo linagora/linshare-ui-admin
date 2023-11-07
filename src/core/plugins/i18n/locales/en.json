@@ -424,7 +424,6 @@
       "ROLE": "Role",
       "FIRST_NAME": "First Name",
       "LAST_NAME": "Last name",
-      "DEFAULT_LANGUAGE": "Default language of site",
       "NOTIFICATION_LANGUAGE": "Notification language",
       "STATUS": "Status",
       "CREATION_MODAL_TITLE": "Create profil",

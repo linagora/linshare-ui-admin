@@ -32,13 +32,6 @@
       <a-form-item class="ls-form-title" :label="$t('INCONSISTENT_USERS.MIGRATE_USERS_CARD.LAST_NAME')">
         <a-input v-model:value="selectedUser.lastName" class="ls-input" :allow-clear="true" />
       </a-form-item>
-      <a-form-item class="ls-form-title" :label="$t('INCONSISTENT_USERS.MIGRATE_USERS_CARD.DEFAULT_LANGUAGE')">
-        <a-select v-model:value="selectedUser.locale" class="ls-input" :bordered="false">
-          <a-select-option v-for="option in defaultLanguageOptions" :key="option" :value="option">
-            {{ $t(`LOCALE.${option}`) }}
-          </a-select-option>
-        </a-select>
-      </a-form-item>
       <a-form-item class="ls-form-title" :label="$t('INCONSISTENT_USERS.MIGRATE_USERS_CARD.NOTIFICATION_LANGUAGE')">
         <a-select v-model:value="selectedUser.externalMailLocale" class="ls-input" :bordered="false">
           <a-select-option v-for="option in languageNotificationOptions" :key="option" :value="option">
@@ -124,7 +117,6 @@ const {
   saveDiagnosticUserModification,
   handleTableChange,
 } = useUsersDiagnostic();
-const defaultLanguageOptions = ['ENGLISH', 'FRENCH', 'RUSSIAN', 'VIETNAMESE'];
 const languageNotificationOptions = ['ENGLISH', 'FRENCH', 'RUSSIAN', 'VIETNAMESE'];
 const showMigrationModal = ref(false);
 const { t } = useI18n();
