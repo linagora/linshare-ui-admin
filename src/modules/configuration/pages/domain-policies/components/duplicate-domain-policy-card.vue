@@ -141,12 +141,6 @@ const rules = computed(() => {
   ];
 });
 const formRules = computed(() => ({
-  description: [
-    {
-      required: true,
-      message: t('GENERAL.FIELD_REQUIRED'),
-    },
-  ],
   label: [
     {
       required: true,
