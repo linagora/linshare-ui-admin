@@ -34,7 +34,7 @@
           v-bind="validateInfos.password"
           :label="$t('TECHNICAL_ACCOUNTS.CREATE_MODAL.NEW_PASSWORD')"
         >
-          <a-input-password v-model:value="creationForm.password" class="ls-input"></a-input-password>
+          <a-input-password v-model:value="creationForm.password" class="ls-input" maxlength="30"></a-input-password>
           <span :class="passwordStrengthClass"></span>
           <span class="password-requierement"> {{ $t('TECHNICAL_ACCOUNTS.CREATE_MODAL.PASSWORD_REQUIREMENT') }}</span>
         </a-form-item>
@@ -47,11 +47,13 @@
             v-if="creationForm.password === creationForm.password_confirmation"
             v-model:value="creationForm.password_confirmation"
             class="ls-input"
+            maxlength="30"
           ></a-input-password>
           <a-input-password
             v-else
             v-model:value="creationForm.password_confirmation"
             class="ls-input-red"
+            maxlength="30"
           ></a-input-password>
         </a-form-item>
         <a-form-item class="ls-form-title">
