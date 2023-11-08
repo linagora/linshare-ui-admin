@@ -62,13 +62,7 @@
               {{ $t('DOMAIN.FIELDS.MIME_POLICY') }}
             </div>
             <div class="value">
-              <router-link
-                :to="{
-                  name: CONFIGURATION_MIME_POLICIES_ROUTE_NAMES.ENTRIES,
-                }"
-              >
-                <a href="">{{ currentDomain.mimePolicy?.name }}</a>
-              </router-link>
+              <a @click="getMimePolicyDetail(currentDomain)">{{ currentDomain.mimePolicy?.name }}</a>
             </div>
           </div>
           <div v-if="!isRootDomain && isSuperAdmin" class="info-block">
@@ -105,13 +99,19 @@ import DomainForm from '@/modules/configuration/pages/detail/components/domain-f
 import { CONFIGURATION_MIME_POLICIES_ROUTE_NAMES } from '@/modules/configuration/pages/type-mime-policies/router';
 import { CONFIGURATION_EMAIL_TEMPLATES_ROUTE_NAMES } from '@/modules/configuration/pages/email-templates/router';
 import useDomainPolicies from '@/modules/configuration/pages/domain-policies/hooks/useDomainPolicies';
+import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 import DomainPolicy from '@/modules/configuration/pages/domain-policies/types/DomainPolicy';
+import MimePolicy from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
+import Domain from '@/modules/domain/types/Domain';
+import { useRoute } from 'vue-router';
 
 // composable
 const domainStore = useDomainStore();
 const { isRootDomain, currentDomain } = storeToRefs(domainStore);
+const route = useRoute();
 
 const { onEditDomainPolicy } = useDomainPolicies();
+const { onEditMimePolicy } = useMimesPolicies();
 
 // computed
 const loadingDomain = computed(() => domainStore.getStatus('currentDomain') === STATUS.LOADING);
@@ -133,6 +133,20 @@ const { loggedUserRole } = storeToRefs(useAuthStore());
 const isSuperAdmin = computed(() => {
   return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
 });
+
+function getMimePolicyDetail(currentDomain: Domain) {
+  const mimePolicyDetail: MimePolicy = {
+    uuid: currentDomain.mimePolicy.uuid,
+    name: currentDomain.mimePolicy.name,
+    modificationDate: currentDomain.modificationDate,
+    domainId: currentDomain.uuid,
+    domainName: currentDomain.name,
+  };
+
+  const id = route.params;
+
+  return onEditMimePolicy(mimePolicyDetail);
+}
 </script>
 
 <style lang="less">

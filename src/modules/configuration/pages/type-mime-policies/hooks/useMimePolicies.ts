@@ -94,7 +94,7 @@ export default function useMimesPolicies() {
     router.push({
       name: CONFIGURATION_MIME_POLICIES_ROUTE_NAMES.DETAIL,
       params: {
-        ...route.params,
+        domainUuid: currentDomain.value.uuid,
         mimePolicyUuid: activeMimePolicy.value?.uuid,
       },
     });
