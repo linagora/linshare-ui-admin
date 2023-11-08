@@ -88,7 +88,7 @@ export default function useDomainPolicies() {
     pagination.total = newVal.length;
     pagination.current =
       pagination.current * pagination.pageSize > pagination.total
-        ? Math.floor(pagination.total / pagination.pageSize) || 1
+        ? Math.ceil(pagination.total / pagination.pageSize) || 1
         : pagination.current;
   });
 
