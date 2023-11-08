@@ -162,6 +162,7 @@ function resetForm() {
   formState.name = '';
   formState.dedicatedDomainPolicy = false;
   formState.description = '';
+  formState.guestDomain = false;
 }
 </script>
 
