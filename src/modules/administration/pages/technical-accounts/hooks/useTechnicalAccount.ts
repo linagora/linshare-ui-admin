@@ -141,8 +141,8 @@ export default function useTechnicalAccount() {
       validator: (pwd: any) => pwd && /[$-/:-?{-~!"^_`[\]]/g.test(pwd),
     },
     {
-      description: 'Length longer than 8 char',
-      validator: (pwd: any) => pwd && pwd.length >= 8,
+      description: 'Length longer than 12 char',
+      validator: (pwd: any) => pwd && pwd.length >= 12,
     },
     {
       description: 'Contain a digit',
@@ -175,7 +175,7 @@ export default function useTechnicalAccount() {
       return '';
     } else if (strength.value < 50) {
       return 'password-strength-low';
-    } else if (strength.value < 80) {
+    } else if (strength.value < 100) {
       return 'password-strength-medium';
     } else {
       return 'password-strength-high';
