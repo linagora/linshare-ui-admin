@@ -94,13 +94,18 @@ async function searchUsers(search: string) {
       type: 'INTERNAL',
     });
 
-    options.value = data
+    const userStillSelected = data
       .filter((user) => user.uuid !== props.user.uuid)
-      .map((user) => ({
+      .filter((user) => !options.value.some((option) => option.value === user.mail));
+
+    options.value = [
+      ...options.value,
+      ...userStillSelected.map((user) => ({
         label: getFullName(user),
         value: user.mail,
         data: transform(user),
-      }));
+      })),
+    ];
   } catch (error) {
     if (error instanceof APIError) {
       return message.error(error.getMessage());
