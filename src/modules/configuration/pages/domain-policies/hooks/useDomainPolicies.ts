@@ -21,7 +21,7 @@ import { useRouter } from 'vue-router';
 import { CONFIGURATION_DOMAIN_POLICIES_ROUTE_NAMES } from '../router';
 
 const activeDomainPolicy = useLocalStorage<DomainPolicy>('configuration-domain-policies', {} as DomainPolicy);
-const activeDomainPolicyForm = ref<Partial<DomainPolicy>>({});
+const activeDomainPolicyForm = ref<DomainPolicy>({} as DomainPolicy);
 const defaultDomainPolicyForm = ref<Partial<DomainPolicy>>({});
 const selectedDomainPolicies = ref<DomainPolicy[]>();
 
@@ -326,10 +326,10 @@ export default function useDomainPolicies() {
       status.value = STATUS.SUCCESS;
       activeDomainPolicy.value = messages;
 
-      activeDomainPolicyForm.value = {
+      activeDomainPolicyForm.value = structuredClone({
         ...messages,
-      };
-      defaultDomainPolicyForm.value = { ...activeDomainPolicyForm.value };
+      });
+      defaultDomainPolicyForm.value = structuredClone({ ...messages });
     } catch (error) {
       status.value = STATUS.ERROR;
 
@@ -356,6 +356,7 @@ export default function useDomainPolicies() {
 
   function handleResetDomainPolicy() {
     activeDomainPolicyForm.value = JSON.parse(JSON.stringify(defaultDomainPolicyForm.value));
+    activeDomainPolicyForm.value.accessPolicy.rules = [...(defaultDomainPolicyForm.value.accessPolicy?.rules || [])];
   }
   function resetSelectDomainPolicy() {
     selectedDomainPolicies.value = [];
@@ -378,6 +379,7 @@ export default function useDomainPolicies() {
     activeDomainPolicyForm,
     filteredListByPage,
     selectedDomainPolicies,
+    defaultDomainPolicyForm,
     languageOptions,
     isAssigned,
     onCloseModal,
