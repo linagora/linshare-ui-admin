@@ -1,6 +1,6 @@
 <template>
   <div class="administration-router">
-    <div v-for="(menu, index) in menus" :key="index" class="administration-router-item" @click="menu.to">
+    <div v-for="(menu, index) in visibleMenus" :key="index" class="administration-router-item" @click="menu.to">
       <component :is="menu.icon" />
       <div class="administration-router-content">
         <strong>{{ menu.name }}</strong>
@@ -50,6 +50,7 @@ export default defineComponent({
           to: () => {
             router.push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_USERS_ROUTE_NAMES.USER_LIST });
           },
+          visible: true,
         },
         {
           name: t('ADMINISTRATION.NAVIGATOR.TECHNICAL_ACCOUNTS'),
@@ -60,6 +61,7 @@ export default defineComponent({
               name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_TECHNICAL_ACCOUNTS_ROUTE_NAMES.TECHNICAL_ACCOUNT_LIST,
             });
           },
+          visible: isSuperAdmin.value,
         },
         {
           name: t('ADMINISTRATION.NAVIGATOR.MY_DRIVE'),
@@ -68,6 +70,7 @@ export default defineComponent({
           to: () => {
             router.push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_LIST });
           },
+          visible: true,
         },
         {
           name: t('ADMINISTRATION.NAVIGATOR.MY_CONTACT_LIST'),
@@ -76,6 +79,7 @@ export default defineComponent({
           to: () => {
             router.push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST });
           },
+          visible: true,
         },
         {
           name: t('ADMINISTRATION.NAVIGATOR.INCONSISTENT_USERS'),
@@ -86,6 +90,7 @@ export default defineComponent({
               name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.INCONSISTENT_USERS_ROUTE_NAMES.INCONSISTENT_LIST,
             });
           },
+          visible: isSuperAdmin.value,
         },
         {
           name: t('ADMINISTRATION.NAVIGATOR.LOGGERS'),
@@ -94,18 +99,25 @@ export default defineComponent({
           to: () => {
             router.push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.LOGGERS });
           },
+          visible: true,
         },
       ];
     });
 
+    const visibleMenus = computed(() => {
+      return menus.value.filter((menu) => {
+        return menu.visible;
+      });
+    });
+
     return {
-      menus,
+      visibleMenus,
       isSuperAdmin,
     };
   },
 });
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .administration-router {
   display: flex;
   flex-direction: row;
