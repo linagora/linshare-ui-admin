@@ -7,11 +7,9 @@ import {
 } from '../types/InconsistentUsers';
 import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
-import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
 import { getInconsistentUsersList, migrateUser } from '../services/inconsistent-users-api';
 import Sort, { SORT_ORDER } from '@/core/types/Sort';
-import { filter } from 'lodash-es';
 
 type UsableUsersList = {
   list: Ref<InconsistentUsers[]>;
@@ -103,7 +101,10 @@ export default function useInconsistentUsers(): UsableUsersList {
     }
   }
 
-  async function handleMigrateInconsistentUsers(payload: InconsistentUsers[], domain: object) {
+  async function handleMigrateInconsistentUsers(
+    payload: InconsistentUsers[],
+    domain: { label: string; value: string }
+  ) {
     try {
       loading.value = true;
 

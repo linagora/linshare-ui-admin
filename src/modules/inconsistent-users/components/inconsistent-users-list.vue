@@ -71,17 +71,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
 import { message } from 'ant-design-vue';
-import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
-import InconsistentUsersMigrationModal from './inconsistent-users-migration-modal.vue';
-import { deleteUser } from '@/modules/inconsistent-users/services/inconsistent-users-api';
-import useNotification from '@/core/hooks/useNotification';
 import User from '@/modules/user/types/User';
 import { APIError } from '@/core/types/APIError';
-import { useRouter } from 'vue-router';
+import useNotification from '@/core/hooks/useNotification';
 import { InconsistentUsers } from '../types/InconsistentUsers';
+import { computed, reactive, ref, onMounted, watch } from 'vue';
+import InconsistentUsersMigrationModal from './inconsistent-users-migration-modal.vue';
+import { deleteUser } from '@/modules/inconsistent-users/services/inconsistent-users-api';
+import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
 
 const { t } = useI18n();
 const { fetchInconsistentUsersList, resetFilters, filteredListByPage, loading, pagination, filterText } =

@@ -35,14 +35,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, reactive, watchEffect } from 'vue';
 import { storeToRefs } from 'pinia';
+import { computed, reactive } from 'vue';
 import { useDomainStore } from '@/modules/domain/store';
-import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
-import useUsersDiagnostic from '@/modules/inconsistent-users/hooks/useUsersDiagnostic';
-import Domain from '@/modules/domain/types/Domain';
-import { useReportingStore } from '../store';
 import { InconsistentUsers } from '../types/InconsistentUsers';
+import useUsersDiagnostic from '@/modules/inconsistent-users/hooks/useUsersDiagnostic';
+import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
 
 interface Props {
   visible: boolean;
@@ -58,7 +56,6 @@ const { loading, handleMigrateInconsistentUsers } = useInconsistentUsers();
 const { activeUserDiagnostic } = useUsersDiagnostic();
 
 const emits = defineEmits(['close', 'refresh']);
-const { domains } = storeToRefs(useReportingStore());
 const { getDomainsList: domainsList } = storeToRefs(useDomainStore());
 const domainOptions = computed(() =>
   domainsList.value.map((domain) => ({
@@ -80,6 +77,7 @@ async function apply() {
     onCloseModal();
     activeUserDiagnostic.value = undefined;
   }
+  emits('refresh');
 }
 
 async function onCloseModal() {
