@@ -31,13 +31,7 @@
           class="ls-form-title"
           :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.MODEL')"
         >
-          <a-select
-            v-model:value="form.footerUuid"
-            :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
-            class="ls-input"
-            :bordered="false"
-            @change="onSelectModel"
-          >
+          <a-select v-model:value="form.footerUuid" class="ls-input" :bordered="false" @change="onSelectModel">
             <a-select-option v-for="s in models" :key="s" :value="s.value">
               {{ s.label }}
             </a-select-option>

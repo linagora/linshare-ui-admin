@@ -29,7 +29,6 @@
         >
           <a-select
             v-model:value="form.mailContentType"
-            :get-popup-container="(triggerNode: HTMLElement) => triggerNode.parentElement"
             class="ls-input"
             :bordered="false"
             @change="onSelectMailContentType"
