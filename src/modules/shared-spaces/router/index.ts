@@ -23,6 +23,7 @@ export const SharedSpacesRoutes: Array<RouteRecordRaw> = [
         component: () => import('../pages/manage-shared-spaces.vue'),
         meta: {
           label: 'NAVIGATOR.MY_SHARED_SPACES',
+          parentRoute: 'AdministrationEntries',
           requiresAuth: true,
         },
       },
@@ -32,6 +33,7 @@ export const SharedSpacesRoutes: Array<RouteRecordRaw> = [
         component: () => import('../components/shared-space-details.vue'),
         meta: {
           label: 'NAVIGATOR.SHARED_SPACE_DETAILS',
+          parentRoute: MY_SHARED_SPACES_ROUTE_NAMES.SHARE_SPACES_LIST,
           requiresAuth: true,
         },
       },
