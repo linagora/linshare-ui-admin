@@ -74,6 +74,7 @@ const {
   onCloseModal,
   handleGetEmailFooterTemplates,
   resetSelectEmailFooters,
+  resetMailFooterPaging,
 } = useEmailTemplatesFooter();
 
 //computed
@@ -105,6 +106,7 @@ watch(
   route,
   (newRoute) => {
     if (newRoute) {
+      resetMailFooterPaging();
       onFetchEmailFooters();
     }
   },

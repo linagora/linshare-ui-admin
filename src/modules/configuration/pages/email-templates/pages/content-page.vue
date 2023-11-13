@@ -78,6 +78,7 @@ const {
   onCloseModal,
   handleGetEmailContentTemplates,
   resetSelectEmailContents,
+  resetMailContentPaging,
 } = useEmailTemplatesContent();
 
 //computed
@@ -110,6 +111,7 @@ watch(
   route,
   (newRoute) => {
     if (newRoute) {
+      resetMailContentPaging();
       onFetchEmailContents();
     }
   },

@@ -313,6 +313,12 @@ export default function useEmailTemplatesFooter() {
     selectedMailFooters.value = [];
   }
 
+  function resetMailFooterPaging() {
+    pagination.current = 1;
+    pagination.total = 0;
+    pagination.pageSize = DEFAULT_PAGE_SIZE;
+  }
+
   return {
     list,
     modal,
@@ -339,5 +345,6 @@ export default function useEmailTemplatesFooter() {
     onCheckDefaultEmailFooter,
     handleGetEmailFooterTemplates,
     checkingEmailFootersDomainAuthorized,
+    resetMailFooterPaging,
   };
 }

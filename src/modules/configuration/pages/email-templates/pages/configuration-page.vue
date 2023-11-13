@@ -85,6 +85,7 @@ const {
   fetchMailConfiguration,
   onCreateMailConfiguration,
   resetSelectEmailConfiguration,
+  resetMailConfigurationPaging,
 } = useEmailTemplatesConfiguration();
 const route = useRoute();
 const domainStore = useDomainStore();
@@ -103,6 +104,7 @@ onFetchMailConfiguration();
 
 watch(route, (newRoute) => {
   if (newRoute) {
+    resetMailConfigurationPaging();
     onFetchMailConfiguration();
   }
 });

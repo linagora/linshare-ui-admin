@@ -406,6 +406,12 @@ export default function useEmailTemplatesContent() {
     selectedMailContents.value = [];
   }
 
+  function resetMailContentPaging() {
+    pagination.current = 1;
+    pagination.total = 0;
+    pagination.pageSize = DEFAULT_PAGE_SIZE;
+  }
+
   return {
     list,
     modal,
@@ -438,5 +444,6 @@ export default function useEmailTemplatesContent() {
     checkingEmailContentsDomainAuthorized,
     handleGetPreviewMailContent,
     handleGetPreviewLiveMailContent,
+    resetMailContentPaging,
   };
 }

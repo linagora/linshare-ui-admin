@@ -448,6 +448,12 @@ export default function useEmailTemplatesConfiguration() {
     }
   }
 
+  function resetMailConfigurationPaging() {
+    pagination.current = 1;
+    pagination.total = 0;
+    pagination.pageSize = DEFAULT_PAGE_SIZE;
+  }
+
   return {
     list,
     modal,
@@ -487,5 +493,6 @@ export default function useEmailTemplatesConfiguration() {
     onCheckDefaultEmailConfiguration,
     handleGetMailConfigurationDetail,
     checkingEmailConfigurationDomainAuthorized,
+    resetMailConfigurationPaging,
   };
 }

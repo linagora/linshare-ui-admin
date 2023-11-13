@@ -81,6 +81,7 @@ const {
   onCloseModal,
   handleGetEmailLayoutTemplates,
   resetSelectEmailLayouts,
+  resetMailLayoutPaging,
 } = useEmailTemplatesLayout();
 
 //computed
@@ -112,6 +113,7 @@ watch(
   route,
   (newRoute) => {
     if (newRoute) {
+      resetMailLayoutPaging();
       onFetchEmailLayouts();
     }
   },
