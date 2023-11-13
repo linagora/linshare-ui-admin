@@ -133,6 +133,7 @@ const handleSubmit = async function (options: TokenSubmitPayload<SharedSpaceList
     margin-left: -1em;
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px;
   }
 }
 
