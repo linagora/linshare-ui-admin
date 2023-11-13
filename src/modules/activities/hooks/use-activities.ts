@@ -37,7 +37,7 @@ export function useActivities() {
       ?.map((item, index) => {
         return {
           ...item,
-          number: (pagination.current - 1) * pagination.pageSize + index + 1,
+          number: pagination.current - 1 === 0 ? index + 1 : (pagination.current - 1) * pagination.pageSize + index + 1,
           domainName: item?.actor?.domain?.label ?? item?.domain?.label ?? item?.resource?.domain?.label ?? '-',
           actorName:
             loggedUser.value?.uuid === item?.actor?.uuid ||
