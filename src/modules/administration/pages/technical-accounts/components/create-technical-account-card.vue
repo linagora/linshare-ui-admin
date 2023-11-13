@@ -14,6 +14,8 @@
           class="ls-form-title"
           v-bind="validateInfos.mail"
           :label="$t('TECHNICAL_ACCOUNTS.CREATE_MODAL.MAIL')"
+          :rules="[{ type: 'email' }]"
+          :name="['mail']"
         >
           <a-input v-model:value="creationForm.mail" class="ls-input"></a-input>
         </a-form-item>
@@ -107,6 +109,11 @@ const formRules = computed(() => ({
       message: t('GENERAL.FIELD_REQUIRED'),
       trigger: 'blur',
     },
+    {
+      type: 'email',
+      message: t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.EMAIL_VALIDATION'),
+      trigger: ['blur', 'change'],
+    },
   ],
   role: [
     {
@@ -130,6 +137,7 @@ const formRules = computed(() => ({
     },
   ],
 }));
+
 const { validate, validateInfos, resetFields } = useForm(creationForm, formRules);
 // methods
 function resetFormData() {
