@@ -117,30 +117,25 @@
   </a-form>
 </template>
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { computed, onMounted, ref } from 'vue';
 import { Form, FormInstance } from 'ant-design-vue';
-import useEmailTemplatesContent from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesContent';
 import { MailContext } from '../../../types/MailContext';
 import { MailConfiguration } from '../../../types/MailConfiguration';
+import useEmailTemplatesContent from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesContent';
 
-const props = defineProps<{
+defineProps<{
   editable?: boolean;
   editing?: boolean;
+  emailConfigs?: MailConfiguration[];
 }>();
 const { t } = useI18n();
-const {
-  activeMailContent,
-  selectedLanguage,
-  languageOptions,
-  handleGetMailContentContext,
-  handleGetMailConfigContext,
-} = useEmailTemplatesContent();
+const { activeMailContent, selectedLanguage, languageOptions, handleGetMailContentContext } =
+  useEmailTemplatesContent();
 const isShowContext = ref(false);
 const formRef = ref<FormInstance>();
 const useForm = Form.useForm;
 const emailContexts = ref<MailContext[]>([]);
-const emailConfigs = ref<MailConfiguration[]>([]);
 const emailContextOptions = computed(() => {
   return [
     {
@@ -186,14 +181,9 @@ async function onGetEmailContext() {
   emailContexts.value = await handleGetMailContentContext(activeMailContent.value?.uuid);
   activeMailContent.value.context = 0;
 }
-async function onGetEmailConfig() {
-  emailConfigs.value = await handleGetMailConfigContext(activeMailContent.value?.domain);
-  activeMailContent.value.config = emailConfigs.value[0].uuid;
-}
 
 onMounted(() => {
   onGetEmailContext();
-  onGetEmailConfig();
 });
 
 defineExpose({

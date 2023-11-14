@@ -28,10 +28,15 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-import useEmailTemplatesContent from '../../../hooks/useEmailTemplatesContent';
+import useEmailTemplatesContent from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesContent';
+import { MailConfiguration } from '@/modules/configuration/pages/email-templates/types/MailConfiguration';
 
 const { activeMailContent, activeLanguageCode, handleGetPreviewMailContent, handleGetPreviewLiveMailContent } =
   useEmailTemplatesContent();
+
+const props = defineProps<{
+  emailConfigs?: MailConfiguration[];
+}>();
 
 let mailContentPreview = ref<{
   subject?: string;
@@ -43,6 +48,9 @@ const loading = ref(false);
 
 async function onGetPreviewContent() {
   loading.value = true;
+  if (!activeMailContent.value.config && props.emailConfigs) {
+    activeMailContent.value.config = props.emailConfigs[0].uuid;
+  }
   mailContentPreview.value = await handleGetPreviewMailContent(
     activeMailContent.value.uuid,
     activeMailContent.value.config ?? '',
@@ -53,6 +61,9 @@ async function onGetPreviewContent() {
 
 async function onGetPreviewLiveContent() {
   loading.value = true;
+  if (!activeMailContent.value.config && props.emailConfigs) {
+    activeMailContent.value.config = props.emailConfigs[0].uuid;
+  }
   mailContentPreview.value = await handleGetPreviewLiveMailContent(
     activeMailContent.value.uuid,
     activeMailContent.value.config ?? '',

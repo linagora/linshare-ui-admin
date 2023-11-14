@@ -14,12 +14,13 @@
             ref="detailCard"
             :editable="isEditable"
             :editing="editing"
+            :email-configs="emailConfigs"
           ></email-content-detail-card>
         </div>
       </div>
       <div class="content-detail-page__body-summary-system">
         <system-information-card :item="activeMailContent"></system-information-card>
-        <email-content-preview-card></email-content-preview-card>
+        <email-content-preview-card :email-configs="emailConfigs"></email-content-preview-card>
       </div>
     </div>
   </div>
@@ -45,6 +46,7 @@ import SystemInformationCard from '@/modules/configuration/pages/email-templates
 import useEmailTemplatesContent from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesContent';
 import { MailContent } from '../types/MailContent';
 import { useRoute } from 'vue-router';
+import { MailConfiguration } from '../types/MailConfiguration';
 
 const route = useRoute();
 const {
@@ -55,6 +57,7 @@ const {
   handleResetEmailContent,
   checkingEmailContentsDomainAuthorized,
   onCheckDefaultEmailContent,
+  handleGetMailConfigContext,
 } = useEmailTemplatesContent();
 
 // data
@@ -95,8 +98,16 @@ function onCancelEmailContent() {
   handleGetMailContentDetail(route.params.id.toString());
   onToggleEditState();
 }
+
+const emailConfigs = ref<MailConfiguration[]>([]);
+async function onGetEmailConfig() {
+  emailConfigs.value = await handleGetMailConfigContext(activeMailContent.value?.domain);
+  activeMailContent.value.config = emailConfigs.value[0].uuid;
+}
+
 onMounted(async () => {
   handleGetMailContentDetail(route.params.id.toString());
+  onGetEmailConfig();
 });
 </script>
 

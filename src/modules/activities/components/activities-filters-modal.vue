@@ -212,8 +212,8 @@ onMounted(async () => {
           class="ls-selector"
           :placeholder="$t('ACTIVITIES.FILTERS_MODAL.DOMAIN_SELECT_PLACEHOLDER')"
         >
-          <a-select-option v-for="domain in domainOptions" :key="domain.value" :value="domain.value">
-            {{ domain?.name }}
+          <a-select-option v-for="domainItem in domainOptions" :key="domainItem.value" :value="domainItem.value">
+            {{ domainItem?.name }}
           </a-select-option>
         </a-select>
       </a-form-item>
