@@ -52,11 +52,11 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, computed, reactive } from 'vue';
 import useTechnicalAccount from '../../hooks/useTechnicalAccount';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import UnlockIcon from '@/core/components/icons/unlock-icon.vue';
+import LsButton from '@/core/components/ls/ls-button.vue';
 
 // props
 const emits = defineEmits(['refresh', 'close']);

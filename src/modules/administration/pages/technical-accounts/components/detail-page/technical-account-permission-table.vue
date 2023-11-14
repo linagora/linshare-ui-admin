@@ -22,6 +22,9 @@
       class="technical-account-table__table"
     >
       <template #bodyCell="{ column, record }">
+        <template v-if="column.key === 'selectAll'">
+          <span></span>
+        </template>
         <template v-if="column.key === 'permission'">
           <a-checkbox :checked="isChecked(record)" @change="handleCheckboxChange(record)">
             {{ $t(`TECHNICAL_ACCOUNTS.DETAIL_PAGE.TECHNICAL_ACCOUNT_PERMISSION_TYPE.${record}`) }}
@@ -33,16 +36,43 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue';
+import { computed, ref, watch, h } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { SearchOutlined } from '@ant-design/icons-vue';
 import { PermissionType } from '../../types/TechnicalAccount';
 import useTechnicalAccount from '../../hooks/useTechnicalAccount';
 
+const areAllPermissionsSelected = () => {
+  return selectedPermissions.value.length === filteredPermissions.value.length;
+};
+
+const handleSelectAllPermissions = () => {
+  if (areAllPermissionsSelected()) {
+    selectedPermissions.value = [];
+  } else {
+    selectedPermissions.value = [...filteredPermissions.value];
+  }
+  technicalAccountDetails.permissions = selectedPermissions.value;
+};
+
 const columns = computed(() => [
   {
-    title: t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.PERMISSION_TITLE'),
-    sorter: (a: PermissionType, b: PermissionType) => a.localeCompare(b),
+    title: () => {
+      return h(
+        'div',
+        {
+          style: { display: 'flex', alignItems: 'center' },
+        },
+        [
+          h('input', {
+            type: 'checkbox',
+            checked: areAllPermissionsSelected(),
+            onChange: handleSelectAllPermissions,
+          }),
+          h('span', { style: { marginLeft: '8px' } }, t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.PERMISSION_TITLE')),
+        ]
+      );
+    },
     key: 'permission',
   },
 ]);
