@@ -1,6 +1,7 @@
 import { ref, reactive, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { message } from 'ant-design-vue';
+import dayjs from 'dayjs';
 import Domain from '@/core/types/Domain';
 import { APIError } from '@/core/types/APIError';
 import { ActivityLog, ActivityLogData, ActivityLogParameters, SORT_FIELD } from '@/modules/activities/types';
@@ -150,7 +151,7 @@ export function useActivities() {
     parameters.page = resetPagination ? 0 : pagination.current - 1;
     parameters.domainUuid = domainUuid;
     parameters.beginDate = beginDate.value?.format('YYYY-MM-DD');
-    parameters.endDate = endDate.value?.format('YYYY-MM-DD');
+    parameters.endDate = dayjs(endDate.value).add(1, 'days')?.format('YYYY-MM-DD');
     parameters.action = action.value.join('&action=');
     parameters.type = type.value.join('&type=');
     parameters.domain = domain.value.join('&domain=');
