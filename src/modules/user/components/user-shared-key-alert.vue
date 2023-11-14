@@ -36,10 +36,6 @@ function confirmRemoveSharedKey() {
 
 <template>
   <div class="second-factor-authentication">
-    <div class="second-factor-authentication__name">
-      <strong>{{ user?.name || `${user.firstName} ${user.lastName}` }}</strong>
-      <span>{{ user.mail }}</span>
-    </div>
     <div class="second-factor-authentication__auth">
       <div>
         <span>{{ $t('2FA.TITLE') }}</span>
@@ -64,21 +60,6 @@ function confirmRemoveSharedKey() {
   justify-content: flex-start;
   border-radius: 4px;
   gap: 8px;
-
-  &__name {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 4px;
-    line-height: 16px;
-  }
-  &__name strong {
-    font-size: 20px;
-  }
-  &__name span {
-    opacity: 0.6;
-  }
 
   &__auth {
     display: flex;

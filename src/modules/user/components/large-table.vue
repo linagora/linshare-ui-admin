@@ -35,7 +35,7 @@
           <div class="user-infos">
             <div>
               <a-avatar shape="circle" :size="46" class="profile-avatar">
-                <span> {{ record.firstName.charAt(0) }}</span>
+                <span> {{ record?.firstName?.charAt(0) }}</span>
               </a-avatar>
             </div>
 

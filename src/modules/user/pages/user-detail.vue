@@ -124,23 +124,29 @@ onMounted(handleTableChange);
 
   <div v-if="user && pageStatus === STATUS.SUCCESS" class="user-detail">
     <div class="user-detail__header">
+      <div class="user-detail__header-infor">
+        <div class="user-detail__header-infor-name">
+          <strong>{{ user?.name || `${user.firstName} ${user.lastName}` }}</strong>
+          <span>{{ user.mail }}</span>
+        </div>
+        <div v-if="pageStatus === STATUS.SUCCESS" class="delete-user-container">
+          <a-popconfirm
+            :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
+            :ok-text="$t('USERS.DETAIL_USER.YES')"
+            :cancel-text="$t('USERS.DETAIL_USER.NO')"
+            placement="bottom"
+            overlay-class-name="popconfirm-delete"
+            @confirm="remove"
+          >
+            <a-button class="ls-button ls-cancel" type="primary" danger>{{
+              $t('USERS.DETAIL_USER.DELETE_USER')
+            }}</a-button>
+          </a-popconfirm>
+        </div>
+      </div>
       <div class="user-detail__header-noti">
         <UserLockedAlert :user="user" @unlock="user && (user.locked = false)" />
         <UserSharedKeyAlert :user="user" @delete="user && (user.secondFAEnabled = false)" />
-      </div>
-      <div v-if="pageStatus === STATUS.SUCCESS" class="delete-user-container">
-        <a-popconfirm
-          :title="$t('USERS.DETAIL_USER.CONFIRM_DELETE')"
-          :ok-text="$t('USERS.DETAIL_USER.YES')"
-          :cancel-text="$t('USERS.DETAIL_USER.NO')"
-          placement="bottom"
-          overlay-class-name="popconfirm-delete"
-          @confirm="remove"
-        >
-          <a-button class="ls-button ls-cancel" type="primary" danger>{{
-            $t('USERS.DETAIL_USER.DELETE_USER')
-          }}</a-button>
-        </a-popconfirm>
       </div>
     </div>
 
@@ -182,10 +188,30 @@ onMounted(handleTableChange);
   align-items: stretch;
   &__header {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 12px;
+  }
+  &__header-infor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    &-name {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 4px;
+      line-height: 16px;
+    }
+    &-name strong {
+      font-size: 20px;
+    }
+    &-name span {
+      opacity: 0.6;
+    }
   }
   &__header-noti {
     display: flex;
