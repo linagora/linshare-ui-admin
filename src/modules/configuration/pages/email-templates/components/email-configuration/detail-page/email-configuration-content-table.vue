@@ -64,16 +64,11 @@ import { MailLang } from '../../../types/MailConfiguration';
 import ThePagination from '@/core/components/the-pagination.vue';
 import useEmailTemplatesConfiguration from '../../../hooks/useEmailTemplatesConfiguration';
 import dayjs from 'dayjs';
+import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 
 const { t } = useI18n();
-const {
-  status,
-  pagination,
-  activeMailConfig,
-  activeEmailConfigForm,
-  handleGetMailContentList,
-  handleUpdateMailContentLang,
-} = useEmailTemplatesConfiguration();
+const { status, activeMailConfig, activeEmailConfigForm, handleGetMailContentList, handleUpdateMailContentLang } =
+  useEmailTemplatesConfiguration();
 
 // props & emits
 const props = defineProps<{
@@ -88,6 +83,12 @@ const search = reactive({
   legend: '',
 });
 const mailContentOptions = ref<{ label: string; value: string }[]>([]);
+
+const pagination = reactive({
+  total: 0,
+  current: 1,
+  pageSize: DEFAULT_PAGE_SIZE,
+});
 
 // computed
 const mailContentLangs = computed(() => {
@@ -172,6 +173,10 @@ watch(
   () => mailContentLangs.value,
   async (newVal) => {
     pagination.total = newVal.length;
+    pagination.current =
+      pagination.current * pagination.pageSize > pagination.total
+        ? Math.ceil(pagination.total / pagination.pageSize) || 1
+        : pagination.current;
   }
 );
 </script>
