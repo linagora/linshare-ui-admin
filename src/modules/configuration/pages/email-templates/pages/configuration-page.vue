@@ -167,7 +167,6 @@ watch(route, (newRoute) => {
     background: #ffffff;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
     border-radius: 16px;
-    overflow: hidden;
   }
 
   &__modal .ant-modal-body {
