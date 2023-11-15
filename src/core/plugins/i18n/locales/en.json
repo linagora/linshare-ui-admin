@@ -1518,6 +1518,7 @@
   },
   "ACTIVITIES": {
     "THIS_ACTION_IS_PERFORMED_BY_TOOLTIP": "This action is performed by {by} on behalf of {of}",
+    "THIS_ACTION_HAS_NO_ACTOR_BY_TOOLTIP": "This action is performed by {by}",
     "INTRODUCTION": "Logging all users activities on LinShare",
     "ACTIVITY_LOG": "Activity Logs",
     "NUMBER_COL": "Number",

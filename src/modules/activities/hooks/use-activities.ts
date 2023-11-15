@@ -44,7 +44,7 @@ export function useActivities() {
             loggedUser.value?.uuid === item?.actor?.uuid ||
             (loggedUser.value?.uuid === item?.authUser?.uuid && !item?.actor?.uuid)
               ? t('ACTIVITIES.ME')
-              : item?.actor?.name ?? item?.authUser?.name,
+              : item?.actor?.name,
           actorId: item?.actor?.uuid,
           actionName: t(`ACTIVITIES.FILTERS_SELECT.ACTION.${item?.action}`),
           resourceTypeName: t(`ACTIVITIES.FILTERS_SELECT.TYPE.${item?.type}`),

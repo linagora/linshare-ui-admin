@@ -1259,6 +1259,7 @@
   },
   "ACTIVITIES": {
     "THIS_ACTION_IS_PERFORMED_BY_TOOLTIP": "Это действие выполняется пользователем {by} от имени {of}",
+    "THIS_ACTION_HAS_NO_ACTOR_BY_TOOLTIP": "Это действие выполняет {by}",
     "INTRODUCTION": "Регистрация всех действий пользователей на LinShare",
     "ACTIVITY_LOG": "Журналы активности",
     "NUMBER_COL": "Номер",

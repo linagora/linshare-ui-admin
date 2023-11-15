@@ -188,15 +188,27 @@ watch(
         {{ record.domainName }}
       </template>
       <template v-if="column.key === 'actor'">
-        <div class="activities-data-table__actor">
+        <div v-if="record?.actorId" class="activities-data-table__actor">
           {{ record.actorName }}
           <a-tooltip
-            v-if="(record?.actorId && record?.actorId !== record?.authorId) || record?.authorId !== loggedUser?.uuid"
+            v-if="
+              (record?.actorId && record?.actorId !== record?.authorId) ||
+              (!record?.actorId && record?.authorId !== loggedUser?.uuid)
+            "
           >
             <template #title>
               {{
                 $t('ACTIVITIES.THIS_ACTION_IS_PERFORMED_BY_TOOLTIP', { by: record.authorName, of: record.actorName })
               }}
+            </template>
+            <InfoCircleFilled class="info-icon" />
+          </a-tooltip>
+        </div>
+        <div v-else class="activities-data-table__actor">
+          {{ record?.loggedUser?.uuid === record?.actor?.uuid ? t('ACTIVITIES.ME') : record.authUser?.name }}
+          <a-tooltip>
+            <template #title>
+              {{ $t('ACTIVITIES.THIS_ACTION_HAS_NO_ACTOR_BY_TOOLTIP', { by: record.authorName }) }}
             </template>
             <InfoCircleFilled class="info-icon" />
           </a-tooltip>
