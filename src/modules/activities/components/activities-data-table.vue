@@ -145,7 +145,7 @@ function onViewDetail(record: ActivityLogData) {
 }
 
 function isFilterTypes(type: ActivitiesType) {
-  return type.length > 0 && type.filter((type) => type.includes(ACTIVITIES_TYPE.SHARE_ENTRY));
+  return type.length > 0 && type.includes(ACTIVITIES_TYPE.SHARE_ENTRY);
 }
 
 // hooks
