@@ -24,8 +24,8 @@ export const ConfigurationDomainTypeMimePoliciesRoutes: RouteRecordRaw[] = [
     component: () => import('@/modules/configuration/pages/type-mime-policies/pages/mime-policy-detail-page.vue'),
     meta: {
       requiresAuth: true,
-      parentRoute: 'Configuration',
-      label: 'NAVIGATOR.TYPE_MIME',
+      parentRoute: CONFIGURATION_MIME_POLICIES_ROUTE_NAMES.ENTRIES,
+      label: 'NAVIGATOR.TYPE_MIME_DETAILS',
     },
     children: [],
   },

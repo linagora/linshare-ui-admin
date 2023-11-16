@@ -137,6 +137,7 @@
     "WELCOME_MESSAGES_MANAGE": "Quản lý tin nhắn chào mừng",
     "WELCOME_MESSAGES_NEW": "Tin nhắn chào mừng mới",
     "TYPE_MIME": "Nhập chính sách MIME",
+    "TYPE_MIME_DETAILS": "Chi tiết chính sách MIME",
     "PROVIDERS": "Nguồn cung cấp",
     "QUOTA": "Hạn ngạch",
     "PUBLIC_KEYS": "Khóa công khai",
@@ -156,6 +157,7 @@
     "WELCOME_MESSAGE_DETAIL": "Chi tiết tin nhắn chào mừng",
     "EMAIL_TEMPLATES": "Mẫu email",
     "CONFIGURATION_DOMAIN_POLICIES": "Chính sách tên miền",
+    "CONFIGURATION_DOMAIN_POLICIES_DETAILS": "Chi tiết chính sách miền",
     "ADMINISTRATION_CONTACT_LIST": "Danh sách liên hệ",
     "ADMINISTRATION_CONTACT_LIST_DETAIL": "Chi tiết danh sách liên hệ"
   },

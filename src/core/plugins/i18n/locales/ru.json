@@ -137,6 +137,7 @@
     "WELCOME_MESSAGES_MANAGE": "Управление приветственным сообщением",
     "WELCOME_MESSAGES_NEW": "Новое приветственное сообщение",
     "TYPE_MIME": "Правила типа Mime",
+    "TYPE_MIME_DETAILS": "Детали политики MIME",
     "PROVIDERS": "Провайдеры",
     "QUOTA": "Квота",
     "PUBLIC_KEYS": "Открытые ключи",
@@ -156,6 +157,7 @@
     "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
     "EMAIL_TEMPLATES": "Шаблоны электронной почты",
     "CONFIGURATION_DOMAIN_POLICIES": "Политики доменов",
+    "CONFIGURATION_DOMAIN_POLICIES_DETAILS": "Детали политики домена",
     "ADMINISTRATION_CONTACT_LIST": "Список контактов",
     "ADMINISTRATION_CONTACT_LIST_DETAIL": "Детали списка контактов"
   },

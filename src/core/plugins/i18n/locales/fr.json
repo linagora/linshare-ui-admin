@@ -137,6 +137,7 @@
     "WELCOME_MESSAGES_MANAGE": "Gestion des messages d'accueil",
     "WELCOME_MESSAGES_NEW": "Nouveau message d'accueil",
     "TYPE_MIME": "Règles de type MIME",
+    "TYPE_MIME_DETAILS": "Détails de la politique MIME",
     "PROVIDERS": "Fournisseurs",
     "QUOTA": "Quota",
     "PUBLIC_KEYS": "Clés publiques (JWT)",
@@ -156,6 +157,7 @@
     "WELCOME_MESSAGE_DETAIL": "Welcome message detail",
     "EMAIL_TEMPLATES": "Modèles de courriel",
     "CONFIGURATION_DOMAIN_POLICIES": "Politiques de domaine",
+    "CONFIGURATION_DOMAIN_POLICIES_DETAILS": "Détails de la politique de domaine",
     "ADMINISTRATION_CONTACT_LIST": "Liste de contacts",
     "ADMINISTRATION_CONTACT_LIST_DETAIL": "Détails de la liste de contacts"
   },

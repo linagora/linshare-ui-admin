@@ -183,13 +183,14 @@ function allowAssigned() {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .domain-policy-table {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   gap: 16px;
+  width: 100%;
 
   &__table .ant-table {
     border: 1px solid #f0f0f0;
@@ -249,8 +250,8 @@ function allowAssigned() {
     .ant-dropdown-menu {
       padding: 8px;
       gap: 8px;
-      width: 301px;
-      min-height: 164px;
+      width: 150px;
+      min-height: 150px;
       height: fit-content;
       background: #ffffff;
       box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.08), 0px 8px 24px rgba(0, 0, 0, 0.08);
@@ -288,5 +289,18 @@ function allowAssigned() {
       color: #007aff;
     }
   }
+}
+.ls-detail {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f8ff;
+  border: 1px solid #a3dcff;
+  color: #007aff;
+  border-radius: 7px;
+  transform: rotate(90deg);
 }
 </style>
