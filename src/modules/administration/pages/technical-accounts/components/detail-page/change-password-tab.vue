@@ -58,7 +58,7 @@
       <a-button
         :disabled="changePassword.newPassword !== changePassword.confirmNewPassword || loading"
         type="primary"
-        class="ls-button ls-filled"
+        class="save-button"
         @click="changeTechnicalPassword"
       >
         <a-spin v-if="loading"></a-spin>
@@ -220,31 +220,6 @@ watch(
     }
   }
 }
-.technical-account-locked {
-  &__actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    .config-menu {
-      display: flex;
-      justify-content: flex-start;
-      align-items: stretch;
-      height: 38px;
-      gap: 4px;
-      padding: 7px;
-    }
-
-    .config-menu .action {
-      text-align: left;
-    }
-
-    .desktop {
-      display: none;
-    }
-  }
-}
 
 .ls-input-red {
   height: 44px;
@@ -310,5 +285,20 @@ watch(
 
 .section-title {
   color: #434657;
+}
+
+.save-button {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+  height: 48px;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-left: 5px;
 }
 </style>
