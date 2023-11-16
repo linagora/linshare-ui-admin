@@ -1,6 +1,11 @@
 <template>
   <div v-if="editing && editable" class="email-footer-detail-actions">
-    <a-button :disabled="loading" type="primary" class="ls-button" @click="emits('save')">
+    <a-button
+      :disabled="loading || !isEnableSaveButton"
+      type="primary"
+      class="ls-button ls-filled"
+      @click="emits('save')"
+    >
       <a-spin v-if="loading"></a-spin>
       <span v-else>{{ $t('GENERAL.SAVE') }}</span>
     </a-button>
@@ -13,6 +18,9 @@
   </div>
 </template>
 <script setup lang="ts">
+import { computed } from 'vue';
+import useEmailTemplatesFooter from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesFooter';
+
 // props & emits
 const emits = defineEmits(['save', 'cancel', 'reset']);
 const props = defineProps<{
@@ -24,6 +32,11 @@ const props = defineProps<{
 function onCancel() {
   emits('cancel');
 }
+
+const { activeMailFooter } = useEmailTemplatesFooter();
+const isEnableSaveButton = computed(() => {
+  return activeMailFooter.value?.description?.trim() && activeMailFooter.value?.description?.trim()?.length > 0;
+});
 </script>
 <style lang="less">
 .email-footer-detail-actions {
@@ -53,6 +66,13 @@ function onCancel() {
     .ant-spin-dot-item {
       background-color: #f3f3f7;
     }
+  }
+
+  .ls-filled[disabled],
+  .ls-filled[disabled]:hover {
+    background-color: #007aff;
+    color: #f3f3f7;
+    opacity: 0.5;
   }
 
   .ls-reset {
