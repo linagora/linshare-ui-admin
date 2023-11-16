@@ -142,7 +142,7 @@ export default function useTechnicalAccount() {
   const rules = [
     {
       description: 'Contain a symbol',
-      validator: (pwd: any) => pwd && /[$-/:-?{-~!"^_`[\]]/g.test(pwd),
+      validator: (pwd: any) => pwd && /[$-/:-?{-~!"^_`\\µ£#@[\]]/g.test(pwd),
     },
     {
       description: 'Length longer than 12 char',
