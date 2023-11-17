@@ -23,7 +23,7 @@ withDefaults(defineProps<{ visible: boolean }>(), { visible: false });
 
 // composables
 const { t } = useI18n();
-const { beginDate, endDate, action, type, domain, actor, resourceName } = storeToRefs(useActivitiesStore());
+const { beginDate, endDate, action, type, domain, actorEmail, resourceName } = storeToRefs(useActivitiesStore());
 const { handleTableChange, activitiesLogsFormated } = useActivities();
 
 // computed
@@ -56,13 +56,9 @@ const domainOptions = computed(() => {
 });
 
 const actorOptions = computed(() => {
-  const actorArr = activitiesLogsFormated.value
-    ?.filter((item) => {
-      return !!item?.actorName;
-    })
-    ?.map((item) => {
-      return { name: item?.actorName, value: item?.actorName };
-    });
+  const actorArr = activitiesLogsFormated.value.map((item) => {
+    return { name: item?.actorName, value: item?.actor?.mail };
+  });
 
   return actorArr.filter(
     (value, index, self) => index === self.findIndex((t) => t.name === value.name && t.value === value.value)
@@ -91,14 +87,14 @@ const filterForm = reactive<{
   type: ActivitiesType[];
   period?: TimePeriod;
   domain: string[];
-  actor: string[];
+  actorEmail: string[];
   resourceName: string[];
 }>({
   action: action.value,
   type: type.value,
   dateRange: [dayjs(beginDate.value), dayjs(endDate.value)],
   domain: domain.value,
-  actor: actor.value,
+  actorEmail: actorEmail.value,
   resourceName: resourceName.value,
 });
 const disabledDate = (current: Dayjs) => {
@@ -109,7 +105,7 @@ const domainList = ref<Domain[]>();
 // methods
 function apply() {
   type.value = filterForm.type;
-  actor.value = filterForm.actor;
+  actorEmail.value = filterForm.actorEmail;
   action.value = filterForm.action;
   domain.value = filterForm.domain;
   resourceName.value = filterForm.resourceName;
@@ -123,7 +119,7 @@ function reset() {
   filterForm.dateRange = [dayjs(beginDate.value), dayjs(endDate.value)];
   filterForm.action = action.value;
   filterForm.type = type.value;
-  filterForm.actor = actor.value;
+  filterForm.actorEmail = actorEmail.value;
   filterForm.domain = domain.value;
   filterForm.resourceName = resourceName.value;
 }
@@ -152,7 +148,7 @@ watchEffect(() => {
   filterForm.type = type.value;
   filterForm.resourceName = resourceName.value;
   filterForm.domain = domain.value;
-  filterForm.actor = actor.value;
+  filterForm.actorEmail = actorEmail.value;
 });
 
 onMounted(async () => {
@@ -220,13 +216,16 @@ onMounted(async () => {
 
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.ACTOR')">
         <a-select
-          v-model:value="filterForm.actor"
+          v-model:value="filterForm.actorEmail"
           :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
           mode="tags"
-          :options="actorOptions"
           :placeholder="$t('ACTIVITIES.FILTERS_MODAL.ACTOR_SELECT_PLACEHOLDER')"
-        ></a-select>
+        >
+          <a-select-option v-for="(actor, index) in actorOptions" :key="index" :value="actor.value">
+            {{ actor?.name }}
+          </a-select-option>
+        </a-select>
       </a-form-item>
 
       <a-form-item class="ls-form-title" :label="$t('ACTIVITIES.FILTERS_MODAL.RESOURCE_NAME')">

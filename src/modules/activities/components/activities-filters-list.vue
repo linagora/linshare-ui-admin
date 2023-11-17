@@ -14,7 +14,8 @@ import { useDomainStore } from '@/modules/domain/store';
 const { t, d } = useI18n();
 const activitiesStore = useActivitiesStore();
 const domainStore = useDomainStore();
-const { action, type, beginDate, endDate, actor, domain, resourceName, isDefaultFilter } = storeToRefs(activitiesStore);
+const { action, type, beginDate, endDate, actorEmail, domain, resourceName, isDefaultFilter } =
+  storeToRefs(activitiesStore);
 const { handleTableChange } = useActivities();
 
 // computed
@@ -46,7 +47,7 @@ function removeTypeFromFilter(removeItem: ActivitiesType) {
 }
 
 function removeActorFromFilter(removeItem: string) {
-  actor.value = actor.value.filter((item) => {
+  actorEmail.value = actorEmail.value.filter((item) => {
     return item !== removeItem;
   });
   handleTableChange(true);
@@ -120,10 +121,10 @@ function onClearFilter() {
         <ls-tag :value="$t('ACTIVITIES.FILTERS_BAR.ALL_DOMAIN')"></ls-tag>
       </div>
 
-      <div v-if="actor.length > 0" class="filter">
+      <div v-if="actorEmail.length > 0" class="filter">
         <span class="filter__type">{{ $t('ACTIVITIES.FILTERS_BAR.ACTOR_FILTER') }}</span>
         <ls-tag
-          v-for="item in actor"
+          v-for="item in actorEmail"
           :key="item"
           :value="item"
           :closable="true"

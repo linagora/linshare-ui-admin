@@ -120,7 +120,7 @@ export interface ActivityLogParameters {
   beginDate: string | undefined;
   endDate: string | undefined;
   domain: string;
-  actor: string;
+  actorEmail: string;
   resourceName: string;
   size: number;
   page: number;

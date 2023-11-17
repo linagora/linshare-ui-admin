@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
-import { computed, onMounted, ref, watchEffect, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { useActivities } from '@/modules/activities/hooks/use-activities';
 import { ActivityLogData } from '@/modules/activities/types';
 import ThePagination from '@/core/components/the-pagination.vue';

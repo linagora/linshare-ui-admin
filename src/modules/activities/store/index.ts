@@ -63,7 +63,7 @@ interface ActivitiesStore {
   beginDate: Dayjs | null;
   endDate: Dayjs | null;
   domain: string[];
-  actor: string[];
+  actorEmail: string[];
   resourceName: string[];
 }
 
@@ -73,7 +73,7 @@ const defaultState = {
   action: [],
   type: [],
   domain: [],
-  actor: [],
+  actorEmail: [],
   resourceName: [],
 };
 export const useActivitiesStore = defineStore('activitiesStore', {
@@ -83,7 +83,7 @@ export const useActivitiesStore = defineStore('activitiesStore', {
     action: [],
     type: [],
     domain: [],
-    actor: [],
+    actorEmail: [],
     resourceName: [],
   }),
   getters: {
@@ -92,7 +92,7 @@ export const useActivitiesStore = defineStore('activitiesStore', {
         state?.action?.length == 0 &&
         state?.type?.length == 0 &&
         state?.domain?.length == 0 &&
-        state?.actor?.length == 0 &&
+        state?.actorEmail?.length == 0 &&
         state?.resourceName?.length == 0 &&
         dayjs().isSame(state?.endDate, 'day') &&
         dayjs().subtract(7, 'days').isSame(state?.beginDate, 'days')

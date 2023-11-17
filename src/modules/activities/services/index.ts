@@ -12,7 +12,9 @@ async function getActivitiesLogs(
   size?: number,
   page?: number,
   sortField?: string,
-  sortOrder?: string
+  sortOrder?: string,
+  actorEmail?: string,
+  resourceName?: string
 ): Promise<PaginatedList<ActivityLogParameters>> {
   const queryUrl = `domains/${domainUuid}/audit`;
 
@@ -27,6 +29,8 @@ async function getActivitiesLogs(
       page,
       sortField,
       sortOrder,
+      actorEmail,
+      resourceName,
     },
   });
 }

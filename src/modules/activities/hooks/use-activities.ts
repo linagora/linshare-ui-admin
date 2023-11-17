@@ -29,11 +29,12 @@ export function useActivities() {
   const { t } = useI18n();
 
   // data
-  const { beginDate, endDate, action, type, domain, actor, resourceName } = storeToRefs(useActivitiesStore());
+  const { beginDate, endDate, action, type, domain, actorEmail, resourceName } = storeToRefs(useActivitiesStore());
   const { loggedUser } = storeToRefs(useAuthStore());
+
   // computed
   const activitiesLogsFormated = computed(() => {
-    const formatedData = activitiesLogs.value
+    return activitiesLogs.value
       .sort((a: ActivityLogData, b: ActivityLogData) => b.creationDate - a.creationDate)
       ?.map((item, index) => {
         return {
@@ -60,8 +61,6 @@ export function useActivities() {
               : item?.resource?.recipient?.name || item?.recipientMail || '',
         } as ActivityLogData;
       });
-    const activities = _filterByActors(formatedData);
-    return _filterByResourceNames(activities);
   });
 
   //methods
@@ -79,7 +78,9 @@ export function useActivities() {
         options.size,
         options.page,
         options.sortField,
-        options.sortOrder
+        options.sortOrder,
+        options.actorEmail,
+        options.resourceName
       );
       activitiesLogs.value = data;
       pagination.total = total;
@@ -93,32 +94,6 @@ export function useActivities() {
     } finally {
       loading.value = false;
     }
-  }
-
-  function _filterByActors(logs: ActivityLogData[]) {
-    const filtedActors = logs.filter((item) => {
-      return actor.value?.length
-        ? actor.value?.includes(item?.actorName) ||
-            actor.value?.some((actor) => {
-              return item?.actorName?.toLowerCase().includes(actor.toLowerCase());
-            })
-        : true;
-    });
-
-    return filtedActors;
-  }
-
-  function _filterByResourceNames(logs: ActivityLogData[]) {
-    const filtedNames = logs.filter((item) => {
-      return resourceName.value?.length
-        ? resourceName.value?.includes(item?.resourceName) ||
-            resourceName.value?.some((name) => {
-              return item?.resourceName?.toLowerCase().includes(name.toLowerCase());
-            })
-        : true;
-    });
-
-    return filtedNames;
   }
 
   async function fetchDomains() {
@@ -163,8 +138,8 @@ export function useActivities() {
     parameters.action = action.value.join('&action=');
     parameters.type = type.value.join('&type=');
     parameters.domain = domain.value.join('&domain=');
-    parameters.actor = actor.value.join('&domain=');
-    parameters.resourceName = resourceName.value.join('&domain=');
+    parameters.actorEmail = actorEmail.value.join('&actorEmail=');
+    parameters.resourceName = resourceName.value.join('&resource=');
     parameters.sortField = SORT_FIELD.CREATIONDATE;
     parameters.sortOrder = SORT_ORDER.DESC;
 
