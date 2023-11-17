@@ -147,11 +147,17 @@ export function useActivities() {
   async function handleTableChange(resetPagination: boolean) {
     const parameters: ActivityLogParameters = {};
 
+    const currentDate = dayjs().add(1, 'days')?.format('YYYY-MM-DD');
+    const beginDateFormated =
+      beginDate.value === null ? dayjs('2009-01-01')?.format('YYYY-MM-DD') : beginDate.value?.format('YYYY-MM-DD'); // 2009 creation date of LinShare
+    const endDateFormated =
+      endDate.value === null ? currentDate : dayjs(endDate.value).add(1, 'days')?.format('YYYY-MM-DD');
+
     parameters.size = pagination.pageSize;
     parameters.page = resetPagination ? 0 : pagination.current - 1;
     parameters.domainUuid = domainUuid;
-    parameters.beginDate = beginDate.value?.format('YYYY-MM-DD');
-    parameters.endDate = dayjs(endDate.value).add(1, 'days')?.format('YYYY-MM-DD');
+    parameters.beginDate = beginDateFormated;
+    parameters.endDate = endDateFormated;
     parameters.action = action.value.join('&action=');
     parameters.type = type.value.join('&type=');
     parameters.domain = domain.value.join('&domain=');
