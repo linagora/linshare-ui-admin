@@ -69,6 +69,16 @@ export interface ActivityLog {
         label: string;
       };
     };
+    node?: {
+      name: string;
+      mail: string;
+      uuid: string;
+      parentUuid: string;
+      creationDate?: string | number | Date;
+      modificationDate?: string | number | Date;
+      nodeType: string;
+      domainUuid: string;
+    };
     sender?: {
       firstName: string;
       lastName: string;

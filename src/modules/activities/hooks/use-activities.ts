@@ -131,6 +131,8 @@ export function useActivities() {
       return activity?.resource?.guest?.name;
     } else if (activity?.type === 'FUNCTIONALITY') {
       return t(`FUNCTIONALITIES.DETAILS.${activity?.resourceUuid}.NAME`);
+    } else if (activity?.type === 'WORKGROUP_MEMBER') {
+      return activity?.resource?.node?.name;
     }
     switch (activity?.resourceUuid) {
       case loggedUser.value?.uuid:
