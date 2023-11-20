@@ -62,8 +62,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
-import { computed, watch } from 'vue';
-import { useRouter } from 'vue-router';
+import { computed } from 'vue';
 import { STATUS } from '@/core/types/Status';
 import { MimePolicy } from '../types/MimeType';
 import useMimesPolicies from '../hooks/useMimePolicies';
@@ -78,14 +77,12 @@ import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 const authStore = useAuthStore();
 const { loggedUser } = storeToRefs(authStore);
 const { t } = useI18n();
-const { currentRoute } = useRouter();
 const domainStore = useDomainStore();
 const { currentDomain } = storeToRefs(domainStore);
 const {
   status,
   filteredListByPage,
   selectedMimePolicies,
-  getMimePoliciesList,
   isAssigned,
   isEditable,
   onEditMimePolicy,
@@ -149,18 +146,6 @@ const columns = computed(() => [
 function domainRedirectionAuthorized(record: MimePolicy) {
   return record.domainId === 'LinShareRootDomain' && loggedUser?.value?.role === ACCOUNT_ROLE.ADMIN;
 }
-
-async function onFetchMimePolicies() {
-  await getMimePoliciesList(currentDomain.value.uuid);
-}
-
-onFetchMimePolicies();
-
-watch(currentRoute, (newRoute) => {
-  if (newRoute) {
-    onFetchMimePolicies();
-  }
-});
 </script>
 
 <style lang="less" scoped>

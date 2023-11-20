@@ -4,14 +4,14 @@ import { STATUS } from '@/core/types/Status';
 import { computed, reactive, watch } from 'vue';
 import { useDomainStore } from '@/modules/domain/store';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
-import { EMPTY_DOMAIN, DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import LsButton from '@/core/components/ls/ls-button.vue';
 import TheSubheader from '@/core/components/the-subheader.vue';
 import DeleteIcon from '@/core/components/icons/delete-icon.vue';
-import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
 import DomainCreationFormModal, {
   DomainCreationFormModalProps,
 } from '@/modules/domain/components/domain-creation-form-modal.vue';
+import useDomainDelete from '@/modules/domain/hooks/useDomainDelete';
+import { EMPTY_DOMAIN, DOMAIN_TYPE } from '@/modules/domain/types/Domain';
 import ConfigurationTabs from '@/modules/configuration/components/configuration-tabs.vue';
 import ConfigDomainActions from '@/modules/configuration/components/config-domain-actions.vue';
 
@@ -78,11 +78,14 @@ function onCreateSuccess() {
 }
 
 // hook
-watch(currentDomainUuid, async (newVal) => {
-  if (newVal) {
-    await domainStore.fetchDomain();
+watch(
+  () => routeInstance.fullPath,
+  async (newVal) => {
+    if (newVal) {
+      await domainStore.fetchDomain();
+    }
   }
-});
+);
 </script>
 <template>
   <the-subheader :title="$t('NAVIGATOR.CONFIGURATION')" :detail="$t('CONFIGURATION.INTRODUCTION')">
