@@ -14,7 +14,7 @@
       </div>
       <template v-else>
         <div class="email-content-preview__subject">
-          {{ mailContentPreview.subject }}
+          {{ $t('EMAIL_TEMPLATES.EMAIL_CONTENT.EMAIL_CONTENT_DETAIL_PAGE.SUBJECT') }}: {{ mailContentPreview.subject }}
         </div>
         <div class="email-content-preview__body">
           <div v-html="mailContentPreview.content"></div>
