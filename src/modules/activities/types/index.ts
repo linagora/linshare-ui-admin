@@ -127,6 +127,7 @@ export interface ActivityLogParameters {
   sortOrder?: SORT_ORDER;
   sortField?: SORT_FIELD.CREATIONDATE;
   domainUuid: string;
+  includeNestedDomains: boolean;
 }
 
 export enum SORT_FIELD {

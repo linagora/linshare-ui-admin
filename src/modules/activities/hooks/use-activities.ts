@@ -70,6 +70,7 @@ export function useActivities() {
 
       const { data, total, current } = await getActivitiesLogs(
         options.domainUuid,
+        options.includeNestedDomains,
         options.beginDate,
         options.endDate,
         options.action,
@@ -133,6 +134,7 @@ export function useActivities() {
     parameters.size = pagination.pageSize;
     parameters.page = resetPagination ? 0 : pagination.current - 1;
     parameters.domainUuid = domainUuid;
+    parameters.includeNestedDomains = domain.value.length === 0 ? true : false;
     parameters.beginDate = beginDateFormated;
     parameters.endDate = endDateFormated;
     parameters.action = action.value.join('&action=');

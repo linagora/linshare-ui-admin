@@ -4,6 +4,7 @@ import { ActivityLogParameters } from '@/modules/activities/types';
 
 async function getActivitiesLogs(
   domainUuid: string,
+  includeNestedDomains: boolean,
   beginDate: string | undefined,
   endDate: string | undefined,
   action?: string,
@@ -20,6 +21,7 @@ async function getActivitiesLogs(
 
   return await api.get(queryUrl, {
     params: {
+      includeNestedDomains,
       beginDate,
       endDate,
       action,
