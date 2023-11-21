@@ -94,7 +94,7 @@ const columns = computed(() => [
   {
     title: t('TECHNICAL_ACCOUNTS.MODIFICATION_DATE'),
     defaultSortOrder: 'descend',
-    sorter: (a: TechnicalAccount, b: TechnicalAccount) => (a.creationDate || 0) - (b.creationDate || 0),
+    sorter: (a: TechnicalAccount, b: TechnicalAccount) => (a.modificationDate || 0) - (b.modificationDate || 0),
     key: 'modificationDate',
   },
   {

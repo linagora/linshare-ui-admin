@@ -97,7 +97,9 @@ export default function useTechnicalAccount() {
   const filteredListByPage = computed(() => {
     const firstIndex = (pagination.current - 1) * pagination.pageSize;
     const lastIndex = pagination.current * pagination.pageSize;
-    return filteredList.value.slice(firstIndex, lastIndex);
+    return filteredList.value
+      .slice(firstIndex, lastIndex)
+      .sort((a: TechnicalAccount, b: TechnicalAccount) => a.modificationDate - b.modificationDate);
   });
 
   const getPermissionTranslation = (permission: string) => {
@@ -128,6 +130,7 @@ export default function useTechnicalAccount() {
       return false;
     } finally {
       loading.value = false;
+      fetchTechnicalUserList();
     }
   }
 
