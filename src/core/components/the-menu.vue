@@ -6,6 +6,7 @@ import { useDomainStore } from '@/modules/domain/store';
 import { useRoute, useRouter } from 'vue-router';
 import { computed } from 'vue';
 import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router';
+import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '@/modules/upgrades/router';
 
 const { redirect } = useLegacyFeatures();
 const router = useRouter();
@@ -54,10 +55,10 @@ function goToDefaultDomain() {
         {{ $t('NAVIGATOR.ACTIVITIES') }}
       </router-link>
     </a-menu-item>
-    <a-menu-item key="upgrades" @click="redirect('NAVIGATOR.UPGRADES')">
-      <a name="upgrades">
+    <a-menu-item key="upgrades">
+      <router-link :to="{ name: UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_LIST }">
         {{ $t('NAVIGATOR.UPGRADES') }}
-      </a>
+      </router-link>
     </a-menu-item>
     <a-menu-item key="beta">
       <a name="beta" :href="config.legacyAppUrl">

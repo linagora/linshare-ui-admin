@@ -1,13 +1,12 @@
-import { RouteRecordRaw } from 'vue-router';
-import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
-import { ReportingRoute } from '@/modules/reporting/router';
-import { ConfigurationRoute } from '@/modules/configuration/router';
-import { ActivitiesRoute } from '@/modules/activities/router';
-import { AdministrationRoute } from '@/modules/administration/router';
-
 import config from '@/config';
-
-import HomePage from '../layouts/home-page.vue';
+import { RouteRecordRaw } from 'vue-router';
+import HomePage from '@/core/layouts/home-page.vue';
+import { UpgradesRoute } from '@/modules/upgrades/router';
+import { ReportingRoute } from '@/modules/reporting/router';
+import { ActivitiesRoute } from '@/modules/activities/router';
+import { ConfigurationRoute } from '@/modules/configuration/router';
+import { AdministrationRoute } from '@/modules/administration/router';
+import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
 
 export const CoreRoutes: Array<RouteRecordRaw> = [
   {
@@ -19,11 +18,12 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       requiresAuth: true,
     },
     children: [
-      AdministrationRoute,
+      UpgradesRoute,
       ReportingRoute,
-      ManageSecondFactorAuthenticationRoute,
-      ConfigurationRoute,
       ActivitiesRoute,
+      ConfigurationRoute,
+      AdministrationRoute,
+      ManageSecondFactorAuthenticationRoute,
     ],
   },
 ];
