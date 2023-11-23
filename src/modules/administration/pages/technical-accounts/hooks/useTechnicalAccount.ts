@@ -90,16 +90,16 @@ export default function useTechnicalAccount() {
   }
 
   const filteredList = computed(() =>
-    list.value.filter((TechnicalAccountList: TechnicalAccount) =>
-      TechnicalAccountList?.name?.toLowerCase().includes(filterText.value.toLowerCase())
-    )
+    list.value
+      .filter((TechnicalAccountList: TechnicalAccount) =>
+        TechnicalAccountList?.name?.toLowerCase().includes(filterText.value.toLowerCase())
+      )
+      .sort((a: TechnicalAccount, b: TechnicalAccount) => b.modificationDate - a.modificationDate)
   );
   const filteredListByPage = computed(() => {
     const firstIndex = (pagination.current - 1) * pagination.pageSize;
     const lastIndex = pagination.current * pagination.pageSize;
-    return filteredList.value
-      .slice(firstIndex, lastIndex)
-      .sort((a: TechnicalAccount, b: TechnicalAccount) => a.modificationDate - b.modificationDate);
+    return filteredList.value.slice(firstIndex, lastIndex);
   });
 
   const getPermissionTranslation = (permission: string) => {
