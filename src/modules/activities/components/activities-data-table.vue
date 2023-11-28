@@ -241,7 +241,10 @@ watch(
       </template>
       <template v-if="column.key === 'receiver' && isFilterTypes(type)">
         <div class="activities-data-table__receiver">
-          {{ record?.resourceRecipientName }}
+          <div class="infor">
+            <strong :title="record.actorName">{{ record?.resourceRecipientName }} </strong>
+            <span>{{ record.actorMail }}</span>
+          </div>
         </div>
       </template>
       <template v-if="column.key === 'dateTime'">

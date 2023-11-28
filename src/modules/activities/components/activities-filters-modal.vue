@@ -6,6 +6,7 @@ import { computed, onMounted, reactive, ref, watchEffect } from 'vue';
 import { getDomains } from '@/modules/domain/services/domain-api';
 import { getDatesFromPeriod, getPeriodFromDate } from '@/core/utils/date';
 import { useActivities } from '@/modules/activities//hooks/use-activities';
+import { listUsers } from '@/modules/user/services/user-api';
 
 import {
   useActivitiesStore,
@@ -16,6 +17,13 @@ import {
 } from '@/modules/activities/store';
 import { useI18n } from 'vue-i18n';
 import Domain from '@/modules/domain/types/Domain';
+import { SORT_ORDER } from '@/core/types/Sort';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
+import User from '@/modules/user/types/User';
+import { APIError } from '@/core/types/APIError';
+import { message } from 'ant-design-vue';
+import { useDebounceFn } from '@vueuse/core';
+import { useAuthStore } from '@/modules/auth/store';
 
 // props & emits
 const emits = defineEmits(['close']);
@@ -25,6 +33,12 @@ withDefaults(defineProps<{ visible: boolean }>(), { visible: false });
 const { t } = useI18n();
 const { beginDate, endDate, action, type, domain, actorEmail, resourceName } = storeToRefs(useActivitiesStore());
 const { handleTableChange, activitiesLogsFormated } = useActivities();
+const authStore = useAuthStore();
+const { loggedUser } = storeToRefs(authStore);
+const searchUsersDebounce = useDebounceFn(searchUsers, 500);
+const domainList = ref<Domain[]>();
+const searching = ref(false);
+const options = ref([] as Option[]);
 
 // computed
 const actionOptions = computed(() => {
@@ -79,6 +93,10 @@ const resourceNameOptions = computed(() => {
   );
 });
 
+const isSuperAdmin = computed(() => {
+  return loggedUser.value?.role === ACCOUNT_ROLE.SUPERADMIN;
+});
+
 // data
 const period = ref<TimePeriod>(getPeriodFromDate(beginDate.value, endDate.value));
 const filterForm = reactive<{
@@ -100,7 +118,12 @@ const filterForm = reactive<{
 const disabledDate = (current: Dayjs) => {
   return current && current > dayjs().endOf('day');
 };
-const domainList = ref<Domain[]>();
+
+interface Option {
+  label: string;
+  value: string;
+  data: User;
+}
 
 // methods
 function apply() {
@@ -135,6 +158,91 @@ function onDateOptionChange(option: TimePeriod) {
 async function fetchDomains() {
   const response = await getDomains({ params: { tree: false } });
   domainList.value = response as Domain[];
+}
+
+async function searchUsers(search: string) {
+  searching.value = true;
+
+  try {
+    const { data } = await listUsers({
+      mail: search,
+      sortOrder: SORT_ORDER.ASC,
+      sortField: 'mail',
+    });
+
+    let superAdminOptions: string[] = [];
+
+    const systemObject = {
+      label: 'System',
+      value: 'System',
+      uuid: 'System',
+      firstName: 'System',
+      lastName: 'System',
+      mail: 'System',
+      domain: 'LinShareRootDomain',
+    };
+
+    const superAdminObject = {
+      label: 'Admin',
+      value: 'root@localhost.localdomain',
+      uuid: 'root@localhost.localdomain',
+      firstName: 'Super',
+      lastName: 'Admin',
+      mail: 'root@localhost.localdomain',
+      domain: 'LinShareRootDomain',
+    };
+
+    if (isSuperAdmin.value) {
+      const searchSystem = Object.values(systemObject).some((option) =>
+        option.toLowerCase().includes(search.toLowerCase())
+      );
+      const searchSuperAdmin = Object.values(superAdminObject).some((option) =>
+        option.toLowerCase().includes(search.toLowerCase())
+      );
+      if (searchSystem && searchSuperAdmin) {
+        superAdminOptions = [systemObject, superAdminObject];
+      } else if (searchSystem) {
+        superAdminOptions = [systemObject];
+      } else if (searchSuperAdmin) {
+        superAdminOptions = [superAdminObject];
+      }
+
+      superAdminOptions.filter((user) => !options.value.some((option) => option.mail === user.mail));
+    }
+
+    const userStillSelected = []
+      .concat(data, superAdminOptions)
+      .filter((user) => !options.value.some((option) => option.value === user.mail));
+
+    options.value = [
+      ...options.value,
+      ...userStillSelected.map((user) => ({
+        label: getFullName(user),
+        value: user.mail,
+        data: transform(user),
+      })),
+    ];
+  } catch (error) {
+    if (error instanceof APIError) {
+      return message.error(error.getMessage());
+    }
+  }
+
+  searching.value = false;
+}
+
+function getFullName(user: User) {
+  return `${user.firstName || ''} ${user.lastName || ''}`;
+}
+
+function transform(user: User) {
+  return {
+    uuid: '',
+    firstName: user.firstName,
+    lastName: user.lastName,
+    mail: user.mail,
+    domain: user.domain,
+  };
 }
 
 // hooks
@@ -219,12 +327,27 @@ onMounted(async () => {
           v-model:value="filterForm.actorEmail"
           :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
-          mode="tags"
+          mode="multiple"
+          :options="options"
           :placeholder="$t('ACTIVITIES.FILTERS_MODAL.ACTOR_SELECT_PLACEHOLDER')"
+          @search="searchUsersDebounce"
         >
-          <a-select-option v-for="(actor, index) in actorOptions" :key="index" :value="actor.value">
-            {{ actor?.name }}
-          </a-select-option>
+          <template #option="{ value, label }">
+            <UserOutlined class="user-icon" />
+            <span>
+              <span>{{ label }}</span>
+              <span>&nbsp;</span>
+              <span>&lt;{{ value }}&gt;</span>
+            </span>
+          </template>
+
+          <template #notFoundContent>
+            <div class="not-found-ctn">
+              <a-spin v-if="searching" size="small" />
+
+              <span v-else>{{ t('USERS.DETAIL_USER.NO_USER_FOUND') }}</span>
+            </div>
+          </template>
         </a-select>
       </a-form-item>
 
