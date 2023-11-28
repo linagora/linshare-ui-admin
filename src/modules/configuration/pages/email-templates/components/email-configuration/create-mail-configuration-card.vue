@@ -131,6 +131,7 @@ function resetFormData() {
 }
 async function onSelectDomain(value: string, domain: { key: string | undefined; label: string }) {
   form.domainName = domain.key;
+  form.mailLayout = '';
   await fetchMailConfiguration();
 }
 

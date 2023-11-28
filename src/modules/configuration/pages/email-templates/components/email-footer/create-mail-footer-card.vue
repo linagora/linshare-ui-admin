@@ -182,6 +182,7 @@ async function fetchMailFooterList() {
 
 async function onSelectDomain(value: string, domain: { key: string; label: string }) {
   form.domain = domain.key;
+  form.footerUuid = '';
   await fetchMailFooterList();
 }
 

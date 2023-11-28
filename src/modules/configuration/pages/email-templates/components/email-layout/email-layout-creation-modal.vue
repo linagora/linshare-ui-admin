@@ -31,7 +31,7 @@
           class="ls-form-title"
           :label="$t('EMAIL_TEMPLATES.CREATE_MODAL.MODEL')"
         >
-          <a-select class="ls-input" :bordered="false" @change="onSelectModel">
+          <a-select v-model:value="form.modal" class="ls-input" :bordered="false" @change="onSelectModel">
             <a-select-option v-for="s in models" :key="s" :value="s.value">
               {{ s.label }}
             </a-select-option>
@@ -126,6 +126,7 @@ function getInitialFormData() {
     layout: '',
     visible: true,
     readonly: false,
+    modal: '',
   };
 }
 function resetFormData() {
@@ -144,6 +145,7 @@ async function onCreateEmailLayout() {
   } catch (error) {
     return;
   }
+  delete form.modal;
   await handleCreateMailLayout(form);
   emits('refresh');
   onCloseModal();
@@ -180,6 +182,12 @@ async function fetchMailLayoutList() {
 
 async function onSelectDomain(value: string, domain: { key: string; label: string }) {
   form.domain = domain.key;
+  form.layout = '';
+  form.modal = '';
+  form.messagesEnglish = '';
+  form.messagesFrench = '';
+  form.messagesRussian = '';
+  form.messagesVietnamese = '';
   await fetchMailLayoutList();
 }
 
