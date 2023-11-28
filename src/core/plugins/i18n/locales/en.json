@@ -3418,5 +3418,25 @@
       "FOURTH_RULE":"At least 1 special character",
       "SAVE_PASSWORD": "Change Password"
     }
+  },
+  "UPGRADE_TASK": {
+    "UTILITY": "Utility",
+    "UTILITY_CONTENT": "For upgrading from a minor version like 2.1.x to 2.2.x or a major version like 1.x to 2.0, it might be necessary to execute some additional tasks on the data in order to complete the software update. Remember: The update process always start by a SQL migration (exception of bugfix version, e.g.: 2.3.6).",
+    "PROCESS": "Process",
+    "PROCESS_CONTENT": "Those tasks shall be executed in order and finished in a success state.NB: A task can finish in a success state but some error might have appeared during the task execution. If so, it is required to check the execution logs displayed in the console view. If an error has appeared, it will be essential to view the Tomcat server logs for more details, resolve the issues and restart the task to continue.",
+    "CRITICALITY": "Criticality",
+    "CRITICALITY_CONTENT": "Every task have to be executed in order to complete the update. While some 'Mandatory' tasks are not done, it will be impossible for the users to use the system. While some 'Required' tasks are not done, the system will work in a downgraded mode. Some functionalities or data might not be accessible. Those tasks might be executed while the system is being used.",
+    "UPGRADE_LIST": {
+      "IDENTIFIER": "Identifier",
+      "CRITICALITY": "Criticality"
+    },
+    "SUCCESS": "Success",
+    "FAILED": "Failed",
+    "REQUIRED": "Required",
+    "UN_REQUIRED": "Un required",
+    "RETRY_UPGRADES": "Retry upgrades",
+    "SHOW_PREVIEW": "Show previous execution",
+    "SHOW_CONSOLE": "Show console",
+    "STATUS": "Status"
   }
 }

@@ -1,6 +1,6 @@
 {
   "GENERAL": {
-    "EMAIL_VALIDATION":"Địa chỉ email này không hợp lệ",
+    "EMAIL_VALIDATION": "Địa chỉ email này không hợp lệ",
     "BACK_TO_LIST": "Trở lại danh sách",
     "ENABLED": "Bật",
     "DISABLED": "Tắt",
@@ -3361,17 +3361,37 @@
         "GUESTS_MODERATOR_UPDATE": "Cập nhật người điều hành khách mời"
       }
     },
-    "PASSWORD_TAB":{
+    "PASSWORD_TAB": {
       "PASSWORD": "Mật khẩu",
       "RECENT_PASSWORD": "Mật khẩu gần đây",
       "NEW_PASSWORD": "Mật khẩu mới",
       "CONFIRM_PASSWORD": "Xác nhận mật khẩu",
-      "PASSWORD_RULES":"Quy tắc mật khẩu",
-      "FIRST_RULE":"Phải có ít nhất 12 ký tự",
-      "SECOND_RULE":"Ít nhất 1 ký tự viết hoa",
-      "THIRD_RULE":"Ít nhất 1 ký tự viết thường",
-      "FOURTH_RULE":"Ít nhất 1 ký tự đặc biệt",
+      "PASSWORD_RULES": "Quy tắc mật khẩu",
+      "FIRST_RULE": "Phải có ít nhất 12 ký tự",
+      "SECOND_RULE": "Ít nhất 1 ký tự viết hoa",
+      "THIRD_RULE": "Ít nhất 1 ký tự viết thường",
+      "FOURTH_RULE": "Ít nhất 1 ký tự đặc biệt",
       "SAVE_PASSWORD": "Thay đổi mật khẩu"
     }
+  },
+  "UPGRADE_TASK": {
+    "UTILITY": "Tiện ích",
+    "UTILITY_CONTENT": "Để nâng cấp từ phiên bản phụ như 2.1.x lên 2.2.x hoặc phiên bản chính như 1.x lên 2.0, có thể cần phải thực hiện một số tác vụ bổ sung trên dữ liệu để hoàn thành bản cập nhật phần mềm. Hãy nhớ: Quy trình cập nhật luôn bắt đầu bằng việc di chuyển SQL (trừ phiên bản sửa lỗi, ví dụ: 2.3.6).",
+    "PROCESS": "Quá trình",
+    "PROCESS_CONTENT": "Các tác vụ này sẽ được thực hiện theo thứ tự và hoàn thành ở trạng thái thành công. Lưu ý: Nhiệm vụ có thể kết thúc ở trạng thái thành công nhưng một số lỗi có thể đã xuất hiện trong khi thực hiện nhiệm vụ. Nếu vậy, cần kiểm tra nhật ký thực hiện được hiển thị trong chế độ xem bảng điều khiển. Nếu lỗi đã xuất hiện, sẽ cần phải xem nhật ký máy chủ Tomcat để biết thêm chi tiết, khắc phục sự cố và khởi động lại nhiệm vụ để tiếp tục.",
+    "CRITICALITY": "Mức độ quan trọng",
+    "CRITICALITY_CONTENT": "Tất cả các tác vụ đều phải được thực hiện để hoàn thành bản cập nhật phần mềm. Nếu một số tác vụ bắt buộc chưa được thực hiện, người dùng sẽ không thể sử dụng hệ thống. Nếu một số tác vụ cần thiết chưa được thực hiện, hệ thống sẽ hoạt động ở chế độ giảm cấp. Một số chức năng hoặc dữ liệu có thể không khả dụng. Các tác vụ này có thể được thực hiện trong khi hệ thống đang được sử dụng.",
+    "UPGRADE_LIST": {
+      "Mã định danh": "Mã định danh",
+      "Mức độ quan trọng": "Mức độ quan trọng"
+    },
+    "SUCCESS": "Thành công",
+    "FAILED": "Thất bại",
+    "REQUIRED": "Yêu cầu",
+    "UN_REQUIRED": "Không yêu cầu",
+    "RETRY_UPGRADES": "Thử lại nâng cấp",
+    "SHOW_PREVIEW": "Hiển thị bản xem trước trước đó",
+    "SHOW_CONSOLE": "Hiển thị bảng điều khiển",
+    "STATUS": "Trạng thái"
   }
 }

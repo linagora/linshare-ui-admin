@@ -1,6 +1,6 @@
 {
   "GENERAL": {
-    "EMAIL_VALIDATION":"Cet email n'est pas valide",
+    "EMAIL_VALIDATION": "Cet email n'est pas valide",
     "BACK_TO_LIST": "Retour à la liste",
     "ENABLED": "Activé",
     "DISABLED": "Désactivé",
@@ -3223,14 +3223,14 @@
       "USER_INFORMATIONS_TITLE": "Informations utilisateur et permissions",
       "CHANGE_PASSWORD": "Changer de mot de passe",
       "USER_INFORMATIONS_SUB_TITLE": "Informations générales",
-      "PERMISSION_TITLE":"Permissions",
+      "PERMISSION_TITLE": "Permissions",
       "USER_NAME": "Nom d'utilisateur",
       "EMAIL": "E-mail",
       "STATUS": "Statut du compte",
       "UNLOCK": "Déverrouiller",
       "LOCKED": "Verrouiller",
       "LOCKED_TITLE": "Cet utilisateur est verrouillé en raison de nombreuses tentatives de connexion infructueuses",
-      "IDENTIFIER":"Identifiant (connexion)",
+      "IDENTIFIER": "Identifiant (connexion)",
       "EMAIL_VALIDATION": "Cet email n'est pas valide",
       "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {
         "ANONYMOUS_SHARE_ENTRIES_CREATE": "Créer une URL anonyme",
@@ -3373,24 +3373,44 @@
         "UPLOAD_REQUEST_TEMPLATE_GET": "Obtenir un modèle de demande de téléchargement",
         "UPLOAD_REQUEST_TEMPLATE_LIST": "Lister des modèles de demande de téléchargement",
         "UPLOAD_REQUEST_TEMPLATE_UPDATE": "Mettre à jour un modèle de demande de téléchargement",
-        "GUESTS_MODERATOR_CREATE":"Créer un modérateur d'invités",
-        "GUESTS_MODERATOR_DELETE":"Supprimer un modérateur d'invités",
-        "GUESTS_MODERATOR_GET":"Obtenir un modérateur d'invités",
-        "GUESTS_MODERATOR_LIST":"Lister des modérateurs d'invités",
-        "GUESTS_MODERATOR_UPDATE":"Mettre à jour un modérateur d'invités"
+        "GUESTS_MODERATOR_CREATE": "Créer un modérateur d'invités",
+        "GUESTS_MODERATOR_DELETE": "Supprimer un modérateur d'invités",
+        "GUESTS_MODERATOR_GET": "Obtenir un modérateur d'invités",
+        "GUESTS_MODERATOR_LIST": "Lister des modérateurs d'invités",
+        "GUESTS_MODERATOR_UPDATE": "Mettre à jour un modérateur d'invités"
       }
     },
-    "PASSWORD_TAB":{
+    "PASSWORD_TAB": {
       "PASSWORD": "Mot de passe",
       "RECENT_PASSWORD": "Mot de passe récent",
       "NEW_PASSWORD": "Nouveau mot de passe",
       "CONFIRM_PASSWORD": "Confirmer le mot de passe",
-      "PASSWORD_RULES":"Règles du mot de passe",
-      "FIRST_RULE":"Doit avoir au moins 12 caractères",
-      "SECOND_RULE":"Au moins 1 lettre majuscule",
-      "THIRD_RULE":"Au moins 1 lettre minuscule",
-      "FOURTH_RULE":"Au moins 1 caractère spécial",
+      "PASSWORD_RULES": "Règles du mot de passe",
+      "FIRST_RULE": "Doit avoir au moins 12 caractères",
+      "SECOND_RULE": "Au moins 1 lettre majuscule",
+      "THIRD_RULE": "Au moins 1 lettre minuscule",
+      "FOURTH_RULE": "Au moins 1 caractère spécial",
       "SAVE_PASSWORD": "Changer le mot de passe"
     }
+  },
+  "UPGRADE_TASK": {
+    "UTILITY": "Utilité",
+    "UTILITY_CONTENT": "Pour la mise à niveau à partir d'une version mineure comme 2.1.x vers 2.2.x ou d'une version majeure comme 1.x vers 2.0, il peut être nécessaire d'exécuter des tâches supplémentaires sur les données afin de terminer la mise à jour du logiciel. N'oubliez pas: le processus de mise à jour commence toujours par une migration SQL (à l'exception des versions de correction de bugs, par exemple: 2.3.6).",
+    "PROCESS": "Processus",
+    "PROCESS_CONTENT": "Ces tâches doivent être exécutées dans l'ordre et se terminer avec succès. Remarque: une tâche peut se terminer avec succès, mais une erreur peut s'être produite pendant l'exécution de la tâche. Si tel est le cas, il est nécessaire de vérifier les journaux d'exécution affichés dans la vue de la console. Si une erreur s'est produite, il sera essentiel de consulter les journaux du serveur Tomcat pour plus de détails, de résoudre les problèmes et de redémarrer la tâche pour continuer.",
+    "CRITICALITY": "Criticité",
+    "CRITICALITY_CONTENT": "Toutes les tâches doivent être exécutées pour terminer la mise à jour. Tant que certaines tâches obligatoires ne sont pas terminées, les utilisateurs ne pourront pas utiliser le système. Tant que certaines tâches requises ne sont pas terminées, le système fonctionnera en mode dégradé. Certaines fonctionnalités ou données peuvent ne pas être accessibles. Ces tâches peuvent être exécutées pendant que le système est utilisé.",
+    "UPGRADE_LIST": {
+      "IDENTIFIER": "Identifiant",
+      "CRITICALITY": "Criticité"
+    },
+    "SUCCESS": "Succès",
+    "FAILED": "Échec",
+    "REQUIRED": "Requis",
+    "UN_REQUIRED": "Non requis",
+    "RETRY_UPGRADES": "Réexécuter la tâche de mise à jour",
+    "SHOW_PREVIEW": "Afficher l'exécution précédente",
+    "SHOW_CONSOLE": "Afficher la console",
+    "STATUS": "Statut"
   }
 }

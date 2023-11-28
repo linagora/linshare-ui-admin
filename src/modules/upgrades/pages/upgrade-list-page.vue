@@ -2,11 +2,40 @@
   <div class="upgrade-list-page">
     <a-alert class="upgrade-list-page__help-text">
       <template #description>
-        {{ $t('CONTACT_LIST.NOTE') }}
+        <ul>
+          <li>
+            <strong>{{ $t('UPGRADE_TASK.UTILITY') }}</strong>
+            <p>{{ $t('UPGRADE_TASK.UTILITY_CONTENT') }}</p>
+          </li>
+          <li>
+            <strong>{{ $t('UPGRADE_TASK.PROCESS') }}</strong>
+            <p>{{ $t('UPGRADE_TASK.PROCESS_CONTENT') }}</p>
+          </li>
+          <li>
+            <strong>{{ $t('UPGRADE_TASK.CRITICALITY') }}</strong>
+            <p>{{ $t('UPGRADE_TASK.CRITICALITY_CONTENT') }}</p>
+          </li>
+        </ul>
       </template>
     </a-alert>
+    <div>
+      <upgrade-list-table />
+      <ThePagination v-model="pagination" class="pagination" :is-visible="!!filteredList.length" />
+    </div>
   </div>
 </template>
+<script lang="ts" setup>
+import { onMounted } from 'vue';
+import ThePagination from '@/core/components/the-pagination.vue';
+import useUpgradeTasks from '@/modules/upgrades/hooks/useUpgradeTasks';
+import UpgradeListTable from '@/modules/upgrades/components/upgrade-list-table.vue';
+
+const { pagination, filteredList, fetchUpgradeTask } = useUpgradeTasks();
+
+onMounted(() => {
+  fetchUpgradeTask();
+});
+</script>
 
 <style lang="less">
 .upgrade-list-page {
