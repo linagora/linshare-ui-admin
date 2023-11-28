@@ -189,29 +189,42 @@ watch(
       </template>
       <template v-if="column.key === 'actor'">
         <div v-if="record?.actorId" class="activities-data-table__actor">
-          {{ record.actorName }}
-          <a-tooltip
-            v-if="
-              (record?.actorId && record?.actorId !== record?.authorId) ||
-              (!record?.actorId && record?.authorId !== loggedUser?.uuid)
-            "
-          >
-            <template #title>
-              {{
-                $t('ACTIVITIES.THIS_ACTION_IS_PERFORMED_BY_TOOLTIP', { by: record.authorName, of: record.actorName })
-              }}
-            </template>
-            <InfoCircleFilled class="info-icon" />
-          </a-tooltip>
+          <div class="infor">
+            <strong :title="record.actorName"
+              >{{ record.actorName }}
+              <a-tooltip
+                v-if="
+                  (record?.actorId && record?.actorId !== record?.authorId) ||
+                  (!record?.actorId && record?.authorId !== loggedUser?.uuid)
+                "
+              >
+                <template #title>
+                  {{
+                    $t('ACTIVITIES.THIS_ACTION_IS_PERFORMED_BY_TOOLTIP', {
+                      by: record.authorName,
+                      of: record.actorName,
+                    })
+                  }}
+                </template>
+                <InfoCircleFilled class="info-icon" />
+              </a-tooltip>
+            </strong>
+            <span>{{ record.actorMail }}</span>
+          </div>
         </div>
         <div v-else class="activities-data-table__actor">
-          {{ record?.loggedUser?.uuid === record?.actor?.uuid ? t('ACTIVITIES.ME') : record.authUser?.name }}
-          <a-tooltip>
-            <template #title>
-              {{ $t('ACTIVITIES.THIS_ACTION_HAS_NO_ACTOR_BY_TOOLTIP', { by: record.authorName }) }}
-            </template>
-            <InfoCircleFilled class="info-icon" />
-          </a-tooltip>
+          <div class="infor">
+            <strong :title="record.actorName"
+              >{{ record?.loggedUser?.uuid === record?.actor?.uuid ? t('ACTIVITIES.ME') : record.authUser?.name }}
+              <a-tooltip>
+                <template #title>
+                  {{ $t('ACTIVITIES.THIS_ACTION_HAS_NO_ACTOR_BY_TOOLTIP', { by: record.authorName }) }}
+                </template>
+                <InfoCircleFilled class="info-icon" />
+              </a-tooltip>
+            </strong>
+            <span>{{ record.authorMail }}</span>
+          </div>
         </div>
       </template>
       <template v-if="column.key === 'action'">
@@ -349,6 +362,36 @@ watch(
     .ant-popover-title {
       padding-bottom: 16px;
     }
+  }
+
+  .infor {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .infor strong {
+    color: #007aff;
+    /* Desktop/Subtitle 1 - Semibold */
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    /* 141.176% */
+
+    .anticon {
+      color: #007aff;
+    }
+  }
+
+  .infor span {
+    color: var(--neutral-colors-color-placeholder, #989cb1);
+    /* Desktop/Body 2 - Regular */
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 14px;
+    /* 142.857% */
+    letter-spacing: -0.14px;
   }
 }
 </style>
