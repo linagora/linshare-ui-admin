@@ -3392,6 +3392,17 @@
     "RETRY_UPGRADES": "Thử lại nâng cấp",
     "SHOW_PREVIEW": "Hiển thị bản xem trước trước đó",
     "SHOW_CONSOLE": "Hiển thị bảng điều khiển",
-    "STATUS": "Trạng thái"
-  }
+    "STATUS": "Trạng thái",
+    "UPGRADE_CONSOLE": {
+      "RELOAD": "Tải lại",
+      "HELPER_TEXT_P1": "Nhật ký thực hiện nhiệm vụ di chuyển.",
+      "HELPER_TEXT_P2": "Các nhật ký thực hiện của một nhiệm vụ di chuyển được ghi ở đây. Với chế độ xem console, bạn có thể kiểm tra các nhật ký của nó.",
+      "HELPER_TEXT_P3": "Chú ý: Đây là nhật ký đơn giản. Để có thông tin chi tiết nâng cao trong trường hợp có lỗi, bạn cần kiểm tra nhật ký máy chủ Tomcat. Một thực hành tốt là đặt phần mềm LinShare vào chế độ debug trước khi cập nhật.",
+      "SWITCH_TITLE": "Lọc theo cấp độ nhật ký :",
+      "WARNING":"Warning",
+      "INFO":"Info",
+      "ERROR":"Error",
+      "DEBUG":"Debug"
+    }
+  }  
 }

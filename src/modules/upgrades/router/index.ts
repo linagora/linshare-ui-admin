@@ -36,5 +36,15 @@ export const UpgradesRoute: RouteRecordRaw = {
         label: 'NAVIGATOR.UPGRADES_DETAIL',
       },
     },
+    {
+      name: UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_DETAIL_CONSOLE,
+      path: 'console/:identifier/:id',
+      component: () => import('@/modules/upgrades/pages/upgrade-console.vue'),
+      meta: {
+        requiresAuth: true,
+        parentRoute: UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_LIST,
+        label: 'NAVIGATOR.UPGRADES_CONSOLE',
+      },
+    },
   ],
 };

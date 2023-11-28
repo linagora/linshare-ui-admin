@@ -4,13 +4,13 @@ import { useRoute } from 'vue-router';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 import TheSubheader from '@/core/components/the-subheader.vue';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
-import useAdministrationPage from '../hooks/useAdministrationPage';
+import useUpgradeTaskPage from '../hooks/useUpgradeTaskPage';
 import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router/index';
 
 // composables
 const routeInstance = useRoute();
 const { breadcrumbs } = useBreadcrumbs();
-const { actions } = useAdministrationPage();
+const { actions } = useUpgradeTaskPage();
 // computed
 const routeTitle = computed(() => {
   return routeInstance.meta.label?.toString();

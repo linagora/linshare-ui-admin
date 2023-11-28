@@ -3411,6 +3411,17 @@
     "RETRY_UPGRADES": "Réexécuter la tâche de mise à jour",
     "SHOW_PREVIEW": "Afficher l'exécution précédente",
     "SHOW_CONSOLE": "Afficher la console",
-    "STATUS": "Statut"
+    "STATUS": "Statut",  
+    "UPGRADE_CONSOLE": {
+      "RELOAD": "Recharger",
+      "HELPER_TEXT_P1": "Rapport d'exécution d'une tache de migration.",
+      "HELPER_TEXT_P2": "Le rapport d'exécution d'une tache de migration est consignée ci-dessous. La console vous permet de consulter les logs d'activité de celle-ci.",
+      "HELPER_TEXT_P3": "Attention: Il s'agit de logs simplifiés. Pour avoir le détail avancé en cas d'erreur, il faudra vous référer aux logs du serveur Tomcat. Une bonne pratique est de mettre l'application LinShare en mode debug avant la migration.",
+      "SWITCH_TITLE": "Filtrer par niveau de log :",
+      "WARNING": "Warning",
+      "INFO": "Info",
+      "ERROR": "Error",
+      "DEBUG": "Debug"
+    }
   }
 }

@@ -9,3 +9,10 @@ export interface UpgradeTask {
   modificationDate: number;
   asyncTaskUuid: string;
 }
+export interface ConsoleInfos {
+  message: string;
+  criticity: string;
+  asyncTask: string;
+  upgradeTask: string;
+  creationDate: number;
+}

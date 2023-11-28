@@ -13,6 +13,9 @@
         <template v-if="column.key === 'taskOrder'">
           <span class="elipsis-name" :title="record.taskOrder">{{ record.taskOrder }}</span>
         </template>
+        <template v-if="column.key === 'identifier'">
+          <span class="elipsis-name" :title="record.taskOrder">{{ record.identifier }}</span>
+        </template>
         <template v-else-if="column.key === 'creationDate'">
           <span>{{ $d(record?.creationDate, 'mediumDate') }}</span>
         </template>
@@ -46,9 +49,17 @@
                   <a-menu-item>
                     <HistoryOutlined :style="{ color: '#007AFF' }" /> {{ $t('UPGRADE_TASK.SHOW_PREVIEW') }}
                   </a-menu-item>
+
                   <a-menu-item>
                     <CreditCardOutlined :style="{ color: '#007AFF' }"></CreditCardOutlined>
-                    {{ $t('UPGRADE_TASK.SHOW_CONSOLE') }}
+                    <router-link
+                      :to="{
+                        name: UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_DETAIL_CONSOLE,
+                        params: { identifier: record.identifier, id: record.asyncTaskUuid },
+                      }"
+                    >
+                      {{ $t('UPGRADE_TASK.SHOW_CONSOLE') }}
+                    </router-link>
                   </a-menu-item>
                 </a-menu>
               </template>
@@ -67,6 +78,7 @@ import { UpgradeTask } from '../types/UpgradeTask';
 import DetailIcon from '@/core/components/icons/detail-icon.vue';
 import UpgradeListActions from '@/modules/upgrades/components/upgrade-list-actions.vue';
 import { CreditCardOutlined, HistoryOutlined, UndoOutlined } from '@ant-design/icons-vue';
+import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '../router/index';
 
 const { filteredListByPage, loading, fetchUpgradeTask } = useUpgradeTasks();
 

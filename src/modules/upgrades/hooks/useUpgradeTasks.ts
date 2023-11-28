@@ -8,10 +8,13 @@ import { useI18n } from 'vue-i18n';
 import { getUpgradeTaskList } from '../services/upgrade-task-api';
 import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
+import { getConsoleInformations } from '../services/upgrade-task-api';
+import { ConsoleInfos } from '../types/UpgradeTask';
 
 const activeUpgradeTask = useLocalStorage<UpgradeTask>('upgrade-task', {} as UpgradeTask);
 
 const list = ref<UpgradeTask[]>([]);
+const logEntries = ref<ConsoleInfos[]>([]);
 const filterText = ref('');
 const status = ref(STATUS.LOADING);
 const pagination = reactive({
@@ -36,20 +39,10 @@ const filteredListByPage = computed(() => {
   return filteredList.value.slice(firstIndex, lastIndex);
 });
 
-export default function useDomainPolicies() {
+export default function useUpgradeTask() {
   // composable
   const { t } = useI18n();
   const router = useRouter();
-
-  watch(filteredList, async (newVal) => {
-    pagination.total = newVal.length;
-    pagination.current =
-      pagination.current * pagination.pageSize > pagination.total
-        ? Math.ceil(pagination.total / pagination.pageSize) || 1
-        : pagination.current;
-  });
-
-  //methods
 
   async function fetchUpgradeTask() {
     loading.value = true;
@@ -58,7 +51,16 @@ export default function useDomainPolicies() {
       list.value = policies || [];
     } catch (error) {
       status.value = STATUS.ERROR;
+    } finally {
+      loading.value = false;
+    }
+  }
 
+  async function upgradeTaskConsoleInformations(identifier: string | string[], uuid: string | string[]) {
+    try {
+      loading.value = true;
+      logEntries.value = await getConsoleInformations(identifier, uuid);
+    } catch (error) {
       if (error instanceof APIError) {
         message.error(error.getMessage());
       }
@@ -66,6 +68,14 @@ export default function useDomainPolicies() {
       loading.value = false;
     }
   }
+
+  watch(filteredList, async (newVal) => {
+    pagination.total = newVal.length;
+    pagination.current =
+      pagination.current * pagination.pageSize > pagination.total
+        ? Math.ceil(pagination.total / pagination.pageSize) || 1
+        : pagination.current;
+  });
 
   return {
     list,
@@ -77,5 +87,7 @@ export default function useDomainPolicies() {
     activeUpgradeTask,
     filteredListByPage,
     fetchUpgradeTask,
+    logEntries,
+    upgradeTaskConsoleInformations,
   };
 }

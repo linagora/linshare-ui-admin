@@ -107,6 +107,7 @@
     "REPORTING": "Reporting",
     "UPGRADES": "Upgrades",
     "UPGRADES_TASK": "Upgrade tasks",
+    "UPGRADES_CONSOLE": "Upgrade tasks console",
     "MY_USERS": "My Users",
     "MY_SHARED_SPACES": "My Shared Spaces",
     "MY_CONTACT_LIST": "My Contact List",
@@ -3437,6 +3438,17 @@
     "RETRY_UPGRADES": "Retry upgrades",
     "SHOW_PREVIEW": "Show previous execution",
     "SHOW_CONSOLE": "Show console",
-    "STATUS": "Status"
+    "STATUS": "Status",
+    "UPGRADE_CONSOLE": {
+      "RELOAD": "Reload",
+      "HELPER_TEXT_P1": "Migration task execution log.",
+      "HELPER_TEXT_P2": "The logs of a migration task execution is logged here. With the console view, you can check the logs of it.",
+      "HELPER_TEXT_P3": "Warning: It is simplified logs. To get the advanced details in case of errors, you will need to check the Tomcat server logs. A good practice is to set the LinShare software in debug mode before updating.",
+      "SWITCH_TITLE":"Filter by log level :",
+      "WARNING": "Warning",
+      "INFO": "Info",
+      "ERROR": "Error",
+      "DEBUG": "Debug"
+    }
   }
 }

@@ -21,6 +21,15 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
       second: 'numeric',
       hour12: false,
     },
+    customDateTime: {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true,
+    },
   },
   fr: {
     shortDate: {
@@ -41,6 +50,15 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
       minute: 'numeric',
       second: 'numeric',
       hour12: false,
+    },
+    customDateTime: {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true,
     },
   },
   ru: {
@@ -63,6 +81,15 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
       second: 'numeric',
       hour12: false,
     },
+    customDateTime: {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true,
+    },
   },
   vi: {
     shortDate: {
@@ -83,6 +110,15 @@ export const DATETIME_FORMATS: IntlDateTimeFormats = {
       minute: 'numeric',
       second: 'numeric',
       hour12: false,
+    },
+    customDateTime: {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true,
     },
   },
 };
