@@ -3449,6 +3449,11 @@
       "INFO": "Info",
       "ERROR": "Error",
       "DEBUG": "Debug"
+    },
+    "RETRY_MODAL": {
+      "TITLE": "Force task retry",
+      "DESCRIPTION": "The selected task has been successfuly completed. Do you wish to execute the task again ?",
+      "ACTION": "Force retry"
     }
   }
 }

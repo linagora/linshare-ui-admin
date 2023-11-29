@@ -5,11 +5,11 @@ import { message } from 'ant-design-vue';
 import { APIError } from '@/core/types/APIError';
 import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
-import { getUpgradeTaskList } from '../services/upgrade-task-api';
 import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
-import { getConsoleInformations } from '../services/upgrade-task-api';
+import { getConsoleInformations, upgradeTaskRetry, getUpgradeTaskList } from '../services/upgrade-task-api';
 import { ConsoleInfos } from '../types/UpgradeTask';
+import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '../router/index';
 
 const activeUpgradeTask = useLocalStorage<UpgradeTask>('upgrade-task', {} as UpgradeTask);
 
@@ -23,6 +23,25 @@ const pagination = reactive({
   pageSize: DEFAULT_PAGE_SIZE,
 });
 const loading = ref(false);
+
+const upgradeTaskRetryModal = reactive<{
+  visible: boolean;
+  taskToReloadIdentifier: string;
+  taskToReloadUuid: string;
+}>({
+  visible: false,
+  taskToReloadIdentifier: '',
+  taskToReloadUuid: '',
+});
+
+function onCloseUpgradeTaskRetryModal() {
+  upgradeTaskRetryModal.visible = false;
+}
+
+function openUpgradeTaskRetryModal(taskIdentifier: string) {
+  upgradeTaskRetryModal.visible = true;
+  upgradeTaskRetryModal.taskToReloadIdentifier = taskIdentifier;
+}
 
 const filteredList = computed(() =>
   list.value
@@ -69,6 +88,24 @@ export default function useUpgradeTask() {
     }
   }
 
+  async function onConfirmRetryUpgradeTask(identifier: string) {
+    try {
+      loading.value = true;
+      const newTaskInfo = await upgradeTaskRetry(identifier);
+      upgradeTaskRetryModal.taskToReloadUuid = newTaskInfo.asyncTaskUuid;
+    } catch (error) {
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+    } finally {
+      router.push({
+        name: UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_DETAIL_CONSOLE,
+        params: { identifier: identifier, id: upgradeTaskRetryModal.taskToReloadUuid },
+      });
+      loading.value = false;
+    }
+  }
+
   watch(filteredList, async (newVal) => {
     pagination.total = newVal.length;
     pagination.current =
@@ -89,5 +126,9 @@ export default function useUpgradeTask() {
     fetchUpgradeTask,
     logEntries,
     upgradeTaskConsoleInformations,
+    onCloseUpgradeTaskRetryModal,
+    upgradeTaskRetryModal,
+    openUpgradeTaskRetryModal,
+    onConfirmRetryUpgradeTask,
   };
 }

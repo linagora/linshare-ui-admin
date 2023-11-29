@@ -23,14 +23,25 @@
       <ThePagination v-model="pagination" class="pagination" :is-visible="!!filteredList.length" />
     </div>
   </div>
+
+  <a-modal
+    v-model:visible="upgradeTaskRetryModal.visible"
+    :closable="false"
+    :footer="null"
+    class="upgrade-list-page__modal"
+  >
+    <retryUpgradeTask @close="onCloseUpgradeTaskRetryModal"></retryUpgradeTask>
+  </a-modal>
 </template>
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 import ThePagination from '@/core/components/the-pagination.vue';
 import useUpgradeTasks from '@/modules/upgrades/hooks/useUpgradeTasks';
 import UpgradeListTable from '@/modules/upgrades/components/upgrade-list-table.vue';
+import retryUpgradeTask from '../components/retry-upgrade-task-card.vue';
 
-const { pagination, filteredList, fetchUpgradeTask } = useUpgradeTasks();
+const { pagination, filteredList, fetchUpgradeTask, upgradeTaskRetryModal, onCloseUpgradeTaskRetryModal } =
+  useUpgradeTasks();
 
 onMounted(() => {
   fetchUpgradeTask();

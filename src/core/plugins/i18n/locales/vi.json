@@ -3403,6 +3403,11 @@
       "INFO":"Info",
       "ERROR":"Error",
       "DEBUG":"Debug"
+    },
+    "RETRY_MODAL": {
+      "TITLE": "Lặp lại công việc bằng cách buộc",
+      "DESCRIPTION": "Công việc đã chọn đã hoàn thành thành công. Bạn có muốn thực hiện công việc lại không?",
+      "ACTION": "Lặp lại bằng cách buộc"
     }
   }  
 }

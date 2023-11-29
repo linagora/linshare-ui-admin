@@ -42,7 +42,7 @@
               </a-button>
               <template #overlay>
                 <a-menu>
-                  <a-menu-item>
+                  <a-menu-item @click="openUpgradeTaskRetryModal(record.identifier, record.asyncTaskUuid)">
                     <UndoOutlined :style="{ color: '#007AFF' }" />
                     {{ $t('UPGRADE_TASK.RETRY_UPGRADES') }}
                   </a-menu-item>
@@ -80,7 +80,7 @@ import UpgradeListActions from '@/modules/upgrades/components/upgrade-list-actio
 import { CreditCardOutlined, HistoryOutlined, UndoOutlined } from '@ant-design/icons-vue';
 import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '../router/index';
 
-const { filteredListByPage, loading, fetchUpgradeTask } = useUpgradeTasks();
+const { filteredListByPage, loading, fetchUpgradeTask, openUpgradeTaskRetryModal } = useUpgradeTasks();
 
 const { t } = useI18n();
 

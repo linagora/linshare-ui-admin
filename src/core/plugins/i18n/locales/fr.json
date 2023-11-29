@@ -3422,6 +3422,11 @@
       "INFO": "Info",
       "ERROR": "Error",
       "DEBUG": "Debug"
+    },
+    "RETRY_MODAL": {
+      "TITLE": "Forcer la réexécution de la tâche",
+      "DESCRIPTION": "La tâche sélectionnée a été effectuée avec succès. Souhaitez-vous exécuter la tâche à nouveau ?",
+      "ACTION": "Forcer la réexécution"
     }
   }
 }
