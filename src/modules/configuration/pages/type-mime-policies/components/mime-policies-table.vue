@@ -47,6 +47,12 @@
                 <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
               </a-menu-item>
               <a-menu-item
+                v-if="isEditable(record.domainId, currentDomain.uuid) || loggedUser?.role !== ACCOUNT_ROLE.SUPERADMIN"
+                @click="onEditMimePolicy(record)"
+              >
+                <EyeOutlined :style="{ color: '#007AFF' }"></EyeOutlined> {{ $t('GENERAL.VIEW') }}
+              </a-menu-item>
+              <a-menu-item
                 v-if="!isEditable(record.domainId, currentDomain.uuid) || loggedUser?.role === ACCOUNT_ROLE.SUPERADMIN"
                 @click="onDeleteMimePolicy(record)"
               >
@@ -73,6 +79,7 @@ import { useAuthStore } from '@/modules/auth/store';
 import { useDomainStore } from '@/modules/domain/store';
 import { EllipsisOutlined } from '@ant-design/icons-vue';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
+import { EyeOutlined } from '@ant-design/icons-vue';
 
 const authStore = useAuthStore();
 const { loggedUser } = storeToRefs(authStore);
