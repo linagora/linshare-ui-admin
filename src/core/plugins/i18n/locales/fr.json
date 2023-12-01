@@ -3394,6 +3394,7 @@
     }
   },
   "UPGRADE_TASK": {
+    "SEARCH": "Rechercher",
     "UTILITY": "Utilité",
     "UTILITY_CONTENT": "Pour la mise à niveau à partir d'une version mineure comme 2.1.x vers 2.2.x ou d'une version majeure comme 1.x vers 2.0, il peut être nécessaire d'exécuter des tâches supplémentaires sur les données afin de terminer la mise à jour du logiciel. N'oubliez pas: le processus de mise à jour commence toujours par une migration SQL (à l'exception des versions de correction de bugs, par exemple: 2.3.6).",
     "PROCESS": "Processus",

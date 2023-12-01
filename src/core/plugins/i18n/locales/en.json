@@ -3421,6 +3421,7 @@
     }
   },
   "UPGRADE_TASK": {
+    "SEARCH": "Search",
     "UTILITY": "Utility",
     "UTILITY_CONTENT": "For upgrading from a minor version like 2.1.x to 2.2.x or a major version like 1.x to 2.0, it might be necessary to execute some additional tasks on the data in order to complete the software update. Remember: The update process always start by a SQL migration (exception of bugfix version, e.g.: 2.3.6).",
     "PROCESS": "Process",

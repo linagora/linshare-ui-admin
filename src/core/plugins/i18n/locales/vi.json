@@ -3375,6 +3375,7 @@
     }
   },
   "UPGRADE_TASK": {
+    "SEARCH": "Tìm kiếm",
     "UTILITY": "Tiện ích",
     "UTILITY_CONTENT": "Để nâng cấp từ phiên bản phụ như 2.1.x lên 2.2.x hoặc phiên bản chính như 1.x lên 2.0, có thể cần phải thực hiện một số tác vụ bổ sung trên dữ liệu để hoàn thành bản cập nhật phần mềm. Hãy nhớ: Quy trình cập nhật luôn bắt đầu bằng việc di chuyển SQL (trừ phiên bản sửa lỗi, ví dụ: 2.3.6).",
     "PROCESS": "Quá trình",
