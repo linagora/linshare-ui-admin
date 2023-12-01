@@ -31,7 +31,7 @@
         v-model="pagination"
         class="pagination"
         :is-visible="!!list.length"
-        @change="() => handleTableChange()"
+        @change="() => handleTableChange(false)"
       />
     </div>
   </div>
@@ -65,7 +65,7 @@ const handleSubmit = async function (options: TokenSubmitPayload<UsersListFilter
   }
   filters.value = options.filters;
 
-  await handleTableChange();
+  await handleTableChange(true);
 };
 
 const sortOptions = [

@@ -24,7 +24,7 @@ type UsableUsersList = {
   sorter: UnwrapRef<Sort>;
   filters: Ref<UsersListFilters>;
   pagination: UnwrapRef<{ total: number; current: number; pageSize: number }>;
-  handleTableChange: () => Promise<void>;
+  handleTableChange: (resetPagination: boolean) => Promise<void>;
   reset: () => void;
 };
 
@@ -51,11 +51,11 @@ export default function useUsersList(): UsableUsersList {
     }
   }
 
-  async function handleTableChange() {
+  async function handleTableChange(resetPagination: boolean) {
     const parameters: UsersListParameters = {};
 
     parameters.size = pagination.pageSize;
-    parameters.page = pagination.current ? pagination.current - 1 : 0;
+    parameters.page = resetPagination ? 0 : pagination.current - 1;
     parameters.domain = filters.value.domain;
     parameters.firstName = filters.value.firstName;
     parameters.lastName = filters.value.lastName;
