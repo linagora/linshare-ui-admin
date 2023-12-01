@@ -1,5 +1,16 @@
 import dayjs, { Dayjs } from 'dayjs';
 import { TimePeriod } from '../types/TimePeriod';
+import duration from 'dayjs/plugin/duration';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import localeData from 'dayjs/plugin/localeData';
+import 'dayjs/locale/en';
+import 'dayjs/locale/vi';
+import 'dayjs/locale/fr';
+import 'dayjs/locale/ru';
+
+dayjs.extend(duration);
+dayjs.extend(relativeTime);
+dayjs.extend(localeData);
 
 function addTime(d: Date | number, amount: number, unit: string): Date {
   switch (unit.toLowerCase()) {
@@ -61,4 +72,8 @@ function getDatesFromPeriod(option: TimePeriod): [Dayjs, Dayjs] | undefined {
   }
 }
 
-export { addTime, isAfter, isBefore, isValid, getPeriodFromDate, getDatesFromPeriod };
+function humandaryDuration(seconds: number, locale: string) {
+  return dayjs.duration(seconds, 'milliseconds').locale(locale).humanize();
+}
+
+export { addTime, isAfter, isBefore, isValid, getPeriodFromDate, getDatesFromPeriod, humandaryDuration };

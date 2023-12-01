@@ -1,21 +1,20 @@
 <template>
   <div class="upgrade-list-table">
-    <upgrade-list-actions :loading="loading" @refresh="fetchUpgradeTask"></upgrade-list-actions>
     <a-table
       key="identifier"
       class="upgrade-list-table__table"
       :columns="columns"
       :pagination="false"
+      :data-source="tasks"
       :loading="loading"
-      :data-source="filteredListByPage"
       row-key="identifier"
     >
       <template #bodyCell="{ column, record, index }">
-        <template v-if="column.key === 'taskOrder'">
+        <template v-if="column.key === 'no'">
           <span class="elipsis-name" :title="record.taskOrder">{{ index + 1 }}</span>
         </template>
-        <template v-if="column.key === 'identifier'">
-          <span class="elipsis-name" :title="record.taskOrder">{{ record.identifier }}</span>
+        <template v-if="column.key === 'taskOrder'">
+          <span class="elipsis-name" :title="record.taskOrder">{{ record.taskOrder }}</span>
         </template>
         <template v-else-if="column.key === 'creationDate'">
           <span>{{ $d(record?.creationDate, 'mediumDate') }}</span>
@@ -23,11 +22,8 @@
         <template v-else-if="column.key === 'modificationDate'">
           <span>{{ $d(record?.modificationDate, 'mediumDate') }}</span>
         </template>
-        <template v-else-if="column.key === 'priority'">
-          <a-tag v-if="record?.priority === 'REQUIRED'" color="success">
-            {{ $t('UPGRADE_TASK.REQUIRED') }}
-          </a-tag>
-          <a-tag v-else color="red"> {{ $t('UPGRADE_TASK.UN_REQUIRED') }}</a-tag>
+        <template v-else-if="column.key === 'processingDuration'">
+          <span>{{ humandaryDuration(record?.processingDuration, locale) }}</span>
         </template>
         <template v-else-if="column.key === 'status'">
           <a-tag v-if="record?.status === 'SUCCESS'" color="success">
@@ -36,36 +32,9 @@
           <a-tag v-else color="red"> {{ $t('UPGRADE_TASK.FAILED') }}</a-tag>
         </template>
         <template v-else-if="column.key === 'action'">
-          <div class="actions">
-            <a-dropdown overlay-class-name="upgrade-list-table__dropdown" placement="bottomRight" :trigger="['click']">
-              <a-button class="ls-detail ls-button ls-primary">
-                <detail-icon width="16px" height="16px"></detail-icon>
-              </a-button>
-              <template #overlay>
-                <a-menu>
-                  <a-menu-item @click="openUpgradeTaskRetryModal(record.identifier, record.asyncTaskUuid)">
-                    <UndoOutlined :style="{ color: '#007AFF' }" />
-                    {{ $t('UPGRADE_TASK.RETRY_UPGRADES') }}
-                  </a-menu-item>
-                  <a-menu-item @click="onShowPreviewExecuse(record)">
-                    <HistoryOutlined :style="{ color: '#007AFF' }" /> {{ $t('UPGRADE_TASK.SHOW_PREVIEW') }}
-                  </a-menu-item>
-
-                  <a-menu-item>
-                    <CreditCardOutlined :style="{ color: '#007AFF' }"></CreditCardOutlined>
-                    <router-link
-                      :to="{
-                        name: UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_DETAIL_CONSOLE,
-                        params: { identifier: record.identifier, id: record.asyncTaskUuid },
-                      }"
-                    >
-                      {{ $t('UPGRADE_TASK.SHOW_CONSOLE') }}
-                    </router-link>
-                  </a-menu-item>
-                </a-menu>
-              </template>
-            </a-dropdown>
-          </div>
+          <a-button class="ls-console ls-button ls-primary" @click="onShowConsole(record)">
+            <CreditCardOutlined :style="{ color: '#007AFF' }"></CreditCardOutlined>
+          </a-button>
         </template>
       </template>
     </a-table>
@@ -74,62 +43,73 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
-import useUpgradeTasks from '../hooks/useUpgradeTasks';
-import { UpgradeTask } from '../types/UpgradeTask';
-import DetailIcon from '@/core/components/icons/detail-icon.vue';
-import UpgradeListActions from '@/modules/upgrades/components/upgrade-list-actions.vue';
-import { CreditCardOutlined, HistoryOutlined, UndoOutlined } from '@ant-design/icons-vue';
-import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '../router/index';
+import { AsyncTask } from '../types/UpgradeTask';
+import { CreditCardOutlined } from '@ant-design/icons-vue';
+import { useRouter } from 'vue-router';
+import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '../router';
+import { useRoute } from 'vue-router';
+import { humandaryDuration } from '@/core/utils/date';
 
-const { filteredListByPage, loading, fetchUpgradeTask, openUpgradeTaskRetryModal, onShowPreviewExecuse } =
-  useUpgradeTasks();
+const { locale } = useI18n();
+
+defineProps<{
+  tasks: AsyncTask[];
+  loading: boolean;
+}>();
 
 const { t } = useI18n();
-
+const router = useRouter();
+const route = useRoute();
 // computed
 
 const columns = computed(() => [
   {
-    width: '150px',
+    width: '100px',
     title: t('GENERAL.NO'),
-    sorter: (a: UpgradeTask, b: UpgradeTask) => a.taskOrder.toString().localeCompare(b.taskOrder.toString()),
-    key: 'taskOrder',
-  },
-  {
-    title: t('UPGRADE_TASK.UPGRADE_LIST.IDENTIFIER'),
-    align: 'left',
-    dataIndex: ['identifier'],
-    sorter: (a: UpgradeTask, b: UpgradeTask) => a.identifier.localeCompare(b.identifier),
-    key: 'identifier',
-  },
-  {
-    title: t('UPGRADE_TASK.UPGRADE_LIST.CRITICALITY'),
-    align: 'center',
-    dataIndex: ['priority'],
-    sorter: (a: UpgradeTask, b: UpgradeTask) => a.priority.localeCompare(b.priority),
-    key: 'priority',
+    key: 'no',
   },
   {
     title: t('UPGRADE_TASK.STATUS'),
     align: 'center',
     dataIndex: ['status'],
-    sorter: (a: UpgradeTask, b: UpgradeTask) => a.status.localeCompare(b.status),
+    sorter: (a: AsyncTask, b: AsyncTask) => a.status.localeCompare(b.status),
     key: 'status',
+  },
+  {
+    title: t('GENERAL.CREATION_DATE'),
+    align: 'center',
+    dataIndex: ['creationDate'],
+    sorter: (a: AsyncTask, b: AsyncTask) => (a.creationDate || 0) - (b.creationDate || 0),
+    key: 'creationDate',
   },
   {
     title: t('GENERAL.MODIFICATION_DATE'),
     align: 'center',
     dataIndex: ['modificationDate'],
-    sorter: (a: UpgradeTask, b: UpgradeTask) => (a.modificationDate || 0) - (b.modificationDate || 0),
+    sorter: (a: AsyncTask, b: AsyncTask) => (a.modificationDate || 0) - (b.modificationDate || 0),
     key: 'modificationDate',
   },
   {
+    title: t('UPGRADE_TASK.DURATION'),
+    align: 'center',
+    dataIndex: ['processingDuration'],
+    sorter: (a: AsyncTask, b: AsyncTask) => (a.processingDuration || 0) - (b.processingDuration || 0),
+    key: 'processingDuration',
+  },
+  {
     title: t('GENERAL.ACTIONS'),
-    width: '100px',
     align: 'right',
     key: 'action',
   },
 ]);
+
+function onShowConsole(record) {
+  const task = route.params.id;
+  router.push({
+    name: UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_DETAIL_CONSOLE,
+    params: { identifier: task, id: record.uuid },
+  });
+}
 </script>
 
 <style lang="less">
@@ -240,14 +220,7 @@ const columns = computed(() => [
     }
   }
 
-  .actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .ls-detail {
+  .ls-console {
     width: 32px;
     height: 32px;
     padding: 0;
@@ -258,7 +231,8 @@ const columns = computed(() => [
     border: 1px solid #a3dcff;
     color: #007aff;
     border-radius: 7px;
-    transform: rotate(90deg);
+    margin-left: auto;
+    margin-right: 0;
   }
 }
 </style>

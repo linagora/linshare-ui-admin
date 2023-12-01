@@ -6,22 +6,24 @@ import TheSubheader from '@/core/components/the-subheader.vue';
 import ArrowLeftIcon from '@/core/components/icons/arrow-left-icon.vue';
 import useUpgradeTaskPage from '../hooks/useUpgradeTaskPage';
 import { ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES } from '@/modules/administration/router/index';
+import useUpgradeTasks from '@/modules/upgrades/hooks/useUpgradeTasks';
+import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '@/modules/upgrades/router';
 
 // composables
 const routeInstance = useRoute();
 const { breadcrumbs } = useBreadcrumbs();
 const { actions } = useUpgradeTaskPage();
+const { activeUpgradeTask } = useUpgradeTasks();
+
 // computed
 const routeTitle = computed(() => {
   return routeInstance.meta.label?.toString();
 });
 const breadcrumbsWithDomain = computed(() => {
   const newBreadcrumbs = [...breadcrumbs.value];
-  if (
-    routeInstance.name?.toString() ==
-    ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.CONTACT_LISTS_ROUTE_NAMES.CONTACT_LIST_DETAIL?.toString()
-  ) {
-    newBreadcrumbs[newBreadcrumbs.length - 1].label = routeInstance.meta.label?.toString() || '';
+  if (routeInstance.name?.toString() == UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_DETAIL?.toString()) {
+    newBreadcrumbs[newBreadcrumbs.length - 1].label =
+      activeUpgradeTask.value.identifier || routeInstance.meta.label?.toString() || '';
   }
   return newBreadcrumbs;
 });

@@ -33,7 +33,7 @@ export const UpgradesRoute: RouteRecordRaw = {
       meta: {
         requiresAuth: true,
         parentRoute: UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_LIST,
-        label: 'NAVIGATOR.UPGRADES_DETAIL',
+        label: 'NAVIGATOR.UPGRADES_TASK',
       },
     },
     {

@@ -16,3 +16,18 @@ export interface ConsoleInfos {
   upgradeTask: string;
   creationDate: number;
 }
+export interface AsyncTask {
+  uuid: string;
+  status: string;
+  errorMsg: string;
+  errorName: string;
+  errorCode: string;
+  frequency: string;
+  fileName: string;
+  resourceUuid: string;
+  creationDate: number;
+  modificationDate: number;
+  transfertDuration: number;
+  waitingDuration: number;
+  processingDuration: number;
+}

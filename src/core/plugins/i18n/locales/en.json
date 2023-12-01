@@ -3427,7 +3427,7 @@
     "PROCESS": "Process",
     "PROCESS_CONTENT": "Those tasks shall be executed in order and finished in a success state.NB: A task can finish in a success state but some error might have appeared during the task execution. If so, it is required to check the execution logs displayed in the console view. If an error has appeared, it will be essential to view the Tomcat server logs for more details, resolve the issues and restart the task to continue.",
     "CRITICALITY": "Criticality",
-    "CRITICALITY_CONTENT": "Every task have to be executed in order to complete the update. While some 'Mandatory' tasks are not done, it will be impossible for the users to use the system. While some 'Required' tasks are not done, the system will work in a downgraded mode. Some functionalities or data might not be accessible. Those tasks might be executed while the system is being used.",
+    "CRITICALITY_CONTENT": "Every task have to be executed in order to complete the update. While some Mandatory tasks are not done, it will be impossible for the users to use the system. While some 'Required' tasks are not done, the system will work in a downgraded mode. Some functionalities or data might not be accessible. Those tasks might be executed while the system is being used.",
     "UPGRADE_LIST": {
       "IDENTIFIER": "Identifier",
       "CRITICALITY": "Criticality"
@@ -3440,6 +3440,7 @@
     "SHOW_PREVIEW": "Show previous execution",
     "SHOW_CONSOLE": "Show console",
     "STATUS": "Status",
+    "DURATION": "Duration",
     "UPGRADE_CONSOLE": {
       "RELOAD": "Reload",
       "HELPER_TEXT_P1": "Migration task execution log.",
@@ -3455,6 +3456,10 @@
       "TITLE": "Force task retry",
       "DESCRIPTION": "The selected task has been successfuly completed. Do you wish to execute the task again ?",
       "ACTION": "Force retry"
+    },
+    "DETAIL": {
+      "NOTE_TITLE": "Update tasks execution history.",
+      "NOTE_CONTENT": "Every task execution are logged here. With the console view, you can check the logs of each of them. <br/> Warning: It is simplified logs. To get the advanced details in case of errors, you will need to check the Tomcat server logs. A good practice is to set the LinShare software in debug mode before updating."
     }
   }
 }

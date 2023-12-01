@@ -7,9 +7,14 @@ import { STATUS } from '@/core/types/Status';
 import { useI18n } from 'vue-i18n';
 import { useLocalStorage } from '@vueuse/core';
 import { useRouter } from 'vue-router';
-import { getConsoleInformations, upgradeTaskRetry, getUpgradeTaskList } from '../services/upgrade-task-api';
+import {
+  getConsoleInformations,
+  upgradeTaskRetry,
+  getUpgradeTaskList,
+  getUpgradeTaskDetail,
+} from '../services/upgrade-task-api';
 import { ConsoleInfos } from '../types/UpgradeTask';
-import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '../router/index';
+import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '../router';
 
 const activeUpgradeTask = useLocalStorage<UpgradeTask>('upgrade-task', {} as UpgradeTask);
 
@@ -114,6 +119,28 @@ export default function useUpgradeTask() {
         : pagination.current;
   });
 
+  async function fetchUpgradeTaskDetail(uuid: string) {
+    loading.value = true;
+    try {
+      const asyncTasks = await getUpgradeTaskDetail(uuid);
+      status.value = STATUS.SUCCESS;
+      return asyncTasks || [];
+    } catch (error) {
+      status.value = STATUS.ERROR;
+
+      if (error instanceof APIError) {
+        message.error(error.getMessage());
+      }
+      return [];
+    } finally {
+      loading.value = false;
+    }
+  }
+
+  function onShowPreviewExecuse(item: UpgradeTask) {
+    activeUpgradeTask.value = item;
+    router.push({ name: UPGRADES_TEMPLATES_ROUTE_NAMES.UPGRADES_DETAIL, params: { id: item.identifier } });
+  }
   return {
     list,
     status,
@@ -130,5 +157,7 @@ export default function useUpgradeTask() {
     upgradeTaskRetryModal,
     openUpgradeTaskRetryModal,
     onConfirmRetryUpgradeTask,
+    fetchUpgradeTaskDetail,
+    onShowPreviewExecuse,
   };
 }

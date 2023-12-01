@@ -4,6 +4,7 @@ const actions = ref<
   {
     class: string;
     action: () => void;
+    loading?: boolean;
     label: string;
     icon?: any;
   }[]

@@ -3394,6 +3394,7 @@
     "SHOW_PREVIEW": "Hiển thị bản xem trước trước đó",
     "SHOW_CONSOLE": "Hiển thị bảng điều khiển",
     "STATUS": "Trạng thái",
+    "DURATION": "Thời lượng",
     "UPGRADE_CONSOLE": {
       "RELOAD": "Tải lại",
       "HELPER_TEXT_P1": "Nhật ký thực hiện nhiệm vụ di chuyển.",
@@ -3409,6 +3410,10 @@
       "TITLE": "Lặp lại công việc bằng cách buộc",
       "DESCRIPTION": "Công việc đã chọn đã hoàn thành thành công. Bạn có muốn thực hiện công việc lại không?",
       "ACTION": "Lặp lại bằng cách buộc"
+    },
+    "DETAIL": {
+      "NOTE_TITLE": "Cập nhật lịch sử thực thi tác vụ.",
+      "NOTE_CONTENT": "Việc thực thi từng tác vụ được ghi lại ở đây. Với chế độ xem bảng điều khiển, bạn có thể kiểm tra nhật ký của từng tác vụ. <br/> Cảnh báo: Đây là nhật ký đơn giản hóa. Để có được chi tiết nâng cao trong trường hợp xảy ra lỗi, bạn sẽ cần kiểm tra nhật ký máy chủ Tomcat. Thực tiễn tốt nhất là đặt phần mềm LinShare ở chế độ gỡ lỗi trước khi cập nhật."
     }
   }  
 }
