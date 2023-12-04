@@ -8,6 +8,10 @@ async function getUpgradeTaskDetail(uuid: string): Promise<UpgradeTask[]> {
   return await apiv4.get(`upgrade_tasks/${uuid}/async_tasks`);
 }
 
+async function upgradeTaskinformations(taskIdentifier: string | string[]): Promise<UpgradeTask> {
+  return await apiv4.get(`upgrade_tasks/${taskIdentifier}`);
+}
+
 async function upgradeTaskRetry(taskIdentifier: string): Promise<UpgradeTask> {
   return await apiv4.put(`upgrade_tasks/${taskIdentifier}?force=true`);
 }
@@ -19,4 +23,4 @@ async function getConsoleInformations(
   return await apiv4.get(`upgrade_tasks/${taskIdentifier}/async_tasks/${uuid}/console`);
 }
 
-export { getUpgradeTaskList, getUpgradeTaskDetail, getConsoleInformations, upgradeTaskRetry };
+export { getUpgradeTaskList, getUpgradeTaskDetail, getConsoleInformations, upgradeTaskRetry, upgradeTaskinformations };

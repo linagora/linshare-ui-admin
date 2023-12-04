@@ -12,6 +12,7 @@ import {
   upgradeTaskRetry,
   getUpgradeTaskList,
   getUpgradeTaskDetail,
+  upgradeTaskinformations,
 } from '../services/upgrade-task-api';
 import { ConsoleInfos } from '../types/UpgradeTask';
 import { UPGRADES_TEMPLATES_ROUTE_NAMES } from '../router';
@@ -83,6 +84,11 @@ export default function useUpgradeTask() {
   async function upgradeTaskConsoleInformations(identifier: string | string[], uuid: string | string[]) {
     try {
       loading.value = true;
+      let status = await upgradeTaskinformations(identifier);
+      while (status.status !== 'SUCCESS') {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        status = await upgradeTaskinformations(identifier);
+      }
       logEntries.value = await getConsoleInformations(identifier, uuid);
     } catch (error) {
       if (error instanceof APIError) {
