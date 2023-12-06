@@ -43,7 +43,7 @@
               </a-button>
               <template #overlay>
                 <a-menu>
-                  <a-menu-item @click="openUpgradeTaskRetryModal(record.identifier, record.asyncTaskUuid)">
+                  <a-menu-item @click="openUpgradeTaskRetryModal(record.identifier)">
                     <UndoOutlined :style="{ color: '#007AFF' }" />
                     {{ $t('UPGRADE_TASK.RETRY_UPGRADES') }}
                   </a-menu-item>
