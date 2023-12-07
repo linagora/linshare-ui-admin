@@ -66,7 +66,10 @@ watch(
               <strong class="title">{{ $t(routeTitle || '') }}</strong>
               <a-breadcrumb class="breakcrumb" :routes="breadcrumbsWithDomain">
                 <template #itemRender="{ route, routes }">
-                  <span v-if="routes.indexOf(route) === routes.length - 1 || route.disableAction" class="current">
+                  <span
+                    v-if="routes.indexOf(route) === routes.length - 1 || route.disableAction"
+                    :class="route.disableAction ? 'disable' : 'current'"
+                  >
                     {{ $t(route.label) }}
                   </span>
                   <router-link v-else :to="{ name: route.path, params: route?.params }">
@@ -186,6 +189,9 @@ watch(
 
     .current {
       color: #434657;
+    }
+    .disable {
+      cursor: not-allowed;
     }
   }
 

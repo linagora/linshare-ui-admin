@@ -45,6 +45,7 @@ export default function useBreadcrumbs(customs?: Breadcrumb[]): UsableBreadcrumb
       list.unshift({
         label: parent.meta.label as string,
         path: parent.name as string,
+        disableAction: !!parent.meta.disableAction,
       });
 
       if (parent.meta.parentRoute) {

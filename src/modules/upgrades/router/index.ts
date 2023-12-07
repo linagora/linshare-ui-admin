@@ -13,6 +13,7 @@ export const UpgradesRoute: RouteRecordRaw = {
   meta: {
     label: 'NAVIGATOR.UPGRADES',
     requiresAuth: true,
+    disableAction: true,
     uiBeta: true,
   },
   children: [
