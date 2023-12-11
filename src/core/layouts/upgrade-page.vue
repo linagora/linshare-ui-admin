@@ -60,7 +60,7 @@ watch(
         <div class="upgrade-page__header">
           <div class="upgrade-page__header-title">
             <router-link :to="{ name: prevRoute.path }" class="upgrade-page__header-back">
-              <ArrowLeftIcon></ArrowLeftIcon>
+              <ArrowLeftIcon v-if="routeTitle !== 'NAVIGATOR.UPGRADES_TASK'"></ArrowLeftIcon>
             </router-link>
             <div class="upgrade-page__header-title-content">
               <strong class="title">{{ $t(routeTitle || '') }}</strong>

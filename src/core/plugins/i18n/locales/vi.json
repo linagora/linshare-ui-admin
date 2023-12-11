@@ -106,6 +106,8 @@
     "ACTIVITIES": "Hoạt động",
     "REPORTING": "Báo cáo",
     "UPGRADES": "Nâng cấp",
+    "UPGRADES_TASK_PREVIOUS_EXECUTION": "Thực hiện nâng cấp công việc trước đó",
+    "UPGRADES_CONSOLE": "Bảng điều khiển công việc nâng cấp",
     "UPGRADES_TASK": "Nhiệm vụ nâng cấp",
     "MY_USERS": "Người dùng",
     "MY_SHARED_SPACES": "Không gian được chia sẻ",

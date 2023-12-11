@@ -106,6 +106,8 @@
     "ACTIVITIES": "Деятельность",
     "REPORTING": "Составление отчетов",
     "UPGRADES": "Обновления",
+    "UPGRADES_TASK_PREVIOUS_EXECUTION": "Выполнение предыдущих задач по обновлению",
+    "UPGRADES_CONSOLE": "Консоль задач по обновлению",
     "UPGRADES_TASK": "Задачи по обновлению",
     "MY_USERS": "Мои пользователи",
     "MY_SHARED_SPACES": "Мои диски, рабочие группы",
