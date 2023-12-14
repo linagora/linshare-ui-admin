@@ -9,7 +9,7 @@
   >
     <template #bodyCell="{ column, record }">
       <template v-if="column.key === 'name'">
-        <span class="elipsis-name" :title="record.name">{{ record.name }}</span>
+        <a class="elipsis-name" :title="record.name" @click="onEditMimePolicy(record)">{{ record.name }}</a>
       </template>
       <template v-if="column.key === 'domain'">
         <span v-if="domainRedirectionAuthorized(record)">{{ record.domainName }}</span>
@@ -29,6 +29,14 @@
         </a-tag>
         <a-tag v-else color="red"> {{ $t('GENERAL.UNASSIGNED') }}</a-tag>
       </template>
+      <template v-else-if="column.key === 'minepolicitytype'">
+        <a-tag v-if="record.unknownTypeAllowed" color="default">
+          {{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST') }}</a-tag
+        >
+        <a-tag v-else color="#000">
+          {{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST') }}
+        </a-tag>
+      </template>
       <template v-else-if="column.key === 'action'">
         <a-dropdown>
           <EllipsisOutlined />
@@ -47,7 +55,9 @@
                 <EditIcon></EditIcon> {{ $t('GENERAL.EDIT') }}
               </a-menu-item>
               <a-menu-item
-                v-if="isEditable(record.domainId, currentDomain.uuid) || loggedUser?.role !== ACCOUNT_ROLE.SUPERADMIN"
+                v-else-if="
+                  !!isEditable(record.domainId, currentDomain.uuid) || loggedUser?.role !== ACCOUNT_ROLE.SUPERADMIN
+                "
                 @click="onEditMimePolicy(record)"
               >
                 <EyeOutlined :style="{ color: '#007AFF' }"></EyeOutlined> {{ $t('GENERAL.VIEW') }}
@@ -143,6 +153,10 @@ const columns = computed(() => [
   {
     title: t('GENERAL.ASSIGNED'),
     key: 'assigned',
+  },
+  {
+    title: t('GENERAL.TYPE'),
+    key: 'minepolicitytype',
   },
   {
     title: t('GENERAL.ACTIONS'),

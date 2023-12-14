@@ -31,6 +31,7 @@
     "SEARCH_BY": "Tìm kiếm theo tên hoặc miền",
     "DESCRIPTION": "DESCRIPTION",
     "TYPES": "Loại",
+    "TYPE": "Loại",
     "YES": "Có",
     "NO": "Không",
     "FIELD_REQUIRED": "Trường này không được bỏ trống",
@@ -813,13 +814,19 @@
       "EXTENTION": "Sự mở rộng",
       "ADD_TO_LIST": "Thêm vào danh sách",
       "REMOVE_FROM_LIST": "Xóa khỏi danh sách",
-      "SOURCE": "Nguồn",
-      "BLACK_LIST": "Danh sách đen"
+      "SOURCE": "Nguồn"
     },
     "UPDATE_MIME_TYPE_SUCCESS": "Các thay đổi đã lưu cho {name}",
     "MAMAGER_MIME_POLICY": "Quản lý chính sách mime",
     "NAME": "Tên",
-    "BACK_TO_LIST": "Trở lại danh sách"
+    "BACK_TO_LIST": "Trở lại danh sách",
+    "MIME_TYPE_OPTIONS": {
+      "DESCRIPTION": "Sau khi chọn tạo danh sách đen hoặc danh sách trắng, bạn có thể thêm các loại mime khác nhau vào danh sách. Bạn muốn tạo danh sách nào?",
+      "BLACKLIST": "Danh sách đen",
+      "BLACKLIST_DESCRIPTION": "Tất cả các loại mime trên bảng danh sách đen sẽ bị chặn và các loại mime còn lại sẽ được ủy quyền.",
+      "WHITELIST": "Danh sách trắng",
+      "WHITELIST_DESCRIPTION": "Tất cả các loại mime trên bảng danh sách trắng sẽ được ủy quyền và các loại mime còn lại sẽ bị chặn"
+    }
   },
   "FUNCTIONALITIES": {
     "LIST": {

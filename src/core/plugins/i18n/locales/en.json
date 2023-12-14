@@ -31,6 +31,7 @@
     "SEARCH_BY": "Search by name or domain",
     "DESCRIPTION": "Description",
     "TYPES": "Types",
+    "TYPE": "Type",
     "YES": "Yes",
     "NO": "No",
     "FIELD_REQUIRED": "This field cannot be blank",
@@ -815,13 +816,19 @@
       "EXTENTION": "Extention",
       "ADD_TO_LIST": "Add to list",
       "REMOVE_FROM_LIST": "Remove from list",
-      "SOURCE":"Source",
-      "BLACK_LIST":"Black list"
+      "SOURCE":"Source"
     },
     "UPDATE_MIME_TYPE_SUCCESS": "Saved changes for {name} ",
     "MAMAGER_MIME_POLICY": "Manage mine policy",
     "NAME": "Name",
-    "BACK_TO_LIST": "Back to list"
+    "BACK_TO_LIST": "Back to list",
+    "MIME_TYPE_OPTIONS": {
+      "DESCRIPTION": "After choosing to create a black list or white list, you can add different mime types to the list. Which list do you want to create?",
+      "BLACKLIST": "Black list",
+      "BLACKLIST_DESCRIPTION": "All mime types on blacklist table will be blocked, and the remaining mime types are authorized.",
+      "WHITELIST": "White list",
+      "WHITELIST_DESCRIPTION": "All mime types on whitelist table will be authorized, and the remaining mime types are blocked"
+    }
   },
   "FUNCTIONALITIES": {
     "LIST": {

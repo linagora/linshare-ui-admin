@@ -38,10 +38,11 @@
 <script lang="ts" setup>
 import { ref, watchEffect, Ref } from 'vue';
 import { STATUS } from '@/core/types/Status';
-import { MimeType } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
+import { MimeType, MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
 import { useI18n } from 'vue-i18n';
 
 const props = defineProps<{
+  item: MimePolicy;
   items: MimeType[];
   status: STATUS;
   editable?: boolean;
@@ -63,7 +64,9 @@ const customOperations = ref({
 
 const customTitle = ref({
   source: t('MIME_POLICIES.MIME_TYPE_TABLE.SOURCE'),
-  list: t('MIME_POLICIES.MIME_TYPE_TABLE.BLACK_LIST'),
+  list: props.item.unknownTypeAllowed
+    ? t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST')
+    : t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST'),
 });
 
 const originTargetKeys: Ref<string[]> = ref([]);

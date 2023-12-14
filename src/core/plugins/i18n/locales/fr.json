@@ -31,6 +31,7 @@
     "SEARCH_BY": "Recherche par nom ou par domain",
     "DESCRIPTION": "Description",
     "TYPES": "Types",
+    "TYPE": "Type",
     "YES": "Oui",
     "NO": "Non",
     "FIELD_REQUIRED": "Ce champ ne peut pas être vide",
@@ -814,13 +815,19 @@
       "EXTENTION": "Extension",
       "ADD_TO_LIST": "Ajouter à la liste",
       "REMOVE_FROM_LIST": "Retirer de la liste",
-      "SOURCE": "Source",
-      "BLACK_LIST": "Liste noire"
+      "SOURCE": "Source"
     },
     "UPDATE_MIME_TYPE_SUCCESS": "Modifications enregistrées pour {name}",
     "MAMAGER_MIME_POLICY": "Gérer la politique MIME",
     "NAME": "Nom",
-    "BACK_TO_LIST": "Retour à la liste"
+    "BACK_TO_LIST": "Retour à la liste",
+    "MIME_TYPE_OPTIONS": {
+      "DESCRIPTION": "Après avoir choisi de créer une liste noire ou une liste blanche, vous pouvez ajouter différents types MIME à la liste. Quelle liste souhaitez-vous créer ?",
+      "BLACKLIST": "Liste noire",
+      "BLACKLIST_DESCRIPTION": "Tous les types MIME sur la table de liste noire seront bloqués et les types MIME restants seront autorisés.",
+      "WHITELIST": "Liste blanche",
+      "WHITELIST_DESCRIPTION": "Tous les types MIME de la table de liste blanche seront autorisés et les types MIME restants seront bloqués"
+    }
   },
   "FUNCTIONALITIES": {
     "LIST": {

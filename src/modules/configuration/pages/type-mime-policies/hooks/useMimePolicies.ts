@@ -287,6 +287,13 @@ export default function useMimesPolicies() {
     return false;
   }
 
+  function isBlacklistOrWhitelist(MimeTypeUnknownTypeAllowed: boolean) {
+    if (MimeTypeUnknownTypeAllowed) {
+      return true;
+    }
+    return false;
+  }
+
   function isEditable(domainUuid: string, currentDomainUuid: string | undefined) {
     if (domainUuid !== currentDomainUuid) {
       return true;
@@ -334,6 +341,7 @@ export default function useMimesPolicies() {
 
   return {
     isAssigned,
+    isBlacklistOrWhitelist,
     assignModal,
     handleAssignMimePolicy,
     isEditable,

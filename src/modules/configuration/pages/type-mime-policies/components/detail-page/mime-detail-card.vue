@@ -9,6 +9,7 @@
       />
     </div>
     <div class="mime-detail-card__information">
+      <mime-type-options :item="item" :editable="editable"></mime-type-options>
       <mime-system-information :item="item"></mime-system-information>
     </div>
     <div v-if="editing && editable" class="mime-detail-card__action">
@@ -29,6 +30,7 @@
 import { reactive, watch } from 'vue';
 import { MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
 import MimeSystemInformation from '@/modules/configuration/pages/type-mime-policies/components/detail-page/mime-system-information.vue';
+import MimeTypeOptions from '@/modules/configuration/pages/type-mime-policies/components/detail-page/mime-type-options.vue';
 import { forIn } from 'lodash';
 
 const props = defineProps<{

@@ -24,6 +24,7 @@
           :editing="editing"
           :status="status"
           :items="mimeTypes"
+          :item="activeMimePolicy"
           @toggle-all="onToggleAllTypes"
           @toggle="onUpdateMimeTypeState($event)"
         ></mime-types-table>
