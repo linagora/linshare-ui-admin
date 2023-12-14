@@ -813,10 +813,10 @@
     "MIME_TYPE_TABLE": {
       "MIME_TYPE_NAME": "Mime Type Name",
       "EXTENTION": "Extention",
-      "STATUS": "Status",
-      "SEARCH": "Search by name, extention or status",
-      "ENABLE_ALL": "Enable All",
-      "DISABLE_ALL": "Disable All"
+      "ADD_TO_LIST": "Add to list",
+      "REMOVE_FROM_LIST": "Remove from list",
+      "SOURCE":"Source",
+      "BLACK_LIST":"Black list"
     },
     "UPDATE_MIME_TYPE_SUCCESS": "Saved changes for {name} ",
     "MAMAGER_MIME_POLICY": "Manage mine policy",

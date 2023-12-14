@@ -21,6 +21,7 @@
       <div class="mime-policy-detail-page__types">
         <mime-types-table
           :editable="isEditable"
+          :editing="editing"
           :status="status"
           :items="mimeTypes"
           @toggle-all="onToggleAllTypes"
@@ -122,9 +123,11 @@ fetchingMimePolicyDetail();
     align-items: stretch;
     gap: 24px;
   }
-  &__detail,
+  &__detail {
+    width: 25%;
+  }
   &__types {
-    width: 50%;
+    width: 75%;
   }
   &__types {
     padding-top: 21px;

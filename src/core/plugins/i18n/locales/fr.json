@@ -812,10 +812,10 @@
     "MIME_TYPE_TABLE": {
       "MIME_TYPE_NAME": "Nom du type MIME",
       "EXTENTION": "Extension",
-      "STATUS": "Statut",
-      "SEARCH": "Rechercher par nom, extension ou statut",
-      "ENABLE_ALL": "Tout activer",
-      "DISABLE_ALL": "Tout désactiver"
+      "ADD_TO_LIST": "Ajouter à la liste",
+      "REMOVE_FROM_LIST": "Retirer de la liste",
+      "SOURCE": "Source",
+      "BLACK_LIST": "Liste noire"
     },
     "UPDATE_MIME_TYPE_SUCCESS": "Modifications enregistrées pour {name}",
     "MAMAGER_MIME_POLICY": "Gérer la politique MIME",

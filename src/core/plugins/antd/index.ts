@@ -36,6 +36,7 @@ import {
   Tabs,
   Tag,
   Tooltip,
+  Transfer,
 } from 'ant-design-vue';
 import '@/core/styles/variables.less';
 
@@ -76,6 +77,7 @@ function useAntdComponents(vueApp: App): App {
     .use(Table)
     .use(Tabs)
     .use(Tag)
+    .use(Transfer)
     .use(Tooltip);
 }
 

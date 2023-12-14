@@ -811,10 +811,10 @@
     "MIME_TYPE_TABLE": {
       "MIME_TYPE_NAME": "Tên loại Mime",
       "EXTENTION": "Sự mở rộng",
-      "STATUS": "Trạng thái",
-      "SEARCH": "Tìm kiếm theo tên, phần mở rộng hoặc trạng thái",
-      "ENABLE_ALL": "Cho phép tất cả",
-      "DISABLE_ALL": "Vô hiệu hóa tất cả"
+      "ADD_TO_LIST": "Thêm vào danh sách",
+      "REMOVE_FROM_LIST": "Xóa khỏi danh sách",
+      "SOURCE": "Nguồn",
+      "BLACK_LIST": "Danh sách đen"
     },
     "UPDATE_MIME_TYPE_SUCCESS": "Các thay đổi đã lưu cho {name}",
     "MAMAGER_MIME_POLICY": "Quản lý chính sách mime",

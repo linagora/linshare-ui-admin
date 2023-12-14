@@ -1,186 +1,198 @@
 <template>
-  <div class="mime-types-table">
-    <div class="mime-types-table__action">
-      <a-input
-        v-model:value="form.searchText"
-        :placeholder="$t('MIME_POLICIES.MIME_TYPE_TABLE.SEARCH')"
-        class="mime-types-table__action-input"
-      />
-      <span class="mime-types-table__action-switch">
-        {{
-          form.enableAll
-            ? $t('MIME_POLICIES.MIME_TYPE_TABLE.DISABLE_ALL')
-            : $t('MIME_POLICIES.MIME_TYPE_TABLE.ENABLE_ALL')
-        }}
-        <a-switch
-          v-model:checked="form.enableAll"
-          :disabled="!isAllowEditEnableAll"
-          @change="emits('toggle-all', form.enableAll)"
-        />
-      </span>
-    </div>
-    <a-table
-      key="uuid"
-      class="mime-types-table__table"
-      :data-source="mimeTypesByPage"
-      :pagination="false"
-      :loading="status === STATUS.LOADING"
-      :columns="columns"
+  <div v-if="loading === false" class="list-page">
+    <a-transfer
+      :data-source="props.items"
+      :target-keys="targetKeys"
+      :operations="[customOperations.right, customOperations.left]"
+      :disabled="!editable || !editing"
+      :show-search="true"
+      :show-select-all="true"
+      :row-key="(item: any) => item.uuid"
+      :titles="[customTitle.source, customTitle.list]"
+      :filter-option="filterOption"
+      @change="onChange"
     >
-      <template #bodyCell="{ column, record }">
-        <template v-if="column.key === 'mimeType'">
-          {{ record.mimeType }}
-        </template>
-        <template v-if="column.key === 'extensions'">
-          {{ record.extensions }}
-        </template>
-        <template v-if="column.key === 'enable'">
-          <a-switch
-            v-model:checked="record.enable"
-            :disabled="!isAllowEditEnable"
-            @change="onToggleMimeType(record, $event)"
-          />
-        </template>
+      <template
+        #children="{ direction, filteredItems, selectedKeys, disabled: listDisabled, onItemSelectAll, onItemSelect }"
+      >
+        <a-table
+          :row-selection="
+            getRowSelection({
+              disabled: listDisabled,
+              selectedKeys,
+              onItemSelectAll,
+              onItemSelect,
+            })
+          "
+          :columns="direction === 'left' ? leftColumns : rightColumns"
+          :data-source="filteredItems"
+          size="small"
+        />
       </template>
-    </a-table>
-    <ThePagination v-model="pagination" class="pagination" :is-visible="!!items.length" />
+    </a-transfer>
+  </div>
+  <div v-else class="spin">
+    <a-spin></a-spin>
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, reactive, watch } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { ref, watchEffect, Ref } from 'vue';
 import { STATUS } from '@/core/types/Status';
-import ThePagination from '@/core/components/the-pagination.vue';
-import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 import { MimeType } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
+import { useI18n } from 'vue-i18n';
 
-// props
 const props = defineProps<{
   items: MimeType[];
   status: STATUS;
   editable?: boolean;
+  editing?: boolean;
 }>();
-const emits = defineEmits(['toggle', 'toggle-all']);
 
-//data
-const form = reactive({
-  searchText: '',
-  enableAll: true,
-});
-
-const pagination = reactive({
-  total: 0,
-  current: 1,
-  pageSize: DEFAULT_PAGE_SIZE,
-});
-
-// composable
+const loading = ref(false);
 const { t } = useI18n();
 
-// computed
-const mimeTypesBySearch = computed(() => {
-  return props.items.filter((item) => `${item.mimeType}-${item.extensions}`.includes(form.searchText));
-});
-const mimeTypesByPage = computed(() => {
-  const firstIndex = (pagination.current - 1) * pagination.pageSize;
-  const lastIndex = pagination.current * pagination.pageSize;
+type tableColumn = {
+  dataIndex: string;
+  title: string;
+};
 
-  return mimeTypesBySearch.value.slice(firstIndex, lastIndex);
-});
-
-const isEnableAll = computed(() => {
-  return props.items.every((item) => item.enable);
+const customOperations = ref({
+  right: t('MIME_POLICIES.MIME_TYPE_TABLE.ADD_TO_LIST'),
+  left: t('MIME_POLICIES.MIME_TYPE_TABLE.REMOVE_FROM_LIST'),
 });
 
-const isAllowEditEnableAll = computed(() => {
-  return props.editable;
+const customTitle = ref({
+  source: t('MIME_POLICIES.MIME_TYPE_TABLE.SOURCE'),
+  list: t('MIME_POLICIES.MIME_TYPE_TABLE.BLACK_LIST'),
 });
 
-const isAllowEditEnable = computed(() => {
-  return props.editable;
-});
+const originTargetKeys: Ref<string[]> = ref([]);
 
-const columns = computed(() => [
+const leftTableColumns = [
   {
+    dataIndex: 'mimeType',
     title: t('MIME_POLICIES.MIME_TYPE_TABLE.MIME_TYPE_NAME'),
-    key: 'mimeType',
-    sorter: (a: MimeType, b: MimeType) => a.mimeType?.localeCompare(b.mimeType),
-  },
-  {
-    title: t('MIME_POLICIES.MIME_TYPE_TABLE.EXTENTION'),
-    key: 'extensions',
-    sorter: (a: MimeType, b: MimeType) => a.extensions?.localeCompare(b.extensions),
-  },
-  {
-    title: t('MIME_POLICIES.MIME_TYPE_TABLE.STATUS'),
-    key: 'enable',
-    align: 'center',
-    sorter: (a: MimeType, b: MimeType) => Number(b.enable) - Number(a.enable),
-  },
-]);
 
-// methods
-function onToggleMimeType(mimeType: MimeType, state: boolean) {
-  emits('toggle', { item: mimeType, state });
+    sorter: (a: MimeType, b: MimeType) => a.mimeType.localeCompare(b.mimeType),
+  },
+  {
+    dataIndex: 'extensions',
+    title: t('MIME_POLICIES.MIME_TYPE_TABLE.EXTENTION'),
+    align: 'center',
+    sorter: (a: MimeType, b: MimeType) => a.extensions.localeCompare(b.extensions),
+    defaultSortOrder: 'descend',
+  },
+];
+const rightTableColumns = [
+  {
+    dataIndex: 'mimeType',
+    title: t('MIME_POLICIES.MIME_TYPE_TABLE.MIME_TYPE_NAME'),
+    sorter: (a: MimeType, b: MimeType) => a.mimeType.localeCompare(b.mimeType),
+  },
+  {
+    dataIndex: 'extensions',
+    title: t('MIME_POLICIES.MIME_TYPE_TABLE.EXTENTION'),
+    align: 'center',
+    sorter: (a: MimeType, b: MimeType) => a.extensions.localeCompare(b.extensions),
+    defaultSortOrder: 'descend',
+  },
+];
+
+const targetKeys = ref<string[]>();
+const leftColumns = ref<tableColumn[]>(leftTableColumns);
+const rightColumns = ref<tableColumn[]>(rightTableColumns);
+
+const onChange = (nextTargetKeys: string[]) => {
+  targetKeys.value = nextTargetKeys;
+};
+const getRowSelection = ({ disabled, selectedKeys, onItemSelectAll, onItemSelect }: Record<string, any>) => {
+  return {
+    getCheckboxProps: (item: Record<string, string | boolean>) => ({
+      disabled: disabled || item.disabled,
+    }),
+    onSelectAll(selected: boolean, selectedRows: Record<string, string | boolean>[]) {
+      const treeSelectedKeys = selectedRows.filter((item) => !item.disabled).map(({ key }) => key);
+      onItemSelectAll(treeSelectedKeys, selected);
+    },
+    onSelect({ key }: Record<string, string>, selected: boolean) {
+      onItemSelect(key, selected);
+    },
+    selectedRowKeys: selectedKeys,
+  };
+};
+
+const filterOption = (inputValue: string, option: MimeType) => {
+  const lowerCaseInput = inputValue.toLowerCase();
+  return (
+    option.mimeType.toLowerCase().indexOf(lowerCaseInput) > -1 ||
+    option.extensions.toLowerCase().indexOf(lowerCaseInput) > -1
+  );
+};
+
+async function checkEnableStatus() {
+  try {
+    loading.value = true;
+    originTargetKeys.value = props.items.filter((item) => item.enable).map((item) => item.uuid);
+    targetKeys.value = originTargetKeys.value;
+  } finally {
+    loading.value = false;
+  }
 }
 
-watch(
-  () => mimeTypesBySearch.value,
-  async (newVal) => {
-    pagination.total = newVal.length;
-  }
-);
-
-watch(
-  () => isEnableAll.value,
-  (newVal) => {
-    form.enableAll = newVal;
-  },
-  {
-    immediate: true,
-  }
-);
+watchEffect(() => {
+  checkEnableStatus();
+});
 </script>
 
 <style lang="less">
-.mime-types-table {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 16px;
-  &__table .ant-table {
-    border: 1px solid #f0f0f0;
-    border-radius: 8px;
-    overflow: hidden;
-  }
+.ant-transfer-list {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 5px;
 
-  &__action {
+  .ant-transfer-list-header {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    background-color: #fafafa;
+    border-bottom: 1px solid #d9d9d9;
     align-items: center;
-    gap: 24px;
   }
 
-  &__action-input {
-    background: #fafafa;
-    border: 1px solid #e4e5f0;
-    border-radius: 10px;
-    height: 44px;
+  .ant-transfer-list-content {
+    padding: 8px;
   }
 
-  &__action-switch {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    gap: 4px;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: -0.02em;
-    color: #434657;
+  .ant-transfer-list-body {
+    max-height: calc(100vh - 220px);
+    width: 550px;
+    overflow-y: auto;
   }
+
+  .ant-transfer-list-footer {
+    background-color: #ffffff;
+    border-top: 1px solid #d9d9d9;
+  }
+}
+
+.ant-transfer-operation {
+  margin-top: 16px;
+}
+
+.ant-btn.ant-btn-primary.ant-btn-sm {
+  border-radius: 4px;
+  width: auto;
+  height: auto;
+}
+
+.ant-transfer-list-header-title {
+  color: black;
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+.spin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

@@ -812,10 +812,10 @@
     "MIME_TYPE_TABLE": {
       "MIME_TYPE_NAME": "Название MIME-типа",
       "EXTENTION": "Расширение",
-      "STATUS": "Статус",
-      "SEARCH": "Поиск по названию, расширению или статусу",
-      "ENABLE_ALL": "Активировать все",
-      "DISABLE_ALL": "Деактивировать все"
+      "ADD_TO_LIST": "Добавить в список",
+      "REMOVE_FROM_LIST": "Удалить из списка",
+      "SOURCE": "Источник",
+      "BLACK_LIST": "Черный список"
     },
     "UPDATE_MIME_TYPE_SUCCESS": "Сохранены изменения для {name} ",
     "MAMAGER_MIME_POLICY": "Настройки политики MIME-типов",
