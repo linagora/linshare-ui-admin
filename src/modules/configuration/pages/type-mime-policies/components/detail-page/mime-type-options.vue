@@ -4,11 +4,11 @@
     <div class="option-block">
       <div class="value">
         <a-radio-group v-model:value="minePolicy.unknownTypeAllowed" @change="onUpdateUnknownTypeAllowed($event)">
-          <a-radio :value="false" :disabled="!isAllowEditEnable">
+          <a-radio :value="true" :disabled="!isAllowEditEnable">
             <div class="title">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST') }}</div>
             <div class="description">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST_DESCRIPTION') }}</div>
           </a-radio>
-          <a-radio :value="true" :disabled="!isAllowEditEnable">
+          <a-radio :value="false" :disabled="!isAllowEditEnable">
             <div class="title">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST') }}</div>
             <div class="description">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST_DESCRIPTION') }}</div>
           </a-radio>

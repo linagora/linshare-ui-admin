@@ -1,7 +1,7 @@
 <template>
   <div v-if="loading === false" class="list-page">
     <a-transfer
-      :data-source="props.items"
+      :data-source="combinedList"
       :target-keys="targetKeys"
       :operations="[customOperations.right, customOperations.left]"
       :disabled="!editable || !editing"
@@ -36,7 +36,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, watchEffect, Ref } from 'vue';
+import { ref, watchEffect, Ref, computed } from 'vue';
 import { STATUS } from '@/core/types/Status';
 import { MimeType, MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
 import { useI18n } from 'vue-i18n';
@@ -65,8 +65,8 @@ const customOperations = ref({
 const customTitle = ref({
   source: t('MIME_POLICIES.MIME_TYPE_TABLE.SOURCE'),
   list: props.item.unknownTypeAllowed
-    ? t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST')
-    : t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST'),
+    ? t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST')
+    : t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST'),
 });
 
 const originTargetKeys: Ref<string[]> = ref([]);
@@ -107,7 +107,35 @@ const rightColumns = ref<tableColumn[]>(rightTableColumns);
 
 const onChange = (nextTargetKeys: string[]) => {
   targetKeys.value = nextTargetKeys;
+  if (!props.item.unknownTypeAllowed) {
+    const itemsToUpdateRight = props.items.filter(
+      (item) => nextTargetKeys.includes(item.uuid) && !originTargetKeys.value.includes(item.uuid)
+    );
+    itemsToUpdateRight.forEach((item) => {
+      item.enable = true;
+    });
+    const itemsToUpdateLeft = props.items.filter(
+      (item) => !nextTargetKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
+    );
+    itemsToUpdateLeft.forEach((item) => {
+      item.enable = false;
+    });
+  } else {
+    const itemsToUpdateRight = props.items.filter(
+      (item) => nextTargetKeys.includes(item.uuid) && !originTargetKeys.value.includes(item.uuid)
+    );
+    itemsToUpdateRight.forEach((item) => {
+      item.enable = false;
+    });
+    const itemsToUpdateLeft = props.items.filter(
+      (item) => !nextTargetKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
+    );
+    itemsToUpdateLeft.forEach((item) => {
+      item.enable = true;
+    });
+  }
 };
+
 const getRowSelection = ({ disabled, selectedKeys, onItemSelectAll, onItemSelect }: Record<string, any>) => {
   return {
     getCheckboxProps: (item: Record<string, string | boolean>) => ({
@@ -135,12 +163,33 @@ const filterOption = (inputValue: string, option: MimeType) => {
 async function checkEnableStatus() {
   try {
     loading.value = true;
-    originTargetKeys.value = props.items.filter((item) => item.enable).map((item) => item.uuid);
-    targetKeys.value = originTargetKeys.value;
+    if (props.item.unknownTypeAllowed) {
+      originTargetKeys.value = props.items.filter((item) => !item.enable).map((item) => item.uuid);
+      targetKeys.value = originTargetKeys.value;
+    } else {
+      originTargetKeys.value = props.items.filter((item) => item.enable).map((item) => item.uuid);
+      targetKeys.value = originTargetKeys.value;
+    }
   } finally {
     loading.value = false;
   }
 }
+
+const combinedList = computed(() => {
+  const leftList = props.items.filter(
+    (item) =>
+      !originTargetKeys.value.includes(item.uuid) &&
+      (!props.item.unknownTypeAllowed || (props.item.unknownTypeAllowed && item.enable))
+  );
+
+  const rightList = props.items.filter(
+    (item) =>
+      originTargetKeys.value.includes(item.uuid) &&
+      ((props.item.unknownTypeAllowed && !item.enable) || (!props.item.unknownTypeAllowed && item.enable))
+  );
+
+  return [...leftList, ...rightList];
+});
 
 watchEffect(() => {
   checkEnableStatus();

@@ -31,10 +31,10 @@
       </template>
       <template v-else-if="column.key === 'minepolicitytype'">
         <a-tag v-if="record.unknownTypeAllowed" color="default">
-          {{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST') }}</a-tag
+          {{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST') }}</a-tag
         >
         <a-tag v-else color="#000">
-          {{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST') }}
+          {{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST') }}
         </a-tag>
       </template>
       <template v-else-if="column.key === 'action'">
