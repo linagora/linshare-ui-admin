@@ -220,6 +220,7 @@ export default function useMimesPolicies() {
 
   async function handleGetMimePolicy(mimePolicyUuid: string) {
     status.value = STATUS.LOADING;
+    loading.value = true;
     try {
       const mimes = await getMimePolicy(mimePolicyUuid);
       activeMimePolicy.value = mimes;
@@ -229,6 +230,7 @@ export default function useMimesPolicies() {
         ...mimes,
       });
       defaultMimePolicyForm.value = structuredClone({ ...mimes });
+      loading.value = false;
       return;
     } catch (error) {
       status.value = STATUS.ERROR;
@@ -243,12 +245,13 @@ export default function useMimesPolicies() {
   }
 
   async function enableAllMimeTypesInMimePolicy(mimePolicyUuid: string) {
+    loading.value = true;
     status.value = STATUS.LOADING;
     try {
       const mimes = await enableAllTypeInMimePolicy(mimePolicyUuid);
       activeMimePolicy.value = mimes;
       status.value = STATUS.SUCCESS;
-      message.success(t('MIME_POLICIES.UPDATE_MIME_TYPE_SUCCESS', { name: activeMimePolicy.value?.name }));
+      loading.value = false;
       return;
     } catch (error) {
       status.value = STATUS.ERROR;
@@ -260,11 +263,12 @@ export default function useMimesPolicies() {
 
   async function disableAllMimeTypesInMimePolicy(mimePolicyUuid: string) {
     status.value = STATUS.LOADING;
+    loading.value = true;
     try {
       const mimes = await disableAllTypeInMimePolicy(mimePolicyUuid);
       activeMimePolicy.value = mimes;
       status.value = STATUS.SUCCESS;
-      message.success(t('MIME_POLICIES.UPDATE_MIME_TYPE_SUCCESS', { name: activeMimePolicy.value?.name }));
+      loading.value = false;
       return;
     } catch (error) {
       status.value = STATUS.ERROR;
@@ -279,10 +283,6 @@ export default function useMimesPolicies() {
     try {
       const mimes = await updateMimeType(mimeType);
       status.value = STATUS.SUCCESS;
-      if (mimes) {
-        message.success(t('MIME_POLICIES.UPDATE_MIME_TYPE_SUCCESS', { name: mimeType.mimeType }));
-        return;
-      }
     } catch (error) {
       status.value = STATUS.ERROR;
       if (error instanceof APIError) {

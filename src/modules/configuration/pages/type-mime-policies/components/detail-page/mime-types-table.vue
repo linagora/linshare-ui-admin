@@ -37,7 +37,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, watchEffect, Ref, computed } from 'vue';
-import { MimePolicy, MimeType } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
+import { MimeType } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
 import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 import { useI18n } from 'vue-i18n';
 
@@ -47,7 +47,6 @@ const props = defineProps<{
   editing?: boolean;
 }>();
 
-const loading = ref(false);
 const { t } = useI18n();
 
 type tableColumn = {
@@ -55,7 +54,15 @@ type tableColumn = {
   title: string;
 };
 
-const { activeMimePolicyForm, activeMimePolicy } = useMimesPolicies();
+const {
+  activeMimePolicyForm,
+  activeMimePolicy,
+  enableAllMimeTypesInMimePolicy,
+  handleGetMimePolicy,
+  disableAllMimeTypesInMimePolicy,
+  handleUpdateMimeType,
+  loading,
+} = useMimesPolicies();
 
 const customOperations = ref({
   right: t('MIME_POLICIES.MIME_TYPE_TABLE.ADD_TO_LIST'),
@@ -81,7 +88,6 @@ const leftTableColumns = [
   {
     dataIndex: 'mimeType',
     title: t('MIME_POLICIES.MIME_TYPE_TABLE.MIME_TYPE_NAME'),
-
     sorter: (a: MimeType, b: MimeType) => a.mimeType.localeCompare(b.mimeType),
   },
   {
@@ -111,34 +117,68 @@ const targetKeys = ref<string[]>();
 const leftColumns = ref<tableColumn[]>(leftTableColumns);
 const rightColumns = ref<tableColumn[]>(rightTableColumns);
 
-const onChange = (nextTargetKeys: string[]) => {
+async function enableAllMime() {
+  await enableAllMimeTypesInMimePolicy(activeMimePolicyForm.value.uuid);
+  await handleGetMimePolicy(activeMimePolicyForm.value.uuid);
+}
+
+async function disableAllMime() {
+  await disableAllMimeTypesInMimePolicy(activeMimePolicyForm.value.uuid);
+  await handleGetMimePolicy(activeMimePolicyForm.value.uuid);
+}
+
+const onChange = (nextTargetKeys: string[], direction: string, moveKeys: string[]) => {
   targetKeys.value = nextTargetKeys;
+  const itemsWithoutKey = combinedList.value.map(({ key, ...rest }) => rest);
+
   if (!activeMimePolicyForm.value.unknownTypeAllowed) {
-    const itemsToUpdateRight = mimeTypes.value.filter(
-      (item) => nextTargetKeys.includes(item.uuid) && !originTargetKeys.value.includes(item.uuid)
+    const itemsToUpdateRight = itemsWithoutKey.filter(
+      (item) => moveKeys.includes(item.uuid) && !originTargetKeys.value.includes(item.uuid)
     );
-    itemsToUpdateRight.forEach((item) => {
-      item.enable = true;
-    });
-    const itemsToUpdateLeft = mimeTypes.value.filter(
-      (item) => !nextTargetKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
+    if (combinedList.value.length === targetKeys.value.length) {
+      enableAllMime();
+    } else {
+      itemsToUpdateRight.forEach((item) => {
+        item.enable = true;
+        handleUpdateMimeType(item);
+      });
+    }
+
+    const itemsToUpdateLeft = itemsWithoutKey.filter(
+      (item) => moveKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
     );
-    itemsToUpdateLeft.forEach((item) => {
-      item.enable = false;
-    });
+    if (targetKeys.value?.length === 0) {
+      disableAllMime();
+    } else {
+      itemsToUpdateLeft.forEach((item) => {
+        item.enable = false;
+        handleUpdateMimeType(item);
+      });
+    }
   } else {
-    const itemsToUpdateRight = mimeTypes.value.filter(
-      (item) => nextTargetKeys.includes(item.uuid) && !originTargetKeys.value.includes(item.uuid)
+    const itemsToUpdateRight = itemsWithoutKey.filter(
+      (item) => moveKeys.includes(item.uuid) && !originTargetKeys.value.includes(item.uuid)
     );
-    itemsToUpdateRight.forEach((item) => {
-      item.enable = false;
-    });
-    const itemsToUpdateLeft = mimeTypes.value.filter(
-      (item) => !nextTargetKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
+    if (combinedList.value.length === targetKeys.value.length) {
+      disableAllMime();
+    } else {
+      itemsToUpdateRight.forEach((item) => {
+        item.enable = false;
+        handleUpdateMimeType(item);
+      });
+    }
+
+    const itemsToUpdateLeft = itemsWithoutKey.filter(
+      (item) => moveKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
     );
-    itemsToUpdateLeft.forEach((item) => {
-      item.enable = true;
-    });
+    if (targetKeys.value?.length === 0) {
+      enableAllMime();
+    } else {
+      itemsToUpdateLeft.forEach((item) => {
+        item.enable = true;
+        handleUpdateMimeType(item);
+      });
+    }
   }
 };
 
@@ -200,10 +240,6 @@ const combinedList = computed(() => {
 
 watchEffect(() => {
   checkEnableStatus();
-});
-watchEffect(() => {
-  // activeMimePolicyForm.value.mimeTypes = combinedList.value.map((item) => ({ ...item }));
-  activeMimePolicyForm.value.mimeTypes = props.items;
 });
 </script>
 
