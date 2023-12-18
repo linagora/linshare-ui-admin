@@ -28,6 +28,8 @@ const activeMimePolicy = useLocalStorage<MimePolicy>(
   'configuration-type-mime-policies-activeMimePolicy',
   {} as MimePolicy
 );
+const activeMimePolicyForm = ref<MimePolicy>({} as MimePolicy);
+const defaultMimePolicyForm = ref<Partial<MimePolicy>>({});
 const selectedMimePolicies = ref<MimePolicy[]>();
 const modal = reactive<{
   type: 'DELETE_MIME_MODAL' | 'DELETE_MIME_POLICIES_MODAL' | 'DELETE_MIME_POLICIES_FAIL_MODAL';
@@ -222,6 +224,11 @@ export default function useMimesPolicies() {
       const mimes = await getMimePolicy(mimePolicyUuid);
       activeMimePolicy.value = mimes;
       status.value = STATUS.SUCCESS;
+
+      activeMimePolicyForm.value = structuredClone({
+        ...mimes,
+      });
+      defaultMimePolicyForm.value = structuredClone({ ...mimes });
       return;
     } catch (error) {
       status.value = STATUS.ERROR;
@@ -229,6 +236,10 @@ export default function useMimesPolicies() {
         message.error(error.getMessage());
       }
     }
+  }
+
+  function handleResetMimePolicy() {
+    activeMimePolicyForm.value = JSON.parse(JSON.stringify(defaultMimePolicyForm.value));
   }
 
   async function enableAllMimeTypesInMimePolicy(mimePolicyUuid: string) {
@@ -355,6 +366,7 @@ export default function useMimesPolicies() {
     onDeleteMimePolicies,
     handleUpdateMimePolicy,
     handleDeleteMimePolicy,
+    handleResetMimePolicy,
     handleDeleteMimePolicies,
     onShowDeleteMimePoliciesFail,
     enableAllMimeTypesInMimePolicy,
@@ -369,6 +381,8 @@ export default function useMimesPolicies() {
     filterText,
     filteredList,
     activeMimePolicy,
+    activeMimePolicyForm,
+    defaultMimePolicyForm,
     filteredListByPage,
     selectedMimePolicies,
   };

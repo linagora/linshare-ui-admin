@@ -3,7 +3,7 @@
     <h4 class="section-title">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.DESCRIPTION') }}</h4>
     <div class="option-block">
       <div class="value">
-        <a-radio-group v-model:value="minePolicy.unknownTypeAllowed" @change="onUpdateUnknownTypeAllowed($event)">
+        <a-radio-group v-model:value="activeMimePolicyForm.unknownTypeAllowed">
           <a-radio :value="true" :disabled="!isAllowEditEnable">
             <div class="title">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST') }}</div>
             <div class="description">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST_DESCRIPTION') }}</div>
@@ -18,36 +18,20 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, reactive } from 'vue';
-import { useRoute } from 'vue-router';
-import { cloneDeep } from 'lodash-es';
-import { MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
+import { computed } from 'vue';
+import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 
 interface Props {
-  item: MimePolicy;
   editable?: boolean;
   editing?: boolean;
 }
 
-const route = useRoute();
-
 const props = defineProps<Props>();
-const emits = defineEmits(['save']);
+const { activeMimePolicyForm } = useMimesPolicies();
 
 const isAllowEditEnable = computed(() => {
-  return props.editable;
+  return props.editing && props.editable;
 });
-
-const minePolicy = reactive<MimePolicy>(cloneDeep(props.item));
-
-async function onUpdateUnknownTypeAllowed() {
-  const payload: MimePolicy = {
-    ...props.item,
-    unknownTypeAllowed: minePolicy.unknownTypeAllowed,
-  };
-
-  emits('save', payload);
-}
 </script>
 <style lang="less">
 .type-options {

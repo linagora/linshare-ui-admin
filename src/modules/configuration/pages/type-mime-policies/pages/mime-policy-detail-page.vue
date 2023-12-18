@@ -15,7 +15,7 @@
           :item="activeMimePolicy"
           :loading="loading"
           @cancel="onToggleEditState"
-          @save="onUpdateMimePolicy($event)"
+          @save="onUpdateMimePolicy()"
         ></mime-detail-card>
       </div>
       <div class="mime-policy-detail-page__types">
@@ -24,7 +24,6 @@
           :editing="editing"
           :status="status"
           :items="mimeTypes"
-          :item="activeMimePolicy"
           @toggle-all="onToggleAllTypes"
           @toggle="onUpdateMimeTypeState($event)"
         ></mime-types-table>
@@ -51,6 +50,7 @@ const {
   disableAllMimeTypesInMimePolicy,
   checkingMimePolicyDomainAuthorized,
   activeMimePolicy,
+  activeMimePolicyForm,
   status,
   loading,
 } = useMimesPolicies();
@@ -60,7 +60,7 @@ const mimePolicyUuid = computed(() => {
 });
 
 const mimeTypes = computed(() => {
-  return activeMimePolicy.value?.mimeTypes ?? [];
+  return activeMimePolicyForm.value?.mimeTypes ?? [];
 });
 
 const isEditable = computed(() => {
@@ -78,11 +78,8 @@ function fetchingMimePolicyDetail() {
   handleGetMimePolicy(mimePolicyUuid.value.toString());
 }
 
-async function onUpdateMimePolicy(name: string) {
-  if (!name) {
-    return;
-  }
-  const payload: MimePolicy = { ...activeMimePolicy.value, name } as MimePolicy;
+async function onUpdateMimePolicy() {
+  const payload: MimePolicy = activeMimePolicyForm.value as MimePolicy;
 
   const result = await handleUpdateMimePolicy(payload);
 

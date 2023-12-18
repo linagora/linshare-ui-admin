@@ -37,14 +37,12 @@
 </template>
 <script lang="ts" setup>
 import { ref, watchEffect, Ref, computed } from 'vue';
-import { STATUS } from '@/core/types/Status';
-import { MimeType, MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
+import { MimePolicy, MimeType } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
+import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 import { useI18n } from 'vue-i18n';
 
 const props = defineProps<{
-  item: MimePolicy;
   items: MimeType[];
-  status: STATUS;
   editable?: boolean;
   editing?: boolean;
 }>();
@@ -57,16 +55,24 @@ type tableColumn = {
   title: string;
 };
 
+const { activeMimePolicyForm, activeMimePolicy } = useMimesPolicies();
+
 const customOperations = ref({
   right: t('MIME_POLICIES.MIME_TYPE_TABLE.ADD_TO_LIST'),
   left: t('MIME_POLICIES.MIME_TYPE_TABLE.REMOVE_FROM_LIST'),
 });
 
-const customTitle = ref({
-  source: t('MIME_POLICIES.MIME_TYPE_TABLE.SOURCE'),
-  list: props.item.unknownTypeAllowed
-    ? t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST')
-    : t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST'),
+const customTitle = computed(() => {
+  return {
+    source: t('MIME_POLICIES.MIME_TYPE_TABLE.SOURCE'),
+    list: activeMimePolicyForm.value.unknownTypeAllowed
+      ? t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST')
+      : t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST'),
+  };
+});
+
+const mimeTypes = computed(() => {
+  return activeMimePolicy.value?.mimeTypes ?? [];
 });
 
 const originTargetKeys: Ref<string[]> = ref([]);
@@ -107,27 +113,27 @@ const rightColumns = ref<tableColumn[]>(rightTableColumns);
 
 const onChange = (nextTargetKeys: string[]) => {
   targetKeys.value = nextTargetKeys;
-  if (!props.item.unknownTypeAllowed) {
-    const itemsToUpdateRight = props.items.filter(
+  if (!activeMimePolicyForm.value.unknownTypeAllowed) {
+    const itemsToUpdateRight = mimeTypes.value.filter(
       (item) => nextTargetKeys.includes(item.uuid) && !originTargetKeys.value.includes(item.uuid)
     );
     itemsToUpdateRight.forEach((item) => {
       item.enable = true;
     });
-    const itemsToUpdateLeft = props.items.filter(
+    const itemsToUpdateLeft = mimeTypes.value.filter(
       (item) => !nextTargetKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
     );
     itemsToUpdateLeft.forEach((item) => {
       item.enable = false;
     });
   } else {
-    const itemsToUpdateRight = props.items.filter(
+    const itemsToUpdateRight = mimeTypes.value.filter(
       (item) => nextTargetKeys.includes(item.uuid) && !originTargetKeys.value.includes(item.uuid)
     );
     itemsToUpdateRight.forEach((item) => {
       item.enable = false;
     });
-    const itemsToUpdateLeft = props.items.filter(
+    const itemsToUpdateLeft = mimeTypes.value.filter(
       (item) => !nextTargetKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
     );
     itemsToUpdateLeft.forEach((item) => {
@@ -163,11 +169,11 @@ const filterOption = (inputValue: string, option: MimeType) => {
 async function checkEnableStatus() {
   try {
     loading.value = true;
-    if (props.item.unknownTypeAllowed) {
-      originTargetKeys.value = props.items.filter((item) => !item.enable).map((item) => item.uuid);
+    if (activeMimePolicyForm.value.unknownTypeAllowed) {
+      originTargetKeys.value = mimeTypes.value.filter((item) => !item.enable).map((item) => item.uuid);
       targetKeys.value = originTargetKeys.value;
     } else {
-      originTargetKeys.value = props.items.filter((item) => item.enable).map((item) => item.uuid);
+      originTargetKeys.value = mimeTypes.value.filter((item) => item.enable).map((item) => item.uuid);
       targetKeys.value = originTargetKeys.value;
     }
   } finally {
@@ -176,16 +182,17 @@ async function checkEnableStatus() {
 }
 
 const combinedList = computed(() => {
-  const leftList = props.items.filter(
+  const leftList = mimeTypes.value.filter(
     (item) =>
       !originTargetKeys.value.includes(item.uuid) &&
-      (!props.item.unknownTypeAllowed || (props.item.unknownTypeAllowed && item.enable))
+      (!activeMimePolicyForm.value.unknownTypeAllowed || (activeMimePolicyForm.value.unknownTypeAllowed && item.enable))
   );
 
-  const rightList = props.items.filter(
+  const rightList = mimeTypes.value.filter(
     (item) =>
       originTargetKeys.value.includes(item.uuid) &&
-      ((props.item.unknownTypeAllowed && !item.enable) || (!props.item.unknownTypeAllowed && item.enable))
+      ((activeMimePolicyForm.value.unknownTypeAllowed && !item.enable) ||
+        (!activeMimePolicyForm.value.unknownTypeAllowed && item.enable))
   );
 
   return [...leftList, ...rightList];
@@ -193,6 +200,10 @@ const combinedList = computed(() => {
 
 watchEffect(() => {
   checkEnableStatus();
+});
+watchEffect(() => {
+  // activeMimePolicyForm.value.mimeTypes = combinedList.value.map((item) => ({ ...item }));
+  activeMimePolicyForm.value.mimeTypes = props.items;
 });
 </script>
 
@@ -215,7 +226,7 @@ watchEffect(() => {
 
   .ant-transfer-list-body {
     max-height: calc(100vh - 220px);
-    width: 550px;
+    width: auto;
     overflow-y: auto;
   }
 

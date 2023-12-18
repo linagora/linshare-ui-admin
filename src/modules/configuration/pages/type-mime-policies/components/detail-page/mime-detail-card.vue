@@ -3,14 +3,14 @@
     <div class="mime-detail-card__name">
       <span>{{ $t('MIME_POLICIES.NAME') }} <span class="aterisk">*</span></span>
       <a-input
-        v-model:value="form.mimePolicyName"
+        v-model:value="activeMimePolicyForm.name"
         :disabled="!editable || !editing"
         class="mime-detail-card__name-input"
       />
     </div>
     <div class="mime-detail-card__information">
-      <mime-type-options :item="item" :editable="editable"></mime-type-options>
-      <mime-system-information :item="item"></mime-system-information>
+      <mime-type-options :editable="editable" :editing="editing"></mime-type-options>
+      <mime-system-information></mime-system-information>
     </div>
     <div v-if="editing && editable" class="mime-detail-card__action">
       <a-button :disabled="loading" type="primary" class="ls-button" @click="onSave">
@@ -27,11 +27,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, watch } from 'vue';
 import { MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
 import MimeSystemInformation from '@/modules/configuration/pages/type-mime-policies/components/detail-page/mime-system-information.vue';
 import MimeTypeOptions from '@/modules/configuration/pages/type-mime-policies/components/detail-page/mime-type-options.vue';
-import { forIn } from 'lodash';
+import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 
 const props = defineProps<{
   item: MimePolicy | undefined;
@@ -40,18 +39,14 @@ const props = defineProps<{
   loading?: boolean;
 }>();
 const emits = defineEmits(['save', 'reset', 'cancel']);
-
+const { activeMimePolicyForm, handleResetMimePolicy } = useMimesPolicies();
 // composable
 
 // computed
-const form = reactive({
-  mimePolicyName: props.item?.name,
-  oldMimePolicyName: props.item?.name,
-});
 
 //methods
 function onSave() {
-  emits('save', form.mimePolicyName);
+  emits('save');
 }
 
 function onCancel() {
@@ -60,16 +55,8 @@ function onCancel() {
 }
 
 function onReset() {
-  form.mimePolicyName = form.oldMimePolicyName;
+  handleResetMimePolicy();
 }
-
-watch(
-  () => props.item?.name,
-  (newVal) => {
-    form.mimePolicyName = newVal;
-    form.oldMimePolicyName = newVal;
-  }
-);
 </script>
 <style lang="less">
 .mime-detail-card {

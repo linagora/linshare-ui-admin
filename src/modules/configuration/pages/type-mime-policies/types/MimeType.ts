@@ -5,9 +5,9 @@ export interface MimePolicy {
   modificationDate: number;
   domainId: string;
   domainName: string;
-  mimeTypes?: boolean;
+  mimeTypes: MimeType[];
   assigned?: boolean;
-  unknownTypeAllowed?: boolean;
+  unknownTypeAllowed: boolean;
 }
 
 export interface MimeType {

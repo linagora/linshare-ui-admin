@@ -7,7 +7,7 @@
         <div class="title">{{ $t('GENERAL.DOMAIN') }}</div>
         <div class="value">
           <router-link :to="{ name: 'ConfigurationDomainDetail', params: { domainUuid: domainUuid } }">
-            <a href="">{{ item?.domainName }}</a>
+            <a href="">{{ activeMimePolicyForm?.domainName }}</a>
           </router-link>
         </div>
       </div>
@@ -17,7 +17,7 @@
       <div>
         <div class="title">{{ $t('GENERAL.CREATION_DATE') }}</div>
         <div class="value">
-          {{ $d(item?.creationDate ?? 0, 'mediumDate') }}
+          {{ $d(activeMimePolicyForm?.creationDate ?? 0, 'mediumDate') }}
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <div>
         <div class="title">{{ $t('GENERAL.MODIFICATION_DATE') }}</div>
         <div class="value">
-          {{ $d(item?.modificationDate ?? 0, 'mediumDate') }}
+          {{ $d(activeMimePolicyForm?.modificationDate ?? 0, 'mediumDate') }}
         </div>
       </div>
     </div>
@@ -37,16 +37,14 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import GlobeIcon from '@/core/components/icons/globe-icon.vue';
 import CalendarIcon from '@/core/components/icons/calendar-icon.vue';
-import { MimePolicy } from '@/modules/configuration/pages/type-mime-policies/types/MimeType';
+import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 
 const route = useRoute();
 
-const props = defineProps<{
-  item: MimePolicy | undefined;
-}>();
+const { activeMimePolicyForm } = useMimesPolicies();
 
 const domainUuid = computed(() => {
-  return props.item?.domainId ?? route?.params?.domainUuid;
+  return activeMimePolicyForm.value?.domainId ?? route?.params?.domainUuid;
 });
 </script>
 <style lang="less">

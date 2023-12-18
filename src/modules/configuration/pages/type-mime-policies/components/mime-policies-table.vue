@@ -30,10 +30,10 @@
         <a-tag v-else color="red"> {{ $t('GENERAL.UNASSIGNED') }}</a-tag>
       </template>
       <template v-else-if="column.key === 'minepolicitytype'">
-        <a-tag v-if="record.unknownTypeAllowed" color="default">
+        <a-tag v-if="record.unknownTypeAllowed" color="#000">
           {{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST') }}</a-tag
         >
-        <a-tag v-else color="#000">
+        <a-tag v-else color="default">
           {{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST') }}
         </a-tag>
       </template>
