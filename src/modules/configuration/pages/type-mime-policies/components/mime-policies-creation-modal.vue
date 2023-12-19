@@ -52,6 +52,23 @@
             </div>
           </div>
         </div>
+        <div class="type-options">
+          <h4 class="section-title">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.DESCRIPTION') }}</h4>
+          <div class="option-block">
+            <div class="value">
+              <a-radio-group v-model:value="formState.unknownTypeAllowed">
+                <a-radio :value="true">
+                  <div class="title">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST') }}</div>
+                  <div class="description">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.BLACKLIST_DESCRIPTION') }}</div>
+                </a-radio>
+                <a-radio :value="false">
+                  <div class="title">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST') }}</div>
+                  <div class="description">{{ $t('MIME_POLICIES.MIME_TYPE_OPTIONS.WHITELIST_DESCRIPTION') }}</div>
+                </a-radio>
+              </a-radio-group>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </a-modal>
@@ -68,6 +85,7 @@ import GlobeIcon from '@/core/components/icons/globe-icon.vue';
 import CalendarIcon from '@/core/components/icons/calendar-icon.vue';
 import { useI18n } from 'vue-i18n';
 import { useDomainStore } from '@/modules/domain/store';
+import useMimesPolicies from '@/modules/configuration/pages/type-mime-policies/hooks/useMimePolicies';
 import dayjs from 'dayjs';
 
 interface Props {
@@ -75,6 +93,7 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+const { enableAllMimeTypesInMimePolicy, disableAllMimeTypesInMimePolicy } = useMimesPolicies();
 const now = dayjs();
 const timestamp = now.valueOf();
 const domainStore = useDomainStore();
@@ -85,6 +104,7 @@ const { t } = useI18n();
 const emit = defineEmits(['close', 'refresh']);
 const formState = reactive({
   name: '',
+  unknownTypeAllowed: false,
 });
 const formRules = computed(() => ({
   name: [{ required: true, message: t('GENERAL.FIELD_REQUIRED'), trigger: 'change' }],
@@ -97,9 +117,15 @@ async function MimePolicyCreation() {
     const payload = {
       name: formState.name,
       domainId: currentDomain.value.uuid,
+      unknownTypeAllowed: formState.unknownTypeAllowed,
     };
     await validate();
-    await createMimePolicy(payload);
+    const mime = await createMimePolicy(payload);
+    if (formState.unknownTypeAllowed) {
+      await enableAllMimeTypesInMimePolicy(mime.uuid);
+    } else {
+      await disableAllMimeTypesInMimePolicy(mime.uuid);
+    }
     emit('close');
     reset();
     emit('refresh');

@@ -135,7 +135,7 @@ const onChange = (nextTargetKeys: string[], direction: string, moveKeys: string[
     const itemsToUpdateRight = itemsWithoutKey.filter(
       (item) => moveKeys.includes(item.uuid) && !originTargetKeys.value.includes(item.uuid)
     );
-    if (combinedList.value.length === targetKeys.value.length) {
+    if (combinedList.value.length === targetKeys.value.length && moveKeys.length !== 1) {
       enableAllMime();
     } else {
       itemsToUpdateRight.forEach((item) => {
@@ -147,7 +147,7 @@ const onChange = (nextTargetKeys: string[], direction: string, moveKeys: string[
     const itemsToUpdateLeft = itemsWithoutKey.filter(
       (item) => moveKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
     );
-    if (targetKeys.value?.length === 0) {
+    if (targetKeys.value?.length === 0 && moveKeys.length !== 1) {
       disableAllMime();
     } else {
       itemsToUpdateLeft.forEach((item) => {
@@ -171,7 +171,7 @@ const onChange = (nextTargetKeys: string[], direction: string, moveKeys: string[
     const itemsToUpdateLeft = itemsWithoutKey.filter(
       (item) => moveKeys.includes(item.uuid) && originTargetKeys.value.includes(item.uuid)
     );
-    if (targetKeys.value?.length === 0) {
+    if (targetKeys.value?.length === 0 && moveKeys.length !== 1) {
       enableAllMime();
     } else {
       itemsToUpdateLeft.forEach((item) => {
