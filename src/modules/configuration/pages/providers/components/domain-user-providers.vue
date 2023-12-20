@@ -33,9 +33,11 @@
               <a-menu-item @click="state.provider.type = 'OIDC_PROVIDER'">
                 {{ $t('USER_PROVIDER.TYPES.OIDC') }}
               </a-menu-item>
-              <a-menu-item @click="state.provider.type = 'TWAKE_PROVIDER'">
+              <!--
+                Add twake provider possibility =>
+                 <a-menu-item @click="state.provider.type = 'TWAKE_PROVIDER'">
                 {{ $t('USER_PROVIDER.TYPES.TWAKE') }}
-              </a-menu-item>
+              </a-menu-item> -->
             </a-menu>
           </template>
         </a-dropdown>

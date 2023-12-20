@@ -92,15 +92,6 @@ export default defineComponent({
           },
           visible: isSuperAdmin.value,
         },
-        {
-          name: t('ADMINISTRATION.NAVIGATOR.LOGGERS'),
-          subTitle: t('ADMINISTRATION.NAVIGATOR.LOGGERS_SUBTITLE'),
-          icon: LoggersIcon,
-          to: () => {
-            router.push({ name: ADMINISTRATIONS_TEMPLATES_ROUTE_NAMES.LOGGERS });
-          },
-          visible: true,
-        },
       ];
     });
 

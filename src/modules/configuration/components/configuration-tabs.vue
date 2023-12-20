@@ -163,13 +163,6 @@ const configurationTabs = reactive({
       return loggedUserRole.value === ACCOUNT_ROLE.SUPERADMIN;
     }),
   },
-  PublicKeysJwt: {
-    title: 'NAVIGATOR.PUBLIC_KEYS',
-    key: 'PUBLIC_KEYS_JWT',
-    name: 'PublicKeysJwt',
-    legacy: true,
-    visible: true,
-  },
   ConfigurationDomainPolicies: {
     key: 'CONFIGURATION_DOMAIN_POLICIES',
     name: 'ConfigurationDomainPolicies',

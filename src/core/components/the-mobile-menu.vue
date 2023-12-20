@@ -104,13 +104,6 @@ function goToDefaultDomain() {
               <chevron-right-icon class="direction"></chevron-right-icon>
             </a>
           </a-menu-item>
-          <a-menu-item key="beta" @click="onClose">
-            <a name="beta" :href="config.legacyAppUrl" class="link">
-              <services-icon class="icon"></services-icon>
-              <span class="name">{{ $t('BETA.MENU') }}</span>
-              <chevron-right-icon class="direction"></chevron-right-icon>
-            </a>
-          </a-menu-item>
         </a-menu>
       </div>
     </a-drawer>

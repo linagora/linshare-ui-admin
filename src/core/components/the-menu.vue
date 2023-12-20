@@ -60,11 +60,6 @@ function goToDefaultDomain() {
         {{ $t('NAVIGATOR.UPGRADES') }}
       </router-link>
     </a-menu-item>
-    <a-menu-item key="beta">
-      <a name="beta" :href="config.legacyAppUrl">
-        {{ $t('BETA.MENU') }}
-      </a>
-    </a-menu-item>
   </a-menu>
 </template>
 
