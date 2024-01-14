@@ -1060,7 +1060,7 @@
         }
       },
       "UPLOAD_REQUEST__CAN_DELETE": {
-        "NAME": "Allow repcipients to delete files",
+        "NAME": "Allow recipients to delete files",
         "DESCRIPTION": "Determine whether upload request recipients can delete uploaded files",
         "PARAMETER": {
           "TITLE": "Allow deletion",
