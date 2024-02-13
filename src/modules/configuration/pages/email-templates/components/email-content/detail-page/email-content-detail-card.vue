@@ -42,15 +42,9 @@
             for="layout"
             :label="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.EMAIL_CONTENT_DETAIL_PAGE.CONTEXT_VARIABLES')"
           >
-            <a-select
-              v-model:value="activeMailContent.context"
-              :disabled="!editable || !editing"
-              class="ls-input"
-              :placeholder="$t('EMAIL_TEMPLATES.EDIT_FORM.LAYOUT_PLACEHOLDER')"
-              :bordered="false"
-            >
-              <a-select-option v-for="s in emailContextOptions" :key="s?.label" :value="s?.value">
-                {{ s?.label }}
+            <a-select v-model:value="activeMailContent.context" class="ls-input" :bordered="false">
+              <a-select-option v-for="(option, index) in emailContextOptions" :key="index" :value="option.value">
+                {{ option.label }}
               </a-select-option>
             </a-select>
           </a-form-item>
@@ -136,13 +130,21 @@ const isShowContext = ref(false);
 const formRef = ref<FormInstance>();
 const useForm = Form.useForm;
 const emailContexts = ref<MailContext[]>([]);
+
+async function onGetEmailContext() {
+  emailContexts.value = await handleGetMailContentContext(activeMailContent.value?.uuid);
+}
+
 const emailContextOptions = computed(() => {
-  return [
-    {
-      label: 'Default scenario',
-      value: 0,
-    },
-  ];
+  const options = emailContexts.value.map((item, index) => ({
+    label:
+      index === 0
+        ? `${t('EMAIL_TEMPLATES.MAIL_CONTENT_TYPE.DEFAULT_SCENARIO')}`
+        : `${t('EMAIL_TEMPLATES.MAIL_CONTENT_TYPE.EXTRA_SCENARIO')} ${index}`,
+    value: index,
+  }));
+
+  return options;
 });
 
 const formRules = computed(() => ({
@@ -176,10 +178,6 @@ const { validate, validateInfos, resetFields } = useForm(activeMailContent, form
 
 function onSelectLanguage(language: string) {
   selectedLanguage.value = language;
-}
-async function onGetEmailContext() {
-  emailContexts.value = await handleGetMailContentContext(activeMailContent.value?.uuid);
-  activeMailContent.value.context = 0;
 }
 
 onMounted(() => {

@@ -17,6 +17,6 @@ export interface MailContent {
   body: string;
   mailContentType: string;
   subject: string;
-  context?: string;
+  context?: number;
   config?: string;
 }

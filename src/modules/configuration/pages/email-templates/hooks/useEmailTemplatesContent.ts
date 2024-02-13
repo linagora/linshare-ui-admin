@@ -387,6 +387,7 @@ export default function useEmailTemplatesContent() {
             ? t('EMAIL_TEMPLATES.EMAIL_CONTENT.DEFAULT_MAIL_CONTENT')
             : ''),
       };
+      activeMailContent.value.context = 0;
       defaultMailContent.value = {
         ...messages,
         description:

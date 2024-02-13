@@ -2469,7 +2469,9 @@
       "GUEST_MODERATOR_UPDATE": "Пользователь получает уведомление по электронной почте, когда его роль модератора обновляется",
       "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "Это уведомление отправляется, когда срок действия учетной записи гостя истек.",
       "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "Это уведомление отправляется, когда документ был добавлен в рабочую группу",
-      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "Это уведомление отправляется при обновлении документа рабочей группы"
+      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "Это уведомление отправляется при обновлении документа рабочей группы",
+      "DEFAULT_SCENARIO" : "Стандартный сценарий",
+      "EXTRA_SCENARIO" : "Дополнительный сценарий"
     },
     "EMAIL_FOOTER": {
       "PUBLIC": "Публичный",

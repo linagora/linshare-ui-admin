@@ -2733,7 +2733,9 @@
       "GUEST_MODERATOR_UPDATE": "A user receives an email notification when his moderator role is updated",
       "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "This notification is sent when a guest account has expired",
       "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "This notification is sent when a document has been added to the workgroup",
-      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "This notification is sent when a workgroup document has been updated"
+      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "This notification is sent when a workgroup document has been updated",
+      "DEFAULT_SCENARIO": "Default scenario",
+      "EXTRA_SCENARIO": "Extra scenario"
     },
     "EMAIL_FOOTER": {
       "PUBLIC": "Public",
