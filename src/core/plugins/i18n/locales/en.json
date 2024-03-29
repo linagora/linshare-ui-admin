@@ -1601,7 +1601,7 @@
       },
       "TYPE": {
         "ALL": "All",
-        "ANONYMOUS_SHARE_ENTRY": "Share",
+        "ANONYMOUS_SHARE_ENTRY": "Anonymous share",
         "AUTHENTICATION": "Authentication",
         "CONTACTS_LISTS": "Contact List",
         "CONTACTS_LISTS_CONTACTS": "Contact",

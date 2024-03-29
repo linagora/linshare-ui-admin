@@ -1339,7 +1339,7 @@
       },
       "TYPE": {
         "ALL": "Все",
-        "ANONYMOUS_SHARE_ENTRY": "Обмен",
+        "ANONYMOUS_SHARE_ENTRY": "Анонимный Поделиться",
         "AUTHENTICATION": "Аутентификация",
         "CONTACTS_LISTS": "Список контактов",
         "CONTACTS_LISTS_CONTACTS": "Контакт",

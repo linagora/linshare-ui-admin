@@ -1595,7 +1595,7 @@
       },
       "TYPE": {
         "ALL": "Tất cả",
-        "ANONYMOUS_SHARE_ENTRY": "Chia sẻ ẩn danh",
+        "ANONYMOUS_SHARE_ENTRY": "Chia sẻ ẩn danh ",
         "AUTHENTICATION": "Xác thực",
         "CONTACTS_LISTS": "Danh sách liên hệ",
         "CONTACTS_LISTS_CONTACTS": "Liên hệ",

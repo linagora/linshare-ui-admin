@@ -110,6 +110,7 @@ export interface ActivityLogData extends ActivityLog {
   resourceName: string;
   resourceSize: number;
   resourceRecipientName: string;
+  resourceRecipientMail: string;
   dateTime: number;
   detail: string;
 }

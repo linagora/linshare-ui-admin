@@ -61,6 +61,7 @@ export function useActivities() {
             loggedUser.value?.uuid === item?.resource?.recipient?.uuid
               ? t('ACTIVITIES.ME')
               : item?.resource?.recipient?.name || item?.recipientMail || '',
+          resourceRecipientMail: item?.resource?.recipient?.mail || '',
         } as ActivityLogData;
       });
   });

@@ -36,6 +36,7 @@ const detailPopupContent = computed(() => {
     resourceNameVarious: activeRecord?.value?.resourceName,
     resourceSize: activeRecord?.value?.resourceSize,
     resourceRecipientName: activeRecord?.value?.resourceRecipientName,
+    resourceRecipientMail: activeRecord?.value?.resourceRecipientMail,
   };
   return t(
     `ACTIVITIES.DETAILS_POPUP.SENTENCES.${activeRecord.value?.type}.${activeRecord.value?.action}.${
@@ -105,7 +106,7 @@ const columns = computed(() => {
     },
   ];
 
-  if (isFilterTypes(type.value)) {
+  if (isShareFilterTypes(type.value)) {
     columnsShareType.value.map((columnsShareType) => {
       defaultColumns.splice(6, 0, columnsShareType);
     });
@@ -134,6 +135,10 @@ const columnsShareType = computed(() => [
   },
 ]);
 
+const includesAny = (arr: [], values: []) => values.some((v) => arr.includes(v));
+const includesAll = (arr: [], values: []) => values.every((v) => arr.includes(v));
+const shareTypes = [ACTIVITIES_TYPE.SHARE_ENTRY, ACTIVITIES_TYPE.ANONYMOUS_SHARE_ENTRY];
+
 // methods
 function relativeDate(date: number) {
   const relativeTime = useRelativeTime(date);
@@ -144,8 +149,8 @@ function onViewDetail(record: ActivityLogData) {
   activeRecord.value = record;
 }
 
-function isFilterTypes(type: ActivitiesType) {
-  return type.length > 0 && type.includes(ACTIVITIES_TYPE.SHARE_ENTRY);
+function isShareFilterTypes(types: ActivitiesType[]) {
+  return types.length > 0 && includesAny(types, shareTypes);
 }
 
 // hooks
@@ -156,8 +161,8 @@ onMounted(() => {
 // watch
 watch(
   () => type.value,
-  (newValue: string, oldValue: string) => {
-    if (newValue !== oldValue && oldValue.length > 0) {
+  (newValue: [], oldValue: []) => {
+    if (newValue !== oldValue && oldValue.length > 0 && !includesAny(newValue, shareTypes)) {
       loading.value = true;
 
       columnsShareType.value.map((columnShareType) => {
@@ -236,14 +241,14 @@ watch(
       <template v-if="column.key === 'resourceName'">
         {{ record.resourceName }}
       </template>
-      <template v-if="column.key === 'fileSize' && isFilterTypes(type)">
+      <template v-if="column.key === 'fileSize' && isShareFilterTypes(type)">
         {{ getReadableSize(record?.resourceSize).getText() }}
       </template>
-      <template v-if="column.key === 'receiver' && isFilterTypes(type)">
+      <template v-if="column.key === 'receiver' && isShareFilterTypes(type)">
         <div class="activities-data-table__receiver">
           <div class="infor">
             <strong :title="record.actorName">{{ record?.resourceRecipientName }} </strong>
-            <span>{{ record.actorMail }}</span>
+            <span v-if="record?.resourceRecipientMail">{{ record?.resourceRecipientMail }}</span>
           </div>
         </div>
       </template>
