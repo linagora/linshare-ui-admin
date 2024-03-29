@@ -327,13 +327,12 @@ onMounted(async () => {
           v-model:value="filterForm.actorEmail"
           :get-popup-container="(triggerNode: HTMLElement) =>triggerNode.parentElement"
           class="ls-selector"
-          mode="multiple"
+          mode="tags"
           :options="options"
           :placeholder="$t('ACTIVITIES.FILTERS_MODAL.ACTOR_SELECT_PLACEHOLDER')"
           @search="searchUsersDebounce"
         >
           <template #option="{ value, label }">
-            <UserOutlined class="user-icon" />
             <span>
               <span>{{ label }}</span>
               <span>&nbsp;</span>
