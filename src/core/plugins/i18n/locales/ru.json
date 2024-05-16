@@ -1402,7 +1402,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} поделился с вами файлом: {resourceName}.",
+              "SENTENCE": "Пользователь {authorName} поделился файлом: {resourceName} с пользователем {resourceRecipientMail}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },
@@ -1936,7 +1936,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} поделился файлом {resourceName} с вами.",
+              "SENTENCE": "Пользователь {authorName} поделился файлом: {resourceName} с пользователем {resourceRecipientMail}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },

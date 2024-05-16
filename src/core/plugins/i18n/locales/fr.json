@@ -1662,7 +1662,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} a partagé le fichier : {resourceName} avec vous.",
+              "SENTENCE": "{authorName} a partagé le fichier : {resourceName} avec {resourceRecipientMail}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },
@@ -2196,7 +2196,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} a partagé le fichier : {resourceName} avec vous.",
+              "SENTENCE": "{authorName} a partagé le fichier : {resourceName} avec {resourceRecipientMail}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },

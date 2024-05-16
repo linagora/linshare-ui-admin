@@ -1660,7 +1660,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} đã chia sẻ tập tin: {resourceName} với bạn.",
+              "SENTENCE": "{authorName} đã chia sẻ tệp: {resourceName} với {resourceRecipientMail}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },
@@ -2194,7 +2194,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} đã chia sẻ tập tin: {resourceName} với bạn.",
+              "SENTENCE": "{authorName} đã chia sẻ tệp: {resourceName} với {resourceRecipientMail}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },

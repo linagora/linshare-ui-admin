@@ -1666,7 +1666,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has shared the file : {resourceName} with you.",
+              "SENTENCE": "{authorName} has shared the file : {resourceName} with {resourceRecipientMail}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },
@@ -2200,7 +2200,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             },
             "VIEWER": {
-              "SENTENCE": "{authorName} has shared the file : {resourceName} with you.",
+              "SENTENCE": "{authorName} has shared the file : {resourceName} with {resourceRecipientMail}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
             }
           },
