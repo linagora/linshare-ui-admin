@@ -1448,6 +1448,7 @@
         "DOCUMENT_ENTRY": "Tài liệu",
         "FUNCTIONALITY": "Tính năng",
         "GUEST_MODERATOR": "Người kiểm duyệt khách",
+        "GUEST_CONVERTING": "Khách chuyển đổi",
         "GUEST": "Khách",
         "GROUP_FILTER": "Bộ lọc nhóm làm việc",
         "JWT_PERMANENT_TOKEN": "JWT vĩnh viễn",
@@ -1591,7 +1592,8 @@
         "UPLOAD": "Tải lên",
         "VIEWED": "Đã xem",
         "PURGE": "Thanh lọc",
-        "GET": "Truy vấn"
+        "GET": "Truy vấn",
+        "CONVERT": "Chuyển đổi"
       },
       "TYPE": {
         "ALL": "Tất cả",
@@ -1622,6 +1624,7 @@
         "UPLOAD_REQUEST_GROUP": "Yêu cầu tải lên",
         "UPLOAD_REQUEST_ENTRY": "Tài liệu (Yên cầu tải lên)",
         "GUEST_MODERATOR": "Người kiểm duyệt khách",
+        "GUEST_CONVERTING": "Khách chuyển đổi",
         "GROUP_FILTER": "Bộ lọc nhóm làm việc",
         "WORKSPACE_FILTER": "Bộ lọc không gian làm việc",
         "RESET_PASSWORD": "Đặt lại mật khẩu",
@@ -2073,6 +2076,50 @@
             }
           }
         },
+        "GUEST_MODERATOR": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã tạo Người điều hành khách mới cho : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã tạo Người điều hành khách mới cho : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã xóa Người điều hành khách của : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã xóa Người điều hành khách của : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã chỉnh sửa Người điều hành khách của : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã chỉnh sửa Người điều hành khách của : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "GUEST_CONVERTING": {
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã xóa Tài khoản khách của : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã xóa Tài khoản khách của : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
         "USER": {
           "SECOND_FACTOR_SHARED_KEY_CREATE": {
             "AUTHOR": {
@@ -2152,6 +2199,16 @@
             "VIEWER": {
               "SENTENCE": "{authorName} đã xóa Tài khoản người dùng của : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "CONVERT": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã chuyển đổi từ Khách sang Tài khoản nội bộ : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã chuyển đổi từ Khách sang Tài khoản nội bộ : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
             }
           }
         },

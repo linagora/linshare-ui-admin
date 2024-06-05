@@ -1450,6 +1450,7 @@
         "DOCUMENT_ENTRY": "Documents (espace perso)",
         "FUNCTIONALITY": "Fonctionnalités",
         "GUEST_MODERATOR": "Modérateurs d’invité",
+        "GUEST_CONVERTING": "Conversion des invités",
         "GUEST": "Inivtés",
         "GROUP_FILTER": "Filtres de groupes de travail",
         "JWT_PERMANENT_TOKEN": "Jeton JWT permanent",
@@ -1593,7 +1594,8 @@
         "UPLOAD": "Dépôt de fichier",
         "VIEWED": "Vu",
         "PURGE": "Purge",
-        "GET": "Consultation"
+        "GET": "Consultation",
+        "CONVERT": "Convertir"
       },
       "TYPE": {
         "ALL": "Tous",
@@ -1624,6 +1626,7 @@
         "UPLOAD_REQUEST_URL": "Invitation de dépôt - Lien",
         "UPLOAD_REQUEST_ENTRY": "Invitation de dépôt - Document",
         "GUEST_MODERATOR": "Modérateurs d’invité",
+        "GUEST_CONVERTING": "Conversion des invités",
         "GROUP_FILTER": "Filtres de groupes de travail",
         "WORKSPACE_FILTER": " Filtres d’espace de travail ",
         "RESET_PASSWORD": " Réinitialisation du mot de passe ",
@@ -2075,6 +2078,60 @@
             }
           }
         },
+        "GUEST_MODERATOR": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez créé un nouveau Modérateur d’invités pour : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a créé un nouveau Modérateur d’invités pour : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez supprimé le Modérateur d’invités de : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a supprimé le Modérateur d’invités de : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez modifié le Modérateur d’invités de : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a modifié le Modérateur d’invités de : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "GUEST_CONVERTING": {
+          "CONVERT": {
+            "AUTHOR": {
+              "SENTENCE": "You avez converti le Compte Invité en Compte Interne : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a converti le Compte Invité en Compte Interne : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez supprimé le Compte Invité de : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a supprimé le Compte Invité de : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
         "USER": {
           "SECOND_FACTOR_SHARED_KEY_CREATE": {
             "AUTHOR": {
@@ -2154,6 +2211,16 @@
             "VIEWER": {
               "SENTENCE": "{authorName} a purgé le compte utilisateur de : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "CONVERT": {
+            "AUTHOR": {
+              "SENTENCE": "You avez converti le Compte Invité en Compte Interne : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a converti le Compte Invité en Compte Interne : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
             }
           }
         },

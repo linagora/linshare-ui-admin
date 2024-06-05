@@ -1192,6 +1192,7 @@
         "DOCUMENT_ENTRY": "Документы",
         "FUNCTIONALITY": "Функциональность",
         "GUEST_MODERATOR": "Приглашенные модераторы",
+        "GUEST_CONVERTING": "Гостевая конвертация",
         "GUEST": "Гости",
         "GROUP_FILTER": "Фильтры рабочей группы",
         "JWT_PERMANENT_TOKEN": "Постоянный JWT",
@@ -1335,7 +1336,8 @@
         "UPLOAD": "Загрузка файла",
         "VIEWED": "Просмотрено",
         "PURGE": "Очистить",
-        "GET": "Получить"
+        "GET": "Получить",
+        "CONVERT": "Конвертировать"
       },
       "TYPE": {
         "ALL": "Все",
@@ -1364,6 +1366,7 @@
         "UPLOAD_REQUEST_GROUP": "Группа запросов на загрузку",
         "UPLOAD_REQUEST_ENTRY": "Запись запроса на загрузку",
         "GUEST_MODERATOR": "Приглашенные модераторы",
+        "GUEST_CONVERTING": "Гостевая конвертация",
         "GROUP_FILTER": "Фильтры рабочей группы",
         "WORKSPACE_FILTER": "Фильтры рабочей области",
         "RESET_PASSWORD": "Сброс пароля",
@@ -1815,6 +1818,50 @@
             }
           }
         },
+        "GUEST_MODERATOR": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы создали нового гостевого модератора для : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "Пользователь {authorName} создал нового гостевого модератора для : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы удалили гостевого модератора : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} удалил гостевого модератора : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "YВы отредактировали гостевого модератора : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "Пользователь {authorName} отредактировал гостевого модератора : {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "GUEST_CONVERTING": {
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы удалили гостевую учетную запись : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} удалил гостевую учетную запись пользователя : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
         "USER": {
           "SECOND_FACTOR_SHARED_KEY_CREATE": {
             "AUTHOR": {
@@ -1894,6 +1941,16 @@
             "VIEWER": {
               "SENTENCE": "{authorName} очистил пользовательский аккаунт : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "CONVERT": {
+            "AUTHOR": {
+              "SENTENCE": "Вы перешли из гостевой учетной записи во внутреннюю : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} преобразовал гостевую учетную запись во внутреннюю : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
             }
           }
         },

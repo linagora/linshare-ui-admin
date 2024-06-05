@@ -35,9 +35,19 @@ export type ResourceType =
   | 'DRIVE_MEMBER'
   | 'DRIVE'
   | 'WORKGROUP'
-  | 'GUEST_MODERATOR';
+  | 'GUEST_MODERATOR'
+  | 'GUEST_CONVERTING';
 
-export type GenericActions = 'CREATE' | 'UPDATE' | 'DELETE' | 'GET' | 'DOWNLOAD' | 'SUCCESS' | 'FAILURE' | 'PURGE';
+export type GenericActions =
+  | 'CREATE'
+  | 'UPDATE'
+  | 'DELETE'
+  | 'GET'
+  | 'DOWNLOAD'
+  | 'SUCCESS'
+  | 'FAILURE'
+  | 'PURGE'
+  | 'CONVERT';
 
 export type GenericResourceStatistic = { resource: string } & Record<GenericActions, number>;
 
