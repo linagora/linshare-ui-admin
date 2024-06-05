@@ -1219,7 +1219,8 @@
         "WORKGROUP_DOCUMENT": "Документы рабочей группы",
         "WORKGROUP_MEMBER": "Члены рабочей группы",
         "WORKGROUP_FOLDER": "Папки рабочей группы",
-        "WORKGROUP_DOCUMENT_REVISION": "Редакции документов рабочей группы"
+        "WORKGROUP_DOCUMENT_REVISION": "Редакции документов рабочей группы",
+        "USER_UPDATE": "Пользовательские модификации"
       }
     },
     "FILES_QUANTITY": {
@@ -1376,7 +1377,8 @@
         "SHARED_SPACE_NODE": "Узлы общего пространства",
         "MAIL_ATTACHMENT": "Почтовые вложения",
         "SHARED_SPACE_MEMBER": "Участники общего пространства",
-        "UPLOAD_PROPOSITION": "Загрузить предложения"
+        "UPLOAD_PROPOSITION": "Загрузить предложения",
+        "USER_UPDATE": "Пользовательские модификации"
       }
     },
     "TABLE_HEADER": {
@@ -1951,6 +1953,18 @@
             "VIEWER": {
               "SENTENCE": "{authorName} преобразовал гостевую учетную запись во внутреннюю : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          }
+        },
+        "USER_UPDATE": {
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы изменили гостевой Выбрано {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} изменил гостевой Выбрано {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
         },

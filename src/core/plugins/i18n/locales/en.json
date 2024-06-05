@@ -1478,7 +1478,8 @@
         "WORKGROUP_DOCUMENT": "Workgroup documents",
         "WORKGROUP_MEMBER": "Workgroup members",
         "WORKGROUP_FOLDER": "Workgroup folders",
-        "WORKGROUP_DOCUMENT_REVISION": "Workgroup document revisions"
+        "WORKGROUP_DOCUMENT_REVISION": "Workgroup document revisions",
+        "USER_UPDATE": "User modifications"
       }
     },
     "FILES_QUANTITY": {
@@ -1640,7 +1641,8 @@
         "SHARED_SPACE_NODE": "Shared space nodes",
         "MAIL_ATTACHMENT": "Mail attachments",
         "SHARED_SPACE_MEMBER": "Shared space members",
-        "UPLOAD_PROPOSITION": "Upload propositions"
+        "UPLOAD_PROPOSITION": "Upload propositions",
+        "USER_UPDATE": "User modifications"
       }
     },
     "TABLE_HEADER": {
@@ -2215,6 +2217,18 @@
             "VIEWER": {
               "SENTENCE": "{authorName} has converted from Guest to Internal Account : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          }
+        },
+        "USER_UPDATE": {
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "You have edited the User Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has edited the User Account of : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
         },

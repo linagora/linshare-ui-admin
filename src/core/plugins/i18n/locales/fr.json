@@ -1477,7 +1477,8 @@
         "WORKGROUP_DOCUMENT": "Documents du groupe de travail",
         "WORKGROUP_MEMBER": "Membres du groupe de travail",
         "WORKGROUP_FOLDER": "Documents du groupe de travail",
-        "WORKGROUP_DOCUMENT_REVISION": " Révisions des documents du groupe de travail"
+        "WORKGROUP_DOCUMENT_REVISION": " Révisions des documents du groupe de travail",
+        "USER_UPDATE": "Modifications Utilisateur"
       }
     },
     "FILES_QUANTITY": {
@@ -1636,7 +1637,8 @@
         "SHARED_SPACE_NODE": "Nœuds d'espace partagé ",
         "MAIL_ATTACHMENT": " Pièces jointes ",
         "SHARED_SPACE_MEMBER": " Membres de l'espace partagé",
-        "UPLOAD_PROPOSITION": "Propositions d’invitations de dépôt"
+        "UPLOAD_PROPOSITION": "Propositions d’invitations de dépôt",
+        "USER_UPDATE": "Modifications Utilisateur"
       }
     },
     "TABLE_HEADER": {
@@ -2221,6 +2223,18 @@
             "VIEWER": {
               "SENTENCE": "{authorName} a converti le Compte Invité en Compte Interne : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          }
+        },
+        "USER_UPDATE": {
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez modifié l'Utilisateur Invité de : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} a modifié l'Utilisateur Invité de : {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
         },

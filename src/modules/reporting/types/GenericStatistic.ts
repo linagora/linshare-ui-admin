@@ -36,7 +36,8 @@ export type ResourceType =
   | 'DRIVE'
   | 'WORKGROUP'
   | 'GUEST_MODERATOR'
-  | 'GUEST_CONVERTING';
+  | 'GUEST_CONVERTING'
+  | 'USER_UPDATE';
 
 export type GenericActions =
   | 'CREATE'

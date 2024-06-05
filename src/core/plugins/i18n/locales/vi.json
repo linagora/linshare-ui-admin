@@ -1475,7 +1475,8 @@
         "WORKGROUP_DOCUMENT": "Tài liệu nhóm làm việc",
         "WORKGROUP_MEMBER": "Thành viên nhóm làm việc",
         "WORKGROUP_FOLDER": "Thư mục nhóm làm việc",
-        "WORKGROUP_DOCUMENT_REVISION": "Bản sửa đổi tài liệu nhóm làm việc"
+        "WORKGROUP_DOCUMENT_REVISION": "Bản sửa đổi tài liệu nhóm làm việc",
+        "USER_UPDATE": "Sửa đổi người dùng"
       }
     },
     "FILES_QUANTITY": {
@@ -1634,7 +1635,8 @@
         "SHARED_SPACE_NODE": "Nhóm làm việc (ghi chép cũ)",
         "MAIL_ATTACHMENT": "Tệp đính kèm thư",
         "SHARED_SPACE_MEMBER": "Thành viên không gian được chia sẻ",
-        "UPLOAD_PROPOSITION": "Yêu cầu tải lên"
+        "UPLOAD_PROPOSITION": "Yêu cầu tải lên",
+        "USER_UPDATE": "Sửa đổi người dùng"
       }
     },
     "TABLE_HEADER": {
@@ -2209,6 +2211,18 @@
             "VIEWER": {
               "SENTENCE": "{authorName} đã chuyển đổi từ Khách sang Tài khoản nội bộ : {userVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          }
+        },
+        "USER_UPDATE": {
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Bạn đã chỉnh sửa Tài khoản người dùng của: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} đã chỉnh sửa Tài khoản Người dùng của: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
         },
