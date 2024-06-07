@@ -2651,6 +2651,28 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
+        },
+        "RESET_PASSWORD": {
+          "FAILURE": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez essayé de réinitialiser votre mot de passe.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} a essayé de réinitialiser le mot de passe.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            }
+          },
+          "SUCCESS": {
+            "AUTHOR": {
+              "SENTENCE": "Vous avez réinitialisé votre mot de passe avec succès.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} a réussi à réinitialiser le mot de passe.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            }
+          }
         }
       }
     }

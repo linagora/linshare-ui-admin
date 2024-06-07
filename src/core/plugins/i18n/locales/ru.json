@@ -2381,6 +2381,28 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
+        },
+        "RESET_PASSWORD": {
+          "FAILURE": {
+            "AUTHOR": {
+              "SENTENCE": "Вы пытались сбросить пароль.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} попытался сбросить пароль.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            }
+          },
+          "SUCCESS": {
+            "AUTHOR": {
+              "SENTENCE": "Вы успешно сбросили пароль.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} успешно сбросил пароль.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            }
+          }
         }
       }
     }

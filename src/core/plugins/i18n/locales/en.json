@@ -2645,6 +2645,28 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
+        },
+        "RESET_PASSWORD": {
+          "FAILURE": {
+            "AUTHOR": {
+              "SENTENCE": "You have tried to reset your password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} has tried to reset the password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            }
+          },
+          "SUCCESS": {
+            "AUTHOR": {
+              "SENTENCE": "You have successfully reset your password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            },
+            "VIEWER": {
+              "SENTENCE": "{{authorName}} has successfully reset the password.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            }
+          }
         }
       }
     }
