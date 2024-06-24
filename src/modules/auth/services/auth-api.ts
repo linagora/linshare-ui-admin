@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import api from '@/api';
 import SecondFactorAuthentication from '../types/SecondFactorAuthentication';
+import ChangePassword from '../types/ChangePassword';
 import User from '@/modules/user/types/User';
 
 async function getAuthorizedUser(config?: AxiosRequestConfig): Promise<User> {
@@ -23,4 +24,8 @@ async function remove2FAKey(uuid: string): Promise<SecondFactorAuthentication> {
   return await api.delete(`authentication/2fa/${uuid}`);
 }
 
-export { create2FAKey, get2FAStatus, getAuthorizedUser, logOut, remove2FAKey };
+async function changePassword(payload: { oldPwd: string; newPwd: string }): Promise<ChangePassword> {
+  return await api.post('authentication/change_password/', payload);
+}
+
+export { create2FAKey, get2FAStatus, getAuthorizedUser, logOut, remove2FAKey, changePassword };

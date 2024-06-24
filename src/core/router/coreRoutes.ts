@@ -6,7 +6,7 @@ import { ReportingRoute } from '@/modules/reporting/router';
 import { ActivitiesRoute } from '@/modules/activities/router';
 import { ConfigurationRoute } from '@/modules/configuration/router';
 import { AdministrationRoute } from '@/modules/administration/router';
-import { ManageSecondFactorAuthenticationRoute } from '@/modules/auth/router';
+import { ManageSecondFactorAuthenticationRoute, ManageChangePasswordRoute } from '@/modules/auth/router';
 
 export const CoreRoutes: Array<RouteRecordRaw> = [
   {
@@ -24,6 +24,7 @@ export const CoreRoutes: Array<RouteRecordRaw> = [
       ConfigurationRoute,
       AdministrationRoute,
       ManageSecondFactorAuthenticationRoute,
+      ManageChangePasswordRoute,
     ],
   },
 ];

@@ -9,6 +9,7 @@ import { logout } from '@/modules/auth/services/basic';
 import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
 import UserProfileIcon from '@/core/components/icons/user-profile-icon.vue';
 import { useReportingSharesStore, useReportingStore } from '@/modules/reporting/store';
+import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 
 // composables
 const { push } = useRouter();
@@ -32,6 +33,10 @@ async function logOut() {
   reportingSharesStore.$reset();
   push({ name: 'Login' });
 }
+
+const isSuperAdmin = computed(() => {
+  return loggedUser;
+});
 </script>
 
 <template>
@@ -52,6 +57,11 @@ async function logOut() {
             <a-menu-item v-if="secondFAEnabled" key="second_factor_authentication" @click="onClose">
               <router-link :to="{ name: 'ManageSecondFactorAuthentication' }" class="link">
                 <span class="name">{{ $t('HEADER.PROFILE.2FA') }}</span>
+              </router-link>
+            </a-menu-item>
+            <a-menu-item v-if="isSuperAdmin" key="change_password" @click="onClose">
+              <router-link :to="{ name: 'ManageChangePassword' }" class="link">
+                <span class="name">{{ $t('HEADER.PROFILE.CHANGE_PASSWORD') }}</span>
               </router-link>
             </a-menu-item>
             <a-menu-item key="logout" @click="logOut">

@@ -95,7 +95,8 @@
     "PROFILE": {
       "LOGOUT": "Log out",
       "2FA": "Second factor authentication",
-      "LANGUAGE": "Language"
+      "LANGUAGE": "Language",
+      "CHANGE_PASSWORD": "Change Password"
     }
   },
   "FOOTER": {
@@ -344,6 +345,13 @@
       "ALGORITHM": "Algorithm: ",
       "INTERVAL": "Interval: "
     }
+  },
+  "PASSWORD": {
+    "TITLE": "Change Password",
+    "OLD_PASSWORD": "Old password",
+    "NEW_PASSWORD": "New password",
+    "NEW_PASSWORD_CONFIRM": "Confirm new password",
+    "PASSWORD_REQUIREMENT": "Password must have at least 12 characters in length and must contain uppercase characters, digits and special characters"
   },
   "SHARED_SPACES": {
     "DELETE_WORK_GROUP": "Delete workgroup",

@@ -95,7 +95,8 @@
     "PROFILE": {
       "LOGOUT": "Déconnexion",
       "2FA": "Authentification double facteur",
-      "LANGUAGE": "Langage"
+      "LANGUAGE": "Langage",
+      "CHANGE_PASSWORD": "Modifier le mot de passe"
     }
   },
   "FOOTER": {
@@ -343,6 +344,13 @@
       "ALGORITHM": "Algorithme: ",
       "INTERVAL": "Intervalle: "
     }
+  },
+  "PASSWORD": {
+    "TITLE": "Modifier le mot de passe",
+    "OLD_PASSWORD": "Ancien mot de passe",
+    "NEW_PASSWORD": "Nouveau mot de passe",
+    "NEW_PASSWORD_CONFIRM": "Confirmer le nouveau mot de passe",
+    "PASSWORD_REQUIREMENT": "Le mot de passe doit comporter au moins 12 caractères et doit contenir au moins une majuscule, un chiffre et un caractère spécial"
   },
   "SHARED_SPACES": {
     "DELETE_WORK_GROUP": "Supprimer le groupe de travail",

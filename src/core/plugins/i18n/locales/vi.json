@@ -95,7 +95,8 @@
     "PROFILE": {
       "LOGOUT": "Đăng xuất",
       "2FA": "Cơ chế xác thực thứ hai",
-      "LANGUAGE": "Ngôn ngữ"
+      "LANGUAGE": "Ngôn ngữ",
+      "CHANGE_PASSWORD": "Đổi mật khẩu"
     }
   },
   "FOOTER": {
@@ -343,6 +344,13 @@
       "ALGORITHM": "Thuật toán: ",
       "INTERVAL": "Thời gian: "
     }
+  },
+  "PASSWORD": {
+    "TITLE": "Đổi mật khẩu",
+    "OLD_PASSWORD": "Mật khẩu cũ",
+    "NEW_PASSWORD": "Mật khẩu mới",
+    "NEW_PASSWORD_CONFIRM": "Xác nhận mật khẩu mới",
+    "PASSWORD_REQUIREMENT": "Mật khẩu phải dài ít nhất 12 ký tự và phải chứa ký tự viết hoa, chữ số và ký tự đặc biệt"
   },
   "SHARED_SPACES": {
     "DELETE_WORK_GROUP": "Xóa nhóm làm việc",
