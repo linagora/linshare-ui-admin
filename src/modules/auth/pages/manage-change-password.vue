@@ -52,7 +52,7 @@
           @click="onChangePassword"
         >
           <a-spin v-if="loading" />
-          <span v-else>{{ $t('GENERAL.CREATE') }}</span>
+          <span v-else>{{ $t('GENERAL.SAVE') }}</span>
         </a-button>
       </div>
     </a-card>
@@ -157,7 +157,8 @@ onUnmounted(() => {
     gap: 12px;
     margin-top: 28px;
 
-    .ls-button {
+    .ls-button,
+    .router-link-active {
       flex-grow: 1;
     }
 
