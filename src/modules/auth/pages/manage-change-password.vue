@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useAuthStore } from '@/modules/auth/store';
 import PageTitle from '@/core/components/page-title.vue';
@@ -123,6 +123,10 @@ watch(
     passwordToEvaluate(newPassword);
   }
 );
+
+onUnmounted(() => {
+  resetFormData();
+});
 </script>
 
 <style lang="less">
