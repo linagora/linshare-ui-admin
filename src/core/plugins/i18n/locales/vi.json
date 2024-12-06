@@ -1291,6 +1291,22 @@
           "BOOLEAN_DESCRIPTION": "Cho phép giới hạn hợp đồng đối với danh sách email"
         }
       },
+      "GUESTS__CONTACT_LISTS": {
+        "NAME": "Hạn chế danh sách liên hệ",
+        "DESCRIPTION": "Khi tạo khách mới, người dùng có thể hạn chế chia sẻ tệp khách chỉ với danh sách danh sách liên hệ. Theo mặc định, khách sẽ bị hạn chế với người tạo",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Khi tạo khách mới, hiển thị tùy chọn Hạn chế danh sách liên hệ trong phần nâng cao",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép hạn chế danh sách liên hệ"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Xác định xem người dùng có thể thay đổi cài đặt hạn chế danh sách liên hệ khi tạo khách hay không",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Cho phép người dùng thay đổi cài đặt hạn chế danh sách liên hệ"
+        },
+        "PARAMETER": {
+          "TITLE": "Cài đặt mặc định cho hạn chế danh sách liên hệ",
+          "BOOLEAN_DESCRIPTION": "Cho phép hợp đồng danh sách hạn chế đối với danh sách email"
+        }
+      },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
         "NAME": "Tạm hoãn ngày hết hạn của khách",
         "DESCRIPTION": "Xác định xem người dùng có thể chỉnh sửa và hoãn ngày hết hạn của khách hay không",
@@ -2829,8 +2845,8 @@
       "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "Thông báo này được gửi khi tài khoản khách hết hạn.",
       "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "Thông báo này được gửi khi một tài liệu được thêm vào nhóm làm việc",
       "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "Thông báo này được gửi khi một tài liệu nhóm làm việc đã được cập nhật",
-      "DEFAULT_SCENARIO" : "Kịch bản mặc định",
-      "EXTRA_SCENARIO" : "Kịch bản bổ sung"
+      "DEFAULT_SCENARIO": "Kịch bản mặc định",
+      "EXTRA_SCENARIO": "Kịch bản bổ sung"
     },
     "EMAIL_FOOTER": {
       "PUBLIC": "Công khai",
@@ -3513,10 +3529,10 @@
       "HELPER_TEXT_P2": "Các nhật ký thực hiện của một nhiệm vụ di chuyển được ghi ở đây. Với chế độ xem console, bạn có thể kiểm tra các nhật ký của nó.",
       "HELPER_TEXT_P3": "Chú ý: Đây là nhật ký đơn giản. Để có thông tin chi tiết nâng cao trong trường hợp có lỗi, bạn cần kiểm tra nhật ký máy chủ Tomcat. Một thực hành tốt là đặt phần mềm LinShare vào chế độ debug trước khi cập nhật.",
       "SWITCH_TITLE": "Lọc theo cấp độ nhật ký :",
-      "WARNING":"Warning",
-      "INFO":"Info",
-      "ERROR":"Error",
-      "DEBUG":"Debug"
+      "WARNING": "Warning",
+      "INFO": "Info",
+      "ERROR": "Error",
+      "DEBUG": "Debug"
     },
     "RETRY_MODAL": {
       "TITLE": "Lặp lại công việc bằng cách buộc",
@@ -3527,5 +3543,5 @@
       "NOTE_TITLE": "Cập nhật lịch sử thực thi tác vụ.",
       "NOTE_CONTENT": "Việc thực thi từng tác vụ được ghi lại ở đây. Với chế độ xem bảng điều khiển, bạn có thể kiểm tra nhật ký của từng tác vụ. <br/> Cảnh báo: Đây là nhật ký đơn giản hóa. Để có được chi tiết nâng cao trong trường hợp xảy ra lỗi, bạn sẽ cần kiểm tra nhật ký máy chủ Tomcat. Thực tiễn tốt nhất là đặt phần mềm LinShare ở chế độ gỡ lỗi trước khi cập nhật."
     }
-  }  
+  }
 }

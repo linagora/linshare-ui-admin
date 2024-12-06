@@ -1293,6 +1293,22 @@
           "BOOLEAN_DESCRIPTION": "Autoriser la restriction de contacts à une liste d'e-mails"
         }
       },
+      "GUESTS__CONTACT_LISTS": {
+        "NAME": "Restriction de la liste de contacts",
+        "DESCRIPTION": "Lors de la création d'un nouvel invité, l'utilisateur peut restreindre le partage de fichiers des invités uniquement à une liste de contacts. Par défaut, l'invité sera limité à son créateur",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Lors de la création d'un nouvel invité, afficher une option de restriction de la liste de contacts dans la section avancée",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser la restriction de la liste de contacts"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Déterminer si les utilisateurs peuvent modifier les paramètres de restriction de la liste de contacts lors de la création d'invités",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier les paramètres de restriction de la liste de contacts"
+        },
+        "PARAMETER": {
+          "TITLE": "Paramètres par défaut pour la restriction de la liste de contacts",
+          "BOOLEAN_DESCRIPTION": "Autoriser la restriction de la liste de contrats à une liste d'e-mails"
+        }
+      },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
         "NAME": "Autoriser la prolongation de la date d'expiration des invités",
         "DESCRIPTION": "Détermine si les utilisateurs peuvent modifier et reporter la date d'expiration des invités",
@@ -2841,8 +2857,8 @@
       "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "Cette notification est envoyée lorsque le compte d'un invité à expiré",
       "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "Cette notification est envoyée lorsqu'un nouveau document est crée dans le groupe de travail",
       "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "Cette notification est envoyée lorsqu'un document du groupe de travail est mis à jour",
-      "DEFAULT_SCENARIO" : "Scénario par défaut",
-      "EXTRA_SCENARIO" : "Scénario supplémentaire"
+      "DEFAULT_SCENARIO": "Scénario par défaut",
+      "EXTRA_SCENARIO": "Scénario supplémentaire"
     },
     "EMAIL_FOOTER": {
       "PUBLIC": "Public",
@@ -3534,8 +3550,8 @@
     "RETRY_UPGRADES": "Réexécuter la tâche de mise à jour",
     "SHOW_PREVIEW": "Afficher l'exécution précédente",
     "SHOW_CONSOLE": "Afficher la console",
-    "STATUS": "Statut", 
-    "DURATION": "Durée", 
+    "STATUS": "Statut",
+    "DURATION": "Durée",
     "UPGRADE_CONSOLE": {
       "RELOAD": "Recharger",
       "HELPER_TEXT_P1": "Rapport d'exécution d'une tache de migration.",

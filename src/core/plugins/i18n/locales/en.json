@@ -1,6 +1,6 @@
 {
   "GENERAL": {
-    "EMAIL_VALIDATION":"Email is not valid",
+    "EMAIL_VALIDATION": "Email is not valid",
     "BACK_TO_LIST": "Back to list",
     "ENABLED": "Enabled",
     "DISABLED": "Disabled",
@@ -824,7 +824,7 @@
       "EXTENTION": "Extention",
       "ADD_TO_LIST": "Add to list",
       "REMOVE_FROM_LIST": "Remove from list",
-      "SOURCE":"Source"
+      "SOURCE": "Source"
     },
     "UPDATE_MIME_TYPE_SUCCESS": "Saved changes for {name} ",
     "MAMAGER_MIME_POLICY": "Manage mine policy",
@@ -1292,6 +1292,22 @@
         "PARAMETER": {
           "TITLE": "Default settings for contact restriction",
           "BOOLEAN_DESCRIPTION": "Allow contract restriction to a list of emails"
+        }
+      },
+      "GUESTS__CONTACT_LISTS": {
+        "NAME": "Contacts list restriction",
+        "DESCRIPTION": "When creating a new guest, user can restrict guest files sharing only to a list of contacts list. By default, the guest will be restricted to his creator",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Upon creating a new guest, show an option of Restrict contacts list in advanced section",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow contacts list restriction"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change contacts list restriction settings when creating guests",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change contacts list restriction settings"
+        },
+        "PARAMETER": {
+          "TITLE": "Default settings for contacts list restriction",
+          "BOOLEAN_DESCRIPTION": "Allow contracts list restriction to a list of emails"
         }
       },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
@@ -3518,16 +3534,16 @@
       "DELETE_ACTION_CONFIRM": "Yes, delete",
       "DELETE_SUCCESS": "Account deleted successfully"
     },
-    "PASSWORD_TAB":{
+    "PASSWORD_TAB": {
       "PASSWORD": "Password",
       "RECENT_PASSWORD": "Recent Password",
       "NEW_PASSWORD": "New Password",
       "CONFIRM_PASSWORD": "Confirm Password",
-      "PASSWORD_RULES":"Password Rules",
-      "FIRST_RULE":"Have at least 12 characters",
-      "SECOND_RULE":"At least 1 upper case character",
-      "THIRD_RULE":"At least 1 downer case character",
-      "FOURTH_RULE":"At least 1 special character",
+      "PASSWORD_RULES": "Password Rules",
+      "FIRST_RULE": "Have at least 12 characters",
+      "SECOND_RULE": "At least 1 upper case character",
+      "THIRD_RULE": "At least 1 downer case character",
+      "FOURTH_RULE": "At least 1 special character",
       "SAVE_PASSWORD": "Change Password"
     }
   },
@@ -3557,7 +3573,7 @@
       "HELPER_TEXT_P1": "Migration task execution log.",
       "HELPER_TEXT_P2": "The logs of a migration task execution is logged here. With the console view, you can check the logs of it.",
       "HELPER_TEXT_P3": "Warning: It is simplified logs. To get the advanced details in case of errors, you will need to check the Tomcat server logs. A good practice is to set the LinShare software in debug mode before updating.",
-      "SWITCH_TITLE":"Filter by log level :",
+      "SWITCH_TITLE": "Filter by log level :",
       "WARNING": "Warning",
       "INFO": "Info",
       "ERROR": "Error",
