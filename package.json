@@ -1,7 +1,7 @@
 {
   "name": "linshare-ui-admin",
   "description": "Admin interface for linshare",
-  "version": "6.4.0",
+  "version": "6.4.1-SNAPSHOT",
   "keywords": [
     "linshare",
     "linagora"
