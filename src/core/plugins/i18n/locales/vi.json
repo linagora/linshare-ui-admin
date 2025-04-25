@@ -1260,7 +1260,8 @@
           "TITLE": "Ngày hết hạn mặc định",
           "DESCRIPTION": "Khoảng thời gian từ ngày tạo đến ngày hết hạn mặc định",
           "TITLE_MAXIMUM": "Ngày hết hạn muộn nhất",
-          "DESCRIPTION_MAXIMUM": "Khoảng thời gian dài nhất mà người dùng có thể đặt từ ngày tạo đến ngày hết hạn"
+          "DESCRIPTION_MAXIMUM": "Khoảng thời gian dài nhất mà người dùng có thể đặt từ ngày tạo đến ngày hết hạn",
+          "UNLIMITED_CHECKBOX": "Không giới hạn ngày hết hạn"
         }
       },
       "GUESTS__CAN_UPLOAD": {

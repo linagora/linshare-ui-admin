@@ -975,7 +975,7 @@
         "PARAMETER": {
           "TITLE": "Default delay to activate requests after creation date",
           "TITLE_MAXIMUM": "Maximum delay to activate requests after creation date",
-          "UNLIMITED_CHECKBOX": "No activattion date limit"
+          "UNLIMITED_CHECKBOX": "No activation date limit"
         }
       },
       "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
@@ -1263,7 +1263,8 @@
           "TITLE": "Default expiration date",
           "DESCRIPTION": "Time period between creation date and default expirationd date",
           "TITLE_MAXIMUM": "Latest expiration date",
-          "DESCRIPTION_MAXIMUM": "Longest time period that user can set between creation date and expiration date"
+          "DESCRIPTION_MAXIMUM": "Longest time period that user can set between creation date and expiration date",
+          "UNLIMITED_CHECKBOX": "No expiration date limit"
         }
       },
       "GUESTS__CAN_UPLOAD": {

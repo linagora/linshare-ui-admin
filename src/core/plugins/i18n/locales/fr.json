@@ -1262,7 +1262,8 @@
           "TITLE": "Date d'expiration par défaut",
           "DESCRIPTION": "Délai entre la date de création et la date d'expiration par défaut",
           "TITLE_MAXIMUM": "Date d'expiration maximale",
-          "DESCRIPTION_MAXIMUM": "Délai maximal que l'utilisateur peut définir entre la date de création et la date d'expiration"
+          "DESCRIPTION_MAXIMUM": "Délai maximal que l'utilisateur peut définir entre la date de création et la date d'expiration",
+          "UNLIMITED_CHECKBOX": "Aucune limite de date d'expiration"
         }
       },
       "GUESTS__CAN_UPLOAD": {
