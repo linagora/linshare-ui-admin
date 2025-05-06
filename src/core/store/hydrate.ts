@@ -3,6 +3,7 @@ import { useAppStore } from '@/core/store';
 import { useAuthStore } from '@/modules/auth/store';
 import { useDomainStore } from '@/modules/domain/store';
 import { useSharedSpacesStore } from '@/modules/shared-spaces/store';
+import { useAuth2FAStore } from '@/modules/auth/store/auth2FAstore';
 
 export async function hydrate(): Promise<void> {
   const appStore = useAppStore();
@@ -42,10 +43,12 @@ export async function hydrate(): Promise<void> {
 export function dehydrate(): void {
   const appStore = useAppStore();
   const authStore = useAuthStore();
+  const auth2FAStore = useAuth2FAStore();
   const domainStore = useDomainStore();
 
   domainStore.dehydrate();
   authStore.dehydrate();
+  auth2FAStore.dehydrate();
   appStore.setHydrated(false);
   appStore.setAuthenticated(false);
 }

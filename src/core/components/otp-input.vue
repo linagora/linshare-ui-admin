@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, watch, onMounted } from 'vue';
+import { defineComponent, ref, reactive, watch, onMounted, nextTick } from 'vue';
 
 const BACKSPACE = 8;
 const LEFT_ARROW = 37;
@@ -184,6 +184,15 @@ export default defineComponent({
     onMounted(() => {
       setCharactersAndOTPValue(props.value.split('') || []);
     });
+
+    function focusInput() {
+      nextTick(() => {
+        if (elementArray[0]) {
+          elementArray[0].focus();
+        }
+      });
+    }
+    focusInput();
 
     return {
       characters,

@@ -25,18 +25,13 @@
 
 <script lang="ts">
 import router from '@/core/router';
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 
 import TheCopyright from '@/core/components/the-copyright.vue';
 import OtpInput from '@/core/components/otp-input.vue';
 import { APIError } from '@/core/types/APIError';
 import { login } from '../services/basic';
-
-interface Props {
-  email: string;
-  password: string;
-  redirect: string;
-}
+import { useAuth2FAStore } from '@/modules/auth/store/auth2FAstore';
 
 export default defineComponent({
   name: 'LoginSecondFactor',
@@ -44,21 +39,12 @@ export default defineComponent({
     TheCopyright,
     OtpInput,
   },
-  props: {
-    email: {
-      type: String,
-      default: '',
-    },
-    password: {
-      type: String,
-      default: '',
-    },
-    redirect: {
-      type: String,
-      default: '',
-    },
-  },
-  setup(props: Props) {
+  setup() {
+    const auth2FAStore = useAuth2FAStore();
+    const email = computed(() => auth2FAStore.email);
+    const password = computed(() => auth2FAStore.password);
+    const redirect = computed(() => auth2FAStore.redirect);
+
     const error = ref('');
     const submitting = ref(false);
     const otp = ref('');
@@ -72,11 +58,11 @@ export default defineComponent({
         submitting.value = true;
 
         await login({
-          email: props.email,
-          password: props.password,
+          email: email.value,
+          password: password.value,
           otp: otp.value,
         });
-        router.push(props.redirect || '/');
+        router.push(redirect.value || '/');
       } catch (e) {
         error.value = (e as APIError).getMessage();
       } finally {

@@ -1,8 +1,10 @@
 import { NavigationGuard, RouteRecordRaw } from 'vue-router';
 import { useAuthStore } from '@/modules/auth/store';
+import { useAuth2FAStore } from '@/modules/auth/store/auth2FAstore';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
 const checkCredentials: NavigationGuard = (to) => {
-  if (!to.params.email || !to.params.password) {
+  const auth2FAStore = useAuth2FAStore();
+  if (!auth2FAStore.email || !auth2FAStore.password) {
     return '/login';
   }
 };

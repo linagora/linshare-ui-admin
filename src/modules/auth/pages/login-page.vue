@@ -52,9 +52,11 @@ import { signinRedirect } from '@/modules/auth/services/oidc';
 import { APIError } from '@/core/types/APIError';
 import { LoginCredentials, login } from '../services/basic';
 import config from '@/config';
+import { useAuth2FAStore } from '@/modules/auth/store/auth2FAstore';
 
 const props = defineProps<{ redirect?: string }>();
 const router = useRouter();
+const auth2FAStore = useAuth2FAStore();
 const error = ref('');
 const oidcEnabled = config.oidcEnabled;
 const loggingIn = ref(false);
@@ -65,13 +67,8 @@ const credentials = reactive<LoginCredentials>({
 
 function handleError(e: APIError) {
   if (e.isOTPMissingError()) {
-    return router.push({
-      name: 'LoginUsingSecondFactorAuthentication',
-      params: {
-        ...credentials,
-        redirect: props.redirect,
-      },
-    });
+    auth2FAStore.setCredentials(credentials.email, credentials.password, props.redirect);
+    return router.push({ name: 'LoginUsingSecondFactorAuthentication' });
   }
   error.value = e.getMessage();
 }
