@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.linagora.linshare</groupId>
   <artifactId>linshare-ui-admin</artifactId>
-  <version>6.4.1-SNAPSHOT</version>
+  <version>6.4.1</version>
   <name>linshare-ui-admin</name>
   <url>http://linshare.org</url>
   <build>
@@ -338,7 +338,7 @@
   <scm>
     <connection>scm:git:git://github.com/linagora/linshare-ui-admin.git</connection>
     <developerConnection>scm:git:ssh://git@ci.linagora.com:7999/linagora/lgs/linshare/products/linshare-ui-admin.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>v6.4.1</tag>
     <url>http://github.com/linagora/linshare-ui-admin/tree/master/</url>
   </scm>
   <distributionManagement>
