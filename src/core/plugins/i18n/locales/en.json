@@ -1292,12 +1292,12 @@
         },
         "PARAMETER": {
           "TITLE": "Default settings for contact restriction",
-          "BOOLEAN_DESCRIPTION": "Allow contract restriction to a list of emails"
+          "BOOLEAN_DESCRIPTION": "Allow contact restriction to a specific list of emails"
         }
       },
       "GUESTS__CONTACT_LISTS": {
         "NAME": "Contacts list restriction",
-        "DESCRIPTION": "When creating a new guest, user can restrict guest files sharing only to a list of contacts list. By default, the guest will be restricted to his creator",
+        "DESCRIPTION": "When creating a new guest, user can restrict guest files sharing only to a list of contacts list.",
         "ACTIVATION_POLICY": {
           "DESCRIPTION": "Upon creating a new guest, show an option of Restrict contacts list in advanced section",
           "ENABLE_CHECKBOX_DESCRIPTION": "Allow contacts list restriction"
@@ -1308,7 +1308,23 @@
         },
         "PARAMETER": {
           "TITLE": "Default settings for contacts list restriction",
-          "BOOLEAN_DESCRIPTION": "Allow contracts list restriction to a list of emails"
+          "BOOLEAN_DESCRIPTION": "Allow contacts list restriction to a specific list of contacts list"
+        }
+      },
+      "GUESTS__HIDE_MEMBERS": {
+        "NAME": "Hide Members of Contacts list restriction",
+        "DESCRIPTION": "When creating a new guest, user can restrict guest files sharing only to a list of contacts list. Contacts list members can be displayed or hide. By default, contacts list members to this guest will be displayed",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Upon creating a new guest, show an option of Hide Restrict contacts list members in advanced section",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow to manage contacts list members visiility on contacts list restriction"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determine whether users can change contacts list members visibility settings when creating guests",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Allow users to change visibility contacts list members on contacts list restriction settings"
+        },
+        "PARAMETER": {
+          "TITLE": "Default settings for contacts list members restriction",
+          "BOOLEAN_DESCRIPTION": "Allow to hide contracts list members on restriction contacts lists"
         }
       },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {

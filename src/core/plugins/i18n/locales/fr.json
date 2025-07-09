@@ -1291,12 +1291,12 @@
         },
         "PARAMETER": {
           "TITLE": "Paramètres par défaut pour la restriction de contacts",
-          "BOOLEAN_DESCRIPTION": "Autoriser la restriction de contacts à une liste d'e-mails"
+          "BOOLEAN_DESCRIPTION": "Autoriser la restriction de contacts à une liste spécifique d'e-mails"
         }
       },
       "GUESTS__CONTACT_LISTS": {
         "NAME": "Restriction de la liste de contacts",
-        "DESCRIPTION": "Lors de la création d'un nouvel invité, l'utilisateur peut restreindre le partage de fichiers des invités uniquement à une liste de contacts. Par défaut, l'invité sera limité à son créateur",
+        "DESCRIPTION": "Lors de la création d'un nouvel invité, l'utilisateur peut restreindre le partage de fichiers des invités uniquement à une liste de contacts.",
         "ACTIVATION_POLICY": {
           "DESCRIPTION": "Lors de la création d'un nouvel invité, afficher une option de restriction de la liste de contacts dans la section avancée",
           "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser la restriction de la liste de contacts"
@@ -1307,7 +1307,23 @@
         },
         "PARAMETER": {
           "TITLE": "Paramètres par défaut pour la restriction de la liste de contacts",
-          "BOOLEAN_DESCRIPTION": "Autoriser la restriction de la liste de contrats à une liste d'e-mails"
+          "BOOLEAN_DESCRIPTION": "Autoriser la restriction de la liste de contats à une liste spécifique de contacts liste"
+        }
+      },
+      "GUESTS__HIDE_MEMBERS": {
+        "NAME": "Masquer les membres de la liste de contacts",
+        "DESCRIPTION": "Lors de la création d'un invité, l'utilisateur peut restreindre le partage de fichiers invités à une liste de contacts. Les membres de la liste de contacts peuvent être affichés ou masqués. Par défaut, les membres de la liste de contacts de cet invité seront affichés",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Lors de la création d'un invité, afficher l'option Masquer les membres de la liste de contacts restreinte dans la section avancée",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser la gestion de la visibilité des membres dans les listes de contacts restreintes"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Déterminer si les utilisateurs peuvent modifier les paramètres de visibilité des membres de la liste de contacts lors de la création d'invités",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Autoriser les utilisateurs à modifier la visibilité des membres de la liste de contacts dans les paramètres de restriction de la liste de contacts"
+        },
+        "PARAMETER": {
+          "TITLE": "Paramètres par défaut pour les membres de la liste de contacts restriction",
+          "BOOLEAN_DESCRIPTION": "Autoriser le masquage des membres dans les listes de contacts restreintes"
         }
       },
       "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
