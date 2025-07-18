@@ -158,7 +158,7 @@ const inputNote = computed(() => {
     domainQuotaInformations.quota,
     undefined
   )} ${t('QUOTA.ALREADY_USED')} (${((domainQuotaInformations.usedSpace / domainQuotaInformations.quota) * 100).toFixed(
-    1
+    2
   )}%)`;
 });
 

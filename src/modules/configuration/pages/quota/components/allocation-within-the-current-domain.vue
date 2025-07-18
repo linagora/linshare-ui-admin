@@ -303,6 +303,15 @@ const sharedSpaceRemainingQuota = computed(() => {
   );
 });
 
+const sharedSpaceRemainingSpace = computed(() => {
+  return (
+    toByte(
+      form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpaces,
+      form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
+    ) - subdomainContainerInformations.usedSpace
+  );
+});
+
 const sharedSpaceUnaloocatedSpace = computed(() => {
   return (
     domainQuotaInformations.quota -
@@ -340,15 +349,18 @@ const hintSharedSpaceAllocatedQuota = computed(() => {
     form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpaces,
     form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
   );
-  return `${displayUnit(byteTo, allocationContainerInformations.usedSpace, undefined)}/${displayUnit(
+  return `${displayUnit(byteTo, subdomainContainerInformations.usedSpace, undefined)}/${displayUnit(
     byteTo,
     sharedSpaceQuotaUnit,
     undefined
   )} ${t('QUOTA.ALREADY_USED')} (${(
-    (allocationContainerInformations.usedSpace /
-      form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpaces) *
+    (subdomainContainerInformations.usedSpace /
+      toByte(
+        form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpaces,
+        form.subdomainAllocationSettings.personalSpacesAllocatedQuotaForAllPersonalSpacesUnit
+      )) *
     100
-  ).toFixed(1)}%)`;
+  ).toFixed(2)}%)`;
 });
 
 const hintQuota = computed(() => {
@@ -361,9 +373,10 @@ const hintQuota = computed(() => {
     quotaUnit,
     undefined
   )} ${t('QUOTA.ALREADY_USED')} (${(
-    (allocationContainerInformations.usedSpace / form.allocationWithinTheCurrentDomain.quota) *
+    (allocationContainerInformations.usedSpace /
+      toByte(form.allocationWithinTheCurrentDomain.quota, form.allocationWithinTheCurrentDomain.quotaUnit)) *
     100
-  ).toFixed(1)}%)`;
+  ).toFixed(2)}%)`;
 });
 
 const maximumQuota = computed(() => {
@@ -423,7 +436,7 @@ const allocatedPersonalSpaceVisualizeCardItems = computed(() => {
     },
     {
       name: t('QUOTA.TOP_DOMAIN_QUOTA.REMAINING_QUOTA'),
-      value: sharedSpaceRemainingQuota.value,
+      value: sharedSpaceRemainingSpace.value,
       color: '#FFA940',
     },
     {
