@@ -591,7 +591,6 @@
   "REMOTE_SERVER": {
     "FIELDS": {
       "PROVIDED_URL": "URL fournie",
-      "PROVIDED_URL_HELPER": "Veuillez saisir l'URL de base de votre application Twake, par exemple : https://my.twake.com",
       "TYPE": "Type de serveur",
       "LDAP_BINDDN": "Utilisateur LDAP dn",
       "LDAP_PASSWORD": "Mot de passe LDAP",
@@ -600,18 +599,11 @@
     },
     "TYPE": {
       "LDAP": "Connexion LDAP",
-      "TWAKE": "Connexion Twake"
     },
     "LDAP": {
       "MODAL": {
         "CREATE_TITLE": "Créer une connexion LDAP",
         "EDIT_TITLE": "Modifier la connexion LDAP"
-      }
-    },
-    "TWAKE": {
-      "MODAL": {
-        "CREATE_TITLE": "Créer une connexion Twake",
-        "EDIT_TITLE": "Modifier la connexion Connection"
       }
     },
     "VALIDATION": {
@@ -629,8 +621,7 @@
   },
   "USER_FILTER": {
     "TYPES": {
-      "LDAP": "Filtre LDAP",
-      "TWAKE": "Filtre Twake"
+      "LDAP": "Filtre LDAP"
     },
     "LDAP": {
       "FORM": {
@@ -663,14 +654,11 @@
   },
   "USER_PROVIDER": {
     "EMPTY_MESSAGE": "Aucun fournisseur d'utilisateurs n'a été créé pour ce domaine",
-    "EMPTY_MESSAGE_GUEST_DOMAIN": "La création d'un fournisseur d'invité Twake est facultative. En créant le fournisseur invité Twake, les utilisateurs invités seront alors fournis par Twake. Les utilisateurs ne pourront plus créer d'invités pour ce domaine.",
     "ERROR_MESSAGE": "Impossible de récupérer les données du fournisseur d'utilisateur de ce domaine",
     "DELETE_CONFIRM": "Vous êtes sur le point de supprimer ce fournisseur d'utilisateurs, cette procédure est irréversible. Voulez-vous poursuivre ?",
     "CREATE": "Créer un nouveau fournisseur",
-    "CREATE_TWAKE_PROVIDER": "Créer un nouveau fournisseur Twake",
     "TYPES": {
       "LDAP": "Fournisseur LDAP",
-      "TWAKE": "Fournisseur Twake",
       "OIDC": "Fournisseur OIDC"
     },
     "LDAP": {
@@ -689,10 +677,6 @@
       "USE_EMAIL_LOCALE_CLAIM_HELPER": "La valeur de la revendication (claim) 'linshare_locale' sera utilisée comme valeur par défaut pour la langue de notification de l'utilisateur lors de la création du profil (uniquement à la première connexion). Valeurs possibles: ENGLISH, FRENCH, RUSSIAN.",
       "USE_ACCESS_CLAIM": "Utiliser la revendication (claim) contrôle d'accès",
       "USE_ACCESS_CLAIM_HELPER": "La valeur de la revendication (claim) 'linshare_access' sera utilisée pour contrôler l'accès à LinShare. La valeur devra correspondre à la valeur de la clé 'oidc.access.claim.value' présente dans le fichier de configuration."
-    },
-    "TWAKE": {
-      "COMPANY_ID": "Identifiant de l'entreprise",
-      "COMPANY_ID_HELPER": "LinShare récupérera les utilisateurs de cette entreprise dans Twake"
     }
   },
   "GROUP_FILTER": {

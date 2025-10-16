@@ -590,7 +590,6 @@
   "REMOTE_SERVER": {
     "FIELDS": {
       "PROVIDED_URL": "URL được cung cấp",
-      "PROVIDED_URL_HELPER": "Vui lòng nhập đường dẫn gốc của Twake, vd: https://my.twake.com",
       "TYPE": "Loại máy chủ",
       "LDAP_BINDDN": "Người dùng LDAP dn",
       "LDAP_PASSWORD": "Mật khẩu LDAP",
@@ -599,18 +598,11 @@
     },
     "TYPE": {
       "LDAP": "Kết nối LDAP",
-      "TWAKE": "Kết nối Twake"
     },
     "LDAP": {
       "MODAL": {
         "CREATE_TITLE": "Tạo kết nối LDAP",
         "EDIT_TITLE": "Chỉnh sửa kết nối LDAP"
-      }
-    },
-    "TWAKE": {
-      "MODAL": {
-        "CREATE_TITLE": "Tạo kết nối Twake",
-        "EDIT_TITLE": "Chỉnh sửa kết nối Twake"
       }
     },
     "VALIDATION": {
@@ -628,8 +620,7 @@
   },
   "USER_FILTER": {
     "TYPES": {
-      "LDAP": "Bộ lọc LDAP",
-      "TWAKE": "Bộ lọc Twake"
+      "LDAP": "Bộ lọc LDAP"
     },
     "LDAP": {
       "FORM": {
@@ -662,14 +653,11 @@
   },
   "USER_PROVIDER": {
     "EMPTY_MESSAGE": "Không có nhà cung cấp người dùng nào được tạo cho miền này",
-    "EMPTY_MESSAGE_GUEST_DOMAIN": "Tạo một nhà cung cấp khách Twake là tùy chọn. Sau khi tạo nhà cung cấp khách Twake, khách sẽ được Twake cung cấp. Người dùng sẽ không thể tạo khách cho miền này nữa.",
     "ERROR_MESSAGE": "Không tìm nạp được dữ liệu nhà cung cấp người dùng của miền này",
     "DELETE_CONFIRM": "Bạn sắp xóa nhà cung cấp người dùng này, thủ tục này là không thể đảo ngược. Bạn có muốn tiếp tục?",
     "CREATE": "Tạo nhà cung cấp mới",
-    "CREATE_TWAKE_PROVIDER": "Tạo nhà cung cấp Twake mới",
     "TYPES": {
       "LDAP": "Nhà cung cấp LDAP",
-      "TWAKE": "Nhà cung cấp Twake",
       "OIDC": "Nhà cung cấp OIDC"
     },
     "LDAP": {
@@ -688,10 +676,6 @@
       "USE_EMAIL_LOCALE_CLAIM_HELPER": "LinShare sẽ tìm kiếm yêu cầu về ngôn ngữ email khi tạo hồ sơ ở lần kết nối đầu tiên",
       "USE_ACCESS_CLAIM": "Sử dụng xác nhận quyền truy cập",
       "USE_ACCESS_CLAIM_HELPER": "LinShare sẽ tìm kiếm xác nhận quyền truy cập và so sánh nó với giá trị được lưu trữ trong tệp thuộc tính. Nếu không khớp, người dùng sẽ bị từ chối"
-    },
-    "TWAKE": {
-      "COMPANY_ID": "ID công ty",
-      "COMPANY_ID_HELPER": "LinShare sẽ truy xuất người dùng từ công ty này trong Twake"
     }
   },
   "GROUP_FILTER": {

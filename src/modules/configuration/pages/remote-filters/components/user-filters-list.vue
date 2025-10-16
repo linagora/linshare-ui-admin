@@ -32,9 +32,6 @@
                 {{ $t('USER_FILTER.TYPES.LDAP') }}
               </router-link>
             </a-menu-item>
-            <a-menu-item disabled>
-              {{ $t('USER_FILTER.TYPES.TWAKE') }}
-            </a-menu-item>
           </a-menu>
         </template>
       </a-dropdown>

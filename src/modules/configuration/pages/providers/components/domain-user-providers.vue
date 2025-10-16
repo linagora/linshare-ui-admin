@@ -12,15 +12,7 @@
       :sub-title="currentDomain.type === DOMAIN_TYPE.GUEST && $t('USER_PROVIDER.EMPTY_MESSAGE_GUEST_DOMAIN')"
     >
       <template #extra>
-        <a-button
-          v-if="currentDomain.type === DOMAIN_TYPE.GUEST"
-          type="primary"
-          @click="state.provider.type = 'TWAKE_GUEST_PROVIDER'"
-        >
-          {{ $t('USER_PROVIDER.CREATE_TWAKE_PROVIDER') }}
-        </a-button>
-
-        <a-dropdown v-else :trigger="['click']">
+        <a-dropdown :trigger="['click']">
           <a-button type="primary">
             {{ $t('USER_PROVIDER.CREATE') }}
           </a-button>
@@ -33,11 +25,6 @@
               <a-menu-item @click="state.provider.type = 'OIDC_PROVIDER'">
                 {{ $t('USER_PROVIDER.TYPES.OIDC') }}
               </a-menu-item>
-              <!--
-                Add twake provider possibility =>
-                 <a-menu-item @click="state.provider.type = 'TWAKE_PROVIDER'">
-                {{ $t('USER_PROVIDER.TYPES.TWAKE') }}
-              </a-menu-item> -->
             </a-menu>
           </template>
         </a-dropdown>
@@ -65,16 +52,6 @@
           @deleted="() => setProvider(EMPTY_PROVIDER)"
           @submitted="(provider) => setProvider(provider)"
         />
-
-        <DomainUserProviderTwakeForm
-          v-if="state.provider.type === 'TWAKE_PROVIDER' || state.provider.type === 'TWAKE_GUEST_PROVIDER'"
-          :servers-list="state.servers.filter((server) => server.serverType === 'TWAKE')"
-          :provider="state.provider"
-          :domain="currentDomain"
-          @cancel="() => setProvider(EMPTY_PROVIDER)"
-          @deleted="() => setProvider(EMPTY_PROVIDER)"
-          @submitted="(provider) => setProvider(provider)"
-        />
       </a-col>
     </a-row>
   </div>
@@ -96,9 +73,8 @@ import { storeToRefs } from 'pinia';
 import { useDomainStore } from '@/modules/domain/store';
 import DomainUserProviderLDAPForm from './domain-user-provider-ldap-form.vue';
 import DomainUserProviderOIDCForm from './domain-user-provider-oidc-form.vue';
-import DomainUserProviderTwakeForm from './domain-user-provider-twake-form.vue';
 import { getUserProviders } from '../services/providers-api';
-import { LDAPUserProvider, OIDCUserProvider, EMPTY_PROVIDER, TwakeUserProvider } from '../types/UserProvider';
+import { LDAPUserProvider, OIDCUserProvider, EMPTY_PROVIDER } from '../types/UserProvider';
 import { listRemoteServers } from '@/modules/configuration/pages/remote-servers/services/remote-server-api';
 import RemoteServer from '@/modules/configuration/pages/remote-servers/types/RemoteServer';
 import UserFilter, { USER_FILTER_TYPE } from '@/modules/configuration/pages/remote-filters/types/UserFilter';
@@ -111,7 +87,7 @@ import { useRouter } from 'vue-router';
 
 interface State {
   status?: 'loading' | 'loaded' | 'error';
-  provider: LDAPUserProvider | OIDCUserProvider | TwakeUserProvider;
+  provider: LDAPUserProvider | OIDCUserProvider;
   servers: RemoteServer[];
   userFilters: UserFilter[];
 }

@@ -592,7 +592,6 @@
   "REMOTE_SERVER": {
     "FIELDS": {
       "PROVIDED_URL": "Provided URL",
-      "PROVIDED_URL_HELPER": "Please enter your Twake app base url, f.i https://my.twake.com",
       "TYPE": "Server type",
       "LDAP_BINDDN": "LDAP user dn",
       "LDAP_PASSWORD": "LDAP password",
@@ -601,18 +600,11 @@
     },
     "TYPE": {
       "LDAP": "LDAP connection",
-      "TWAKE": "Twake connection"
     },
     "LDAP": {
       "MODAL": {
         "CREATE_TITLE": "Create LDAP Connection",
         "EDIT_TITLE": "Edit LDAP Connection"
-      }
-    },
-    "TWAKE": {
-      "MODAL": {
-        "CREATE_TITLE": "Create Twake Connection",
-        "EDIT_TITLE": "Edit Twake Connection"
       }
     },
     "VALIDATION": {
@@ -630,8 +622,7 @@
   },
   "USER_FILTER": {
     "TYPES": {
-      "LDAP": "LDAP filter",
-      "TWAKE": "Twake filter"
+      "LDAP": "LDAP filter"
     },
     "LDAP": {
       "FORM": {
@@ -664,14 +655,11 @@
   },
   "USER_PROVIDER": {
     "EMPTY_MESSAGE": "There is no user provider created for this domain",
-    "EMPTY_MESSAGE_GUEST_DOMAIN": "Creating a Twake guest provider is optional. By creating Twake guest provider, guest users will then be provided by Twake. Users will no longer be able to create guests for this domain.",
     "ERROR_MESSAGE": "Failed to fetch user provider data of this domain",
     "DELETE_CONFIRM": "You are about to delete this user provider, this procedure is irreversible. Do you want to proceed?",
     "CREATE": "Create new provider",
-    "CREATE_TWAKE_PROVIDER": "Create new Twake provider",
     "TYPES": {
       "LDAP": "LDAP Provider",
-      "TWAKE": "Twake Provider",
       "OIDC": "OIDC Provider"
     },
     "LDAP": {
@@ -690,10 +678,6 @@
       "USE_EMAIL_LOCALE_CLAIM_HELPER": "LinShare will search for the claim 'linshare_locale', its value will be used as default locale value when creating the profile at first connection. Possible values: ENGLISH, FRENCH, RUSSIAN.",
       "USE_ACCESS_CLAIM": "Use access claim",
       "USE_ACCESS_CLAIM_HELPER": "LinShare will search for the claim 'linshare_access' (presence and value) to grant access to LinShare. The value of the claim must match the value stored in the property file otherwise the user will be rejected"
-    },
-    "TWAKE": {
-      "COMPANY_ID": "Company Identifier",
-      "COMPANY_ID_HELPER": "LinShare will retrieve users from this company in Twake"
     }
   },
   "GROUP_FILTER": {

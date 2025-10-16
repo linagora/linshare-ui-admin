@@ -24,9 +24,6 @@
             <a-menu-item @click="openCreateModal('LDAP')">
               {{ $t('REMOTE_SERVER.TYPE.LDAP') }}
             </a-menu-item>
-            <a-menu-item @click="openCreateModal('TWAKE')">
-              {{ $t('REMOTE_SERVER.TYPE.TWAKE') }}
-            </a-menu-item>
           </a-menu>
         </template>
       </a-dropdown>
@@ -74,13 +71,6 @@
     @cancel="state.LDAP.showModal = false"
   />
 
-  <RemoteServerTwakeModal
-    :visible="state.TWAKE.showModal"
-    :data="state.TWAKE.data"
-    @success="onSuccess"
-    @cancel="state.TWAKE.showModal = false"
-  />
-
   <DomainAssociatedListModal :state="modal" :empty-text="$t('REMOTE_SERVER.NO_ASSOCIATED_DOMAIN')" @ok="hide" />
 </template>
 
@@ -91,17 +81,11 @@ import { Modal, message } from 'ant-design-vue';
 import { PlusCircleOutlined, EllipsisOutlined, ExclamationCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
 
 import RemoteServerLDAPModal from '../components/remote-server-ldap-modal.vue';
-import RemoteServerTwakeModal from '../components/remote-server-twake-modal.vue';
 import DomainAssociatedListModal from '@/modules/domain/components/domain-associated-list-modal.vue';
 import useAssociatedDomainsModal from '@/modules/domain/hooks/useAssociatedDomainsModal';
 import useBreadcrumbs from '@/core/hooks/useBreadcrumbs';
 
-import RemoteServer, {
-  EMPTY_LDAP_SERVER,
-  EMPTY_TWAKE_SERVER,
-  LDAPRemoteServer,
-  TwakeRemoteServer,
-} from '../types/RemoteServer';
+import RemoteServer, { EMPTY_LDAP_SERVER, LDAPRemoteServer } from '../types/RemoteServer';
 
 import { deleteRemoteServer, getAssociatedDomains, listRemoteServers } from '../services/remote-server-api';
 
@@ -112,10 +96,6 @@ interface RemoteServersListState {
   LDAP: {
     showModal: boolean;
     data: LDAPRemoteServer;
-  };
-  TWAKE: {
-    showModal: boolean;
-    data: TwakeRemoteServer;
   };
 }
 
@@ -129,10 +109,6 @@ const state = reactive<RemoteServersListState>({
   LDAP: {
     showModal: false,
     data: { ...EMPTY_LDAP_SERVER },
-  },
-  TWAKE: {
-    showModal: false,
-    data: { ...EMPTY_TWAKE_SERVER },
   },
 });
 const filteredList = computed(() =>
@@ -186,7 +162,6 @@ function fetchRemoteServers() {
 
 function onSuccess() {
   state.LDAP.showModal = false;
-  state.TWAKE.showModal = false;
 
   fetchRemoteServers();
 }
@@ -210,8 +185,8 @@ function openEditModal(remoteServer: RemoteServer) {
   state[remoteServer.serverType].showModal = true;
 }
 
-function openCreateModal(type: 'TWAKE' | 'LDAP', duplicateTarget?: RemoteServer) {
-  state[type].data = duplicateTarget || type === 'LDAP' ? { ...EMPTY_LDAP_SERVER } : { ...EMPTY_TWAKE_SERVER };
+function openCreateModal(type: 'LDAP', duplicateTarget?: RemoteServer) {
+  state[type].data = duplicateTarget || { ...EMPTY_LDAP_SERVER };
 
   state[type].showModal = true;
 }
