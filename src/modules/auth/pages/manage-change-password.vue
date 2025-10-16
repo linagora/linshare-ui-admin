@@ -114,7 +114,8 @@ async function onChangePassword() {
     oldPwd: creationForm.old_password,
     newPwd: creationForm.new_password,
   };
-  const result = await handleChangePassword(payload);
+  await handleChangePassword(payload);
+  resetFormData();
 }
 
 watch(
