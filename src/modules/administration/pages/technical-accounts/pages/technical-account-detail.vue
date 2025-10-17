@@ -1,6 +1,6 @@
 <template>
   <div class="technical-account-detail-page">
-    <a-tabs v-model:activeKey="activeKey">
+    <a-tabs v-model:active-key="activeKey">
       <a-tab-pane key="1" :tab="$t('TECHNICAL_ACCOUNTS.DETAIL_PAGE.USER_INFORMATIONS_TITLE')">
         <UserInformations />
       </a-tab-pane>

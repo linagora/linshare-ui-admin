@@ -598,7 +598,7 @@
       "CLIENT_SECRET": "Secret client "
     },
     "TYPE": {
-      "LDAP": "Connexion LDAP",
+      "LDAP": "Connexion LDAP"
     },
     "LDAP": {
       "MODAL": {

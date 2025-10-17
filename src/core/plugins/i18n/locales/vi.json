@@ -597,7 +597,7 @@
       "CLIENT_SECRET": "Client secret"
     },
     "TYPE": {
-      "LDAP": "Kết nối LDAP",
+      "LDAP": "Kết nối LDAP"
     },
     "LDAP": {
       "MODAL": {

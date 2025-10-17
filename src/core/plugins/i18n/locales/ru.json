@@ -598,7 +598,7 @@
       "CLIENT_SECRET": "Секрет клиента"
     },
     "TYPE": {
-      "LDAP": "Соединение LDAP",
+      "LDAP": "Соединение LDAP"
     },
     "LDAP": {
       "MODAL": {
