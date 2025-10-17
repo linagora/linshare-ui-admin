@@ -3,6 +3,7 @@ import router from '@/core/router';
 import { CONFIGV4 } from '@/core/constants';
 import { APIError, LinShareAPIError } from '@/core/types/APIError';
 import type { PaginatedList } from '@/core/types/PaginatedList';
+import { dehydrate } from '@/core/store/hydrate';
 
 const apiv4 = axios.create({
   baseURL: `${window.location.origin}/${CONFIGV4.API.BASE_URL}`,
@@ -42,6 +43,7 @@ function onError(e: LinShareAPIError): APIError {
   const error = new APIError(e);
 
   if (error.isUnauthorizedError()) {
+    dehydrate();
     router.push({
       name: 'Login',
       params: {
