@@ -102,7 +102,7 @@ const mailContentLangs = computed(() => {
         legend: t(`EMAIL_TEMPLATES.MAIL_CONTENT_TYPE.${item?.mailContentType}`),
         mailContentString: `${item.mailContentDomainName}-Updated the: ${dayjs(item.mailContentModificationDate).format(
           'MMM D, YYYY'
-        )}-${item.mailContentName}`,
+        )}${item.mailContentName ? `-${item.mailContentName}` : ''}`,
       };
     });
 });
@@ -149,7 +149,7 @@ async function onGetMailContentOptions(item: MailLang) {
     item?.mailContentType
   );
   mailContentOptions.value = result.map((item) => {
-    return { label: `${item.domainLabel}-${item.description}`, value: item.uuid };
+    return { label: !!item.description ? `${item.domainLabel}-${item.description}` : `${item.domainLabel}-Updated the: ${dayjs(item.modificationDate).format('MMM D, YYYY')}`, value: item.uuid };
   });
 }
 
