@@ -149,7 +149,12 @@ async function onGetMailContentOptions(item: MailLang) {
     item?.mailContentType
   );
   mailContentOptions.value = result.map((item) => {
-    return { label: !!item.description ? `${item.domainLabel}-${item.description}` : `${item.domainLabel}-Updated the: ${dayjs(item.modificationDate).format('MMM D, YYYY')}`, value: item.uuid };
+    return {
+      label: item.description
+        ? `${item.domainLabel}-${item.description}`
+        : `${item.domainLabel}-Updated the: ${dayjs(item.modificationDate).format('MMM D, YYYY')}`,
+      value: item.uuid,
+    };
   });
 }
 

@@ -81,7 +81,7 @@ async function logIn() {
   try {
     loggingIn.value = true;
 
-    await login({ email: credentials.email.trim(), password: credentials.password});
+    await login({ email: credentials.email.trim(), password: credentials.password });
     router.push(props.redirect || '/');
   } catch (error) {
     if (error instanceof APIError) {

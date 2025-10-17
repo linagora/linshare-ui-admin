@@ -1,8 +1,6 @@
 /* eslint-disable camelcase */
 export default interface AppConfiguration {
-  beta: boolean;
   rootWelcomeMessageUuid: string;
-  legacyAppUrl: string;
   homeRoute: string;
   appContext: string;
   oidcEnabled: boolean;
