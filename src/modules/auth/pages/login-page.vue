@@ -67,7 +67,7 @@ const credentials = reactive<LoginCredentials>({
 
 function handleError(e: APIError) {
   if (e.isOTPMissingError()) {
-    auth2FAStore.setCredentials(credentials.email, credentials.password, props.redirect);
+    auth2FAStore.setCredentials(credentials.email.trim(), credentials.password, props.redirect);
     return router.push({ name: 'LoginUsingSecondFactorAuthentication' });
   }
   error.value = e.getMessage();
@@ -81,7 +81,7 @@ async function logIn() {
   try {
     loggingIn.value = true;
 
-    await login(credentials);
+    await login({ email: credentials.email.trim(), password: credentials.password});
     router.push(props.redirect || '/');
   } catch (error) {
     if (error instanceof APIError) {
