@@ -54,7 +54,7 @@
     "@ant-design/icons": "4.7.0",
     "@vueuse/core": "^9.2.0",
     "ant-design-vue": "^3.2.20",
-    "axios": "0.30.0",
+    "axios": "0.30.2",
     "chart.js": "3.9.1",
     "dayjs": "^1.11.13",
     "lodash-es": "4.17.21",
