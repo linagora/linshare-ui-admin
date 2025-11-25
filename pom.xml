@@ -5,7 +5,7 @@
   <artifactId>linshare-ui-admin</artifactId>
   <version>6.5.2-SNAPSHOT</version>
   <name>linshare-ui-admin</name>
-  <url>http://linshare.org</url>
+  <url>https://linshare.app</url>
   <build>
     <plugins>
       <!-- maven-clean-plugin -->
