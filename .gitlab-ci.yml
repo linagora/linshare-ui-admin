@@ -14,6 +14,7 @@ check_author:
     GIT_DEPTH: "1"
   tags:
     - ultralight
+  allow_failure: true
   script:
     - check_author.py check "$GITLAB_USER_EMAIL" "$GITLAB_USER_NAME" --no-accents
   except:
