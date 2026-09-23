@@ -7,6 +7,7 @@ import { useAuthStore } from '@/modules/auth/store';
 import { isEnable } from '@/core/utils/functionality';
 import { logout } from '@/modules/auth/services/basic';
 import { signOut as logoutOIDC } from '@/modules/auth/services/oidc';
+import config from '@/config';
 import UserProfileIcon from '@/core/components/icons/user-profile-icon.vue';
 import { useReportingSharesStore, useReportingStore } from '@/modules/reporting/store';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
@@ -64,11 +65,14 @@ const isSuperAdmin = computed(() => {
                 <span class="name">{{ $t('HEADER.PROFILE.CHANGE_PASSWORD') }}</span>
               </router-link>
             </a-menu-item>
-            <a-menu-item key="logout" @click="logOut">
-              <a name="logout" class="link">
-                <span class="name">{{ $t('HEADER.PROFILE.LOGOUT') }}</span>
-              </a>
-            </a-menu-item>
+            <span v-if="!config.hideLogout">
+              <a-menu-divider></a-menu-divider>
+              <a-menu-item key="logout" @click="logOut">
+                <a name="logout" class="link">
+                  <span class="name">{{ $t('HEADER.PROFILE.LOGOUT') }}</span>
+                </a>
+              </a-menu-item>
+            </span>
           </a-menu>
         </template>
       </a-dropdown>

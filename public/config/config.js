@@ -1,5 +1,6 @@
 window.APP_CONFIGURATION = Object.freeze({
   appContext: '/',
+  hideLogout: false,
   oidcEnabled: false,
   oidcSetting: {
     authority: 'http://auth.linshare.local/',

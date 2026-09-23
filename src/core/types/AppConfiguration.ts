@@ -3,6 +3,7 @@ export default interface AppConfiguration {
   rootWelcomeMessageUuid: string;
   homeRoute: string;
   appContext: string;
+  hideLogout: boolean;
   oidcEnabled: boolean;
   oidcSetting: {
     authority: string;
