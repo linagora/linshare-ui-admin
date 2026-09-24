@@ -15,7 +15,7 @@ const manager = new UserManager({
   scope: oidcSetting.scope,
   response_type: 'code',
   redirect_uri: `${window.location.origin}${config.appContext}/oidc/callback`,
-  post_logout_redirect_uri: `${window.location.origin}${window.location.pathname}`,
+  post_logout_redirect_uri: `${window.location.origin}${config.appContext}/login`,
   loadUserInfo: oidcSetting.loadUserInfo,
 });
 
@@ -52,5 +52,5 @@ export async function signinCallback(): Promise<void> {
 export async function signOut(): Promise<void> {
   await logOut();
   await dehydrate();
-  manager.signoutRedirect();
+  await manager.signoutRedirect();
 }

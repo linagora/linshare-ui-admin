@@ -35,15 +35,27 @@ function onToggleLanguage() {
 }
 
 async function logOut() {
-  if (loggedUser.value?.authWithOIDC) {
-    await logoutOIDC();
-  } else {
-    await logout();
-  }
+  const isOIDC = loggedUser.value?.authWithOIDC;
+  let logoutSucceeded = false;
 
-  reportingStore.$reset();
-  reportingSharesStore.$reset();
-  push({ name: 'Login' });
+  try {
+    if (isOIDC) {
+      await logoutOIDC();
+    } else {
+      await logout();
+    }
+    logoutSucceeded = true;
+  } catch (error) {
+    push({ name: 'Login' });
+    throw error;
+  } finally {
+    reportingStore.$reset();
+    reportingSharesStore.$reset();
+
+    if (!isOIDC && logoutSucceeded) {
+      push({ name: 'Login' });
+    }
+  }
 }
 </script>
 
