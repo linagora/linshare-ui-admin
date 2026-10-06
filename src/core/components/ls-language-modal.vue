@@ -6,6 +6,9 @@ import FlagUk from '@/core/components/icons/flag-uk.vue';
 import FlagFrance from '@/core/components/icons/flag-france.vue';
 import FlagVN from '@/core/components/icons/flag-vn.vue';
 import FlagRussia from '@/core/components/icons/flag-russia.vue';
+import FlagSpain from '@/core/components/icons/flag-spain.vue';
+import FlagGermany from '@/core/components/icons/flag-germany.vue';
+import FlagItaly from '@/core/components/icons/flag-italy.vue';
 import CheckCircleIcon from '@/core/components/icons/check-circle-icon.vue';
 import GlobeIcon from '@/core/components/icons/globe-icon.vue';
 const { locale } = useI18n();
@@ -39,6 +42,24 @@ const languages = [
     key: 'ru',
     language: 'ru',
     icon: FlagRussia,
+  },
+  {
+    name: 'Español',
+    key: 'es',
+    language: 'es',
+    icon: FlagSpain,
+  },
+  {
+    name: 'Deutsch',
+    key: 'de',
+    language: 'de',
+    icon: FlagGermany,
+  },
+  {
+    name: 'Italiano',
+    key: 'it',
+    language: 'it',
+    icon: FlagItaly,
   },
 ];
 </script>
@@ -138,7 +159,7 @@ const languages = [
   }
   .ant-modal-content {
     border-radius: 16px;
-    height: 400px;
+    min-height: 400px;
   }
 }
 </style>

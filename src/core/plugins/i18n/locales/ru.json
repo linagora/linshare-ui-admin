@@ -2669,7 +2669,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} попытался сбросить пароль.",
+              "SENTENCE": "{authorName} попытался сбросить пароль.",
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             }
           },
@@ -2679,7 +2679,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} успешно сбросил пароль.",
+              "SENTENCE": "{authorName} успешно сбросил пароль.",
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             }
           }

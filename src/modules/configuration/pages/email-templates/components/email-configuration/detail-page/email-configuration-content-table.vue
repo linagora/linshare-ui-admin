@@ -2,17 +2,29 @@
   <div class="email-configuration-content-table">
     <div class="email-configuration-content-table__filter">
       <div class="email-configuration-content-table__filter-item">
-        <a-input v-model:value="search.contentType" placeholder="Main content type" class="ls-input">
+        <a-input
+          v-model:value="search.contentType"
+          :placeholder="$t('EMAIL_TEMPLATES.CONFIGURATION_PAGE.MAIN_CONTENT_TYPE')"
+          class="ls-input"
+        >
           <template #prefix>
             <SearchOutlined />
           </template>
         </a-input>
       </div>
       <div class="email-configuration-content-table__filter-item">
-        <a-input v-model:value="search.mailContent" placeholder="Selected mail content" class="ls-input" />
+        <a-input
+          v-model:value="search.mailContent"
+          :placeholder="$t('EMAIL_TEMPLATES.CONFIGURATION_PAGE.SELECTED_MAIL_CONTENT')"
+          class="ls-input"
+        />
       </div>
       <div class="email-configuration-content-table__filter-item">
-        <a-input v-model:value="search.legend" placeholder="Legend" class="ls-input">
+        <a-input
+          v-model:value="search.legend"
+          :placeholder="$t('EMAIL_TEMPLATES.CONFIGURATION_PAGE.LEGEND')"
+          class="ls-input"
+        >
           <template #prefix>
             <SearchOutlined />
           </template>
@@ -66,7 +78,7 @@ import useEmailTemplatesConfiguration from '../../../hooks/useEmailTemplatesConf
 import dayjs from 'dayjs';
 import { DEFAULT_PAGE_SIZE } from '@/core/constants/pagination';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const { status, activeMailConfig, activeEmailConfigForm, handleGetMailContentList, handleUpdateMailContentLang } =
   useEmailTemplatesConfiguration();
 
@@ -100,9 +112,10 @@ const mailContentLangs = computed(() => {
       return {
         ...item,
         legend: t(`EMAIL_TEMPLATES.MAIL_CONTENT_TYPE.${item?.mailContentType}`),
-        mailContentString: `${item.mailContentDomainName}-Updated the: ${dayjs(item.mailContentModificationDate).format(
-          'MMM D, YYYY'
-        )}${item.mailContentName ? `-${item.mailContentName}` : ''}`,
+        mailContentString: `${t('EMAIL_TEMPLATES.CONFIGURATION_PAGE.MAIL_CONTENT_UPDATED', {
+          domain: item.mailContentDomainName,
+          date: dayjs(item.mailContentModificationDate).locale(locale.value).format('MMM D, YYYY'),
+        })}${item.mailContentName ? `-${item.mailContentName}` : ''}`,
       };
     });
 });
@@ -152,7 +165,10 @@ async function onGetMailContentOptions(item: MailLang) {
     return {
       label: item.description
         ? `${item.domainLabel}-${item.description}`
-        : `${item.domainLabel}-Updated the: ${dayjs(item.modificationDate).format('MMM D, YYYY')}`,
+        : t('EMAIL_TEMPLATES.CONFIGURATION_PAGE.MAIL_CONTENT_UPDATED', {
+            domain: item.domainLabel,
+            date: dayjs(item.modificationDate).locale(locale.value).format('MMM D, YYYY'),
+          }),
       value: item.uuid,
     };
   });

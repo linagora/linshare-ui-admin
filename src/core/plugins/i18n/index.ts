@@ -12,6 +12,7 @@ const i18n = createI18n({
   fallbackWarn: false,
   datetimeFormats,
   locale,
+  fallbackLocale: 'en',
   messages,
 });
 
