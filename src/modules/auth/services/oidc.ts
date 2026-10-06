@@ -19,6 +19,8 @@ const manager = new UserManager({
   loadUserInfo: oidcSetting.loadUserInfo,
 });
 
+let pendingSigninCallback: Promise<string> | null = null;
+
 interface OIDCBearerRequest extends AxiosRequestConfig {
   headers: {
     Authorization: string;
@@ -31,7 +33,17 @@ export function signinRedirect(): void {
   manager.signinRedirect();
 }
 
-export async function signinCallback(): Promise<void> {
+export function signinCallback(): Promise<string> {
+  if (!pendingSigninCallback) {
+    pendingSigninCallback = processSigninCallback().finally(() => {
+      pendingSigninCallback = null;
+    });
+  }
+
+  return pendingSigninCallback;
+}
+
+async function processSigninCallback(): Promise<string> {
   const user = await manager.signinRedirectCallback();
   const authRequestConfig: OIDCBearerRequest = {
     headers: {
@@ -47,6 +59,9 @@ export async function signinCallback(): Promise<void> {
   appStore.setAuthenticating(false);
 
   await hydrate();
+  return typeof user.state === 'string' && user.state.startsWith('/') && !user.state.startsWith('//')
+    ? user.state
+    : '/';
 }
 
 export async function signOut(): Promise<void> {
