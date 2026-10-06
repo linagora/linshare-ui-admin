@@ -1,0 +1,3611 @@
+{
+  "GENERAL": {
+    "EMAIL_VALIDATION": "Die E-Mail-Adresse ist ungültig",
+    "BACK_TO_LIST": "Zurück zur Liste",
+    "ENABLED": "Aktiviert",
+    "DISABLED": "Deaktiviert",
+    "CANCEL": "Abbrechen",
+    "DELETE": "Löschen",
+    "DELETION": "Löschung",
+    "SAVE": "Speichern",
+    "UPDATE_TIME_RELATIVE": "Aktualisiert {time}",
+    "UPDATE_AT": "Aktualisiert am {time}",
+    "CREATE_AT": "Erstellt am {time}",
+    "JUST_NOW": "gerade eben",
+    "DEFAULT_VALUE": "Standardwert",
+    "CURRENT_VALUE": "Aktueller Wert",
+    "RESET": "Zurücksetzen",
+    "USE_DEFAULTS": "Standardwerte verwenden",
+    "CREATION_DATE": "Erstellungsdatum",
+    "MODIFICATION_DATE": "Änderungsdatum",
+    "COPY": "Kopieren",
+    "CREATE": "Erstellen",
+    "NAME": "Name",
+    "ACTIONS": "Aktionen",
+    "EDIT": "Bearbeiten",
+    "DUPLICATE": "Duplizieren",
+    "ASSOCIATED_DOMAINS": "Zugeordnete Domains",
+    "VIEW_ASSOCIATED_DOMAINS": "Zugeordnete Domains anzeigen",
+    "OK": "OK",
+    "SEARCH_BY_NAME": "Nach Name suchen",
+    "SEARCH_BY": "Nach Name oder Domain suchen",
+    "DESCRIPTION": "Beschreibung",
+    "TYPES": "Typen",
+    "TYPE": "Typ",
+    "YES": "Ja",
+    "NO": "Nein",
+    "FIELD_REQUIRED": "Dieses Feld darf nicht leer sein",
+    "SELECT_MODEL": "Wählen Sie eine vordefinierte Vorlage",
+    "TRY_AGAIN": "Erneut versuchen",
+    "DOMAIN": "Domain",
+    "OR": "Oder",
+    "AUTHOR": "Autor",
+    "ROLE": "Rolle",
+    "ASSIGNED": "Zugewiesen",
+    "ASSIGN": "Zuweisen",
+    "UNASSIGNED": "Nicht zugewiesen",
+    "READ_ONLY": "Schreibgeschützt",
+    "EDITABLE": "Bearbeitbar",
+    "VIEW": "Anzeigen",
+    "EXPAND": "Erweitern",
+    "COLLAPSE": "Reduzieren",
+    "ADD": "Hinzufügen",
+    "TOTAL": "Gesamt",
+    "REFRESH": "Aktualisieren",
+    "FAIL_TO_LOAD_DATA": "Daten konnten nicht geladen werden",
+    "REQUEST_RELOAD_DATA": "Klicken Sie auf Aktualisieren, um die fehlenden Daten neu zu laden.",
+    "APPLY": "Anwenden",
+    "DATE_ALL_TIME": "Gesamter Zeitraum",
+    "DATE_LAST_DAY": "Letzter Tag",
+    "DATE_LAST_7_DAYS": "Letzte 7 Tage",
+    "DATE_LAST_30_DAYS": "Letzte 30 Tage",
+    "DATE_LAST_6_MONTHS": "Letzte 6 Monate",
+    "DATE_LAST_YEAR": "Letztes Jahr",
+    "DATE_CUSTOM": "Benutzerdefinierter Zeitraum",
+    "NUMBER_COL": "Nr.",
+    "EMPTY_MESSAGE": "Keine Daten",
+    "CLEAR_FILTER": "Filter zurücksetzen",
+    "ISOLATE": "Isolieren",
+    "UNDO": "Rückgängig machen",
+    "DUPPLICATE": "Duplizieren",
+    "MIGRATE": "Migrieren",
+    "CONTACT_NAME_AND_OWNER": "Kontaktname und Eigentümer",
+    "VISIBILITY": "Sichtbarkeit",
+    "PUBLIC": "Öffentlich",
+    "PRIVATE": "Privat",
+    "SORT": "Sortieren",
+    "SEARCH": "Suchen"
+  },
+  "LOCALE": {
+    "ENGLISH": "Englisch",
+    "FRENCH": "Französisch",
+    "RUSSIAN": "Russisch",
+    "VIETNAMESE": "Vietnamesisch"
+  },
+  "MESSAGES": {
+    "CREATE_SUCCESS": "Erfolgreich erstellt",
+    "CREATE_FAILURE": "Erstellen fehlgeschlagen",
+    "UPDATE_SUCCESS": "Erfolgreich aktualisiert",
+    "UPDATE_FAILURE": "Aktualisierung fehlgeschlagen",
+    "DELETE_SUCCESS": "Erfolgreich gelöscht",
+    "DELETE_FAILURE": "Löschen fehlgeschlagen",
+    "PROCESSING": "Wird verarbeitet..."
+  },
+  "HEADER": {
+    "LOGO_ALT": "LinShare-Logo",
+    "PROFILE": {
+      "LOGOUT": "Abmelden",
+      "2FA": "Zwei-Faktor-Authentifizierung",
+      "LANGUAGE": "Sprache",
+      "CHANGE_PASSWORD": "Passwort ändern"
+    }
+  },
+  "FOOTER": {
+    "COPYRIGHT": "Sie verwenden die kostenlose Open-Source-Version von LinShare™, bereitgestellt von Linagora © 2009–2025. Unterstützen Sie die Forschung und Entwicklung von LinShare mit einem Enterprise-Abonnement."
+  },
+  "NAVIGATOR": {
+    "CONFIGURATION": "Konfiguration",
+    "ADMINISTRATION": "Verwaltung",
+    "ACTIVITIES": "Aktivitäten",
+    "REPORTING": "Berichte",
+    "UPGRADES": "Upgrades",
+    "UPGRADES_TASK": "Upgrade-Aufgaben",
+    "UPGRADES_TASK_PREVIOUS_EXECUTION": "Frühere Ausführungen der Upgrade-Aufgaben",
+    "UPGRADES_CONSOLE": "Konsole der Upgrade-Aufgaben",
+    "MY_USERS": "Meine Benutzer",
+    "MY_SHARED_SPACES": "Meine gemeinsamen Bereiche",
+    "MY_CONTACT_LIST": "Meine Kontaktliste",
+    "LOGGERS": "Logger",
+    "DOMAINS": "Domains",
+    "FUNCTIONALITIES": "Funktionen",
+    "MANAGE_DOMAINS": "Domains verwalten",
+    "USERS": "Benutzer",
+    "MANAGE_USERS": "Benutzer verwalten",
+    "INCONSISTENT_USERS": "Inkonsistente Benutzer",
+    "TECHNICAL_ACCOUNTS": "Technische Konten",
+    "TECHNICAL_ACCOUNTS_DETAIL": "Details des technischen Kontos",
+    "WORKGROUPS": "Arbeitsgruppen",
+    "MAILING_LISTS": "Verteilerlisten",
+    "HISTORY": "Verlauf",
+    "MAILS": "E-Mails",
+    "MAIL_CONFIGURATION": "E-Mail-Konfiguration",
+    "MAIL_LAYOUT": "E-Mail-Layout",
+    "MAIL_FOOTER": "E-Mail-Fußzeile",
+    "MAIL_CONTENT": "E-Mail-Inhalt",
+    "MAIL_ACTIVATION": "E-Mail-Aktivierung",
+    "UPGRADE_TASKS": "Upgrade-Aufgaben",
+    "SEARCH": "Suchen",
+    "USER_DETAILS": "Benutzerdetails",
+    "DETAILS": "Details",
+    "PARAMETERS": "Parameter (auch Funktionen genannt)",
+    "MAIL_TEMPLATES": "E-Mail-Vorlagen",
+    "WELCOME_MESSAGES": "Willkommensnachrichten",
+    "WELCOME_MESSAGES_MANAGE": "Willkommensnachricht verwalten",
+    "WELCOME_MESSAGES_NEW": "Neue Willkommensnachricht",
+    "TYPE_MIME": "MIME-Richtlinien",
+    "TYPE_MIME_DETAILS": "Details der MIME-Richtlinie",
+    "PROVIDERS": "Anbieter",
+    "QUOTA": "Speicherkontingent",
+    "PUBLIC_KEYS": "Öffentliche Schlüssel (JWT)",
+    "DOMAIN_DETAILS": "Domain-Details",
+    "REMOTE_SERVERS": "Remote-Server",
+    "REMOTE_FILTERS": "Remote-Filter",
+    "USER_FILTERS": "Benutzerfilter",
+    "GROUP_FILTERS": "Gruppenfilter",
+    "WORKSPACE_FILTERS": "Arbeitsbereichsfilter",
+    "LDAP_USER_FILTER": "LDAP-Benutzerfilter",
+    "USER_PROVIDERS": "Benutzeranbieter",
+    "GROUP_PROVIDERS": "Gruppenanbieter",
+    "WORKSPACE_PROVIDERS": "Arbeitsbereichsanbieter",
+    "LDAP_GROUP_FILTER": "LDAP-Gruppenfilter",
+    "LDAP_WORKSPACE_FILTER": "LDAP-Arbeitsbereichsfilter",
+    "SHARED_SPACE_DETAILS": "Details des gemeinsamen Bereichs",
+    "WELCOME_MESSAGE_DETAIL": "Details der Willkommensnachricht",
+    "EMAIL_TEMPLATES": "E-Mail-Vorlagen",
+    "CONFIGURATION_DOMAIN_POLICIES": "Domain-Richtlinien",
+    "CONFIGURATION_DOMAIN_POLICIES_DETAILS": "Details der Domain-Richtlinie",
+    "ADMINISTRATION_CONTACT_LIST": "Kontaktliste",
+    "ADMINISTRATION_CONTACT_LIST_DETAIL": "Kontaktdetails"
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
+    "SUBTITLE": "Willkommen in Ihrem LinShare-Administrations-Dashboard",
+    "DOMAINS": "Domains",
+    "MANAGE_DOMAINS": "Domains verwalten",
+    "USERS": "Benutzer",
+    "MANAGE_USERS": "Benutzer verwalten",
+    "HISTORY": "Verlauf",
+    "AUDIT_THE_APPLICATION": "Anwendung prüfen"
+  },
+  "USERS": {
+    "MANAGE_USERS": {
+      "TITLE": "Benutzer verwalten",
+      "SUBTITLE": "Benutzerliste",
+      "DESCRIPTION": "In dieser Ansicht können Sie Benutzer verschiedener Domains finden. Sie können Rollen, Vorname, Nachname und Standardsprache sowie Upload-Berechtigungen ändern.",
+      "SEARCH_GUIDE": "Geben Sie eine Benutzerangabe (z. B. E-Mail-Adresse) in das Suchfeld ein.",
+      "OPERATION": "Vorgang",
+      "NAVIGATE_GUIDE": "Klicken Sie auf den Benutzer, um sein Profil aufzurufen.",
+      "FIRST_NAME": "Vorname",
+      "LAST_NAME": "Nachname",
+      "EMAIL": "Nach E-Mail suchen",
+      "DOMAIN": "Domain",
+      "ROLE": "Rolle",
+      "ACCOUNT_TYPE": "Kontotyp",
+      "SEARCH": "Suchen",
+      "NO_DATA": "Keine passenden Einträge gefunden",
+      "MULTIPLE_DELETE": "{number} Benutzer wurden erfolgreich gelöscht",
+      "MULTIPLE_DELETE_CONFIRM": "Sie sind dabei, diesen oder diese Benutzer zu löschen. Dieser Vorgang ist unwiderruflich und vernichtet alle Dokumente. Möchten Sie fortfahren?",
+      "SELECTED_USERS_NUMBER": "Ausgewählte Benutzer: {number}",
+      "SELECTED_USERS_DELETE": "Ausgewählte Benutzer löschen",
+      "SELECTED_USERS_UNLOCK": "{number} Benutzer wurden erfolgreich entsperrt",
+      "SELECT_ALL": "Alle auswählen",
+      "UNSELECT_ALL": "Auswahl aufheben"
+    },
+    "DETAIL_USER": {
+      "TITLE": "Benutzer verwalten",
+      "CONFIRM_DELETE": "Sie sind dabei, diesen Benutzer zu löschen. Dieser Vorgang ist unwiderruflich und vernichtet alle seine Dokumente. Möchten Sie fortfahren?",
+      "DELETE_USER": "Benutzer löschen",
+      "YES": "Ja",
+      "NO": "Nein",
+      "LOCKED_USER": "Gesperrter Benutzer",
+      "LOCKED_USER_DESCRIPTION": "Dieser Benutzer ist aufgrund fehlgeschlagener Anmeldeversuche gesperrt",
+      "UNLOCK": "Entsperren",
+      "USER_PROFILE": "Benutzerprofil",
+      "PERSONAL_SPACE_QUOTA": "Speicherkontingent des persönlichen Bereichs",
+      "UPLOAD_REQUEST": "Upload-Anfrage",
+      "RESTRICTED_CONTACT_LIST": "Eingeschränkte Kontaktliste",
+      "ENABLED": "Aktiviert",
+      "DISABLED": "Deaktiviert",
+      "FIRST_NAME": "Vorname",
+      "LAST_NAME": "Nachname",
+      "NOTIFICATION_LANGUAGE": "Sprache der Benachrichtigungen",
+      "ROLE": "Rolle",
+      "ENABLE_PERSONAL_SPACE": "Persönlichen Bereich aktivieren",
+      "ALLOW_GUEST_CREATION": "Erstellen von Gästen erlauben",
+      "ACCOUNT_TYPE": "Kontotyp",
+      "CREATION_DATE": "Erstellungsdatum",
+      "MODIFICATION_DATE": "Änderungsdatum",
+      "EXPIRATION_DATE": "Ablaufdatum",
+      "AUTHOR": "Autor",
+      "DOMAIN": "Domain",
+      "ADD_CONTACT": "Kontakt hinzufügen",
+      "RESTRICTED_LIST": "Eingeschränkte Liste",
+      "GUEST_CREATION_RIGHTS": "Recht zum Erstellen von Gästen",
+      "UPLOAD_RIGHTS": "Upload-Rechte",
+      "ROLE_SIMPLE": "Einfach",
+      "ROLE_ADMIN": "Administrator",
+      "ROLE_SUPERADMIN": "Superadministrator",
+      "TYPE_ROOT": "Root-Konto",
+      "TYPE_INTERNAL": "Intern",
+      "TYPE_GUEST": "Gast",
+      "COMMENT": "Kommentar",
+      "RESTRICTED_CONTACTS_LIST_REQUIRED": "Bei einem eingeschränkten Gast muss die eingeschränkte Kontaktliste mindestens einen Kontakt enthalten",
+      "NO_USER_FOUND": "Kein Benutzer gefunden",
+      "RESTRICTED_GUEST": "Gast einschränken",
+      "RESTRICTED_CONTACTS": "Konten, die der Gast kontaktieren kann",
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "Das Ablaufdatum des Gastes muss zwischen morgen und dem {date} liegen",
+      "MAIL": "E-Mail",
+      "ADVANCED_RESEARCH": "Erweiterte Suche"
+    },
+    "GUEST_MODERATOR": {
+      "TAB_TITLE": "Moderatoren",
+      "ADD_MODERATOR": "Moderator hinzufügen",
+      "FILTER_PLACEHOLDER": "Moderatoren suchen oder filtern",
+      "ROLE": {
+        "ADMIN": "Administrator",
+        "SIMPLE": "Einfach"
+      }
+    },
+    "TOKEN_INPUT": {
+      "ENTER_VALUE": "Wert eingeben",
+      "SORT_BY": "Sortieren nach",
+      "PLACEHOLDER": "Benutzer suchen oder filtern",
+      "SEARCH": "Suchen"
+    }
+  },
+  "ERRORS": {
+    "COMMON_MESSAGE": "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut.",
+    "FORBIDDEN": "Sie sind nicht berechtigt, auf diese Ressource zuzugreifen.",
+    "UNKNOWN": "Ein unerwarteter Fehler ist aufgetreten.",
+    "CONTACT_ALREADY_EXISTS": "Der Kontakt existiert bereits",
+    "AUTH": {
+      "1000": "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut.",
+      "1001": "Ungültige Anmeldedaten",
+      "1002": "Zwei-Faktor-Authentifizierung erforderlich",
+      "1003": "Der OTP-Code ist falsch oder abgelaufen",
+      "1004": "Ihr Konto wurde aufgrund fehlgeschlagener Anmeldeversuche gesperrt",
+      "1006": "SSO-Authentifizierung fehlgeschlagen: {message}",
+      "1007": "SSO-Authentifizierung fehlgeschlagen: {message}",
+      "1008": "SSO-Authentifizierung fehlgeschlagen: {message}",
+      "1009": "Mehrere Domains gefunden",
+      "2002": "Die Zwei-Faktor-Authentifizierung ist für Ihre Domain nicht aktiviert"
+    },
+    "55000": "Gruppenfilter nicht gefunden",
+    "66000": "Gemeinsamer Bereich nicht gefunden",
+    "2002": "Die Zwei-Faktor-Authentifizierung ist für Ihre Domain nicht aktiviert",
+    "36004": "Willkommensnachricht nicht gefunden",
+    "36006": "Die Willkommensnachricht ist derzeit mindestens einer Domain zugewiesen.",
+    "14004": "Funktion nicht gefunden",
+    "2200": "Benutzer nicht gefunden",
+    "MAIL_CONFIGURATION": {
+      "1000": "Sie können eine E-Mail-Konfiguration, die anderen Domains zugewiesen ist, nicht auf privat setzen"
+    }
+  },
+  "AUTH": {
+    "TAGLINE": "Open-Source-Anwendung für den sicheren Dateiaustausch",
+    "SECOND_FACTOR_AUTHENTICATION": "Zwei-Faktor-Authentifizierung",
+    "ENTER_OTP_DIGITS": "Geben Sie den 6-stelligen Code aus Ihrer FreeOTP-App ein:",
+    "LOGIN_TO_ADMIN": "Bei der Administration anmelden",
+    "LOGIN": "Anmelden",
+    "LOGIN_SSO": "Mit SSO anmelden",
+    "EMAIL": "E-Mail",
+    "PASSWORD": "Passwort"
+  },
+  "2FA": {
+    "TITLE": "Zwei-Faktor-Authentifizierung",
+    "KEY_CREATION": {
+      "HELPER": "So aktivieren Sie die Zwei-Faktor-Authentifizierung für Ihr Konto:",
+      "STEP_1": "Laden Sie die Authentifizierungs-App FreeOTP herunter und installieren Sie sie, indem Sie den QR-Code scannen oder den Links folgen:",
+      "STEP_2": "Erzeugen Sie den gemeinsamen Schlüssel und scannen Sie den QR-Code mit der FreeOTP-App:",
+      "APP_STORE": "FreeOTP im App Store",
+      "GOOGLE_PLAY": "FreeOTP bei Google Play",
+      "BUTTON": "Gemeinsamen Schlüssel erzeugen",
+      "CAN_NOT_SCAN": "SCANNEN NICHT MÖGLICH?",
+      "FORCE_CREATION_MODAL": {
+        "TITLE": "Zwei-Faktor-Authentifizierung erforderlich",
+        "MESSAGE": "Bitte richten Sie die Zwei-Faktor-Authentifizierung für Ihr Konto ein, um fortzufahren.",
+        "OK_BUTTON": "Zur Einrichtung"
+      },
+      "ALERT": {
+        "TITLE": "Zwei-Faktor-Authentifizierung erforderlich",
+        "MESSAGE": "Für Ihr Konto ist die Zwei-Faktor-Authentifizierung erforderlich. Bitte aktivieren Sie sie, um fortzufahren."
+      },
+      "MESSAGE": {
+        "ERROR": "Der gemeinsame Schlüssel konnte nicht erstellt werden"
+      }
+    },
+    "KEY_REMOVAL": {
+      "HELPER": "Entfernen Sie den gemeinsamen Schlüssel, um die Zwei-Faktor-Authentifizierung für Ihr Konto zu deaktivieren:",
+      "INFORMATION": "Gemeinsamer Schlüssel erstellt am {date}",
+      "BUTTON": "Gemeinsamen Schlüssel entfernen",
+      "CONFIRMATION": "Sie sind dabei, den gemeinsamen Schlüssel zu entfernen! Achtung: Diese Aktion kann nicht rückgängig gemacht werden.",
+      "ALERT": {
+        "TITLE": "Gemeinsamer Schlüssel kann nicht gelöscht werden",
+        "MESSAGE": "Der gemeinsame Schlüssel kann nicht entfernt werden, da für Ihr Konto die Zwei-Faktor-Authentifizierung erforderlich ist. Bitte wenden Sie sich für weitere Informationen an den Support."
+      },
+      "MESSAGE": {
+        "ERROR": "Der gemeinsame Schlüssel konnte nicht gelöscht werden"
+      }
+    },
+    "MANUAL_SETUP": {
+      "LABEL": "Code kann nicht gescannt werden?",
+      "STEP_1": "1. Wählen Sie in der FreeOTP-App das Symbol „Schlüssel hinzufügen“.",
+      "STEP_2": "2. Geben Sie Aussteller und Konto wie folgt ein:",
+      "STEP_3": "3. Geben Sie den geheimen Schlüssel wie folgt ein:",
+      "STEP_4": "4. Stellen Sie sicher, dass die folgenden Felder wie folgt konfiguriert sind:",
+      "STEP_5": "5. Tippen Sie zum Abschließen auf „Hinzufügen“.",
+      "TYPE": "Typ: ",
+      "DIGITS": "Stellen: ",
+      "ALGORITHM": "Algorithmus: ",
+      "INTERVAL": "Intervall: "
+    }
+  },
+  "PASSWORD": {
+    "TITLE": "Passwort ändern",
+    "OLD_PASSWORD": "Altes Passwort",
+    "NEW_PASSWORD": "Neues Passwort",
+    "NEW_PASSWORD_CONFIRM": "Neues Passwort bestätigen",
+    "PASSWORD_REQUIREMENT": "Das Passwort muss mindestens 12 Zeichen lang sein und Großbuchstaben, Ziffern und Sonderzeichen enthalten"
+  },
+  "SHARED_SPACES": {
+    "DELETE_WORK_GROUP": "Arbeitsgruppe löschen",
+    "DELETE_WORK_SPACE": "Arbeitsbereich löschen",
+    "NODE_TYPE": {
+      "WORK_GROUP": "Arbeitsgruppe",
+      "WORK_SPACE": "Arbeitsbereich"
+    },
+    "ROLE": {
+      "ADMIN": "Administrator",
+      "READER": "Leser",
+      "CONTRIBUTOR": "Mitwirkender",
+      "WRITER": "Bearbeiter",
+      "WORK_SPACE_ADMIN": "Arbeitsbereich - Administrator",
+      "WORK_SPACE_WRITER": "Arbeitsbereich - Bearbeiter",
+      "WORK_SPACE_READER": "Arbeitsbereich - Leser"
+    },
+    "MANAGE_SHARED_SPACES": {
+      "TITLE": "Arbeitsbereiche und Arbeitsgruppen",
+      "DESCRIPTION": "Eine Arbeitsgruppe ist ein Bereich für die Zusammenarbeit mit internen Benutzern oder Gästen. Ein Arbeitsbereich enthält Arbeitsgruppen mit der Standard-Mitgliederliste. Eine Arbeitsgruppe kann sich in einem Arbeitsbereich befinden oder eigenständig sein. In dieser Ansicht können Sie Arbeitsbereiche, Arbeitsgruppen und deren Mitglieder verwalten. LinShare-Administratoren haben keinen Zugriff auf den Inhalt der Arbeitsgruppen (Dateien oder Ordner). Die in eine Arbeitsgruppe hochgeladenen Dateien gehören der Arbeitsgruppe und nicht dem Benutzer. Sie wirken sich daher nicht auf das Speicherkontingent des Benutzers aus.",
+      "COLUMNS": {
+        "SHARED_SPACE": "Gemeinsamer Bereich",
+        "TYPE": "Typ"
+      }
+    },
+    "TOKEN_INPUT": {
+      "ACCOUNT": "Konto",
+      "MODIFICATION_DATE": "Änderungsdatum",
+      "CREATION_DATE": "Erstellungsdatum",
+      "TYPE": "Typ",
+      "PLACEHOLDER": "Gemeinsame Bereiche suchen oder filtern",
+      "NAME": "Name"
+    },
+    "MEMBERS": {
+      "MEMBERS": "Mitglieder",
+      "TAB_TITLE": "Mitgliederliste",
+      "CONFIRM_DELETE": "Möchten Sie dieses Mitglied wirklich aus dem gemeinsamen Bereich entfernen?",
+      "FILTER_PLACEHOLDER": "Mitglieder des gemeinsamen Bereichs suchen oder filtern",
+      "ADD_NEW": "Mitglied hinzufügen",
+      "NEW": "Neue Mitglieder",
+      "ROLE_EDIT_TITLE": "Rolle von {name} bearbeiten",
+      "DEFAULT_WORKGROUP_ROLE": "Standardrolle in der Arbeitsgruppe",
+      "FORCE_CHECKBOX": "Diese Rolle für alle untergeordneten Arbeitsgruppen erzwingen",
+      "MEMBER_ADVANCED_RESEARCH": "Erweiterte Suche",
+      "DEFAULT_ROLE": "Standardrolle",
+      "NO_DEFAULT_ROLE": "Keine Standardrolle",
+      "DEFAULT_ROLE_TAG_PREFIX": "Standardrolle: ",
+      "DEFAULT_ROLE_TAG_TOOLTIP": "Diese Rolle gilt für dieses Mitglied in allen neu erstellten Arbeitsgruppen innerhalb dieses Arbeitsbereichs"
+    }
+  },
+  "INCONSISTENT_USERS": {
+    "TITLE": "Inkonsistente Benutzer",
+    "DESCRIPTION": "Ein inkonsistenter Benutzer ist ein Benutzer, der in keinem der den verschiedenen Domains zugeordneten LDAP-Verzeichnisse mehr vorhanden ist. In dieser Ansicht können Sie die Domain eines inkonsistenten Benutzers ändern, sodass er wieder ein regulärer Benutzer wird. Über das Ergebnis eines Benutzers können Sie dessen Informationen bearbeiten. Wenn Sie eine Gruppe von Benutzern auswählen, können Sie alle auf einmal löschen oder ihre Domain ändern",
+    "COLUMNS": {
+      "NUMBER_COL": "Nr.",
+      "FIRSTNAME": "Vorname",
+      "LASTNAME": "Nachname",
+      "EMAIL": "E-Mail",
+      "DOMAIN_ID": "Domain-ID",
+      "ROLE": "Rolle"
+    },
+    "TOKEN_INPUT_PLACEHOLDER": "Inkonsistente Benutzer suchen oder filtern",
+    "SCRUTINY": {
+      "TITLE": "Benutzerdiagnose",
+      "DESCRIPTION": "Für eine angegebene E-Mail-Adresse zeigt diese Ansicht einen vollständigen Bericht über den entsprechenden Benutzer: seine Präsenz im LDAP der zugeordneten Domain sowie in der Datenbank. Diese Ansicht ist daher nützlich, um zu prüfen, ob sich ein Benutzer in der richtigen Domain befindet oder gleichzeitig mehreren Domains angehört usw. Außerdem können Sie hier alle Informationen zu einem Benutzer anzeigen und bearbeiten, etwa um seine Domain zu ändern.",
+      "SEARCH_LEGEND": "Finden Sie die Konten einer Person anhand ihrer E-Mail-Adresse",
+      "PLACEHOLDER": "E-Mail",
+      "DOMAIN_HEADER": "DOMAIN-NAME",
+      "DOMAIN_HEADER_LABEL": "Liste der DOMAINS",
+      "LDAP_HEADER": "LDAP",
+      "LDAP_HEADER_LABEL": "Präsenz des Benutzers im LDAP",
+      "DATABASE_HEADER": "DATENBANK",
+      "DATABASE_HEADER_LABEL": "Präsenz des Benutzers in der Datenbank",
+      "GUEST_HEADER": "GAST",
+      "GUEST_HEADER_LABEL": "Gibt an, ob der Benutzer ein Gast ist",
+      "NOT_FOUND_MESSAGE": "Kein Ergebnis für: ",
+      "CURRENT_USER_FOUND": "Suchergebnis für: ",
+      "WARNING_OUT_OF_DATE_REFRESH": "Die angezeigten Daten sind nicht mehr aktuell",
+      "REFRESH": "Aktualisieren"
+    },
+    "MIGRATE_USERS_CARD": {
+      "UPLOAD_PERMISSION": "Upload-Berechtigung",
+      "GUEST_PERMISSION": "Berechtigung zum Erstellen von Gästen",
+      "ROLE": "Rolle",
+      "FIRST_NAME": "Vorname",
+      "LAST_NAME": "Nachname",
+      "NOTIFICATION_LANGUAGE": "Sprache der Benachrichtigungen",
+      "STATUS": "Status",
+      "CREATION_MODAL_TITLE": "Profil erstellen",
+      "CREATION_MODAL_DESCRIPTION": "Dieser Benutzer hat kein LinShare-Profil. Möchten Sie es in der Datenbank erstellen?",
+      "QUOTA SETTING": "EINSTELLUNG DES SPEICHERKONTINGENTS",
+      "PERSONAL_SPACE_QUOTA": "Zugewiesenes Speicherkontingent des persönlichen Bereichs des Benutzers",
+      "MAX_SIZE_QUOTA": "Maximale Dateigröße für Uploads des Benutzers im persönlichen Bereich",
+      "REMAINING_QUOTA": "Verbleibendes Speicherkontingent",
+      "USED_QUOTA": "Genutztes Speicherkontingent"
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Sie sind dabei, diese Benutzer zu löschen. Dieser Vorgang ist unwiderruflich und vernichtet alle ihre Dokumente. Möchten Sie fortfahren?"
+    },
+    "MIGRATE_FORM": {
+      "TITLE": "Ziel-Domain für die Migration auswählen"
+    }
+  },
+  "QUOTA": {
+    "USER_TAB": "Speicherkontingent des persönlichen Bereichs",
+    "USED_SPACE": "{usedSpace} von {computedQuota} belegt",
+    "USER_QUOTA": "Zugewiesenes Speicherkontingent des persönlichen Bereichs des Benutzers",
+    "USER_MAX_FILE_SIZE": "Maximale Dateigröße für Uploads des Benutzers im persönlichen Bereich",
+    "CURRENT DOMAIN QUOTA": "SPEICHERKONTINGENT DER AKTUELLEN DOMAIN",
+    "MAINTENANCE_MODE": "Wartungsmodus",
+    "ALREADY_USED": "bereits belegt",
+    "QUOTA_AND_USED_SPACE": "Speicherkontingent der Domain und belegter Speicher",
+    "SUBDOMAINS_ALLOCATION_SETTINGS": "Standardzuweisung für Subdomains",
+    "SUBDOMAIN_QUOTA": "SPEICHERKONTINGENT DER SUBDOMAIN",
+    "SHRAED_DOMAIN_QUOTA_ACTIVATION": "Gemeinsames Domain-Speicherkontingent aktivieren",
+    "QUOTA_PER_SUB_DOMAIN": "Speicherkontingent pro SUBDOMAIN",
+    "PERSONAL_SPACE_QUOTA": "SPEICHERKONTINGENT DES PERSÖNLICHEN BEREICHS",
+    "ALL_SPACE_ALLOCATED_QUOTA": "Zugewiesenes Speicherkontingent für alle PERSÖNLICHEN BEREICHE ",
+    "DEFAULT_ALLOCATED_QUOTA_PER_USER": "Standardmäßig zugewiesenes Speicherkontingent (pro BENUTZER)",
+    "CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA": "Der Wert darf das zugewiesene Domain-Speicherkontingent nicht überschreiten",
+    "SHARED_SPACE_QUOTA": "SPEICHERKONTINGENT DES GEMEINSAMEN BEREICHS",
+    "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Standardmäßiges Gesamtspeicherkontingent",
+    "DEFAULT_MAX_FILE_SIZE": "Standardmäßige maximale Dateigröße",
+    "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Einem bestimmten Benutzerkonto ein Speicherkontingent zuweisen",
+    "QUOTA_EXCEEDED_ERROR": "Speicherkontingent überschritten: Geben Sie Speicherplatz frei oder weisen Sie mehr Kontingent zu für ",
+    "SPACES_LABEL": {
+      "CURRENT_DOMAIN": "die aktuelle Domain",
+      "PERSONALS_SPACES": "die persönlichen Bereiche",
+      "SHARED_SPACE": "den gemeinsamen Bereich",
+      "SUB_DOMAINS": "die Subdomains"
+    },
+    "QUOTA_AND_USED_INFORMATIONS_ALERT": "In diesem Abschnitt können Sie die Größe des Speicherkontingents der aktuellen Domain verwalten und nach Bedarf einrichten.",
+    "MAINTENANCE_MODE_ACTIVATED_ALERT": "Der Wartungsmodus ist aktiviert. Dadurch sind in der aktuellen Domain keine Uploads möglich.",
+    "DOMAIN_MAXIMUM_QUOTA": "Maximales Speicherkontingent der Domain: ",
+    "DEFAULT_SUB_DOMAIN_QUOTA": "Standard-Speicherkontingent der Subdomain: ",
+    "DOMAIN_QUOTA": "Speicherkontingent der Domain",
+    "ERROR_MESSAGE_FIELD": "Der Wert muss kleiner oder gleich folgendem Wert sein: ",
+    "ALLOCATION_WITHIN_THE_CURRENT_DOMAIN": "Zuweisung innerhalb der aktuellen Domain {Containers}",
+    "PERSONAL SPACE QUOTA": "SPEICHERKONTINGENT DES PERSÖNLICHEN BEREICHS",
+    "TOTAL_PERSONAL_SPACES_ALLOCATED_QUOTA": "Gesamtes zugewiesenes Speicherkontingent der persönlichen Bereiche",
+    "PERSONAL_SPACES_ALLOCATED_QUOTA": "Zugewiesenes Speicherkontingent der persönlichen Bereiche",
+    "PERSONAL_SPACES_MAX_FILE_SIZE": "Maximale Dateigröße der persönlichen Bereiche",
+    "TOTAL_SHAREDSPACE_ALLOCATED_QUOTA": "Gesamtes zugewiesenes Speicherkontingent der gemeinsamen Bereiche",
+    "SHAREDSPACE_MAX_FILE_SIZE": "Maximale Dateigröße der gemeinsamen Bereiche",
+    "QUOTA_IN_DOMAIN_IS_MANAGED_BY_CONTAINERS": "Das Speicherkontingent der Domain wird über Container verwaltet. Derzeit gibt es 2 Container:",
+    "PERSONAL_SPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_USERS_SPACE": "Persönlicher Bereich (P.B.): Verwaltet den zugewiesenen Speicher für die Bereiche aller Benutzer",
+    "SHAREDSPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_SHAREDSPACE": "Gemeinsamer Bereich (G.B.): Verwaltet den zugewiesenen Speicher für alle gemeinsamen Bereiche (Arbeitsgruppen und Arbeitsbereiche)",
+    "SHAREDSPACE_QUOTA": "SPEICHERKONTINGENT DES GEMEINSAMEN BEREICHS",
+    "CONTRAINERS_VIRTUAL_ALLOCATION": "VIRTUELLE ZUWEISUNG DER CONTAINER",
+    "ERROR": {
+      "QUOTA_LESS_THAN_FILE_SIZE": "Das Speicherkontingent muss größer als die maximale Dateigröße sein",
+      "FILE_SIZE_LARGER_THAN_QUOTA": "Die maximale Dateigröße muss kleiner als das Speicherkontingent sein",
+      "INVALID_FILE_SIZE": "Ungültige maximale Dateigröße"
+    },
+    "QUOTA_VISUALIZE": "Visualisierung des Speicherkontingents",
+    "ROOT_DOMAIN_QUOTA": {
+      "CURRENT_DOMAIN_USED_SPACE": "Belegter Speicher der aktuellen Domain (persönlicher + gemeinsamer Bereich)",
+      "SUB_DOMAIN_USED_SPACE": "Belegter Speicher der Subdomains",
+      "REMAINING_SPACE": "Verbleibender Speicher",
+      "QUOTA_PER_SUB_DOMAIN": "Speicherkontingent pro Subdomain"
+    },
+    "TOP_DOMAIN_QUOTA": {
+      "CURRENT_DOMAIN_USED_SPACE": "Belegter Speicher der aktuellen Domain",
+      "SUB_DOMAIN_USED_SPACE": "Belegter Speicher der Subdomains",
+      "REMAINING_QUOTA": "Verbleibendes Speicherkontingent",
+      "QUOTA_PER_SUB_DOMAIN": "Nicht zugewiesener Speicher",
+      "USED": "Belegter Speicher"
+    },
+    "GUEST_DOMAIN_QUOTA": {
+      "CURRENT_DOMAIN_USED_SPACE": "Belegter Speicher der aktuellen Domain",
+      "REMAINING_SPACE": "Verbleibender Speicher",
+      "UNALLOCATED_SPACE": "Nicht zugewiesener Speicher",
+      "PERSONAL_ALLOCATED_SPACE": "Zugewiesenes Speicherkontingent des persönlichen Bereichs",
+      "SHARED_SPACE_ALLOCATED": "Zugewiesenes Speicherkontingent des gemeinsamen Bereichs",
+      "UNASSIGNED_SPACE": "Nicht zugewiesenes Speicherkontingent"
+    },
+    "SAVE_CHANGE": "Änderungen speichern",
+    "CANCEL": "Abbrechen",
+    "RESET": "Zurücksetzen",
+    "HINT_LABELS": {
+      "HINT_UNLINK_TOOLTIP": "Standardwert überschreiben",
+      "HINT_RESET_TOOLTIP": "Auf Standardwert zurücksetzen: {value}",
+      "HINT_RESET_SHARED_QUOTA_TOOLTIP": "Auf Standardwert zurücksetzen",
+      "HINT_ACTIVATE_SHARING_TOOLTIP": "Gemeinsames Domain-Speicherkontingent aktivieren",
+      "HINT_DESACTIVATE_SHARING_TOOLTIP": "Gemeinsames Domain-Speicherkontingent deaktivieren"
+    },
+    "DOMAIN_SHARED_QUOTA": {
+      "DESCRIPTION": "Wenn dieser Modus aktiviert ist, entfällt die Festlegung des Speicherkontingents für jeden Container dieser Domain (persönlicher Bereich und gemeinsamer Bereich). Der Benutzer sieht den Gesamtverbrauch aller Benutzer der Domain.",
+      "LABEL": "Gemeinsames Domain-Speicherkontingent aktivieren"
+    }
+  },
+  "DOMAIN": {
+    "CREATE_DOMAIN": "Domain erstellen",
+    "CREATE_TOP_DOMAIN": "Eine Top-Level-Domain erstellen",
+    "CREATE_SUB_DOMAIN": "Eine Subdomain erstellen",
+    "CREATE_GUEST_DOMAIN": "Eine Gast-Domain erstellen",
+    "SELECT_DOMAIN": "Domain auswählen",
+    "TYPE": "Typ",
+    "DELETE": {
+      "BUTTON": "Domain löschen",
+      "MODAL_CHILD_EXISTS_TITLE": "Die Domain enthält untergeordnete Domains",
+      "MODAL_CHILD_EXISTS_TEXT": "Bitte entfernen Sie alle untergeordneten Domains (Subdomains und Gast-Domain) dieser Domain, bevor Sie sie löschen",
+      "MODAL_CONFIRM_TITLE": "Domain löschen",
+      "MODAL_CONFIRM_TEXT": "Sie sind dabei, diese Domain zu löschen. Dieser Vorgang ist unwiderruflich und vernichtet alle zugehörigen Daten (Dokumente, Benutzer usw.). Möchten Sie fortfahren?"
+    },
+    "FIELDS": {
+      "NAME": "Name",
+      "NAME_REQUIRED": "Bitte geben Sie den Domain-Namen ein",
+      "NAME_MAX_LENGTH": "Der Domain-Name muss kürzer als 256 Zeichen sein",
+      "NOTIFICATION_LANGUAGE": "Sprache der Benachrichtigungen",
+      "NOTIFICATION_LANGUAGE_HELPER": "Benachrichtigungs-E-Mails werden für alle neu erstellten Benutzer dieser Domain in dieser Sprache gesendet.",
+      "DEFAULT_USER_ROLE": "Standardbenutzerrolle",
+      "DEFAULT_USER_ROLE_HELPER": "Diese Rolle wird allen neu erstellten Benutzern dieser Domain zugewiesen.",
+      "WELCOME_MESSAGE": "Willkommensnachricht",
+      "MAIL_CONFIGURATION": "E-Mail-Konfiguration",
+      "MIME_POLICY": "MIME-Typ-Richtlinie",
+      "DOMAIN_POLICY": "Domain-Richtlinie",
+      "DOMAIN_POLICY_AUTO": "Domain-Richtlinie automatisch erstellen",
+      "PARENT_DOMAIN": "Übergeordnete Domain"
+    },
+    "WARNING": {
+      "PAGE_NOT_ACCESSIBLE": "Diese Seite ist für die aktuelle Domain oder den aktuellen Benutzer nicht zugänglich",
+      "BACK_TO_CONFIGURATION": "Zur Konfiguration"
+    },
+    "TYPES": {
+      "ROOTDOMAIN": "Root-Domain",
+      "TOPDOMAIN": "Top-Level-Domain",
+      "SUBDOMAIN": "Subdomain",
+      "GUESTDOMAIN": "Gast-Domain"
+    },
+    "CREATE_MODAL": {
+      "FOOTER_NOTE": "Die Domain wird mit Standardwerten erstellt, z. B. Standardrolle oder Gebietsschema. Bearbeiten Sie nach dem Erstellen die Domain und ihre Parameter für erweiterte Einstellungen",
+      "DOMAIN_POLICY_AUTO_TOOLTIP": "Wenn aktiviert, wird automatisch eine Regel erstellt, die der neu erstellten Domain nur die Kommunikation mit sich selbst erlaubt. Alle anderen Kommunikationen sind standardmäßig verboten. Wenn deaktiviert, wird die Standard-Domain-Richtlinie angewendet. Diese erlaubt allen anderen Domains, diese Domain zu sehen.",
+      "GUEST_DOMAIN_CHECKBOX": "Es handelt sich um eine Gast-Domain"
+    },
+    "REMOTE_FILTERS_HELPER": "Remote-Filter können von jeder Domain verwendet werden"
+  },
+  "REMOTE_SERVER": {
+    "FIELDS": {
+      "PROVIDED_URL": "Angegebene URL",
+      "TYPE": "Servertyp",
+      "LDAP_BINDDN": "LDAP-Benutzer-DN",
+      "LDAP_PASSWORD": "LDAP-Passwort",
+      "CLIENT_ID": "Client-ID",
+      "CLIENT_SECRET": "Client-Geheimnis"
+    },
+    "TYPE": {
+      "LDAP": "LDAP-Verbindung"
+    },
+    "LDAP": {
+      "MODAL": {
+        "CREATE_TITLE": "LDAP-Verbindung erstellen",
+        "EDIT_TITLE": "LDAP-Verbindung bearbeiten"
+      }
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Der Name darf nicht leer sein",
+      "URL_REQUIRED": "Die URL darf nicht leer sein"
+    },
+    "DELETE_CONFIRM": "Sie sind dabei, diese Remote-Server-Verbindung zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+    "DELETE_ABORT": "Diese Verbindung ist mindestens einem der Anbieter zugeordnet. Sie kann nicht gelöscht werden.",
+    "NO_ASSOCIATED_DOMAIN": "Keine Domain verwendet diese Verbindung."
+  },
+  "BETA": {
+    "MENU": "Bisheriges Administrationsportal",
+    "MENU_TITLE": "Diese neue Oberfläche befindet sich in Entwicklung. Wechseln Sie zur alten Version, um alle Konfigurationsmenüs zu nutzen.",
+    "CONFIRM_MESSAGE": "Diese Funktion ist in dieser Version noch nicht verfügbar. Möchten Sie zur alten Version wechseln, um fortzufahren?"
+  },
+  "USER_FILTER": {
+    "TYPES": {
+      "LDAP": "LDAP-Filter"
+    },
+    "LDAP": {
+      "FORM": {
+        "SEARCH_USER_QUERY": "Abfrage für die Benutzersuche",
+        "SEARCH_USER_QUERY_HELPER": "LDAP-Abfrage zur Suche nach Benutzern",
+        "AUTOCOMPLETE_QUERY": "Abfragen für die Benutzer-Autovervollständigung",
+        "AUTOCOMPLETE_QUERY_HELPER": "LDAP-Abfragen zur Autovervollständigung eines Benutzers anhand aller Attribute oder nur anhand von Vor- und Nachname",
+        "MAIL": "E-Mail",
+        "FIRSTNAME": "Vorname",
+        "LASTNAME": "Nachname",
+        "UNIQUE_ID": "Eindeutige Benutzerkennung",
+        "PAGE_SIZE": "Seitengröße",
+        "LIMIT": "Limit",
+        "AUTHENTICATION_QUERY": "Authentifizierungsabfrage",
+        "AUTHENTICATION_QUERY_HELPER": "Abfrage für die Authentifizierung am LDAP-Verzeichnis",
+        "QUERY": "Abfrage",
+        "QUERY_ON_ALL_ATTRIBUTES": "Abfrage über alle Attribute",
+        "QUERY_ON_NAMES": "Abfrage über die Namen",
+        "ATTRIBUTES": "Attribute",
+        "ATTRIBUTES_HELPER": "Zuordnung der LinShare-Benutzerattribute zu den Attributen des LDAP-Verzeichnisses"
+      },
+      "PAGE_HELPER_P1": "Nachdem Sie eine Verbindung zu einem LDAP-Verzeichnis erstellt haben, müssen Sie einen Benutzerfilter erstellen.",
+      "PAGE_HELPER_P2": "Mit dieser Vorlage legen Sie die Zuordnung zwischen den Attributen der LinShare-Benutzer und den Attributen Ihres Verzeichnisses fest. Außerdem benötigt LinShare 4 verschiedene Abfragen, um korrekt zu funktionieren.",
+      "PAGE_SUBTITLE_CREATE": "Neuen LDAP-Benutzerfilter erstellen",
+      "PAGE_SUBTITLE_EDIT": "LDAP-Benutzerfilter bearbeiten"
+    },
+    "EMPTY_TEXT": "Es gibt keinen Benutzerfilter",
+    "DELETE_CONFIRM": "Sie sind dabei, diesen Benutzerfilter zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+    "DELETE_ABORT": "Dieser Benutzerfilter ist mindestens einer Domain zugeordnet. Er kann nicht gelöscht werden."
+  },
+  "USER_PROVIDER": {
+    "EMPTY_MESSAGE": "Für diese Domain wurde kein Benutzeranbieter erstellt",
+    "ERROR_MESSAGE": "Die Daten des Benutzeranbieters dieser Domain konnten nicht abgerufen werden",
+    "DELETE_CONFIRM": "Sie sind dabei, diesen Benutzeranbieter zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+    "CREATE": "Neuen Anbieter erstellen",
+    "TYPES": {
+      "LDAP": "LDAP-Anbieter",
+      "OIDC": "OIDC-Anbieter"
+    },
+    "LDAP": {
+      "BASE_DN": "Basis-DN",
+      "BASE_DN_HELPER": "LinShare beginnt die Suche nach Benutzern ab dieser Position in Ihrem LDAP"
+    },
+    "OIDC": {
+      "ASSOCIATED_DOMAIN_ID": "Kennung der zugeordneten Domain",
+      "ASSOCIATED_DOMAIN_ID_HELPER": "Wenn Sie einen OIDC-Benutzeranbieter für {name} erstellen, erlauben Sie LinShare, Benutzer für diese Domain anzulegen, wenn sich ein Benutzer über OIDC authentifiziert. Der Benutzer wird in dieser Domain angelegt, wenn der Wert des Claims 'domain_discriminator' mit dem obigen Wert übereinstimmt.",
+      "USED_DOMAIN_ID": "Diese Domain-Kennung wird bereits von einer anderen Domain verwendet",
+      "CHECK_EXTERNAL_USER_ID": "Externe Benutzerkennung prüfen",
+      "CHECK_EXTERNAL_USER_ID_HELPER": "LinShare sucht nach dem Claim 'external_uid' und speichert dessen Wert bei der ersten Anmeldung im Benutzerprofil. Anschließend wird diese gespeicherte Kennung bei jedem OIDC-Authentifizierungsversuch mit dem Wert des Claims verglichen, um sicherzustellen, dass es sich um denselben Benutzer handelt.",
+      "USE_ROLE_CLAIM": "Rollen-Claim verwenden",
+      "USE_ROLE_CLAIM_HELPER": "LinShare sucht nach dem Claim 'linshare_role'. Dessen Wert wird beim Anlegen des Profils bei der ersten Anmeldung als Standardrolle verwendet. Mögliche Werte: ADMIN, SIMPLE",
+      "USE_EMAIL_LOCALE_CLAIM": "Claim für die E-Mail-Sprache verwenden",
+      "USE_EMAIL_LOCALE_CLAIM_HELPER": "LinShare sucht nach dem Claim 'linshare_locale'. Dessen Wert wird beim Anlegen des Profils bei der ersten Anmeldung als Standardsprache verwendet. Mögliche Werte: ENGLISH, FRENCH, RUSSIAN.",
+      "USE_ACCESS_CLAIM": "Zugriffs-Claim verwenden",
+      "USE_ACCESS_CLAIM_HELPER": "LinShare sucht nach dem Claim 'linshare_access' (Vorhandensein und Wert), um den Zugriff auf LinShare zu gewähren. Der Wert des Claims muss mit dem in der Properties-Datei gespeicherten Wert übereinstimmen, andernfalls wird der Benutzer abgelehnt"
+    }
+  },
+  "GROUP_FILTER": {
+    "EMPTY_TEXT": "Es gibt keinen Gruppenfilter",
+    "DELETE_CONFIRM": "Sie sind dabei, diesen Gruppenfilter zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+    "DELETE_ABORT": "Dieser Filter ist mindestens einem Gruppenanbieter zugeordnet. Er kann nicht gelöscht werden.",
+    "NO_ASSOCIATED_DOMAIN": "Keine Domain verwendet diesen Gruppenfilter",
+    "LDAP": {
+      "PAGE_HELPER_P1": "LinShare unterstützt die automatische Synchronisierung zwischen LinShare-Arbeitsgruppen und LDAP-Gruppen. Arbeitsgruppen und ihre Mitglieder werden daher angelegt und mit ihrem LDAP-Gegenstück synchronisiert. Standardmäßig erhalten Mitglieder die Rolle Leser.",
+      "PAGE_HELPER_P2": "LinShare benötigt für die Synchronisierung die folgenden Abfragen:",
+      "PAGE_HELPER_P3": "LQL-Abfrage (LDAP Query Language) zur Suche aller Arbeitsgruppen",
+      "PAGE_HELPER_P4": "LQL-Abfrage zur Suche einer Arbeitsgruppe",
+      "PAGE_SUBTITLE_CREATE": "Neuen LDAP-Gruppenfilter erstellen",
+      "PAGE_SUBTITLE_EDIT": "LDAP-Gruppenfilter bearbeiten",
+      "FORM": {
+        "ATTRIBUTES": "Attribute",
+        "WORKGROUP_SEARCH": "Suche nach Arbeitsgruppen",
+        "WORKGROUP_SEARCH_HELPER": "LDAP-Abfragen und -Parameter zur Suche aller Arbeitsgruppen oder einer einzelnen Arbeitsgruppe",
+        "QUERY_FOR_ALL": "Abfrage für alle Arbeitsgruppen",
+        "QUERY_FOR_ONE": "Abfrage für eine Arbeitsgruppe",
+        "PREFIX": "Zu entfernendes Präfix",
+        "PREFIX_HELPER": "Das Präfix, das aus dem Namen der Arbeitsgruppe entfernt wird",
+        "SEARCH_PAGE_SIZE": "Seitengröße der Suche",
+        "SEARCH_PAGE_SIZE_ERROR": "Die Seitengröße muss mindestens 1 betragen",
+        "MEMBER_EMAIL": "E-Mail des Mitglieds",
+        "MEMBER_FIRSTNAME": "Vorname des Mitglieds",
+        "MEMBER_LASTNAME": "Nachname des Mitglieds",
+        "WORKGROUP_NAME": "Name der Arbeitsgruppe",
+        "WORKGROUP_MEMBER": "Mitglied der Arbeitsgruppe"
+      }
+    }
+  },
+  "GROUP_PROVIDER": {
+    "EMPTY_MESSAGE": "Für diese Domain wurde kein Gruppenanbieter erstellt",
+    "ERROR_MESSAGE": "Die Daten des Gruppenanbieters dieser Domain konnten nicht abgerufen werden",
+    "DELETE_CONFIRM": "Sie sind dabei, diesen Gruppenanbieter zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+    "CREATE": "Neuen Anbieter erstellen",
+    "LDAP": {
+      "BASE_DN": "Basis-DN",
+      "BASE_DN_HELPER": "LinShare beginnt die Suche nach Arbeitsgruppen ab dieser Position in Ihrem LDAP",
+      "SEARCH_IN_OTHER_DOMAINS": "In anderen Domains suchen"
+    }
+  },
+  "WORKSPACE_FILTER": {
+    "EMPTY_TEXT": "Es gibt keinen Arbeitsbereichsfilter",
+    "DELETE_CONFIRM": "Sie sind dabei, diesen Arbeitsbereichsfilter zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+    "DELETE_ABORT": "Dieser Filter ist mindestens einem Arbeitsbereichsanbieter zugeordnet. Er kann nicht gelöscht werden.",
+    "NO_ASSOCIATED_DOMAIN": "Kein Arbeitsbereichsanbieter verwendet diesen Filter",
+    "LDAP": {
+      "PAGE_HELPER_P1": "LinShare unterstützt die automatische Synchronisierung zwischen LinShare-Arbeitsbereichen und LDAP-Arbeitsbereichen. Arbeitsbereiche und ihre Mitglieder werden daher angelegt und mit ihrem LDAP-Gegenstück synchronisiert. Standardmäßig erhalten Mitglieder die Rolle Leser.",
+      "PAGE_HELPER_P2": "LinShare benötigt für die Synchronisierung die folgenden Abfragen:",
+      "PAGE_HELPER_P3": "LQL-Abfrage (LDAP Query Language) zur Suche aller Arbeitsbereiche",
+      "PAGE_HELPER_P4": "LQL-Abfrage zur Suche eines Arbeitsbereichs",
+      "PAGE_SUBTITLE_CREATE": "Neuen LDAP-Arbeitsbereichsfilter erstellen",
+      "PAGE_SUBTITLE_EDIT": "LDAP-Arbeitsbereichsfilter bearbeiten",
+      "FORM": {
+        "ATTRIBUTES": "Attribute",
+        "WORK_SPACE_SEARCH": "Suche nach Arbeitsbereichen",
+        "WORK_SPACE_SEARCH_HELPER": "LDAP-Abfragen und -Parameter zur Suche aller Arbeitsbereiche oder eines einzelnen Arbeitsbereichs",
+        "QUERY_FOR_ALL": "Abfrage für alle Arbeitsbereiche",
+        "QUERY_FOR_ONE": "Abfrage für einen Arbeitsbereich",
+        "PREFIX": "Zu entfernendes Präfix",
+        "PREFIX_HELPER": "Das Präfix, das aus dem Namen des Arbeitsbereichs entfernt wird",
+        "SEARCH_PAGE_SIZE": "Seitengröße der Suche",
+        "SEARCH_PAGE_SIZE_ERROR": "Die Seitengröße muss mindestens 1 betragen",
+        "MEMBER_EMAIL": "E-Mail des Mitglieds",
+        "MEMBER_FIRSTNAME": "Vorname des Mitglieds",
+        "MEMBER_LASTNAME": "Nachname des Mitglieds",
+        "WORK_SPACE_NAME": "Name des Arbeitsbereichs",
+        "WORK_SPACE_MEMBER": "Mitglied des Arbeitsbereichs"
+      }
+    }
+  },
+  "WORKSPACE_PROVIDER": {
+    "EMPTY_MESSAGE": "Für diese Domain wurde kein Arbeitsbereichsanbieter erstellt",
+    "ERROR_MESSAGE": "Die Daten des Arbeitsbereichsanbieters dieser Domain konnten nicht abgerufen werden",
+    "DELETE_CONFIRM": "Sie sind dabei, diesen Arbeitsbereichsanbieter zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+    "CREATE": "Neuen Anbieter erstellen",
+    "LDAP": {
+      "BASE_DN": "Basis-DN",
+      "BASE_DN_HELPER": "LinShare beginnt die Suche nach Arbeitsbereichen ab dieser Position in Ihrem LDAP",
+      "SEARCH_IN_OTHER_DOMAINS": "In anderen Domains suchen"
+    }
+  },
+  "WELCOME_MESSAGES": {
+    "DESCRIPTION": "In dieser Ansicht können Sie eine Domain im Domain-Baum auswählen und die Liste der Willkommensnachrichten anzeigen, die Sie erstellt haben oder verwenden dürfen",
+    "ROOT_DOMAIN_DESCRIPTION": "Die Root-Domain kann Willkommensnachrichten erstellen, aber keine davon verwenden",
+    "NESTED_DOMAIN_DESCRIPTION": "Eine untergeordnete Domain kann Willkommensnachrichten für den eigenen Gebrauch erstellen und die von übergeordneten Domains erstellten Willkommensnachrichten verwenden",
+    "THE_WELCOME_MESSAGE": "Die Willkommensnachricht",
+    "SET_FIELD": "Sie müssen dieses Feld ausfüllen",
+    "DELETE_CONFIRM": "Sie sind dabei, diese Willkommensnachricht zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+    "MESSAGE_PREVIEW": "Hier ist eine Vorschau der Willkommensnachricht:",
+    "ASSIGN_SUCCESS": "Erfolgreich zugewiesen",
+    "ASSIGN_CONFIRM": "Sie sind dabei, diese Willkommensnachricht der aktuellen Domain zuzuweisen. Möchten Sie fortfahren?"
+  },
+  "MIME_POLICIES": {
+    "CREATE_DESCRIPTION": "Klicken Sie auf die Schaltfläche <span style='color: #007AFF'>„Erstellen +“</span> und geben Sie Ihrem MIME-Typ-Filter einen Namen",
+    "FILTER_DESCRIPTION": "Wählen Sie den hinzugefügten Filter. Daraufhin wird eine Liste der verfügbaren MIME-Typen angezeigt",
+    "ENABLED_DESCRIPTION": "Aktivieren oder deaktivieren Sie die gewünschten MIME-Typen und speichern Sie",
+    "MANAGE_DESCRIPTION": "Anschließend können Sie diesen Filter der Domain oder ihren untergeordneten Domains zuweisen.",
+    "MANAGE_DOMAIN": "Domain verwalten",
+    "SEARCH_BY": "Nach Name oder Domain suchen",
+    "CREATE_MIME_POLICY": "Neue MIME-Richtlinie erstellen",
+    "SYSTEM_INFORMATIONS": "Systeminformationen",
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "MIME-Richtlinie löschen",
+      "DELETE_MODAL_SUBTITLE": "Sie sind dabei, diese MIME-Richtlinie zu löschen. Diese Aktion ist unwiderruflich. Möchten Sie trotzdem fortfahren?",
+      "DELETE_ACTION_CANCEL": "Abbrechen",
+      "DELETE_ACTION_CONFIRM": "Ja, löschen",
+      "DELETE_MODAL_EMPTY": "Bitte wählen Sie den zu löschenden MIME-Typ aus",
+      "DELETE_SUCCESS": "Erfolgreich gelöscht",
+      "DELETE_SINGLE_FAIL": "Die ausgewählte MIME-Richtlinie ist mindestens einer Domain zugeordnet. Sie kann nicht gelöscht werden",
+      "DELETE_MUTIPLE_MODAL_TITLE": "Ausgewählte MIME-Richtlinien löschen",
+      "DELETE_MUTIPLE_MODAL_SUBTITLE": "Sie sind dabei, [{qty}] MIME-Richtlinien zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+      "DELETE_FAILURE": "Löschen fehlgeschlagen",
+      "DELETE_FAILURE_MESSAGE": "Einige MIME-Richtlinien wurden erfolgreich gelöscht, andere jedoch nicht, da sie bereits mindestens einer Domain zugewiesen sind",
+      "UNABLE_DELETE_ALL_MIME": "Sie können diese MIME-Richtlinien nicht löschen",
+      "UNABLE_DELETE_ONE_MIME": "Sie können diese MIME-Richtlinie nicht löschen",
+      "UNABLE_DELETE_SOME_MIME": "Einige MIME-Richtlinien wurden erfolgreich gelöscht, andere jedoch nicht, da Sie nicht berechtigt sind, sie zu löschen"
+    },
+    "ASSIGN_MODAL": {
+      "ASSIGN_MODAL_TITLE": "MIME-Richtlinie zuweisen",
+      "ASSIGN_MODAL_SUBTITLE": "Sie sind dabei, diese MIME-Richtlinie {currentDomain} zuzuweisen. Möchten Sie fortfahren?",
+      "ASSIGN_SUCCESS": "Erfolgreich zugewiesen"
+    },
+    "MIME_TYPE_TABLE": {
+      "MIME_TYPE_NAME": "Name des MIME-Typs",
+      "EXTENTION": "Erweiterung",
+      "ADD_TO_LIST": "Zur Liste hinzufügen",
+      "REMOVE_FROM_LIST": "Aus der Liste entfernen",
+      "SOURCE": "Quelle"
+    },
+    "UPDATE_MIME_TYPE_SUCCESS": "Änderungen für {name} gespeichert ",
+    "MAMAGER_MIME_POLICY": "MIME-Richtlinie verwalten",
+    "NAME": "Name",
+    "BACK_TO_LIST": "Zurück zur Liste",
+    "MIME_TYPE_OPTIONS": {
+      "DESCRIPTION": "Nachdem Sie sich für eine Sperrliste oder eine Positivliste entschieden haben, können Sie der Liste verschiedene MIME-Typen hinzufügen. Welche Liste möchten Sie erstellen?",
+      "BLACKLIST": "Sperrliste",
+      "BLACKLIST_DESCRIPTION": "Alle MIME-Typen auf der Sperrliste werden blockiert, alle übrigen MIME-Typen sind erlaubt.",
+      "WHITELIST": "Positivliste",
+      "WHITELIST_DESCRIPTION": "Alle MIME-Typen auf der Positivliste sind erlaubt, alle übrigen MIME-Typen werden blockiert"
+    }
+  },
+  "FUNCTIONALITIES": {
+    "LIST": {
+      "SEARCH_PLACEHOLDER": "Funktionen nach Name suchen",
+      "SORTER": {
+        "ENABLE_FIRST": "Nach aktivierten sortieren",
+        "DISABLE_FIRST": "Nach deaktivierten sortieren",
+        "NAME_ASC": "Nach Name sortieren (A-Z)",
+        "NAME_DESC": "Nach Name sortieren (Z-A)"
+      }
+    },
+    "UNITS": {
+      "TIME": {
+        "MONTH": "Monate",
+        "DAY": "Tage",
+        "WEEK": "Wochen"
+      },
+      "SIZE": {
+        "KILO": "KB",
+        "MEGA": "MB",
+        "GIGA": "GB"
+      }
+    },
+    "DEFAULT": {
+      "DESCRIPTION": "",
+      "PARAMETER": {
+        "HEADER": "Parameter",
+        "TITLE": "Standard",
+        "TITLE_MAXIMUM": "Maximal",
+        "DESCRIPTION": "",
+        "DESCRIPTION_MAXIMUM": "",
+        "BOOLEAN_DESCRIPTION": "Diesen Parameter aktivieren",
+        "UNLIMITED_CHECKBOX": "Unbegrenzt",
+        "LANGUAGE_TITLE": "Sprache"
+      },
+      "ACTIVATION_POLICY": {
+        "HEADER": "Aktivierungsrichtlinie",
+        "DESCRIPTION": "Zum Ein- oder Ausschalten der Funktion und zur Steuerung, ob Administratoren untergeordneter Domains die Aktivierung der Funktion ändern dürfen",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Funktion aktivieren",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Administratoren untergeordneter Domains erlauben, diesen Abschnitt zu überschreiben"
+      },
+      "CONFIGURATION_POLICY": {
+        "HEADER": "Konfigurationsrichtlinie",
+        "DESCRIPTION": "Legt fest, ob Administratoren untergeordneter Domains den Abschnitt Parameter ändern dürfen",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Administratoren untergeordneter Domains erlauben, den Funktionsparameter zu ändern",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Administratoren untergeordneter Domains erlauben, diesen Abschnitt zu überschreiben"
+      },
+      "DELEGATION_POLICY": {
+        "HEADER": "Delegierungsrichtlinie",
+        "DESCRIPTION": "Legt fest, ob Benutzer den vom Administrator vorgegebenen Standardparameter ändern dürfen",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, den Standardwert des Parameters zu ändern",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Administratoren untergeordneter Domains erlauben, diesen Abschnitt zu überschreiben"
+      }
+    },
+    "DETAILS": {
+      "ANONYMOUS_URL": {
+        "NAME": "Anonyme URL",
+        "DESCRIPTION": "Legt fest, ob Benutzer eine Datei mit einer anonymen E-Mail-Adresse teilen dürfen",
+        "PARAMETER": {
+          "TITLE": "Sichere Freigabe",
+          "DESCRIPTION": "Dieser Wert wird als Anfangswert verwendet, wenn Benutzer das Freigabeformular öffnen. Die Freigabe wird durch ein Einmalpasswort geschützt. Selbst wenn jemand die URL erhält, kann er ohne das Passwort nicht darauf zugreifen.",
+          "BOOLEAN_DESCRIPTION": "Anonyme Freigaben mit einem Passwort schützen"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer beim Teilen den Standardwert der Option „Sichere Freigabe“ überschreiben dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, beim Teilen von Dokumenten die Option „Sichere Freigabe“ zu ändern"
+        }
+      },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "Anonyme Freigabe erzwingen",
+        "DESCRIPTION": "Legt fest, ob Benutzer Dokumente ausschließlich über eine anonyme URL teilen können.",
+        "PARAMETER": {
+          "TITLE": "Anonyme Freigabe erzwingen",
+          "DESCRIPTION": "Auch wenn Sie Dokumente mit anderen LinShare-Benutzern teilen, werden sie über einen anonymen Link geteilt.",
+          "BOOLEAN_DESCRIPTION": "Anonyme Freigabe für alle Empfänger erzwingen"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer beim Teilen von Dokumenten den Anfangswert der Option „Anonyme URL erzwingen“ ändern dürfen"
+        }
+      },
+      "ANONYMOUS_URL__NOTIFICATION": {
+        "NAME": "Benachrichtigung bei anonymem Download",
+        "DESCRIPTION": "Wenn Benutzer Dateien mit anderen teilen, erhalten sie eine E-Mail-Benachrichtigung, sobald Empfänger Dateien über eine anonyme URL herunterladen.",
+        "PARAMETER": {
+          "TITLE": "Häufigkeit der Benachrichtigungen",
+          "DESCRIPTION": "Legt fest, ob bei jedem Download oder nur beim ersten eine Benachrichtigung gesendet wird",
+          "BOOLEAN_DESCRIPTION": "Bei jedem Download Benachrichtigungen senden"
+        }
+      },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "URL für E-Mail-Benachrichtigungen",
+        "DESCRIPTION": "Geben Sie die Basis-URL für den Link anonymer Freigaben an",
+        "PARAMETER": {
+          "TITLE": "Basis-URL für den Link der anonymen Freigabe",
+          "DESCRIPTION": "Diese URL erscheint in der Benachrichtigungs-E-Mail des Empfängers, wenn Benutzer dieser Domain Dateien über eine anonyme URL teilen"
+        }
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "DESCRIPTION": "„Empfangene Freigaben“ ist ein Menü, in dem Benutzer die Dateien sehen, die andere mit ihnen geteilt haben. Wenn Sie diese Funktion aktivieren, können Benutzer nicht auf dieses Menü zugreifen.",
+        "NAME": "Menü „Empfangene Freigaben“ ausblenden"
+      },
+      "UPLOAD_REQUEST": {
+        "NAME": "Upload-Anfrage",
+        "DESCRIPTION": "Die Upload-Anfrage ist eine Funktion, mit der eine Person (identifiziert über ihre E-Mail-Adresse) zeitlich begrenzt und geregelt Dateien für einen LinShare-Benutzer hochladen kann. Die hochgeladenen Dokumente belegen Speicher im persönlichen Bereich des Ausstellers. Wenn diese Funktion deaktiviert ist, funktionieren die untenstehenden Unterfunktionen nicht.",
+        "PARAMETER": {
+          "TITLE": "Basis-URL des Portals für Upload-Anfragen",
+          "DESCRIPTION": "Empfänger von Upload-Anfragen verwalten ihre Uploads über ein separates Portal. Die URL dieses Portals ist in den vom Server gesendeten Benachrichtigungs-E-Mails enthalten."
+        }
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Sprache der E-Mail-Benachrichtigungen",
+        "DESCRIPTION": "",
+        "PARAMETER": {
+          "LANGUAGE_TITLE": "Sprache der E-Mail-Benachrichtigungen"
+        }
+      },
+      "UPLOAD_REQUEST__LIMIT": {
+        "NAME": "Anzahl der Upload-Anfragen pro Benutzer begrenzen",
+        "DESCRIPTION": "Ermöglicht es, zu begrenzen, wie viele Upload-Anfragen ein Benutzer in dieser Domain erstellen kann.",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Maximale Anzahl an Upload-Anfragen",
+          "DESCRIPTION_MAXIMUM": "Maximale Anzahl an Upload-Anfragen, die ein Benutzer in dieser Domain erstellen kann. Es werden nur Anfragen mit dem Status Ausstehend/Aktiv/Geschlossen gezählt."
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+        "NAME": "Verzögerung vor der Aktivierung",
+        "DESCRIPTION": "Legt die Verzögerung zwischen dem Erstellungsdatum der Upload-Anfrage und dem Aktivierungsdatum fest, ab dem die Upload-Anfrage verfügbar ist und Benutzer Dateien hochladen können",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Erlaubt eine gewisse Verzögerung zwischen Erstellungs- und Aktivierungsdatum von Upload-Anfragen. Wenn deaktiviert, werden Upload-Anfragen bei der Erstellung aktiviert",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Festlegen einer Verzögerung zwischen Aktivierungs- und Erstellungsdatum erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer das ursprüngliche Aktivierungsdatum ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, das Aktivierungsdatum zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardverzögerung für die Aktivierung von Anfragen nach dem Erstellungsdatum",
+          "TITLE_MAXIMUM": "Maximale Verzögerung für die Aktivierung von Anfragen nach dem Erstellungsdatum",
+          "UNLIMITED_CHECKBOX": "Keine Begrenzung des Aktivierungsdatums"
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+        "NAME": "Verzögerung vor dem Ablauf",
+        "DESCRIPTION": "Legt die Verzögerung zwischen dem Aktivierungsdatum der Upload-Anfrage und dem Ablaufdatum fest, ab dem die Upload-Anfrage geschlossen ist und Empfänger keine Dateien mehr hochladen können",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Erlaubt eine gewisse Verzögerung zwischen Aktivierungs- und Ablaufdatum von Upload-Anfragen. Wenn deaktiviert, laufen künftige Upload-Anfragen nicht ab",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Festlegen einer Verzögerung zwischen Aktivierungs- und Erstellungsdatum erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer das ursprüngliche Ablaufdatum ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, das Ablaufdatum zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardverzögerung für den Ablauf von Anfragen nach dem Aktivierungsdatum",
+          "TITLE_MAXIMUM": "Maximale Verzögerung für den Ablauf von Anfragen nach dem Aktivierungsdatum",
+          "UNLIMITED_CHECKBOX": "Keine Begrenzung des Ablaufdatums"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+        "NAME": "Maximale Anzahl an Dateien",
+        "DESCRIPTION": "Legt die maximale Anzahl an Dateien fest, die ein Empfänger im Rahmen einer Upload-Anfrage hochladen kann",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Fügt eine Begrenzung der Anzahl an Dateien hinzu, die ein Empfänger pro Anfrage hochladen kann. Wenn deaktiviert, gibt es keine Begrenzung.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Festlegen der maximalen Anzahl an Dateien erlauben, die ein Empfänger hochladen kann"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer die ursprüngliche maximale Anzahl an Dateien ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die maximale Anzahl an Dateien zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardbegrenzung der Anzahl an Dateien",
+          "TITLE_MAXIMUM": "Maximale Begrenzung der Anzahl an Dateien, die der Aussteller festlegen kann"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+        "NAME": "Maximale Dateigröße",
+        "DESCRIPTION": "Legt die maximale Größe einer Datei fest, die ein Empfänger im Rahmen einer Upload-Anfrage hochladen kann",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Fügt eine Begrenzung der Dateigröße hinzu, die ein Empfänger hochladen kann. Wenn deaktiviert, gibt es keine Begrenzung.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Festlegen der maximalen Dateigröße erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer die ursprüngliche maximale Dateigröße ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die maximale Dateigröße zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardmäßige maximale Dateigröße",
+          "TITLE_MAXIMUM": "Maximale Dateigröße, die der Aussteller festlegen kann"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+        "NAME": "Maximale Upload-Gesamtgröße",
+        "DESCRIPTION": "Legt die maximale Gesamtgröße fest, die ein Empfänger im Rahmen einer Upload-Anfrage hochladen kann",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Fügt eine Begrenzung der Gesamtgröße hinzu, die ein Empfänger hochladen kann. Wenn deaktiviert, gibt es keine Begrenzung.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Festlegen der maximalen Gesamtgröße der Dateien erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer die ursprüngliche Gesamtgröße der Dateien ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Gesamtgröße der Dateien zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardmäßige Gesamtgröße der Dateien",
+          "TITLE_MAXIMUM": "Maximale Gesamtgröße der Dateien"
+        }
+      },
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "Passwortgeschützte URL",
+        "DESCRIPTION": "Beim Senden von Anfragen an die Empfänger wird der Einladungs-E-Mail ein Passwort beigefügt. Dieses Passwort ist das Anfangspasswort, wenn die Empfänger das Portal aufrufen, da sie es für künftige Zugriffe ändern müssen",
+        "PARAMETER": {
+          "TITLE": "Schutz der Upload-Anfrage durch ein Passwort erlauben",
+          "BOOLEAN_DESCRIPTION": "Upload-Anfragen sind standardmäßig geschützt"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer den Standardwert der Option „Passwortschutz“ überschreiben dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Option „Passwortschutz“ zu ändern"
+        }
+      },
+      "UPLOAD_REQUEST__CAN_CLOSE": {
+        "NAME": "Recht zum Schließen",
+        "DESCRIPTION": "Legt fest, ob der Aussteller oder die Empfänger die Upload-Anfrage vor ihrem Ablaufdatum schließen dürfen",
+        "PARAMETER": {
+          "TITLE": "Schließen erlauben",
+          "BOOLEAN_DESCRIPTION": "Benutzern standardmäßig erlauben, Anfragen zu schließen"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer den Standardwert der Option „Schließen erlauben“ überschreiben dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Option „Schließen erlauben“ zu ändern"
+        }
+      },
+      "UPLOAD_REQUEST__CAN_DELETE": {
+        "NAME": "Empfängern das Löschen von Dateien erlauben",
+        "DESCRIPTION": "Legt fest, ob Empfänger der Upload-Anfrage hochgeladene Dateien löschen dürfen",
+        "PARAMETER": {
+          "TITLE": "Löschen erlauben",
+          "BOOLEAN_DESCRIPTION": "Empfängern standardmäßig erlauben, hochgeladene Dateien zu löschen"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer den Standardwert der Option „Löschen erlauben“ überschreiben dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Option „Löschen erlauben“ zu ändern"
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+        "NAME": "Verzögerung vor der Benachrichtigung",
+        "DESCRIPTION": "Sendet eine Benachrichtigung, um den Empfänger an das Hochladen von Dateien zu erinnern.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Erlaubt LinShare, Erinnerungsbenachrichtigungen zu senden, bzw. legt fest, wie lange vor Ablauf der Anfrage die Benachrichtigung gesendet wird",
+          "ENABLE_CHECKBOX_DESCRIPTION": "LinShare erlauben, Erinnerungsbenachrichtigungen zu senden"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer das ursprüngliche Benachrichtigungsdatum ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, das Benachrichtigungsdatum zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardverzögerung für das Senden der Benachrichtigung vor Ablauf der Anfrage",
+          "TITLE_MAXIMUM": "Maximale Verzögerung für das Senden der Benachrichtigung vor Ablauf der Anfrage",
+          "UNLIMITED_CHECKBOX": "Keine Begrenzung außer dem aktuellen Datum"
+        }
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Warnung bei nicht heruntergeladenem freigegebenem Dokument",
+        "DESCRIPTION": "Legt fest, ob Benutzer benachrichtigt werden, wenn ein freigegebenes Dokument nicht heruntergeladen wurde. Es wird keine Benachrichtigung gesendet, wenn mindestens eine Datei der Freigabe heruntergeladen wurde.",
+        "PARAMETER": {
+          "TITLE": "Warnung bei nicht heruntergeladenem Dokument",
+          "BOOLEAN_DESCRIPTION": "Senden von Benachrichtigungen standardmäßig erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer den Standardwert der Option „Warnung bei nicht heruntergeladenem Dokument“ überschreiben dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Option „Warnung bei nicht heruntergeladenem Dokument“ zu ändern"
+        }
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Tage bis zur Warnung",
+        "DESCRIPTION": "Legt die Anzahl der Werktage (ohne Wochenenden und Feiertage) zwischen dem Freigabedatum und dem Datum der Warnbenachrichtigung fest",
+        "PARAMETER": {
+          "DESCRIPTION": "Legt das Standarddatum der Benachrichtigung fest, wenn der Benutzer im Freigabeformular die Option „Warnung bei nicht heruntergeladenem Dokument“ aktiviert",
+          "TITLE": "Standardanzahl an Tagen nach der Freigabe, nach denen die Benachrichtigung gesendet wird"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer das Standarddatum der Benachrichtigung überschreiben dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, das Benachrichtigungsdatum zu ändern"
+        }
+      },
+      "SHARE_EXPIRATION": {
+        "NAME": "Ablauf der Freigabe",
+        "DESCRIPTION": "Legt fest, ob eine Freigabe ablaufen kann oder nicht",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Erlaubt den Ablauf einer Freigabe und legt das Ablaufdatum fest",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Ablauf einer Freigabe erlauben"
+        },
+        "PARAMETER": {
+          "DESCRIPTION": "Legt den Zeitraum bis zum Ablauf einer Freigabe fest ",
+          "TITLE": "Standardzeitraum bis zum Ablauf einer Freigabe",
+          "TITLE_MAXIMUM": "Längster Zeitraum bis zum Ablauf einer Freigabe",
+          "UNLIMITED_CHECKBOX": "Keine Begrenzung des Ablaufdatums"
+        }
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Löschen von Dateien bei Ablauf der Freigaben",
+        "DESCRIPTION": "Freigegebene Dateien werden bei Ablauf aus dem Bereich des Benutzers entfernt",
+        "PARAMETER": {
+          "DESCRIPTION": "Legt fest, ob freigegebene Dateien beim Ablauf der Freigabe entfernt werden",
+          "BOOLEAN_DESCRIPTION": "Freigegebene Datei bei Ablauf entfernen"
+        }
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Bestätigung der Freigabeerstellung",
+        "DESCRIPTION": "Legt fest, ob Benutzer eine E-Mail-Benachrichtigung erhalten, wenn sie Dateien in LinShare teilen",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Erlaubt die Bestätigung der Freigabeerstellung und legt die Standardoption fest",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Bestätigung der Freigabeerstellung erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer den Standardwert der Option „Freigabebestätigung“ überschreiben dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Freigabebestätigung ein- oder auszuschalten"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardwert der Freigabebestätigung, wenn Benutzer eine Freigabe erstellen",
+          "BOOLEAN_DESCRIPTION": "Freigabebestätigung standardmäßig erlauben"
+        }
+      },
+      "SHARED_SPACE": {
+        "NAME": "Gemeinsamer Bereich",
+        "DESCRIPTION": "Mit dieser Funktion können Benutzer auf den gemeinsamen Bereich zugreifen. Der gemeinsame Bereich enthält Arbeitsbereiche und eigenständige Arbeitsgruppen. Ein Arbeitsbereich enthält Mitglieder mit ihren Rollen sowie untergeordnete Arbeitsgruppen. Eine Arbeitsgruppe enthält Mitglieder mit ihren Rollen sowie Inhalte (Ordner/Dateien/Versionen)."
+      },
+      "SHARED_SPACE__WORKSPACE_LIMIT": {
+        "NAME": "Anzahl der Arbeitsbereiche begrenzen",
+        "DESCRIPTION": "Ermöglicht es, die Anzahl der Arbeitsbereiche zu begrenzen, die ein Benutzer in dieser Domain erstellen kann",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Maximale Anzahl an Arbeitsbereichen",
+          "DESCRIPTION_MAXIMUM": "Maximale Anzahl an Arbeitsbereichen, die ein Benutzer in dieser Domain erstellen kann"
+        }
+      },
+      "SHARED_SPACE__NESTED_WORKGROUPS_LIMIT": {
+        "NAME": "Anzahl der untergeordneten Arbeitsgruppen begrenzen",
+        "DESCRIPTION": "Ermöglicht es, die Anzahl der untergeordneten Arbeitsgruppen zu begrenzen, die ein Benutzer innerhalb eines Arbeitsbereichs in dieser Domain erstellen kann",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Maximale Anzahl an Arbeitsgruppen",
+          "DESCRIPTION_MAXIMUM": "Maximale Anzahl an untergeordneten Arbeitsgruppen, die ein Benutzer innerhalb eines Arbeitsbereichs in dieser Domain erstellen kann"
+        }
+      },
+      "WORK_GROUP__CREATION_RIGHT": {
+        "NAME": "Erstellen von Arbeitsgruppen",
+        "DESCRIPTION": "Legt fest, ob Benutzer Arbeitsgruppen erstellen dürfen",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, Arbeitsgruppen zu erstellen"
+        }
+      },
+      "WORK_SPACE__CREATION_RIGHT": {
+        "NAME": "Erstellen von Arbeitsbereichen",
+        "DESCRIPTION": "Legt fest, ob Benutzer Arbeitsbereiche erstellen dürfen",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, Arbeitsbereiche zu erstellen"
+        }
+      },
+      "WORK_GROUP__DOWNLOAD_ARCHIVE": {
+        "NAME": "Download als Archiv",
+        "DESCRIPTION": "Legt fest, ob Benutzer den Inhalt eines Ordners als Archivdatei herunterladen dürfen",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Erlaubt den Download von Ordnern einer Arbeitsgruppe als Archiv",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Download als Archiv erlauben"
+        },
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Maximale Größe eines Archiv-Downloads"
+        }
+      },
+      "WORK_GROUP__FILE_VERSIONING": {
+        "NAME": "Dateiversionierung",
+        "DESCRIPTION": "Dateiversionierung in Arbeitsgruppen verwenden",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Erlaubt die Option der Dateiversionierung in einer Arbeitsgruppe",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Dateiversionierung erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer die Dateiversionierung in ihren Arbeitsgruppen ein- oder ausschalten dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Dateiversionierung ein- oder auszuschalten"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardzustand der Dateiversionierung in neuen Arbeitsgruppen",
+          "BOOLEAN_DESCRIPTION": "Dateiversionierung für neue Arbeitsgruppen aktivieren"
+        }
+      },
+      "MIME_TYPE": {
+        "NAME": "MIME-Typ",
+        "DESCRIPTION": "Legt fest, ob die konfigurierte MIME-Typ-Richtlinie auf die aktuelle Domain angewendet wird"
+      },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "Permanentes JWT-Token",
+        "DESCRIPTION": "Aktiviert die Authentifizierung über ein permanentes JWT-Token und die Seite zur Token-Verwaltung in der Benutzeroberfläche",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Erlaubt die Authentifizierung über ein permanentes Token und die Token-Verwaltung",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Erstellen und Verwenden permanenter JWT-Token zur Authentifizierung erlauben"
+        },
+        "PARAMETER": {
+          "TITLE": "",
+          "BOOLEAN_DESCRIPTION": "Domain-Administratoren können JWT-Token für Benutzer der Domain erstellen"
+        }
+      },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Persönlichen Bereich für interne Benutzer aktivieren",
+        "DESCRIPTION": "Ermöglicht Benutzern den Zugriff auf „Mein Bereich“, wo sie Dateien hochladen und mit anderen teilen können",
+        "PARAMETER": {
+          "TITLE": "Legt fest, ob neu erstellte Benutzer „Mein Bereich“ verwenden können",
+          "BOOLEAN_DESCRIPTION": "Neuen Benutzern den Zugriff auf „Mein Bereich“ erlauben"
+        }
+      },
+      "GUESTS": {
+        "NAME": "Gäste",
+        "DESCRIPTION": "Interne Benutzer können externe, nicht bei LinShare registrierte E-Mail-Adressen als Gäste einladen. Ein Gast kann alle Funktionen von LinShare wie ein interner Benutzer nutzen, sein Konto läuft jedoch nach einem konfigurierbaren Zeitraum ab.",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, Gäste zu erstellen und zu verwalten"
+        }
+      },
+      "GUESTS__EXPIRATION": {
+        "NAME": "Ablauf",
+        "DESCRIPTION": "Legt das Ablaufdatum der Gastkonten fest",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer das Ablaufdatum der von ihnen erstellten Gastkonten ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, das Ablaufdatum des Gastes zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standard-Ablaufdatum",
+          "DESCRIPTION": "Zeitraum zwischen Erstellungsdatum und Standard-Ablaufdatum",
+          "TITLE_MAXIMUM": "Spätestes Ablaufdatum",
+          "DESCRIPTION_MAXIMUM": "Längster Zeitraum, den der Benutzer zwischen Erstellungs- und Ablaufdatum festlegen kann",
+          "UNLIMITED_CHECKBOX": "Keine Begrenzung des Ablaufdatums"
+        }
+      },
+      "GUESTS__CAN_UPLOAD": {
+        "NAME": "Zugriff auf „Mein Bereich“ erlauben",
+        "DESCRIPTION": "Legt fest, ob Gäste Zugriff auf die Seite „Mein Bereich“ haben",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer beim Erstellen von Gästen die Einstellungen für „Mein Bereich“ ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Einstellungen für „Mein Bereich“ zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardeinstellungen für „Mein Bereich“",
+          "BOOLEAN_DESCRIPTION": "Gästen den Zugriff auf „Mein Bereich“ erlauben"
+        }
+      },
+      "GUESTS__RESTRICTED": {
+        "NAME": "Kontakteinschränkung",
+        "DESCRIPTION": "Beim Erstellen eines neuen Gastes kann der Benutzer das Teilen von Dateien durch den Gast auf eine Liste von E-Mail-Adressen beschränken. Standardmäßig ist der Gast auf seinen Ersteller beschränkt",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Zeigt beim Erstellen eines neuen Gastes im erweiterten Abschnitt die Option „Kontaktliste einschränken“ an",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Kontakteinschränkung erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer beim Erstellen von Gästen die Einstellungen der Kontakteinschränkung ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Einstellungen der Kontakteinschränkung zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardeinstellungen der Kontakteinschränkung",
+          "BOOLEAN_DESCRIPTION": "Einschränkung der Kontakte auf eine bestimmte Liste von E-Mail-Adressen erlauben"
+        }
+      },
+      "GUESTS__CONTACT_LISTS": {
+        "NAME": "Einschränkung auf Kontaktlisten",
+        "DESCRIPTION": "Beim Erstellen eines neuen Gastes kann der Benutzer das Teilen von Dateien durch den Gast auf eine Auswahl von Kontaktlisten beschränken.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Zeigt beim Erstellen eines neuen Gastes im erweiterten Abschnitt die Option „Kontaktlisten einschränken“ an",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Einschränkung auf Kontaktlisten erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer beim Erstellen von Gästen die Einstellungen der Einschränkung auf Kontaktlisten ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Einstellungen der Einschränkung auf Kontaktlisten zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardeinstellungen der Einschränkung auf Kontaktlisten",
+          "BOOLEAN_DESCRIPTION": "Einschränkung auf eine bestimmte Auswahl von Kontaktlisten erlauben"
+        }
+      },
+      "GUESTS__HIDE_MEMBERS": {
+        "NAME": "Mitglieder der einschränkenden Kontaktlisten ausblenden",
+        "DESCRIPTION": "Beim Erstellen eines neuen Gastes kann der Benutzer das Teilen von Dateien durch den Gast auf eine Auswahl von Kontaktlisten beschränken. Die Mitglieder der Kontaktlisten können angezeigt oder ausgeblendet werden. Standardmäßig werden sie diesem Gast angezeigt",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Zeigt beim Erstellen eines neuen Gastes im erweiterten Abschnitt die Option „Mitglieder der einschränkenden Kontaktlisten ausblenden“ an",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Verwaltung der Sichtbarkeit der Mitglieder bei der Einschränkung auf Kontaktlisten erlauben"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob Benutzer beim Erstellen von Gästen die Sichtbarkeitseinstellungen der Mitglieder von Kontaktlisten ändern dürfen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, die Sichtbarkeit der Mitglieder in den Einstellungen der Einschränkung auf Kontaktlisten zu ändern"
+        },
+        "PARAMETER": {
+          "TITLE": "Standardeinstellungen der Einschränkung der Kontaktlistenmitglieder",
+          "BOOLEAN_DESCRIPTION": "Ausblenden der Mitglieder einschränkender Kontaktlisten erlauben"
+        }
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Ablaufdatum des Gastes verschieben",
+        "DESCRIPTION": "Legt fest, ob Benutzer das Ablaufdatum von Gästen bearbeiten und verschieben dürfen",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, das Ablaufdatum des Gastes zu bearbeiten und zu verschieben"
+        }
+      },
+      "DOMAIN": {
+        "NAME": "Domain"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "E-Mail-Adresse der Domain",
+        "DESCRIPTION": "Einstellung der Benachrichtigungs-E-Mail-Adresse der aktuellen Domain. Diese Adresse ist der Absender aller Benachrichtigungen.",
+        "PARAMETER": {
+          "TITLE": "Benachrichtigungs-E-Mail-Adresse der Domain"
+        }
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "Benachrichtigungs-URL",
+        "DESCRIPTION": "Einstellung der LinShare-URL, die im Kopfbereich der Benachrichtigungs-E-Mails verwendet wird",
+        "PARAMETER": {
+          "TITLE": "URL im Kopfbereich der Benachrichtigungs-E-Mail"
+        }
+      },
+      "CONTACTS_LIST": {
+        "NAME": "Kontaktliste",
+        "DESCRIPTION": "Eine Kontaktliste kann in vielen LinShare-Funktionen als Empfänger verwendet werden, etwa beim Teilen von Dateien oder bei Upload-Anfragen. Öffentliche Kontaktlisten stehen allen Benutzern der Domain zur Verfügung, private Listen kann nur ihr Ersteller verwenden"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Recht zum Erstellen",
+        "DESCRIPTION": "Legt fest, ob Benutzer neue Kontaktlisten erstellen dürfen",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Benutzern erlauben, neue Kontaktlisten zu erstellen"
+        }
+      },
+      "COMPLETION": {
+        "NAME": "Autovervollständigung",
+        "DESCRIPTION": "Legt die Anzahl der Zeichen fest, ab der die Suche mit Autovervollständigung ausgelöst wird, wenn Benutzer einen Freigabeempfänger eingeben",
+        "PARAMETER": {
+          "TITLE": "Anzahl eingegebener Zeichen zum Auslösen der Suche mit Autovervollständigung"
+        }
+      },
+      "ANTIVIRUS": {
+        "NAME": "Virenschutz",
+        "DESCRIPTION": "Wenn ein Benutzer eine Datei in LinShare hochlädt, wird sie vor dem Upload auf den Server gescannt. Um diese Funktion zu nutzen, müssen Sie IP-Adresse und Port von ClamAV in der Datei linshare.properties konfigurieren. Ein Neustart des Servers ist erforderlich."
+      },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Ablauf der gesammelten E-Mail-Adressen",
+        "DESCRIPTION": "Wenn ein Benutzer Dateien mit neuen Empfängern teilt (interne/externe E-Mail-Adressen oder Gäste), werden diese Adressen gesammelt und bei künftigen Freigaben vorgeschlagen. Diese Funktion legt fest, ob diese Adressen ablaufen oder nicht",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob gesammelte E-Mail-Adressen ablaufen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Ablauf gesammelter E-Mail-Adressen erlauben"
+        },
+        "PARAMETER": {
+          "TITLE": "Aufbewahrungsdauer der gesammelten E-Mail-Adressen"
+        }
+      },
+      "DOCUMENT_EXPIRATION": {
+        "NAME": "Ablauf von Dokumenten",
+        "DESCRIPTION": "Legt ein Ablaufdatum für neu hochgeladene oder duplizierte Dateien im Bereich des Benutzers fest. Nach Ablauf werden die Dateien automatisch entfernt. Wenn Benutzer ein Dokument teilen, wird sein Ablauf aufgehoben und beim Ablauf der Freigabe erneut angewendet.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Legt fest, ob neue Dateien ablaufen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Ablauf neu hochgeladener Dateien erlauben"
+        },
+        "PARAMETER": {
+          "TITLE": "Aufbewahrungsdauer neu hochgeladener Dateien"
+        }
+      },
+      "SECOND_FACTOR_AUTHENTICATION": {
+        "NAME": "Zwei-Faktor-Authentifizierung",
+        "DESCRIPTION": "Der Anmeldevorgang wird um einen weiteren Authentifizierungsschritt per OTP ergänzt",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Ermöglicht dem Benutzer, die Zwei-Faktor-Authentifizierung in der Benutzeroberfläche einzurichten",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Ermöglicht dem Benutzer, die Zwei-Faktor-Authentifizierung einzurichten"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Ermöglicht dem Benutzer, die Zwei-Faktor-Authentifizierung zu entfernen",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Ermöglicht dem Benutzer, den gemeinsamen Schlüssel der Zwei-Faktor-Authentifizierung zu entfernen"
+        },
+        "PARAMETER": {
+          "TITLE": "Alle Benutzer zur Einrichtung der Zwei-Faktor-Authentifizierung verpflichten",
+          "BOOLEAN_DESCRIPTION": "Alle Benutzer müssen die Zwei-Faktor-Authentifizierung einrichten"
+        }
+      }
+    }
+  },
+  "REPORTING": {
+    "INTRODUCTION": "Zeigt verschiedene Statistiken zu Ihrem LinShare",
+    "FILTERS_BUTTON": "Filter",
+    "FILTERS_BAR": {
+      "DOMAIN_FILTER": "Zugehörige Domain:",
+      "CATEGORY_FILTER": "Kategorie:",
+      "TOP": "Top-Werte",
+      "TIME_RANGE_FILTER": "Zeitraum:",
+      "ALL_DOMAINS": "Alle"
+    },
+    "STORAGE_STATISTICS": "Speicherstatistiken",
+    "SHARE_STATISTICS": "Freigabestatistiken",
+    "FILTERS_MODAL": {
+      "TITLE": "Filtereinstellungen",
+      "TIME_RANGE": "Zeitraum",
+      "DOMAIN_SELECT_PLACEHOLDER": "Wählen Sie die zu filternden Domains aus; lassen Sie das Feld leer, um alle Domains auszuwählen",
+      "CATEGORIES": "Kategorien",
+      "TOP": "Top-Werte",
+      "CATEGORIES_WHOLE_DOMAIN": "Gesamte Domain",
+      "CATEGORIES_SHARED_SPACE": "Gemeinsamer Bereich",
+      "CATEGORIES_MY_SPACE": "Mein Bereich"
+    },
+    "TOP_RECEIVERS": {
+      "FILE_COUNT": {
+        "TITLE": "Top {pageNumber} der Empfänger nach Anzahl freigegebener Dateien",
+        "RECEIVER_MAIL": "E-MAIL DES EMPFÄNGERS",
+        "NUMBER_OF_SHARED_FILES": "ANZAHL FREIGEGEBENER DATEIEN"
+      },
+      "FILE_SIZE": {
+        "TITLE": "Top {pageNumber} der Empfänger nach Größe freigegebener Dateien",
+        "RECEIVER_MAIL": "E-MAIL DES EMPFÄNGERS",
+        "SIZE_OF_SHARED_FILES": "GRÖSSE DER FREIGEGEBENEN DATEIEN"
+      }
+    },
+    "CHART_FIELD": {
+      "DELETE": "Löschen",
+      "UPLOAD": "Upload",
+      "BALANCE": "Saldo"
+    },
+    "CHART_TIME_AXIS": {
+      "WEEK": "Woche {number}"
+    },
+    "HUMAN_MIME_TYPE": {
+      "OTHERS": "Sonstige",
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Bild",
+      "PDF": "PDF",
+      "ARCHIVE": "Archiv",
+      "ENCRYPTED": "Verschlüsselt",
+      "DOCUMENT": "Dokument",
+      "TEXT": "Text"
+    },
+    "GENERICS": {
+      "TITLE": "Gesamtstatistiken",
+      "DESCRIPTION": "Details der Interaktionsdatensätze zu verschiedenen Ressourcen in LinShare",
+      "RESOURCE_COL": "Ressource",
+      "ACTION": {
+        "CREATE": "Erstellen",
+        "UPDATE": "Aktualisieren",
+        "DELETE": "Löschen",
+        "GET": "Abrufen",
+        "DOWNLOAD": "Download",
+        "SUCCESS": "Erfolg",
+        "FAILURE": "Fehler",
+        "PURGE": "Bereinigen"
+      },
+      "RESOURCE": {
+        "ANONYMOUS_SHARE_ENTRY": "Anonyme Freigaben",
+        "AUTHENTICATION": "Authentifizierung",
+        "CONTACTS_LISTS": "Kontaktlisten",
+        "CONTACTS_LISTS_CONTACTS": "Kontakte",
+        "DRIVE": "Drive-Bereiche",
+        "DRIVE_MEMBER": "Drive-Mitglieder",
+        "DOMAIN": "Domains",
+        "DOMAIN_PATTERN": "Domain-Muster",
+        "DOCUMENT_ENTRY": "Dokumente",
+        "FUNCTIONALITY": "Funktionen",
+        "GUEST_MODERATOR": "Gastmoderatoren",
+        "GUEST_CONVERTING": "Gastkonvertierung",
+        "GUEST": "Gäste",
+        "GROUP_FILTER": "Arbeitsgruppenfilter",
+        "JWT_PERMANENT_TOKEN": "Permanente JWT",
+        "MAIL_ATTACHMENT": "E-Mail-Anhänge",
+        "RESET_PASSWORD": "Passwortzurücksetzungen",
+        "PUBLIC_KEY": "Öffentliche Schlüssel",
+        "SAFE_DETAIL": "Tresor-Details",
+        "SHARE_ENTRY": "Freigaben",
+        "SHARED_SPACE_NODE": "Knoten gemeinsamer Bereiche",
+        "SHARED_SPACE_MEMBER": "Mitglieder gemeinsamer Bereiche",
+        "USER": "Benutzer",
+        "USER_PREFERENCE": "Benutzereinstellungen",
+        "UPLOAD_REQUEST": "Einzelne Upload-Anfragen",
+        "UPLOAD_PROPOSITION": "Upload-Vorschläge",
+        "UPLOAD_REQUEST_URL": "URLs von Upload-Anfragen",
+        "UPLOAD_REQUEST_GROUP": "Upload-Anfragen",
+        "UPLOAD_REQUEST_ENTRY": "Dokumente von Upload-Anfragen",
+        "WORK_GROUP": "Arbeitsgruppen",
+        "WORK_GROUP_MEMBER": "Mitglieder von Arbeitsgruppen",
+        "WORK_SPACE": "Arbeitsbereich",
+        "WORK_SPACE_MEMBER": "Mitglieder von Arbeitsbereichen",
+        "WORKSPACE_FILTER": "Arbeitsbereichsfilter",
+        "WORKGROUP": "Arbeitsgruppen",
+        "WORKGROUP_DOCUMENT": "Dokumente von Arbeitsgruppen",
+        "WORKGROUP_MEMBER": "Mitglieder von Arbeitsgruppen",
+        "WORKGROUP_FOLDER": "Ordner von Arbeitsgruppen",
+        "WORKGROUP_DOCUMENT_REVISION": "Dokumentversionen von Arbeitsgruppen",
+        "USER_UPDATE": "Benutzeränderungen"
+      }
+    },
+    "FILES_QUANTITY": {
+      "TITLE": "Anzahl der Dateien",
+      "DESCRIPTION": "Erfasst Änderungen der Anzahl der Dateien"
+    },
+    "STORAGE_CONSUMPTION": {
+      "TITLE": "Speicherverbrauch",
+      "DESCRIPTION": "Erfasst Änderungen des von Benutzern verbrauchten Speichers"
+    },
+    "SUMMARY": {
+      "TITLE": "Zusammenfassung",
+      "DESCRIPTION": "Berechnung des von Ihnen verwalteten Speichers",
+      "DOMAIN_COUNT": "Domains insgesamt",
+      "SHARED_SPACE_COUNT": "Gemeinsame Bereiche insgesamt",
+      "USER_COUNT": "Benutzer insgesamt",
+      "NEW_USER_COUNT": "Neue Benutzer"
+    },
+    "TOTAL_STORAGE": {
+      "TITLE": "Gesamtspeicher",
+      "DESCRIPTION": "Berechnung des von Ihnen verwalteten Speichers",
+      "CHART_SUBTITLE": "hochgeladen"
+    },
+    "MOST_UPLOADED": {
+      "TITLE": "Am häufigsten hochgeladene Dateien",
+      "DESCRIPTION": "Berechnung des von Ihnen verwalteten Speichers"
+    },
+    "USER_USED_STORAGE": {
+      "TITLE": "Benutzer- und Speicherstatistik",
+      "DESCRIPTION": "Zeigt die 100 Benutzer/gemeinsamen Bereiche mit dem größten Speicherverbrauch",
+      "TABLE_STORAGE_COLUMN_HEADER": "Belegter Speicher"
+    }
+  },
+  "CONFIGURATION": {
+    "INTRODUCTION": "Alle Root-Domains von LinShare werden angezeigt",
+    "VIEW_DETAILS": "Details anzeigen",
+    "CREATE_CHILD_DOMAIN": "Untergeordnete Domain erstellen",
+    "DELETE": "Löschen",
+    "SELECT_DOMAIN": "Domain auswählen",
+    "VIEW_DETAIL": "Details anzeigen",
+    "CANCEL": "Abbrechen",
+    "MANAGE_DOMAINS": "Domains verwalten",
+    "CONFIGURATION": "Konfiguration",
+    "SELECT_DOMAIN_TO_START": "Wählen Sie zum Starten eine Domain aus",
+    "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Sie müssen über die Schaltfläche unten eine Domain auswählen, bevor Sie Änderungen an ihren Einstellungen vornehmen",
+    "VIEW": "Anzeigen",
+    "ENTER_DOMAIN_NAME": "Domain-Namen eingeben",
+    "SUGGESTED_DOMAINS": "Vorgeschlagene Domains:",
+    "DOMAIN_NOT_FOUND": "Domain nicht gefunden"
+  },
+  "ACTIVITIES": {
+    "THIS_ACTION_IS_PERFORMED_BY_TOOLTIP": "Diese Aktion wurde von {by} im Namen von {of} ausgeführt",
+    "THIS_ACTION_HAS_NO_ACTOR_BY_TOOLTIP": "Diese Aktion wurde von {by} ausgeführt",
+    "INTRODUCTION": "Protokollierung aller Benutzeraktivitäten in LinShare",
+    "ACTIVITY_LOG": "Aktivitätsprotokolle",
+    "NUMBER_COL": "Nummer",
+    "DOMAIN_NAME": "Domain-Name",
+    "ACTOR": "Akteur",
+    "ACTION": "Aktion",
+    "TYPE": "Typ",
+    "RESOURCE_TYPE": "Ressourcentyp",
+    "RESOURCE_NAME": "Ressourcenname",
+    "DATE_TIME": "Datum und Uhrzeit",
+    "DETAIL": "Detail",
+    "FILE_SIZE": "Dateigröße",
+    "RECEIVER": "Empfänger",
+    "ME": "Ich",
+    "FILTERS_BUTTON": "Filter",
+    "FILTERS_BAR": {
+      "TIME_RANGE_FILTER": "Zeitraum:",
+      "ALL_ACTION": "Alle",
+      "ALL_TYPE": "Alle",
+      "TYPE_FILTER": "Ressourcentyp:",
+      "ACTION_FILTER": "Aktion:",
+      "DOMAIN_FILTER": "Zugehörige Domain:",
+      "RESOURCE_NAME_FILTER": "Ressourcenname:",
+      "ACTOR_FILTER": "Akteur:",
+      "ALL_ACTOR": "Alle",
+      "ALL_DOMAIN": "Alle",
+      "ALL_RESOURCE_NAME": "Alle"
+    },
+    "FILTERS_MODAL": {
+      "TITLE": "Filtereinstellungen",
+      "TIME_RANGE": "Zeitraum",
+      "ACTION": "Aktion",
+      "ACTION_SELECT_PLACEHOLDER": "Wählen Sie die zu filternden Aktionen aus; lassen Sie das Feld leer, um alle Aktionen auszuwählen",
+      "TYPE": "Ressourcentyp",
+      "RESOURCE_NAME": "Ressourcenname",
+      "TYPE_SELECT_PLACEHOLDER": "Wählen Sie die zu filternden Typen aus; lassen Sie das Feld leer, um alle Typen auszuwählen",
+      "DOMAIN": "Zugehörige Domain",
+      "DOMAIN_SELECT_PLACEHOLDER": "Wählen Sie die zu filternden Domains aus; lassen Sie das Feld leer, um alle Domains auszuwählen",
+      "ACTOR": "Akteur",
+      "ACTOR_SELECT_PLACEHOLDER": "Wählen Sie angezeigte Akteure aus oder suchen Sie Akteure zum Filtern; lassen Sie das Feld leer, um alle Akteure auszuwählen",
+      "RESOURCE_NAME_SELECT_PLACEHOLDER": "Wählen Sie angezeigte Ressourcennamen aus oder suchen Sie Ressourcennamen zum Filtern; lassen Sie das Feld leer, um alle angezeigten Ressourcennamen auszuwählen",
+      "CATEGORIES": "Kategorien",
+      "CATEGORIES_WHOLE_DOMAIN": "Gesamte Domain",
+      "CATEGORIES_SHARED_SPACE": "Gemeinsamer Bereich",
+      "CATEGORIES_MY_SPACE": "Mein Bereich"
+    },
+    "DISABLED": "Deaktiviert",
+    "ENABLED": "Aktiviert",
+    "FILTERS_SELECT": {
+      "ACTION": {
+        "ADDITION": "Hinzufügung",
+        "ALL": "Alle",
+        "COPY": "Kopie",
+        "CREATE": "Erstellung",
+        "CREATE_SHARE": "Freigabe gesendet",
+        "DELETE": "Löschung",
+        "DOWNLOAD": "Herunterladen",
+        "FAILURE": "Anmeldung fehlgeschlagen",
+        "READ": "Lesen",
+        "RECEIVE_SHARE": "Freigabe empfangen",
+        "SUCCESS": "Anmeldung erfolgreich",
+        "TRANSFER": "Übertragung",
+        "UPDATE": "Aktualisierung",
+        "UPLOAD": "Datei-Upload",
+        "VIEWED": "Angesehen",
+        "PURGE": "Bereinigung",
+        "GET": "Abruf",
+        "CONVERT": "Konvertierung"
+      },
+      "TYPE": {
+        "ALL": "Alle",
+        "ANONYMOUS_SHARE_ENTRY": "Anonyme Freigabe",
+        "AUTHENTICATION": "Authentifizierung",
+        "CONTACTS_LISTS": "Kontaktliste",
+        "CONTACTS_LISTS_CONTACTS": "Kontakt",
+        "DOCUMENT_ENTRY": "Datei",
+        "FUNCTIONALITY": "Funktion",
+        "GUEST": "Gastkonto",
+        "SHARE_ENTRY": "Freigabe",
+        "USER": "Benutzer",
+        "DRIVE": "Drive-Bereich",
+        "DRIVE_MEMBER": "Drive - Mitglied",
+        "WORKGROUP": "Arbeitsgruppe",
+        "WORK_GROUP": "Arbeitsgruppe",
+        "WORK_SPACE": "Arbeitsbereich",
+        "WORK_SPACE_MEMBER": "Arbeitsbereich - Mitglied",
+        "WORKGROUP_DOCUMENT": "Arbeitsgruppen-Datei",
+        "WORKGROUP_DOCUMENT_REVISION": "Arbeitsgruppen-Datei (Version)",
+        "WORKGROUP_FOLDER": "Arbeitsgruppen-Ordner",
+        "WORKGROUP_MEMBER": "Arbeitsgruppen-Mitglied",
+        "JWT_PERMANENT_TOKEN": "Permanentes Zugriffstoken (JWT)",
+        "DOMAIN": "Domain",
+        "DOMAIN_PATTERN": "Domain-Muster",
+        "UPLOAD_REQUEST": "Upload-Anfrage",
+        "UPLOAD_REQUEST_URL": "URL der Upload-Anfrage",
+        "UPLOAD_REQUEST_GROUP": "Gruppe von Upload-Anfragen",
+        "UPLOAD_REQUEST_ENTRY": "Eintrag einer Upload-Anfrage",
+        "GUEST_MODERATOR": "Gastmoderatoren",
+        "GUEST_CONVERTING": "Gastkonvertierung",
+        "GROUP_FILTER": "Gruppenfilter",
+        "WORKSPACE_FILTER": "Arbeitsbereichsfilter",
+        "RESET_PASSWORD": "Passwortzurücksetzungen",
+        "USER_PREFERENCE": "Benutzereinstellungen",
+        "SAFE_DETAIL": "Tresor-Details",
+        "PUBLIC_KEY": "Öffentliche Schlüssel",
+        "SHARED_SPACE_NODE": "Knoten gemeinsamer Bereiche",
+        "MAIL_ATTACHMENT": "E-Mail-Anhänge",
+        "SHARED_SPACE_MEMBER": "Mitglieder gemeinsamer Bereiche",
+        "UPLOAD_PROPOSITION": "Upload-Vorschläge",
+        "USER_UPDATE": "Benutzeränderungen"
+      }
+    },
+    "TABLE_HEADER": {
+      "ACTION": "Aktion",
+      "ACTOR": "Akteur",
+      "DATE": "Datum",
+      "DETAIL": "Details",
+      "RECIPIENT": "Empfänger",
+      "RESOURCE_NAME": "Ressourcenname",
+      "RESOURCE_TYPE": "Ressourcentyp"
+    },
+    "TOOLBAR": {
+      "ORDER_BY": "Sortieren nach",
+      "FILTER_BEGINNING_DATE": "Anfangsdatum",
+      "FILTER_ENDING_DATE": "Enddatum",
+      "SEARCH": "Suchen"
+    },
+    "DETAILS_POPUP": {
+      "BY": "Von {user}",
+      "MODIFICATIONS": "Änderung(en)",
+      "SENTENCES": {
+        "ANONYMOUS_SHARE_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} mit {userVarious} geteilt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} mit {resourceRecipientMail} geteilt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Dateifreigabe {resourceName} für {userVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Dateifreigabe {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat Ihre Dateifreigabe {resourceName} heruntergeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "ADMIN": {
+              "SENTENCE": "{authorName} hat die Dateifreigabe {resourceName} heruntergeladen, gesendet von {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Ihre Dateifreigabe {resourceName} für {userVarious} ist abgelaufen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "Die Dateifreigabe {resourceName} von {authorName} für {userVarious} ist abgelaufen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "READ": {
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat Ihre am {dateVarious} gesendete Dateifreigabe angesehen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.READ"
+            },
+            "ADMIN": {
+              "SENTENCE": "{authorName} hat die am {dateVarious} von {userVarious} gesendete Dateifreigabe angesehen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.READ"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Dateifreigabe {resourceName} für {userVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Dateifreigabe {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            }
+          }
+        },
+        "AUTHENTICATION": {
+          "FAILURE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben versucht, sich mit falschen Anmeldedaten anzumelden.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat versucht, sich mit falschen Anmeldedaten anzumelden.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            }
+          },
+          "SUCCESS": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben sich erfolgreich angemeldet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat sich erfolgreich angemeldet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            }
+          }
+        },
+        "CONTACTS_LISTS": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben eine neue Kontaktliste erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat eine neue Kontaktliste erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Kontaktliste {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Kontaktliste {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Kontaktliste {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Kontaktliste {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "CONTACTS_LISTS_CONTACTS": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben {resourceName} zur Kontaktliste {resourceNameVarious} hinzugefügt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat {resourceName} zur Kontaktliste {resourceNameVarious} hinzugefügt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben {resourceName} aus der Kontaktliste {resourceNameVarious} entfernt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat {resourceName} aus der Kontaktliste {resourceNameVarious} entfernt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben {resourceName} in der Kontaktliste {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat {resourceName} in der Kontaktliste {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "DOCUMENT_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben eine neue Datei {resourceName} in Ihren persönlichen Bereich hochgeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat eine neue Datei {resourceName} in den persönlichen Bereich hochgeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            }
+          },
+          "COPY": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} in Ihren persönlichen Bereich übertragen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} in den persönlichen Bereich übertragen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} aus Ihrem persönlichen Bereich gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} aus dem persönlichen Bereich gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} aus Ihrem persönlichen Bereich heruntergeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} aus dem persönlichen Bereich heruntergeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Ihr Dokument {resourceName} wurde aus Ihrem persönlichen Bereich entfernt, da die Datei abgelaufen ist.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "Das Dokument {resourceName} von {authorName} wurde aus dem persönlichen Bereich entfernt, da die Datei abgelaufen ist.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "INCONSISTENCY": {
+            "AUTHOR": {
+              "SENTENCE": "Ihr Dokument {resourceName} wurde aus Ihrem persönlichen Bereich entfernt, da die Datei nicht gefunden wurde.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "Das Dokument {resourceName} von {userVarious} wurde aus dem persönlichen Bereich entfernt, da die Datei nicht gefunden wurde.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} in Ihrem persönlichen Bereich bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} im persönlichen Bereich bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "DRIVE": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben ein neues DRIVE erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat ein neues DRIVE erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das DRIVE {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das DRIVE {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das DRIVE {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das DRIVE {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "DRIVE_MEMBER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben dem DRIVE {resourceNameVarious} ein neues Mitglied hinzugefügt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat dem DRIVE {resourceNameVarious} ein neues Mitglied hinzugefügt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Mitglied {resourceName} aus dem DRIVE {resourceNameVarious} entfernt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Mitglied {resourceName} aus dem DRIVE {resourceNameVarious} entfernt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Mitglied {resourceName} im DRIVE {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Mitglied {resourceName} im DRIVE {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "DRIVE_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Drive {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Drive {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "WORK_SPACE": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben einen neuen ARBEITSBEREICH erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat einen neuen ARBEITSBEREICH erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben den ARBEITSBEREICH {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat den ARBEITSBEREICH {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben den ARBEITSBEREICH {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat den ARBEITSBEREICH {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORK_SPACE_MEMBER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben dem ARBEITSBEREICH {resourceNameVarious} ein neues Mitglied hinzugefügt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat dem ARBEITSBEREICH {resourceNameVarious} ein neues Mitglied hinzugefügt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Mitglied {resourceName} aus dem ARBEITSBEREICH {resourceNameVarious} entfernt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Mitglied {resourceName} aus dem ARBEITSBEREICH {resourceNameVarious} entfernt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Mitglied {resourceName} im ARBEITSBEREICH {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Mitglied {resourceName} im ARBEITSBEREICH {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "WORKSPACE_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben den ARBEITSBEREICH {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat den ARBEITSBEREICH {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "GUEST": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben ein neues Gastkonto für {userVarious} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat ein neues Gastkonto für {userVarious} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Gastkonto von {userVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Gastkonto von {userVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Das Gastkonto von {userVarious} ist abgelaufen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "Das Gastkonto {userVarious} von {authorName} ist abgelaufen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Gastkonto von {userVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Gastkonto von {userVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "CHANGE_PASSWORD": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Passwort Ihres Kontos geändert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Passwort seines Kontos geändert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "GUEST_MODERATOR": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben einen neuen Gastmoderator für {resourceName} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat einen neuen Gastmoderator für {resourceName} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben den Gastmoderator von {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat den Gastmoderator von {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben den Gastmoderator von {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat den Gastmoderator von {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "GUEST_CONVERTING": {
+          "CONVERT": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Gastkonto in ein internes Konto umgewandelt: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Gastkonto in ein internes Konto umgewandelt: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Gastkonto von {userVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Gastkonto von {userVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "USER": {
+          "SECOND_FACTOR_SHARED_KEY_CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Zwei-Faktor-Authentifizierung aktiviert (gemeinsamer Schlüssel erstellt): {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Zwei-Faktor-Authentifizierung aktiviert (gemeinsamer Schlüssel erstellt): {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "SECOND_FACTOR_SHARED_KEY_DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Zwei-Faktor-Authentifizierung deaktiviert (gemeinsamer Schlüssel entfernt): {userVarious}",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Zwei-Faktor-Authentifizierung deaktiviert (gemeinsamer Schlüssel entfernt): {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben ein neues Benutzerkonto für {userVarious} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat ein neues Benutzerkonto für {userVarious} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Benutzerkonto von {userVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Benutzerkonto von {userVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Das Benutzerkonto von {userVarious} ist abgelaufen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "Das Benutzerkonto {userVarious} von {authorName} ist abgelaufen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Benutzerkonto von {userVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Benutzerkonto von {userVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "CHANGE_PASSWORD": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Passwort Ihres Kontos geändert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Passwort seines Kontos geändert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Benutzerkonto von {userVarious} endgültig bereinigt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Benutzerkonto von {userVarious} endgültig bereinigt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "CONVERT": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Gastkonto in ein internes Konto umgewandelt: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Gastkonto in ein internes Konto umgewandelt: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          }
+        },
+        "USER_UPDATE": {
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Benutzerkonto von {userVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Benutzerkonto von {userVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "JWT_PERMANENT_TOKEN": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das permanente Zugriffstoken {resourceName} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das permanente Zugriffstoken {resourceName} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das permanente Zugriffstoken {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das permanente Zugriffstoken {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das permanente Zugriffstoken {resourceName} aktualisiert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das permanente Zugriffstoken {resourceName} aktualisiert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "SHARE_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} mit {userVarious} geteilt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} mit {resourceRecipientMail} geteilt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            }
+          },
+          "COPY": {
+            "AUTHOR": {
+              "SENTENCE": "Die Dateifreigabe {resourceName} von {userVarious} wurde aus „Empfangene Freigaben“ entfernt, da Sie die Datei in Ihren persönlichen Bereich übertragen haben.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            },
+            "VIEWER": {
+              "SENTENCE": "Die Dateifreigabe {resourceName} wurde aus „Empfangene Freigaben“ entfernt, da {authorName} die Datei in den persönlichen Bereich übertragen hat.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Dateifreigabe {resourceName} für {userVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Dateifreigabe {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Dateifreigabe {resourceName} heruntergeladen, gesendet von {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat Ihre Dateifreigabe {resourceName} heruntergeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Ihre Dateifreigabe {resourceName} für {userVarious} ist abgelaufen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "Die Dateifreigabe {resourceName} von {authorName} für {userVarious} ist abgelaufen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Dateifreigabe {resourceName} für {userVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Dateifreigabe {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben eine neue Arbeitsgruppe erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat eine neue Arbeitsgruppe erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Arbeitsgruppe {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Arbeitsgruppe {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Arbeitsgruppe {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Arbeitsgruppe {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORK_GROUP": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben eine neue Arbeitsgruppe erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat eine neue Arbeitsgruppe erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Arbeitsgruppe {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Arbeitsgruppe {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Arbeitsgruppe {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Arbeitsgruppe {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP_DOCUMENT": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben eine neue Datei {resourceName} in die Arbeitsgruppe {resourceNameVarious} hochgeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat eine neue Datei {resourceName} in die Arbeitsgruppe {resourceNameVarious} hochgeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            }
+          },
+          "COPY": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} in die Arbeitsgruppe {resourceNameVarious} kopiert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} in die Arbeitsgruppe {resourceNameVarious} kopiert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} aus der Arbeitsgruppe {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} aus der Arbeitsgruppe {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} aus der Arbeitsgruppe {resourceNameVarious} heruntergeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} aus der Arbeitsgruppe {resourceNameVarious} heruntergeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Datei {resourceName} in der Arbeitsgruppe {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Datei {resourceName} in der Arbeitsgruppe {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP_FOLDER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben einen neuen Ordner {resourceName} in der Arbeitsgruppe {resourceNameVarious} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat einen neuen Ordner {resourceName} in der Arbeitsgruppe {resourceNameVarious} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben den Ordner {resourceName} aus der Arbeitsgruppe {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat den Ordner {resourceName} aus der Arbeitsgruppe {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben den Ordner {resourceName} in der Arbeitsgruppe {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat den Ordner {resourceName} in der Arbeitsgruppe {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP_MEMBER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben der Arbeitsgruppe {resourceNameVarious} ein neues Mitglied hinzugefügt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat der Arbeitsgruppe {resourceNameVarious} ein neues Mitglied hinzugefügt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Mitglied {resourceName} aus der Arbeitsgruppe {resourceNameVarious} entfernt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Mitglied {resourceName} aus der Arbeitsgruppe {resourceNameVarious} entfernt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Mitglied {resourceName} in der Arbeitsgruppe {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Mitglied {resourceName} in der Arbeitsgruppe {resourceNameVarious} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "WORKGROUP_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Arbeitsgruppe {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Arbeitsgruppe {resourceNameVarious} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "UPLOAD_REQUEST": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben eine Upload-Anfrage mit dem Namen {resourceName} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat eine Upload-Anfrage mit dem Namen {resourceName} erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Upload-Anfrage {resourceName} aktualisiert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Upload-Anfrage {resourceName} aktualisiert.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "UPLOAD_REQUEST_URL": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Aus der Upload-Anfrage {resourceNameVarious} wurde eine URL für die Upload-Anfrage erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "Aus der Upload-Anfrage {resourceNameVarious} wurde eine URL für die Upload-Anfrage erstellt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          }
+        },
+        "UPLOAD_REQUEST_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Die Datei {resourceName} wurde hochgeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "Die Datei {resourceName} wurde hochgeladen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben das Dokument {resourceName} gelöscht",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Dokument {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "DOMAIN": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben eine neue Domain erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat eine neue Domain erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Domain {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Domain {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Domain {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Domain {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Domain {resourceName} endgültig bereinigt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Domain {resourceName} endgültig bereinigt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "FUNCTIONALITY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben eine neue Funktion erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat eine neue Funktion erstellt: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Funktion {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Funktion {resourceName} gelöscht.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben die Funktion {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat die Funktion {resourceName} bearbeitet.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "RESET_PASSWORD": {
+          "FAILURE": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben versucht, Ihr Passwort zurückzusetzen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat versucht, das Passwort zurückzusetzen.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            }
+          },
+          "SUCCESS": {
+            "AUTHOR": {
+              "SENTENCE": "Sie haben Ihr Passwort erfolgreich zurückgesetzt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} hat das Passwort erfolgreich zurückgesetzt.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            }
+          }
+        }
+      }
+    }
+  },
+  "EMAIL_TEMPLATES": {
+    "VISIBILITY": "Sichtbarkeit",
+    "PUBLIC": "Öffentlich",
+    "PRIVATE": "Privat",
+    "EDITABLE": "Bearbeitbar",
+    "READ_ONLY": "Schreibgeschützt",
+    "MAIL_CONTENT_TYPE_NAME": "E-Mail-Inhaltstyp",
+    "VERTICAL_TABS": {
+      "CONFIGURATION": "E-Mail-Konfiguration",
+      "FOOTER": "E-Mail-Fußzeile",
+      "ACTIVATION": "E-Mail-Aktivierung",
+      "CONTENT": "E-Mail-Inhalt",
+      "LAYOUT": "E-Mail-Layout"
+    },
+    "CONFIGURATION_PAGE": {
+      "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>„E-Mail-Layout“</span> ermöglicht das Erstellen eines eigenen E-Mail-Layouts.",
+      "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>„E-Mail-Fußzeile“</span> zum Bearbeiten der Vorlage für die E-Mail-Fußzeile.",
+      "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>„E-Mail-Inhalt“</span> zum Verwalten des Inhalts der E-Mail-Benachrichtigungen, die an LinShare-Benutzer gesendet werden.",
+      "MAIL_ASSIGN_DESCRIPTION": "Nachdem Sie eine E-Mail-Vorlage erstellt und angepasst haben, können Sie sie der Domain oder ihren untergeordneten Domains zuweisen.",
+      "MAIN_CONTENT_TYPE": "Hauptinhaltstyp",
+      "SELECTED_MAIL_CONTENT": "Ausgewählter E-Mail-Inhalt",
+      "LEGEND": "Legende",
+      "MAIL_CONTENT_UPDATED": "{domain}-Aktualisiert am: {date}"
+    },
+    "EMAIL_LAYOUT": {
+      "PUBLIC": "Öffentlich",
+      "PRIVATE": "Privat",
+      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>mailSubject</span> Titel / Betreff der E-Mail",
+      "SECOND_HELP_TEXT": "<span style='color: #007AFF'>image</span> LinShare-Logo, das in der Konfiguration festgelegt werden kann (sofern Sie die erforderlichen Berechtigungen haben)",
+      "THIRD_HELP_TEXT": "<span style='color: #007AFF'>personalMessage</span> Eine persönliche Nachricht, die dem Standardnachrichtentext hinzugefügt wird <span style='color: #007AFF'>body</span>",
+      "FOUR_HELP_TEXT": "<span style='color: #007AFF'>greetings</span> Begrüßungstext",
+      "FIVE_HELP_TEXT": "<span style='color: #007AFF'>body</span> Inhalt, den Sie unter 'E-Mail-Inhalt' eingegeben haben",
+      "SIX_HELP_TEXT": "<span style='color: #007AFF'>footer</span> Inhalt, den Sie unter 'E-Mail-Fußzeile' eingegeben haben",
+      "EMAIL_LAYOUT_DETAIL_PAGE": {
+        "PAGE_HEADER": "Details des E-Mail-Layouts",
+        "NAME_PLACEHOLDER": "Name des E-Mail-Layouts"
+      }
+    },
+    "ASSIGN_MODAL": {
+      "ASSIGN_MODAL_TITLE": "E-Mail-Konfiguration zuweisen",
+      "ASSIGN_MODAL_SUBTITLE": "Sie sind dabei, diese E-Mail-Konfiguration {currentDomain} zuzuweisen. Möchten Sie fortfahren?",
+      "ASSIGN_SUCCESS": "Erfolgreich zugewiesen"
+    },
+    "CREATE_MODAL": {
+      "CREATE_EMAIL_CONFIGURATION": "E-Mail-Konfiguration erstellen",
+      "NAME": "Name",
+      "EMAIL_CONFIGURATION_NAME": "Name der E-Mail-Konfiguration",
+      "TARGET_DOMAIN": "Ziel-Domain",
+      "MODEL": "Vorlage",
+      "VISIBLE": "Sichtbar",
+      "CREATE_SUCCESS": "Erfolgreich erstellt",
+      "EMAIL_LAYOUT_NAME": "Name des E-Mail-Layouts",
+      "CREATE_EMAIL_LAYOUT": "E-Mail-Layout erstellen",
+      "EMAIL_FOOTER_NAME": "Name der E-Mail-Fußzeile",
+      "CREATE_EMAIL_FOOTER": "E-Mail-Fußzeile erstellen"
+    },
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "E-Mail-Konfiguration löschen",
+      "DELETE_MODAL_SUBTITLE": "Sie sind dabei, diese E-Mail-Konfiguration zu löschen. Möchten Sie fortfahren?",
+      "DELETE_SUCCESS": "Erfolgreich gelöscht",
+      "DELETE_ERROR_ASSIGNED": "Die ausgewählte E-Mail-Konfiguration ist mindestens einer Domain zugeordnet. Sie kann nicht gelöscht werden",
+      "DELETE_ERROR_UNAUTHORIZED": "Sie sind nicht berechtigt, diese E-Mail-Konfiguration zu löschen",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Ausgewählte E-Mail-Konfigurationen löschen",
+      "DELETE_ACTION_CANCEL": "Abbrechen",
+      "DELETE_ACTION_CONFIRM": "Ja, löschen",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Sie sind dabei, {qty} E-Mail-Konfigurationen zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+      "DELETE_FAILURE": "Löschen fehlgeschlagen",
+      "DELETE_ERROR_ASSIGNED_SOME": "Einige E-Mail-Konfigurationen wurden erfolgreich gelöscht, andere jedoch nicht, da sie bereits mindestens einer Domain zugewiesen sind",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Einige E-Mail-Konfigurationen wurden erfolgreich gelöscht, andere jedoch nicht, da Sie nicht berechtigt sind, sie zu löschen",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "Sie sind nicht berechtigt, diese E-Mail-Konfigurationen zu löschen",
+      "DELETE_ERROR_ASSIGNED_ALL": "Sie können diese E-Mail-Konfigurationen nicht löschen",
+      "DELETE_ERROR_ONE": "Sie können diese E-Mail-Konfiguration nicht löschen",
+      "DELETE_ERROR_ALL": "Sie können diese E-Mail-Konfigurationen nicht löschen"
+    },
+    "DELETE_LAYOUT_MODAL": {
+      "DELETE_MODAL_EMPTY": "Bitte wählen Sie das zu löschende E-Mail-Layout aus",
+      "DELETE_MODAL_TITLE": "E-Mail-Layout löschen",
+      "DELETE_MODAL_SUBTITLE": "Sie sind dabei, dieses E-Mail-Layout zu löschen. Möchten Sie fortfahren?",
+      "DELETE_SUCCESS": "Erfolgreich gelöscht",
+      "DELETE_ERROR_ASSIGNED": "Das ausgewählte E-Mail-Layout ist mindestens einer Domain zugeordnet. Es kann nicht gelöscht werden",
+      "DELETE_ERROR_UNAUTHORIZED": "Sie sind nicht berechtigt, dieses E-Mail-Layout zu löschen",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Ausgewählte E-Mail-Layouts löschen",
+      "DELETE_ACTION_CANCEL": "Abbrechen",
+      "DELETE_ACTION_CONFIRM": "Ja, löschen",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Sie sind dabei, {qty} E-Mail-Layouts zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+      "DELETE_FAILURE": "Löschen fehlgeschlagen",
+      "DELETE_ERROR_ASSIGNED_SOME": "Einige E-Mail-Layouts wurden erfolgreich gelöscht, andere jedoch nicht, da sie bereits mindestens einer Domain zugewiesen sind",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Einige E-Mail-Layouts wurden erfolgreich gelöscht, andere jedoch nicht, da Sie nicht berechtigt sind, sie zu löschen",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "Sie sind nicht berechtigt, diese E-Mail-Layouts zu löschen",
+      "DELETE_ERROR_ASSIGNED_ALL": "Sie können diese E-Mail-Layouts nicht löschen",
+      "DELETE_ERROR_ONE": "Sie können dieses E-Mail-Layout nicht löschen",
+      "DELETE_ERROR_ALL": "Sie können diese E-Mail-Layouts nicht löschen",
+      "DELETE_ERROR_SOME_OF_THEM": "Einige E-Mail-Layouts wurden erfolgreich gelöscht, andere jedoch nicht, da Sie keine Berechtigung zum Löschen haben"
+    },
+    "EDIT_FORM": {
+      "EDIT_HEADER": "E-Mail-Konfiguration bearbeiten",
+      "EDIT_SUBHEADER": "Name der E-Mail-Konfiguration",
+      "NAME_LABEL": "Name",
+      "NAME_PLACEHOLDER": "Name der E-Mail-Konfiguration",
+      "VISIBLE_LABEL": "Sichtbar",
+      "LAYOUT_LABEL": "E-Mail-Layout",
+      "LAYOUT_PLACEHOLDER": "Layout der E-Mail-Konfiguration",
+      "FOOTER_LABEL": "E-Mail-Fußzeile",
+      "FOOTER_PLACEHOLDER": "Fußzeile der E-Mail-Konfiguration",
+      "LANGUAGE_LABEL": "Sprache des Hauptinhalts",
+      "UPDATE_SUCCESS": "Erfolgreich aktualisiert"
+    },
+    "MAIL_CONTENT_TYPE": {
+      "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "Eine Datei wird bald gelöscht, da sie ihr Ablaufdatum erreicht",
+      "GUEST_ACCOUNT_NEW_CREATION": "Ein neuer Gast erhält einen Aktivierungslink für sein Konto",
+      "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "Ein Gast erhält einen Link zum Zurücksetzen seines Passworts",
+      "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "Das Passwort eines Gastkontos wurde geändert",
+      "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "Das Konto eines Gastes läuft bald ab",
+      "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": "Änderung des Gastpassworts aufgrund einer Sicherheitsverbesserung",
+      "SHARE_FILE_DOWNLOAD": "Ein Empfänger hat die Dateifreigabe heruntergeladen",
+      "SHARE_FILE_SHARE_DELETED": "Ein Absender hat seine Dateifreigabe gelöscht",
+      "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "Der Absender erhält eine Zusammenfassung seiner Dateifreigaben",
+      "SHARE_NEW_SHARE_FOR_RECIPIENT": "Ein Empfänger erhält einen Link zu einer Dateifreigabe",
+      "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": "Die Dateifreigabe des Absenders läuft bald ab",
+      "SHARE_WARN_UNDOWNLOADED_FILESHARES": "Erinnerung an nicht heruntergeladene Dateifreigabe",
+      "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": "Eine Freigabe läuft bald ab, ohne heruntergeladen worden zu sein",
+      "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": "Die Freigabe ist abgelaufen und wurde vom System gelöscht",
+      "SHARE_ANONYMOUS_RESET_PASSWORD": "Das Passwort der anonymen Freigabe wurde zurückgesetzt",
+      "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "Der Aussteller hat die Upload-Anfrage geschlossen",
+      "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Ein Empfänger hat die Upload-Anfrage des Erstellers geschlossen",
+      "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": "Ein Empfänger hat eine Datei in der Upload-Anfrage gelöscht",
+      "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": "Eine Datei wurde vom Aussteller der Upload-Anfrage gelöscht",
+      "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "Ein Empfänger konnte seine Datei wegen unzureichenden Speicherplatzes nicht hochladen",
+      "UPLOAD_REQUEST_UPLOADED_FILE": "Ein Empfänger hat eine Datei in die Upload-Anfrage hochgeladen",
+      "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "Eine Upload-Anfrage wird bald geschlossen",
+      "UPLOAD_REQUEST_WARN_EXPIRY": "Eine Upload-Anfrage wurde geschlossen",
+      "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": "Eine Upload-Anfrage wurde für den Aussteller aktiviert",
+      "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": "Eine Upload-Anfrage wurde für den Empfänger aktiviert",
+      "UPLOAD_REQUEST_CLOSED_BY_OWNER": "Die Upload-Anfrage wurde vom Aussteller geschlossen",
+      "UPLOAD_REQUEST_CREATED": "Eine Upload-Anfrage wurde erstellt",
+      "UPLOAD_REQUEST_FILE_DELTED_BY_OWNER": "Der Aussteller der Upload-Anfrage löscht eine Datei in der Upload-Anfrage.",
+      "UPLOAD_REQUEST_PASSWORD_RENEWAL": "Das Passwort der Upload-Anfrage wurde erneuert",
+      "UPLOAD_REQUEST_PASSWORD_REMOVED": "Das Passwort der Upload-Anfrage wurde entfernt",
+      "UPLOAD_REQUEST_REMINDER": "Erinnerung an den Empfänger der Upload-Anfrage",
+      "UPLOAD_REQUEST_UPDATED_SETTINGS": "Die Einstellungen der Upload-Anfrage wurden aktualisiert",
+      "UPLOAD_REQUEST_RECIPIENT_REMOVED": "Ein Kontakt wurde aus der Upload-Anfrage entfernt",
+      "WORKGROUP_WARN_NEW_MEMBER": "Ein Benutzer wurde der Arbeitsgruppe hinzugefügt",
+      "WORKGROUP_WARN_UPDATED_MEMBER": "Die Rechte eines Mitglieds in der Arbeitsgruppe wurden aktualisiert",
+      "WORKGROUP_WARN_DELETED_MEMBER": "Ein Mitglied wurde aus der Arbeitsgruppe entfernt",
+      "WORKGROUP_WARN_DELETED_WORKGROUP": "Eine Arbeitsgruppe wurde gelöscht",
+      "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "Ein Benutzer erhält eine Benachrichtigung, wenn ein Administrator ein permanentes Zugriffstoken (JWT) für sein Konto erstellt",
+      "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "Ein Benutzer erhält eine Benachrichtigung, wenn ein Administrator ein permanentes Zugriffstoken (JWT) seines Kontos löscht",
+      "DRIVE_WARN_DELETED_MEMBER": "Ein Mitglied wurde aus dem DRIVE entfernt",
+      "DRIVE_WARN_NEW_MEMBER": "Ein Benutzer wurde dem DRIVE hinzugefügt",
+      "DRIVE_WARN_UPDATED_MEMBER": "Die Rechte eines Mitglieds im DRIVE wurden aktualisiert",
+      "WORK_SPACE_WARN_DELETED": "Ein Arbeitsbereich wurde gelöscht",
+      "WORK_SPACE_WARN_DELETED_MEMBER": "Ein Mitglied wurde aus dem Arbeitsbereich entfernt",
+      "WORK_SPACE_WARN_NEW_MEMBER": "Ein Benutzer wurde dem Arbeitsbereich hinzugefügt",
+      "WORK_SPACE_WARN_UPDATED_MEMBER": "Die Rechte eines Mitglieds im Arbeitsbereich wurden aktualisiert",
+      "GUEST_MODERATOR_CREATION": "Ein Benutzer erhält eine E-Mail-Benachrichtigung, wenn er einer Liste von Gastmoderatoren hinzugefügt wird",
+      "GUEST_MODERATOR_DELETION": "Ein Benutzer erhält eine E-Mail-Benachrichtigung, wenn er aus einer Liste von Gastmoderatoren entfernt wird",
+      "GUEST_MODERATOR_UPDATE": "Ein Benutzer erhält eine E-Mail-Benachrichtigung, wenn seine Moderatorrolle aktualisiert wird",
+      "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "Diese Benachrichtigung wird gesendet, wenn ein Gastkonto abgelaufen ist",
+      "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "Diese Benachrichtigung wird gesendet, wenn der Arbeitsgruppe ein Dokument hinzugefügt wurde",
+      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "Diese Benachrichtigung wird gesendet, wenn ein Dokument der Arbeitsgruppe aktualisiert wurde",
+      "DEFAULT_SCENARIO": "Standardszenario",
+      "EXTRA_SCENARIO": "Zusätzliches Szenario"
+    },
+    "EMAIL_FOOTER": {
+      "PUBLIC": "Öffentlich",
+      "PRIVATE": "Privat",
+      "HELP_TEXT": "In dieser Ansicht können Sie Vorlagen für die Fußzeile Ihrer E-Mails erstellen. Sie sollten eine HTML- und eine Textvorlage erstellen. In der Ansicht <span style='color: #007AFF'>'E-Mail-Konfiguration'</span> können Sie eine E-Mail-Vorlage erstellen und ihr ein E-Mail-Layout und eine E-Mail-Fußzeile zuordnen. (Hinweis: Das E-Mail-Layout muss die Variable ${footer} enthalten, damit die E-Mail-Fußzeile eingefügt wird.)",
+      "EMAIL_FOOTER_DETAIL_PAGE": {
+        "PAGE_HEADER": "Details der E-Mail-Fußzeile",
+        "NAME_PLACEHOLDER": "Name der E-Mail-Fußzeile",
+        "FOOTER_LABEL": "E-Mail-Fußzeile"
+      }
+    },
+    "DELETE_FOOTER_MODAL": {
+      "DELETE_MODAL_EMPTY": "Bitte wählen Sie die zu löschende E-Mail-Fußzeile aus",
+      "DELETE_MODAL_TITLE": "E-Mail-Fußzeile löschen",
+      "DELETE_MODAL_SUBTITLE": "Sie sind dabei, diese E-Mail-Fußzeile zu löschen. Möchten Sie fortfahren?",
+      "DELETE_SUCCESS": "Erfolgreich gelöscht",
+      "DELETE_ERROR_ASSIGNED": "Die ausgewählte E-Mail-Fußzeile ist mindestens einer Domain zugeordnet. Sie kann nicht gelöscht werden",
+      "DELETE_ERROR_UNAUTHORIZED": "Sie sind nicht berechtigt, diese E-Mail-Fußzeile zu löschen",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Ausgewählte E-Mail-Fußzeilen löschen",
+      "DELETE_ACTION_CANCEL": "Abbrechen",
+      "DELETE_ACTION_CONFIRM": "Ja, löschen",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Sie sind dabei, {qty} E-Mail-Fußzeilen zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+      "DELETE_FAILURE": "Löschen fehlgeschlagen",
+      "DELETE_ERROR_ASSIGNED_SOME": "Einige E-Mail-Fußzeilen wurden erfolgreich gelöscht, andere jedoch nicht, da sie bereits mindestens einer Domain zugewiesen sind",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Einige E-Mail-Fußzeilen wurden erfolgreich gelöscht, andere jedoch nicht, da Sie nicht berechtigt sind, sie zu löschen",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "Sie sind nicht berechtigt, diese E-Mail-Fußzeilen zu löschen",
+      "DELETE_ERROR_ASSIGNED_ALL": "Sie können diese E-Mail-Fußzeilen nicht löschen",
+      "DELETE_ERROR_ONE": "Sie können diese E-Mail-Fußzeile nicht löschen",
+      "DELETE_ERROR_ALL": "Sie können diese E-Mail-Fußzeilen nicht löschen",
+      "DELETE_ERROR_SOME_OF_THEM": "Einige E-Mail-Fußzeilen wurden erfolgreich gelöscht, andere jedoch nicht, da Sie keine Berechtigung zum Löschen haben"
+    },
+    "EMAIL_CONTENT": {
+      "PUBLIC": "Öffentlich",
+      "PRIVATE": "Privat",
+      "HELP_TEXT": "In dieser Ansicht können Sie Vorlagen für den Inhalt Ihrer E-Mails erstellen. Sie sollten eine HTML- und eine Textvorlage erstellen. In der Ansicht <span style='color: #007AFF'>'E-Mail-Konfiguration'</span> können Sie eine E-Mail-Vorlage erstellen und ihr ein E-Mail-Layout und einen E-Mail-Inhalt zuordnen. (Hinweis: Das E-Mail-Layout muss die Variable ${content} enthalten, damit der E-Mail-Inhalt eingefügt wird.)",
+      "CREATE_EMAIL_CONTENT": "E-Mail-Inhalt erstellen",
+      "EMAIL_CONTENT_NAME": "Name des E-Mail-Inhalts",
+      "CONTENT_TYPE": "Inhaltstyp",
+      "DUPPLICATE_FROM": "Duplizieren von",
+      "EMAIL_CONTENT_DETAIL_PAGE": {
+        "PAGE_HEADER": "Details des E-Mail-Inhalts",
+        "NAME_PLACEHOLDER": "Name des E-Mail-Inhalts",
+        "CONTENT_LABEL": "E-Mail-Inhalt",
+        "SUBJECT": "Betreff",
+        "BODY": "Nachrichtentext",
+        "CONTEXT_VARIABLES": "Kontextvariablen",
+        "MAIL_CONFIGURATION_LIST": "Liste der E-Mail-Konfigurationen"
+      },
+      "FIRST_HELP_TEXT": "In dieser Ansicht können Sie den Inhalt der E-Mail-Benachrichtigungen festlegen, die automatisch an die Benutzer der Anwendung gesendet werden. Sie können die Nachrichten auf Englisch, Französisch, Vietnamesisch oder Russisch verfassen.",
+      "SECOND_HELP_TEXT": "Sie können auch mehrere Versionen dieser Nachrichten erstellen und anschließend im Tab 'E-Mail-Konfiguration' den passenden Inhalt der Konfiguration auswählen.",
+      "THIRD_HELP_TEXT": "Die Felder <span style='color: #007AFF'>Betreff</span>, <span style='color: #007AFF'>Begrüßung</span> und <span style='color: #007AFF'>Nachrichtentext</span> ersetzen <span style='color: #007AFF'>subject</span>, <span style='color: #007AFF'>greetings</span> und <span style='color: #007AFF'>body</span>, die Sie einem E-Mail-Layout hinzugefügt haben",
+      "DEFAULT_MAIL_CONTENT": "Standard-E-Mail-Inhalt",
+      "SHOW_MORE": "Mehr anzeigen",
+      "SHOW_LESS": "Weniger anzeigen",
+      "PREVIEW": "Vorschau",
+      "PREVIEW_LIVE": "Live-Vorschau",
+      "NO_PREVIEW": "Keine Vorschau, bitte klicken Sie auf die Schaltfläche 'Vorschau'"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_EMPTY": "Bitte wählen Sie den zu löschenden E-Mail-Inhalt aus",
+      "DELETE_MODAL_TITLE": "E-Mail-Inhalt löschen",
+      "DELETE_MODAL_SUBTITLE": "Sie sind dabei, diesen E-Mail-Inhalt zu löschen. Möchten Sie fortfahren?",
+      "DELETE_SUCCESS": "Erfolgreich gelöscht",
+      "DELETE_ERROR_ASSIGNED": "Der ausgewählte E-Mail-Inhalt ist mindestens einer Domain zugeordnet. Er kann nicht gelöscht werden",
+      "DELETE_ERROR_UNAUTHORIZED": "Sie sind nicht berechtigt, diesen E-Mail-Inhalt zu löschen",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Ausgewählte E-Mail-Inhalte löschen",
+      "DELETE_ACTION_CANCEL": "Abbrechen",
+      "DELETE_ACTION_CONFIRM": "Ja, löschen",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Sie sind dabei, {qty} E-Mail-Inhalte zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+      "DELETE_FAILURE": "Löschen fehlgeschlagen",
+      "DELETE_ERROR_ASSIGNED_SOME": "Einige E-Mail-Inhalte wurden erfolgreich gelöscht, andere jedoch nicht, da sie bereits mindestens einer Domain zugewiesen sind",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Einige E-Mail-Inhalte wurden erfolgreich gelöscht, andere jedoch nicht, da Sie nicht berechtigt sind, sie zu löschen",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "Sie sind nicht berechtigt, diese E-Mail-Inhalte zu löschen",
+      "DELETE_ERROR_ASSIGNED_ALL": "Sie können diese E-Mail-Inhalte nicht löschen",
+      "DELETE_ERROR_ONE": "Sie können diesen E-Mail-Inhalt nicht löschen",
+      "DELETE_ERROR_ALL": "Sie können diese E-Mail-Inhalte nicht löschen",
+      "DELETE_ERROR_SOME_OF_THEM": "Einige E-Mail-Inhalte wurden erfolgreich gelöscht, andere jedoch nicht, da Sie keine Berechtigung zum Löschen haben"
+    },
+    "EMAIL_ACTIVATION": {
+      "ACTIVE": "Aktiv",
+      "INACTIVE": "Inaktiv",
+      "SHOW_SETTING": "Einstellung anzeigen",
+      "ENABLE_NOTIFICATION": "Benachrichtigung aktivieren",
+      "ALLOW_OVERRIDE_SETTING": "Administratoren untergeordneter Domains erlauben, „Benachrichtigung aktivieren“ zu überschreiben",
+      "RESET_BUTTON": "Auf übergeordnete Domain zurücksetzen",
+      "STATE": "Zustand",
+      "CONTENT_TYPE_NAME": "Name des Inhaltstyps"
+    },
+    "MAIL_ACTIVATION": {
+      "BOX_LIST": {
+        "TABLE": {
+          "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS",
+          "HEADER_DESCRIPTION": "Legende",
+          "HEADER_NAME": "E-Mail-Aktivierungstyp"
+        }
+      },
+      "BOX_FORM": {
+        "LABEL_ENABLE": "Diese Benachrichtigung aktivieren",
+        "VIEW_SIMPLE": "Einfach",
+        "VIEW_ADVANCED": "Erweitert",
+        "LEGEND_ACTIVATION_POLICY": "Aktivierungsrichtlinie",
+        "LEGEND_CONFIGURATION_POLICY": "Konfigurationsrichtlinie",
+        "LEGEND_DELEGATION_POLICY": "Delegierungsrichtlinie",
+        "LEGEND_PARAMETERS": "Parameter",
+        "RADIO_FORBIDDEN": "Verboten",
+        "RADIO_ALLOWED": "Erlaubt",
+        "RADIO_MANDATORY": "Verpflichtend",
+        "LABEL_SAVED": "Gespeichert",
+        "LABEL_STATUS": "Aktivieren",
+        "LABEL_DISABLE": "Diese Benachrichtigung deaktivieren",
+        "LEGEND_NEXT": "Weiter",
+        "LEGEND_PREVIOUS": "Zurück",
+        "FORM_ACTIONS": {
+          "BUTTON_RESET": "Auf übergeordneten Wert zurücksetzen",
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+        }
+      },
+      "DETAILS": {
+        "_COMMENT:NAME_OF_THE_MAIL_ACTIVATION": {
+          "NAME": "Dies ist der Name der E-Mail-Aktivierung auf Französisch oder Englisch",
+          "USE_EXTENDED_DESCRIPTION": "0, wenn es keine Beschreibung für die Benachrichtigung gibt, 1, um nur die Beschreibung anzuzeigen, 2, um die Beschreibung und die erweiterte Beschreibung anzuzeigen, 3, um eine externe Vorlage zu laden ",
+          "DESCRIPTION": "Die Beschreibung des E-Mail-Aktivierungstyps ",
+          "ADVANCED_DESCRIPTION": "erweiterte Beschreibung der E-Mail-Aktivierung"
+        },
+        "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.FILE_WARN_OWNER_BEFORE_FILE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Eigentümer einer Datei gesendet, bevor sie abläuft und vom System gelöscht wird."
+        },
+        "GUEST_ACCOUNT_NEW_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_NEW_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn ein neuer Gast erstellt wird, und enthält seine Anmeldedaten."
+        },
+        "GUEST_ACCOUNT_RESET_PASSWORD_LINK": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_LINK",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn das Passwort eines Gastes zurückgesetzt wird."
+        },
+        "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Gast gesendet, wenn sein Passwort geändert wurde."
+        },
+        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Ersteller des Gastes gesendet, wenn ein Gastkonto bald abläuft."
+        },
+        "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an Gäste gesendet, damit sie ihr Passwort aufgrund einer Sicherheitsverbesserung zurücksetzen."
+        },
+        "GUEST_MODERATOR_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Ein Benutzer erhält eine E-Mail-Benachrichtigung, wenn er einer Liste von Gastmoderatoren hinzugefügt wird"
+        },
+        "GUEST_MODERATOR_DELETION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_DELETION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Ein Benutzer erhält eine E-Mail-Benachrichtigung, wenn er aus einer Liste von Gastmoderatoren entfernt wird"
+        },
+        "GUEST_MODERATOR_UPDATE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_UPDATE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Ein Benutzer erhält eine E-Mail-Benachrichtigung, wenn seine Moderatorrolle aktualisiert wird"
+        },
+        "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn ein Gastkonto abgelaufen ist"
+        },
+        "SHARE_ANONYMOUS_RESET_PASSWORD": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_ANONYMOUS_RESET_PASSWORD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn für eine bestehende anonyme Freigabe ein neues Passwort erzeugt wird."
+        },
+        "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, um den Eigentümer der Freigabe zu informieren, wenn ein externer Benutzer ein freigegebenes Dokument herunterlädt."
+        },
+        "SHARE_FILE_DOWNLOAD_USERS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Eigentümer der Freigabe gesendet, wenn ein interner Benutzer oder ein Gast die empfangenen freigegebenen Dokumente herunterlädt."
+        },
+        "SHARE_FILE_SHARE_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_SHARE_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an die Empfänger der Freigabe gesendet, wenn der Eigentümer ein freigegebenes Dokument löscht."
+        },
+        "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Benutzer gesendet, der eine Freigabe mit aktivierter Option 'Bestätigung der Freigabeerstellung' erstellt. Sie enthält eine Zusammenfassung der Freigabe."
+        },
+        "SHARE_NEW_SHARE_FOR_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_FOR_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an alle Empfänger (interne Benutzer, Gäste oder externe Benutzer) gesendet, wenn ein Benutzer ein Dokument teilt."
+        },
+        "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an die Empfänger der Freigabe gesendet, wenn ein freigegebenes Dokument bald abläuft."
+        },
+        "SHARE_WARN_UNDOWNLOADED_FILESHARES": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_UNDOWNLOADED_FILESHARES",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Benutzer gesendet, der eine Freigabe mit aktivierter Option 'Warnung bei nicht heruntergeladenem freigegebenem Dokument' erstellt. Sie enthält eine Zusammenfassung der heruntergeladenen Freigaben."
+        },
+        "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Eigentümer der Freigabe gesendet, wenn seine Freigabe bald abläuft, ohne vom Empfänger heruntergeladen worden zu sein."
+        },
+        "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Empfänger der Freigabe gesendet, wenn die Freigabe abgelaufen ist und vom System gelöscht wurde."
+        },
+        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den internen Benutzer oder Gast gesendet, wenn die Upload-Anfrage vom Empfänger geschlossen wird."
+        },
+        "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den internen Benutzer oder Gast gesendet, wenn die Upload-Anfrage aktiviert wird."
+        },
+        "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Empfänger gesendet, wenn die Upload-Anfrage aktiviert wird."
+        },
+        "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Empfänger gesendet, wenn die Upload-Anfrage vom Aussteller geschlossen wird."
+        },
+        "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Empfänger gesendet, wenn der Aussteller eine Datei aus der Upload-Anfrage löscht."
+        },
+        "UPLOAD_REQUEST_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Empfänger gesendet, wenn die Upload-Anfrage erstellt, aber noch nicht aktiviert wurde."
+        },
+        "UPLOAD_REQUEST_PASSWORD_RENEWAL": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_PASSWORD_RENEWAL",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Empfänger gesendet, damit er das Zugangspasswort der Upload-Anfrage zurücksetzen kann."
+        },
+        "UPLOAD_REQUEST_RECIPIENT_REMOVED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_RECIPIENT_REMOVED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Empfänger gesendet, wenn der Aussteller ihn aus der Upload-Anfrage entfernt."
+        },
+        "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Aussteller einer Upload-Anfrage gesendet, wenn der Empfänger Dateien löscht."
+        },
+        "UPLOAD_REQUEST_REMINDER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_REMINDER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, um den Empfänger daran zu erinnern, vor Ablauf der Upload-Anfrage Dateien hochzuladen."
+        },
+        "UPLOAD_REQUEST_UPDATED_SETTINGS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPDATED_SETTINGS",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Empfänger einer Upload-Anfrage gesendet, wenn deren Parameter aktualisiert wurden."
+        },
+        "UPLOAD_REQUEST_UNAVAILABLE_SPACE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UNAVAILABLE_SPACE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Aussteller einer Upload-Anfrage gesendet, wenn ein Empfänger einen Upload nicht abschließen konnte, weil im persönlichen Bereich des Ausstellers nicht genügend Speicherplatz vorhanden ist."
+        },
+        "UPLOAD_REQUEST_UPLOADED_FILE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPLOADED_FILE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an einen internen Benutzer oder Gast gesendet, wenn ein externer Benutzer eine Datei in eine Upload-Anfrage hochlädt."
+        },
+        "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Aussteller oder Empfänger einer Upload-Anfrage vor deren Ablauf gesendet."
+        },
+        "UPLOAD_REQUEST_WARN_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an den Aussteller oder Empfänger einer Upload-Anfrage gesendet, wenn diese abläuft."
+        },
+        "WORKGROUP_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an ein neues Mitglied der Arbeitsgruppe gesendet."
+        },
+        "WORKGROUP_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an ein Mitglied der Arbeitsgruppe gesendet, wenn seine Rechte aktualisiert wurden."
+        },
+        "WORKGROUP_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an Mitglieder gesendet, die aus der Arbeitsgruppe entfernt wurden."
+        },
+        "WORKGROUP_WARN_DELETED_WORKGROUP": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_WORKGROUP",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn eine Arbeitsgruppe gelöscht wird"
+        },
+        "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn der Arbeitsgruppe ein Dokument hinzugefügt wurde"
+        },
+        "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn ein Dokument der Arbeitsgruppe aktualisiert wurde"
+        },
+        "WORKGROUP_COM_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an ein Mitglied einer Arbeitsgruppe gesendet, wenn es aus der Arbeitsgruppe entfernt wurde."
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an einen Benutzer gesendet, wenn ein Administrator ein permanentes Zugriffstoken (JWT) für sein Konto erstellt."
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an einen Benutzer gesendet, wenn ein Administrator ein permanentes Zugriffstoken (JWT) seines Kontos löscht."
+        },
+        "DRIVE_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn ein Mitglied eines DRIVE gelöscht wird."
+        },
+        "DRIVE_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn dem DRIVE ein neues Mitglied hinzugefügt wird."
+        },
+        "DRIVE_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an ein Mitglied eines DRIVE gesendet, wenn seine Rechte aktualisiert wurden."
+        },
+        "WORK_SPACE_WARN_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn ein Arbeitsbereich gelöscht wird"
+        },
+        "WORK_SPACE_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn ein Mitglied eines Arbeitsbereichs gelöscht wird."
+        },
+        "WORK_SPACE_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird gesendet, wenn dem Arbeitsbereich ein neues Mitglied hinzugefügt wird."
+        },
+        "WORK_SPACE_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Diese Benachrichtigung wird an ein Mitglied eines Arbeitsbereichs gesendet, wenn seine Rechte aktualisiert wurden."
+        }
+      },
+      "PARAMETERS": {
+        "BOOLEAN_false": "Diese Benachrichtigung ist deaktiviert.",
+        "BOOLEAN_true": "Diese Benachrichtigung wurde aktiviert."
+      }
+    }
+  },
+  "LANGUAGE": {
+    "SELECT_YOUR_LANGUAGE": "Wählen Sie Ihre Sprache"
+  },
+  "PROFILE": {
+    "SETTING": "Einstellungen"
+  },
+  "DOMAIN_POLICY": {
+    "EDITABLE": "Bearbeitbar",
+    "READ_ONLY": "Schreibgeschützt",
+    "POSITION": "Position",
+    "DOMAIN": "Domain",
+    "TYPE": "Typ",
+    "ACTIONS": "Aktionen",
+    "RULES_LIST": "Regelliste",
+    "SEARCH_BY": "Nach Name oder Beschreibung suchen",
+    "ALL_DOMAIN": "Alle Domains",
+    "EDIT_FORM": {
+      "UPDATE_SUCCESS": "Erfolgreich aktualisiert"
+    },
+    "CREATE_MODAL": {
+      "CREATE_MODAL_TITLE": "Domain-Richtlinie erstellen",
+      "DETAIL_TAB": "Details",
+      "RULES_TAB": "Regeln",
+      "NAME": "Name",
+      "DESCRIPTION": "Beschreibung",
+      "PLACEHOLDER_NAME": "Name der Domain-Richtlinie",
+      "TYPE": "Typ",
+      "SELECT_DOMAIN": "Domain auswählen",
+      "ADD": "Hinzufügen",
+      "ALLOW": "Erlauben",
+      "ALLOW_ALL": "Alle erlauben",
+      "DENY": "Verweigern",
+      "DENY_ALL": "Alle verweigern",
+      "POLICY_LIST": "Richtlinienliste",
+      "CREATE_SUCCESS": "Erfolgreich erstellt",
+      "DUPLICATE_SUCCESS": "Erfolgreich dupliziert"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_TITLE": "Domain-Richtlinie löschen",
+      "DELETE_MODAL_SUBTITLE": "Sie sind dabei, diese Domain-Richtlinie zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+      "DELETE_SUCCESS": "Erfolgreich gelöscht",
+      "DELETE_SELECTED_DOMAIN_POLICIES": "Ausgewählte Domain-Richtlinien löschen",
+      "DELETE_SELECTED_DOMAIN_POLICIES_SUBTITLE": "Sie sind dabei, {qty} Domain-Richtlinien zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+      "DELETE_ACTION_CANCEL": "Abbrechen",
+      "DELETE_ACTION_CONFIRM": "Ja, löschen",
+      "DELETE_FAILURE": "Löschen fehlgeschlagen",
+      "DELETE_ERROR_ASSIGNED": "Die ausgewählte Domain-Richtlinie ist mindestens einer Domain zugeordnet. Sie kann nicht gelöscht werden",
+      "DELETE_ERROR_ASSIGNED_ALL": "Sie können diese Domain-Richtlinien nicht löschen",
+      "DELETE_ERROR_ASSIGNED_SOME": "Einige Domain-Richtlinien wurden erfolgreich gelöscht, andere jedoch nicht, da sie bereits mindestens einer Domain zugewiesen sind"
+    },
+    "ASSIGN_MODAL": {
+      "TITLE": "Eine Domain-Richtlinie zuweisen",
+      "ASSIGN_CONFIRM": "Sie sind dabei, diese Domain-Richtlinie der aktuellen Domain zuzuweisen. Möchten Sie fortfahren?",
+      "ASSIGN_SUCCESS": "Erfolgreich zugewiesen"
+    }
+  },
+  "ADMINISTRATION": {
+    "INTRODUCTION": "Sie verwenden die kostenlose Open-Source-Version von LinShare",
+    "NAVIGATOR": {
+      "MY_USERS": "Meine Benutzer",
+      "MY_USERS_SUBTITLE": "Benutzerliste anzeigen",
+      "TECHNICAL_ACCOUNTS": "Technische Konten",
+      "TECHNICAL_ACCOUNTS_SUBTITLE": "Liste der technischen Konten anzeigen",
+      "MY_DRIVE": "Mein Drive",
+      "MY_DRIVE_SUBTITLE": "Verwalten Sie Ihr Drive und Ihre Arbeitsgruppen",
+      "MY_CONTACT_LIST": "Meine Kontaktlisten",
+      "MY_CONTACT_LIST_SUBTITLE": "Alle Kontakte anzeigen",
+      "INCONSISTENT_USERS": "Inkonsistente Benutzer",
+      "DIAGNOSIC": "Benutzerdiagnose",
+      "INCONSISTENT_USERS_SUBTITLE": "Serverliste anzeigen",
+      "LOGGERS": "Protokollierung",
+      "LOGGERS_SUBTITLE": "Kann von jeder Domain verwendet werden"
+    }
+  },
+  "CONTACT_LIST": {
+    "NOTE": "In dieser Ansicht können Sie die Kontaktlisten verwalten (über eine Verteilerliste kann eine E-Mail an alle darin eingetragenen Benutzer gesendet werden). Wenn Sie auf eine Liste klicken, können Sie die Benutzer verwalten und ihre Informationen bearbeiten (Beschreibung, Liste sichtbar oder ausgeblendet machen, Benutzer löschen oder hinzufügen usw.).",
+    "CONTACT_LIST": "Kontaktliste",
+    "EMAIL": "E-Mail",
+    "FIRST_NAME": "Vorname",
+    "LAST_NAME": "Nachname",
+    "ADD_CONTACT": "Kontakt hinzufügen",
+    "CREATE_CONTACT": "Kontakt erstellen",
+    "ADD_CONTACT_SUCCESS": "Kontakt erfolgreich hinzugefügt",
+    "DELETE_CONTACT": "Kontakt löschen",
+    "DELETE_MAIL_DESCRIPTION": "Sie sind dabei, <span style='color: #007AFF'>{mail}</span> zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie fortfahren?",
+    "YES_DELETE": "Ja, löschen",
+    "ACTIONS": "Aktionen",
+    "NAME": "Listenname",
+    "DESCRIPTION": "Beschreibung",
+    "OWNER": "Eigentümer",
+    "VISIBILITY": "Sichtbarkeitseinstellung",
+    "SETTING": "Einstellungen",
+    "SEARCH_BY": "Nach Name oder E-Mail suchen",
+    "DELETE_CONTACT_MODAL": {
+      "DELETE_MODAL_TITLE": "E-Mail-Kontakt löschen",
+      "DELETE_MODAL_SUBTITLE": "Sie sind dabei, diesen E-Mail-Kontakt zu löschen. Möchten Sie fortfahren?",
+      "DELETE_SUCCESS": "Erfolgreich gelöscht"
+    },
+    "MEMBER": "Mitglied",
+    "OWNER_FILTER": "Eigentümer (der Kontaktliste)"
+  },
+  "TECHNICAL_ACCOUNTS": {
+    "PAGE_TITLE": "Alle Konten",
+    "ACCOUNT": "Konto",
+    "MAIL": "E-Mail",
+    "ROLE": "Rolle",
+    "STATUS": "Status",
+    "CREATION_DATE": "Erstellungsdatum",
+    "MODIFICATION_DATE": "Änderungsdatum",
+    "LOCKED": "Sperrstatus",
+    "ENABLE": "Aktivieren",
+    "DISABLE": "Deaktivieren",
+    "TECHNICAL_ACCOUNTS_HELPER": "In dieser Ansicht können Sie neue Konten mit bestimmten Delegierungsrechten erstellen. Details der Berechtigungen:",
+    "TECHNICAL_ACCOUNTS_HELPER_DELEGATION": "'Delegierung': ermöglicht Vorgänge im Namen anderer Benutzer über die Delegierungs-API. Dazu müssen Sie die Berechtigungen (Rechte) auswählen, die Sie diesem Konto gewähren. Standardmäßig werden keine Berechtigungen gewährt. Weitere Hinweise finden Sie hier:",
+    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Upload-Vorschlag': Der Upload-Vorschlag ist ein externes Modul. Er benötigt daher ein spezielles Konto, um auf LinShare zuzugreifen und seine Konfiguration abzurufen",
+    "CREATE_MODAL": {
+      "TITLE": "Erstellung eines technischen Kontos",
+      "NAME": "Name",
+      "MAIL": "E-Mail",
+      "STATUS": "Status",
+      "ROLE": "Rolle",
+      "NEW_PASSWORD": "Neues Passwort",
+      "NEW_PASSWORD_CONFIRM": "Neues Passwort bestätigen",
+      "DELEGATION": "Delegierung",
+      "UPLOAD_PROPOSITION": "Upload-Vorschlag",
+      "PASSWORD_REQUIREMENT": "Das Passwort muss mindestens 12 Zeichen lang sein und Großbuchstaben, Ziffern und Sonderzeichen enthalten"
+    },
+    "DETAIL_PAGE": {
+      "USER_INFORMATIONS_TITLE": "Benutzerinformationen und Berechtigungen",
+      "CHANGE_PASSWORD": "Passwort ändern",
+      "USER_INFORMATIONS_SUB_TITLE": "Allgemeine Informationen",
+      "PERMISSION_TITLE": "Berechtigungen",
+      "USER_NAME": "Benutzername",
+      "EMAIL": "E-Mail",
+      "STATUS": "Kontostatus",
+      "UNLOCK": "Entsperren",
+      "LOCKED": "Gesperrt",
+      "LOCKED_TITLE": "Dieser Benutzer ist aufgrund zahlreicher fehlgeschlagener Anmeldeversuche gesperrt",
+      "IDENTIFIER": "Kennung (Anmeldename)",
+      "EMAIL_VALIDATION": "Die E-Mail-Adresse ist ungültig",
+      "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {
+        "ANONYMOUS_SHARE_ENTRIES_CREATE": "Anonyme URL erstellen",
+        "ANONYMOUS_SHARE_ENTRIES_DELETE": "Anonyme URL löschen",
+        "ANONYMOUS_SHARE_ENTRIES_DOWNLOAD": "Anonyme URL herunterladen",
+        "ANONYMOUS_SHARE_ENTRIES_GET": "Anonyme URL abrufen",
+        "ANONYMOUS_SHARE_ENTRIES_LIST": "Anonyme URLs auflisten",
+        "ANONYMOUS_SHARE_ENTRIES_UPDATE": "Anonyme URL aktualisieren",
+        "ASYNC_TASK_CREATE": "Asynchrone Aufgabe erstellen",
+        "ASYNC_TASK_DELETE": "Asynchrone Aufgabe löschen",
+        "ASYNC_TASK_GET": "Asynchrone Aufgabe suchen",
+        "ASYNC_TASK_UPDATE": "Asynchrone Aufgabe aktualisieren",
+        "ASYNC_TASK_LIST": "Alle asynchronen Aufgaben auflisten",
+        "AUDIT_LIST": "Audit auflisten",
+        "ANONYMOUS_SHARE_ENTRIES_DOWNLOAD_THUMBNAIL": "Miniaturansicht einer anonymen URL herunterladen",
+        "DOCUMENT_ENTRIES_CREATE": "Dokument erstellen",
+        "DOCUMENT_ENTRIES_UPDATE": "Dokument aktualisieren",
+        "DOCUMENT_ENTRIES_DELETE": "Dokument löschen",
+        "DOCUMENT_ENTRIES_GET": "Dokument abrufen",
+        "DOCUMENT_ENTRIES_LIST": "Dokumente auflisten",
+        "DOCUMENT_ENTRIES_DOWNLOAD": "Dokument herunterladen",
+        "DOCUMENT_ENTRIES_DOWNLOAD_THUMBNAIL": "Miniaturansicht des Dokuments herunterladen",
+        "SAFE_DETAIL_CREATE": "Tresor-Detail erstellen",
+        "SAFE_DETAIL_DELETE": "Tresor-Detail löschen",
+        "SAFE_DETAIL_GET": "Tresor-Detail abrufen",
+        "SAFE_DETAIL_LIST": "Alle Tresor-Details auflisten",
+        "SHARE_ENTRIES_CREATE": "Freigabe erstellen",
+        "SHARE_ENTRIES_DELETE": "Freigabe löschen",
+        "SHARE_ENTRIES_DOWNLOAD": "Freigabe herunterladen",
+        "SHARE_ENTRIES_DOWNLOAD_THUMBNAIL": "Miniaturansicht einer Freigabe herunterladen",
+        "SHARE_ENTRIES_GET": "Freigabe abrufen",
+        "SHARE_ENTRIES_LIST": "Freigaben auflisten",
+        "SHARE_ENTRIES_UPDATE": "Freigabe aktualisieren",
+        "THREAD_ENTRIES_CREATE": "Arbeitsgruppeneintrag erstellen",
+        "THREAD_ENTRIES_DELETE": "Arbeitsgruppeneintrag löschen",
+        "THREAD_ENTRIES_DOWNLOAD": "Arbeitsgruppeneintrag herunterladen",
+        "THREAD_ENTRIES_DOWNLOAD_THUMBNAIL": "Miniaturansicht eines Arbeitsgruppeneintrags herunterladen",
+        "THREAD_ENTRIES_GET": "Arbeitsgruppeneintrag abrufen",
+        "THREAD_ENTRIES_LIST": "Arbeitsgruppeneinträge auflisten",
+        "THREAD_ENTRIES_UPDATE": "Arbeitsgruppeneintrag aktualisieren",
+        "THREAD_MEMBERS_CREATE": "Arbeitsgruppenmitglied erstellen",
+        "THREAD_MEMBERS_DELETE": "Arbeitsgruppenmitglied löschen",
+        "THREAD_MEMBERS_GET": "Arbeitsgruppenmitglied abrufen",
+        "THREAD_MEMBERS_LIST": "Arbeitsgruppenmitglieder auflisten",
+        "THREAD_MEMBERS_UPDATE": "Arbeitsgruppenmitglied aktualisieren",
+        "GUESTS_LIST": "Gäste auflisten",
+        "GUESTS_GET": "Gast abrufen",
+        "GUESTS_CREATE": "Gast erstellen",
+        "GUESTS_UPDATE": "Gast aktualisieren",
+        "GUESTS_DELETE": "Gast löschen",
+        "DOCUMENTS_LIST": "Dokumente auflisten",
+        "DOCUMENTS_GET": "Dokument abrufen",
+        "DOCUMENTS_CREATE": "Dokument erstellen",
+        "DOCUMENTS_UPDATE": "Dokument aktualisieren",
+        "DOCUMENTS_DELETE": "Dokument löschen",
+        "SHARES_LIST": "Freigaben auflisten",
+        "SHARES_GET": "Freigabe abrufen",
+        "SHARES_CREATE": "Freigabe erstellen",
+        "SHARES_UPDATE": "Freigabe aktualisieren",
+        "SHARES_DELETE": "Freigabe löschen",
+        "RECEIVED_SHARES_LIST": "Empfangene Freigaben auflisten",
+        "RECEIVED_SHARES_GET": "Empfangene Freigabe abrufen",
+        "RECEIVED_SHARES_CREATE": "Empfangene Freigabe erstellen",
+        "RECEIVED_SHARES_UPDATE": "Empfangene Freigabe aktualisieren",
+        "RECEIVED_SHARES_DELETE": "Empfangene Freigabe löschen",
+        "THREADS_LIST": "Arbeitsgruppen auflisten",
+        "THREADS_GET": "Arbeitsgruppe abrufen",
+        "THREADS_CREATE": "Arbeitsgruppe erstellen",
+        "THREADS_UPDATE": "Arbeitsgruppe aktualisieren",
+        "THREADS_DELETE": "Arbeitsgruppe löschen",
+        "THREADS_MEMBER_LIST": "Arbeitsgruppenmitglieder auflisten",
+        "THREADS_MEMBER_GET": "Arbeitsgruppenmitglied abrufen",
+        "THREADS_MEMBER_CREATE": "Arbeitsgruppenmitglied erstellen",
+        "THREADS_MEMBER_UPDATE": "Arbeitsgruppenmitglied aktualisieren",
+        "THREADS_MEMBER_DELETE": "Arbeitsgruppenmitglied löschen",
+        "LISTS_LIST": "Verteilerlisten auflisten",
+        "LISTS_GET": "Verteilerliste abrufen",
+        "LISTS_CREATE": "Verteilerliste erstellen",
+        "LISTS_UPDATE": "Verteilerliste aktualisieren",
+        "LISTS_DELETE": "Verteilerliste löschen",
+        "DRIVE_CREATE": "Drive erstellen",
+        "DRIVE_DELETE": "Drive löschen",
+        "DRIVE_UPDATE": "Drive aktualisieren",
+        "DRIVE_LIST": "Drives auflisten",
+        "DRIVE_GET": "Drive abrufen",
+        "QUOTA_CREATE": "Speicherkontingent hinzufügen",
+        "QUOTA_GET": "Speicherkontingent abrufen",
+        "QUOTA_LIST": "Alle Speicherkontingente auflisten",
+        "QUOTA_UPDATE": "Speicherkontingent aktualisieren",
+        "SHARE_ENTRY_GROUPS_DELETE": "Freigabegruppen löschen",
+        "SHARE_ENTRY_GROUPS_GET": "Eine Freigabegruppe abrufen",
+        "SHARE_ENTRY_GROUPS_UPDATE": "Freigabegruppen aktualisieren",
+        "SHARE_ENTRY_GROUPS_LIST": "Freigabegruppen auflisten",
+        "SHARED_SPACE_NODE_CREATE": "Knoten eines gemeinsamen Bereichs erstellen",
+        "SHARED_SPACE_NODE_DELETE": "Knoten eines gemeinsamen Bereichs löschen",
+        "SHARED_SPACE_NODE_LIST": "Knoten gemeinsamer Bereiche auflisten",
+        "SHARED_SPACE_NODE_GET": "Knoten eines gemeinsamen Bereichs abrufen",
+        "SHARED_SPACE_NODE_UPDATE": "Knoten eines gemeinsamen Bereichs aktualisieren",
+        "SHARED_SPACE_PERMISSION_CREATE": "Berechtigungen eines gemeinsamen Bereichs erstellen",
+        "SHARED_SPACE_PERMISSION_DELETE": "Berechtigungen eines gemeinsamen Bereichs löschen",
+        "SHARED_SPACE_PERMISSION_LIST": "Berechtigungen gemeinsamer Bereiche auflisten",
+        "SHARED_SPACE_PERMISSION_GET": "Berechtigungen eines gemeinsamen Bereichs abrufen",
+        "SHARED_SPACE_PERMISSION_UPDATE": "Berechtigungen eines gemeinsamen Knotens aktualisieren",
+        "SHARED_SPACE_ROLE_CREATE": "Rolle eines gemeinsamen Bereichs erstellen",
+        "SHARED_SPACE_ROLE_DELETE": "Rolle eines gemeinsamen Bereichs löschen",
+        "SHARED_SPACE_ROLE_LIST": "Rollen gemeinsamer Bereiche auflisten",
+        "SHARED_SPACE_ROLE_GET": "Rolle eines gemeinsamen Bereichs abrufen",
+        "SHARED_SPACE_ROLE_UPDATE": "Rolle eines gemeinsamen Bereichs aktualisieren",
+        "STATISTIC_GET": "Statistiken abrufen",
+        "STATISTIC_LIST": "Statistiken aktualisieren",
+        "UPLOAD_PROPOSITION_CREATE": "Upload-Vorschlag erstellen",
+        "UPLOAD_PROPOSITION_DELETE": "Upload-Vorschlag löschen",
+        "UPLOAD_PROPOSITION_GET": "Upload-Vorschlag abrufen",
+        "UPLOAD_PROPOSITION_LIST": "Upload-Vorschläge auflisten",
+        "UPLOAD_PROPOSITION_UPDATE": "Upload-Vorschlag aktualisieren",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_CREATE": "Ausnahmeregel für Upload-Vorschläge erstellen",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_DELETE": "Ausnahmeregel für Upload-Vorschläge löschen",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_GET": "Ausnahmeregel für Upload-Vorschläge abrufen",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_UPDATE": "Ausnahmeregel für Upload-Vorschläge aktualisieren",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_LIST": "Ausnahmeregeln für Upload-Vorschläge auflisten",
+        "UPLOAD_REQUEST_CREATE": "Upload-Anfrage erstellen",
+        "UPLOAD_REQUEST_DELETE": "Upload-Anfrage löschen",
+        "UPLOAD_REQUEST_GET": "Upload-Anfrage abrufen",
+        "UPLOAD_REQUEST_LIST": "Upload-Anfragen auflisten",
+        "UPLOAD_REQUEST_UPDATE": "Upload-Anfrage aktualisieren",
+        "UPLOAD_REQUEST_ENTRIES_CREATE": "Einträge von Upload-Anfragen erstellen",
+        "UPLOAD_REQUEST_ENTRIES_DELETE": "Einträge von Upload-Anfragen löschen",
+        "UPLOAD_REQUEST_ENTRIES_GET": "Einträge von Upload-Anfragen abrufen",
+        "UPLOAD_REQUEST_ENTRIES_LIST": "Einträge von Upload-Anfragen auflisten",
+        "UPLOAD_REQUEST_ENTRIES_UPDATE": "Einträge von Upload-Anfragen aktualisieren",
+        "UPLOAD_REQUEST_ENTRIES_DOWNLOAD": "Einträge von Upload-Anfragen herunterladen",
+        "UPLOAD_REQUEST_ENTRIES_DOWNLOAD_THUMBNAIL": "Miniaturansichten von Einträgen von Upload-Anfragen herunterladen",
+        "UPLOAD_REQUEST_URL_CREATE": "URL einer Upload-Anfrage erstellen",
+        "UPLOAD_REQUEST_URL_DELETE": "URL einer Upload-Anfrage löschen",
+        "UPLOAD_REQUEST_URL_GET": "URL einer Upload-Anfrage abrufen",
+        "UPLOAD_REQUEST_URL_UPDATE": "URL einer Upload-Anfrage aktualisieren",
+        "UPLOAD_REQUEST_URL_LIST": "URLs von Upload-Anfragen auflisten",
+        "UPLOAD_REQUEST_TEMPLATE_CREATE": "Vorlage für Upload-Anfragen erstellen",
+        "UPLOAD_REQUEST_TEMPLATE_DELETE": "Vorlage für Upload-Anfragen löschen",
+        "UPLOAD_REQUEST_TEMPLATE_GET": "Vorlage für Upload-Anfragen abrufen",
+        "UPLOAD_REQUEST_TEMPLATE_LIST": "Vorlagen für Upload-Anfragen auflisten",
+        "UPLOAD_REQUEST_TEMPLATE_UPDATE": "Vorlage für Upload-Anfragen aktualisieren",
+        "GUESTS_MODERATOR_CREATE": "Gastmoderator erstellen",
+        "GUESTS_MODERATOR_DELETE": "Gastmoderator löschen",
+        "GUESTS_MODERATOR_GET": "Gastmoderator abrufen",
+        "GUESTS_MODERATOR_LIST": "Gastmoderatoren auflisten",
+        "GUESTS_MODERATOR_UPDATE": "Gastmoderator aktualisieren"
+      }
+    },
+    "DELETE_MODAL": {
+      "DELETE_ACCOUNT": "Konto löschen",
+      "DELETE_MODAL_TITLE": "Konto löschen",
+      "DELETE_MODAL_SUBTITLE": "Sie sind dabei, dieses technische Konto endgültig zu löschen. Dieser Vorgang ist unwiderruflich. Möchten Sie trotzdem fortfahren?",
+      "DELETE_ACTION_CONFIRM": "Ja, löschen",
+      "DELETE_SUCCESS": "Konto erfolgreich gelöscht"
+    },
+    "PASSWORD_TAB": {
+      "PASSWORD": "Passwort",
+      "RECENT_PASSWORD": "Aktuelles Passwort",
+      "NEW_PASSWORD": "Neues Passwort",
+      "CONFIRM_PASSWORD": "Passwort bestätigen",
+      "PASSWORD_RULES": "Passwortregeln",
+      "FIRST_RULE": "Mindestens 12 Zeichen",
+      "SECOND_RULE": "Mindestens 1 Großbuchstabe",
+      "THIRD_RULE": "Mindestens 1 Kleinbuchstabe",
+      "FOURTH_RULE": "Mindestens 1 Sonderzeichen",
+      "SAVE_PASSWORD": "Passwort ändern"
+    }
+  },
+  "UPGRADE_TASK": {
+    "SEARCH": "Suchen",
+    "UTILITY": "Zweck",
+    "UTILITY_CONTENT": "Bei einem Upgrade von einer Nebenversion wie 2.1.x auf 2.2.x oder einer Hauptversion wie 1.x auf 2.0 kann es erforderlich sein, einige zusätzliche Aufgaben an den Daten auszuführen, um die Softwareaktualisierung abzuschließen. Denken Sie daran: Der Aktualisierungsprozess beginnt immer mit einer SQL-Migration (außer bei Bugfix-Versionen, z. B. 2.3.6).",
+    "PROCESS": "Ablauf",
+    "PROCESS_CONTENT": "Diese Aufgaben müssen der Reihe nach ausgeführt und erfolgreich abgeschlossen werden. Hinweis: Eine Aufgabe kann erfolgreich abgeschlossen werden, obwohl während ihrer Ausführung Fehler aufgetreten sind. In diesem Fall müssen Sie die in der Konsolenansicht angezeigten Ausführungsprotokolle prüfen. Ist ein Fehler aufgetreten, müssen Sie die Protokolle des Tomcat-Servers einsehen, um weitere Details zu erhalten, die Probleme beheben und die Aufgabe erneut starten, um fortzufahren.",
+    "CRITICALITY": "Kritikalität",
+    "CRITICALITY_CONTENT": "Alle Aufgaben müssen ausgeführt werden, um die Aktualisierung abzuschließen. Solange verpflichtende Aufgaben nicht erledigt sind, können die Benutzer das System nicht verwenden. Solange 'erforderliche' Aufgaben nicht erledigt sind, arbeitet das System in einem eingeschränkten Modus. Einige Funktionen oder Daten sind dann möglicherweise nicht verfügbar. Diese Aufgaben können ausgeführt werden, während das System genutzt wird.",
+    "UPGRADE_LIST": {
+      "IDENTIFIER": "Kennung",
+      "CRITICALITY": "Kritikalität"
+    },
+    "SUCCESS": "Erfolgreich",
+    "FAILED": "Fehlgeschlagen",
+    "REQUIRED": "Erforderlich",
+    "UN_REQUIRED": "Nicht erforderlich",
+    "RETRY_UPGRADES": "Upgrades erneut versuchen",
+    "SHOW_PREVIEW": "Vorherige Ausführung anzeigen",
+    "SHOW_CONSOLE": "Konsole anzeigen",
+    "STATUS": "Status",
+    "DURATION": "Dauer",
+    "UPGRADE_CONSOLE": {
+      "RELOAD": "Neu laden",
+      "HELPER_TEXT_P1": "Ausführungsprotokoll der Migrationsaufgabe.",
+      "HELPER_TEXT_P2": "Hier wird die Ausführung einer Migrationsaufgabe protokolliert. In der Konsolenansicht können Sie die Protokolle prüfen.",
+      "HELPER_TEXT_P3": "Achtung: Es handelt sich um vereinfachte Protokolle. Um bei Fehlern ausführliche Details zu erhalten, müssen Sie die Protokolle des Tomcat-Servers prüfen. Es empfiehlt sich, LinShare vor der Aktualisierung in den Debug-Modus zu versetzen.",
+      "SWITCH_TITLE": "Nach Protokollebene filtern:",
+      "WARNING": "Warnung",
+      "INFO": "Informationen",
+      "ERROR": "Fehler",
+      "DEBUG": "Debug"
+    },
+    "RETRY_MODAL": {
+      "TITLE": "Erneute Ausführung der Aufgabe erzwingen",
+      "DESCRIPTION": "Die ausgewählte Aufgabe wurde erfolgreich abgeschlossen. Möchten Sie sie erneut ausführen?",
+      "ACTION": "Erneute Ausführung erzwingen"
+    },
+    "DETAIL": {
+      "NOTE_TITLE": "Ausführungsverlauf der Aktualisierungsaufgaben.",
+      "NOTE_CONTENT": "Hier wird jede Ausführung einer Aufgabe protokolliert. In der Konsolenansicht können Sie die Protokolle jeder Ausführung prüfen. <br/> Achtung: Es handelt sich um vereinfachte Protokolle. Um bei Fehlern ausführliche Details zu erhalten, müssen Sie die Protokolle des Tomcat-Servers prüfen. Es empfiehlt sich, LinShare vor der Aktualisierung in den Debug-Modus zu versetzen."
+    }
+  }
+}
