@@ -5,6 +5,7 @@ export default interface AppConfiguration {
   appContext: string;
   hideLogout: boolean;
   oidcEnabled: boolean;
+  oidcForceRedirection: boolean;
   oidcSetting: {
     authority: string;
     client_id: string;

@@ -2,6 +2,9 @@ import { NavigationGuard, RouteRecordRaw } from 'vue-router';
 import { useAuthStore } from '@/modules/auth/store';
 import { useAuth2FAStore } from '@/modules/auth/store/auth2FAstore';
 import { ACCOUNT_ROLE } from '@/modules/user/types/User';
+import config from '@/config';
+import { signinRedirect } from '@/modules/auth/services/oidc';
+
 const checkCredentials: NavigationGuard = (to) => {
   const auth2FAStore = useAuth2FAStore();
   if (!auth2FAStore.email || !auth2FAStore.password) {
@@ -23,13 +26,21 @@ const checkIsSuperAdmin: NavigationGuard = (to) => {
   }
 };
 
+const checkOIDCForceRedirection: NavigationGuard = (to) => {
+  const oidcEnabled = config.oidcEnabled;
+  const oidcForceRedirection = config.oidcForceRedirection;
+  if (oidcEnabled && oidcForceRedirection) {
+    signinRedirect();
+  }
+};
+
 export const LoginRoutes: Array<RouteRecordRaw> = [
   {
     name: 'Login',
     path: '/login',
     props: true,
     component: () => import('../pages/login-page.vue'),
-    beforeEnter: [checkLoggedIn],
+    beforeEnter: [checkLoggedIn, checkOIDCForceRedirection],
   },
   {
     name: 'LoginUsingSecondFactorAuthentication',
