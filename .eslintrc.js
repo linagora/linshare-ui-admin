@@ -28,12 +28,7 @@ module.exports = {
       parserOptions: {
         parser: '@typescript-eslint/parser',
       },
-      extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:vue/vue3-recommended',
-        'prettier',
-      ],
+      extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:vue/recommended', 'prettier'],
       rules: {
         ...defaultRules,
         'no-undef': 'off',
