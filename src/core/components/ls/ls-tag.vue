@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import IconCloseCircle from '../icons/close-circle-icon.vue';
 defineEmits(['close']);
-withDefaults(defineProps<{ value: string; closable?: boolean }>(), {
+withDefaults(defineProps<{ value?: string; closable?: boolean }>(), {
   value: '',
   closable: false,
 });

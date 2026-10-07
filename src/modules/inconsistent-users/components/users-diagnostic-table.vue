@@ -97,7 +97,11 @@ const columns = computed(() => [
 
 function setUserDiagnosticInformations(record: UserDiagnostic) {
   getSelectedUserDiagnostic(record);
-  record.database ? (selectedRow.value = record) : (selectedRow.value = null);
+  if (record.database) {
+    selectedRow.value = record;
+  } else {
+    selectedRow.value = null;
+  }
 }
 
 activeUserDiagnostic.value = undefined;

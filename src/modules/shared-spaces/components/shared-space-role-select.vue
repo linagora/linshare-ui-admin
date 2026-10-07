@@ -7,7 +7,7 @@ import type SharedSpaceRole from '../types/SharedSpaceRole';
 import { UserOutlined, TeamOutlined } from '@ant-design/icons-vue';
 
 interface Props {
-  type: SHARED_SPACE_TYPE;
+  type?: SHARED_SPACE_TYPE;
   uuid?: string;
 }
 

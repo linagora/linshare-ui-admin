@@ -24,8 +24,8 @@ const currentDomainUuid = domainStore.currentDomain.uuid;
 const topMostDomain = domainStore.topMostDomain;
 
 interface Props {
-  disableChecker: (user: User) => boolean;
-  userDomain: string;
+  disableChecker?: (user: User) => boolean;
+  userDomain?: string;
 }
 
 const options = ref([] as ModeratorSelectOption[]);
@@ -34,6 +34,7 @@ const searching = ref(false);
 const emit = defineEmits(['select', 'deselect']);
 const props = withDefaults(defineProps<Props>(), {
   disableChecker: () => false,
+  userDomain: '',
 });
 
 async function searchUsers(search: string) {

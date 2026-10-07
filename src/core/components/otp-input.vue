@@ -97,9 +97,9 @@ export default defineComponent({
         const indexOfEmptyInput = characters.find((char) => !char.value);
 
         if (indexOfEmptyInput) {
-          elementArray[indexOfEmptyInput.index] && elementArray[indexOfEmptyInput.index].focus();
+          elementArray[indexOfEmptyInput.index]?.focus();
         } else {
-          elementArray[props.size - 1] && elementArray[props.size - 1].focus();
+          elementArray[props.size - 1]?.focus();
         }
       }, TIMEOUT_MILLISECONDS);
 

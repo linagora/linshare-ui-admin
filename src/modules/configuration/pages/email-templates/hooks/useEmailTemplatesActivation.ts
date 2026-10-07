@@ -75,7 +75,11 @@ export default function useEmailTemplatesActivation() {
   }
   function onCloseModal() {
     modal.visible = false;
-    pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
+    if (pagination.current === 1) {
+      pagination.current = 1;
+    } else {
+      pagination.current--;
+    }
   }
 
   function onCreateMailActivation(email: MailActivation) {

@@ -47,7 +47,7 @@ watchEffect(() => {
 
 <template>
   <div>
-    <a-collapse v-model:activeKey="collapsedKeys">
+    <a-collapse v-model:active-key="collapsedKeys">
       <a-collapse-panel
         v-if="data.activationPolicy && !data.activationPolicy.hidden"
         key="activation"

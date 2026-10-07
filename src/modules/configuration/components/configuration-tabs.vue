@@ -1,6 +1,6 @@
 <template>
   <div class="configuration-tabs">
-    <a-tabs v-model:activeKey="activeKey" class="tabs" @tab-click="onSelectTab">
+    <a-tabs v-model:active-key="activeKey" class="tabs" @tab-click="onSelectTab">
       <a-tab-pane
         v-for="configuration in configurationTabsArray"
         :key="configuration.name"

@@ -100,7 +100,7 @@
     </h5>
 
     <div class="message_collapse">
-      <a-collapse v-model:activeKey="collapsedKeys" @click="collapse()">
+      <a-collapse v-model:active-key="collapsedKeys" @click="collapse()">
         <a-collapse-panel v-for="key in Object.keys(formState.entries)" :key="key" :header="$t(`LOCALE.${key}`)">
           <template #extra>{{ flagMappings[key] || '🌍' }}</template>
           <span v-if="!mode.edit && data.uuid && !isDuplicating" v-html="formState.entries[key]"></span>

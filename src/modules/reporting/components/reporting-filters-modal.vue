@@ -8,7 +8,7 @@ import Domain from '@/modules/domain/types/Domain';
 import { ReportingCategory, useReportingStore } from '../store';
 import { getDatesFromPeriod, getPeriodFromDate } from '@/core/utils/date';
 
-withDefaults(defineProps<{ visible: boolean }>(), { visible: false });
+withDefaults(defineProps<{ visible?: boolean }>(), { visible: false });
 
 const emits = defineEmits(['close']);
 const { domains, category, beginDate, endDate } = storeToRefs(useReportingStore());

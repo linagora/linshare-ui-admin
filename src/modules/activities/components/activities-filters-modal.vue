@@ -27,7 +27,7 @@ import { useAuthStore } from '@/modules/auth/store';
 
 // props & emits
 const emits = defineEmits(['close']);
-withDefaults(defineProps<{ visible: boolean }>(), { visible: false });
+withDefaults(defineProps<{ visible?: boolean }>(), { visible: false });
 
 // composables
 const { t } = useI18n();

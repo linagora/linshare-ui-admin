@@ -1,6 +1,6 @@
 <template>
   <div class="inconsistent-users-tabs">
-    <a-tabs v-model:activeKey="activeKey" @tab-click="onSelectInconsistentUsersTab">
+    <a-tabs v-model:active-key="activeKey" @tab-click="onSelectInconsistentUsersTab">
       <a-tab-pane v-for="tab in Object.values(tabs)" :key="tab.key" :tab="$t(tab.name)"></a-tab-pane>
     </a-tabs>
   </div>

@@ -47,7 +47,7 @@ const statistics = computed(() =>
       </a-button>
 
       <template #overlay>
-        <a-menu v-model:selectedKeys="sortField" selectable>
+        <a-menu v-model:selected-keys="sortField" selectable>
           <a-menu-item key="CREATE">{{ $t('REPORTING.GENERICS.ACTION.CREATE') }}</a-menu-item>
           <a-menu-item key="DELETE">{{ $t('REPORTING.GENERICS.ACTION.DELETE') }}</a-menu-item>
           <a-menu-item key="UPDATE">{{ $t('REPORTING.GENERICS.ACTION.UPDATE') }}</a-menu-item>

@@ -19,7 +19,7 @@ import { UserOutlined } from '@ant-design/icons-vue';
 import User from '@/modules/user/types/User';
 
 interface Props {
-  disableChecker: (user: User) => boolean;
+  disableChecker?: (user: User) => boolean;
 }
 
 const options = ref([] as UserSelectOption[]);

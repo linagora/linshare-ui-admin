@@ -68,7 +68,7 @@ function goToDefaultDomain() {
         <span class="avatar">{{ firstFullNameCharacter }}</span>
       </div>
       <div class="the-mobile-menu__body">
-        <a-menu v-model:selectedKeys="current" class="navigation-menu">
+        <a-menu v-model:selected-keys="current" class="navigation-menu">
           <a-menu-item key="configuration" @click="goToDefaultDomain()">
             <a name="configuration" class="link">
               <switch-icon class="icon"></switch-icon>

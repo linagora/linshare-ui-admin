@@ -34,7 +34,7 @@ function goToDefaultDomain() {
 </script>
 
 <template>
-  <a-menu v-model:selectedKeys="current" mode="horizontal" class="navigation-menu">
+  <a-menu v-model:selected-keys="current" mode="horizontal" class="navigation-menu">
     <a-menu-item key="configuration" @click="goToDefaultDomain()">
       <a name="configuration">
         {{ $t('NAVIGATOR.CONFIGURATION') }}

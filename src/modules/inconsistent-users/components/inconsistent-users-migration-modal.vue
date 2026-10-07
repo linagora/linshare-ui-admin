@@ -43,7 +43,7 @@ import useUsersDiagnostic from '@/modules/inconsistent-users/hooks/useUsersDiagn
 import useInconsistentUsers from '@/modules/inconsistent-users/hooks/useInconsistentUsers';
 
 interface Props {
-  visible: boolean;
+  visible?: boolean;
   selectedUsers: InconsistentUsers[];
 }
 

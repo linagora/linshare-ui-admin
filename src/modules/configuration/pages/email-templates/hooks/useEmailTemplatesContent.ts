@@ -365,7 +365,11 @@ export default function useEmailTemplatesContent() {
       return false;
     } finally {
       loading.value = false;
-      pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
+      if (pagination.current === 1) {
+        pagination.current = 1;
+      } else {
+        pagination.current--;
+      }
     }
   }
 

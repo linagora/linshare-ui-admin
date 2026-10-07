@@ -1,6 +1,6 @@
 <template>
   <a-tabs
-    v-model:activeKey="activeKey"
+    v-model:active-key="activeKey"
     class="email-templates-vertical-tabs"
     tab-position="left"
     @change="onSelectTemplateTab"

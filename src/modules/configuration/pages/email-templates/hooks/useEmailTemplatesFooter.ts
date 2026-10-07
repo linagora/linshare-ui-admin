@@ -80,7 +80,11 @@ export default function useEmailTemplatesFooter() {
   }
   function onCloseModal() {
     modal.visible = false;
-    pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
+    if (pagination.current === 1) {
+      pagination.current = 1;
+    } else {
+      pagination.current--;
+    }
   }
 
   function onCreateMailFooter(email: MailFooter) {

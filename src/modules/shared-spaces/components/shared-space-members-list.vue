@@ -137,7 +137,7 @@ watch(
   () => props.sharedSpace,
   (newValue: SharedSpace, oldValue: SharedSpace) => {
     if (newValue !== oldValue) {
-      handleTableChange;
+      handleTableChange();
     }
   }
 );

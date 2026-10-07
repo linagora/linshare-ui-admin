@@ -8,7 +8,7 @@ import SecurityIcon from '@/core/components/icons/security-icon.vue';
 import TextIcon from '@/core/components/icons/text-icon.vue';
 import FileIcon from '@/core/components/icons/file-icon.vue';
 
-defineProps<{ type: string }>();
+withDefaults(defineProps<{ type?: string }>(), { type: '' });
 </script>
 
 <template>

@@ -129,28 +129,30 @@ function refresh() {
 }
 
 function MigrationModalLogic() {
-  showMigrationModal.value === false
-    ? ((showMigrationModal.value = true),
-      (userToMigrate.value = [
-        {
-          uuid: selectedUser.value.uuid,
-          creationDate: selectedUser.value.creationDate,
-          modificationDate: selectedUser.value.modificationDate,
-          locale: selectedUser.value.locale,
-          externalMailLocale: selectedUser.value.externalMailLocale,
-          domain: selectedUser.value.domain,
-          domainName: selectedUser.value.domainName,
-          firstName: selectedUser.value.firstName,
-          lastName: selectedUser.value.lastName,
-          mail: selectedUser.value.mail,
-          role: selectedUser.value.role,
-          canUpload: selectedUser.value.canUpload,
-          canCreateGuest: selectedUser.value.canCreateGuest,
-          accountType: selectedUser.value.accountType,
-        },
-      ]))
-    : (showMigrationModal.value = false),
-    refresh();
+  if (showMigrationModal.value === false) {
+    showMigrationModal.value = true;
+    userToMigrate.value = [
+      {
+        uuid: selectedUser.value.uuid,
+        creationDate: selectedUser.value.creationDate,
+        modificationDate: selectedUser.value.modificationDate,
+        locale: selectedUser.value.locale,
+        externalMailLocale: selectedUser.value.externalMailLocale,
+        domain: selectedUser.value.domain,
+        domainName: selectedUser.value.domainName,
+        firstName: selectedUser.value.firstName,
+        lastName: selectedUser.value.lastName,
+        mail: selectedUser.value.mail,
+        role: selectedUser.value.role,
+        canUpload: selectedUser.value.canUpload,
+        canCreateGuest: selectedUser.value.canCreateGuest,
+        accountType: selectedUser.value.accountType,
+      },
+    ];
+  } else {
+    showMigrationModal.value = false;
+  }
+  refresh();
 }
 
 function confirmDelete(user: InconsistentUsers) {

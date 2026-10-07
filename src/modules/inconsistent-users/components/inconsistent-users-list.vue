@@ -170,7 +170,11 @@ async function multipleUserDeletion() {
       );
       selectedUsers.userKey = [];
       selectedUsers.users = [];
-      pagination.current === 1 ? (pagination.current = 1) : pagination.current--;
+      if (pagination.current === 1) {
+        pagination.current = 1;
+      } else {
+        pagination.current--;
+      }
       fetchInconsistentUsersList();
 
       return true;

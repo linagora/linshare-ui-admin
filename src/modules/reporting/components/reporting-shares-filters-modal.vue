@@ -85,7 +85,7 @@ import Domain from '@/modules/domain/types/Domain';
 import { useReportingSharesStore } from '../store';
 import { getDatesFromPeriod, getPeriodFromDate } from '@/core/utils/date';
 
-withDefaults(defineProps<{ visible: boolean }>(), { visible: false });
+withDefaults(defineProps<{ visible?: boolean }>(), { visible: false });
 
 const emits = defineEmits(['close']);
 const { domains, top, beginDate, endDate } = storeToRefs(useReportingSharesStore());

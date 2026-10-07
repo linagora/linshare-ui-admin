@@ -73,7 +73,7 @@ import { LDAPRemoteServer } from '../types/RemoteServer';
 import { createRemoteServer, updateRemoteServer } from '../services/remote-server-api';
 
 interface Props {
-  visible: boolean;
+  visible?: boolean;
   data: LDAPRemoteServer;
 }
 

@@ -84,7 +84,7 @@ async function logOut() {
             {{ loggedUser?.mail }}
           </div>
         </div>
-        <a-menu v-model:selectedKeys="current" class="navigation-menu">
+        <a-menu v-model:selected-keys="current" class="navigation-menu">
           <a-menu-item key="language" class="navigation-menu__item" @click="onToggleLanguage()">
             <a name="language" class="link">
               <globe-icon class="icon"></globe-icon>

@@ -59,7 +59,7 @@ const isSuperAdmin = computed(() => {
       <a-dropdown :trigger="['click']">
         <user-profile-icon></user-profile-icon>
         <template #overlay>
-          <a-menu v-model:selectedKeys="current" class="profile-menu">
+          <a-menu v-model:selected-keys="current" class="profile-menu">
             <a-menu-item class="profile-info-ctn">
               <div class="profile-name">
                 {{ loggedUserFullName }}
