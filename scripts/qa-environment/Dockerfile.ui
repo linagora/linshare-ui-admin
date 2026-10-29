@@ -1,0 +1,16 @@
+# The UI of the working tree, served by the httpd of its published image (configuration,
+# rewrites, proxy to the backend on /linshare).
+ARG BASE_IMAGE=linagora/linshare-ui-admin:6.5
+# The version the Maven build (pom.xml) installs
+ARG NODE_VERSION=24.22.1
+FROM node:${NODE_VERSION} AS build
+ARG INSTALL_CMD
+ARG BUILD_CMD
+WORKDIR /src
+COPY . .
+RUN sh -c "$INSTALL_CMD" && sh -c "$BUILD_CMD"
+
+FROM ${BASE_IMAGE}
+ARG UI
+RUN rm -rf /usr/local/apache2/htdocs/${UI}
+COPY --from=build /src/dist/ /usr/local/apache2/htdocs/${UI}/
