@@ -17,7 +17,12 @@
           {{ $t('EMAIL_TEMPLATES.EMAIL_CONTENT.EMAIL_CONTENT_DETAIL_PAGE.SUBJECT') }}: {{ mailContentPreview.subject }}
         </div>
         <div class="email-content-preview__body">
-          <div v-html="mailContentPreview.content"></div>
+          <iframe
+            :srcdoc="previewDocument"
+            sandbox=""
+            referrerpolicy="no-referrer"
+            :title="$t('EMAIL_TEMPLATES.EMAIL_CONTENT.PREVIEW')"
+          ></iframe>
         </div>
       </template>
     </div>
@@ -27,7 +32,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import useEmailTemplatesContent from '@/modules/configuration/pages/email-templates/hooks/useEmailTemplatesContent';
 import { MailConfiguration } from '@/modules/configuration/pages/email-templates/types/MailConfiguration';
 
@@ -45,6 +50,16 @@ let mailContentPreview = ref<{
   type?: string;
 }>({});
 const loading = ref(false);
+const previewDocument = computed(
+  () => `<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'unsafe-inline'; font-src data:; base-uri 'none'; form-action 'none'; frame-src 'none'">
+  </head>
+  <body>${mailContentPreview.value.content ?? ''}</body>
+</html>`
+);
 
 async function onGetPreviewContent() {
   loading.value = true;
@@ -106,6 +121,12 @@ async function onGetPreviewLiveContent() {
   }
   &__body {
     width: 100%;
+    iframe {
+      display: block;
+      width: 100%;
+      height: 600px;
+      border: 0;
+    }
   }
   &__body-spin {
     display: flex;
