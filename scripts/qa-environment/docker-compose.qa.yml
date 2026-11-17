@@ -48,6 +48,9 @@ services:
       MONGODB_USER: linshare
       MONGODB_PASSWORD: linshare
       THUMBNAIL_ENABLE: "false"
+      # The JDK 11.0.16 of the image fails on cgroup v2 of recent kernels (NPE in CgroupV2Subsystem,
+      # Tomcat then fails to start): no container detection, the heap is set by -Xmx anyway
+      JAVA_OPTS: "-XX:-UseContainerSupport"
     healthcheck:
       test: ["CMD", "curl", "-s", "-f", "-o", "/dev/null", "http://localhost:8080/linshare/"]
       interval: 5s

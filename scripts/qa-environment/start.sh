@@ -28,9 +28,10 @@ compose up -d
 
 echo "==> Waiting for the backend"
 for i in $(seq 1 120); do
-  status="$(docker inspect -f '{{.State.Health.Status}}' "$(compose ps -q backend)" 2>/dev/null || true)"
+  status="$(docker inspect -f '{{.State.Health.Status}}' "$(compose ps -aq backend)" 2>/dev/null || true)"
   [ "$status" = healthy ] && break
-  if [ "$i" = 120 ]; then
+  state="$(docker inspect -f '{{.State.Status}}' "$(compose ps -aq backend)" 2>/dev/null || true)"
+  if [ "$i" = 120 ] || [ "$state" = exited ] || [ "$state" = dead ]; then  # a crashed backend fails at once
     echo "The backend is not healthy ($status)" >&2
     compose logs --tail 100 backend >&2
     exit 1
