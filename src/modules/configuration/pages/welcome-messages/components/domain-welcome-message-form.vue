@@ -103,7 +103,7 @@
       <a-collapse v-model:active-key="collapsedKeys" @click="collapse()">
         <a-collapse-panel v-for="key in Object.keys(formState.entries)" :key="key" :header="$t(`LOCALE.${key}`)">
           <template #extra>{{ flagMappings[key] || '🌍' }}</template>
-          <span v-if="!mode.edit && data.uuid && !isDuplicating" v-html="formState.entries[key]"></span>
+          <span v-if="!mode.edit && data.uuid && !isDuplicating" v-html="sanitizedEntries[key]"></span>
           <a-textarea v-else v-model:value="formState.entries[key]" :rows="10" />
         </a-collapse-panel>
       </a-collapse>
@@ -131,6 +131,7 @@ import { Form } from 'ant-design-vue';
 import { useRouter } from 'vue-router';
 import config from '@/config';
 import WelcomeMessage from '@/modules/configuration/pages/welcome-messages/types/WelcomeMessages';
+import sanitizeWelcomeMessage from '@/modules/configuration/pages/welcome-messages/sanitize-welcome-message';
 
 // composables
 const { t } = useI18n();
@@ -190,6 +191,11 @@ const formRules = reactive({
 });
 
 const { validate, validateInfos } = useForm(formState, formRules);
+const sanitizedEntries = computed(() =>
+  Object.fromEntries(
+    Object.entries(formState.entries).map(([language, content]) => [language, sanitizeWelcomeMessage(content)])
+  )
+);
 
 // methods
 function collapse() {

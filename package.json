@@ -57,6 +57,7 @@
     "axios": "0.34.0",
     "chart.js": "3.9.1",
     "dayjs": "^1.11.13",
+    "dompurify": "^3.4.18",
     "lodash-es": "4.18.1",
     "oidc-client": "^1.11.5",
     "pinia": "^2.3.1",
