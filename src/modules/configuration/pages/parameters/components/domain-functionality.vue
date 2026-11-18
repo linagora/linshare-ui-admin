@@ -289,7 +289,11 @@ watchEffect(() => {
             </a-form-item>
 
             <a-form-item :extra="getTranslatedText(functionality, 'PARAMETER.UNLIMITED_CHECKBOX')">
-              <a-checkbox v-model:checked="functionality.parameter.unlimited.supported" class="unlimited-checkbox">
+              <a-checkbox
+                v-if="functionality.parameter.unlimited.supported"
+                v-model:checked="functionality.parameter.unlimited.value"
+                class="unlimited-checkbox"
+              >
                 {{ t('FUNCTIONALITIES.DEFAULT.PARAMETER.UNLIMITED_CHECKBOX') }}
               </a-checkbox>
             </a-form-item>
@@ -362,7 +366,7 @@ watchEffect(() => {
             </p>
             <a-checkbox
               v-if="functionality.parameter.unlimited.supported"
-              v-model:checked="functionality.parameter.unlimited"
+              v-model:checked="functionality.parameter.unlimited.value"
               class="unlimited-checkbox"
             >
               {{ getTranslatedText(functionality, 'PARAMETER.UNLIMITED_CHECKBOX') }}

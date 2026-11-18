@@ -364,7 +364,7 @@ watchEffect(() => {
             </p>
             <a-checkbox
               v-if="functionality.parameter.unlimited.supported"
-              v-model:checked="functionality.parameter.unlimited"
+              v-model:checked="functionality.parameter.unlimited.value"
               class="unlimited-checkbox"
             >
               {{ getTranslatedText(functionality, 'PARAMETER.UNLIMITED_CHECKBOX') }}
