@@ -186,9 +186,26 @@ export default function useQuota() {
 
   async function saveQuota(domainUuid: string, successMessage: string) {
     try {
+      const domainMaintenance = form.domainQuotaAndUsedSpace.maintenance;
+      const domainMaintenanceChanged =
+        domainMaintenance !== undefined && domainMaintenance !== domainQuotaInformations.maintenance;
+      const subdomainMaintenanceChanged =
+        form.allocationWithinTheCurrentDomain.sharedSpaceMaintenance !== subdomainContainerInformations.maintenance;
+      const allocationMaintenanceChanged =
+        form.allocationWithinTheCurrentDomain.maintenance !== allocationContainerInformations.maintenance;
+      const subdomainPayload = _generateSubdomainPayload();
+      const allocationContainerPayload = _generateAllocationContainerPaypload();
+
+      if (domainMaintenanceChanged && !subdomainMaintenanceChanged) {
+        subdomainPayload.maintenance = domainMaintenance;
+      }
+      if (domainMaintenanceChanged && !allocationMaintenanceChanged) {
+        allocationContainerPayload.maintenance = domainMaintenance;
+      }
+
       await updateQuota(domainQuotaUuid.value.quota, _generateQuotaPayload());
-      await updateSubdomainQuota(subdomainContainerInformations.uuid, _generateSubdomainPayload());
-      await updateSubdomainQuota(allocationContainerInformations.uuid, _generateAllocationContainerPaypload());
+      await updateSubdomainQuota(subdomainContainerInformations.uuid, subdomainPayload);
+      await updateSubdomainQuota(allocationContainerInformations.uuid, allocationContainerPayload);
       message.success(successMessage);
     } catch (error) {
       if (error instanceof APIError) {
