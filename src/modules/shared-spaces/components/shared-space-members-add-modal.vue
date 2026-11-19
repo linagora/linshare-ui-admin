@@ -116,7 +116,7 @@ function onDeselect(deselectedUser: UserSelectOption) {
 }
 
 function transform(user: User): SharedSpaceMember {
-  return {
+  const payload: SharedSpaceMember = {
     uuid: '',
     role: {
       name: selectedRole.name,
@@ -135,6 +135,16 @@ function transform(user: User): SharedSpaceMember {
       nodeType: props.sharedSpace.nodeType,
     },
   };
+
+  if (props.sharedSpace.nodeType === SHARED_SPACE_TYPE.WORKSPACE) {
+    payload.nestedRole = {
+      name: nestedRole.name,
+      type: nestedRole.type,
+      uuid: nestedRole.uuid,
+    };
+  }
+
+  return payload;
 }
 
 function reset() {
