@@ -594,6 +594,7 @@
       "TYPE": "Тип сервера",
       "LDAP_BINDDN": "dn пользователя LDAP",
       "LDAP_PASSWORD": "Пароль LDAP",
+      "LDAP_PASSWORD_UNCHANGED": "Оставьте пустым, чтобы сохранить текущий пароль",
       "CLIENT_ID": "ID клиента",
       "CLIENT_SECRET": "Секрет клиента"
     },

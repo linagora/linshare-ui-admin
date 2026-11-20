@@ -593,6 +593,7 @@
       "TYPE": "Loại máy chủ",
       "LDAP_BINDDN": "Người dùng LDAP dn",
       "LDAP_PASSWORD": "Mật khẩu LDAP",
+      "LDAP_PASSWORD_UNCHANGED": "Để trống để giữ nguyên mật khẩu hiện tại",
       "CLIENT_ID": "Client ID",
       "CLIENT_SECRET": "Client secret"
     },

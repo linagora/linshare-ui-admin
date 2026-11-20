@@ -59,7 +59,12 @@
         :label="$t('REMOTE_SERVER.FIELDS.LDAP_PASSWORD')"
         name="bindPassword"
       >
-        <a-input-password v-model:value="formState.bindPassword" />
+        <a-input-password
+          v-model:value="formState.bindPassword"
+          :placeholder="
+            editMode && props.data.bindPasswordSet ? $t('REMOTE_SERVER.FIELDS.LDAP_PASSWORD_UNCHANGED') : ''
+          "
+        />
       </a-form-item>
     </a-form>
   </a-modal>
@@ -69,7 +74,7 @@
 import { computed, reactive, ref, watchEffect } from 'vue';
 import { message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n';
-import { LDAPRemoteServer } from '../types/RemoteServer';
+import { LDAPRemoteServer, RemoteServerWrite } from '../types/RemoteServer';
 import { createRemoteServer, updateRemoteServer } from '../services/remote-server-api';
 
 interface Props {
@@ -85,12 +90,12 @@ const { t } = useI18n();
 const editMode = computed(() => !!props.data?.uuid);
 const formSubmitting = ref(false);
 const formRef = ref();
-const formState = reactive<Omit<LDAPRemoteServer, 'uuid'>>({
+const formState = reactive<Omit<RemoteServerWrite, 'uuid'>>({
   serverType: 'LDAP',
   name: props.data?.name,
   url: props.data?.url,
   bindDn: props.data?.bindDn,
-  bindPassword: props.data?.bindPassword,
+  bindPassword: '',
 });
 const formRules = computed(() => ({
   name: [{ required: true, message: t('REMOTE_SERVER.VALIDATION.NAME_REQUIRED'), trigger: 'blur' }],
@@ -101,7 +106,7 @@ function resetForm() {
   formState.name = props.data?.name;
   formState.url = props.data?.url;
   formState.bindDn = props.data?.bindDn;
-  formState.bindPassword = props.data?.bindPassword;
+  formState.bindPassword = '';
 }
 
 async function onSave() {
@@ -115,7 +120,13 @@ async function onSave() {
   }
 
   try {
-    await (editMode.value ? updateRemoteServer({ ...props.data, ...formState }) : createRemoteServer({ ...formState }));
+    const payload = { ...formState };
+
+    if (!payload.bindPassword) {
+      delete payload.bindPassword;
+    }
+
+    await (editMode.value ? updateRemoteServer({ ...payload, uuid: props.data.uuid }) : createRemoteServer(payload));
 
     emit('success');
     message.success(t(editMode.value ? 'MESSAGES.UPDATE_SUCCESS' : 'MESSAGES.CREATE_SUCCESS'));

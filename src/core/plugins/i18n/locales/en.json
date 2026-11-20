@@ -595,6 +595,7 @@
       "TYPE": "Server type",
       "LDAP_BINDDN": "LDAP user dn",
       "LDAP_PASSWORD": "LDAP password",
+      "LDAP_PASSWORD_UNCHANGED": "Leave blank to keep the current password",
       "CLIENT_ID": "Client ID",
       "CLIENT_SECRET": "Client secret"
     },

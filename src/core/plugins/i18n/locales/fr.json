@@ -594,6 +594,7 @@
       "TYPE": "Type de serveur",
       "LDAP_BINDDN": "Utilisateur LDAP dn",
       "LDAP_PASSWORD": "Mot de passe LDAP",
+      "LDAP_PASSWORD_UNCHANGED": "Laisser vide pour conserver le mot de passe actuel",
       "CLIENT_ID": "Identité du client",
       "CLIENT_SECRET": "Secret client "
     },
