@@ -30,20 +30,18 @@ export class APIError extends Error {
   }
 
   getMessage(): string {
-    if (ERRORS_REQUIRE_EXTRA_MESSAGE.includes(this.errorCode)) {
-      return i18n.global.t(
-        this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`,
-        {
-          message: this.message,
-        },
-        this.message || i18n.global.t('ERRORS.UNKNOWN')
-      );
+    const key = this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`;
+
+    // Check fallback locales too, without compiling the server message as a translation.
+    if (typeof i18n.global.tm(key) !== 'string') {
+      return this.message || i18n.global.t('ERRORS.UNKNOWN');
     }
 
-    return i18n.global.t(
-      this.isAuthError ? `ERRORS.AUTH.${this.errorCode}` : `ERRORS.${this.errorCode}`,
-      this.message || i18n.global.t('ERRORS.UNKNOWN')
-    );
+    if (ERRORS_REQUIRE_EXTRA_MESSAGE.includes(this.errorCode)) {
+      return i18n.global.t(key, { message: this.message });
+    }
+
+    return i18n.global.t(key);
   }
 
   isUnauthorizedError(): boolean {
