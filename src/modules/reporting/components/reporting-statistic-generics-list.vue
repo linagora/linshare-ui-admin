@@ -32,7 +32,7 @@ const statistics = computed(() =>
 
 <template>
   <div class="action-bar">
-    <a-input v-model:value="filterText" class="action-bar__filter" placeholder="Search" allow-clear>
+    <a-input v-model:value="filterText" class="action-bar__filter" :placeholder="$t('GENERAL.SEARCH')" allow-clear>
       <template #prefix>
         <search-outlined></search-outlined>
       </template>

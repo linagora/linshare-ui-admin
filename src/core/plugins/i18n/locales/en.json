@@ -73,7 +73,8 @@
     "VISIBILITY": "Visibility",
     "PUBLIC": "Public",
     "PRIVATE": "Private",
-    "SORT": "Sort"
+    "SORT": "Sort",
+    "SEARCH": "Search"
   },
   "LOCALE": {
     "ENGLISH": "English",
@@ -276,7 +277,8 @@
       "1006": "SSO authentication failed: {message}",
       "1007": "SSO authentication failed: {message}",
       "1008": "SSO authentication failed: {message}",
-      "1009": "Multiple domain found"
+      "1009": "Multiple domain found",
+      "2002": "Second factor authentication is not enabled for your domain"
     },
     "55000": "Group filter not found",
     "66000": "Shared space not found",
@@ -295,7 +297,9 @@
     "ENTER_OTP_DIGITS": "Input the 6-digit code from your FreeOTP app:",
     "LOGIN_TO_ADMIN": "Login to Admin",
     "LOGIN": "Login",
-    "LOGIN_SSO": "Sign in with SSO"
+    "LOGIN_SSO": "Sign in with SSO",
+    "EMAIL": "Email",
+    "PASSWORD": "Password"
   },
   "2FA": {
     "TITLE": "Second Factor Authentication",
@@ -2142,6 +2146,16 @@
           }
         },
         "GUEST_CONVERTING": {
+          "CONVERT": {
+            "AUTHOR": {
+              "SENTENCE": "You have converted the Guest Account into an Internal Account: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} has converted the Guest Account into an Internal Account: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          },
           "DELETE": {
             "AUTHOR": {
               "SENTENCE": "You have deleted the Guest Account of : {userVarious}.",
@@ -2678,7 +2692,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} has tried to reset the password.",
+              "SENTENCE": "{authorName} has tried to reset the password.",
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             }
           },
@@ -2688,7 +2702,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} has successfully reset the password.",
+              "SENTENCE": "{authorName} has successfully reset the password.",
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             }
           }
@@ -2714,7 +2728,11 @@
       "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>“Mail layout”</span> allow to create a custom mail layout.",
       "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>“Mail footer”</span> to edit the mail footer template.",
       "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>“Mail content”</span> to manage mail notification content, sent to LinShare users.",
-      "MAIL_ASSIGN_DESCRIPTION": "After creating then adjust a mail template, you can assign this mail template for the domain or its nested domains."
+      "MAIL_ASSIGN_DESCRIPTION": "After creating then adjust a mail template, you can assign this mail template for the domain or its nested domains.",
+      "MAIN_CONTENT_TYPE": "Main content type",
+      "SELECTED_MAIL_CONTENT": "Selected mail content",
+      "LEGEND": "Legend",
+      "MAIL_CONTENT_UPDATED": "{domain}-Updated on: {date}"
     },
     "EMAIL_LAYOUT": {
       "PUBLIC": "Public",

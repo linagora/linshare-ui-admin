@@ -10,14 +10,14 @@
         <a-form layout="vertical" :model="credentials" @submit="logIn">
           <a-alert v-if="error" :message="error" type="error" />
           <a-form-item>
-            <a-input v-model:value="credentials.email" placeholder="Email">
+            <a-input v-model:value="credentials.email" :placeholder="$t('AUTH.EMAIL')">
               <template #prefix>
                 <UserOutlined />
               </template>
             </a-input>
           </a-form-item>
           <a-form-item>
-            <a-input-password v-model:value="credentials.password" placeholder="Password">
+            <a-input-password v-model:value="credentials.password" :placeholder="$t('AUTH.PASSWORD')">
               <template #prefix>
                 <LockOutlined />
               </template>

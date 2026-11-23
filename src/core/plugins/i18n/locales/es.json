@@ -1,0 +1,3611 @@
+{
+  "GENERAL": {
+    "EMAIL_VALIDATION": "El correo electrónico no es válido",
+    "BACK_TO_LIST": "Volver a la lista",
+    "ENABLED": "Activado",
+    "DISABLED": "Desactivado",
+    "CANCEL": "Cancelar",
+    "DELETE": "Eliminar",
+    "DELETION": "Eliminación",
+    "SAVE": "Guardar",
+    "UPDATE_TIME_RELATIVE": "Actualizado {time}",
+    "UPDATE_AT": "Actualizado el {time}",
+    "CREATE_AT": "Creado el {time}",
+    "JUST_NOW": "ahora mismo",
+    "DEFAULT_VALUE": "Valor predeterminado",
+    "CURRENT_VALUE": "Valor actual",
+    "RESET": "Restablecer",
+    "USE_DEFAULTS": "Usar valores predeterminados",
+    "CREATION_DATE": "Fecha de creación",
+    "MODIFICATION_DATE": "Fecha de modificación",
+    "COPY": "Copiar",
+    "CREATE": "Crear",
+    "NAME": "Nombre",
+    "ACTIONS": "Acciones",
+    "EDIT": "Editar",
+    "DUPLICATE": "Duplicar",
+    "ASSOCIATED_DOMAINS": "Dominios asociados",
+    "VIEW_ASSOCIATED_DOMAINS": "Ver dominios asociados",
+    "OK": "Aceptar",
+    "SEARCH_BY_NAME": "Buscar por nombre",
+    "SEARCH_BY": "Buscar por nombre o dominio",
+    "DESCRIPTION": "Descripción",
+    "TYPES": "Tipos",
+    "TYPE": "Tipo",
+    "YES": "Sí",
+    "NO": "No",
+    "FIELD_REQUIRED": "Este campo no puede estar vacío",
+    "SELECT_MODEL": "Seleccione un modelo predefinido",
+    "TRY_AGAIN": "Intentar de nuevo",
+    "DOMAIN": "Dominio",
+    "OR": "O",
+    "AUTHOR": "Autor",
+    "ROLE": "Rol",
+    "ASSIGNED": "Asignado",
+    "ASSIGN": "Asignar",
+    "UNASSIGNED": "Sin asignar",
+    "READ_ONLY": "Solo lectura",
+    "EDITABLE": "Editable",
+    "VIEW": "Ver",
+    "EXPAND": "Expandir",
+    "COLLAPSE": "Contraer",
+    "ADD": "Añadir",
+    "TOTAL": "Total",
+    "REFRESH": "Actualizar",
+    "FAIL_TO_LOAD_DATA": "Error al cargar los datos",
+    "REQUEST_RELOAD_DATA": "Haga clic en Actualizar para volver a cargar los datos que faltan.",
+    "APPLY": "Aplicar",
+    "DATE_ALL_TIME": "Todo el periodo",
+    "DATE_LAST_DAY": "Último día",
+    "DATE_LAST_7_DAYS": "Últimos 7 días",
+    "DATE_LAST_30_DAYS": "Últimos 30 días",
+    "DATE_LAST_6_MONTHS": "Últimos 6 meses",
+    "DATE_LAST_YEAR": "Último año",
+    "DATE_CUSTOM": "Intervalo personalizado",
+    "NUMBER_COL": "N.º",
+    "EMPTY_MESSAGE": "Sin datos",
+    "CLEAR_FILTER": "Borrar filtro",
+    "ISOLATE": "Aislar",
+    "UNDO": "Deshacer",
+    "DUPPLICATE": "Duplicar",
+    "MIGRATE": "Migrar",
+    "CONTACT_NAME_AND_OWNER": "Nombre y propietario del contacto",
+    "VISIBILITY": "Visibilidad",
+    "PUBLIC": "Público",
+    "PRIVATE": "Privado",
+    "SORT": "Ordenar",
+    "SEARCH": "Buscar"
+  },
+  "LOCALE": {
+    "ENGLISH": "Inglés",
+    "FRENCH": "Francés",
+    "RUSSIAN": "Ruso",
+    "VIETNAMESE": "Vietnamita"
+  },
+  "MESSAGES": {
+    "CREATE_SUCCESS": "Creado correctamente",
+    "CREATE_FAILURE": "Error al crear",
+    "UPDATE_SUCCESS": "Actualizado correctamente",
+    "UPDATE_FAILURE": "Error al actualizar",
+    "DELETE_SUCCESS": "Eliminado correctamente",
+    "DELETE_FAILURE": "Error al eliminar",
+    "PROCESSING": "Procesando..."
+  },
+  "HEADER": {
+    "LOGO_ALT": "Logotipo de LinShare",
+    "PROFILE": {
+      "LOGOUT": "Cerrar sesión",
+      "2FA": "Autenticación de dos factores",
+      "LANGUAGE": "Idioma",
+      "CHANGE_PASSWORD": "Cambiar contraseña"
+    }
+  },
+  "FOOTER": {
+    "COPYRIGHT": "Está utilizando la versión libre y de código abierto de LinShare™, desarrollada por Linagora © 2009–2025. Contribuya a la I+D de LinShare suscribiéndose a una oferta Enterprise."
+  },
+  "NAVIGATOR": {
+    "CONFIGURATION": "Configuración",
+    "ADMINISTRATION": "Administración",
+    "ACTIVITIES": "Actividades",
+    "REPORTING": "Informes",
+    "UPGRADES": "Actualizaciones",
+    "UPGRADES_TASK": "Tareas de actualización",
+    "UPGRADES_TASK_PREVIOUS_EXECUTION": "Ejecuciones anteriores de las tareas de actualización",
+    "UPGRADES_CONSOLE": "Consola de tareas de actualización",
+    "MY_USERS": "Mis usuarios",
+    "MY_SHARED_SPACES": "Mis espacios compartidos",
+    "MY_CONTACT_LIST": "Mi lista de contactos",
+    "LOGGERS": "Registradores",
+    "DOMAINS": "Dominios",
+    "FUNCTIONALITIES": "Funcionalidades",
+    "MANAGE_DOMAINS": "Gestionar dominios",
+    "USERS": "Usuarios",
+    "MANAGE_USERS": "Gestionar usuarios",
+    "INCONSISTENT_USERS": "Usuarios incoherentes",
+    "TECHNICAL_ACCOUNTS": "Cuentas técnicas",
+    "TECHNICAL_ACCOUNTS_DETAIL": "Detalle de la cuenta técnica",
+    "WORKGROUPS": "Grupos de trabajo",
+    "MAILING_LISTS": "Listas de distribución",
+    "HISTORY": "Historial",
+    "MAILS": "Correos",
+    "MAIL_CONFIGURATION": "Configuración de correo",
+    "MAIL_LAYOUT": "Diseño de correo",
+    "MAIL_FOOTER": "Pie de correo",
+    "MAIL_CONTENT": "Contenido de correo",
+    "MAIL_ACTIVATION": "Activación de correos",
+    "UPGRADE_TASKS": "Tareas de actualización",
+    "SEARCH": "Buscar",
+    "USER_DETAILS": "Detalles del usuario",
+    "DETAILS": "Detalles",
+    "PARAMETERS": "Parámetros (también llamados funcionalidades)",
+    "MAIL_TEMPLATES": "Plantillas de correo",
+    "WELCOME_MESSAGES": "Mensajes de bienvenida",
+    "WELCOME_MESSAGES_MANAGE": "Gestionar el mensaje de bienvenida",
+    "WELCOME_MESSAGES_NEW": "Nuevo mensaje de bienvenida",
+    "TYPE_MIME": "Políticas MIME",
+    "TYPE_MIME_DETAILS": "Detalles de la política MIME",
+    "PROVIDERS": "Proveedores",
+    "QUOTA": "Cuota",
+    "PUBLIC_KEYS": "Claves públicas (JWT)",
+    "DOMAIN_DETAILS": "Detalles del dominio",
+    "REMOTE_SERVERS": "Servidores remotos",
+    "REMOTE_FILTERS": "Filtros remotos",
+    "USER_FILTERS": "Filtros de usuarios",
+    "GROUP_FILTERS": "Filtros de grupos",
+    "WORKSPACE_FILTERS": "Filtros de espacios de trabajo",
+    "LDAP_USER_FILTER": "Filtro de usuarios LDAP",
+    "USER_PROVIDERS": "Proveedores de usuarios",
+    "GROUP_PROVIDERS": "Proveedores de grupos",
+    "WORKSPACE_PROVIDERS": "Proveedores de espacios de trabajo",
+    "LDAP_GROUP_FILTER": "Filtro de grupos LDAP",
+    "LDAP_WORKSPACE_FILTER": "Filtro de espacios de trabajo LDAP",
+    "SHARED_SPACE_DETAILS": "Detalles del espacio compartido",
+    "WELCOME_MESSAGE_DETAIL": "Detalle del mensaje de bienvenida",
+    "EMAIL_TEMPLATES": "Plantillas de correo electrónico",
+    "CONFIGURATION_DOMAIN_POLICIES": "Políticas de dominio",
+    "CONFIGURATION_DOMAIN_POLICIES_DETAILS": "Detalles de la política de dominio",
+    "ADMINISTRATION_CONTACT_LIST": "Lista de contactos",
+    "ADMINISTRATION_CONTACT_LIST_DETAIL": "Detalle del contacto"
+  },
+  "DASHBOARD": {
+    "TITLE": "Panel de control",
+    "SUBTITLE": "Bienvenido a su panel de administración de LinShare",
+    "DOMAINS": "Dominios",
+    "MANAGE_DOMAINS": "Gestionar dominios",
+    "USERS": "Usuarios",
+    "MANAGE_USERS": "Gestionar usuarios",
+    "HISTORY": "Historial",
+    "AUDIT_THE_APPLICATION": "Auditar la aplicación"
+  },
+  "USERS": {
+    "MANAGE_USERS": {
+      "TITLE": "Gestionar usuarios",
+      "SUBTITLE": "Lista de usuarios",
+      "DESCRIPTION": "Esta vista le permite buscar usuarios de los distintos dominios. Puede cambiar los roles, el nombre, los apellidos y el idioma predeterminado, así como los permisos de carga.",
+      "SEARCH_GUIDE": "Introduzca un dato del usuario (p. ej., el correo electrónico) en el campo de búsqueda.",
+      "OPERATION": "Operación",
+      "NAVIGATE_GUIDE": "Haga clic en el usuario para acceder a su perfil.",
+      "FIRST_NAME": "Nombre",
+      "LAST_NAME": "Apellidos",
+      "EMAIL": "Buscar por correo electrónico",
+      "DOMAIN": "Dominio",
+      "ROLE": "Rol",
+      "ACCOUNT_TYPE": "Tipo de cuenta",
+      "SEARCH": "Buscar",
+      "NO_DATA": "No se han encontrado registros coincidentes",
+      "MULTIPLE_DELETE": "Se han eliminado correctamente {number} usuarios",
+      "MULTIPLE_DELETE_CONFIRM": "Está a punto de eliminar este o estos usuarios. Esta operación es irreversible y destruye todos los documentos. ¿Desea continuar?",
+      "SELECTED_USERS_NUMBER": "Usuarios seleccionados: {number}",
+      "SELECTED_USERS_DELETE": "Eliminar los usuarios seleccionados",
+      "SELECTED_USERS_UNLOCK": "Se han desbloqueado correctamente {number} usuarios",
+      "SELECT_ALL": "Seleccionar todo",
+      "UNSELECT_ALL": "Deseleccionar todo"
+    },
+    "DETAIL_USER": {
+      "TITLE": "Gestionar usuario",
+      "CONFIRM_DELETE": "Está a punto de eliminar este usuario. Esta operación es irreversible y destruye todos sus documentos. ¿Desea continuar?",
+      "DELETE_USER": "Eliminar usuario",
+      "YES": "Sí",
+      "NO": "No",
+      "LOCKED_USER": "Usuario bloqueado",
+      "LOCKED_USER_DESCRIPTION": "Este usuario está bloqueado por intentos de inicio de sesión fallidos",
+      "UNLOCK": "Desbloquear",
+      "USER_PROFILE": "Perfil del usuario",
+      "PERSONAL_SPACE_QUOTA": "Cuota del espacio personal",
+      "UPLOAD_REQUEST": "Solicitud de carga",
+      "RESTRICTED_CONTACT_LIST": "Lista de contactos restringida",
+      "ENABLED": "Activado",
+      "DISABLED": "Desactivado",
+      "FIRST_NAME": "Nombre",
+      "LAST_NAME": "Apellidos",
+      "NOTIFICATION_LANGUAGE": "Idioma de las notificaciones",
+      "ROLE": "Rol",
+      "ENABLE_PERSONAL_SPACE": "Activar el espacio personal",
+      "ALLOW_GUEST_CREATION": "Permitir la creación de invitados",
+      "ACCOUNT_TYPE": "Tipo de cuenta",
+      "CREATION_DATE": "Fecha de creación",
+      "MODIFICATION_DATE": "Fecha de modificación",
+      "EXPIRATION_DATE": "Fecha de caducidad",
+      "AUTHOR": "Autor",
+      "DOMAIN": "Dominio",
+      "ADD_CONTACT": "Añadir contacto",
+      "RESTRICTED_LIST": "Lista restringida",
+      "GUEST_CREATION_RIGHTS": "Derechos de creación de invitados",
+      "UPLOAD_RIGHTS": "Derechos de carga",
+      "ROLE_SIMPLE": "Sencillo",
+      "ROLE_ADMIN": "Administrador",
+      "ROLE_SUPERADMIN": "Superadministrador",
+      "TYPE_ROOT": "Raíz",
+      "TYPE_INTERNAL": "Interno",
+      "TYPE_GUEST": "Invitado",
+      "COMMENT": "Comentario",
+      "RESTRICTED_CONTACTS_LIST_REQUIRED": "Para un invitado restringido, su lista de contactos restringida debe contener al menos un contacto",
+      "NO_USER_FOUND": "No se ha encontrado ningún usuario",
+      "RESTRICTED_GUEST": "Restringir invitado",
+      "RESTRICTED_CONTACTS": "Cuentas que el invitado puede contactar",
+      "GUEST_EXPIRATION_DATE_VALIDATION_MESSAGE": "La fecha de caducidad del invitado debe estar entre mañana y el {date}",
+      "MAIL": "Correo",
+      "ADVANCED_RESEARCH": "Búsqueda avanzada"
+    },
+    "GUEST_MODERATOR": {
+      "TAB_TITLE": "Moderadores",
+      "ADD_MODERATOR": "Añadir moderador",
+      "FILTER_PLACEHOLDER": "Buscar o filtrar moderadores",
+      "ROLE": {
+        "ADMIN": "Administrador",
+        "SIMPLE": "Sencillo"
+      }
+    },
+    "TOKEN_INPUT": {
+      "ENTER_VALUE": "Introduzca un valor",
+      "SORT_BY": "Ordenar por",
+      "PLACEHOLDER": "Buscar o filtrar usuarios",
+      "SEARCH": "Buscar"
+    }
+  },
+  "ERRORS": {
+    "COMMON_MESSAGE": "Se ha producido un error. Inténtelo de nuevo más tarde.",
+    "FORBIDDEN": "No tiene permiso para acceder a este recurso.",
+    "UNKNOWN": "Se ha producido un error inesperado.",
+    "CONTACT_ALREADY_EXISTS": "El contacto ya existe",
+    "AUTH": {
+      "1000": "Se ha producido un error. Inténtelo de nuevo más tarde.",
+      "1001": "Credenciales de inicio de sesión no válidas",
+      "1002": "Se requiere la autenticación de dos factores",
+      "1003": "El código OTP es incorrecto o ha caducado",
+      "1004": "Su cuenta se ha bloqueado debido a intentos de inicio de sesión fallidos",
+      "1006": "Error en la autenticación SSO: {message}",
+      "1007": "Error en la autenticación SSO: {message}",
+      "1008": "Error en la autenticación SSO: {message}",
+      "1009": "Se han encontrado varios dominios",
+      "2002": "La autenticación de dos factores no está activada para su dominio"
+    },
+    "55000": "No se ha encontrado el filtro de grupos",
+    "66000": "No se ha encontrado el espacio compartido",
+    "2002": "La autenticación de dos factores no está activada para su dominio",
+    "36004": "No se ha encontrado el mensaje de bienvenida",
+    "36006": "El mensaje de bienvenida está asignado actualmente a al menos un dominio.",
+    "14004": "No se ha encontrado la funcionalidad",
+    "2200": "No se ha encontrado el usuario",
+    "MAIL_CONFIGURATION": {
+      "1000": "No puede hacer privada una configuración de correo asignada a otros dominios"
+    }
+  },
+  "AUTH": {
+    "TAGLINE": "Aplicación de código abierto para compartir archivos de forma segura",
+    "SECOND_FACTOR_AUTHENTICATION": "Autenticación de dos factores",
+    "ENTER_OTP_DIGITS": "Introduzca el código de 6 dígitos de su aplicación FreeOTP:",
+    "LOGIN_TO_ADMIN": "Acceder a la administración",
+    "LOGIN": "Iniciar sesión",
+    "LOGIN_SSO": "Iniciar sesión con SSO",
+    "EMAIL": "Correo",
+    "PASSWORD": "Contraseña"
+  },
+  "2FA": {
+    "TITLE": "Autenticación de dos factores",
+    "KEY_CREATION": {
+      "HELPER": "Para activar la autenticación de dos factores en su cuenta:",
+      "STEP_1": "Descargue e instale la aplicación de autenticación FreeOTP escaneando el código QR o siguiendo los enlaces:",
+      "STEP_2": "Genere la clave compartida y escanee el código QR con la aplicación FreeOTP:",
+      "APP_STORE": "FreeOTP en App Store",
+      "GOOGLE_PLAY": "FreeOTP en Google Play",
+      "BUTTON": "Generar clave compartida",
+      "CAN_NOT_SCAN": "¿NO PUEDE ESCANEARLO?",
+      "FORCE_CREATION_MODAL": {
+        "TITLE": "Autenticación de dos factores obligatoria",
+        "MESSAGE": "Configure la autenticación de dos factores en su cuenta para continuar.",
+        "OK_BUTTON": "Ir a la configuración"
+      },
+      "ALERT": {
+        "TITLE": "Autenticación de dos factores obligatoria",
+        "MESSAGE": "La autenticación de dos factores es obligatoria para su cuenta. Actívela para continuar."
+      },
+      "MESSAGE": {
+        "ERROR": "No se ha podido crear la clave compartida"
+      }
+    },
+    "KEY_REMOVAL": {
+      "HELPER": "Elimine la clave compartida para desactivar la autenticación de dos factores en su cuenta:",
+      "INFORMATION": "Clave compartida creada el {date}",
+      "BUTTON": "Eliminar la clave compartida",
+      "CONFIRMATION": "Está a punto de eliminar la clave compartida. Atención: esta acción no se puede deshacer.",
+      "ALERT": {
+        "TITLE": "No se puede eliminar la clave compartida",
+        "MESSAGE": "La clave compartida no se puede eliminar porque la autenticación de dos factores es obligatoria para su cuenta. Póngase en contacto con el soporte para obtener más información."
+      },
+      "MESSAGE": {
+        "ERROR": "No se ha podido eliminar la clave compartida"
+      }
+    },
+    "MANUAL_SETUP": {
+      "LABEL": "¿No puede escanear el código?",
+      "STEP_1": "1. En la aplicación FreeOTP, seleccione el icono Añadir clave.",
+      "STEP_2": "2. Introduzca el emisor y la cuenta como se indica a continuación:",
+      "STEP_3": "3. Introduzca la clave secreta como se indica a continuación:",
+      "STEP_4": "4. Asegúrese de que los siguientes campos estén configurados así:",
+      "STEP_5": "5. Pulse el botón Añadir para terminar.",
+      "TYPE": "Tipo: ",
+      "DIGITS": "Dígitos: ",
+      "ALGORITHM": "Algoritmo: ",
+      "INTERVAL": "Intervalo: "
+    }
+  },
+  "PASSWORD": {
+    "TITLE": "Cambiar contraseña",
+    "OLD_PASSWORD": "Contraseña anterior",
+    "NEW_PASSWORD": "Nueva contraseña",
+    "NEW_PASSWORD_CONFIRM": "Confirmar la nueva contraseña",
+    "PASSWORD_REQUIREMENT": "La contraseña debe tener al menos 12 caracteres e incluir mayúsculas, números y caracteres especiales"
+  },
+  "SHARED_SPACES": {
+    "DELETE_WORK_GROUP": "Eliminar grupo de trabajo",
+    "DELETE_WORK_SPACE": "Eliminar espacio de trabajo",
+    "NODE_TYPE": {
+      "WORK_GROUP": "Grupo de trabajo",
+      "WORK_SPACE": "Espacio de trabajo"
+    },
+    "ROLE": {
+      "ADMIN": "Administrador",
+      "READER": "Lector",
+      "CONTRIBUTOR": "Colaborador",
+      "WRITER": "Redactor",
+      "WORK_SPACE_ADMIN": "Espacio de trabajo - Administrador",
+      "WORK_SPACE_WRITER": "Espacio de trabajo - Redactor",
+      "WORK_SPACE_READER": "Espacio de trabajo - Lector"
+    },
+    "MANAGE_SHARED_SPACES": {
+      "TITLE": "Espacios de trabajo y grupos de trabajo",
+      "DESCRIPTION": "Un grupo de trabajo es un espacio de colaboración que reúne a usuarios internos o invitados. Un espacio de trabajo contiene grupos de trabajo con la lista de miembros predeterminada. Un grupo de trabajo puede estar dentro de un espacio de trabajo o ser independiente. Esta vista le permite gestionar los espacios de trabajo, los grupos de trabajo y sus miembros. Los administradores de LinShare no pueden acceder al contenido de los grupos de trabajo (archivos o carpetas). Los archivos cargados en un grupo de trabajo pertenecen al grupo de trabajo, no al usuario. Por lo tanto, no afectan a la cuota asignada al usuario.",
+      "COLUMNS": {
+        "SHARED_SPACE": "Espacio compartido",
+        "TYPE": "Tipo"
+      }
+    },
+    "TOKEN_INPUT": {
+      "ACCOUNT": "Cuenta",
+      "MODIFICATION_DATE": "Fecha de modificación",
+      "CREATION_DATE": "Fecha de creación",
+      "TYPE": "Tipo",
+      "PLACEHOLDER": "Buscar o filtrar espacios compartidos",
+      "NAME": "Nombre"
+    },
+    "MEMBERS": {
+      "MEMBERS": "Miembros",
+      "TAB_TITLE": "Lista de miembros",
+      "CONFIRM_DELETE": "¿Seguro que desea quitar a este miembro del espacio compartido?",
+      "FILTER_PLACEHOLDER": "Buscar o filtrar miembros del espacio compartido",
+      "ADD_NEW": "Añadir miembro",
+      "NEW": "Nuevos miembros",
+      "ROLE_EDIT_TITLE": "Editar el rol de {name}",
+      "DEFAULT_WORKGROUP_ROLE": "Rol predeterminado en el grupo de trabajo",
+      "FORCE_CHECKBOX": "Forzar este rol en todos los grupos de trabajo anidados",
+      "MEMBER_ADVANCED_RESEARCH": "Búsqueda avanzada",
+      "DEFAULT_ROLE": "Rol predeterminado",
+      "NO_DEFAULT_ROLE": "Sin rol predeterminado",
+      "DEFAULT_ROLE_TAG_PREFIX": "Rol predeterminado: ",
+      "DEFAULT_ROLE_TAG_TOOLTIP": "Este rol se aplicará a este miembro en todos los grupos de trabajo que se creen dentro de este espacio de trabajo"
+    }
+  },
+  "INCONSISTENT_USERS": {
+    "TITLE": "Usuarios incoherentes",
+    "DESCRIPTION": "Un usuario incoherente es un usuario que ya no figura en ninguno de los LDAP asociados a los distintos dominios. Esta vista permite cambiar el dominio de un usuario incoherente para que vuelva a ser un usuario normal. A partir del resultado de un usuario, puede editar la información que le corresponde. Seleccionando un grupo de usuarios, puede eliminarlos todos a la vez o cambiar su dominio",
+    "COLUMNS": {
+      "NUMBER_COL": "N.º",
+      "FIRSTNAME": "Nombre",
+      "LASTNAME": "Apellidos",
+      "EMAIL": "Correo",
+      "DOMAIN_ID": "ID de dominio",
+      "ROLE": "Rol"
+    },
+    "TOKEN_INPUT_PLACEHOLDER": "Buscar o filtrar usuarios incoherentes",
+    "SCRUTINY": {
+      "TITLE": "Diagnóstico de usuario",
+      "DESCRIPTION": "Para una dirección de correo electrónico dada, esta vista muestra un informe completo del usuario correspondiente: su presencia en el LDAP del dominio asociado y en la base de datos. Resulta útil para comprobar si un usuario está en el dominio correcto o si pertenece a varios dominios a la vez, etc. Además, en esta vista puede mostrar toda la información relativa a un usuario y editarla, por ejemplo, para cambiar el dominio del usuario.",
+      "SEARCH_LEGEND": "Busque las cuentas de una persona indicando su dirección de correo electrónico",
+      "PLACEHOLDER": "Correo",
+      "DOMAIN_HEADER": "NOMBRE DEL DOMINIO",
+      "DOMAIN_HEADER_LABEL": "Lista de DOMINIOS",
+      "LDAP_HEADER": "LDAP",
+      "LDAP_HEADER_LABEL": "Presencia del usuario en el LDAP",
+      "DATABASE_HEADER": "BASE DE DATOS",
+      "DATABASE_HEADER_LABEL": "Presencia del usuario en la base de datos",
+      "GUEST_HEADER": "INVITADO",
+      "GUEST_HEADER_LABEL": "Indica si el usuario es un invitado",
+      "NOT_FOUND_MESSAGE": "Ningún resultado para: ",
+      "CURRENT_USER_FOUND": "Resultado de la búsqueda para: ",
+      "WARNING_OUT_OF_DATE_REFRESH": "Los datos mostrados ya no están actualizados",
+      "REFRESH": "Actualizar"
+    },
+    "MIGRATE_USERS_CARD": {
+      "UPLOAD_PERMISSION": "Permiso de carga",
+      "GUEST_PERMISSION": "Permiso de creación de invitados",
+      "ROLE": "Rol",
+      "FIRST_NAME": "Nombre",
+      "LAST_NAME": "Apellidos",
+      "NOTIFICATION_LANGUAGE": "Idioma de las notificaciones",
+      "STATUS": "Estado",
+      "CREATION_MODAL_TITLE": "Crear perfil",
+      "CREATION_MODAL_DESCRIPTION": "Este usuario no tiene perfil de LinShare. ¿Desea crearlo en la base de datos?",
+      "QUOTA SETTING": "CONFIGURACIÓN DE LA CUOTA",
+      "PERSONAL_SPACE_QUOTA": "Cuota asignada al espacio personal del usuario",
+      "MAX_SIZE_QUOTA": "Tamaño máximo de archivo que el usuario puede cargar en su espacio personal",
+      "REMAINING_QUOTA": "Cuota restante",
+      "USED_QUOTA": "Cuota utilizada"
+    },
+    "CONFIRM_DELETE_FORM": {
+      "PARAGRAPH": "Está a punto de eliminar estos usuarios. Esta operación es irreversible y destruye todos sus documentos. ¿Desea continuar?"
+    },
+    "MIGRATE_FORM": {
+      "TITLE": "Seleccione el dominio de destino de la migración"
+    }
+  },
+  "QUOTA": {
+    "USER_TAB": "Cuota del espacio personal",
+    "USED_SPACE": "{usedSpace} utilizados de {computedQuota}",
+    "USER_QUOTA": "Cuota asignada al espacio personal del usuario",
+    "USER_MAX_FILE_SIZE": "Tamaño máximo de archivo que el usuario puede cargar en su espacio personal",
+    "CURRENT DOMAIN QUOTA": "CUOTA DEL DOMINIO ACTUAL",
+    "MAINTENANCE_MODE": "Modo de mantenimiento",
+    "ALREADY_USED": "ya utilizado",
+    "QUOTA_AND_USED_SPACE": "Cuota del dominio y espacio utilizado",
+    "SUBDOMAINS_ALLOCATION_SETTINGS": "Configuración de asignación predeterminada de los subdominios",
+    "SUBDOMAIN_QUOTA": "CUOTA DEL SUBDOMINIO",
+    "SHRAED_DOMAIN_QUOTA_ACTIVATION": "Activar la cuota compartida del dominio",
+    "QUOTA_PER_SUB_DOMAIN": "Cuota por SUBDOMINIO",
+    "PERSONAL_SPACE_QUOTA": "CUOTA DEL ESPACIO PERSONAL",
+    "ALL_SPACE_ALLOCATED_QUOTA": "Cuota asignada a todos los ESPACIOS PERSONALES ",
+    "DEFAULT_ALLOCATED_QUOTA_PER_USER": "Cuota asignada predeterminada (por USUARIO)",
+    "CANNOT_EXCEED_ALLOCATED_DOMAIN_QUOTA": "El valor no puede superar la cuota asignada al dominio",
+    "SHARED_SPACE_QUOTA": "CUOTA DEL ESPACIO COMPARTIDO",
+    "DEFAULT_TOTAL_ALLOCATED_QUOTA": "Cuota total asignada predeterminada",
+    "DEFAULT_MAX_FILE_SIZE": "Tamaño máximo de archivo predeterminado",
+    "ALLOCAED_QUOTA_SPECIFIC_USER_ACCOUNT": "Asignar una cuota a una cuenta de usuario específica",
+    "QUOTA_EXCEEDED_ERROR": "Cuota superada: libere espacio de almacenamiento o asigne más cuota para ",
+    "SPACES_LABEL": {
+      "CURRENT_DOMAIN": "el dominio actual",
+      "PERSONALS_SPACES": "los espacios personales",
+      "SHARED_SPACE": "el espacio compartido",
+      "SUB_DOMAINS": "los subdominios"
+    },
+    "QUOTA_AND_USED_INFORMATIONS_ALERT": "Esta sección le permite gestionar el tamaño de la cuota del dominio actual y configurarla según sus necesidades.",
+    "MAINTENANCE_MODE_ACTIVATED_ALERT": "El modo de mantenimiento está activado, lo que impide cualquier carga en el dominio actual.",
+    "DOMAIN_MAXIMUM_QUOTA": "Cuota máxima del dominio: ",
+    "DEFAULT_SUB_DOMAIN_QUOTA": "Cuota predeterminada del subdominio: ",
+    "DOMAIN_QUOTA": "Cuota del dominio",
+    "ERROR_MESSAGE_FIELD": "El valor debe ser inferior o igual a: ",
+    "ALLOCATION_WITHIN_THE_CURRENT_DOMAIN": "Asignación dentro del dominio actual {Containers}",
+    "PERSONAL SPACE QUOTA": "CUOTA DEL ESPACIO PERSONAL",
+    "TOTAL_PERSONAL_SPACES_ALLOCATED_QUOTA": "Cuota total asignada a los espacios personales",
+    "PERSONAL_SPACES_ALLOCATED_QUOTA": "Cuota asignada a los espacios personales",
+    "PERSONAL_SPACES_MAX_FILE_SIZE": "Tamaño máximo de archivo de los espacios personales",
+    "TOTAL_SHAREDSPACE_ALLOCATED_QUOTA": "Cuota total asignada a los espacios compartidos",
+    "SHAREDSPACE_MAX_FILE_SIZE": "Tamaño máximo de archivo de los espacios compartidos",
+    "QUOTA_IN_DOMAIN_IS_MANAGED_BY_CONTAINERS": "La cuota del dominio se gestiona mediante contenedores. Actualmente hay 2 contenedores:",
+    "PERSONAL_SPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_USERS_SPACE": "Espacio personal (E.P.): gestiona el espacio asignado a los espacios de todos los usuarios",
+    "SHAREDSPACE_MANAGE_THE_ALLOCATED_SPACE_FOR_ALL_SHAREDSPACE": "Espacio compartido (E.C.): gestiona el espacio asignado a todos los espacios compartidos (grupos de trabajo y espacios de trabajo)",
+    "SHAREDSPACE_QUOTA": "CUOTA DEL ESPACIO COMPARTIDO",
+    "CONTRAINERS_VIRTUAL_ALLOCATION": "ASIGNACIÓN VIRTUAL DE LOS CONTENEDORES",
+    "ERROR": {
+      "QUOTA_LESS_THAN_FILE_SIZE": "La cuota de almacenamiento debe ser mayor que el tamaño máximo de archivo",
+      "FILE_SIZE_LARGER_THAN_QUOTA": "El tamaño máximo de archivo debe ser menor que la cuota de almacenamiento",
+      "INVALID_FILE_SIZE": "Tamaño máximo de archivo no válido"
+    },
+    "QUOTA_VISUALIZE": "Visualización de la cuota",
+    "ROOT_DOMAIN_QUOTA": {
+      "CURRENT_DOMAIN_USED_SPACE": "Espacio utilizado del dominio actual (espacio personal + compartido)",
+      "SUB_DOMAIN_USED_SPACE": "Espacio utilizado por los subdominios",
+      "REMAINING_SPACE": "Espacio restante",
+      "QUOTA_PER_SUB_DOMAIN": "Cuota por subdominio"
+    },
+    "TOP_DOMAIN_QUOTA": {
+      "CURRENT_DOMAIN_USED_SPACE": "Espacio utilizado del dominio actual",
+      "SUB_DOMAIN_USED_SPACE": "Espacio utilizado por los subdominios",
+      "REMAINING_QUOTA": "Cuota restante",
+      "QUOTA_PER_SUB_DOMAIN": "Espacio sin asignar",
+      "USED": "Espacio utilizado"
+    },
+    "GUEST_DOMAIN_QUOTA": {
+      "CURRENT_DOMAIN_USED_SPACE": "Espacio utilizado del dominio actual",
+      "REMAINING_SPACE": "Espacio restante",
+      "UNALLOCATED_SPACE": "Espacio sin asignar",
+      "PERSONAL_ALLOCATED_SPACE": "Cuota asignada al espacio personal",
+      "SHARED_SPACE_ALLOCATED": "Cuota asignada al espacio compartido",
+      "UNASSIGNED_SPACE": "Cuota sin asignar"
+    },
+    "SAVE_CHANGE": "Guardar cambios",
+    "CANCEL": "Cancelar",
+    "RESET": "Restablecer",
+    "HINT_LABELS": {
+      "HINT_UNLINK_TOOLTIP": "Sustituir el valor predeterminado",
+      "HINT_RESET_TOOLTIP": "Restablecer el valor predeterminado: {value}",
+      "HINT_RESET_SHARED_QUOTA_TOOLTIP": "Restablecer el valor predeterminado",
+      "HINT_ACTIVATE_SHARING_TOOLTIP": "Activar la cuota compartida del dominio",
+      "HINT_DESACTIVATE_SHARING_TOOLTIP": "Desactivar la cuota compartida del dominio"
+    },
+    "DOMAIN_SHARED_QUOTA": {
+      "DESCRIPTION": "Al activar este modo, ya no es necesario configurar la cuota de cada contenedor de este dominio (espacio personal y espacio compartido). El usuario verá el consumo global de todos los usuarios del dominio.",
+      "LABEL": "Activar la cuota compartida del dominio"
+    }
+  },
+  "DOMAIN": {
+    "CREATE_DOMAIN": "Crear dominio",
+    "CREATE_TOP_DOMAIN": "Crear un dominio de nivel superior",
+    "CREATE_SUB_DOMAIN": "Crear un subdominio",
+    "CREATE_GUEST_DOMAIN": "Crear un dominio de invitados",
+    "SELECT_DOMAIN": "Seleccionar dominio",
+    "TYPE": "Tipo",
+    "DELETE": {
+      "BUTTON": "Eliminar dominio",
+      "MODAL_CHILD_EXISTS_TITLE": "El dominio contiene dominios anidados",
+      "MODAL_CHILD_EXISTS_TEXT": "Elimine todos los dominios anidados (subdominios y dominio de invitados) de este dominio antes de eliminarlo",
+      "MODAL_CONFIRM_TITLE": "Eliminación del dominio",
+      "MODAL_CONFIRM_TEXT": "Está a punto de eliminar este dominio. Esta operación es irreversible y destruye todos los datos relacionados (documentos, usuarios...). ¿Desea continuar?"
+    },
+    "FIELDS": {
+      "NAME": "Nombre",
+      "NAME_REQUIRED": "Introduzca el nombre del dominio",
+      "NAME_MAX_LENGTH": "El nombre del dominio debe tener menos de 256 caracteres",
+      "NOTIFICATION_LANGUAGE": "Idioma de las notificaciones",
+      "NOTIFICATION_LANGUAGE_HELPER": "Los correos de notificación se enviarán en este idioma a todos los usuarios que se creen en este dominio.",
+      "DEFAULT_USER_ROLE": "Rol de usuario predeterminado",
+      "DEFAULT_USER_ROLE_HELPER": "Este rol se asignará a todos los usuarios que se creen en este dominio.",
+      "WELCOME_MESSAGE": "Mensaje de bienvenida",
+      "MAIL_CONFIGURATION": "Configuración de correos",
+      "MIME_POLICY": "Política de tipos MIME",
+      "DOMAIN_POLICY": "Política de dominio",
+      "DOMAIN_POLICY_AUTO": "Crear la política de dominio automáticamente",
+      "PARENT_DOMAIN": "Dominio principal"
+    },
+    "WARNING": {
+      "PAGE_NOT_ACCESSIBLE": "Esta página no está disponible para el dominio o el usuario actual",
+      "BACK_TO_CONFIGURATION": "Ir a Configuración"
+    },
+    "TYPES": {
+      "ROOTDOMAIN": "Dominio raíz",
+      "TOPDOMAIN": "Dominio de nivel superior",
+      "SUBDOMAIN": "Subdominio",
+      "GUESTDOMAIN": "Dominio de invitados"
+    },
+    "CREATE_MODAL": {
+      "FOOTER_NOTE": "El dominio se creará con valores predeterminados, por ejemplo, el rol o la configuración regional predeterminados. Después de crearlo, edite el dominio y sus parámetros para una configuración más avanzada",
+      "DOMAIN_POLICY_AUTO_TOOLTIP": "Si se activa, se creará automáticamente una regla que solo autoriza al nuevo dominio a comunicarse consigo mismo. Todas las demás comunicaciones están prohibidas de forma predeterminada. Si se desactiva, se aplicará la política de dominio predeterminada, que permite que todos los demás dominios vean este dominio.",
+      "GUEST_DOMAIN_CHECKBOX": "Es un dominio de invitados"
+    },
+    "REMOTE_FILTERS_HELPER": "Cualquier dominio puede utilizar los filtros remotos"
+  },
+  "REMOTE_SERVER": {
+    "FIELDS": {
+      "PROVIDED_URL": "URL proporcionada",
+      "TYPE": "Tipo de servidor",
+      "LDAP_BINDDN": "DN del usuario LDAP",
+      "LDAP_PASSWORD": "Contraseña LDAP",
+      "CLIENT_ID": "ID de cliente",
+      "CLIENT_SECRET": "Secreto de cliente"
+    },
+    "TYPE": {
+      "LDAP": "Conexión LDAP"
+    },
+    "LDAP": {
+      "MODAL": {
+        "CREATE_TITLE": "Crear conexión LDAP",
+        "EDIT_TITLE": "Editar conexión LDAP"
+      }
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "El nombre no puede estar vacío",
+      "URL_REQUIRED": "La URL no puede estar vacía"
+    },
+    "DELETE_CONFIRM": "Está a punto de eliminar esta conexión a un servidor remoto. Esta operación es irreversible. ¿Desea continuar?",
+    "DELETE_ABORT": "Esta conexión está asociada al menos a uno de los proveedores. No se puede eliminar.",
+    "NO_ASSOCIATED_DOMAIN": "Ningún dominio utiliza esta conexión."
+  },
+  "BETA": {
+    "MENU": "Portal de administración anterior",
+    "MENU_TITLE": "Esta nueva interfaz está en desarrollo. Vaya a la versión anterior para acceder a todos los menús de configuración.",
+    "CONFIRM_MESSAGE": "Esta función todavía no está disponible en esta versión. ¿Desea acceder a la versión anterior para continuar?"
+  },
+  "USER_FILTER": {
+    "TYPES": {
+      "LDAP": "Filtro LDAP"
+    },
+    "LDAP": {
+      "FORM": {
+        "SEARCH_USER_QUERY": "Consulta de búsqueda de usuarios",
+        "SEARCH_USER_QUERY_HELPER": "Consulta LDAP para buscar usuarios",
+        "AUTOCOMPLETE_QUERY": "Consultas de autocompletado de usuarios",
+        "AUTOCOMPLETE_QUERY_HELPER": "Consultas LDAP para autocompletar un usuario usando todos los atributos o solo el nombre y los apellidos",
+        "MAIL": "Correo",
+        "FIRSTNAME": "Nombre",
+        "LASTNAME": "Apellidos",
+        "UNIQUE_ID": "Identificador único del usuario",
+        "PAGE_SIZE": "Tamaño de página",
+        "LIMIT": "Límite",
+        "AUTHENTICATION_QUERY": "Consulta de autenticación",
+        "AUTHENTICATION_QUERY_HELPER": "Consulta para la autenticación en el directorio LDAP",
+        "QUERY": "Consulta",
+        "QUERY_ON_ALL_ATTRIBUTES": "Consulta en todos los atributos",
+        "QUERY_ON_NAMES": "Consulta en los nombres",
+        "ATTRIBUTES": "Atributos",
+        "ATTRIBUTES_HELPER": "Correspondencia entre los atributos de usuario de LinShare y los atributos del directorio LDAP"
+      },
+      "PAGE_HELPER_P1": "Después de crear una conexión a un directorio LDAP, es necesario crear un filtro de usuarios.",
+      "PAGE_HELPER_P2": "Este modelo le permite definir la correspondencia entre los atributos de los usuarios de LinShare y los atributos de su directorio. Además, LinShare necesita 4 consultas distintas para funcionar correctamente.",
+      "PAGE_SUBTITLE_CREATE": "Crear un nuevo filtro de usuarios LDAP",
+      "PAGE_SUBTITLE_EDIT": "Editar el filtro de usuarios LDAP"
+    },
+    "EMPTY_TEXT": "No hay ningún filtro de usuarios",
+    "DELETE_CONFIRM": "Está a punto de eliminar este filtro de usuarios. Esta operación es irreversible. ¿Desea continuar?",
+    "DELETE_ABORT": "Este filtro de usuarios está asociado al menos a un dominio. No se puede eliminar."
+  },
+  "USER_PROVIDER": {
+    "EMPTY_MESSAGE": "No se ha creado ningún proveedor de usuarios para este dominio",
+    "ERROR_MESSAGE": "No se han podido obtener los datos del proveedor de usuarios de este dominio",
+    "DELETE_CONFIRM": "Está a punto de eliminar este proveedor de usuarios. Esta operación es irreversible. ¿Desea continuar?",
+    "CREATE": "Crear un nuevo proveedor",
+    "TYPES": {
+      "LDAP": "Proveedor LDAP",
+      "OIDC": "Proveedor OIDC"
+    },
+    "LDAP": {
+      "BASE_DN": "DN base",
+      "BASE_DN_HELPER": "LinShare empezará a buscar usuarios a partir de esta posición en su LDAP"
+    },
+    "OIDC": {
+      "ASSOCIATED_DOMAIN_ID": "Identificador del dominio asociado",
+      "ASSOCIATED_DOMAIN_ID_HELPER": "Al crear un proveedor de usuarios OIDC para {name}, permite que LinShare cree usuarios en este dominio cuando un usuario se autentica con OIDC. El usuario se creará en este dominio si el valor del claim 'domain_discriminator' coincide con el valor anterior.",
+      "USED_DOMAIN_ID": "Este identificador de dominio ya lo utiliza otro dominio",
+      "CHECK_EXTERNAL_USER_ID": "Comprobar el identificador externo del usuario",
+      "CHECK_EXTERNAL_USER_ID_HELPER": "LinShare buscará el claim 'external_uid' y guardará su valor en el perfil del usuario en la primera conexión. Después, este identificador guardado se comparará con el valor del claim en cada intento de autenticación OIDC para asegurarse de que se trata del mismo usuario.",
+      "USE_ROLE_CLAIM": "Usar el claim de rol",
+      "USE_ROLE_CLAIM_HELPER": "LinShare buscará el claim 'linshare_role'; su valor se usará como rol predeterminado al crear el perfil en la primera conexión. Valores posibles: ADMIN, SIMPLE",
+      "USE_EMAIL_LOCALE_CLAIM": "Usar el claim de idioma de los correos",
+      "USE_EMAIL_LOCALE_CLAIM_HELPER": "LinShare buscará el claim 'linshare_locale'; su valor se usará como idioma predeterminado al crear el perfil en la primera conexión. Valores posibles: ENGLISH, FRENCH, RUSSIAN.",
+      "USE_ACCESS_CLAIM": "Usar el claim de acceso",
+      "USE_ACCESS_CLAIM_HELPER": "LinShare buscará el claim 'linshare_access' (presencia y valor) para conceder el acceso a LinShare. El valor del claim debe coincidir con el valor guardado en el archivo de propiedades; de lo contrario, se rechazará al usuario"
+    }
+  },
+  "GROUP_FILTER": {
+    "EMPTY_TEXT": "No hay ningún filtro de grupos",
+    "DELETE_CONFIRM": "Está a punto de eliminar este filtro de grupos. Esta operación es irreversible. ¿Desea continuar?",
+    "DELETE_ABORT": "Este filtro está asociado al menos a un proveedor de grupos. No se puede eliminar.",
+    "NO_ASSOCIATED_DOMAIN": "Ningún dominio utiliza este filtro de grupos",
+    "LDAP": {
+      "PAGE_HELPER_P1": "LinShare admite la sincronización automática entre los grupos de trabajo de LinShare y los grupos LDAP. Los grupos de trabajo y sus miembros se crean y se sincronizan con su equivalente LDAP. De forma predeterminada, los miembros reciben el rol de lector.",
+      "PAGE_HELPER_P2": "LinShare necesita las siguientes consultas para la sincronización:",
+      "PAGE_HELPER_P3": "Consulta LQL (LDAP Query Language) para buscar todos los grupos de trabajo",
+      "PAGE_HELPER_P4": "Consulta LQL para buscar un grupo de trabajo",
+      "PAGE_SUBTITLE_CREATE": "Crear un nuevo filtro de grupos LDAP",
+      "PAGE_SUBTITLE_EDIT": "Editar el filtro de grupos LDAP",
+      "FORM": {
+        "ATTRIBUTES": "Atributos",
+        "WORKGROUP_SEARCH": "Búsqueda de grupos de trabajo",
+        "WORKGROUP_SEARCH_HELPER": "Consultas y parámetros LDAP para buscar todos los grupos de trabajo o uno solo",
+        "QUERY_FOR_ALL": "Consulta para todos los grupos de trabajo",
+        "QUERY_FOR_ONE": "Consulta para un grupo de trabajo",
+        "PREFIX": "Prefijo que se eliminará",
+        "PREFIX_HELPER": "El texto de prefijo que se quitará del nombre del grupo de trabajo",
+        "SEARCH_PAGE_SIZE": "Tamaño de página de búsqueda",
+        "SEARCH_PAGE_SIZE_ERROR": "El tamaño de página debe ser al menos 1",
+        "MEMBER_EMAIL": "Correo del miembro",
+        "MEMBER_FIRSTNAME": "Nombre del miembro",
+        "MEMBER_LASTNAME": "Apellidos del miembro",
+        "WORKGROUP_NAME": "Nombre del grupo de trabajo",
+        "WORKGROUP_MEMBER": "Miembro del grupo de trabajo"
+      }
+    }
+  },
+  "GROUP_PROVIDER": {
+    "EMPTY_MESSAGE": "No se ha creado ningún proveedor de grupos para este dominio",
+    "ERROR_MESSAGE": "No se han podido obtener los datos del proveedor de grupos de este dominio",
+    "DELETE_CONFIRM": "Está a punto de eliminar este proveedor de grupos. Esta operación es irreversible. ¿Desea continuar?",
+    "CREATE": "Crear un nuevo proveedor",
+    "LDAP": {
+      "BASE_DN": "DN base",
+      "BASE_DN_HELPER": "LinShare empezará a buscar grupos de trabajo a partir de esta posición en su LDAP",
+      "SEARCH_IN_OTHER_DOMAINS": "Buscar en otros dominios"
+    }
+  },
+  "WORKSPACE_FILTER": {
+    "EMPTY_TEXT": "No hay ningún filtro de espacios de trabajo",
+    "DELETE_CONFIRM": "Está a punto de eliminar este filtro de espacios de trabajo. Esta operación es irreversible. ¿Desea continuar?",
+    "DELETE_ABORT": "Este filtro está asociado al menos a un proveedor de espacios de trabajo. No se puede eliminar.",
+    "NO_ASSOCIATED_DOMAIN": "Ningún proveedor de espacios de trabajo utiliza este filtro",
+    "LDAP": {
+      "PAGE_HELPER_P1": "LinShare admite la sincronización automática entre los espacios de trabajo de LinShare y los espacios de trabajo LDAP. Los espacios de trabajo y sus miembros se crean y se sincronizan con su equivalente LDAP. De forma predeterminada, los miembros reciben el rol de lector.",
+      "PAGE_HELPER_P2": "LinShare necesita las siguientes consultas para la sincronización:",
+      "PAGE_HELPER_P3": "Consulta LQL (LDAP Query Language) para buscar todos los espacios de trabajo",
+      "PAGE_HELPER_P4": "Consulta LQL para buscar un espacio de trabajo",
+      "PAGE_SUBTITLE_CREATE": "Crear un nuevo filtro de espacios de trabajo LDAP",
+      "PAGE_SUBTITLE_EDIT": "Editar el filtro de espacios de trabajo LDAP",
+      "FORM": {
+        "ATTRIBUTES": "Atributos",
+        "WORK_SPACE_SEARCH": "Búsqueda de espacios de trabajo",
+        "WORK_SPACE_SEARCH_HELPER": "Consultas y parámetros LDAP para buscar todos los espacios de trabajo o uno solo",
+        "QUERY_FOR_ALL": "Consulta para todos los espacios de trabajo",
+        "QUERY_FOR_ONE": "Consulta para un espacio de trabajo",
+        "PREFIX": "Prefijo que se eliminará",
+        "PREFIX_HELPER": "El texto de prefijo que se quitará del nombre del espacio de trabajo",
+        "SEARCH_PAGE_SIZE": "Tamaño de página de búsqueda",
+        "SEARCH_PAGE_SIZE_ERROR": "El tamaño de página debe ser al menos 1",
+        "MEMBER_EMAIL": "Correo del miembro",
+        "MEMBER_FIRSTNAME": "Nombre del miembro",
+        "MEMBER_LASTNAME": "Apellidos del miembro",
+        "WORK_SPACE_NAME": "Nombre del espacio de trabajo",
+        "WORK_SPACE_MEMBER": "Miembro del espacio de trabajo"
+      }
+    }
+  },
+  "WORKSPACE_PROVIDER": {
+    "EMPTY_MESSAGE": "No se ha creado ningún proveedor de espacios de trabajo para este dominio",
+    "ERROR_MESSAGE": "No se han podido obtener los datos del proveedor de espacios de trabajo de este dominio",
+    "DELETE_CONFIRM": "Está a punto de eliminar este proveedor de espacios de trabajo. Esta operación es irreversible. ¿Desea continuar?",
+    "CREATE": "Crear un nuevo proveedor",
+    "LDAP": {
+      "BASE_DN": "DN base",
+      "BASE_DN_HELPER": "LinShare empezará a buscar espacios de trabajo a partir de esta posición en su LDAP",
+      "SEARCH_IN_OTHER_DOMAINS": "Buscar en otros dominios"
+    }
+  },
+  "WELCOME_MESSAGES": {
+    "DESCRIPTION": "En esta vista puede seleccionar un dominio en el árbol de dominios y ver la lista de mensajes de bienvenida que ha creado o que puede utilizar",
+    "ROOT_DOMAIN_DESCRIPTION": "El dominio raíz puede crear mensajes de bienvenida, pero no puede utilizar ninguno",
+    "NESTED_DOMAIN_DESCRIPTION": "Un dominio anidado puede crear mensajes de bienvenida para su propio uso y utilizar los creados por sus dominios superiores",
+    "THE_WELCOME_MESSAGE": "El mensaje de bienvenida",
+    "SET_FIELD": "Debe rellenar este campo",
+    "DELETE_CONFIRM": "Está a punto de eliminar este mensaje de bienvenida. Esta operación es irreversible. ¿Desea continuar?",
+    "MESSAGE_PREVIEW": "Esta es una vista previa del mensaje de bienvenida:",
+    "ASSIGN_SUCCESS": "Asignado correctamente",
+    "ASSIGN_CONFIRM": "Está a punto de asignar este mensaje de bienvenida al dominio actual. ¿Desea continuar?"
+  },
+  "MIME_POLICIES": {
+    "CREATE_DESCRIPTION": "Haga clic en el botón <span style='color: #007AFF'>“Crear +”</span> y asigne un nombre a su filtro de tipos MIME",
+    "FILTER_DESCRIPTION": "Elija el filtro que ha añadido y se mostrará una lista de los tipos MIME disponibles",
+    "ENABLED_DESCRIPTION": "Active o desactive los tipos MIME que desee y guarde",
+    "MANAGE_DESCRIPTION": "A continuación puede asignar este filtro al dominio o a sus dominios anidados.",
+    "MANAGE_DOMAIN": "Gestionar dominio",
+    "SEARCH_BY": "Buscar por nombre o dominio",
+    "CREATE_MIME_POLICY": "Crear una nueva política MIME",
+    "SYSTEM_INFORMATIONS": "Información del sistema",
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "Eliminar política MIME",
+      "DELETE_MODAL_SUBTITLE": "Está a punto de eliminar esta política MIME. Esta acción es irreversible. ¿Desea continuar?",
+      "DELETE_ACTION_CANCEL": "Cancelar",
+      "DELETE_ACTION_CONFIRM": "Sí, eliminar",
+      "DELETE_MODAL_EMPTY": "Seleccione el tipo MIME que desea eliminar",
+      "DELETE_SUCCESS": "Eliminado correctamente",
+      "DELETE_SINGLE_FAIL": "La política MIME seleccionada está asociada al menos a un dominio. No se puede eliminar",
+      "DELETE_MUTIPLE_MODAL_TITLE": "Eliminar las políticas MIME seleccionadas",
+      "DELETE_MUTIPLE_MODAL_SUBTITLE": "Está a punto de eliminar [{qty}] políticas MIME. Esta operación es irreversible. ¿Desea continuar?",
+      "DELETE_FAILURE": "Error al eliminar",
+      "DELETE_FAILURE_MESSAGE": "Algunas políticas MIME se han eliminado correctamente, pero otras no porque ya están asignadas al menos a un dominio",
+      "UNABLE_DELETE_ALL_MIME": "No puede eliminar estas políticas MIME",
+      "UNABLE_DELETE_ONE_MIME": "No puede eliminar esta política MIME",
+      "UNABLE_DELETE_SOME_MIME": "Algunas políticas MIME se han eliminado correctamente, pero otras no porque no tiene permiso para eliminarlas"
+    },
+    "ASSIGN_MODAL": {
+      "ASSIGN_MODAL_TITLE": "Asignar política MIME",
+      "ASSIGN_MODAL_SUBTITLE": "Está a punto de asignar esta política MIME a {currentDomain}. ¿Desea continuar?",
+      "ASSIGN_SUCCESS": "Asignado correctamente"
+    },
+    "MIME_TYPE_TABLE": {
+      "MIME_TYPE_NAME": "Nombre del tipo MIME",
+      "EXTENTION": "Extensión",
+      "ADD_TO_LIST": "Añadir a la lista",
+      "REMOVE_FROM_LIST": "Quitar de la lista",
+      "SOURCE": "Origen"
+    },
+    "UPDATE_MIME_TYPE_SUCCESS": "Cambios guardados para {name} ",
+    "MAMAGER_MIME_POLICY": "Gestionar la política MIME",
+    "NAME": "Nombre",
+    "BACK_TO_LIST": "Volver a la lista",
+    "MIME_TYPE_OPTIONS": {
+      "DESCRIPTION": "Después de elegir crear una lista negra o una lista blanca, puede añadir distintos tipos MIME a la lista. ¿Qué lista desea crear?",
+      "BLACKLIST": "Lista negra",
+      "BLACKLIST_DESCRIPTION": "Se bloquearán todos los tipos MIME de la lista negra y se autorizarán los demás.",
+      "WHITELIST": "Lista blanca",
+      "WHITELIST_DESCRIPTION": "Se autorizarán todos los tipos MIME de la lista blanca y se bloquearán los demás"
+    }
+  },
+  "FUNCTIONALITIES": {
+    "LIST": {
+      "SEARCH_PLACEHOLDER": "Buscar funcionalidades por nombre",
+      "SORTER": {
+        "ENABLE_FIRST": "Ordenar por activadas",
+        "DISABLE_FIRST": "Ordenar por desactivadas",
+        "NAME_ASC": "Ordenar por nombre (A-Z)",
+        "NAME_DESC": "Ordenar por nombre (Z-A)"
+      }
+    },
+    "UNITS": {
+      "TIME": {
+        "MONTH": "Meses",
+        "DAY": "Días",
+        "WEEK": "Semanas"
+      },
+      "SIZE": {
+        "KILO": "KB",
+        "MEGA": "MB",
+        "GIGA": "GB"
+      }
+    },
+    "DEFAULT": {
+      "DESCRIPTION": "",
+      "PARAMETER": {
+        "HEADER": "Parámetro(s)",
+        "TITLE": "Predeterminado",
+        "TITLE_MAXIMUM": "Máximo",
+        "DESCRIPTION": "",
+        "DESCRIPTION_MAXIMUM": "",
+        "BOOLEAN_DESCRIPTION": "Activar este parámetro",
+        "UNLIMITED_CHECKBOX": "Ilimitado",
+        "LANGUAGE_TITLE": "Idioma"
+      },
+      "ACTIVATION_POLICY": {
+        "HEADER": "Política de activación",
+        "DESCRIPTION": "Para activar o desactivar la funcionalidad y controlar el acceso de los administradores de los dominios anidados a la activación de la funcionalidad",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Activar la funcionalidad",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Permitir que los administradores anidados sustituyan esta sección"
+      },
+      "CONFIGURATION_POLICY": {
+        "HEADER": "Política de configuración",
+        "DESCRIPTION": "Determina si los administradores de los dominios anidados pueden cambiar la sección Parámetro(s)",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los administradores anidados cambien el parámetro de la funcionalidad",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Permitir que los administradores anidados sustituyan esta sección"
+      },
+      "DELEGATION_POLICY": {
+        "HEADER": "Política de delegación",
+        "DESCRIPTION": "Determina si los usuarios pueden cambiar el parámetro predeterminado definido por el administrador",
+        "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien el valor predeterminado del parámetro",
+        "OVERRIDE_CHECKBOX_DESCRIPTION": "Permitir que los administradores anidados sustituyan esta sección"
+      }
+    },
+    "DETAILS": {
+      "ANONYMOUS_URL": {
+        "NAME": "URL anónima",
+        "DESCRIPTION": "Determina si los usuarios pueden compartir un archivo con una dirección de correo electrónico anónima",
+        "PARAMETER": {
+          "TITLE": "Uso compartido seguro",
+          "DESCRIPTION": "Este valor se usará como valor inicial cuando los usuarios abran el formulario para compartir. El uso compartido estará protegido por una contraseña de un solo uso. Aunque se obtenga la URL, sin la contraseña no se podrá acceder a ella.",
+          "BOOLEAN_DESCRIPTION": "Proteger los recursos compartidos anónimos con una contraseña"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios, al compartir, pueden sustituir el valor predeterminado de la opción de uso compartido seguro",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la opción de uso compartido seguro al compartir documentos"
+        }
+      },
+      "ANONYMOUS_URL__FORCE_ANONYMOUS_SHARING": {
+        "NAME": "Forzar el uso compartido anónimo",
+        "DESCRIPTION": "Determina si los usuarios pueden elegir compartir documentos solo mediante una URL anónima.",
+        "PARAMETER": {
+          "TITLE": "Forzar el uso compartido anónimo",
+          "DESCRIPTION": "Aunque comparta documentos con otros usuarios de LinShare, los documentos se compartirán mediante un enlace anónimo.",
+          "BOOLEAN_DESCRIPTION": "Forzar el uso compartido anónimo para todos los destinatarios"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios, al compartir documentos, pueden cambiar el valor inicial de la opción de forzar URL anónima"
+        }
+      },
+      "ANONYMOUS_URL__NOTIFICATION": {
+        "NAME": "Notificación de descarga anónima",
+        "DESCRIPTION": "Si los usuarios comparten archivos con otras personas, recibirán una notificación por correo cuando los destinatarios descarguen archivos desde una URL anónima.",
+        "PARAMETER": {
+          "TITLE": "Frecuencia de envío de notificaciones",
+          "DESCRIPTION": "Determina si se envía una notificación en cada descarga o solo en la primera",
+          "BOOLEAN_DESCRIPTION": "Enviar notificaciones en cada descarga"
+        }
+      },
+      "ANONYMOUS_URL__NOTIFICATION_URL": {
+        "NAME": "URL de notificación por correo",
+        "DESCRIPTION": "Indique la URL base del enlace de los recursos compartidos anónimos",
+        "PARAMETER": {
+          "TITLE": "URL base del enlace de uso compartido anónimo",
+          "DESCRIPTION": "Esta URL aparecerá en el correo de notificación del destinatario cuando los usuarios de este dominio compartan archivos mediante una URL anónima"
+        }
+      },
+      "ANONYMOUS_URL__HIDE_RECEIVED_SHARE_MENU": {
+        "DESCRIPTION": "Recursos compartidos recibidos es un menú donde los usuarios ven los archivos que otras personas han compartido con ellos. Si activa esta funcionalidad, los usuarios no podrán acceder a este menú.",
+        "NAME": "Ocultar el menú Recursos compartidos recibidos"
+      },
+      "UPLOAD_REQUEST": {
+        "NAME": "Solicitud de carga",
+        "DESCRIPTION": "La solicitud de carga es una funcionalidad mediante la cual una persona (identificada por su correo electrónico) puede cargar archivos para un usuario de LinShare de forma temporal y regulada. Los documentos cargados ocupan espacio en el espacio personal del emisor. Cuando esta funcionalidad está desactivada, las subfunciones siguientes no funcionan.",
+        "PARAMETER": {
+          "TITLE": "URL base del portal de solicitudes de carga",
+          "DESCRIPTION": "Los destinatarios de las solicitudes de carga gestionarán sus cargas desde un portal independiente. La URL de este portal se incluye en los correos de notificación enviados por el servidor."
+        }
+      },
+      "UPLOAD_REQUEST__NOTIFICATION_LANGUAGE": {
+        "NAME": "Idioma de las notificaciones por correo",
+        "DESCRIPTION": "",
+        "PARAMETER": {
+          "LANGUAGE_TITLE": "Idioma de las notificaciones por correo"
+        }
+      },
+      "UPLOAD_REQUEST__LIMIT": {
+        "NAME": "Limitar el número de solicitudes de carga por usuario",
+        "DESCRIPTION": "Permite limitar cuántas solicitudes de carga puede crear un usuario en este dominio.",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Número máximo de solicitudes de carga",
+          "DESCRIPTION_MAXIMUM": "Número máximo de solicitudes de carga que un usuario puede crear en este dominio. Solo se cuentan las solicitudes con estado Pendiente/Activa/Cerrada."
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_ACTIVATION": {
+        "NAME": "Plazo antes de la activación",
+        "DESCRIPTION": "Determina el plazo entre la fecha de creación de la solicitud de carga y la fecha de activación, a partir de la cual la solicitud está disponible y los usuarios pueden cargar archivos",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permite un cierto plazo entre la fecha de creación y la fecha de activación de las solicitudes de carga. Si se desactiva, las solicitudes de carga se activarán al crearse",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir definir un plazo entre la fecha de activación y la fecha de creación"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar la fecha de activación inicial",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la fecha de activación"
+        },
+        "PARAMETER": {
+          "TITLE": "Plazo predeterminado para activar las solicitudes tras la fecha de creación",
+          "TITLE_MAXIMUM": "Plazo máximo para activar las solicitudes tras la fecha de creación",
+          "UNLIMITED_CHECKBOX": "Sin límite de fecha de activación"
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_EXPIRATION": {
+        "NAME": "Plazo antes de la caducidad",
+        "DESCRIPTION": "Determina el plazo entre la fecha de activación de la solicitud de carga y la fecha de caducidad, a partir de la cual la solicitud se cierra y los destinatarios ya no pueden cargar archivos",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permite un cierto plazo entre la fecha de activación y la fecha de caducidad de las solicitudes de carga. Si se desactiva, las futuras solicitudes de carga no caducarán",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir definir un plazo entre la fecha de activación y la fecha de creación"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar la fecha de caducidad inicial",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la fecha de caducidad"
+        },
+        "PARAMETER": {
+          "TITLE": "Plazo predeterminado para la caducidad de las solicitudes tras la fecha de activación",
+          "TITLE_MAXIMUM": "Plazo máximo para la caducidad de las solicitudes tras la fecha de activación",
+          "UNLIMITED_CHECKBOX": "Sin límite de fecha de caducidad"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_COUNT": {
+        "NAME": "Número máximo de archivos",
+        "DESCRIPTION": "Determina el número máximo de archivos que un destinatario puede cargar en una solicitud de carga",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Añade un límite al número de archivos que el destinatario puede cargar por solicitud. Si se desactiva, no habrá límite.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir definir el número máximo de archivos que un destinatario puede cargar"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar el número máximo de archivos inicial",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien el número máximo de archivos"
+        },
+        "PARAMETER": {
+          "TITLE": "Límite predeterminado del número de archivos",
+          "TITLE_MAXIMUM": "Límite máximo del número de archivos que el emisor puede definir"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_FILE_SIZE": {
+        "NAME": "Tamaño máximo de archivo",
+        "DESCRIPTION": "Determina el tamaño máximo de un archivo que un destinatario puede cargar en una solicitud de carga",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Añade un límite al tamaño de archivo que el destinatario puede cargar. Si se desactiva, no habrá límite.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir definir el tamaño máximo de archivo"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar el tamaño máximo de archivo inicial",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien el tamaño máximo de archivo"
+        },
+        "PARAMETER": {
+          "TITLE": "Tamaño máximo de archivo predeterminado",
+          "TITLE_MAXIMUM": "Límite máximo del tamaño de archivo que el emisor puede definir"
+        }
+      },
+      "UPLOAD_REQUEST__MAXIMUM_DEPOSIT_SIZE": {
+        "NAME": "Tamaño máximo de depósito",
+        "DESCRIPTION": "Determina el tamaño total máximo que un destinatario puede cargar en una solicitud de carga",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Añade un límite al tamaño total que el destinatario puede cargar. Si se desactiva, no habrá límite.",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir definir el tamaño total máximo de los archivos"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar el tamaño total inicial de los archivos",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien el tamaño total de los archivos"
+        },
+        "PARAMETER": {
+          "TITLE": "Tamaño total de archivos predeterminado",
+          "TITLE_MAXIMUM": "Tamaño total máximo de los archivos"
+        }
+      },
+      "UPLOAD_REQUEST__PROTECTED_BY_PASSWORD": {
+        "NAME": "URL protegida por contraseña",
+        "DESCRIPTION": "Al enviar las solicitudes a los destinatarios, se adjuntará una contraseña al correo de invitación. Esta será la contraseña inicial cuando los destinatarios accedan al portal, ya que deberán cambiarla para los accesos posteriores",
+        "PARAMETER": {
+          "TITLE": "Permitir que la solicitud de carga esté protegida por contraseña",
+          "BOOLEAN_DESCRIPTION": "Las solicitudes de carga están protegidas de forma predeterminada"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden sustituir el valor predeterminado de la opción de protección por contraseña",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la opción de protección por contraseña"
+        }
+      },
+      "UPLOAD_REQUEST__CAN_CLOSE": {
+        "NAME": "Derecho de cierre",
+        "DESCRIPTION": "Determina si el emisor o los destinatarios de la solicitud pueden cerrar la solicitud de carga antes de su fecha de caducidad",
+        "PARAMETER": {
+          "TITLE": "Permitir el cierre",
+          "BOOLEAN_DESCRIPTION": "Permitir que los usuarios cierren las solicitudes de forma predeterminada"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden sustituir el valor predeterminado de la opción Permitir el cierre",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la opción Permitir el cierre"
+        }
+      },
+      "UPLOAD_REQUEST__CAN_DELETE": {
+        "NAME": "Permitir que los destinatarios eliminen archivos",
+        "DESCRIPTION": "Determina si los destinatarios de la solicitud de carga pueden eliminar los archivos cargados",
+        "PARAMETER": {
+          "TITLE": "Permitir la eliminación",
+          "BOOLEAN_DESCRIPTION": "Permitir que los destinatarios eliminen los archivos cargados de forma predeterminada"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden sustituir el valor predeterminado de la opción Permitir la eliminación",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la opción Permitir la eliminación"
+        }
+      },
+      "UPLOAD_REQUEST__DELAY_BEFORE_NOTIFICATION": {
+        "NAME": "Plazo antes de la notificación",
+        "DESCRIPTION": "Envía una notificación para recordar al destinatario que cargue archivos.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permite que LinShare envíe notificaciones de recordatorio o determina el plazo de envío de la notificación antes de la caducidad de la solicitud",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que LinShare envíe notificaciones de recordatorio"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar la fecha de notificación inicial",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la fecha de notificación"
+        },
+        "PARAMETER": {
+          "TITLE": "Plazo predeterminado para enviar la notificación antes de que caduque la solicitud",
+          "TITLE_MAXIMUM": "Plazo máximo para enviar la notificación antes de que caduque la solicitud",
+          "UNLIMITED_CHECKBOX": "Sin límite, salvo la fecha actual"
+        }
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT": {
+        "NAME": "Alerta de documento compartido no descargado",
+        "DESCRIPTION": "Determina si se notifica a los usuarios cuando un documento compartido no se ha descargado. No se enviará la notificación si se ha descargado al menos un archivo del recurso compartido.",
+        "PARAMETER": {
+          "TITLE": "Alerta de documento no descargado",
+          "BOOLEAN_DESCRIPTION": "Permitir el envío de notificaciones de forma predeterminada"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden sustituir el valor predeterminado de la opción Alerta de documento no descargado",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la opción Alerta de documento no descargado"
+        }
+      },
+      "UNDOWNLOADED_SHARED_DOCUMENTS_ALERT__DURATION": {
+        "NAME": "Días antes de la alerta",
+        "DESCRIPTION": "Determina el número de días laborables (sin contar fines de semana ni festivos) entre la fecha del uso compartido y la fecha de notificación de la alerta",
+        "PARAMETER": {
+          "DESCRIPTION": "Determina la fecha de notificación predeterminada cuando el usuario marca la opción Alerta de documento no descargado en el formulario para compartir",
+          "TITLE": "Número predeterminado de días tras el uso compartido en que se envía la notificación"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden sustituir la fecha de notificación predeterminada",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la fecha de notificación"
+        }
+      },
+      "SHARE_EXPIRATION": {
+        "NAME": "Caducidad de los recursos compartidos",
+        "DESCRIPTION": "Determina si un recurso compartido puede caducar o no",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permite que un recurso compartido caduque y determina la fecha de caducidad",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que un recurso compartido caduque"
+        },
+        "PARAMETER": {
+          "DESCRIPTION": "Determina el periodo antes de que caduque un recurso compartido ",
+          "TITLE": "Periodo predeterminado antes de que caduque un recurso compartido",
+          "TITLE_MAXIMUM": "Periodo máximo antes de que caduque un recurso compartido",
+          "UNLIMITED_CHECKBOX": "Sin límite de fecha de caducidad"
+        }
+      },
+      "SHARE_EXPIRATION__DELETE_FILE_ON_EXPIRATION": {
+        "NAME": "Eliminación de archivos al caducar los recursos compartidos",
+        "DESCRIPTION": "Los archivos compartidos se eliminarán del espacio del usuario al caducar",
+        "PARAMETER": {
+          "DESCRIPTION": "Determina si los archivos compartidos se eliminarán cuando caduque el recurso compartido",
+          "BOOLEAN_DESCRIPTION": "Eliminar el archivo compartido al caducar"
+        }
+      },
+      "SHARE_CREATION_ACKNOWLEDGEMENT_FOR_OWNER": {
+        "NAME": "Acuse de creación del recurso compartido",
+        "DESCRIPTION": "Determina si los usuarios recibirán una notificación por correo cuando compartan archivos en LinShare",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permite el acuse de creación del recurso compartido y determina la opción predeterminada",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir el acuse de creación del recurso compartido"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden sustituir el valor predeterminado de la opción Acuse de uso compartido",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios activen o desactiven el acuse de uso compartido"
+        },
+        "PARAMETER": {
+          "TITLE": "Valor predeterminado del acuse de uso compartido cuando los usuarios crean un recurso compartido",
+          "BOOLEAN_DESCRIPTION": "Permitir el acuse de uso compartido de forma predeterminada"
+        }
+      },
+      "SHARED_SPACE": {
+        "NAME": "Espacio compartido",
+        "DESCRIPTION": "Esta funcionalidad permite a los usuarios acceder al espacio compartido. El espacio compartido contiene espacios de trabajo y grupos de trabajo independientes. Un espacio de trabajo contiene miembros con sus roles y grupos de trabajo anidados. Un grupo de trabajo contiene miembros con sus roles y contenido (carpetas/archivos/versiones)."
+      },
+      "SHARED_SPACE__WORKSPACE_LIMIT": {
+        "NAME": "Limitar el número de espacios de trabajo",
+        "DESCRIPTION": "Permite limitar el número de espacios de trabajo que un usuario puede crear en este dominio",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Número máximo de espacios de trabajo",
+          "DESCRIPTION_MAXIMUM": "Número máximo de espacios de trabajo que un usuario puede crear en este dominio"
+        }
+      },
+      "SHARED_SPACE__NESTED_WORKGROUPS_LIMIT": {
+        "NAME": "Limitar el número de grupos de trabajo anidados",
+        "DESCRIPTION": "Permite limitar el número de grupos de trabajo anidados que un usuario puede crear dentro de un espacio de trabajo en este dominio",
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Número máximo de grupos de trabajo",
+          "DESCRIPTION_MAXIMUM": "Número máximo de grupos de trabajo anidados que un usuario puede crear dentro de un espacio de trabajo en este dominio"
+        }
+      },
+      "WORK_GROUP__CREATION_RIGHT": {
+        "NAME": "Creación de grupos de trabajo",
+        "DESCRIPTION": "Determina si los usuarios pueden crear grupos de trabajo",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios creen grupos de trabajo"
+        }
+      },
+      "WORK_SPACE__CREATION_RIGHT": {
+        "NAME": "Creación de espacios de trabajo",
+        "DESCRIPTION": "Determina si los usuarios pueden crear espacios de trabajo",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios creen espacios de trabajo"
+        }
+      },
+      "WORK_GROUP__DOWNLOAD_ARCHIVE": {
+        "NAME": "Descarga como archivo comprimido",
+        "DESCRIPTION": "Determina si los usuarios pueden descargar el contenido de una carpeta en un archivo comprimido",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permite descargar como archivo comprimido las carpetas de un grupo de trabajo",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir la descarga como archivo comprimido"
+        },
+        "PARAMETER": {
+          "TITLE_MAXIMUM": "Tamaño máximo de una descarga como archivo comprimido"
+        }
+      },
+      "WORK_GROUP__FILE_VERSIONING": {
+        "NAME": "Control de versiones de archivos",
+        "DESCRIPTION": "Usar el control de versiones de archivos en los grupos de trabajo",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permite la opción de control de versiones de archivos en un grupo de trabajo",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir el control de versiones de archivos"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden activar o desactivar el control de versiones de archivos en sus grupos de trabajo",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios activen o desactiven el control de versiones de archivos"
+        },
+        "PARAMETER": {
+          "TITLE": "Estado predeterminado del control de versiones de archivos en los nuevos grupos de trabajo",
+          "BOOLEAN_DESCRIPTION": "Activar el control de versiones de archivos en los nuevos grupos de trabajo"
+        }
+      },
+      "MIME_TYPE": {
+        "NAME": "Tipo MIME",
+        "DESCRIPTION": "Determina si se aplica la política de tipos MIME configurada al dominio actual"
+      },
+      "JWT_PERMANENT_TOKEN": {
+        "NAME": "Token JWT permanente",
+        "DESCRIPTION": "Activa la autenticación mediante token JWT permanente y la página de gestión de tokens en la interfaz de usuario",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permite la autenticación mediante token permanente y la gestión de tokens",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir crear y usar tokens JWT permanentes para la autenticación"
+        },
+        "PARAMETER": {
+          "TITLE": "",
+          "BOOLEAN_DESCRIPTION": "Los administradores del dominio pueden crear tokens JWT para los usuarios del dominio"
+        }
+      },
+      "INTERNAL_ENABLE_PERSONAL_SPACE": {
+        "NAME": "Activar el espacio personal para los usuarios internos",
+        "DESCRIPTION": "Permite a los usuarios acceder a Mi espacio, donde pueden cargar archivos y compartirlos con otras personas",
+        "PARAMETER": {
+          "TITLE": "Indica si los nuevos usuarios pueden usar Mi espacio al crearse",
+          "BOOLEAN_DESCRIPTION": "Permitir el acceso a Mi espacio a los nuevos usuarios"
+        }
+      },
+      "GUESTS": {
+        "NAME": "Invitados",
+        "DESCRIPTION": "Los usuarios internos pueden invitar como invitados a direcciones de correo externas no registradas en LinShare. Un invitado puede usar todas las funciones de LinShare como un usuario interno, salvo que su cuenta caduca tras un periodo configurable.",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios creen y gestionen invitados"
+        }
+      },
+      "GUESTS__EXPIRATION": {
+        "NAME": "Caducidad",
+        "DESCRIPTION": "Determina la fecha de caducidad de las cuentas de invitado",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar la fecha de caducidad de las cuentas de invitado que han creado",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la fecha de caducidad del invitado"
+        },
+        "PARAMETER": {
+          "TITLE": "Fecha de caducidad predeterminada",
+          "DESCRIPTION": "Periodo entre la fecha de creación y la fecha de caducidad predeterminada",
+          "TITLE_MAXIMUM": "Fecha de caducidad más lejana",
+          "DESCRIPTION_MAXIMUM": "Periodo máximo que el usuario puede definir entre la fecha de creación y la fecha de caducidad",
+          "UNLIMITED_CHECKBOX": "Sin límite de fecha de caducidad"
+        }
+      },
+      "GUESTS__CAN_UPLOAD": {
+        "NAME": "Permitir el acceso a Mi espacio",
+        "DESCRIPTION": "Determina si los invitados tienen acceso a la página Mi espacio",
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar la configuración de Mi espacio al crear invitados",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la configuración de Mi espacio"
+        },
+        "PARAMETER": {
+          "TITLE": "Configuración predeterminada de Mi espacio",
+          "BOOLEAN_DESCRIPTION": "Permitir a los invitados el acceso a Mi espacio"
+        }
+      },
+      "GUESTS__RESTRICTED": {
+        "NAME": "Restricción de contactos",
+        "DESCRIPTION": "Al crear un nuevo invitado, el usuario puede restringir el uso compartido de archivos del invitado a una lista de correos electrónicos. De forma predeterminada, el invitado estará restringido a su creador",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Al crear un nuevo invitado, muestra la opción Restringir la lista de contactos en la sección avanzada",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir la restricción de contactos"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar la configuración de restricción de contactos al crear invitados",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la configuración de restricción de contactos"
+        },
+        "PARAMETER": {
+          "TITLE": "Configuración predeterminada de la restricción de contactos",
+          "BOOLEAN_DESCRIPTION": "Permitir restringir los contactos a una lista específica de correos electrónicos"
+        }
+      },
+      "GUESTS__CONTACT_LISTS": {
+        "NAME": "Restricción por listas de contactos",
+        "DESCRIPTION": "Al crear un nuevo invitado, el usuario puede restringir el uso compartido de archivos del invitado a una selección de listas de contactos.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Al crear un nuevo invitado, muestra la opción Restringir listas de contactos en la sección avanzada",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir la restricción por listas de contactos"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar la configuración de restricción por listas de contactos al crear invitados",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la configuración de restricción por listas de contactos"
+        },
+        "PARAMETER": {
+          "TITLE": "Configuración predeterminada de la restricción por listas de contactos",
+          "BOOLEAN_DESCRIPTION": "Permitir restringir a una selección específica de listas de contactos"
+        }
+      },
+      "GUESTS__HIDE_MEMBERS": {
+        "NAME": "Ocultar los miembros de las listas de contactos de restricción",
+        "DESCRIPTION": "Al crear un nuevo invitado, el usuario puede restringir el uso compartido de archivos del invitado a una selección de listas de contactos. Los miembros de las listas de contactos pueden mostrarse u ocultarse. De forma predeterminada, se mostrarán a este invitado",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Al crear un nuevo invitado, muestra la opción Ocultar los miembros de las listas de contactos de restricción en la sección avanzada",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir gestionar la visibilidad de los miembros en la restricción por listas de contactos"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Determina si los usuarios pueden cambiar la configuración de visibilidad de los miembros de las listas de contactos al crear invitados",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios cambien la visibilidad de los miembros en la configuración de restricción por listas de contactos"
+        },
+        "PARAMETER": {
+          "TITLE": "Configuración predeterminada de la restricción de los miembros de las listas de contactos",
+          "BOOLEAN_DESCRIPTION": "Permitir ocultar los miembros de las listas de contactos de restricción"
+        }
+      },
+      "GUESTS__EXPIRATION_ALLOW_PROLONGATION": {
+        "NAME": "Aplazar la fecha de caducidad del invitado",
+        "DESCRIPTION": "Determina si los usuarios pueden editar y aplazar la fecha de caducidad de los invitados",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios editen y aplacen la fecha de caducidad del invitado"
+        }
+      },
+      "DOMAIN": {
+        "NAME": "Dominio"
+      },
+      "DOMAIN__MAIL": {
+        "NAME": "Correo del dominio",
+        "DESCRIPTION": "Configuración del correo de notificación del dominio actual. Esta dirección será el remitente de todas las notificaciones.",
+        "PARAMETER": {
+          "TITLE": "Dirección de correo de notificación del dominio"
+        }
+      },
+      "DOMAIN__NOTIFICATION_URL": {
+        "NAME": "URL de notificación",
+        "DESCRIPTION": "Configuración de la URL de LinShare que se usará en el encabezado de los correos de notificación",
+        "PARAMETER": {
+          "TITLE": "URL en el encabezado del correo de notificación"
+        }
+      },
+      "CONTACTS_LIST": {
+        "NAME": "Lista de contactos",
+        "DESCRIPTION": "Una lista de contactos puede usarse como destinataria en muchas funciones de LinShare, como el uso compartido de archivos, las solicitudes de carga, etc. Las listas de contactos públicas están disponibles para todos los usuarios del dominio, mientras que las privadas solo puede usarlas su creador"
+      },
+      "CONTACTS_LIST__CREATION_RIGHT": {
+        "NAME": "Derecho de creación",
+        "DESCRIPTION": "Determina si los usuarios pueden crear nuevas listas de contactos",
+        "ACTIVATION_POLICY": {
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los usuarios creen nuevas listas de contactos"
+        }
+      },
+      "COMPLETION": {
+        "NAME": "Autocompletado",
+        "DESCRIPTION": "Determina el número de caracteres que activa la búsqueda con autocompletado cuando los usuarios introducen el destinatario de un recurso compartido",
+        "PARAMETER": {
+          "TITLE": "Número de caracteres introducidos para activar la búsqueda con autocompletado"
+        }
+      },
+      "ANTIVIRUS": {
+        "NAME": "Antivirus",
+        "DESCRIPTION": "Cuando un usuario carga un archivo en LinShare, este se analiza antes de enviarse al servidor. Para usar esta funcionalidad, debe configurar la IP y el puerto de ClamAV en el archivo linshare.properties. Es necesario reiniciar el servidor."
+      },
+      "COLLECTED_EMAILS_EXPIRATION": {
+        "NAME": "Caducidad de los correos recopilados",
+        "DESCRIPTION": "Cuando un usuario comparte archivos con nuevos destinatarios (correos internos/externos o invitados), estas direcciones se recopilan y se sugieren en futuros usos compartidos. Esta funcionalidad decide si esas direcciones caducan o no",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Decide si los correos recopilados caducarán",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los correos recopilados caduquen"
+        },
+        "PARAMETER": {
+          "TITLE": "Periodo de conservación de los correos recopilados"
+        }
+      },
+      "DOCUMENT_EXPIRATION": {
+        "NAME": "Caducidad de los documentos",
+        "DESCRIPTION": "Define una fecha de caducidad para los archivos recién cargados o duplicados en el espacio del usuario. Al caducar, los archivos se eliminan automáticamente. Si los usuarios comparten un documento, su caducidad se elimina y se vuelve a aplicar cuando caduca el recurso compartido.",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Decide si los nuevos archivos caducarán",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permitir que los archivos recién cargados caduquen"
+        },
+        "PARAMETER": {
+          "TITLE": "Periodo de conservación de los archivos recién cargados"
+        }
+      },
+      "SECOND_FACTOR_AUTHENTICATION": {
+        "NAME": "Autenticación de dos factores",
+        "DESCRIPTION": "Se añadirá al proceso de inicio de sesión un paso adicional de autenticación mediante OTP",
+        "ACTIVATION_POLICY": {
+          "DESCRIPTION": "Permite al usuario configurar la autenticación de dos factores en la interfaz de usuario",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permite al usuario configurar la autenticación de dos factores"
+        },
+        "DELEGATION_POLICY": {
+          "DESCRIPTION": "Permite al usuario eliminar la autenticación de dos factores",
+          "ENABLE_CHECKBOX_DESCRIPTION": "Permite al usuario eliminar la clave compartida de la autenticación de dos factores"
+        },
+        "PARAMETER": {
+          "TITLE": "Obligar a todos los usuarios a configurar la autenticación de dos factores",
+          "BOOLEAN_DESCRIPTION": "Todos los usuarios deben configurar la autenticación de dos factores"
+        }
+      }
+    }
+  },
+  "REPORTING": {
+    "INTRODUCTION": "Muestra diversas estadísticas de su LinShare",
+    "FILTERS_BUTTON": "Filtros",
+    "FILTERS_BAR": {
+      "DOMAIN_FILTER": "Dominio relacionado:",
+      "CATEGORY_FILTER": "Categoría:",
+      "TOP": "Principales",
+      "TIME_RANGE_FILTER": "Periodo:",
+      "ALL_DOMAINS": "Todos"
+    },
+    "STORAGE_STATISTICS": "Estadísticas de almacenamiento",
+    "SHARE_STATISTICS": "Estadísticas de uso compartido",
+    "FILTERS_MODAL": {
+      "TITLE": "Configuración de los filtros",
+      "TIME_RANGE": "Periodo",
+      "DOMAIN_SELECT_PLACEHOLDER": "Seleccione los dominios relacionados que desea filtrar; déjelo vacío para seleccionarlos todos",
+      "CATEGORIES": "Categorías",
+      "TOP": "Principales",
+      "CATEGORIES_WHOLE_DOMAIN": "Todo el dominio",
+      "CATEGORIES_SHARED_SPACE": "Espacio compartido",
+      "CATEGORIES_MY_SPACE": "Mi espacio"
+    },
+    "TOP_RECEIVERS": {
+      "FILE_COUNT": {
+        "TITLE": "Los {pageNumber} principales destinatarios por número de archivos compartidos",
+        "RECEIVER_MAIL": "CORREO DEL DESTINATARIO",
+        "NUMBER_OF_SHARED_FILES": "N.º DE ARCHIVOS COMPARTIDOS"
+      },
+      "FILE_SIZE": {
+        "TITLE": "Los {pageNumber} principales destinatarios por tamaño de los archivos compartidos",
+        "RECEIVER_MAIL": "CORREO DEL DESTINATARIO",
+        "SIZE_OF_SHARED_FILES": "TAMAÑO DE LOS ARCHIVOS COMPARTIDOS"
+      }
+    },
+    "CHART_FIELD": {
+      "DELETE": "Eliminación",
+      "UPLOAD": "Carga",
+      "BALANCE": "Saldo"
+    },
+    "CHART_TIME_AXIS": {
+      "WEEK": "Semana {number}"
+    },
+    "HUMAN_MIME_TYPE": {
+      "OTHERS": "Otros",
+      "AUDIO": "Audio",
+      "VIDEO": "Vídeo",
+      "IMAGE": "Imagen",
+      "PDF": "PDF",
+      "ARCHIVE": "Archivo comprimido",
+      "ENCRYPTED": "Cifrado",
+      "DOCUMENT": "Documento",
+      "TEXT": "Texto"
+    },
+    "GENERICS": {
+      "TITLE": "Estadísticas generales",
+      "DESCRIPTION": "Detalle de los registros de interacción con los distintos recursos de LinShare",
+      "RESOURCE_COL": "Recurso",
+      "ACTION": {
+        "CREATE": "Creación",
+        "UPDATE": "Actualización",
+        "DELETE": "Eliminación",
+        "GET": "Consulta",
+        "DOWNLOAD": "Descarga",
+        "SUCCESS": "Éxito",
+        "FAILURE": "Fallo",
+        "PURGE": "Purga"
+      },
+      "RESOURCE": {
+        "ANONYMOUS_SHARE_ENTRY": "Recursos compartidos anónimos",
+        "AUTHENTICATION": "Autenticación",
+        "CONTACTS_LISTS": "Listas de contactos",
+        "CONTACTS_LISTS_CONTACTS": "Contactos",
+        "DRIVE": "Unidades Drive",
+        "DRIVE_MEMBER": "Miembros de Drive",
+        "DOMAIN": "Dominios",
+        "DOMAIN_PATTERN": "Patrones de dominio",
+        "DOCUMENT_ENTRY": "Documentos",
+        "FUNCTIONALITY": "Funcionalidades",
+        "GUEST_MODERATOR": "Moderadores de invitados",
+        "GUEST_CONVERTING": "Conversión de invitados",
+        "GUEST": "Invitados",
+        "GROUP_FILTER": "Filtros de grupos de trabajo",
+        "JWT_PERMANENT_TOKEN": "JWT permanentes",
+        "MAIL_ATTACHMENT": "Archivos adjuntos de correo",
+        "RESET_PASSWORD": "Restablecimientos de contraseña",
+        "PUBLIC_KEY": "Claves públicas",
+        "SAFE_DETAIL": "Detalles de la caja fuerte",
+        "SHARE_ENTRY": "Recursos compartidos",
+        "SHARED_SPACE_NODE": "Nodos de espacios compartidos",
+        "SHARED_SPACE_MEMBER": "Miembros de espacios compartidos",
+        "USER": "Usuarios",
+        "USER_PREFERENCE": "Preferencias de usuario",
+        "UPLOAD_REQUEST": "Solicitudes de carga individuales",
+        "UPLOAD_PROPOSITION": "Propuestas de carga",
+        "UPLOAD_REQUEST_URL": "URL de solicitudes de carga",
+        "UPLOAD_REQUEST_GROUP": "Solicitudes de carga",
+        "UPLOAD_REQUEST_ENTRY": "Documentos de solicitudes de carga",
+        "WORK_GROUP": "Grupos de trabajo",
+        "WORK_GROUP_MEMBER": "Miembros de grupos de trabajo",
+        "WORK_SPACE": "Espacio de trabajo",
+        "WORK_SPACE_MEMBER": "Miembros de espacios de trabajo",
+        "WORKSPACE_FILTER": "Filtros de espacios de trabajo",
+        "WORKGROUP": "Grupos de trabajo",
+        "WORKGROUP_DOCUMENT": "Documentos de grupos de trabajo",
+        "WORKGROUP_MEMBER": "Miembros de grupos de trabajo",
+        "WORKGROUP_FOLDER": "Carpetas de grupos de trabajo",
+        "WORKGROUP_DOCUMENT_REVISION": "Revisiones de documentos de grupos de trabajo",
+        "USER_UPDATE": "Modificaciones de usuarios"
+      }
+    },
+    "FILES_QUANTITY": {
+      "TITLE": "Cantidad de archivos",
+      "DESCRIPTION": "Registra los cambios en la cantidad de archivos"
+    },
+    "STORAGE_CONSUMPTION": {
+      "TITLE": "Consumo de almacenamiento",
+      "DESCRIPTION": "Registra los cambios en el almacenamiento consumido por los usuarios"
+    },
+    "SUMMARY": {
+      "TITLE": "Resumen",
+      "DESCRIPTION": "Cálculo sobre el almacenamiento que gestiona",
+      "DOMAIN_COUNT": "Total de dominios",
+      "SHARED_SPACE_COUNT": "Total de espacios compartidos",
+      "USER_COUNT": "Total de usuarios",
+      "NEW_USER_COUNT": "Nuevos usuarios"
+    },
+    "TOTAL_STORAGE": {
+      "TITLE": "Almacenamiento total",
+      "DESCRIPTION": "Cálculo sobre el almacenamiento que gestiona",
+      "CHART_SUBTITLE": "cargado"
+    },
+    "MOST_UPLOADED": {
+      "TITLE": "Archivos más cargados",
+      "DESCRIPTION": "Cálculo sobre el almacenamiento que gestiona"
+    },
+    "USER_USED_STORAGE": {
+      "TITLE": "Estadísticas de usuarios y almacenamiento",
+      "DESCRIPTION": "Muestra los 100 usuarios/espacios compartidos que más almacenamiento utilizan",
+      "TABLE_STORAGE_COLUMN_HEADER": "Almacenamiento utilizado"
+    }
+  },
+  "CONFIGURATION": {
+    "INTRODUCTION": "Se muestran todos los dominios raíz de LinShare",
+    "VIEW_DETAILS": "Ver detalles",
+    "CREATE_CHILD_DOMAIN": "Crear dominio secundario",
+    "DELETE": "Eliminar",
+    "SELECT_DOMAIN": "Seleccionar dominio",
+    "VIEW_DETAIL": "Ver detalle",
+    "CANCEL": "Cancelar",
+    "MANAGE_DOMAINS": "Gestionar dominios",
+    "CONFIGURATION": "Configuración",
+    "SELECT_DOMAIN_TO_START": "Seleccione un dominio para empezar",
+    "YOU_NEED_TO_CHOOSE_ONE_DOMAIN": "Debe elegir un dominio con el botón de abajo antes de realizar cambios en su configuración",
+    "VIEW": "Ver",
+    "ENTER_DOMAIN_NAME": "Introduzca el nombre del dominio",
+    "SUGGESTED_DOMAINS": "Dominios sugeridos:",
+    "DOMAIN_NOT_FOUND": "No se ha encontrado el dominio"
+  },
+  "ACTIVITIES": {
+    "THIS_ACTION_IS_PERFORMED_BY_TOOLTIP": "Esta acción la ha realizado {by} en nombre de {of}",
+    "THIS_ACTION_HAS_NO_ACTOR_BY_TOOLTIP": "Esta acción la ha realizado {by}",
+    "INTRODUCTION": "Registro de todas las actividades de los usuarios en LinShare",
+    "ACTIVITY_LOG": "Registros de actividad",
+    "NUMBER_COL": "Número",
+    "DOMAIN_NAME": "Nombre del dominio",
+    "ACTOR": "Actor",
+    "ACTION": "Acción",
+    "TYPE": "Tipo",
+    "RESOURCE_TYPE": "Tipo de recurso",
+    "RESOURCE_NAME": "Nombre del recurso",
+    "DATE_TIME": "Fecha y hora",
+    "DETAIL": "Detalle",
+    "FILE_SIZE": "Tamaño del archivo",
+    "RECEIVER": "Destinatario",
+    "ME": "Yo",
+    "FILTERS_BUTTON": "Filtros",
+    "FILTERS_BAR": {
+      "TIME_RANGE_FILTER": "Periodo:",
+      "ALL_ACTION": "Todas",
+      "ALL_TYPE": "Todos",
+      "TYPE_FILTER": "Tipo de recurso:",
+      "ACTION_FILTER": "Acción:",
+      "DOMAIN_FILTER": "Dominio relacionado:",
+      "RESOURCE_NAME_FILTER": "Nombre del recurso:",
+      "ACTOR_FILTER": "Actor:",
+      "ALL_ACTOR": "Todos",
+      "ALL_DOMAIN": "Todos",
+      "ALL_RESOURCE_NAME": "Todos"
+    },
+    "FILTERS_MODAL": {
+      "TITLE": "Configuración de los filtros",
+      "TIME_RANGE": "Periodo",
+      "ACTION": "Acción",
+      "ACTION_SELECT_PLACEHOLDER": "Seleccione las acciones que desea filtrar; déjelo vacío para seleccionarlas todas",
+      "TYPE": "Tipo de recurso",
+      "RESOURCE_NAME": "Nombre del recurso",
+      "TYPE_SELECT_PLACEHOLDER": "Seleccione los tipos que desea filtrar; déjelo vacío para seleccionarlos todos",
+      "DOMAIN": "Dominio relacionado",
+      "DOMAIN_SELECT_PLACEHOLDER": "Seleccione los dominios relacionados que desea filtrar; déjelo vacío para seleccionarlos todos",
+      "ACTOR": "Actor",
+      "ACTOR_SELECT_PLACEHOLDER": "Seleccione los actores mostrados o busque actores para filtrar; déjelo vacío para seleccionarlos todos",
+      "RESOURCE_NAME_SELECT_PLACEHOLDER": "Seleccione los nombres de recurso mostrados o búsquelos para filtrar; déjelo vacío para seleccionar todos los mostrados",
+      "CATEGORIES": "Categorías",
+      "CATEGORIES_WHOLE_DOMAIN": "Todo el dominio",
+      "CATEGORIES_SHARED_SPACE": "Espacio compartido",
+      "CATEGORIES_MY_SPACE": "Mi espacio"
+    },
+    "DISABLED": "Desactivado",
+    "ENABLED": "Activado",
+    "FILTERS_SELECT": {
+      "ACTION": {
+        "ADDITION": "Adición",
+        "ALL": "Todas",
+        "COPY": "Copia",
+        "CREATE": "Creación",
+        "CREATE_SHARE": "Recurso compartido enviado",
+        "DELETE": "Eliminación",
+        "DOWNLOAD": "Descarga",
+        "FAILURE": "Error de inicio de sesión",
+        "READ": "Lectura",
+        "RECEIVE_SHARE": "Recurso compartido recibido",
+        "SUCCESS": "Inicio de sesión correcto",
+        "TRANSFER": "Transferencia",
+        "UPDATE": "Actualización",
+        "UPLOAD": "Carga de archivo",
+        "VIEWED": "Visto",
+        "PURGE": "Purga",
+        "GET": "Consulta",
+        "CONVERT": "Conversión"
+      },
+      "TYPE": {
+        "ALL": "Todos",
+        "ANONYMOUS_SHARE_ENTRY": "Recurso compartido anónimo",
+        "AUTHENTICATION": "Autenticación",
+        "CONTACTS_LISTS": "Lista de contactos",
+        "CONTACTS_LISTS_CONTACTS": "Contacto",
+        "DOCUMENT_ENTRY": "Archivo",
+        "FUNCTIONALITY": "Funcionalidad",
+        "GUEST": "Cuenta de invitado",
+        "SHARE_ENTRY": "Recurso compartido",
+        "USER": "Usuario",
+        "DRIVE": "Unidad Drive",
+        "DRIVE_MEMBER": "Drive - Miembro",
+        "WORKGROUP": "Grupo de trabajo",
+        "WORK_GROUP": "Grupo de trabajo",
+        "WORK_SPACE": "Espacio de trabajo",
+        "WORK_SPACE_MEMBER": "Espacio de trabajo - miembro",
+        "WORKGROUP_DOCUMENT": "Archivo de grupo de trabajo",
+        "WORKGROUP_DOCUMENT_REVISION": "Archivo de grupo de trabajo (versión)",
+        "WORKGROUP_FOLDER": "Carpeta de grupo de trabajo",
+        "WORKGROUP_MEMBER": "Miembro de grupo de trabajo",
+        "JWT_PERMANENT_TOKEN": "Token de acceso permanente (JWT)",
+        "DOMAIN": "Dominio",
+        "DOMAIN_PATTERN": "Patrón de dominio",
+        "UPLOAD_REQUEST": "Solicitud de carga",
+        "UPLOAD_REQUEST_URL": "URL de solicitud de carga",
+        "UPLOAD_REQUEST_GROUP": "Grupo de solicitudes de carga",
+        "UPLOAD_REQUEST_ENTRY": "Entrada de solicitud de carga",
+        "GUEST_MODERATOR": "Moderadores de invitados",
+        "GUEST_CONVERTING": "Conversión de invitados",
+        "GROUP_FILTER": "Filtro de grupos",
+        "WORKSPACE_FILTER": "Filtros de espacios de trabajo",
+        "RESET_PASSWORD": "Restablecimientos de contraseña",
+        "USER_PREFERENCE": "Preferencias de usuario",
+        "SAFE_DETAIL": "Detalles de la caja fuerte",
+        "PUBLIC_KEY": "Claves públicas",
+        "SHARED_SPACE_NODE": "Nodos de espacios compartidos",
+        "MAIL_ATTACHMENT": "Archivos adjuntos de correo",
+        "SHARED_SPACE_MEMBER": "Miembros de espacios compartidos",
+        "UPLOAD_PROPOSITION": "Propuestas de carga",
+        "USER_UPDATE": "Modificaciones de usuarios"
+      }
+    },
+    "TABLE_HEADER": {
+      "ACTION": "Acción",
+      "ACTOR": "Actor",
+      "DATE": "Fecha",
+      "DETAIL": "Detalles",
+      "RECIPIENT": "Destinatario",
+      "RESOURCE_NAME": "Nombre del recurso",
+      "RESOURCE_TYPE": "Tipo de recurso"
+    },
+    "TOOLBAR": {
+      "ORDER_BY": "Ordenar por",
+      "FILTER_BEGINNING_DATE": "Fecha de inicio",
+      "FILTER_ENDING_DATE": "Fecha de fin",
+      "SEARCH": "Buscar"
+    },
+    "DETAILS_POPUP": {
+      "BY": "Por {user}",
+      "MODIFICATIONS": "Modificación(es)",
+      "SENTENCES": {
+        "ANONYMOUS_SHARE_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha compartido el archivo {resourceName} con {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha compartido el archivo {resourceName} con {resourceRecipientMail}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el recurso compartido del archivo {resourceName}, destinado a {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el recurso compartido del archivo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha descargado su archivo compartido {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "ADMIN": {
+              "SENTENCE": "{authorName} ha descargado el archivo compartido {resourceName}, enviado por {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Su recurso compartido del archivo {resourceName}, destinado a {userVarious}, ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "El recurso compartido del archivo {resourceName} de {authorName}, destinado a {userVarious}, ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "READ": {
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha visto su archivo compartido enviado el {dateVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.READ"
+            },
+            "ADMIN": {
+              "SENTENCE": "{authorName} ha visto el archivo compartido enviado el {dateVarious} por {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.READ"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el recurso compartido del archivo {resourceName}, destinado a {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el recurso compartido del archivo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            }
+          }
+        },
+        "AUTHENTICATION": {
+          "FAILURE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha intentado iniciar sesión con credenciales incorrectas.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha intentado iniciar sesión con credenciales incorrectas.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            }
+          },
+          "SUCCESS": {
+            "AUTHOR": {
+              "SENTENCE": "Ha iniciado sesión correctamente.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha iniciado sesión correctamente.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            }
+          }
+        },
+        "CONTACTS_LISTS": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado una nueva lista de contactos: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado una nueva lista de contactos: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado la lista de contactos {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado la lista de contactos {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado la lista de contactos {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado la lista de contactos {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "CONTACTS_LISTS_CONTACTS": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha añadido {resourceName} a la lista de contactos {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha añadido {resourceName} a la lista de contactos {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha quitado {resourceName} de la lista de contactos {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha quitado {resourceName} de la lista de contactos {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado {resourceName} en la lista de contactos {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado {resourceName} en la lista de contactos {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "DOCUMENT_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha cargado un nuevo archivo, {resourceName}, en su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha cargado un nuevo archivo, {resourceName}, en su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            }
+          },
+          "COPY": {
+            "AUTHOR": {
+              "SENTENCE": "Ha transferido el archivo {resourceName} a su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha transferido el archivo {resourceName} a su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el archivo {resourceName} de su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el archivo {resourceName} de su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "AUTHOR": {
+              "SENTENCE": "Ha descargado el archivo {resourceName} de su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha descargado el archivo {resourceName} de su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Su documento {resourceName} se ha eliminado de su espacio personal porque el archivo ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "El documento {resourceName} de {authorName} se ha eliminado del espacio personal porque el archivo ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "INCONSISTENCY": {
+            "AUTHOR": {
+              "SENTENCE": "Su documento {resourceName} se ha eliminado de su espacio personal porque no se ha encontrado el archivo.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "El documento {resourceName} de {userVarious} se ha eliminado del espacio personal porque no se ha encontrado el archivo.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el archivo {resourceName} de su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el archivo {resourceName} de su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "DRIVE": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado un nuevo DRIVE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado un nuevo DRIVE: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el DRIVE {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el DRIVE {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el DRIVE {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el DRIVE {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "DRIVE_MEMBER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha añadido un nuevo miembro, {resourceName}, al DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha añadido un nuevo miembro, {resourceName}, al DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha quitado al miembro {resourceName} del DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha quitado al miembro {resourceName} del DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado al miembro {resourceName} del DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado al miembro {resourceName} del DRIVE {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "DRIVE_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el Drive {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el Drive {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "WORK_SPACE": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado un nuevo ESPACIO DE TRABAJO: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado un nuevo ESPACIO DE TRABAJO: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el ESPACIO DE TRABAJO {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el ESPACIO DE TRABAJO {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el ESPACIO DE TRABAJO {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el ESPACIO DE TRABAJO {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORK_SPACE_MEMBER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha añadido un nuevo miembro, {resourceName}, al ESPACIO DE TRABAJO {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha añadido un nuevo miembro, {resourceName}, al ESPACIO DE TRABAJO {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha quitado al miembro {resourceName} del ESPACIO DE TRABAJO {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha quitado al miembro {resourceName} del ESPACIO DE TRABAJO {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado al miembro {resourceName} del ESPACIO DE TRABAJO {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado al miembro {resourceName} del ESPACIO DE TRABAJO {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "WORKSPACE_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el ESPACIO DE TRABAJO {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el ESPACIO DE TRABAJO {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "GUEST": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado una nueva cuenta de invitado para {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado una nueva cuenta de invitado para {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado la cuenta de invitado de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado la cuenta de invitado de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "La cuenta de invitado de {userVarious} ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "La cuenta de invitado {userVarious} de {authorName} ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado la cuenta de invitado de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado la cuenta de invitado de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "CHANGE_PASSWORD": {
+            "AUTHOR": {
+              "SENTENCE": "Ha cambiado la contraseña de su cuenta.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha cambiado la contraseña de su cuenta.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "GUEST_MODERATOR": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado un nuevo moderador de invitado para {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado un nuevo moderador de invitado para {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el moderador de invitado de {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el moderador de invitado de {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el moderador de invitado de {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el moderador de invitado de {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "GUEST_CONVERTING": {
+          "CONVERT": {
+            "AUTHOR": {
+              "SENTENCE": "Ha convertido la cuenta de invitado en cuenta interna: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha convertido la cuenta de invitado en cuenta interna: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado la cuenta de invitado de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado la cuenta de invitado de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "USER": {
+          "SECOND_FACTOR_SHARED_KEY_CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha activado la autenticación de dos factores (clave compartida creada): {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha activado la autenticación de dos factores (clave compartida creada): {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "SECOND_FACTOR_SHARED_KEY_DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha desactivado la autenticación de dos factores (clave compartida eliminada): {userVarious}",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha desactivado la autenticación de dos factores (clave compartida eliminada): {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado una nueva cuenta de usuario para {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado una nueva cuenta de usuario para {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado la cuenta de usuario de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado la cuenta de usuario de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "La cuenta de usuario de {userVarious} ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "La cuenta de usuario {userVarious} de {authorName} ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado la cuenta de usuario de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado la cuenta de usuario de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "CHANGE_PASSWORD": {
+            "AUTHOR": {
+              "SENTENCE": "Ha cambiado la contraseña de su cuenta.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha cambiado la contraseña de su cuenta.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha purgado la cuenta de usuario de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha purgado la cuenta de usuario de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "CONVERT": {
+            "AUTHOR": {
+              "SENTENCE": "Ha convertido la cuenta de invitado en cuenta interna: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha convertido la cuenta de invitado en cuenta interna: {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CONVERT"
+            }
+          }
+        },
+        "USER_UPDATE": {
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado la cuenta de usuario de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado la cuenta de usuario de {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "JWT_PERMANENT_TOKEN": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado el token de acceso permanente {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado el token de acceso permanente {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el token de acceso permanente {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el token de acceso permanente {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha actualizado el token de acceso permanente {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha actualizado el token de acceso permanente {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "SHARE_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha compartido el archivo {resourceName} con {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha compartido el archivo {resourceName} con {resourceRecipientMail}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE_SHARE"
+            }
+          },
+          "COPY": {
+            "AUTHOR": {
+              "SENTENCE": "El archivo compartido {resourceName} de {userVarious} se ha quitado de Recursos compartidos recibidos porque ha transferido el archivo a su espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            },
+            "VIEWER": {
+              "SENTENCE": "El archivo compartido {resourceName} se ha quitado de Recursos compartidos recibidos porque {authorName} ha transferido el archivo al espacio personal.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.TRANSFER"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el recurso compartido del archivo {resourceName}, destinado a {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el recurso compartido del archivo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "AUTHOR": {
+              "SENTENCE": "Ha descargado el archivo compartido {resourceName}, enviado por {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha descargado su archivo compartido {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "EXPIRATION": {
+            "AUTHOR": {
+              "SENTENCE": "Su recurso compartido del archivo {resourceName}, destinado a {userVarious}, ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "El recurso compartido del archivo {resourceName} de {authorName}, destinado a {userVarious}, ha caducado.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el recurso compartido del archivo {resourceName}, destinado a {userVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el recurso compartido del archivo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado un nuevo grupo de trabajo: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado un nuevo grupo de trabajo: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el grupo de trabajo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el grupo de trabajo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el grupo de trabajo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el grupo de trabajo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORK_GROUP": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado un nuevo grupo de trabajo: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado un nuevo grupo de trabajo: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el grupo de trabajo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el grupo de trabajo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el grupo de trabajo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el grupo de trabajo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP_DOCUMENT": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha cargado un nuevo archivo, {resourceName}, en el grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha cargado un nuevo archivo, {resourceName}, en el grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPLOAD"
+            }
+          },
+          "COPY": {
+            "AUTHOR": {
+              "SENTENCE": "Ha copiado el archivo {resourceName} en el grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha copiado el archivo {resourceName} en el grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.COPY"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el archivo {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el archivo {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "DOWNLOAD": {
+            "AUTHOR": {
+              "SENTENCE": "Ha descargado el archivo {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha descargado el archivo {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DOWNLOAD"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el archivo {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el archivo {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP_FOLDER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado una nueva carpeta, {resourceName}, en el grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado una nueva carpeta, {resourceName}, en el grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado la carpeta {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado la carpeta {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado la carpeta {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado la carpeta {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "WORKGROUP_MEMBER": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha añadido un nuevo miembro, {resourceName}, al grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha añadido un nuevo miembro, {resourceName}, al grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha quitado al miembro {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha quitado al miembro {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado al miembro {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado al miembro {resourceName} del grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "WORKGROUP_DELETION": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el grupo de trabajo {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "UPLOAD_REQUEST": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado una solicitud de carga llamada {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado una solicitud de carga llamada {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha actualizado la solicitud de carga {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha actualizado la solicitud de carga {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "UPLOAD_REQUEST_URL": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Se ha creado una URL de solicitud de carga a partir de la solicitud de carga {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "Se ha creado una URL de solicitud de carga a partir de la solicitud de carga {resourceNameVarious}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          }
+        },
+        "UPLOAD_REQUEST_ENTRY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Se ha cargado el archivo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            },
+            "VIEWER": {
+              "SENTENCE": "Se ha cargado el archivo {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el documento {resourceName}",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el documento {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "DOMAIN": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado un nuevo dominio: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado un nuevo dominio: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado el dominio {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado el dominio {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado el dominio {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado el dominio {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          },
+          "PURGE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha purgado el dominio {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha purgado el dominio {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          }
+        },
+        "FUNCTIONALITY": {
+          "CREATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha creado una nueva funcionalidad: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha creado una nueva funcionalidad: {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.CREATE"
+            }
+          },
+          "DELETE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha eliminado la funcionalidad {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha eliminado la funcionalidad {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
+            }
+          },
+          "UPDATE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha editado la funcionalidad {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha editado la funcionalidad {resourceName}.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
+            }
+          }
+        },
+        "RESET_PASSWORD": {
+          "FAILURE": {
+            "AUTHOR": {
+              "SENTENCE": "Ha intentado restablecer su contraseña.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha intentado restablecer la contraseña.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
+            }
+          },
+          "SUCCESS": {
+            "AUTHOR": {
+              "SENTENCE": "Ha restablecido su contraseña correctamente.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            },
+            "VIEWER": {
+              "SENTENCE": "{authorName} ha restablecido la contraseña correctamente.",
+              "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
+            }
+          }
+        }
+      }
+    }
+  },
+  "EMAIL_TEMPLATES": {
+    "VISIBILITY": "Visibilidad",
+    "PUBLIC": "Público",
+    "PRIVATE": "Privado",
+    "EDITABLE": "Editable",
+    "READ_ONLY": "Solo lectura",
+    "MAIL_CONTENT_TYPE_NAME": "Tipo de contenido de correo",
+    "VERTICAL_TABS": {
+      "CONFIGURATION": "Configuración de correo",
+      "FOOTER": "Pie de correo",
+      "ACTIVATION": "Activación de correos",
+      "CONTENT": "Contenido de correo",
+      "LAYOUT": "Diseño de correo"
+    },
+    "CONFIGURATION_PAGE": {
+      "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>“Diseño de correo”</span> permite crear un diseño de correo personalizado.",
+      "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>“Pie de correo”</span> para editar la plantilla del pie de correo.",
+      "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>“Contenido de correo”</span> para gestionar el contenido de las notificaciones por correo enviadas a los usuarios de LinShare.",
+      "MAIL_ASSIGN_DESCRIPTION": "Después de crear y ajustar una plantilla de correo, puede asignarla al dominio o a sus dominios anidados.",
+      "MAIN_CONTENT_TYPE": "Tipo de contenido principal",
+      "SELECTED_MAIL_CONTENT": "Contenido de correo seleccionado",
+      "LEGEND": "Leyenda",
+      "MAIL_CONTENT_UPDATED": "{domain}-Actualizado el: {date}"
+    },
+    "EMAIL_LAYOUT": {
+      "PUBLIC": "Público",
+      "PRIVATE": "Privado",
+      "FIRST_HELP_TEXT": "<span style='color: #007AFF'>mailSubject</span> Título / asunto del correo",
+      "SECOND_HELP_TEXT": "<span style='color: #007AFF'>image</span> Logotipo de LinShare, que se puede definir en la configuración (si tiene los permisos necesarios)",
+      "THIRD_HELP_TEXT": "<span style='color: #007AFF'>personalMessage</span> Un mensaje personalizado añadido al cuerpo del mensaje predeterminado <span style='color: #007AFF'>body</span>",
+      "FOUR_HELP_TEXT": "<span style='color: #007AFF'>greetings</span> Mensaje de saludo",
+      "FIVE_HELP_TEXT": "<span style='color: #007AFF'>body</span> Contenido que ha introducido en 'Contenido de correo'",
+      "SIX_HELP_TEXT": "<span style='color: #007AFF'>footer</span> Contenido que ha introducido en 'Pie de correo'",
+      "EMAIL_LAYOUT_DETAIL_PAGE": {
+        "PAGE_HEADER": "Detalles del diseño de correo",
+        "NAME_PLACEHOLDER": "Nombre del diseño de correo"
+      }
+    },
+    "ASSIGN_MODAL": {
+      "ASSIGN_MODAL_TITLE": "Asignar configuración de correo",
+      "ASSIGN_MODAL_SUBTITLE": "Está a punto de asignar esta configuración de correo a {currentDomain}. ¿Desea continuar?",
+      "ASSIGN_SUCCESS": "Asignado correctamente"
+    },
+    "CREATE_MODAL": {
+      "CREATE_EMAIL_CONFIGURATION": "Crear configuración de correo",
+      "NAME": "Nombre",
+      "EMAIL_CONFIGURATION_NAME": "Nombre de la configuración de correo",
+      "TARGET_DOMAIN": "Dominio de destino",
+      "MODEL": "Modelo",
+      "VISIBLE": "Visible",
+      "CREATE_SUCCESS": "Creado correctamente",
+      "EMAIL_LAYOUT_NAME": "Nombre del diseño de correo",
+      "CREATE_EMAIL_LAYOUT": "Crear diseño de correo",
+      "EMAIL_FOOTER_NAME": "Nombre del pie de correo",
+      "CREATE_EMAIL_FOOTER": "Crear pie de correo"
+    },
+    "DELETE_MODAL": {
+      "DELETE_MODAL_TITLE": "Eliminar configuración de correo",
+      "DELETE_MODAL_SUBTITLE": "Está a punto de eliminar esta configuración de correo. ¿Desea continuar?",
+      "DELETE_SUCCESS": "Eliminado correctamente",
+      "DELETE_ERROR_ASSIGNED": "La configuración de correo seleccionada está asociada al menos a un dominio. No se puede eliminar",
+      "DELETE_ERROR_UNAUTHORIZED": "No tiene permisos para eliminar esta configuración de correo",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Eliminar las configuraciones de correo seleccionadas",
+      "DELETE_ACTION_CANCEL": "Cancelar",
+      "DELETE_ACTION_CONFIRM": "Sí, eliminar",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Está a punto de eliminar {qty} configuraciones de correo. Esta operación es irreversible. ¿Desea continuar?",
+      "DELETE_FAILURE": "Error al eliminar",
+      "DELETE_ERROR_ASSIGNED_SOME": "Algunas configuraciones de correo se han eliminado correctamente, pero otras no porque ya están asignadas al menos a un dominio",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Algunas configuraciones de correo se han eliminado correctamente, pero otras no porque no tiene permisos para eliminarlas",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "No tiene permisos para eliminar estas configuraciones de correo",
+      "DELETE_ERROR_ASSIGNED_ALL": "No puede eliminar estas configuraciones de correo",
+      "DELETE_ERROR_ONE": "No puede eliminar esta configuración de correo",
+      "DELETE_ERROR_ALL": "No puede eliminar estas configuraciones de correo"
+    },
+    "DELETE_LAYOUT_MODAL": {
+      "DELETE_MODAL_EMPTY": "Seleccione el diseño de correo que desea eliminar",
+      "DELETE_MODAL_TITLE": "Eliminar diseño de correo",
+      "DELETE_MODAL_SUBTITLE": "Está a punto de eliminar este diseño de correo. ¿Desea continuar?",
+      "DELETE_SUCCESS": "Eliminado correctamente",
+      "DELETE_ERROR_ASSIGNED": "El diseño de correo seleccionado está asociado al menos a un dominio. No se puede eliminar",
+      "DELETE_ERROR_UNAUTHORIZED": "No tiene permisos para eliminar este diseño de correo",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Eliminar los diseños de correo seleccionados",
+      "DELETE_ACTION_CANCEL": "Cancelar",
+      "DELETE_ACTION_CONFIRM": "Sí, eliminar",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Está a punto de eliminar {qty} diseños de correo. Esta operación es irreversible. ¿Desea continuar?",
+      "DELETE_FAILURE": "Error al eliminar",
+      "DELETE_ERROR_ASSIGNED_SOME": "Algunos diseños de correo se han eliminado correctamente, pero otros no porque ya están asignados al menos a un dominio",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Algunos diseños de correo se han eliminado correctamente, pero otros no porque no tiene permisos para eliminarlos",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "No tiene permisos para eliminar estos diseños de correo",
+      "DELETE_ERROR_ASSIGNED_ALL": "No puede eliminar estos diseños de correo",
+      "DELETE_ERROR_ONE": "No puede eliminar este diseño de correo",
+      "DELETE_ERROR_ALL": "No puede eliminar estos diseños de correo",
+      "DELETE_ERROR_SOME_OF_THEM": "Algunos diseños de correo se han eliminado correctamente, pero otros no porque no tiene permiso para eliminarlos"
+    },
+    "EDIT_FORM": {
+      "EDIT_HEADER": "Editar configuración de correo",
+      "EDIT_SUBHEADER": "Nombre de la configuración de correo",
+      "NAME_LABEL": "Nombre",
+      "NAME_PLACEHOLDER": "Nombre de la configuración de correo",
+      "VISIBLE_LABEL": "Visible",
+      "LAYOUT_LABEL": "Diseño de correo",
+      "LAYOUT_PLACEHOLDER": "Diseño de la configuración de correo",
+      "FOOTER_LABEL": "Pie de correo",
+      "FOOTER_PLACEHOLDER": "Pie de la configuración de correo",
+      "LANGUAGE_LABEL": "Idioma del contenido principal",
+      "UPDATE_SUCCESS": "Actualizado correctamente"
+    },
+    "MAIL_CONTENT_TYPE": {
+      "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": "Un archivo está a punto de eliminarse porque alcanzará su fecha de caducidad",
+      "GUEST_ACCOUNT_NEW_CREATION": "Un nuevo invitado recibe un enlace de activación de su cuenta",
+      "GUEST_ACCOUNT_RESET_PASSWORD_LINK": "Un invitado recibe un enlace para restablecer su contraseña",
+      "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": "Se ha modificado la contraseña de una cuenta de invitado",
+      "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": "La cuenta de un invitado caducará pronto",
+      "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": "Cambio de la contraseña del invitado por una mejora de seguridad",
+      "SHARE_FILE_DOWNLOAD": "Un destinatario ha descargado el archivo compartido",
+      "SHARE_FILE_SHARE_DELETED": "Un remitente ha eliminado su recurso compartido de archivo",
+      "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": "El remitente recibe un resumen de sus archivos compartidos",
+      "SHARE_NEW_SHARE_FOR_RECIPIENT": "Un destinatario recibe un enlace a un archivo compartido",
+      "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": "El archivo compartido por el remitente está a punto de caducar",
+      "SHARE_WARN_UNDOWNLOADED_FILESHARES": "Recordatorio de archivo compartido no descargado",
+      "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": "Un recurso compartido caducará pronto sin haberse descargado",
+      "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": "El recurso compartido ha caducado y el sistema lo ha eliminado",
+      "SHARE_ANONYMOUS_RESET_PASSWORD": "Se ha restablecido la contraseña del recurso compartido anónimo",
+      "UPLOAD_REQUEST_CLOSED_BY_CREATOR": "El emisor ha cerrado la solicitud de carga",
+      "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": "Un destinatario ha cerrado la solicitud de carga del creador",
+      "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": "Un destinatario ha eliminado un archivo de la solicitud de carga",
+      "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": "El emisor de la solicitud de carga ha eliminado un archivo",
+      "UPLOAD_REQUEST_UNAVAILABLE_SPACE": "Un destinatario no ha podido cargar su archivo por falta de espacio",
+      "UPLOAD_REQUEST_UPLOADED_FILE": "Un destinatario ha cargado un archivo en la solicitud de carga",
+      "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": "Una solicitud de carga está a punto de cerrarse",
+      "UPLOAD_REQUEST_WARN_EXPIRY": "Se ha cerrado una solicitud de carga",
+      "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": "Se ha activado una solicitud de carga para el emisor",
+      "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": "Se ha activado una solicitud de carga para el destinatario",
+      "UPLOAD_REQUEST_CLOSED_BY_OWNER": "El emisor ha cerrado la solicitud de carga",
+      "UPLOAD_REQUEST_CREATED": "Se ha creado una solicitud de carga",
+      "UPLOAD_REQUEST_FILE_DELTED_BY_OWNER": "El emisor de la solicitud de carga elimina un archivo de la solicitud.",
+      "UPLOAD_REQUEST_PASSWORD_RENEWAL": "Se ha renovado la contraseña de la solicitud de carga",
+      "UPLOAD_REQUEST_PASSWORD_REMOVED": "Se ha eliminado la contraseña de la solicitud de carga",
+      "UPLOAD_REQUEST_REMINDER": "Recordatorio al destinatario de la solicitud de carga",
+      "UPLOAD_REQUEST_UPDATED_SETTINGS": "Se ha actualizado la configuración de la solicitud de carga",
+      "UPLOAD_REQUEST_RECIPIENT_REMOVED": "Se ha quitado un contacto de la solicitud de carga",
+      "WORKGROUP_WARN_NEW_MEMBER": "Se ha añadido un usuario al grupo de trabajo",
+      "WORKGROUP_WARN_UPDATED_MEMBER": "Se han actualizado los derechos de un miembro en el grupo de trabajo",
+      "WORKGROUP_WARN_DELETED_MEMBER": "Se ha quitado a un miembro del grupo de trabajo",
+      "WORKGROUP_WARN_DELETED_WORKGROUP": "Se ha eliminado un grupo de trabajo",
+      "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": "Un usuario recibe una notificación cuando un administrador crea un token de acceso permanente (JWT) para su cuenta",
+      "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": "Un usuario recibe una notificación cuando un administrador elimina un token de acceso permanente (JWT) de su cuenta",
+      "DRIVE_WARN_DELETED_MEMBER": "Se ha quitado a un miembro del DRIVE",
+      "DRIVE_WARN_NEW_MEMBER": "Se ha añadido un usuario al DRIVE",
+      "DRIVE_WARN_UPDATED_MEMBER": "Se han actualizado los derechos de un miembro en el DRIVE",
+      "WORK_SPACE_WARN_DELETED": "Se ha eliminado un espacio de trabajo",
+      "WORK_SPACE_WARN_DELETED_MEMBER": "Se ha quitado a un miembro del espacio de trabajo",
+      "WORK_SPACE_WARN_NEW_MEMBER": "Se ha añadido un usuario al espacio de trabajo",
+      "WORK_SPACE_WARN_UPDATED_MEMBER": "Se han actualizado los derechos de un miembro en el espacio de trabajo",
+      "GUEST_MODERATOR_CREATION": "Un usuario recibe una notificación por correo cuando se le añade a una lista de moderadores de invitados",
+      "GUEST_MODERATOR_DELETION": "Un usuario recibe una notificación por correo cuando se le quita de una lista de moderadores de invitados",
+      "GUEST_MODERATOR_UPDATE": "Un usuario recibe una notificación por correo cuando se actualiza su rol de moderador",
+      "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": "Esta notificación se envía cuando una cuenta de invitado ha caducado",
+      "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": "Esta notificación se envía cuando se ha añadido un documento al grupo de trabajo",
+      "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": "Esta notificación se envía cuando se ha actualizado un documento del grupo de trabajo",
+      "DEFAULT_SCENARIO": "Escenario predeterminado",
+      "EXTRA_SCENARIO": "Escenario adicional"
+    },
+    "EMAIL_FOOTER": {
+      "PUBLIC": "Público",
+      "PRIVATE": "Privado",
+      "HELP_TEXT": "Esta vista le permite crear plantillas para el pie de sus correos. Debe crear un modelo HTML y de texto. En la vista <span style='color: #007AFF'>'Configuración de correo'</span> puede crear una plantilla de correo y asociarla a un diseño de correo y a un pie de correo. (Nota: el diseño de correo debe contener la variable ${footer} para incluir el pie de correo).",
+      "EMAIL_FOOTER_DETAIL_PAGE": {
+        "PAGE_HEADER": "Detalles del pie de correo",
+        "NAME_PLACEHOLDER": "Nombre del pie de correo",
+        "FOOTER_LABEL": "Pie de correo"
+      }
+    },
+    "DELETE_FOOTER_MODAL": {
+      "DELETE_MODAL_EMPTY": "Seleccione el pie de correo que desea eliminar",
+      "DELETE_MODAL_TITLE": "Eliminar pie de correo",
+      "DELETE_MODAL_SUBTITLE": "Está a punto de eliminar este pie de correo. ¿Desea continuar?",
+      "DELETE_SUCCESS": "Eliminado correctamente",
+      "DELETE_ERROR_ASSIGNED": "El pie de correo seleccionado está asociado al menos a un dominio. No se puede eliminar",
+      "DELETE_ERROR_UNAUTHORIZED": "No tiene permisos para eliminar este pie de correo",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Eliminar los pies de correo seleccionados",
+      "DELETE_ACTION_CANCEL": "Cancelar",
+      "DELETE_ACTION_CONFIRM": "Sí, eliminar",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Está a punto de eliminar {qty} pies de correo. Esta operación es irreversible. ¿Desea continuar?",
+      "DELETE_FAILURE": "Error al eliminar",
+      "DELETE_ERROR_ASSIGNED_SOME": "Algunos pies de correo se han eliminado correctamente, pero otros no porque ya están asignados al menos a un dominio",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Algunos pies de correo se han eliminado correctamente, pero otros no porque no tiene permisos para eliminarlos",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "No tiene permisos para eliminar estos pies de correo",
+      "DELETE_ERROR_ASSIGNED_ALL": "No puede eliminar estos pies de correo",
+      "DELETE_ERROR_ONE": "No puede eliminar este pie de correo",
+      "DELETE_ERROR_ALL": "No puede eliminar estos pies de correo",
+      "DELETE_ERROR_SOME_OF_THEM": "Algunos pies de correo se han eliminado correctamente, pero otros no porque no tiene permiso para eliminarlos"
+    },
+    "EMAIL_CONTENT": {
+      "PUBLIC": "Público",
+      "PRIVATE": "Privado",
+      "HELP_TEXT": "Esta vista le permite crear plantillas para el contenido de sus correos. Debe crear un modelo HTML y de texto. En la vista <span style='color: #007AFF'>'Configuración de correo'</span> puede crear una plantilla de correo y asociarla a un diseño de correo y a un contenido de correo. (Nota: el diseño de correo debe contener la variable ${content} para incluir el contenido del correo).",
+      "CREATE_EMAIL_CONTENT": "Crear contenido de correo",
+      "EMAIL_CONTENT_NAME": "Nombre del contenido de correo",
+      "CONTENT_TYPE": "Tipo de contenido",
+      "DUPPLICATE_FROM": "Duplicar a partir de",
+      "EMAIL_CONTENT_DETAIL_PAGE": {
+        "PAGE_HEADER": "Detalles del contenido de correo",
+        "NAME_PLACEHOLDER": "Nombre del contenido de correo",
+        "CONTENT_LABEL": "Contenido de correo",
+        "SUBJECT": "Asunto",
+        "BODY": "Cuerpo",
+        "CONTEXT_VARIABLES": "Variables de contexto",
+        "MAIL_CONFIGURATION_LIST": "Lista de configuraciones de correo"
+      },
+      "FIRST_HELP_TEXT": "Esta vista le permite definir el contenido de las notificaciones por correo que se envían automáticamente a los usuarios de la aplicación. Puede redactar los mensajes en inglés, francés, vietnamita o ruso.",
+      "SECOND_HELP_TEXT": "También puede crear varias versiones de estos mensajes y, después, elegir el contenido adecuado de la configuración en la pestaña 'Configuración de correo'.",
+      "THIRD_HELP_TEXT": "Los campos <span style='color: #007AFF'>Asunto</span>, <span style='color: #007AFF'>Saludo</span> y <span style='color: #007AFF'>Cuerpo</span> sustituyen a <span style='color: #007AFF'>subject</span>, <span style='color: #007AFF'>greetings</span> y <span style='color: #007AFF'>body</span> que haya añadido a un diseño de correo",
+      "DEFAULT_MAIL_CONTENT": "Contenido de correo predeterminado",
+      "SHOW_MORE": "Mostrar más",
+      "SHOW_LESS": "Mostrar menos",
+      "PREVIEW": "Vista previa",
+      "PREVIEW_LIVE": "Vista previa en directo",
+      "NO_PREVIEW": "No hay vista previa; haga clic en el botón 'Vista previa'"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_EMPTY": "Seleccione el contenido de correo que desea eliminar",
+      "DELETE_MODAL_TITLE": "Eliminar contenido de correo",
+      "DELETE_MODAL_SUBTITLE": "Está a punto de eliminar este contenido de correo. ¿Desea continuar?",
+      "DELETE_SUCCESS": "Eliminado correctamente",
+      "DELETE_ERROR_ASSIGNED": "El contenido de correo seleccionado está asociado al menos a un dominio. No se puede eliminar",
+      "DELETE_ERROR_UNAUTHORIZED": "No tiene permisos para eliminar este contenido de correo",
+      "DELETE_SELECTED_MAIL_CONFIGURATION": "Eliminar los contenidos de correo seleccionados",
+      "DELETE_ACTION_CANCEL": "Cancelar",
+      "DELETE_ACTION_CONFIRM": "Sí, eliminar",
+      "DELETE_SELECTED_MAIL_CONFIGURATION_SUBTITLE": "Está a punto de eliminar {qty} contenidos de correo. Esta operación es irreversible. ¿Desea continuar?",
+      "DELETE_FAILURE": "Error al eliminar",
+      "DELETE_ERROR_ASSIGNED_SOME": "Algunos contenidos de correo se han eliminado correctamente, pero otros no porque ya están asignados al menos a un dominio",
+      "DELETE_ERROR_UNAUTHORIZED_SOME": "Algunos contenidos de correo se han eliminado correctamente, pero otros no porque no tiene permisos para eliminarlos",
+      "DELETE_ERROR_UNAUTHORIZED_ALL": "No tiene permisos para eliminar estos contenidos de correo",
+      "DELETE_ERROR_ASSIGNED_ALL": "No puede eliminar estos contenidos de correo",
+      "DELETE_ERROR_ONE": "No puede eliminar este contenido de correo",
+      "DELETE_ERROR_ALL": "No puede eliminar estos contenidos de correo",
+      "DELETE_ERROR_SOME_OF_THEM": "Algunos contenidos de correo se han eliminado correctamente, pero otros no porque no tiene permiso para eliminarlos"
+    },
+    "EMAIL_ACTIVATION": {
+      "ACTIVE": "Activo",
+      "INACTIVE": "Inactivo",
+      "SHOW_SETTING": "Mostrar configuración",
+      "ENABLE_NOTIFICATION": "Activar la notificación",
+      "ALLOW_OVERRIDE_SETTING": "Permitir que los administradores anidados sustituyan “Activar la notificación”",
+      "RESET_BUTTON": "Restablecer según el dominio principal",
+      "STATE": "Estado",
+      "CONTENT_TYPE_NAME": "Nombre del tipo de contenido"
+    },
+    "MAIL_ACTIVATION": {
+      "BOX_LIST": {
+        "TABLE": {
+          "HEADER_STATUS": "@:FUNCTIONALITIES.BOX_LIST.TABLE.HEADER_STATUS",
+          "HEADER_DESCRIPTION": "Leyenda",
+          "HEADER_NAME": "Tipo de activación de correo"
+        }
+      },
+      "BOX_FORM": {
+        "LABEL_ENABLE": "Activar esta notificación",
+        "VIEW_SIMPLE": "Sencilla",
+        "VIEW_ADVANCED": "Avanzada",
+        "LEGEND_ACTIVATION_POLICY": "Política de activación",
+        "LEGEND_CONFIGURATION_POLICY": "Política de configuración",
+        "LEGEND_DELEGATION_POLICY": "Política de delegación",
+        "LEGEND_PARAMETERS": "Parámetros",
+        "RADIO_FORBIDDEN": "Prohibido",
+        "RADIO_ALLOWED": "Permitido",
+        "RADIO_MANDATORY": "Obligatorio",
+        "LABEL_SAVED": "Guardado",
+        "LABEL_STATUS": "Activar",
+        "LABEL_DISABLE": "Desactivar esta notificación",
+        "LEGEND_NEXT": "Siguiente",
+        "LEGEND_PREVIOUS": "Anterior",
+        "FORM_ACTIONS": {
+          "BUTTON_RESET": "Restablecer el valor principal",
+          "BUTTON_CANCEL": "@:COMMON.BASIC_FORM.BUTTON_CANCEL"
+        }
+      },
+      "DETAILS": {
+        "_COMMENT:NAME_OF_THE_MAIL_ACTIVATION": {
+          "NAME": "Este es el nombre de la activación de correo en francés o en inglés",
+          "USE_EXTENDED_DESCRIPTION": "0 si la notificación no tiene descripción, 1 para mostrar solo la descripción, 2 para mostrar la descripción y la descripción avanzada, 3 para cargar una plantilla externa ",
+          "DESCRIPTION": "La descripción del tipo de activación de correo ",
+          "ADVANCED_DESCRIPTION": "descripción avanzada de la activación de correo"
+        },
+        "FILE_WARN_OWNER_BEFORE_FILE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.FILE_WARN_OWNER_BEFORE_FILE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al propietario de un archivo antes de que caduque y el sistema lo elimine."
+        },
+        "GUEST_ACCOUNT_NEW_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_NEW_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se crea un nuevo invitado y contiene sus credenciales."
+        },
+        "GUEST_ACCOUNT_RESET_PASSWORD_LINK": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_LINK",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se restablece la contraseña de un invitado."
+        },
+        "GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_GUEST_ABOUT_HIS_PASSWORD_RESET",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al invitado cuando se ha modificado su contraseña."
+        },
+        "GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_OWNER_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al creador del invitado cuando una cuenta de invitado está a punto de caducar."
+        },
+        "GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_ACCOUNT_RESET_PASSWORD_FOR_4_0",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a los invitados para que restablezcan su contraseña debido a una mejora de seguridad."
+        },
+        "GUEST_MODERATOR_CREATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_CREATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Un usuario recibe una notificación por correo cuando se le añade a una lista de moderadores de invitados"
+        },
+        "GUEST_MODERATOR_DELETION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_DELETION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Un usuario recibe una notificación por correo cuando se le quita de una lista de moderadores de invitados"
+        },
+        "GUEST_MODERATOR_UPDATE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_MODERATOR_UPDATE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Un usuario recibe una notificación por correo cuando se actualiza su rol de moderador"
+        },
+        "GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.GUEST_WARN_MODERATOR_ABOUT_GUEST_EXPIRATION",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando una cuenta de invitado ha caducado"
+        },
+        "SHARE_ANONYMOUS_RESET_PASSWORD": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_ANONYMOUS_RESET_PASSWORD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se genera una nueva contraseña para un recurso compartido anónimo existente."
+        },
+        "SHARE_FILE_DOWNLOAD_ANONYMOUS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía para avisar al propietario del recurso compartido cuando un usuario externo descarga un documento compartido."
+        },
+        "SHARE_FILE_DOWNLOAD_USERS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al propietario del recurso compartido cuando un usuario interno o un invitado descarga los documentos compartidos recibidos."
+        },
+        "SHARE_FILE_SHARE_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_FILE_SHARE_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a los destinatarios cuando el propietario elimina un documento compartido."
+        },
+        "SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_ACKNOWLEDGEMENT_FOR_SENDER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al usuario que crea un recurso compartido con la opción 'Acuse de creación del recurso compartido' activada. Contiene el resumen del recurso compartido."
+        },
+        "SHARE_NEW_SHARE_FOR_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_NEW_SHARE_FOR_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a todos los destinatarios (usuarios internos, invitados o usuarios externos) cuando un usuario comparte un documento."
+        },
+        "SHARE_WARN_RECIPIENT_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a los destinatarios cuando un documento compartido está a punto de caducar."
+        },
+        "SHARE_WARN_UNDOWNLOADED_FILESHARES": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_UNDOWNLOADED_FILESHARES",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al usuario que crea un recurso compartido con la opción 'Alerta de documento compartido no descargado' activada. Contiene el resumen de las descargas."
+        },
+        "SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_SENDER_ABOUT_SHARE_EXPIRATION_WITHOUT_DOWNLOAD",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al propietario del recurso compartido cuando este caducará pronto sin que el destinatario lo haya descargado."
+        },
+        "SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.SHARE_WARN_RECIPIENT_ABOUT_EXPIRED_SHARE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al destinatario cuando el recurso compartido ha caducado y el sistema lo ha eliminado."
+        },
+        "UPLOAD_REQUEST_CLOSED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al usuario interno o invitado cuando el destinatario cierra la solicitud de carga."
+        },
+        "UPLOAD_REQUEST_ACTIVATED_FOR_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al usuario interno o invitado cuando se activa la solicitud de carga."
+        },
+        "UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_ACTIVATED_FOR_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al destinatario cuando se activa la solicitud de carga."
+        },
+        "UPLOAD_REQUEST_CLOSED_BY_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CLOSED_BY_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al destinatario cuando el emisor cierra la solicitud de carga."
+        },
+        "UPLOAD_REQUEST_FILE_DELETED_BY_OWNER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_OWNER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al destinatario cuando el emisor elimina un archivo de la solicitud de carga."
+        },
+        "UPLOAD_REQUEST_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al destinatario cuando se crea la solicitud de carga y aún no está activada."
+        },
+        "UPLOAD_REQUEST_PASSWORD_RENEWAL": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_PASSWORD_RENEWAL",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al destinatario para que pueda restablecer la contraseña de acceso a la solicitud de carga."
+        },
+        "UPLOAD_REQUEST_RECIPIENT_REMOVED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_RECIPIENT_REMOVED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al destinatario cuando el emisor lo quita de la solicitud de carga."
+        },
+        "UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_FILE_DELETED_BY_RECIPIENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al emisor de una solicitud de carga cuando el destinatario elimina archivos."
+        },
+        "UPLOAD_REQUEST_REMINDER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_REMINDER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía para recordar al destinatario que cargue archivos en la solicitud de carga antes de que caduque."
+        },
+        "UPLOAD_REQUEST_UPDATED_SETTINGS": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPDATED_SETTINGS",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al destinatario de una solicitud de carga cuando se han actualizado sus parámetros."
+        },
+        "UPLOAD_REQUEST_UNAVAILABLE_SPACE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UNAVAILABLE_SPACE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al emisor de una solicitud de carga cuando un destinatario no ha podido completar una carga por falta de espacio en el espacio personal del emisor."
+        },
+        "UPLOAD_REQUEST_UPLOADED_FILE": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_UPLOADED_FILE",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a un usuario interno o a un invitado cuando un usuario externo carga un archivo en una solicitud de carga."
+        },
+        "UPLOAD_REQUEST_WARN_BEFORE_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_BEFORE_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al emisor o al destinatario de una solicitud de carga antes de que caduque."
+        },
+        "UPLOAD_REQUEST_WARN_EXPIRY": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.UPLOAD_REQUEST_WARN_EXPIRY",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía al emisor o al destinatario de una solicitud de carga cuando esta caduca."
+        },
+        "WORKGROUP_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a un nuevo miembro del grupo de trabajo."
+        },
+        "WORKGROUP_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a un miembro del grupo de trabajo cuando se han actualizado sus derechos."
+        },
+        "WORKGROUP_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a los miembros que se han quitado del grupo de trabajo."
+        },
+        "WORKGROUP_WARN_DELETED_WORKGROUP": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_WORKGROUP",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se elimina un grupo de trabajo"
+        },
+        "WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se ha añadido un documento al grupo de trabajo"
+        },
+        "WORKGROUP_WARN_WORKGROUP_DOCUMENT_UPDATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se ha actualizado un documento del grupo de trabajo"
+        },
+        "WORKGROUP_COM_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a un miembro de un grupo de trabajo cuando se le ha quitado de él."
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a un usuario cuando un administrador crea un token de acceso permanente (JWT) para su cuenta."
+        },
+        "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a un usuario cuando un administrador elimina un token de acceso permanente (JWT) de su cuenta."
+        },
+        "DRIVE_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se elimina a un miembro de un DRIVE."
+        },
+        "DRIVE_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se añade un nuevo miembro al DRIVE."
+        },
+        "DRIVE_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.DRIVE_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a un miembro de un DRIVE cuando se han actualizado sus derechos."
+        },
+        "WORK_SPACE_WARN_DELETED": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se elimina un espacio de trabajo"
+        },
+        "WORK_SPACE_WARN_DELETED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se elimina a un miembro de un espacio de trabajo."
+        },
+        "WORK_SPACE_WARN_NEW_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_NEW_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía cuando se añade un nuevo miembro al espacio de trabajo."
+        },
+        "WORK_SPACE_WARN_UPDATED_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORK_SPACE_WARN_UPDATED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Esta notificación se envía a un miembro de un espacio de trabajo cuando se han actualizado sus derechos."
+        }
+      },
+      "PARAMETERS": {
+        "BOOLEAN_false": "Esta notificación está desactivada.",
+        "BOOLEAN_true": "Esta notificación se ha activado."
+      }
+    }
+  },
+  "LANGUAGE": {
+    "SELECT_YOUR_LANGUAGE": "Seleccione su idioma"
+  },
+  "PROFILE": {
+    "SETTING": "Configuración"
+  },
+  "DOMAIN_POLICY": {
+    "EDITABLE": "Editable",
+    "READ_ONLY": "Solo lectura",
+    "POSITION": "Posición",
+    "DOMAIN": "Dominio",
+    "TYPE": "Tipo",
+    "ACTIONS": "Acciones",
+    "RULES_LIST": "Lista de reglas",
+    "SEARCH_BY": "Buscar por nombre o descripción",
+    "ALL_DOMAIN": "Todos los dominios",
+    "EDIT_FORM": {
+      "UPDATE_SUCCESS": "Actualizado correctamente"
+    },
+    "CREATE_MODAL": {
+      "CREATE_MODAL_TITLE": "Crear política de dominio",
+      "DETAIL_TAB": "Detalle",
+      "RULES_TAB": "Reglas",
+      "NAME": "Nombre",
+      "DESCRIPTION": "Descripción",
+      "PLACEHOLDER_NAME": "Nombre de la política de dominio",
+      "TYPE": "Tipo",
+      "SELECT_DOMAIN": "Seleccionar dominio",
+      "ADD": "Añadir",
+      "ALLOW": "Permitir",
+      "ALLOW_ALL": "Permitir todo",
+      "DENY": "Denegar",
+      "DENY_ALL": "Denegar todo",
+      "POLICY_LIST": "Lista de políticas",
+      "CREATE_SUCCESS": "Creado correctamente",
+      "DUPLICATE_SUCCESS": "Duplicado correctamente"
+    },
+    "DELETE_CONTENT_MODAL": {
+      "DELETE_MODAL_TITLE": "Eliminar política de dominio",
+      "DELETE_MODAL_SUBTITLE": "Está a punto de eliminar esta política de dominio. Esta operación es irreversible. ¿Desea continuar?",
+      "DELETE_SUCCESS": "Eliminado correctamente",
+      "DELETE_SELECTED_DOMAIN_POLICIES": "Eliminar las políticas de dominio seleccionadas",
+      "DELETE_SELECTED_DOMAIN_POLICIES_SUBTITLE": "Está a punto de eliminar {qty} políticas de dominio. Esta operación es irreversible. ¿Desea continuar?",
+      "DELETE_ACTION_CANCEL": "Cancelar",
+      "DELETE_ACTION_CONFIRM": "Sí, eliminar",
+      "DELETE_FAILURE": "Error al eliminar",
+      "DELETE_ERROR_ASSIGNED": "La política de dominio seleccionada está asociada al menos a un dominio. No se puede eliminar",
+      "DELETE_ERROR_ASSIGNED_ALL": "No puede eliminar estas políticas de dominio",
+      "DELETE_ERROR_ASSIGNED_SOME": "Algunas políticas de dominio se han eliminado correctamente, pero otras no porque ya están asignadas al menos a un dominio"
+    },
+    "ASSIGN_MODAL": {
+      "TITLE": "Asignar una política de dominio",
+      "ASSIGN_CONFIRM": "Está a punto de asignar esta política de dominio al dominio actual. ¿Desea continuar?",
+      "ASSIGN_SUCCESS": "Asignado correctamente"
+    }
+  },
+  "ADMINISTRATION": {
+    "INTRODUCTION": "Está utilizando la versión libre y de código abierto de LinShare",
+    "NAVIGATOR": {
+      "MY_USERS": "Mis usuarios",
+      "MY_USERS_SUBTITLE": "Mostrar la lista de usuarios",
+      "TECHNICAL_ACCOUNTS": "Cuentas técnicas",
+      "TECHNICAL_ACCOUNTS_SUBTITLE": "Mostrar la lista de cuentas técnicas",
+      "MY_DRIVE": "Mi Drive",
+      "MY_DRIVE_SUBTITLE": "Gestione su Drive y sus grupos de trabajo",
+      "MY_CONTACT_LIST": "Mis listas de contactos",
+      "MY_CONTACT_LIST_SUBTITLE": "Mostrar todos los contactos",
+      "INCONSISTENT_USERS": "Usuarios incoherentes",
+      "DIAGNOSIC": "Diagnóstico de usuario",
+      "INCONSISTENT_USERS_SUBTITLE": "Mostrar la lista de servidores",
+      "LOGGERS": "Registradores",
+      "LOGGERS_SUBTITLE": "Cualquier dominio puede utilizarlo"
+    }
+  },
+  "CONTACT_LIST": {
+    "NOTE": "Esta vista le permite gestionar las listas de contactos (una lista de distribución permite enviar un correo a los usuarios registrados en ella). Al hacer clic en una lista, puede gestionar los usuarios y editar su información (descripción, hacer la lista visible u oculta, eliminar o añadir un usuario...).",
+    "CONTACT_LIST": "Lista de contactos",
+    "EMAIL": "Correo",
+    "FIRST_NAME": "Nombre",
+    "LAST_NAME": "Apellidos",
+    "ADD_CONTACT": "Añadir contacto",
+    "CREATE_CONTACT": "Crear contacto",
+    "ADD_CONTACT_SUCCESS": "Contacto añadido correctamente",
+    "DELETE_CONTACT": "Eliminar contacto",
+    "DELETE_MAIL_DESCRIPTION": "Está a punto de eliminar <span style='color: #007AFF'>{mail}</span>. Esta operación es irreversible. ¿Desea continuar?",
+    "YES_DELETE": "Sí, eliminar",
+    "ACTIONS": "Acciones",
+    "NAME": "Nombre de la lista",
+    "DESCRIPTION": "Descripción",
+    "OWNER": "Propietario",
+    "VISIBILITY": "Configuración de visibilidad",
+    "SETTING": "Configuración",
+    "SEARCH_BY": "Buscar por nombre o correo electrónico",
+    "DELETE_CONTACT_MODAL": {
+      "DELETE_MODAL_TITLE": "Eliminar contacto de correo",
+      "DELETE_MODAL_SUBTITLE": "Está a punto de eliminar este contacto de correo. ¿Desea continuar?",
+      "DELETE_SUCCESS": "Eliminado correctamente"
+    },
+    "MEMBER": "Miembro",
+    "OWNER_FILTER": "Propietario (de la lista de contactos)"
+  },
+  "TECHNICAL_ACCOUNTS": {
+    "PAGE_TITLE": "Todas las cuentas",
+    "ACCOUNT": "Cuenta",
+    "MAIL": "Correo",
+    "ROLE": "Rol",
+    "STATUS": "Estado",
+    "CREATION_DATE": "Fecha de creación",
+    "MODIFICATION_DATE": "Fecha de modificación",
+    "LOCKED": "Estado de bloqueo",
+    "ENABLE": "Activar",
+    "DISABLE": "Desactivar",
+    "TECHNICAL_ACCOUNTS_HELPER": "Esta vista le permite crear nuevas cuentas con derechos de delegación específicos. Detalle de los permisos:",
+    "TECHNICAL_ACCOUNTS_HELPER_DELEGATION": "'Delegación': permite realizar operaciones en nombre de otros usuarios mediante la API de delegación. Para ello, debe seleccionar los permisos (derechos) que concede a esta cuenta. De forma predeterminada, no se le concede ningún permiso. Para más información, consulte:",
+    "TECHNICAL_ACCOUNTS_HELPER_UPLOAD_PROPOSITION": "'Propuesta de carga': la propuesta de carga es un módulo externo, por lo que necesita una cuenta especial para acceder a LinShare y recuperar su configuración",
+    "CREATE_MODAL": {
+      "TITLE": "Creación de cuenta técnica",
+      "NAME": "Nombre",
+      "MAIL": "Correo",
+      "STATUS": "Estado",
+      "ROLE": "Rol",
+      "NEW_PASSWORD": "Nueva contraseña",
+      "NEW_PASSWORD_CONFIRM": "Confirmar la nueva contraseña",
+      "DELEGATION": "Delegación",
+      "UPLOAD_PROPOSITION": "Propuesta de carga",
+      "PASSWORD_REQUIREMENT": "La contraseña debe tener al menos 12 caracteres e incluir mayúsculas, números y caracteres especiales"
+    },
+    "DETAIL_PAGE": {
+      "USER_INFORMATIONS_TITLE": "Información y permisos del usuario",
+      "CHANGE_PASSWORD": "Cambiar contraseña",
+      "USER_INFORMATIONS_SUB_TITLE": "Información general",
+      "PERMISSION_TITLE": "Permisos",
+      "USER_NAME": "Nombre de usuario",
+      "EMAIL": "Correo",
+      "STATUS": "Estado de la cuenta",
+      "UNLOCK": "Desbloquear",
+      "LOCKED": "Bloqueado",
+      "LOCKED_TITLE": "Este usuario está bloqueado por numerosos intentos de inicio de sesión fallidos",
+      "IDENTIFIER": "Identificador (inicio de sesión)",
+      "EMAIL_VALIDATION": "El correo electrónico no es válido",
+      "TECHNICAL_ACCOUNT_PERMISSION_TYPE": {
+        "ANONYMOUS_SHARE_ENTRIES_CREATE": "Crear URL anónima",
+        "ANONYMOUS_SHARE_ENTRIES_DELETE": "Eliminar URL anónima",
+        "ANONYMOUS_SHARE_ENTRIES_DOWNLOAD": "Descargar URL anónima",
+        "ANONYMOUS_SHARE_ENTRIES_GET": "Obtener URL anónima",
+        "ANONYMOUS_SHARE_ENTRIES_LIST": "Listar URL anónimas",
+        "ANONYMOUS_SHARE_ENTRIES_UPDATE": "Actualizar URL anónima",
+        "ASYNC_TASK_CREATE": "Crear una tarea asíncrona",
+        "ASYNC_TASK_DELETE": "Eliminar una tarea asíncrona",
+        "ASYNC_TASK_GET": "Buscar una tarea asíncrona",
+        "ASYNC_TASK_UPDATE": "Actualizar una tarea asíncrona",
+        "ASYNC_TASK_LIST": "Listar todas las tareas asíncronas",
+        "AUDIT_LIST": "Listar la auditoría",
+        "ANONYMOUS_SHARE_ENTRIES_DOWNLOAD_THUMBNAIL": "Descargar la miniatura de una URL anónima",
+        "DOCUMENT_ENTRIES_CREATE": "Crear documento",
+        "DOCUMENT_ENTRIES_UPDATE": "Actualizar documento",
+        "DOCUMENT_ENTRIES_DELETE": "Eliminar documento",
+        "DOCUMENT_ENTRIES_GET": "Obtener documento",
+        "DOCUMENT_ENTRIES_LIST": "Listar documentos",
+        "DOCUMENT_ENTRIES_DOWNLOAD": "Descargar documento",
+        "DOCUMENT_ENTRIES_DOWNLOAD_THUMBNAIL": "Descargar la miniatura del documento",
+        "SAFE_DETAIL_CREATE": "Crear detalle de caja fuerte",
+        "SAFE_DETAIL_DELETE": "Eliminar detalle de caja fuerte",
+        "SAFE_DETAIL_GET": "Obtener detalle de caja fuerte",
+        "SAFE_DETAIL_LIST": "Listar todos los detalles de caja fuerte",
+        "SHARE_ENTRIES_CREATE": "Crear recurso compartido",
+        "SHARE_ENTRIES_DELETE": "Eliminar recurso compartido",
+        "SHARE_ENTRIES_DOWNLOAD": "Descargar recurso compartido",
+        "SHARE_ENTRIES_DOWNLOAD_THUMBNAIL": "Descargar la miniatura de un recurso compartido",
+        "SHARE_ENTRIES_GET": "Obtener recurso compartido",
+        "SHARE_ENTRIES_LIST": "Listar recursos compartidos",
+        "SHARE_ENTRIES_UPDATE": "Actualizar recurso compartido",
+        "THREAD_ENTRIES_CREATE": "Crear entrada de grupo de trabajo",
+        "THREAD_ENTRIES_DELETE": "Eliminar entrada de grupo de trabajo",
+        "THREAD_ENTRIES_DOWNLOAD": "Descargar entrada de grupo de trabajo",
+        "THREAD_ENTRIES_DOWNLOAD_THUMBNAIL": "Descargar la miniatura de una entrada de grupo de trabajo",
+        "THREAD_ENTRIES_GET": "Obtener entrada de grupo de trabajo",
+        "THREAD_ENTRIES_LIST": "Listar entradas de grupo de trabajo",
+        "THREAD_ENTRIES_UPDATE": "Actualizar entrada de grupo de trabajo",
+        "THREAD_MEMBERS_CREATE": "Crear miembro de grupo de trabajo",
+        "THREAD_MEMBERS_DELETE": "Eliminar miembro de grupo de trabajo",
+        "THREAD_MEMBERS_GET": "Obtener miembro de grupo de trabajo",
+        "THREAD_MEMBERS_LIST": "Listar miembros de grupo de trabajo",
+        "THREAD_MEMBERS_UPDATE": "Actualizar miembro de grupo de trabajo",
+        "GUESTS_LIST": "Listar invitados",
+        "GUESTS_GET": "Obtener invitado",
+        "GUESTS_CREATE": "Crear invitado",
+        "GUESTS_UPDATE": "Actualizar invitado",
+        "GUESTS_DELETE": "Eliminar invitado",
+        "DOCUMENTS_LIST": "Listar documentos",
+        "DOCUMENTS_GET": "Obtener documento",
+        "DOCUMENTS_CREATE": "Crear documento",
+        "DOCUMENTS_UPDATE": "Actualizar documento",
+        "DOCUMENTS_DELETE": "Eliminar documento",
+        "SHARES_LIST": "Listar recursos compartidos",
+        "SHARES_GET": "Obtener recurso compartido",
+        "SHARES_CREATE": "Crear recurso compartido",
+        "SHARES_UPDATE": "Actualizar recurso compartido",
+        "SHARES_DELETE": "Eliminar recurso compartido",
+        "RECEIVED_SHARES_LIST": "Listar recursos compartidos recibidos",
+        "RECEIVED_SHARES_GET": "Obtener recurso compartido recibido",
+        "RECEIVED_SHARES_CREATE": "Crear recurso compartido recibido",
+        "RECEIVED_SHARES_UPDATE": "Actualizar recurso compartido recibido",
+        "RECEIVED_SHARES_DELETE": "Eliminar recurso compartido recibido",
+        "THREADS_LIST": "Listar grupos de trabajo",
+        "THREADS_GET": "Obtener grupo de trabajo",
+        "THREADS_CREATE": "Crear grupo de trabajo",
+        "THREADS_UPDATE": "Actualizar grupo de trabajo",
+        "THREADS_DELETE": "Eliminar grupo de trabajo",
+        "THREADS_MEMBER_LIST": "Listar miembros de grupo de trabajo",
+        "THREADS_MEMBER_GET": "Obtener miembro de grupo de trabajo",
+        "THREADS_MEMBER_CREATE": "Crear miembro de grupo de trabajo",
+        "THREADS_MEMBER_UPDATE": "Actualizar miembro de grupo de trabajo",
+        "THREADS_MEMBER_DELETE": "Eliminar miembro de grupo de trabajo",
+        "LISTS_LIST": "Listar listas de distribución",
+        "LISTS_GET": "Obtener lista de distribución",
+        "LISTS_CREATE": "Crear lista de distribución",
+        "LISTS_UPDATE": "Actualizar lista de distribución",
+        "LISTS_DELETE": "Eliminar lista de distribución",
+        "DRIVE_CREATE": "Crear Drive",
+        "DRIVE_DELETE": "Eliminar Drive",
+        "DRIVE_UPDATE": "Actualizar Drive",
+        "DRIVE_LIST": "Listar Drives",
+        "DRIVE_GET": "Obtener Drive",
+        "QUOTA_CREATE": "Añadir cuota",
+        "QUOTA_GET": "Obtener cuota",
+        "QUOTA_LIST": "Listar todas las cuotas",
+        "QUOTA_UPDATE": "Actualizar cuota",
+        "SHARE_ENTRY_GROUPS_DELETE": "Eliminar grupos de recursos compartidos",
+        "SHARE_ENTRY_GROUPS_GET": "Obtener un grupo de recursos compartidos",
+        "SHARE_ENTRY_GROUPS_UPDATE": "Actualizar grupos de recursos compartidos",
+        "SHARE_ENTRY_GROUPS_LIST": "Listar grupos de recursos compartidos",
+        "SHARED_SPACE_NODE_CREATE": "Crear nodo de espacio compartido",
+        "SHARED_SPACE_NODE_DELETE": "Eliminar nodo de espacio compartido",
+        "SHARED_SPACE_NODE_LIST": "Listar nodos de espacio compartido",
+        "SHARED_SPACE_NODE_GET": "Obtener nodo de espacio compartido",
+        "SHARED_SPACE_NODE_UPDATE": "Actualizar nodo de espacio compartido",
+        "SHARED_SPACE_PERMISSION_CREATE": "Crear permisos de espacio compartido",
+        "SHARED_SPACE_PERMISSION_DELETE": "Eliminar permisos de espacio compartido",
+        "SHARED_SPACE_PERMISSION_LIST": "Listar permisos de espacio compartido",
+        "SHARED_SPACE_PERMISSION_GET": "Obtener permisos de espacio compartido",
+        "SHARED_SPACE_PERMISSION_UPDATE": "Actualizar permisos de nodo compartido",
+        "SHARED_SPACE_ROLE_CREATE": "Crear rol de espacio compartido",
+        "SHARED_SPACE_ROLE_DELETE": "Eliminar rol de espacio compartido",
+        "SHARED_SPACE_ROLE_LIST": "Listar roles de espacio compartido",
+        "SHARED_SPACE_ROLE_GET": "Obtener rol de espacio compartido",
+        "SHARED_SPACE_ROLE_UPDATE": "Actualizar rol de espacio compartido",
+        "STATISTIC_GET": "Obtener estadísticas",
+        "STATISTIC_LIST": "Actualizar estadísticas",
+        "UPLOAD_PROPOSITION_CREATE": "Crear propuesta de carga",
+        "UPLOAD_PROPOSITION_DELETE": "Eliminar propuesta de carga",
+        "UPLOAD_PROPOSITION_GET": "Obtener propuesta de carga",
+        "UPLOAD_PROPOSITION_LIST": "Listar propuestas de carga",
+        "UPLOAD_PROPOSITION_UPDATE": "Actualizar propuesta de carga",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_CREATE": "Crear regla de excepción de propuesta de carga",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_DELETE": "Eliminar regla de excepción de propuesta de carga",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_GET": "Obtener regla de excepción de propuesta de carga",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_UPDATE": "Actualizar regla de excepción de propuesta de carga",
+        "UPLOAD_PROPOSITION_EXCEPTION_RULE_LIST": "Listar reglas de excepción de propuesta de carga",
+        "UPLOAD_REQUEST_CREATE": "Crear solicitud de carga",
+        "UPLOAD_REQUEST_DELETE": "Eliminar solicitud de carga",
+        "UPLOAD_REQUEST_GET": "Obtener solicitud de carga",
+        "UPLOAD_REQUEST_LIST": "Listar solicitudes de carga",
+        "UPLOAD_REQUEST_UPDATE": "Actualizar solicitud de carga",
+        "UPLOAD_REQUEST_ENTRIES_CREATE": "Crear entradas de solicitud de carga",
+        "UPLOAD_REQUEST_ENTRIES_DELETE": "Eliminar entradas de solicitud de carga",
+        "UPLOAD_REQUEST_ENTRIES_GET": "Obtener entradas de solicitud de carga",
+        "UPLOAD_REQUEST_ENTRIES_LIST": "Listar entradas de solicitud de carga",
+        "UPLOAD_REQUEST_ENTRIES_UPDATE": "Actualizar entradas de solicitud de carga",
+        "UPLOAD_REQUEST_ENTRIES_DOWNLOAD": "Descargar entradas de solicitud de carga",
+        "UPLOAD_REQUEST_ENTRIES_DOWNLOAD_THUMBNAIL": "Descargar miniaturas de entradas de solicitud de carga",
+        "UPLOAD_REQUEST_URL_CREATE": "Crear URL de solicitud de carga",
+        "UPLOAD_REQUEST_URL_DELETE": "Eliminar URL de solicitud de carga",
+        "UPLOAD_REQUEST_URL_GET": "Obtener URL de solicitud de carga",
+        "UPLOAD_REQUEST_URL_UPDATE": "Actualizar URL de solicitud de carga",
+        "UPLOAD_REQUEST_URL_LIST": "Listar URL de solicitudes de carga",
+        "UPLOAD_REQUEST_TEMPLATE_CREATE": "Crear plantilla de solicitud de carga",
+        "UPLOAD_REQUEST_TEMPLATE_DELETE": "Eliminar plantilla de solicitud de carga",
+        "UPLOAD_REQUEST_TEMPLATE_GET": "Obtener plantilla de solicitud de carga",
+        "UPLOAD_REQUEST_TEMPLATE_LIST": "Listar plantillas de solicitud de carga",
+        "UPLOAD_REQUEST_TEMPLATE_UPDATE": "Actualizar plantilla de solicitud de carga",
+        "GUESTS_MODERATOR_CREATE": "Crear moderador de invitados",
+        "GUESTS_MODERATOR_DELETE": "Eliminar moderador de invitados",
+        "GUESTS_MODERATOR_GET": "Obtener moderador de invitados",
+        "GUESTS_MODERATOR_LIST": "Listar moderadores de invitados",
+        "GUESTS_MODERATOR_UPDATE": "Actualizar moderador de invitados"
+      }
+    },
+    "DELETE_MODAL": {
+      "DELETE_ACCOUNT": "Eliminar cuenta",
+      "DELETE_MODAL_TITLE": "Eliminar cuenta",
+      "DELETE_MODAL_SUBTITLE": "Está a punto de eliminar definitivamente esta cuenta técnica. Esta operación es irreversible. ¿Desea continuar?",
+      "DELETE_ACTION_CONFIRM": "Sí, eliminar",
+      "DELETE_SUCCESS": "Cuenta eliminada correctamente"
+    },
+    "PASSWORD_TAB": {
+      "PASSWORD": "Contraseña",
+      "RECENT_PASSWORD": "Contraseña actual",
+      "NEW_PASSWORD": "Nueva contraseña",
+      "CONFIRM_PASSWORD": "Confirmar contraseña",
+      "PASSWORD_RULES": "Reglas de contraseña",
+      "FIRST_RULE": "Tener al menos 12 caracteres",
+      "SECOND_RULE": "Al menos 1 letra mayúscula",
+      "THIRD_RULE": "Al menos 1 letra minúscula",
+      "FOURTH_RULE": "Al menos 1 carácter especial",
+      "SAVE_PASSWORD": "Cambiar contraseña"
+    }
+  },
+  "UPGRADE_TASK": {
+    "SEARCH": "Buscar",
+    "UTILITY": "Utilidad",
+    "UTILITY_CONTENT": "Para actualizar de una versión menor, como de 2.1.x a 2.2.x, o de una versión mayor, como de 1.x a 2.0, puede ser necesario ejecutar algunas tareas adicionales sobre los datos para completar la actualización del software. Recuerde: el proceso de actualización siempre empieza con una migración SQL (excepto en las versiones de corrección de errores, p. ej.: 2.3.6).",
+    "PROCESS": "Proceso",
+    "PROCESS_CONTENT": "Estas tareas deben ejecutarse en orden y finalizar correctamente. Nota: una tarea puede finalizar correctamente aunque se hayan producido algunos errores durante su ejecución. En ese caso, es necesario revisar los registros de ejecución que se muestran en la vista de consola. Si se ha producido un error, será imprescindible consultar los registros del servidor Tomcat para obtener más detalles, resolver los problemas y volver a iniciar la tarea para continuar.",
+    "CRITICALITY": "Criticidad",
+    "CRITICALITY_CONTENT": "Todas las tareas deben ejecutarse para completar la actualización. Mientras haya tareas obligatorias sin realizar, los usuarios no podrán utilizar el sistema. Mientras haya tareas 'Necesarias' sin realizar, el sistema funcionará en modo degradado y algunas funcionalidades o datos podrían no estar accesibles. Estas tareas pueden ejecutarse mientras se utiliza el sistema.",
+    "UPGRADE_LIST": {
+      "IDENTIFIER": "Identificador",
+      "CRITICALITY": "Criticidad"
+    },
+    "SUCCESS": "Correcta",
+    "FAILED": "Fallida",
+    "REQUIRED": "Necesaria",
+    "UN_REQUIRED": "No necesaria",
+    "RETRY_UPGRADES": "Reintentar las actualizaciones",
+    "SHOW_PREVIEW": "Mostrar la ejecución anterior",
+    "SHOW_CONSOLE": "Mostrar la consola",
+    "STATUS": "Estado",
+    "DURATION": "Duración",
+    "UPGRADE_CONSOLE": {
+      "RELOAD": "Recargar",
+      "HELPER_TEXT_P1": "Registro de ejecución de la tarea de migración.",
+      "HELPER_TEXT_P2": "Aquí se registra la ejecución de una tarea de migración. Con la vista de consola puede consultar sus registros.",
+      "HELPER_TEXT_P3": "Atención: son registros simplificados. Para obtener los detalles avanzados en caso de error, deberá consultar los registros del servidor Tomcat. Es recomendable poner LinShare en modo de depuración antes de actualizar.",
+      "SWITCH_TITLE": "Filtrar por nivel de registro:",
+      "WARNING": "Advertencia",
+      "INFO": "Información",
+      "ERROR": "Error",
+      "DEBUG": "Depuración"
+    },
+    "RETRY_MODAL": {
+      "TITLE": "Forzar el reintento de la tarea",
+      "DESCRIPTION": "La tarea seleccionada se ha completado correctamente. ¿Desea volver a ejecutarla?",
+      "ACTION": "Forzar el reintento"
+    },
+    "DETAIL": {
+      "NOTE_TITLE": "Historial de ejecución de las tareas de actualización.",
+      "NOTE_CONTENT": "Aquí se registran todas las ejecuciones de tareas. Con la vista de consola puede consultar los registros de cada una. <br/> Atención: son registros simplificados. Para obtener los detalles avanzados en caso de error, deberá consultar los registros del servidor Tomcat. Es recomendable poner LinShare en modo de depuración antes de actualizar."
+    }
+  }
+}

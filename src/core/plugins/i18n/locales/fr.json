@@ -72,6 +72,7 @@
     "PUBLIC": "Public",
     "PRIVATE": "Privé",
     "SORT": "Trier",
+    "SEARCH": "Rechercher",
     "CONTACT_NAME_AND_OWNER": "Nom du contact et propriétaire",
     "VISIBILITY": "Visibilité"
   },
@@ -196,7 +197,7 @@
       "MULTIPLE_DELETE_CONFIRM": "Vous êtes sur le point de supprimer cet ou ces utilisateurs, cette procédure est irréversible et detruira les documents. Souhaitez-vous continuer ?",
       "SELECTED_USERS_NUMBER": "Utilisateurs selectionnés: {number}",
       "SELECTED_USERS_DELETE": "Supprimer les utilisateurs selectionnés",
-      "SELECTED_USERS_UNLOCK": "Les utilisateurs vérrouillés ont été déverrouillés avec succès",
+      "SELECTED_USERS_UNLOCK": "{number} utilisateurs ont été déverrouillés avec succès",
       "SELECT_ALL": "Tout selectionner",
       "UNSELECT_ALL": "Tout déselectionner"
     },
@@ -265,6 +266,7 @@
   "ERRORS": {
     "FORBIDDEN": "Vous n'êtes pas autorisé à accéder à cette ressource.",
     "UNKNOWN": "Une erreur inattendue est survenue!",
+    "CONTACT_ALREADY_EXISTS": "Le contact existe déjà",
     "COMMON_MESSAGE": "Un problème est survenu. Veuillez réessayer plus tard!",
     "AUTH": {
       "1000": "Un problème est survenu. Veuillez réessayer plus tard!",
@@ -280,6 +282,7 @@
     },
     "55000": "Filtre de groupe introuvable",
     "66000": "Espace partagé introuvable",
+    "2002": "L'authentification à deux facteurs n'est pas activée pour votre domaine",
     "36004": "Ce message d'accueil n'existe pas",
     "36006": "Un des messages d'accueil selectionnés est associé à au moins un domaine, vous ne pouvez pas le supprimer.",
     "14004": "Fonctionnalité introuvable",
@@ -294,7 +297,9 @@
     "ENTER_OTP_DIGITS": "Saisissez le code à 6 chiffres de votre application FreeOTP :",
     "LOGIN_TO_ADMIN": "Connectez-vous à l'administrateur",
     "LOGIN": "Connexion",
-    "LOGIN_SSO": "Connectez-vous avec SSO"
+    "LOGIN_SSO": "Connectez-vous avec SSO",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Mot de passe"
   },
   "2FA": {
     "TITLE": "Authentification double facteur",
@@ -667,7 +672,7 @@
     },
     "OIDC": {
       "ASSOCIATED_DOMAIN_ID": "Identifiant de domaine associé",
-      "ASSOCIATED_DOMAIN_ID_HELPER": "En créant un fournisseur d'utilisateurs OIDC pour {nom}, vous autorisez LinShare à créer des utilisateurs pour ce domaine lorsqu'un utilisateur s'authentifie avec OIDC. L'utilisateur sera créé dans ce domaine si la valeur de la revendication (claim) 'domain_discriminator' correspond à la valeur ci-dessus",
+      "ASSOCIATED_DOMAIN_ID_HELPER": "En créant un fournisseur d'utilisateurs OIDC pour {name}, vous autorisez LinShare à créer des utilisateurs pour ce domaine lorsqu'un utilisateur s'authentifie avec OIDC. L'utilisateur sera créé dans ce domaine si la valeur de la revendication (claim) 'domain_discriminator' correspond à la valeur ci-dessus.",
       "USED_DOMAIN_ID": "Cet identifiant de domaine est déjà utilisé par un autre domaine",
       "CHECK_EXTERNAL_USER_ID": "Utiliser la revendication (claim) identifiant utilisateur externe",
       "CHECK_EXTERNAL_USER_ID_HELPER": "La valeur de la revendication (claim) 'external_uid' sera récupérée et stockée dans le profil de l'utilisateur, profil créé lors de la première connexion. La valeur stockée sera alors comparée à la valeur présentée lors de chaque tentative d'authentification OIDC afin de valider qu'il s'agit de la même personne.",
@@ -691,7 +696,7 @@
       "PAGE_HELPER_P4": "Requête LQL pour rechercher un groupe de travail",
       "PAGE_SUBTITLE_CREATE": "Créer un nouveau filtre de groupe LDAP",
       "PAGE_SUBTITLE_EDIT": "Modifier le filtre de groupe LDAP",
-      "FORMER": {
+      "FORM": {
         "ATTRIBUTES": "Attributs",
         "WORKGROUP_SEARCH": "Recherche de groupe de travail",
         "WORKGROUP_SEARCH_HELPER": "Requêtes et paramètres LDAP pour rechercher tous les groupes de travail ou un seul groupe de travail",
@@ -1563,10 +1568,13 @@
     "DOMAIN_NAME": "Nom du domaine",
     "ACTOR": "Acteur",
     "ACTION": "Action",
+    "TYPE": "Type",
     "RESOURCE_TYPE": "Type de la ressource",
     "RESOURCE_NAME": "Nom de la ressource",
     "DATE_TIME": "Date",
     "DETAIL": "Detail",
+    "FILE_SIZE": "Taille du fichier",
+    "RECEIVER": "Destinataire",
     "ME": "Moi",
     "FILTERS_BUTTON": "Filtres",
     "FILTERS_BAR": {
@@ -1890,7 +1898,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "Le document : {resourceName}, de {authorName} a été supprimé de son Espace Personnel car il est introuvable sur le serveur.",
+              "SENTENCE": "Le document : {resourceName}, de {userVarious} a été supprimé de son Espace Personnel car il est introuvable sur le serveur.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
@@ -2270,7 +2278,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "{authUserName} a créé le jeton d'accès permanent : {resourceName}.",
+              "SENTENCE": "{authorName} a créé le jeton d'accès permanent : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           },
@@ -2280,7 +2288,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             },
             "VIEWER": {
-              "SENTENCE": "{authUserName} a supprimé le jeton d'accès permanent : {resourceName}.",
+              "SENTENCE": "{authorName} a supprimé le jeton d'accès permanent : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.DELETE"
             }
           },
@@ -2290,7 +2298,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             },
             "VIEWER": {
-              "SENTENCE": "{authUserName} a modifié le jeton d'accès permanent : {resourceName}.",
+              "SENTENCE": "{authorName} a modifié le jeton d'accès permanent : {resourceName}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.UPDATE"
             }
           }
@@ -2572,11 +2580,11 @@
         "UPLOAD_REQUEST_URL": {
           "CREATE": {
             "AUTHOR": {
-              "SENTENCE": "Un e-mail de demande de téléchargement a été envoyé à : {resourceName}",
+              "SENTENCE": "Une URL de demande de dépôt a été créée à partir de la demande de dépôt : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             },
             "VIEWER": {
-              "SENTENCE": "Un e-mail de demande de téléchargement a été envoyé à : {resourceName}",
+              "SENTENCE": "Une URL de demande de dépôt a été créée à partir de la demande de dépôt : {resourceNameVarious}.",
               "ACTION": "@:FILTERS_SELECT.ACTION.ADDITION"
             }
           }
@@ -2684,7 +2692,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a essayé de réinitialiser le mot de passe.",
+              "SENTENCE": "{authorName} a essayé de réinitialiser le mot de passe.",
               "ACTION": "@:FILTERS_SELECT.ACTION.FAILURE"
             }
           },
@@ -2694,7 +2702,7 @@
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             },
             "VIEWER": {
-              "SENTENCE": "{{authorName}} a réussi à réinitialiser le mot de passe.",
+              "SENTENCE": "{authorName} a réussi à réinitialiser le mot de passe.",
               "ACTION": "@:FILTERS_SELECT.ACTION.SUCCESS"
             }
           }
@@ -2720,7 +2728,11 @@
       "MAIL_LAYOUT_DESCRIPTION": "<span style='color: #007AFF'>“Structure du courriel”</span> permet de créer des modèles de structure de courriel, des mises en pages différentes.",
       "MAIL_FOOTER_DESCRIPTION": "<span style='color: #007AFF'>“Pied de page du courriel”</span> pour la mise en page du pied de page du courriel.",
       "MAIL_CONTENT_DESCRIPTION": "<span style='color: #007AFF'>“Contenu du courriel”</span> pour gérer le contenu des notifications envoyées automatiquement aux utilisateurs de l'application.",
-      "MAIL_ASSIGN_DESCRIPTION": "Après avoir créé un modèle de courriel, vous pouvez assigner celui-ci au domaine ou à ses sous-domaines."
+      "MAIL_ASSIGN_DESCRIPTION": "Après avoir créé un modèle de courriel, vous pouvez assigner celui-ci au domaine ou à ses sous-domaines.",
+      "MAIN_CONTENT_TYPE": "Type de contenu principal",
+      "SELECTED_MAIL_CONTENT": "Contenu d'e-mail sélectionné",
+      "LEGEND": "Légende",
+      "MAIL_CONTENT_UPDATED": "{domain}-Mis à jour le : {date}"
     },
     "EMAIL_LAYOUT": {
       "PUBLIC": "Public",
@@ -2893,16 +2905,24 @@
     },
     "EMAIL_CONTENT": {
       "PUBLIC": "Public",
-      "PRIVÉ": "Privé",
-      "HELP_TEXT": "Cette vue vous permet de créer des modèles pour le contenu de vos e-mails. Vous devez créer un modèle HTML et texte. Dans la vue 'Configuration des e-mails' vous pouvez créer un modèle d'e-mail et l'associer à une mise en page et un contenu d'e-mail. (NB : la mise en page des e-mails doit contenir la variable ${content} afin de la définir dans le contenu de l'e-mail.",
+      "PRIVATE": "Privé",
+      "HELP_TEXT": "Cette vue vous permet de créer des modèles pour le contenu de vos e-mails. Vous devez créer un modèle HTML et texte. Dans la vue <span style='color: #007AFF'>'Configuration des e-mails'</span> vous pouvez créer un modèle d'e-mail et l'associer à une mise en page et un contenu d'e-mail. (NB : la mise en page des e-mails doit contenir la variable ${content} afin de la définir dans le contenu de l'e-mail.",
+      "CREATE_EMAIL_CONTENT": "Créer un contenu d'e-mail",
+      "EMAIL_CONTENT_NAME": "Nom du contenu d'e-mail",
+      "CONTENT_TYPE": "Type de contenu",
+      "DUPPLICATE_FROM": "Dupliquer à partir de",
       "EMAIL_CONTENT_DETAIL_PAGE": {
         "PAGE_HEADER": "Détails du contenu de l'e-mail",
         "NAME_PLACEHOLDER": "Nom du contenu de l'e-mail",
-        "CONTENT_LABEL": "Contenu de l'e-mail"
+        "CONTENT_LABEL": "Contenu de l'e-mail",
+        "SUBJECT": "Objet",
+        "BODY": "Corps",
+        "CONTEXT_VARIABLES": "Variables de contexte",
+        "MAIL_CONFIGURATION_LIST": "Liste des configurations d'e-mail"
       },
       "FIRST_HELP_TEXT": "Cette vue vous permet de définir le contenu des notifications par e-mail envoyées automatiquement aux utilisateurs de l'application. Vous pouvez rédiger un message en anglais, français, vietnamien ou russe.",
       "SECOND_HELP_TEXT": "Vous pouvez également créer plusieurs versions de ce message. Vous pouvez ensuite dans l'onglet 'Configuration de la messagerie', choisir le bon contenu de la configuration.",
-      "THIRD_HELP_TEXT": "Les champs 'Subject', 'Greetings' et 'Body', remplacent subject, greetings et body que vous avez ajoutés à un Mail layout",
+      "THIRD_HELP_TEXT": "Les champs <span style='color: #007AFF'>Objet</span>, <span style='color: #007AFF'>Salutations</span> et <span style='color: #007AFF'>Corps</span> remplacent <span style='color: #007AFF'>subject</span>, <span style='color: #007AFF'>greetings</span> et <span style='color: #007AFF'>body</span> que vous avez ajoutés à une mise en page d'e-mail",
       "DEFAULT_MAIL_CONTENT": "Contenu du message par défaut",
       "SHOW_MORE": "Voir plus",
       "SHOW_LESS": "Voir moins",
@@ -2959,7 +2979,9 @@
         "RADIO_FORBIDDEN": "Interdit",
         "RADIO_ALLOWED": "Autorisé",
         "RADIO_MANDATORY": "Obligatoire",
+        "LABEL_SAVED": "Enregistré",
         "LABEL_STATUS": "Activer",
+        "LABEL_DISABLE": "Désactiver cette notification",
         "LEGEND_NEXT": "Suivant",
         "LEGEND_PREVIOUS": "Précédent",
         "FORM_ACTIONS": {
@@ -3178,6 +3200,11 @@
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_NEW_WORKGROUP_DOCUMENT",
           "USE_EXTENDED_DESCRIPTION": "1",
           "DESCRIPTION": "Cette notification est envoyée lorsqu'un document du groupe de travail est mis à jour"
+        },
+        "WORKGROUP_COM_MEMBER": {
+          "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.WORKGROUP_WARN_DELETED_MEMBER",
+          "USE_EXTENDED_DESCRIPTION": "1",
+          "DESCRIPTION": "Cette notification est envoyée à un membre d'un groupe de travail lorsqu'il en a été retiré."
         },
         "ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED": {
           "NAME": "@:COMMON.ENUM.MAIL_CONTENT_TYPE.ACCOUNT_OWNER_WARN_JWT_PERMANENT_TOKEN_CREATED",
@@ -3518,6 +3545,13 @@
         "GUESTS_MODERATOR_LIST": "Lister des modérateurs d'invités",
         "GUESTS_MODERATOR_UPDATE": "Mettre à jour un modérateur d'invités"
       }
+    },
+    "DELETE_MODAL": {
+      "DELETE_ACCOUNT": "Supprimer le compte",
+      "DELETE_MODAL_TITLE": "Supprimer le compte",
+      "DELETE_MODAL_SUBTITLE": "Vous êtes sur le point de supprimer définitivement ce compte technique. Cette opération est irréversible. Voulez-vous continuer ?",
+      "DELETE_ACTION_CONFIRM": "Oui, supprimer",
+      "DELETE_SUCCESS": "Compte supprimé avec succès"
     },
     "PASSWORD_TAB": {
       "PASSWORD": "Mot de passe",

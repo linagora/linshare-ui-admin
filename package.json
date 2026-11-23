@@ -46,6 +46,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "check:i18n": "node scripts/check-i18n.js",
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
