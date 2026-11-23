@@ -3286,7 +3286,7 @@
     "CREATE_CONTACT": "Tạo liên hệ",
     "ADD_CONTACT_SUCCESS": "Thêm liên hệ thành công",
     "DELETE_CONTACT": "Xóa liên hệ",
-    "DELETE_MAIL_DESCRIPTION": "Bạn sắp xóa <span style='color: #007AFF'>{mail}</span>, thao tác này không thể đảo ngược. Bạn có muốn tiếp tục không?",
+    "DELETE_MAIL_DESCRIPTION": "Bạn sắp xóa {mail}, thao tác này không thể đảo ngược. Bạn có muốn tiếp tục không?",
     "YES_DELETE": "Có, xóa",
     "ACTIONS": "Thao tác",
     "NAME": "Tên danh sách",

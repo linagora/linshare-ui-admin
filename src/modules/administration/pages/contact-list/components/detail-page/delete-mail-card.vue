@@ -5,7 +5,11 @@
     </span>
     <div class="delete-contact-card__content">
       <strong>{{ $t('CONTACT_LIST.DELETE_CONTACT') }}</strong>
-      <span v-html="$t('CONTACT_LIST.DELETE_MAIL_DESCRIPTION', { mail: deletedEmail })"></span>
+      <i18n-t keypath="CONTACT_LIST.DELETE_MAIL_DESCRIPTION" tag="span">
+        <template #mail>
+          <span class="delete-contact-card__mail">{{ deletedEmail }}</span>
+        </template>
+      </i18n-t>
     </div>
     <div class="delete-contact-card__actions">
       <a-button class="ls-button ls-cancel" type="primary" @click="onCloseModal">{{ $t('GENERAL.CANCEL') }}</a-button>
@@ -72,6 +76,10 @@ async function onConfirmDelete() {
       line-height: 24px;
       text-align: center;
       color: #434657;
+    }
+
+    .delete-contact-card__mail {
+      color: #007aff;
     }
 
     span {

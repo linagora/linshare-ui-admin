@@ -10,6 +10,7 @@ const i18n = createI18n({
   globalInjection: true,
   missingWarn: false,
   fallbackWarn: false,
+  escapeParameter: true,
   datetimeFormats,
   locale,
   messages,

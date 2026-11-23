@@ -3315,7 +3315,7 @@
     "CREATE_CONTACT": "Créer un contact",
     "ADD_CONTACT_SUCCESS": "Contact ajouté avec succès",
     "DELETE_CONTACT": "Supprimer le contact",
-    "DELETE_MAIL_DESCRIPTION": "Vous êtes sur le point de supprimer <span style='color: #007AFF'>{mail}</span>, cette procédure est irréversible. Voulez-vous continuer ?",
+    "DELETE_MAIL_DESCRIPTION": "Vous êtes sur le point de supprimer {mail}, cette procédure est irréversible. Voulez-vous continuer ?",
     "YES_DELETE": "Oui, supprimer",
     "ACTIONS": "Actions",
     "NAME": "Nom de la liste",
